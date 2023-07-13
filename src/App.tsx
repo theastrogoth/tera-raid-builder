@@ -143,13 +143,13 @@ function App() {
           Acknowledgements
         </Typography>
         <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Thank you to the <Link href="reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+          Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
         </Typography>
         <Typography variant="h6" sx={{color: "text.secondary"}}>
             Contact
         </Typography>
         <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Please submit issues or feature requests at <Link href="github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
+          Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
         </Typography>
       </Stack>
     </ThemeProvider>

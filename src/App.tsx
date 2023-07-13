@@ -3,15 +3,20 @@ import './App.css';
 import {calculate, Generations, Pokemon, Move, Field, State} from './calc/index.ts';
 import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/material/styles';
-import { PaletteMode, Stack } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 
 import CssBaseline from '@mui/material/CssBaseline';
 
 import PokemonSummary from './uicomponents/PokemonSummary.tsx';
+import Navbar from './uicomponents/Navbar.tsx';
 
 // import { exportPokemon, addSet } from './uicomponents/importExport.tsx';
 // import { PokedexService } from './services/getdata.ts';
@@ -27,13 +32,19 @@ const defaultRaiderSet: Partial<State.Pokemon> = {
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const lightMode = prefersDarkMode ? 'dark' : 'light' as PaletteMode;
+  const [lightMode, setLightMode] = useState<('dark' | 'light')>(prefersDarkMode ? 'dark' : 'light');
   const theme = createTheme({
     palette: {
       mode: lightMode,
       background: {
         paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6',
-      }
+      },
+      primary: {
+        main: lightMode === 'dark' ? "#faa5a0" : "#ed382d",
+      },
+      secondary: {
+        main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+      },
     },
     typography: {
       fontSize: 11,
@@ -109,7 +120,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>      
       <CssBaseline />
-      <Grid container component='main' justifyContent="left">
+      <Navbar lightMode={lightMode} setLightMode={setLightMode} />
+      <Grid container component='main' justifyContent="left" sx={{ my: 1 }}>
         <Grid item >
           {/* <PokemonSummary gen={gen} pokemon={raidBoss} setPokemon={setRaidBoss} role="Raid Boss" /> */}
         </Grid>
@@ -126,6 +138,20 @@ function App() {
           </Stack>
         </Grid>
       </Grid>
+      <Stack sx={{ mx: 3, my: 3}}>
+        <Typography variant="h6" sx={{color: "text.secondary"}}>
+          Acknowledgements
+        </Typography>
+        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+          Thank you to the <Link href="reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+        </Typography>
+        <Typography variant="h6" sx={{color: "text.secondary"}}>
+            Contact
+        </Typography>
+        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+          Please submit issues or feature requests at <Link href="github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
+        </Typography>
+      </Stack>
     </ThemeProvider>
   );
 }

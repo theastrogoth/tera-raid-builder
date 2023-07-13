@@ -127,19 +127,16 @@ function getStats(currentPoke: Partial<Pokemon>, rows: string[], offset: number)
 		currentAbility = rows[x] ? rows[x].trim().split(":") : '';
 		if (currentAbility[0] == "Ability") {
 			currentPoke.ability = currentAbility[1].trim() as AbilityName;
-			console.log(currentPoke.ability)
 		}
 
 		currentTeraType = rows[x] ? rows[x].trim().split(":") : '';
 		if (currentTeraType[0] == "Tera Type") {
 			currentPoke.teraType = currentTeraType[1].trim() as TypeName;
-			console.log(currentPoke.teraType)
 		}
 
 		currentNature = rows[x] ? rows[x].trim().split(" ") : '';
 		if (currentNature[1] == "Nature") {
 			currentPoke.nature = currentNature[0] as NatureName;
-			console.log(currentPoke.nature)
 		}
 	}
 	return currentPoke;
@@ -149,7 +146,6 @@ function getItem(currentRow: string[], j: number) {
 	for (;j < currentRow.length; j++) {
 		var item = currentRow[j].trim();
 		if (ITEMS[9].indexOf(item) != -1) {
-			console.log(item)
 			return item;
 		}
 	}
@@ -195,7 +191,6 @@ export function addSet(pokes: string) {
 				currentPoke = getMoves(currentPoke, rows, i);
 				addedpokes++;
 				try {
-					console.log(currentPoke)
 					//@ts-ignore
 					sets.push(new Pokemon(9, currentPoke.name, currentPoke));
 				} catch (e) {}

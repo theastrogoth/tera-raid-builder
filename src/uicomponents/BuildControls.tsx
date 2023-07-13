@@ -19,8 +19,8 @@ import { Pokemon, StatsTable } from '../calc';
 import { Generation, Nature } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
-import StatsControls from "./statsControls";
-import ImportExportArea from "./importExportArea";
+import StatsControls from "./StatsControls";
+import ImportExportArea from "./ImportExportArea";
 
 // const patchEmoji = '\u{1FA79}';
 const machineEmoji = '\u{1F4BF}';
@@ -56,7 +56,7 @@ function natureToOption(nature: Nature) {
 }
 
 function optionToNature(option: string | undefined) {
-    if (!option) { return "Serious"; }
+    if (!option) { return "Hardy"; }
     return option.slice(0,-13);
 }
 
@@ -226,7 +226,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                                 <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies}/>
                                 <SummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes}/>
                                 <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={abilities}/>
-                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Serious" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures}/>
+                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures}/>
                                 <TableRow>
                                     <LeftCell>Level</LeftCell>
                                     <RightCell>
@@ -241,7 +241,13 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                                             }}
                                             fullWidth={false}
                                             value={pokemon.level}
-                                            onChange={(e) => setPokemonProperty("level")(parseInt(e.target.value))}
+                                            onChange={(e) => {
+                                                if (e.target.value === "") return setPokemonProperty("level")(1);
+                                                let lvl = parseInt(e.target.value);
+                                                if (lvl < 1) lvl = 1;
+                                                if (lvl > 100) lvl = 100;
+                                                setPokemonProperty("level")(lvl)
+                                            }}
                                             sx = {{ width: '30%'}}
                                         />
                                     </RightCell>

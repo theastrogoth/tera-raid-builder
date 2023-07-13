@@ -2,18 +2,17 @@ import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
 import { Pokemon } from '../calc';
 import { Generation } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
-import StatRadarPlot from "./statRadarPlot";
-import BuildControls from "./buildControls";
+import StatRadarPlot from "./StatRadarPlot";
+import BuildControls from "./BuildControls";
 
-import PokedexService, { PokemonData } from '../services/getdata.ts';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils.ts";
+import PokedexService, { PokemonData } from '../services/getdata';
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
 
 function RoleField({role, setRole}: {role: string, setRole: React.Dispatch<React.SetStateAction<string>>}) {
     const [str, setStr] = useState(role);

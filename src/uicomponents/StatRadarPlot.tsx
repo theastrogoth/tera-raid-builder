@@ -11,8 +11,8 @@ import { Nature } from "../calc/data/interface";
 const plusColor     = "#ff594a"; // for boosted stat from nature
 const minusColor    = "#1490fc"; // for penalized stat from nature
 const statsColor    = "#ad942b"; // for stat totals
-const lowEVColor    = "#00c8c8"; // for non-maxed EVs
-const maxedEVColor  = "#fcca00"; // for when total EVs are 508-510
+const lowEVColor    = "#fcca00"; // for non-maxed EVs
+const maxedEVColor  = "#00c8c8"; // for when total EVs are 508-510
 const badEVColor    = "#d44a4a"; // for wehn total EVs exceeding 510 (shouldn't happen unless something goes wrong)
 
 const tickorder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];

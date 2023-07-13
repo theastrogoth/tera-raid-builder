@@ -11,7 +11,7 @@ import { ThemeProvider } from '@emotion/react';
 
 import CssBaseline from '@mui/material/CssBaseline';
 
-import PokemonSummary from './uicomponents/pokemonSummary.tsx';
+import PokemonSummary from './uicomponents/PokemonSummary.tsx';
 
 // import { exportPokemon, addSet } from './uicomponents/importExport.tsx';
 // import { PokedexService } from './services/getdata.ts';

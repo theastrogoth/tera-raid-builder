@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import TableContainer from "@mui/material/TableContainer";
@@ -44,15 +44,22 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
 
 function EVSlider({evTotal, ev, setEV}: {evTotal: number, ev: number, setEV: Function}) {
     const [val, setVal] = useState(ev);
+
+    useEffect(() => {
+        if (val !== ev) {
+            setVal(ev);
+        }
+    }, [ev])
+    
     const handleEVChange = (e: Event | React.SyntheticEvent, value: number) => {
         const diff = value - ev;
         const newTotal = evTotal + diff;
         if (newTotal > 510) {
             const newev = value - (newTotal - 510)
-            setEV(newev);
+            setEV(newev, ev, evTotal);
             setVal(newev);
         } else {
-            setEV(value);
+            setEV(value, ev, evTotal);
             setVal(value);
         }
     }
@@ -79,7 +86,7 @@ function StatTableRow({name, evTotal, iv, setIV, ev, setEV}: {name: string, evTo
             </LeftCell>  
             <RightCell>
                 <IVInput 
-                    value={iv} 
+                    value={iv.toString()}
                     onChange={(e) => setIV(e.target.value === '' ? 0 : parseInt(e.target.value))} 
                     inputProps={{
                         step: 1,
@@ -94,8 +101,8 @@ function StatTableRow({name, evTotal, iv, setIV, ev, setEV}: {name: string, evTo
             </RightCell>
             <RightCell>
                 <EVInput 
-                    value={ev} 
-                    onChange={(e) => setEV(e.target.value === '' ? 0 : parseInt(e.target.value))} 
+                    value={ev.toString()} 
+                    onChange={(e) => setEV(e.target.value === '' ? 0 : parseInt(e.target.value), ev, evTotal)} 
                     inputProps={{
                         step: 4,
                         min: 0,
@@ -111,8 +118,10 @@ function StatTableRow({name, evTotal, iv, setIV, ev, setEV}: {name: string, evTo
 
 function StatsControls({gen, pokemon, setPokemon}: {gen: Generation, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>}) {
     const setEV = (evName: string) => {
-        return (value: number) => {
-            let safeValue = value > 252 ? 252 : value;
+        return (value: number, prevValue: number, evTotal: number) => {
+            let safeMax = 510 - evTotal + prevValue;
+            safeMax = safeMax > 252 ? 252 : safeMax;
+            let safeValue = value > safeMax ? safeMax : value;
             safeValue = safeValue < 0 ? 0 : safeValue;
             const newEVs = {...pokemon.evs};
             //@ts-ignore

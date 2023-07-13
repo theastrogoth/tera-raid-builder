@@ -1,12 +1,13 @@
 # tera-raid-builder
-A work-in-progress app to help prepare and share builds for Tera Raid Battles in Pokémon Scarlet & Violet. Uses [PokéAPI](https://pokeapi.co/) for abilities/moves data and artwork.
+A work-in-progress app to help prepare and share builds for Tera Raid Battles in Pokémon Scarlet & Violet.
 
-Contributors welcome!
+Contributions welcome!
 
 ### Current Features
 - Display stats and EVs in radar plots (which are saveable as mostly-transparent .png files)
 - Allow only legal abilities and moves to be selected for a particular Pokémon
 - Show when moves are learned via TM or are egg moves
+- Import/Export builds in a format compatible with [PokePastes](pokepast.es) or the [Showdown Damage Calculator](https://calc.pokemonshowdown.com/)
 
 ### Planned Features
 - Configurable Raid Bosses

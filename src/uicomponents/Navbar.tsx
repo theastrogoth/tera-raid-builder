@@ -67,7 +67,7 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                         </Box>
                         <Box sx={{ p: 2 }}>
                             <Typography variant="h6" gutterBottom>
-                                Individual Values (EVs)
+                                Individual Values (IVs)
                             </Typography>
                             <Typography variant="body2" gutterBottom>
                                 IVs are a Pokémon's hidden stats that can only be changed by Hyper Training, which sets IVs to the maximum possible value.

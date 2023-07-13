@@ -1,0 +1,21 @@
+{
+    "name": "Kingler-Gmax",
+    "abilities": [
+        "Hyper Cutter",
+        "Shell Armor",
+        "Sheer Force"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 130,
+        "def": 115,
+        "spa": 50,
+        "spd": 50,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Meltan",
+    "abilities": [
+        "Magnet Pull"
+    ],
+    "types": [
+        "steel"
+    ],
+    "stats": {
+        "hp": 46,
+        "atk": 65,
+        "def": 65,
+        "spa": 55,
+        "spd": 35,
+        "spe": 34
+    },
+    "moves": [
+    ]
+}

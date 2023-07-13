@@ -1,0 +1,21 @@
+{
+    "name": "Politoed",
+    "abilities": [
+        "Water Absorb",
+        "Damp",
+        "Drizzle"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 75,
+        "def": 75,
+        "spa": 90,
+        "spd": 100,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

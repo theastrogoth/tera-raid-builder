@@ -1,0 +1,21 @@
+{
+    "name": "Gigalith",
+    "abilities": [
+        "Sturdy",
+        "Sand Stream",
+        "Sand Force"
+    ],
+    "types": [
+        "rock"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 135,
+        "def": 130,
+        "spa": 60,
+        "spd": 80,
+        "spe": 25
+    },
+    "moves": [
+    ]
+}

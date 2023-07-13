@@ -1,0 +1,21 @@
+{
+    "name": "Tyrogue",
+    "abilities": [
+        "Guts",
+        "Steadfast",
+        "Vital Spirit"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 35,
+        "def": 35,
+        "spa": 35,
+        "spd": 35,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

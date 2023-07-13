@@ -1,0 +1,21 @@
+{
+    "name": "Reuniclus",
+    "abilities": [
+        "Overcoat",
+        "Magic Guard",
+        "Regenerator"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 65,
+        "def": 75,
+        "spa": 125,
+        "spd": 85,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

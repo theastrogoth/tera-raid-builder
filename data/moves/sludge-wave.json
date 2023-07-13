@@ -1,0 +1,19 @@
+{
+    "name": "Sludge Wave",
+    "category": "damage+ailment",
+    "target": "all-other-pokemon",
+    "type": "poison",
+    "power": 95,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "poison",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 10,
+    "minHits": null,
+    "maxHits": null
+}

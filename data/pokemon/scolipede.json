@@ -1,0 +1,22 @@
+{
+    "name": "Scolipede",
+    "abilities": [
+        "Poison Point",
+        "Swarm",
+        "Speed Boost"
+    ],
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 100,
+        "def": 89,
+        "spa": 55,
+        "spd": 69,
+        "spe": 112
+    },
+    "moves": [
+    ]
+}

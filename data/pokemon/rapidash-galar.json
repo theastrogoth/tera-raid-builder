@@ -1,0 +1,22 @@
+{
+    "name": "Rapidash-Galar",
+    "abilities": [
+        "Run Away",
+        "Pastel Veil",
+        "Anticipation"
+    ],
+    "types": [
+        "psychic",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 100,
+        "def": 70,
+        "spa": 80,
+        "spd": 80,
+        "spe": 105
+    },
+    "moves": [
+    ]
+}

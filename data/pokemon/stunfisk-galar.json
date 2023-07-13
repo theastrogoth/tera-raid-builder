@@ -1,0 +1,20 @@
+{
+    "name": "Stunfisk-Galar",
+    "abilities": [
+        "Mimicry"
+    ],
+    "types": [
+        "ground",
+        "steel"
+    ],
+    "stats": {
+        "hp": 109,
+        "atk": 81,
+        "def": 99,
+        "spa": 66,
+        "spd": 84,
+        "spe": 32
+    },
+    "moves": [
+    ]
+}

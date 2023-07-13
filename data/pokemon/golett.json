@@ -1,0 +1,22 @@
+{
+    "name": "Golett",
+    "abilities": [
+        "Iron Fist",
+        "Klutz",
+        "No Guard"
+    ],
+    "types": [
+        "ground",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 59,
+        "atk": 74,
+        "def": 50,
+        "spa": 35,
+        "spd": 50,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

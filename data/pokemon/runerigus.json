@@ -1,0 +1,20 @@
+{
+    "name": "Runerigus",
+    "abilities": [
+        "Wandering Spirit"
+    ],
+    "types": [
+        "ground",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 58,
+        "atk": 95,
+        "def": 145,
+        "spa": 50,
+        "spd": 105,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

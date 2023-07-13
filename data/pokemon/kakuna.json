@@ -1,0 +1,20 @@
+{
+    "name": "Kakuna",
+    "abilities": [
+        "Shed Skin"
+    ],
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 25,
+        "def": 50,
+        "spa": 25,
+        "spd": 25,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

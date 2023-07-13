@@ -1,0 +1,19 @@
+{
+    "name": "Regigigas",
+    "abilities": [
+        "Slow Start"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 160,
+        "def": 110,
+        "spa": 80,
+        "spd": 110,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Population Bomb",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "normal",
+    "power": 20,
+    "accuracy": 90,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": 1,
+    "maxHits": 10
+}

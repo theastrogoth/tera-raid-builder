@@ -1,0 +1,22 @@
+{
+    "name": "Galvantula",
+    "abilities": [
+        "Compound Eyes",
+        "Unnerve",
+        "Swarm"
+    ],
+    "types": [
+        "bug",
+        "electric"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 77,
+        "def": 60,
+        "spa": 97,
+        "spd": 60,
+        "spe": 108
+    },
+    "moves": [
+    ]
+}

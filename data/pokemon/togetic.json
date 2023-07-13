@@ -1,0 +1,22 @@
+{
+    "name": "Togetic",
+    "abilities": [
+        "Hustle",
+        "Serene Grace",
+        "Super Luck"
+    ],
+    "types": [
+        "fairy",
+        "flying"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 40,
+        "def": 85,
+        "spa": 80,
+        "spd": 105,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

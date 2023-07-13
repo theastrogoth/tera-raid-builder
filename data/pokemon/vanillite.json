@@ -1,0 +1,21 @@
+{
+    "name": "Vanillite",
+    "abilities": [
+        "Ice Body",
+        "Snow Cloak",
+        "Weak Armor"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 36,
+        "atk": 50,
+        "def": 50,
+        "spa": 65,
+        "spd": 60,
+        "spe": 44
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Exeggcute",
+    "abilities": [
+        "Chlorophyll",
+        "Harvest"
+    ],
+    "types": [
+        "grass",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 40,
+        "def": 80,
+        "spa": 60,
+        "spd": 45,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

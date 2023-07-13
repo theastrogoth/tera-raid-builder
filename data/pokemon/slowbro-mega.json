@@ -1,0 +1,20 @@
+{
+    "name": "Slowbro-Mega",
+    "abilities": [
+        "Shell Armor"
+    ],
+    "types": [
+        "water",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 75,
+        "def": 180,
+        "spa": 130,
+        "spd": 80,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

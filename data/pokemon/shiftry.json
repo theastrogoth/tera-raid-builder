@@ -1,0 +1,22 @@
+{
+    "name": "Shiftry",
+    "abilities": [
+        "Chlorophyll",
+        "Early Bird",
+        "Pickpocket"
+    ],
+    "types": [
+        "grass",
+        "dark"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 100,
+        "def": 60,
+        "spa": 90,
+        "spd": 60,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Kyurem",
+    "abilities": [
+        "Pressure"
+    ],
+    "types": [
+        "dragon",
+        "ice"
+    ],
+    "stats": {
+        "hp": 125,
+        "atk": 130,
+        "def": 90,
+        "spa": 130,
+        "spd": 90,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

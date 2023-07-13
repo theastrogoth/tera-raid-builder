@@ -1,0 +1,19 @@
+{
+    "name": "Comeuppance",
+    "category": "damage",
+    "target": "specific-move",
+    "type": "dark",
+    "power": null,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

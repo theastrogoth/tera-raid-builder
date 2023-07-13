@@ -1,0 +1,20 @@
+{
+    "name": "Minior-Indigo",
+    "abilities": [
+        "Shields Down"
+    ],
+    "types": [
+        "rock",
+        "flying"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 100,
+        "def": 60,
+        "spa": 100,
+        "spd": 60,
+        "spe": 120
+    },
+    "moves": [
+    ]
+}

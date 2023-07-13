@@ -1,0 +1,21 @@
+{
+    "name": "Remoraid",
+    "abilities": [
+        "Hustle",
+        "Sniper",
+        "Moody"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 65,
+        "def": 35,
+        "spa": 65,
+        "spd": 35,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

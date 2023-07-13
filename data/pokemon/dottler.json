@@ -1,0 +1,22 @@
+{
+    "name": "Dottler",
+    "abilities": [
+        "Swarm",
+        "Compound Eyes",
+        "Telepathy"
+    ],
+    "types": [
+        "bug",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 35,
+        "def": 80,
+        "spa": 50,
+        "spd": 90,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

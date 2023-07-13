@@ -1,0 +1,21 @@
+{
+    "name": "Empoleon",
+    "abilities": [
+        "Torrent",
+        "Defiant"
+    ],
+    "types": [
+        "water",
+        "steel"
+    ],
+    "stats": {
+        "hp": 84,
+        "atk": 86,
+        "def": 88,
+        "spa": 111,
+        "spd": 101,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

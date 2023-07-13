@@ -1,0 +1,22 @@
+{
+    "name": "Inkay",
+    "abilities": [
+        "Contrary",
+        "Suction Cups",
+        "Infiltrator"
+    ],
+    "types": [
+        "dark",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 53,
+        "atk": 54,
+        "def": 53,
+        "spa": 37,
+        "spd": 46,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

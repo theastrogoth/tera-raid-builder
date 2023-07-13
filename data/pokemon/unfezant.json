@@ -1,0 +1,22 @@
+{
+    "name": "Unfezant",
+    "abilities": [
+        "Big Pecks",
+        "Super Luck",
+        "Rivalry"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 115,
+        "def": 80,
+        "spa": 65,
+        "spd": 55,
+        "spe": 93
+    },
+    "moves": [
+    ]
+}

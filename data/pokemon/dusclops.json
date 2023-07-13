@@ -1,0 +1,20 @@
+{
+    "name": "Dusclops",
+    "abilities": [
+        "Pressure",
+        "Frisk"
+    ],
+    "types": [
+        "ghost"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 70,
+        "def": 130,
+        "spa": 60,
+        "spd": 130,
+        "spe": 25
+    },
+    "moves": [
+    ]
+}

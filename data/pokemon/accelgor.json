@@ -1,0 +1,21 @@
+{
+    "name": "Accelgor",
+    "abilities": [
+        "Hydration",
+        "Sticky Hold",
+        "Unburden"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 70,
+        "def": 40,
+        "spa": 100,
+        "spd": 60,
+        "spe": 145
+    },
+    "moves": [
+    ]
+}

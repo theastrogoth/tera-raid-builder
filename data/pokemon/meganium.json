@@ -1,0 +1,20 @@
+{
+    "name": "Meganium",
+    "abilities": [
+        "Overgrow",
+        "Leaf Guard"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 82,
+        "def": 100,
+        "spa": 83,
+        "spd": 100,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

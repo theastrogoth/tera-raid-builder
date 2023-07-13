@@ -1,0 +1,22 @@
+{
+    "name": "Ledian",
+    "abilities": [
+        "Swarm",
+        "Early Bird",
+        "Iron Fist"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 35,
+        "def": 50,
+        "spa": 55,
+        "spd": 110,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

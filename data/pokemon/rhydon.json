@@ -1,0 +1,22 @@
+{
+    "name": "Rhydon",
+    "abilities": [
+        "Lightning Rod",
+        "Rock Head",
+        "Reckless"
+    ],
+    "types": [
+        "ground",
+        "rock"
+    ],
+    "stats": {
+        "hp": 105,
+        "atk": 130,
+        "def": 120,
+        "spa": 45,
+        "spd": 45,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

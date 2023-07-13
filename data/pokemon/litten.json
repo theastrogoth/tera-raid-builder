@@ -1,0 +1,20 @@
+{
+    "name": "Litten",
+    "abilities": [
+        "Blaze",
+        "Intimidate"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 65,
+        "def": 40,
+        "spa": 60,
+        "spd": 40,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

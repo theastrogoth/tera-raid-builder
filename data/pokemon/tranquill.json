@@ -1,0 +1,22 @@
+{
+    "name": "Tranquill",
+    "abilities": [
+        "Big Pecks",
+        "Super Luck",
+        "Rivalry"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 62,
+        "atk": 77,
+        "def": 62,
+        "spa": 50,
+        "spd": 42,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

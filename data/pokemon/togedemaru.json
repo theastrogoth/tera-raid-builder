@@ -1,0 +1,22 @@
+{
+    "name": "Togedemaru",
+    "abilities": [
+        "Iron Barbs",
+        "Lightning Rod",
+        "Sturdy"
+    ],
+    "types": [
+        "electric",
+        "steel"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 98,
+        "def": 63,
+        "spa": 40,
+        "spd": 73,
+        "spe": 96
+    },
+    "moves": [
+    ]
+}

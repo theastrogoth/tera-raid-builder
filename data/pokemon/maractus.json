@@ -1,0 +1,21 @@
+{
+    "name": "Maractus",
+    "abilities": [
+        "Water Absorb",
+        "Chlorophyll",
+        "Storm Drain"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 86,
+        "def": 67,
+        "spa": 106,
+        "spd": 67,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

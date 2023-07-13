@@ -1,0 +1,20 @@
+{
+    "name": "Buzzwole",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "bug",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 107,
+        "atk": 139,
+        "def": 139,
+        "spa": 53,
+        "spd": 53,
+        "spe": 79
+    },
+    "moves": [
+    ]
+}

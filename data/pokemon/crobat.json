@@ -1,0 +1,21 @@
+{
+    "name": "Crobat",
+    "abilities": [
+        "Inner Focus",
+        "Infiltrator"
+    ],
+    "types": [
+        "poison",
+        "flying"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 90,
+        "def": 80,
+        "spa": 70,
+        "spd": 80,
+        "spe": 130
+    },
+    "moves": [
+    ]
+}

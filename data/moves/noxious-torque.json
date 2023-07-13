@@ -1,0 +1,19 @@
+{
+    "name": "Noxious Torque",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "poison",
+    "power": 100,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": "poison",
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": 30,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Araquanid-Totem",
+    "abilities": [
+        "Water Bubble",
+        "Water Absorb"
+    ],
+    "types": [
+        "water",
+        "bug"
+    ],
+    "stats": {
+        "hp": 68,
+        "atk": 70,
+        "def": 92,
+        "spa": 50,
+        "spd": 132,
+        "spe": 42
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Glalie-Mega",
+    "abilities": [
+        "Refrigerate"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 80,
+        "spa": 120,
+        "spd": 80,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

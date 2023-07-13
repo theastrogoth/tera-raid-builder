@@ -1,0 +1,21 @@
+{
+    "name": "Klang",
+    "abilities": [
+        "Plus",
+        "Minus",
+        "Clear Body"
+    ],
+    "types": [
+        "steel"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 80,
+        "def": 95,
+        "spa": 70,
+        "spd": 85,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

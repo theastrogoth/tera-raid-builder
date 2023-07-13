@@ -1,0 +1,19 @@
+{
+    "name": "Mewtwo-Mega-Y",
+    "abilities": [
+        "Insomnia"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 106,
+        "atk": 150,
+        "def": 70,
+        "spa": 194,
+        "spd": 120,
+        "spe": 140
+    },
+    "moves": [
+    ]
+}

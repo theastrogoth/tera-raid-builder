@@ -1,0 +1,21 @@
+{
+    "name": "Eevee-Gmax",
+    "abilities": [
+        "Run Away",
+        "Adaptability",
+        "Anticipation"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 55,
+        "def": 50,
+        "spa": 45,
+        "spd": 65,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

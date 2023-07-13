@@ -1,0 +1,22 @@
+{
+    "name": "Chatot",
+    "abilities": [
+        "Keen Eye",
+        "Tangled Feet",
+        "Big Pecks"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 76,
+        "atk": 65,
+        "def": 45,
+        "spa": 92,
+        "spd": 42,
+        "spe": 91
+    },
+    "moves": [
+    ]
+}

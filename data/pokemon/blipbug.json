@@ -1,0 +1,21 @@
+{
+    "name": "Blipbug",
+    "abilities": [
+        "Swarm",
+        "Compound Eyes",
+        "Telepathy"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 25,
+        "atk": 20,
+        "def": 20,
+        "spa": 25,
+        "spd": 45,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

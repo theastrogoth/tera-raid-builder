@@ -1,0 +1,20 @@
+{
+    "name": "Sceptile",
+    "abilities": [
+        "Overgrow",
+        "Unburden"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 85,
+        "def": 65,
+        "spa": 105,
+        "spd": 85,
+        "spe": 120
+    },
+    "moves": [
+    ]
+}

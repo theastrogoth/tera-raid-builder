@@ -1,0 +1,20 @@
+{
+    "name": "Grovyle",
+    "abilities": [
+        "Overgrow",
+        "Unburden"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 65,
+        "def": 45,
+        "spa": 85,
+        "spd": 65,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

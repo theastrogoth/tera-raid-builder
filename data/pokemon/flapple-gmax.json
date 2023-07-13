@@ -1,0 +1,22 @@
+{
+    "name": "Flapple-Gmax",
+    "abilities": [
+        "Ripen",
+        "Gluttony",
+        "Hustle"
+    ],
+    "types": [
+        "grass",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 110,
+        "def": 80,
+        "spa": 95,
+        "spd": 60,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

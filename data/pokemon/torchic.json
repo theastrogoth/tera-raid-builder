@@ -1,0 +1,20 @@
+{
+    "name": "Torchic",
+    "abilities": [
+        "Blaze",
+        "Speed Boost"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 60,
+        "def": 40,
+        "spa": 70,
+        "spd": 50,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

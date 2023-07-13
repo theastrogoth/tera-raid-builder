@@ -1,0 +1,22 @@
+{
+    "name": "Roserade",
+    "abilities": [
+        "Natural Cure",
+        "Poison Point",
+        "Technician"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 70,
+        "def": 65,
+        "spa": 125,
+        "spd": 105,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

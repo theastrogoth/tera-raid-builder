@@ -1,0 +1,20 @@
+{
+    "name": "Burmy",
+    "abilities": [
+        "Shed Skin",
+        "Overcoat"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 29,
+        "def": 45,
+        "spa": 29,
+        "spd": 45,
+        "spe": 36
+    },
+    "moves": [
+    ]
+}

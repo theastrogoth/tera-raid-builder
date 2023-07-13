@@ -1,0 +1,20 @@
+{
+    "name": "Blastoise",
+    "abilities": [
+        "Torrent",
+        "Rain Dish"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 79,
+        "atk": 83,
+        "def": 100,
+        "spa": 85,
+        "spd": 105,
+        "spe": 78
+    },
+    "moves": [
+    ]
+}

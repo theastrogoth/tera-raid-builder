@@ -1,0 +1,21 @@
+{
+    "name": "Ho-Oh",
+    "abilities": [
+        "Pressure",
+        "Regenerator"
+    ],
+    "types": [
+        "fire",
+        "flying"
+    ],
+    "stats": {
+        "hp": 106,
+        "atk": 130,
+        "def": 90,
+        "spa": 110,
+        "spd": 154,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

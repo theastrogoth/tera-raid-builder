@@ -1,0 +1,19 @@
+{
+    "name": "Buzzy Buzz",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "electric",
+    "power": 60,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "paralysis",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 100,
+    "minHits": null,
+    "maxHits": null
+}

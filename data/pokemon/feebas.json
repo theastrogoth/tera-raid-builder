@@ -1,0 +1,21 @@
+{
+    "name": "Feebas",
+    "abilities": [
+        "Swift Swim",
+        "Oblivious",
+        "Adaptability"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 20,
+        "atk": 15,
+        "def": 20,
+        "spa": 10,
+        "spd": 55,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

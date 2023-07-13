@@ -1,0 +1,21 @@
+{
+    "name": "Mienfoo",
+    "abilities": [
+        "Inner Focus",
+        "Regenerator",
+        "Reckless"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 85,
+        "def": 50,
+        "spa": 55,
+        "spd": 50,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Buneary",
+    "abilities": [
+        "Run Away",
+        "Klutz",
+        "Limber"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 66,
+        "def": 44,
+        "spa": 44,
+        "spd": 56,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

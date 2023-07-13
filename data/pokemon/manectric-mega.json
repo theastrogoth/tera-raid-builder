@@ -1,0 +1,19 @@
+{
+    "name": "Manectric-Mega",
+    "abilities": [
+        "Intimidate"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 75,
+        "def": 80,
+        "spa": 135,
+        "spd": 80,
+        "spe": 135
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Corviknight-Gmax",
+    "abilities": [
+        "Pressure",
+        "Unnerve",
+        "Mirror Armor"
+    ],
+    "types": [
+        "flying",
+        "steel"
+    ],
+    "stats": {
+        "hp": 98,
+        "atk": 87,
+        "def": 105,
+        "spa": 53,
+        "spd": 85,
+        "spe": 67
+    },
+    "moves": [
+    ]
+}

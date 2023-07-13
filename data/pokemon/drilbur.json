@@ -1,0 +1,21 @@
+{
+    "name": "Drilbur",
+    "abilities": [
+        "Sand Rush",
+        "Sand Force",
+        "Mold Breaker"
+    ],
+    "types": [
+        "ground"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 85,
+        "def": 40,
+        "spa": 30,
+        "spd": 45,
+        "spe": 68
+    },
+    "moves": [
+    ]
+}

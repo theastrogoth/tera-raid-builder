@@ -1,0 +1,21 @@
+{
+    "name": "Dewpider",
+    "abilities": [
+        "Water Bubble",
+        "Water Absorb"
+    ],
+    "types": [
+        "water",
+        "bug"
+    ],
+    "stats": {
+        "hp": 38,
+        "atk": 40,
+        "def": 52,
+        "spa": 40,
+        "spd": 72,
+        "spe": 27
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Pumpkaboo-Super",
+    "abilities": [
+        "Pickup",
+        "Frisk",
+        "Insomnia"
+    ],
+    "types": [
+        "ghost",
+        "grass"
+    ],
+    "stats": {
+        "hp": 59,
+        "atk": 66,
+        "def": 70,
+        "spa": 44,
+        "spd": 55,
+        "spe": 41
+    },
+    "moves": [
+    ]
+}

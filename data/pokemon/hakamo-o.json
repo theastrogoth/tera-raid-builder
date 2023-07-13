@@ -1,0 +1,22 @@
+{
+    "name": "Hakamo-o",
+    "abilities": [
+        "Bulletproof",
+        "Soundproof",
+        "Overcoat"
+    ],
+    "types": [
+        "dragon",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 75,
+        "def": 90,
+        "spa": 65,
+        "spd": 70,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

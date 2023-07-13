@@ -1,0 +1,20 @@
+{
+    "name": "Doublade",
+    "abilities": [
+        "No Guard"
+    ],
+    "types": [
+        "steel",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 59,
+        "atk": 110,
+        "def": 150,
+        "spa": 45,
+        "spd": 49,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

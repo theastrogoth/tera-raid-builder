@@ -1,0 +1,22 @@
+{
+    "name": "Tentacool",
+    "abilities": [
+        "Clear Body",
+        "Liquid Ooze",
+        "Rain Dish"
+    ],
+    "types": [
+        "water",
+        "poison"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 40,
+        "def": 35,
+        "spa": 50,
+        "spd": 100,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

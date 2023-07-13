@@ -1,0 +1,19 @@
+{
+    "name": "Chloroblast",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "grass",
+    "power": 150,
+    "accuracy": 95,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": 50,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

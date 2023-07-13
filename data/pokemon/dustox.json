@@ -1,0 +1,21 @@
+{
+    "name": "Dustox",
+    "abilities": [
+        "Shield Dust",
+        "Compound Eyes"
+    ],
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 70,
+        "spa": 50,
+        "spd": 90,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

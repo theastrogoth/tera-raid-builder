@@ -1,0 +1,22 @@
+{
+    "name": "Kingdra",
+    "abilities": [
+        "Swift Swim",
+        "Sniper",
+        "Damp"
+    ],
+    "types": [
+        "water",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 95,
+        "def": 95,
+        "spa": 95,
+        "spd": 95,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

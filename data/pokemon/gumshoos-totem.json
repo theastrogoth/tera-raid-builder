@@ -1,0 +1,21 @@
+{
+    "name": "Gumshoos-Totem",
+    "abilities": [
+        "Stakeout",
+        "Strong Jaw",
+        "Adaptability"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 88,
+        "atk": 110,
+        "def": 60,
+        "spa": 55,
+        "spd": 60,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

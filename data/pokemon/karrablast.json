@@ -1,0 +1,21 @@
+{
+    "name": "Karrablast",
+    "abilities": [
+        "Swarm",
+        "Shed Skin",
+        "No Guard"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 75,
+        "def": 45,
+        "spa": 40,
+        "spd": 45,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

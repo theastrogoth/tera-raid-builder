@@ -1,0 +1,21 @@
+{
+    "name": "Wailmer",
+    "abilities": [
+        "Water Veil",
+        "Oblivious",
+        "Pressure"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 130,
+        "atk": 70,
+        "def": 35,
+        "spa": 70,
+        "spd": 35,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Abomasnow-Mega",
+    "abilities": [
+        "Snow Warning"
+    ],
+    "types": [
+        "grass",
+        "ice"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 132,
+        "def": 105,
+        "spa": 132,
+        "spd": 105,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Grotle",
+    "abilities": [
+        "Overgrow",
+        "Shell Armor"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 89,
+        "def": 85,
+        "spa": 55,
+        "spd": 65,
+        "spe": 36
+    },
+    "moves": [
+    ]
+}

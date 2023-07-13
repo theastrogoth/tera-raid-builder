@@ -1,0 +1,21 @@
+{
+    "name": "Espurr",
+    "abilities": [
+        "Keen Eye",
+        "Infiltrator",
+        "Own Tempo"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 62,
+        "atk": 48,
+        "def": 54,
+        "spa": 63,
+        "spd": 60,
+        "spe": 68
+    },
+    "moves": [
+    ]
+}

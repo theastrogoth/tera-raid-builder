@@ -1,0 +1,20 @@
+{
+    "name": "Rampardos",
+    "abilities": [
+        "Mold Breaker",
+        "Sheer Force"
+    ],
+    "types": [
+        "rock"
+    ],
+    "stats": {
+        "hp": 97,
+        "atk": 165,
+        "def": 60,
+        "spa": 65,
+        "spd": 50,
+        "spe": 58
+    },
+    "moves": [
+    ]
+}

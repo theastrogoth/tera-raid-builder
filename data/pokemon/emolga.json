@@ -1,0 +1,21 @@
+{
+    "name": "Emolga",
+    "abilities": [
+        "Static",
+        "Motor Drive"
+    ],
+    "types": [
+        "electric",
+        "flying"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 75,
+        "def": 60,
+        "spa": 75,
+        "spd": 60,
+        "spe": 103
+    },
+    "moves": [
+    ]
+}

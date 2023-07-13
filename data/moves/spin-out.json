@@ -1,0 +1,24 @@
+{
+    "name": "Spin Out",
+    "category": "damage+raise",
+    "target": "selected-pokemon",
+    "type": "steel",
+    "power": 100,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spe",
+            "change": -2
+        }
+    ],
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

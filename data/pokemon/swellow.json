@@ -1,0 +1,21 @@
+{
+    "name": "Swellow",
+    "abilities": [
+        "Guts",
+        "Scrappy"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 85,
+        "def": 60,
+        "spa": 75,
+        "spd": 50,
+        "spe": 125
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Xatu",
+    "abilities": [
+        "Synchronize",
+        "Early Bird",
+        "Magic Bounce"
+    ],
+    "types": [
+        "psychic",
+        "flying"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 75,
+        "def": 70,
+        "spa": 95,
+        "spd": 70,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

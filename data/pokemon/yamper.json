@@ -1,0 +1,20 @@
+{
+    "name": "Yamper",
+    "abilities": [
+        "Ball Fetch",
+        "Rattled"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 59,
+        "atk": 45,
+        "def": 50,
+        "spa": 40,
+        "spd": 50,
+        "spe": 26
+    },
+    "moves": [
+    ]
+}

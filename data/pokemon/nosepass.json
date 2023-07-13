@@ -1,0 +1,21 @@
+{
+    "name": "Nosepass",
+    "abilities": [
+        "Sturdy",
+        "Magnet Pull",
+        "Sand Force"
+    ],
+    "types": [
+        "rock"
+    ],
+    "stats": {
+        "hp": 30,
+        "atk": 45,
+        "def": 135,
+        "spa": 45,
+        "spd": 90,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

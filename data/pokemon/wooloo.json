@@ -1,0 +1,21 @@
+{
+    "name": "Wooloo",
+    "abilities": [
+        "Fluffy",
+        "Run Away",
+        "Bulletproof"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 42,
+        "atk": 40,
+        "def": 55,
+        "spa": 40,
+        "spd": 45,
+        "spe": 48
+    },
+    "moves": [
+    ]
+}

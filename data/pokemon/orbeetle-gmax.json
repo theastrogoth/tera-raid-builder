@@ -1,0 +1,22 @@
+{
+    "name": "Orbeetle-Gmax",
+    "abilities": [
+        "Swarm",
+        "Frisk",
+        "Telepathy"
+    ],
+    "types": [
+        "bug",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 45,
+        "def": 110,
+        "spa": 80,
+        "spd": 120,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

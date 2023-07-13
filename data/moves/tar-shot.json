@@ -1,0 +1,24 @@
+{
+    "name": "Tar Shot",
+    "category": "swagger",
+    "target": "selected-pokemon",
+    "type": "rock",
+    "power": null,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "tar-shot",
+    "statChanges": [
+        {
+            "stat": "spe",
+            "change": -1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 100,
+    "ailmentChance": 100,
+    "minHits": null,
+    "maxHits": null
+}

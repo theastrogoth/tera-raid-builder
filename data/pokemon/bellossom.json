@@ -1,0 +1,20 @@
+{
+    "name": "Bellossom",
+    "abilities": [
+        "Chlorophyll",
+        "Healer"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 80,
+        "def": 95,
+        "spa": 90,
+        "spd": 100,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Gossifleur",
+    "abilities": [
+        "Cotton Down",
+        "Regenerator",
+        "Effect Spore"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 40,
+        "def": 60,
+        "spa": 40,
+        "spd": 60,
+        "spe": 10
+    },
+    "moves": [
+    ]
+}

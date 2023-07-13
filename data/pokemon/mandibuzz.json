@@ -1,0 +1,22 @@
+{
+    "name": "Mandibuzz",
+    "abilities": [
+        "Big Pecks",
+        "Overcoat",
+        "Weak Armor"
+    ],
+    "types": [
+        "dark",
+        "flying"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 65,
+        "def": 105,
+        "spa": 55,
+        "spd": 95,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

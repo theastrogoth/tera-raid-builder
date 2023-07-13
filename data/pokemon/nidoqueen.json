@@ -1,0 +1,22 @@
+{
+    "name": "Nidoqueen",
+    "abilities": [
+        "Poison Point",
+        "Rivalry",
+        "Sheer Force"
+    ],
+    "types": [
+        "poison",
+        "ground"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 92,
+        "def": 87,
+        "spa": 75,
+        "spd": 85,
+        "spe": 76
+    },
+    "moves": [
+    ]
+}

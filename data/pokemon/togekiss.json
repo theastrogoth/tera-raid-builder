@@ -1,0 +1,22 @@
+{
+    "name": "Togekiss",
+    "abilities": [
+        "Hustle",
+        "Serene Grace",
+        "Super Luck"
+    ],
+    "types": [
+        "fairy",
+        "flying"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 50,
+        "def": 95,
+        "spa": 120,
+        "spd": 115,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Pancham",
+    "abilities": [
+        "Iron Fist",
+        "Mold Breaker",
+        "Scrappy"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 67,
+        "atk": 82,
+        "def": 62,
+        "spa": 46,
+        "spd": 48,
+        "spe": 43
+    },
+    "moves": [
+    ]
+}

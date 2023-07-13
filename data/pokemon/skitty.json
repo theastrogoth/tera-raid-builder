@@ -1,0 +1,21 @@
+{
+    "name": "Skitty",
+    "abilities": [
+        "Cute Charm",
+        "Normalize",
+        "Wonder Skin"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 45,
+        "def": 45,
+        "spa": 35,
+        "spd": 35,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

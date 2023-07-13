@@ -1,0 +1,19 @@
+{
+    "name": "Deoxys-Speed",
+    "abilities": [
+        "Pressure"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 95,
+        "def": 90,
+        "spa": 95,
+        "spd": 90,
+        "spe": 180
+    },
+    "moves": [
+    ]
+}

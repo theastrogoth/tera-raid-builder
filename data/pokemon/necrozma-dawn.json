@@ -1,0 +1,20 @@
+{
+    "name": "Necrozma-Dawn",
+    "abilities": [
+        "Prism Armor"
+    ],
+    "types": [
+        "psychic",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 97,
+        "atk": 113,
+        "def": 109,
+        "spa": 157,
+        "spd": 127,
+        "spe": 77
+    },
+    "moves": [
+    ]
+}

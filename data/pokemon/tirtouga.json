@@ -1,0 +1,22 @@
+{
+    "name": "Tirtouga",
+    "abilities": [
+        "Solid Rock",
+        "Sturdy",
+        "Swift Swim"
+    ],
+    "types": [
+        "water",
+        "rock"
+    ],
+    "stats": {
+        "hp": 54,
+        "atk": 78,
+        "def": 103,
+        "spa": 53,
+        "spd": 45,
+        "spe": 22
+    },
+    "moves": [
+    ]
+}

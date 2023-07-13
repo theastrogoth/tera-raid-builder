@@ -1,0 +1,21 @@
+{
+    "name": "Garbodor",
+    "abilities": [
+        "Stench",
+        "Weak Armor",
+        "Aftermath"
+    ],
+    "types": [
+        "poison"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 95,
+        "def": 82,
+        "spa": 60,
+        "spd": 82,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

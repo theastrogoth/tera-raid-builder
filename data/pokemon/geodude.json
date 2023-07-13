@@ -1,0 +1,22 @@
+{
+    "name": "Geodude",
+    "abilities": [
+        "Rock Head",
+        "Sturdy",
+        "Sand Veil"
+    ],
+    "types": [
+        "rock",
+        "ground"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 80,
+        "def": 100,
+        "spa": 30,
+        "spd": 30,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

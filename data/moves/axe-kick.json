@@ -1,0 +1,19 @@
+{
+    "name": "Axe Kick",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "fighting",
+    "power": 120,
+    "accuracy": 90,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": "confusion",
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": 30,
+    "minHits": null,
+    "maxHits": null
+}

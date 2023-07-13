@@ -1,0 +1,21 @@
+{
+    "name": "Eldegoss",
+    "abilities": [
+        "Cotton Down",
+        "Regenerator",
+        "Effect Spore"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 90,
+        "spa": 80,
+        "spd": 120,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

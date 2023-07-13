@@ -1,0 +1,22 @@
+{
+    "name": "Pikipek",
+    "abilities": [
+        "Keen Eye",
+        "Skill Link",
+        "Pickup"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 75,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

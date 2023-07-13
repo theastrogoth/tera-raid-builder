@@ -1,0 +1,19 @@
+{
+    "name": "Wicked Torque",
+    "category": null,
+    "target": "selected-pokemon",
+    "type": "dark",
+    "power": 80,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

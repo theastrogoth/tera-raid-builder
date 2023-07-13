@@ -1,0 +1,20 @@
+{
+    "name": "Wimpod",
+    "abilities": [
+        "Wimp Out"
+    ],
+    "types": [
+        "bug",
+        "water"
+    ],
+    "stats": {
+        "hp": 25,
+        "atk": 35,
+        "def": 40,
+        "spa": 20,
+        "spd": 30,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

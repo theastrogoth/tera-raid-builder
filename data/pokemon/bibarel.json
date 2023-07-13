@@ -1,0 +1,22 @@
+{
+    "name": "Bibarel",
+    "abilities": [
+        "Simple",
+        "Unaware",
+        "Moody"
+    ],
+    "types": [
+        "normal",
+        "water"
+    ],
+    "stats": {
+        "hp": 79,
+        "atk": 85,
+        "def": 60,
+        "spa": 55,
+        "spd": 60,
+        "spe": 71
+    },
+    "moves": [
+    ]
+}

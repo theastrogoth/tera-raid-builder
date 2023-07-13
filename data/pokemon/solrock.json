@@ -1,0 +1,20 @@
+{
+    "name": "Solrock",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "rock",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 95,
+        "def": 85,
+        "spa": 55,
+        "spd": 65,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

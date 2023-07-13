@@ -1,0 +1,24 @@
+{
+    "name": "Shelter",
+    "category": "net-good-stats",
+    "target": "user",
+    "type": "steel",
+    "power": 0,
+    "accuracy": null,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "value": 2
+        }
+    ],
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

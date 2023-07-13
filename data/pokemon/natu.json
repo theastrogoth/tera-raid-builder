@@ -1,0 +1,22 @@
+{
+    "name": "Natu",
+    "abilities": [
+        "Synchronize",
+        "Early Bird",
+        "Magic Bounce"
+    ],
+    "types": [
+        "psychic",
+        "flying"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 50,
+        "def": 45,
+        "spa": 70,
+        "spd": 45,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

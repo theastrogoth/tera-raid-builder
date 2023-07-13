@@ -1,0 +1,20 @@
+{
+    "name": "Huntail",
+    "abilities": [
+        "Swift Swim",
+        "Water Veil"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 104,
+        "def": 105,
+        "spa": 94,
+        "spd": 75,
+        "spe": 52
+    },
+    "moves": [
+    ]
+}

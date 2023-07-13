@@ -1,0 +1,20 @@
+{
+    "name": "Cobalion",
+    "abilities": [
+        "Justified"
+    ],
+    "types": [
+        "steel",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 91,
+        "atk": 90,
+        "def": 129,
+        "spa": 90,
+        "spd": 72,
+        "spe": 108
+    },
+    "moves": [
+    ]
+}

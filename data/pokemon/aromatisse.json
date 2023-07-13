@@ -1,0 +1,20 @@
+{
+    "name": "Aromatisse",
+    "abilities": [
+        "Healer",
+        "Aroma Veil"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 101,
+        "atk": 72,
+        "def": 72,
+        "spa": 99,
+        "spd": 89,
+        "spe": 29
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Lileep",
+    "abilities": [
+        "Suction Cups",
+        "Storm Drain"
+    ],
+    "types": [
+        "rock",
+        "grass"
+    ],
+    "stats": {
+        "hp": 66,
+        "atk": 41,
+        "def": 77,
+        "spa": 61,
+        "spd": 87,
+        "spe": 23
+    },
+    "moves": [
+    ]
+}

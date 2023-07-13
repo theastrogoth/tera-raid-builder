@@ -1,0 +1,19 @@
+{
+    "name": "Floral Healing",
+    "category": "heal",
+    "target": "selected-pokemon",
+    "type": "fairy",
+    "power": null,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 50,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

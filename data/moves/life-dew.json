@@ -1,0 +1,19 @@
+{
+    "name": "Life Dew",
+    "category": "heal",
+    "target": "user-and-allies",
+    "type": "water",
+    "power": null,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 25,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

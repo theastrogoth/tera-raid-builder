@@ -1,0 +1,20 @@
+{
+    "name": "Mimikyu-Totem-Busted",
+    "abilities": [
+        "Disguise"
+    ],
+    "types": [
+        "ghost",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 90,
+        "def": 80,
+        "spa": 50,
+        "spd": 105,
+        "spe": 96
+    },
+    "moves": [
+    ]
+}

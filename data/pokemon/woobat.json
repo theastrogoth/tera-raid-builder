@@ -1,0 +1,22 @@
+{
+    "name": "Woobat",
+    "abilities": [
+        "Unaware",
+        "Klutz",
+        "Simple"
+    ],
+    "types": [
+        "psychic",
+        "flying"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 45,
+        "def": 43,
+        "spa": 55,
+        "spd": 43,
+        "spe": 72
+    },
+    "moves": [
+    ]
+}

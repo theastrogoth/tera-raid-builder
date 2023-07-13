@@ -1,0 +1,21 @@
+{
+    "name": "Tympole",
+    "abilities": [
+        "Swift Swim",
+        "Hydration",
+        "Water Absorb"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 50,
+        "def": 40,
+        "spa": 50,
+        "spd": 40,
+        "spe": 64
+    },
+    "moves": [
+    ]
+}

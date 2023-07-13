@@ -1,0 +1,22 @@
+{
+    "name": "Spheal",
+    "abilities": [
+        "Thick Fat",
+        "Ice Body",
+        "Oblivious"
+    ],
+    "types": [
+        "ice",
+        "water"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 40,
+        "def": 50,
+        "spa": 55,
+        "spd": 50,
+        "spe": 25
+    },
+    "moves": [
+    ]
+}

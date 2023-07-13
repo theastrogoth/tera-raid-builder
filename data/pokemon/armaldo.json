@@ -1,0 +1,21 @@
+{
+    "name": "Armaldo",
+    "abilities": [
+        "Battle Armor",
+        "Swift Swim"
+    ],
+    "types": [
+        "rock",
+        "bug"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 125,
+        "def": 100,
+        "spa": 70,
+        "spd": 80,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

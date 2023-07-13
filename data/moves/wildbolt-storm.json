@@ -1,0 +1,19 @@
+{
+    "name": "Wildbolt Storm",
+    "category": "net-good-stats",
+    "target": "all-opponents",
+    "type": "electric",
+    "power": 100,
+    "accuracy": 80,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": "paralysis",
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": 20,
+    "minHits": null,
+    "maxHits": null
+}

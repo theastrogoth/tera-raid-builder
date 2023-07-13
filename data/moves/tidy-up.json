@@ -1,0 +1,28 @@
+{
+    "name": "Tidy Up",
+    "category": "unique",
+    "target": "user",
+    "type": "normal",
+    "power": 0,
+    "accuracy": null,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 1
+        },
+        {
+            "stat": "wpe",
+            "change": 1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 100,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

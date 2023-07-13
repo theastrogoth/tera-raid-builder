@@ -1,0 +1,22 @@
+{
+    "name": "Carracosta",
+    "abilities": [
+        "Solid Rock",
+        "Sturdy",
+        "Swift Swim"
+    ],
+    "types": [
+        "water",
+        "rock"
+    ],
+    "stats": {
+        "hp": 74,
+        "atk": 108,
+        "def": 133,
+        "spa": 83,
+        "spd": 65,
+        "spe": 32
+    },
+    "moves": [
+    ]
+}

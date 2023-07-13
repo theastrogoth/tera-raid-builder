@@ -1,0 +1,28 @@
+{
+    "name": "Dragon Ascent",
+    "category": "damage+raise",
+    "target": "selected-pokemon",
+    "type": "flying",
+    "power": 120,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "change": -1
+        },
+        {
+            "stat": "spd",
+            "change": -1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 100,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

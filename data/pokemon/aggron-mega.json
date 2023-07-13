@@ -1,0 +1,19 @@
+{
+    "name": "Aggron-Mega",
+    "abilities": [
+        "Filter"
+    ],
+    "types": [
+        "steel"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 140,
+        "def": 230,
+        "spa": 60,
+        "spd": 80,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

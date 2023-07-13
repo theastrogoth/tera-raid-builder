@@ -1,0 +1,22 @@
+{
+    "name": "Noctowl",
+    "abilities": [
+        "Insomnia",
+        "Keen Eye",
+        "Tinted Lens"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 50,
+        "def": 50,
+        "spa": 86,
+        "spd": 96,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

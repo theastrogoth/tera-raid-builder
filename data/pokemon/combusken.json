@@ -1,0 +1,21 @@
+{
+    "name": "Combusken",
+    "abilities": [
+        "Blaze",
+        "Speed Boost"
+    ],
+    "types": [
+        "fire",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 85,
+        "def": 60,
+        "spa": 85,
+        "spd": 60,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

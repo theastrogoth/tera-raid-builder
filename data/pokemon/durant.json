@@ -1,0 +1,22 @@
+{
+    "name": "Durant",
+    "abilities": [
+        "Swarm",
+        "Hustle",
+        "Truant"
+    ],
+    "types": [
+        "bug",
+        "steel"
+    ],
+    "stats": {
+        "hp": 58,
+        "atk": 109,
+        "def": 112,
+        "spa": 48,
+        "spd": 48,
+        "spe": 109
+    },
+    "moves": [
+    ]
+}

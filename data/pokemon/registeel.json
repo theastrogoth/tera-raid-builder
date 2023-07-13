@@ -1,0 +1,20 @@
+{
+    "name": "Registeel",
+    "abilities": [
+        "Clear Body",
+        "Light Metal"
+    ],
+    "types": [
+        "steel"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 75,
+        "def": 150,
+        "spa": 75,
+        "spd": 150,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

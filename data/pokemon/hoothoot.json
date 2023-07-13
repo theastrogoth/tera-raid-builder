@@ -1,0 +1,22 @@
+{
+    "name": "Hoothoot",
+    "abilities": [
+        "Insomnia",
+        "Keen Eye",
+        "Tinted Lens"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 30,
+        "def": 30,
+        "spa": 36,
+        "spd": 56,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

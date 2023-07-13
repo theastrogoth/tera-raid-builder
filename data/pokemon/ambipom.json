@@ -1,0 +1,21 @@
+{
+    "name": "Ambipom",
+    "abilities": [
+        "Technician",
+        "Pickup",
+        "Skill Link"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 100,
+        "def": 66,
+        "spa": 60,
+        "spd": 66,
+        "spe": 115
+    },
+    "moves": [
+    ]
+}

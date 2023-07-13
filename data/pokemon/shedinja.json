@@ -1,0 +1,20 @@
+{
+    "name": "Shedinja",
+    "abilities": [
+        "Wonder Guard"
+    ],
+    "types": [
+        "bug",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 1,
+        "atk": 90,
+        "def": 45,
+        "spa": 30,
+        "spd": 30,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

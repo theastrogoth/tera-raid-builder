@@ -1,0 +1,20 @@
+{
+    "name": "Darmanitan-Galar",
+    "abilities": [
+        "Gorilla Tactics",
+        "Zen Mode"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 105,
+        "atk": 140,
+        "def": 55,
+        "spa": 30,
+        "spd": 55,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

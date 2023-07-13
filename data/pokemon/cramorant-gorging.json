@@ -1,0 +1,20 @@
+{
+    "name": "Cramorant-Gorging",
+    "abilities": [
+        "Gulp Missile"
+    ],
+    "types": [
+        "flying",
+        "water"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 85,
+        "def": 55,
+        "spa": 85,
+        "spd": 95,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

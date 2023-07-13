@@ -1,0 +1,21 @@
+{
+    "name": "Bellsprout",
+    "abilities": [
+        "Chlorophyll",
+        "Gluttony"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 75,
+        "def": 35,
+        "spa": 70,
+        "spd": 30,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

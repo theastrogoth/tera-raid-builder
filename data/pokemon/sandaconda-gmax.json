@@ -1,0 +1,21 @@
+{
+    "name": "Sandaconda-Gmax",
+    "abilities": [
+        "Sand Spit",
+        "Shed Skin",
+        "Sand Veil"
+    ],
+    "types": [
+        "ground"
+    ],
+    "stats": {
+        "hp": 72,
+        "atk": 107,
+        "def": 125,
+        "spa": 65,
+        "spd": 70,
+        "spe": 71
+    },
+    "moves": [
+    ]
+}

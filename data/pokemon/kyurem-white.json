@@ -1,0 +1,20 @@
+{
+    "name": "Kyurem-White",
+    "abilities": [
+        "Turboblaze"
+    ],
+    "types": [
+        "dragon",
+        "ice"
+    ],
+    "stats": {
+        "hp": 125,
+        "atk": 120,
+        "def": 90,
+        "spa": 170,
+        "spd": 100,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

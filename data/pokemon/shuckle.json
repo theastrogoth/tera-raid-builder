@@ -1,0 +1,22 @@
+{
+    "name": "Shuckle",
+    "abilities": [
+        "Sturdy",
+        "Gluttony",
+        "Contrary"
+    ],
+    "types": [
+        "bug",
+        "rock"
+    ],
+    "stats": {
+        "hp": 20,
+        "atk": 10,
+        "def": 230,
+        "spa": 10,
+        "spd": 230,
+        "spe": 5
+    },
+    "moves": [
+    ]
+}

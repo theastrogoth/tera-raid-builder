@@ -1,0 +1,22 @@
+{
+    "name": "Doduo",
+    "abilities": [
+        "Run Away",
+        "Early Bird",
+        "Tangled Feet"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 85,
+        "def": 45,
+        "spa": 35,
+        "spd": 35,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

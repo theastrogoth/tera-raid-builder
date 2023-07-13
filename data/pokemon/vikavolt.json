@@ -1,0 +1,20 @@
+{
+    "name": "Vikavolt",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "bug",
+        "electric"
+    ],
+    "stats": {
+        "hp": 77,
+        "atk": 70,
+        "def": 90,
+        "spa": 145,
+        "spd": 75,
+        "spe": 43
+    },
+    "moves": [
+    ]
+}

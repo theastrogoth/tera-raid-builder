@@ -1,0 +1,22 @@
+{
+    "name": "Scraggy",
+    "abilities": [
+        "Shed Skin",
+        "Moxie",
+        "Intimidate"
+    ],
+    "types": [
+        "dark",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 75,
+        "def": 70,
+        "spa": 35,
+        "spd": 70,
+        "spe": 48
+    },
+    "moves": [
+    ]
+}

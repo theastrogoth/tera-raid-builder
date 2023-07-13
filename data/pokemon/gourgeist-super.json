@@ -1,0 +1,22 @@
+{
+    "name": "Gourgeist-Super",
+    "abilities": [
+        "Pickup",
+        "Frisk",
+        "Insomnia"
+    ],
+    "types": [
+        "ghost",
+        "grass"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 100,
+        "def": 122,
+        "spa": 58,
+        "spd": 75,
+        "spe": 54
+    },
+    "moves": [
+    ]
+}

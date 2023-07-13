@@ -1,0 +1,24 @@
+{
+    "name": "Mystical Power",
+    "category": "damage+raise",
+    "target": "selected-pokemon",
+    "type": "psychic",
+    "power": 70,
+    "accuracy": 90,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spa",
+            "change": 1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 100,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

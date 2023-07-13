@@ -1,0 +1,20 @@
+{
+    "name": "Flygon",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "ground",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 100,
+        "def": 80,
+        "spa": 80,
+        "spd": 80,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

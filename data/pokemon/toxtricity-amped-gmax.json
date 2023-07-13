@@ -1,0 +1,22 @@
+{
+    "name": "Toxtricity-Amped-Gmax",
+    "abilities": [
+        "Punk Rock",
+        "Plus",
+        "Technician"
+    ],
+    "types": [
+        "electric",
+        "poison"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 98,
+        "def": 70,
+        "spa": 114,
+        "spd": 70,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

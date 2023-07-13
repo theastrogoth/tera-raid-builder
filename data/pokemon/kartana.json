@@ -1,0 +1,20 @@
+{
+    "name": "Kartana",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "grass",
+        "steel"
+    ],
+    "stats": {
+        "hp": 59,
+        "atk": 181,
+        "def": 131,
+        "spa": 59,
+        "spd": 31,
+        "spe": 109
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Jangmo-o",
+    "abilities": [
+        "Bulletproof",
+        "Soundproof",
+        "Overcoat"
+    ],
+    "types": [
+        "dragon"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 55,
+        "def": 65,
+        "spa": 45,
+        "spd": 45,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

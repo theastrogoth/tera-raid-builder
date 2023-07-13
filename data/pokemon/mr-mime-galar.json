@@ -1,0 +1,22 @@
+{
+    "name": "Mr-Mime-Galar",
+    "abilities": [
+        "Vital Spirit",
+        "Screen Cleaner",
+        "Ice Body"
+    ],
+    "types": [
+        "ice",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 65,
+        "def": 65,
+        "spa": 90,
+        "spd": 90,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

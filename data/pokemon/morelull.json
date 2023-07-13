@@ -1,0 +1,22 @@
+{
+    "name": "Morelull",
+    "abilities": [
+        "Illuminate",
+        "Effect Spore",
+        "Rain Dish"
+    ],
+    "types": [
+        "grass",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 35,
+        "def": 55,
+        "spa": 65,
+        "spd": 75,
+        "spe": 15
+    },
+    "moves": [
+    ]
+}

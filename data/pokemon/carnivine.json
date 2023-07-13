@@ -1,0 +1,19 @@
+{
+    "name": "Carnivine",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 74,
+        "atk": 100,
+        "def": 72,
+        "spa": 90,
+        "spd": 72,
+        "spe": 46
+    },
+    "moves": [
+    ]
+}

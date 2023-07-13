@@ -1,0 +1,22 @@
+{
+    "name": "Shiinotic",
+    "abilities": [
+        "Illuminate",
+        "Effect Spore",
+        "Rain Dish"
+    ],
+    "types": [
+        "grass",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 45,
+        "def": 80,
+        "spa": 90,
+        "spd": 100,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

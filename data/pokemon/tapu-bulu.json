@@ -1,0 +1,21 @@
+{
+    "name": "Tapu Bulu",
+    "abilities": [
+        "Grassy Surge",
+        "Telepathy"
+    ],
+    "types": [
+        "grass",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 130,
+        "def": 115,
+        "spa": 85,
+        "spd": 95,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

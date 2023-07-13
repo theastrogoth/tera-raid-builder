@@ -1,0 +1,21 @@
+{
+    "name": "Bouffalant",
+    "abilities": [
+        "Reckless",
+        "Sap Sipper",
+        "Soundproof"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 110,
+        "def": 95,
+        "spa": 40,
+        "spd": 95,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

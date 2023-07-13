@@ -1,0 +1,20 @@
+{
+    "name": "Suicune",
+    "abilities": [
+        "Pressure",
+        "Inner Focus"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 75,
+        "def": 115,
+        "spa": 90,
+        "spd": 115,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Crawdaunt",
+    "abilities": [
+        "Hyper Cutter",
+        "Shell Armor",
+        "Adaptability"
+    ],
+    "types": [
+        "water",
+        "dark"
+    ],
+    "stats": {
+        "hp": 63,
+        "atk": 120,
+        "def": 85,
+        "spa": 90,
+        "spd": 55,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

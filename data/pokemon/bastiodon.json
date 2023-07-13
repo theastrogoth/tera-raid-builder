@@ -1,0 +1,21 @@
+{
+    "name": "Bastiodon",
+    "abilities": [
+        "Sturdy",
+        "Soundproof"
+    ],
+    "types": [
+        "rock",
+        "steel"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 52,
+        "def": 168,
+        "spa": 47,
+        "spd": 138,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

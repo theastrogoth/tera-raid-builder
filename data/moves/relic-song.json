@@ -1,0 +1,19 @@
+{
+    "name": "Relic Song",
+    "category": "damage+ailment",
+    "target": "all-opponents",
+    "type": "normal",
+    "power": 75,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "sleep",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 10,
+    "minHits": null,
+    "maxHits": null
+}

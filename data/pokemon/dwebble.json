@@ -1,0 +1,22 @@
+{
+    "name": "Dwebble",
+    "abilities": [
+        "Sturdy",
+        "Shell Armor",
+        "Weak Armor"
+    ],
+    "types": [
+        "bug",
+        "rock"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 65,
+        "def": 85,
+        "spa": 35,
+        "spd": 35,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

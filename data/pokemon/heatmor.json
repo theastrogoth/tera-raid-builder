@@ -1,0 +1,21 @@
+{
+    "name": "Heatmor",
+    "abilities": [
+        "Gluttony",
+        "Flash Fire",
+        "White Smoke"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 97,
+        "def": 66,
+        "spa": 105,
+        "spd": 66,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

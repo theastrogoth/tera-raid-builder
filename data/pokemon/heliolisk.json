@@ -1,0 +1,22 @@
+{
+    "name": "Heliolisk",
+    "abilities": [
+        "Dry Skin",
+        "Sand Veil",
+        "Solar Power"
+    ],
+    "types": [
+        "electric",
+        "normal"
+    ],
+    "stats": {
+        "hp": 62,
+        "atk": 55,
+        "def": 52,
+        "spa": 109,
+        "spd": 94,
+        "spe": 109
+    },
+    "moves": [
+    ]
+}

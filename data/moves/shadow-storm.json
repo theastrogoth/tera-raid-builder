@@ -1,0 +1,19 @@
+{
+    "name": "Shadow Storm",
+    "category": null,
+    "target": "opponents-field",
+    "type": "shadow",
+    "power": 95,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

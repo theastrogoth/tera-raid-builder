@@ -1,0 +1,22 @@
+{
+    "name": "Zigzagoon-Galar",
+    "abilities": [
+        "Pickup",
+        "Gluttony",
+        "Quick Feet"
+    ],
+    "types": [
+        "dark",
+        "normal"
+    ],
+    "stats": {
+        "hp": 38,
+        "atk": 30,
+        "def": 41,
+        "spa": 30,
+        "spd": 41,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

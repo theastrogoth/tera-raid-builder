@@ -1,0 +1,21 @@
+{
+    "name": "Throh",
+    "abilities": [
+        "Guts",
+        "Inner Focus",
+        "Mold Breaker"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 120,
+        "atk": 100,
+        "def": 85,
+        "spa": 30,
+        "spd": 85,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

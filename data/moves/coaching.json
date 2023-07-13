@@ -1,0 +1,28 @@
+{
+    "name": "Coaching",
+    "category": "net-good-stats",
+    "target": "user-and-allies",
+    "type": "fighting",
+    "power": null,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 1
+        },
+        {
+            "stat": "def",
+            "change": 1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 100,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Necrozma-Ultra",
+    "abilities": [
+        "Neuroforce"
+    ],
+    "types": [
+        "psychic",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 97,
+        "atk": 167,
+        "def": 97,
+        "spa": 167,
+        "spd": 97,
+        "spe": 129
+    },
+    "moves": [
+    ]
+}

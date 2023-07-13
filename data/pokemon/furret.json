@@ -1,0 +1,21 @@
+{
+    "name": "Furret",
+    "abilities": [
+        "Run Away",
+        "Keen Eye",
+        "Frisk"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 76,
+        "def": 64,
+        "spa": 45,
+        "spd": 55,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

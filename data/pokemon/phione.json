@@ -1,0 +1,19 @@
+{
+    "name": "Phione",
+    "abilities": [
+        "Hydration"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 80,
+        "def": 80,
+        "spa": 80,
+        "spd": 80,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

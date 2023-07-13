@@ -1,0 +1,20 @@
+{
+    "name": "Dusknoir",
+    "abilities": [
+        "Pressure",
+        "Frisk"
+    ],
+    "types": [
+        "ghost"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 100,
+        "def": 135,
+        "spa": 65,
+        "spd": 135,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

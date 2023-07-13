@@ -1,0 +1,21 @@
+{
+    "name": "Mothim",
+    "abilities": [
+        "Swarm",
+        "Tinted Lens"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 94,
+        "def": 50,
+        "spa": 94,
+        "spd": 50,
+        "spe": 66
+    },
+    "moves": [
+    ]
+}

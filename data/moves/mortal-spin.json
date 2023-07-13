@@ -1,0 +1,19 @@
+{
+    "name": "Mortal Spin",
+    "category": "unique",
+    "target": "all-opponents",
+    "type": "poison",
+    "power": 30,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": "poison",
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": 100,
+    "minHits": null,
+    "maxHits": null
+}

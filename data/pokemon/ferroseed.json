@@ -1,0 +1,20 @@
+{
+    "name": "Ferroseed",
+    "abilities": [
+        "Iron Barbs"
+    ],
+    "types": [
+        "grass",
+        "steel"
+    ],
+    "stats": {
+        "hp": 44,
+        "atk": 50,
+        "def": 91,
+        "spa": 24,
+        "spd": 86,
+        "spe": 10
+    },
+    "moves": [
+    ]
+}

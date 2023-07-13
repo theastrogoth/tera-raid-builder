@@ -1,0 +1,21 @@
+{
+    "name": "Comfey",
+    "abilities": [
+        "Flower Veil",
+        "Triage",
+        "Natural Cure"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 51,
+        "atk": 52,
+        "def": 90,
+        "spa": 82,
+        "spd": 110,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

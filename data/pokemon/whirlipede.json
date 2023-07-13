@@ -1,0 +1,22 @@
+{
+    "name": "Whirlipede",
+    "abilities": [
+        "Poison Point",
+        "Swarm",
+        "Speed Boost"
+    ],
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 55,
+        "def": 99,
+        "spa": 40,
+        "spd": 79,
+        "spe": 47
+    },
+    "moves": [
+    ]
+}

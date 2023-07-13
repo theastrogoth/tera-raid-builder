@@ -1,0 +1,21 @@
+{
+    "name": "Vileplume",
+    "abilities": [
+        "Chlorophyll",
+        "Effect Spore"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 80,
+        "def": 85,
+        "spa": 110,
+        "spd": 90,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

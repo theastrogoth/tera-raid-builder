@@ -1,0 +1,19 @@
+{
+    "name": "Silk Trap",
+    "category": "unique",
+    "target": "user",
+    "type": "bug",
+    "power": 0,
+    "accuracy": null,
+    "priority": 4,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

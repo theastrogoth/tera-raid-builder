@@ -1,0 +1,21 @@
+{
+    "name": "Nidoran-M",
+    "abilities": [
+        "Poison Point",
+        "Rivalry",
+        "Hustle"
+    ],
+    "types": [
+        "poison"
+    ],
+    "stats": {
+        "hp": 46,
+        "atk": 57,
+        "def": 40,
+        "spa": 40,
+        "spd": 40,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

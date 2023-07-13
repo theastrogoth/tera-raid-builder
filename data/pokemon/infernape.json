@@ -1,0 +1,21 @@
+{
+    "name": "Infernape",
+    "abilities": [
+        "Blaze",
+        "Iron Fist"
+    ],
+    "types": [
+        "fire",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 76,
+        "atk": 104,
+        "def": 71,
+        "spa": 104,
+        "spd": 71,
+        "spe": 108
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Chimchar",
+    "abilities": [
+        "Blaze",
+        "Iron Fist"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 44,
+        "atk": 58,
+        "def": 44,
+        "spa": 58,
+        "spd": 44,
+        "spe": 61
+    },
+    "moves": [
+    ]
+}

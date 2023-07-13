@@ -1,0 +1,21 @@
+{
+    "name": "Meowth-Gmax",
+    "abilities": [
+        "Pickup",
+        "Technician",
+        "Unnerve"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 35,
+        "spa": 40,
+        "spd": 40,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

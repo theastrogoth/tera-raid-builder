@@ -1,0 +1,21 @@
+{
+    "name": "Mightyena",
+    "abilities": [
+        "Intimidate",
+        "Quick Feet",
+        "Moxie"
+    ],
+    "types": [
+        "dark"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 90,
+        "def": 70,
+        "spa": 60,
+        "spd": 60,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

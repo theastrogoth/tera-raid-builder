@@ -1,0 +1,21 @@
+{
+    "name": "Sentret",
+    "abilities": [
+        "Run Away",
+        "Keen Eye",
+        "Frisk"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 46,
+        "def": 34,
+        "spa": 35,
+        "spd": 45,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

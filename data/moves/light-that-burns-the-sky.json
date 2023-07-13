@@ -1,0 +1,19 @@
+{
+    "name": "Light That Burns The Sky",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "psychic",
+    "power": 200,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

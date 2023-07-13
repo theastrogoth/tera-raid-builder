@@ -1,0 +1,20 @@
+{
+    "name": "Latias",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "dragon",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 80,
+        "def": 90,
+        "spa": 110,
+        "spd": 130,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

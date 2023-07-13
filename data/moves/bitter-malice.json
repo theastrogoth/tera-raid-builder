@@ -1,0 +1,24 @@
+{
+    "name": "Bitter Malice",
+    "category": "damage+lower",
+    "target": "selected-pokemon",
+    "type": "ghost",
+    "power": 75,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": -1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 100,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

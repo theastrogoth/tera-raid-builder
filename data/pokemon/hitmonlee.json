@@ -1,0 +1,21 @@
+{
+    "name": "Hitmonlee",
+    "abilities": [
+        "Limber",
+        "Reckless",
+        "Unburden"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 120,
+        "def": 53,
+        "spa": 35,
+        "spd": 110,
+        "spe": 87
+    },
+    "moves": [
+    ]
+}

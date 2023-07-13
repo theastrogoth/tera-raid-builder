@@ -1,0 +1,19 @@
+{
+    "name": "Banette-Mega",
+    "abilities": [
+        "Prankster"
+    ],
+    "types": [
+        "ghost"
+    ],
+    "stats": {
+        "hp": 64,
+        "atk": 165,
+        "def": 75,
+        "spa": 93,
+        "spd": 83,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Seismitoad",
+    "abilities": [
+        "Swift Swim",
+        "Poison Touch",
+        "Water Absorb"
+    ],
+    "types": [
+        "water",
+        "ground"
+    ],
+    "stats": {
+        "hp": 105,
+        "atk": 95,
+        "def": 75,
+        "spa": 85,
+        "spd": 75,
+        "spe": 74
+    },
+    "moves": [
+    ]
+}

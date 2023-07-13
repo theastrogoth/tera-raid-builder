@@ -1,0 +1,20 @@
+{
+    "name": "Wartortle",
+    "abilities": [
+        "Torrent",
+        "Rain Dish"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 59,
+        "atk": 63,
+        "def": 80,
+        "spa": 65,
+        "spd": 80,
+        "spe": 58
+    },
+    "moves": [
+    ]
+}

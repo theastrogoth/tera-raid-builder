@@ -1,0 +1,22 @@
+{
+    "name": "Lapras-Gmax",
+    "abilities": [
+        "Water Absorb",
+        "Shell Armor",
+        "Hydration"
+    ],
+    "types": [
+        "water",
+        "ice"
+    ],
+    "stats": {
+        "hp": 130,
+        "atk": 85,
+        "def": 80,
+        "spa": 85,
+        "spd": 95,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

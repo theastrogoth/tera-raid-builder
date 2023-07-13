@@ -1,0 +1,21 @@
+{
+    "name": "Lopunny",
+    "abilities": [
+        "Cute Charm",
+        "Klutz",
+        "Limber"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 76,
+        "def": 84,
+        "spa": 54,
+        "spd": 96,
+        "spe": 105
+    },
+    "moves": [
+    ]
+}

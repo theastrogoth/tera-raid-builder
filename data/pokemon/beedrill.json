@@ -1,0 +1,21 @@
+{
+    "name": "Beedrill",
+    "abilities": [
+        "Swarm",
+        "Sniper"
+    ],
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 90,
+        "def": 40,
+        "spa": 45,
+        "spd": 80,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

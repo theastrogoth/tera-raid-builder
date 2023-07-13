@@ -1,0 +1,21 @@
+{
+    "name": "Liepard",
+    "abilities": [
+        "Limber",
+        "Unburden",
+        "Prankster"
+    ],
+    "types": [
+        "dark"
+    ],
+    "stats": {
+        "hp": 64,
+        "atk": 88,
+        "def": 50,
+        "spa": 88,
+        "spd": 50,
+        "spe": 106
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Shieldon",
+    "abilities": [
+        "Sturdy",
+        "Soundproof"
+    ],
+    "types": [
+        "rock",
+        "steel"
+    ],
+    "stats": {
+        "hp": 30,
+        "atk": 42,
+        "def": 118,
+        "spa": 42,
+        "spd": 88,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

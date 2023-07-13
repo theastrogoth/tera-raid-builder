@@ -1,0 +1,20 @@
+{
+    "name": "Scizor-Mega",
+    "abilities": [
+        "Technician"
+    ],
+    "types": [
+        "bug",
+        "steel"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 150,
+        "def": 140,
+        "spa": 65,
+        "spd": 100,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

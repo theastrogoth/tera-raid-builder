@@ -1,0 +1,19 @@
+{
+    "name": "Wishiwashi",
+    "abilities": [
+        "Schooling"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 20,
+        "def": 20,
+        "spa": 25,
+        "spd": 25,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

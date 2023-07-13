@@ -1,0 +1,22 @@
+{
+    "name": "Pangoro",
+    "abilities": [
+        "Iron Fist",
+        "Mold Breaker",
+        "Scrappy"
+    ],
+    "types": [
+        "fighting",
+        "dark"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 124,
+        "def": 78,
+        "spa": 69,
+        "spd": 71,
+        "spe": 58
+    },
+    "moves": [
+    ]
+}

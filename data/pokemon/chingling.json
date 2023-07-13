@@ -1,0 +1,19 @@
+{
+    "name": "Chingling",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 30,
+        "def": 50,
+        "spa": 65,
+        "spd": 50,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

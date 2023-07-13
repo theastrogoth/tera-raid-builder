@@ -1,0 +1,21 @@
+{
+    "name": "Conkeldurr",
+    "abilities": [
+        "Guts",
+        "Sheer Force",
+        "Iron Fist"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 105,
+        "atk": 140,
+        "def": 95,
+        "spa": 55,
+        "spd": 65,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

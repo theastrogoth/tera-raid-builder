@@ -1,0 +1,32 @@
+{
+    "name": "Quiver Dance",
+    "category": "net-good-stats",
+    "target": "user",
+    "type": "bug",
+    "power": null,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spa",
+            "change": 1
+        },
+        {
+            "stat": "spd",
+            "change": 1
+        },
+        {
+            "stat": "spe",
+            "change": 1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

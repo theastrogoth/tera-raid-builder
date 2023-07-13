@@ -1,0 +1,22 @@
+{
+    "name": "Aggron",
+    "abilities": [
+        "Sturdy",
+        "Rock Head",
+        "Heavy Metal"
+    ],
+    "types": [
+        "steel",
+        "rock"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 110,
+        "def": 180,
+        "spa": 60,
+        "spd": 60,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

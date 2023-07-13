@@ -1,0 +1,22 @@
+{
+    "name": "Dewgong",
+    "abilities": [
+        "Thick Fat",
+        "Hydration",
+        "Ice Body"
+    ],
+    "types": [
+        "water",
+        "ice"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 70,
+        "def": 80,
+        "spa": 70,
+        "spd": 95,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

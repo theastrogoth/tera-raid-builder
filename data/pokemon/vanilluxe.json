@@ -1,0 +1,21 @@
+{
+    "name": "Vanilluxe",
+    "abilities": [
+        "Ice Body",
+        "Snow Warning",
+        "Weak Armor"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 71,
+        "atk": 95,
+        "def": 85,
+        "spa": 110,
+        "spd": 95,
+        "spe": 79
+    },
+    "moves": [
+    ]
+}

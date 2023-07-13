@@ -1,0 +1,20 @@
+{
+    "name": "Tepig",
+    "abilities": [
+        "Blaze",
+        "Thick Fat"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 63,
+        "def": 45,
+        "spa": 45,
+        "spd": 45,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Stakataka",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "rock",
+        "steel"
+    ],
+    "stats": {
+        "hp": 61,
+        "atk": 131,
+        "def": 211,
+        "spa": 53,
+        "spd": 101,
+        "spe": 13
+    },
+    "moves": [
+    ]
+}

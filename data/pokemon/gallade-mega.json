@@ -1,0 +1,20 @@
+{
+    "name": "Gallade-Mega",
+    "abilities": [
+        "Inner Focus"
+    ],
+    "types": [
+        "psychic",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 68,
+        "atk": 165,
+        "def": 95,
+        "spa": 65,
+        "spd": 115,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

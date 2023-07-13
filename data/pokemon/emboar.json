@@ -1,0 +1,21 @@
+{
+    "name": "Emboar",
+    "abilities": [
+        "Blaze",
+        "Reckless"
+    ],
+    "types": [
+        "fire",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 123,
+        "def": 65,
+        "spa": 100,
+        "spd": 65,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

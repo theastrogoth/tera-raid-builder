@@ -1,0 +1,22 @@
+{
+    "name": "Arctozolt",
+    "abilities": [
+        "Volt Absorb",
+        "Static",
+        "Slush Rush"
+    ],
+    "types": [
+        "electric",
+        "ice"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 100,
+        "def": 90,
+        "spa": 90,
+        "spd": 80,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

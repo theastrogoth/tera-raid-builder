@@ -1,0 +1,20 @@
+{
+    "name": "Darumaka-Galar",
+    "abilities": [
+        "Hustle",
+        "Inner Focus"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 90,
+        "def": 45,
+        "spa": 15,
+        "spd": 45,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

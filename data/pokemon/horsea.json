@@ -1,0 +1,21 @@
+{
+    "name": "Horsea",
+    "abilities": [
+        "Swift Swim",
+        "Sniper",
+        "Damp"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 30,
+        "atk": 40,
+        "def": 70,
+        "spa": 70,
+        "spd": 25,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

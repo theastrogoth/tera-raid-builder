@@ -1,0 +1,19 @@
+{
+    "name": "Xerneas",
+    "abilities": [
+        "Fairy Aura"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 126,
+        "atk": 131,
+        "def": 95,
+        "spa": 131,
+        "spd": 98,
+        "spe": 99
+    },
+    "moves": [
+    ]
+}

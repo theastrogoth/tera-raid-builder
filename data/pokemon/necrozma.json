@@ -1,0 +1,19 @@
+{
+    "name": "Necrozma",
+    "abilities": [
+        "Prism Armor"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 97,
+        "atk": 107,
+        "def": 101,
+        "spa": 127,
+        "spd": 89,
+        "spe": 79
+    },
+    "moves": [
+    ]
+}

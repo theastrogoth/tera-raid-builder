@@ -1,0 +1,20 @@
+{
+    "name": "Lopunny-Mega",
+    "abilities": [
+        "Scrappy"
+    ],
+    "types": [
+        "normal",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 136,
+        "def": 94,
+        "spa": 54,
+        "spd": 96,
+        "spe": 135
+    },
+    "moves": [
+    ]
+}

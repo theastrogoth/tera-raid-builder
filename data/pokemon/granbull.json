@@ -1,0 +1,21 @@
+{
+    "name": "Granbull",
+    "abilities": [
+        "Intimidate",
+        "Quick Feet",
+        "Rattled"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 120,
+        "def": 75,
+        "spa": 60,
+        "spd": 60,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

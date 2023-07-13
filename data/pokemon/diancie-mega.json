@@ -1,0 +1,20 @@
+{
+    "name": "Diancie-Mega",
+    "abilities": [
+        "Magic Bounce"
+    ],
+    "types": [
+        "rock",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 160,
+        "def": 110,
+        "spa": 160,
+        "spd": 110,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

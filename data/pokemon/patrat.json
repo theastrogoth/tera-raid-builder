@@ -1,0 +1,21 @@
+{
+    "name": "Patrat",
+    "abilities": [
+        "Run Away",
+        "Keen Eye",
+        "Analytic"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 55,
+        "def": 39,
+        "spa": 35,
+        "spd": 39,
+        "spe": 42
+    },
+    "moves": [
+    ]
+}

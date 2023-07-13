@@ -1,0 +1,20 @@
+{
+    "name": "Ampharos-Mega",
+    "abilities": [
+        "Mold Breaker"
+    ],
+    "types": [
+        "electric",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 95,
+        "def": 105,
+        "spa": 165,
+        "spd": 110,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

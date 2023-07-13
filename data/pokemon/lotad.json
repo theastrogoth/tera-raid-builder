@@ -1,0 +1,22 @@
+{
+    "name": "Lotad",
+    "abilities": [
+        "Swift Swim",
+        "Rain Dish",
+        "Own Tempo"
+    ],
+    "types": [
+        "water",
+        "grass"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 30,
+        "def": 30,
+        "spa": 40,
+        "spd": 50,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

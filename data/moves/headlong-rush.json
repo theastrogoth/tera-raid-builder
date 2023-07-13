@@ -1,0 +1,28 @@
+{
+    "name": "Headlong Rush",
+    "category": "damage+raise",
+    "target": "selected-pokemon",
+    "type": "ground",
+    "power": 120,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "change": -1
+        },
+        {
+            "stat": "spd",
+            "change": -1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 100,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

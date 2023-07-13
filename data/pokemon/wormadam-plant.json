@@ -1,0 +1,21 @@
+{
+    "name": "Wormadam-Plant",
+    "abilities": [
+        "Anticipation",
+        "Overcoat"
+    ],
+    "types": [
+        "bug",
+        "grass"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 59,
+        "def": 85,
+        "spa": 79,
+        "spd": 105,
+        "spe": 36
+    },
+    "moves": [
+    ]
+}

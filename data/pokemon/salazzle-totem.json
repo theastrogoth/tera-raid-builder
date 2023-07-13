@@ -1,0 +1,21 @@
+{
+    "name": "Salazzle-Totem",
+    "abilities": [
+        "Corrosion",
+        "Oblivious"
+    ],
+    "types": [
+        "poison",
+        "fire"
+    ],
+    "stats": {
+        "hp": 68,
+        "atk": 64,
+        "def": 60,
+        "spa": 111,
+        "spd": 60,
+        "spe": 117
+    },
+    "moves": [
+    ]
+}

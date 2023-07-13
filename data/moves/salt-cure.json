@@ -1,0 +1,19 @@
+{
+    "name": "Salt Cure",
+    "category": "unique",
+    "target": "selected-pokemon",
+    "type": "rock",
+    "power": 40,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

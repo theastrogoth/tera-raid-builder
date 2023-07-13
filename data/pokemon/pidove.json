@@ -1,0 +1,22 @@
+{
+    "name": "Pidove",
+    "abilities": [
+        "Big Pecks",
+        "Super Luck",
+        "Rivalry"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 55,
+        "def": 50,
+        "spa": 36,
+        "spd": 30,
+        "spe": 43
+    },
+    "moves": [
+    ]
+}

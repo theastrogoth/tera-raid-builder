@@ -1,0 +1,20 @@
+{
+    "name": "Steelix-Mega",
+    "abilities": [
+        "Sand Force"
+    ],
+    "types": [
+        "steel",
+        "ground"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 125,
+        "def": 230,
+        "spa": 55,
+        "spd": 95,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

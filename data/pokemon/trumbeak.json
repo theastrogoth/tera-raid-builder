@@ -1,0 +1,22 @@
+{
+    "name": "Trumbeak",
+    "abilities": [
+        "Keen Eye",
+        "Skill Link",
+        "Pickup"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 85,
+        "def": 50,
+        "spa": 40,
+        "spd": 50,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

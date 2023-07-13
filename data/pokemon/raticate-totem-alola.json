@@ -1,0 +1,22 @@
+{
+    "name": "Raticate-Totem-Alola",
+    "abilities": [
+        "Gluttony",
+        "Hustle",
+        "Thick Fat"
+    ],
+    "types": [
+        "dark",
+        "normal"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 71,
+        "def": 70,
+        "spa": 40,
+        "spd": 80,
+        "spe": 77
+    },
+    "moves": [
+    ]
+}

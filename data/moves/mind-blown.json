@@ -1,0 +1,19 @@
+{
+    "name": "Mind Blown",
+    "category": "damage",
+    "target": "all-other-pokemon",
+    "type": "fire",
+    "power": 150,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": 50,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

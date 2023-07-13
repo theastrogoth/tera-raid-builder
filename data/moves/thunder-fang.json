@@ -1,0 +1,19 @@
+{
+    "name": "Thunder Fang",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "electric",
+    "power": 65,
+    "accuracy": 95,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "paralysis",
+    "statChanges": null,
+    "flinchChance": 10,
+    "statChance": 0,
+    "ailmentChance": 10,
+    "minHits": null,
+    "maxHits": null
+}

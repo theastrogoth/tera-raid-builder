@@ -1,0 +1,21 @@
+{
+    "name": "Lillipup",
+    "abilities": [
+        "Vital Spirit",
+        "Pickup",
+        "Run Away"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 60,
+        "def": 45,
+        "spa": 25,
+        "spd": 45,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

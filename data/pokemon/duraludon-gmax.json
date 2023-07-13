@@ -1,0 +1,22 @@
+{
+    "name": "Duraludon-Gmax",
+    "abilities": [
+        "Light Metal",
+        "Heavy Metal",
+        "Stalwart"
+    ],
+    "types": [
+        "steel",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 95,
+        "def": 115,
+        "spa": 120,
+        "spd": 50,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

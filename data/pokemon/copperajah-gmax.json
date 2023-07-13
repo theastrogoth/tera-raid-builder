@@ -1,0 +1,20 @@
+{
+    "name": "Copperajah-Gmax",
+    "abilities": [
+        "Sheer Force",
+        "Heavy Metal"
+    ],
+    "types": [
+        "steel"
+    ],
+    "stats": {
+        "hp": 122,
+        "atk": 130,
+        "def": 69,
+        "spa": 80,
+        "spd": 69,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

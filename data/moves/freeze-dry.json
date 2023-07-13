@@ -1,0 +1,19 @@
+{
+    "name": "Freeze-Dry",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "ice",
+    "power": 70,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "freeze",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 10,
+    "minHits": null,
+    "maxHits": null
+}

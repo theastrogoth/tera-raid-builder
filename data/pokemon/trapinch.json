@@ -1,0 +1,21 @@
+{
+    "name": "Trapinch",
+    "abilities": [
+        "Hyper Cutter",
+        "Arena Trap",
+        "Sheer Force"
+    ],
+    "types": [
+        "ground"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 100,
+        "def": 45,
+        "spa": 45,
+        "spd": 45,
+        "spe": 10
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Bunnelby",
+    "abilities": [
+        "Pickup",
+        "Cheek Pouch",
+        "Huge Power"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 38,
+        "atk": 36,
+        "def": 38,
+        "spa": 32,
+        "spd": 36,
+        "spe": 57
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Stoutland",
+    "abilities": [
+        "Intimidate",
+        "Sand Rush",
+        "Scrappy"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 110,
+        "def": 90,
+        "spa": 45,
+        "spd": 90,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

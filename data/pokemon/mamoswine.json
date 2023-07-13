@@ -1,0 +1,22 @@
+{
+    "name": "Mamoswine",
+    "abilities": [
+        "Oblivious",
+        "Snow Cloak",
+        "Thick Fat"
+    ],
+    "types": [
+        "ice",
+        "ground"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 130,
+        "def": 80,
+        "spa": 70,
+        "spd": 60,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

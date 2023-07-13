@@ -1,0 +1,22 @@
+{
+    "name": "Diggersby",
+    "abilities": [
+        "Pickup",
+        "Cheek Pouch",
+        "Huge Power"
+    ],
+    "types": [
+        "normal",
+        "ground"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 56,
+        "def": 77,
+        "spa": 50,
+        "spd": 77,
+        "spe": 78
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Swadloon",
+    "abilities": [
+        "Leaf Guard",
+        "Chlorophyll",
+        "Overcoat"
+    ],
+    "types": [
+        "bug",
+        "grass"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 63,
+        "def": 90,
+        "spa": 50,
+        "spd": 80,
+        "spe": 42
+    },
+    "moves": [
+    ]
+}

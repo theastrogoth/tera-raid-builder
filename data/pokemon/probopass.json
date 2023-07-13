@@ -1,0 +1,22 @@
+{
+    "name": "Probopass",
+    "abilities": [
+        "Sturdy",
+        "Magnet Pull",
+        "Sand Force"
+    ],
+    "types": [
+        "rock",
+        "steel"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 55,
+        "def": 145,
+        "spa": 75,
+        "spd": 150,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

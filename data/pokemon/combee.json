@@ -1,0 +1,49 @@
+{
+    "name": "Combee",
+    "abilities": [
+        "Honey Gather",
+        "Hustle"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 30,
+        "atk": 30,
+        "def": 42,
+        "spa": 30,
+        "spd": 42,
+        "spe": 70
+    },
+    "moves": [
+        {
+            "name": "Bug Bite",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Bug Buzz",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Gust",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Struggle Bug",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sweet Scent",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        }
+    ]
+}

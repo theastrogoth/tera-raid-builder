@@ -1,0 +1,22 @@
+{
+    "name": "Nidoking",
+    "abilities": [
+        "Poison Point",
+        "Rivalry",
+        "Sheer Force"
+    ],
+    "types": [
+        "poison",
+        "ground"
+    ],
+    "stats": {
+        "hp": 81,
+        "atk": 102,
+        "def": 77,
+        "spa": 85,
+        "spd": 75,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

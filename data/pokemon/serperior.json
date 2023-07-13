@@ -1,0 +1,20 @@
+{
+    "name": "Serperior",
+    "abilities": [
+        "Overgrow",
+        "Contrary"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 75,
+        "def": 95,
+        "spa": 75,
+        "spd": 95,
+        "spe": 113
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Marowak",
+    "abilities": [
+        "Rock Head",
+        "Lightning Rod",
+        "Battle Armor"
+    ],
+    "types": [
+        "ground"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 80,
+        "def": 110,
+        "spa": 50,
+        "spd": 80,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

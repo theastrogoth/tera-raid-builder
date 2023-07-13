@@ -1,0 +1,22 @@
+{
+    "name": "Mantine",
+    "abilities": [
+        "Swift Swim",
+        "Water Absorb",
+        "Water Veil"
+    ],
+    "types": [
+        "water",
+        "flying"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 40,
+        "def": 70,
+        "spa": 80,
+        "spd": 140,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

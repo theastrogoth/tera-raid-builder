@@ -1,0 +1,20 @@
+{
+    "name": "Kecleon",
+    "abilities": [
+        "Color Change",
+        "Protean"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 90,
+        "def": 70,
+        "spa": 60,
+        "spd": 120,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "name": "Crush Claw",
+    "category": "damage+lower",
+    "target": "selected-pokemon",
+    "type": "normal",
+    "power": 75,
+    "accuracy": 95,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "change": -1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 50,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

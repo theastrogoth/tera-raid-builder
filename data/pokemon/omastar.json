@@ -1,0 +1,22 @@
+{
+    "name": "Omastar",
+    "abilities": [
+        "Swift Swim",
+        "Shell Armor",
+        "Weak Armor"
+    ],
+    "types": [
+        "rock",
+        "water"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 60,
+        "def": 125,
+        "spa": 115,
+        "spd": 70,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Brionne",
+    "abilities": [
+        "Torrent",
+        "Liquid Voice"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 69,
+        "def": 69,
+        "spa": 91,
+        "spd": 81,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

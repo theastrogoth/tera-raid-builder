@@ -1,0 +1,19 @@
+{
+    "name": "Smog",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "poison",
+    "power": 30,
+    "accuracy": 70,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "poison",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 40,
+    "minHits": null,
+    "maxHits": null
+}

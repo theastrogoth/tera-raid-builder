@@ -1,0 +1,20 @@
+{
+    "name": "Charizard-Mega-X",
+    "abilities": [
+        "Tough Claws"
+    ],
+    "types": [
+        "fire",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 78,
+        "atk": 130,
+        "def": 111,
+        "spa": 130,
+        "spd": 85,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

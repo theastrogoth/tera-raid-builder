@@ -1,0 +1,19 @@
+{
+    "name": "Chimecho",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 50,
+        "def": 80,
+        "spa": 95,
+        "spd": 90,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

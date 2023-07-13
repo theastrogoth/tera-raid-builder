@@ -1,0 +1,19 @@
+{
+    "name": "Castform-Snowy",
+    "abilities": [
+        "Forecast"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 70,
+        "def": 70,
+        "spa": 70,
+        "spd": 70,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Alakazam",
+    "abilities": [
+        "Synchronize",
+        "Inner Focus",
+        "Magic Guard"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 50,
+        "def": 45,
+        "spa": 135,
+        "spd": 95,
+        "spe": 120
+    },
+    "moves": [
+    ]
+}

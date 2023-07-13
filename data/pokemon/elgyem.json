@@ -1,0 +1,21 @@
+{
+    "name": "Elgyem",
+    "abilities": [
+        "Telepathy",
+        "Synchronize",
+        "Analytic"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 55,
+        "def": 55,
+        "spa": 85,
+        "spd": 55,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

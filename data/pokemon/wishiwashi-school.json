@@ -1,0 +1,19 @@
+{
+    "name": "Wishiwashi-School",
+    "abilities": [
+        "Schooling"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 140,
+        "def": 130,
+        "spa": 140,
+        "spd": 135,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

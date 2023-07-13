@@ -1,0 +1,19 @@
+{
+    "name": "Lunar Blessing",
+    "category": "unique",
+    "target": "all-allies",
+    "type": "psychic",
+    "power": 0,
+    "accuracy": null,
+    "priority": 0,
+    "drain": null,
+    "healing": 25,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Smack Down",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "rock",
+    "power": 50,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "unknown",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 100,
+    "minHits": null,
+    "maxHits": null
+}

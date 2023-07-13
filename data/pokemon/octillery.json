@@ -1,0 +1,21 @@
+{
+    "name": "Octillery",
+    "abilities": [
+        "Suction Cups",
+        "Sniper",
+        "Moody"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 105,
+        "def": 75,
+        "spa": 105,
+        "spd": 75,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

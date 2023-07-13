@@ -1,0 +1,21 @@
+{
+    "name": "Klink",
+    "abilities": [
+        "Plus",
+        "Minus",
+        "Clear Body"
+    ],
+    "types": [
+        "steel"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 55,
+        "def": 70,
+        "spa": 45,
+        "spd": 60,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

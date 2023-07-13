@@ -1,0 +1,22 @@
+{
+    "name": "Dracozolt",
+    "abilities": [
+        "Volt Absorb",
+        "Hustle",
+        "Sand Rush"
+    ],
+    "types": [
+        "electric",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 100,
+        "def": 90,
+        "spa": 80,
+        "spd": 70,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

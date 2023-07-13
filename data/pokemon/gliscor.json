@@ -1,0 +1,22 @@
+{
+    "name": "Gliscor",
+    "abilities": [
+        "Hyper Cutter",
+        "Sand Veil",
+        "Poison Heal"
+    ],
+    "types": [
+        "ground",
+        "flying"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 95,
+        "def": 125,
+        "spa": 45,
+        "spd": 75,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

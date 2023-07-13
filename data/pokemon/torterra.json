@@ -1,0 +1,21 @@
+{
+    "name": "Torterra",
+    "abilities": [
+        "Overgrow",
+        "Shell Armor"
+    ],
+    "types": [
+        "grass",
+        "ground"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 109,
+        "def": 105,
+        "spa": 75,
+        "spd": 85,
+        "spe": 56
+    },
+    "moves": [
+    ]
+}

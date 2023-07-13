@@ -1,0 +1,20 @@
+{
+    "name": "Rayquaza-Mega",
+    "abilities": [
+        "Delta Stream"
+    ],
+    "types": [
+        "dragon",
+        "flying"
+    ],
+    "stats": {
+        "hp": 105,
+        "atk": 180,
+        "def": 100,
+        "spa": 180,
+        "spd": 100,
+        "spe": 115
+    },
+    "moves": [
+    ]
+}

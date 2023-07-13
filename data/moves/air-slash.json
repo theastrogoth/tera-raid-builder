@@ -1,0 +1,19 @@
+{
+    "name": "Air Slash",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "flying",
+    "power": 75,
+    "accuracy": 95,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 30,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

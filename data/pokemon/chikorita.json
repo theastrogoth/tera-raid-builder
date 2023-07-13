@@ -1,0 +1,20 @@
+{
+    "name": "Chikorita",
+    "abilities": [
+        "Overgrow",
+        "Leaf Guard"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 49,
+        "def": 65,
+        "spa": 49,
+        "spd": 65,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

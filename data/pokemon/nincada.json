@@ -1,0 +1,21 @@
+{
+    "name": "Nincada",
+    "abilities": [
+        "Compound Eyes",
+        "Run Away"
+    ],
+    "types": [
+        "bug",
+        "ground"
+    ],
+    "stats": {
+        "hp": 31,
+        "atk": 45,
+        "def": 90,
+        "spa": 30,
+        "spd": 30,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

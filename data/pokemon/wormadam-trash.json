@@ -1,0 +1,21 @@
+{
+    "name": "Wormadam-Trash",
+    "abilities": [
+        "Anticipation",
+        "Overcoat"
+    ],
+    "types": [
+        "bug",
+        "steel"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 69,
+        "def": 95,
+        "spa": 69,
+        "spd": 95,
+        "spe": 36
+    },
+    "moves": [
+    ]
+}

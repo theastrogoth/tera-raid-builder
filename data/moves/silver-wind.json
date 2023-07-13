@@ -1,0 +1,40 @@
+{
+    "name": "Silver Wind",
+    "category": "damage+raise",
+    "target": "selected-pokemon",
+    "type": "bug",
+    "power": 60,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 1
+        },
+        {
+            "stat": "def",
+            "change": 1
+        },
+        {
+            "stat": "spa",
+            "change": 1
+        },
+        {
+            "stat": "spd",
+            "change": 1
+        },
+        {
+            "stat": "spe",
+            "change": 1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 10,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

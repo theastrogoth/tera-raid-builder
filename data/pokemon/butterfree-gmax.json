@@ -1,0 +1,21 @@
+{
+    "name": "Butterfree-Gmax",
+    "abilities": [
+        "Compound Eyes",
+        "Tinted Lens"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 45,
+        "def": 50,
+        "spa": 90,
+        "spd": 80,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Parasect",
+    "abilities": [
+        "Effect Spore",
+        "Dry Skin",
+        "Damp"
+    ],
+    "types": [
+        "bug",
+        "grass"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 95,
+        "def": 80,
+        "spa": 60,
+        "spd": 80,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

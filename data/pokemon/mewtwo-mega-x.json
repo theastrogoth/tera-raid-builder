@@ -1,0 +1,20 @@
+{
+    "name": "Mewtwo-Mega-X",
+    "abilities": [
+        "Steadfast"
+    ],
+    "types": [
+        "psychic",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 106,
+        "atk": 190,
+        "def": 100,
+        "spa": 154,
+        "spd": 100,
+        "spe": 130
+    },
+    "moves": [
+    ]
+}

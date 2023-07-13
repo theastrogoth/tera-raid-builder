@@ -1,0 +1,21 @@
+{
+    "name": "Tangrowth",
+    "abilities": [
+        "Chlorophyll",
+        "Leaf Guard",
+        "Regenerator"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 100,
+        "def": 125,
+        "spa": 110,
+        "spd": 50,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Mawile",
+    "abilities": [
+        "Hyper Cutter",
+        "Intimidate",
+        "Sheer Force"
+    ],
+    "types": [
+        "steel",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 85,
+        "def": 85,
+        "spa": 55,
+        "spd": 55,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

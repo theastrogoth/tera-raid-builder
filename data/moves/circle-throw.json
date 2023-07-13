@@ -1,0 +1,19 @@
+{
+    "name": "Circle Throw",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "fighting",
+    "power": 60,
+    "accuracy": 90,
+    "priority": -6,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

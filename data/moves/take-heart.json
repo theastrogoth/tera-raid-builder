@@ -1,0 +1,28 @@
+{
+    "name": "Take Heart",
+    "category": "net-good-stats",
+    "target": "user",
+    "type": "psychic",
+    "power": 0,
+    "accuracy": null,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spa",
+            "change": 1
+        },
+        {
+            "stat": "spd",
+            "change": 1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

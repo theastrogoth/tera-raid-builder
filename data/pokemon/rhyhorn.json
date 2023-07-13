@@ -1,0 +1,22 @@
+{
+    "name": "Rhyhorn",
+    "abilities": [
+        "Lightning Rod",
+        "Rock Head",
+        "Reckless"
+    ],
+    "types": [
+        "ground",
+        "rock"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 85,
+        "def": 95,
+        "spa": 30,
+        "spd": 30,
+        "spe": 25
+    },
+    "moves": [
+    ]
+}

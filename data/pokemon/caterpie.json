@@ -1,0 +1,20 @@
+{
+    "name": "Caterpie",
+    "abilities": [
+        "Shield Dust",
+        "Run Away"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 30,
+        "def": 35,
+        "spa": 20,
+        "spd": 20,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

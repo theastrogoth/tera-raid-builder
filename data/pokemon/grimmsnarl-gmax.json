@@ -1,0 +1,22 @@
+{
+    "name": "Grimmsnarl-Gmax",
+    "abilities": [
+        "Prankster",
+        "Frisk",
+        "Pickpocket"
+    ],
+    "types": [
+        "dark",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 120,
+        "def": 65,
+        "spa": 95,
+        "spd": 75,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

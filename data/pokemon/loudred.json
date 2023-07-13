@@ -1,0 +1,20 @@
+{
+    "name": "Loudred",
+    "abilities": [
+        "Soundproof",
+        "Scrappy"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 84,
+        "atk": 71,
+        "def": 43,
+        "spa": 71,
+        "spd": 43,
+        "spe": 48
+    },
+    "moves": [
+    ]
+}

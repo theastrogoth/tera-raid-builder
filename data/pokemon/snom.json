@@ -1,0 +1,77 @@
+{
+    "name": "Snom",
+    "abilities": [
+        "Shield Dust",
+        "Ice Scales"
+    ],
+    "types": [
+        "ice",
+        "bug"
+    ],
+    "stats": {
+        "hp": 30,
+        "atk": 25,
+        "def": 35,
+        "spa": 45,
+        "spd": 30,
+        "spe": 20
+    },
+    "moves": [
+        {
+            "name": "Bug Bite",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Bug Buzz",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fairy Wind",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mirror Coat",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Pounce",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Powder Snow",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Struggle Bug",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        }
+    ]
+}

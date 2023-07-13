@@ -1,0 +1,20 @@
+{
+    "name": "Naganadel",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "poison",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 73,
+        "atk": 73,
+        "def": 73,
+        "spa": 127,
+        "spd": 73,
+        "spe": 121
+    },
+    "moves": [
+    ]
+}

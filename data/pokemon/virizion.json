@@ -1,0 +1,20 @@
+{
+    "name": "Virizion",
+    "abilities": [
+        "Justified"
+    ],
+    "types": [
+        "grass",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 91,
+        "atk": 90,
+        "def": 72,
+        "spa": 90,
+        "spd": 129,
+        "spe": 108
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Gourgeist-Small",
+    "abilities": [
+        "Pickup",
+        "Frisk",
+        "Insomnia"
+    ],
+    "types": [
+        "ghost",
+        "grass"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 85,
+        "def": 122,
+        "spa": 58,
+        "spd": 75,
+        "spe": 99
+    },
+    "moves": [
+    ]
+}

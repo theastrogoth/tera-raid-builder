@@ -1,0 +1,22 @@
+{
+    "name": "Hatterene-Gmax",
+    "abilities": [
+        "Healer",
+        "Anticipation",
+        "Magic Bounce"
+    ],
+    "types": [
+        "psychic",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 57,
+        "atk": 90,
+        "def": 95,
+        "spa": 136,
+        "spd": 103,
+        "spe": 29
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Cradily",
+    "abilities": [
+        "Suction Cups",
+        "Storm Drain"
+    ],
+    "types": [
+        "rock",
+        "grass"
+    ],
+    "stats": {
+        "hp": 86,
+        "atk": 81,
+        "def": 97,
+        "spa": 81,
+        "spd": 107,
+        "spe": 43
+    },
+    "moves": [
+    ]
+}

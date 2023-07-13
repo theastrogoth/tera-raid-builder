@@ -1,0 +1,22 @@
+{
+    "name": "Spinarak",
+    "abilities": [
+        "Swarm",
+        "Insomnia",
+        "Sniper"
+    ],
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 60,
+        "def": 40,
+        "spa": 40,
+        "spd": 40,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Flower Trick",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "grass",
+    "power": 70,
+    "accuracy": null,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

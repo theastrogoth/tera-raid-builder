@@ -1,0 +1,40 @@
+{
+    "name": "Clangorous Soul",
+    "category": "net-good-stats",
+    "target": "user",
+    "type": "dragon",
+    "power": null,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": -33,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 1
+        },
+        {
+            "stat": "def",
+            "change": 1
+        },
+        {
+            "stat": "spa",
+            "change": 1
+        },
+        {
+            "stat": "spd",
+            "change": 1
+        },
+        {
+            "stat": "spe",
+            "change": 1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 100,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

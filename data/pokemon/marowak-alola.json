@@ -1,0 +1,22 @@
+{
+    "name": "Marowak-Alola",
+    "abilities": [
+        "Cursed Body",
+        "Lightning Rod",
+        "Rock Head"
+    ],
+    "types": [
+        "fire",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 80,
+        "def": 110,
+        "spa": 50,
+        "spd": 80,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Dhelmise",
+    "abilities": [
+        "Steelworker"
+    ],
+    "types": [
+        "ghost",
+        "grass"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 131,
+        "def": 100,
+        "spa": 86,
+        "spd": 90,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

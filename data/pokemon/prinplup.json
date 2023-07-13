@@ -1,0 +1,20 @@
+{
+    "name": "Prinplup",
+    "abilities": [
+        "Torrent",
+        "Defiant"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 64,
+        "atk": 66,
+        "def": 68,
+        "spa": 81,
+        "spd": 76,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

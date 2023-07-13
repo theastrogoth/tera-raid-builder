@@ -1,0 +1,21 @@
+{
+    "name": "Purugly",
+    "abilities": [
+        "Thick Fat",
+        "Own Tempo",
+        "Defiant"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 71,
+        "atk": 82,
+        "def": 64,
+        "spa": 64,
+        "spd": 59,
+        "spe": 112
+    },
+    "moves": [
+    ]
+}

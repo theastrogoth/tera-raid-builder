@@ -1,0 +1,21 @@
+{
+    "name": "Seedot",
+    "abilities": [
+        "Chlorophyll",
+        "Early Bird",
+        "Pickpocket"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 40,
+        "def": 50,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

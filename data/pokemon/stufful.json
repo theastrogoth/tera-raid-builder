@@ -1,0 +1,22 @@
+{
+    "name": "Stufful",
+    "abilities": [
+        "Fluffy",
+        "Klutz",
+        "Cute Charm"
+    ],
+    "types": [
+        "normal",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 75,
+        "def": 50,
+        "spa": 45,
+        "spd": 50,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

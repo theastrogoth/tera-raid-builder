@@ -1,0 +1,24 @@
+{
+    "name": "String Shot",
+    "category": "net-good-stats",
+    "target": "all-opponents",
+    "type": "bug",
+    "power": null,
+    "accuracy": 95,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spe",
+            "change": -2
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

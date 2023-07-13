@@ -1,0 +1,22 @@
+{
+    "name": "Yanma",
+    "abilities": [
+        "Speed Boost",
+        "Compound Eyes",
+        "Frisk"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 65,
+        "def": 45,
+        "spa": 75,
+        "spd": 45,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

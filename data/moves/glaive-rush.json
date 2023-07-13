@@ -1,0 +1,19 @@
+{
+    "name": "Glaive Rush",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "dragon",
+    "power": 120,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

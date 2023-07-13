@@ -1,0 +1,21 @@
+{
+    "name": "Ferrothorn",
+    "abilities": [
+        "Iron Barbs",
+        "Anticipation"
+    ],
+    "types": [
+        "grass",
+        "steel"
+    ],
+    "stats": {
+        "hp": 74,
+        "atk": 94,
+        "def": 131,
+        "spa": 54,
+        "spd": 116,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

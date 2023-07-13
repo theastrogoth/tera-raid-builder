@@ -1,0 +1,21 @@
+{
+    "name": "Tyrantrum",
+    "abilities": [
+        "Strong Jaw",
+        "Rock Head"
+    ],
+    "types": [
+        "rock",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 82,
+        "atk": 121,
+        "def": 119,
+        "spa": 69,
+        "spd": 59,
+        "spe": 71
+    },
+    "moves": [
+    ]
+}

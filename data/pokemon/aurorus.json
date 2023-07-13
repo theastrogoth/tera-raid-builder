@@ -1,0 +1,21 @@
+{
+    "name": "Aurorus",
+    "abilities": [
+        "Refrigerate",
+        "Snow Warning"
+    ],
+    "types": [
+        "rock",
+        "ice"
+    ],
+    "stats": {
+        "hp": 123,
+        "atk": 77,
+        "def": 72,
+        "spa": 99,
+        "spd": 92,
+        "spe": 58
+    },
+    "moves": [
+    ]
+}

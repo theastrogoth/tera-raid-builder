@@ -1,0 +1,22 @@
+{
+    "name": "Venipede",
+    "abilities": [
+        "Poison Point",
+        "Swarm",
+        "Speed Boost"
+    ],
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "stats": {
+        "hp": 30,
+        "atk": 45,
+        "def": 59,
+        "spa": 30,
+        "spd": 39,
+        "spe": 57
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "name": "Aromatic Mist",
+    "category": "net-good-stats",
+    "target": "ally",
+    "type": "fairy",
+    "power": null,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spd",
+            "change": 1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

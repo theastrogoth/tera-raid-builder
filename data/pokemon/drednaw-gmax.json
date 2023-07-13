@@ -1,0 +1,22 @@
+{
+    "name": "Drednaw-Gmax",
+    "abilities": [
+        "Strong Jaw",
+        "Shell Armor",
+        "Swift Swim"
+    ],
+    "types": [
+        "water",
+        "rock"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 115,
+        "def": 90,
+        "spa": 48,
+        "spd": 68,
+        "spe": 74
+    },
+    "moves": [
+    ]
+}

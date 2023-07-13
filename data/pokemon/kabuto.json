@@ -1,0 +1,22 @@
+{
+    "name": "Kabuto",
+    "abilities": [
+        "Swift Swim",
+        "Battle Armor",
+        "Weak Armor"
+    ],
+    "types": [
+        "rock",
+        "water"
+    ],
+    "stats": {
+        "hp": 30,
+        "atk": 80,
+        "def": 90,
+        "spa": 55,
+        "spd": 45,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Tyranitar-Mega",
+    "abilities": [
+        "Sand Stream"
+    ],
+    "types": [
+        "rock",
+        "dark"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 164,
+        "def": 150,
+        "spa": 95,
+        "spd": 120,
+        "spe": 71
+    },
+    "moves": [
+    ]
+}

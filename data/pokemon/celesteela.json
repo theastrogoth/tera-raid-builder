@@ -1,0 +1,20 @@
+{
+    "name": "Celesteela",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "steel",
+        "flying"
+    ],
+    "stats": {
+        "hp": 97,
+        "atk": 101,
+        "def": 103,
+        "spa": 107,
+        "spd": 101,
+        "spe": 61
+    },
+    "moves": [
+    ]
+}

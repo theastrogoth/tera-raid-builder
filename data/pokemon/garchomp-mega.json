@@ -1,0 +1,20 @@
+{
+    "name": "Garchomp-Mega",
+    "abilities": [
+        "Sand Force"
+    ],
+    "types": [
+        "dragon",
+        "ground"
+    ],
+    "stats": {
+        "hp": 108,
+        "atk": 170,
+        "def": 115,
+        "spa": 120,
+        "spd": 95,
+        "spe": 92
+    },
+    "moves": [
+    ]
+}

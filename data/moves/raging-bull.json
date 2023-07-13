@@ -1,0 +1,19 @@
+{
+    "name": "Raging Bull",
+    "category": "unique",
+    "target": "selected-pokemon",
+    "type": "normal",
+    "power": 90,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

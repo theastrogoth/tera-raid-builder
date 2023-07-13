@@ -1,0 +1,21 @@
+{
+    "name": "Solosis",
+    "abilities": [
+        "Overcoat",
+        "Magic Guard",
+        "Regenerator"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 30,
+        "def": 40,
+        "spa": 105,
+        "spd": 50,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

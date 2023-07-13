@@ -1,0 +1,19 @@
+{
+    "name": "Tri Attack",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "normal",
+    "power": 80,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "unknown",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 20,
+    "minHits": null,
+    "maxHits": null
+}

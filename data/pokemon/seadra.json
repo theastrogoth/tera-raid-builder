@@ -1,0 +1,21 @@
+{
+    "name": "Seadra",
+    "abilities": [
+        "Poison Point",
+        "Sniper",
+        "Damp"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 65,
+        "def": 95,
+        "spa": 95,
+        "spd": 45,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

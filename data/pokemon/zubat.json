@@ -1,0 +1,21 @@
+{
+    "name": "Zubat",
+    "abilities": [
+        "Inner Focus",
+        "Infiltrator"
+    ],
+    "types": [
+        "poison",
+        "flying"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 35,
+        "spa": 30,
+        "spd": 40,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

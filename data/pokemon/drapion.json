@@ -1,0 +1,22 @@
+{
+    "name": "Drapion",
+    "abilities": [
+        "Battle Armor",
+        "Sniper",
+        "Keen Eye"
+    ],
+    "types": [
+        "poison",
+        "dark"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 90,
+        "def": 110,
+        "spa": 60,
+        "spd": 75,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

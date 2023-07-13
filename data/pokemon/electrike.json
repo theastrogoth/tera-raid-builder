@@ -1,0 +1,21 @@
+{
+    "name": "Electrike",
+    "abilities": [
+        "Static",
+        "Lightning Rod",
+        "Minus"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 40,
+        "spa": 65,
+        "spd": 40,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

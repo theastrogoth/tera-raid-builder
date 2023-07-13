@@ -1,0 +1,22 @@
+{
+    "name": "Stunfisk",
+    "abilities": [
+        "Static",
+        "Limber",
+        "Sand Veil"
+    ],
+    "types": [
+        "ground",
+        "electric"
+    ],
+    "stats": {
+        "hp": 109,
+        "atk": 66,
+        "def": 84,
+        "spa": 81,
+        "spd": 99,
+        "spe": 32
+    },
+    "moves": [
+    ]
+}

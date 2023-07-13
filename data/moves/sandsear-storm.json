@@ -1,0 +1,19 @@
+{
+    "name": "Sandsear Storm",
+    "category": "damage+ailment",
+    "target": "all-opponents",
+    "type": "ground",
+    "power": 100,
+    "accuracy": 80,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": "burn",
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": 20,
+    "minHits": null,
+    "maxHits": null
+}

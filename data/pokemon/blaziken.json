@@ -1,0 +1,21 @@
+{
+    "name": "Blaziken",
+    "abilities": [
+        "Blaze",
+        "Speed Boost"
+    ],
+    "types": [
+        "fire",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 70,
+        "spa": 110,
+        "spd": 70,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Raikou",
+    "abilities": [
+        "Pressure",
+        "Inner Focus"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 85,
+        "def": 75,
+        "spa": 115,
+        "spd": 100,
+        "spe": 115
+    },
+    "moves": [
+    ]
+}

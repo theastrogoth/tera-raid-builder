@@ -1,0 +1,19 @@
+{
+    "name": "Body Slam",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "normal",
+    "power": 85,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "paralysis",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 30,
+    "minHits": null,
+    "maxHits": null
+}

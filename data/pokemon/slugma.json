@@ -1,0 +1,21 @@
+{
+    "name": "Slugma",
+    "abilities": [
+        "Magma Armor",
+        "Flame Body",
+        "Weak Armor"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 40,
+        "def": 40,
+        "spa": 70,
+        "spd": 40,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

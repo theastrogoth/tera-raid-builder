@@ -1,0 +1,19 @@
+{
+    "name": "Xurkitree",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 83,
+        "atk": 89,
+        "def": 71,
+        "spa": 173,
+        "spd": 71,
+        "spe": 83
+    },
+    "moves": [
+    ]
+}

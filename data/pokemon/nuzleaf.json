@@ -1,0 +1,22 @@
+{
+    "name": "Nuzleaf",
+    "abilities": [
+        "Chlorophyll",
+        "Early Bird",
+        "Pickpocket"
+    ],
+    "types": [
+        "grass",
+        "dark"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 70,
+        "def": 40,
+        "spa": 60,
+        "spd": 40,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

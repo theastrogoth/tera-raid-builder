@@ -1,0 +1,20 @@
+{
+    "name": "Swampert-Mega",
+    "abilities": [
+        "Swift Swim"
+    ],
+    "types": [
+        "water",
+        "ground"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 150,
+        "def": 110,
+        "spa": 95,
+        "spd": 110,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

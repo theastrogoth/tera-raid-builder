@@ -1,0 +1,21 @@
+{
+    "name": "Trubbish",
+    "abilities": [
+        "Stench",
+        "Sticky Hold",
+        "Aftermath"
+    ],
+    "types": [
+        "poison"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 50,
+        "def": 62,
+        "spa": 40,
+        "spd": 62,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

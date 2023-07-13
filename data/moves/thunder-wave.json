@@ -1,0 +1,19 @@
+{
+    "name": "Thunder Wave",
+    "category": "ailment",
+    "target": "selected-pokemon",
+    "type": "electric",
+    "power": null,
+    "accuracy": 90,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "paralysis",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

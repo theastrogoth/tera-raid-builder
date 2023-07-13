@@ -1,0 +1,22 @@
+{
+    "name": "Lombre",
+    "abilities": [
+        "Swift Swim",
+        "Rain Dish",
+        "Own Tempo"
+    ],
+    "types": [
+        "water",
+        "grass"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 50,
+        "spa": 60,
+        "spd": 70,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

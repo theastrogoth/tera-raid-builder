@@ -1,0 +1,19 @@
+{
+    "name": "Heat Wave",
+    "category": "damage+ailment",
+    "target": "all-opponents",
+    "type": "fire",
+    "power": 95,
+    "accuracy": 90,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "burn",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 10,
+    "minHits": null,
+    "maxHits": null
+}

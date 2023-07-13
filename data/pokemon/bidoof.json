@@ -1,0 +1,21 @@
+{
+    "name": "Bidoof",
+    "abilities": [
+        "Simple",
+        "Unaware",
+        "Moody"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 59,
+        "atk": 45,
+        "def": 40,
+        "spa": 35,
+        "spd": 40,
+        "spe": 31
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "name": "Victory Dance",
+    "category": "net-good-stats",
+    "target": "user",
+    "type": "fighting",
+    "power": 0,
+    "accuracy": null,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 1
+        },
+        {
+            "stat": "def",
+            "change": 1
+        },
+        {
+            "stat": "spe",
+            "change": 1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

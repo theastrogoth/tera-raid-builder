@@ -1,0 +1,21 @@
+{
+    "name": "Sandshrew-Alola",
+    "abilities": [
+        "Snow Cloak",
+        "Slush Rush"
+    ],
+    "types": [
+        "ice",
+        "steel"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 75,
+        "def": 90,
+        "spa": 10,
+        "spd": 35,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

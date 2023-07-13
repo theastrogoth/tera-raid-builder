@@ -1,0 +1,20 @@
+{
+    "name": "Corsola-Galar",
+    "abilities": [
+        "Weak Armor",
+        "Cursed Body"
+    ],
+    "types": [
+        "ghost"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 55,
+        "def": 100,
+        "spa": 65,
+        "spd": 100,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

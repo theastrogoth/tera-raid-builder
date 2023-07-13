@@ -1,0 +1,20 @@
+{
+    "name": "Altaria-Mega",
+    "abilities": [
+        "Pixilate"
+    ],
+    "types": [
+        "dragon",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 110,
+        "def": 110,
+        "spa": 110,
+        "spd": 105,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

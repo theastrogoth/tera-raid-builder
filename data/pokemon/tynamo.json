@@ -1,0 +1,39 @@
+{
+    "name": "Tynamo",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 55,
+        "def": 40,
+        "spa": 45,
+        "spd": 40,
+        "spe": 60
+    },
+    "moves": [
+        {
+            "name": "Charge Beam",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Spark",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
+            "learnMethod": "level-up"
+        }
+    ]
+}

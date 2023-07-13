@@ -1,0 +1,22 @@
+{
+    "name": "Onix",
+    "abilities": [
+        "Rock Head",
+        "Sturdy",
+        "Weak Armor"
+    ],
+    "types": [
+        "rock",
+        "ground"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 45,
+        "def": 160,
+        "spa": 30,
+        "spd": 45,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

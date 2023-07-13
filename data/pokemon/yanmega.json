@@ -1,0 +1,22 @@
+{
+    "name": "Yanmega",
+    "abilities": [
+        "Speed Boost",
+        "Tinted Lens",
+        "Frisk"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 86,
+        "atk": 76,
+        "def": 86,
+        "spa": 116,
+        "spd": 56,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

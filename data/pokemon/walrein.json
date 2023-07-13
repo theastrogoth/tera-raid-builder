@@ -1,0 +1,22 @@
+{
+    "name": "Walrein",
+    "abilities": [
+        "Thick Fat",
+        "Ice Body",
+        "Oblivious"
+    ],
+    "types": [
+        "ice",
+        "water"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 80,
+        "def": 90,
+        "spa": 95,
+        "spd": 90,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

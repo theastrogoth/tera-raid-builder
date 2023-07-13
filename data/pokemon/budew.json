@@ -1,0 +1,22 @@
+{
+    "name": "Budew",
+    "abilities": [
+        "Natural Cure",
+        "Poison Point",
+        "Leaf Guard"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 30,
+        "def": 35,
+        "spa": 50,
+        "spd": 70,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

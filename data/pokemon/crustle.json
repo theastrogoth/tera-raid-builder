@@ -1,0 +1,22 @@
+{
+    "name": "Crustle",
+    "abilities": [
+        "Sturdy",
+        "Shell Armor",
+        "Weak Armor"
+    ],
+    "types": [
+        "bug",
+        "rock"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 105,
+        "def": 125,
+        "spa": 65,
+        "spd": 75,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

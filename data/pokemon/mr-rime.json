@@ -1,0 +1,22 @@
+{
+    "name": "Mr. Rime",
+    "abilities": [
+        "Tangled Feet",
+        "Screen Cleaner",
+        "Ice Body"
+    ],
+    "types": [
+        "ice",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 85,
+        "def": 75,
+        "spa": 110,
+        "spd": 100,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

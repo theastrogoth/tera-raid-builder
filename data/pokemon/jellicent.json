@@ -1,0 +1,22 @@
+{
+    "name": "Jellicent",
+    "abilities": [
+        "Water Absorb",
+        "Cursed Body",
+        "Damp"
+    ],
+    "types": [
+        "water",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 60,
+        "def": 70,
+        "spa": 85,
+        "spd": 105,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

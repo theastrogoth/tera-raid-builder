@@ -1,0 +1,19 @@
+{
+    "name": "Jet Punch",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "water",
+    "power": 60,
+    "accuracy": 100,
+    "priority": 1,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

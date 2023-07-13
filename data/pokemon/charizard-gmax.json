@@ -1,0 +1,21 @@
+{
+    "name": "Charizard-Gmax",
+    "abilities": [
+        "Blaze",
+        "Solar Power"
+    ],
+    "types": [
+        "fire",
+        "flying"
+    ],
+    "stats": {
+        "hp": 78,
+        "atk": 84,
+        "def": 78,
+        "spa": 109,
+        "spd": 85,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

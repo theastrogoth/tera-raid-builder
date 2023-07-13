@@ -1,0 +1,19 @@
+{
+    "name": "Strange Steam",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "fairy",
+    "power": 90,
+    "accuracy": 95,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "confusion",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 20,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Lugia",
+    "abilities": [
+        "Pressure",
+        "Multiscale"
+    ],
+    "types": [
+        "psychic",
+        "flying"
+    ],
+    "stats": {
+        "hp": 106,
+        "atk": 90,
+        "def": 130,
+        "spa": 90,
+        "spd": 154,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

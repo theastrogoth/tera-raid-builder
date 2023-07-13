@@ -1,0 +1,20 @@
+{
+    "name": "Gorebyss",
+    "abilities": [
+        "Swift Swim",
+        "Hydration"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 84,
+        "def": 105,
+        "spa": 114,
+        "spd": 75,
+        "spe": 52
+    },
+    "moves": [
+    ]
+}

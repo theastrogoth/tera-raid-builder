@@ -1,0 +1,19 @@
+{
+    "name": "Poipole",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "poison"
+    ],
+    "stats": {
+        "hp": 67,
+        "atk": 73,
+        "def": 67,
+        "spa": 73,
+        "spd": 67,
+        "spe": 73
+    },
+    "moves": [
+    ]
+}

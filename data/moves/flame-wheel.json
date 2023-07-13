@@ -1,0 +1,19 @@
+{
+    "name": "Flame Wheel",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "fire",
+    "power": 60,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "burn",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 10,
+    "minHits": null,
+    "maxHits": null
+}

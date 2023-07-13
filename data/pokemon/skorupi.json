@@ -1,0 +1,22 @@
+{
+    "name": "Skorupi",
+    "abilities": [
+        "Battle Armor",
+        "Sniper",
+        "Keen Eye"
+    ],
+    "types": [
+        "poison",
+        "bug"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 50,
+        "def": 90,
+        "spa": 30,
+        "spd": 55,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

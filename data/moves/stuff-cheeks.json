@@ -1,0 +1,24 @@
+{
+    "name": "Stuff Cheeks",
+    "category": "net-good-stats",
+    "target": "user",
+    "type": "normal",
+    "power": null,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "change": 2
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 100,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

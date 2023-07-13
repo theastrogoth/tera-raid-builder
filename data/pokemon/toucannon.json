@@ -1,0 +1,22 @@
+{
+    "name": "Toucannon",
+    "abilities": [
+        "Keen Eye",
+        "Skill Link",
+        "Sheer Force"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 75,
+        "spa": 75,
+        "spd": 75,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

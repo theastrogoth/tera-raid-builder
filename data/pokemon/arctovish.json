@@ -1,0 +1,22 @@
+{
+    "name": "Arctovish",
+    "abilities": [
+        "Water Absorb",
+        "Ice Body",
+        "Slush Rush"
+    ],
+    "types": [
+        "water",
+        "ice"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 90,
+        "def": 100,
+        "spa": 80,
+        "spd": 90,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

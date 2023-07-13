@@ -1,0 +1,20 @@
+{
+    "name": "Farfetch'd-Galar",
+    "abilities": [
+        "Steadfast",
+        "Scrappy"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 52,
+        "atk": 95,
+        "def": 55,
+        "spa": 58,
+        "spd": 62,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

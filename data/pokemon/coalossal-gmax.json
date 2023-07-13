@@ -1,0 +1,22 @@
+{
+    "name": "Coalossal-Gmax",
+    "abilities": [
+        "Steam Engine",
+        "Flame Body",
+        "Flash Fire"
+    ],
+    "types": [
+        "rock",
+        "fire"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 80,
+        "def": 120,
+        "spa": 80,
+        "spd": 90,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

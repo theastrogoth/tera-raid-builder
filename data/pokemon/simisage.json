@@ -1,0 +1,20 @@
+{
+    "name": "Simisage",
+    "abilities": [
+        "Gluttony",
+        "Overgrow"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 98,
+        "def": 63,
+        "spa": 98,
+        "spd": 63,
+        "spe": 101
+    },
+    "moves": [
+    ]
+}

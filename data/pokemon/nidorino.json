@@ -1,0 +1,21 @@
+{
+    "name": "Nidorino",
+    "abilities": [
+        "Poison Point",
+        "Rivalry",
+        "Hustle"
+    ],
+    "types": [
+        "poison"
+    ],
+    "stats": {
+        "hp": 61,
+        "atk": 72,
+        "def": 57,
+        "spa": 55,
+        "spd": 55,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

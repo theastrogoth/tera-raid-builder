@@ -1,0 +1,20 @@
+{
+    "name": "Gengar-Gmax",
+    "abilities": [
+        "Cursed Body"
+    ],
+    "types": [
+        "ghost",
+        "poison"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 65,
+        "def": 60,
+        "spa": 130,
+        "spd": 75,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Floette-Eternal",
+    "abilities": [
+        "Flower Veil",
+        "Symbiosis"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 74,
+        "atk": 65,
+        "def": 67,
+        "spa": 125,
+        "spd": 128,
+        "spe": 92
+    },
+    "moves": [
+    ]
+}

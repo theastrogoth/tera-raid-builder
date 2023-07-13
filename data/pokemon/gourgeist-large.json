@@ -1,0 +1,22 @@
+{
+    "name": "Gourgeist-Large",
+    "abilities": [
+        "Pickup",
+        "Frisk",
+        "Insomnia"
+    ],
+    "types": [
+        "ghost",
+        "grass"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 95,
+        "def": 122,
+        "spa": 58,
+        "spd": 75,
+        "spe": 69
+    },
+    "moves": [
+    ]
+}

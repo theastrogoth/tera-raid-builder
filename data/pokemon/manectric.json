@@ -1,0 +1,21 @@
+{
+    "name": "Manectric",
+    "abilities": [
+        "Static",
+        "Lightning Rod",
+        "Minus"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 75,
+        "def": 60,
+        "spa": 105,
+        "spd": 60,
+        "spe": 105
+    },
+    "moves": [
+    ]
+}

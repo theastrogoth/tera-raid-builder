@@ -1,0 +1,21 @@
+{
+    "name": "Carvanha",
+    "abilities": [
+        "Rough Skin",
+        "Speed Boost"
+    ],
+    "types": [
+        "water",
+        "dark"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 90,
+        "def": 20,
+        "spa": 65,
+        "spd": 20,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

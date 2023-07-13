@@ -1,0 +1,22 @@
+{
+    "name": "Sewaddle",
+    "abilities": [
+        "Swarm",
+        "Chlorophyll",
+        "Overcoat"
+    ],
+    "types": [
+        "bug",
+        "grass"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 53,
+        "def": 70,
+        "spa": 40,
+        "spd": 60,
+        "spe": 42
+    },
+    "moves": [
+    ]
+}

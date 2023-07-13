@@ -1,0 +1,22 @@
+{
+    "name": "Sigilyph",
+    "abilities": [
+        "Wonder Skin",
+        "Magic Guard",
+        "Tinted Lens"
+    ],
+    "types": [
+        "psychic",
+        "flying"
+    ],
+    "stats": {
+        "hp": 72,
+        "atk": 58,
+        "def": 80,
+        "spa": 103,
+        "spd": 80,
+        "spe": 97
+    },
+    "moves": [
+    ]
+}

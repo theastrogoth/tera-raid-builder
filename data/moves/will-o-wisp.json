@@ -1,0 +1,19 @@
+{
+    "name": "Will-O-Wisp",
+    "category": "ailment",
+    "target": "selected-pokemon",
+    "type": "fire",
+    "power": null,
+    "accuracy": 85,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "burn",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

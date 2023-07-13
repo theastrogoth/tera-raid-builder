@@ -1,0 +1,22 @@
+{
+    "name": "Dodrio",
+    "abilities": [
+        "Run Away",
+        "Early Bird",
+        "Tangled Feet"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 110,
+        "def": 70,
+        "spa": 60,
+        "spd": 60,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Cosmoem",
+    "abilities": [
+        "Sturdy"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 43,
+        "atk": 29,
+        "def": 131,
+        "spa": 29,
+        "spd": 131,
+        "spe": 37
+    },
+    "moves": [
+    ]
+}

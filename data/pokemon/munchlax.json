@@ -1,0 +1,21 @@
+{
+    "name": "Munchlax",
+    "abilities": [
+        "Pickup",
+        "Thick Fat",
+        "Gluttony"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 135,
+        "atk": 85,
+        "def": 40,
+        "spa": 40,
+        "spd": 85,
+        "spe": 5
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Rillaboom-Gmax",
+    "abilities": [
+        "Overgrow",
+        "Grassy Surge"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 125,
+        "def": 90,
+        "spa": 60,
+        "spd": 70,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

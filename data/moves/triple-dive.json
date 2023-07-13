@@ -1,0 +1,19 @@
+{
+    "name": "Triple Dive",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "water",
+    "power": 30,
+    "accuracy": 95,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": 3,
+    "maxHits": 3
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Kadabra",
+    "abilities": [
+        "Synchronize",
+        "Inner Focus",
+        "Magic Guard"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 35,
+        "def": 30,
+        "spa": 120,
+        "spd": 70,
+        "spe": 105
+    },
+    "moves": [
+    ]
+}

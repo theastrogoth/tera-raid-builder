@@ -1,0 +1,20 @@
+{
+    "name": "Pheromosa",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "bug",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 71,
+        "atk": 137,
+        "def": 37,
+        "spa": 137,
+        "spd": 37,
+        "spe": 151
+    },
+    "moves": [
+    ]
+}

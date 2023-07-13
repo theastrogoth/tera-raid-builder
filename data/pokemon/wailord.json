@@ -1,0 +1,21 @@
+{
+    "name": "Wailord",
+    "abilities": [
+        "Water Veil",
+        "Oblivious",
+        "Pressure"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 170,
+        "atk": 90,
+        "def": 45,
+        "spa": 90,
+        "spd": 45,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

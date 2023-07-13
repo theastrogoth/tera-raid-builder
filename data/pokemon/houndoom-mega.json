@@ -1,0 +1,20 @@
+{
+    "name": "Houndoom-Mega",
+    "abilities": [
+        "Solar Power"
+    ],
+    "types": [
+        "dark",
+        "fire"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 90,
+        "def": 90,
+        "spa": 140,
+        "spd": 90,
+        "spe": 115
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Venusaur-Mega",
+    "abilities": [
+        "Thick Fat"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 100,
+        "def": 123,
+        "spa": 122,
+        "spd": 120,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

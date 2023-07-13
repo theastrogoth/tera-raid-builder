@@ -1,0 +1,21 @@
+{
+    "name": "Primarina",
+    "abilities": [
+        "Torrent",
+        "Liquid Voice"
+    ],
+    "types": [
+        "water",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 74,
+        "def": 74,
+        "spa": 126,
+        "spd": 116,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

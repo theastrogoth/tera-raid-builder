@@ -1,0 +1,21 @@
+{
+    "name": "Gurdurr",
+    "abilities": [
+        "Guts",
+        "Sheer Force",
+        "Iron Fist"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 105,
+        "def": 85,
+        "spa": 40,
+        "spd": 50,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

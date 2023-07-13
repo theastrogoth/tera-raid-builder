@@ -1,0 +1,20 @@
+{
+    "name": "Eternatus-Eternamax",
+    "abilities": [
+        "Pressure"
+    ],
+    "types": [
+        "poison",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 255,
+        "atk": 115,
+        "def": 250,
+        "spa": 125,
+        "spd": 250,
+        "spe": 130
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Solgaleo",
+    "abilities": [
+        "Full Metal Body"
+    ],
+    "types": [
+        "psychic",
+        "steel"
+    ],
+    "stats": {
+        "hp": 137,
+        "atk": 137,
+        "def": 107,
+        "spa": 113,
+        "spd": 89,
+        "spe": 97
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "name": "Aqua Step",
+    "category": "damage+raise",
+    "target": "selected-pokemon",
+    "type": "water",
+    "power": 80,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spe",
+            "change": 1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 100,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Urshifu-Rapid-Strike-Gmax",
+    "abilities": [
+        "Unseen Fist"
+    ],
+    "types": [
+        "fighting",
+        "water"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 130,
+        "def": 100,
+        "spa": 63,
+        "spd": 60,
+        "spe": 97
+    },
+    "moves": [
+    ]
+}

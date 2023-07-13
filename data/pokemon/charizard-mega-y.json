@@ -1,0 +1,20 @@
+{
+    "name": "Charizard-Mega-Y",
+    "abilities": [
+        "Drought"
+    ],
+    "types": [
+        "fire",
+        "flying"
+    ],
+    "stats": {
+        "hp": 78,
+        "atk": 104,
+        "def": 78,
+        "spa": 159,
+        "spd": 115,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

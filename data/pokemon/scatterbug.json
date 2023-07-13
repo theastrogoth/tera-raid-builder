@@ -1,0 +1,57 @@
+{
+    "name": "Scatterbug",
+    "abilities": [
+        "Shield Dust",
+        "Compound Eyes",
+        "Friend Guard"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 38,
+        "atk": 35,
+        "def": 40,
+        "spa": 27,
+        "spd": 25,
+        "spe": 35
+    },
+    "moves": [
+        {
+            "name": "Bug Bite",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Powder",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Pounce",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rage Powder",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "String Shot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Struggle Bug",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stun Spore",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        }
+    ]
+}

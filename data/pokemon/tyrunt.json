@@ -1,0 +1,21 @@
+{
+    "name": "Tyrunt",
+    "abilities": [
+        "Strong Jaw",
+        "Sturdy"
+    ],
+    "types": [
+        "rock",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 58,
+        "atk": 89,
+        "def": 77,
+        "spa": 45,
+        "spd": 45,
+        "spe": 48
+    },
+    "moves": [
+    ]
+}

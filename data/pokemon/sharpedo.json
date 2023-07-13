@@ -1,0 +1,21 @@
+{
+    "name": "Sharpedo",
+    "abilities": [
+        "Rough Skin",
+        "Speed Boost"
+    ],
+    "types": [
+        "water",
+        "dark"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 120,
+        "def": 40,
+        "spa": 95,
+        "spd": 40,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

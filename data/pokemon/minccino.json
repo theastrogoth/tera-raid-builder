@@ -1,0 +1,21 @@
+{
+    "name": "Minccino",
+    "abilities": [
+        "Cute Charm",
+        "Technician",
+        "Skill Link"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 50,
+        "def": 40,
+        "spa": 40,
+        "spd": 40,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

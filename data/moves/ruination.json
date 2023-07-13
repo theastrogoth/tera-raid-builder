@@ -1,0 +1,19 @@
+{
+    "name": "Ruination",
+    "category": "unique",
+    "target": "selected-pokemon",
+    "type": "dark",
+    "power": 1,
+    "accuracy": 90,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

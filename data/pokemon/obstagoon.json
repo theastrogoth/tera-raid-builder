@@ -1,0 +1,22 @@
+{
+    "name": "Obstagoon",
+    "abilities": [
+        "Reckless",
+        "Guts",
+        "Defiant"
+    ],
+    "types": [
+        "dark",
+        "normal"
+    ],
+    "stats": {
+        "hp": 93,
+        "atk": 90,
+        "def": 101,
+        "spa": 60,
+        "spd": 81,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

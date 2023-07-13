@@ -1,0 +1,21 @@
+{
+    "name": "Wormadam-Sandy",
+    "abilities": [
+        "Anticipation",
+        "Overcoat"
+    ],
+    "types": [
+        "bug",
+        "ground"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 79,
+        "def": 105,
+        "spa": 59,
+        "spd": 85,
+        "spe": 36
+    },
+    "moves": [
+    ]
+}

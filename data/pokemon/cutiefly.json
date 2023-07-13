@@ -1,0 +1,22 @@
+{
+    "name": "Cutiefly",
+    "abilities": [
+        "Honey Gather",
+        "Shield Dust",
+        "Sweet Veil"
+    ],
+    "types": [
+        "bug",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 40,
+        "spa": 55,
+        "spd": 40,
+        "spe": 84
+    },
+    "moves": [
+    ]
+}

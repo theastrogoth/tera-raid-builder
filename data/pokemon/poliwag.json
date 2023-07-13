@@ -1,0 +1,21 @@
+{
+    "name": "Poliwag",
+    "abilities": [
+        "Water Absorb",
+        "Damp",
+        "Swift Swim"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 50,
+        "def": 40,
+        "spa": 40,
+        "spd": 40,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

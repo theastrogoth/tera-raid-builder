@@ -1,0 +1,20 @@
+{
+    "name": "Metagross-Mega",
+    "abilities": [
+        "Tough Claws"
+    ],
+    "types": [
+        "steel",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 145,
+        "def": 150,
+        "spa": 105,
+        "spd": 110,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

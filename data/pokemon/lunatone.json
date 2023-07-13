@@ -1,0 +1,20 @@
+{
+    "name": "Lunatone",
+    "abilities": [
+        "Levitate"
+    ],
+    "types": [
+        "rock",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 55,
+        "def": 65,
+        "spa": 95,
+        "spd": 85,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

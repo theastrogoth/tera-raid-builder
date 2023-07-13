@@ -1,0 +1,22 @@
+{
+    "name": "Magcargo",
+    "abilities": [
+        "Magma Armor",
+        "Flame Body",
+        "Weak Armor"
+    ],
+    "types": [
+        "fire",
+        "rock"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 120,
+        "spa": 90,
+        "spd": 80,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

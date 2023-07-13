@@ -1,0 +1,22 @@
+{
+    "name": "Starmie",
+    "abilities": [
+        "Illuminate",
+        "Natural Cure",
+        "Analytic"
+    ],
+    "types": [
+        "water",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 75,
+        "def": 85,
+        "spa": 100,
+        "spd": 85,
+        "spe": 115
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Pikachu-Starter",
+    "abilities": [
+        "Static",
+        "Lightning Rod"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 80,
+        "def": 50,
+        "spa": 75,
+        "spd": 60,
+        "spe": 120
+    },
+    "moves": [
+    ]
+}

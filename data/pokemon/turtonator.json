@@ -1,0 +1,20 @@
+{
+    "name": "Turtonator",
+    "abilities": [
+        "Shell Armor"
+    ],
+    "types": [
+        "fire",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 78,
+        "def": 135,
+        "spa": 91,
+        "spd": 85,
+        "spe": 36
+    },
+    "moves": [
+    ]
+}

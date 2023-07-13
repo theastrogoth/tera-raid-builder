@@ -1,0 +1,20 @@
+{
+    "name": "Milcery",
+    "abilities": [
+        "Sweet Veil",
+        "Aroma Veil"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 40,
+        "def": 40,
+        "spa": 50,
+        "spd": 61,
+        "spe": 34
+    },
+    "moves": [
+    ]
+}

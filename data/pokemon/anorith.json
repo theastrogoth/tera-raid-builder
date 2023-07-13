@@ -1,0 +1,21 @@
+{
+    "name": "Anorith",
+    "abilities": [
+        "Battle Armor",
+        "Swift Swim"
+    ],
+    "types": [
+        "rock",
+        "bug"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 95,
+        "def": 50,
+        "spa": 40,
+        "spd": 50,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

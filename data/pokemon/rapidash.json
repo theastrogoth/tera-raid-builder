@@ -1,0 +1,21 @@
+{
+    "name": "Rapidash",
+    "abilities": [
+        "Run Away",
+        "Flash Fire",
+        "Flame Body"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 100,
+        "def": 70,
+        "spa": 80,
+        "spd": 80,
+        "spe": 105
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Swanna",
+    "abilities": [
+        "Keen Eye",
+        "Big Pecks",
+        "Hydration"
+    ],
+    "types": [
+        "water",
+        "flying"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 87,
+        "def": 63,
+        "spa": 87,
+        "spd": 63,
+        "spe": 98
+    },
+    "moves": [
+    ]
+}

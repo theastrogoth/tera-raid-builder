@@ -1,0 +1,22 @@
+{
+    "name": "Kommo-o",
+    "abilities": [
+        "Bulletproof",
+        "Soundproof",
+        "Overcoat"
+    ],
+    "types": [
+        "dragon",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 110,
+        "def": 125,
+        "spa": 100,
+        "spd": 105,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

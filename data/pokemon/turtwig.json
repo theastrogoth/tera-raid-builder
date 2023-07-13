@@ -1,0 +1,20 @@
+{
+    "name": "Turtwig",
+    "abilities": [
+        "Overgrow",
+        "Shell Armor"
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 68,
+        "def": 64,
+        "spa": 45,
+        "spd": 55,
+        "spe": 31
+    },
+    "moves": [
+    ]
+}

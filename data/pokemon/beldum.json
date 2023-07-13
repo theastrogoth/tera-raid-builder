@@ -1,0 +1,21 @@
+{
+    "name": "Beldum",
+    "abilities": [
+        "Clear Body",
+        "Light Metal"
+    ],
+    "types": [
+        "steel",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 55,
+        "def": 80,
+        "spa": 35,
+        "spd": 60,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

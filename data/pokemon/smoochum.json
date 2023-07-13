@@ -1,0 +1,22 @@
+{
+    "name": "Smoochum",
+    "abilities": [
+        "Oblivious",
+        "Forewarn",
+        "Hydration"
+    ],
+    "types": [
+        "ice",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 30,
+        "def": 15,
+        "spa": 85,
+        "spd": 65,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

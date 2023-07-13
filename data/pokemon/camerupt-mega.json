@@ -1,0 +1,20 @@
+{
+    "name": "Camerupt-Mega",
+    "abilities": [
+        "Sheer Force"
+    ],
+    "types": [
+        "fire",
+        "ground"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 120,
+        "def": 100,
+        "spa": 145,
+        "spd": 105,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

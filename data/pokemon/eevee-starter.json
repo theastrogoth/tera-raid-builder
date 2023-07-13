@@ -1,0 +1,21 @@
+{
+    "name": "Eevee-Starter",
+    "abilities": [
+        "Run Away",
+        "Adaptability",
+        "Anticipation"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 75,
+        "def": 70,
+        "spa": 65,
+        "spd": 85,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

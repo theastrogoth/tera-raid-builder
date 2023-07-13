@@ -1,0 +1,20 @@
+{
+    "name": "Spritzee",
+    "abilities": [
+        "Healer",
+        "Aroma Veil"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 78,
+        "atk": 52,
+        "def": 60,
+        "spa": 63,
+        "spd": 65,
+        "spe": 23
+    },
+    "moves": [
+    ]
+}

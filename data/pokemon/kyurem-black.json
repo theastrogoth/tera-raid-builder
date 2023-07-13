@@ -1,0 +1,20 @@
+{
+    "name": "Kyurem-Black",
+    "abilities": [
+        "Teravolt"
+    ],
+    "types": [
+        "dragon",
+        "ice"
+    ],
+    "stats": {
+        "hp": 125,
+        "atk": 170,
+        "def": 100,
+        "spa": 120,
+        "spd": 90,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

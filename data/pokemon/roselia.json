@@ -1,0 +1,22 @@
+{
+    "name": "Roselia",
+    "abilities": [
+        "Natural Cure",
+        "Poison Point",
+        "Leaf Guard"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 60,
+        "def": 45,
+        "spa": 100,
+        "spd": 80,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Exeggutor",
+    "abilities": [
+        "Chlorophyll",
+        "Harvest"
+    ],
+    "types": [
+        "grass",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 95,
+        "def": 85,
+        "spa": 125,
+        "spd": 75,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

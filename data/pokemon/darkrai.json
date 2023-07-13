@@ -1,0 +1,19 @@
+{
+    "name": "Darkrai",
+    "abilities": [
+        "Bad Dreams"
+    ],
+    "types": [
+        "dark"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 90,
+        "def": 90,
+        "spa": 135,
+        "spd": 90,
+        "spe": 125
+    },
+    "moves": [
+    ]
+}

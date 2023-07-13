@@ -1,0 +1,22 @@
+{
+    "name": "Chandelure",
+    "abilities": [
+        "Flash Fire",
+        "Flame Body",
+        "Infiltrator"
+    ],
+    "types": [
+        "ghost",
+        "fire"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 55,
+        "def": 90,
+        "spa": 145,
+        "spd": 90,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

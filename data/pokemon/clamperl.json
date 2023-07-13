@@ -1,0 +1,20 @@
+{
+    "name": "Clamperl",
+    "abilities": [
+        "Shell Armor",
+        "Rattled"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 64,
+        "def": 85,
+        "spa": 74,
+        "spd": 55,
+        "spe": 32
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Nickit",
+    "abilities": [
+        "Run Away",
+        "Unburden",
+        "Stakeout"
+    ],
+    "types": [
+        "dark"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 28,
+        "def": 28,
+        "spa": 47,
+        "spd": 52,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "name": "Make It Rain",
+    "category": "damage+raise",
+    "target": "all-opponents",
+    "type": "steel",
+    "power": 120,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spa",
+            "value": -1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 100,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

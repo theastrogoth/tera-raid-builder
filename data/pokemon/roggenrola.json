@@ -1,0 +1,21 @@
+{
+    "name": "Roggenrola",
+    "abilities": [
+        "Sturdy",
+        "Weak Armor",
+        "Sand Force"
+    ],
+    "types": [
+        "rock"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 75,
+        "def": 85,
+        "spa": 25,
+        "spd": 25,
+        "spe": 15
+    },
+    "moves": [
+    ]
+}

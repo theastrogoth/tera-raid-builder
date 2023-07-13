@@ -1,0 +1,21 @@
+{
+    "name": "Beheeyem",
+    "abilities": [
+        "Telepathy",
+        "Synchronize",
+        "Analytic"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 75,
+        "def": 75,
+        "spa": 125,
+        "spd": 95,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

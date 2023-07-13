@@ -1,0 +1,21 @@
+{
+    "name": "Munna",
+    "abilities": [
+        "Forewarn",
+        "Synchronize",
+        "Telepathy"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 76,
+        "atk": 25,
+        "def": 45,
+        "spa": 67,
+        "spd": 55,
+        "spe": 24
+    },
+    "moves": [
+    ]
+}

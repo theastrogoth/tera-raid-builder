@@ -1,0 +1,24 @@
+{
+    "name": "Bleakwind Storm",
+    "category": "damage+lower",
+    "target": "all-opponents",
+    "type": "flying",
+    "power": 100,
+    "accuracy": 80,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spe",
+            "change": -1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 30,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

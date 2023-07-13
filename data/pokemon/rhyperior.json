@@ -1,0 +1,22 @@
+{
+    "name": "Rhyperior",
+    "abilities": [
+        "Lightning Rod",
+        "Solid Rock",
+        "Reckless"
+    ],
+    "types": [
+        "ground",
+        "rock"
+    ],
+    "stats": {
+        "hp": 115,
+        "atk": 140,
+        "def": 130,
+        "spa": 55,
+        "spd": 55,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

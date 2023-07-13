@@ -1,0 +1,21 @@
+{
+    "name": "Beautifly",
+    "abilities": [
+        "Swarm",
+        "Rivalry"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 70,
+        "def": 50,
+        "spa": 100,
+        "spd": 50,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

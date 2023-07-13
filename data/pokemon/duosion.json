@@ -1,0 +1,21 @@
+{
+    "name": "Duosion",
+    "abilities": [
+        "Overcoat",
+        "Magic Guard",
+        "Regenerator"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 40,
+        "def": 50,
+        "spa": 125,
+        "spd": 60,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

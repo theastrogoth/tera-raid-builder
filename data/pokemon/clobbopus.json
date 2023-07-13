@@ -1,0 +1,20 @@
+{
+    "name": "Clobbopus",
+    "abilities": [
+        "Limber",
+        "Technician"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 68,
+        "def": 60,
+        "spa": 50,
+        "spd": 50,
+        "spe": 32
+    },
+    "moves": [
+    ]
+}

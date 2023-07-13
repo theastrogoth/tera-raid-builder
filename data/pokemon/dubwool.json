@@ -1,0 +1,21 @@
+{
+    "name": "Dubwool",
+    "abilities": [
+        "Fluffy",
+        "Steadfast",
+        "Bulletproof"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 72,
+        "atk": 80,
+        "def": 100,
+        "spa": 60,
+        "spd": 90,
+        "spe": 88
+    },
+    "moves": [
+    ]
+}

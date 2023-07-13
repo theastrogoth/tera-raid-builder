@@ -1,0 +1,20 @@
+{
+    "name": "Minior-Red-Meteor",
+    "abilities": [
+        "Shields Down"
+    ],
+    "types": [
+        "rock",
+        "flying"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 60,
+        "def": 100,
+        "spa": 60,
+        "spd": 100,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

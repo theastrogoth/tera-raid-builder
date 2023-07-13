@@ -1,0 +1,20 @@
+{
+    "name": "Boltund",
+    "abilities": [
+        "Strong Jaw",
+        "Competitive"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 69,
+        "atk": 90,
+        "def": 60,
+        "spa": 90,
+        "spd": 60,
+        "spe": 121
+    },
+    "moves": [
+    ]
+}

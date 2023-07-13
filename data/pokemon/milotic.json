@@ -1,0 +1,21 @@
+{
+    "name": "Milotic",
+    "abilities": [
+        "Marvel Scale",
+        "Competitive",
+        "Cute Charm"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 60,
+        "def": 79,
+        "spa": 100,
+        "spd": 125,
+        "spe": 81
+    },
+    "moves": [
+    ]
+}

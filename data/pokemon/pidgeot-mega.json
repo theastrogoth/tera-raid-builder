@@ -1,0 +1,20 @@
+{
+    "name": "Pidgeot-Mega",
+    "abilities": [
+        "No Guard"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 83,
+        "atk": 80,
+        "def": 80,
+        "spa": 135,
+        "spd": 80,
+        "spe": 121
+    },
+    "moves": [
+    ]
+}

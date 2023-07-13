@@ -1,0 +1,21 @@
+{
+    "name": "Musharna",
+    "abilities": [
+        "Forewarn",
+        "Synchronize",
+        "Telepathy"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 116,
+        "atk": 55,
+        "def": 85,
+        "spa": 107,
+        "spd": 95,
+        "spe": 29
+    },
+    "moves": [
+    ]
+}

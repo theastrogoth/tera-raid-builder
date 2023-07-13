@@ -1,0 +1,21 @@
+{
+    "name": "Clefable",
+    "abilities": [
+        "Cute Charm",
+        "Magic Guard",
+        "Unaware"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 70,
+        "def": 73,
+        "spa": 95,
+        "spd": 90,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

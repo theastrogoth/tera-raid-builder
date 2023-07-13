@@ -1,0 +1,21 @@
+{
+    "name": "Abra",
+    "abilities": [
+        "Synchronize",
+        "Inner Focus",
+        "Magic Guard"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 25,
+        "atk": 20,
+        "def": 15,
+        "spa": 105,
+        "spd": 55,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

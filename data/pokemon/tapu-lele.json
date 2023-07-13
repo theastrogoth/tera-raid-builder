@@ -1,0 +1,21 @@
+{
+    "name": "Tapu Lele",
+    "abilities": [
+        "Psychic Surge",
+        "Telepathy"
+    ],
+    "types": [
+        "psychic",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 85,
+        "def": 75,
+        "spa": 130,
+        "spd": 115,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

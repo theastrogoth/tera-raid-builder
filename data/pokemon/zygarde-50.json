@@ -1,0 +1,20 @@
+{
+    "name": "Zygarde-50",
+    "abilities": [
+        "Aura Break"
+    ],
+    "types": [
+        "dragon",
+        "ground"
+    ],
+    "stats": {
+        "hp": 108,
+        "atk": 100,
+        "def": 121,
+        "spa": 81,
+        "spd": 95,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

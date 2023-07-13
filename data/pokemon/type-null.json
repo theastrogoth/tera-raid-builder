@@ -1,0 +1,19 @@
+{
+    "name": "Type: Null",
+    "abilities": [
+        "Battle Armor"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 95,
+        "def": 95,
+        "spa": 95,
+        "spd": 95,
+        "spe": 59
+    },
+    "moves": [
+    ]
+}

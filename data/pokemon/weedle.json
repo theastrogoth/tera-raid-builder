@@ -1,0 +1,21 @@
+{
+    "name": "Weedle",
+    "abilities": [
+        "Shield Dust",
+        "Run Away"
+    ],
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 35,
+        "def": 30,
+        "spa": 20,
+        "spd": 20,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

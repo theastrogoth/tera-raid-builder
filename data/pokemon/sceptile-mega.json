@@ -1,0 +1,20 @@
+{
+    "name": "Sceptile-Mega",
+    "abilities": [
+        "Lightning Rod"
+    ],
+    "types": [
+        "grass",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 110,
+        "def": 75,
+        "spa": 145,
+        "spd": 85,
+        "spe": 145
+    },
+    "moves": [
+    ]
+}

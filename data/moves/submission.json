@@ -1,0 +1,19 @@
+{
+    "name": "Submission",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "fighting",
+    "power": 80,
+    "accuracy": 80,
+    "priority": 0,
+    "drain": -25,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

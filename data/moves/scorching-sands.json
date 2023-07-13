@@ -1,0 +1,19 @@
+{
+    "name": "Scorching Sands",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "ground",
+    "power": 70,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "burn",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 30,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Porygon-Z",
+    "abilities": [
+        "Adaptability",
+        "Download",
+        "Analytic"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 80,
+        "def": 70,
+        "spa": 135,
+        "spd": 75,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

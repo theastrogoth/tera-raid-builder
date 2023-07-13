@@ -1,0 +1,20 @@
+{
+    "name": "Genesect",
+    "abilities": [
+        "Download"
+    ],
+    "types": [
+        "bug",
+        "steel"
+    ],
+    "stats": {
+        "hp": 71,
+        "atk": 120,
+        "def": 95,
+        "spa": 120,
+        "spd": 95,
+        "spe": 99
+    },
+    "moves": [
+    ]
+}

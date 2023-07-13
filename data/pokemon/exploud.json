@@ -1,0 +1,20 @@
+{
+    "name": "Exploud",
+    "abilities": [
+        "Soundproof",
+        "Scrappy"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 104,
+        "atk": 91,
+        "def": 63,
+        "spa": 91,
+        "spd": 73,
+        "spe": 68
+    },
+    "moves": [
+    ]
+}

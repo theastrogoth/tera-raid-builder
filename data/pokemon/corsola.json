@@ -1,0 +1,22 @@
+{
+    "name": "Corsola",
+    "abilities": [
+        "Hustle",
+        "Natural Cure",
+        "Regenerator"
+    ],
+    "types": [
+        "water",
+        "rock"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 55,
+        "def": 95,
+        "spa": 65,
+        "spd": 95,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

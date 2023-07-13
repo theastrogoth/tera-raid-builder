@@ -1,0 +1,21 @@
+{
+    "name": "Linoone",
+    "abilities": [
+        "Pickup",
+        "Gluttony",
+        "Quick Feet"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 78,
+        "atk": 70,
+        "def": 61,
+        "spa": 50,
+        "spd": 61,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

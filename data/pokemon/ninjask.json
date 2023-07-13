@@ -1,0 +1,21 @@
+{
+    "name": "Ninjask",
+    "abilities": [
+        "Speed Boost",
+        "Infiltrator"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 61,
+        "atk": 90,
+        "def": 45,
+        "spa": 50,
+        "spd": 50,
+        "spe": 160
+    },
+    "moves": [
+    ]
+}

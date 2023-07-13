@@ -1,0 +1,22 @@
+{
+    "name": "Binacle",
+    "abilities": [
+        "Tough Claws",
+        "Sniper",
+        "Pickpocket"
+    ],
+    "types": [
+        "rock",
+        "water"
+    ],
+    "stats": {
+        "hp": 42,
+        "atk": 52,
+        "def": 67,
+        "spa": 39,
+        "spd": 56,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

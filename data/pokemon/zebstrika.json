@@ -1,0 +1,21 @@
+{
+    "name": "Zebstrika",
+    "abilities": [
+        "Lightning Rod",
+        "Motor Drive",
+        "Sap Sipper"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 100,
+        "def": 63,
+        "spa": 80,
+        "spd": 63,
+        "spe": 116
+    },
+    "moves": [
+    ]
+}

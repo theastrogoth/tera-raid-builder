@@ -1,0 +1,22 @@
+{
+    "name": "Appletun-Gmax",
+    "abilities": [
+        "Ripen",
+        "Gluttony",
+        "Thick Fat"
+    ],
+    "types": [
+        "grass",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 85,
+        "def": 80,
+        "spa": 100,
+        "spd": 80,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

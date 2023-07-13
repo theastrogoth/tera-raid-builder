@@ -1,0 +1,21 @@
+{
+    "name": "Ponyta-Galar",
+    "abilities": [
+        "Run Away",
+        "Pastel Veil",
+        "Anticipation"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 85,
+        "def": 55,
+        "spa": 65,
+        "spd": 65,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

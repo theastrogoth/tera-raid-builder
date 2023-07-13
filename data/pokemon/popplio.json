@@ -1,0 +1,20 @@
+{
+    "name": "Popplio",
+    "abilities": [
+        "Torrent",
+        "Liquid Voice"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 54,
+        "def": 54,
+        "spa": 66,
+        "spd": 56,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Machoke",
+    "abilities": [
+        "Guts",
+        "No Guard",
+        "Steadfast"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 100,
+        "def": 70,
+        "spa": 50,
+        "spd": 60,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

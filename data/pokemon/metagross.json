@@ -1,0 +1,21 @@
+{
+    "name": "Metagross",
+    "abilities": [
+        "Clear Body",
+        "Light Metal"
+    ],
+    "types": [
+        "steel",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 135,
+        "def": 130,
+        "spa": 95,
+        "spd": 90,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

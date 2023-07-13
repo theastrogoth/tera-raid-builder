@@ -1,0 +1,21 @@
+{
+    "name": "Machamp",
+    "abilities": [
+        "Guts",
+        "No Guard",
+        "Steadfast"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 130,
+        "def": 80,
+        "spa": 65,
+        "spd": 85,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

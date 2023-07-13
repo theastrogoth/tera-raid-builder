@@ -1,0 +1,20 @@
+{
+    "name": "Shaymin-Sky",
+    "abilities": [
+        "Serene Grace"
+    ],
+    "types": [
+        "grass",
+        "flying"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 103,
+        "def": 75,
+        "spa": 120,
+        "spd": 75,
+        "spe": 127
+    },
+    "moves": [
+    ]
+}

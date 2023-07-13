@@ -1,0 +1,24 @@
+{
+    "name": "Springtide Storm",
+    "category": "damage+lower",
+    "target": "all-opponents",
+    "type": "fairy",
+    "power": 100,
+    "accuracy": 80,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": -1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 30,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

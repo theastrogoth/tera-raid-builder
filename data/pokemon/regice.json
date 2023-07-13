@@ -1,0 +1,20 @@
+{
+    "name": "Regice",
+    "abilities": [
+        "Clear Body",
+        "Ice Body"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 50,
+        "def": 100,
+        "spa": 100,
+        "spd": 200,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

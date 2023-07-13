@@ -1,0 +1,19 @@
+{
+    "name": "Grass Whistle",
+    "category": "ailment",
+    "target": "selected-pokemon",
+    "type": "grass",
+    "power": null,
+    "accuracy": 55,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "sleep",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Feraligatr",
+    "abilities": [
+        "Torrent",
+        "Sheer Force"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 85,
+        "atk": 105,
+        "def": 100,
+        "spa": 79,
+        "spd": 83,
+        "spe": 78
+    },
+    "moves": [
+    ]
+}

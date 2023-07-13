@@ -1,0 +1,19 @@
+{
+    "name": "Infernal Parade",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "ghost",
+    "power": 60,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": "burn",
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": 30,
+    "minHits": null,
+    "maxHits": null
+}

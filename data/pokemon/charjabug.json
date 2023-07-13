@@ -1,0 +1,20 @@
+{
+    "name": "Charjabug",
+    "abilities": [
+        "Battery"
+    ],
+    "types": [
+        "bug",
+        "electric"
+    ],
+    "stats": {
+        "hp": 57,
+        "atk": 82,
+        "def": 95,
+        "spa": 55,
+        "spd": 75,
+        "spe": 36
+    },
+    "moves": [
+    ]
+}

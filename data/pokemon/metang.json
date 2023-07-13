@@ -1,0 +1,21 @@
+{
+    "name": "Metang",
+    "abilities": [
+        "Clear Body",
+        "Light Metal"
+    ],
+    "types": [
+        "steel",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 75,
+        "def": 100,
+        "spa": 55,
+        "spd": 80,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

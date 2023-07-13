@@ -1,0 +1,19 @@
+{
+    "name": "Pluck",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "flying",
+    "power": 60,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

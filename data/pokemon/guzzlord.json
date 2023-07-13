@@ -1,0 +1,20 @@
+{
+    "name": "Guzzlord",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "dark",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 223,
+        "atk": 101,
+        "def": 53,
+        "spa": 97,
+        "spd": 53,
+        "spe": 43
+    },
+    "moves": [
+    ]
+}

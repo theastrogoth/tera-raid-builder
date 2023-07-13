@@ -1,0 +1,22 @@
+{
+    "name": "Frillish",
+    "abilities": [
+        "Water Absorb",
+        "Cursed Body",
+        "Damp"
+    ],
+    "types": [
+        "water",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 55,
+        "atk": 40,
+        "def": 50,
+        "spa": 65,
+        "spd": 85,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

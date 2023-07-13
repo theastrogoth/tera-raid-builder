@@ -1,0 +1,19 @@
+{
+    "name": "Kangaskhan-Mega",
+    "abilities": [
+        "Parental Bond"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 105,
+        "atk": 125,
+        "def": 100,
+        "spa": 60,
+        "spd": 100,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

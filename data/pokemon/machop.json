@@ -1,0 +1,21 @@
+{
+    "name": "Machop",
+    "abilities": [
+        "Guts",
+        "No Guard",
+        "Steadfast"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 80,
+        "def": 50,
+        "spa": 35,
+        "spd": 35,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

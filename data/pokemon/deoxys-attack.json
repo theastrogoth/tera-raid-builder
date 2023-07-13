@@ -1,0 +1,19 @@
+{
+    "name": "Deoxys-Attack",
+    "abilities": [
+        "Pressure"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 180,
+        "def": 20,
+        "spa": 180,
+        "spd": 20,
+        "spe": 150
+    },
+    "moves": [
+    ]
+}

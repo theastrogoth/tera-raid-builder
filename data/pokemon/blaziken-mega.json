@@ -1,0 +1,20 @@
+{
+    "name": "Blaziken-Mega",
+    "abilities": [
+        "Speed Boost"
+    ],
+    "types": [
+        "fire",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 160,
+        "def": 80,
+        "spa": 130,
+        "spd": 80,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

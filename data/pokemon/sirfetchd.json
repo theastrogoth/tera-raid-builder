@@ -1,0 +1,20 @@
+{
+    "name": "Sirfetch'd",
+    "abilities": [
+        "Steadfast",
+        "Scrappy"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 62,
+        "atk": 135,
+        "def": 95,
+        "spa": 68,
+        "spd": 82,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

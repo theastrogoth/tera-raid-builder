@@ -1,0 +1,19 @@
+{
+    "name": "Grubbin",
+    "abilities": [
+        "Swarm"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 47,
+        "atk": 62,
+        "def": 45,
+        "spa": 55,
+        "spd": 45,
+        "spe": 46
+    },
+    "moves": [
+    ]
+}

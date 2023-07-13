@@ -1,0 +1,22 @@
+{
+    "name": "Dracovish",
+    "abilities": [
+        "Water Absorb",
+        "Strong Jaw",
+        "Sand Rush"
+    ],
+    "types": [
+        "water",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 90,
+        "def": 100,
+        "spa": 70,
+        "spd": 80,
+        "spe": 75
+    },
+    "moves": [
+    ]
+}

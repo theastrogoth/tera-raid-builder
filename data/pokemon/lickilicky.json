@@ -1,0 +1,21 @@
+{
+    "name": "Lickilicky",
+    "abilities": [
+        "Own Tempo",
+        "Oblivious",
+        "Cloud Nine"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 85,
+        "def": 95,
+        "spa": 80,
+        "spd": 95,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

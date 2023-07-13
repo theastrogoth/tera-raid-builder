@@ -1,0 +1,24 @@
+{
+    "name": "Charge Beam",
+    "category": "damage+raise",
+    "target": "selected-pokemon",
+    "type": "electric",
+    "power": 50,
+    "accuracy": 90,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spa",
+            "change": 1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 70,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

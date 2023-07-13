@@ -1,0 +1,19 @@
+{
+    "name": "Poison Powder",
+    "category": "ailment",
+    "target": "selected-pokemon",
+    "type": "poison",
+    "power": null,
+    "accuracy": 75,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "poison",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,28 @@
+{
+    "name": "Defend Order",
+    "category": "net-good-stats",
+    "target": "user",
+    "type": "bug",
+    "power": null,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "change": 1
+        },
+        {
+            "stat": "spd",
+            "change": 1
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

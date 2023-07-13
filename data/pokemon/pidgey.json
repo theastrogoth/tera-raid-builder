@@ -1,0 +1,22 @@
+{
+    "name": "Pidgey",
+    "abilities": [
+        "Keen Eye",
+        "Tangled Feet",
+        "Big Pecks"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 40,
+        "spa": 35,
+        "spd": 35,
+        "spe": 56
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Ivysaur",
+    "abilities": [
+        "Overgrow",
+        "Chlorophyll"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 62,
+        "def": 63,
+        "spa": 80,
+        "spd": 80,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

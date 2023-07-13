@@ -1,0 +1,21 @@
+{
+    "name": "Purrloin",
+    "abilities": [
+        "Limber",
+        "Unburden",
+        "Prankster"
+    ],
+    "types": [
+        "dark"
+    ],
+    "stats": {
+        "hp": 41,
+        "atk": 50,
+        "def": 37,
+        "spa": 50,
+        "spd": 37,
+        "spe": 66
+    },
+    "moves": [
+    ]
+}

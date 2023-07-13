@@ -1,0 +1,21 @@
+{
+    "name": "Druddigon",
+    "abilities": [
+        "Rough Skin",
+        "Sheer Force",
+        "Mold Breaker"
+    ],
+    "types": [
+        "dragon"
+    ],
+    "stats": {
+        "hp": 77,
+        "atk": 120,
+        "def": 90,
+        "spa": 60,
+        "spd": 90,
+        "spe": 48
+    },
+    "moves": [
+    ]
+}

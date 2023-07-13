@@ -1,0 +1,22 @@
+{
+    "name": "Linoone-Galar",
+    "abilities": [
+        "Pickup",
+        "Gluttony",
+        "Quick Feet"
+    ],
+    "types": [
+        "dark",
+        "normal"
+    ],
+    "stats": {
+        "hp": 78,
+        "atk": 70,
+        "def": 61,
+        "spa": 50,
+        "spd": 61,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

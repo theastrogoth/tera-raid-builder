@@ -1,0 +1,21 @@
+{
+    "name": "Venusaur-Gmax",
+    "abilities": [
+        "Overgrow",
+        "Chlorophyll"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 82,
+        "def": 83,
+        "spa": 100,
+        "spd": 100,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

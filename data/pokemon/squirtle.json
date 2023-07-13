@@ -1,0 +1,20 @@
+{
+    "name": "Squirtle",
+    "abilities": [
+        "Torrent",
+        "Rain Dish"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 44,
+        "atk": 48,
+        "def": 65,
+        "spa": 50,
+        "spd": 64,
+        "spe": 43
+    },
+    "moves": [
+    ]
+}

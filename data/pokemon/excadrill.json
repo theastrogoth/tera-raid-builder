@@ -1,0 +1,22 @@
+{
+    "name": "Excadrill",
+    "abilities": [
+        "Sand Rush",
+        "Sand Force",
+        "Mold Breaker"
+    ],
+    "types": [
+        "ground",
+        "steel"
+    ],
+    "stats": {
+        "hp": 110,
+        "atk": 135,
+        "def": 60,
+        "spa": 50,
+        "spd": 65,
+        "spe": 88
+    },
+    "moves": [
+    ]
+}

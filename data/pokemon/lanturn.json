@@ -1,0 +1,22 @@
+{
+    "name": "Lanturn",
+    "abilities": [
+        "Volt Absorb",
+        "Illuminate",
+        "Water Absorb"
+    ],
+    "types": [
+        "water",
+        "electric"
+    ],
+    "stats": {
+        "hp": 125,
+        "atk": 58,
+        "def": 58,
+        "spa": 76,
+        "spd": 76,
+        "spe": 67
+    },
+    "moves": [
+    ]
+}

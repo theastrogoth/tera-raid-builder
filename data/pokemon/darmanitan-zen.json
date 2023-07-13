@@ -1,0 +1,21 @@
+{
+    "name": "Darmanitan-Zen",
+    "abilities": [
+        "Sheer Force",
+        "Zen Mode"
+    ],
+    "types": [
+        "fire",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 105,
+        "atk": 30,
+        "def": 105,
+        "spa": 140,
+        "spd": 105,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

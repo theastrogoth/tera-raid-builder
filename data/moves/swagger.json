@@ -1,0 +1,24 @@
+{
+    "name": "Swagger",
+    "category": "swagger",
+    "target": "selected-pokemon",
+    "type": "normal",
+    "power": null,
+    "accuracy": 85,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "confusion",
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 2
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

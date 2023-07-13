@@ -1,0 +1,22 @@
+{
+    "name": "Ducklett",
+    "abilities": [
+        "Keen Eye",
+        "Big Pecks",
+        "Hydration"
+    ],
+    "types": [
+        "water",
+        "flying"
+    ],
+    "stats": {
+        "hp": 62,
+        "atk": 44,
+        "def": 50,
+        "spa": 44,
+        "spd": 50,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

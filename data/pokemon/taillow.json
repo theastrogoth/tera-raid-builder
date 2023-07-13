@@ -1,0 +1,21 @@
+{
+    "name": "Taillow",
+    "abilities": [
+        "Guts",
+        "Scrappy"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 55,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Mime Jr.",
+    "abilities": [
+        "Soundproof",
+        "Filter",
+        "Technician"
+    ],
+    "types": [
+        "psychic",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 20,
+        "atk": 25,
+        "def": 45,
+        "spa": 70,
+        "spd": 90,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Vanillish",
+    "abilities": [
+        "Ice Body",
+        "Snow Cloak",
+        "Weak Armor"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 51,
+        "atk": 65,
+        "def": 65,
+        "spa": 80,
+        "spd": 75,
+        "spe": 59
+    },
+    "moves": [
+    ]
+}

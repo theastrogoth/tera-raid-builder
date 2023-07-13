@@ -1,0 +1,22 @@
+{
+    "name": "Whimsicott",
+    "abilities": [
+        "Prankster",
+        "Infiltrator",
+        "Chlorophyll"
+    ],
+    "types": [
+        "grass",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 67,
+        "def": 85,
+        "spa": 77,
+        "spd": 75,
+        "spe": 116
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Twin Beam",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "psychic",
+    "power": 40,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": 2,
+    "maxHits": 2
+}

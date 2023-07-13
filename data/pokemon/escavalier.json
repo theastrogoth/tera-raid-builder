@@ -1,0 +1,22 @@
+{
+    "name": "Escavalier",
+    "abilities": [
+        "Swarm",
+        "Shell Armor",
+        "Overcoat"
+    ],
+    "types": [
+        "bug",
+        "steel"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 135,
+        "def": 105,
+        "spa": 60,
+        "spd": 105,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

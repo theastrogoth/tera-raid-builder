@@ -1,0 +1,21 @@
+{
+    "name": "Snubbull",
+    "abilities": [
+        "Intimidate",
+        "Run Away",
+        "Rattled"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 80,
+        "def": 50,
+        "spa": 40,
+        "spd": 40,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

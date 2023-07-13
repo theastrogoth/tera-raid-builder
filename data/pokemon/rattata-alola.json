@@ -1,0 +1,22 @@
+{
+    "name": "Rattata-Alola",
+    "abilities": [
+        "Gluttony",
+        "Hustle",
+        "Thick Fat"
+    ],
+    "types": [
+        "dark",
+        "normal"
+    ],
+    "stats": {
+        "hp": 30,
+        "atk": 56,
+        "def": 35,
+        "spa": 25,
+        "spd": 35,
+        "spe": 72
+    },
+    "moves": [
+    ]
+}

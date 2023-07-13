@@ -1,0 +1,21 @@
+{
+    "name": "Audino",
+    "abilities": [
+        "Healer",
+        "Regenerator",
+        "Klutz"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 103,
+        "atk": 60,
+        "def": 86,
+        "spa": 60,
+        "spd": 86,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Bewear",
+    "abilities": [
+        "Fluffy",
+        "Klutz",
+        "Unnerve"
+    ],
+    "types": [
+        "normal",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 120,
+        "atk": 125,
+        "def": 80,
+        "spa": 55,
+        "spd": 60,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

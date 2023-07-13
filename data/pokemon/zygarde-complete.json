@@ -1,0 +1,20 @@
+{
+    "name": "Zygarde-Complete",
+    "abilities": [
+        "Power Construct"
+    ],
+    "types": [
+        "dragon",
+        "ground"
+    ],
+    "stats": {
+        "hp": 216,
+        "atk": 100,
+        "def": 121,
+        "spa": 91,
+        "spd": 95,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

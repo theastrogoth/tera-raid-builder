@@ -1,0 +1,20 @@
+{
+    "name": "Gyarados-Mega",
+    "abilities": [
+        "Mold Breaker"
+    ],
+    "types": [
+        "water",
+        "dark"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 155,
+        "def": 109,
+        "spa": 70,
+        "spd": 130,
+        "spe": 81
+    },
+    "moves": [
+    ]
+}

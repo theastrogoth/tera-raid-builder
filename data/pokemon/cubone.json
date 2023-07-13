@@ -1,0 +1,21 @@
+{
+    "name": "Cubone",
+    "abilities": [
+        "Rock Head",
+        "Lightning Rod",
+        "Battle Armor"
+    ],
+    "types": [
+        "ground"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 50,
+        "def": 95,
+        "spa": 40,
+        "spd": 50,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

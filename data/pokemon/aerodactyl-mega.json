@@ -1,0 +1,20 @@
+{
+    "name": "Aerodactyl-Mega",
+    "abilities": [
+        "Tough Claws"
+    ],
+    "types": [
+        "rock",
+        "flying"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 135,
+        "def": 85,
+        "spa": 70,
+        "spd": 95,
+        "spe": 150
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Ledyba",
+    "abilities": [
+        "Swarm",
+        "Early Bird",
+        "Rattled"
+    ],
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 20,
+        "def": 30,
+        "spa": 40,
+        "spd": 80,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

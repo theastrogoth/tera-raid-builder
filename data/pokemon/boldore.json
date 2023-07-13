@@ -1,0 +1,21 @@
+{
+    "name": "Boldore",
+    "abilities": [
+        "Sturdy",
+        "Weak Armor",
+        "Sand Force"
+    ],
+    "types": [
+        "rock"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 105,
+        "def": 105,
+        "spa": 50,
+        "spd": 40,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

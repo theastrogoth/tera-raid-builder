@@ -1,0 +1,21 @@
+{
+    "name": "Arbok",
+    "abilities": [
+        "Intimidate",
+        "Shed Skin",
+        "Unnerve"
+    ],
+    "types": [
+        "poison"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 95,
+        "def": 69,
+        "spa": 65,
+        "spd": 79,
+        "spe": 80
+    },
+    "moves": [
+    ]
+}

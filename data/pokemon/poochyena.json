@@ -1,0 +1,21 @@
+{
+    "name": "Poochyena",
+    "abilities": [
+        "Run Away",
+        "Quick Feet",
+        "Rattled"
+    ],
+    "types": [
+        "dark"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 55,
+        "def": 35,
+        "spa": 30,
+        "spd": 30,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

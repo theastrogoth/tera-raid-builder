@@ -1,0 +1,20 @@
+{
+    "name": "Plusle",
+    "abilities": [
+        "Plus",
+        "Lightning Rod"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 40,
+        "spa": 85,
+        "spd": 75,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

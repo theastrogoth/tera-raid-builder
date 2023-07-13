@@ -1,0 +1,20 @@
+{
+    "name": "Alcremie",
+    "abilities": [
+        "Sweet Veil",
+        "Aroma Veil"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 75,
+        "spa": 110,
+        "spd": 121,
+        "spe": 64
+    },
+    "moves": [
+    ]
+}

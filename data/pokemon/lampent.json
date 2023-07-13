@@ -1,0 +1,22 @@
+{
+    "name": "Lampent",
+    "abilities": [
+        "Flash Fire",
+        "Flame Body",
+        "Infiltrator"
+    ],
+    "types": [
+        "ghost",
+        "fire"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 40,
+        "def": 60,
+        "spa": 95,
+        "spd": 60,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

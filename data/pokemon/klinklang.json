@@ -1,0 +1,21 @@
+{
+    "name": "Klinklang",
+    "abilities": [
+        "Plus",
+        "Minus",
+        "Clear Body"
+    ],
+    "types": [
+        "steel"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 100,
+        "def": 115,
+        "spa": 70,
+        "spd": 85,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

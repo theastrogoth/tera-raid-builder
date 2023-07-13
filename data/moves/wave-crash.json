@@ -1,0 +1,19 @@
+{
+    "name": "Wave Crash",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "water",
+    "power": 120,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": -33,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

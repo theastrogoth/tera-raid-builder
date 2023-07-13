@@ -1,0 +1,21 @@
+{
+    "name": "Glameow",
+    "abilities": [
+        "Limber",
+        "Own Tempo",
+        "Keen Eye"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 49,
+        "atk": 55,
+        "def": 42,
+        "spa": 42,
+        "spd": 37,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

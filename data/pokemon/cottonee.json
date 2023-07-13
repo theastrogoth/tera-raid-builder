@@ -1,0 +1,22 @@
+{
+    "name": "Cottonee",
+    "abilities": [
+        "Prankster",
+        "Infiltrator",
+        "Chlorophyll"
+    ],
+    "types": [
+        "grass",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 27,
+        "def": 60,
+        "spa": 37,
+        "spd": 50,
+        "spe": 66
+    },
+    "moves": [
+    ]
+}

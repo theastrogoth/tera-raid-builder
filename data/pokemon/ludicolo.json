@@ -1,0 +1,22 @@
+{
+    "name": "Ludicolo",
+    "abilities": [
+        "Swift Swim",
+        "Rain Dish",
+        "Own Tempo"
+    ],
+    "types": [
+        "water",
+        "grass"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 70,
+        "def": 70,
+        "spa": 90,
+        "spd": 100,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

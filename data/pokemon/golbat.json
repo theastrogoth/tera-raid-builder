@@ -1,0 +1,21 @@
+{
+    "name": "Golbat",
+    "abilities": [
+        "Inner Focus",
+        "Infiltrator"
+    ],
+    "types": [
+        "poison",
+        "flying"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 80,
+        "def": 70,
+        "spa": 65,
+        "spd": 75,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

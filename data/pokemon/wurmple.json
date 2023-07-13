@@ -1,0 +1,20 @@
+{
+    "name": "Wurmple",
+    "abilities": [
+        "Shield Dust",
+        "Run Away"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 45,
+        "def": 35,
+        "spa": 20,
+        "spd": 30,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

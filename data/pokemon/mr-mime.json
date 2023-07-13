@@ -1,0 +1,22 @@
+{
+    "name": "Mr. Mime",
+    "abilities": [
+        "Soundproof",
+        "Filter",
+        "Technician"
+    ],
+    "types": [
+        "psychic",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 65,
+        "spa": 100,
+        "spd": 120,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

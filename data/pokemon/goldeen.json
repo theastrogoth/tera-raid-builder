@@ -1,0 +1,21 @@
+{
+    "name": "Goldeen",
+    "abilities": [
+        "Swift Swim",
+        "Water Veil",
+        "Lightning Rod"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 67,
+        "def": 60,
+        "spa": 35,
+        "spd": 50,
+        "spe": 63
+    },
+    "moves": [
+    ]
+}

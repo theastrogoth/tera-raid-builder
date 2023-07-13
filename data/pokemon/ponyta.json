@@ -1,0 +1,21 @@
+{
+    "name": "Ponyta",
+    "abilities": [
+        "Run Away",
+        "Flash Fire",
+        "Flame Body"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 85,
+        "def": 55,
+        "spa": 65,
+        "spd": 65,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Lickitung",
+    "abilities": [
+        "Own Tempo",
+        "Oblivious",
+        "Cloud Nine"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 55,
+        "def": 75,
+        "spa": 60,
+        "spd": 75,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Melmetal-Gmax",
+    "abilities": [
+        "Iron Fist"
+    ],
+    "types": [
+        "steel"
+    ],
+    "stats": {
+        "hp": 135,
+        "atk": 143,
+        "def": 143,
+        "spa": 80,
+        "spd": 65,
+        "spe": 34
+    },
+    "moves": [
+    ]
+}

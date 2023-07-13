@@ -1,0 +1,20 @@
+{
+    "name": "Electivire",
+    "abilities": [
+        "Motor Drive",
+        "Vital Spirit"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 123,
+        "def": 67,
+        "spa": 95,
+        "spd": 85,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

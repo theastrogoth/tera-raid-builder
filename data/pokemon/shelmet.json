@@ -1,0 +1,21 @@
+{
+    "name": "Shelmet",
+    "abilities": [
+        "Hydration",
+        "Shell Armor",
+        "Overcoat"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 40,
+        "def": 85,
+        "spa": 40,
+        "spd": 65,
+        "spe": 25
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Aron",
+    "abilities": [
+        "Sturdy",
+        "Rock Head",
+        "Heavy Metal"
+    ],
+    "types": [
+        "steel",
+        "rock"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 70,
+        "def": 100,
+        "spa": 40,
+        "spd": 40,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

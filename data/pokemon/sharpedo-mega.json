@@ -1,0 +1,20 @@
+{
+    "name": "Sharpedo-Mega",
+    "abilities": [
+        "Strong Jaw"
+    ],
+    "types": [
+        "water",
+        "dark"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 140,
+        "def": 70,
+        "spa": 110,
+        "spd": 65,
+        "spe": 105
+    },
+    "moves": [
+    ]
+}

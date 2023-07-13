@@ -1,0 +1,20 @@
+{
+    "name": "Lunala",
+    "abilities": [
+        "Shadow Shield"
+    ],
+    "types": [
+        "psychic",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 137,
+        "atk": 113,
+        "def": 89,
+        "spa": 137,
+        "spd": 107,
+        "spe": 97
+    },
+    "moves": [
+    ]
+}

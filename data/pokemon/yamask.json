@@ -1,0 +1,19 @@
+{
+    "name": "Yamask",
+    "abilities": [
+        "Mummy"
+    ],
+    "types": [
+        "ghost"
+    ],
+    "stats": {
+        "hp": 38,
+        "atk": 30,
+        "def": 85,
+        "spa": 55,
+        "spd": 65,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

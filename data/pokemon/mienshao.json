@@ -1,0 +1,21 @@
+{
+    "name": "Mienshao",
+    "abilities": [
+        "Inner Focus",
+        "Regenerator",
+        "Reckless"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 125,
+        "def": 60,
+        "spa": 95,
+        "spd": 60,
+        "spe": 105
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Bulbasaur",
+    "abilities": [
+        "Overgrow",
+        "Chlorophyll"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 49,
+        "def": 49,
+        "spa": 65,
+        "spd": 65,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

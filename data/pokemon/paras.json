@@ -1,0 +1,22 @@
+{
+    "name": "Paras",
+    "abilities": [
+        "Effect Spore",
+        "Dry Skin",
+        "Damp"
+    ],
+    "types": [
+        "bug",
+        "grass"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 70,
+        "def": 55,
+        "spa": 45,
+        "spd": 55,
+        "spe": 25
+    },
+    "moves": [
+    ]
+}

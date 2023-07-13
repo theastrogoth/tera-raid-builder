@@ -1,0 +1,21 @@
+{
+    "name": "Pignite",
+    "abilities": [
+        "Blaze",
+        "Thick Fat"
+    ],
+    "types": [
+        "fire",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 93,
+        "def": 55,
+        "spa": 70,
+        "spd": 55,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

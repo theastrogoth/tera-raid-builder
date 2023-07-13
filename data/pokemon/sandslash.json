@@ -1,0 +1,20 @@
+{
+    "name": "Sandslash",
+    "abilities": [
+        "Sand Veil",
+        "Sand Rush"
+    ],
+    "types": [
+        "ground"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 100,
+        "def": 110,
+        "spa": 45,
+        "spd": 55,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Golem",
+    "abilities": [
+        "Rock Head",
+        "Sturdy",
+        "Sand Veil"
+    ],
+    "types": [
+        "rock",
+        "ground"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 130,
+        "spa": 55,
+        "spd": 65,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

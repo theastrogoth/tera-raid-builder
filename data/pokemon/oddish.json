@@ -1,0 +1,21 @@
+{
+    "name": "Oddish",
+    "abilities": [
+        "Chlorophyll",
+        "Run Away"
+    ],
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 50,
+        "def": 55,
+        "spa": 75,
+        "spd": 65,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

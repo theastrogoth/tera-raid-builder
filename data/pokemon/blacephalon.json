@@ -1,0 +1,20 @@
+{
+    "name": "Blacephalon",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "fire",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 53,
+        "atk": 127,
+        "def": 53,
+        "spa": 151,
+        "spd": 79,
+        "spe": 107
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Furfrou",
+    "abilities": [
+        "Fur Coat"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 80,
+        "def": 60,
+        "spa": 65,
+        "spd": 90,
+        "spe": 102
+    },
+    "moves": [
+    ]
+}

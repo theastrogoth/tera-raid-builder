@@ -1,0 +1,20 @@
+{
+    "name": "Magby",
+    "abilities": [
+        "Flame Body",
+        "Vital Spirit"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 75,
+        "def": 37,
+        "spa": 70,
+        "spd": 55,
+        "spe": 83
+    },
+    "moves": [
+    ]
+}

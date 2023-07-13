@@ -1,0 +1,22 @@
+{
+    "name": "Mantyke",
+    "abilities": [
+        "Swift Swim",
+        "Water Absorb",
+        "Water Veil"
+    ],
+    "types": [
+        "water",
+        "flying"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 20,
+        "def": 50,
+        "spa": 60,
+        "spd": 120,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

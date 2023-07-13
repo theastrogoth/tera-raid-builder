@@ -1,0 +1,22 @@
+{
+    "name": "Chinchou",
+    "abilities": [
+        "Volt Absorb",
+        "Illuminate",
+        "Water Absorb"
+    ],
+    "types": [
+        "water",
+        "electric"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 38,
+        "def": 38,
+        "spa": 56,
+        "spd": 56,
+        "spe": 67
+    },
+    "moves": [
+    ]
+}

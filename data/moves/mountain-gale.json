@@ -1,0 +1,19 @@
+{
+    "name": "Mountain Gale",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "ice",
+    "power": 100,
+    "accuracy": 85,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 30,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

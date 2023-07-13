@@ -1,0 +1,22 @@
+{
+    "name": "Golurk",
+    "abilities": [
+        "Iron Fist",
+        "Klutz",
+        "No Guard"
+    ],
+    "types": [
+        "ground",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 89,
+        "atk": 124,
+        "def": 80,
+        "spa": 55,
+        "spd": 80,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

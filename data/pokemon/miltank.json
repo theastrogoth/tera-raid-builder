@@ -1,0 +1,21 @@
+{
+    "name": "Miltank",
+    "abilities": [
+        "Thick Fat",
+        "Scrappy",
+        "Sap Sipper"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 80,
+        "def": 105,
+        "spa": 40,
+        "spd": 70,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

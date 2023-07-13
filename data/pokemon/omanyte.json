@@ -1,0 +1,22 @@
+{
+    "name": "Omanyte",
+    "abilities": [
+        "Swift Swim",
+        "Shell Armor",
+        "Weak Armor"
+    ],
+    "types": [
+        "rock",
+        "water"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 40,
+        "def": 100,
+        "spa": 90,
+        "spd": 55,
+        "spe": 35
+    },
+    "moves": [
+    ]
+}

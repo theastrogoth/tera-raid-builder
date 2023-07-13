@@ -1,0 +1,21 @@
+{
+    "name": "Sawk",
+    "abilities": [
+        "Sturdy",
+        "Inner Focus",
+        "Mold Breaker"
+    ],
+    "types": [
+        "fighting"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 125,
+        "def": 75,
+        "spa": 30,
+        "spd": 75,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

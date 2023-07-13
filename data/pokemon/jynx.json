@@ -1,0 +1,22 @@
+{
+    "name": "Jynx",
+    "abilities": [
+        "Oblivious",
+        "Forewarn",
+        "Dry Skin"
+    ],
+    "types": [
+        "ice",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 50,
+        "def": 35,
+        "spa": 115,
+        "spd": 95,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Tapu Koko",
+    "abilities": [
+        "Electric Surge",
+        "Telepathy"
+    ],
+    "types": [
+        "electric",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 115,
+        "def": 85,
+        "spa": 95,
+        "spd": 75,
+        "spe": 130
+    },
+    "moves": [
+    ]
+}

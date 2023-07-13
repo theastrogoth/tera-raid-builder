@@ -1,0 +1,22 @@
+{
+    "name": "Malamar",
+    "abilities": [
+        "Contrary",
+        "Suction Cups",
+        "Infiltrator"
+    ],
+    "types": [
+        "dark",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 86,
+        "atk": 92,
+        "def": 88,
+        "spa": 68,
+        "spd": 75,
+        "spe": 73
+    },
+    "moves": [
+    ]
+}

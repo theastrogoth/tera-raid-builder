@@ -1,0 +1,22 @@
+{
+    "name": "Tentacruel",
+    "abilities": [
+        "Clear Body",
+        "Liquid Ooze",
+        "Rain Dish"
+    ],
+    "types": [
+        "water",
+        "poison"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 70,
+        "def": 65,
+        "spa": 80,
+        "spd": 120,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

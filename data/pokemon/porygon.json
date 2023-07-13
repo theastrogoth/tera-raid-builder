@@ -1,0 +1,21 @@
+{
+    "name": "Porygon",
+    "abilities": [
+        "Trace",
+        "Download",
+        "Analytic"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 60,
+        "def": 70,
+        "spa": 85,
+        "spd": 75,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

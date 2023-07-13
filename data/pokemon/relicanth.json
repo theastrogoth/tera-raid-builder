@@ -1,0 +1,22 @@
+{
+    "name": "Relicanth",
+    "abilities": [
+        "Swift Swim",
+        "Rock Head",
+        "Sturdy"
+    ],
+    "types": [
+        "water",
+        "rock"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 90,
+        "def": 130,
+        "spa": 45,
+        "spd": 65,
+        "spe": 55
+    },
+    "moves": [
+    ]
+}

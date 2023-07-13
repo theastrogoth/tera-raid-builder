@@ -1,0 +1,19 @@
+{
+    "name": "Magma Storm",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "fire",
+    "power": 100,
+    "accuracy": 75,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "trap",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 100,
+    "minHits": null,
+    "maxHits": null
+}

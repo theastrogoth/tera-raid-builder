@@ -1,0 +1,19 @@
+{
+    "name": "Cosmog",
+    "abilities": [
+        "Unaware"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 43,
+        "atk": 29,
+        "def": 31,
+        "spa": 29,
+        "spd": 31,
+        "spe": 37
+    },
+    "moves": [
+    ]
+}

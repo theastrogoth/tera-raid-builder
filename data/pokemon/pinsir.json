@@ -1,0 +1,21 @@
+{
+    "name": "Pinsir",
+    "abilities": [
+        "Hyper Cutter",
+        "Mold Breaker",
+        "Moxie"
+    ],
+    "types": [
+        "bug"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 125,
+        "def": 100,
+        "spa": 55,
+        "spd": 70,
+        "spe": 85
+    },
+    "moves": [
+    ]
+}

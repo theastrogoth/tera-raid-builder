@@ -1,0 +1,24 @@
+{
+    "name": "Metal Sound",
+    "category": "net-good-stats",
+    "target": "selected-pokemon",
+    "type": "steel",
+    "power": null,
+    "accuracy": 85,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "spd",
+            "change": -2
+        }
+    ],
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

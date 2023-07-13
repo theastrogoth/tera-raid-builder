@@ -1,0 +1,22 @@
+{
+    "name": "Helioptile",
+    "abilities": [
+        "Dry Skin",
+        "Sand Veil",
+        "Solar Power"
+    ],
+    "types": [
+        "electric",
+        "normal"
+    ],
+    "stats": {
+        "hp": 44,
+        "atk": 38,
+        "def": 33,
+        "spa": 61,
+        "spd": 43,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

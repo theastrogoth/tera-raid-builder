@@ -1,0 +1,22 @@
+{
+    "name": "Steelix",
+    "abilities": [
+        "Rock Head",
+        "Sturdy",
+        "Sheer Force"
+    ],
+    "types": [
+        "steel",
+        "ground"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 85,
+        "def": 200,
+        "spa": 55,
+        "spd": 65,
+        "spe": 30
+    },
+    "moves": [
+    ]
+}

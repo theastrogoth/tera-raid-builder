@@ -1,0 +1,19 @@
+{
+    "name": "10 000 000 Volt Thunderbolt",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "electric",
+    "power": 195,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

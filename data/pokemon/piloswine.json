@@ -1,0 +1,22 @@
+{
+    "name": "Piloswine",
+    "abilities": [
+        "Oblivious",
+        "Snow Cloak",
+        "Thick Fat"
+    ],
+    "types": [
+        "ice",
+        "ground"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 100,
+        "def": 80,
+        "spa": 60,
+        "spd": 60,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

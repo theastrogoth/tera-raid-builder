@@ -1,0 +1,20 @@
+{
+    "name": "Elekid",
+    "abilities": [
+        "Static",
+        "Vital Spirit"
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 45,
+        "atk": 63,
+        "def": 37,
+        "spa": 65,
+        "spd": 55,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

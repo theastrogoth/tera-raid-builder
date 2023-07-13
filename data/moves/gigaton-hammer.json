@@ -1,0 +1,19 @@
+{
+    "name": "Gigaton Hammer",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "steel",
+    "power": 160,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

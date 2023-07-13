@@ -1,0 +1,22 @@
+{
+    "name": "Palpitoad",
+    "abilities": [
+        "Swift Swim",
+        "Hydration",
+        "Water Absorb"
+    ],
+    "types": [
+        "water",
+        "ground"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 65,
+        "def": 55,
+        "spa": 65,
+        "spd": 55,
+        "spe": 69
+    },
+    "moves": [
+    ]
+}

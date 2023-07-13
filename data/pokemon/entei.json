@@ -1,0 +1,20 @@
+{
+    "name": "Entei",
+    "abilities": [
+        "Pressure",
+        "Inner Focus"
+    ],
+    "types": [
+        "fire"
+    ],
+    "stats": {
+        "hp": 115,
+        "atk": 115,
+        "def": 85,
+        "spa": 90,
+        "spd": 75,
+        "spe": 100
+    },
+    "moves": [
+    ]
+}

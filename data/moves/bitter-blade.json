@@ -1,0 +1,19 @@
+{
+    "name": "Bitter Blade",
+    "category": "damage",
+    "target": "selected-pokemon",
+    "type": "fire",
+    "power": 90,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 50,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null
+}

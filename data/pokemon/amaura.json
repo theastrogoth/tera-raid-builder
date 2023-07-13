@@ -1,0 +1,21 @@
+{
+    "name": "Amaura",
+    "abilities": [
+        "Refrigerate",
+        "Snow Warning"
+    ],
+    "types": [
+        "rock",
+        "ice"
+    ],
+    "stats": {
+        "hp": 77,
+        "atk": 59,
+        "def": 50,
+        "spa": 67,
+        "spd": 63,
+        "spe": 46
+    },
+    "moves": [
+    ]
+}

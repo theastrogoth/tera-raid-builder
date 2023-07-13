@@ -1,0 +1,20 @@
+{
+    "name": "Greninja-Battle-Bond",
+    "abilities": [
+        "Battle Bond"
+    ],
+    "types": [
+        "water",
+        "dark"
+    ],
+    "stats": {
+        "hp": 72,
+        "atk": 95,
+        "def": 67,
+        "spa": 103,
+        "spd": 71,
+        "spe": 122
+    },
+    "moves": [
+    ]
+}

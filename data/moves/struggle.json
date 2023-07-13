@@ -1,0 +1,19 @@
+{
+    "name": "Struggle",
+    "category": "damage",
+    "target": "random-opponent",
+    "type": "normal",
+    "power": 50,
+    "accuracy": null,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": 25,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

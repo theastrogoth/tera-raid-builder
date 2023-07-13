@@ -1,0 +1,19 @@
+{
+    "name": "Twineedle",
+    "category": "damage+ailment",
+    "target": "selected-pokemon",
+    "type": "bug",
+    "power": 25,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "poison",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 20,
+    "minHits": 2,
+    "maxHits": 2
+}

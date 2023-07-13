@@ -1,0 +1,21 @@
+{
+    "name": "Watchog",
+    "abilities": [
+        "Illuminate",
+        "Keen Eye",
+        "Analytic"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 85,
+        "def": 69,
+        "spa": 60,
+        "spd": 69,
+        "spe": 77
+    },
+    "moves": [
+    ]
+}

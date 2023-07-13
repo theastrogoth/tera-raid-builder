@@ -1,0 +1,20 @@
+{
+    "name": "Golisopod",
+    "abilities": [
+        "Emergency Exit"
+    ],
+    "types": [
+        "bug",
+        "water"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 125,
+        "def": 140,
+        "spa": 60,
+        "spd": 90,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

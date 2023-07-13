@@ -1,0 +1,20 @@
+{
+    "name": "Gengar-Mega",
+    "abilities": [
+        "Shadow Tag"
+    ],
+    "types": [
+        "ghost",
+        "poison"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 65,
+        "def": 80,
+        "spa": 170,
+        "spd": 95,
+        "spe": 130
+    },
+    "moves": [
+    ]
+}

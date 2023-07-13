@@ -1,0 +1,19 @@
+{
+    "name": "Blizzard",
+    "category": "damage+ailment",
+    "target": "all-opponents",
+    "type": "ice",
+    "power": 110,
+    "accuracy": 70,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": "freeze",
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 10,
+    "minHits": null,
+    "maxHits": null
+}

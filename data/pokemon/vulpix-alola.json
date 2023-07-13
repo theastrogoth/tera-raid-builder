@@ -1,0 +1,20 @@
+{
+    "name": "Vulpix-Alola",
+    "abilities": [
+        "Snow Cloak",
+        "Snow Warning"
+    ],
+    "types": [
+        "ice"
+    ],
+    "stats": {
+        "hp": 38,
+        "atk": 41,
+        "def": 40,
+        "spa": 50,
+        "spd": 65,
+        "spe": 65
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Scrafty",
+    "abilities": [
+        "Shed Skin",
+        "Moxie",
+        "Intimidate"
+    ],
+    "types": [
+        "dark",
+        "fighting"
+    ],
+    "stats": {
+        "hp": 65,
+        "atk": 90,
+        "def": 115,
+        "spa": 45,
+        "spd": 115,
+        "spe": 58
+    },
+    "moves": [
+    ]
+}

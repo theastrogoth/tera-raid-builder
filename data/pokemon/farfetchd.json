@@ -1,0 +1,22 @@
+{
+    "name": "Farfetch'd",
+    "abilities": [
+        "Keen Eye",
+        "Inner Focus",
+        "Defiant"
+    ],
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "stats": {
+        "hp": 52,
+        "atk": 90,
+        "def": 55,
+        "spa": 58,
+        "spd": 62,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

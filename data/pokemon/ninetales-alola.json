@@ -1,0 +1,21 @@
+{
+    "name": "Ninetales-Alola",
+    "abilities": [
+        "Snow Cloak",
+        "Snow Warning"
+    ],
+    "types": [
+        "ice",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 73,
+        "atk": 67,
+        "def": 75,
+        "spa": 81,
+        "spd": 100,
+        "spe": 109
+    },
+    "moves": [
+    ]
+}

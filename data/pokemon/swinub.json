@@ -1,0 +1,22 @@
+{
+    "name": "Swinub",
+    "abilities": [
+        "Oblivious",
+        "Snow Cloak",
+        "Thick Fat"
+    ],
+    "types": [
+        "ice",
+        "ground"
+    ],
+    "stats": {
+        "hp": 50,
+        "atk": 50,
+        "def": 40,
+        "spa": 30,
+        "spd": 30,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

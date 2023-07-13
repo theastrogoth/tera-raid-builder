@@ -1,0 +1,22 @@
+{
+    "name": "Vullaby",
+    "abilities": [
+        "Big Pecks",
+        "Overcoat",
+        "Weak Armor"
+    ],
+    "types": [
+        "dark",
+        "flying"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 55,
+        "def": 75,
+        "spa": 45,
+        "spd": 65,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

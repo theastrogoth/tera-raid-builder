@@ -1,0 +1,21 @@
+{
+    "name": "Meowstic-F",
+    "abilities": [
+        "Keen Eye",
+        "Infiltrator",
+        "Competitive"
+    ],
+    "types": [
+        "psychic"
+    ],
+    "stats": {
+        "hp": 74,
+        "atk": 48,
+        "def": 76,
+        "spa": 83,
+        "spd": 81,
+        "spe": 104
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Thievul",
+    "abilities": [
+        "Run Away",
+        "Unburden",
+        "Stakeout"
+    ],
+    "types": [
+        "dark"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 58,
+        "def": 58,
+        "spa": 87,
+        "spd": 92,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

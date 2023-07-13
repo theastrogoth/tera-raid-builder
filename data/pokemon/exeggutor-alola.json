@@ -1,0 +1,21 @@
+{
+    "name": "Exeggutor-Alola",
+    "abilities": [
+        "Frisk",
+        "Harvest"
+    ],
+    "types": [
+        "grass",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 95,
+        "atk": 105,
+        "def": 85,
+        "spa": 125,
+        "spd": 75,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

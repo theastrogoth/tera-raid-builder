@@ -1,0 +1,19 @@
+{
+    "name": "Ally Switch",
+    "category": "unique",
+    "target": "user",
+    "type": "psychic",
+    "power": null,
+    "accuracy": null,
+    "priority": 2,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 0,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Groudon-Primal",
+    "abilities": [
+        "Desolate Land"
+    ],
+    "types": [
+        "ground",
+        "fire"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 180,
+        "def": 160,
+        "spa": 150,
+        "spd": 90,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

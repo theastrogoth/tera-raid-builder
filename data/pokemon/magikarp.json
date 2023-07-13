@@ -1,0 +1,32 @@
+{
+    "name": "Magikarp",
+    "abilities": [
+        "Swift Swim",
+        "Rattled"
+    ],
+    "types": [
+        "water"
+    ],
+    "stats": {
+        "hp": 20,
+        "atk": 10,
+        "def": 55,
+        "spa": 15,
+        "spd": 20,
+        "spe": 80
+    },
+    "moves": [
+        {
+            "name": "Flail",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Splash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        }
+    ]
+}

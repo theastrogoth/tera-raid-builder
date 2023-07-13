@@ -1,0 +1,21 @@
+{
+    "name": "Delcatty",
+    "abilities": [
+        "Cute Charm",
+        "Normalize",
+        "Wonder Skin"
+    ],
+    "types": [
+        "normal"
+    ],
+    "stats": {
+        "hp": 70,
+        "atk": 65,
+        "def": 65,
+        "spa": 55,
+        "spd": 55,
+        "spe": 90
+    },
+    "moves": [
+    ]
+}

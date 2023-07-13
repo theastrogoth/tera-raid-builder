@@ -1,0 +1,20 @@
+{
+    "name": "Nihilego",
+    "abilities": [
+        "Beast Boost"
+    ],
+    "types": [
+        "rock",
+        "poison"
+    ],
+    "stats": {
+        "hp": 109,
+        "atk": 53,
+        "def": 47,
+        "spa": 127,
+        "spd": 131,
+        "spe": 103
+    },
+    "moves": [
+    ]
+}

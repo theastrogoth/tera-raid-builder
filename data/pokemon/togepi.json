@@ -1,0 +1,21 @@
+{
+    "name": "Togepi",
+    "abilities": [
+        "Hustle",
+        "Serene Grace",
+        "Super Luck"
+    ],
+    "types": [
+        "fairy"
+    ],
+    "stats": {
+        "hp": 35,
+        "atk": 20,
+        "def": 65,
+        "spa": 40,
+        "spd": 65,
+        "spe": 20
+    },
+    "moves": [
+    ]
+}

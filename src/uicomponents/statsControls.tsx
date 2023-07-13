@@ -112,9 +112,11 @@ function StatTableRow({name, evTotal, iv, setIV, ev, setEV}: {name: string, evTo
 function StatsControls({gen, pokemon, setPokemon}: {gen: Generation, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>}) {
     const setEV = (evName: string) => {
         return (value: number) => {
+            let safeValue = value > 252 ? 252 : value;
+            safeValue = safeValue < 0 ? 0 : safeValue;
             const newEVs = {...pokemon.evs};
             //@ts-ignore
-            newEVs[evName] = value;
+            newEVs[evName] = safeValue;
             setPokemon(new Pokemon(gen, pokemon.name, {
                 level: pokemon.level,
                 ability: pokemon.ability,
@@ -131,9 +133,11 @@ function StatsControls({gen, pokemon, setPokemon}: {gen: Generation, pokemon: Po
 
     const setIV = (ivName: string) => {
         return (value: number) => {
+            let safeValue = value > 31 ? 31 : value;
+            safeValue = safeValue < 0 ? 0 : safeValue;
             const newIVs = {...pokemon.ivs};
             //@ts-ignore
-            newIVs[ivName] = value;
+            newIVs[ivName] = safeValue;
             setPokemon(new Pokemon(gen, pokemon.name, {
                 level: pokemon.level,
                 ability: pokemon.ability,

@@ -16,10 +16,10 @@ import { Pokemon } from "../calc";
 import { Generation } from "../calc/data/interface";
 
 const IVInput = styled(MuiInput)`
-  width: 30px;
+  width: 34px;
 `;
 const EVInput = styled(MuiInput)`
-  width: 40px;
+  width: 42px;
 `;
 
 const LeftCell = styled(TableCell)(({ theme }) => ({

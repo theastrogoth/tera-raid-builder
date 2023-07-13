@@ -16,7 +16,7 @@ import TuneIcon from '@mui/icons-material/Tune';
 import { styled } from '@mui/material/styles';
 
 import { Pokemon, StatsTable } from '../calc';
-import { Generation } from "../calc/data/interface";
+import { Generation, Nature } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./statsControls";
@@ -50,6 +50,35 @@ function createMoveOptions(moves: string[], learnTypes: string[]) {
     return ["(No Move)", ...moves.map((move, index) => moveToOption(move, learnTypes[index]))];
 }
 
+function natureToOption(nature: Nature) {
+    if (nature.plus == nature.minus) { return nature.name }
+    return nature.name + " (+" + prettyStatName(nature.plus as string) + ", -" + prettyStatName(nature.minus as string) + ")";
+}
+
+function optionToNature(option: string | undefined) {
+    if (!option) { return "Serious"; }
+    return option.slice(0,-13);
+}
+
+function prettyStatName(stat: string) {
+    switch (stat) {
+        case 'hp':
+            return 'HP';
+        case 'atk':
+            return 'Atk';
+        case 'def':
+            return 'Def';
+        case 'spa':
+            return 'SpA';
+        case 'spd':
+            return 'SpD';
+        case 'spe':
+            return 'Spe';
+        default:
+            return stat;
+    }
+}
+
 function evsToString(gen: Generation, pokemon: Pokemon) {
     let str = ''
     let empty = true
@@ -59,27 +88,8 @@ function evsToString(gen: Generation, pokemon: Pokemon) {
                 str = str + ', ';
             }
             empty = false;
-            let statAbbr = 'HP';
-            switch (keyval[0]) {
-                case 'hp':
-                    break;
-                case 'atk':
-                    statAbbr = 'Atk';
-                    break;
-                case 'def':
-                    statAbbr = 'Def';
-                    break;
-                case 'spa':
-                    statAbbr = 'SpA';
-                    break;
-                case 'spd':
-                    statAbbr = 'SpD';
-                    break;
-                case 'spe':
-                    statAbbr = 'Spe';
-                    break;
-            }
-            const nature = gen.natures.get(toID(pokemon.nature))
+            let statAbbr = prettyStatName(keyval[0]);
+            const nature = gen.natures.get(toID(pokemon.nature));
             const natureEffect = nature ? (keyval[0] == nature.minus ? '-' : (keyval[0] == nature.plus ? '+' : '')) : '';
             str = str + statAbbr + ' ' + keyval[1] + natureEffect;
         }
@@ -146,7 +156,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
     {
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
-    const [genNatures, ] = useState([...gen.natures].map(nature => nature.name).sort());
+    const [genNatures, ] = useState([...gen.natures].map(nature => natureToOption(nature)).sort());
     const [genItems, ] = useState([...gen.items].map(item => item.name).sort());
     
     const [editStatsOpen, setEditStatsOpen] = useState(false);
@@ -216,7 +226,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                                 <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies}/>
                                 <SummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes}/>
                                 <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={abilities}/>
-                                <SummaryRow name="Nature" value={pokemon.nature || "Serious"} setValue={setPokemonProperty("nature")} options={genNatures}/>
+                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Serious" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures}/>
                                 <TableRow>
                                     <LeftCell>Level</LeftCell>
                                     <RightCell>

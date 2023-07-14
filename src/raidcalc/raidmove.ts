@@ -1,22 +1,7 @@
 import { State } from "../calc/state";
 import { calculate, Field, Move, Pokemon, Result } from "../calc";
 import { MoveData } from "../services/getdata";
-
-const STAGE_MODIFIERS = {
-    '-6': 2/8,
-    '-5': 2/7,
-    '-4': 2/6,
-    '-3': 2/5,
-    '-2': 2/4,
-    '-1': 2/3,
-    '0': 2/2,
-    '1': 3/2,
-    '2': 4/2,
-    '3': 5/2,
-    '4': 6/2,
-    '5': 7/2,
-    '6': 8/2,
-}
+import { getModifiedStat } from "../calc/mechanics/util";
 
 export class RaidMove {
     boss:           Pokemon;
@@ -120,9 +105,9 @@ export class RaidMove {
         } else {
             // if priority is the same, compare speed
             //@ts-ignore
-            let raiderSpeed = this.raider.stats.spe * STAGE_MODIFIERS[this.raider.boosts.spe.toString()];
+            let raiderSpeed = getModifiedStat(this.raider.stats.spe, this.raider.boosts.spe, 9);
             //@ts-ignore
-            let bossSpeed = this.boss.stats.spe * STAGE_MODIFIERS[this.boss.boosts.spe.toString()];
+            let bossSpeed = getModifiedStat(this.boss.stats.spe, this.boss.boosts.spe, 9);
             if (this.field.attackerSide.isTailwind) { raiderSpeed *= 2 };
             if (this.field.defenderSide.isTailwind) { bossSpeed *= 2 };
             this.raiderMovesFirst = this.field.isTrickRoom ? (raiderSpeed > bossSpeed) : (raiderSpeed < bossSpeed);

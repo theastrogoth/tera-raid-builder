@@ -27,6 +27,7 @@ export class Pokemon implements State.Pokemon {
   boostedStat?: I.StatIDExceptHP | 'auto';
   item?: I.ItemName;
   teraType?: I.TypeName;
+  isQP? : boolean;
 
   nature: I.NatureName;
   ivs: I.StatsTable;

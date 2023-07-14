@@ -2,34 +2,19 @@ import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
 
 import { Pokemon } from '../calc';
 import { Generation } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
-import StatRadarPlot from "./StatRadarPlot";
-import BuildControls from "./BuildControls";
+import BuildControls, { BossBuildControls } from "./BuildControls";
+import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
 
-export function RoleField({role, setRole}: {role: string, setRole: React.Dispatch<React.SetStateAction<string>>}) {
-    const [str, setStr] = useState(role);
-    return (
-        <TextField 
-            variant="standard"
-            fullWidth
-            inputProps={{style: {fontWeight: "bold",fontSize: 25, textAlign: "center"}}}
-            margin="dense"
-            value={str}
-            onChange={(e) => setStr(e.target.value)}
-            onBlur={() => setRole(str)}
-        />
-    )
-}
 
-function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generation, role: string, setRole: React.Dispatch<React.SetStateAction<string>>, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>}) {
+function BossSummary({gen, role, setRole, pokemon, setPokemon, bossMoves, setBossMoves}: {gen: Generation, role: string, setRole: React.Dispatch<React.SetStateAction<string>>, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, bossMoves: string[], setBossMoves: React.Dispatch<React.SetStateAction<string[]>>}) {
     const [moveSet, setMoveSet] = useState<(string)[]>([])
     const [moveLearnTypes, setMoveLearnTypes] = useState<string[]>([])
     const [abilities, setAbilities] = useState<string[]>([])
@@ -51,8 +36,8 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
 
     return (
         <Box>
-            <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
-                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" height= "800px" sx={{ marginTop: 1 }} >
+            <Paper elevation={3} sx={{ mx: 1, my: 1, width: 575, display: "flex", flexDirection: "column", padding: "0px"}}>                
+                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" height= "600px" sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
                         <RoleField role={role} setRole={setRole} />
                     </Box>
@@ -137,14 +122,16 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
                             </Box>
                         }
                     </Box>
-                    <BuildControls gen={gen} pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon}/>
-                    <Box flexGrow={1} />
-                    <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} />
-                    {/* <Box flexGrow={1} /> */}
+                    <Stack direction="row" spacing={0} >
+                        <BuildControls gen={gen} pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon}/>
+                        <Stack direction="column" spacing={0} justifyContent="center" alignItems="center">
+                            <BossBuildControls gen={gen} moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} bossMoves={bossMoves} setBossMoves={setBossMoves}/>
+                        </Stack>
+                    </Stack>
                 </Stack>
             </Paper>
         </Box>
     );
 }
 
-export default PokemonSummary;
+export default BossSummary;

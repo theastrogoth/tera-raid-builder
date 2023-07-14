@@ -8,6 +8,7 @@ import Button from "@mui/material/Button"
 
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 
@@ -69,34 +70,36 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                             <Box justifyContent="center" alignItems="center" sx={{ p: 2}}>                            
                                 <TableContainer sx={{ paddingBottom: 2}}>
                                     <Table size="small" sx={{ width: "300px"}}>
-                                        <TableRow>
-                                            <TableCell><Typography variant="body2" fontWeight="bold">Description</Typography></TableCell>
-                                            <TableCell><Typography variant="body2" fontWeight="bold">IV Range</Typography></TableCell>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableCell><Typography variant="body2">"Best" or "Hyper-Trained!"</Typography></TableCell>
-                                            <TableCell><Typography variant="body2">31</Typography></TableCell>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableCell><Typography variant="body2">"Fantastic"</Typography></TableCell>
-                                            <TableCell><Typography variant="body2">30</Typography></TableCell>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableCell><Typography variant="body2">"Very Good"</Typography></TableCell>
-                                            <TableCell><Typography variant="body2">26-29</Typography></TableCell>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableCell><Typography variant="body2">"Pretty Good"</Typography></TableCell>
-                                            <TableCell><Typography variant="body2">16-25</Typography></TableCell>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableCell><Typography variant="body2">"Decent"</Typography></TableCell>
-                                            <TableCell><Typography variant="body2">1-15</Typography></TableCell>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableCell><Typography variant="body2">"No Good"</Typography></TableCell>
-                                            <TableCell><Typography variant="body2">0</Typography></TableCell>
-                                        </TableRow>
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell><Typography variant="body2" fontWeight="bold">Description</Typography></TableCell>
+                                                <TableCell><Typography variant="body2" fontWeight="bold">IV Range</Typography></TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell><Typography variant="body2">"Best" or "Hyper-Trained!"</Typography></TableCell>
+                                                <TableCell><Typography variant="body2">31</Typography></TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell><Typography variant="body2">"Fantastic"</Typography></TableCell>
+                                                <TableCell><Typography variant="body2">30</Typography></TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell><Typography variant="body2">"Very Good"</Typography></TableCell>
+                                                <TableCell><Typography variant="body2">26-29</Typography></TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell><Typography variant="body2">"Pretty Good"</Typography></TableCell>
+                                                <TableCell><Typography variant="body2">16-25</Typography></TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell><Typography variant="body2">"Decent"</Typography></TableCell>
+                                                <TableCell><Typography variant="body2">1-15</Typography></TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell><Typography variant="body2">"No Good"</Typography></TableCell>
+                                                <TableCell><Typography variant="body2">0</Typography></TableCell>
+                                            </TableRow>
+                                        </TableBody>
                                     </Table>
                                 </TableContainer>
                                 <Typography variant="body2" gutterBottom>

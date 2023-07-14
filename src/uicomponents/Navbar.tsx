@@ -20,7 +20,7 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
     const [showHelp, setShowHelp] = useState(false);
     return (
         <Box>
-            <AppBar position="static" color="secondary">
+            <AppBar position="static" color="secondary" sx={{ minWidth: "600px"}}>
                 <Toolbar>
                     <Typography 
                         variant="h5"
@@ -35,7 +35,7 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                         Tera Raid Builder
                     </Typography>
                     <Box component="div" sx={{ flexGrow: 1 }} />
-                    <Box component="div" sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box component="div" >
                         <Button 
                             color="inherit"
                             onClick={() => setShowHelp(!showHelp)}
@@ -60,7 +60,7 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                             </Typography>
                             <Typography variant="body2" gutterBottom>
                                 Hyper Training allows you to change a Pokémon's IVs to 31. 
-                                In Pokémon Scarlet & Violet, you can Hyper Train a Pokémon once it reaches level 50 by exchanging Bottle Caps with an NPC in Montenevara.
+                                In Pokémon Scarlet & Violet, you can Hyper Train a Pokémon once it reaches level 50 by exchanging Bottle Caps with an NPC in Montenevera.
                             </Typography>
                             <Typography variant="body2" gutterBottom>
                                 While you cannot directly view a Pokémon's IVs in-game, you can get a rough estimate of a Pokémon's IVs by using the Judge feature while viewing a Pokémon in your Boxes.

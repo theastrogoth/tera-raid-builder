@@ -100,6 +100,8 @@ export class Side implements State.Side {
   steelySpirits: number;
   isSwitching?: 'out' | 'in';
   isCharged: boolean;
+  isMist: boolean;
+  isSafeguard: boolean;
 
   constructor(side: State.Side = {}) {
     this.spikes = side.spikes || 0;
@@ -128,6 +130,8 @@ export class Side implements State.Side {
     this.steelySpirits = side.steelySpirits || 0;
     this.isSwitching = side.isSwitching;
     this.isCharged = !!side.isCharged;
+    this.isMist = !!side.isMist;
+    this.isSafeguard = !!side.isSafeguard;
   }
 
   clone() {

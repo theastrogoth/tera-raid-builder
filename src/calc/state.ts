@@ -83,5 +83,7 @@ export namespace State {
     steelySpirits?: number;
     isSwitching?: 'out' | 'in';
     isCharged?: boolean;
+    isMist?: boolean;
+    isSafeguard?: boolean;
   }
 }

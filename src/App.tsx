@@ -76,46 +76,45 @@ function App() {
 
   const [bossMoves, setBossMoves] = useState([] as string[]);
 
-  // const exportedData = exportPokemon(pokemon1);
-  // const importedData = addSet("baddata");
-  // console.log(exportedData)
-  // console.log(importedData)
+  const result1 = calculate(
+    gen,
+    raidBoss,
+    pokemon1,
+    new Move(gen, raidBoss.moves[0]),
+    new Field({weather: "Rain"})
+  );
+  console.log(result1)
+  console.log(result1.desc())
 
-  // const result1 = calculate(
-  //   gen,
-  //   raidBoss,
-  //   pokemon1,
-  //   new Move(gen, raidBoss.moves[0]),
-  //   new Field({weather: "Rain"})
-  // );
-  // console.log(result1.desc())
+  const result2 = calculate(
+    gen,
+    raidBoss,
+    pokemon2,
+    new Move(gen, raidBoss.moves[0]),
+    new Field({weather: "Rain"})
+  );
+  console.log(result2)
+  console.log(result2.desc())
 
-  // const result2 = calculate(
-  //   gen,
-  //   raidBoss,
-  //   pokemon2,
-  //   new Move(gen, raidBoss.moves[0]),
-  //   new Field({weather: "Rain"})
-  // );
-  // console.log(result2.desc())
+  const result3 = calculate(
+    gen,
+    raidBoss,
+    pokemon3,
+    new Move(gen, raidBoss.moves[0]),
+    new Field({weather: "Rain"})
+  );
+  console.log(result3)
+  console.log(result3.desc())
 
-  // const result3 = calculate(
-  //   gen,
-  //   raidBoss,
-  //   pokemon3,
-  //   new Move(gen, raidBoss.moves[0]),
-  //   new Field({weather: "Rain"})
-  // );
-  // console.log(result3.desc())
-
-  // const result4 = calculate(
-  //   gen,
-  //   raidBoss,
-  //   pokemon4,
-  //   new Move(gen, raidBoss.moves[0]),
-  //   new Field({weather: "Rain"})
-  // );
-  // console.log(result4.desc())
+  const result4 = calculate(
+    gen,
+    raidBoss,
+    pokemon4,
+    new Move(gen, raidBoss.moves[0]),
+    new Field({weather: "Rain"})
+  )
+  console.log(result4)
+  console.log(result4.desc())
 
   return (
     <ThemeProvider theme={theme}>      

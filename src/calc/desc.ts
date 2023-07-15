@@ -503,7 +503,7 @@ function getHazards(gen: Generation, defender: Pokemon, defenderSide: Side) {
   return {damage, texts};
 }
 
-function getEndOfTurn(
+export function getEndOfTurn(
   gen: Generation,
   attacker: Pokemon,
   defender: Pokemon,

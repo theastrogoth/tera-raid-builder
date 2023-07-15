@@ -1,6 +1,6 @@
 import { Move, Field, Pokemon, StatsTable, StatID, Generations, calculate} from "../calc";
 import { getEndOfTurn } from "../calc/desc";
-import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult } from "./interface";
+import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
 import { StatusName, Terrain, Weather } from "../calc/data/interface";
 
 // next time I prepare the move data, I should eliminate the need for translation
@@ -18,7 +18,7 @@ function ailmentToStatus(ailment: AilmentName): StatusName | "" {
 const gen = Generations.get(9);
 const dummyMove = new Move(gen, "Splash");
 
-export class MoveEffect {
+export class RaidMove {
     move: Move;
     moveData: MoveData;
     raidState: RaidState;
@@ -26,8 +26,7 @@ export class MoveEffect {
     targetID: number;   // the id of the target of this move
     raiderID: number;   // the id of the raider who initiated this round
     movesFirst: boolean;
-    secondaryEffects: boolean;
-    roll: "max" | "min" | "avg";
+    options: RaidMoveOptions;
 
     _raidState!: RaidState;
     _raiders!: Raider[];
@@ -42,7 +41,7 @@ export class MoveEffect {
 
     _desc!: string[];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  secondaryEffects?: boolean, roll?: "max" | "min" | "avg") {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
@@ -50,8 +49,7 @@ export class MoveEffect {
         this.targetID = targetID;
         this.raiderID = raiderID;
         this.movesFirst = movesFirst;
-        this.secondaryEffects = secondaryEffects || false;
-        this.roll = roll || "avg";
+        this.options = raidMoveOptions || {};
     }
 
     public result(): RaidMoveResult {
@@ -106,7 +104,12 @@ export class MoveEffect {
         for (let id of this._affectedIDs) {
             const target = this.getPokemon(id);
             const moveField = this.getMoveField(this.userID, id);
-            const result = calculate(9, this._user, target, this.move, moveField);
+            const hits = (this.moveData.maxHits || 1) > 1 ? this.options.hits : 1;
+            const crit = this.options.crit || false;
+            const calcMove = structuredClone(this.move);
+            calcMove.hits = hits || 1;
+            calcMove.isCrit = crit;
+            const result = calculate(9, this._user, target, calcMove, moveField);
             this._damage[id] = typeof(result.damage) == "number" ? [result.damage] : result.damage as number[]; // TODO: find out when result.damage is a number[][]
             this._desc[id] = result.desc();
         }
@@ -135,7 +138,7 @@ export class MoveEffect {
             if (this.move.name == "Heal Cheer") {
                 this._healing[id] = [Math.floor(maxHP * 0.2), maxHP];
             } else {
-                const healAmount = Math.floor(target.maxHP() * healingPercent/100);
+                const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100);
                 this._healing[id] = [healAmount];
             }
         }
@@ -145,19 +148,21 @@ export class MoveEffect {
         const category = this.moveData.category;
         const affectedIDs = category == "damage+raise" ? [this.userID] : this._affectedIDs;
         const statChanges = this.moveData.statChanges;
-
-        for (let id of affectedIDs) {
-            const pokemon = this.getPokemon(id);
-            const field = this._fields[id];
-            for (let statChange of statChanges) {
-                const stat = statChange.stat;
-                const change = statChange.change;
-                if (change < 0 && (field.attackerSide.isProtected || (field.attackerSide.isMist && id !== this.userID))) {
-                    continue;
-                }
-                pokemon.boosts[stat] = (pokemon.boosts[statChange.stat] || 0) + change;
-                if (Math.abs(pokemon.boosts[stat]) > 6) {
-                    pokemon.boosts[stat] = 6 * Math.sign(pokemon.boosts[stat]);
+        const chance = this.moveData.statChance || 0;
+        if (this.options.secondaryEffects || chance === 100) {
+            for (let id of affectedIDs) {
+                const pokemon = this.getPokemon(id);
+                const field = this._fields[id];
+                for (let statChange of (statChanges || [])) {
+                    const stat = statChange.stat;
+                    const change = statChange.change;
+                    if (change < 0 && (field.attackerSide.isProtected || (field.attackerSide.isMist && id !== this.userID))) {
+                        continue;
+                    }
+                    pokemon.boosts[stat] = (pokemon.boosts[statChange.stat] || 0) + change;
+                    if (Math.abs(pokemon.boosts[stat]) > 6) {
+                        pokemon.boosts[stat] = 6 * Math.sign(pokemon.boosts[stat]);
+                    }
                 }
             }
         }
@@ -165,8 +170,8 @@ export class MoveEffect {
 
     private applyAilment() {
         const ailment = this.moveData.ailment;
-        const ailmentChance = this.moveData.ailmentChance;
-        if (ailment && (ailmentChance == 100 || this.secondaryEffects)) {
+        const chance = this.moveData.ailmentChance;
+        if (ailment && (chance == 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];
@@ -180,11 +185,43 @@ export class MoveEffect {
     }
 
     private applySelfDamage() {
-        const selfDamage = Math.floor(this._user.maxHP() * this.moveData.selfDamage);
+        const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0));
         this._damage[this.userID] = this._damage[this.userID].map(d => d + selfDamage);
     }
 
+    private applyHpChanges() {
+        const roll = this.options.roll || "avg";
+        for (let id of this._affectedIDs) {
+            const pokemon = this.getPokemon(id);
+            let damage = 0;
+            let drain = 0;
+            let healing = 0;
+            if (roll === "min") {
+                damage = this._damage[id][0];
+                drain = this._drain[id][0];
+                healing = this._healing[id][0];
+            } else if (roll === "max") {
+                damage = this._damage[id][this._damage[id].length - 1];
+                drain = this._drain[id][this._drain[id].length - 1];
+                healing = this._healing[id][this._healing[id].length - 1];
+            } else {
+                damage = this._damage[id].reduce((a,b) => a+b, 0) / this._damage[id].length;
+                drain = this._drain[id].reduce((a,b) => a+b, 0) / this._drain[id].length;
+                healing = this._healing[id].reduce((a,b) => a+b, 0) / this._healing[id].length;
+            }
+            pokemon.originalCurHP = Math.max(0, pokemon.originalCurHP - damage);
+            if (pokemon.originalCurHP !== 0) {
+                pokemon.originalCurHP = Math.min(pokemon.maxHP(), Math.max(0, pokemon.originalCurHP + drain));
+            }
+            if (pokemon.originalCurHP !== 0) {
+                pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + healing);
+            }
+        }
+    }
+
     private applyOtherEffects() {
+        // still need to decide where to put these
+
         ///// TO DO /////
         /// Ability-affecting moves
         // Skill Swap

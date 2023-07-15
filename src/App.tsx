@@ -16,15 +16,18 @@ import BossSummary from './uicomponents/BossSummary.tsx';
 import Navbar from './uicomponents/Navbar.tsx';
 
 import {calculate, Generations, Pokemon, Move, Field, State} from './calc/index.ts';
+import { MoveName } from './calc/data/interface.ts';
+import { Raider } from './raidcalc/interface.ts';
 import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
+import RaidControls from './uicomponents/RaidControls.tsx';
 
-const defaultBossName = "Delphox";
-const defaultBossSet = BOSS_SETDEX_SV.Delphox['7⭐event'] as Partial<State.Pokemon>;
+const defaultBossName = "Inteleon";
+const defaultBossSet = BOSS_SETDEX_SV.Inteleon['7⭐event'] as Partial<State.Pokemon>;
 
 const defaultRaiderName = "Corviknight";
 const defaultRaiderSet: Partial<State.Pokemon> = { 
   level: 100,
-  nature: "Serious",
+  nature: "Hardy",
 }
 
 function App() {
@@ -63,10 +66,14 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(new Pokemon(gen, defaultBossName, defaultBossSet))
-  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  const [pokemon3, setPokemon3] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
+  // const [pokemon1, setPokemon1] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
+  // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
+  // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
+  // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
+  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Stonjourner", {...defaultRaiderSet, item: "Focus Sash"}))
+  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Meowscarada", {...defaultRaiderSet, item: "Focus Sash", moves: ["Flower Trick"]}))
+  const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Klefki", {...defaultRaiderSet, item: "Focus Sash", moves: ["Sunny Day"], ability: "Prankster"}))
+  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Tauros-Paldea-Blaze-Breed", {...defaultRaiderSet, item: "Choice Band", moves: ["Flare Blitz"], ability: "Anger Point", nature: "Jolly", evs: {atk: 252}}))
 
   const [bossRole, setBossRole] = useState("Raid Boss");
   const [role1, setRole1] = useState("Raider #1");
@@ -116,6 +123,22 @@ function App() {
   console.log(result4)
   console.log(result4.desc())
 
+  const roles = [bossRole, role1, role2, role3, role4]
+  const raiders = [
+    raidBoss,
+    pokemon1,
+    pokemon2,
+    pokemon3,
+    pokemon4
+  ].map((pokemon, index) => {
+    const raider = structuredClone(pokemon) as Raider;
+    raider.id = index;
+    raider.role = roles[index];
+    return raider
+  })
+
+  console.log(raiders)
+
   return (
     <ThemeProvider theme={theme}>      
       <CssBaseline />
@@ -138,6 +161,9 @@ function App() {
         </Grid>
         <Grid item>
           <BossSummary gen={gen} pokemon={raidBoss} setPokemon={setRaidBoss} role={bossRole} setRole={setBossRole} bossMoves={bossMoves} setBossMoves={setBossMoves} />
+        </Grid>
+        <Grid item>
+          <RaidControls raiders={raiders} />
         </Grid>
       </Grid>
       <Stack sx={{ mx: 3, my: 3}}>

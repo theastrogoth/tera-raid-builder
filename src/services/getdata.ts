@@ -20,7 +20,7 @@ export namespace PokedexService {
     export async function getMoveByName(name: string) {
         try {
             const preppedName = prepareFileName(name);
-            let response = await fetch(assetsProlog + "pokemon/" + preppedName + ".json");
+            let response = await fetch(assetsProlog + "moves/" + preppedName + ".json");
             let responseJson = await response.json();
             return responseJson as MoveData;
         } catch(error) {

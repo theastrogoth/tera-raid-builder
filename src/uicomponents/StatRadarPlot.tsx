@@ -18,7 +18,7 @@ const badEVColor    = "#d44a4a"; // for wehn total EVs exceeding 510 (shouldn't 
 const tickorder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
 
 
-function StatRadarPlot({nature, evs, stats}: {nature: Nature | undefined, evs: StatsTable, stats: StatsTable}) {
+function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature | undefined, evs: StatsTable, stats: StatsTable, bossMultiplier?: number}) {
     const theme = useTheme()
     const isDark = theme.palette.mode == 'dark';
 
@@ -54,7 +54,7 @@ function StatRadarPlot({nature, evs, stats}: {nature: Nature | undefined, evs: S
     const evColor = evTotal > 510 ? badEVColor : (
                     evTotal < 508 ? lowEVColor : maxedEVColor);
 
-    const hpPlotVal = (stats.hp+100)/500;
+    const hpPlotVal = ((stats.hp*100/bossMultiplier)+100)/500
     return (
         <Box>
             <Plot

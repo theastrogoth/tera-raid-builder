@@ -12,6 +12,7 @@ import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
+import StatRadarPlot from "./StatRadarPlot";
 
 
 function BossSummary({gen, role, setRole, pokemon, setPokemon, bossMoves, setBossMoves}: {gen: Generation, role: string, setRole: React.Dispatch<React.SetStateAction<string>>, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, bossMoves: string[], setBossMoves: React.Dispatch<React.SetStateAction<string[]>>}) {
@@ -124,8 +125,10 @@ function BossSummary({gen, role, setRole, pokemon, setPokemon, bossMoves, setBos
                     </Box>
                     <Stack direction="row" spacing={0} >
                         <BuildControls gen={gen} pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon}/>
-                        <Stack direction="column" spacing={0} justifyContent="center" alignItems="center">
+                        <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", height: "375px"}}>
                             <BossBuildControls gen={gen} moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} bossMoves={bossMoves} setBossMoves={setBossMoves}/>
+                            <Box flexGrow={1} />
+                            <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier}/>
                         </Stack>
                     </Stack>
                 </Stack>

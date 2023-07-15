@@ -58,26 +58,27 @@ export type AilmentName =   "confusion" |               // many of these are not
 
 export type MoveData = {
     name:           MoveName
-    category:       MoveCategory,
-    target:         MoveTarget,
+    category?:      MoveCategory,
+    target?:        MoveTarget,
     type?:          TypeName,
     power?:         number,
-    accuracy:       number,
-    priority:       number,
-    drain:          number,
-    healing:        number,
-    selfDamage:     number,
-    ailment:        AilmentName,
-    statChanges:    {stat: StatID, change: number}[],
-    flinchChance:   number,
-    statChance:     number,
-    ailmentChance:  number,
-    minHits:        number,
-    maxHits:        number,
+    accuracy?:      number,
+    priority?:      number,
+    drain?:         number,
+    healing?:       number,
+    selfDamage?:    number,
+    ailment?:       AilmentName,
+    statChanges?:   {stat: StatID, change: number}[],
+    flinchChance?:  number,
+    statChance?:    number,
+    ailmentChance?: number,
+    minHits?:       number,
+    maxHits?:       number,
 }
 
 export interface Raider extends Pokemon {
     id: number;
+    role: string;
 }
 
 export type RaidState = {
@@ -85,11 +86,33 @@ export type RaidState = {
     fields: Field[];   // each pokemon gets its own field to deal with things like Friend Guard and Protosynthesis
 }
 
+export type RaidBattleInfo = {
+    startingState: RaidState;
+    turns: RaidTurnInfo[];
+}
+
+export type RaidBattleResults = {
+    turnResults: RaidTurnResult[]; 
+}
+
+export type RaidMoveOptions = {
+    crit?: boolean;
+    secondaryEffects?: boolean;
+    hits?: number;
+    roll?: "max" | "min" | "avg"
+}
+
 export type RaidMoveInfo = {
     userID: number;
     targetID: number;
-    userMoveName: MoveName | undefined;
-    bossMoveName: MoveName | undefined;
+    moveData: MoveData;
+    options?: RaidMoveOptions;
+}
+
+export type RaidTurnInfo ={
+    id: number;
+    moveInfo: RaidMoveInfo;
+    bossMoveInfo: RaidMoveInfo;
 }
 
 export type RaidMoveResult= {
@@ -102,19 +125,8 @@ export type RaidMoveResult= {
     // flags: string[];
 }
 
-export type RaidRoundResult = {
+export type RaidTurnResult = {
     state: RaidState;
     results: [RaidMoveResult, RaidMoveResult];
     raiderMovesFirst: boolean;
-}
-
-export type RaidTurnInfo ={
-    id: number;
-    moveInfo: RaidMoveInfo;
-    state: RaidState;
-}
-
-export type RaidBattle = {
-    startingState: RaidState;
-    turns: RaidTurnInfo[];
 }

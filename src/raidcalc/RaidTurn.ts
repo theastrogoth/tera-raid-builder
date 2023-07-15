@@ -1,19 +1,17 @@
 import { State } from "../calc/state";
 import { calculate, Field, Move, Pokemon } from "../calc";
-import { MoveData, RaidState, RaidRoundResult, RaidMoveResult } from "./interface";
+import { MoveData, RaidMoveOptions, RaidState, RaidTurnResult, RaidMoveResult, RaidTurnInfo } from "./interface";
 import { getModifiedStat } from "../calc/mechanics/util";
-import { MoveEffect } from "./MoveEffect";
+import { RaidMove } from "./RaidMove";
 
-export class MoveRound {
+export class RaidTurn {
     raidState:      RaidState;
     raiderID:       number;
     targetID:       number;
     raiderMoveData!: MoveData;
     bossMoveData!:   MoveData;
-    raiderOptions:  Partial<State.Move>;
-    bossOptions:    Partial<State.Move>;
-    secondaryEffects?: boolean;
-    roll?: "max" | "min" | "avg";
+    raiderOptions:  RaidMoveOptions;
+    bossOptions:    RaidMoveOptions;
 
     //options should include crit, boosts/drops, status effect, min/max damage roll
 
@@ -27,29 +25,28 @@ export class MoveRound {
     _raidState!:      RaidState;
 
 
-    constructor(raidState: RaidState, raiderID: number, targetID: number, 
-                raiderMoveData: MoveData, bossMoveData: MoveData,
-                raiderOptions?: Partial<State.Move>, bossOptions?: Partial<State.Move>,
-                secondaryEffects?: boolean, roll?: "max" | "min" | "avg") {
+    constructor(raidState: RaidState, info: RaidTurnInfo) {
         this.raidState = raidState;
-        this.raiderID = raiderID;
-        this.targetID = targetID;
-        this.raiderMoveData = raiderMoveData;
-        this.bossMoveData = bossMoveData;
+        this.raiderID = info.moveInfo.userID;
+        this.targetID = info.moveInfo.targetID;
+        this.raiderMoveData = info.moveInfo.moveData;
+        this.bossMoveData = info.bossMoveInfo.moveData;
 
-        this.raiderOptions = raiderOptions || {};
-        this.bossOptions = bossOptions || {};
-        this.secondaryEffects = secondaryEffects;
-        this.roll = roll;
+        this.raiderOptions = info.moveInfo.options || {};
+        this.bossOptions = info.bossMoveInfo.options || {};
     }
 
-    public result(): RaidRoundResult {
+    public result(): RaidTurnResult {
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
+        if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+        if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         this._bossMove = new Move(9, this.bossMoveData.name, this.bossOptions);
+        if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+        if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         this.setTurnOrder();
         this._raidState = structuredClone(this.raidState);
         if (this._raiderMovesFirst) {
-            this._result1 = new MoveEffect(
+            this._result1 = new RaidMove(
                 this.raiderMoveData, 
                 this._raiderMove, 
                 this._raidState, 
@@ -57,10 +54,9 @@ export class MoveRound {
                 this.targetID,
                 this.raiderID,
                 this._raiderMovesFirst,
-                this.secondaryEffects,
-                this.roll).result();
+                this.raiderOptions).result();
             this._raidState = this._result1.state;
-            this._result2 = new MoveEffect(
+            this._result2 = new RaidMove(
                 this.bossMoveData, 
                 this._bossMove, 
                 this._raidState, 
@@ -68,11 +64,10 @@ export class MoveRound {
                 this.raiderID,
                 this.raiderID,
                 this._raiderMovesFirst,
-                this.secondaryEffects,
-                this.roll).result();
+                this.bossOptions).result();
             this._raidState = this._result2.state;
         } else {
-            this._result1 = new MoveEffect(
+            this._result1 = new RaidMove(
                 this.bossMoveData, 
                 this._bossMove, 
                 this._raidState, 
@@ -80,10 +75,9 @@ export class MoveRound {
                 this.raiderID,
                 this.raiderID,
                 this._raiderMovesFirst,
-                this.secondaryEffects,
-                this.roll).result();
+                this.raiderOptions).result();
             this._raidState = this._result1.state;
-            this._result2 = new MoveEffect(
+            this._result2 = new RaidMove(
                 this.raiderMoveData, 
                 this._raiderMove, 
                 this._raidState, 
@@ -91,8 +85,7 @@ export class MoveRound {
                 this.targetID,
                 this.raiderID,
                 this._raiderMovesFirst,
-                this.secondaryEffects,
-                this.roll).result();
+                this.bossOptions).result();
             this._raidState = this._result2.state;
         }
         return {

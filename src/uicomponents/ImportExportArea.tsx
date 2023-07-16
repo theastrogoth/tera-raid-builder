@@ -27,6 +27,7 @@ export function exportPokemon(pokemon: Pokemon) {
 	var finalText = "";
 	finalText = pokemon.name + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
 	finalText += "Level: " + pokemon.level + "\n";
+	finalText += pokemon.bossMultiplier > 100 ? "Boss Health multiplier: " + pokemon.bossMultiplier + "\n" : "";
 	finalText += pokemon.nature && gen > 2 ? pokemon.nature + " Nature" + "\n" : "";
 	finalText += pokemon.teraType && gen > 8 ? "Tera Type: " + pokemon.teraType + "\n": "";
 	finalText += pokemon.ability ? "Ability: " + pokemon.ability + "\n" : "";
@@ -101,6 +102,9 @@ function getStats(currentPoke: Partial<Pokemon>, rows: string[], offset: number)
 		switch (currentRow[0]) {
 		case 'Level':
 			currentPoke.level = parseInt(currentRow[1].trim());
+			break;
+		case 'Boss Health multiplier':
+			currentPoke.bossMultiplier = parseInt(currentRow[1].trim());
 			break;
 		case 'EVs':
 			for (j = 1; j < currentRow.length; j++) {

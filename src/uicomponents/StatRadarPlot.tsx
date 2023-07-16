@@ -95,7 +95,7 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
                         fill: "toself",
                     }
                 ]}
-                style={{ width: "350px", height: "200px" }}
+                style={{ width: "325px", height: "200px" }}
                 layout ={{
                     paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)',

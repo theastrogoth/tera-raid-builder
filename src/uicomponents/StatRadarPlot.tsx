@@ -125,7 +125,10 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
                         }
                     }
                 }}
-                config={{ staticPlot: false }}
+                config={{ 
+                    staticPlot: false,
+                    modeBarButtonsToRemove: ['zoom2d']  
+                }}
             />
             <Box height="10px"/>
         </Box>

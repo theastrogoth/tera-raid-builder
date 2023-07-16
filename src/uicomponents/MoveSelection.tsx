@@ -8,10 +8,10 @@ import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
-// import Checkbox from "@mui/material/Checkbox";
-// import FormGroup from '@mui/material/FormGroup';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Input from "@mui/material/Input";
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Input from "@mui/material/Input";
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -29,7 +29,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     const [validTargets, setValidTargets] = useState([moveInfo.userID])
 
     const moveSet = ["(No Move)", ...raiders[moveInfo.userID].moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
-    console.log(moveInfo.options)
     
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
         let newTurns = [...info.turns];
@@ -95,7 +94,8 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
             moveInfo.moveData.target === "all-pokemon" ||
             moveInfo.moveData.target === "entire-field";
     
-    // const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
+    const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
+    const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Box>
@@ -147,31 +147,40 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                     </Select>
                 </FormControl>
             </Box>
-            {/* <FormControl component="fieldset">
+            <FormControl component="fieldset">
                 <FormGroup>
                     <Stack direction="row" spacing={-0.5}>
                         <FormControlLabel 
                             control={
                                 <Checkbox 
                                     size="small" 
-                                    value={critChecked}
+                                    checked={critChecked}
                                     onChange={
                                         (e) => {
                                             setMoveInfo({...moveInfo, options: {...moveInfo.options, crit: !critChecked}});
                                         }
                                     }
-                            />} 
+                                />} 
                             label="Crit"
                             labelPlacement="top"
                         />
                         <FormControlLabel 
-                            control={<Checkbox size="small" />} 
+                            control={
+                                <Checkbox 
+                                    size="small" 
+                                    checked={effectChecked}
+                                    onChange={
+                                        (e) => {
+                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, secondaryEffects: !effectChecked}});
+                                        }
+                                    }
+                                />} 
                             label="Effect"
                             labelPlacement="top"
                         />
                     </Stack>
                 </FormGroup>
-            </FormControl> */}
+            </FormControl>
         </Stack>
     )
 }
@@ -199,7 +208,9 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
             fetchData().catch((e) => console.log(e));
         }
       }, [moveName, turnID])
-    
+
+    const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
+    const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Typography variant="body1">{info.startingState.raiders[0].role + " uses"}</Typography>
@@ -215,6 +226,40 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                 >
                     {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
                 </Select>
+            </FormControl>
+            <FormControl component="fieldset">
+                <FormGroup>
+                    <Stack direction="row" spacing={-0.5}>
+                        <FormControlLabel 
+                            control={
+                                <Checkbox 
+                                    size="small" 
+                                    checked={critChecked}
+                                    onChange={
+                                        (e) => {
+                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, crit: !critChecked}});
+                                        }
+                                    }
+                                />} 
+                            label="Crit"
+                            labelPlacement="top"
+                        />
+                        <FormControlLabel 
+                            control={
+                                <Checkbox 
+                                    size="small" 
+                                    checked={effectChecked}
+                                    onChange={
+                                        (e) => {
+                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, secondaryEffects: !effectChecked}});
+                                        }
+                                    }
+                                />} 
+                            label="Effect"
+                            labelPlacement="top"
+                        />
+                    </Stack>
+                </FormGroup>
             </FormControl>
         </Stack>
     )

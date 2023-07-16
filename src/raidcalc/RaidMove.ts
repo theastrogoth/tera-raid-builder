@@ -216,6 +216,7 @@ export class RaidMove {
             for (let id of affectedIDs) {
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];
+                if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
                 // handle Contrary and Simple
                 const boostCoefficient = pokemon.ability == "Contrary" ? -1 : pokemon.ability == "Simple" ? 2 : 1;
                 for (let statChange of (statChanges || [])) {
@@ -255,10 +256,11 @@ export class RaidMove {
             for (let id of this._affectedIDs) {
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];
+                if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
                 // Type-based immunities (?)
                 if (ailment == "burn" && pokemon.types.includes("Fire")) { continue; }
                 if (ailment == "freeze" && pokemon.types.includes("Ice")) { continue; }
-                if (ailment == "poison" || ailment == "toxic" && pokemon.types.includes("Poison") || pokemon.types.includes("Steel")) { continue; }
+                if ((ailment == "poison" || ailment == "toxic") && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))) { continue; }
                 if (!(field.attackerSide.isProtected || field.attackerSide.isSafeguard)
                     && (hasNoStatus(pokemon))) 
                 { 

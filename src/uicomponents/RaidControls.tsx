@@ -51,6 +51,7 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
         setInfo({...info, turns: info.turns.slice(0, info.turns.length-1)});
     }
 
+    console.log(info)
     const battle = new RaidBattle(info);
     const results = battle.result();
 

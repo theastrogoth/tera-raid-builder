@@ -55,7 +55,7 @@ function BossSummary({gen, role, setRole, pokemon, setPokemon, bossMoves, setBos
                                 alt=""
                             />
                         </Box>
-                        {/* <Box 
+                        <Box 
                             position="absolute"
                             sx={{
                                 transform: "translate(105px, -70px)"
@@ -65,12 +65,13 @@ function BossSummary({gen, role, setRole, pokemon, setPokemon, bossMoves, setBos
                                 // width="95%"
                                 height="70px"
                                 src={pokemon.item ? (
-                                        pokemon.item === "(No Item)" ? undefined :
+                                        pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
                                         getItemSpriteURL(pokemon.item)
                                     ) : undefined }
+                                hidden={pokemon.item === undefined}
                                 alt=""
                             />
-                        </Box> */}
+                        </Box>
                         <Box 
                             position="absolute"
                             sx={{

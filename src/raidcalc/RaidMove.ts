@@ -211,8 +211,8 @@ export class RaidMove {
         const category = this.moveData.category;
         const affectedIDs = category == "damage+raise" ? [this.userID] : this._affectedIDs;
         const statChanges = this.moveData.statChanges;
-        const chance = this.moveData.statChance || 0;
-        if (this.options.secondaryEffects || chance === 100) {
+        const chance = this.moveData.statChance || 100;
+        if (this.options.secondaryEffects || chance === 100 ) {
             for (let id of affectedIDs) {
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];

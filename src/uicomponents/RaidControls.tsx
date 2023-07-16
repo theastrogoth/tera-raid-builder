@@ -68,7 +68,7 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
             </Box>
             <Box hidden={value !== 1}>
                 <Stack direction="column" spacing={1} >
-                    <Box maxHeight={510} sx={{ overflowY: "scroll" }}>
+                    <Box maxHeight={510} sx={{ overflowY: "auto" }}>
                         <MoveSelection info={info} setInfo={setInfo} />
                     </Box>
                     <Stack direction="row" justifyContent="center" alignItems="center" spacing={1}>
@@ -77,7 +77,7 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
                     </Stack>
                 </Stack>
             </Box>
-            <Box hidden={value !== 2} maxHeight={525} sx={{ overflowY: "scroll" }}>
+            <Box hidden={value !== 2} maxHeight={525} sx={{ overflowY: "auto" }}>
                 <RaidResults results={results} />
             </Box>
         </Box>

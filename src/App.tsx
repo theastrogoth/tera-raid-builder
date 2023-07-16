@@ -21,8 +21,8 @@ import { Raider } from './raidcalc/interface.ts';
 import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 import RaidControls from './uicomponents/RaidControls.tsx';
 
-const defaultBossName = "Inteleon";
-const defaultBossSet = BOSS_SETDEX_SV.Inteleon['7⭐event'] as Partial<State.Pokemon>;
+const defaultBossName = "Delphox";
+const defaultBossSet = BOSS_SETDEX_SV.Delphox['7⭐event'] as Partial<State.Pokemon>;
 
 const defaultRaiderName = "Corviknight";
 const defaultRaiderSet: Partial<State.Pokemon> = { 
@@ -70,11 +70,17 @@ function App() {
   // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
   // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
   // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Stonjourner", {...defaultRaiderSet, item: "Focus Sash"}))
-  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Meowscarada", {...defaultRaiderSet, item: "Focus Sash", moves: ["Flower Trick"]}))
-  const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Klefki", {...defaultRaiderSet, item: "Focus Sash", moves: ["Sunny Day"], ability: "Prankster"}))
-  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Tauros-Paldea-Blaze-Breed", {...defaultRaiderSet, item: "Choice Band", moves: ["Flare Blitz"], ability: "Anger Point", nature: "Jolly", evs: {atk: 252}}))
-
+  
+  // const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Stonjourner", {...defaultRaiderSet, item: "Focus Sash"}))
+  // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Meowscarada", {...defaultRaiderSet, item: "Focus Sash", moves: ["Flower Trick"]}))
+  // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Klefki", {...defaultRaiderSet, item: "Focus Sash", moves: ["Sunny Day"], ability: "Prankster"}))
+  // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Tauros-Paldea-Blaze-Breed", {...defaultRaiderSet, item: "Choice Band", moves: ["Flare Blitz"], ability: "Anger Point", nature: "Jolly", evs: {atk: 252}}))
+  
+  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Tinkaton", {...defaultRaiderSet, item: "Life Orb", nature: "Adamant", evs: {atk: 252, spe: 252}, moves: ["Swords Dance", "Gigaton Hammer"]}))
+  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Pelipper", {...defaultRaiderSet, ability: "Drizzle", nature: "Calm", evs: {hp: 252, spd: 252}, moves: ["Helping Hand"]}))
+  const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Careful", evs: {hp: 252, spd: 252}, moves: ["Screech"], }))
+  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Careful", evs: {hp: 252, spd: 252}, moves: ["Screech"], }))
+ 
   const [bossRole, setBossRole] = useState("Raid Boss");
   const [role1, setRole1] = useState("Raider #1");
   const [role2, setRole2] = useState("Raider #2");

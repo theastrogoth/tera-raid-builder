@@ -82,6 +82,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
                                         pokemon.item === "(No Item)" ? undefined :
                                         getItemSpriteURL(pokemon.item)
                                     ) : undefined }
+                                hidden={pokemon.item === undefined}
                                 alt=""
                             />
                         </Box>
@@ -99,6 +100,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
                                         getTypeIconURL(pokemon.types[0])
                                     ) : undefined }
                                 alt=""
+                                hidden={pokemon.types[0] === "???" || pokemon.types[0] === undefined}
                             />
                         </Box>
                         { pokemon.types.length > 1 && 
@@ -116,6 +118,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
                                         getTypeIconURL(pokemon.types[1] as string)
                                     ) : undefined }
                                     alt=""
+                                    hidden={pokemon.types[1] === "???" || pokemon.types[1] === undefined}
                                 />
                             </Box>
                         }
@@ -133,6 +136,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
                                         getTeraTypeIconURL(pokemon.teraType as string)
                                     }
                                     alt=""
+                                    hidden={pokemon.teraType === undefined}
                                 />
                             </Box>
                         }

@@ -19,7 +19,7 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
             startingState: new RaidState(raiders, raiders.map((r) => new Field())),
             turns: [0].map((id) => ({
                 id: id, 
-                moveInfo: {userID: id+1, targetID: 0, moveData: {name: "(No Move)" as MoveName}}, 
+                moveInfo: {userID: id+1, targetID: 1, moveData: {name: "(No Move)" as MoveName}}, 
                 bossMoveInfo: {userID: 0, targetID: id+1, moveData: {name: "(No Move)" as MoveName}},
             })),
         }
@@ -30,9 +30,15 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
     }, [raiders])
 
     const handleAddTurn = () => {
+        let uniqueId = 0;
+        info.turns.forEach((turn) => {
+            if (turn.id >= uniqueId) {
+                uniqueId = turn.id + 1;
+            }
+        })
         const newTurn = {
-            id: info.turns.length,
-            moveInfo: {userID: 1, targetID: 0, moveData: {name: "(No Move)" as MoveName}},
+            id: uniqueId,
+            moveInfo: {userID: 1, targetID: 1, moveData: {name: "(No Move)" as MoveName}},
             bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}},
         }
         setInfo({...info, turns: [...info.turns, newTurn]});
@@ -49,12 +55,11 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
     const results = battle.result();
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        console.log(newValue)
         setValue(newValue);
     };
 
     return (
-        <Box width={575}>
+        <Box width={575} sx={{ mx: 1}}>
             <Box paddingBottom={1}>
                 <Tabs value={value} onChange={handleChange} centered>
                     <Tab label="Move Controls" value={1} />

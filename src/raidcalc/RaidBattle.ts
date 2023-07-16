@@ -37,7 +37,6 @@ export class RaidBattle {
         // sort pokemon by speed to see what happens first
         const speeds = this._state.raiders.map(raider => raider.stats.spe);
         const speedOrder = speeds.map((speed, index) => [speed, index]).sort((a, b) => b[0] - a[0]).map(pair => pair[1]);
-        console.log(speedOrder)
         for (let id of speedOrder) {
             const pokemon = this._state.raiders[id];
             const ability = pokemon.ability;

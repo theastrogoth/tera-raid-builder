@@ -165,7 +165,6 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
 function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPokemon, prettyMode}: 
         {gen: Generation, pokemon: Pokemon, abilities: string[], moveSet: string[], moveLearnTypes: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, prettyMode: boolean}) 
     {
-    console.log(prettyMode)
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
     const [genNatures, ] = useState([...gen.natures].map(nature => natureToOption(nature)).sort());

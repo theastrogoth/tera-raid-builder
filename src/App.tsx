@@ -28,6 +28,8 @@ const defaultRaiderName = "Corviknight";
 const defaultRaiderSet: Partial<State.Pokemon> = { 
   level: 100,
   nature: "Hardy",
+  // @ts-ignore
+  ability: "(No Ability)",
 }
 
 function App() {

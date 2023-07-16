@@ -128,7 +128,7 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
   function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
     return (
         <>
-        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)") || !prettyMode) &&
+        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
@@ -196,7 +196,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Pokemon(gen, val, {}))
+        setPokemon(new Pokemon(gen, val, {ability: "(No Ability)"}))
     }
     
     return (
@@ -239,7 +239,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                             <TableBody>
                                 <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} prettyMode={prettyMode} />
                                 <SummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} prettyMode={prettyMode}/>
-                                <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={abilities} prettyMode={prettyMode}/>
+                                <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={["(No Ability)", ...abilities]} prettyMode={prettyMode}/>
                                 <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell>Level</LeftCell>

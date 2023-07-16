@@ -417,9 +417,9 @@ export function isQPActive(
   const terrain = field.terrain;
   if (
     (pokemon.hasAbility('Protosynthesis') &&
-      (weather.includes('Sun') || pokemon.hasItem('Booster Energy'))) ||
+      (weather.includes('Sun') || pokemon.abilityOn)) ||
     (pokemon.hasAbility('Quark Drive') &&
-      (terrain === 'Electric' || pokemon.hasItem('Booster Energy'))) ||
+      (terrain === 'Electric' || pokemon.abilityOn)) ||
     (pokemon.boostedStat !== 'auto')
   ) {
     return true;

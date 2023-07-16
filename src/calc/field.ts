@@ -16,6 +16,7 @@ export class Field implements State.Field {
   isTabletsOfRuin?: boolean;
   isVesselOfRuin?: boolean;
   isTrickRoom?: boolean;
+  isCloudNine?: boolean;
   attackerSide: Side;
   defenderSide: Side;
 
@@ -34,12 +35,14 @@ export class Field implements State.Field {
     this.isTabletsOfRuin = field.isTabletsOfRuin || false;
     this.isVesselOfRuin = field.isVesselOfRuin || false;
     this.isTrickRoom = field.isTrickRoom || false;
+    this.isCloudNine = field.isCloudNine || false;
 
     this.attackerSide = new Side(field.attackerSide || {});
     this.defenderSide = new Side(field.defenderSide || {});
   }
 
   hasWeather(...weathers: Weather[]) {
+    if (this.isCloudNine) { return false }; 
     return !!(this.weather && weathers.includes(this.weather));
   }
 
@@ -69,6 +72,7 @@ export class Field implements State.Field {
       isSwordOfRuin: this.isSwordOfRuin,
       isTabletsOfRuin: this.isTabletsOfRuin,
       isVesselOfRuin: this.isVesselOfRuin,
+      isCloudNine: this.isCloudNine,
     });
   }
 }
@@ -100,6 +104,8 @@ export class Side implements State.Side {
   steelySpirits: number;
   isSwitching?: 'out' | 'in';
   isCharged: boolean;
+  isMist: boolean;
+  isSafeguard: boolean;
 
   constructor(side: State.Side = {}) {
     this.spikes = side.spikes || 0;
@@ -128,6 +134,8 @@ export class Side implements State.Side {
     this.steelySpirits = side.steelySpirits || 0;
     this.isSwitching = side.isSwitching;
     this.isCharged = !!side.isCharged;
+    this.isMist = !!side.isMist;
+    this.isSafeguard = !!side.isSafeguard;
   }
 
   clone() {

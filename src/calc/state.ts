@@ -52,6 +52,7 @@ export namespace State {
     isTabletsOfRuin?: boolean;
     isVesselOfRuin?: boolean;
     isTrickRoom?: boolean;
+    isCloudNine?: boolean;
     attackerSide: Side;
     defenderSide: Side;
   }
@@ -83,5 +84,7 @@ export namespace State {
     steelySpirits?: number;
     isSwitching?: 'out' | 'in';
     isCharged?: boolean;
+    isMist?: boolean;
+    isSafeguard?: boolean;
   }
 }

@@ -151,6 +151,7 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
       )
   }
 
+
 function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPokemon}: 
         {gen: Generation, pokemon: Pokemon, abilities: string[], moveSet: string[], moveLearnTypes: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>}) 
     {
@@ -292,6 +293,78 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                 </Stack>
             }
         </Box>
+    )
+}
+
+export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves, setBossMoves}: 
+    {gen: Generation, pokemon: Pokemon, moveSet: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, bossMoves: string[], setBossMoves: React.Dispatch<React.SetStateAction<string[]>>}) 
+{
+    const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let val = parseInt(e.target.value);
+        if (val < 1) val = 1;
+        const newPokemon = {...pokemon};
+        newPokemon.bossMultiplier = val;
+        setPokemon(new Pokemon(gen, newPokemon.name, {
+            level: newPokemon.level,
+            ability: newPokemon.ability,
+            nature: newPokemon.nature,
+            item: newPokemon.item,
+            ivs: newPokemon.ivs,
+            evs: newPokemon.evs,
+            moves: newPokemon.moves,
+            teraType: newPokemon.teraType,
+            bossMultiplier: newPokemon.bossMultiplier,
+        }))
+    }
+
+    const setBMove = (index: number) => (move: string) => {
+        const newMoves = [...bossMoves];
+        newMoves[index] = move;
+        setBossMoves(newMoves);
+    }
+
+    return (
+        <Box justifyContent="center" alignItems="top" width="300px">
+            <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 1 }}>
+                <TableContainer>
+                    <Table size="small" width="100%">
+                        <TableBody>
+                            <TableRow>
+                                <LeftCell>HP Multiplier (%)</LeftCell>
+                                <RightCell>
+                                    <TextField 
+                                        size="small"
+                                        variant="standard"
+                                        type="number"
+                                        InputProps={{
+                                            inputProps: { 
+                                                step: 100,
+                                            }
+                                        }}
+                                        fullWidth={false}
+                                        value={pokemon.bossMultiplier}
+                                        onChange={setHPMultiplier}
+                                        sx = {{ width: '30%'}}
+                                    />
+                                </RightCell>
+                            </TableRow>
+                            {
+                                [0,1,2,3].map((index) => {
+                                    return <SummaryRow 
+                                        key={index}
+                                        name={index==0 ? "Extra Moves" : ""}
+                                        value={bossMoves[index] || "(No Move)"}
+                                        setValue={setBMove(index)}
+                                        options={moveSet}
+                                    /> 
+                                })
+                            } 
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Stack>
+        </Box>
+
     )
 }
 

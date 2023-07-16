@@ -624,7 +624,8 @@ export function calculateBasePowerSMSSSV(
   hasAteAbilityTypeChange: boolean,
   desc: RawDesc
 ) {
-  const turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
+  let turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
+  turnOrder = field.isTrickRoom ? (turnOrder === 'first' ? 'last' : 'first') : turnOrder;
 
   let basePower: number;
 

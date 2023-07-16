@@ -28,10 +28,8 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     const roles = raiders.map((raider) => raider.role);
     const moveInfo = info.turns[index].moveInfo;
     const moveName = moveInfo.moveData.name;
-    const turnID = info.turns[index].id;
-    const turnIDRef = useRef(turnID);
+    const targetRef = useRef(moveInfo.moveData.target);
 
-    const [targetDisabled, setTargetDisabled] = useState<boolean>(true);
     const [validTargets, setValidTargets] = useState([moveInfo.userID])
 
     const moveSet = ["(No Move)", ...raiders[moveInfo.userID].moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
@@ -48,7 +46,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     }
     
     useEffect(() => {
-        console.log("update based on new move set", turnID)
         if (!raiders[moveInfo.userID].moves.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: "(No Move)" as MoveName}});
         } else {
@@ -59,7 +56,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     }, [raiders[moveInfo.userID].moves])
 
     useEffect(() => {
-        console.log("update based on new moveName", turnID)
         if (moveName === "(No Move)") {
             setMoveInfo({...moveInfo, moveData: {name: moveName}});
         } else if (moveName == "Attack Cheer" || moveName == "Defense Cheer") {
@@ -76,10 +72,12 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     }, [moveName])
 
     useEffect(() => {
-        console.log("update based on new moveData", turnID)
+        const target = moveInfo.moveData.target;
+        if (target === undefined || target === targetRef.current) {
+            return
+        }
+        targetRef.current = target;
         const disableTarget = moveInfo.moveData.name === "(No Move)" ||
-                            moveInfo.moveData.category === "field-effect" || 
-                            moveInfo.moveData.category === "whole-field-effect" || 
                             moveInfo.moveData.target === "user-and-allies" ||
                             moveInfo.moveData.target === "all-other-pokemon" ||
                             moveInfo.moveData.target === "user" ||
@@ -91,9 +89,15 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
             const newMoveInfo = {...moveInfo, targetID: newValidTargets[0]};
             setMoveInfo(newMoveInfo);
         }
-        setTargetDisabled(disableTarget);
         setValidTargets(newValidTargets);
     }, [moveInfo.moveData])
+
+    const disableTarget = moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.target === "user-and-allies" ||
+            moveInfo.moveData.target === "all-other-pokemon" ||
+            moveInfo.moveData.target === "user" ||
+            moveInfo.moveData.target === "all-pokemon" ||
+            moveInfo.moveData.target === "entire-field";
     
     return (
         <Stack direction="row" spacing={1} alignItems="center">
@@ -135,26 +139,14 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                         labelId="target-label"
                         label="Target"
                         value = {moveInfo.targetID}
-                        disabled = {targetDisabled}
+                        renderValue={(value) => roles[value] !== undefined ? roles[value] : info.startingState.raiders[moveInfo.targetID].role}
+                        disabled = {disableTarget}
                         onChange={(e) =>setInfoParam("targetID")(e.target.value)}
                     >
                         {validTargets.map((id) => <MenuItem value={id}>{roles[id]}</MenuItem>)}
                     </Select>
                 </FormControl>
             </Box>
-            {/* <TableCell>
-                <FormControl>
-                    <CheckBox>
-
-                    </CheckBox>
-                    <CheckBox>
-                        
-                    </CheckBox>
-                    <Input>
-
-                    </Input>
-                </FormControl>
-            </TableCell> */}
         </Stack>
     )
 }
@@ -163,7 +155,6 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     const moveInfo = info.turns[index].bossMoveInfo;
     const moveName = moveInfo.moveData.name;
     const turnID = info.turns[index].id;
-    const turnIDRef = useRef(turnID);
     const moveSet = ["(No Move)", ...boss.moves, ...boss.extraMoves];
 
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
@@ -172,19 +163,17 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
         setInfo({...info, turns: newTurns});
     }
 
-    // useEffect(() => {
-    //     if (turnID !== turnIDRef.current) {
-    //         turnIDRef.current = turnID;
-    //     } else if (moveName === "(No Move)") {
-    //         setMoveInfo({...moveInfo, moveData: {name: moveName}});
-    //     } else {
-    //         async function fetchData() {
-    //             let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
-    //             setMoveInfo({...moveInfo, moveData: mData});
-    //         }
-    //         fetchData().catch((e) => console.log(e));
-    //     }
-    //   }, [moveName, turnID])
+    useEffect(() => {
+        if (moveName === "(No Move)") {
+            setMoveInfo({...moveInfo, moveData: {name: moveName}});
+        } else {
+            async function fetchData() {
+                let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
+                setMoveInfo({...moveInfo, moveData: mData});
+            }
+            fetchData().catch((e) => console.log(e));
+        }
+      }, [moveName, turnID])
     
     return (
         <Stack direction="row" spacing={1} alignItems="center">

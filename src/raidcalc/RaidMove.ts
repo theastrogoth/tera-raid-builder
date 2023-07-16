@@ -171,6 +171,7 @@ export class RaidMove {
             const calcMove = this.move.clone();
             calcMove.hits = hits || 1;
             calcMove.isCrit = crit;
+            console.log(this._user, target, calcMove, moveField)
             const result = calculate(9, this._user, target, calcMove, moveField);
             this._damage[id] = typeof(result.damage) == "number" ? [result.damage] : result.damage as number[]; // TODO: find out when result.damage is a number[][]
             this._desc[id] = result.desc();
@@ -211,16 +212,26 @@ export class RaidMove {
         const category = this.moveData.category;
         const affectedIDs = category == "damage+raise" ? [this.userID] : this._affectedIDs;
         const statChanges = this.moveData.statChanges;
+        console.log(this.moveData, statChanges, affectedIDs)
         const chance = this.moveData.statChance || 100;
         if (this.options.secondaryEffects || chance === 100 ) {
             for (let id of affectedIDs) {
                 const pokemon = this.getPokemon(id);
+                console.log(pokemon.boosts)
                 const field = this._fields[id];
                 // handle Contrary and Simple
                 const boostCoefficient = pokemon.ability == "Contrary" ? -1 : pokemon.ability == "Simple" ? 2 : 1;
                 for (let statChange of (statChanges || [])) {
                     const stat = statChange.stat;
-                    const change = statChange.change * boostCoefficient;
+                    let change = statChange.change * boostCoefficient;
+                    if (Number.isNaN(change)) {
+                        // apparently, I manually put some stat changes are stored under the "value" key rather than "change"
+                        // TODO: update the data files to fix this
+                        // @ts-ignore
+                        change = statChange.value * boostCoefficient;
+                    }
+                    if (Number.isNaN(change)) { console.log("Stat change info for " + this.moveData.name + " is missing."); continue; }
+                    console.log(statChange, stat, statChange.change, change)
                     if (change < 0 && (field.attackerSide.isProtected || (field.attackerSide.isMist && id !== this.userID))) {
                         continue;
                     }
@@ -236,6 +247,7 @@ export class RaidMove {
                             this._boosts[id][stat] = diff;
                         }
                     }
+                    console.log(pokemon.boosts)
                 }
             }
         }

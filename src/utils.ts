@@ -53,6 +53,7 @@ const teraTypeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-
 
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {
+    if (name == "Flabébé") { return "flabebe"; } // ugh
     return name.replace(' ','_').replace('.','').replace("’", '').replace("'", '').replace(':','').replace('é','e').toLowerCase();
 }
 

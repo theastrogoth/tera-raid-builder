@@ -355,7 +355,7 @@ export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves,
                                         name={index==0 ? "Extra Moves" : ""}
                                         value={bossMoves[index] || "(No Move)"}
                                         setValue={setBMove(index)}
-                                        options={moveSet}
+                                        options={["(No Move)", ...moveSet]}
                                     /> 
                                 })
                             } 

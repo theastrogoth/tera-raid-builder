@@ -133,7 +133,7 @@ function App() {
           Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
         </Typography>
         <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
+          Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
         </Typography>
         <Typography variant="h6" sx={{color: "text.secondary"}}>
             Contact

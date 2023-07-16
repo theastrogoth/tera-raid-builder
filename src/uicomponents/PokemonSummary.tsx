@@ -29,7 +29,7 @@ export function RoleField({role, setRole}: {role: string, setRole: React.Dispatc
     )
 }
 
-function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generation, role: string, setRole: React.Dispatch<React.SetStateAction<string>>, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>}) {
+function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {gen: Generation, role: string, setRole: React.Dispatch<React.SetStateAction<string>>, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, prettyMode: boolean}) {
     const [moveSet, setMoveSet] = useState<(string)[]>([])
     const [moveLearnTypes, setMoveLearnTypes] = useState<string[]>([])
     const [abilities, setAbilities] = useState<string[]>([])
@@ -52,7 +52,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
     return (
         <Box>
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
-                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" height= "800px" sx={{ marginTop: 1 }} >
+                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" height= {prettyMode ? "650px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
                         <RoleField role={role} setRole={setRole} />
                     </Box>
@@ -141,7 +141,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
                             </Box>
                         }
                     </Box>
-                    <BuildControls gen={gen} pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon}/>
+                    <BuildControls gen={gen} pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon} prettyMode={prettyMode}/>
                     <Box flexGrow={1} />
                     <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} />
                     {/* <Box flexGrow={1} /> */}

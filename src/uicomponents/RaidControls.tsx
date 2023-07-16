@@ -7,7 +7,7 @@ import Tab from '@mui/material/Tab';
 
 import MoveSelection from "./MoveSelection";
 import RaidResults from "./RaidResults";
-import { Raider, RaidState, RaidBattleInfo } from "../raidcalc/interface";
+import { Raider, RaidState, RaidBattleInfo, RaidTurnInfo } from "../raidcalc/interface";
 import { Field } from "../calc";
 import { MoveName } from '../calc/data/interface';
 import { RaidBattle } from '../raidcalc/RaidBattle';
@@ -19,8 +19,8 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
             startingState: new RaidState(raiders, raiders.map((r) => new Field())),
             turns: [0].map((id) => ({
                 id: id, 
-                moveInfo: {userID: id+1, targetID: 1, moveData: {name: "(No Move)" as MoveName}}, 
-                bossMoveInfo: {userID: 0, targetID: id+1, moveData: {name: "(No Move)" as MoveName}},
+                moveInfo: {userID: id+1, targetID: 1, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
+                bossMoveInfo: {userID: 0, targetID: id+1, options: {crit: false, secondaryEffects: false, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
             })),
         }
     )
@@ -36,10 +36,10 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
                 uniqueId = turn.id + 1;
             }
         })
-        const newTurn = {
+        const newTurn: RaidTurnInfo = {
             id: uniqueId,
-            moveInfo: {userID: 1, targetID: 1, moveData: {name: "(No Move)" as MoveName}},
-            bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}},
+            moveInfo: {userID: 1, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min" }},
+            bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "max" }},
         }
         setInfo({...info, turns: [...info.turns, newTurn]});
     }

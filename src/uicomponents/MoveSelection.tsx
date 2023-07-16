@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef }  from "react"
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
@@ -28,7 +29,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     const [validTargets, setValidTargets] = useState([moveInfo.userID])
 
     const moveSet = ["(No Move)", ...raiders[moveInfo.userID].moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
-    console.log(moveName, moveInfo.targetID)
+    console.log(moveInfo.options)
     
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
         let newTurns = [...info.turns];
@@ -94,6 +95,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
             moveInfo.moveData.target === "all-pokemon" ||
             moveInfo.moveData.target === "entire-field";
     
+    // const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Box>
@@ -105,6 +107,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                         label="User"
                         value = {moveInfo.userID}
                         onChange={(e) => setInfoParam("userID")(e.target.value)}
+                        sx={{ maxWidth : "150px"}}
                     >
                         {roles.slice(1).map((role, i) => <MenuItem value={i+1}>{role}</MenuItem>)}
                     </Select>
@@ -120,6 +123,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                         label="Move"
                         value = {moveInfo.moveData.name}
                         onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
+                        sx={{ maxWidth : "150px"}}
                     >
                         {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
                     </Select>
@@ -137,6 +141,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                         renderValue={(value) => roles[value] !== undefined ? roles[value] : info.startingState.raiders[moveInfo.targetID].role}
                         disabled = {disableTarget}
                         onChange={(e) =>setInfoParam("targetID")(e.target.value)}
+                        sx={{ maxWidth : "150px"}}
                     >
                         {validTargets.map((id) => <MenuItem value={id}>{roles[id]}</MenuItem>)}
                     </Select>
@@ -146,7 +151,16 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                 <FormGroup>
                     <Stack direction="row" spacing={-0.5}>
                         <FormControlLabel 
-                            control={<Checkbox size="small" />} 
+                            control={
+                                <Checkbox 
+                                    size="small" 
+                                    value={critChecked}
+                                    onChange={
+                                        (e) => {
+                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, crit: !critChecked}});
+                                        }
+                                    }
+                            />} 
                             label="Crit"
                             labelPlacement="top"
                         />
@@ -188,7 +202,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     
     return (
         <Stack direction="row" spacing={1} alignItems="center">
-            {/* <Typography variant="body1">{info.startingState.raiders[0].role + " uses"}</Typography> */}
+            <Typography variant="body1">{info.startingState.raiders[0].role + " uses"}</Typography>
             <FormControl>
                 <InputLabel id={"boss-move-label"}>Boss Move</InputLabel>
                 <Select 
@@ -197,6 +211,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                     label="Boss Move"
                     value = {moveName}
                     onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
+                    sx={{ maxWidth : "150px"}}
                 >
                     {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
                 </Select>
@@ -223,9 +238,13 @@ function MoveSelectionRow({raiders, index, info, setInfo}: {raiders: Raider[], i
                         <Stack
                             direction = "column"
                             spacing={1}
+                            alignItems="center"
                             sx={{ p: 1 }}
                         >
                             <MoveDropdown index={index} raiders={raiders} info={info} setInfo={setInfo} />
+                            <Box width="80%" paddingBottom={1}>
+                                <Divider />
+                            </Box>
                             <BossMoveDropdown index={index} boss={raiders[0]} info={info} setInfo={setInfo}/>
                         </Stack>
                     </Paper>
@@ -274,15 +293,6 @@ function MoveSelection({info, setInfo}:{info: RaidBattleInfo, setInfo: React.Dis
                     )
                 }
             </Droppable>
-            {/* <TableContainer>
-                <Table>
-                    <TableBody>
-                        {
-                            info.turns.map((turn, turnID) => <MoveSelectionRow raiders={info.startingState.raiders} turnID={turnID} info={info} setInfo={setInfo} />)
-                        }
-                    </TableBody>
-                </Table>
-            </TableContainer> */}
         </DragDropContext>
     )
 }

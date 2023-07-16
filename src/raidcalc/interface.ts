@@ -1,5 +1,7 @@
 import { Pokemon, Field, StatID } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
+import {toID, extend, assignWithout} from '../calc/util';
+
 
 export type MoveCategory =   "net-good-stats" |         // stat changes (e.g. Screech, Swords Dance)
                              "whole-field-effect" |     // weather, terrain, gravity, etc.
@@ -76,14 +78,59 @@ export type MoveData = {
     maxHits?:       number,
 }
 
-export interface Raider extends Pokemon {
+export class Raider extends Pokemon {
     id: number;
     role: string;
+    extraMoves: MoveName[]; // for special boss actions
+
+    constructor(id: number, role: string, extraMoves: MoveName[], pokemon: Pokemon) {
+        super(pokemon.gen, pokemon.name, {...pokemon})
+        this.id = id;
+        this.role = role;
+        this.extraMoves = extraMoves;
+    }
+
+    clone() {
+        return new Raider(this.id, this.role, this.extraMoves, new Pokemon(this.gen, this.name, {
+          level: this.level,
+          bossMultiplier: this.bossMultiplier,
+          ability: this.ability,
+          abilityOn: this.abilityOn,
+          isDynamaxed: this.isDynamaxed,
+          dynamaxLevel: this.dynamaxLevel,
+          isSaltCure: this.isSaltCure,
+          alliesFainted: this.alliesFainted,
+          boostedStat: this.boostedStat,
+          item: this.item,
+          gender: this.gender,
+          nature: this.nature,
+          ivs: extend(true, {}, this.ivs),
+          evs: extend(true, {}, this.evs),
+          boosts: extend(true, {}, this.boosts),
+          originalCurHP: this.originalCurHP,
+          status: this.status,
+          teraType: this.teraType,
+          toxicCounter: this.toxicCounter,
+          moves: this.moves.slice(),
+          overrides: this.species,
+        }));
+      }
 }
 
-export type RaidState = {
+export class RaidState {
     raiders: Raider[]; // raiders[0] is the boss, while raiders 1-5 are the players
     fields: Field[];   // each pokemon gets its own field to deal with things like Friend Guard and Protosynthesis
+
+    constructor(raiders: Raider[], fields: Field[]) {
+        this.raiders = raiders;
+        this.fields = fields;
+    }
+
+    clone() {
+        return new RaidState(
+            this.raiders.map(raider => raider.clone()), 
+            this.fields.map(field => field.clone()));
+    }
 }
 
 export type RaidBattleInfo = {
@@ -92,6 +139,7 @@ export type RaidBattleInfo = {
 }
 
 export type RaidBattleResults = {
+    endState: RaidState;
     turnResults: RaidTurnResult[]; 
 }
 

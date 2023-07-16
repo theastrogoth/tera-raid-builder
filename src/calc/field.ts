@@ -16,6 +16,7 @@ export class Field implements State.Field {
   isTabletsOfRuin?: boolean;
   isVesselOfRuin?: boolean;
   isTrickRoom?: boolean;
+  isCloudNine?: boolean;
   attackerSide: Side;
   defenderSide: Side;
 
@@ -34,12 +35,14 @@ export class Field implements State.Field {
     this.isTabletsOfRuin = field.isTabletsOfRuin || false;
     this.isVesselOfRuin = field.isVesselOfRuin || false;
     this.isTrickRoom = field.isTrickRoom || false;
+    this.isCloudNine = field.isCloudNine || false;
 
     this.attackerSide = new Side(field.attackerSide || {});
     this.defenderSide = new Side(field.defenderSide || {});
   }
 
   hasWeather(...weathers: Weather[]) {
+    if (this.isCloudNine) { return false }; 
     return !!(this.weather && weathers.includes(this.weather));
   }
 
@@ -69,6 +72,7 @@ export class Field implements State.Field {
       isSwordOfRuin: this.isSwordOfRuin,
       isTabletsOfRuin: this.isTabletsOfRuin,
       isVesselOfRuin: this.isVesselOfRuin,
+      isCloudNine: this.isCloudNine,
     });
   }
 }

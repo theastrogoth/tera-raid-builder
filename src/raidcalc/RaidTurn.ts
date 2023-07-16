@@ -1,8 +1,11 @@
 import { State } from "../calc/state";
-import { calculate, Field, Move, Pokemon } from "../calc";
+import { calculate, Field, Generations, Move, Pokemon } from "../calc";
 import { MoveData, RaidMoveOptions, RaidState, RaidTurnResult, RaidMoveResult, RaidTurnInfo } from "./interface";
 import { getModifiedStat } from "../calc/mechanics/util";
+import { Raider } from "./interface";
 import { RaidMove } from "./RaidMove";
+
+const gen = Generations.get(9);
 
 export class RaidTurn {
     raidState:      RaidState;
@@ -16,7 +19,8 @@ export class RaidTurn {
     //options should include crit, boosts/drops, status effect, min/max damage roll
 
     _raiderMovesFirst!: boolean;
-    _raider!:         Pokemon;
+    _raider!:         Raider;
+    _boss!:           Raider;  
     _raiderMove!:     Move;
     _bossMove!:       Move;
 
@@ -44,7 +48,7 @@ export class RaidTurn {
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
         if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         this.setTurnOrder();
-        this._raidState = structuredClone(this.raidState);
+        this._raidState = this.raidState.clone();
         if (this._raiderMovesFirst) {
             this._result1 = new RaidMove(
                 this.raiderMoveData, 
@@ -97,6 +101,8 @@ export class RaidTurn {
     }
 
     private setTurnOrder() {
+        this._raider = this.raidState.raiders[this.raiderID];
+        this._boss = this.raidState.raiders[0];
         // first compare priority
         const raiderPriority = this._raiderMove.priority;
         const bossPriority = this._bossMove.priority;
@@ -106,15 +112,13 @@ export class RaidTurn {
             this._raiderMovesFirst = false;
         } else {
             // if priority is the same, compare speed
-            //@ts-ignore
-            let raiderSpeed = getModifiedStat(this.raider.stats.spe, this.raider.boosts.spe, 9);
-            //@ts-ignore
-            let bossSpeed = getModifiedStat(this.boss.stats.spe, this.boss.boosts.spe, 9);
+            let raiderSpeed = getModifiedStat(this._raider.stats.spe, this._raider.boosts.spe, gen);
+            let bossSpeed = getModifiedStat(this._boss.stats.spe, this._boss.boosts.spe, gen);
             const bossField = this.raidState.fields[0];
             const raiderField = this.raidState.fields[this.raiderID];
             if (raiderField.attackerSide.isTailwind) { raiderSpeed *= 2 };
             if (bossField.attackerSide.isTailwind) { bossSpeed *= 2 };
-            this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed > bossSpeed) : (raiderSpeed < bossSpeed);
+            this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
         }
     }
     

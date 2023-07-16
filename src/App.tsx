@@ -81,47 +81,7 @@ function App() {
   const [role3, setRole3] = useState("Raider #3");
   const [role4, setRole4] = useState("Raider #4");
 
-  const [bossMoves, setBossMoves] = useState([] as string[]);
-
-  const result1 = calculate(
-    gen,
-    raidBoss,
-    pokemon1,
-    new Move(gen, raidBoss.moves[0]),
-    new Field({weather: "Rain"})
-  );
-  console.log(result1)
-  console.log(result1.desc())
-
-  const result2 = calculate(
-    gen,
-    raidBoss,
-    pokemon2,
-    new Move(gen, raidBoss.moves[0]),
-    new Field({weather: "Rain"})
-  );
-  console.log(result2)
-  console.log(result2.desc())
-
-  const result3 = calculate(
-    gen,
-    raidBoss,
-    pokemon3,
-    new Move(gen, raidBoss.moves[0]),
-    new Field({weather: "Rain"})
-  );
-  console.log(result3)
-  console.log(result3.desc())
-
-  const result4 = calculate(
-    gen,
-    raidBoss,
-    pokemon4,
-    new Move(gen, raidBoss.moves[0]),
-    new Field({weather: "Rain"})
-  )
-  console.log(result4)
-  console.log(result4.desc())
+  const [bossMoves, setBossMoves] = useState([] as MoveName[]);
 
   const roles = [bossRole, role1, role2, role3, role4]
   const raiders = [
@@ -131,13 +91,11 @@ function App() {
     pokemon3,
     pokemon4
   ].map((pokemon, index) => {
-    const raider = structuredClone(pokemon) as Raider;
+    const raider = new Raider(index, roles[index], bossMoves, pokemon);
     raider.id = index;
     raider.role = roles[index];
     return raider
   })
-
-  console.log(raiders)
 
   return (
     <ThemeProvider theme={theme}>      
@@ -160,6 +118,7 @@ function App() {
           </Stack>
         </Grid>
         <Grid item>
+          {/* @ts-ignore */}
           <BossSummary gen={gen} pokemon={raidBoss} setPokemon={setRaidBoss} role={bossRole} setRole={setBossRole} bossMoves={bossMoves} setBossMoves={setBossMoves} />
         </Grid>
         <Grid item>

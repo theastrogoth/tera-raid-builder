@@ -136,7 +136,7 @@ function MoveDropdown({raiders, info, setInfo}: {raiders: Raider[], info: RaidMo
 
 function BossMoveDropdown({boss, info, setInfo}: {boss: Raider, info: RaidMoveInfo, setInfo: React.Dispatch<React.SetStateAction<RaidMoveInfo>>}) {
     const [moveName, setMoveName] = useState<MoveName>(info.moveData.name);
-    const moveSet = ["(No Move)", ...boss.moves];
+    const moveSet = ["(No Move)", ...boss.moves, ...boss.extraMoves];
 
     useEffect(() => {
         if (moveName === "(No Move)") {
@@ -170,17 +170,20 @@ function BossMoveDropdown({boss, info, setInfo}: {boss: Raider, info: RaidMoveIn
     )
 }
 
-function MoveSelectionRow({raiders, turnID, turns, setTurns}:{raiders: Raider[], turnID: number, turns: RaidTurnInfo[], setTurns: React.Dispatch<React.SetStateAction<RaidTurnInfo[]>>}) {
-    const [moveInfo, setMoveInfo] = useState<RaidMoveInfo>(turns[turnID].moveInfo);
-    const [bossMoveInfo, setBossMoveInfo] = useState<RaidMoveInfo>(turns[turnID].bossMoveInfo);    
+function MoveSelectionRow({raiders, turnID, info, setInfo}: {raiders: Raider[], turnID: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
+    const [moveInfo, setMoveInfo] = useState<RaidMoveInfo>(info.turns[turnID].moveInfo);
+    const [bossMoveInfo, setBossMoveInfo] = useState<RaidMoveInfo>(info.turns[turnID].bossMoveInfo);    
     useEffect(() => {
-        setTurns(turns.map((turn) => {
-            if (turn.id === turnID) {
-                return {...turn, moveInfo: moveInfo, bossMoveInfo: bossMoveInfo};
-            } else {
-                return turn;
-            }
-        }))
+        setInfo({
+            ...info,
+            turns: info.turns.map((turn) => {
+                if (turn.id === turnID) {
+                    return {...turn, moveInfo: moveInfo, bossMoveInfo: bossMoveInfo};
+                } else {
+                    return turn;
+                }
+            }),
+        })
     }, [moveInfo, bossMoveInfo])
     return (
         <TableRow>
@@ -191,17 +194,17 @@ function MoveSelectionRow({raiders, turnID, turns, setTurns}:{raiders: Raider[],
 }
 
 function MoveSelection({info, setInfo}:{info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
-    const [turns, setTurns] = useState(info.turns);
-    useEffect(() => {
-        setInfo({...info, turns: turns});
-    }, [turns])
+    // const [turns, setTurns] = useState(info.turns);
+    // useEffect(() => {
+    //     setInfo({...info, turns: turns});
+    // }, [turns])
     return (
         <Stack>
             <TableContainer>
                 <Table>
                     <TableBody>
                         {
-                            turns.map((turn, turnID) => <MoveSelectionRow raiders={info.startingState.raiders} turnID={turnID} turns={turns} setTurns={setTurns} />)
+                            info.turns.map((turn, turnID) => <MoveSelectionRow raiders={info.startingState.raiders} turnID={turnID} info={info} setInfo={setInfo} />)
                         }
                     </TableBody>
                 </Table>

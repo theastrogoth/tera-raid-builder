@@ -352,7 +352,7 @@ export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves,
                                 [0,1,2,3].map((index) => {
                                     return <SummaryRow 
                                         key={index}
-                                        name={index==0 ? "Boss Moves" : ""}
+                                        name={index==0 ? "Extra Moves" : ""}
                                         value={bossMoves[index] || "(No Move)"}
                                         setValue={setBMove(index)}
                                         options={moveSet}

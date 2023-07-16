@@ -8,9 +8,10 @@ Contributions welcome!
 - Allow only legal abilities and moves to be selected for a particular Pokémon
 - Show when moves are learned via TM or are egg moves
 - Import/Export builds in a format compatible with [PokePastes](pokepast.es) or the [Showdown Damage Calculator](https://calc.pokemonshowdown.com/)
+- Damage calculations via [@smogon/calc](https://github.com/smogon/damage-calc/tree/master/calc).
+- Incorporation of stat boosts, ailments, and field effects from moves and items
+
 
 ### Planned Features
-- Configurable Raid Bosses
-- Damage calculations via [@smogon/calc](https://github.com/smogon/damage-calc/tree/master/calc).
-- Tracking of damage across turns
-- Incorporation of stat boosts, ailments, and field effects from moves and items
+- Display of tracked damage across turns
+- Loadable preset Raider and Boss builds

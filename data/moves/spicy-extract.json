@@ -13,11 +13,11 @@
     "statChanges": [
         {
             "stat": "atk",
-            "value": 2
+            "change": 2
         },
         {
             "stat": "def",
-            "value": -2
+            "change": -2
         }
     ],
     "flinchChance": null,

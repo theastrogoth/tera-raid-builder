@@ -1,27 +1,22 @@
 import React, { useState, useEffect, useRef }  from "react"
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+// import Checkbox from "@mui/material/Checkbox";
+// import FormGroup from '@mui/material/FormGroup';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Input from "@mui/material/Input";
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
-
-import Stack from "@mui/material/Stack";
-import TableContainer from "@mui/material/TableContainer";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { MoveData, RaidBattleInfo, RaidMoveInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
-import { Input, Typography } from "@mui/material";
-import { CheckBox } from "@mui/icons-material";
 
 
 function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: Raider[], info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
@@ -147,6 +142,22 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                     </Select>
                 </FormControl>
             </Box>
+            {/* <FormControl component="fieldset">
+                <FormGroup>
+                    <Stack direction="row" spacing={-0.5}>
+                        <FormControlLabel 
+                            control={<Checkbox size="small" />} 
+                            label="Crit"
+                            labelPlacement="top"
+                        />
+                        <FormControlLabel 
+                            control={<Checkbox size="small" />} 
+                            label="Effect"
+                            labelPlacement="top"
+                        />
+                    </Stack>
+                </FormGroup>
+            </FormControl> */}
         </Stack>
     )
 }

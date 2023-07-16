@@ -68,14 +68,16 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
             </Box>
             <Box hidden={value !== 1}>
                 <Stack direction="column" spacing={1} >
-                    <MoveSelection info={info} setInfo={setInfo} />
+                    <Box maxHeight={510} sx={{ overflowY: "scroll" }}>
+                        <MoveSelection info={info} setInfo={setInfo} />
+                    </Box>
                     <Stack direction="row" justifyContent="center" alignItems="center" spacing={1}>
                         <Button variant="contained" onClick={handleAddTurn}>Add Turn</Button>
                         <Button variant="contained" onClick={handleRemoveTurn} disabled={info.turns.length < 2}>Remove Turn</Button>
                     </Stack>
                 </Stack>
             </Box>
-            <Box hidden={value !== 2}>
+            <Box hidden={value !== 2} maxHeight={525} sx={{ overflowY: "scroll" }}>
                 <RaidResults results={results} />
             </Box>
         </Box>

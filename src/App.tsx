@@ -33,6 +33,7 @@ const defaultRaiderSet: Partial<State.Pokemon> = {
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [lightMode, setLightMode] = useState<('dark' | 'light')>(prefersDarkMode ? 'dark' : 'light');
+  const [prettyMode, setPrettyMode] = useState<boolean>(false);
   const theme = createTheme({
     palette: {
       mode: lightMode,
@@ -103,29 +104,30 @@ function App() {
     return raider
   })
 
+  console.log(prettyMode)
   return (
     <ThemeProvider theme={theme}>      
       <CssBaseline />
-      <Navbar lightMode={lightMode} setLightMode={setLightMode} />
+      <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
       <Grid container component='main' justifyContent="left" sx={{ my: 1 }}>
         <Grid item >
           {/* <PokemonSummary gen={gen} pokemon={raidBoss} setPokemon={setRaidBoss} role="Raid Boss" /> */}
         </Grid>
         <Grid item>
           <Stack direction="row">
-            <PokemonSummary gen={gen} pokemon={pokemon1} setPokemon={setPokemon1} role={role1} setRole={setRole1} />
-            <PokemonSummary gen={gen} pokemon={pokemon2} setPokemon={setPokemon2} role={role2} setRole={setRole2} />
+            <PokemonSummary gen={gen} pokemon={pokemon1} setPokemon={setPokemon1} role={role1} setRole={setRole1} prettyMode={prettyMode} />
+            <PokemonSummary gen={gen} pokemon={pokemon2} setPokemon={setPokemon2} role={role2} setRole={setRole2} prettyMode={prettyMode}/>
           </Stack>
         </Grid>
         <Grid item>
           <Stack direction="row">
-            <PokemonSummary gen={gen} pokemon={pokemon3} setPokemon={setPokemon3} role={role3} setRole={setRole3} />
-            <PokemonSummary gen={gen} pokemon={pokemon4} setPokemon={setPokemon4} role={role4} setRole={setRole4} />
+            <PokemonSummary gen={gen} pokemon={pokemon3} setPokemon={setPokemon3} role={role3} setRole={setRole3} prettyMode={prettyMode} />
+            <PokemonSummary gen={gen} pokemon={pokemon4} setPokemon={setPokemon4} role={role4} setRole={setRole4} prettyMode={prettyMode} />
           </Stack>
         </Grid>
         <Grid item>
           {/* @ts-ignore */}
-          <BossSummary gen={gen} pokemon={raidBoss} setPokemon={setRaidBoss} role={bossRole} setRole={setBossRole} bossMoves={bossMoves} setBossMoves={setBossMoves} />
+          <BossSummary gen={gen} pokemon={raidBoss} setPokemon={setRaidBoss} role={bossRole} setRole={setBossRole} bossMoves={bossMoves} setBossMoves={setBossMoves} prettyMode={prettyMode} />
         </Grid>
         <Grid item>
           <RaidControls raiders={raiders} />

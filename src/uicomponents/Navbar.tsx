@@ -11,13 +11,15 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
+import ImageIcon from '@mui/icons-material/Image';
+import EditIcon from '@mui/icons-material/Edit';
 
 import Collapse from "@mui/material/Collapse";
 
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import DarkLightModeSwitch from "./DarkLightModeSwitch";
 
-function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>}) {  
+function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {  
     const [showHelp, setShowHelp] = useState(false);
     return (
         <Box>
@@ -36,6 +38,15 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                         Tera Raid Builder
                     </Typography>
                     <Box component="div" sx={{ flexGrow: 1 }} />
+                    <Box component="div" >
+                        <Button
+                            color="inherit"
+                            onClick={() => setPrettyMode(!prettyMode)}
+                            startIcon={prettyMode ? <EditIcon /> :  <ImageIcon />}
+                        >
+                            {prettyMode ? "Edit Mode" : "Pretty Mode"}
+                        </Button>
+                    </Box>
                     <Box component="div" >
                         <Button 
                             color="inherit"

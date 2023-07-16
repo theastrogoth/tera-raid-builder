@@ -21,6 +21,7 @@ import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
+import { Typography } from "@mui/material";
 
 // const patchEmoji = '\u{1FA79}';
 const machineEmoji = '\u{1F4BF}';
@@ -124,37 +125,47 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
       borderBottom: 0,
   })); 
   
-  function SummaryRow({name, value, setValue, options}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[]}) {
+  function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
     return (
         <>
+        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)") || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
                 </LeftCell>
                 <RightCell>
-                    <Autocomplete
-                        disablePortal
-                        disableClearable
-                        autoHighlight={true}    
-                        size="small"
-                        value={value || undefined}
-                        options={options}
-                        renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
-                        onChange={(event: any, newValue: string) => {
-                            setValue(newValue);
-                        }}
-                        sx = {{width: '80%'}}
-                    />
+                    {prettyMode &&
+                        <Typography variant="body2">
+                            {value}
+                        </Typography>
+                    }
+                    {!prettyMode &&
+                        <Autocomplete
+                            disablePortal
+                            disableClearable
+                            autoHighlight={true}    
+                            size="small"
+                            value={value || undefined}
+                            options={options}
+                            renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                            onChange={(event: any, newValue: string) => {
+                                setValue(newValue);
+                            }}
+                            sx = {{width: '80%'}}
+                        />
+                    }
                 </RightCell>
             </TableRow>
+        }
         </>
       )
   }
 
 
-function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPokemon}: 
-        {gen: Generation, pokemon: Pokemon, abilities: string[], moveSet: string[], moveLearnTypes: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>}) 
+function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPokemon, prettyMode}: 
+        {gen: Generation, pokemon: Pokemon, abilities: string[], moveSet: string[], moveLearnTypes: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, prettyMode: boolean}) 
     {
+    console.log(prettyMode)
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
     const [genNatures, ] = useState([...gen.natures].map(nature => natureToOption(nature)).sort());
@@ -190,67 +201,76 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
     
     return (
         <Box justifyContent="center" alignItems="top" width="300px">
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
-                <Button 
-                    variant="outlined" 
-                    size="small" 
-                    sx={{ width: "120px", textTransform: "none" }} 
-                    disabled={importExportOpen}
-                    onClick={(e) => setEditStatsOpen(!editStatsOpen)}
-                    startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
-                >
-                    {editStatsOpen ? "Edit Build" : "Edit EVs/IVs"}
-                </Button>
-                <Button 
-                    variant="outlined" 
-                    size="small" 
-                    sx={{ width: "120px", textTransform: "none" }} 
-                    onClick={(e) => setImportExportOpen(!importExportOpen)}
-                    endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
-                >
-                    {importExportOpen ? "Edit Pok\u00E9mon" : "Import/Export"}
-                </Button>
-            </Stack>
-            {importExportOpen &&
+            {!prettyMode &&
+                <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
+                    <Button 
+                        variant="outlined" 
+                        size="small" 
+                        sx={{ width: "120px", textTransform: "none" }} 
+                        disabled={importExportOpen}
+                        onClick={(e) => setEditStatsOpen(!editStatsOpen)}
+                        startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
+                    >
+                        {editStatsOpen ? "Edit Build" : "Edit EVs/IVs"}
+                    </Button>
+                    <Button 
+                        variant="outlined" 
+                        size="small" 
+                        sx={{ width: "120px", textTransform: "none" }} 
+                        onClick={(e) => setImportExportOpen(!importExportOpen)}
+                        endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
+                    >
+                        {importExportOpen ? "Edit Pok\u00E9mon" : "Import/Export"}
+                    </Button>
+                </Stack>
+            }
+            {(!prettyMode && importExportOpen) &&
                 <ImportExportArea pokemon={pokemon} setPokemon={setPokemon}/>
             }
-            {(editStatsOpen && !importExportOpen) &&
+            {(!prettyMode && editStatsOpen && !importExportOpen) &&
                 <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 0 }}>
                     <StatsControls gen={gen} pokemon={pokemon} setPokemon={setPokemon}/>    
                 </Stack>
             }
-            {(!editStatsOpen && !importExportOpen) &&
+            {(prettyMode || (!editStatsOpen && !importExportOpen)) &&
                 <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 1 }}>
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies}/>
-                                <SummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes}/>
-                                <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={abilities}/>
-                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures}/>
+                                <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} prettyMode={prettyMode} />
+                                <SummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} prettyMode={prettyMode}/>
+                                <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={abilities} prettyMode={prettyMode}/>
+                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell>Level</LeftCell>
                                     <RightCell>
-                                        <TextField 
-                                            size="small"
-                                            variant="standard"
-                                            type="number"
-                                            InputProps={{
-                                                inputProps: { 
-                                                    max: 100, min: 1 
-                                                }
-                                            }}
-                                            fullWidth={false}
-                                            value={pokemon.level}
-                                            onChange={(e) => {
-                                                if (e.target.value === "") return setPokemonProperty("level")(1);
-                                                let lvl = parseInt(e.target.value);
-                                                if (lvl < 1) lvl = 1;
-                                                if (lvl > 100) lvl = 100;
-                                                setPokemonProperty("level")(lvl)
-                                            }}
-                                            sx = {{ width: '30%'}}
-                                        />
+                                        {prettyMode &&
+                                            <Typography variant="body2">
+                                                {pokemon.level}
+                                            </Typography>
+                                        }
+                                        {!prettyMode &&
+                                            <TextField 
+                                                size="small"
+                                                variant="standard"
+                                                type="number"
+                                                InputProps={{
+                                                    inputProps: { 
+                                                        max: 100, min: 1 
+                                                    }
+                                                }}
+                                                fullWidth={false}
+                                                value={pokemon.level}
+                                                onChange={(e) => {
+                                                    if (e.target.value === "") return setPokemonProperty("level")(1);
+                                                    let lvl = parseInt(e.target.value);
+                                                    if (lvl < 1) lvl = 1;
+                                                    if (lvl > 100) lvl = 100;
+                                                    setPokemonProperty("level")(lvl)
+                                                }}
+                                                sx = {{ width: '30%'}}
+                                            />
+                                        }
                                     </RightCell>
                                 </TableRow>
                                 <TableRow>
@@ -267,7 +287,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>
-                                <SummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={["(No Item)", ...genItems]}/>
+                                <SummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={["(No Item)", ...genItems]} prettyMode={prettyMode} />
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>
@@ -284,6 +304,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                                                 setPokemonProperty("moves")(newMoves);
                                             }}
                                             options={moveOptions}
+                                            prettyMode={prettyMode}
                                         /> 
                                     })
                                 } 
@@ -296,8 +317,8 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
     )
 }
 
-export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves, setBossMoves}: 
-    {gen: Generation, pokemon: Pokemon, moveSet: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, bossMoves: string[], setBossMoves: React.Dispatch<React.SetStateAction<string[]>>}) 
+export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves, setBossMoves, prettyMode}: 
+    {gen: Generation, pokemon: Pokemon, moveSet: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, bossMoves: string[], setBossMoves: React.Dispatch<React.SetStateAction<string[]>>, prettyMode: boolean}) 
 {
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
@@ -332,20 +353,27 @@ export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves,
                             <TableRow>
                                 <LeftCell>HP Multiplier (%)</LeftCell>
                                 <RightCell>
-                                    <TextField 
-                                        size="small"
-                                        variant="standard"
-                                        type="number"
-                                        InputProps={{
-                                            inputProps: { 
-                                                step: 100,
-                                            }
-                                        }}
-                                        fullWidth={false}
-                                        value={pokemon.bossMultiplier}
-                                        onChange={setHPMultiplier}
-                                        sx = {{ width: '30%'}}
-                                    />
+                                    {prettyMode &&
+                                        <Typography variant="body2">
+                                            {pokemon.bossMultiplier}
+                                        </Typography>
+                                    }
+                                    {!prettyMode &&
+                                        <TextField 
+                                            size="small"
+                                            variant="standard"
+                                            type="number"
+                                            InputProps={{
+                                                inputProps: { 
+                                                    step: 100,
+                                                }
+                                            }}
+                                            fullWidth={false}
+                                            value={pokemon.bossMultiplier}
+                                            onChange={setHPMultiplier}
+                                            sx = {{ width: '30%'}}
+                                        />
+                                    }
                                 </RightCell>
                             </TableRow>
                             {
@@ -356,6 +384,7 @@ export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves,
                                         value={bossMoves[index] || "(No Move)"}
                                         setValue={setBMove(index)}
                                         options={["(No Move)", ...moveSet]}
+                                        prettyMode={prettyMode}
                                     /> 
                                 })
                             } 

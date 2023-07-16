@@ -243,7 +243,7 @@ export class RaidMove {
 
     private applyAilment() {
         const ailment = this.moveData.ailment;
-        const chance = this.moveData.ailmentChance;
+        const chance = this.moveData.ailmentChance || 100;
         if (ailment && (chance == 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
                 const pokemon = this.getPokemon(id);

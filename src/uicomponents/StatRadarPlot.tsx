@@ -12,7 +12,7 @@ const plusColor     = "#ff594a"; // for boosted stat from nature
 const minusColor    = "#1490fc"; // for penalized stat from nature
 const statsColor    = "#ad942b"; // for stat totals
 const lowEVColor    = "#fcca00"; // for non-maxed EVs
-const maxedEVColor  = "#00c8c8"; // for when total EVs are 508-510
+const maxedEVColor  = "#00c8c8"; // for when total EVs are 510
 const badEVColor    = "#d44a4a"; // for wehn total EVs exceeding 510 (shouldn't happen unless something goes wrong)
 
 const tickorder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
@@ -52,7 +52,7 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
 
     const evTotal = Object.values(evs).reduce((a,b) => a + b, 0)
     const evColor = evTotal > 510 ? badEVColor : (
-                    evTotal < 508 ? lowEVColor : maxedEVColor);
+                    evTotal < 510 ? lowEVColor : maxedEVColor);
 
     const hpPlotVal = ((stats.hp*100/bossMultiplier)+100)/500
     return (

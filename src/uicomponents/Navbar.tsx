@@ -56,7 +56,7 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                                 Individual Values (IVs)
                             </Typography>
                             <Typography variant="body2" gutterBottom>
-                                IVs are a Pokémon's hidden stats that can only be changed by Hyper Training.
+                                IVs are a Pokémon's hidden stat values that can only be changed by Hyper Training.
                                 A Pokémon has an IV ranging from 0 to 31 for each stat. Higher IVs correspond to higher stat totals.
                             </Typography>
                             <Typography variant="body2" gutterBottom>
@@ -76,7 +76,7 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                                                 <TableCell><Typography variant="body2" fontWeight="bold">IV Range</Typography></TableCell>
                                             </TableRow>
                                             <TableRow>
-                                                <TableCell><Typography variant="body2">"Best" or "Hyper-Trained!"</Typography></TableCell>
+                                                <TableCell><Typography variant="body2">"Best" or "Hyper trained!"</Typography></TableCell>
                                                 <TableCell><Typography variant="body2">31</Typography></TableCell>
                                             </TableRow>
                                             <TableRow>
@@ -103,7 +103,7 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                                     </Table>
                                 </TableContainer>
                                 <Typography variant="body2" gutterBottom>
-                                    Most Tera-Raid builds benefit from having all IVs maximized ("Best" or "Hyper-Trained!"). 
+                                    Most Tera Raid builds benefit from having all IVs maximized ("Best" or "Hyper trained!"). 
                                 </Typography>
                             </Box>
                             <Box sx={{ p: 2 }}>
@@ -111,19 +111,19 @@ function Navbar({lightMode, setLightMode}: {lightMode: 'light' | 'dark', setLigh
                                     Effort Values (EVs)
                                 </Typography>
                                 <Typography variant="body2" gutterBottom>
-                                    EVs are points that indirectly contribute to a Pokémon's stat totals. 
-                                    They are earned by defeating opponents in battle or consuming vitamins.
-                                    EVs can be lost by consuming certain berries.
+                                    EVs are points that directly contribute to a Pokémon's stat totals. 
+                                    They are earned by defeating opponents in battle or consuming vitamins and feathers.
+                                    EVs can be reduced by consuming certain berries.
                                     Each 4 EVs in a stat increase the corresponding stat stat total by 1 point at level 100.
                                     A Pokémon can have a maximum of 510 EVs total, and a maximum of 252 EVs in a single stat.
                                 </Typography>
                                 <Typography variant="body2" gutterBottom>
-                                    You can view an in-game chart showing your Pokémon's EVs by navigating to the Pokémon's summary screen and pressing the left bumper.
+                                    You can view an in-game chart showing your Pokémon's EVs by navigating to the Pokémon's summary screen and pressing the L button.
                                     On this chart, a stat with the maximum number of EVs (252) will show an animated sparkle effect.
-                                    The chart's color will change from blue to yellow when a Pokémon has 510 EVs total.
+                                    The chart's color will change from yellow to blue when a Pokémon has 510 EVs total.
                                 </Typography>
                                 <Typography variant="body2" gutterBottom>
-                                    Many Tera-Raid builds benefit from having two stats with maximum EVs. 
+                                    Many Tera Raid builds benefit from having two stats with maximum EVs. 
                                 </Typography>
                             </Box>
                         </Box>

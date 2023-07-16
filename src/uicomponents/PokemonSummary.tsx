@@ -79,7 +79,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon}: {gen: Generat
                                 // width="95%"
                                 height="70px"
                                 src={pokemon.item ? (
-                                        pokemon.item === "(No Item)" ? undefined :
+                                        pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
                                         getItemSpriteURL(pokemon.item)
                                     ) : undefined }
                                 hidden={pokemon.item === undefined}

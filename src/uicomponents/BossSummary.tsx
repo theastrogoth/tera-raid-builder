@@ -55,7 +55,7 @@ function BossSummary({gen, role, setRole, pokemon, setPokemon, bossMoves, setBos
                                 alt=""
                             />
                         </Box>
-                        <Box 
+                        {/* <Box 
                             position="absolute"
                             sx={{
                                 transform: "translate(105px, -70px)"
@@ -70,7 +70,7 @@ function BossSummary({gen, role, setRole, pokemon, setPokemon, bossMoves, setBos
                                     ) : undefined }
                                 alt=""
                             />
-                        </Box>
+                        </Box> */}
                         <Box 
                             position="absolute"
                             sx={{

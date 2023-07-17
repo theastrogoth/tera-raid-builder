@@ -104,8 +104,8 @@ export class RaidTurn {
         this._raider = this.raidState.raiders[this.raiderID];
         this._boss = this.raidState.raiders[0];
         // first compare priority
-        const raiderPriority = this._raiderMove.priority;
-        const bossPriority = this._bossMove.priority;
+        const raiderPriority = this.raiderMoveData.priority || this._raiderMove.priority;
+        const bossPriority = this.bossMoveData.priority || this._bossMove.priority;
         if (raiderPriority > bossPriority) {
             this._raiderMovesFirst = true;
         } else if (bossPriority < raiderPriority) {

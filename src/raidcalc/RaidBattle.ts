@@ -129,10 +129,10 @@ export class RaidBattle {
                 if (id !== 0) {
                     for (let fid=1; fid<5; fid++) {
                         if (id !== fid) {
-                            this._state.fields[fid].attackerSide.friendGuards += 1;
+                            this._state.fields[fid].defenderSide.friendGuards += 1;
                         }
                     }
-                    this._state.fields[0].defenderSide.friendGuards += 1;
+                    this._state.fields[0].attackerSide.friendGuards += 1; // Should be Impossible
                 }
             // Protosynthesis and Quark Drive
             } else if (ability === "Protosynthesis" || ability === "Quark Drive") {

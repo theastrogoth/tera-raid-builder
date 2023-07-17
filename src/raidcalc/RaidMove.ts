@@ -1,8 +1,8 @@
 import { Move, Field, Pokemon, StatsTable, StatID, Generations, calculate} from "../calc";
 import { getEndOfTurn } from "../calc/desc";
 import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
-import { AbilityName, StatusName, Terrain, Weather } from "../calc/data/interface";
-import { getMoveEffectiveness } from "../calc/mechanics/util";
+import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
+import { getMoveEffectiveness, getQPBoostedStat } from "../calc/mechanics/util";
 
 // next time I prepare the move data, I should eliminate the need for translation
 function ailmentToStatus(ailment: AilmentName): StatusName | "" {
@@ -163,6 +163,14 @@ export class RaidMove {
     private setDamage() {
         this._damage = [[0],[0],[0],[0],[0]];
         this._desc = ['','','','',''];
+        const moveUser = this.getPokemon(this.userID);
+        if ((this._fields[this.userID].terrain === "Electric" && moveUser.ability === "Quark Drive")  ||
+            (this._fields[this.userID].weather === "Sun" && moveUser.ability === "Protosynthesis")
+        ) {
+            moveUser.abilityOn = true;
+            const qpStat = getQPBoostedStat(moveUser) as StatIDExceptHP;
+            moveUser.boostedStat = qpStat;
+        }
         for (let id of this._affectedIDs) {
             const target = this.getPokemon(id);
             const moveField = this.getMoveField(this.userID, id);
@@ -171,9 +179,13 @@ export class RaidMove {
             const calcMove = this.move.clone();
             calcMove.hits = hits || 1;
             calcMove.isCrit = crit;
-            const result = calculate(9, this._user, target, calcMove, moveField);
+            console.log(this._user, moveField)
+            const result = calculate(9, moveUser, target, calcMove, moveField);
             this._damage[id] = typeof(result.damage) == "number" ? [result.damage] : result.damage as number[]; // TODO: find out when result.damage is a number[][]
             this._desc[id] = result.desc();
+        }
+        if (this.moveData.category?.includes("damage")) {
+            this._fields[this.userID].attackerSide.isHelpingHand = false;
         }
     }
 
@@ -651,6 +663,8 @@ export class RaidMove {
         // Booster Energy
         if (this._user.item === "Booster Energy" && (this._user.ability === "Protosynthesis" || this._user.ability === "Quark Drive")) {
             this._user.abilityOn = true;
+            const qpStat = getQPBoostedStat(this._user) as StatIDExceptHP;
+            this._user.boostedStat = qpStat;
             this._user.item = undefined;
         }
         // ???

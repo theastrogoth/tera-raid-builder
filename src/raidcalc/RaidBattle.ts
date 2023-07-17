@@ -1,3 +1,5 @@
+import { StatIDExceptHP } from "../calc/data/interface";
+import { getQPBoostedStat } from "../calc/mechanics/util";
 import { RaidState, RaidBattleInfo, RaidTurnInfo, RaidTurnResult, RaidBattleResults } from "./interface";
 import { RaidTurn } from "./RaidTurn";
 
@@ -136,7 +138,13 @@ export class RaidBattle {
                 }
             // Protosynthesis and Quark Drive
             } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
-                pokemon.abilityOn = true;
+                if (pokemon.item === "Booster Energy") {
+                    console.log("Here in RaidBattle")
+                    pokemon.abilityOn = true;
+                    const qpStat = getQPBoostedStat (pokemon) as StatIDExceptHP;
+                    pokemon.boostedStat = qpStat;
+                    pokemon.item = undefined;
+                }
             // Intimidate
             } else if (ability === "Intimidate") {
                 if (id === 0) {

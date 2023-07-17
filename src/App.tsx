@@ -106,7 +106,7 @@ function App() {
     pokemon3,
     pokemon4
   ].map((pokemon, index) => {
-    const raider = new Raider(index, roles[index], bossMoves, pokemon);
+    const raider = new Raider(index, roles[index], pokemon, index === 0 ? bossMoves : []);
     raider.id = index;
     raider.role = roles[index];
     return raider

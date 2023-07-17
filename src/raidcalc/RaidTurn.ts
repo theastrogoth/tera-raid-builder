@@ -41,22 +41,48 @@ export class RaidTurn {
     }
 
     public result(): RaidTurnResult {
+        // set up moves
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
         if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         this._bossMove = new Move(9, this.bossMoveData.name, this.bossOptions);
         if (this.bossOptions.crit) this._bossMove.isCrit = true;
         if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
+
+        // determine which move goes first
         this.setTurnOrder();
+
+        // copy the raid state
         this._raidState = this.raidState.clone();
+
+        let rID = this.raiderID;
+        let tID = this.targetID
+        // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
+        if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
+            rID = this.targetID;
+            tID = this.raidState.raiders[rID].lastTarget!;
+            this._raiderMove = new Move(9, this.raidState.raiders[this.targetID].lastMove!.name, this.raiderOptions);
+            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        } else if (this.raiderMoveData.name === "Copycat") {
+            tID = this.raidState.raiders[rID].lastTarget!;
+            if (tID === this.targetID) { tID = rID; }
+            this._raiderMove = new Move(9, this.raidState.raiders[this.targetID].lastMove!.name, this.raiderOptions);
+            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        } 
+
+        // Clear Endure from a previous turn
+        this._raidState.raiders[this.raiderID].isEndure = false;
+
         if (this._raiderMovesFirst) {
             this._result1 = new RaidMove(
                 this.raiderMoveData, 
                 this._raiderMove, 
                 this._raidState, 
-                this.raiderID, 
-                this.targetID,
-                this.raiderID,
+                rID, 
+                tID,
+                rID,
                 this._raiderMovesFirst,
                 this.raiderOptions).result();
             this._raidState = this._result1.state;
@@ -67,7 +93,7 @@ export class RaidTurn {
                 0, 
                 this.raiderID,
                 this.raiderID,
-                this._raiderMovesFirst,
+                !this._raiderMovesFirst,
                 this.bossOptions).result();
             this._raidState = this._result2.state;
         } else {
@@ -78,16 +104,16 @@ export class RaidTurn {
                 0, 
                 this.raiderID,
                 this.raiderID,
-                this._raiderMovesFirst,
+                !this._raiderMovesFirst,
                 this.raiderOptions).result();
             this._raidState = this._result1.state;
             this._result2 = new RaidMove(
                 this.raiderMoveData, 
                 this._raiderMove, 
                 this._raidState, 
-                this.raiderID, 
-                this.targetID,
-                this.raiderID,
+                rID, 
+                tID,
+                rID,
                 this._raiderMovesFirst,
                 this.bossOptions).result();
             this._raidState = this._result2.state;

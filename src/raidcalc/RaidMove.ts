@@ -118,7 +118,7 @@ export class RaidMove {
         this.applyAilment();
         this.applyFieldChanges();
         this.applyDamage();
-        this.applyItemEffects();        // 
+        this.applyItemEffects();        
         this.applyUniqueMoveEffects();
         this.applyAbilityEffects();
         this.setEndOfTurnDamage();
@@ -462,6 +462,9 @@ export class RaidMove {
                     }
                 break;
             // other
+            case "Endure":
+                this._user.isEndure = true;
+                break;
             case "Psych Up":
                 const pu_target = this.getPokemon(this.targetID);
                 for (let stat in pu_target.boosts) {
@@ -688,14 +691,14 @@ export class RaidMove {
             const defender = this.getPokemon(defID)
             const atk_eot = getEndOfTurn(gen, attacker, defender, dummyMove, this.getMoveField(attacker.id, defender.id));
             const def_eot = getEndOfTurn(gen, defender, attacker, dummyMove, this.getMoveField(defender.id, attacker.id));
-            this._eot[atkID] = atk_eot;
-            this._eot[defID] = def_eot;
+            this._eot[defID] = atk_eot;
+            this._eot[atkID] = def_eot;
         }
     }
 
     private applyDamage() {
         const roll = this.options.roll || "avg";
-        for (let id of this._affectedIDs) {
+        for (let id=0; id<5; id++) {
             const pokemon = this.getPokemon(id);
             let damage = 0;
             let drain = 0;
@@ -714,8 +717,14 @@ export class RaidMove {
                 healing = Math.floor(this._healing[id].reduce((a,b) => a+b, 0) / this._healing[id].length);
             }
             pokemon.originalCurHP = Math.max(0, pokemon.originalCurHP - damage);
+            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
+                pokemon.originalCurHP = 1;
+            }
             if (pokemon.originalCurHP !== 0) {
                 pokemon.originalCurHP = Math.min(pokemon.maxHP(), Math.max(0, pokemon.originalCurHP + drain));
+            }
+            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
+                pokemon.originalCurHP = 1;
             }
             if (pokemon.originalCurHP !== 0) {
                 pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + healing);
@@ -726,8 +735,15 @@ export class RaidMove {
     private applyEndOfTurnDamage() {
         for (let i=0; i<5; i++) {
             const pokemon = this.getPokemon(i);
-            if (this._eot[i] !== undefined && pokemon.originalCurHP !== 0) {
-                pokemon.originalCurHP = Math.min(pokemon.maxHP(), Math.max(0, pokemon.originalCurHP + this._eot[i]!.damage));
+            const damage = this._eot[i] ? -this._eot[i]!.damage : 0;
+            if (damage > 0 && pokemon.originalCurHP > 0) {
+                pokemon.originalCurHP = Math.max(0, pokemon.originalCurHP - damage);
+            } 
+            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
+                pokemon.originalCurHP = 1;
+            }
+            if (damage < 0 && pokemon.originalCurHP > 0 && pokemon.originalCurHP < pokemon.maxHP()) {
+                pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP - damage);
             }
         }
     }

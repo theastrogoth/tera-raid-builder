@@ -12,9 +12,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import AddIcon from '@mui/icons-material/Add';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
-import Fade from '@mui/material/Fade';
 import Collapse from '@mui/material/Collapse';
 // import Input from "@mui/material/Input";
 
@@ -175,7 +173,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     const moveInfo = info.turns[index].bossMoveInfo;
     const moveName = moveInfo.moveData.name;
     const turnID = info.turns[index].id;
-    const moveSet = ["(No Move)", ...boss.moves, ...boss.extraMoves];
+    const moveSet = ["(No Move)", ...boss.moves, ...(boss.extraMoves) || []];
 
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
         let newTurns = [...info.turns]; 

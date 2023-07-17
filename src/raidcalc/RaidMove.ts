@@ -152,7 +152,7 @@ export class RaidMove {
 
     private getMoveField(atkID:number, defID: number) {
         const moveField = this.raidState.fields[atkID].clone();
-        moveField.defenderSide = this.raidState.fields[defID].defenderSide.clone();
+        moveField.defenderSide = this.raidState.fields[defID].attackerSide.clone();
         return moveField;
     }
 

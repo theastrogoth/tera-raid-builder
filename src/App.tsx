@@ -69,7 +69,7 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(new Pokemon(gen, "Rillaboom", {
-    bossMultiplier: 3000,
+    bossMultiplier: 3500,
     teraType: "Normal",
     ability: "Grassy Surge",
     nature: "Naughty",
@@ -85,10 +85,10 @@ function App() {
   // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Klefki", {...defaultRaiderSet, item: "Focus Sash", moves: ["Sunny Day"], ability: "Prankster"}))
   // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Tauros-Paldea-Blaze-Breed", {...defaultRaiderSet, item: "Choice Band", moves: ["Flare Blitz"], ability: "Anger Point", nature: "Jolly", evs: {atk: 252}}))
   
-  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Medicham", {...defaultRaiderSet, ability: "Pure Power", item: "Focus Sash", nature: "Lonely", evs: {atk: 252, spe: 252}, moves: ["Psych Up", "Reversal", "Close Combat"]}))
-  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Azumarill", {...defaultRaiderSet, ability: "Sap Sipper", nature: "Impish", evs: {hp: 252, def: 252}, moves: ["Belly Drum", "Helping Hand"]}))
+  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Tauros-Paldea-Aqua-Breed", {...defaultRaiderSet, ability: "Anger Point", item: "Life Orb", nature: "Jolly", evs: {atk: 252, spe: 252}, moves: ["Endure", "Reversal"]}))
+  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Meowscarada", {...defaultRaiderSet, nature: "Adamant", evs: {atk: 252}, moves: ["Flower Trick"]}))
   const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Impish", evs: {hp: 252, def: 252}, moves: ["Screech"], }))
-  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Impish", evs: {hp: 252, def: 252}, moves: ["Screech"], }))
+  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Stonjourner", {...defaultRaiderSet, ability: "Power Spot", item: "Focus Sash"}))
  
   const [bossRole, setBossRole] = useState("Raid Boss");
   const [role1, setRole1] = useState("Raider #1");

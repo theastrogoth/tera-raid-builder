@@ -13,6 +13,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from '@mui/icons-material/Add';
+import AddLocationIcon from '@mui/icons-material/AddLocation';
 import Fade from '@mui/material/Fade';
 import Collapse from '@mui/material/Collapse';
 // import Input from "@mui/material/Input";
@@ -22,7 +23,6 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
-import { Move } from "../calc";
 
 function timeout(delay: number) {
     return new Promise( res => setTimeout(res, delay) );
@@ -33,8 +33,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     const moveInfo = info.turns[index].moveInfo;
     const moveName = moveInfo.moveData.name;
     const targetRef = useRef(moveInfo.moveData.target);
-
-    const [validTargets, setValidTargets] = useState([moveInfo.userID])
 
     const moveSet = ["(No Move)", ...raiders[moveInfo.userID].moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
     
@@ -51,10 +49,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     useEffect(() => {
         if (!raiders[moveInfo.userID].moves.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: "(No Move)" as MoveName}});
-        } else {
-            if (!validTargets.includes(moveInfo.targetID)) {
-                setValidTargets([...validTargets, moveInfo.userID]);
-            }
         }
     }, [raiders[moveInfo.userID].moves])
 
@@ -74,33 +68,15 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
         }
     }, [moveName])
 
-    useEffect(() => {
-        const target = moveInfo.moveData.target;
-        if (target === undefined || target === targetRef.current) {
-            return
-        }
-        targetRef.current = target;
-        const disableTarget = moveInfo.moveData.name === "(No Move)" ||
-                            moveInfo.moveData.target === "user-and-allies" ||
-                            moveInfo.moveData.target === "all-other-pokemon" ||
-                            moveInfo.moveData.target === "user" ||
-                            moveInfo.moveData.target === "all-pokemon" ||
-                            moveInfo.moveData.target === "entire-field";
-
-        const newValidTargets = disableTarget ? [moveInfo.userID] : raiders.map((raider) => raider.id).filter((id) => id !== moveInfo.userID);
-        if (!newValidTargets.includes(moveInfo.targetID)) {
-            const newMoveInfo = {...moveInfo, targetID: newValidTargets[0]};
-            setMoveInfo(newMoveInfo);
-        }
-        setValidTargets(newValidTargets);
-    }, [moveInfo.moveData])
-
     const disableTarget = moveInfo.moveData.name === "(No Move)" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-other-pokemon" ||
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "all-pokemon" ||
             moveInfo.moveData.target === "entire-field";
+
+    let validTargets = [0,1,2,3,4];
+    if (!disableTarget) { validTargets.splice(moveInfo.userID, 1); }
     
     const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
@@ -379,8 +355,29 @@ function MoveSelectionContainer({raiders, index, info, setInfo, turnIDs}: {raide
     )
 }
 
+function AddButton({onClick, transform, children, disabled=false}: {onClick: () => void, transform: string, children: React.ReactNode, disabled?: boolean}) {
+    const [color, setColor] = useState<"default" | "primary">("default");
+    return (
+        <Box position="relative">
+            <Box position="absolute" sx={{ transform: transform }}>
+                <IconButton
+                    color={color}
+                    onMouseOver={() => { setColor("primary") }}
+                    onMouseOut={() => { setColor("default") }}
+                    disabled={disabled}
+                    sx={{ padding: "2px"}}
+                    onClick={onClick}
+                >
+                    {children}
+                </IconButton>
+            </Box>
+        </Box>
+    )
+}
+
 function MoveSelectionCard({raiders, index, info, setInfo, setInitiateCollapse}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, setInitiateCollapse: React.Dispatch<React.SetStateAction<boolean>>}) {
-    const [showButtons, setShowButtons] = useState(false);
+    // const [showButtons, setShowButtons] = useState(false);
+    const showButtons = true;
 
     const handleAddTurn = (index: number) => () => {
         let uniqueId = 0;
@@ -400,22 +397,10 @@ function MoveSelectionCard({raiders, index, info, setInfo, setInitiateCollapse}:
     }
 
     return (        
-        <Paper sx={{ my: 1}} 
-            onMouseOver={() => setShowButtons(true)}
-            onMouseOut={() => setShowButtons(false)}
-        >
-            <Box position="relative" hidden={!showButtons}>
-                <Box position="absolute" sx={{ transform: "translate(2px, 4px)" }}>
-                    <Fade in={showButtons}>
-                        <IconButton
-                            sx={{ padding: "2px"}}
-                            onClick={handleAddTurn(index)}
-                        >
-                            <AddIcon fontSize="inherit" />
-                        </IconButton>
-                    </Fade>
-                </Box>
-            </Box>
+        <Paper sx={{ my: 1}} >
+            <AddButton onClick={handleAddTurn(index)} transform="translate(2px, 2px)" >
+                <AddLocationIcon fontSize="inherit" sx={{ transform: "scaleY(-1)"}} />
+            </AddButton>
             <Stack
                 direction = "column"
                 spacing={1}
@@ -428,30 +413,12 @@ function MoveSelectionCard({raiders, index, info, setInfo, setInitiateCollapse}:
                 </Box>
                 <BossMoveDropdown index={index} boss={raiders[0]} info={info} setInfo={setInfo}/>
             </Stack>
-            <Box position="relative" hidden={!showButtons}>
-                <Box position="absolute" sx={{ transform: "translate(2px, -30px)" }}>
-                    <Fade in={showButtons}>
-                        <IconButton
-                            sx={{ padding: "2px"}}
-                            onClick={handleAddTurn(index+1)}
-                        >
-                            <AddIcon fontSize="inherit" />
-                        </IconButton>
-                    </Fade>
-                </Box>
-            </Box>
-            <Box position="relative">
-                <Box position="absolute" sx={{ transform: "translate(525px, -40px)" }}>
-                    <Fade in={showButtons}>
-                        <IconButton
-                            disabled={info.turns.length <= 1}
-                            onClick={() => { setInitiateCollapse(true); }}
-                        >
-                            <CloseIcon fontSize="inherit" />
-                        </IconButton>
-                    </Fade>
-                </Box>
-            </Box>
+            <AddButton onClick={handleAddTurn(index+1)} transform="translate(2px, -25px)" >
+                <AddLocationIcon fontSize="inherit" />
+            </AddButton>
+            <AddButton disabled={info.turns.length <= 1} onClick={() => setInitiateCollapse(true)} transform="translate(2px, -68px)" >
+                <CloseIcon fontSize="inherit" />
+            </AddButton>
         </Paper>
     )
 }

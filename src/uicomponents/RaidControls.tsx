@@ -19,7 +19,7 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
             startingState: new RaidState(raiders, raiders.map((r) => new Field())),
             turns: [0].map((id) => ({
                 id: id, 
-                moveInfo: {userID: id+1, targetID: 1, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
+                moveInfo: {userID: id+1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
                 bossMoveInfo: {userID: 0, targetID: id+1, options: {crit: false, secondaryEffects: false, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
             })),
         }
@@ -29,29 +29,6 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
         setInfo({...info, startingState: new RaidState(raiders, raiders.map((r) => new Field()))})
     }, [raiders])
 
-    const handleAddTurn = () => {
-        let uniqueId = 0;
-        info.turns.forEach((turn) => {
-            if (turn.id >= uniqueId) {
-                uniqueId = turn.id + 1;
-            }
-        })
-        const newTurn: RaidTurnInfo = {
-            id: uniqueId,
-            moveInfo: {userID: 1, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min" }},
-            bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "max" }},
-        }
-        setInfo({...info, turns: [...info.turns, newTurn]});
-    }
-
-    const handleRemoveTurn = () => {
-        if (info.turns.length === 1) {
-            return;
-        }
-        setInfo({...info, turns: info.turns.slice(0, info.turns.length-1)});
-    }
-
-    console.log(info)
     const battle = new RaidBattle(info);
     const results = battle.result();
 
@@ -72,10 +49,6 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
                     <Box maxHeight={510} sx={{ overflowY: "auto" }}>
                         <MoveSelection info={info} setInfo={setInfo} />
                     </Box>
-                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={1}>
-                        <Button variant="contained" onClick={handleAddTurn}>Add Turn</Button>
-                        <Button variant="contained" onClick={handleRemoveTurn} disabled={info.turns.length < 2}>Remove Turn</Button>
-                    </Stack>
                 </Stack>
             </Box>
             <Box hidden={value !== 2} maxHeight={525} sx={{ overflowY: "auto" }}>

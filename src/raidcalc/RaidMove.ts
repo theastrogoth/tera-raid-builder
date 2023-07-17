@@ -179,7 +179,6 @@ export class RaidMove {
             const calcMove = this.move.clone();
             calcMove.hits = hits || 1;
             calcMove.isCrit = crit;
-            console.log(this._user, moveField)
             const result = calculate(9, moveUser, target, calcMove, moveField);
             this._damage[id] = typeof(result.damage) == "number" ? [result.damage] : result.damage as number[]; // TODO: find out when result.damage is a number[][]
             this._desc[id] = result.desc();
@@ -463,6 +462,13 @@ export class RaidMove {
                     }
                 break;
             // other
+            case "Psych Up":
+                const pu_target = this.getPokemon(this.targetID);
+                for (let stat in pu_target.boosts) {
+                    // @ts-ignore
+                    this._user.boosts[stat] = pu_target.boosts[stat];
+                }
+                break;
             case "Power Swap":
                 const ps_target = this.getPokemon(this.targetID);
                 const tempUserAtkBoosts = this._user.boosts;

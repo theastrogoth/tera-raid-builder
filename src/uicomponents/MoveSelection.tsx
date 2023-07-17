@@ -5,20 +5,28 @@ import Stack from "@mui/material/Stack";
 import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Input from "@mui/material/Input";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from '@mui/icons-material/Add';
+import Fade from '@mui/material/Fade';
+import Collapse from '@mui/material/Collapse';
+// import Input from "@mui/material/Input";
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidBattleInfo, RaidMoveInfo, Raider } from "../raidcalc/interface";
+import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
+import { Move } from "../calc";
 
+function timeout(delay: number) {
+    return new Promise( res => setTimeout(res, delay) );
+}
 
 function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: Raider[], info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
     const roles = raiders.map((raider) => raider.role);
@@ -99,53 +107,53 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Box>
-                <FormControl>
-                    <InputLabel id={"user-label"}>User</InputLabel>
-                    <Select
-                        size="small"
-                        labelId="user-label"
-                        label="User"
-                        value = {moveInfo.userID}
-                        onChange={(e) => setInfoParam("userID")(e.target.value)}
-                        sx={{ maxWidth : "150px"}}
-                    >
-                        {roles.slice(1).map((role, i) => <MenuItem value={i+1}>{role}</MenuItem>)}
-                    </Select>
-                </FormControl> 
+                <Select
+                    size="small"
+                    variant="standard"
+                    labelId="user-label"
+                    label="User"
+                    value = {moveInfo.userID}
+                    onChange={(e) => setInfoParam("userID")(e.target.value)}
+                    sx={{ maxWidth : "150px"}}
+                >
+                    {roles.slice(1).map((role, i) => <MenuItem value={i+1}>{role}</MenuItem>)}
+                </Select>
             </Box>
             <Typography variant="body1">uses</Typography>
             <Box>
-                <FormControl>
-                    <InputLabel id={"move-label"}>Move</InputLabel>
-                    <Select 
-                        size="small"
-                        labelId="move-label"
-                        label="Move"
-                        value = {moveInfo.moveData.name}
-                        onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
-                        sx={{ maxWidth : "150px"}}
-                    >
-                        {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
-                    </Select>
-                </FormControl>
+                <Select 
+                    size="small"
+                    variant="standard"
+                    labelId="move-label"
+                    label="Move"
+                    value = {moveInfo.moveData.name}
+                    onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
+                    sx={{ maxWidth : "150px"}}
+                >
+                    {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
+                </Select>
             </Box>
             <Typography variant="body1">on</Typography>
             <Box>
-                <FormControl>
-                    <InputLabel id={"target-label"}>Target</InputLabel>
-                    <Select
-                        size="small"
-                        labelId="target-label"
-                        label="Target"
-                        value = {moveInfo.targetID}
-                        renderValue={(value) => roles[value] !== undefined ? roles[value] : info.startingState.raiders[moveInfo.targetID].role}
-                        disabled = {disableTarget}
-                        onChange={(e) =>setInfoParam("targetID")(e.target.value)}
-                        sx={{ maxWidth : "150px"}}
-                    >
-                        {validTargets.map((id) => <MenuItem value={id}>{roles[id]}</MenuItem>)}
-                    </Select>
-                </FormControl>
+                <Select
+                    size="small"
+                    variant="standard"
+                    labelId="target-label"
+                    label="Target"
+                    value = {moveInfo.targetID}
+                    renderValue={(value) => {
+                        let display = roles[value];
+                        if (disableTarget) {
+                            display = roles[moveInfo.userID]
+                        }
+                        return display;
+                    }}
+                    disabled = {disableTarget}
+                    onChange={(e) =>setInfoParam("targetID")(e.target.value)}
+                    sx={{ maxWidth : "150px"}}
+                >
+                    {validTargets.map((id) => <MenuItem value={id}>{roles[id]}</MenuItem>)}
+                </Select>
             </Box>
             <FormControl component="fieldset">
                 <FormGroup>
@@ -154,6 +162,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                             control={
                                 <Checkbox 
                                     size="small" 
+                                    style={{ padding: "4px"}}
                                     checked={critChecked}
                                     onChange={
                                         (e) => {
@@ -168,6 +177,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                             control={
                                 <Checkbox 
                                     size="small" 
+                                    style={{ padding: "4px"}}
                                     checked={effectChecked}
                                     onChange={
                                         (e) => {
@@ -214,19 +224,17 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Typography variant="body1">{info.startingState.raiders[0].role + " uses"}</Typography>
-            <FormControl>
-                <InputLabel id={"boss-move-label"}>Boss Move</InputLabel>
-                <Select 
-                    size="small"
-                    labelId="boss-move-label"
-                    label="Boss Move"
-                    value = {moveName}
-                    onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
-                    sx={{ maxWidth : "150px"}}
-                >
-                    {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
-                </Select>
-            </FormControl>
+            <Select 
+                size="small"
+                variant="standard"
+                labelId="boss-move-label"
+                label="Boss Move"
+                value = {moveName}
+                onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
+                sx={{ maxWidth : "150px"}}
+            >
+                {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
+            </Select>
             <FormControl component="fieldset">
                 <FormGroup>
                     <Stack direction="row" spacing={-0.5}>
@@ -234,6 +242,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                             control={
                                 <Checkbox 
                                     size="small" 
+                                    style={{ padding: "4px"}}
                                     checked={critChecked}
                                     onChange={
                                         (e) => {
@@ -248,6 +257,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                             control={
                                 <Checkbox 
                                     size="small" 
+                                    style={{ padding: "4px"}}
                                     checked={effectChecked}
                                     onChange={
                                         (e) => {
@@ -265,8 +275,83 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     )
 }
 
-function MoveSelectionRow({raiders, index, info, setInfo}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
+function MoveSelectionContainer({raiders, index, info, setInfo, turnIDs}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, turnIDs: React.MutableRefObject<number[]>}) {
     const turnID = info.turns[index].id;
+    const [collapseIn, setCollapseIn] = useState(false);
+    const [initiateCollapse, setInitiateCollapse] = useState(false);
+    const [initiateGrow, setInitiateGrow] = useState(false);
+    const [triggerRemove, setTriggerRemove] = useState(false);
+    const [triggerAdd, setTriggerAdd] = useState(false);
+    const [waitAdd, setWaitAdd] = useState(false);
+
+    const brandNewTurnID = !turnIDs.current.includes(turnID);
+
+    const useCollapse = initiateCollapse || triggerAdd;
+    const hideCard = useCollapse || initiateGrow || brandNewTurnID;
+
+    useEffect(() => {
+        if (brandNewTurnID) {
+            setInitiateGrow(true);
+            setCollapseIn(false);
+        } else {
+            setCollapseIn(true);
+        }
+        turnIDs.current = info.turns.map((turn) => turn.id);
+    }, [brandNewTurnID])
+
+    useEffect(() => {
+        if (initiateGrow) {
+            setCollapseIn(false);
+            setTriggerAdd(true);
+        }
+    }, [initiateGrow])
+
+    useEffect(() => {
+        if (triggerAdd) {
+            setCollapseIn(true);
+            setWaitAdd(true);
+        }
+    }, [triggerAdd])
+
+    useEffect(() => {
+        if (waitAdd) {
+            async function addTurn() {
+                await timeout(400)
+                setInitiateGrow(false);
+                setTriggerAdd(false);
+                setWaitAdd(false);
+            }
+            addTurn();
+        }
+    }, [waitAdd])
+
+    useEffect(() => {
+        if (initiateCollapse && !triggerAdd) {
+            setCollapseIn(false);
+            setTriggerRemove(true);
+        }
+    }, [initiateCollapse])
+
+    useEffect(() => {
+        if (triggerRemove) {
+            async function removeTurn() {
+                await timeout(400);
+                handleRemoveTurn()
+                setTriggerRemove(false);
+                setInitiateCollapse(false);
+                setCollapseIn(true);
+            }
+            removeTurn();
+        }
+    }, [triggerRemove])
+
+    const handleRemoveTurn = () => {
+        let newTurns = [...info.turns];
+        newTurns.splice(index, 1);
+        setInfo({...info, turns: newTurns});
+        turnIDs.current = newTurns.map((turn) => turn.id);
+    }
+
     return (
         <Draggable
             key={turnID.toString()}
@@ -279,29 +364,102 @@ function MoveSelectionRow({raiders, index, info, setInfo}: {raiders: Raider[], i
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                 >
-                    <Paper sx={{ p: 1, my: 1}}>
-                        <Stack
-                            direction = "column"
-                            spacing={1}
-                            alignItems="center"
-                            sx={{ p: 1 }}
-                        >
-                            <MoveDropdown index={index} raiders={raiders} info={info} setInfo={setInfo} />
-                            <Box width="80%" paddingBottom={1}>
-                                <Divider />
-                            </Box>
-                            <BossMoveDropdown index={index} boss={raiders[0]} info={info} setInfo={setInfo}/>
-                        </Stack>
-                    </Paper>
+                    {useCollapse &&
+                        <Collapse appear={false} in={collapseIn} timeout={250}>
+                            <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} setInitiateCollapse={setInitiateCollapse}/>
+                        </Collapse>
+                    }
+                    {!hideCard &&
+                        <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} setInitiateCollapse={setInitiateCollapse}/>
+                    }
                 </div>
             )}
 
         </Draggable>
+    )
+}
 
+function MoveSelectionCard({raiders, index, info, setInfo, setInitiateCollapse}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, setInitiateCollapse: React.Dispatch<React.SetStateAction<boolean>>}) {
+    const [showButtons, setShowButtons] = useState(false);
+
+    const handleAddTurn = (index: number) => () => {
+        let uniqueId = 0;
+        info.turns.forEach((turn) => {
+            if (turn.id >= uniqueId) {
+                uniqueId = turn.id + 1;
+            }
+        })
+        let newTurns = [...info.turns];
+        const newTurn: RaidTurnInfo = {
+            id: uniqueId,
+            moveInfo: {userID: 1, targetID: 0, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min" }},
+            bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "max" }},
+        }
+        newTurns.splice(index, 0, newTurn);
+        setInfo({...info, turns: newTurns});
+    }
+
+    return (        
+        <Paper sx={{ my: 1}} 
+            onMouseOver={() => setShowButtons(true)}
+            onMouseOut={() => setShowButtons(false)}
+        >
+            <Box position="relative" hidden={!showButtons}>
+                <Box position="absolute" sx={{ transform: "translate(2px, 4px)" }}>
+                    <Fade in={showButtons}>
+                        <IconButton
+                            sx={{ padding: "2px"}}
+                            onClick={handleAddTurn(index)}
+                        >
+                            <AddIcon fontSize="inherit" />
+                        </IconButton>
+                    </Fade>
+                </Box>
+            </Box>
+            <Stack
+                direction = "column"
+                spacing={1}
+                alignItems="center"
+                sx={{ p: 1 }}
+            >
+                <MoveDropdown index={index} raiders={raiders} info={info} setInfo={setInfo} />
+                <Box width="80%">
+                    <Divider />
+                </Box>
+                <BossMoveDropdown index={index} boss={raiders[0]} info={info} setInfo={setInfo}/>
+            </Stack>
+            <Box position="relative" hidden={!showButtons}>
+                <Box position="absolute" sx={{ transform: "translate(2px, -30px)" }}>
+                    <Fade in={showButtons}>
+                        <IconButton
+                            sx={{ padding: "2px"}}
+                            onClick={handleAddTurn(index+1)}
+                        >
+                            <AddIcon fontSize="inherit" />
+                        </IconButton>
+                    </Fade>
+                </Box>
+            </Box>
+            <Box position="relative">
+                <Box position="absolute" sx={{ transform: "translate(525px, -40px)" }}>
+                    <Fade in={showButtons}>
+                        <IconButton
+                            disabled={info.turns.length <= 1}
+                            onClick={() => { setInitiateCollapse(true); }}
+                        >
+                            <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    </Fade>
+                </Box>
+            </Box>
+        </Paper>
     )
 }
 
 function MoveSelection({info, setInfo}:{info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
+    
+    const turnIDsRef = useRef(info.turns.map((turn) => turn.id));
+    
     const onDragEnd = (result: DropResult) => {
         const {destination, source, draggableId} = result;
         if (!destination) { return }; 
@@ -326,11 +484,12 @@ function MoveSelection({info, setInfo}:{info: RaidBattleInfo, setInfo: React.Dis
                     >
                         {
                             info.turns.map((turn, index) => (
-                                <MoveSelectionRow 
+                                <MoveSelectionContainer 
                                     raiders={info.startingState.raiders} 
                                     index={index} 
                                     info={info} 
                                     setInfo={setInfo} 
+                                    turnIDs={turnIDsRef}
                                 />
                         ))}
                             {provided.placeholder}

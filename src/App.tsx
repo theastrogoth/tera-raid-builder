@@ -68,7 +68,13 @@ function App() {
 
   const gen = Generations.get(9); 
 
-  const [raidBoss, setRaidBoss] = useState(new Pokemon(gen, defaultBossName, defaultBossSet))
+  const [raidBoss, setRaidBoss] = useState(new Pokemon(gen, "Rillaboom", {
+    bossMultiplier: 3000,
+    teraType: "Normal",
+    ability: "Grassy Surge",
+    nature: "Naughty",
+    moves: ["Take Down", "Wood Hammer", "Acrobatics", "Drum Beating"]
+  }))
   // const [pokemon1, setPokemon1] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
   // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
   // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
@@ -79,10 +85,10 @@ function App() {
   // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Klefki", {...defaultRaiderSet, item: "Focus Sash", moves: ["Sunny Day"], ability: "Prankster"}))
   // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Tauros-Paldea-Blaze-Breed", {...defaultRaiderSet, item: "Choice Band", moves: ["Flare Blitz"], ability: "Anger Point", nature: "Jolly", evs: {atk: 252}}))
   
-  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Tinkaton", {...defaultRaiderSet, item: "Life Orb", nature: "Adamant", evs: {atk: 252, spe: 252}, moves: ["Swords Dance", "Gigaton Hammer"]}))
-  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Pelipper", {...defaultRaiderSet, ability: "Drizzle", nature: "Calm", evs: {hp: 252, spd: 252}, moves: ["Helping Hand"]}))
-  const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Careful", evs: {hp: 252, spd: 252}, moves: ["Screech"], }))
-  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Careful", evs: {hp: 252, spd: 252}, moves: ["Screech"], }))
+  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Medicham", {...defaultRaiderSet, ability: "Pure Power", item: "Focus Sash", nature: "Lonely", evs: {atk: 252, spe: 252}, moves: ["Psych Up", "Reversal", "Close Combat"]}))
+  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Azumarill", {...defaultRaiderSet, ability: "Sap Sipper", nature: "Impish", evs: {hp: 252, def: 252}, moves: ["Belly Drum", "Helping Hand"]}))
+  const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Impish", evs: {hp: 252, def: 252}, moves: ["Screech"], }))
+  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Impish", evs: {hp: 252, def: 252}, moves: ["Screech"], }))
  
   const [bossRole, setBossRole] = useState("Raid Boss");
   const [role1, setRole1] = useState("Raider #1");

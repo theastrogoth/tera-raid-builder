@@ -45,8 +45,8 @@ export class RaidTurn {
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
         if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         this._bossMove = new Move(9, this.bossMoveData.name, this.bossOptions);
-        if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
-        if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        if (this.bossOptions.crit) this._bossMove.isCrit = true;
+        if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
         this.setTurnOrder();
         this._raidState = this.raidState.clone();
         if (this._raiderMovesFirst) {

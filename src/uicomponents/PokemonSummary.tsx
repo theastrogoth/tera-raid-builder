@@ -20,6 +20,12 @@ const gen = Generations.get(9); // we will only use gen 9
 export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
     const [str, setStr] = useState(pokemon.role);
 
+    useEffect(() => {
+        if (pokemon.role !== str) {
+            setStr(pokemon.role);
+        }
+    }, [pokemon.role])
+
     const setRole = (r: string) => {
         const newPoke = pokemon.clone();
         newPoke.role = r;

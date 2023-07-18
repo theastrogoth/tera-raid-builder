@@ -21,7 +21,6 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
-import { Input } from "@mui/material";
 
 function timeout(delay: number) {
     return new Promise( res => setTimeout(res, delay) );
@@ -81,7 +80,8 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
     return (
-        <Stack direction="row" spacing={1} alignItems="center">
+        <Stack direction="row" spacing={1} width="93.5%" alignItems="center" justifyContent="right">
+            <Box flexGrow={1} />
             <Box>
                 <Select
                     size="small"
@@ -125,6 +125,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                     {validTargets.map((id) => <MenuItem value={id}>{roles[id]}</MenuItem>)}
                 </Select>
             </Box>
+            <Box flexGrow={1} />
             <FormControl component="fieldset">
                 <FormGroup>
                     <Stack direction="row" spacing={-0.5}>
@@ -158,21 +159,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                             label="Effect"
                             labelPlacement="top"
                         />
-                        {/* <FormControlLabel 
-                            control={
-                                <Select 
-                                    size="small" 
-                                    style={{ padding: "4px"}}
-                                    value={roll}
-                                    onChange={
-                                        (e) => {
-                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value}});
-                                        }
-                                    }
-                                />} 
-                            label="Effect"
-                            labelPlacement="top"
-                        /> */}
                     </Stack>
                 </FormGroup>
             </FormControl>
@@ -222,7 +208,8 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
     return (
-        <Stack direction="row" spacing={1} alignItems="center">
+        <Stack direction="row" spacing={1} width="95%" alignItems="center" justifyContent="right">
+            <Box flexGrow={1} />
             <Typography variant="body1">{info.startingState.raiders[0].role + " uses"}</Typography>
             <Select 
                 size="small"
@@ -233,6 +220,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
             >
                 {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
             </Select>
+            <Box flexGrow={1} />
             <FormControl component="fieldset">
                 <FormGroup>
                     <Stack direction="row" spacing={-0.5}>

@@ -16,12 +16,20 @@ export class RaidBattle {
     }
 
     public result(): RaidBattleResults {
-        this._state = this.startingState.clone();
-        this.calculateTurnZero();
-        this.calculateTurns();
-        return {
-            endState: this._state,
-            turnResults: this._turnResults
+        try {
+            this._state = this.startingState.clone();
+            this.calculateTurnZero();
+            this.calculateTurns();
+            return {
+                endState: this._state,
+                turnResults: this._turnResults
+            }
+        } catch (e) {
+            console.error(e);
+            return {
+                endState: this.startingState.clone(),
+                turnResults: []
+            }
         }
     }
 

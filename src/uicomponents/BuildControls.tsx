@@ -15,13 +15,17 @@ import TuneIcon from '@mui/icons-material/Tune';
 
 import { styled } from '@mui/material/styles';
 
-import { Pokemon, StatsTable } from '../calc';
+import { Pokemon, StatsTable, Generations } from '../calc';
 import { Generation, Nature } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 import { Typography } from "@mui/material";
+import { Raider } from "../raidcalc/interface";
+
+// we will always use Gen 9
+const gen = Generations.get(9);
 
 // const patchEmoji = '\u{1FA79}';
 const machineEmoji = '\u{1F4BF}';
@@ -80,7 +84,7 @@ function prettyStatName(stat: string) {
     }
 }
 
-function evsToString(gen: Generation, pokemon: Pokemon) {
+function evsToString(pokemon: Pokemon) {
     let str = ''
     let empty = true
     for (let keyval of Object.entries(pokemon.evs)) {
@@ -162,8 +166,8 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
   }
 
 
-function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPokemon, prettyMode}: 
-        {gen: Generation, pokemon: Pokemon, abilities: string[], moveSet: string[], moveLearnTypes: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, prettyMode: boolean}) 
+function BuildControls({pokemon, abilities, moveSet, moveLearnTypes, setPokemon, prettyMode}: 
+        {pokemon: Raider, abilities: string[], moveSet: string[], moveLearnTypes: string[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
     {
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
@@ -180,24 +184,28 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
             const newPokemon = {...pokemon};
             // @ts-ignore
             newPokemon[propName] = val;
-            setPokemon(new Pokemon(gen, newPokemon.name, {
-                level: newPokemon.level,
-                ability: newPokemon.ability,
-                nature: newPokemon.nature,
-                item: newPokemon.item,
-                ivs: newPokemon.ivs,
-                evs: newPokemon.evs,
-                moves: newPokemon.moves,
-                teraType: newPokemon.teraType,
-                bossMultiplier: newPokemon.bossMultiplier,
-            }))
+            setPokemon(new Raider(
+                newPokemon.id, 
+                newPokemon.role, 
+                new Pokemon(gen, newPokemon.name, {
+                    level: newPokemon.level,
+                    ability: newPokemon.ability,
+                    nature: newPokemon.nature,
+                    item: newPokemon.item,
+                    ivs: newPokemon.ivs,
+                    evs: newPokemon.evs,
+                    moves: newPokemon.moves,
+                    teraType: newPokemon.teraType,
+                    bossMultiplier: newPokemon.bossMultiplier,
+                })
+            ))
         }
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Pokemon(gen, val, {ability: "(No Ability)"}))
+        setPokemon(new Raider(pokemon.id, pokemon.role, new Pokemon(gen, val, {ability: "(No Ability)"})))
     }
-    
+
     return (
         <Box justifyContent="center" alignItems="top" width="300px">
             {!prettyMode &&
@@ -228,7 +236,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
             }
             {(!prettyMode && editStatsOpen && !importExportOpen) &&
                 <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 0 }}>
-                    <StatsControls gen={gen} pokemon={pokemon} setPokemon={setPokemon}/>    
+                    <StatsControls pokemon={pokemon} setPokemon={setPokemon}/>    
                 </Stack>
             }
             {(prettyMode || (!editStatsOpen && !importExportOpen)) &&
@@ -278,7 +286,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell>EVs</LeftCell>
-                                    <RightCell>{evsToString(gen, pokemon)}</RightCell>
+                                    <RightCell>{evsToString(pokemon)}</RightCell>
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '5px'}} />
@@ -316,31 +324,35 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
     )
 }
 
-export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves, setBossMoves, prettyMode}: 
-    {gen: Generation, pokemon: Pokemon, moveSet: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, bossMoves: string[], setBossMoves: React.Dispatch<React.SetStateAction<string[]>>, prettyMode: boolean}) 
+export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
+    {pokemon: Raider, moveSet: string[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
 {
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
         if (val < 1) val = 1;
         const newPokemon = {...pokemon};
         newPokemon.bossMultiplier = val;
-        setPokemon(new Pokemon(gen, newPokemon.name, {
-            level: newPokemon.level,
-            ability: newPokemon.ability,
-            nature: newPokemon.nature,
-            item: newPokemon.item,
-            ivs: newPokemon.ivs,
-            evs: newPokemon.evs,
-            moves: newPokemon.moves,
-            teraType: newPokemon.teraType,
-            bossMultiplier: newPokemon.bossMultiplier,
-        }))
+        setPokemon(new Raider(pokemon.id, pokemon.role,
+            new Pokemon(gen, newPokemon.name, {
+                level: newPokemon.level,
+                ability: newPokemon.ability,
+                nature: newPokemon.nature,
+                item: newPokemon.item,
+                ivs: newPokemon.ivs,
+                evs: newPokemon.evs,
+                moves: newPokemon.moves,
+                teraType: newPokemon.teraType,
+                bossMultiplier: newPokemon.bossMultiplier,
+            }),
+            pokemon.extraMoves,
+        ));
     }
 
     const setBMove = (index: number) => (move: string) => {
-        const newMoves = [...bossMoves];
-        newMoves[index] = move;
-        setBossMoves(newMoves);
+        const newPoke = pokemon.clone();
+        //@ts-ignore
+        newPoke.extraMoves[index] = move;
+        setPokemon(newPoke);
     }
 
     return (
@@ -380,7 +392,8 @@ export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves,
                                     return <SummaryRow 
                                         key={index}
                                         name={index==0 ? "Extra Moves" : ""}
-                                        value={bossMoves[index] || "(No Move)"}
+                                        // @ts-ignore
+                                        value={pokemon.extraMoves[index] || "(No Move)"}
                                         setValue={setBMove(index)}
                                         options={["(No Move)", ...moveSet]}
                                         prettyMode={prettyMode}

@@ -42,15 +42,15 @@ function RaidResults({results}: {results: RaidBattleResults}) {
                     <Stack direction="column" spacing={0} key={index}>
                         <Typography variant="h6">Move {index+1}</Typography>
                         {
-                            turnResult.results[0].desc.map((desc, index) => (
+                            turnResult.results[0].desc.map((desc, idx) => (
                                 desc === "" ? <></> :
-                                <CopyTextButton key={index} text={desc}></CopyTextButton>
+                                <CopyTextButton key={idx} text={desc}></CopyTextButton>
                             ))
                         }
                         {
-                            turnResult.results[1].desc.map((desc, index) => (
+                            turnResult.results[1].desc.map((desc, idx) => (
                                 desc === "" ? <></> :
-                                <CopyTextButton key={index} text={desc}></CopyTextButton>
+                                <CopyTextButton key={idx} text={desc}></CopyTextButton>
                             ))
                         }
                     </Stack>

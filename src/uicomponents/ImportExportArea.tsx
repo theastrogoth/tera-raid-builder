@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 
 import { Pokemon, Stats, SPECIES, ABILITIES, TYPE_CHART, StatsTable, ITEMS } from "../calc";
 import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, TypeName, Generation } from "../calc/data/interface";
+import { Raider } from "../raidcalc/interface";
 
 function serialize(array: string[], separator: String) {
 	var text = "";
@@ -257,7 +258,7 @@ function checkExeptions(poke: string) {
 	}
 	return poke;
 }
-function ImportExportArea({pokemon, setPokemon}: { pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>> }) {
+function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r: Raider) => void}) {
 	const [textValue, setTextValue] = useState('');
 	return (
 		<Box>
@@ -284,7 +285,8 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Pokemon, setPokemon:
 						onClick={() => {
 							const newPoke = addSet(textValue)
 							if (newPoke) {
-								setPokemon(newPoke)
+								const newRaider = new Raider(pokemon.id, pokemon.role, newPoke)
+								setPokemon(newRaider)
 							}
 						}}
 					>

@@ -15,6 +15,7 @@ function RaidControls({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dis
 
     const battle = new RaidBattle(info);
     const results = battle.result();
+    console.log(results)
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);

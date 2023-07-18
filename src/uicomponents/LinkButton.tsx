@@ -107,6 +107,7 @@ function serializeInfo(info: RaidBattleInfo): string {
                 level: r.level,
                 teraType: r.teraType,
                 moves: r.moves,
+                bossMultiplier: r.bossMultiplier,
                 extraMoves: r.extraMoves,
             }}
         ),

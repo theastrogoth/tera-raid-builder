@@ -194,3 +194,8 @@ export type RaidTurnResult = {
     results: [RaidMoveResult, RaidMoveResult];
     raiderMovesFirst: boolean;
 }
+
+export type BuildInfo = {
+    pokemon: Raider[],
+    turns: RaidTurnInfo[],
+}

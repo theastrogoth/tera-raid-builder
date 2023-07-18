@@ -1,0 +1,209 @@
+{
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Event Delphox",
+            "name": "Delphox",
+            "ability": "Magician",
+            "nature": "Timid",
+            "teraType": "Fairy",
+            "bossMultiplier": 3000,
+            "extraMoves": ["Dazzling Gleam", "Magic Room"],
+            "moves": ["Fire Blast", "Psychic", "Shadow Ball", "Will-O-Wisp"]
+        },
+        {
+            "id": 1,
+            "role": "Tink",
+            "name": "Tinkaton",
+            "ability": "(No Ability)",
+            "nature": "Adamant",
+            "item": "Life Orb",
+            "evs": {"atk": 252, "spe": 252},
+            "moves": ["Swords Dance", "Gigaton Hammer"]
+        },
+        {
+            "id": 2,
+            "role": "Peli",
+            "name": "Pelipper",
+            "nature": "Calm",
+            "ability": "Drizzle",
+            "evs": {"hp": 252, "spd": 252},
+            "moves": ["Helping Hand"]
+        },
+        {
+            "id": 3,
+            "role": "Corv 1",
+            "name": "Corviknight",
+            "nature": "Careful",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "evs": {"hp": 252, "spd": 252},
+            "moves": ["Screech"]
+        },
+        {
+            "id": 4,
+            "role": "Corv 2",
+            "name": "Corviknight",
+            "nature": "Careful",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "evs": {"hp": 252, "spd": 252},
+            "moves": ["Screech"]
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "moveInfo": {
+                "userID": 1,
+                "targetID": 1,
+                "name": "Swords Dance",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 1,
+                "name": "Will-O-Wisp",
+                "options": {
+                    "roll": "max"
+                }
+            }
+            
+        },
+        {
+            "id": 2,
+            "moveInfo": {
+                "userID": 2,
+                "targetID": 1,
+                "name": "Helping Hand",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 2,
+                "name": "Will-O-Wisp",
+                "options": {
+                    "roll": "max"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "moveInfo": {
+                "userID": 3,
+                "targetID": 0,
+                "name": "Screech",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 3,
+                "name": "Will-O-Wisp",
+                "options": {
+                    "roll": "max"
+                }
+            }
+        },
+        {
+            "id": 4,
+            "moveInfo": {
+                "userID": 4,
+                "targetID": 0,
+                "name": "Screech",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 4,
+                "name": "Will-O-Wisp",
+                "options": {
+                    "roll": "max"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "moveInfo": {
+                "userID": 3,
+                "targetID": 3,
+                "name": "Heal Cheer",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 3,
+                "name": "Psychic",
+                "options": {
+                    "roll": "max",
+                    "crit": true
+                }
+            }
+        },
+        {
+            "id": 6,
+            "moveInfo": {
+                "userID": 4,
+                "targetID": 4,
+                "name": "Heal Cheer",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 4,
+                "name": "Psychic",
+                "options": {
+                    "roll": "max",
+                    "crit": true
+                }
+            }
+        },
+        {
+            "id": 7,
+            "moveInfo": {
+                "userID": 2,
+                "targetID": 2,
+                "name": "Attack Cheer",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 2,
+                "name": "Psychic",
+                "options": {
+                    "roll": "max",
+                    "crit": true
+                }
+            }
+        },
+        {
+            "id": 8,
+            "moveInfo": {
+                "userID": 1,
+                "targetID": 0,
+                "name": "Gigaton Hammer",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 0,
+                "name": "(No Move)"
+            }
+        }
+    ]
+}

@@ -226,6 +226,8 @@ export class RaidMove {
             if (this.move.name == "Heal Cheer") {
                 const roll = this.options.roll || "avg";
                 this._healing[id] = roll === "min" ? Math.floor(maxHP * 0.2) : roll === "max" ? maxHP : Math.floor(maxHP * 0.6);
+                const pokemon = this.getPokemon(id);
+                pokemon.status = "";
             } else {
                 const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100);
                 this._healing[id] = healAmount;
@@ -785,7 +787,7 @@ export class RaidMove {
         const finalStatus = this._raiders.map(p => p.status);
         for (let i=0; i<5; i++) {
             if (initialStatus[i] !== finalStatus[i]) {
-                if (finalStatus[i] === undefined) {
+                if (finalStatus[i] === "" || finalStatus[i] === undefined) {
                     this._flags[i].push(initialStatus[i] + " cured")
                 } else {
                     this._flags[i].push(finalStatus[i] + " inflicted")

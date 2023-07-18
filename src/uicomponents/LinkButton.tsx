@@ -6,55 +6,28 @@ import Button from "@mui/material/Button";
 
 import { Pokemon, Generations, Field } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import { RaidBattleInfo, RaidTurnInfo, Raider, RaidState, RaidMoveOptions, MoveData } from "../raidcalc/interface";
+import { RaidBattleInfo, Raider, RaidState, BuildInfo } from "../raidcalc/interface";
+import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
 
+import delphox from "../data/official_strats/delphox.json"
 
+const OFFICIAL_STRATS = {
+    "delphox": delphox as LightBuildInfo,
+}
 
 const gen = Generations.get(9);
-
-type LightPokemon = {
-    id: number,
-    role: string
-    name: string,
-    ability?: string,
-    item?: string,
-    nature?: string,
-    evs?: {[k: string]: number},
-    ivs?: {[k: string]: number},
-    level?: number,
-    teraType?: string,
-    bossMultiplier?: number,
-    moves?: string[],
-    extraMoves?: string[],
-}
-
-type LightMoveInfo = {
-    name: string,
-    userID: number,
-    targetID: number,
-    options?: RaidMoveOptions,
-}
-
-type LightTurnInfo = {
-    id: number,
-    moveInfo: LightMoveInfo,
-    bossMoveInfo: LightMoveInfo,
-}
-
-type LightBuildInfo = {
-    pokemon: LightPokemon[],
-    turns: LightTurnInfo[],
-}
-
-type BuildInfo = {
-    pokemon: Raider[],
-    turns: RaidTurnInfo[],
-}
-
 
 function deserializeInfo(hash: string): BuildInfo | null {
     try {
         const obj = deserialize(hash);
+        return lightToFullBuildInfo(obj);
+    } catch (e) {
+        return null;
+    }
+}
+
+function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
+    try {
         const pokemon = (obj.pokemon as LightPokemon[]).map((r) => new Raider(r.id, r.role, 
             new Pokemon(gen, r.name, {
                 ability: r.ability || undefined,
@@ -137,8 +110,16 @@ function LinkButton({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispa
     const hash = location.hash
     useEffect(() => {
         try {
+            let res: BuildInfo | null = null;
             if (hash !== ""){
-                const res = deserializeInfo(hash);
+                const lcHash = hash.slice(1).toLowerCase();
+                //@ts-ignore
+                if (OFFICIAL_STRATS[lcHash] !== undefined) {
+                    //@ts-ignore
+                    res = lightToFullBuildInfo(OFFICIAL_STRATS[lcHash])
+                } else {
+                    res = deserializeInfo(hash);
+                }
                 if (res) {
                     const {pokemon, turns} = res;
                     const startingState = new RaidState(pokemon, pokemon.map((r) => new Field()));

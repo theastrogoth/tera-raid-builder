@@ -179,12 +179,14 @@ export type RaidTurnInfo ={
 
 export type RaidMoveResult= {
     state: RaidState;
-    damage: number[][];
-    drain: number[][];
-    healing: number[][];
+    userID: number;
+    targetID: number;
+    damage: number[];
+    drain: number[];
+    healing: number[];
     eot: ({damage: number, texts: string[]} | undefined)[];
     desc: string[];
-    // flags: string[];
+    flags: string[][];
 }
 
 export type RaidTurnResult = {

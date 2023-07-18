@@ -21,6 +21,7 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
+import { Input } from "@mui/material";
 
 function timeout(delay: number) {
     return new Promise( res => setTimeout(res, delay) );
@@ -78,14 +79,13 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     
     const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
+    const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Box>
                 <Select
                     size="small"
                     variant="standard"
-                    labelId="user-label"
-                    label="User"
                     value = {moveInfo.userID}
                     onChange={(e) => setInfoParam("userID")(e.target.value)}
                     sx={{ maxWidth : "150px"}}
@@ -98,8 +98,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                 <Select 
                     size="small"
                     variant="standard"
-                    labelId="move-label"
-                    label="Move"
                     value = {moveInfo.moveData.name}
                     onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
                     sx={{ maxWidth : "150px"}}
@@ -112,8 +110,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                 <Select
                     size="small"
                     variant="standard"
-                    labelId="target-label"
-                    label="Target"
                     value = {moveInfo.targetID}
                     renderValue={(value) => {
                         let display = roles[value];
@@ -162,9 +158,38 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                             label="Effect"
                             labelPlacement="top"
                         />
+                        {/* <FormControlLabel 
+                            control={
+                                <Select 
+                                    size="small" 
+                                    style={{ padding: "4px"}}
+                                    value={roll}
+                                    onChange={
+                                        (e) => {
+                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value}});
+                                        }
+                                    }
+                                />} 
+                            label="Effect"
+                            labelPlacement="top"
+                        /> */}
                     </Stack>
                 </FormGroup>
             </FormControl>
+            <Stack direction="column" sx={{ paddingLeft: 1}}>
+                <Typography>
+                    Roll
+                </Typography>
+                <Select
+                    size="small"
+                    variant="standard"
+                    value = {roll}
+                    onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
+                    sx={{ maxWidth : "150px"}}
+                >
+                    {["min", "avg", "max"].map((r) => <MenuItem value={r}>{r}</MenuItem>)}
+                </Select>
+            </Stack>
         </Stack>
     )
 }
@@ -195,14 +220,13 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
 
     const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
+    const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
     return (
         <Stack direction="row" spacing={1} alignItems="center">
             <Typography variant="body1">{info.startingState.raiders[0].role + " uses"}</Typography>
             <Select 
                 size="small"
                 variant="standard"
-                labelId="boss-move-label"
-                label="Boss Move"
                 value = {moveName}
                 onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
                 sx={{ maxWidth : "150px"}}
@@ -245,6 +269,20 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                     </Stack>
                 </FormGroup>
             </FormControl>
+            <Stack direction="column" sx={{ paddingLeft: 1}}>
+                <Typography>
+                    Roll
+                </Typography>
+                <Select
+                    size="small"
+                    variant="standard"
+                    value = {roll}
+                    onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
+                    sx={{ maxWidth : "150px"}}
+                >
+                    {["min", "avg", "max"].map((r) => <MenuItem value={r}>{r}</MenuItem>)}
+                </Select>
+            </Stack>
         </Stack>
     )
 }

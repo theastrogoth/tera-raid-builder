@@ -134,7 +134,7 @@ export class RaidBattle {
                             this._state.fields[fid].attackerSide.friendGuards += 1;
                         }
                     }
-                    this._state.fields[0].defenderSide.friendGuards += 1;
+                    this._state.fields[0].defenderSide.friendGuards += 1; // this shouldn't ever be used
                 }
             // Protosynthesis and Quark Drive
             } else if (ability === "Protosynthesis" || ability === "Quark Drive") {

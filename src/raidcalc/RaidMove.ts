@@ -153,8 +153,8 @@ export class RaidMove {
         const targetType = this.moveData.target;
         if (targetType == "user") { this._affectedIDs = [this.userID]; }
         else if (targetType == "selected-pokemon" || targetType == "all-opponents") { this._affectedIDs = [this.targetID]; }
-        else if (targetType == "all-allies") { this._affectedIDs = [0,1,2,3].splice(this.userID, 1); }
-        else if (targetType == "user-and-allies") { this._affectedIDs = [0,1,2,3]; }
+        else if (targetType == "all-allies") { this._affectedIDs = [1,2,3,4].splice(this.userID, 1); }
+        else if (targetType == "user-and-allies") { this._affectedIDs = [1,2,3,4]; }
         else { this._affectedIDs = [this.targetID]; }
     }
 

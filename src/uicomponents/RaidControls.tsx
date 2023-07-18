@@ -7,27 +7,11 @@ import Tab from '@mui/material/Tab';
 
 import MoveSelection from "./MoveSelection";
 import RaidResults from "./RaidResults";
-import { Raider, RaidState, RaidBattleInfo, RaidTurnInfo } from "../raidcalc/interface";
-import { Field } from "../calc";
-import { MoveName } from '../calc/data/interface';
+import { RaidBattleInfo, RaidBattleResults } from "../raidcalc/interface";
 import { RaidBattle } from '../raidcalc/RaidBattle';
 
-function RaidControls({raiders}: {raiders: Raider[]}) {
+function RaidControls({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
     const [value, setValue] = useState<number>(1);
-    const [info, setInfo] = useState<RaidBattleInfo>(
-        {
-            startingState: new RaidState(raiders, raiders.map((r) => new Field())),
-            turns: [0].map((id) => ({
-                id: id, 
-                moveInfo: {userID: id+1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
-                bossMoveInfo: {userID: 0, targetID: id+1, options: {crit: false, secondaryEffects: false, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
-            })),
-        }
-    )
-
-    useEffect(() => {
-        setInfo({...info, startingState: new RaidState(raiders, raiders.map((r) => new Field()))})
-    }, [raiders])
 
     const battle = new RaidBattle(info);
     const results = battle.result();
@@ -46,7 +30,7 @@ function RaidControls({raiders}: {raiders: Raider[]}) {
             </Box>
             <Box hidden={value !== 1}>
                 <Stack direction="column" spacing={1} >
-                    <Box maxHeight={510} sx={{ overflowY: "auto" }}>
+                    <Box maxHeight={560} sx={{ overflowY: "auto" }}>
                         <MoveSelection info={info} setInfo={setInfo} />
                     </Box>
                 </Stack>

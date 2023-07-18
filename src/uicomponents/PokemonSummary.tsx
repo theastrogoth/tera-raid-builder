@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 
-import { Pokemon } from '../calc';
+import { Generations, Pokemon } from '../calc';
 import { Generation } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
@@ -13,9 +13,19 @@ import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
+import { Raider } from "../raidcalc/interface";
 
-export function RoleField({role, setRole}: {role: string, setRole: React.Dispatch<React.SetStateAction<string>>}) {
-    const [str, setStr] = useState(role);
+const gen = Generations.get(9); // we will only use gen 9
+
+export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
+    const [str, setStr] = useState(pokemon.role);
+
+    const setRole = (r: string) => {
+        const newPoke = pokemon.clone();
+        newPoke.role = r;
+        setPokemon(newPoke);
+    }
+
     return (
         <TextField 
             variant="standard"
@@ -29,7 +39,7 @@ export function RoleField({role, setRole}: {role: string, setRole: React.Dispatc
     )
 }
 
-function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {gen: Generation, role: string, setRole: React.Dispatch<React.SetStateAction<string>>, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, prettyMode: boolean}) {
+function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
     const [moveSet, setMoveSet] = useState<(string)[]>([])
     const [moveLearnTypes, setMoveLearnTypes] = useState<string[]>([])
     const [abilities, setAbilities] = useState<string[]>([])
@@ -46,7 +56,6 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {
       fetchData().catch((e) => console.log(e));
     }, [pokemon.name])
 
-    // const spriteURL = imgProlog + pokemon.name.toLocaleLowerCase() + imgExt;
     const nature = gen.natures.get(toID(pokemon.nature));
 
     return (
@@ -54,7 +63,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
                 <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" height= {prettyMode ? "650px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
-                        <RoleField role={role} setRole={setRole} />
+                        <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>
                     <Box>
                         <Box
@@ -141,7 +150,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {
                             </Box>
                         }
                     </Box>
-                    <BuildControls gen={gen} pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon} prettyMode={prettyMode}/>
+                    <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon} prettyMode={prettyMode}/>
                     <Box flexGrow={1} />
                     <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} />
                     {/* <Box flexGrow={1} /> */}

@@ -127,7 +127,14 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
                 }}
                 config={{ 
                     staticPlot: false,
-                    modeBarButtonsToRemove: ['zoom2d']  
+                    modeBarButtonsToRemove: ['zoom2d'],  
+                    toImageButtonOptions: {
+                        format: "svg",
+                        filename: "statplot",
+                        // height: 800,
+                        // width: 600,
+                        // scale: 2,
+                    }
                 }}
             />
             <Box height="10px"/>

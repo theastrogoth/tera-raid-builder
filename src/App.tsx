@@ -112,7 +112,6 @@ function App() {
     return raider
   })
 
-  console.log(prettyMode)
   return (
     <ThemeProvider theme={theme}>      
       <CssBaseline />

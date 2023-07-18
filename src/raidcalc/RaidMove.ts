@@ -124,6 +124,8 @@ export class RaidMove {
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
         this.applyItemEffects();
+        this._user.lastMove = this.moveData;
+        this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
         return {
             state: this._raidState,
             damage: this._damage,

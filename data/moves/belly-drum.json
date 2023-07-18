@@ -8,7 +8,7 @@
     "priority": 0,
     "drain": 0,
     "healing": 0,
-    "selfDamage": null,
+    "selfDamage": 50,
     "ailment": null,
     "statChanges": [
         {

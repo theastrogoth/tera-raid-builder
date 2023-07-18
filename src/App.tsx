@@ -151,7 +151,6 @@ function App() {
   const raiders = info.startingState.raiders;
 
   const setRaiders = (raiders: Raider[]) => {
-    console.log("Set Raiders")
     setInfo({
       ...info,
       startingState: new RaidState(raiders, info.startingState.fields.map((f) => f.clone())),

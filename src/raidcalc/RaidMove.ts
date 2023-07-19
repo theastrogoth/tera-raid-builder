@@ -2,7 +2,7 @@ import { Move, Field, Pokemon, StatsTable, StatID, Generations, calculate} from 
 import { getEndOfTurn } from "../calc/desc";
 import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
 import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
-import { getMoveEffectiveness, getQPBoostedStat } from "../calc/mechanics/util";
+import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat } from "../calc/mechanics/util";
 
 // next time I prepare the move data, I should eliminate the need for translation
 function ailmentToStatus(ailment: AilmentName): StatusName | "" {
@@ -666,6 +666,9 @@ export class RaidMove {
                     default: break;
                 }
             }
+            if (pokemon.item === "Chiban Berry" && id !== this.userID && this._damage[id] > 0 && this.move.type === "Normal") {
+                pokemon.item = undefined;
+            }
         }
         // Ailment-inducing Items
         if (hasNoStatus(this._user)) {
@@ -717,6 +720,42 @@ export class RaidMove {
             const qpStat = getQPBoostedStat(this._user) as StatIDExceptHP;
             this._user.boostedStat = qpStat;
             this._user.item = undefined;
+        }
+        // Symbiosis
+        let lostItemId = -1;
+        for (let i=0; i<5; i++) {
+            if (this._raiders[i].item === undefined && this.raidState.raiders[i].item !== undefined) {
+                lostItemId = i;
+                break;
+            }
+        }
+        if (lostItemId >=0) {
+            const lostItemPokemon = this.getPokemon(lostItemId);
+            const symbiosisIds: number[] = []
+            for (let id=0; id<5; id++) {
+                if (id !== lostItemId && this.getPokemon(id).ability === "Symbiosis") {
+                    symbiosisIds.push(id);
+                }
+            }
+            if (symbiosisIds.length > 0) {
+                // speed check for symbiosis
+                let fastestSymbId = symbiosisIds[0];
+                let fastestSymbPoke = this.getPokemon(fastestSymbId);
+                let fastestSymbSpeed = getModifiedStat(fastestSymbPoke.stats.spe, fastestSymbPoke.boosts.spe, gen);
+                for (let i=1; i<symbiosisIds.length; i++) {
+                    const poke = this.getPokemon(symbiosisIds[i]);
+                    const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
+                    const field = this._fields[i];
+                    if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
+                        fastestSymbId = symbiosisIds[i];
+                        fastestSymbPoke = poke;
+                        fastestSymbSpeed = speed;
+                    } 
+                }
+                // symbiosis item transfer
+                lostItemPokemon.item = fastestSymbPoke.item;
+                fastestSymbPoke.item = undefined;
+            }
         }
         // ???
     }
@@ -786,7 +825,7 @@ export class RaidMove {
                 if (finalItems[i] === undefined) {
                     this._flags[i].push(initialItems[i] + " lost")
                 } else {
-                    this._flags[i].push(initialItems[i] + " swapped for " + finalItems[i])
+                    this._flags[i].push(initialItems[i] + " replaced with " + finalItems[i])
                 }
             }
         }

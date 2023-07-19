@@ -2,6 +2,11 @@ import { Pokemon, Field, StatID } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
 import {toID, extend, assignWithout} from '../calc/util';
 
+export type MoveSetItem = {
+    name: MoveName,
+    method: string,
+    type: TypeName,
+}
 
 export type MoveCategory =   "net-good-stats" |         // stat changes (e.g. Screech, Swords Dance)
                              "whole-field-effect" |     // weather, terrain, gravity, etc.

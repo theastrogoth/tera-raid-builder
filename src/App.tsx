@@ -21,6 +21,7 @@ import LinkButton from './uicomponents/LinkButton.tsx';
 import { Generations, Pokemon, Field} from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
 import { Raider, RaidBattleInfo, RaidState } from './raidcalc/interface.ts';
+import TitleField from './uicomponents/TitleField.tsx';
 
 // import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 
@@ -168,25 +169,7 @@ function App() {
       </Box>
       <Grid container justifyContent="center" sx={{ my: 1 }}>
         <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
-          <Box justifyContent="center">
-            {prettyMode &&
-              <Typography variant="h4" sx={{ textAlign: "center", marginTop: 1 }}>
-                {info.name}
-              </Typography>
-            }
-            {!prettyMode &&
-              <TextField 
-                variant="standard"
-                placeholder="Give your strategy a name!"
-                value={info.name}
-                inputProps={{
-                  style: {fontSize: 24, fontWeight: "bold", textAlign: "center"},
-                }}
-                sx={{ width: "100%" }}
-              />
-            }
-
-          </Box>
+          <TitleField info={info} setInfo={setInfo} prettyMode={prettyMode} />
         </Grid>
       </Grid>
       <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>

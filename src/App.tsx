@@ -133,6 +133,7 @@ function App() {
   ];
 
   const [info, setInfo] = useState<RaidBattleInfo>({
+    name: "",
     startingState: new RaidState(defaultRaiders, defaultRaiders.map((r) => new Field())),
     turns: [
       {
@@ -166,9 +167,21 @@ function App() {
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
       </Box>
       <Grid container component='title' justifyContent="center" sx={{ my: 1 }}>
-        <TextField />
+        <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
+          <Box justifyContent="center">
+            <TextField 
+              variant="standard"
+              placeholder="Give your strategy a name!"
+              value={info.name}
+              inputProps={{
+                style: {fontSize: 24, fontWeight: "bold", textAlign: "center"},
+              }}
+              sx={{ width: "100%" }}
+            />
+          </Box>
+        </Grid>
       </Grid>
-      <Grid container component='main' justifyContent="left" sx={{ my: 1 }}>
+      <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
         <Grid item>
           <Stack direction="row">
             <PokemonSummary pokemon={raiders[1]} setPokemon={setPokemon(1)} prettyMode={prettyMode} />

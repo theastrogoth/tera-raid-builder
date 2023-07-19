@@ -25,6 +25,9 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
         <Box>
             <AppBar position="static" color="secondary" sx={{ minWidth: "600px"}}>
                 <Toolbar>
+                    <Box paddingRight={2}>
+                        <img src={process.env.PUBLIC_URL + "/logo192.png"} height={50} />
+                    </Box>
                     <Typography 
                         variant="h5"
                         sx={{

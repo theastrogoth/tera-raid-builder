@@ -390,7 +390,7 @@ function AddButton({onClick, transform, children, disabled=false}: {onClick: () 
                     onMouseOver={() => { setColor("primary") }}
                     onMouseOut={() => { setColor("default") }}
                     disabled={disabled}
-                    sx={{ padding: "2px"}}
+                    // sx={{ padding: "2px"}}
                     onClick={onClick}
                 >
                     {children}
@@ -442,10 +442,10 @@ function MoveSelectionCard({raiders, index, info, setInfo}: {raiders: Raider[], 
                 </Box>
                 <BossMoveDropdown index={index} boss={raiders[0]} info={info} setInfo={setInfo}/>
             </Stack>
-            <AddButton onClick={handleAddTurn(index+1)} transform="translate(2px, -25px)" >
+            <AddButton onClick={handleAddTurn(index+1)} transform="translate(2px, -36px)" >
                 <AddLocationIcon fontSize="inherit" />
             </AddButton>
-            <AddButton disabled={info.turns.length <= 1} onClick={handleRemoveTurn} transform="translate(2px, -68px)" >
+            <AddButton disabled={info.turns.length <= 1} onClick={handleRemoveTurn} transform="translate(2px, -76px)" >
                 <CloseIcon fontSize="inherit" />
             </AddButton>
         </Paper>

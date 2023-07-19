@@ -140,4 +140,4 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
     );
 }
 
-export default BossSummary;
+export default React.memo(BossSummary);

@@ -492,4 +492,4 @@ function MoveSelection({info, setInfo}:{info: RaidBattleInfo, setInfo: React.Dis
     )
 }
 
-export default MoveSelection;
+export default React.memo(MoveSelection);

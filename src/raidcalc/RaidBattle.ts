@@ -125,6 +125,15 @@ export class RaidBattle {
                         field.attackerSide.steelySpirits += 1;
                     }
                 }
+            // Aroma Veil
+            } else if (ability === "Aroma Veil") {
+                if (id === 0) {
+                    this._state.fields[0].attackerSide.isAromaVeil = true;
+                } else {
+                    for (let field of this._state.fields.slice(1)) {
+                        field.attackerSide.isAromaVeil = true;
+                    }
+                }
             // Power Spot
             } else if (ability === "Power Spot") {
                 if (id === 0) {
@@ -157,11 +166,14 @@ export class RaidBattle {
             } else if (ability === "Intimidate") {
                 if (id === 0) {
                     for (let pokemon of this._state.raiders.slice(1)) {
-                        pokemon.boosts.atk = Math.max(-6, pokemon.boosts.atk - 1);
+                        if (["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
+                            pokemon.boosts.atk = Math.max(-6, pokemon.boosts.atk - 1);
+                        }
                     }
                 } else {
-                    this._state.raiders[0].boosts.atk = Math.max(-6, pokemon.boosts.atk - 1);
-                }
+                    if (["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
+                        pokemon.boosts.atk = Math.max(-6, pokemon.boosts.atk - 1);
+                    }                }
             // Intrepid Sword
             } else if (ability === "Intrepid Sword") {
                 pokemon.boosts.atk += 1;

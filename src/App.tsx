@@ -60,50 +60,6 @@ function App() {
 
   const gen = Generations.get(9); 
 
-  // const [raidBoss, setRaidBoss] = useState(new Pokemon(gen, "Rillaboom", {
-  //   bossMultiplier: 3500,
-  //   teraType: "Normal",
-  //   ability: "Grassy Surge",
-  //   nature: "Naughty",
-  //   moves: ["Take Down", "Wood Hammer", "Acrobatics", "Drum Beating"]
-  // }))
-  // const [pokemon1, setPokemon1] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  
-  // const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Stonjourner", {...defaultRaiderSet, item: "Focus Sash"}))
-  // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Meowscarada", {...defaultRaiderSet, item: "Focus Sash", moves: ["Flower Trick"]}))
-  // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Klefki", {...defaultRaiderSet, item: "Focus Sash", moves: ["Sunny Day"], ability: "Prankster"}))
-  // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Tauros-Paldea-Blaze-Breed", {...defaultRaiderSet, item: "Choice Band", moves: ["Flare Blitz"], ability: "Anger Point", nature: "Jolly", evs: {atk: 252}}))
-  
-  // const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Tauros-Paldea-Aqua-Breed", {...defaultRaiderSet, ability: "Anger Point", item: "Life Orb", nature: "Jolly", evs: {atk: 252, spe: 252}, moves: ["Endure", "Reversal"]}))
-  // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Meowscarada", {...defaultRaiderSet, nature: "Adamant", evs: {atk: 252}, moves: ["Flower Trick"]}))
-  // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Impish", evs: {hp: 252, def: 252}, moves: ["Screech"], }))
-  // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Stonjourner", {...defaultRaiderSet, ability: "Power Spot", item: "Focus Sash"}))
- 
-  // const [bossRole, setBossRole] = useState("Raid Boss");
-  // const [role1, setRole1] = useState("Raider #1");
-  // const [role2, setRole2] = useState("Raider #2");
-  // const [role3, setRole3] = useState("Raider #3");
-  // const [role4, setRole4] = useState("Raider #4");
-
-  // const [bossMoves, setBossMoves] = useState([] as MoveName[]);
-
-  // const roles = [bossRole, role1, role2, role3, role4]
-  // const raiders = [
-  //   raidBoss,
-  //   pokemon1,
-  //   pokemon2,
-  //   pokemon3,
-  //   pokemon4
-  // ].map((pokemon, index) => {
-  //   const raider = new Raider(index, roles[index], pokemon, index === 0 ? bossMoves : []);
-  //   raider.id = index;
-  //   raider.role = roles[index];
-  //   return raider
-  // })
-
   const defaultRaiders = [
     new Raider(0, "Raid Boss", new Pokemon(gen, "Rillaboom", {
       teraType: "Normal",
@@ -111,29 +67,29 @@ function App() {
       nature: "Naughty",
       ability: "Grassy Surge",
       moves: ["Take Down", "Wood Hammer", "Acrobatics", "Drum Beating"]
-    }), ["Noble Roar", "Taunt", "Boomburst"] as MoveName[]),
-    new Raider(1, "Raider #1", new Pokemon(gen, "Medicham", {
-      nature: "Adamant",
+    }), ["Noble Roar", "Taunt", "Boomburst", "Body Slam"] as MoveName[]),
+    new Raider(1, "Raider #1", new Pokemon(gen, "Lucario", {
+      nature: "Modest",
       ability: "Pure Power",
-      moves: ["Psych Up", "Close Combat"],
-      item: "Focus Sash",
-      evs: {atk: 252, spe: 252},
+      moves: ["Nasty Plot", "Focus Blast"],
+      item: "Weakness Policy",
+      evs: {hp: 252, spa: 252},
     })),
-    new Raider(2, "Raider #2", new Pokemon(gen, "Azumarill", {
-      nature: "Impish",
-      ability: "Sap Sipper",
-      moves: ["Belly Drum"],
+    new Raider(2, "Raider #2", new Pokemon(gen, "Dachsbun", {
+      nature: "Bold",
+      ability: "Aroma Veil",
+      moves: ["Helping Hand"],
       evs: {hp: 252, def: 252},
     })),
     new Raider(3, "Raider #3", new Pokemon(gen, "Corviknight", {
-      nature: "Impish",
-      moves: ["Screech"],
-      item: "Zoom Lens",
-      evs: {hp: 252, def: 252},
+      nature: "Relaxed",
+      moves: ["Defog", "Fake Tears"],
+      evs: {hp: 252, spd: 252},
     })),
-    new Raider(4, "Raider #4", new Pokemon(gen, "Stonjourner", {
-      ability: "Power Spot",
-      item: "Focus Sash",
+    new Raider(4, "Raider #3", new Pokemon(gen, "Corviknight", {
+      nature: "Relaxed",
+      moves: ["Defog", "Fake Tears"],
+      evs: {hp: 252, spd: 252},
     })),
   ];
 

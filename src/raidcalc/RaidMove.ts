@@ -285,15 +285,36 @@ export class RaidMove {
             for (let id of this._affectedIDs) {
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];
-                if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
-                // Type-based immunities (?)
-                if (ailment == "burn" && pokemon.types.includes("Fire")) { continue; }
-                if (ailment == "freeze" && pokemon.types.includes("Ice")) { continue; }
-                if ((ailment == "poison" || ailment == "toxic") && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))) { continue; }
-                if (!(field.attackerSide.isProtected || field.attackerSide.isSafeguard)
-                    && (hasNoStatus(pokemon))) 
-                { 
-                     pokemon.status = ailmentToStatus(ailment);
+                const status = ailmentToStatus(ailment);
+                if (status === "") {
+                    // Aroma Veil
+                    if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation"].includes(ailment)) {
+                        continue;
+                    // Own Tempo
+                    } else if (pokemon.ability === "Own Tempo" && ailment === "confusion") {
+                        continue;
+                    // Oblivious
+                    } else if (pokemon.ability === "Oblivious" && (ailment === "taunt" || ailment === "infatuation")) {
+                        continue;
+                    } else if (!pokemon.volatileStatus.includes(ailment)) {
+                        pokemon.volatileStatus.push!(ailment)
+                        this._flags[id].push(ailment + " inflicted")
+                    }
+                } else {
+                    if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
+                    // Type-based immunities (?)
+                    if (ailment === "burn" && pokemon.types.includes("Fire")) { continue; }
+                    if (ailment === "freeze" && pokemon.types.includes("Ice")) { continue; }
+                    if ((ailment === "poison" || ailment === "toxic") && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel") || pokemon.ability === "Immunity")) { continue; }
+                    if ((ailment === "paralysis" && pokemon.ability === "Limber")) { continue; }
+                    if (ailment === "sleep" && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
+                    if (ailment === "freeze" && pokemon.ability === "Magma Armor") { continue; }
+
+                    if (!(field.attackerSide.isProtected || field.attackerSide.isSafeguard || field.hasTerrain("Misty"))
+                        && (hasNoStatus(pokemon))) 
+                    { 
+                        pokemon.status = ailmentToStatus(ailment);
+                    }
                 }
             }
         }

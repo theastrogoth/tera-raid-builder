@@ -56,7 +56,9 @@ export type AilmentName =   "confusion" |               // many of these are not
                             "tar-shot" |
                             "embargo" |
                             "infatuation" |
-                            "toxic";
+                            "toxic" |
+                            "encore" |
+                            "taunt";
 
 export type MoveData = {
     name:           MoveName

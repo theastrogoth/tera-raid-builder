@@ -106,6 +106,7 @@ export class Side implements State.Side {
   isCharged: boolean;
   isMist: boolean;
   isSafeguard: boolean;
+  isAromaVeil: boolean;
 
   constructor(side: State.Side = {}) {
     this.spikes = side.spikes || 0;
@@ -136,6 +137,7 @@ export class Side implements State.Side {
     this.isCharged = !!side.isCharged;
     this.isMist = !!side.isMist;
     this.isSafeguard = !!side.isSafeguard;
+    this.isAromaVeil = !!side.isAromaVeil;
   }
 
   clone() {

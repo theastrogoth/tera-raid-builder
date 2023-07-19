@@ -18,8 +18,6 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
         move = "";
     }
 
-    console.log("Move Display", turn.id, move, target)
-
     return (
         <>
         {move !== "" &&
@@ -55,6 +53,9 @@ function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[],
     const color = "group" + index + ".main";
     return (
         <Paper sx={{backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
+            <Typography variant="h4" fontWeight="bold" sx={{ position: "absolute", transform: "translate(-60px,-7px)"}}>
+                {index+1}
+            </Typography>
             <Stack direction="column" spacing={1}>
                 {
                     turns.map((t) => (
@@ -67,7 +68,6 @@ function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[],
 }
 
 function MoveDisplay({info}: {info: RaidBattleInfo}) { 
-    console.log("Move Display", info)
     const displayGroups: number[][] = [];
     let currentGroupIndex = -1;
     let currentGroupID: number | undefined = -1;
@@ -82,8 +82,6 @@ function MoveDisplay({info}: {info: RaidBattleInfo}) {
         currentGroupID = g;
     })
 
-    console.log("display groups", displayGroups)
-
     return (
         <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
             {
@@ -91,7 +89,7 @@ function MoveDisplay({info}: {info: RaidBattleInfo}) {
                     <>
                     <MoveGroup info={info} group={g} index={index} />
                     {index !== displayGroups.length - 1  && 
-                        <Typography variant="h4" fontWeight="bold" sx={{ my: 0.25}}>
+                        <Typography variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
                             ↓
                         </Typography>
                     }

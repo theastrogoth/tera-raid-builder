@@ -40,6 +40,46 @@ function App() {
       secondary: {
         main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
       },
+      //@ts-ignore
+      group0: {
+        main: lightMode === "dark" ? "#571b20" : "#f7b5ba",
+      },
+      //@ts-ignore
+      group1: {
+        main: lightMode === "dark" ? "#144e52" : "#c5e6e8"
+      },
+      //@ts-ignore
+      group2: {
+        main: lightMode === "dark" ? "#205220" : "#b0f5b0"
+      },
+      //@ts-ignore
+      group3: {
+        main: lightMode === "dark" ? "#443769" : "#ccbff5",
+      },
+      //@ts-ignore
+      group4: {
+        main: lightMode === "dark" ? "#c79240" : "#ffe0b0"
+      },
+      //@ts-ignore
+      group5: {
+        main: lightMode === "dark" ? "#5fa116" : "#d7faaf"
+      },
+      //@ts-ignore
+      group6: {
+        main: lightMode === "dark" ? "#993f64" : "#fccce1"
+      },
+      //@ts-ignore
+      group7: {
+        main: lightMode === "dark" ? "#4f4215": "#d4caa7"
+      },
+      //@ts-ignore
+      group8: {
+        main: lightMode === "dark" ? "#520438": "#c4b1be"
+      },
+      //@ts-ignore
+      group9: {
+        main: lightMode === "dark" ? "#363336": "#b3b3b3"
+      },
     },
     typography: {
       fontSize: 11,
@@ -85,7 +125,7 @@ function App() {
       moves: ["Defog", "Fake Tears"],
       evs: {hp: 252, spd: 252},
     })),
-    new Raider(4, "Raider #3", new Pokemon(gen, "Corviknight", {
+    new Raider(4, "Raider #4", new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
       moves: ["Defog", "Fake Tears"],
       evs: {hp: 252, spd: 252},
@@ -101,6 +141,7 @@ function App() {
         bossMoveInfo: {userID: 0, targetID: 1, options: {crit: false, secondaryEffects: false, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
       }
     ],
+    groups: [],
   })
 
   const raiders = info.startingState.raiders;

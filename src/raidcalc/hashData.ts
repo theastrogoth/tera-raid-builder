@@ -25,6 +25,7 @@ export type LightMoveInfo = {
 
 export type LightTurnInfo = {
     id: number,
+    group?: number,
     moveInfo: LightMoveInfo,
     bossMoveInfo: LightMoveInfo,
 }
@@ -32,5 +33,6 @@ export type LightTurnInfo = {
 export type LightBuildInfo = {
     pokemon: LightPokemon[],
     turns: LightTurnInfo[],
+    groups?: number[][],
 }
 

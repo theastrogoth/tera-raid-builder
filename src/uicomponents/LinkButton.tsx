@@ -44,6 +44,7 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
         const turns = (obj.turns as LightTurnInfo[]).map((t) => {
             return {
                 id: t.id,
+                group: t.group,
                 moveInfo: {
                     userID: t.moveInfo.userID, 
                     targetID: t.moveInfo.targetID, 
@@ -59,7 +60,7 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
             }
         });
 
-        return {pokemon, turns}
+        return {pokemon, turns, groups: obj.groups || []}
     } catch (e) {
         return null;
     }
@@ -87,6 +88,7 @@ function serializeInfo(info: RaidBattleInfo): string {
         turns: info.turns.map((t) => {
             return {
                 id: t.id,
+                group: t.group,
                 moveInfo: {
                     name: t.moveInfo.moveData.name,
                     userID: t.moveInfo.userID,
@@ -101,6 +103,7 @@ function serializeInfo(info: RaidBattleInfo): string {
                 }
             }
         }),
+        groups: info.groups,
     }
     return serialize(obj);
 }
@@ -126,6 +129,7 @@ function LinkButton({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispa
                     setInfo({
                         startingState: startingState,
                         turns: turns,
+                        groups: [],
                     })
                 }
             }

@@ -139,7 +139,7 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
                 </LeftCell>
                 <RightCell>
                     {prettyMode &&
-                        <Typography variant="body2">
+                        <Typography variant="body1">
                             {value}
                         </Typography>
                     }
@@ -252,7 +252,7 @@ function BuildControls({pokemon, abilities, moveSet, moveLearnTypes, setPokemon,
                                     <LeftCell>Level</LeftCell>
                                     <RightCell>
                                         {prettyMode &&
-                                            <Typography variant="body2">
+                                            <Typography variant="body1">
                                                 {pokemon.level}
                                             </Typography>
                                         }
@@ -365,7 +365,7 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                                 <LeftCell>HP Multiplier (%)</LeftCell>
                                 <RightCell>
                                     {prettyMode &&
-                                        <Typography variant="body2">
+                                        <Typography variant="body1">
                                             {pokemon.bossMultiplier}
                                         </Typography>
                                     }

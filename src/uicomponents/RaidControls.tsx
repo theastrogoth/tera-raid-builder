@@ -31,7 +31,7 @@ function RaidControls({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInf
     useEffect(() => {
         raidcalcWorker
             .postMessage({info});
-    }, [info]);
+    }, [info, prettyMode]);
 
     return (
         <Box width={575} sx={{ mx: 1}}>

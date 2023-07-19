@@ -1,4 +1,5 @@
 {
+    "name": "BONK! A 2-Turn 7⭐ Delphox OHKO",
     "pokemon": [
         {
             "id": 0,
@@ -54,6 +55,7 @@
     "turns": [
         {
             "id": 0,
+            "group": 0,
             "moveInfo": {
                 "userID": 1,
                 "targetID": 1,
@@ -73,7 +75,8 @@
             
         },
         {
-            "id": 2,
+            "id": 1,
+            "group": 0,
             "moveInfo": {
                 "userID": 2,
                 "targetID": 1,
@@ -92,7 +95,8 @@
             }
         },
         {
-            "id": 3,
+            "id": 2,
+            "group": 0,
             "moveInfo": {
                 "userID": 3,
                 "targetID": 0,
@@ -111,7 +115,8 @@
             }
         },
         {
-            "id": 4,
+            "id": 3,
+            "group": 0,
             "moveInfo": {
                 "userID": 4,
                 "targetID": 0,
@@ -130,7 +135,8 @@
             }
         },
         {
-            "id": 5,
+            "id": 4,
+            "group": 1,
             "moveInfo": {
                 "userID": 3,
                 "targetID": 3,
@@ -142,6 +148,27 @@
             "bossMoveInfo": {
                 "userID": 0,
                 "targetID": 3,
+                "name": "Psychic",
+                "options": {
+                    "roll": "max",
+                    "crit": true
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 1,
+            "moveInfo": {
+                "userID": 4,
+                "targetID": 4,
+                "name": "Heal Cheer",
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "userID": 0,
+                "targetID": 4,
                 "name": "Psychic",
                 "options": {
                     "roll": "max",
@@ -151,26 +178,6 @@
         },
         {
             "id": 6,
-            "moveInfo": {
-                "userID": 4,
-                "targetID": 4,
-                "name": "Heal Cheer",
-                "options": {
-                    "roll": "min"
-                }
-            },
-            "bossMoveInfo": {
-                "userID": 0,
-                "targetID": 4,
-                "name": "Psychic",
-                "options": {
-                    "roll": "max",
-                    "crit": true
-                }
-            }
-        },
-        {
-            "id": 7,
             "moveInfo": {
                 "userID": 2,
                 "targetID": 2,
@@ -190,7 +197,7 @@
             }
         },
         {
-            "id": 8,
+            "id": 7,
             "moveInfo": {
                 "userID": 1,
                 "targetID": 0,
@@ -205,5 +212,9 @@
                 "name": "(No Move)"
             }
         }
+    ],
+    "groups": [
+        [0, 1, 2, 3],
+        [4, 5]
     ]
 }

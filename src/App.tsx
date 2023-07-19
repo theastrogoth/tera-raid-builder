@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/material/styles';
@@ -21,8 +22,7 @@ import { Generations, Pokemon, Field} from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
 import { Raider, RaidBattleInfo, RaidState } from './raidcalc/interface.ts';
 
-
-import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
+// import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -39,6 +39,46 @@ function App() {
       },
       secondary: {
         main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+      },
+      //@ts-ignore
+      group0: {
+        main: lightMode === "dark" ? "#571b20" : "#f7b5ba",
+      },
+      //@ts-ignore
+      group1: {
+        main: lightMode === "dark" ? "#144e52" : "#c5e6e8"
+      },
+      //@ts-ignore
+      group2: {
+        main: lightMode === "dark" ? "#205220" : "#b0f5b0"
+      },
+      //@ts-ignore
+      group3: {
+        main: lightMode === "dark" ? "#443769" : "#ccbff5",
+      },
+      //@ts-ignore
+      group4: {
+        main: lightMode === "dark" ? "#c79240" : "#ffe0b0"
+      },
+      //@ts-ignore
+      group5: {
+        main: lightMode === "dark" ? "#5fa116" : "#d7faaf"
+      },
+      //@ts-ignore
+      group6: {
+        main: lightMode === "dark" ? "#993f64" : "#fccce1"
+      },
+      //@ts-ignore
+      group7: {
+        main: lightMode === "dark" ? "#4f4215": "#d4caa7"
+      },
+      //@ts-ignore
+      group8: {
+        main: lightMode === "dark" ? "#520438": "#c4b1be"
+      },
+      //@ts-ignore
+      group9: {
+        main: lightMode === "dark" ? "#363336": "#b3b3b3"
       },
     },
     typography: {
@@ -85,7 +125,7 @@ function App() {
       moves: ["Defog", "Fake Tears"],
       evs: {hp: 252, spd: 252},
     })),
-    new Raider(4, "Raider #3", new Pokemon(gen, "Corviknight", {
+    new Raider(4, "Raider #4", new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
       moves: ["Defog", "Fake Tears"],
       evs: {hp: 252, spd: 252},
@@ -93,6 +133,7 @@ function App() {
   ];
 
   const [info, setInfo] = useState<RaidBattleInfo>({
+    name: "",
     startingState: new RaidState(defaultRaiders, defaultRaiders.map((r) => new Field())),
     turns: [
       {
@@ -101,6 +142,7 @@ function App() {
         bossMoveInfo: {userID: 0, targetID: 1, options: {crit: false, secondaryEffects: false, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
       }
     ],
+    groups: [],
   })
 
   const raiders = info.startingState.raiders;
@@ -123,7 +165,31 @@ function App() {
     <Box>  
       <CssBaseline />
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
-      <Grid container component='main' justifyContent="left" sx={{ my: 1 }}>
+      </Box>
+      <Grid container justifyContent="center" sx={{ my: 1 }}>
+        <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
+          <Box justifyContent="center">
+            {prettyMode &&
+              <Typography variant="h4" sx={{ textAlign: "center", marginTop: 1 }}>
+                {info.name}
+              </Typography>
+            }
+            {!prettyMode &&
+              <TextField 
+                variant="standard"
+                placeholder="Give your strategy a name!"
+                value={info.name}
+                inputProps={{
+                  style: {fontSize: 24, fontWeight: "bold", textAlign: "center"},
+                }}
+                sx={{ width: "100%" }}
+              />
+            }
+
+          </Box>
+        </Grid>
+      </Grid>
+      <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
         <Grid item>
           <Stack direction="row">
             <PokemonSummary pokemon={raiders[1]} setPokemon={setPokemon(1)} prettyMode={prettyMode} />
@@ -140,30 +206,37 @@ function App() {
           <BossSummary pokemon={raiders[0]} setPokemon={setPokemon(0)} prettyMode={prettyMode} />
         </Grid>
         <Grid item>
-          <RaidControls info={info} setInfo={setInfo} />
+          <RaidControls info={info} setInfo={setInfo} prettyMode={prettyMode} />
         </Grid>
       </Grid>
-      <Box sx={{ p: 2 }}>
-        <LinkButton info={info} setInfo={setInfo} />
-      </Box>
-      <Stack sx={{ mx: 3, my: 3}}>
-        <Typography variant="h6" sx={{color: "text.secondary"}}>
-          Acknowledgements
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
-        </Typography>
-        <Typography variant="h6" sx={{color: "text.secondary"}}>
-            Contact
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
-        </Typography>
-      </Stack>
-    </Box>   
+      <Grid container justifyContent="left" sx={{ my: 1 }}>
+        <Grid item xs={12}>
+          <Stack >
+            <Stack direction="row" sx={{ p: 2 }}>
+              <Box flexGrow={1} />
+              <LinkButton info={info} setInfo={setInfo} setPrettyMode={setPrettyMode}/>
+              <Box flexGrow={1} />
+            </Stack>
+            <Stack sx={{ mx: 3, my: 3}}>
+              <Typography variant="h6" sx={{color: "text.secondary"}}>
+                Acknowledgements
+              </Typography>
+              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+              </Typography>
+              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
+              </Typography>
+              <Typography variant="h6" sx={{color: "text.secondary"}}>
+                  Contact
+              </Typography>
+              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
+              </Typography>
+            </Stack>
+          </Stack>
+        </Grid>
+    </Grid>
     </ThemeProvider>
   );
 }

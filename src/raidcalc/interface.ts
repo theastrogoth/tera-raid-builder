@@ -150,8 +150,10 @@ export class RaidState {
 }
 
 export type RaidBattleInfo = {
+    name?: string;
     startingState: RaidState;
     turns: RaidTurnInfo[];
+    groups: number[][];
 }
 
 export type RaidBattleResults = {
@@ -175,6 +177,7 @@ export type RaidMoveInfo = {
 
 export type RaidTurnInfo ={
     id: number;
+    group?: number;
     moveInfo: RaidMoveInfo;
     bossMoveInfo: RaidMoveInfo;
 }
@@ -198,6 +201,8 @@ export type RaidTurnResult = {
 }
 
 export type BuildInfo = {
+    name: string;
     pokemon: Raider[],
     turns: RaidTurnInfo[],
+    groups: number[][],
 }

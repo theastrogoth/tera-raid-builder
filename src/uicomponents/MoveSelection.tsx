@@ -425,8 +425,13 @@ function MoveSelectionCard({raiders, index, info, setInfo}: {raiders: Raider[], 
         setInfo({...info, turns: newTurns});
     }
 
+    const group = info.turns[index].group;
+    const color = group !== undefined ? "group" + group.toString().slice(-1) + ".main" : undefined;
+
     return (        
-        <Paper sx={{ my: 1}} >
+        <Paper 
+            sx={{ backgroundColor: color, my: 1}} 
+        >
             <AddButton onClick={handleAddTurn(index)} transform="translate(2px, 2px)" >
                 <AddLocationIcon fontSize="inherit" sx={{ transform: "scaleY(-1)"}} />
             </AddButton>
@@ -452,17 +457,79 @@ function MoveSelectionCard({raiders, index, info, setInfo}: {raiders: Raider[], 
     )
 }
 
+function prepareGroups(info: RaidBattleInfo) {
+    const newInfo = {...info};
+    // ensure adjacenty
+    for (let i=0; i<newInfo.turns.length; i++) {
+        const currGroup = newInfo.turns[i].group;
+        const prevGroup = i === 0 ? undefined : newInfo.turns[i-1].group;
+        const nextGroup = i === newInfo.turns.length-1 ? undefined : newInfo.turns[i+1].group;
+
+        if (prevGroup !== undefined && (prevGroup === nextGroup && prevGroup !== currGroup)) {
+            newInfo.turns[i].group = prevGroup;
+            newInfo.groups[prevGroup].push(newInfo.turns[i].id);
+        } else if (currGroup !== undefined && !(prevGroup === currGroup || currGroup === nextGroup)) {
+            newInfo.groups[currGroup].splice(newInfo.groups[currGroup].indexOf(newInfo.turns[i].id), 1);
+            newInfo.turns[i].group = undefined;
+        }
+    }
+    // ensure no singletons
+    newInfo.groups = newInfo.groups.filter((group) => group.length > 1);
+    // clear old group assignments
+    for (let turn of newInfo.turns) {
+        turn.group = undefined;
+    }
+    // add new group assignments
+    for (let i=0; i<newInfo.groups.length; i++) {
+        const group = newInfo.groups[i];
+        for (let turnID of group) {
+            const turn = newInfo.turns.find((turn) => turn.id === turnID);
+            if (turn) {
+                turn.group = i;
+            }
+        }
+    }
+    return newInfo;
+}
+
 function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
         
     const onDragEnd = (result: DropResult) => {
-        const {destination, source, draggableId} = result;
-        if (!destination) { return }; 
-        if (destination.droppableId === source.droppableId &&
-            destination.index === source.index) { return }; 
-        const newTurns = [...info.turns];
-        const movedTurn = newTurns.splice(source.index, 1)[0];
-        newTurns.splice(destination.index, 0, movedTurn);
-        setInfo({...info, turns: newTurns});
+        const {destination, source, draggableId, combine} = result;
+        const newInfo = {...info};
+        let destinationIndex = destination ? destination.index : source.index;
+        if (combine) {
+            const movedIndex = result.source.index;
+            const movedID = newInfo.turns[movedIndex].id;
+            const targetID = parseInt(combine.draggableId);
+            const idsByIndex = info.turns.map((turn) => turn.id);
+            const targetIndex = idsByIndex.indexOf(targetID);
+            destinationIndex = movedIndex > targetIndex ? targetIndex : targetIndex-1;
+
+            const movedFromGroup = info.turns[movedIndex].group;
+            const targetGroup = info.turns[targetIndex].group;
+
+            // remove membership from former group
+            if (movedFromGroup !== undefined) {
+                const groupIndex = info.groups[movedFromGroup].indexOf(movedID);
+                newInfo.groups[movedFromGroup].splice(groupIndex, 1);
+            }
+            // create new group or add membership to existing group
+            if (targetGroup === undefined) {
+                newInfo.turns[movedIndex].group = newInfo.groups.length;
+                newInfo.turns[targetIndex].group = newInfo.groups.length;
+                newInfo.groups.push([targetID, movedID]);
+            } else {
+                newInfo.turns[movedIndex].group = targetGroup;
+                newInfo.groups[targetGroup].push(movedID);
+            } 
+        }
+        if (!destination && !combine) { return }; 
+        if (!combine && (!destination || (destination.droppableId === source.droppableId &&
+            destination.index === source.index))) { return }; 
+        const movedTurn = newInfo.turns.splice(source.index, 1)[0];
+        newInfo.turns.splice(destinationIndex, 0, movedTurn);
+        setInfo(prepareGroups(newInfo));
     };
     return (
         <DragDropContext
@@ -470,7 +537,7 @@ function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Di
             // onDragUpdate={}
             onDragEnd={onDragEnd}
         >
-            <Droppable droppableId={"raid-turns"}>
+            <Droppable droppableId={"raid-turns"} isCombineEnabled>
                 {(provided) => (
                     <Stack direction="column" spacing={0}
                         ref={provided.innerRef}

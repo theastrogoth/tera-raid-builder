@@ -44,6 +44,7 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
         const turns = (obj.turns as LightTurnInfo[]).map((t) => {
             return {
                 id: t.id,
+                group: t.group,
                 moveInfo: {
                     userID: t.moveInfo.userID, 
                     targetID: t.moveInfo.targetID, 
@@ -58,8 +59,10 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
                 },
             }
         });
+        const groups = obj.groups || [];
+        const name = obj.name || "";
 
-        return {pokemon, turns}
+        return {name, pokemon, turns, groups}
     } catch (e) {
         return null;
     }
@@ -67,6 +70,7 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
 
 function serializeInfo(info: RaidBattleInfo): string {
     const obj: LightBuildInfo = {
+        name: info.name || "",
         pokemon: info.startingState.raiders.map(
             (r) => { return {
                 id: r.id,
@@ -87,6 +91,7 @@ function serializeInfo(info: RaidBattleInfo): string {
         turns: info.turns.map((t) => {
             return {
                 id: t.id,
+                group: t.group,
                 moveInfo: {
                     name: t.moveInfo.moveData.name,
                     userID: t.moveInfo.userID,
@@ -101,11 +106,12 @@ function serializeInfo(info: RaidBattleInfo): string {
                 }
             }
         }),
+        groups: info.groups || [],
     }
     return serialize(obj);
 }
 
-function LinkButton({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
+function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {
     const location = useLocation();
     const hash = location.hash
     useEffect(() => {
@@ -121,12 +127,15 @@ function LinkButton({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispa
                     res = deserializeInfo(hash);
                 }
                 if (res) {
-                    const {pokemon, turns} = res;
+                    const {name, pokemon, turns, groups} = res;
                     const startingState = new RaidState(pokemon, pokemon.map((r) => new Field()));
                     setInfo({
+                        name: name,
                         startingState: startingState,
                         turns: turns,
+                        groups: groups,
                     })
+                    setPrettyMode(true)
                 }
             }
         } catch (e) {

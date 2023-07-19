@@ -36,7 +36,7 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
         <TextField 
             variant="standard"
             fullWidth
-            inputProps={{style: {fontWeight: "bold",fontSize: 25, textAlign: "center"}}}
+            inputProps={{ maxLength: 20, style: {fontWeight: "bold",fontSize: 25, textAlign: "center"}}}
             margin="dense"
             value={str}
             onChange={(e) => setStr(e.target.value)}
@@ -67,7 +67,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
     return (
         <Box>
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
-                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" height= {prettyMode ? "650px" : "800px"} sx={{ marginTop: 1 }} >
+                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "625px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>

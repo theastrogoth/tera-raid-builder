@@ -156,7 +156,6 @@ export class RaidBattle {
             // Protosynthesis and Quark Drive
             } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
                 if (pokemon.item === "Booster Energy") {
-                    console.log("Here in RaidBattle")
                     pokemon.abilityOn = true;
                     const qpStat = getQPBoostedStat (pokemon) as StatIDExceptHP;
                     pokemon.boostedStat = qpStat;

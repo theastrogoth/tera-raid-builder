@@ -25,12 +25,15 @@ export type LightMoveInfo = {
 
 export type LightTurnInfo = {
     id: number,
+    group?: number,
     moveInfo: LightMoveInfo,
     bossMoveInfo: LightMoveInfo,
 }
 
 export type LightBuildInfo = {
+    name?: string,
     pokemon: LightPokemon[],
     turns: LightTurnInfo[],
+    groups?: number[][],
 }
 

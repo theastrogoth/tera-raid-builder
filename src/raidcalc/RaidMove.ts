@@ -322,7 +322,6 @@ export class RaidMove {
 
     private setSelfDamage() {
         const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0) / 100);
-        console.log(this.moveData.name, this.moveData.selfDamage, selfDamage)
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;
             this._flags[this.userID].push!(selfDamagePercent + "% self damage from " + this.moveData.name + ".")
@@ -834,7 +833,6 @@ export class RaidMove {
         for (let i=0; i<5; i++) {
             const initialHP = this.raidState.raiders[i].originalCurHP;
             const finalHP = this._raiders[i].originalCurHP;
-            console.log(finalHP)
             if (initialHP !== finalHP) {
                 const initialPercent = Math.floor(initialHP / this.raidState.raiders[i].maxHP() * 100);
                 const finalPercent = Math.floor(finalHP / this._raiders[i].maxHP() * 1000)/10;

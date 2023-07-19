@@ -40,7 +40,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
     return (
         <Box>
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 575, display: "flex", flexDirection: "column", padding: "0px"}}>                
-                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" height= "600px" sx={{ marginTop: 1 }} >
+                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight={prettyMode ? undefined : "600px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>
@@ -128,7 +128,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                     </Box>
                     <Stack direction="row" spacing={0} >
                         <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon} prettyMode={prettyMode} />
-                        <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", height: "375px"}}>
+                        <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
                             <BossBuildControls moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
                             <Box flexGrow={1} />
                             <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier}/>

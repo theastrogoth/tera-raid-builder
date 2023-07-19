@@ -89,7 +89,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                     onChange={(e) => setInfoParam("userID")(e.target.value)}
                     sx={{ maxWidth : "150px"}}
                 >
-                    {roles.slice(1).map((role, i) => <MenuItem value={i+1}>{role}</MenuItem>)}
+                    {roles.slice(1).map((role, i) => <MenuItem key={i} value={i+1}>{role}</MenuItem>)}
                 </Select>
             </Box>
             <Typography variant="body1">uses</Typography>
@@ -101,7 +101,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                     onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
                     sx={{ maxWidth : "150px"}}
                 >
-                    {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
+                    {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
                 </Select>
             </Box>
             <Typography variant="body1">on</Typography>
@@ -121,7 +121,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                     onChange={(e) =>setInfoParam("targetID")(e.target.value)}
                     sx={{ maxWidth : "150px"}}
                 >
-                    {validTargets.map((id) => <MenuItem value={id}>{roles[id]}</MenuItem>)}
+                    {validTargets.map((id, i) => <MenuItem key={i} value={id}>{roles[id]}</MenuItem>)}
                 </Select>
             </Box>
             <Box flexGrow={1} />
@@ -172,7 +172,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                     onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
                     sx={{ maxWidth : "150px"}}
                 >
-                    {["min", "avg", "max"].map((r) => <MenuItem value={r}>{r}</MenuItem>)}
+                    {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}>{r}</MenuItem>)}
                 </Select>
             </Stack>
         </Stack>
@@ -217,7 +217,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                 onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
                 sx={{ maxWidth : "150px"}}
             >
-                {moveSet.map((move) => <MenuItem value={move}>{move}</MenuItem>)}
+                {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
             </Select>
             <Box flexGrow={1} />
             <FormControl component="fieldset">
@@ -267,7 +267,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                     onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
                     sx={{ maxWidth : "150px"}}
                 >
-                    {["min", "avg", "max"].map((r) => <MenuItem value={r}>{r}</MenuItem>)}
+                    {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}>{r}</MenuItem>)}
                 </Select>
             </Stack>
         </Stack>
@@ -543,6 +543,7 @@ function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Di
                         {
                             info.turns.map((turn, index) => (
                                 <MoveSelectionContainer 
+                                    key={index}
                                     raiders={info.startingState.raiders} 
                                     index={index} 
                                     info={info} 

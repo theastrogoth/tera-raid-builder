@@ -111,6 +111,7 @@ function App() {
     }), ["Noble Roar", "Taunt", "Boomburst", "Body Slam"] as MoveName[]),
     new Raider(1, "Raider #1", new Pokemon(gen, "Lucario", {
       nature: "Modest",
+      ability: "(No Ability)",
       moves: ["Nasty Plot", "Focus Blast"],
       item: "Weakness Policy",
       evs: {hp: 252, spa: 252},
@@ -123,13 +124,15 @@ function App() {
     })),
     new Raider(3, "Raider #3", new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
+      ability: "(No Ability)",
       moves: ["Defog", "Fake Tears"],
-      evs: {hp: 252, spd: 252},
+      evs: {hp: 252, def: 252},
     })),
     new Raider(4, "Raider #4", new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
+      ability: "(No Ability)",
       moves: ["Defog", "Fake Tears"],
-      evs: {hp: 252, spd: 252},
+      evs: {hp: 252, def: 252},
     })),
   ];
 

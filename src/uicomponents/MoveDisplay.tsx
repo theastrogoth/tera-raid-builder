@@ -58,8 +58,8 @@ function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[],
             </Typography>
             <Stack direction="column" spacing={1}>
                 {
-                    turns.map((t) => (
-                        <MoveText raiders={info.startingState.raiders} turn={t} />
+                    turns.map((t, i) => (
+                        <MoveText key={i} raiders={info.startingState.raiders} turn={t} />
                     ))
                 }
             </Stack>
@@ -86,14 +86,14 @@ function MoveDisplay({info}: {info: RaidBattleInfo}) {
         <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
             {
                 displayGroups.map((g, index) => (
-                    <>
-                    <MoveGroup info={info} group={g} index={index} />
-                    {index !== displayGroups.length - 1  && 
-                        <Typography variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
-                            ↓
-                        </Typography>
-                    }
-                    </>
+                    <Box key={index}>
+                        <MoveGroup info={info} group={g} index={index} />
+                        {index !== displayGroups.length - 1  && 
+                            <Typography align="center" variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
+                                ↓
+                            </Typography>
+                        }
+                    </Box>
                 ))
 
             }

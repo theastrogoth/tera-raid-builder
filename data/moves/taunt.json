@@ -9,7 +9,7 @@
     "drain": 0,
     "healing": 0,
     "selfDamage": null,
-    "ailment": null,
+    "ailment": "taunt",
     "statChanges": null,
     "flinchChance": 0,
     "statChance": 0,

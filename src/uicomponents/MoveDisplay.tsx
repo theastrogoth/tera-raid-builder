@@ -9,9 +9,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     const user = raiders[turn.moveInfo.userID].role;
 
     let target = raiders[turn.moveInfo.targetID].role;
-    const targetType = turn.moveInfo.moveData.target;
-    if (["user", "entire-field", "user-and-allies", "all-allies", "entire-field", "all-pokemon", "all-other-pokemon" ].includes(targetType || "")
-        || target === user) { 
+    if (target === user) { 
         target = ""
     }
 

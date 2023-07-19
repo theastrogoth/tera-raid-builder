@@ -203,7 +203,7 @@ function BuildControls({pokemon, abilities, moveSet, moveLearnTypes, setPokemon,
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Raider(pokemon.id, pokemon.role, new Pokemon(gen, val, {ability: "(No Ability)"})))
+        setPokemon(new Raider(pokemon.id, pokemon.role, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"})))
     }
 
     return (
@@ -409,4 +409,4 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
     )
 }
 
-export default React.memo(BuildControls, (prev, next) => (prev.pokemon === next.pokemon && prev.prettyMode === next.prettyMode));
+export default React.memo(BuildControls);

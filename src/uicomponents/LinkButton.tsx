@@ -62,8 +62,6 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
         const groups = obj.groups || [];
         const name = obj.name || "";
 
-        console.log("obj", obj)
-
         return {name, pokemon, turns, groups}
     } catch (e) {
         return null;
@@ -113,7 +111,7 @@ function serializeInfo(info: RaidBattleInfo): string {
     return serialize(obj);
 }
 
-function LinkButton({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
+function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {
     const location = useLocation();
     const hash = location.hash
     useEffect(() => {
@@ -137,6 +135,7 @@ function LinkButton({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispa
                         turns: turns,
                         groups: groups,
                     })
+                    setPrettyMode(true)
                 }
             }
         } catch (e) {

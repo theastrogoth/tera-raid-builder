@@ -166,18 +166,26 @@ function App() {
       <CssBaseline />
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
       </Box>
-      <Grid container component='title' justifyContent="center" sx={{ my: 1 }}>
+      <Grid container justifyContent="center" sx={{ my: 1 }}>
         <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
           <Box justifyContent="center">
-            <TextField 
-              variant="standard"
-              placeholder="Give your strategy a name!"
-              value={info.name}
-              inputProps={{
-                style: {fontSize: 24, fontWeight: "bold", textAlign: "center"},
-              }}
-              sx={{ width: "100%" }}
-            />
+            {prettyMode &&
+              <Typography variant="h4" sx={{ textAlign: "center", marginTop: 1 }}>
+                {info.name}
+              </Typography>
+            }
+            {!prettyMode &&
+              <TextField 
+                variant="standard"
+                placeholder="Give your strategy a name!"
+                value={info.name}
+                inputProps={{
+                  style: {fontSize: 24, fontWeight: "bold", textAlign: "center"},
+                }}
+                sx={{ width: "100%" }}
+              />
+            }
+
           </Box>
         </Grid>
       </Grid>
@@ -198,15 +206,15 @@ function App() {
           <BossSummary pokemon={raiders[0]} setPokemon={setPokemon(0)} prettyMode={prettyMode} />
         </Grid>
         <Grid item>
-          <RaidControls info={info} setInfo={setInfo} />
+          <RaidControls info={info} setInfo={setInfo} prettyMode={prettyMode} />
         </Grid>
       </Grid>
-      <Grid container component='footer' justifyContent="left" sx={{ my: 1 }}>
+      <Grid container justifyContent="left" sx={{ my: 1 }}>
         <Grid item xs={12}>
           <Stack >
             <Stack direction="row" sx={{ p: 2 }}>
               <Box flexGrow={1} />
-              <LinkButton info={info} setInfo={setInfo} />
+              <LinkButton info={info} setInfo={setInfo} setPrettyMode={setPrettyMode}/>
               <Box flexGrow={1} />
             </Stack>
             <Stack sx={{ mx: 3, my: 3}}>

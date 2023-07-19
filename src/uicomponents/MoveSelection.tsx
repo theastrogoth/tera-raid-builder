@@ -464,11 +464,8 @@ function prepareGroups(info: RaidBattleInfo) {
         const currGroup = newInfo.turns[i].group;
         const prevGroup = i === 0 ? undefined : newInfo.turns[i-1].group;
         const nextGroup = i === newInfo.turns.length-1 ? undefined : newInfo.turns[i+1].group;
-
-        if (prevGroup !== undefined && (prevGroup === nextGroup && prevGroup !== currGroup)) {
-            newInfo.turns[i].group = prevGroup;
-            newInfo.groups[prevGroup].push(newInfo.turns[i].id);
-        } else if (currGroup !== undefined && !(prevGroup === currGroup || currGroup === nextGroup)) {
+    
+        if (currGroup !== undefined && !(prevGroup === currGroup || currGroup === nextGroup)) {
             newInfo.groups[currGroup].splice(newInfo.groups[currGroup].indexOf(newInfo.turns[i].id), 1);
             newInfo.turns[i].group = undefined;
         }

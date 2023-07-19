@@ -70,7 +70,6 @@ function App() {
     }), ["Noble Roar", "Taunt", "Boomburst", "Body Slam"] as MoveName[]),
     new Raider(1, "Raider #1", new Pokemon(gen, "Lucario", {
       nature: "Modest",
-      ability: "Pure Power",
       moves: ["Nasty Plot", "Focus Blast"],
       item: "Weakness Policy",
       evs: {hp: 252, spa: 252},

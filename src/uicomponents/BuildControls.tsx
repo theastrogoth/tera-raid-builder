@@ -409,4 +409,4 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
     )
 }
 
-export default BuildControls;
+export default React.memo(BuildControls, (prev, next) => (prev.pokemon === next.pokemon && prev.prettyMode === next.prettyMode));

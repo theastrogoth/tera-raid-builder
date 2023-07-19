@@ -307,4 +307,4 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: 
 	)
 }
 
-export default ImportExportArea;
+export default React.memo(ImportExportArea);

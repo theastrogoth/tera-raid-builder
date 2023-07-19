@@ -55,10 +55,10 @@ function TurnResultDisplay({state, turnResult, index}: {state: RaidState, turnRe
     )
 }
 
-function RaidResults({results}: {results: RaidBattleResults}) {
+function RaidResults({results}: {results: RaidBattleResults | null}) {
     return (
         <Stack direction="column" spacing={1} justifyContent="left" sx={{ p: 2 }}>
-            {
+            {results && 
                 results.turnResults.map((turnResult, index) => (
                     <TurnResultDisplay key={index} state={results.endState} turnResult={turnResult} index={index} />
                 ))

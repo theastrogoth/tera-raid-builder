@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/material/styles';
@@ -21,8 +22,7 @@ import { Generations, Pokemon, Field} from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
 import { Raider, RaidBattleInfo, RaidState } from './raidcalc/interface.ts';
 
-
-import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
+// import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -164,6 +164,10 @@ function App() {
     <Box>  
       <CssBaseline />
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
+      </Box>
+      <Grid container component='title' justifyContent="center" sx={{ my: 1 }}>
+        <TextField />
+      </Grid>
       <Grid container component='main' justifyContent="left" sx={{ my: 1 }}>
         <Grid item>
           <Stack direction="row">
@@ -184,27 +188,34 @@ function App() {
           <RaidControls info={info} setInfo={setInfo} />
         </Grid>
       </Grid>
-      <Box sx={{ p: 2 }}>
-        <LinkButton info={info} setInfo={setInfo} />
-      </Box>
-      <Stack sx={{ mx: 3, my: 3}}>
-        <Typography variant="h6" sx={{color: "text.secondary"}}>
-          Acknowledgements
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
-        </Typography>
-        <Typography variant="h6" sx={{color: "text.secondary"}}>
-            Contact
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
-        </Typography>
-      </Stack>
-    </Box>   
+      <Grid container component='footer' justifyContent="left" sx={{ my: 1 }}>
+        <Grid item xs={12}>
+          <Stack >
+            <Stack direction="row" sx={{ p: 2 }}>
+              <Box flexGrow={1} />
+              <LinkButton info={info} setInfo={setInfo} />
+              <Box flexGrow={1} />
+            </Stack>
+            <Stack sx={{ mx: 3, my: 3}}>
+              <Typography variant="h6" sx={{color: "text.secondary"}}>
+                Acknowledgements
+              </Typography>
+              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+              </Typography>
+              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
+              </Typography>
+              <Typography variant="h6" sx={{color: "text.secondary"}}>
+                  Contact
+              </Typography>
+              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
+              </Typography>
+            </Stack>
+          </Stack>
+        </Grid>
+    </Grid>
     </ThemeProvider>
   );
 }

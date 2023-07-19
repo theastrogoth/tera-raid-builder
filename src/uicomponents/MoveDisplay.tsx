@@ -10,7 +10,8 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
 
     let target = raiders[turn.moveInfo.targetID].role;
     const targetType = turn.moveInfo.moveData.target;
-    if ([null, undefined, "user", "entire-field", "user-and-allies", "all-allies", "entire-field", "all-pokemon", "all-other-pokemon" ].includes(targetType)) { 
+    if (["user", "entire-field", "user-and-allies", "all-allies", "entire-field", "all-pokemon", "all-other-pokemon" ].includes(targetType || "")
+        || target === user) { 
         target = ""
     }
 
@@ -18,6 +19,8 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     if (move == "(No Move)") {
         move = "";
     }
+
+    console.log("Move Display", turn.id, move, target)
 
     return (
         <>
@@ -66,6 +69,7 @@ function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[],
 }
 
 function MoveDisplay({info}: {info: RaidBattleInfo}) { 
+    console.log("Move Display", info)
     const displayGroups: number[][] = [];
     let currentGroupIndex = -1;
     let currentGroupID: number | undefined = -1;

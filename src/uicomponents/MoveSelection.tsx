@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef }  from "react"
+import React, { useState, useEffect }  from "react"
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -13,8 +13,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import AddLocationIcon from '@mui/icons-material/AddLocation';
-import Collapse from '@mui/material/Collapse';
-// import Input from "@mui/material/Input";
+// import Collapse from '@mui/material/Collapse';
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -22,17 +21,17 @@ import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
 
-function timeout(delay: number) {
-    return new Promise( res => setTimeout(res, delay) );
-}
+// function timeout(delay: number) {
+//     return new Promise( res => setTimeout(res, delay) );
+// }
 
 function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: Raider[], info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
     const roles = raiders.map((raider) => raider.role);
     const moveInfo = info.turns[index].moveInfo;
     const moveName = moveInfo.moveData.name;
-    const targetRef = useRef(moveInfo.moveData.target);
 
-    const moveSet = ["(No Move)", ...raiders[moveInfo.userID].moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
+    const moves = raiders[moveInfo.userID].moves;
+    const moveSet = ["(No Move)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
     
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
         let newTurns = [...info.turns];
@@ -45,15 +44,15 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     }
     
     useEffect(() => {
-        if (!raiders[moveInfo.userID].moves.includes(moveName)) {
+        if (!moves.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: "(No Move)" as MoveName}});
         }
-    }, [raiders[moveInfo.userID].moves])
+    }, [moves])
 
     useEffect(() => {
         if (moveName === "(No Move)") {
             setMoveInfo({...moveInfo, moveData: {name: moveName}});
-        } else if (moveName == "Attack Cheer" || moveName == "Defense Cheer") {
+        } else if (moveName === "Attack Cheer" || moveName === "Defense Cheer") {
             setMoveInfo({...moveInfo, moveData: {name: moveName, priority: 10, category: "field-effect", target: "user-and-allies"}})
         } else if (moveName === "Heal Cheer") {
             setMoveInfo({...moveInfo, moveData: {name: moveName, priority: 10, category: "heal", target: "user-and-allies"}})
@@ -275,82 +274,82 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     )
 }
 
-function MoveSelectionContainer({raiders, index, info, setInfo, turnIDs}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, turnIDs: React.MutableRefObject<number[]>}) {
+function MoveSelectionContainer({raiders, index, info, setInfo}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
     const turnID = info.turns[index].id;
-    const [collapseIn, setCollapseIn] = useState(false);
-    const [initiateCollapse, setInitiateCollapse] = useState(false);
-    const [initiateGrow, setInitiateGrow] = useState(false);
-    const [triggerRemove, setTriggerRemove] = useState(false);
-    const [triggerAdd, setTriggerAdd] = useState(false);
-    const [waitAdd, setWaitAdd] = useState(false);
+    // const [collapseIn, setCollapseIn] = useState(false);
+    // const [initiateCollapse, setInitiateCollapse] = useState(false);
+    // const [initiateGrow, setInitiateGrow] = useState(false);
+    // const [triggerRemove, setTriggerRemove] = useState(false);
+    // const [triggerAdd, setTriggerAdd] = useState(false);
+    // const [waitAdd, setWaitAdd] = useState(false);
 
-    const brandNewTurnID = !turnIDs.current.includes(turnID);
+    // const brandNewTurnID = !turnIDs.current.includes(turnID);
 
-    const useCollapse = initiateCollapse || triggerAdd;
-    const hideCard = useCollapse || initiateGrow || brandNewTurnID;
+    // const useCollapse = initiateCollapse || triggerAdd;
+    // const hideCard = useCollapse || initiateGrow || brandNewTurnID;
 
-    useEffect(() => {
-        if (brandNewTurnID) {
-            setInitiateGrow(true);
-            setCollapseIn(false);
-        } else {
-            setCollapseIn(true);
-        }
-        turnIDs.current = info.turns.map((turn) => turn.id);
-    }, [brandNewTurnID])
+    // useEffect(() => {
+    //     if (brandNewTurnID) {
+    //         setInitiateGrow(true);
+    //         setCollapseIn(false);
+    //     } else {
+    //         setCollapseIn(true);
+    //     }
+    //     turnIDs.current = info.turns.map((turn) => turn.id);
+    // }, [brandNewTurnID])
 
-    useEffect(() => {
-        if (initiateGrow) {
-            setCollapseIn(false);
-            setTriggerAdd(true);
-        }
-    }, [initiateGrow])
+    // useEffect(() => {
+    //     if (initiateGrow) {
+    //         setCollapseIn(false);
+    //         setTriggerAdd(true);
+    //     }
+    // }, [initiateGrow])
 
-    useEffect(() => {
-        if (triggerAdd) {
-            setCollapseIn(true);
-            setWaitAdd(true);
-        }
-    }, [triggerAdd])
+    // useEffect(() => {
+    //     if (triggerAdd) {
+    //         setCollapseIn(true);
+    //         setWaitAdd(true);
+    //     }
+    // }, [triggerAdd])
 
-    useEffect(() => {
-        if (waitAdd) {
-            async function addTurn() {
-                await timeout(400)
-                setInitiateGrow(false);
-                setTriggerAdd(false);
-                setWaitAdd(false);
-            }
-            addTurn();
-        }
-    }, [waitAdd])
+    // useEffect(() => {
+    //     if (waitAdd) {
+    //         async function addTurn() {
+    //             await timeout(400)
+    //             setInitiateGrow(false);
+    //             setTriggerAdd(false);
+    //             setWaitAdd(false);
+    //         }
+    //         addTurn();
+    //     }
+    // }, [waitAdd])
 
-    useEffect(() => {
-        if (initiateCollapse && !triggerAdd) {
-            setCollapseIn(false);
-            setTriggerRemove(true);
-        }
-    }, [initiateCollapse])
+    // useEffect(() => {
+    //     if (initiateCollapse && !triggerAdd) {
+    //         setCollapseIn(false);
+    //         setTriggerRemove(true);
+    //     }
+    // }, [initiateCollapse])
 
-    useEffect(() => {
-        if (triggerRemove) {
-            async function removeTurn() {
-                await timeout(400);
-                handleRemoveTurn()
-                setTriggerRemove(false);
-                setInitiateCollapse(false);
-                setCollapseIn(true);
-            }
-            removeTurn();
-        }
-    }, [triggerRemove])
+    // useEffect(() => {
+    //     if (triggerRemove) {
+    //         async function removeTurn() {
+    //             await timeout(400);
+    //             handleRemoveTurn()
+    //             setTriggerRemove(false);
+    //             setInitiateCollapse(false);
+    //             setCollapseIn(true);
+    //         }
+    //         removeTurn();
+    //     }
+    // }, [triggerRemove])
 
-    const handleRemoveTurn = () => {
-        let newTurns = [...info.turns];
-        newTurns.splice(index, 1);
-        setInfo({...info, turns: newTurns});
-        turnIDs.current = newTurns.map((turn) => turn.id);
-    }
+    // const handleRemoveTurn = () => {
+    //     let newTurns = [...info.turns];
+    //     newTurns.splice(index, 1);
+    //     setInfo({...info, turns: newTurns});
+    //     turnIDs.current = newTurns.map((turn) => turn.id);
+    // }
 
     return (
         <Draggable
@@ -364,14 +363,16 @@ function MoveSelectionContainer({raiders, index, info, setInfo, turnIDs}: {raide
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                 >
-                    {useCollapse &&
+                    {/* {useCollapse &&
                         <Collapse appear={false} in={collapseIn} timeout={250}>
                             <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} setInitiateCollapse={setInitiateCollapse}/>
                         </Collapse>
                     }
                     {!hideCard &&
                         <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} setInitiateCollapse={setInitiateCollapse}/>
-                    }
+                    } */}
+                    <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo}/>
+
                 </div>
             )}
 
@@ -399,9 +400,7 @@ function AddButton({onClick, transform, children, disabled=false}: {onClick: () 
     )
 }
 
-function MoveSelectionCard({raiders, index, info, setInfo, setInitiateCollapse}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, setInitiateCollapse: React.Dispatch<React.SetStateAction<boolean>>}) {
-    // const [showButtons, setShowButtons] = useState(false);
-    const showButtons = true;
+function MoveSelectionCard({raiders, index, info, setInfo}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
 
     const handleAddTurn = (index: number) => () => {
         let uniqueId = 0;
@@ -417,6 +416,12 @@ function MoveSelectionCard({raiders, index, info, setInfo, setInitiateCollapse}:
             bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "max" }},
         }
         newTurns.splice(index, 0, newTurn);
+        setInfo({...info, turns: newTurns});
+    }
+
+    const handleRemoveTurn = () => {
+        let newTurns = [...info.turns];
+        newTurns.splice(index, 1);
         setInfo({...info, turns: newTurns});
     }
 
@@ -440,17 +445,15 @@ function MoveSelectionCard({raiders, index, info, setInfo, setInitiateCollapse}:
             <AddButton onClick={handleAddTurn(index+1)} transform="translate(2px, -25px)" >
                 <AddLocationIcon fontSize="inherit" />
             </AddButton>
-            <AddButton disabled={info.turns.length <= 1} onClick={() => setInitiateCollapse(true)} transform="translate(2px, -68px)" >
+            <AddButton disabled={info.turns.length <= 1} onClick={handleRemoveTurn} transform="translate(2px, -68px)" >
                 <CloseIcon fontSize="inherit" />
             </AddButton>
         </Paper>
     )
 }
 
-function MoveSelection({info, setInfo}:{info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
-    
-    const turnIDsRef = useRef(info.turns.map((turn) => turn.id));
-    
+function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
+        
     const onDragEnd = (result: DropResult) => {
         const {destination, source, draggableId} = result;
         if (!destination) { return }; 
@@ -480,7 +483,6 @@ function MoveSelection({info, setInfo}:{info: RaidBattleInfo, setInfo: React.Dis
                                     index={index} 
                                     info={info} 
                                     setInfo={setInfo} 
-                                    turnIDs={turnIDsRef}
                                 />
                         ))}
                             {provided.placeholder}

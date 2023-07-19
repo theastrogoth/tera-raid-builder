@@ -5,7 +5,6 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 
 import { Generations, Pokemon } from '../calc';
-import { Generation } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatRadarPlot from "./StatRadarPlot";
@@ -13,7 +12,7 @@ import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
-import { Raider } from "../raidcalc/interface";
+import { MoveSetItem, Raider } from "../raidcalc/interface";
 
 const gen = Generations.get(9); // we will only use gen 9
 
@@ -46,8 +45,7 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
 }
 
 function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
-    const [moveSet, setMoveSet] = useState<(string)[]>([])
-    const [moveLearnTypes, setMoveLearnTypes] = useState<string[]>([])
+    const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [abilities, setAbilities] = useState<string[]>([])
   
     useEffect(() => {
@@ -56,8 +54,15 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
         setAbilities(pokemonData.abilities);
 
         const moves = pokemonData.moves;
-        setMoveSet(moves.map(md => md.name));
-        setMoveLearnTypes(moves.map(md => md.learnMethod));
+        const set = moves.map(md => {
+            const move = gen.moves.get(toID(md.name));
+            return {
+                name: md.name,
+                method: md.learnMethod,
+                type: move ? (move.type || "Normal") : "Normal",
+            }
+        })
+        setMoveSet(set);
       }
       fetchData().catch((e) => console.log(e));
     }, [pokemon.name])
@@ -156,7 +161,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                             </Box>
                         }
                     </Box>
-                    <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon} prettyMode={prettyMode}/>
+                    <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode}/>
                     <Box flexGrow={1} />
                     <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} />
                     {/* <Box flexGrow={1} /> */}

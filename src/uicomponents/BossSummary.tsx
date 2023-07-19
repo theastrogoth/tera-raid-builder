@@ -13,12 +13,12 @@ import { RoleField } from "./PokemonSummary";
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
-import { Raider } from "../raidcalc/interface";
+import { MoveSetItem, Raider } from "../raidcalc/interface";
 
 const gen = Generations.get(9); // we only use gen 9
 
 function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
-    const [moveSet, setMoveSet] = useState<(string)[]>([])
+    const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [moveLearnTypes, setMoveLearnTypes] = useState<string[]>([])
     const [abilities, setAbilities] = useState<string[]>([])
   
@@ -28,8 +28,15 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
         setAbilities(pokemonData.abilities);
 
         const moves = pokemonData.moves;
-        setMoveSet(moves.map(md => md.name));
-        setMoveLearnTypes(moves.map(md => md.learnMethod));
+        const set = moves.map(md => {
+            const move = gen.moves.get(toID(md.name));
+            return {
+                name: md.name,
+                method: md.learnMethod,
+                type: move ? (move.type || "Normal") : "Normal",
+            }
+        })
+        setMoveSet(set);
       }
       fetchData().catch((e) => console.log(e));
     }, [pokemon.name])
@@ -127,7 +134,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                         }
                     </Box>
                     <Stack direction="row" spacing={0} >
-                        <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon} prettyMode={prettyMode} />
+                        <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
                             <BossBuildControls moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
                             <Box flexGrow={1} />

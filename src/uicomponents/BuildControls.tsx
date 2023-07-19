@@ -16,43 +16,26 @@ import TuneIcon from '@mui/icons-material/Tune';
 import { styled } from '@mui/material/styles';
 
 import { Pokemon, StatsTable, Generations } from '../calc';
-import { Generation, Nature } from "../calc/data/interface";
+import { Nature, MoveName } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 import { Typography } from "@mui/material";
-import { Raider } from "../raidcalc/interface";
+import { MoveSetItem, Raider } from "../raidcalc/interface";
+import { getMoveMethodIconURL } from "../utils";
 
 // we will always use Gen 9
 const gen = Generations.get(9);
 
-// const patchEmoji = '\u{1FA79}';
-const machineEmoji = '\u{1F4BF}';
-const eggEmoji = '\u{1F95A}';
 
-function moveToOption(move: string, learnType: string) {
-    if (learnType == "egg") {
-        return move + " " + eggEmoji;
-    } else if (learnType == "machine") {
-        return move + " " + machineEmoji;
-    } else {
-        return move;
-    }
+function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetItem {
+    const option = moveSet.find((move) => move.name == name);
+    return option || {name: "(No Move)" as MoveName, method: "level-up", type: "Normal"};
 }
 
-function optionToMove(option: string | undefined) {
-    if (!option) { return "(No Move)"; }
-    return [eggEmoji, machineEmoji].includes(option.slice(-2)) ? option.slice(0,-3) : option;
-}
-
-function findOptionFromMove(name: string, moves: string[], learnTypes: string[]) {
-    const index = moves.indexOf(name);
-    return moveToOption(name, learnTypes[index]);
-}
-
-function createMoveOptions(moves: string[], learnTypes: string[]) {
-    return ["(No Move)", ...moves.map((move, index) => moveToOption(move, learnTypes[index]))];
+function createMoveOptions(moves: MoveSetItem[]) {
+    return ["(No Move)", ...moves.map((move) => move.name)];
 }
 
 function natureToOption(nature: Nature) {
@@ -129,7 +112,62 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
       borderBottom: 0,
   })); 
   
-  function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
+function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
+return (
+    <>
+    {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+        <TableRow>
+            <LeftCell>
+                {name}
+            </LeftCell>
+            <RightCell>
+                {prettyMode &&
+                    <Typography variant="body1">
+                        {value}
+                    </Typography>
+                }
+                {!prettyMode &&
+                    <Autocomplete
+                        disablePortal
+                        disableClearable
+                        autoHighlight={true}    
+                        size="small"
+                        value={value || undefined}
+                        options={options}
+                        renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                        onChange={(event: any, newValue: string) => {
+                            setValue(newValue);
+                        }}
+                        sx = {{width: '80%'}}
+                    />
+                }
+            </RightCell>
+        </TableRow>
+    }
+    </>
+    )
+}
+
+function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
+    return (
+        <Stack direction="row" spacing={0.25}>
+            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
+                {move.name}
+            </Typography>
+            {move.method === "egg" &&
+                <img src={getMoveMethodIconURL("egg")} height="20px" />
+            }
+            {move.method === "egg" &&
+                <img src={getMoveMethodIconURL("mirror_herb")} height="20px" />
+            }
+            {move.method === "machine" &&
+                <img src={getMoveMethodIconURL(move.type)} height="20px" />
+            }
+        </Stack>
+    )
+}
+
+function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], prettyMode: boolean}) {
     return (
         <>
         {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
@@ -139,9 +177,7 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
                 </LeftCell>
                 <RightCell>
                     {prettyMode &&
-                        <Typography variant="body1">
-                            {value}
-                        </Typography>
+                        <MoveWithIcon move={findOptionFromMoveName(value, moveSet)} prettyMode={prettyMode} />
                     }
                     {!prettyMode &&
                         <Autocomplete
@@ -151,6 +187,9 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
                             size="small"
                             value={value || undefined}
                             options={options}
+                            renderOption={(props, option) => 
+                                <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet)} prettyMode={prettyMode} /></li>
+                            }
                             renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
                             onChange={(event: any, newValue: string) => {
                                 setValue(newValue);
@@ -162,12 +201,13 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
             </TableRow>
         }
         </>
-      )
-  }
+    )
+}
 
 
-function BuildControls({pokemon, abilities, moveSet, moveLearnTypes, setPokemon, prettyMode}: 
-        {pokemon: Raider, abilities: string[], moveSet: string[], moveLearnTypes: string[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
+
+function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}: 
+        {pokemon: Raider, abilities: string[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
     {
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
@@ -176,8 +216,6 @@ function BuildControls({pokemon, abilities, moveSet, moveLearnTypes, setPokemon,
     
     const [editStatsOpen, setEditStatsOpen] = useState(false);
     const [importExportOpen, setImportExportOpen] = useState(false);
-
-    const moveOptions = createMoveOptions(moveSet, moveLearnTypes);
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
@@ -300,17 +338,17 @@ function BuildControls({pokemon, abilities, moveSet, moveLearnTypes, setPokemon,
                                 </TableRow>
                                 {
                                     [0,1,2,3].map((index) => {
-                                        return <SummaryRow 
+                                        return <MoveSummaryRow 
                                             key={index}
                                             name={index==0 ? "Moves" : ""}
-                                            value={findOptionFromMove(pokemon.moves[index], moveSet, moveLearnTypes) || "(No Move)"} 
+                                            value={pokemon.moves[index] || "(No Move)"} 
                                             setValue={(moveOption: string) => {
-                                                const move = optionToMove(moveOption);
                                                 const newMoves = [...pokemon.moves as string[]];
-                                                newMoves[index] = move;
+                                                newMoves[index] = moveOption;
                                                 setPokemonProperty("moves")(newMoves);
                                             }}
-                                            options={moveOptions}
+                                            options={createMoveOptions(moveSet)}
+                                            moveSet={moveSet}
                                             prettyMode={prettyMode}
                                         /> 
                                     })
@@ -325,7 +363,7 @@ function BuildControls({pokemon, abilities, moveSet, moveLearnTypes, setPokemon,
 }
 
 export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
-    {pokemon: Raider, moveSet: string[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
+    {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
 {
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
@@ -389,13 +427,14 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                             </TableRow>
                             {
                                 [0,1,2,3].map((index) => {
-                                    return <SummaryRow 
+                                    return <MoveSummaryRow 
                                         key={index}
                                         name={index==0 ? "Extra Moves" : ""}
                                         // @ts-ignore
                                         value={pokemon.extraMoves[index] || "(No Move)"}
                                         setValue={setBMove(index)}
-                                        options={["(No Move)", ...moveSet]}
+                                        options={createMoveOptions(moveSet)}
+                                        moveSet={moveSet}
                                         prettyMode={prettyMode}
                                     /> 
                                 })

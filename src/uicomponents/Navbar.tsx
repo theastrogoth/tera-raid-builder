@@ -28,7 +28,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
                     <Typography 
                         variant="h5"
                         sx={{
-                            mr: 2,
+                            mr: 1,
                             display: "flex",
                             fontWeight: 700,
                             color: 'inherit',
@@ -37,6 +37,19 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
                     >
                         Tera Raid Builder
                     </Typography>
+                    <Box sx = {{ transform: "translate(-3px, -8px)"}}>
+                        <Typography 
+                            variant="body2"
+                            sx={{
+                                mr: 1,
+                                fontWeight: 700,
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            Beta
+                        </Typography>
+                    </Box>
                     <Box component="div" sx={{ flexGrow: 1 }} />
                     <Box component="div" >
                         <Button

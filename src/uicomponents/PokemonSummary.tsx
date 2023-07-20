@@ -13,6 +13,7 @@ import BuildControls from "./BuildControls";
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
 import { MoveSetItem, Raider } from "../raidcalc/interface";
+import { AbilityName } from "../calc/data/interface";
 
 const gen = Generations.get(9); // we will only use gen 9
 
@@ -46,7 +47,7 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
 
 function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
-    const [abilities, setAbilities] = useState<string[]>([])
+    const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
   
     useEffect(() => {
       async function fetchData() {

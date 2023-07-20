@@ -10,7 +10,7 @@ export function prepareFileName(name: string) {
 export type PokemonData = {
     name:   SpeciesName,
     types:  TypeName[],
-    abilities: AbilityName[],
+    abilities: {name: AbilityName, hidden: boolean}[],
     stats:  StatsTable,
     moves:  {name: MoveName, learnMethod: string}[],
 }

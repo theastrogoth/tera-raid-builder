@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 
 import { Generations, Pokemon } from '../calc';
-import { Generation } from "../calc/data/interface";
+import { AbilityName, Generation } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import BuildControls, { BossBuildControls } from "./BuildControls";
@@ -19,7 +19,7 @@ const gen = Generations.get(9); // we only use gen 9
 
 function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
-    const [abilities, setAbilities] = useState<string[]>([])
+    const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
   
     useEffect(() => {
       async function fetchData() {

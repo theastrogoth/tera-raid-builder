@@ -601,17 +601,17 @@ const RBY: {[name: string]: SpeciesData} = {
     weightkg: 30,
   },
   Rapidash: {types: ['Fire'], bs: {hp: 65, at: 100, df: 70, sp: 105, sl: 80}, weightkg: 95},
-  Raticate: {
-    types: ['Normal'],
-    bs: {hp: 55, at: 81, df: 60, sp: 97, sl: 50},
-    weightkg: 18.5,
-  },
-  Rattata: {
-    types: ['Normal'],
-    bs: {hp: 30, at: 56, df: 35, sp: 72, sl: 25},
-    weightkg: 3.5,
-    nfe: true,
-  },
+  // Raticate: {
+  //   types: ['Normal'],
+  //   bs: {hp: 55, at: 81, df: 60, sp: 97, sl: 50},
+  //   weightkg: 18.5,
+  // },
+  // Rattata: {
+  //   types: ['Normal'],
+  //   bs: {hp: 30, at: 56, df: 35, sp: 72, sl: 25},
+  //   weightkg: 3.5,
+  //   nfe: true,
+  // },
   // Rhydon: {
   //   types: ['Ground', 'Rock'],
   //   bs: {hp: 105, at: 130, df: 120, sp: 40, sl: 45},
@@ -3499,13 +3499,13 @@ const DPP_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   gender: 'N',
   //   abilities: {0: 'Levitate'},
   // },
-  Regigigas: {
-    types: ['Normal'],
-    bs: {hp: 110, at: 160, df: 110, sa: 80, sd: 110, sp: 100},
-    weightkg: 420,
-    abilities: {0: 'Slow Start'},
-    gender: 'N',
-  },
+  // Regigigas: {
+  //   types: ['Normal'],
+  //   bs: {hp: 110, at: 160, df: 110, sa: 80, sd: 110, sp: 100},
+  //   weightkg: 420,
+  //   abilities: {0: 'Slow Start'},
+  //   gender: 'N',
+  // },
   // Revenankh: {
   //   types: ['Ghost', 'Fighting'],
   //   bs: {hp: 90, at: 105, df: 90, sa: 65, sd: 110, sp: 65},

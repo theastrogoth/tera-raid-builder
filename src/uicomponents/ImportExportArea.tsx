@@ -185,7 +185,7 @@ export function addSet(pokes: string) {
 	for (var i = 0; i < rows.length; i++) {
 		currentRow = rows[i].split(/[()@]/);
 		for (var j = 0; j < currentRow.length; j++) {
-			currentRow[j] = checkExeptions(currentRow[j].trim());
+			currentRow[j] = checkImportExceptions(currentRow[j].trim());
 			if (SPECIES[9][currentRow[j].trim()] !== undefined) {
 				currentPoke = SPECIES[9][currentRow[j].trim()];
 				currentPoke.name = currentRow[j].trim() as SpeciesName;
@@ -210,7 +210,7 @@ export function addSet(pokes: string) {
 	return sets[0];
 }
 
-function checkExeptions(poke: string) {
+function checkImportExceptions(poke: string) {
 	switch (poke) {
 	case 'Aegislash':
 		poke = "Aegislash-Blade";
@@ -255,9 +255,55 @@ function checkExeptions(poke: string) {
 	case 'Deerling-Winter':
 		poke = "Deerling";
 		break;
+	// these are meant to resolve naming convention differences between here and smogon
+	case 'Tauros-Paldea-Aqua':
+		poke = "Tauros-Paldea-Aqua-Breed";
+		break;
+	case 'Tauros-Paldea-Blaze':
+		poke = "Tauros-Paldea-Blaze-Breed";
+		break;
+	case 'Indeedee':
+		poke = "Indeedee-M";
+		break;
+	case 'Basculegion':
+		poke = "Basculegion-M";
+		break;
+	case 'Toxtricity':
+		poke = "Toxtricity-Amped";
+		break;
+	case 'Oinkologne':
+		poke = "Oinkologne-M";
+		break;
 	}
 	return poke;
 }
+
+function checkExportExceptions(poke: string) {
+	switch (poke) {
+		// these are meant to resolve naming convention differences between here and smogon
+		case 'Tauros-Paldea-Aqua-Breed':
+			poke = "Tauros-Paldea-Aqua";
+			break;
+		case 'Tauros-Paldea-Blaze-Breed':
+			poke = "Tauros-Paldea-Blaze";
+			break;
+		case 'Indeedee-M':
+			poke = "Indeedee";
+			break;
+		case 'Basculegion-M':
+			poke = "Basculegion";
+			break;
+		case 'Toxtricity-Amped':
+			poke = "Toxtricity";
+			break;
+		case 'Oinkologne-M':
+			poke = "Oinkologne";
+			break;
+	}
+	return poke;
+}
+		
+
 function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r: Raider) => void}) {
 	const [textValue, setTextValue] = useState('');
 	return (

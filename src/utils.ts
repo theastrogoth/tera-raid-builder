@@ -50,6 +50,7 @@ const pokemonArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 const itemSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/items/";
 const typeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/type_icons/";
 const teraTypeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/tera_type_icons/";
+const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/move_methods/";
 
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {
@@ -67,6 +68,10 @@ export function getTypeIconURL(name: string) {
 
 export function getTeraTypeIconURL(name: string) {
     return teraTypeIconProlog + prepareImageAssetName(name) + ".png";
+}
+
+export function getMoveMethodIconURL(name: string) {
+    return methodIconProlog + prepareImageAssetName(name) + ".png";
 }
 
 export function getPokemonArtURL(name: string) {

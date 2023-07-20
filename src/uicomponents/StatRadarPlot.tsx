@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import { useTheme } from "@mui/material/styles";
 
@@ -127,7 +127,14 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
                 }}
                 config={{ 
                     staticPlot: false,
-                    modeBarButtonsToRemove: ['zoom2d']  
+                    modeBarButtonsToRemove: ['zoom2d'],  
+                    toImageButtonOptions: {
+                        format: "svg",
+                        filename: "statplot",
+                        // height: 800,
+                        // width: 600,
+                        // scale: 2,
+                    }
                 }}
             />
             <Box height="10px"/>
@@ -135,4 +142,4 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
     )
 }
 
-export default StatRadarPlot;
+export default React.memo(StatRadarPlot, (next, prev) => (next.evs == prev.evs && next.stats == prev.stats && next.nature == prev.nature));

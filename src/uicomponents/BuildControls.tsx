@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import TableContainer from "@mui/material/TableContainer";
@@ -15,40 +15,36 @@ import TuneIcon from '@mui/icons-material/Tune';
 
 import { styled } from '@mui/material/styles';
 
-import { Pokemon, StatsTable } from '../calc';
-import { Generation, Nature } from "../calc/data/interface";
+import { Pokemon, StatsTable, Generations } from '../calc';
+import { Nature, MoveName, AbilityName } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 import { Typography } from "@mui/material";
+import { MoveSetItem, Raider } from "../raidcalc/interface";
+import { getMoveMethodIconURL } from "../utils";
 
-// const patchEmoji = '\u{1FA79}';
-const machineEmoji = '\u{1F4BF}';
-const eggEmoji = '\u{1F95A}';
+// we will always use Gen 9
+const gen = Generations.get(9);
 
-function moveToOption(move: string, learnType: string) {
-    if (learnType == "egg") {
-        return move + " " + eggEmoji;
-    } else if (learnType == "machine") {
-        return move + " " + machineEmoji;
-    } else {
-        return move;
-    }
+
+function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetItem {
+    const option = moveSet.find((move) => move.name == name);
+    return option || {name: "(No Move)" as MoveName, method: "level-up", type: "Normal"};
 }
 
-function optionToMove(option: string | undefined) {
-    if (!option) { return "(No Move)"; }
-    return [eggEmoji, machineEmoji].includes(option.slice(-2)) ? option.slice(0,-3) : option;
+function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[]): {name: AbilityName, hidden: boolean} {
+    const option = abilities.find((ability) => ability.name == name);
+    return option || {name: "(No Ability)" as AbilityName, hidden: false};
 }
 
-function findOptionFromMove(name: string, moves: string[], learnTypes: string[]) {
-    const index = moves.indexOf(name);
-    return moveToOption(name, learnTypes[index]);
+function createAbilityOptions(abilities: {name: AbilityName, hidden: boolean}[]) {
+    return ["(No Ability)", ...abilities.map((ability) => ability.name)];
 }
 
-function createMoveOptions(moves: string[], learnTypes: string[]) {
-    return ["(No Move)", ...moves.map((move, index) => moveToOption(move, learnTypes[index]))];
+function createMoveOptions(moves: MoveSetItem[]) {
+    return ["(No Move)", ...moves.map((move) => move.name)];
 }
 
 function natureToOption(nature: Nature) {
@@ -80,7 +76,7 @@ function prettyStatName(stat: string) {
     }
 }
 
-function evsToString(gen: Generation, pokemon: Pokemon) {
+function evsToString(pokemon: Pokemon) {
     let str = ''
     let empty = true
     for (let keyval of Object.entries(pokemon.evs)) {
@@ -125,7 +121,62 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
       borderBottom: 0,
   })); 
   
-  function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
+function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
+return (
+    <>
+    {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+        <TableRow>
+            <LeftCell>
+                {name}
+            </LeftCell>
+            <RightCell>
+                {prettyMode &&
+                    <Typography variant="body1">
+                        {value}
+                    </Typography>
+                }
+                {!prettyMode &&
+                    <Autocomplete
+                        disablePortal
+                        disableClearable
+                        autoHighlight={true}    
+                        size="small"
+                        value={value || undefined}
+                        options={options}
+                        renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                        onChange={(event: any, newValue: string) => {
+                            setValue(newValue);
+                        }}
+                        sx = {{width: '80%'}}
+                    />
+                }
+            </RightCell>
+        </TableRow>
+    }
+    </>
+    )
+}
+
+function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
+    return (
+        <Stack direction="row" alignItems="center" spacing={0.25}>
+            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
+                {move.name}
+            </Typography>
+            {move.method === "egg" &&
+                <img src={getMoveMethodIconURL("egg")} height="20px" />
+            }
+            {/* {move.method === "egg" &&
+                <img src={getMoveMethodIconURL("mirror_herb")} height="20px" />
+            } */}
+            {move.method === "machine" &&
+                <img src={getMoveMethodIconURL(move.type)} height="20px" />
+            }
+        </Stack>
+    )
+}
+
+function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], prettyMode: boolean}) {
     return (
         <>
         {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
@@ -135,9 +186,7 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
                 </LeftCell>
                 <RightCell>
                     {prettyMode &&
-                        <Typography variant="body2">
-                            {value}
-                        </Typography>
+                        <MoveWithIcon move={findOptionFromMoveName(value, moveSet)} prettyMode={prettyMode} />
                     }
                     {!prettyMode &&
                         <Autocomplete
@@ -147,6 +196,9 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
                             size="small"
                             value={value || undefined}
                             options={options}
+                            renderOption={(props, option) => 
+                                <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet)} prettyMode={prettyMode} /></li>
+                            }
                             renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
                             onChange={(event: any, newValue: string) => {
                                 setValue(newValue);
@@ -158,14 +210,64 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
             </TableRow>
         }
         </>
-      )
-  }
+    )
+}
+
+function AbilityWithIcon({ability, prettyMode}: {ability: {name: AbilityName, hidden: boolean}, prettyMode: boolean}) {
+    return (
+        <Stack direction="row" alignItems="center" spacing={0.25}>
+            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
+                {ability.name}
+            </Typography>
+            {ability.hidden === true &&
+                <img src={getMoveMethodIconURL("ability_patch")} height="20px" />
+            }
+        </Stack>
+    )
+}
+
+function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean}) {
+    return (
+        <>
+        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+            <TableRow>
+                <LeftCell>
+                    {name}
+                </LeftCell>
+                <RightCell>
+                    {prettyMode &&
+                        <AbilityWithIcon ability={findOptionFromAbilityName(value, abilities)} prettyMode={prettyMode} />
+                    }
+                    {!prettyMode &&
+                        <Autocomplete
+                            disablePortal
+                            disableClearable
+                            autoHighlight={true}    
+                            size="small"
+                            value={value || undefined}
+                            options={options}
+                            renderOption={(props, option) => 
+                                <li {...props}><AbilityWithIcon ability={findOptionFromAbilityName(option || "(No Ability)", abilities)} prettyMode={prettyMode} /></li>
+                            }
+                            renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                            onChange={(event: any, newValue: string) => {
+                                setValue(newValue);
+                            }}
+                            sx = {{width: '80%'}}
+                        />
+                    }
+                </RightCell>
+            </TableRow>
+        }
+        </>
+    )
+}
 
 
-function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPokemon, prettyMode}: 
-        {gen: Generation, pokemon: Pokemon, abilities: string[], moveSet: string[], moveLearnTypes: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, prettyMode: boolean}) 
+
+function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}: 
+        {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
     {
-    console.log(prettyMode)
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
     const [genNatures, ] = useState([...gen.natures].map(nature => natureToOption(nature)).sort());
@@ -174,31 +276,34 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
     const [editStatsOpen, setEditStatsOpen] = useState(false);
     const [importExportOpen, setImportExportOpen] = useState(false);
 
-    const moveOptions = createMoveOptions(moveSet, moveLearnTypes);
-
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
             const newPokemon = {...pokemon};
             // @ts-ignore
             newPokemon[propName] = val;
-            setPokemon(new Pokemon(gen, newPokemon.name, {
-                level: newPokemon.level,
-                ability: newPokemon.ability,
-                nature: newPokemon.nature,
-                item: newPokemon.item,
-                ivs: newPokemon.ivs,
-                evs: newPokemon.evs,
-                moves: newPokemon.moves,
-                teraType: newPokemon.teraType,
-                bossMultiplier: newPokemon.bossMultiplier,
-            }))
+            setPokemon(new Raider(
+                newPokemon.id, 
+                newPokemon.role, 
+                new Pokemon(gen, newPokemon.name, {
+                    level: newPokemon.level,
+                    ability: newPokemon.ability,
+                    nature: newPokemon.nature,
+                    item: newPokemon.item,
+                    ivs: newPokemon.ivs,
+                    evs: newPokemon.evs,
+                    moves: newPokemon.moves,
+                    teraType: newPokemon.teraType,
+                    bossMultiplier: newPokemon.bossMultiplier,
+                }),
+                newPokemon.extraMoves,
+            ))
         }
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Pokemon(gen, val, {ability: "(No Ability)"}))
+        setPokemon(new Raider(pokemon.id, pokemon.role, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"})))
     }
-    
+
     return (
         <Box justifyContent="center" alignItems="top" width="300px">
             {!prettyMode &&
@@ -229,7 +334,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
             }
             {(!prettyMode && editStatsOpen && !importExportOpen) &&
                 <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 0 }}>
-                    <StatsControls gen={gen} pokemon={pokemon} setPokemon={setPokemon}/>    
+                    <StatsControls pokemon={pokemon} setPokemon={setPokemon}/>    
                 </Stack>
             }
             {(prettyMode || (!editStatsOpen && !importExportOpen)) &&
@@ -239,13 +344,21 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                             <TableBody>
                                 <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} prettyMode={prettyMode} />
                                 <SummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} prettyMode={prettyMode}/>
-                                <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={["(No Ability)", ...abilities]} prettyMode={prettyMode}/>
+                                {/* <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={["(No Ability)", ...abilities]} prettyMode={prettyMode}/> */}
+                                <AbilitySummaryRow 
+                                            name="Ability"
+                                            value={pokemon.ability || "(No Move)"} 
+                                            setValue={setPokemonProperty("ability")}
+                                            options={createAbilityOptions(abilities)}
+                                            abilities={abilities}
+                                            prettyMode={prettyMode}
+                                        /> 
                                 <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell>Level</LeftCell>
                                     <RightCell>
                                         {prettyMode &&
-                                            <Typography variant="body2">
+                                            <Typography variant="body1">
                                                 {pokemon.level}
                                             </Typography>
                                         }
@@ -279,7 +392,7 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell>EVs</LeftCell>
-                                    <RightCell>{evsToString(gen, pokemon)}</RightCell>
+                                    <RightCell>{evsToString(pokemon)}</RightCell>
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '5px'}} />
@@ -293,17 +406,17 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
                                 </TableRow>
                                 {
                                     [0,1,2,3].map((index) => {
-                                        return <SummaryRow 
+                                        return <MoveSummaryRow 
                                             key={index}
                                             name={index==0 ? "Moves" : ""}
-                                            value={findOptionFromMove(pokemon.moves[index], moveSet, moveLearnTypes) || "(No Move)"} 
+                                            value={pokemon.moves[index] || "(No Move)"} 
                                             setValue={(moveOption: string) => {
-                                                const move = optionToMove(moveOption);
                                                 const newMoves = [...pokemon.moves as string[]];
-                                                newMoves[index] = move;
+                                                newMoves[index] = moveOption;
                                                 setPokemonProperty("moves")(newMoves);
                                             }}
-                                            options={moveOptions}
+                                            options={createMoveOptions(moveSet)}
+                                            moveSet={moveSet}
                                             prettyMode={prettyMode}
                                         /> 
                                     })
@@ -317,31 +430,35 @@ function BuildControls({gen, pokemon, abilities, moveSet, moveLearnTypes, setPok
     )
 }
 
-export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves, setBossMoves, prettyMode}: 
-    {gen: Generation, pokemon: Pokemon, moveSet: string[], setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, bossMoves: string[], setBossMoves: React.Dispatch<React.SetStateAction<string[]>>, prettyMode: boolean}) 
+export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
+    {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
 {
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
         if (val < 1) val = 1;
         const newPokemon = {...pokemon};
         newPokemon.bossMultiplier = val;
-        setPokemon(new Pokemon(gen, newPokemon.name, {
-            level: newPokemon.level,
-            ability: newPokemon.ability,
-            nature: newPokemon.nature,
-            item: newPokemon.item,
-            ivs: newPokemon.ivs,
-            evs: newPokemon.evs,
-            moves: newPokemon.moves,
-            teraType: newPokemon.teraType,
-            bossMultiplier: newPokemon.bossMultiplier,
-        }))
+        setPokemon(new Raider(pokemon.id, pokemon.role,
+            new Pokemon(gen, newPokemon.name, {
+                level: newPokemon.level,
+                ability: newPokemon.ability,
+                nature: newPokemon.nature,
+                item: newPokemon.item,
+                ivs: newPokemon.ivs,
+                evs: newPokemon.evs,
+                moves: newPokemon.moves,
+                teraType: newPokemon.teraType,
+                bossMultiplier: newPokemon.bossMultiplier,
+            }),
+            pokemon.extraMoves,
+        ));
     }
 
     const setBMove = (index: number) => (move: string) => {
-        const newMoves = [...bossMoves];
-        newMoves[index] = move;
-        setBossMoves(newMoves);
+        const newPoke = pokemon.clone();
+        //@ts-ignore
+        newPoke.extraMoves[index] = move;
+        setPokemon(newPoke);
     }
 
     return (
@@ -354,7 +471,7 @@ export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves,
                                 <LeftCell>HP Multiplier (%)</LeftCell>
                                 <RightCell>
                                     {prettyMode &&
-                                        <Typography variant="body2">
+                                        <Typography variant="body1">
                                             {pokemon.bossMultiplier}
                                         </Typography>
                                     }
@@ -378,12 +495,14 @@ export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves,
                             </TableRow>
                             {
                                 [0,1,2,3].map((index) => {
-                                    return <SummaryRow 
+                                    return <MoveSummaryRow 
                                         key={index}
                                         name={index==0 ? "Extra Moves" : ""}
-                                        value={bossMoves[index] || "(No Move)"}
+                                        // @ts-ignore
+                                        value={pokemon.extraMoves[index] || "(No Move)"}
                                         setValue={setBMove(index)}
-                                        options={["(No Move)", ...moveSet]}
+                                        options={createMoveOptions(moveSet)}
+                                        moveSet={moveSet}
                                         prettyMode={prettyMode}
                                     /> 
                                 })
@@ -397,4 +516,4 @@ export function BossBuildControls({gen, moveSet, pokemon, setPokemon, bossMoves,
     )
 }
 
-export default BuildControls;
+export default React.memo(BuildControls);

@@ -20,6 +20,7 @@ export namespace State {
     boosts?: Partial<I.StatsTable>;
     originalCurHP?: number;
     status?: I.StatusName | '';
+    volatileStatus?: string[];
     teraType?: I.TypeName;
     toxicCounter?: number;
     moves?: I.MoveName[];
@@ -86,5 +87,6 @@ export namespace State {
     isCharged?: boolean;
     isMist?: boolean;
     isSafeguard?: boolean;
+    isAromaVeil?: boolean;
   }
 }

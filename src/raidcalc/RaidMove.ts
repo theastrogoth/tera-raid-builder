@@ -1,8 +1,9 @@
 import { Move, Field, Pokemon, StatsTable, StatID, Generations, calculate} from "../calc";
 import { getEndOfTurn } from "../calc/desc";
 import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
-import { AbilityName, StatusName, Terrain, Weather } from "../calc/data/interface";
-import { getMoveEffectiveness } from "../calc/mechanics/util";
+import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
+import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat } from "../calc/mechanics/util";
+import { diff } from "jest-diff";
 
 // next time I prepare the move data, I should eliminate the need for translation
 function ailmentToStatus(ailment: AilmentName): StatusName | "" {
@@ -89,12 +90,13 @@ export class RaidMove {
 
     _boosts!: Partial<StatsTable>[];
 
-    _damage!: number[][];
-    _healing!: number[][];
-    _drain!: number[][];
+    _damage!: number[];
+    _healing!: number[];
+    _drain!: number[];
     _eot!: ({damage: number, texts: string[]} | undefined)[];
 
     _desc!: string[];
+    _flags!: string[][];
 
     constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions) {
         this.move = move;
@@ -118,19 +120,25 @@ export class RaidMove {
         this.applyAilment();
         this.applyFieldChanges();
         this.applyDamage();
-        this.applyItemEffects();        // 
+        this.applyItemEffects();        
         this.applyUniqueMoveEffects();
         this.applyAbilityEffects();
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
         this.applyItemEffects();
+        this.setFlags();
+        this._user.lastMove = this.moveData;
+        this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
         return {
             state: this._raidState,
+            userID: this.userID,
+            targetID: this.targetID,
             damage: this._damage,
             drain: this._drain,
             healing: this._healing,
             eot: this._eot,
             desc: this._desc,
+            flags: this._flags,
         }
     }
 
@@ -139,20 +147,21 @@ export class RaidMove {
         this._raiders = this._raidState.raiders;
         this._fields = this._raidState.fields;
         this._user = this._raiders[this.userID];
+        this._flags=[[],[],[],[],[]];
     }
 
     private setAffectedPokemon() {
         const targetType = this.moveData.target;
         if (targetType == "user") { this._affectedIDs = [this.userID]; }
         else if (targetType == "selected-pokemon" || targetType == "all-opponents") { this._affectedIDs = [this.targetID]; }
-        else if (targetType == "all-allies") { this._affectedIDs = [0,1,2,3].splice(this.userID, 1); }
-        else if (targetType == "user-and-allies") { this._affectedIDs = [0,1,2,3]; }
+        else if (targetType == "all-allies") { this._affectedIDs = [1,2,3,4].splice(this.userID, 1); }
+        else if (targetType == "user-and-allies") { this._affectedIDs = [1,2,3,4]; }
         else { this._affectedIDs = [this.targetID]; }
     }
 
     private getMoveField(atkID:number, defID: number) {
         const moveField = this.raidState.fields[atkID].clone();
-        moveField.defenderSide = this.raidState.fields[defID].defenderSide.clone();
+        moveField.defenderSide = this.raidState.fields[defID].attackerSide.clone();
         return moveField;
     }
 
@@ -161,8 +170,16 @@ export class RaidMove {
     }
 
     private setDamage() {
-        this._damage = [[0],[0],[0],[0],[0]];
+        this._damage = [0,0,0,0,0];
         this._desc = ['','','','',''];
+        const moveUser = this.getPokemon(this.userID);
+        if ((this._fields[this.userID].terrain === "Electric" && moveUser.ability === "Quark Drive")  ||
+            (this._fields[this.userID].weather === "Sun" && moveUser.ability === "Protosynthesis")
+        ) {
+            moveUser.abilityOn = true;
+            const qpStat = getQPBoostedStat(moveUser) as StatIDExceptHP;
+            moveUser.boostedStat = qpStat;
+        }
         for (let id of this._affectedIDs) {
             const target = this.getPokemon(id);
             const moveField = this.getMoveField(this.userID, id);
@@ -171,38 +188,50 @@ export class RaidMove {
             const calcMove = this.move.clone();
             calcMove.hits = hits || 1;
             calcMove.isCrit = crit;
-            console.log(this._user, target, calcMove, moveField)
-            const result = calculate(9, this._user, target, calcMove, moveField);
-            this._damage[id] = typeof(result.damage) == "number" ? [result.damage] : result.damage as number[]; // TODO: find out when result.damage is a number[][]
+            const result = calculate(9, moveUser, target, calcMove, moveField);
+            const damageResult = result.damage;
+            let damage = 0;
+            const roll = this.options.roll || "avg";
+            if (typeof(damageResult) === "number") {
+                damage = damageResult;
+            } else {
+                //@ts-ignore
+                damage = roll === "max" ? damageResult[damageResult.length-1] : roll === "min" ? damageResult[0] : damageResult[Math.floor(damageResult.length/2)];
+            }
+            this._damage[id] = damage;
             this._desc[id] = result.desc();
+        }
+        if (this.moveData.category?.includes("damage")) {
+            this._fields[this.userID].attackerSide.isHelpingHand = false;
         }
     }
 
     private setDrain() { // this also accounts for recoil
-        this._drain = [[0],[0],[0],[0],[0]]
+        this._drain = [0,0,0,0,0]
         const drainPercent = this.moveData.drain;
         if (drainPercent) {
             // draining moves should only ever hit a single target in raids
-            for (let i=0; i<this._damage.length; i++) {
-                if (this._damage[i].length) {
-                    this._drain[this.userID] = this._damage[i].map(d => Math.floor(d * drainPercent/100));
-                    break;
-                }
+            if (this._damage) {
+                this._drain[this.userID] = Math.floor(this._damage[this.userID] * drainPercent/100);
             }
+            
         }
     }
 
     private setHealing() {
-        this._healing = [[0],[0],[0],[0],[0]];
+        this._healing = [0,0,0,0,0];
         const healingPercent = this.moveData.healing;
         for (let id of this._affectedIDs) {
             const target = this.getPokemon(id);
             const maxHP = target.maxHP();
             if (this.move.name == "Heal Cheer") {
-                this._healing[id] = [Math.floor(maxHP * 0.2), maxHP];
+                const roll = this.options.roll || "avg";
+                this._healing[id] = roll === "min" ? Math.floor(maxHP * 0.2) : roll === "max" ? maxHP : Math.floor(maxHP * 0.6);
+                const pokemon = this.getPokemon(id);
+                pokemon.status = "";
             } else {
                 const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100);
-                this._healing[id] = [healAmount];
+                this._healing[id] = healAmount;
             }
         }
     }
@@ -212,13 +241,12 @@ export class RaidMove {
         const category = this.moveData.category;
         const affectedIDs = category == "damage+raise" ? [this.userID] : this._affectedIDs;
         const statChanges = this.moveData.statChanges;
-        console.log(this.moveData, statChanges, affectedIDs)
         const chance = this.moveData.statChance || 100;
         if (this.options.secondaryEffects || chance === 100 ) {
             for (let id of affectedIDs) {
                 const pokemon = this.getPokemon(id);
-                console.log(pokemon.boosts)
                 const field = this._fields[id];
+                if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
                 // handle Contrary and Simple
                 const boostCoefficient = pokemon.ability == "Contrary" ? -1 : pokemon.ability == "Simple" ? 2 : 1;
                 for (let statChange of (statChanges || [])) {
@@ -231,7 +259,6 @@ export class RaidMove {
                         change = statChange.value * boostCoefficient;
                     }
                     if (Number.isNaN(change)) { console.log("Stat change info for " + this.moveData.name + " is missing."); continue; }
-                    console.log(statChange, stat, statChange.change, change)
                     if (change < 0 && (field.attackerSide.isProtected || (field.attackerSide.isMist && id !== this.userID))) {
                         continue;
                     }
@@ -247,7 +274,6 @@ export class RaidMove {
                             this._boosts[id][stat] = diff;
                         }
                     }
-                    console.log(pokemon.boosts)
                 }
             }
         }
@@ -260,22 +286,48 @@ export class RaidMove {
             for (let id of this._affectedIDs) {
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];
-                // Type-based immunities (?)
-                if (ailment == "burn" && pokemon.types.includes("Fire")) { continue; }
-                if (ailment == "freeze" && pokemon.types.includes("Ice")) { continue; }
-                if (ailment == "poison" || ailment == "toxic" && pokemon.types.includes("Poison") || pokemon.types.includes("Steel")) { continue; }
-                if (!(field.attackerSide.isProtected || field.attackerSide.isSafeguard)
-                    && (hasNoStatus(pokemon))) 
-                { 
-                     pokemon.status = ailmentToStatus(ailment);
+                const status = ailmentToStatus(ailment);
+                if (status === "") {
+                    // Aroma Veil
+                    if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation"].includes(ailment)) {
+                        continue;
+                    // Own Tempo
+                    } else if (pokemon.ability === "Own Tempo" && ailment === "confusion") {
+                        continue;
+                    // Oblivious
+                    } else if (pokemon.ability === "Oblivious" && (ailment === "taunt" || ailment === "infatuation")) {
+                        continue;
+                    } else if (!pokemon.volatileStatus.includes(ailment)) {
+                        pokemon.volatileStatus.push!(ailment)
+                        this._flags[id].push(ailment + " inflicted")
+                    }
+                } else {
+                    if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
+                    // Type-based immunities (?)
+                    if (ailment === "burn" && pokemon.types.includes("Fire")) { continue; }
+                    if (ailment === "freeze" && pokemon.types.includes("Ice")) { continue; }
+                    if ((ailment === "poison" || ailment === "toxic") && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel") || pokemon.ability === "Immunity")) { continue; }
+                    if ((ailment === "paralysis" && pokemon.ability === "Limber")) { continue; }
+                    if (ailment === "sleep" && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
+                    if (ailment === "freeze" && pokemon.ability === "Magma Armor") { continue; }
+
+                    if (!(field.attackerSide.isProtected || field.attackerSide.isSafeguard || field.hasTerrain("Misty"))
+                        && (hasNoStatus(pokemon))) 
+                    { 
+                        pokemon.status = ailmentToStatus(ailment);
+                    }
                 }
             }
         }
     }
 
     private setSelfDamage() {
-        const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0));
-        this._damage[this.userID] = this._damage[this.userID].map(d => d + selfDamage);
+        const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0) / 100);
+        if (selfDamage !== 0) {
+            const selfDamagePercent = this.moveData.selfDamage;
+            this._flags[this.userID].push!(selfDamagePercent + "% self damage from " + this.moveData.name + ".")
+            this._damage[this.userID] = this._damage[this.userID] + selfDamage;
+        }
     }
 
     private applyFieldChanges() {
@@ -405,8 +457,10 @@ export class RaidMove {
                         break;
                     case "White Herb":
                         for (let stat in fl_target.boosts) {
+                            let whiteHerbUsed = false;
                             // @ts-ignore
-                            if (fl_target.boosts[stat] < 0) { fl_target.boosts[stat] = 0; }
+                            if (fl_target.boosts[stat] < 0) { fl_target.boosts[stat] = 0; this._boosts[targetID][stat] = 0; whiteHerbUsed = true; }
+                            if ( whiteHerbUsed ) { fl_target.item = undefined; }
                         }
                         break;
                     // Status-Curing Berries
@@ -430,30 +484,49 @@ export class RaidMove {
                         break;
                     // Stat-Boosting Berries
                     case "Liechi Berry":
+                        const origAtk = fl_target.boosts.atk;
                         fl_target.boosts.atk = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        this._boosts[this.targetID].atk = this._boosts[this.targetID].atk || 0 + fl_target.boosts.atk - origAtk;
                         break;
                     case "Ganlon Berry":
-                        fl_target.boosts.def = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        const origDef = fl_target.boosts.def;
+                        fl_target.boosts.def = Math.max(-6, Math.min(6, fl_target.boosts.def + boostCoefficient));
+                        this._boosts[this.targetID].def = this._boosts[this.targetID].def || 0 + boostCoefficient - origDef;
                         break;
                     case "Petaya Berry":
-                        fl_target.boosts.spa = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        const origSpa = fl_target.boosts.spa;
+                        fl_target.boosts.spa = Math.max(-6, Math.min(6, fl_target.boosts.spa + boostCoefficient));
+                        this._boosts[this.targetID].spa = this._boosts[this.targetID].spa || 0 + boostCoefficient - origSpa;
                         break;
                     case "Apicot Berry":
-                        fl_target.boosts.spd = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        const origSpd = fl_target.boosts.spd;
+                        fl_target.boosts.spd = Math.max(-6, Math.min(6, fl_target.boosts.spd + boostCoefficient));
+                        this._boosts[this.targetID].spd = this._boosts[this.targetID].spd || 0 + boostCoefficient - origSpd;
                         break;
                     case "Salac Berry":
-                        fl_target.boosts.spe = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        const origSpe = fl_target.boosts.spe;
+                        fl_target.boosts.spe = Math.max(-6, Math.min(6, fl_target.boosts.spe + boostCoefficient));
+                        this._boosts[this.targetID].spe = this._boosts[this.targetID].spe || 0 + boostCoefficient - origSpe;
                         break;
                     // Healing Berries
                     case "Sitrus Berry":
-                        for (let heal in this._healing[this.targetID]) {
-                            heal += Math.floor(fl_target.maxHP() / 4);
-                        }
+                        this._healing[this.targetID] += Math.floor(fl_target.maxHP() / 4);
                         break;
                     default: break;
                     }
                 break;
             // other
+            case "Endure":
+                this._user.isEndure = true;
+                break;
+            case "Psych Up":
+                const pu_target = this.getPokemon(this.targetID);
+                for (let stat in pu_target.boosts) {
+                    // @ts-ignore
+                    this._user.boosts[stat] = pu_target.boosts[stat];
+                    this._boosts[this.userID] = {...pu_target.boosts};
+                }
+                break;
             case "Power Swap":
                 const ps_target = this.getPokemon(this.targetID);
                 const tempUserAtkBoosts = this._user.boosts;
@@ -492,7 +565,7 @@ export class RaidMove {
         if (this.move.type === "Dark") {
             for (let id of this._affectedIDs) {
                 const pokemon = this.getPokemon(id);
-                if (pokemon.ability === "Justified" && this._damage[id][0]>0) { 
+                if (pokemon.ability === "Justified" && this._damage[id]>0) { 
                     pokemon.boosts.atk = Math.min(6, pokemon.boosts.atk + this.move.hits); 
                 }
             }
@@ -507,7 +580,7 @@ export class RaidMove {
         // Weak Armor
         for (let id of this._affectedIDs) {
             const pokemon = this.getPokemon(id);
-            if (this._damage[id][0] > 0 && pokemon.ability === "Weak Armor") {
+            if (this._damage[id] > 0 && pokemon.ability === "Weak Armor") {
                 pokemon.boosts.def = Math.max(-6, pokemon.boosts.def - 1);
                 pokemon.boosts.spe = Math.min(6, pokemon.boosts.spe + 2);
             }
@@ -520,7 +593,7 @@ export class RaidMove {
         for (let id of this._affectedIDs) {
             const pokemon = this.getPokemon(id);
             if (pokemon.item === "Focus Sash") {
-                if (this._damage[id][0] >= pokemon.maxHP() && this.raidState.raiders[id].originalCurHP === pokemon.maxHP()) { 
+                if (this._damage[id] >= pokemon.maxHP() && this.raidState.raiders[id].originalCurHP === pokemon.maxHP()) { 
                     pokemon.item = undefined; 
                     pokemon.originalCurHP = 1;
                 }
@@ -533,10 +606,16 @@ export class RaidMove {
                 let changed = false;
                 for (let stat in bossBoosts) {
                     // @ts-ignore
-                    if (bossBoosts[stat] !== 0) { 
+                    if (bossBoosts[stat] > 0) { 
                         changed = true;
                         // @ts-ignore
+                        const origStat = pokemon.boosts[stat];
+                        // @ts-ignore
                         pokemon.boosts[stat] = Math.max(-6, Math.min(6, pokemon.boosts[stat] + bossBoosts[stat])); }
+                        // @ts-ignore
+                        const diff = pokemon.boosts[stat] - origStat;
+                        // @ts-ignore
+                        this._boosts[stat] = this._boosts[stat] || 0 + diff;
                 }
                 if (changed) { pokemon.item = undefined; } // the herb is consumed if a boost is copied.
             }
@@ -545,12 +624,19 @@ export class RaidMove {
         //  TO DO - abilities that let users use berries more than once
         for (let id of this._affectedIDs) {
             const pokemon = this.getPokemon(id);
-            if (this._damage[id][0] > 0 && isSuperEffective(this.move, this._fields[id], this._user, pokemon)) {
+            if (this._damage[id] > 0 && isSuperEffective(this.move, this._fields[id], this._user, pokemon)) {
                 switch (pokemon.item) {
                     case "Weakness Policy":
-                        pokemon.boosts.atk = Math.min(6, pokemon.boosts.atk + 2);
-                        pokemon.boosts.spa = Math.min(6, pokemon.boosts.spa + 2);
+                        const isSimple = pokemon.ability === "Simple";
+                        const isContrary = pokemon.ability === "Contrary";
+                        const boostCoefficient = isSimple ? 2 : isContrary ? -1 : 1;
+                        const origAtk = pokemon.boosts.atk;
+                        const origSpa = pokemon.boosts.spa;
+                        pokemon.boosts.atk = Math.max(-6, Math.min(6, pokemon.boosts.atk + 2 * boostCoefficient));
+                        pokemon.boosts.spa = Math.max(-6, Math.min(6, pokemon.boosts.spa + 2 * boostCoefficient));
                         pokemon.item = undefined;
+                        this._boosts[id].atk = this._boosts[id].atk || 0 + pokemon.boosts.atk - origAtk;
+                        this._boosts[id].spa = this._boosts[id].spa || 0 + pokemon.boosts.spa - origSpa;
                         break;
                     case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
                         if (this.move.type === "Fire") { pokemon.item = undefined; }
@@ -606,6 +692,9 @@ export class RaidMove {
                     default: break;
                 }
             }
+            if (pokemon.item === "Chiban Berry" && id !== this.userID && this._damage[id] > 0 && this.move.type === "Normal") {
+                pokemon.item = undefined;
+            }
         }
         // Ailment-inducing Items
         if (hasNoStatus(this._user)) {
@@ -644,7 +733,7 @@ export class RaidMove {
         }
         // Other Berry Consumption
         for (let i=0; i<5; i++) {
-            if (this._damage[i][0] > 0) {
+            if (this._damage[i] > 0) {
                 if (this._raiders[i].item === "Sitrus Berry" && this._raiders[i].originalCurHP <= Math.floor(this._raiders[i].maxHP() / 2)) {
                     this._raiders[i].item = undefined;
                     this._raiders[i].originalCurHP += Math.floor(this._raiders[i].maxHP() / 4);
@@ -654,7 +743,45 @@ export class RaidMove {
         // Booster Energy
         if (this._user.item === "Booster Energy" && (this._user.ability === "Protosynthesis" || this._user.ability === "Quark Drive")) {
             this._user.abilityOn = true;
+            const qpStat = getQPBoostedStat(this._user) as StatIDExceptHP;
+            this._user.boostedStat = qpStat;
             this._user.item = undefined;
+        }
+        // Symbiosis
+        let lostItemId = -1;
+        for (let i=0; i<5; i++) {
+            if (this._raiders[i].item === undefined && this.raidState.raiders[i].item !== undefined) {
+                lostItemId = i;
+                break;
+            }
+        }
+        if (lostItemId >=0) {
+            const lostItemPokemon = this.getPokemon(lostItemId);
+            const symbiosisIds: number[] = []
+            for (let id=0; id<5; id++) {
+                if (id !== lostItemId && this.getPokemon(id).ability === "Symbiosis") {
+                    symbiosisIds.push(id);
+                }
+            }
+            if (symbiosisIds.length > 0) {
+                // speed check for symbiosis
+                let fastestSymbId = symbiosisIds[0];
+                let fastestSymbPoke = this.getPokemon(fastestSymbId);
+                let fastestSymbSpeed = getModifiedStat(fastestSymbPoke.stats.spe, fastestSymbPoke.boosts.spe, gen);
+                for (let i=1; i<symbiosisIds.length; i++) {
+                    const poke = this.getPokemon(symbiosisIds[i]);
+                    const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
+                    const field = this._fields[i];
+                    if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
+                        fastestSymbId = symbiosisIds[i];
+                        fastestSymbPoke = poke;
+                        fastestSymbSpeed = speed;
+                    } 
+                }
+                // symbiosis item transfer
+                lostItemPokemon.item = fastestSymbPoke.item;
+                fastestSymbPoke.item = undefined;
+            }
         }
         // ???
     }
@@ -671,34 +798,27 @@ export class RaidMove {
             const defender = this.getPokemon(defID)
             const atk_eot = getEndOfTurn(gen, attacker, defender, dummyMove, this.getMoveField(attacker.id, defender.id));
             const def_eot = getEndOfTurn(gen, defender, attacker, dummyMove, this.getMoveField(defender.id, attacker.id));
-            this._eot[atkID] = atk_eot;
-            this._eot[defID] = def_eot;
+            this._eot[defID] = atk_eot;
+            this._eot[atkID] = def_eot;
         }
     }
 
     private applyDamage() {
         const roll = this.options.roll || "avg";
-        for (let id of this._affectedIDs) {
+        for (let id=0; id<5; id++) {
             const pokemon = this.getPokemon(id);
-            let damage = 0;
-            let drain = 0;
-            let healing = 0;
-            if (roll === "min") {
-                damage = this._damage[id][0];
-                drain = this._drain[id][0];
-                healing = this._healing[id][0];
-            } else if (roll === "max") {
-                damage = this._damage[id][this._damage[id].length - 1];
-                drain = this._drain[id][this._drain[id].length - 1];
-                healing = this._healing[id][this._healing[id].length - 1];
-            } else {
-                damage = Math.floor(this._damage[id].reduce((a,b) => a+b, 0) / this._damage[id].length);
-                drain = Math.floor(this._drain[id].reduce((a,b) => a+b, 0) / this._drain[id].length);
-                healing = Math.floor(this._healing[id].reduce((a,b) => a+b, 0) / this._healing[id].length);
-            }
+            const damage = this._damage[id];
+            const drain = this._drain[id];
+            const healing = this._healing[id];
             pokemon.originalCurHP = Math.max(0, pokemon.originalCurHP - damage);
+            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
+                pokemon.originalCurHP = 1;
+            }
             if (pokemon.originalCurHP !== 0) {
                 pokemon.originalCurHP = Math.min(pokemon.maxHP(), Math.max(0, pokemon.originalCurHP + drain));
+            }
+            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
+                pokemon.originalCurHP = 1;
             }
             if (pokemon.originalCurHP !== 0) {
                 pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + healing);
@@ -709,8 +829,85 @@ export class RaidMove {
     private applyEndOfTurnDamage() {
         for (let i=0; i<5; i++) {
             const pokemon = this.getPokemon(i);
-            if (this._eot[i] !== undefined && pokemon.originalCurHP !== 0) {
-                pokemon.originalCurHP = Math.min(pokemon.maxHP(), Math.max(0, pokemon.originalCurHP + this._eot[i]!.damage));
+            const damage = this._eot[i] ? -this._eot[i]!.damage : 0;
+            if (damage > 0 && pokemon.originalCurHP > 0) {
+                pokemon.originalCurHP = Math.max(0, pokemon.originalCurHP - damage);
+            } 
+            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
+                pokemon.originalCurHP = 1;
+            }
+            if (damage < 0 && pokemon.originalCurHP > 0 && pokemon.originalCurHP < pokemon.maxHP()) {
+                pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP - damage);
+            }
+        }
+    }
+
+    private setFlags() {
+        // check for item changes
+        const initialItems = this.raidState.raiders.map(p => p.item);
+        const finalItems = this._raiders.map(p => p.item);
+        for (let i=0; i<5; i++) {
+            if (initialItems[i] !== finalItems[i]) {
+                if (finalItems[i] === undefined) {
+                    this._flags[i].push(initialItems[i] + " lost")
+                } else {
+                    this._flags[i].push(initialItems[i] + " replaced with " + finalItems[i])
+                }
+            }
+        }
+        // check for ability triggers
+        const initialAbilityOn = this.raidState.raiders.map(p => p.abilityOn);
+        const finalAbilityOn = this._raiders.map(p => p.abilityOn);
+        for (let i=0; i<5; i++) {
+            if (initialAbilityOn[i] !== finalAbilityOn[i]) {
+                if (finalAbilityOn[i]) {
+                    this._flags[i].push(this._raiders[i].ability + " activated");
+                } else {
+                    this._flags[i].push(this._raiders[i].ability + " deactivated");
+                }
+            }
+        }
+        // check for status changes
+        const initialStatus = this.raidState.raiders.map(p => p.status);
+        const finalStatus = this._raiders.map(p => p.status);
+        for (let i=0; i<5; i++) {
+            if (initialStatus[i] !== finalStatus[i]) {
+                if (finalStatus[i] === "" || finalStatus[i] === undefined) {
+                    this._flags[i].push(initialStatus[i] + " cured")
+                } else {
+                    this._flags[i].push(finalStatus[i] + " inflicted")
+                }
+            }
+        }
+        // check for stat changes
+        for (let i=0; i<5; i++) {
+            const pokemon = this.getPokemon(i);
+            const origPokemon = this.raidState.raiders[i];
+            let boostStr: string[] = [];
+            for (let stat in pokemon.boosts) {
+                //@ts-ignore
+                const origStat = origPokemon.boosts[stat];
+                //@ts-ignore
+                const newStat = pokemon.boosts[stat] === undefined ? origStat : pokemon.boosts[stat];
+                const diff = newStat - origStat;
+                if (diff !== 0) {
+                    boostStr.push(stat + " " + (origStat > 0 ? "+" : "") + origStat + " -> " + (newStat > 0 ? "+" : "") + newStat);
+                }
+            }
+            if (boostStr.length > 0) {
+                const displayStr = "Stat changes: (" + boostStr.join(", ") + ")";
+                this._flags[i].push(displayStr);
+            }
+        }
+        // check for HP changes
+        for (let i=0; i<5; i++) {
+            const initialHP = this.raidState.raiders[i].originalCurHP;
+            const finalHP = this._raiders[i].originalCurHP;
+            if (initialHP !== finalHP) {
+                const initialPercent = Math.floor(initialHP / this.raidState.raiders[i].maxHP() * 100);
+                const finalPercent = Math.floor(finalHP / this._raiders[i].maxHP() * 1000)/10;
+                const hpStr = "HP: " + initialPercent + "% -> " + finalPercent + "%";
+                this._flags[i].push(hpStr);
             }
         }
     }

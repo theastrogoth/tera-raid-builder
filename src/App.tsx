@@ -1,10 +1,11 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/material/styles';
@@ -14,23 +15,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import PokemonSummary from './uicomponents/PokemonSummary.tsx';
 import BossSummary from './uicomponents/BossSummary.tsx';
 import Navbar from './uicomponents/Navbar.tsx';
-
-import {calculate, Generations, Pokemon, Move, Field, State} from './calc/index.ts';
-import { MoveName } from './calc/data/interface.ts';
-import { Raider } from './raidcalc/interface.ts';
-import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 import RaidControls from './uicomponents/RaidControls.tsx';
+import LinkButton from './uicomponents/LinkButton.tsx';
 
-const defaultBossName = "Delphox";
-const defaultBossSet = BOSS_SETDEX_SV.Delphox['7⭐event'] as Partial<State.Pokemon>;
+import { Generations, Pokemon, Field} from './calc/index.ts';
+import { MoveName } from './calc/data/interface.ts';
+import { Raider, RaidBattleInfo, RaidState } from './raidcalc/interface.ts';
+import TitleField from './uicomponents/TitleField.tsx';
 
-const defaultRaiderName = "Corviknight";
-const defaultRaiderSet: Partial<State.Pokemon> = { 
-  level: 100,
-  nature: "Hardy",
-  // @ts-ignore
-  ability: "(No Ability)",
-}
+// import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -47,6 +40,46 @@ function App() {
       },
       secondary: {
         main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+      },
+      //@ts-ignore
+      group0: {
+        main: lightMode === "dark" ? "#571b20" : "#f7b5ba",
+      },
+      //@ts-ignore
+      group1: {
+        main: lightMode === "dark" ? "#144e52" : "#c5e6e8"
+      },
+      //@ts-ignore
+      group2: {
+        main: lightMode === "dark" ? "#205220" : "#b0f5b0"
+      },
+      //@ts-ignore
+      group3: {
+        main: lightMode === "dark" ? "#443769" : "#ccbff5",
+      },
+      //@ts-ignore
+      group4: {
+        main: lightMode === "dark" ? "#c79240" : "#ffe0b0"
+      },
+      //@ts-ignore
+      group5: {
+        main: lightMode === "dark" ? "#5fa116" : "#d7faaf"
+      },
+      //@ts-ignore
+      group6: {
+        main: lightMode === "dark" ? "#993f64" : "#fccce1"
+      },
+      //@ts-ignore
+      group7: {
+        main: lightMode === "dark" ? "#4f4215": "#d4caa7"
+      },
+      //@ts-ignore
+      group8: {
+        main: lightMode === "dark" ? "#520438": "#c4b1be"
+      },
+      //@ts-ignore
+      group9: {
+        main: lightMode === "dark" ? "#363336": "#b3b3b3"
       },
     },
     typography: {
@@ -68,91 +101,133 @@ function App() {
 
   const gen = Generations.get(9); 
 
-  const [raidBoss, setRaidBoss] = useState(new Pokemon(gen, defaultBossName, defaultBossSet))
-  // const [pokemon1, setPokemon1] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, defaultRaiderName, defaultRaiderSet))
-  
-  // const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Stonjourner", {...defaultRaiderSet, item: "Focus Sash"}))
-  // const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Meowscarada", {...defaultRaiderSet, item: "Focus Sash", moves: ["Flower Trick"]}))
-  // const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Klefki", {...defaultRaiderSet, item: "Focus Sash", moves: ["Sunny Day"], ability: "Prankster"}))
-  // const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Tauros-Paldea-Blaze-Breed", {...defaultRaiderSet, item: "Choice Band", moves: ["Flare Blitz"], ability: "Anger Point", nature: "Jolly", evs: {atk: 252}}))
-  
-  const [pokemon1, setPokemon1] = useState(new Pokemon(gen, "Tinkaton", {...defaultRaiderSet, item: "Life Orb", nature: "Adamant", evs: {atk: 252, spe: 252}, moves: ["Swords Dance", "Gigaton Hammer"]}))
-  const [pokemon2, setPokemon2] = useState(new Pokemon(gen, "Pelipper", {...defaultRaiderSet, ability: "Drizzle", nature: "Calm", evs: {hp: 252, spd: 252}, moves: ["Helping Hand"]}))
-  const [pokemon3, setPokemon3] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Careful", evs: {hp: 252, spd: 252}, moves: ["Screech"], }))
-  const [pokemon4, setPokemon4] = useState(new Pokemon(gen, "Corviknight", {...defaultRaiderSet, item: "Zoom Lens", nature: "Careful", evs: {hp: 252, spd: 252}, moves: ["Screech"], }))
- 
-  const [bossRole, setBossRole] = useState("Raid Boss");
-  const [role1, setRole1] = useState("Raider #1");
-  const [role2, setRole2] = useState("Raider #2");
-  const [role3, setRole3] = useState("Raider #3");
-  const [role4, setRole4] = useState("Raider #4");
+  const defaultRaiders = [
+    new Raider(0, "Raid Boss", new Pokemon(gen, "Rillaboom", {
+      teraType: "Normal",
+      bossMultiplier: 3500,
+      nature: "Naughty",
+      ability: "Grassy Surge",
+      moves: ["Take Down", "Wood Hammer", "Acrobatics", "Drum Beating"]
+    }), ["Noble Roar", "Taunt", "Boomburst", "Body Slam"] as MoveName[]),
+    new Raider(1, "Raider #1", new Pokemon(gen, "Lucario", {
+      nature: "Modest",
+      ability: "(No Ability)",
+      moves: ["Nasty Plot", "Focus Blast"],
+      item: "Weakness Policy",
+      evs: {hp: 252, spa: 252},
+    })),
+    new Raider(2, "Raider #2", new Pokemon(gen, "Dachsbun", {
+      nature: "Bold",
+      ability: "Aroma Veil",
+      moves: ["Helping Hand"],
+      evs: {hp: 252, def: 252},
+    })),
+    new Raider(3, "Raider #3", new Pokemon(gen, "Corviknight", {
+      nature: "Relaxed",
+      ability: "(No Ability)",
+      moves: ["Defog", "Fake Tears"],
+      evs: {hp: 252, def: 252},
+    })),
+    new Raider(4, "Raider #4", new Pokemon(gen, "Corviknight", {
+      nature: "Relaxed",
+      ability: "(No Ability)",
+      moves: ["Defog", "Fake Tears"],
+      evs: {hp: 252, def: 252},
+    })),
+  ];
 
-  const [bossMoves, setBossMoves] = useState([] as MoveName[]);
-
-  const roles = [bossRole, role1, role2, role3, role4]
-  const raiders = [
-    raidBoss,
-    pokemon1,
-    pokemon2,
-    pokemon3,
-    pokemon4
-  ].map((pokemon, index) => {
-    const raider = new Raider(index, roles[index], bossMoves, pokemon);
-    raider.id = index;
-    raider.role = roles[index];
-    return raider
+  const [info, setInfo] = useState<RaidBattleInfo>({
+    name: "",
+    startingState: new RaidState(defaultRaiders, defaultRaiders.map((r) => new Field())),
+    turns: [
+      {
+        id: 0, 
+        moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
+        bossMoveInfo: {userID: 0, targetID: 1, options: {crit: false, secondaryEffects: false, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
+      }
+    ],
+    groups: [],
   })
 
-  console.log(prettyMode)
+  const raiders = info.startingState.raiders;
+
+  const setRaiders = (raiders: Raider[]) => {
+    setInfo({
+      ...info,
+      startingState: new RaidState(raiders, info.startingState.fields.map((f) => f.clone())),
+    })
+  }
+
+  const setPokemon = (index: number) => (r: Raider) => {
+    const newRaiders = [...raiders];
+    newRaiders[index] = r;
+    setRaiders(newRaiders);
+  }
+
   return (
-    <ThemeProvider theme={theme}>      
+  <ThemeProvider theme={theme}> 
+    <Box sx= {{ p: 1}}>  
       <CssBaseline />
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
-      <Grid container component='main' justifyContent="left" sx={{ my: 1 }}>
-        <Grid item >
-          {/* <PokemonSummary gen={gen} pokemon={raidBoss} setPokemon={setRaidBoss} role="Raid Boss" /> */}
+    </Box>
+    <Stack direction="row">
+      <Stack direction="column" justifyContent="center">
+        <Grid container justifyContent="center" sx={{ my: 1 }}>
+          <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
+            <TitleField info={info} setInfo={setInfo} prettyMode={prettyMode} />
+          </Grid>
         </Grid>
-        <Grid item>
-          <Stack direction="row">
-            <PokemonSummary gen={gen} pokemon={pokemon1} setPokemon={setPokemon1} role={role1} setRole={setRole1} prettyMode={prettyMode} />
-            <PokemonSummary gen={gen} pokemon={pokemon2} setPokemon={setPokemon2} role={role2} setRole={setRole2} prettyMode={prettyMode}/>
-          </Stack>
+        <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
+          <Grid item>
+            <Stack direction="row">
+              <PokemonSummary pokemon={raiders[1]} setPokemon={setPokemon(1)} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raiders[2]} setPokemon={setPokemon(2)} prettyMode={prettyMode}/>
+            </Stack>
+          </Grid>
+          <Grid item>
+            <Stack direction="row">
+              <PokemonSummary pokemon={raiders[3]} setPokemon={setPokemon(3)} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raiders[4]} setPokemon={setPokemon(4)} prettyMode={prettyMode} />
+            </Stack>
+          </Grid>
+          <Grid item>
+            <BossSummary pokemon={raiders[0]} setPokemon={setPokemon(0)} prettyMode={prettyMode} />
+          </Grid>
+          <Grid item>
+            <RaidControls info={info} setInfo={setInfo} prettyMode={prettyMode} />
+          </Grid>
         </Grid>
-        <Grid item>
-          <Stack direction="row">
-            <PokemonSummary gen={gen} pokemon={pokemon3} setPokemon={setPokemon3} role={role3} setRole={setRole3} prettyMode={prettyMode} />
-            <PokemonSummary gen={gen} pokemon={pokemon4} setPokemon={setPokemon4} role={role4} setRole={setRole4} prettyMode={prettyMode} />
-          </Stack>
+        <Grid container justifyContent="left" sx={{ my: 1 }}>
+          <Grid item xs={12}>
+            <Stack >
+              <Stack direction="row" sx={{ p: 2 }}>
+                <Box flexGrow={1} />
+                <LinkButton info={info} setInfo={setInfo} setPrettyMode={setPrettyMode}/>
+                <Box flexGrow={1} />
+              </Stack>
+              <Stack sx={{ mx: 3, my: 3}}>
+                <Typography variant="h6" sx={{color: "text.secondary"}}>
+                  Acknowledgements
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
+                </Typography>
+                <Typography variant="h6" sx={{color: "text.secondary"}}>
+                    Contact
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
+                </Typography>
+              </Stack>
+            </Stack>
+          </Grid>
         </Grid>
-        <Grid item>
-          {/* @ts-ignore */}
-          <BossSummary gen={gen} pokemon={raidBoss} setPokemon={setRaidBoss} role={bossRole} setRole={setBossRole} bossMoves={bossMoves} setBossMoves={setBossMoves} prettyMode={prettyMode} />
-        </Grid>
-        <Grid item>
-          <RaidControls raiders={raiders} />
-        </Grid>
-      </Grid>
-      <Stack sx={{ mx: 3, my: 3}}>
-        <Typography variant="h6" sx={{color: "text.secondary"}}>
-          Acknowledgements
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
-        </Typography>
-        <Typography variant="h6" sx={{color: "text.secondary"}}>
-            Contact
-        </Typography>
-        <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-          Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
-        </Typography>
       </Stack>
-    </ThemeProvider>
+    </Stack>
+  </ThemeProvider>
   );
 }
 

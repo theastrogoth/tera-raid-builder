@@ -4,8 +4,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 
-import { Pokemon } from '../calc';
-import { Generation } from "../calc/data/interface";
+import { Generations, Pokemon } from '../calc';
 import { toID } from '../calc/util';
 
 import StatRadarPlot from "./StatRadarPlot";
@@ -13,14 +12,31 @@ import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
+import { MoveSetItem, Raider } from "../raidcalc/interface";
+import { AbilityName } from "../calc/data/interface";
 
-export function RoleField({role, setRole}: {role: string, setRole: React.Dispatch<React.SetStateAction<string>>}) {
-    const [str, setStr] = useState(role);
+const gen = Generations.get(9); // we will only use gen 9
+
+export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
+    const [str, setStr] = useState(pokemon.role);
+
+    useEffect(() => {
+        if (pokemon.role !== str) {
+            setStr(pokemon.role);
+        }
+    }, [pokemon.role])
+
+    const setRole = (r: string) => {
+        const newPoke = pokemon.clone();
+        newPoke.role = r;
+        setPokemon(newPoke);
+    }
+
     return (
         <TextField 
             variant="standard"
             fullWidth
-            inputProps={{style: {fontWeight: "bold",fontSize: 25, textAlign: "center"}}}
+            inputProps={{ maxLength: 20, style: {fontWeight: "bold",fontSize: 25, textAlign: "center"}}}
             margin="dense"
             value={str}
             onChange={(e) => setStr(e.target.value)}
@@ -29,10 +45,9 @@ export function RoleField({role, setRole}: {role: string, setRole: React.Dispatc
     )
 }
 
-function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {gen: Generation, role: string, setRole: React.Dispatch<React.SetStateAction<string>>, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>, prettyMode: boolean}) {
-    const [moveSet, setMoveSet] = useState<(string)[]>([])
-    const [moveLearnTypes, setMoveLearnTypes] = useState<string[]>([])
-    const [abilities, setAbilities] = useState<string[]>([])
+function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
+    const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
+    const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
   
     useEffect(() => {
       async function fetchData() {
@@ -40,21 +55,27 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {
         setAbilities(pokemonData.abilities);
 
         const moves = pokemonData.moves;
-        setMoveSet(moves.map(md => md.name));
-        setMoveLearnTypes(moves.map(md => md.learnMethod));
+        const set = moves.map(md => {
+            const move = gen.moves.get(toID(md.name));
+            return {
+                name: md.name,
+                method: md.learnMethod,
+                type: move ? (move.type || "Normal") : "Normal",
+            }
+        })
+        setMoveSet(set);
       }
       fetchData().catch((e) => console.log(e));
     }, [pokemon.name])
 
-    // const spriteURL = imgProlog + pokemon.name.toLocaleLowerCase() + imgExt;
     const nature = gen.natures.get(toID(pokemon.nature));
 
     return (
         <Box>
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
-                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" height= {prettyMode ? "650px" : "800px"} sx={{ marginTop: 1 }} >
+                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "625px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
-                        <RoleField role={role} setRole={setRole} />
+                        <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>
                     <Box>
                         <Box
@@ -66,6 +87,10 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {
                             <img
                                 height="150px"
                                 src={getPokemonArtURL(pokemon.name)}
+                                onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null; // prevents looping
+                                    currentTarget.src=getItemSpriteURL("pokeball");
+                                }}
                                 alt=""
                             />
                         </Box>
@@ -82,6 +107,10 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {
                                         pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
                                         getItemSpriteURL(pokemon.item)
                                     ) : undefined }
+                                onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null; // prevents looping
+                                    currentTarget.src=getItemSpriteURL("pokeball");
+                                }}
                                 hidden={pokemon.item === undefined}
                                 alt=""
                             />
@@ -141,7 +170,7 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {
                             </Box>
                         }
                     </Box>
-                    <BuildControls gen={gen} pokemon={pokemon} abilities={abilities} moveSet={moveSet} moveLearnTypes={moveLearnTypes} setPokemon={setPokemon} prettyMode={prettyMode}/>
+                    <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode}/>
                     <Box flexGrow={1} />
                     <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} />
                     {/* <Box flexGrow={1} /> */}
@@ -151,4 +180,4 @@ function PokemonSummary({gen, role, setRole, pokemon, setPokemon, prettyMode}: {
     );
 }
 
-export default PokemonSummary;
+export default React.memo(PokemonSummary);

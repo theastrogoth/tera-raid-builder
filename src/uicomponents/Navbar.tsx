@@ -25,10 +25,13 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
         <Box>
             <AppBar position="static" color="secondary" sx={{ minWidth: "600px"}}>
                 <Toolbar>
+                    <Box paddingRight={2}>
+                        <img src={process.env.PUBLIC_URL + "/logo192.png"} height={50} />
+                    </Box>
                     <Typography 
                         variant="h5"
                         sx={{
-                            mr: 2,
+                            mr: 1,
                             display: "flex",
                             fontWeight: 700,
                             color: 'inherit',
@@ -37,6 +40,19 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
                     >
                         Tera Raid Builder
                     </Typography>
+                    <Box sx = {{ transform: "translate(-3px, -8px)"}}>
+                        <Typography 
+                            variant="body2"
+                            sx={{
+                                mr: 1,
+                                fontWeight: 700,
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            Beta
+                        </Typography>
+                    </Box>
                     <Box component="div" sx={{ flexGrow: 1 }} />
                     <Box component="div" >
                         <Button

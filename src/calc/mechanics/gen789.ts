@@ -873,7 +873,9 @@ export function calculateBPModsSMSSSV(
   // (or when it's already a Mega-Evolution)
   if (!resistedKnockOffDamage && defender.item) {
     const item = gen.items.get(toID(defender.item))!;
-    resistedKnockOffDamage = !!item.megaEvolves && defender.name.includes(item.megaEvolves);
+    if (item) {
+      resistedKnockOffDamage = !!item.megaEvolves && defender.name.includes(item.megaEvolves);
+    }
   }
 
   if ((move.named('Facade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||

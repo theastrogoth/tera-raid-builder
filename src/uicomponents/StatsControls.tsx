@@ -12,8 +12,11 @@ import Slider from '@mui/material/Slider';
 import MuiInput from '@mui/material/Input';
 import { styled } from '@mui/material/styles';
 
-import { Pokemon } from "../calc";
+import { Generations, Pokemon } from "../calc";
+import { Raider } from "../raidcalc/interface";
 import { Generation } from "../calc/data/interface";
+
+const gen = Generations.get(9); // we will only use gen 9
 
 const IVInput = styled(MuiInput)`
   width: 34px;
@@ -116,7 +119,7 @@ function StatTableRow({name, evTotal, iv, setIV, ev, setEV}: {name: string, evTo
 
 
 
-function StatsControls({gen, pokemon, setPokemon}: {gen: Generation, pokemon: Pokemon, setPokemon: React.Dispatch<React.SetStateAction<Pokemon>>}) {
+function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r: Raider) => void}) {
     const setEV = (evName: string) => {
         return (value: number, prevValue: number, evTotal: number) => {
             let safeMax = 510 - evTotal + prevValue;
@@ -126,17 +129,21 @@ function StatsControls({gen, pokemon, setPokemon}: {gen: Generation, pokemon: Po
             const newEVs = {...pokemon.evs};
             //@ts-ignore
             newEVs[evName] = safeValue;
-            setPokemon(new Pokemon(gen, pokemon.name, {
-                level: pokemon.level,
-                ability: pokemon.ability,
-                nature: pokemon.nature,
-                item: pokemon.item,
-                ivs: pokemon.ivs,
-                moves: pokemon.moves,
-                teraType: pokemon.teraType,
-                bossMultiplier: pokemon.bossMultiplier,                
-                evs: newEVs,
-            }))
+            setPokemon(new Raider(pokemon.id, pokemon.role, 
+                new Pokemon(gen, pokemon.name, {
+                    level: pokemon.level,
+                    ability: pokemon.ability,
+                    nature: pokemon.nature,
+                    item: pokemon.item,
+                    ivs: pokemon.ivs,
+                    moves: pokemon.moves,
+                    teraType: pokemon.teraType,
+                    bossMultiplier: pokemon.bossMultiplier,                
+                    evs: newEVs,
+                }),
+                pokemon.extraMoves,
+                ),
+            )
         }
     };
 
@@ -147,17 +154,20 @@ function StatsControls({gen, pokemon, setPokemon}: {gen: Generation, pokemon: Po
             const newIVs = {...pokemon.ivs};
             //@ts-ignore
             newIVs[ivName] = safeValue;
-            setPokemon(new Pokemon(gen, pokemon.name, {
-                level: pokemon.level,
-                ability: pokemon.ability,
-                nature: pokemon.nature,
-                item: pokemon.item,
-                evs: pokemon.evs,
-                moves: pokemon.moves,
-                teraType: pokemon.teraType,
-                bossMultiplier: pokemon.bossMultiplier,                
-                ivs: newIVs,
-            }))
+            setPokemon(new Raider(pokemon.id, pokemon.role, 
+                new Pokemon(gen, pokemon.name, {
+                    level: pokemon.level,
+                    ability: pokemon.ability,
+                    nature: pokemon.nature,
+                    item: pokemon.item,
+                    evs: pokemon.evs,
+                    moves: pokemon.moves,
+                    teraType: pokemon.teraType,
+                    bossMultiplier: pokemon.bossMultiplier,                
+                    ivs: newIVs,
+                }),
+                pokemon.extraMoves,
+            ))
         }
     };
 
@@ -193,4 +203,4 @@ function StatsControls({gen, pokemon, setPokemon}: {gen: Generation, pokemon: Po
     );
 }
 
-export default StatsControls
+export default React.memo(StatsControls, (prev, next) => (prev.pokemon.ivs === next.pokemon.ivs && prev.pokemon.evs === next.pokemon.evs))

@@ -41,57 +41,87 @@ export class RaidTurn {
     }
 
     public result(): RaidTurnResult {
+        // set up moves
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
         if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         this._bossMove = new Move(9, this.bossMoveData.name, this.bossOptions);
-        if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
-        if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        if (this.bossOptions.crit) this._bossMove.isCrit = true;
+        if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
+
+        // determine which move goes first
         this.setTurnOrder();
+
+        // copy the raid state
         this._raidState = this.raidState.clone();
+
+        let rID = this.raiderID;
+        let tID = this.targetID;
+        let rMoveData = this.raiderMoveData;
+        let bMoveData = this.bossMoveData;
+        // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
+        if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
+            rID = this.targetID;
+            tID = this.raidState.raiders[rID].lastTarget!;
+            if (tID === this.targetID) { tID = rID; }
+            rMoveData = this.raidState.raiders[this.targetID].lastMove!
+            this._raiderMove = new Move(9, rMoveData.name, this.raiderOptions);
+            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        } else if (this.raiderMoveData.name === "Copycat") {
+            tID = this.raidState.raiders[rID].lastTarget!;
+            if (tID === this.targetID) { tID = rID; }
+            bMoveData = this.raidState.raiders[this.targetID].lastMove!
+            this._raiderMove = new Move(9, bMoveData.name, this.raiderOptions);
+            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        } 
         if (this._raiderMovesFirst) {
             this._result1 = new RaidMove(
-                this.raiderMoveData, 
+                rMoveData,
                 this._raiderMove, 
                 this._raidState, 
-                this.raiderID, 
-                this.targetID,
-                this.raiderID,
+                rID, 
+                tID,
+                rID,
                 this._raiderMovesFirst,
                 this.raiderOptions).result();
             this._raidState = this._result1.state;
             this._result2 = new RaidMove(
-                this.bossMoveData, 
+                bMoveData,
                 this._bossMove, 
                 this._raidState, 
                 0, 
                 this.raiderID,
                 this.raiderID,
-                this._raiderMovesFirst,
+                !this._raiderMovesFirst,
                 this.bossOptions).result();
             this._raidState = this._result2.state;
         } else {
             this._result1 = new RaidMove(
-                this.bossMoveData, 
+                bMoveData, 
                 this._bossMove, 
                 this._raidState, 
                 0, 
                 this.raiderID,
                 this.raiderID,
-                this._raiderMovesFirst,
-                this.raiderOptions).result();
+                !this._raiderMovesFirst,
+                this.bossOptions).result();
             this._raidState = this._result1.state;
             this._result2 = new RaidMove(
-                this.raiderMoveData, 
+                rMoveData, 
                 this._raiderMove, 
                 this._raidState, 
-                this.raiderID, 
-                this.targetID,
-                this.raiderID,
+                rID, 
+                tID,
+                rID,
                 this._raiderMovesFirst,
-                this.bossOptions).result();
+                this.raiderOptions).result();
             this._raidState = this._result2.state;
         }
+        // Clear Endure (since side-attacks are not endured)
+        this._raidState.raiders[this.raiderID].isEndure = false;
+        this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
         return {
             state: this._raidState,
             results: [this._result1, this._result2],
@@ -104,8 +134,8 @@ export class RaidTurn {
         this._raider = this.raidState.raiders[this.raiderID];
         this._boss = this.raidState.raiders[0];
         // first compare priority
-        const raiderPriority = this._raiderMove.priority;
-        const bossPriority = this._bossMove.priority;
+        const raiderPriority = this.raiderMoveData.priority || this._raiderMove.priority;
+        const bossPriority = this.bossMoveData.priority || this._bossMove.priority;
         if (raiderPriority > bossPriority) {
             this._raiderMovesFirst = true;
         } else if (bossPriority < raiderPriority) {

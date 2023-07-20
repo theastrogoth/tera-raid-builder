@@ -1,3 +1,5 @@
+import { StatIDExceptHP } from "../calc/data/interface";
+import { getQPBoostedStat } from "../calc/mechanics/util";
 import { RaidState, RaidBattleInfo, RaidTurnInfo, RaidTurnResult, RaidBattleResults } from "./interface";
 import { RaidTurn } from "./RaidTurn";
 
@@ -14,12 +16,20 @@ export class RaidBattle {
     }
 
     public result(): RaidBattleResults {
-        this._state = this.startingState.clone();
-        this.calculateTurnZero();
-        this.calculateTurns();
-        return {
-            endState: this._state,
-            turnResults: this._turnResults
+        try {
+            this._state = this.startingState.clone();
+            this.calculateTurnZero();
+            this.calculateTurns();
+            return {
+                endState: this._state,
+                turnResults: this._turnResults
+            }
+        } catch (e) {
+            console.error(e);
+            return {
+                endState: this.startingState.clone(),
+                turnResults: []
+            }
         }
     }
 
@@ -37,7 +47,6 @@ export class RaidBattle {
         // sort pokemon by speed to see what happens first
         const speeds = this._state.raiders.map(raider => raider.stats.spe);
         const speedOrder = speeds.map((speed, index) => [speed, index]).sort((a, b) => b[0] - a[0]).map(pair => pair[1]);
-        console.log(speedOrder)
         for (let id of speedOrder) {
             const pokemon = this._state.raiders[id];
             const ability = pokemon.ability;
@@ -116,6 +125,15 @@ export class RaidBattle {
                         field.attackerSide.steelySpirits += 1;
                     }
                 }
+            // Aroma Veil
+            } else if (ability === "Aroma Veil") {
+                if (id === 0) {
+                    this._state.fields[0].attackerSide.isAromaVeil = true;
+                } else {
+                    for (let field of this._state.fields.slice(1)) {
+                        field.attackerSide.isAromaVeil = true;
+                    }
+                }
             // Power Spot
             } else if (ability === "Power Spot") {
                 if (id === 0) {
@@ -133,20 +151,28 @@ export class RaidBattle {
                             this._state.fields[fid].attackerSide.friendGuards += 1;
                         }
                     }
-                    this._state.fields[0].defenderSide.friendGuards += 1;
+                    this._state.fields[0].defenderSide.friendGuards += 1; // this shouldn't ever be used
                 }
             // Protosynthesis and Quark Drive
             } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
-                pokemon.abilityOn = true;
+                if (pokemon.item === "Booster Energy") {
+                    pokemon.abilityOn = true;
+                    const qpStat = getQPBoostedStat (pokemon) as StatIDExceptHP;
+                    pokemon.boostedStat = qpStat;
+                    pokemon.item = undefined;
+                }
             // Intimidate
             } else if (ability === "Intimidate") {
                 if (id === 0) {
                     for (let pokemon of this._state.raiders.slice(1)) {
-                        pokemon.boosts.atk = Math.max(-6, pokemon.boosts.atk - 1);
+                        if (["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
+                            pokemon.boosts.atk = Math.max(-6, pokemon.boosts.atk - 1);
+                        }
                     }
                 } else {
-                    this._state.raiders[0].boosts.atk = Math.max(-6, pokemon.boosts.atk - 1);
-                }
+                    if (["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
+                        pokemon.boosts.atk = Math.max(-6, pokemon.boosts.atk - 1);
+                    }                }
             // Intrepid Sword
             } else if (ability === "Intrepid Sword") {
                 pokemon.boosts.atk += 1;

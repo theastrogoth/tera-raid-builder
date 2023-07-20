@@ -106,7 +106,7 @@ export class RaidTurn {
                 this.raiderID,
                 this.raiderID,
                 !this._raiderMovesFirst,
-                this.raiderOptions).result();
+                this.bossOptions).result();
             this._raidState = this._result1.state;
             this._result2 = new RaidMove(
                 rMoveData, 
@@ -116,7 +116,7 @@ export class RaidTurn {
                 tID,
                 rID,
                 this._raiderMovesFirst,
-                this.bossOptions).result();
+                this.raiderOptions).result();
             this._raidState = this._result2.state;
         }
         // Clear Endure (since side-attacks are not endured)

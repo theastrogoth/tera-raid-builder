@@ -1,8 +1,14 @@
 {
     "name": "Glimmora",
     "abilities": [
-        "Toxic Debris",
-        "Corrosion"
+        {
+            "name": "Toxic Debris",
+            "hidden": false
+        },
+        {
+            "name": "Corrosion",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

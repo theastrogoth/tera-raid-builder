@@ -1,7 +1,10 @@
 {
     "name": "Yveltal",
     "abilities": [
-        "Dark Aura"
+        {
+            "name": "Dark Aura",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

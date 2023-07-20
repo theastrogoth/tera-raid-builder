@@ -1,8 +1,14 @@
 {
     "name": "Ampharos",
     "abilities": [
-        "Static",
-        "Plus"
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Plus",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

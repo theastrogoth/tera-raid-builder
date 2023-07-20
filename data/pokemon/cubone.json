@@ -1,9 +1,18 @@
 {
     "name": "Cubone",
     "abilities": [
-        "Rock Head",
-        "Lightning Rod",
-        "Battle Armor"
+        {
+            "name": "Rock Head",
+            "hidden": false
+        },
+        {
+            "name": "Lightning Rod",
+            "hidden": false
+        },
+        {
+            "name": "Battle Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

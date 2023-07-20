@@ -1,7 +1,10 @@
 {
     "name": "Deoxys",
     "abilities": [
-        "Pressure"
+        {
+            "name": "Pressure",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

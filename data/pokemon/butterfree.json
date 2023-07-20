@@ -1,8 +1,14 @@
 {
     "name": "Butterfree",
     "abilities": [
-        "Compound Eyes",
-        "Tinted Lens"
+        {
+            "name": "Compound Eyes",
+            "hidden": false
+        },
+        {
+            "name": "Tinted Lens",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

@@ -1,8 +1,14 @@
 {
     "name": "Tapu Fini",
     "abilities": [
-        "Misty Surge",
-        "Telepathy"
+        {
+            "name": "Misty Surge",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

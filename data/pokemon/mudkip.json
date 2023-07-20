@@ -1,8 +1,14 @@
 {
     "name": "Mudkip",
     "abilities": [
-        "Torrent",
-        "Damp"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Damp",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

@@ -1,7 +1,10 @@
 {
     "name": "Gimmighoul",
     "abilities": [
-        "Rattled"
+        {
+            "name": "Rattled",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost"

@@ -1,8 +1,14 @@
 {
     "name": "Infernape",
     "abilities": [
-        "Blaze",
-        "Iron Fist"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Iron Fist",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

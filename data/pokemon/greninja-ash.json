@@ -1,7 +1,10 @@
 {
     "name": "Greninja-Ash",
     "abilities": [
-        "Battle Bond"
+        {
+            "name": "Battle Bond",
+            "hidden": false
+        }
     ],
     "types": [
         "water",

@@ -1,9 +1,18 @@
 {
     "name": "Oinkologne",
     "abilities": [
-        "Lingering Aroma",
-        "Gluttony",
-        "Thick Fat"
+        {
+            "name": "Lingering Aroma",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Thick Fat",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

@@ -1,9 +1,18 @@
 {
     "name": "Probopass",
     "abilities": [
-        "Sturdy",
-        "Magnet Pull",
-        "Sand Force"
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Magnet Pull",
+            "hidden": false
+        },
+        {
+            "name": "Sand Force",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

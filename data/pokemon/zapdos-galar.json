@@ -1,7 +1,10 @@
 {
     "name": "Zapdos-Galar",
     "abilities": [
-        "Defiant"
+        {
+            "name": "Defiant",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

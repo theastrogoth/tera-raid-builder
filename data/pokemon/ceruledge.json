@@ -1,8 +1,14 @@
 {
     "name": "Ceruledge",
     "abilities": [
-        "Flash Fire",
-        "Weak Armor"
+        {
+            "name": "Flash Fire",
+            "hidden": false
+        },
+        {
+            "name": "Weak Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

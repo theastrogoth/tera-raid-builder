@@ -1,9 +1,18 @@
 {
     "name": "Hitmontop",
     "abilities": [
-        "Intimidate",
-        "Technician",
-        "Steadfast"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": false
+        },
+        {
+            "name": "Steadfast",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

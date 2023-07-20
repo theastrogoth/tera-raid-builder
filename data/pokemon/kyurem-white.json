@@ -1,7 +1,10 @@
 {
     "name": "Kyurem-White",
     "abilities": [
-        "Turboblaze"
+        {
+            "name": "Turboblaze",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

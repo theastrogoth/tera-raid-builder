@@ -1,9 +1,18 @@
 {
     "name": "Karrablast",
     "abilities": [
-        "Swarm",
-        "Shed Skin",
-        "No Guard"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        },
+        {
+            "name": "No Guard",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

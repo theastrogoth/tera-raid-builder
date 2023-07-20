@@ -1,8 +1,14 @@
 {
     "name": "Electabuzz",
     "abilities": [
-        "Static",
-        "Vital Spirit"
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Vital Spirit",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

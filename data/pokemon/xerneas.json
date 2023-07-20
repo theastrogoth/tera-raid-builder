@@ -1,7 +1,10 @@
 {
     "name": "Xerneas",
     "abilities": [
-        "Fairy Aura"
+        {
+            "name": "Fairy Aura",
+            "hidden": false
+        }
     ],
     "types": [
         "fairy"

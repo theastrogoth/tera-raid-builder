@@ -1,8 +1,14 @@
 {
     "name": "Wormadam-Sandy",
     "abilities": [
-        "Anticipation",
-        "Overcoat"
+        {
+            "name": "Anticipation",
+            "hidden": false
+        },
+        {
+            "name": "Overcoat",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

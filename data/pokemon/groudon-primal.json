@@ -1,7 +1,10 @@
 {
     "name": "Groudon-Primal",
     "abilities": [
-        "Desolate Land"
+        {
+            "name": "Desolate Land",
+            "hidden": false
+        }
     ],
     "types": [
         "ground",

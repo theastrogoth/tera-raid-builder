@@ -1,8 +1,14 @@
 {
     "name": "Kricketot",
     "abilities": [
-        "Shed Skin",
-        "Run Away"
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        },
+        {
+            "name": "Run Away",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

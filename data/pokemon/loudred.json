@@ -1,8 +1,14 @@
 {
     "name": "Loudred",
     "abilities": [
-        "Soundproof",
-        "Scrappy"
+        {
+            "name": "Soundproof",
+            "hidden": false
+        },
+        {
+            "name": "Scrappy",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

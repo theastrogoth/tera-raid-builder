@@ -1,7 +1,10 @@
 {
     "name": "Stonjourner",
     "abilities": [
-        "Power Spot"
+        {
+            "name": "Power Spot",
+            "hidden": false
+        }
     ],
     "types": [
         "rock"

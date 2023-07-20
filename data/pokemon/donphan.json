@@ -1,8 +1,14 @@
 {
     "name": "Donphan",
     "abilities": [
-        "Sturdy",
-        "Sand Veil"
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Sand Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

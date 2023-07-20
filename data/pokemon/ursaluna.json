@@ -1,9 +1,18 @@
 {
     "name": "Ursaluna",
     "abilities": [
-        "Guts",
-        "Bulletproof",
-        "Unnerve"
+        {
+            "name": "Guts",
+            "hidden": false
+        },
+        {
+            "name": "Bulletproof",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": true
+        }
     ],
     "types": [
         "ground",

@@ -1,9 +1,18 @@
 {
     "name": "Qwilfish-Hisui",
     "abilities": [
-        "Poison Point",
-        "Swift Swim",
-        "Intimidate"
+        {
+            "name": "Poison Point",
+            "hidden": false
+        },
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Intimidate",
+            "hidden": true
+        }
     ],
     "types": [
         "dark",

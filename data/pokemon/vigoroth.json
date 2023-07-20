@@ -1,7 +1,10 @@
 {
     "name": "Vigoroth",
     "abilities": [
-        "Vital Spirit"
+        {
+            "name": "Vital Spirit",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

@@ -1,8 +1,14 @@
 {
     "name": "Revavroom",
     "abilities": [
-        "Overcoat",
-        "Filter"
+        {
+            "name": "Overcoat",
+            "hidden": false
+        },
+        {
+            "name": "Filter",
+            "hidden": true
+        }
     ],
     "types": [
         "steel",

@@ -1,9 +1,18 @@
 {
     "name": "Octillery",
     "abilities": [
-        "Suction Cups",
-        "Sniper",
-        "Moody"
+        {
+            "name": "Suction Cups",
+            "hidden": false
+        },
+        {
+            "name": "Sniper",
+            "hidden": false
+        },
+        {
+            "name": "Moody",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

@@ -1,8 +1,14 @@
 {
     "name": "Clamperl",
     "abilities": [
-        "Shell Armor",
-        "Rattled"
+        {
+            "name": "Shell Armor",
+            "hidden": false
+        },
+        {
+            "name": "Rattled",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

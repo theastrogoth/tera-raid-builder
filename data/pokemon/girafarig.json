@@ -1,9 +1,18 @@
 {
     "name": "Girafarig",
     "abilities": [
-        "Inner Focus",
-        "Early Bird",
-        "Sap Sipper"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Early Bird",
+            "hidden": false
+        },
+        {
+            "name": "Sap Sipper",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

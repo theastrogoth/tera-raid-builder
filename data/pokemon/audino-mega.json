@@ -1,7 +1,10 @@
 {
     "name": "Audino-Mega",
     "abilities": [
-        "Healer"
+        {
+            "name": "Healer",
+            "hidden": false
+        }
     ],
     "types": [
         "normal",

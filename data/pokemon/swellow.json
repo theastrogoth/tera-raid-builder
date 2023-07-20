@@ -1,8 +1,14 @@
 {
     "name": "Swellow",
     "abilities": [
-        "Guts",
-        "Scrappy"
+        {
+            "name": "Guts",
+            "hidden": false
+        },
+        {
+            "name": "Scrappy",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

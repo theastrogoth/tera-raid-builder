@@ -1,8 +1,14 @@
 {
     "name": "Beedrill",
     "abilities": [
-        "Swarm",
-        "Sniper"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Sniper",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

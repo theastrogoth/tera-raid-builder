@@ -1,8 +1,14 @@
 {
     "name": "Magmortar",
     "abilities": [
-        "Flame Body",
-        "Vital Spirit"
+        {
+            "name": "Flame Body",
+            "hidden": false
+        },
+        {
+            "name": "Vital Spirit",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

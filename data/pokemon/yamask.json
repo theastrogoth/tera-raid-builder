@@ -1,7 +1,10 @@
 {
     "name": "Yamask",
     "abilities": [
-        "Mummy"
+        {
+            "name": "Mummy",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost"

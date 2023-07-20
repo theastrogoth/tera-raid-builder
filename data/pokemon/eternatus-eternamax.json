@@ -1,7 +1,10 @@
 {
     "name": "Eternatus-Eternamax",
     "abilities": [
-        "Pressure"
+        {
+            "name": "Pressure",
+            "hidden": false
+        }
     ],
     "types": [
         "poison",

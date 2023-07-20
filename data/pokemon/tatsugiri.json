@@ -1,8 +1,14 @@
 {
     "name": "Tatsugiri",
     "abilities": [
-        "Commander",
-        "Storm Drain"
+        {
+            "name": "Commander",
+            "hidden": false
+        },
+        {
+            "name": "Storm Drain",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon",

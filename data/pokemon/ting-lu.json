@@ -1,7 +1,10 @@
 {
     "name": "Ting-Lu",
     "abilities": [
-        "Vessel Of Ruin"
+        {
+            "name": "Vessel Of Ruin",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

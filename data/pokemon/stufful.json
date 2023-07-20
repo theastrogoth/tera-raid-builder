@@ -1,9 +1,18 @@
 {
     "name": "Stufful",
     "abilities": [
-        "Fluffy",
-        "Klutz",
-        "Cute Charm"
+        {
+            "name": "Fluffy",
+            "hidden": false
+        },
+        {
+            "name": "Klutz",
+            "hidden": false
+        },
+        {
+            "name": "Cute Charm",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

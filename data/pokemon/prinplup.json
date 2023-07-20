@@ -1,8 +1,14 @@
 {
     "name": "Prinplup",
     "abilities": [
-        "Torrent",
-        "Defiant"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Defiant",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

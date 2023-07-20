@@ -1,9 +1,18 @@
 {
     "name": "Deerling",
     "abilities": [
-        "Chlorophyll",
-        "Sap Sipper",
-        "Serene Grace"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Sap Sipper",
+            "hidden": false
+        },
+        {
+            "name": "Serene Grace",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

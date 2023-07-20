@@ -1,9 +1,18 @@
 {
     "name": "Mr. Mime",
     "abilities": [
-        "Soundproof",
-        "Filter",
-        "Technician"
+        {
+            "name": "Soundproof",
+            "hidden": false
+        },
+        {
+            "name": "Filter",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

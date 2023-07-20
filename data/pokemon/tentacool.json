@@ -1,9 +1,18 @@
 {
     "name": "Tentacool",
     "abilities": [
-        "Clear Body",
-        "Liquid Ooze",
-        "Rain Dish"
+        {
+            "name": "Clear Body",
+            "hidden": false
+        },
+        {
+            "name": "Liquid Ooze",
+            "hidden": false
+        },
+        {
+            "name": "Rain Dish",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

@@ -1,7 +1,10 @@
 {
     "name": "Landorus-Therian",
     "abilities": [
-        "Intimidate"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        }
     ],
     "types": [
         "ground",

@@ -1,8 +1,14 @@
 {
     "name": "Tyranitar",
     "abilities": [
-        "Sand Stream",
-        "Unnerve"
+        {
+            "name": "Sand Stream",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

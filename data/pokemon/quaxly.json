@@ -1,8 +1,14 @@
 {
     "name": "Quaxly",
     "abilities": [
-        "Torrent",
-        "Moxie"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Moxie",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

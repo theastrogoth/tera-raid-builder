@@ -1,7 +1,10 @@
 {
     "name": "Furfrou",
     "abilities": [
-        "Fur Coat"
+        {
+            "name": "Fur Coat",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

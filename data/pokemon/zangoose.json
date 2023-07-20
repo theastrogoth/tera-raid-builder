@@ -1,8 +1,14 @@
 {
     "name": "Zangoose",
     "abilities": [
-        "Immunity",
-        "Toxic Boost"
+        {
+            "name": "Immunity",
+            "hidden": false
+        },
+        {
+            "name": "Toxic Boost",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

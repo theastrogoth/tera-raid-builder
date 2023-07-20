@@ -1,9 +1,18 @@
 {
     "name": "Banette",
     "abilities": [
-        "Insomnia",
-        "Frisk",
-        "Cursed Body"
+        {
+            "name": "Insomnia",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": false
+        },
+        {
+            "name": "Cursed Body",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost"

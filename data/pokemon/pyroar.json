@@ -1,9 +1,18 @@
 {
     "name": "Pyroar",
     "abilities": [
-        "Rivalry",
-        "Unnerve",
-        "Moxie"
+        {
+            "name": "Rivalry",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": false
+        },
+        {
+            "name": "Moxie",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

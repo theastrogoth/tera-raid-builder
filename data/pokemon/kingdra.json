@@ -1,9 +1,18 @@
 {
     "name": "Kingdra",
     "abilities": [
-        "Swift Swim",
-        "Sniper",
-        "Damp"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Sniper",
+            "hidden": false
+        },
+        {
+            "name": "Damp",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

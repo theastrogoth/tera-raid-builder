@@ -1,7 +1,10 @@
 {
     "name": "Abomasnow-Mega",
     "abilities": [
-        "Snow Warning"
+        {
+            "name": "Snow Warning",
+            "hidden": false
+        }
     ],
     "types": [
         "grass",

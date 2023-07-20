@@ -1,8 +1,14 @@
 {
     "name": "Kecleon",
     "abilities": [
-        "Color Change",
-        "Protean"
+        {
+            "name": "Color Change",
+            "hidden": false
+        },
+        {
+            "name": "Protean",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

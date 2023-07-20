@@ -1,9 +1,18 @@
 {
     "name": "Tauros",
     "abilities": [
-        "Intimidate",
-        "Anger Point",
-        "Sheer Force"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Anger Point",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

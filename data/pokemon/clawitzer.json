@@ -1,7 +1,10 @@
 {
     "name": "Clawitzer",
     "abilities": [
-        "Mega Launcher"
+        {
+            "name": "Mega Launcher",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

@@ -1,7 +1,10 @@
 {
     "name": "Metagross-Mega",
     "abilities": [
-        "Tough Claws"
+        {
+            "name": "Tough Claws",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

@@ -1,7 +1,10 @@
 {
     "name": "Gallade-Mega",
     "abilities": [
-        "Inner Focus"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

@@ -1,7 +1,10 @@
 {
     "name": "Tyranitar-Mega",
     "abilities": [
-        "Sand Stream"
+        {
+            "name": "Sand Stream",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

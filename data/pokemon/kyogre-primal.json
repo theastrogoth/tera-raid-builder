@@ -1,7 +1,10 @@
 {
     "name": "Kyogre-Primal",
     "abilities": [
-        "Primordial Sea"
+        {
+            "name": "Primordial Sea",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

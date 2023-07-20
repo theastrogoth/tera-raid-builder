@@ -1,8 +1,14 @@
 {
     "name": "Masquerain",
     "abilities": [
-        "Intimidate",
-        "Unnerve"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

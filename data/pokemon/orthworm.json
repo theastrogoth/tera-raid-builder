@@ -1,8 +1,14 @@
 {
     "name": "Orthworm",
     "abilities": [
-        "Earth Eater",
-        "Sand Veil"
+        {
+            "name": "Earth Eater",
+            "hidden": false
+        },
+        {
+            "name": "Sand Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "steel"

@@ -1,8 +1,14 @@
 {
     "name": "Torracat",
     "abilities": [
-        "Blaze",
-        "Intimidate"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Intimidate",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

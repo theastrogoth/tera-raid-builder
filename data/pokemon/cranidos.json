@@ -1,8 +1,14 @@
 {
     "name": "Cranidos",
     "abilities": [
-        "Mold Breaker",
-        "Sheer Force"
+        {
+            "name": "Mold Breaker",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "rock"

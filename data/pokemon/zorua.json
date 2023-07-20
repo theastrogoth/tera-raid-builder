@@ -1,7 +1,10 @@
 {
     "name": "Zorua",
     "abilities": [
-        "Illusion"
+        {
+            "name": "Illusion",
+            "hidden": false
+        }
     ],
     "types": [
         "dark"

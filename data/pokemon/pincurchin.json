@@ -1,8 +1,14 @@
 {
     "name": "Pincurchin",
     "abilities": [
-        "Lightning Rod",
-        "Electric Surge"
+        {
+            "name": "Lightning Rod",
+            "hidden": false
+        },
+        {
+            "name": "Electric Surge",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

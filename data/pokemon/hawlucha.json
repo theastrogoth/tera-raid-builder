@@ -1,9 +1,18 @@
 {
     "name": "Hawlucha",
     "abilities": [
-        "Limber",
-        "Unburden",
-        "Mold Breaker"
+        {
+            "name": "Limber",
+            "hidden": false
+        },
+        {
+            "name": "Unburden",
+            "hidden": false
+        },
+        {
+            "name": "Mold Breaker",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting",

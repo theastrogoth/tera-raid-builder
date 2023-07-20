@@ -1,9 +1,18 @@
 {
     "name": "Flapple",
     "abilities": [
-        "Ripen",
-        "Gluttony",
-        "Hustle"
+        {
+            "name": "Ripen",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Hustle",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

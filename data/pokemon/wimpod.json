@@ -1,7 +1,10 @@
 {
     "name": "Wimpod",
     "abilities": [
-        "Wimp Out"
+        {
+            "name": "Wimp Out",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

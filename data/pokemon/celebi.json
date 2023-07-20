@@ -1,7 +1,10 @@
 {
     "name": "Celebi",
     "abilities": [
-        "Natural Cure"
+        {
+            "name": "Natural Cure",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

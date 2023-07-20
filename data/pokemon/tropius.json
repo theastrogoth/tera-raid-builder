@@ -1,9 +1,18 @@
 {
     "name": "Tropius",
     "abilities": [
-        "Chlorophyll",
-        "Solar Power",
-        "Harvest"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Solar Power",
+            "hidden": false
+        },
+        {
+            "name": "Harvest",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

@@ -1,8 +1,14 @@
 {
     "name": "Sandslash",
     "abilities": [
-        "Sand Veil",
-        "Sand Rush"
+        {
+            "name": "Sand Veil",
+            "hidden": false
+        },
+        {
+            "name": "Sand Rush",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

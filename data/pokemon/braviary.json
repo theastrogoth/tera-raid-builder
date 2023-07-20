@@ -1,9 +1,18 @@
 {
     "name": "Braviary",
     "abilities": [
-        "Keen Eye",
-        "Sheer Force",
-        "Defiant"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": false
+        },
+        {
+            "name": "Defiant",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

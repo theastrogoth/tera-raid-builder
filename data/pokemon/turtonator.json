@@ -1,7 +1,10 @@
 {
     "name": "Turtonator",
     "abilities": [
-        "Shell Armor"
+        {
+            "name": "Shell Armor",
+            "hidden": false
+        }
     ],
     "types": [
         "fire",

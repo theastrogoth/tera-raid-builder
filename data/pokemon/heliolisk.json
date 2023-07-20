@@ -1,9 +1,18 @@
 {
     "name": "Heliolisk",
     "abilities": [
-        "Dry Skin",
-        "Sand Veil",
-        "Solar Power"
+        {
+            "name": "Dry Skin",
+            "hidden": false
+        },
+        {
+            "name": "Sand Veil",
+            "hidden": false
+        },
+        {
+            "name": "Solar Power",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

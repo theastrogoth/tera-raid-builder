@@ -1,7 +1,10 @@
 {
     "name": "Wo-Chien",
     "abilities": [
-        "Tablets Of Ruin"
+        {
+            "name": "Tablets Of Ruin",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

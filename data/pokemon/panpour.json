@@ -1,8 +1,14 @@
 {
     "name": "Panpour",
     "abilities": [
-        "Gluttony",
-        "Torrent"
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Torrent",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

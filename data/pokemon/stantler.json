@@ -1,9 +1,18 @@
 {
     "name": "Stantler",
     "abilities": [
-        "Intimidate",
-        "Frisk",
-        "Sap Sipper"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": false
+        },
+        {
+            "name": "Sap Sipper",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

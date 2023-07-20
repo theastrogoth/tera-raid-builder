@@ -1,8 +1,14 @@
 {
     "name": "Fidough",
     "abilities": [
-        "Own Tempo",
-        "Klutz"
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Klutz",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

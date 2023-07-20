@@ -1,9 +1,18 @@
 {
     "name": "Magnemite",
     "abilities": [
-        "Magnet Pull",
-        "Sturdy",
-        "Analytic"
+        {
+            "name": "Magnet Pull",
+            "hidden": false
+        },
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Analytic",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

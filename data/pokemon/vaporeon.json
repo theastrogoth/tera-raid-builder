@@ -1,8 +1,14 @@
 {
     "name": "Vaporeon",
     "abilities": [
-        "Water Absorb",
-        "Hydration"
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Hydration",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

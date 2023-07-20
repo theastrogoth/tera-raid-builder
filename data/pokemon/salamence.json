@@ -1,8 +1,14 @@
 {
     "name": "Salamence",
     "abilities": [
-        "Intimidate",
-        "Moxie"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Moxie",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon",

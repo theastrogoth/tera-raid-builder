@@ -1,7 +1,10 @@
 {
     "name": "Iron Thorns",
     "abilities": [
-        "Quark Drive"
+        {
+            "name": "Quark Drive",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

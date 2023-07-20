@@ -1,9 +1,18 @@
 {
     "name": "Grumpig",
     "abilities": [
-        "Thick Fat",
-        "Own Tempo",
-        "Gluttony"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        },
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

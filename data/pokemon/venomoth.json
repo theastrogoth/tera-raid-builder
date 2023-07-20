@@ -1,9 +1,18 @@
 {
     "name": "Venomoth",
     "abilities": [
-        "Shield Dust",
-        "Tinted Lens",
-        "Wonder Skin"
+        {
+            "name": "Shield Dust",
+            "hidden": false
+        },
+        {
+            "name": "Tinted Lens",
+            "hidden": false
+        },
+        {
+            "name": "Wonder Skin",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

@@ -1,9 +1,18 @@
 {
     "name": "Basculin-White-Striped",
     "abilities": [
-        "Rattled",
-        "Adaptability",
-        "Mold Breaker"
+        {
+            "name": "Rattled",
+            "hidden": false
+        },
+        {
+            "name": "Adaptability",
+            "hidden": false
+        },
+        {
+            "name": "Mold Breaker",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

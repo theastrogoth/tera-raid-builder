@@ -1,9 +1,18 @@
 {
     "name": "Drowzee",
     "abilities": [
-        "Insomnia",
-        "Forewarn",
-        "Inner Focus"
+        {
+            "name": "Insomnia",
+            "hidden": false
+        },
+        {
+            "name": "Forewarn",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

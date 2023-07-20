@@ -1,7 +1,10 @@
 {
     "name": "Sableye-Mega",
     "abilities": [
-        "Magic Bounce"
+        {
+            "name": "Magic Bounce",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

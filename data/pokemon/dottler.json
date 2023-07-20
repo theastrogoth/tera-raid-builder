@@ -1,9 +1,18 @@
 {
     "name": "Dottler",
     "abilities": [
-        "Swarm",
-        "Compound Eyes",
-        "Telepathy"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Compound Eyes",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

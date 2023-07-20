@@ -1,7 +1,10 @@
 {
     "name": "Urshifu-Single-Strike-Gmax",
     "abilities": [
-        "Unseen Fist"
+        {
+            "name": "Unseen Fist",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

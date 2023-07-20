@@ -1,7 +1,10 @@
 {
     "name": "Solgaleo",
     "abilities": [
-        "Full Metal Body"
+        {
+            "name": "Full Metal Body",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

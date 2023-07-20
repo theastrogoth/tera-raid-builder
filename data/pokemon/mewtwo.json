@@ -1,8 +1,14 @@
 {
     "name": "Mewtwo",
     "abilities": [
-        "Pressure",
-        "Unnerve"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

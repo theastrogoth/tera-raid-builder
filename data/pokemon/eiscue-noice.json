@@ -1,7 +1,10 @@
 {
     "name": "Eiscue-Noice",
     "abilities": [
-        "Ice Face"
+        {
+            "name": "Ice Face",
+            "hidden": false
+        }
     ],
     "types": [
         "ice"

@@ -1,8 +1,14 @@
 {
     "name": "Duskull",
     "abilities": [
-        "Levitate",
-        "Frisk"
+        {
+            "name": "Levitate",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost"

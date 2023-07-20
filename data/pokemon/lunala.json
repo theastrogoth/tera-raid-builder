@@ -1,7 +1,10 @@
 {
     "name": "Lunala",
     "abilities": [
-        "Shadow Shield"
+        {
+            "name": "Shadow Shield",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

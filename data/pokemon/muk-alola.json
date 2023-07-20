@@ -1,9 +1,18 @@
 {
     "name": "Muk-Alola",
     "abilities": [
-        "Poison Touch",
-        "Gluttony",
-        "Power Of Alchemy"
+        {
+            "name": "Poison Touch",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Power Of Alchemy",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

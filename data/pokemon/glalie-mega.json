@@ -1,7 +1,10 @@
 {
     "name": "Glalie-Mega",
     "abilities": [
-        "Refrigerate"
+        {
+            "name": "Refrigerate",
+            "hidden": false
+        }
     ],
     "types": [
         "ice"

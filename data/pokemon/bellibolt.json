@@ -1,9 +1,18 @@
 {
     "name": "Bellibolt",
     "abilities": [
-        "Electromorphosis",
-        "Static",
-        "Damp"
+        {
+            "name": "Electromorphosis",
+            "hidden": false
+        },
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Damp",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

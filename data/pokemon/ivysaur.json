@@ -1,8 +1,14 @@
 {
     "name": "Ivysaur",
     "abilities": [
-        "Overgrow",
-        "Chlorophyll"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Chlorophyll",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

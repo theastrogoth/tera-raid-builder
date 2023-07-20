@@ -1,8 +1,14 @@
 {
     "name": "Shelgon",
     "abilities": [
-        "Rock Head",
-        "Overcoat"
+        {
+            "name": "Rock Head",
+            "hidden": false
+        },
+        {
+            "name": "Overcoat",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon"

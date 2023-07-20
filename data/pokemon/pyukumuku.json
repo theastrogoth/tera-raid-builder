@@ -1,8 +1,14 @@
 {
     "name": "Pyukumuku",
     "abilities": [
-        "Innards Out",
-        "Unaware"
+        {
+            "name": "Innards Out",
+            "hidden": false
+        },
+        {
+            "name": "Unaware",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

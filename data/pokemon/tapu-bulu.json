@@ -1,8 +1,14 @@
 {
     "name": "Tapu Bulu",
     "abilities": [
-        "Grassy Surge",
-        "Telepathy"
+        {
+            "name": "Grassy Surge",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

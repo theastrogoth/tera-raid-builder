@@ -1,9 +1,18 @@
 {
     "name": "Druddigon",
     "abilities": [
-        "Rough Skin",
-        "Sheer Force",
-        "Mold Breaker"
+        {
+            "name": "Rough Skin",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": false
+        },
+        {
+            "name": "Mold Breaker",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon"

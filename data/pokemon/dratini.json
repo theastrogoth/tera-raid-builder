@@ -1,8 +1,14 @@
 {
     "name": "Dratini",
     "abilities": [
-        "Shed Skin",
-        "Marvel Scale"
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        },
+        {
+            "name": "Marvel Scale",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon"

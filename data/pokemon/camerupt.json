@@ -1,9 +1,18 @@
 {
     "name": "Camerupt",
     "abilities": [
-        "Magma Armor",
-        "Solid Rock",
-        "Anger Point"
+        {
+            "name": "Magma Armor",
+            "hidden": false
+        },
+        {
+            "name": "Solid Rock",
+            "hidden": false
+        },
+        {
+            "name": "Anger Point",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

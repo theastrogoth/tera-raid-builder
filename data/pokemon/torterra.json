@@ -1,8 +1,14 @@
 {
     "name": "Torterra",
     "abilities": [
-        "Overgrow",
-        "Shell Armor"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Shell Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

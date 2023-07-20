@@ -1,7 +1,10 @@
 {
     "name": "Zamazenta-Crowned",
     "abilities": [
-        "Dauntless Shield"
+        {
+            "name": "Dauntless Shield",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

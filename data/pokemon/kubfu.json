@@ -1,7 +1,10 @@
 {
     "name": "Kubfu",
     "abilities": [
-        "Inner Focus"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting"

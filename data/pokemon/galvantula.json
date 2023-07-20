@@ -1,9 +1,18 @@
 {
     "name": "Galvantula",
     "abilities": [
-        "Compound Eyes",
-        "Unnerve",
-        "Swarm"
+        {
+            "name": "Compound Eyes",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": false
+        },
+        {
+            "name": "Swarm",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

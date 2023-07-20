@@ -1,9 +1,18 @@
 {
     "name": "Vivillon",
     "abilities": [
-        "Shield Dust",
-        "Compound Eyes",
-        "Friend Guard"
+        {
+            "name": "Shield Dust",
+            "hidden": false
+        },
+        {
+            "name": "Compound Eyes",
+            "hidden": false
+        },
+        {
+            "name": "Friend Guard",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

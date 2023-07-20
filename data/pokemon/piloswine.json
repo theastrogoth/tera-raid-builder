@@ -1,9 +1,18 @@
 {
     "name": "Piloswine",
     "abilities": [
-        "Oblivious",
-        "Snow Cloak",
-        "Thick Fat"
+        {
+            "name": "Oblivious",
+            "hidden": false
+        },
+        {
+            "name": "Snow Cloak",
+            "hidden": false
+        },
+        {
+            "name": "Thick Fat",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

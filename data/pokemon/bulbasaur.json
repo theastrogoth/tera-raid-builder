@@ -1,8 +1,14 @@
 {
     "name": "Bulbasaur",
     "abilities": [
-        "Overgrow",
-        "Chlorophyll"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Chlorophyll",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

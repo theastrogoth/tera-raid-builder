@@ -1,9 +1,18 @@
 {
     "name": "Vanilluxe",
     "abilities": [
-        "Ice Body",
-        "Snow Warning",
-        "Weak Armor"
+        {
+            "name": "Ice Body",
+            "hidden": false
+        },
+        {
+            "name": "Snow Warning",
+            "hidden": false
+        },
+        {
+            "name": "Weak Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "ice"

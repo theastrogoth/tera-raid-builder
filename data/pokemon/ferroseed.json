@@ -1,7 +1,10 @@
 {
     "name": "Ferroseed",
     "abilities": [
-        "Iron Barbs"
+        {
+            "name": "Iron Barbs",
+            "hidden": false
+        }
     ],
     "types": [
         "grass",

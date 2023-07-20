@@ -1,8 +1,14 @@
 {
     "name": "Cyclizar",
     "abilities": [
-        "Shed Skin",
-        "Regenerator"
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon",

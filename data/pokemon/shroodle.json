@@ -1,9 +1,18 @@
 {
     "name": "Shroodle",
     "abilities": [
-        "Unburden",
-        "Pickpocket",
-        "Prankster"
+        {
+            "name": "Unburden",
+            "hidden": false
+        },
+        {
+            "name": "Pickpocket",
+            "hidden": false
+        },
+        {
+            "name": "Prankster",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

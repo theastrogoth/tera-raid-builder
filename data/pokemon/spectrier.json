@@ -1,7 +1,10 @@
 {
     "name": "Spectrier",
     "abilities": [
-        "Grim Neigh"
+        {
+            "name": "Grim Neigh",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost"

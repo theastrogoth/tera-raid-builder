@@ -1,8 +1,14 @@
 {
     "name": "Greedent",
     "abilities": [
-        "Cheek Pouch",
-        "Gluttony"
+        {
+            "name": "Cheek Pouch",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

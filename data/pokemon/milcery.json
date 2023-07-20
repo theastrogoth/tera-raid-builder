@@ -1,8 +1,14 @@
 {
     "name": "Milcery",
     "abilities": [
-        "Sweet Veil",
-        "Aroma Veil"
+        {
+            "name": "Sweet Veil",
+            "hidden": false
+        },
+        {
+            "name": "Aroma Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

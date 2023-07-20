@@ -1,9 +1,18 @@
 {
     "name": "Zigzagoon-Galar",
     "abilities": [
-        "Pickup",
-        "Gluttony",
-        "Quick Feet"
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Quick Feet",
+            "hidden": true
+        }
     ],
     "types": [
         "dark",

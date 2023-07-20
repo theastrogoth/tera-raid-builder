@@ -1,8 +1,14 @@
 {
     "name": "Emolga",
     "abilities": [
-        "Static",
-        "Motor Drive"
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Motor Drive",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

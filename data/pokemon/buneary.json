@@ -1,9 +1,18 @@
 {
     "name": "Buneary",
     "abilities": [
-        "Run Away",
-        "Klutz",
-        "Limber"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Klutz",
+            "hidden": false
+        },
+        {
+            "name": "Limber",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

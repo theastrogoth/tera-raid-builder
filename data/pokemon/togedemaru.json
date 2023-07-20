@@ -1,9 +1,18 @@
 {
     "name": "Togedemaru",
     "abilities": [
-        "Iron Barbs",
-        "Lightning Rod",
-        "Sturdy"
+        {
+            "name": "Iron Barbs",
+            "hidden": false
+        },
+        {
+            "name": "Lightning Rod",
+            "hidden": false
+        },
+        {
+            "name": "Sturdy",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

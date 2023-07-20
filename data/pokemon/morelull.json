@@ -1,9 +1,18 @@
 {
     "name": "Morelull",
     "abilities": [
-        "Illuminate",
-        "Effect Spore",
-        "Rain Dish"
+        {
+            "name": "Illuminate",
+            "hidden": false
+        },
+        {
+            "name": "Effect Spore",
+            "hidden": false
+        },
+        {
+            "name": "Rain Dish",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

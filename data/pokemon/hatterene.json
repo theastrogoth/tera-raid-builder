@@ -1,9 +1,18 @@
 {
     "name": "Hatterene",
     "abilities": [
-        "Healer",
-        "Anticipation",
-        "Magic Bounce"
+        {
+            "name": "Healer",
+            "hidden": false
+        },
+        {
+            "name": "Anticipation",
+            "hidden": false
+        },
+        {
+            "name": "Magic Bounce",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

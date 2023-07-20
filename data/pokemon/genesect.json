@@ -1,7 +1,10 @@
 {
     "name": "Genesect",
     "abilities": [
-        "Download"
+        {
+            "name": "Download",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

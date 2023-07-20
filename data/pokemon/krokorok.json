@@ -1,9 +1,18 @@
 {
     "name": "Krokorok",
     "abilities": [
-        "Intimidate",
-        "Moxie",
-        "Anger Point"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Moxie",
+            "hidden": false
+        },
+        {
+            "name": "Anger Point",
+            "hidden": true
+        }
     ],
     "types": [
         "ground",

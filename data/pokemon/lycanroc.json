@@ -1,9 +1,18 @@
 {
     "name": "Lycanroc",
     "abilities": [
-        "Keen Eye",
-        "Sand Rush",
-        "Steadfast"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Sand Rush",
+            "hidden": false
+        },
+        {
+            "name": "Steadfast",
+            "hidden": true
+        }
     ],
     "types": [
         "rock"

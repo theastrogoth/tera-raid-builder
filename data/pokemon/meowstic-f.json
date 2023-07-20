@@ -1,9 +1,18 @@
 {
     "name": "Meowstic-F",
     "abilities": [
-        "Keen Eye",
-        "Infiltrator",
-        "Competitive"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Infiltrator",
+            "hidden": false
+        },
+        {
+            "name": "Competitive",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

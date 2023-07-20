@@ -1,9 +1,18 @@
 {
     "name": "Mightyena",
     "abilities": [
-        "Intimidate",
-        "Quick Feet",
-        "Moxie"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Quick Feet",
+            "hidden": false
+        },
+        {
+            "name": "Moxie",
+            "hidden": true
+        }
     ],
     "types": [
         "dark"

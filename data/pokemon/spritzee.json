@@ -1,8 +1,14 @@
 {
     "name": "Spritzee",
     "abilities": [
-        "Healer",
-        "Aroma Veil"
+        {
+            "name": "Healer",
+            "hidden": false
+        },
+        {
+            "name": "Aroma Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

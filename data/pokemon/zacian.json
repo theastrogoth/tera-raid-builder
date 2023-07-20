@@ -1,7 +1,10 @@
 {
     "name": "Zacian",
     "abilities": [
-        "Intrepid Sword"
+        {
+            "name": "Intrepid Sword",
+            "hidden": false
+        }
     ],
     "types": [
         "fairy"

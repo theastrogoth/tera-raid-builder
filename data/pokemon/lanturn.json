@@ -1,9 +1,18 @@
 {
     "name": "Lanturn",
     "abilities": [
-        "Volt Absorb",
-        "Illuminate",
-        "Water Absorb"
+        {
+            "name": "Volt Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Illuminate",
+            "hidden": false
+        },
+        {
+            "name": "Water Absorb",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

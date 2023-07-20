@@ -1,9 +1,18 @@
 {
     "name": "Rapidash",
     "abilities": [
-        "Run Away",
-        "Flash Fire",
-        "Flame Body"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Flash Fire",
+            "hidden": false
+        },
+        {
+            "name": "Flame Body",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

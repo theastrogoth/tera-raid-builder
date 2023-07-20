@@ -1,7 +1,10 @@
 {
     "name": "Melmetal-Gmax",
     "abilities": [
-        "Iron Fist"
+        {
+            "name": "Iron Fist",
+            "hidden": false
+        }
     ],
     "types": [
         "steel"

@@ -1,9 +1,18 @@
 {
     "name": "Gliscor",
     "abilities": [
-        "Hyper Cutter",
-        "Sand Veil",
-        "Poison Heal"
+        {
+            "name": "Hyper Cutter",
+            "hidden": false
+        },
+        {
+            "name": "Sand Veil",
+            "hidden": false
+        },
+        {
+            "name": "Poison Heal",
+            "hidden": true
+        }
     ],
     "types": [
         "ground",

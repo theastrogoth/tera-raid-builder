@@ -1,8 +1,14 @@
 {
     "name": "Beautifly",
     "abilities": [
-        "Swarm",
-        "Rivalry"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Rivalry",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

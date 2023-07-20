@@ -1,7 +1,10 @@
 {
     "name": "Mewtwo-Mega-Y",
     "abilities": [
-        "Insomnia"
+        {
+            "name": "Insomnia",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

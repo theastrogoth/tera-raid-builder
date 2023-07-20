@@ -1,7 +1,10 @@
 {
     "name": "Rotom-Frost",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "electric",

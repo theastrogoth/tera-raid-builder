@@ -1,8 +1,14 @@
 {
     "name": "Houndstone",
     "abilities": [
-        "Sand Rush",
-        "Fluffy"
+        {
+            "name": "Sand Rush",
+            "hidden": false
+        },
+        {
+            "name": "Fluffy",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost"

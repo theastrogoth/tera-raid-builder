@@ -1,7 +1,10 @@
 {
     "name": "Camerupt-Mega",
     "abilities": [
-        "Sheer Force"
+        {
+            "name": "Sheer Force",
+            "hidden": false
+        }
     ],
     "types": [
         "fire",

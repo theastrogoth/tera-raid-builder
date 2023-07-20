@@ -1,8 +1,14 @@
 {
     "name": "Primarina",
     "abilities": [
-        "Torrent",
-        "Liquid Voice"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Liquid Voice",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

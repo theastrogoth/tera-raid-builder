@@ -1,8 +1,14 @@
 {
     "name": "Darmanitan",
     "abilities": [
-        "Sheer Force",
-        "Zen Mode"
+        {
+            "name": "Sheer Force",
+            "hidden": false
+        },
+        {
+            "name": "Zen Mode",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

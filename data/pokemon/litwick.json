@@ -1,9 +1,18 @@
 {
     "name": "Litwick",
     "abilities": [
-        "Flash Fire",
-        "Flame Body",
-        "Infiltrator"
+        {
+            "name": "Flash Fire",
+            "hidden": false
+        },
+        {
+            "name": "Flame Body",
+            "hidden": false
+        },
+        {
+            "name": "Infiltrator",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost",

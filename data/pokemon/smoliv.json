@@ -1,8 +1,14 @@
 {
     "name": "Smoliv",
     "abilities": [
-        "Early Bird",
-        "Harvest"
+        {
+            "name": "Early Bird",
+            "hidden": false
+        },
+        {
+            "name": "Harvest",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

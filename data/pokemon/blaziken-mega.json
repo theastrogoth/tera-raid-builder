@@ -1,7 +1,10 @@
 {
     "name": "Blaziken-Mega",
     "abilities": [
-        "Speed Boost"
+        {
+            "name": "Speed Boost",
+            "hidden": false
+        }
     ],
     "types": [
         "fire",

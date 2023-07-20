@@ -1,8 +1,14 @@
 {
     "name": "Lugia",
     "abilities": [
-        "Pressure",
-        "Multiscale"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Multiscale",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

@@ -1,8 +1,14 @@
 {
     "name": "Typhlosion-Hisui",
     "abilities": [
-        "Blaze",
-        "Frisk"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

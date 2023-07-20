@@ -1,7 +1,10 @@
 {
     "name": "Scream Tail",
     "abilities": [
-        "Protosynthesis"
+        {
+            "name": "Protosynthesis",
+            "hidden": false
+        }
     ],
     "types": [
         "fairy",

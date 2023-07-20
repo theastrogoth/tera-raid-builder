@@ -1,8 +1,14 @@
 {
     "name": "Exeggcute",
     "abilities": [
-        "Chlorophyll",
-        "Harvest"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Harvest",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

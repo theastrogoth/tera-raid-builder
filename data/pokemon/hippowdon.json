@@ -1,8 +1,14 @@
 {
     "name": "Hippowdon",
     "abilities": [
-        "Sand Stream",
-        "Sand Force"
+        {
+            "name": "Sand Stream",
+            "hidden": false
+        },
+        {
+            "name": "Sand Force",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

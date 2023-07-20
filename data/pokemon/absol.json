@@ -1,9 +1,18 @@
 {
     "name": "Absol",
     "abilities": [
-        "Pressure",
-        "Super Luck",
-        "Justified"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Super Luck",
+            "hidden": false
+        },
+        {
+            "name": "Justified",
+            "hidden": true
+        }
     ],
     "types": [
         "dark"

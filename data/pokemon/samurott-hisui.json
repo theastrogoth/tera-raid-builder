@@ -1,8 +1,14 @@
 {
     "name": "Samurott-Hisui",
     "abilities": [
-        "Torrent",
-        "Sharpness"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Sharpness",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

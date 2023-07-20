@@ -1,8 +1,14 @@
 {
     "name": "Larvesta",
     "abilities": [
-        "Flame Body",
-        "Swarm"
+        {
+            "name": "Flame Body",
+            "hidden": false
+        },
+        {
+            "name": "Swarm",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

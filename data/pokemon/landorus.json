@@ -1,8 +1,14 @@
 {
     "name": "Landorus",
     "abilities": [
-        "Sand Force",
-        "Sheer Force"
+        {
+            "name": "Sand Force",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "ground",

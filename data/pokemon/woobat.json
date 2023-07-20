@@ -1,9 +1,18 @@
 {
     "name": "Woobat",
     "abilities": [
-        "Unaware",
-        "Klutz",
-        "Simple"
+        {
+            "name": "Unaware",
+            "hidden": false
+        },
+        {
+            "name": "Klutz",
+            "hidden": false
+        },
+        {
+            "name": "Simple",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

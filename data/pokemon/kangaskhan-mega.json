@@ -1,7 +1,10 @@
 {
     "name": "Kangaskhan-Mega",
     "abilities": [
-        "Parental Bond"
+        {
+            "name": "Parental Bond",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

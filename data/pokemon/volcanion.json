@@ -1,7 +1,10 @@
 {
     "name": "Volcanion",
     "abilities": [
-        "Water Absorb"
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        }
     ],
     "types": [
         "fire",

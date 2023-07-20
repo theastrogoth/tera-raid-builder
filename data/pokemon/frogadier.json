@@ -1,8 +1,14 @@
 {
     "name": "Frogadier",
     "abilities": [
-        "Torrent",
-        "Protean"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Protean",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

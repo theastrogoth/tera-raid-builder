@@ -1,8 +1,14 @@
 {
     "name": "Gloom",
     "abilities": [
-        "Chlorophyll",
-        "Stench"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Stench",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

@@ -1,7 +1,10 @@
 {
     "name": "Terrakion",
     "abilities": [
-        "Justified"
+        {
+            "name": "Justified",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

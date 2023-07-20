@@ -1,8 +1,14 @@
 {
     "name": "Dragonite",
     "abilities": [
-        "Inner Focus",
-        "Multiscale"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Multiscale",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon",

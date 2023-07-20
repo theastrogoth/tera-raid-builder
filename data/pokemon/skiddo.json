@@ -1,8 +1,14 @@
 {
     "name": "Skiddo",
     "abilities": [
-        "Sap Sipper",
-        "Grass Pelt"
+        {
+            "name": "Sap Sipper",
+            "hidden": false
+        },
+        {
+            "name": "Grass Pelt",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

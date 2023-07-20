@@ -1,9 +1,18 @@
 {
     "name": "Centiskorch",
     "abilities": [
-        "Flash Fire",
-        "White Smoke",
-        "Flame Body"
+        {
+            "name": "Flash Fire",
+            "hidden": false
+        },
+        {
+            "name": "White Smoke",
+            "hidden": false
+        },
+        {
+            "name": "Flame Body",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

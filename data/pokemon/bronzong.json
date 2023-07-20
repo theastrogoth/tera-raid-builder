@@ -1,9 +1,18 @@
 {
     "name": "Bronzong",
     "abilities": [
-        "Levitate",
-        "Heatproof",
-        "Heavy Metal"
+        {
+            "name": "Levitate",
+            "hidden": false
+        },
+        {
+            "name": "Heatproof",
+            "hidden": false
+        },
+        {
+            "name": "Heavy Metal",
+            "hidden": true
+        }
     ],
     "types": [
         "steel",

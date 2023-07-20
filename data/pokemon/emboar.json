@@ -1,8 +1,14 @@
 {
     "name": "Emboar",
     "abilities": [
-        "Blaze",
-        "Reckless"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Reckless",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

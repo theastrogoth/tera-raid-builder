@@ -1,9 +1,18 @@
 {
     "name": "Clefairy",
     "abilities": [
-        "Cute Charm",
-        "Magic Guard",
-        "Friend Guard"
+        {
+            "name": "Cute Charm",
+            "hidden": false
+        },
+        {
+            "name": "Magic Guard",
+            "hidden": false
+        },
+        {
+            "name": "Friend Guard",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

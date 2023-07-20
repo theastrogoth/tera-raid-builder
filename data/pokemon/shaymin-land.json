@@ -1,7 +1,10 @@
 {
     "name": "Shaymin-Land",
     "abilities": [
-        "Natural Cure"
+        {
+            "name": "Natural Cure",
+            "hidden": false
+        }
     ],
     "types": [
         "grass"

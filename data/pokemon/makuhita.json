@@ -1,9 +1,18 @@
 {
     "name": "Makuhita",
     "abilities": [
-        "Thick Fat",
-        "Guts",
-        "Sheer Force"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        },
+        {
+            "name": "Guts",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

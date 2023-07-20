@@ -1,9 +1,18 @@
 {
     "name": "Ursaring",
     "abilities": [
-        "Guts",
-        "Quick Feet",
-        "Unnerve"
+        {
+            "name": "Guts",
+            "hidden": false
+        },
+        {
+            "name": "Quick Feet",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

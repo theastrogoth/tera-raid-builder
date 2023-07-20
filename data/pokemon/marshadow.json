@@ -1,7 +1,10 @@
 {
     "name": "Marshadow",
     "abilities": [
-        "Technician"
+        {
+            "name": "Technician",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

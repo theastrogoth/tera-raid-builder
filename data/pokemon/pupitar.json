@@ -1,7 +1,10 @@
 {
     "name": "Pupitar",
     "abilities": [
-        "Shed Skin"
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

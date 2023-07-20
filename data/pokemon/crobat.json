@@ -1,8 +1,14 @@
 {
     "name": "Crobat",
     "abilities": [
-        "Inner Focus",
-        "Infiltrator"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Infiltrator",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

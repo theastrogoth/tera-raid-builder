@@ -1,7 +1,10 @@
 {
     "name": "Venusaur-Mega",
     "abilities": [
-        "Thick Fat"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        }
     ],
     "types": [
         "grass",

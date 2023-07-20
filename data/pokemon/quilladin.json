@@ -1,8 +1,14 @@
 {
     "name": "Quilladin",
     "abilities": [
-        "Overgrow",
-        "Bulletproof"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Bulletproof",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

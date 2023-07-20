@@ -1,8 +1,14 @@
 {
     "name": "Kricketune",
     "abilities": [
-        "Swarm",
-        "Technician"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

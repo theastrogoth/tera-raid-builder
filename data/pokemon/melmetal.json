@@ -1,7 +1,10 @@
 {
     "name": "Melmetal",
     "abilities": [
-        "Iron Fist"
+        {
+            "name": "Iron Fist",
+            "hidden": false
+        }
     ],
     "types": [
         "steel"

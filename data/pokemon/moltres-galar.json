@@ -1,7 +1,10 @@
 {
     "name": "Moltres-Galar",
     "abilities": [
-        "Berserk"
+        {
+            "name": "Berserk",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

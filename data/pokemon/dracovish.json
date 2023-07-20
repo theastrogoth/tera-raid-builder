@@ -1,9 +1,18 @@
 {
     "name": "Dracovish",
     "abilities": [
-        "Water Absorb",
-        "Strong Jaw",
-        "Sand Rush"
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Strong Jaw",
+            "hidden": false
+        },
+        {
+            "name": "Sand Rush",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

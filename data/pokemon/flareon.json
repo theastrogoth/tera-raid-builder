@@ -1,8 +1,14 @@
 {
     "name": "Flareon",
     "abilities": [
-        "Flash Fire",
-        "Guts"
+        {
+            "name": "Flash Fire",
+            "hidden": false
+        },
+        {
+            "name": "Guts",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

@@ -1,9 +1,18 @@
 {
     "name": "Corviknight",
     "abilities": [
-        "Pressure",
-        "Unnerve",
-        "Mirror Armor"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": false
+        },
+        {
+            "name": "Mirror Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "flying",

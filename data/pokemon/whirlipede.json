@@ -1,9 +1,18 @@
 {
     "name": "Whirlipede",
     "abilities": [
-        "Poison Point",
-        "Swarm",
-        "Speed Boost"
+        {
+            "name": "Poison Point",
+            "hidden": false
+        },
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Speed Boost",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

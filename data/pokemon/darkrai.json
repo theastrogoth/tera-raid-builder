@@ -1,7 +1,10 @@
 {
     "name": "Darkrai",
     "abilities": [
-        "Bad Dreams"
+        {
+            "name": "Bad Dreams",
+            "hidden": false
+        }
     ],
     "types": [
         "dark"

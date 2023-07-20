@@ -1,9 +1,18 @@
 {
     "name": "Hitmonlee",
     "abilities": [
-        "Limber",
-        "Reckless",
-        "Unburden"
+        {
+            "name": "Limber",
+            "hidden": false
+        },
+        {
+            "name": "Reckless",
+            "hidden": false
+        },
+        {
+            "name": "Unburden",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

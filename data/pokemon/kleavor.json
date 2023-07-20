@@ -1,9 +1,18 @@
 {
     "name": "Kleavor",
     "abilities": [
-        "Swarm",
-        "Sheer Force",
-        "Sharpness"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": false
+        },
+        {
+            "name": "Sharpness",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

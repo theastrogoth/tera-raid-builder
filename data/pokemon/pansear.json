@@ -1,8 +1,14 @@
 {
     "name": "Pansear",
     "abilities": [
-        "Gluttony",
-        "Blaze"
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Blaze",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

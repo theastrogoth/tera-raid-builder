@@ -1,9 +1,18 @@
 {
     "name": "Applin",
     "abilities": [
-        "Ripen",
-        "Gluttony",
-        "Bulletproof"
+        {
+            "name": "Ripen",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Bulletproof",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

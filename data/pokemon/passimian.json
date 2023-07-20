@@ -1,8 +1,14 @@
 {
     "name": "Passimian",
     "abilities": [
-        "Receiver",
-        "Defiant"
+        {
+            "name": "Receiver",
+            "hidden": false
+        },
+        {
+            "name": "Defiant",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

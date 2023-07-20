@@ -1,8 +1,14 @@
 {
     "name": "Froslass",
     "abilities": [
-        "Snow Cloak",
-        "Cursed Body"
+        {
+            "name": "Snow Cloak",
+            "hidden": false
+        },
+        {
+            "name": "Cursed Body",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

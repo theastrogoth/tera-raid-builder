@@ -1,9 +1,18 @@
 {
     "name": "Shellos",
     "abilities": [
-        "Sticky Hold",
-        "Storm Drain",
-        "Sand Force"
+        {
+            "name": "Sticky Hold",
+            "hidden": false
+        },
+        {
+            "name": "Storm Drain",
+            "hidden": false
+        },
+        {
+            "name": "Sand Force",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

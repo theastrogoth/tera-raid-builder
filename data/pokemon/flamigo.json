@@ -1,9 +1,18 @@
 {
     "name": "Flamigo",
     "abilities": [
-        "Scrappy",
-        "Tangled Feet",
-        "Costar"
+        {
+            "name": "Scrappy",
+            "hidden": false
+        },
+        {
+            "name": "Tangled Feet",
+            "hidden": false
+        },
+        {
+            "name": "Costar",
+            "hidden": true
+        }
     ],
     "types": [
         "flying",

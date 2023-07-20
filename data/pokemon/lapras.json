@@ -1,9 +1,18 @@
 {
     "name": "Lapras",
     "abilities": [
-        "Water Absorb",
-        "Shell Armor",
-        "Hydration"
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Shell Armor",
+            "hidden": false
+        },
+        {
+            "name": "Hydration",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

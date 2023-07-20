@@ -1,8 +1,14 @@
 {
     "name": "Ditto",
     "abilities": [
-        "Limber",
-        "Imposter"
+        {
+            "name": "Limber",
+            "hidden": false
+        },
+        {
+            "name": "Imposter",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

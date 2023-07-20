@@ -1,8 +1,14 @@
 {
     "name": "Tyrantrum",
     "abilities": [
-        "Strong Jaw",
-        "Rock Head"
+        {
+            "name": "Strong Jaw",
+            "hidden": false
+        },
+        {
+            "name": "Rock Head",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

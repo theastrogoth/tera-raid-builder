@@ -1,9 +1,18 @@
 {
     "name": "Musharna",
     "abilities": [
-        "Forewarn",
-        "Synchronize",
-        "Telepathy"
+        {
+            "name": "Forewarn",
+            "hidden": false
+        },
+        {
+            "name": "Synchronize",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

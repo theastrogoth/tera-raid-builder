@@ -1,9 +1,18 @@
 {
     "name": "Voltorb-Hisui",
     "abilities": [
-        "Soundproof",
-        "Static",
-        "Aftermath"
+        {
+            "name": "Soundproof",
+            "hidden": false
+        },
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Aftermath",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

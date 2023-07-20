@@ -1,7 +1,10 @@
 {
     "name": "Houndoom-Mega",
     "abilities": [
-        "Solar Power"
+        {
+            "name": "Solar Power",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

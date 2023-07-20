@@ -1,7 +1,10 @@
 {
     "name": "Great Tusk",
     "abilities": [
-        "Protosynthesis"
+        {
+            "name": "Protosynthesis",
+            "hidden": false
+        }
     ],
     "types": [
         "ground",

@@ -1,8 +1,14 @@
 {
     "name": "Combee",
     "abilities": [
-        "Honey Gather",
-        "Hustle"
+        {
+            "name": "Honey Gather",
+            "hidden": false
+        },
+        {
+            "name": "Hustle",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

@@ -1,9 +1,18 @@
 {
     "name": "Farfetch'd",
     "abilities": [
-        "Keen Eye",
-        "Inner Focus",
-        "Defiant"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Defiant",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

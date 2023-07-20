@@ -1,7 +1,10 @@
 {
     "name": "Zygarde-10",
     "abilities": [
-        "Aura Break"
+        {
+            "name": "Aura Break",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

@@ -1,8 +1,14 @@
 {
     "name": "Abomasnow",
     "abilities": [
-        "Snow Warning",
-        "Soundproof"
+        {
+            "name": "Snow Warning",
+            "hidden": false
+        },
+        {
+            "name": "Soundproof",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

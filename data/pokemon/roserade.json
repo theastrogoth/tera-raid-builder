@@ -1,9 +1,18 @@
 {
     "name": "Roserade",
     "abilities": [
-        "Natural Cure",
-        "Poison Point",
-        "Technician"
+        {
+            "name": "Natural Cure",
+            "hidden": false
+        },
+        {
+            "name": "Poison Point",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

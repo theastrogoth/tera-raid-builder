@@ -1,7 +1,10 @@
 {
     "name": "Altaria-Mega",
     "abilities": [
-        "Pixilate"
+        {
+            "name": "Pixilate",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

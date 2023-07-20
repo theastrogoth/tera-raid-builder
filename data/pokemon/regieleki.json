@@ -1,7 +1,10 @@
 {
     "name": "Regieleki",
     "abilities": [
-        "Transistor"
+        {
+            "name": "Transistor",
+            "hidden": false
+        }
     ],
     "types": [
         "electric"

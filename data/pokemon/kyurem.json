@@ -1,7 +1,10 @@
 {
     "name": "Kyurem",
     "abilities": [
-        "Pressure"
+        {
+            "name": "Pressure",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

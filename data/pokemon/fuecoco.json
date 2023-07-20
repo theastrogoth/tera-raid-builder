@@ -1,8 +1,14 @@
 {
     "name": "Fuecoco",
     "abilities": [
-        "Blaze",
-        "Unaware"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Unaware",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

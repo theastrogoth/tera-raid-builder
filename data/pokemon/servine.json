@@ -1,8 +1,14 @@
 {
     "name": "Servine",
     "abilities": [
-        "Overgrow",
-        "Contrary"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Contrary",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

@@ -1,8 +1,14 @@
 {
     "name": "Shieldon",
     "abilities": [
-        "Sturdy",
-        "Soundproof"
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Soundproof",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

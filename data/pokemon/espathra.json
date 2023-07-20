@@ -1,9 +1,18 @@
 {
     "name": "Espathra",
     "abilities": [
-        "Opportunist",
-        "Frisk",
-        "Speed Boost"
+        {
+            "name": "Opportunist",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": false
+        },
+        {
+            "name": "Speed Boost",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

@@ -1,7 +1,10 @@
 {
     "name": "Zarude",
     "abilities": [
-        "Leaf Guard"
+        {
+            "name": "Leaf Guard",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

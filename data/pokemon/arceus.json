@@ -1,7 +1,10 @@
 {
     "name": "Arceus",
     "abilities": [
-        "Multitype"
+        {
+            "name": "Multitype",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

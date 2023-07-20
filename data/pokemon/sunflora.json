@@ -1,9 +1,18 @@
 {
     "name": "Sunflora",
     "abilities": [
-        "Chlorophyll",
-        "Solar Power",
-        "Early Bird"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Solar Power",
+            "hidden": false
+        },
+        {
+            "name": "Early Bird",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

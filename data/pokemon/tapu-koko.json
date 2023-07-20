@@ -1,8 +1,14 @@
 {
     "name": "Tapu Koko",
     "abilities": [
-        "Electric Surge",
-        "Telepathy"
+        {
+            "name": "Electric Surge",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

@@ -1,9 +1,18 @@
 {
     "name": "Herdier",
     "abilities": [
-        "Intimidate",
-        "Sand Rush",
-        "Scrappy"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Sand Rush",
+            "hidden": false
+        },
+        {
+            "name": "Scrappy",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

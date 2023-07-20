@@ -1,7 +1,10 @@
 {
     "name": "Gengar-Gmax",
     "abilities": [
-        "Cursed Body"
+        {
+            "name": "Cursed Body",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost",

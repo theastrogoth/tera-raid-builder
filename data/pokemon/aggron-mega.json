@@ -1,7 +1,10 @@
 {
     "name": "Aggron-Mega",
     "abilities": [
-        "Filter"
+        {
+            "name": "Filter",
+            "hidden": false
+        }
     ],
     "types": [
         "steel"

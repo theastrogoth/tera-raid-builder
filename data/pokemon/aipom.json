@@ -1,9 +1,18 @@
 {
     "name": "Aipom",
     "abilities": [
-        "Run Away",
-        "Pickup",
-        "Skill Link"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Skill Link",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

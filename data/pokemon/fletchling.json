@@ -1,8 +1,14 @@
 {
     "name": "Fletchling",
     "abilities": [
-        "Big Pecks",
-        "Gale Wings"
+        {
+            "name": "Big Pecks",
+            "hidden": false
+        },
+        {
+            "name": "Gale Wings",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

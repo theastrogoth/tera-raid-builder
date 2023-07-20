@@ -1,8 +1,14 @@
 {
     "name": "Fletchinder",
     "abilities": [
-        "Flame Body",
-        "Gale Wings"
+        {
+            "name": "Flame Body",
+            "hidden": false
+        },
+        {
+            "name": "Gale Wings",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

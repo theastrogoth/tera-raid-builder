@@ -1,7 +1,10 @@
 {
     "name": "Heracross-Mega",
     "abilities": [
-        "Skill Link"
+        {
+            "name": "Skill Link",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

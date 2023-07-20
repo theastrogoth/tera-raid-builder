@@ -1,7 +1,10 @@
 {
     "name": "Medicham-Mega",
     "abilities": [
-        "Pure Power"
+        {
+            "name": "Pure Power",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

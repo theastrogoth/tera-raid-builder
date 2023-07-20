@@ -1,9 +1,18 @@
 {
     "name": "Skitty",
     "abilities": [
-        "Cute Charm",
-        "Normalize",
-        "Wonder Skin"
+        {
+            "name": "Cute Charm",
+            "hidden": false
+        },
+        {
+            "name": "Normalize",
+            "hidden": false
+        },
+        {
+            "name": "Wonder Skin",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

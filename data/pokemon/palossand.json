@@ -1,8 +1,14 @@
 {
     "name": "Palossand",
     "abilities": [
-        "Water Compaction",
-        "Sand Veil"
+        {
+            "name": "Water Compaction",
+            "hidden": false
+        },
+        {
+            "name": "Sand Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost",

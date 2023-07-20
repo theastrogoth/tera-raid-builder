@@ -1,7 +1,10 @@
 {
     "name": "Cosmoem",
     "abilities": [
-        "Sturdy"
+        {
+            "name": "Sturdy",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

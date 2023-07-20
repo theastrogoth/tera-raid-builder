@@ -1,8 +1,14 @@
 {
     "name": "Tarountula",
     "abilities": [
-        "Insomnia",
-        "Stakeout"
+        {
+            "name": "Insomnia",
+            "hidden": false
+        },
+        {
+            "name": "Stakeout",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

@@ -1,9 +1,18 @@
 {
     "name": "Bounsweet",
     "abilities": [
-        "Leaf Guard",
-        "Oblivious",
-        "Sweet Veil"
+        {
+            "name": "Leaf Guard",
+            "hidden": false
+        },
+        {
+            "name": "Oblivious",
+            "hidden": false
+        },
+        {
+            "name": "Sweet Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

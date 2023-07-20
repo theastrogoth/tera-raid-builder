@@ -1,7 +1,10 @@
 {
     "name": "Jirachi",
     "abilities": [
-        "Serene Grace"
+        {
+            "name": "Serene Grace",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

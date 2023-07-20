@@ -1,7 +1,10 @@
 {
     "name": "Groudon",
     "abilities": [
-        "Drought"
+        {
+            "name": "Drought",
+            "hidden": false
+        }
     ],
     "types": [
         "ground"

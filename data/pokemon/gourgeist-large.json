@@ -1,9 +1,18 @@
 {
     "name": "Gourgeist-Large",
     "abilities": [
-        "Pickup",
-        "Frisk",
-        "Insomnia"
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": false
+        },
+        {
+            "name": "Insomnia",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost",

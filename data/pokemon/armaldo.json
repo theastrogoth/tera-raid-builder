@@ -1,8 +1,14 @@
 {
     "name": "Armaldo",
     "abilities": [
-        "Battle Armor",
-        "Swift Swim"
+        {
+            "name": "Battle Armor",
+            "hidden": false
+        },
+        {
+            "name": "Swift Swim",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

@@ -1,9 +1,18 @@
 {
     "name": "Throh",
     "abilities": [
-        "Guts",
-        "Inner Focus",
-        "Mold Breaker"
+        {
+            "name": "Guts",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Mold Breaker",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

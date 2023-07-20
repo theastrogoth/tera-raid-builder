@@ -1,9 +1,18 @@
 {
     "name": "Lucario",
     "abilities": [
-        "Steadfast",
-        "Inner Focus",
-        "Justified"
+        {
+            "name": "Steadfast",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Justified",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting",

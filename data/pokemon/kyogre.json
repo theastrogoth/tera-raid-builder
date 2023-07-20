@@ -1,7 +1,10 @@
 {
     "name": "Kyogre",
     "abilities": [
-        "Drizzle"
+        {
+            "name": "Drizzle",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

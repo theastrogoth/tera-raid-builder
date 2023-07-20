@@ -1,7 +1,10 @@
 {
     "name": "Koraidon-Swimming-Build",
     "abilities": [
-        "Orichalcum Pulse"
+        {
+            "name": "Orichalcum Pulse",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

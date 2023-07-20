@@ -1,7 +1,10 @@
 {
     "name": "Necrozma-Dusk",
     "abilities": [
-        "Prism Armor"
+        {
+            "name": "Prism Armor",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

@@ -1,9 +1,18 @@
 {
     "name": "Cetitan",
     "abilities": [
-        "Thick Fat",
-        "Slush Rush",
-        "Sheer Force"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        },
+        {
+            "name": "Slush Rush",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "ice"

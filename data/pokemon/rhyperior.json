@@ -1,9 +1,18 @@
 {
     "name": "Rhyperior",
     "abilities": [
-        "Lightning Rod",
-        "Solid Rock",
-        "Reckless"
+        {
+            "name": "Lightning Rod",
+            "hidden": false
+        },
+        {
+            "name": "Solid Rock",
+            "hidden": false
+        },
+        {
+            "name": "Reckless",
+            "hidden": true
+        }
     ],
     "types": [
         "ground",

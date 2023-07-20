@@ -1,9 +1,18 @@
 {
     "name": "Lopunny",
     "abilities": [
-        "Cute Charm",
-        "Klutz",
-        "Limber"
+        {
+            "name": "Cute Charm",
+            "hidden": false
+        },
+        {
+            "name": "Klutz",
+            "hidden": false
+        },
+        {
+            "name": "Limber",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

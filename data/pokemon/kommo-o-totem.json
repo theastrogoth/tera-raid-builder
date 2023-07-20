@@ -1,9 +1,18 @@
 {
     "name": "Kommo-O-Totem",
     "abilities": [
-        "Bulletproof",
-        "Soundproof",
-        "Overcoat"
+        {
+            "name": "Bulletproof",
+            "hidden": false
+        },
+        {
+            "name": "Soundproof",
+            "hidden": false
+        },
+        {
+            "name": "Overcoat",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon",

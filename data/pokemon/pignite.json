@@ -1,8 +1,14 @@
 {
     "name": "Pignite",
     "abilities": [
-        "Blaze",
-        "Thick Fat"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Thick Fat",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

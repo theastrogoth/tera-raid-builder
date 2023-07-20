@@ -1,9 +1,18 @@
 {
     "name": "Kangaskhan",
     "abilities": [
-        "Early Bird",
-        "Scrappy",
-        "Inner Focus"
+        {
+            "name": "Early Bird",
+            "hidden": false
+        },
+        {
+            "name": "Scrappy",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

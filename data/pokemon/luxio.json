@@ -1,9 +1,18 @@
 {
     "name": "Luxio",
     "abilities": [
-        "Rivalry",
-        "Intimidate",
-        "Guts"
+        {
+            "name": "Rivalry",
+            "hidden": false
+        },
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Guts",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

@@ -1,9 +1,18 @@
 {
     "name": "Beheeyem",
     "abilities": [
-        "Telepathy",
-        "Synchronize",
-        "Analytic"
+        {
+            "name": "Telepathy",
+            "hidden": false
+        },
+        {
+            "name": "Synchronize",
+            "hidden": false
+        },
+        {
+            "name": "Analytic",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

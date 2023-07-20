@@ -1,7 +1,10 @@
 {
     "name": "Morpeko-Full-Belly",
     "abilities": [
-        "Hunger Switch"
+        {
+            "name": "Hunger Switch",
+            "hidden": false
+        }
     ],
     "types": [
         "electric",

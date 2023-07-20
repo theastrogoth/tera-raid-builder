@@ -1,7 +1,10 @@
 {
     "name": "Uxie",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

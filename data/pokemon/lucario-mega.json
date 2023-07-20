@@ -1,7 +1,10 @@
 {
     "name": "Lucario-Mega",
     "abilities": [
-        "Adaptability"
+        {
+            "name": "Adaptability",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

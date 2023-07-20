@@ -1,7 +1,10 @@
 {
     "name": "Castform-Snowy",
     "abilities": [
-        "Forecast"
+        {
+            "name": "Forecast",
+            "hidden": false
+        }
     ],
     "types": [
         "ice"

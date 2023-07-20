@@ -1,7 +1,10 @@
 {
     "name": "Silvally",
     "abilities": [
-        "Rks System"
+        {
+            "name": "Rks System",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

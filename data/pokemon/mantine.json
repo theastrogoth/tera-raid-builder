@@ -1,9 +1,18 @@
 {
     "name": "Mantine",
     "abilities": [
-        "Swift Swim",
-        "Water Absorb",
-        "Water Veil"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Water Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

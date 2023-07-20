@@ -1,9 +1,18 @@
 {
     "name": "Shellder",
     "abilities": [
-        "Shell Armor",
-        "Skill Link",
-        "Overcoat"
+        {
+            "name": "Shell Armor",
+            "hidden": false
+        },
+        {
+            "name": "Skill Link",
+            "hidden": false
+        },
+        {
+            "name": "Overcoat",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

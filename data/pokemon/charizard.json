@@ -1,8 +1,14 @@
 {
     "name": "Charizard",
     "abilities": [
-        "Blaze",
-        "Solar Power"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Solar Power",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

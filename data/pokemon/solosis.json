@@ -1,9 +1,18 @@
 {
     "name": "Solosis",
     "abilities": [
-        "Overcoat",
-        "Magic Guard",
-        "Regenerator"
+        {
+            "name": "Overcoat",
+            "hidden": false
+        },
+        {
+            "name": "Magic Guard",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

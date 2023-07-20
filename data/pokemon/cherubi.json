@@ -1,7 +1,10 @@
 {
     "name": "Cherubi",
     "abilities": [
-        "Chlorophyll"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        }
     ],
     "types": [
         "grass"

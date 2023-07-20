@@ -1,9 +1,18 @@
 {
     "name": "Grimmsnarl-Gmax",
     "abilities": [
-        "Prankster",
-        "Frisk",
-        "Pickpocket"
+        {
+            "name": "Prankster",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": false
+        },
+        {
+            "name": "Pickpocket",
+            "hidden": true
+        }
     ],
     "types": [
         "dark",

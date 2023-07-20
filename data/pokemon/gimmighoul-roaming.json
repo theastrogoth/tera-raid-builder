@@ -1,7 +1,10 @@
 {
     "name": "Gimmighoul-Roaming",
     "abilities": [
-        "Run Away"
+        {
+            "name": "Run Away",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost"

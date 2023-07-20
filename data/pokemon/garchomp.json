@@ -1,8 +1,14 @@
 {
     "name": "Garchomp",
     "abilities": [
-        "Sand Veil",
-        "Rough Skin"
+        {
+            "name": "Sand Veil",
+            "hidden": false
+        },
+        {
+            "name": "Rough Skin",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon",

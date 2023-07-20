@@ -1,8 +1,14 @@
 {
     "name": "Pineco",
     "abilities": [
-        "Sturdy",
-        "Overcoat"
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Overcoat",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

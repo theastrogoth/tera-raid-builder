@@ -1,8 +1,14 @@
 {
     "name": "Pikachu-Partner-Cap",
     "abilities": [
-        "Static",
-        "Lightning Rod"
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Lightning Rod",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

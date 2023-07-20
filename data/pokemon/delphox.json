@@ -1,8 +1,14 @@
 {
     "name": "Delphox",
     "abilities": [
-        "Blaze",
-        "Magician"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Magician",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

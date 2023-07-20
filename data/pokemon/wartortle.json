@@ -1,8 +1,14 @@
 {
     "name": "Wartortle",
     "abilities": [
-        "Torrent",
-        "Rain Dish"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Rain Dish",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

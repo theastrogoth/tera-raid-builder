@@ -1,9 +1,18 @@
 {
     "name": "Glameow",
     "abilities": [
-        "Limber",
-        "Own Tempo",
-        "Keen Eye"
+        {
+            "name": "Limber",
+            "hidden": false
+        },
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Keen Eye",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

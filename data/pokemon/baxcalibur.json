@@ -1,8 +1,14 @@
 {
     "name": "Baxcalibur",
     "abilities": [
-        "Thermal Exchange",
-        "Ice Body"
+        {
+            "name": "Thermal Exchange",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon",

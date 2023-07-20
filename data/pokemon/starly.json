@@ -1,8 +1,14 @@
 {
     "name": "Starly",
     "abilities": [
-        "Keen Eye",
-        "Reckless"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Reckless",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

@@ -1,8 +1,14 @@
 {
     "name": "Thwackey",
     "abilities": [
-        "Overgrow",
-        "Grassy Surge"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Grassy Surge",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

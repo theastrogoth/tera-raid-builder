@@ -1,9 +1,18 @@
 {
     "name": "Pancham",
     "abilities": [
-        "Iron Fist",
-        "Mold Breaker",
-        "Scrappy"
+        {
+            "name": "Iron Fist",
+            "hidden": false
+        },
+        {
+            "name": "Mold Breaker",
+            "hidden": false
+        },
+        {
+            "name": "Scrappy",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

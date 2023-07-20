@@ -1,7 +1,10 @@
 {
     "name": "Dhelmise",
     "abilities": [
-        "Steelworker"
+        {
+            "name": "Steelworker",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost",

@@ -1,9 +1,18 @@
 {
     "name": "Pawmot",
     "abilities": [
-        "Volt Absorb",
-        "Natural Cure",
-        "Iron Fist"
+        {
+            "name": "Volt Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Natural Cure",
+            "hidden": false
+        },
+        {
+            "name": "Iron Fist",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

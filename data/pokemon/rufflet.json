@@ -1,9 +1,18 @@
 {
     "name": "Rufflet",
     "abilities": [
-        "Keen Eye",
-        "Sheer Force",
-        "Hustle"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": false
+        },
+        {
+            "name": "Hustle",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

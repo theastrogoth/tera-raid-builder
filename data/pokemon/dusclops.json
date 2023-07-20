@@ -1,8 +1,14 @@
 {
     "name": "Dusclops",
     "abilities": [
-        "Pressure",
-        "Frisk"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost"

@@ -1,9 +1,18 @@
 {
     "name": "Toxtricity-Amped-Gmax",
     "abilities": [
-        "Punk Rock",
-        "Plus",
-        "Technician"
+        {
+            "name": "Punk Rock",
+            "hidden": false
+        },
+        {
+            "name": "Plus",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

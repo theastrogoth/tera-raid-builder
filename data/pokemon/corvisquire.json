@@ -1,9 +1,18 @@
 {
     "name": "Corvisquire",
     "abilities": [
-        "Keen Eye",
-        "Unnerve",
-        "Big Pecks"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": false
+        },
+        {
+            "name": "Big Pecks",
+            "hidden": true
+        }
     ],
     "types": [
         "flying"

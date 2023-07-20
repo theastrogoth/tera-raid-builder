@@ -1,9 +1,18 @@
 {
     "name": "Nidoqueen",
     "abilities": [
-        "Poison Point",
-        "Rivalry",
-        "Sheer Force"
+        {
+            "name": "Poison Point",
+            "hidden": false
+        },
+        {
+            "name": "Rivalry",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

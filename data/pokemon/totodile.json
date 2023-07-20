@@ -1,8 +1,14 @@
 {
     "name": "Totodile",
     "abilities": [
-        "Torrent",
-        "Sheer Force"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

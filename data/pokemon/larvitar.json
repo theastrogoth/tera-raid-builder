@@ -1,8 +1,14 @@
 {
     "name": "Larvitar",
     "abilities": [
-        "Guts",
-        "Sand Veil"
+        {
+            "name": "Guts",
+            "hidden": false
+        },
+        {
+            "name": "Sand Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

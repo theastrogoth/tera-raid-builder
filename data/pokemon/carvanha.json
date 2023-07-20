@@ -1,8 +1,14 @@
 {
     "name": "Carvanha",
     "abilities": [
-        "Rough Skin",
-        "Speed Boost"
+        {
+            "name": "Rough Skin",
+            "hidden": false
+        },
+        {
+            "name": "Speed Boost",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

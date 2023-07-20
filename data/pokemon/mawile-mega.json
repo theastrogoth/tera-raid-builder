@@ -1,7 +1,10 @@
 {
     "name": "Mawile-Mega",
     "abilities": [
-        "Huge Power"
+        {
+            "name": "Huge Power",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

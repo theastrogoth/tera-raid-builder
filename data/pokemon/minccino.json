@@ -1,9 +1,18 @@
 {
     "name": "Minccino",
     "abilities": [
-        "Cute Charm",
-        "Technician",
-        "Skill Link"
+        {
+            "name": "Cute Charm",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": false
+        },
+        {
+            "name": "Skill Link",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

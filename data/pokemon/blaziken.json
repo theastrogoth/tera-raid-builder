@@ -1,8 +1,14 @@
 {
     "name": "Blaziken",
     "abilities": [
-        "Blaze",
-        "Speed Boost"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Speed Boost",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

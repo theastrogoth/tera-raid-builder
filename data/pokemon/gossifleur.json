@@ -1,9 +1,18 @@
 {
     "name": "Gossifleur",
     "abilities": [
-        "Cotton Down",
-        "Regenerator",
-        "Effect Spore"
+        {
+            "name": "Cotton Down",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": false
+        },
+        {
+            "name": "Effect Spore",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

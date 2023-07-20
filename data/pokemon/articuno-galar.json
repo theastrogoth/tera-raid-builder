@@ -1,7 +1,10 @@
 {
     "name": "Articuno-Galar",
     "abilities": [
-        "Competitive"
+        {
+            "name": "Competitive",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

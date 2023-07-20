@@ -1,8 +1,14 @@
 {
     "name": "Caterpie",
     "abilities": [
-        "Shield Dust",
-        "Run Away"
+        {
+            "name": "Shield Dust",
+            "hidden": false
+        },
+        {
+            "name": "Run Away",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

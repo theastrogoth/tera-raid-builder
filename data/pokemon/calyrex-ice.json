@@ -1,7 +1,10 @@
 {
     "name": "Calyrex-Ice",
     "abilities": [
-        "As One Glastrier"
+        {
+            "name": "As One Glastrier",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

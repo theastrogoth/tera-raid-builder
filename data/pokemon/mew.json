@@ -1,7 +1,10 @@
 {
     "name": "Mew",
     "abilities": [
-        "Synchronize"
+        {
+            "name": "Synchronize",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

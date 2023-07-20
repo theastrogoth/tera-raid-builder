@@ -1,9 +1,18 @@
 {
     "name": "Boldore",
     "abilities": [
-        "Sturdy",
-        "Weak Armor",
-        "Sand Force"
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Weak Armor",
+            "hidden": false
+        },
+        {
+            "name": "Sand Force",
+            "hidden": true
+        }
     ],
     "types": [
         "rock"

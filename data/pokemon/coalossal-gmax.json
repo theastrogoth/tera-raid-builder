@@ -1,9 +1,18 @@
 {
     "name": "Coalossal-Gmax",
     "abilities": [
-        "Steam Engine",
-        "Flame Body",
-        "Flash Fire"
+        {
+            "name": "Steam Engine",
+            "hidden": false
+        },
+        {
+            "name": "Flame Body",
+            "hidden": false
+        },
+        {
+            "name": "Flash Fire",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

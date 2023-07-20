@@ -1,8 +1,14 @@
 {
     "name": "Oddish",
     "abilities": [
-        "Chlorophyll",
-        "Run Away"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Run Away",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

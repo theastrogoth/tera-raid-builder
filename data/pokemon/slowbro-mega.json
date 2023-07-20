@@ -1,7 +1,10 @@
 {
     "name": "Slowbro-Mega",
     "abilities": [
-        "Shell Armor"
+        {
+            "name": "Shell Armor",
+            "hidden": false
+        }
     ],
     "types": [
         "water",

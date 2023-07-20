@@ -1,9 +1,18 @@
 {
     "name": "Escavalier",
     "abilities": [
-        "Swarm",
-        "Shell Armor",
-        "Overcoat"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Shell Armor",
+            "hidden": false
+        },
+        {
+            "name": "Overcoat",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

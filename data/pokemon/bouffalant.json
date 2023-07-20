@@ -1,9 +1,18 @@
 {
     "name": "Bouffalant",
     "abilities": [
-        "Reckless",
-        "Sap Sipper",
-        "Soundproof"
+        {
+            "name": "Reckless",
+            "hidden": false
+        },
+        {
+            "name": "Sap Sipper",
+            "hidden": false
+        },
+        {
+            "name": "Soundproof",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

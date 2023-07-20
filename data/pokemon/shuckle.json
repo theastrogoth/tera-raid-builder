@@ -1,9 +1,18 @@
 {
     "name": "Shuckle",
     "abilities": [
-        "Sturdy",
-        "Gluttony",
-        "Contrary"
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Contrary",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

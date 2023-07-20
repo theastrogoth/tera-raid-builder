@@ -1,8 +1,14 @@
 {
     "name": "Ho-Oh",
     "abilities": [
-        "Pressure",
-        "Regenerator"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

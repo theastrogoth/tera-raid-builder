@@ -1,7 +1,10 @@
 {
     "name": "Zweilous",
     "abilities": [
-        "Hustle"
+        {
+            "name": "Hustle",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

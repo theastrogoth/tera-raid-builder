@@ -1,8 +1,14 @@
 {
     "name": "Darmanitan-Galar-Zen",
     "abilities": [
-        "Gorilla Tactics",
-        "Zen Mode"
+        {
+            "name": "Gorilla Tactics",
+            "hidden": false
+        },
+        {
+            "name": "Zen Mode",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

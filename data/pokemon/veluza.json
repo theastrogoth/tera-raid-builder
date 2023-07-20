@@ -1,8 +1,14 @@
 {
     "name": "Veluza",
     "abilities": [
-        "Mold Breaker",
-        "Sharpness"
+        {
+            "name": "Mold Breaker",
+            "hidden": false
+        },
+        {
+            "name": "Sharpness",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

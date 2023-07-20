@@ -1,7 +1,10 @@
 {
     "name": "Cofagrigus",
     "abilities": [
-        "Mummy"
+        {
+            "name": "Mummy",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost"

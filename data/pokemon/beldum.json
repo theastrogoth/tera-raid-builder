@@ -1,8 +1,14 @@
 {
     "name": "Beldum",
     "abilities": [
-        "Clear Body",
-        "Light Metal"
+        {
+            "name": "Clear Body",
+            "hidden": false
+        },
+        {
+            "name": "Light Metal",
+            "hidden": true
+        }
     ],
     "types": [
         "steel",

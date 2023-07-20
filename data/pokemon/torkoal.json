@@ -1,9 +1,18 @@
 {
     "name": "Torkoal",
     "abilities": [
-        "White Smoke",
-        "Drought",
-        "Shell Armor"
+        {
+            "name": "White Smoke",
+            "hidden": false
+        },
+        {
+            "name": "Drought",
+            "hidden": false
+        },
+        {
+            "name": "Shell Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

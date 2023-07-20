@@ -1,7 +1,10 @@
 {
     "name": "Oricorio-Baile",
     "abilities": [
-        "Dancer"
+        {
+            "name": "Dancer",
+            "hidden": false
+        }
     ],
     "types": [
         "fire",

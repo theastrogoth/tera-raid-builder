@@ -1,9 +1,18 @@
 {
     "name": "Bombirdier",
     "abilities": [
-        "Big Pecks",
-        "Keen Eye",
-        "Rocky Payload"
+        {
+            "name": "Big Pecks",
+            "hidden": false
+        },
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Rocky Payload",
+            "hidden": true
+        }
     ],
     "types": [
         "flying",

@@ -1,7 +1,10 @@
 {
     "name": "Banette-Mega",
     "abilities": [
-        "Prankster"
+        {
+            "name": "Prankster",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost"

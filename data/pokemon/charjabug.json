@@ -1,7 +1,10 @@
 {
     "name": "Charjabug",
     "abilities": [
-        "Battery"
+        {
+            "name": "Battery",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

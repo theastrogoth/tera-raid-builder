@@ -1,9 +1,18 @@
 {
     "name": "Pachirisu",
     "abilities": [
-        "Run Away",
-        "Pickup",
-        "Volt Absorb"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Volt Absorb",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

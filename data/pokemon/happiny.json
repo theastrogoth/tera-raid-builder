@@ -1,9 +1,18 @@
 {
     "name": "Happiny",
     "abilities": [
-        "Natural Cure",
-        "Serene Grace",
-        "Friend Guard"
+        {
+            "name": "Natural Cure",
+            "hidden": false
+        },
+        {
+            "name": "Serene Grace",
+            "hidden": false
+        },
+        {
+            "name": "Friend Guard",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

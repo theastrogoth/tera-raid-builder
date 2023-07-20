@@ -3,6 +3,7 @@ import { getEndOfTurn } from "../calc/desc";
 import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
 import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
 import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat } from "../calc/mechanics/util";
+import { diff } from "jest-diff";
 
 // next time I prepare the move data, I should eliminate the need for translation
 function ailmentToStatus(ailment: AilmentName): StatusName | "" {
@@ -456,8 +457,10 @@ export class RaidMove {
                         break;
                     case "White Herb":
                         for (let stat in fl_target.boosts) {
+                            let whiteHerbUsed = false;
                             // @ts-ignore
-                            if (fl_target.boosts[stat] < 0) { fl_target.boosts[stat] = 0; }
+                            if (fl_target.boosts[stat] < 0) { fl_target.boosts[stat] = 0; this._boosts[targetID][stat] = 0; whiteHerbUsed = true; }
+                            if ( whiteHerbUsed ) { fl_target.item = undefined; }
                         }
                         break;
                     // Status-Curing Berries
@@ -481,19 +484,29 @@ export class RaidMove {
                         break;
                     // Stat-Boosting Berries
                     case "Liechi Berry":
+                        const origAtk = fl_target.boosts.atk;
                         fl_target.boosts.atk = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        this._boosts[this.targetID].atk = this._boosts[this.targetID].atk || 0 + fl_target.boosts.atk - origAtk;
                         break;
                     case "Ganlon Berry":
-                        fl_target.boosts.def = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        const origDef = fl_target.boosts.def;
+                        fl_target.boosts.def = Math.max(-6, Math.min(6, fl_target.boosts.def + boostCoefficient));
+                        this._boosts[this.targetID].def = this._boosts[this.targetID].def || 0 + boostCoefficient - origDef;
                         break;
                     case "Petaya Berry":
-                        fl_target.boosts.spa = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        const origSpa = fl_target.boosts.spa;
+                        fl_target.boosts.spa = Math.max(-6, Math.min(6, fl_target.boosts.spa + boostCoefficient));
+                        this._boosts[this.targetID].spa = this._boosts[this.targetID].spa || 0 + boostCoefficient - origSpa;
                         break;
                     case "Apicot Berry":
-                        fl_target.boosts.spd = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        const origSpd = fl_target.boosts.spd;
+                        fl_target.boosts.spd = Math.max(-6, Math.min(6, fl_target.boosts.spd + boostCoefficient));
+                        this._boosts[this.targetID].spd = this._boosts[this.targetID].spd || 0 + boostCoefficient - origSpd;
                         break;
                     case "Salac Berry":
-                        fl_target.boosts.spe = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        const origSpe = fl_target.boosts.spe;
+                        fl_target.boosts.spe = Math.max(-6, Math.min(6, fl_target.boosts.spe + boostCoefficient));
+                        this._boosts[this.targetID].spe = this._boosts[this.targetID].spe || 0 + boostCoefficient - origSpe;
                         break;
                     // Healing Berries
                     case "Sitrus Berry":
@@ -593,10 +606,16 @@ export class RaidMove {
                 let changed = false;
                 for (let stat in bossBoosts) {
                     // @ts-ignore
-                    if (bossBoosts[stat] !== 0) { 
+                    if (bossBoosts[stat] > 0) { 
                         changed = true;
                         // @ts-ignore
+                        const origStat = pokemon.boosts[stat];
+                        // @ts-ignore
                         pokemon.boosts[stat] = Math.max(-6, Math.min(6, pokemon.boosts[stat] + bossBoosts[stat])); }
+                        // @ts-ignore
+                        const diff = pokemon.boosts[stat] - origStat;
+                        // @ts-ignore
+                        this._boosts[stat] = this._boosts[stat] || 0 + diff;
                 }
                 if (changed) { pokemon.item = undefined; } // the herb is consumed if a boost is copied.
             }
@@ -608,9 +627,16 @@ export class RaidMove {
             if (this._damage[id] > 0 && isSuperEffective(this.move, this._fields[id], this._user, pokemon)) {
                 switch (pokemon.item) {
                     case "Weakness Policy":
-                        pokemon.boosts.atk = Math.min(6, pokemon.boosts.atk + 2);
-                        pokemon.boosts.spa = Math.min(6, pokemon.boosts.spa + 2);
+                        const isSimple = pokemon.ability === "Simple";
+                        const isContrary = pokemon.ability === "Contrary";
+                        const boostCoefficient = isSimple ? 2 : isContrary ? -1 : 1;
+                        const origAtk = pokemon.boosts.atk;
+                        const origSpa = pokemon.boosts.spa;
+                        pokemon.boosts.atk = Math.max(-6, Math.min(6, pokemon.boosts.atk + 2 * boostCoefficient));
+                        pokemon.boosts.spa = Math.max(-6, Math.min(6, pokemon.boosts.spa + 2 * boostCoefficient));
                         pokemon.item = undefined;
+                        this._boosts[id].atk = this._boosts[id].atk || 0 + pokemon.boosts.atk - origAtk;
+                        this._boosts[id].spa = this._boosts[id].spa || 0 + pokemon.boosts.spa - origSpa;
                         break;
                     case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
                         if (this.move.type === "Fire") { pokemon.item = undefined; }
@@ -855,17 +881,22 @@ export class RaidMove {
         }
         // check for stat changes
         for (let i=0; i<5; i++) {
-            let boostStr = "";
-            for (let stat in this._boosts[i]) {
+            const pokemon = this.getPokemon(i);
+            const origPokemon = this.raidState.raiders[i];
+            let boostStr: string[] = [];
+            for (let stat in pokemon.boosts) {
                 //@ts-ignore
-                const b = this._boosts[i][stat]
-                if (b !== 0) {
-                    boostStr += stat + " " + (b > 0 ? "+" : "") + b + ", ";
+                const origStat = origPokemon.boosts[stat];
+                //@ts-ignore
+                const newStat = pokemon.boosts[stat] === undefined ? origStat : pokemon.boosts[stat];
+                const diff = newStat - origStat;
+                if (diff !== 0) {
+                    boostStr.push(stat + " " + (origStat > 0 ? "+" : "") + origStat + " -> " + (newStat > 0 ? "+" : "") + newStat);
                 }
             }
-            if (boostStr !== "") {
-                boostStr = "Stat changes: (" + boostStr.slice(0, -2) + ")";
-                this._flags[i].push(boostStr);
+            if (boostStr.length > 0) {
+                const displayStr = "Stat changes: (" + boostStr.join(", ") + ")";
+                this._flags[i].push(displayStr);
             }
         }
         // check for HP changes

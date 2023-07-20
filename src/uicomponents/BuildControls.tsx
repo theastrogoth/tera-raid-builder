@@ -9,6 +9,7 @@ import TableCell from '@mui/material/TableCell';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
+import Select from '@mui/material/Select';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import TuneIcon from '@mui/icons-material/Tune';
@@ -24,6 +25,8 @@ import ImportExportArea from "./ImportExportArea";
 import { Typography } from "@mui/material";
 import { MoveSetItem, Raider } from "../raidcalc/interface";
 import { getMoveMethodIconURL } from "../utils";
+
+import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
 
 // we will always use Gen 9
 const gen = Generations.get(9);
@@ -143,11 +146,12 @@ return (
                         size="small"
                         value={value || undefined}
                         options={options}
-                        renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                        renderInput={(params) => 
+                            <TextField {...params} variant="standard" size="small" />}
                         onChange={(event: any, newValue: string) => {
                             setValue(newValue);
                         }}
-                        sx = {{width: '80%'}}
+                        sx = {{width: '85%'}}
                     />
                 }
             </RightCell>
@@ -203,7 +207,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {
                             onChange={(event: any, newValue: string) => {
                                 setValue(newValue);
                             }}
-                            sx = {{width: '80%'}}
+                            sx = {{width: '85%'}}
                         />
                     }
                 </RightCell>
@@ -253,7 +257,7 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
                             onChange={(event: any, newValue: string) => {
                                 setValue(newValue);
                             }}
-                            sx = {{width: '80%'}}
+                            sx = {{width: '85%'}}
                         />
                     }
                 </RightCell>
@@ -454,6 +458,36 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         ));
     }
 
+    const loadSet = (name: string, set: Object) => { 
+        //@ts-ignore
+        const evs = set["evs"]
+        let numberEVs: Partial<StatsTable> = {};
+        if (evs) {
+            numberEVs = {
+                hp: parseInt(evs.hp),
+                atk: parseInt(evs.at),
+                def: parseInt(evs.df),
+                spa: parseInt(evs.sa),
+                spd: parseInt(evs.sd),
+                spe: parseInt(evs.sp)
+            };
+        }
+        // @ts-ignore
+        setPokemon(new Raider(pokemon.id, (pokemon.name + ": " + name), new Pokemon(gen, pokemon.name, {
+            // @ts-ignore
+            level: parseInt(set["level"]),
+            // @ts-ignore
+            bossMultiplier: parseInt(set["bossMultiplier"]),
+            // @ts-ignore
+            ability: (set["ability"] ? set["ability"] : "(No Ability)"),
+            // @ts-ignore
+            nature: (set["nature"] ? set["nature"] : "Hardy"),
+            // @ts-ignore
+            moves: (set["moves"] ? set["moves"] : ["(No Move)", "(No Move)", "(No Move)", "(No Move)"]),
+            evs: numberEVs,
+        }), []));
+    }
+
     const setBMove = (index: number) => (move: string) => {
         const newPoke = pokemon.clone();
         //@ts-ignore
@@ -467,6 +501,44 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                 <TableContainer>
                     <Table size="small" width="100%">
                         <TableBody>
+                            {!prettyMode &&
+                            <TableRow>
+                                <LeftCell sx={{ paddingBottom: 2 }}>
+                                </LeftCell>
+                                <RightCell sx={{ paddingBottom: 2 }}>
+                                    <Autocomplete 
+                                        disablePortal
+                                        disableClearable
+                                        autoHighlight={true}    
+                                        size="small"
+                                        value={""}
+                                        sx={{ maxWidth: 140}}
+                                        //@ts-ignore
+                                        options={pokemon.name ? (BOSS_SETDEX_SV[pokemon.name] ? Object.keys(BOSS_SETDEX_SV[pokemon.name]) : []) : []}
+                                        renderInput={(params) => 
+                                            <TextField 
+                                                {...params} variant="outlined" placeholder="Load Boss Set" size="small" 
+                                                sx={{
+                                                    "& .MuiInputBase-input": {
+                                                      overflow: "hidden",
+                                                      textOverflow: "clip"
+                                                    }
+                                                  }}
+                                            />}
+                                        onChange={(event: any, newValue: string) => {
+                                            if (!newValue) return;
+                                            try {
+                                                //@ts-ignore
+                                                const newSet = BOSS_SETDEX_SV[pokemon.name][newValue];
+                                                loadSet(newValue, newSet);
+                                            } catch (e) {
+                                                console.log(e)
+                                            }
+                                        }}
+                                    />
+                                </RightCell>
+                            </TableRow>
+                            }
                             <TableRow>
                                 <LeftCell>HP Multiplier (%)</LeftCell>
                                 <RightCell>

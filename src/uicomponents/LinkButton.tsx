@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { serialize, deserialize } from "../utilities/shrinkstring";
 
@@ -112,6 +112,7 @@ function serializeInfo(info: RaidBattleInfo): string {
 }
 
 function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {
+    const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
     const hash = location.hash
     useEffect(() => {
@@ -135,12 +136,19 @@ function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setIn
                         turns: turns,
                         groups: groups,
                     })
-                    setPrettyMode(true)
+                    setHasLoadedInfo(true);
                 }
             }
         } catch (e) {
         }
     }, []);
+
+    useEffect(() => {
+        if (hasLoadedInfo) {
+            setPrettyMode(true);
+            setHasLoadedInfo(false);
+        }
+    }, [hasLoadedInfo]);
 
     return (
         <Button

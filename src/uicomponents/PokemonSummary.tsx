@@ -87,6 +87,10 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                             <img
                                 height="150px"
                                 src={getPokemonArtURL(pokemon.name)}
+                                onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null; // prevents looping
+                                    currentTarget.src=getItemSpriteURL("pokeball");
+                                }}
                                 alt=""
                             />
                         </Box>
@@ -103,6 +107,10 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                                         pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
                                         getItemSpriteURL(pokemon.item)
                                     ) : undefined }
+                                onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null; // prevents looping
+                                    currentTarget.src=getItemSpriteURL("pokeball");
+                                }}
                                 hidden={pokemon.item === undefined}
                                 alt=""
                             />

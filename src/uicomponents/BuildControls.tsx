@@ -150,16 +150,16 @@ return (
 
 function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
     return (
-        <Stack direction="row" spacing={0.25}>
+        <Stack direction="row" alignItems="center" spacing={0.25}>
             <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
                 {move.name}
             </Typography>
             {move.method === "egg" &&
                 <img src={getMoveMethodIconURL("egg")} height="20px" />
             }
-            {move.method === "egg" &&
+            {/* {move.method === "egg" &&
                 <img src={getMoveMethodIconURL("mirror_herb")} height="20px" />
-            }
+            } */}
             {move.method === "machine" &&
                 <img src={getMoveMethodIconURL(move.type)} height="20px" />
             }

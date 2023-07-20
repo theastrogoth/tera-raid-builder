@@ -19,7 +19,6 @@ const gen = Generations.get(9); // we only use gen 9
 
 function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
-    const [moveLearnTypes, setMoveLearnTypes] = useState<string[]>([])
     const [abilities, setAbilities] = useState<string[]>([])
   
     useEffect(() => {

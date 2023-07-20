@@ -235,7 +235,8 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                     moves: newPokemon.moves,
                     teraType: newPokemon.teraType,
                     bossMultiplier: newPokemon.bossMultiplier,
-                })
+                }),
+                newPokemon.extraMoves,
             ))
         }
     }

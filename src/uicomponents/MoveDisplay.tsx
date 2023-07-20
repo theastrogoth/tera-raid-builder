@@ -12,6 +12,9 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     if (target === user) { 
         target = ""
     }
+    if ([undefined, "user", "user-and-allies", "all-allies"].includes(turn.moveInfo.moveData.target)) {
+        target = "";
+    }
 
     let move: string = turn.moveInfo.moveData.name;
     if (move == "(No Move)") {

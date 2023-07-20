@@ -165,65 +165,69 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}> 
-    <Box>  
+  <ThemeProvider theme={theme}> 
+    <Box sx= {{ p: 1}}>  
       <CssBaseline />
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
-      </Box>
-      <Grid container justifyContent="center" sx={{ my: 1 }}>
-        <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
-          <TitleField info={info} setInfo={setInfo} prettyMode={prettyMode} />
+    </Box>
+    <Stack direction="row">
+      <Stack direction="column" justifyContent="center">
+        <Grid container justifyContent="center" sx={{ my: 1 }}>
+          <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
+            <TitleField info={info} setInfo={setInfo} prettyMode={prettyMode} />
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
-        <Grid item>
-          <Stack direction="row">
-            <PokemonSummary pokemon={raiders[1]} setPokemon={setPokemon(1)} prettyMode={prettyMode} />
-            <PokemonSummary pokemon={raiders[2]} setPokemon={setPokemon(2)} prettyMode={prettyMode}/>
-          </Stack>
-        </Grid>
-        <Grid item>
-          <Stack direction="row">
-            <PokemonSummary pokemon={raiders[3]} setPokemon={setPokemon(3)} prettyMode={prettyMode} />
-            <PokemonSummary pokemon={raiders[4]} setPokemon={setPokemon(4)} prettyMode={prettyMode} />
-          </Stack>
-        </Grid>
-        <Grid item>
-          <BossSummary pokemon={raiders[0]} setPokemon={setPokemon(0)} prettyMode={prettyMode} />
-        </Grid>
-        <Grid item>
-          <RaidControls info={info} setInfo={setInfo} prettyMode={prettyMode} />
-        </Grid>
-      </Grid>
-      <Grid container justifyContent="left" sx={{ my: 1 }}>
-        <Grid item xs={12}>
-          <Stack >
-            <Stack direction="row" sx={{ p: 2 }}>
-              <Box flexGrow={1} />
-              <LinkButton info={info} setInfo={setInfo} setPrettyMode={setPrettyMode}/>
-              <Box flexGrow={1} />
+        <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
+          <Grid item>
+            <Stack direction="row">
+              <PokemonSummary pokemon={raiders[1]} setPokemon={setPokemon(1)} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raiders[2]} setPokemon={setPokemon(2)} prettyMode={prettyMode}/>
             </Stack>
-            <Stack sx={{ mx: 3, my: 3}}>
-              <Typography variant="h6" sx={{color: "text.secondary"}}>
-                Acknowledgements
-              </Typography>
-              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
-              </Typography>
-              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
-              </Typography>
-              <Typography variant="h6" sx={{color: "text.secondary"}}>
-                  Contact
-              </Typography>
-              <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
-              </Typography>
+          </Grid>
+          <Grid item>
+            <Stack direction="row">
+              <PokemonSummary pokemon={raiders[3]} setPokemon={setPokemon(3)} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raiders[4]} setPokemon={setPokemon(4)} prettyMode={prettyMode} />
             </Stack>
-          </Stack>
+          </Grid>
+          <Grid item>
+            <BossSummary pokemon={raiders[0]} setPokemon={setPokemon(0)} prettyMode={prettyMode} />
+          </Grid>
+          <Grid item>
+            <RaidControls info={info} setInfo={setInfo} prettyMode={prettyMode} />
+          </Grid>
         </Grid>
-    </Grid>
-    </ThemeProvider>
+        <Grid container justifyContent="left" sx={{ my: 1 }}>
+          <Grid item xs={12}>
+            <Stack >
+              <Stack direction="row" sx={{ p: 2 }}>
+                <Box flexGrow={1} />
+                <LinkButton info={info} setInfo={setInfo} setPrettyMode={setPrettyMode}/>
+                <Box flexGrow={1} />
+              </Stack>
+              <Stack sx={{ mx: 3, my: 3}}>
+                <Typography variant="h6" sx={{color: "text.secondary"}}>
+                  Acknowledgements
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
+                </Typography>
+                <Typography variant="h6" sx={{color: "text.secondary"}}>
+                    Contact
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
+                </Typography>
+              </Stack>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Stack>
+    </Stack>
+  </ThemeProvider>
   );
 }
 

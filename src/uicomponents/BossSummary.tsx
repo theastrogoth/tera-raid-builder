@@ -60,7 +60,10 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                             <img
                                 height="150px"
                                 src={getPokemonArtURL(pokemon.name)}
-                                alt=""
+                                onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null; // prevents looping
+                                    currentTarget.src=getItemSpriteURL("pokeball");
+                                }}
                             />
                         </Box>
                         <Box 
@@ -76,6 +79,10 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                                         pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
                                         getItemSpriteURL(pokemon.item)
                                     ) : undefined }
+                                onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null; // prevents looping
+                                    currentTarget.src=getItemSpriteURL("pokeball");
+                                }}
                                 hidden={pokemon.item === undefined}
                                 alt=""
                             />

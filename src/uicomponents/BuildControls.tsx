@@ -16,7 +16,7 @@ import TuneIcon from '@mui/icons-material/Tune';
 import { styled } from '@mui/material/styles';
 
 import { Pokemon, StatsTable, Generations } from '../calc';
-import { Nature, MoveName } from "../calc/data/interface";
+import { Nature, MoveName, AbilityName } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
@@ -32,6 +32,15 @@ const gen = Generations.get(9);
 function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetItem {
     const option = moveSet.find((move) => move.name == name);
     return option || {name: "(No Move)" as MoveName, method: "level-up", type: "Normal"};
+}
+
+function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[]): {name: AbilityName, hidden: boolean} {
+    const option = abilities.find((ability) => ability.name == name);
+    return option || {name: "(No Ability)" as AbilityName, hidden: false};
+}
+
+function createAbilityOptions(abilities: {name: AbilityName, hidden: boolean}[]) {
+    return ["(No Ability)", ...abilities.map((ability) => ability.name)];
 }
 
 function createMoveOptions(moves: MoveSetItem[]) {
@@ -204,10 +213,60 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {
     )
 }
 
+function AbilityWithIcon({ability, prettyMode}: {ability: {name: AbilityName, hidden: boolean}, prettyMode: boolean}) {
+    return (
+        <Stack direction="row" alignItems="center" spacing={0.25}>
+            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
+                {ability.name}
+            </Typography>
+            {ability.hidden === true &&
+                <img src={getMoveMethodIconURL("ability_patch")} height="20px" />
+            }
+        </Stack>
+    )
+}
+
+function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean}) {
+    return (
+        <>
+        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+            <TableRow>
+                <LeftCell>
+                    {name}
+                </LeftCell>
+                <RightCell>
+                    {prettyMode &&
+                        <AbilityWithIcon ability={findOptionFromAbilityName(value, abilities)} prettyMode={prettyMode} />
+                    }
+                    {!prettyMode &&
+                        <Autocomplete
+                            disablePortal
+                            disableClearable
+                            autoHighlight={true}    
+                            size="small"
+                            value={value || undefined}
+                            options={options}
+                            renderOption={(props, option) => 
+                                <li {...props}><AbilityWithIcon ability={findOptionFromAbilityName(option || "(No Ability)", abilities)} prettyMode={prettyMode} /></li>
+                            }
+                            renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                            onChange={(event: any, newValue: string) => {
+                                setValue(newValue);
+                            }}
+                            sx = {{width: '80%'}}
+                        />
+                    }
+                </RightCell>
+            </TableRow>
+        }
+        </>
+    )
+}
+
 
 
 function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}: 
-        {pokemon: Raider, abilities: string[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
+        {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
     {
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
@@ -285,7 +344,15 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                             <TableBody>
                                 <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} prettyMode={prettyMode} />
                                 <SummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} prettyMode={prettyMode}/>
-                                <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={["(No Ability)", ...abilities]} prettyMode={prettyMode}/>
+                                {/* <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={["(No Ability)", ...abilities]} prettyMode={prettyMode}/> */}
+                                <AbilitySummaryRow 
+                                            name="Ability"
+                                            value={pokemon.ability || "(No Move)"} 
+                                            setValue={setPokemonProperty("ability")}
+                                            options={createAbilityOptions(abilities)}
+                                            abilities={abilities}
+                                            prettyMode={prettyMode}
+                                        /> 
                                 <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell>Level</LeftCell>

@@ -1,9 +1,18 @@
 {
     "name": "Farigiraf",
     "abilities": [
-        "Cud Chew",
-        "Armor Tail",
-        "Sap Sipper"
+        {
+            "name": "Cud Chew",
+            "hidden": false
+        },
+        {
+            "name": "Armor Tail",
+            "hidden": false
+        },
+        {
+            "name": "Sap Sipper",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

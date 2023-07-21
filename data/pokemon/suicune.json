@@ -1,8 +1,14 @@
 {
     "name": "Suicune",
     "abilities": [
-        "Pressure",
-        "Inner Focus"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

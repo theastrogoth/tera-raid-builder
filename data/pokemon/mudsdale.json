@@ -1,9 +1,18 @@
 {
     "name": "Mudsdale",
     "abilities": [
-        "Own Tempo",
-        "Stamina",
-        "Inner Focus"
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Stamina",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

@@ -1,8 +1,14 @@
 {
     "name": "Articuno",
     "abilities": [
-        "Pressure",
-        "Snow Cloak"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Snow Cloak",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

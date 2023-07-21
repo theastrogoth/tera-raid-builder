@@ -1,8 +1,14 @@
 {
     "name": "Regirock",
     "abilities": [
-        "Clear Body",
-        "Sturdy"
+        {
+            "name": "Clear Body",
+            "hidden": false
+        },
+        {
+            "name": "Sturdy",
+            "hidden": true
+        }
     ],
     "types": [
         "rock"

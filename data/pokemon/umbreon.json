@@ -1,8 +1,14 @@
 {
     "name": "Umbreon",
     "abilities": [
-        "Synchronize",
-        "Inner Focus"
+        {
+            "name": "Synchronize",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": true
+        }
     ],
     "types": [
         "dark"

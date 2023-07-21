@@ -1,8 +1,14 @@
 {
     "name": "Enamorus",
     "abilities": [
-        "Cute Charm",
-        "Contrary"
+        {
+            "name": "Cute Charm",
+            "hidden": false
+        },
+        {
+            "name": "Contrary",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy",

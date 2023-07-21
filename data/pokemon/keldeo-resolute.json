@@ -1,7 +1,10 @@
 {
     "name": "Keldeo-Resolute",
     "abilities": [
-        "Justified"
+        {
+            "name": "Justified",
+            "hidden": false
+        }
     ],
     "types": [
         "water",

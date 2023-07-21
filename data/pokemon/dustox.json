@@ -1,8 +1,14 @@
 {
     "name": "Dustox",
     "abilities": [
-        "Shield Dust",
-        "Compound Eyes"
+        {
+            "name": "Shield Dust",
+            "hidden": false
+        },
+        {
+            "name": "Compound Eyes",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

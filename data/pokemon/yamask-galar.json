@@ -1,7 +1,10 @@
 {
     "name": "Yamask-Galar",
     "abilities": [
-        "Wandering Spirit"
+        {
+            "name": "Wandering Spirit",
+            "hidden": false
+        }
     ],
     "types": [
         "ground",

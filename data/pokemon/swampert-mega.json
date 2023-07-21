@@ -1,7 +1,10 @@
 {
     "name": "Swampert-Mega",
     "abilities": [
-        "Swift Swim"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        }
     ],
     "types": [
         "water",

@@ -1,9 +1,18 @@
 {
     "name": "Granbull",
     "abilities": [
-        "Intimidate",
-        "Quick Feet",
-        "Rattled"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Quick Feet",
+            "hidden": false
+        },
+        {
+            "name": "Rattled",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

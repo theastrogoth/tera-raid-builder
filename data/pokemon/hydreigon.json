@@ -1,7 +1,10 @@
 {
     "name": "Hydreigon",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

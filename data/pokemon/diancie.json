@@ -1,7 +1,10 @@
 {
     "name": "Diancie",
     "abilities": [
-        "Clear Body"
+        {
+            "name": "Clear Body",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

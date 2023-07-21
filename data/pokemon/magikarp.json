@@ -1,8 +1,14 @@
 {
     "name": "Magikarp",
     "abilities": [
-        "Swift Swim",
-        "Rattled"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Rattled",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

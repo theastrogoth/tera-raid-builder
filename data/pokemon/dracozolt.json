@@ -1,9 +1,18 @@
 {
     "name": "Dracozolt",
     "abilities": [
-        "Volt Absorb",
-        "Hustle",
-        "Sand Rush"
+        {
+            "name": "Volt Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Hustle",
+            "hidden": false
+        },
+        {
+            "name": "Sand Rush",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

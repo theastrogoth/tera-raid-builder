@@ -1,8 +1,14 @@
 {
     "name": "Cyndaquil",
     "abilities": [
-        "Blaze",
-        "Flash Fire"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Flash Fire",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

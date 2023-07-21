@@ -1,8 +1,14 @@
 {
     "name": "Fomantis",
     "abilities": [
-        "Leaf Guard",
-        "Contrary"
+        {
+            "name": "Leaf Guard",
+            "hidden": false
+        },
+        {
+            "name": "Contrary",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

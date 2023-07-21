@@ -1,7 +1,10 @@
 {
     "name": "Sandy Shocks",
     "abilities": [
-        "Protosynthesis"
+        {
+            "name": "Protosynthesis",
+            "hidden": false
+        }
     ],
     "types": [
         "electric",

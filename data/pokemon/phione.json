@@ -1,7 +1,10 @@
 {
     "name": "Phione",
     "abilities": [
-        "Hydration"
+        {
+            "name": "Hydration",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

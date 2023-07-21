@@ -1,7 +1,10 @@
 {
     "name": "Gengar-Mega",
     "abilities": [
-        "Shadow Tag"
+        {
+            "name": "Shadow Tag",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost",

@@ -1,9 +1,18 @@
 {
     "name": "Barboach",
     "abilities": [
-        "Oblivious",
-        "Anticipation",
-        "Hydration"
+        {
+            "name": "Oblivious",
+            "hidden": false
+        },
+        {
+            "name": "Anticipation",
+            "hidden": false
+        },
+        {
+            "name": "Hydration",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

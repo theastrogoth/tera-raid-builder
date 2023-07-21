@@ -1,9 +1,18 @@
 {
     "name": "Ponyta-Galar",
     "abilities": [
-        "Run Away",
-        "Pastel Veil",
-        "Anticipation"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Pastel Veil",
+            "hidden": false
+        },
+        {
+            "name": "Anticipation",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

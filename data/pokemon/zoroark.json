@@ -1,7 +1,10 @@
 {
     "name": "Zoroark",
     "abilities": [
-        "Illusion"
+        {
+            "name": "Illusion",
+            "hidden": false
+        }
     ],
     "types": [
         "dark"

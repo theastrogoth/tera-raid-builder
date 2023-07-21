@@ -1,8 +1,14 @@
 {
     "name": "Nymble",
     "abilities": [
-        "Swarm",
-        "Tinted Lens"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Tinted Lens",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

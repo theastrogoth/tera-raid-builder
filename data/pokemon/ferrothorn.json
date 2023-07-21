@@ -1,8 +1,14 @@
 {
     "name": "Ferrothorn",
     "abilities": [
-        "Iron Barbs",
-        "Anticipation"
+        {
+            "name": "Iron Barbs",
+            "hidden": false
+        },
+        {
+            "name": "Anticipation",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

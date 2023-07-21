@@ -1,9 +1,18 @@
 {
     "name": "Mienfoo",
     "abilities": [
-        "Inner Focus",
-        "Regenerator",
-        "Reckless"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": false
+        },
+        {
+            "name": "Reckless",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

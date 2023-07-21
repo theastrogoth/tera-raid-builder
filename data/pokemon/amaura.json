@@ -1,8 +1,14 @@
 {
     "name": "Amaura",
     "abilities": [
-        "Refrigerate",
-        "Snow Warning"
+        {
+            "name": "Refrigerate",
+            "hidden": false
+        },
+        {
+            "name": "Snow Warning",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

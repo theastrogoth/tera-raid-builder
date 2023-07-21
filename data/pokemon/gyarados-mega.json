@@ -1,7 +1,10 @@
 {
     "name": "Gyarados-Mega",
     "abilities": [
-        "Mold Breaker"
+        {
+            "name": "Mold Breaker",
+            "hidden": false
+        }
     ],
     "types": [
         "water",

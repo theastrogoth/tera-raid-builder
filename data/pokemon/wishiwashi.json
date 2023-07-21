@@ -1,7 +1,10 @@
 {
     "name": "Wishiwashi",
     "abilities": [
-        "Schooling"
+        {
+            "name": "Schooling",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

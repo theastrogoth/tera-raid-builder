@@ -1,9 +1,18 @@
 {
     "name": "Machamp-Gmax",
     "abilities": [
-        "Guts",
-        "No Guard",
-        "Steadfast"
+        {
+            "name": "Guts",
+            "hidden": false
+        },
+        {
+            "name": "No Guard",
+            "hidden": false
+        },
+        {
+            "name": "Steadfast",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

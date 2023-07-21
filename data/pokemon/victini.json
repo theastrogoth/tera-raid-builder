@@ -1,7 +1,10 @@
 {
     "name": "Victini",
     "abilities": [
-        "Victory Star"
+        {
+            "name": "Victory Star",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

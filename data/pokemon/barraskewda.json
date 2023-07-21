@@ -1,8 +1,14 @@
 {
     "name": "Barraskewda",
     "abilities": [
-        "Swift Swim",
-        "Propeller Tail"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Propeller Tail",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

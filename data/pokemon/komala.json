@@ -1,7 +1,10 @@
 {
     "name": "Komala",
     "abilities": [
-        "Comatose"
+        {
+            "name": "Comatose",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

@@ -1,7 +1,10 @@
 {
     "name": "Diancie-Mega",
     "abilities": [
-        "Magic Bounce"
+        {
+            "name": "Magic Bounce",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

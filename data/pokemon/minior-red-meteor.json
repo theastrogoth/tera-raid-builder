@@ -1,7 +1,10 @@
 {
     "name": "Minior-Red-Meteor",
     "abilities": [
-        "Shields Down"
+        {
+            "name": "Shields Down",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

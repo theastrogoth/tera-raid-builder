@@ -1,7 +1,10 @@
 {
     "name": "Urshifu-Rapid-Strike",
     "abilities": [
-        "Unseen Fist"
+        {
+            "name": "Unseen Fist",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

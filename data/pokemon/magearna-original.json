@@ -1,7 +1,10 @@
 {
     "name": "Magearna-Original",
     "abilities": [
-        "Soul-Heart"
+        {
+            "name": "Soul-Heart",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

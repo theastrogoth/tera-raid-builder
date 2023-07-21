@@ -1,8 +1,14 @@
 {
     "name": "Cacnea",
     "abilities": [
-        "Sand Veil",
-        "Water Absorb"
+        {
+            "name": "Sand Veil",
+            "hidden": false
+        },
+        {
+            "name": "Water Absorb",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

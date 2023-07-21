@@ -1,8 +1,14 @@
 {
     "name": "Floatzel",
     "abilities": [
-        "Swift Swim",
-        "Water Veil"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Water Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

@@ -1,8 +1,14 @@
 {
     "name": "Sylveon",
     "abilities": [
-        "Cute Charm",
-        "Pixilate"
+        {
+            "name": "Cute Charm",
+            "hidden": false
+        },
+        {
+            "name": "Pixilate",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

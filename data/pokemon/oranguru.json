@@ -1,9 +1,18 @@
 {
     "name": "Oranguru",
     "abilities": [
-        "Inner Focus",
-        "Telepathy",
-        "Symbiosis"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": false
+        },
+        {
+            "name": "Symbiosis",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

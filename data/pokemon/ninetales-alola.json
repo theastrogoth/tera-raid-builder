@@ -1,8 +1,14 @@
 {
     "name": "Ninetales-Alola",
     "abilities": [
-        "Snow Cloak",
-        "Snow Warning"
+        {
+            "name": "Snow Cloak",
+            "hidden": false
+        },
+        {
+            "name": "Snow Warning",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

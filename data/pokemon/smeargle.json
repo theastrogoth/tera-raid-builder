@@ -1,9 +1,18 @@
 {
     "name": "Smeargle",
     "abilities": [
-        "Own Tempo",
-        "Technician",
-        "Moody"
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": false
+        },
+        {
+            "name": "Moody",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

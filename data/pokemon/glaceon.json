@@ -1,8 +1,14 @@
 {
     "name": "Glaceon",
     "abilities": [
-        "Snow Cloak",
-        "Ice Body"
+        {
+            "name": "Snow Cloak",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": true
+        }
     ],
     "types": [
         "ice"

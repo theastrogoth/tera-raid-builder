@@ -1,7 +1,10 @@
 {
     "name": "Misdreavus",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost"

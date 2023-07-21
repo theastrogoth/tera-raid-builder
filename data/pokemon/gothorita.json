@@ -1,9 +1,18 @@
 {
     "name": "Gothorita",
     "abilities": [
-        "Frisk",
-        "Competitive",
-        "Shadow Tag"
+        {
+            "name": "Frisk",
+            "hidden": false
+        },
+        {
+            "name": "Competitive",
+            "hidden": false
+        },
+        {
+            "name": "Shadow Tag",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

@@ -1,8 +1,14 @@
 {
     "name": "Slurpuff",
     "abilities": [
-        "Sweet Veil",
-        "Unburden"
+        {
+            "name": "Sweet Veil",
+            "hidden": false
+        },
+        {
+            "name": "Unburden",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

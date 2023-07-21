@@ -1,9 +1,18 @@
 {
     "name": "Palpitoad",
     "abilities": [
-        "Swift Swim",
-        "Hydration",
-        "Water Absorb"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Hydration",
+            "hidden": false
+        },
+        {
+            "name": "Water Absorb",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

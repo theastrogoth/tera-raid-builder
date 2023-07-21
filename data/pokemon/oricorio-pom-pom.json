@@ -1,7 +1,10 @@
 {
     "name": "Oricorio-Pom-Pom",
     "abilities": [
-        "Dancer"
+        {
+            "name": "Dancer",
+            "hidden": false
+        }
     ],
     "types": [
         "electric",

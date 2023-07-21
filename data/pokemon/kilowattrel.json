@@ -1,9 +1,18 @@
 {
     "name": "Kilowattrel",
     "abilities": [
-        "Wind Power",
-        "Volt Absorb",
-        "Competitive"
+        {
+            "name": "Wind Power",
+            "hidden": false
+        },
+        {
+            "name": "Volt Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Competitive",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

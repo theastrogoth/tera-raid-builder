@@ -1,8 +1,14 @@
 {
     "name": "Medicham",
     "abilities": [
-        "Pure Power",
-        "Telepathy"
+        {
+            "name": "Pure Power",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting",

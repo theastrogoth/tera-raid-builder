@@ -1,9 +1,18 @@
 {
     "name": "Lillipup",
     "abilities": [
-        "Vital Spirit",
-        "Pickup",
-        "Run Away"
+        {
+            "name": "Vital Spirit",
+            "hidden": false
+        },
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Run Away",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

@@ -1,7 +1,10 @@
 {
     "name": "Glastrier",
     "abilities": [
-        "Chilling Neigh"
+        {
+            "name": "Chilling Neigh",
+            "hidden": false
+        }
     ],
     "types": [
         "ice"

@@ -1,8 +1,14 @@
 {
     "name": "Ninetales",
     "abilities": [
-        "Flash Fire",
-        "Drought"
+        {
+            "name": "Flash Fire",
+            "hidden": false
+        },
+        {
+            "name": "Drought",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

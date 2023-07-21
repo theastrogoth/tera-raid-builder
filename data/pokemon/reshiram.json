@@ -1,7 +1,10 @@
 {
     "name": "Reshiram",
     "abilities": [
-        "Turboblaze"
+        {
+            "name": "Turboblaze",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

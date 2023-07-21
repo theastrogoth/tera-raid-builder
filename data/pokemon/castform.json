@@ -1,7 +1,10 @@
 {
     "name": "Castform",
     "abilities": [
-        "Forecast"
+        {
+            "name": "Forecast",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

@@ -1,7 +1,10 @@
 {
     "name": "Unown",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

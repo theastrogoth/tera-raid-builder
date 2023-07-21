@@ -1,7 +1,10 @@
 {
     "name": "Zeraora",
     "abilities": [
-        "Volt Absorb"
+        {
+            "name": "Volt Absorb",
+            "hidden": false
+        }
     ],
     "types": [
         "electric"

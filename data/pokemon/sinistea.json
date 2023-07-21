@@ -1,8 +1,14 @@
 {
     "name": "Sinistea",
     "abilities": [
-        "Weak Armor",
-        "Cursed Body"
+        {
+            "name": "Weak Armor",
+            "hidden": false
+        },
+        {
+            "name": "Cursed Body",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost"

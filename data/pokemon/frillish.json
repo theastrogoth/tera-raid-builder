@@ -1,9 +1,18 @@
 {
     "name": "Frillish",
     "abilities": [
-        "Water Absorb",
-        "Cursed Body",
-        "Damp"
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Cursed Body",
+            "hidden": false
+        },
+        {
+            "name": "Damp",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

@@ -1,8 +1,14 @@
 {
     "name": "Spearow",
     "abilities": [
-        "Keen Eye",
-        "Sniper"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Sniper",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

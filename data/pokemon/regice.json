@@ -1,8 +1,14 @@
 {
     "name": "Regice",
     "abilities": [
-        "Clear Body",
-        "Ice Body"
+        {
+            "name": "Clear Body",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": true
+        }
     ],
     "types": [
         "ice"

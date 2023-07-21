@@ -1,9 +1,18 @@
 {
     "name": "Annihilape",
     "abilities": [
-        "Vital Spirit",
-        "Inner Focus",
-        "Defiant"
+        {
+            "name": "Vital Spirit",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Defiant",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting",

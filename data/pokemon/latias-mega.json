@@ -1,7 +1,10 @@
 {
     "name": "Latias-Mega",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

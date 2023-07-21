@@ -1,7 +1,10 @@
 {
     "name": "Meloetta-Pirouette",
     "abilities": [
-        "Serene Grace"
+        {
+            "name": "Serene Grace",
+            "hidden": false
+        }
     ],
     "types": [
         "normal",

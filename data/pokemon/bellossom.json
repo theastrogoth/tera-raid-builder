@@ -1,8 +1,14 @@
 {
     "name": "Bellossom",
     "abilities": [
-        "Chlorophyll",
-        "Healer"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Healer",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

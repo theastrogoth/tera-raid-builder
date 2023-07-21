@@ -1,7 +1,10 @@
 {
     "name": "Kakuna",
     "abilities": [
-        "Shed Skin"
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

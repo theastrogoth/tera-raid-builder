@@ -1,8 +1,14 @@
 {
     "name": "Meowscarada",
     "abilities": [
-        "Overgrow",
-        "Protean"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Protean",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

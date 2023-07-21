@@ -1,9 +1,18 @@
 {
     "name": "Toxapex",
     "abilities": [
-        "Merciless",
-        "Limber",
-        "Regenerator"
+        {
+            "name": "Merciless",
+            "hidden": false
+        },
+        {
+            "name": "Limber",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

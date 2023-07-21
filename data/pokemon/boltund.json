@@ -1,8 +1,14 @@
 {
     "name": "Boltund",
     "abilities": [
-        "Strong Jaw",
-        "Competitive"
+        {
+            "name": "Strong Jaw",
+            "hidden": false
+        },
+        {
+            "name": "Competitive",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

@@ -1,7 +1,10 @@
 {
     "name": "Poipole",
     "abilities": [
-        "Beast Boost"
+        {
+            "name": "Beast Boost",
+            "hidden": false
+        }
     ],
     "types": [
         "poison"

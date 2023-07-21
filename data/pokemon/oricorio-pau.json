@@ -1,7 +1,10 @@
 {
     "name": "Oricorio-Pau",
     "abilities": [
-        "Dancer"
+        {
+            "name": "Dancer",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

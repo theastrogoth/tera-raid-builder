@@ -1,9 +1,18 @@
 {
     "name": "Arcanine",
     "abilities": [
-        "Intimidate",
-        "Flash Fire",
-        "Justified"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Flash Fire",
+            "hidden": false
+        },
+        {
+            "name": "Justified",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

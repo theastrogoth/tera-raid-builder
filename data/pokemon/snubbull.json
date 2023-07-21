@@ -1,9 +1,18 @@
 {
     "name": "Snubbull",
     "abilities": [
-        "Intimidate",
-        "Run Away",
-        "Rattled"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Rattled",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

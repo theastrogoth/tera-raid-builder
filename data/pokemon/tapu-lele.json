@@ -1,8 +1,14 @@
 {
     "name": "Tapu Lele",
     "abilities": [
-        "Psychic Surge",
-        "Telepathy"
+        {
+            "name": "Psychic Surge",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

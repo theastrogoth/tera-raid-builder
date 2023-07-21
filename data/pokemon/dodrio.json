@@ -1,9 +1,18 @@
 {
     "name": "Dodrio",
     "abilities": [
-        "Run Away",
-        "Early Bird",
-        "Tangled Feet"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Early Bird",
+            "hidden": false
+        },
+        {
+            "name": "Tangled Feet",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

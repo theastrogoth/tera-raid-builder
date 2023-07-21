@@ -1,9 +1,18 @@
 {
     "name": "Swadloon",
     "abilities": [
-        "Leaf Guard",
-        "Chlorophyll",
-        "Overcoat"
+        {
+            "name": "Leaf Guard",
+            "hidden": false
+        },
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Overcoat",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

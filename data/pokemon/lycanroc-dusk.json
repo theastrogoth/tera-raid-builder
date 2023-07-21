@@ -1,7 +1,10 @@
 {
     "name": "Lycanroc-Dusk",
     "abilities": [
-        "Tough Claws"
+        {
+            "name": "Tough Claws",
+            "hidden": false
+        }
     ],
     "types": [
         "rock"

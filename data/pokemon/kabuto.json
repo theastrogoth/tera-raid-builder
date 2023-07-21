@@ -1,9 +1,18 @@
 {
     "name": "Kabuto",
     "abilities": [
-        "Swift Swim",
-        "Battle Armor",
-        "Weak Armor"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Battle Armor",
+            "hidden": false
+        },
+        {
+            "name": "Weak Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

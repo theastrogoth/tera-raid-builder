@@ -1,7 +1,10 @@
 {
     "name": "Kyurem-Black",
     "abilities": [
-        "Teravolt"
+        {
+            "name": "Teravolt",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

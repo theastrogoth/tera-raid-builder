@@ -1,9 +1,18 @@
 {
     "name": "Vanillite",
     "abilities": [
-        "Ice Body",
-        "Snow Cloak",
-        "Weak Armor"
+        {
+            "name": "Ice Body",
+            "hidden": false
+        },
+        {
+            "name": "Snow Cloak",
+            "hidden": false
+        },
+        {
+            "name": "Weak Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "ice"

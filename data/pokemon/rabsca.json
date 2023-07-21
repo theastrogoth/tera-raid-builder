@@ -1,8 +1,14 @@
 {
     "name": "Rabsca",
     "abilities": [
-        "Synchronize",
-        "Telepathy"
+        {
+            "name": "Synchronize",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

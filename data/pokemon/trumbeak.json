@@ -1,9 +1,18 @@
 {
     "name": "Trumbeak",
     "abilities": [
-        "Keen Eye",
-        "Skill Link",
-        "Pickup"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Skill Link",
+            "hidden": false
+        },
+        {
+            "name": "Pickup",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

@@ -1,7 +1,10 @@
 {
     "name": "Archen",
     "abilities": [
-        "Defeatist"
+        {
+            "name": "Defeatist",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

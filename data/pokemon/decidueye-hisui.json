@@ -1,8 +1,14 @@
 {
     "name": "Decidueye-Hisui",
     "abilities": [
-        "Overgrow",
-        "Scrappy"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Scrappy",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

@@ -1,8 +1,14 @@
 {
     "name": "Heatran",
     "abilities": [
-        "Flash Fire",
-        "Flame Body"
+        {
+            "name": "Flash Fire",
+            "hidden": false
+        },
+        {
+            "name": "Flame Body",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

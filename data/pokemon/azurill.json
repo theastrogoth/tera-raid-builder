@@ -1,9 +1,18 @@
 {
     "name": "Azurill",
     "abilities": [
-        "Thick Fat",
-        "Huge Power",
-        "Sap Sipper"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        },
+        {
+            "name": "Huge Power",
+            "hidden": false
+        },
+        {
+            "name": "Sap Sipper",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

@@ -1,9 +1,18 @@
 {
     "name": "Skrelp",
     "abilities": [
-        "Poison Point",
-        "Poison Touch",
-        "Adaptability"
+        {
+            "name": "Poison Point",
+            "hidden": false
+        },
+        {
+            "name": "Poison Touch",
+            "hidden": false
+        },
+        {
+            "name": "Adaptability",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

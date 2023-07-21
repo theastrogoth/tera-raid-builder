@@ -1,9 +1,18 @@
 {
     "name": "Meowth-Galar",
     "abilities": [
-        "Pickup",
-        "Tough Claws",
-        "Unnerve"
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Tough Claws",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": true
+        }
     ],
     "types": [
         "steel"

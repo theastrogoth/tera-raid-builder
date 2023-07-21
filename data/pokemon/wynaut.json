@@ -1,8 +1,14 @@
 {
     "name": "Wynaut",
     "abilities": [
-        "Shadow Tag",
-        "Telepathy"
+        {
+            "name": "Shadow Tag",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

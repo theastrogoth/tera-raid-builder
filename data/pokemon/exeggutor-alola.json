@@ -1,8 +1,14 @@
 {
     "name": "Exeggutor-Alola",
     "abilities": [
-        "Frisk",
-        "Harvest"
+        {
+            "name": "Frisk",
+            "hidden": false
+        },
+        {
+            "name": "Harvest",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

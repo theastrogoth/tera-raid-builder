@@ -1,7 +1,10 @@
 {
     "name": "Azelf",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

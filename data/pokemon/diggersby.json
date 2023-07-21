@@ -1,9 +1,18 @@
 {
     "name": "Diggersby",
     "abilities": [
-        "Pickup",
-        "Cheek Pouch",
-        "Huge Power"
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Cheek Pouch",
+            "hidden": false
+        },
+        {
+            "name": "Huge Power",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

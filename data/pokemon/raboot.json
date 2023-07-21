@@ -1,8 +1,14 @@
 {
     "name": "Raboot",
     "abilities": [
-        "Blaze",
-        "Libero"
+        {
+            "name": "Blaze",
+            "hidden": false
+        },
+        {
+            "name": "Libero",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

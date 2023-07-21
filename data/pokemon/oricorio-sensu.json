@@ -1,7 +1,10 @@
 {
     "name": "Oricorio-Sensu",
     "abilities": [
-        "Dancer"
+        {
+            "name": "Dancer",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost",

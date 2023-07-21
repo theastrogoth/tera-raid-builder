@@ -1,8 +1,14 @@
 {
     "name": "Espeon",
     "abilities": [
-        "Synchronize",
-        "Magic Bounce"
+        {
+            "name": "Synchronize",
+            "hidden": false
+        },
+        {
+            "name": "Magic Bounce",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic"

@@ -1,8 +1,14 @@
 {
     "name": "Rellor",
     "abilities": [
-        "Compound Eyes",
-        "Shed Skin"
+        {
+            "name": "Compound Eyes",
+            "hidden": false
+        },
+        {
+            "name": "Shed Skin",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

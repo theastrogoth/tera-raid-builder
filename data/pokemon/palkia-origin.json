@@ -1,8 +1,14 @@
 {
     "name": "Palkia-Origin",
     "abilities": [
-        "Pressure",
-        "Telepathy"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Telepathy",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

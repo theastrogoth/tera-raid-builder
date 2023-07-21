@@ -1,7 +1,10 @@
 {
     "name": "Castform-Rainy",
     "abilities": [
-        "Forecast"
+        {
+            "name": "Forecast",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

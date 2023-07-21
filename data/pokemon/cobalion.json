@@ -1,7 +1,10 @@
 {
     "name": "Cobalion",
     "abilities": [
-        "Justified"
+        {
+            "name": "Justified",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

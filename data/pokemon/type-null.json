@@ -1,7 +1,10 @@
 {
     "name": "Type: Null",
     "abilities": [
-        "Battle Armor"
+        {
+            "name": "Battle Armor",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

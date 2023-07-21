@@ -1,9 +1,18 @@
 {
     "name": "Alomomola",
     "abilities": [
-        "Healer",
-        "Hydration",
-        "Regenerator"
+        {
+            "name": "Healer",
+            "hidden": false
+        },
+        {
+            "name": "Hydration",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

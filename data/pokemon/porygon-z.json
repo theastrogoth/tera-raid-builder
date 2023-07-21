@@ -1,9 +1,18 @@
 {
     "name": "Porygon-Z",
     "abilities": [
-        "Adaptability",
-        "Download",
-        "Analytic"
+        {
+            "name": "Adaptability",
+            "hidden": false
+        },
+        {
+            "name": "Download",
+            "hidden": false
+        },
+        {
+            "name": "Analytic",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

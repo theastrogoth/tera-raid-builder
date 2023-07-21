@@ -1,8 +1,14 @@
 {
     "name": "Tyrunt",
     "abilities": [
-        "Strong Jaw",
-        "Sturdy"
+        {
+            "name": "Strong Jaw",
+            "hidden": false
+        },
+        {
+            "name": "Sturdy",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

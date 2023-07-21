@@ -1,8 +1,14 @@
 {
     "name": "Luvdisc",
     "abilities": [
-        "Swift Swim",
-        "Hydration"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Hydration",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

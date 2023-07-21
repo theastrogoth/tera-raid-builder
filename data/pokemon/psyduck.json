@@ -1,9 +1,18 @@
 {
     "name": "Psyduck",
     "abilities": [
-        "Damp",
-        "Cloud Nine",
-        "Swift Swim"
+        {
+            "name": "Damp",
+            "hidden": false
+        },
+        {
+            "name": "Cloud Nine",
+            "hidden": false
+        },
+        {
+            "name": "Swift Swim",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

@@ -1,8 +1,14 @@
 {
     "name": "Spewpa",
     "abilities": [
-        "Shed Skin",
-        "Friend Guard"
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        },
+        {
+            "name": "Friend Guard",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

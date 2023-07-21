@@ -1,9 +1,18 @@
 {
     "name": "Toxel",
     "abilities": [
-        "Rattled",
-        "Static",
-        "Klutz"
+        {
+            "name": "Rattled",
+            "hidden": false
+        },
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Klutz",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

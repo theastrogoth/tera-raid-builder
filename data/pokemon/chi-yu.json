@@ -1,7 +1,10 @@
 {
     "name": "Chi-Yu",
     "abilities": [
-        "Beads Of Ruin"
+        {
+            "name": "Beads Of Ruin",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

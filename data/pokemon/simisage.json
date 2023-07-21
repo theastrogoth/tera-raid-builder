@@ -1,8 +1,14 @@
 {
     "name": "Simisage",
     "abilities": [
-        "Gluttony",
-        "Overgrow"
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Overgrow",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

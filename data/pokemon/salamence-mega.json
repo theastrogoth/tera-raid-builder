@@ -1,7 +1,10 @@
 {
     "name": "Salamence-Mega",
     "abilities": [
-        "Aerilate"
+        {
+            "name": "Aerilate",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

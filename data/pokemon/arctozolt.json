@@ -1,9 +1,18 @@
 {
     "name": "Arctozolt",
     "abilities": [
-        "Volt Absorb",
-        "Static",
-        "Slush Rush"
+        {
+            "name": "Volt Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Slush Rush",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

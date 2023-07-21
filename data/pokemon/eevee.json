@@ -1,9 +1,18 @@
 {
     "name": "Eevee",
     "abilities": [
-        "Run Away",
-        "Adaptability",
-        "Anticipation"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Adaptability",
+            "hidden": false
+        },
+        {
+            "name": "Anticipation",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

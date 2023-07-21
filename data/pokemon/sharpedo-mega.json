@@ -1,7 +1,10 @@
 {
     "name": "Sharpedo-Mega",
     "abilities": [
-        "Strong Jaw"
+        {
+            "name": "Strong Jaw",
+            "hidden": false
+        }
     ],
     "types": [
         "water",

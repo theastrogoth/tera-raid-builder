@@ -1,8 +1,14 @@
 {
     "name": "Phanpy",
     "abilities": [
-        "Pickup",
-        "Sand Veil"
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Sand Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

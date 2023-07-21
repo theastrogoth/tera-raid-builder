@@ -1,7 +1,10 @@
 {
     "name": "Gastly",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost",

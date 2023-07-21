@@ -1,7 +1,10 @@
 {
     "name": "Toedscruel",
     "abilities": [
-        "Mycelium Might"
+        {
+            "name": "Mycelium Might",
+            "hidden": false
+        }
     ],
     "types": [
         "ground",

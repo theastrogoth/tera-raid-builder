@@ -1,7 +1,10 @@
 {
     "name": "Shedinja",
     "abilities": [
-        "Wonder Guard"
+        {
+            "name": "Wonder Guard",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

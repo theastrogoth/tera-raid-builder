@@ -1,7 +1,10 @@
 {
     "name": "Rayquaza",
     "abilities": [
-        "Air Lock"
+        {
+            "name": "Air Lock",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

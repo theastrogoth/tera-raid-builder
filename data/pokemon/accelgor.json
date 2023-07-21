@@ -1,9 +1,18 @@
 {
     "name": "Accelgor",
     "abilities": [
-        "Hydration",
-        "Sticky Hold",
-        "Unburden"
+        {
+            "name": "Hydration",
+            "hidden": false
+        },
+        {
+            "name": "Sticky Hold",
+            "hidden": false
+        },
+        {
+            "name": "Unburden",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

@@ -1,9 +1,18 @@
 {
     "name": "Quagsire",
     "abilities": [
-        "Damp",
-        "Water Absorb",
-        "Unaware"
+        {
+            "name": "Damp",
+            "hidden": false
+        },
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Unaware",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

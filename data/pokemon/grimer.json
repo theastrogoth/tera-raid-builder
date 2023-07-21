@@ -1,9 +1,18 @@
 {
     "name": "Grimer",
     "abilities": [
-        "Stench",
-        "Sticky Hold",
-        "Poison Touch"
+        {
+            "name": "Stench",
+            "hidden": false
+        },
+        {
+            "name": "Sticky Hold",
+            "hidden": false
+        },
+        {
+            "name": "Poison Touch",
+            "hidden": true
+        }
     ],
     "types": [
         "poison"

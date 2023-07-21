@@ -1,9 +1,18 @@
 {
     "name": "Meowth",
     "abilities": [
-        "Pickup",
-        "Technician",
-        "Unnerve"
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": false
+        },
+        {
+            "name": "Unnerve",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

@@ -1,9 +1,18 @@
 {
     "name": "Honchkrow",
     "abilities": [
-        "Insomnia",
-        "Super Luck",
-        "Moxie"
+        {
+            "name": "Insomnia",
+            "hidden": false
+        },
+        {
+            "name": "Super Luck",
+            "hidden": false
+        },
+        {
+            "name": "Moxie",
+            "hidden": true
+        }
     ],
     "types": [
         "dark",

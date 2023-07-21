@@ -1,9 +1,18 @@
 {
     "name": "Mr. Rime",
     "abilities": [
-        "Tangled Feet",
-        "Screen Cleaner",
-        "Ice Body"
+        {
+            "name": "Tangled Feet",
+            "hidden": false
+        },
+        {
+            "name": "Screen Cleaner",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

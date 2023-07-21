@@ -1,7 +1,10 @@
 {
     "name": "Zorua-Hisui",
     "abilities": [
-        "Illusion"
+        {
+            "name": "Illusion",
+            "hidden": false
+        }
     ],
     "types": [
         "normal",

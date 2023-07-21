@@ -1,9 +1,18 @@
 {
     "name": "Hoothoot",
     "abilities": [
-        "Insomnia",
-        "Keen Eye",
-        "Tinted Lens"
+        {
+            "name": "Insomnia",
+            "hidden": false
+        },
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Tinted Lens",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

@@ -1,7 +1,10 @@
 {
     "name": "Koraidon",
     "abilities": [
-        "Orichalcum Pulse"
+        {
+            "name": "Orichalcum Pulse",
+            "hidden": false
+        }
     ],
     "types": [
         "fighting",

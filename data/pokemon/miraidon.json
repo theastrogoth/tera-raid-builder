@@ -1,7 +1,10 @@
 {
     "name": "Miraidon",
     "abilities": [
-        "Hadron Engine"
+        {
+            "name": "Hadron Engine",
+            "hidden": false
+        }
     ],
     "types": [
         "electric",

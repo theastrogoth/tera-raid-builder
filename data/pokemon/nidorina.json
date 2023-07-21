@@ -1,9 +1,18 @@
 {
     "name": "Nidorina",
     "abilities": [
-        "Poison Point",
-        "Rivalry",
-        "Hustle"
+        {
+            "name": "Poison Point",
+            "hidden": false
+        },
+        {
+            "name": "Rivalry",
+            "hidden": false
+        },
+        {
+            "name": "Hustle",
+            "hidden": true
+        }
     ],
     "types": [
         "poison"

@@ -1,8 +1,14 @@
 {
     "name": "Minun",
     "abilities": [
-        "Minus",
-        "Volt Absorb"
+        {
+            "name": "Minus",
+            "hidden": false
+        },
+        {
+            "name": "Volt Absorb",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

@@ -1,9 +1,18 @@
 {
     "name": "Gumshoos-Totem",
     "abilities": [
-        "Stakeout",
-        "Strong Jaw",
-        "Adaptability"
+        {
+            "name": "Stakeout",
+            "hidden": false
+        },
+        {
+            "name": "Strong Jaw",
+            "hidden": false
+        },
+        {
+            "name": "Adaptability",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

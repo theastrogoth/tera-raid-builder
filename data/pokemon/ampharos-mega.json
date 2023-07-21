@@ -1,7 +1,10 @@
 {
     "name": "Ampharos-Mega",
     "abilities": [
-        "Mold Breaker"
+        {
+            "name": "Mold Breaker",
+            "hidden": false
+        }
     ],
     "types": [
         "electric",

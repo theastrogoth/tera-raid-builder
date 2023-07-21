@@ -1,8 +1,14 @@
 {
     "name": "Frosmoth",
     "abilities": [
-        "Shield Dust",
-        "Ice Scales"
+        {
+            "name": "Shield Dust",
+            "hidden": false
+        },
+        {
+            "name": "Ice Scales",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

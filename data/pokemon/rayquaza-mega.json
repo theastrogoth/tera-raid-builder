@@ -1,7 +1,10 @@
 {
     "name": "Rayquaza-Mega",
     "abilities": [
-        "Delta Stream"
+        {
+            "name": "Delta Stream",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

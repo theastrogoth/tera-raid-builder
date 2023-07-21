@@ -1,8 +1,14 @@
 {
     "name": "Vileplume",
     "abilities": [
-        "Chlorophyll",
-        "Effect Spore"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Effect Spore",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

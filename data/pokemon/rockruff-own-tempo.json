@@ -1,7 +1,10 @@
 {
     "name": "Rockruff-Own-Tempo",
     "abilities": [
-        "Own Tempo"
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        }
     ],
     "types": [
         "rock"

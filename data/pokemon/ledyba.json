@@ -1,9 +1,18 @@
 {
     "name": "Ledyba",
     "abilities": [
-        "Swarm",
-        "Early Bird",
-        "Rattled"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Early Bird",
+            "hidden": false
+        },
+        {
+            "name": "Rattled",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

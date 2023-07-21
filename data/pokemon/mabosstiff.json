@@ -1,9 +1,18 @@
 {
     "name": "Mabosstiff",
     "abilities": [
-        "Intimidate",
-        "Guard Dog",
-        "Stakeout"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Guard Dog",
+            "hidden": false
+        },
+        {
+            "name": "Stakeout",
+            "hidden": true
+        }
     ],
     "types": [
         "dark"

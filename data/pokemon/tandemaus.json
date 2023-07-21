@@ -1,9 +1,18 @@
 {
     "name": "Tandemaus",
     "abilities": [
-        "Run Away",
-        "Pickup",
-        "Own Tempo"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Own Tempo",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

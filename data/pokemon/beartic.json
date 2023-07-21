@@ -1,9 +1,18 @@
 {
     "name": "Beartic",
     "abilities": [
-        "Snow Cloak",
-        "Slush Rush",
-        "Swift Swim"
+        {
+            "name": "Snow Cloak",
+            "hidden": false
+        },
+        {
+            "name": "Slush Rush",
+            "hidden": false
+        },
+        {
+            "name": "Swift Swim",
+            "hidden": true
+        }
     ],
     "types": [
         "ice"

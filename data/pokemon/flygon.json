@@ -1,7 +1,10 @@
 {
     "name": "Flygon",
     "abilities": [
-        "Levitate"
+        {
+            "name": "Levitate",
+            "hidden": false
+        }
     ],
     "types": [
         "ground",

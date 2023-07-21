@@ -1,9 +1,18 @@
 {
     "name": "Toxicroak",
     "abilities": [
-        "Anticipation",
-        "Dry Skin",
-        "Poison Touch"
+        {
+            "name": "Anticipation",
+            "hidden": false
+        },
+        {
+            "name": "Dry Skin",
+            "hidden": false
+        },
+        {
+            "name": "Poison Touch",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

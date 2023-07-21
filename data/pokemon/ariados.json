@@ -1,9 +1,18 @@
 {
     "name": "Ariados",
     "abilities": [
-        "Swarm",
-        "Insomnia",
-        "Sniper"
+        {
+            "name": "Swarm",
+            "hidden": false
+        },
+        {
+            "name": "Insomnia",
+            "hidden": false
+        },
+        {
+            "name": "Sniper",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

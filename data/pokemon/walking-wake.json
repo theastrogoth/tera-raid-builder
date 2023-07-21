@@ -1,7 +1,10 @@
 {
     "name": "Walking Wake",
     "abilities": [
-        "Protosynthesis"
+        {
+            "name": "Protosynthesis",
+            "hidden": false
+        }
     ],
     "types": [
         "water",

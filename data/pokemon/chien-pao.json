@@ -1,7 +1,10 @@
 {
     "name": "Chien-Pao",
     "abilities": [
-        "Sword Of Ruin"
+        {
+            "name": "Sword Of Ruin",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

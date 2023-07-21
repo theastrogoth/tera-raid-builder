@@ -1,9 +1,18 @@
 {
     "name": "Patrat",
     "abilities": [
-        "Run Away",
-        "Keen Eye",
-        "Analytic"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Analytic",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

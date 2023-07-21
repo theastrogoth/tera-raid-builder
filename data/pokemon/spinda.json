@@ -1,9 +1,18 @@
 {
     "name": "Spinda",
     "abilities": [
-        "Own Tempo",
-        "Tangled Feet",
-        "Contrary"
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Tangled Feet",
+            "hidden": false
+        },
+        {
+            "name": "Contrary",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

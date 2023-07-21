@@ -1,7 +1,10 @@
 {
     "name": "Zekrom",
     "abilities": [
-        "Teravolt"
+        {
+            "name": "Teravolt",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

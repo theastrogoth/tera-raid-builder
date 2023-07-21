@@ -1,7 +1,10 @@
 {
     "name": "Enamorus-Therian",
     "abilities": [
-        "Overcoat"
+        {
+            "name": "Overcoat",
+            "hidden": false
+        }
     ],
     "types": [
         "fairy",

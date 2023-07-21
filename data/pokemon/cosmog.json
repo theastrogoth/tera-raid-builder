@@ -1,7 +1,10 @@
 {
     "name": "Cosmog",
     "abilities": [
-        "Unaware"
+        {
+            "name": "Unaware",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

@@ -1,9 +1,18 @@
 {
     "name": "Dugtrio",
     "abilities": [
-        "Sand Veil",
-        "Arena Trap",
-        "Sand Force"
+        {
+            "name": "Sand Veil",
+            "hidden": false
+        },
+        {
+            "name": "Arena Trap",
+            "hidden": false
+        },
+        {
+            "name": "Sand Force",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

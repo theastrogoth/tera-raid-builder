@@ -1,7 +1,10 @@
 {
     "name": "Calyrex",
     "abilities": [
-        "Unnerve"
+        {
+            "name": "Unnerve",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

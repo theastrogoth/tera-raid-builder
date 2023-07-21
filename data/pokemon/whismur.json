@@ -1,8 +1,14 @@
 {
     "name": "Whismur",
     "abilities": [
-        "Soundproof",
-        "Rattled"
+        {
+            "name": "Soundproof",
+            "hidden": false
+        },
+        {
+            "name": "Rattled",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

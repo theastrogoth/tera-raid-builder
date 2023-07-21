@@ -1,7 +1,10 @@
 {
     "name": "Gholdengo",
     "abilities": [
-        "Good As Gold"
+        {
+            "name": "Good As Gold",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

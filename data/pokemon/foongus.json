@@ -1,8 +1,14 @@
 {
     "name": "Foongus",
     "abilities": [
-        "Effect Spore",
-        "Regenerator"
+        {
+            "name": "Effect Spore",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

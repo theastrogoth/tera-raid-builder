@@ -1,8 +1,14 @@
 {
     "name": "Falinks",
     "abilities": [
-        "Battle Armor",
-        "Defiant"
+        {
+            "name": "Battle Armor",
+            "hidden": false
+        },
+        {
+            "name": "Defiant",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

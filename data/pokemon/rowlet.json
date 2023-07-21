@@ -1,8 +1,14 @@
 {
     "name": "Rowlet",
     "abilities": [
-        "Overgrow",
-        "Long Reach"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Long Reach",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

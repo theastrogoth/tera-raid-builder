@@ -1,8 +1,14 @@
 {
     "name": "Spiritomb",
     "abilities": [
-        "Pressure",
-        "Infiltrator"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Infiltrator",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost",

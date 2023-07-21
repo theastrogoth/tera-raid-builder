@@ -1,9 +1,18 @@
 {
     "name": "Silicobra",
     "abilities": [
-        "Sand Spit",
-        "Shed Skin",
-        "Sand Veil"
+        {
+            "name": "Sand Spit",
+            "hidden": false
+        },
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        },
+        {
+            "name": "Sand Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

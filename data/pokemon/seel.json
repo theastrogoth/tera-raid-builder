@@ -1,9 +1,18 @@
 {
     "name": "Seel",
     "abilities": [
-        "Thick Fat",
-        "Hydration",
-        "Ice Body"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        },
+        {
+            "name": "Hydration",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

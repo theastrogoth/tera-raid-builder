@@ -1,8 +1,14 @@
 {
     "name": "Copperajah-Gmax",
     "abilities": [
-        "Sheer Force",
-        "Heavy Metal"
+        {
+            "name": "Sheer Force",
+            "hidden": false
+        },
+        {
+            "name": "Heavy Metal",
+            "hidden": true
+        }
     ],
     "types": [
         "steel"

@@ -1,8 +1,14 @@
 {
     "name": "Jolteon",
     "abilities": [
-        "Volt Absorb",
-        "Quick Feet"
+        {
+            "name": "Volt Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Quick Feet",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

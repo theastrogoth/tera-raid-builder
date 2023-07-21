@@ -1,9 +1,18 @@
 {
     "name": "Dedenne",
     "abilities": [
-        "Cheek Pouch",
-        "Pickup",
-        "Plus"
+        {
+            "name": "Cheek Pouch",
+            "hidden": false
+        },
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Plus",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

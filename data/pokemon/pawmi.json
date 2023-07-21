@@ -1,9 +1,18 @@
 {
     "name": "Pawmi",
     "abilities": [
-        "Static",
-        "Natural Cure",
-        "Iron Fist"
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Natural Cure",
+            "hidden": false
+        },
+        {
+            "name": "Iron Fist",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

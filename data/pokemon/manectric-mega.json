@@ -1,7 +1,10 @@
 {
     "name": "Manectric-Mega",
     "abilities": [
-        "Intimidate"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        }
     ],
     "types": [
         "electric"

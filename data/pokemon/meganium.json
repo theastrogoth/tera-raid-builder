@@ -1,8 +1,14 @@
 {
     "name": "Meganium",
     "abilities": [
-        "Overgrow",
-        "Leaf Guard"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Leaf Guard",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

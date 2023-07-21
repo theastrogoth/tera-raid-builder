@@ -1,7 +1,10 @@
 {
     "name": "Castform-Sunny",
     "abilities": [
-        "Forecast"
+        {
+            "name": "Forecast",
+            "hidden": false
+        }
     ],
     "types": [
         "fire"

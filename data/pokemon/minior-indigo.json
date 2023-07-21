@@ -1,7 +1,10 @@
 {
     "name": "Minior-Indigo",
     "abilities": [
-        "Shields Down"
+        {
+            "name": "Shields Down",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

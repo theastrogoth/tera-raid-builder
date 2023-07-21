@@ -1,8 +1,14 @@
 {
     "name": "Salazzle",
     "abilities": [
-        "Corrosion",
-        "Oblivious"
+        {
+            "name": "Corrosion",
+            "hidden": false
+        },
+        {
+            "name": "Oblivious",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

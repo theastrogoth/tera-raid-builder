@@ -1,9 +1,18 @@
 {
     "name": "Cetoddle",
     "abilities": [
-        "Thick Fat",
-        "Snow Cloak",
-        "Sheer Force"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        },
+        {
+            "name": "Snow Cloak",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "ice"

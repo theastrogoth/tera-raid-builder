@@ -1,7 +1,10 @@
 {
     "name": "Meltan",
     "abilities": [
-        "Magnet Pull"
+        {
+            "name": "Magnet Pull",
+            "hidden": false
+        }
     ],
     "types": [
         "steel"

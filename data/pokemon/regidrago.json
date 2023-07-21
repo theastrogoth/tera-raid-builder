@@ -1,7 +1,10 @@
 {
     "name": "Regidrago",
     "abilities": [
-        "Dragons Maw"
+        {
+            "name": "Dragons Maw",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon"

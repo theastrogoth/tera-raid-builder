@@ -1,9 +1,18 @@
 {
     "name": "Miltank",
     "abilities": [
-        "Thick Fat",
-        "Scrappy",
-        "Sap Sipper"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        },
+        {
+            "name": "Scrappy",
+            "hidden": false
+        },
+        {
+            "name": "Sap Sipper",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

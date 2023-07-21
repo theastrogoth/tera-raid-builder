@@ -1,8 +1,14 @@
 {
     "name": "Burmy",
     "abilities": [
-        "Shed Skin",
-        "Overcoat"
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        },
+        {
+            "name": "Overcoat",
+            "hidden": true
+        }
     ],
     "types": [
         "bug"

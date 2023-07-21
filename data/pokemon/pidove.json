@@ -1,9 +1,18 @@
 {
     "name": "Pidove",
     "abilities": [
-        "Big Pecks",
-        "Super Luck",
-        "Rivalry"
+        {
+            "name": "Big Pecks",
+            "hidden": false
+        },
+        {
+            "name": "Super Luck",
+            "hidden": false
+        },
+        {
+            "name": "Rivalry",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

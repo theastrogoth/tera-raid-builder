@@ -1,8 +1,14 @@
 {
     "name": "Klefki",
     "abilities": [
-        "Prankster",
-        "Magician"
+        {
+            "name": "Prankster",
+            "hidden": false
+        },
+        {
+            "name": "Magician",
+            "hidden": true
+        }
     ],
     "types": [
         "steel",

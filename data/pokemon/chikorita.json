@@ -1,8 +1,14 @@
 {
     "name": "Chikorita",
     "abilities": [
-        "Overgrow",
-        "Leaf Guard"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Leaf Guard",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

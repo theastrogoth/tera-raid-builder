@@ -1,7 +1,10 @@
 {
     "name": "Scizor-Mega",
     "abilities": [
-        "Technician"
+        {
+            "name": "Technician",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

@@ -1,8 +1,14 @@
 {
     "name": "Swablu",
     "abilities": [
-        "Natural Cure",
-        "Cloud Nine"
+        {
+            "name": "Natural Cure",
+            "hidden": false
+        },
+        {
+            "name": "Cloud Nine",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

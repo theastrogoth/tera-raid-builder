@@ -1,8 +1,14 @@
 {
     "name": "Moltres",
     "abilities": [
-        "Pressure",
-        "Flame Body"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Flame Body",
+            "hidden": true
+        }
     ],
     "types": [
         "fire",

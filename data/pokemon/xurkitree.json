@@ -1,7 +1,10 @@
 {
     "name": "Xurkitree",
     "abilities": [
-        "Beast Boost"
+        {
+            "name": "Beast Boost",
+            "hidden": false
+        }
     ],
     "types": [
         "electric"

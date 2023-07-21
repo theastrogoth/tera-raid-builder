@@ -1,9 +1,18 @@
 {
     "name": "Skorupi",
     "abilities": [
-        "Battle Armor",
-        "Sniper",
-        "Keen Eye"
+        {
+            "name": "Battle Armor",
+            "hidden": false
+        },
+        {
+            "name": "Sniper",
+            "hidden": false
+        },
+        {
+            "name": "Keen Eye",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

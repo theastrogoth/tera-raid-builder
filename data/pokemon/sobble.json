@@ -1,8 +1,14 @@
 {
     "name": "Sobble",
     "abilities": [
-        "Torrent",
-        "Sniper"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Sniper",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

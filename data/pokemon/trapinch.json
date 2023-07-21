@@ -1,9 +1,18 @@
 {
     "name": "Trapinch",
     "abilities": [
-        "Hyper Cutter",
-        "Arena Trap",
-        "Sheer Force"
+        {
+            "name": "Hyper Cutter",
+            "hidden": false
+        },
+        {
+            "name": "Arena Trap",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

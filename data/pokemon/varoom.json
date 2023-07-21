@@ -1,8 +1,14 @@
 {
     "name": "Varoom",
     "abilities": [
-        "Overcoat",
-        "Slow Start"
+        {
+            "name": "Overcoat",
+            "hidden": false
+        },
+        {
+            "name": "Slow Start",
+            "hidden": true
+        }
     ],
     "types": [
         "steel",

@@ -1,7 +1,10 @@
 {
     "name": "Mimikyu-Busted",
     "abilities": [
-        "Disguise"
+        {
+            "name": "Disguise",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost",

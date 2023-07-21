@@ -1,7 +1,10 @@
 {
     "name": "Brute Bonnet",
     "abilities": [
-        "Protosynthesis"
+        {
+            "name": "Protosynthesis",
+            "hidden": false
+        }
     ],
     "types": [
         "grass",

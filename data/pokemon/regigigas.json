@@ -1,7 +1,10 @@
 {
     "name": "Regigigas",
     "abilities": [
-        "Slow Start"
+        {
+            "name": "Slow Start",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

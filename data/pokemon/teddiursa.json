@@ -1,9 +1,18 @@
 {
     "name": "Teddiursa",
     "abilities": [
-        "Pickup",
-        "Quick Feet",
-        "Honey Gather"
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Quick Feet",
+            "hidden": false
+        },
+        {
+            "name": "Honey Gather",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

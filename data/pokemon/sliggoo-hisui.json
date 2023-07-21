@@ -1,9 +1,18 @@
 {
     "name": "Sliggoo-Hisui",
     "abilities": [
-        "Sap Sipper",
-        "Shell Armor",
-        "Gooey"
+        {
+            "name": "Sap Sipper",
+            "hidden": false
+        },
+        {
+            "name": "Shell Armor",
+            "hidden": false
+        },
+        {
+            "name": "Gooey",
+            "hidden": true
+        }
     ],
     "types": [
         "steel",

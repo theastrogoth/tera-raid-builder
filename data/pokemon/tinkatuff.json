@@ -1,9 +1,18 @@
 {
     "name": "Tinkatuff",
     "abilities": [
-        "Mold Breaker",
-        "Own Tempo",
-        "Pickpocket"
+        {
+            "name": "Mold Breaker",
+            "hidden": false
+        },
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Pickpocket",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy",

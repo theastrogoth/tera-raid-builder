@@ -1,8 +1,14 @@
 {
     "name": "Electivire",
     "abilities": [
-        "Motor Drive",
-        "Vital Spirit"
+        {
+            "name": "Motor Drive",
+            "hidden": false
+        },
+        {
+            "name": "Vital Spirit",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

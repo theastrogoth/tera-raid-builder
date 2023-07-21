@@ -1,8 +1,14 @@
 {
     "name": "Dachsbun",
     "abilities": [
-        "Well-Baked Body",
-        "Aroma Veil"
+        {
+            "name": "Well-Baked Body",
+            "hidden": false
+        },
+        {
+            "name": "Aroma Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

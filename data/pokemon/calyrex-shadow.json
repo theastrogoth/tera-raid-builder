@@ -1,7 +1,10 @@
 {
     "name": "Calyrex-Shadow",
     "abilities": [
-        "As One Spectrier"
+        {
+            "name": "As One Spectrier",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

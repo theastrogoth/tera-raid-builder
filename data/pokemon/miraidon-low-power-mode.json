@@ -1,7 +1,10 @@
 {
     "name": "Miraidon-Low-Power-Mode",
     "abilities": [
-        "Hadron Engine"
+        {
+            "name": "Hadron Engine",
+            "hidden": false
+        }
     ],
     "types": [
         "electric",

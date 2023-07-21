@@ -1,8 +1,14 @@
 {
     "name": "Thundurus",
     "abilities": [
-        "Prankster",
-        "Defiant"
+        {
+            "name": "Prankster",
+            "hidden": false
+        },
+        {
+            "name": "Defiant",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

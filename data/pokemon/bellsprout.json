@@ -1,8 +1,14 @@
 {
     "name": "Bellsprout",
     "abilities": [
-        "Chlorophyll",
-        "Gluttony"
+        {
+            "name": "Chlorophyll",
+            "hidden": false
+        },
+        {
+            "name": "Gluttony",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

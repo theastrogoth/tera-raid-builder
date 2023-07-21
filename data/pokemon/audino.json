@@ -1,9 +1,18 @@
 {
     "name": "Audino",
     "abilities": [
-        "Healer",
-        "Regenerator",
-        "Klutz"
+        {
+            "name": "Healer",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": false
+        },
+        {
+            "name": "Klutz",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

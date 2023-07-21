@@ -1,9 +1,18 @@
 {
     "name": "Rhyhorn",
     "abilities": [
-        "Lightning Rod",
-        "Rock Head",
-        "Reckless"
+        {
+            "name": "Lightning Rod",
+            "hidden": false
+        },
+        {
+            "name": "Rock Head",
+            "hidden": false
+        },
+        {
+            "name": "Reckless",
+            "hidden": true
+        }
     ],
     "types": [
         "ground",

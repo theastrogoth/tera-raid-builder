@@ -1,8 +1,14 @@
 {
     "name": "Arboliva",
     "abilities": [
-        "Seed Sower",
-        "Harvest"
+        {
+            "name": "Seed Sower",
+            "hidden": false
+        },
+        {
+            "name": "Harvest",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

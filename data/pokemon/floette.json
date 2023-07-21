@@ -1,8 +1,14 @@
 {
     "name": "Floette",
     "abilities": [
-        "Flower Veil",
-        "Symbiosis"
+        {
+            "name": "Flower Veil",
+            "hidden": false
+        },
+        {
+            "name": "Symbiosis",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

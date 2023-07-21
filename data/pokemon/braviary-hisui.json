@@ -1,9 +1,18 @@
 {
     "name": "Braviary-Hisui",
     "abilities": [
-        "Keen Eye",
-        "Sheer Force",
-        "Tinted Lens"
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": false
+        },
+        {
+            "name": "Tinted Lens",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

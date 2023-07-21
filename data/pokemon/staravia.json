@@ -1,8 +1,14 @@
 {
     "name": "Staravia",
     "abilities": [
-        "Intimidate",
-        "Reckless"
+        {
+            "name": "Intimidate",
+            "hidden": false
+        },
+        {
+            "name": "Reckless",
+            "hidden": true
+        }
     ],
     "types": [
         "normal",

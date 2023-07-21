@@ -1,7 +1,10 @@
 {
     "name": "Grubbin",
     "abilities": [
-        "Swarm"
+        {
+            "name": "Swarm",
+            "hidden": false
+        }
     ],
     "types": [
         "bug"

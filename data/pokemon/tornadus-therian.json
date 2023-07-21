@@ -1,7 +1,10 @@
 {
     "name": "Tornadus-Therian",
     "abilities": [
-        "Regenerator"
+        {
+            "name": "Regenerator",
+            "hidden": false
+        }
     ],
     "types": [
         "flying"

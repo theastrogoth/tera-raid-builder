@@ -1,9 +1,18 @@
 {
     "name": "Clefable",
     "abilities": [
-        "Cute Charm",
-        "Magic Guard",
-        "Unaware"
+        {
+            "name": "Cute Charm",
+            "hidden": false
+        },
+        {
+            "name": "Magic Guard",
+            "hidden": false
+        },
+        {
+            "name": "Unaware",
+            "hidden": true
+        }
     ],
     "types": [
         "fairy"

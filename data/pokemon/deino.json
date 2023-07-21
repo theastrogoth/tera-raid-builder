@@ -1,7 +1,10 @@
 {
     "name": "Deino",
     "abilities": [
-        "Hustle"
+        {
+            "name": "Hustle",
+            "hidden": false
+        }
     ],
     "types": [
         "dark",

@@ -1,9 +1,18 @@
 {
     "name": "Drilbur",
     "abilities": [
-        "Sand Rush",
-        "Sand Force",
-        "Mold Breaker"
+        {
+            "name": "Sand Rush",
+            "hidden": false
+        },
+        {
+            "name": "Sand Force",
+            "hidden": false
+        },
+        {
+            "name": "Mold Breaker",
+            "hidden": true
+        }
     ],
     "types": [
         "ground"

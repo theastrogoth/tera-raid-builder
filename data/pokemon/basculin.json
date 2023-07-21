@@ -1,9 +1,18 @@
 {
     "name": "Basculin",
     "abilities": [
-        "Reckless",
-        "Adaptability",
-        "Mold Breaker"
+        {
+            "name": "Reckless",
+            "hidden": false
+        },
+        {
+            "name": "Adaptability",
+            "hidden": false
+        },
+        {
+            "name": "Mold Breaker",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

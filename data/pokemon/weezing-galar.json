@@ -1,9 +1,18 @@
 {
     "name": "Weezing-Galar",
     "abilities": [
-        "Levitate",
-        "Neutralizing Gas",
-        "Misty Surge"
+        {
+            "name": "Levitate",
+            "hidden": false
+        },
+        {
+            "name": "Neutralizing Gas",
+            "hidden": false
+        },
+        {
+            "name": "Misty Surge",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

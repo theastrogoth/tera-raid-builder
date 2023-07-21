@@ -1,7 +1,10 @@
 {
     "name": "Charizard-Mega-X",
     "abilities": [
-        "Tough Claws"
+        {
+            "name": "Tough Claws",
+            "hidden": false
+        }
     ],
     "types": [
         "fire",

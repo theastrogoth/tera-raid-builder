@@ -1,7 +1,10 @@
 {
     "name": "Shaymin-Sky",
     "abilities": [
-        "Serene Grace"
+        {
+            "name": "Serene Grace",
+            "hidden": false
+        }
     ],
     "types": [
         "grass",

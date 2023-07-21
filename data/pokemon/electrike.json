@@ -1,9 +1,18 @@
 {
     "name": "Electrike",
     "abilities": [
-        "Static",
-        "Lightning Rod",
-        "Minus"
+        {
+            "name": "Static",
+            "hidden": false
+        },
+        {
+            "name": "Lightning Rod",
+            "hidden": false
+        },
+        {
+            "name": "Minus",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

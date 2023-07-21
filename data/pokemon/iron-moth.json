@@ -1,7 +1,10 @@
 {
     "name": "Iron Moth",
     "abilities": [
-        "Quark Drive"
+        {
+            "name": "Quark Drive",
+            "hidden": false
+        }
     ],
     "types": [
         "fire",

@@ -1,7 +1,10 @@
 {
     "name": "Finizen",
     "abilities": [
-        "Water Veil"
+        {
+            "name": "Water Veil",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

@@ -1,7 +1,10 @@
 {
     "name": "Lopunny-Mega",
     "abilities": [
-        "Scrappy"
+        {
+            "name": "Scrappy",
+            "hidden": false
+        }
     ],
     "types": [
         "normal",

@@ -1,7 +1,10 @@
 {
     "name": "Garchomp-Mega",
     "abilities": [
-        "Sand Force"
+        {
+            "name": "Sand Force",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

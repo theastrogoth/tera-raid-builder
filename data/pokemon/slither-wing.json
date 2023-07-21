@@ -1,7 +1,10 @@
 {
     "name": "Slither Wing",
     "abilities": [
-        "Protosynthesis"
+        {
+            "name": "Protosynthesis",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

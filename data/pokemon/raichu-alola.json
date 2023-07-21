@@ -1,7 +1,10 @@
 {
     "name": "Raichu-Alola",
     "abilities": [
-        "Surge Surfer"
+        {
+            "name": "Surge Surfer",
+            "hidden": false
+        }
     ],
     "types": [
         "electric",

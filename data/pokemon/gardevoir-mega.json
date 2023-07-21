@@ -1,7 +1,10 @@
 {
     "name": "Gardevoir-Mega",
     "abilities": [
-        "Pixilate"
+        {
+            "name": "Pixilate",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

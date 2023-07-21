@@ -1,8 +1,14 @@
 {
     "name": "Zapdos",
     "abilities": [
-        "Pressure",
-        "Static"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Static",
+            "hidden": true
+        }
     ],
     "types": [
         "electric",

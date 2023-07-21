@@ -1,9 +1,18 @@
 {
     "name": "Diglett-Alola",
     "abilities": [
-        "Sand Veil",
-        "Tangling Hair",
-        "Sand Force"
+        {
+            "name": "Sand Veil",
+            "hidden": false
+        },
+        {
+            "name": "Tangling Hair",
+            "hidden": false
+        },
+        {
+            "name": "Sand Force",
+            "hidden": true
+        }
     ],
     "types": [
         "ground",

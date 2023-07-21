@@ -1,7 +1,10 @@
 {
     "name": "Roaring Moon",
     "abilities": [
-        "Protosynthesis"
+        {
+            "name": "Protosynthesis",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

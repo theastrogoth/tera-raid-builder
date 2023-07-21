@@ -1,9 +1,18 @@
 {
     "name": "Dubwool",
     "abilities": [
-        "Fluffy",
-        "Steadfast",
-        "Bulletproof"
+        {
+            "name": "Fluffy",
+            "hidden": false
+        },
+        {
+            "name": "Steadfast",
+            "hidden": false
+        },
+        {
+            "name": "Bulletproof",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

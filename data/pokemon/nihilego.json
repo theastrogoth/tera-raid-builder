@@ -1,7 +1,10 @@
 {
     "name": "Nihilego",
     "abilities": [
-        "Beast Boost"
+        {
+            "name": "Beast Boost",
+            "hidden": false
+        }
     ],
     "types": [
         "rock",

@@ -1,7 +1,10 @@
 {
     "name": "Flutter Mane",
     "abilities": [
-        "Protosynthesis"
+        {
+            "name": "Protosynthesis",
+            "hidden": false
+        }
     ],
     "types": [
         "ghost",

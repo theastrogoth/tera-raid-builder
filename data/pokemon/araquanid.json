@@ -1,8 +1,14 @@
 {
     "name": "Araquanid",
     "abilities": [
-        "Water Bubble",
-        "Water Absorb"
+        {
+            "name": "Water Bubble",
+            "hidden": false
+        },
+        {
+            "name": "Water Absorb",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

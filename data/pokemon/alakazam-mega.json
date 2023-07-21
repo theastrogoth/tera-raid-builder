@@ -1,7 +1,10 @@
 {
     "name": "Alakazam-Mega",
     "abilities": [
-        "Trace"
+        {
+            "name": "Trace",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

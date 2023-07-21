@@ -1,9 +1,18 @@
 {
     "name": "Zebstrika",
     "abilities": [
-        "Lightning Rod",
-        "Motor Drive",
-        "Sap Sipper"
+        {
+            "name": "Lightning Rod",
+            "hidden": false
+        },
+        {
+            "name": "Motor Drive",
+            "hidden": false
+        },
+        {
+            "name": "Sap Sipper",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

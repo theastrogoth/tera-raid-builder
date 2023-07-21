@@ -1,8 +1,14 @@
 {
     "name": "Surskit",
     "abilities": [
-        "Swift Swim",
-        "Rain Dish"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Rain Dish",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

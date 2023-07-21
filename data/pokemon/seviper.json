@@ -1,8 +1,14 @@
 {
     "name": "Seviper",
     "abilities": [
-        "Shed Skin",
-        "Infiltrator"
+        {
+            "name": "Shed Skin",
+            "hidden": false
+        },
+        {
+            "name": "Infiltrator",
+            "hidden": true
+        }
     ],
     "types": [
         "poison"

@@ -1,7 +1,10 @@
 {
     "name": "Virizion",
     "abilities": [
-        "Justified"
+        {
+            "name": "Justified",
+            "hidden": false
+        }
     ],
     "types": [
         "grass",

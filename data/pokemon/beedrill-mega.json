@@ -1,7 +1,10 @@
 {
     "name": "Beedrill-Mega",
     "abilities": [
-        "Adaptability"
+        {
+            "name": "Adaptability",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

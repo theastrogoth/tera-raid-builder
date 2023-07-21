@@ -1,9 +1,18 @@
 {
     "name": "Parasect",
     "abilities": [
-        "Effect Spore",
-        "Dry Skin",
-        "Damp"
+        {
+            "name": "Effect Spore",
+            "hidden": false
+        },
+        {
+            "name": "Dry Skin",
+            "hidden": false
+        },
+        {
+            "name": "Damp",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

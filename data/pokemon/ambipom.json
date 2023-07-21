@@ -1,9 +1,18 @@
 {
     "name": "Ambipom",
     "abilities": [
-        "Technician",
-        "Pickup",
-        "Skill Link"
+        {
+            "name": "Technician",
+            "hidden": false
+        },
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Skill Link",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

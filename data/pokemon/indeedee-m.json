@@ -1,9 +1,18 @@
 {
     "name": "Indeedee-M",
     "abilities": [
-        "Inner Focus",
-        "Synchronize",
-        "Psychic Surge"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Synchronize",
+            "hidden": false
+        },
+        {
+            "name": "Psychic Surge",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

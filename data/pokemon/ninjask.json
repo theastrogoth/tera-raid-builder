@@ -1,8 +1,14 @@
 {
     "name": "Ninjask",
     "abilities": [
-        "Speed Boost",
-        "Infiltrator"
+        {
+            "name": "Speed Boost",
+            "hidden": false
+        },
+        {
+            "name": "Infiltrator",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

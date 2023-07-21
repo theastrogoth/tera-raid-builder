@@ -1,9 +1,18 @@
 {
     "name": "Venonat",
     "abilities": [
-        "Compound Eyes",
-        "Tinted Lens",
-        "Run Away"
+        {
+            "name": "Compound Eyes",
+            "hidden": false
+        },
+        {
+            "name": "Tinted Lens",
+            "hidden": false
+        },
+        {
+            "name": "Run Away",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

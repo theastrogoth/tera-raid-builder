@@ -1,9 +1,18 @@
 {
     "name": "Arctovish",
     "abilities": [
-        "Water Absorb",
-        "Ice Body",
-        "Slush Rush"
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": false
+        },
+        {
+            "name": "Slush Rush",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

@@ -1,7 +1,10 @@
 {
     "name": "Pinsir-Mega",
     "abilities": [
-        "Aerilate"
+        {
+            "name": "Aerilate",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

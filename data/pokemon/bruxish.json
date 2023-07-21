@@ -1,9 +1,18 @@
 {
     "name": "Bruxish",
     "abilities": [
-        "Dazzling",
-        "Strong Jaw",
-        "Wonder Skin"
+        {
+            "name": "Dazzling",
+            "hidden": false
+        },
+        {
+            "name": "Strong Jaw",
+            "hidden": false
+        },
+        {
+            "name": "Wonder Skin",
+            "hidden": true
+        }
     ],
     "types": [
         "water",

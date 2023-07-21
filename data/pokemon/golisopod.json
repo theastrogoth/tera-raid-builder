@@ -1,7 +1,10 @@
 {
     "name": "Golisopod",
     "abilities": [
-        "Emergency Exit"
+        {
+            "name": "Emergency Exit",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

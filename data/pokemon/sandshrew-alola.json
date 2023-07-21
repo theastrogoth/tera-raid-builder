@@ -1,8 +1,14 @@
 {
     "name": "Sandshrew-Alola",
     "abilities": [
-        "Snow Cloak",
-        "Slush Rush"
+        {
+            "name": "Snow Cloak",
+            "hidden": false
+        },
+        {
+            "name": "Slush Rush",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

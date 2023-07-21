@@ -1,9 +1,18 @@
 {
     "name": "Gallade",
     "abilities": [
-        "Steadfast",
-        "Sharpness",
-        "Justified"
+        {
+            "name": "Steadfast",
+            "hidden": false
+        },
+        {
+            "name": "Sharpness",
+            "hidden": false
+        },
+        {
+            "name": "Justified",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

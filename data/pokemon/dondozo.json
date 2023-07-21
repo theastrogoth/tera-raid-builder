@@ -1,9 +1,18 @@
 {
     "name": "Dondozo",
     "abilities": [
-        "Unaware",
-        "Oblivious",
-        "Water Veil"
+        {
+            "name": "Unaware",
+            "hidden": false
+        },
+        {
+            "name": "Oblivious",
+            "hidden": false
+        },
+        {
+            "name": "Water Veil",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

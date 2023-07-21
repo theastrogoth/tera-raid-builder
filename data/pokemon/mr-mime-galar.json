@@ -1,9 +1,18 @@
 {
     "name": "Mr-Mime-Galar",
     "abilities": [
-        "Vital Spirit",
-        "Screen Cleaner",
-        "Ice Body"
+        {
+            "name": "Vital Spirit",
+            "hidden": false
+        },
+        {
+            "name": "Screen Cleaner",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

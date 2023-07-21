@@ -1,7 +1,10 @@
 {
     "name": "Hoopa-Unbound",
     "abilities": [
-        "Magician"
+        {
+            "name": "Magician",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

@@ -1,7 +1,10 @@
 {
     "name": "Doublade",
     "abilities": [
-        "No Guard"
+        {
+            "name": "No Guard",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

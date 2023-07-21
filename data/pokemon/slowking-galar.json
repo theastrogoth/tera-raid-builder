@@ -1,9 +1,18 @@
 {
     "name": "Slowking-Galar",
     "abilities": [
-        "Curious Medicine",
-        "Own Tempo",
-        "Regenerator"
+        {
+            "name": "Curious Medicine",
+            "hidden": false
+        },
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

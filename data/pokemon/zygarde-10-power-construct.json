@@ -1,7 +1,10 @@
 {
     "name": "Zygarde-10-Power-Construct",
     "abilities": [
-        "Power Construct"
+        {
+            "name": "Power Construct",
+            "hidden": false
+        }
     ],
     "types": [
         "dragon",

@@ -1,9 +1,18 @@
 {
     "name": "Yanmega",
     "abilities": [
-        "Speed Boost",
-        "Tinted Lens",
-        "Frisk"
+        {
+            "name": "Speed Boost",
+            "hidden": false
+        },
+        {
+            "name": "Tinted Lens",
+            "hidden": false
+        },
+        {
+            "name": "Frisk",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

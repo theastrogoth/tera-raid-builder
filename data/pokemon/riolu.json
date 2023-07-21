@@ -1,9 +1,18 @@
 {
     "name": "Riolu",
     "abilities": [
-        "Steadfast",
-        "Inner Focus",
-        "Prankster"
+        {
+            "name": "Steadfast",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Prankster",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

@@ -1,8 +1,14 @@
 {
     "name": "Yamper",
     "abilities": [
-        "Ball Fetch",
-        "Rattled"
+        {
+            "name": "Ball Fetch",
+            "hidden": false
+        },
+        {
+            "name": "Rattled",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

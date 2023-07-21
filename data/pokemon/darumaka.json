@@ -1,8 +1,14 @@
 {
     "name": "Darumaka",
     "abilities": [
-        "Hustle",
-        "Inner Focus"
+        {
+            "name": "Hustle",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": true
+        }
     ],
     "types": [
         "fire"

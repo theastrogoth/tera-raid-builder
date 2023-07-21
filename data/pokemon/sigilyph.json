@@ -1,9 +1,18 @@
 {
     "name": "Sigilyph",
     "abilities": [
-        "Wonder Skin",
-        "Magic Guard",
-        "Tinted Lens"
+        {
+            "name": "Wonder Skin",
+            "hidden": false
+        },
+        {
+            "name": "Magic Guard",
+            "hidden": false
+        },
+        {
+            "name": "Tinted Lens",
+            "hidden": true
+        }
     ],
     "types": [
         "psychic",

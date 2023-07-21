@@ -1,7 +1,10 @@
 {
     "name": "Manaphy",
     "abilities": [
-        "Hydration"
+        {
+            "name": "Hydration",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

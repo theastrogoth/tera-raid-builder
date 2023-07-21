@@ -1,8 +1,14 @@
 {
     "name": "Weavile",
     "abilities": [
-        "Pressure",
-        "Pickpocket"
+        {
+            "name": "Pressure",
+            "hidden": false
+        },
+        {
+            "name": "Pickpocket",
+            "hidden": true
+        }
     ],
     "types": [
         "dark",

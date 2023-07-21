@@ -1,7 +1,10 @@
 {
     "name": "Deoxys-Speed",
     "abilities": [
-        "Pressure"
+        {
+            "name": "Pressure",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic"

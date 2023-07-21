@@ -1,9 +1,18 @@
 {
     "name": "Pawniard",
     "abilities": [
-        "Defiant",
-        "Inner Focus",
-        "Pressure"
+        {
+            "name": "Defiant",
+            "hidden": false
+        },
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Pressure",
+            "hidden": true
+        }
     ],
     "types": [
         "dark",

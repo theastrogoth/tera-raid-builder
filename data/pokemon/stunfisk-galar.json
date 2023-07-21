@@ -1,7 +1,10 @@
 {
     "name": "Stunfisk-Galar",
     "abilities": [
-        "Mimicry"
+        {
+            "name": "Mimicry",
+            "hidden": false
+        }
     ],
     "types": [
         "ground",

@@ -1,9 +1,18 @@
 {
     "name": "Rattata",
     "abilities": [
-        "Run Away",
-        "Guts",
-        "Hustle"
+        {
+            "name": "Run Away",
+            "hidden": false
+        },
+        {
+            "name": "Guts",
+            "hidden": false
+        },
+        {
+            "name": "Hustle",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

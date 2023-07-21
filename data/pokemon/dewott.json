@@ -1,8 +1,14 @@
 {
     "name": "Dewott",
     "abilities": [
-        "Torrent",
-        "Shell Armor"
+        {
+            "name": "Torrent",
+            "hidden": false
+        },
+        {
+            "name": "Shell Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "water"

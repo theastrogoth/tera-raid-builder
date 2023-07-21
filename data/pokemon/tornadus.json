@@ -1,8 +1,14 @@
 {
     "name": "Tornadus",
     "abilities": [
-        "Prankster",
-        "Defiant"
+        {
+            "name": "Prankster",
+            "hidden": false
+        },
+        {
+            "name": "Defiant",
+            "hidden": true
+        }
     ],
     "types": [
         "flying"

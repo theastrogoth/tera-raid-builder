@@ -1,9 +1,18 @@
 {
     "name": "Slowbro-Galar",
     "abilities": [
-        "Quick Draw",
-        "Own Tempo",
-        "Regenerator"
+        {
+            "name": "Quick Draw",
+            "hidden": false
+        },
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Regenerator",
+            "hidden": true
+        }
     ],
     "types": [
         "poison",

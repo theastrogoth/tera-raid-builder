@@ -1,9 +1,18 @@
 {
     "name": "Avalugg",
     "abilities": [
-        "Own Tempo",
-        "Ice Body",
-        "Sturdy"
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": false
+        },
+        {
+            "name": "Sturdy",
+            "hidden": true
+        }
     ],
     "types": [
         "ice"

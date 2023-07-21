@@ -1,7 +1,10 @@
 {
     "name": "Cherrim",
     "abilities": [
-        "Flower Gift"
+        {
+            "name": "Flower Gift",
+            "hidden": false
+        }
     ],
     "types": [
         "grass"

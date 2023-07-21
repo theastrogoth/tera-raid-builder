@@ -1,7 +1,10 @@
 {
     "name": "Sceptile-Mega",
     "abilities": [
-        "Lightning Rod"
+        {
+            "name": "Lightning Rod",
+            "hidden": false
+        }
     ],
     "types": [
         "grass",

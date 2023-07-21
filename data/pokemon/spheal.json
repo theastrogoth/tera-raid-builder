@@ -1,9 +1,18 @@
 {
     "name": "Spheal",
     "abilities": [
-        "Thick Fat",
-        "Ice Body",
-        "Oblivious"
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        },
+        {
+            "name": "Ice Body",
+            "hidden": false
+        },
+        {
+            "name": "Oblivious",
+            "hidden": true
+        }
     ],
     "types": [
         "ice",

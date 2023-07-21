@@ -1,8 +1,14 @@
 {
     "name": "Grapploct",
     "abilities": [
-        "Limber",
-        "Technician"
+        {
+            "name": "Limber",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": true
+        }
     ],
     "types": [
         "fighting"

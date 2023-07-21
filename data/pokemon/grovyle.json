@@ -1,8 +1,14 @@
 {
     "name": "Grovyle",
     "abilities": [
-        "Overgrow",
-        "Unburden"
+        {
+            "name": "Overgrow",
+            "hidden": false
+        },
+        {
+            "name": "Unburden",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

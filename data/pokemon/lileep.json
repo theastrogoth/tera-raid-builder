@@ -1,8 +1,14 @@
 {
     "name": "Lileep",
     "abilities": [
-        "Suction Cups",
-        "Storm Drain"
+        {
+            "name": "Suction Cups",
+            "hidden": false
+        },
+        {
+            "name": "Storm Drain",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

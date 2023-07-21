@@ -1,8 +1,14 @@
 {
     "name": "Greavard",
     "abilities": [
-        "Pickup",
-        "Fluffy"
+        {
+            "name": "Pickup",
+            "hidden": false
+        },
+        {
+            "name": "Fluffy",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost"

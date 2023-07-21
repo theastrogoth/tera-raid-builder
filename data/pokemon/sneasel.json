@@ -1,9 +1,18 @@
 {
     "name": "Sneasel",
     "abilities": [
-        "Inner Focus",
-        "Keen Eye",
-        "Pickpocket"
+        {
+            "name": "Inner Focus",
+            "hidden": false
+        },
+        {
+            "name": "Keen Eye",
+            "hidden": false
+        },
+        {
+            "name": "Pickpocket",
+            "hidden": true
+        }
     ],
     "types": [
         "dark",

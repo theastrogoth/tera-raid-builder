@@ -1,8 +1,14 @@
 {
     "name": "Plusle",
     "abilities": [
-        "Plus",
-        "Lightning Rod"
+        {
+            "name": "Plus",
+            "hidden": false
+        },
+        {
+            "name": "Lightning Rod",
+            "hidden": true
+        }
     ],
     "types": [
         "electric"

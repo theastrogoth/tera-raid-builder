@@ -1,7 +1,10 @@
 {
     "name": "Cramorant",
     "abilities": [
-        "Gulp Missile"
+        {
+            "name": "Gulp Missile",
+            "hidden": false
+        }
     ],
     "types": [
         "flying",

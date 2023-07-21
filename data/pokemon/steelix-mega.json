@@ -1,7 +1,10 @@
 {
     "name": "Steelix-Mega",
     "abilities": [
-        "Sand Force"
+        {
+            "name": "Sand Force",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

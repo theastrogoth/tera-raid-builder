@@ -1,7 +1,10 @@
 {
     "name": "Slakoth",
     "abilities": [
-        "Truant"
+        {
+            "name": "Truant",
+            "hidden": false
+        }
     ],
     "types": [
         "normal"

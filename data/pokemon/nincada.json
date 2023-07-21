@@ -1,8 +1,14 @@
 {
     "name": "Nincada",
     "abilities": [
-        "Compound Eyes",
-        "Run Away"
+        {
+            "name": "Compound Eyes",
+            "hidden": false
+        },
+        {
+            "name": "Run Away",
+            "hidden": true
+        }
     ],
     "types": [
         "bug",

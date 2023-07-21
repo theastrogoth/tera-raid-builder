@@ -1,7 +1,10 @@
 {
     "name": "Pidgeot-Mega",
     "abilities": [
-        "No Guard"
+        {
+            "name": "No Guard",
+            "hidden": false
+        }
     ],
     "types": [
         "normal",

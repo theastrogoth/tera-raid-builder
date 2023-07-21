@@ -1,9 +1,18 @@
 {
     "name": "Lickilicky",
     "abilities": [
-        "Own Tempo",
-        "Oblivious",
-        "Cloud Nine"
+        {
+            "name": "Own Tempo",
+            "hidden": false
+        },
+        {
+            "name": "Oblivious",
+            "hidden": false
+        },
+        {
+            "name": "Cloud Nine",
+            "hidden": true
+        }
     ],
     "types": [
         "normal"

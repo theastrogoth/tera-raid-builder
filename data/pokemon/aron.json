@@ -1,9 +1,18 @@
 {
     "name": "Aron",
     "abilities": [
-        "Sturdy",
-        "Rock Head",
-        "Heavy Metal"
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Rock Head",
+            "hidden": false
+        },
+        {
+            "name": "Heavy Metal",
+            "hidden": true
+        }
     ],
     "types": [
         "steel",

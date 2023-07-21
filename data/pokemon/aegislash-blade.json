@@ -1,7 +1,10 @@
 {
     "name": "Aegislash-Blade",
     "abilities": [
-        "Stance Change"
+        {
+            "name": "Stance Change",
+            "hidden": false
+        }
     ],
     "types": [
         "steel",

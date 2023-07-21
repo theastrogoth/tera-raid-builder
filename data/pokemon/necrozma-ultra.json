@@ -1,7 +1,10 @@
 {
     "name": "Necrozma-Ultra",
     "abilities": [
-        "Neuroforce"
+        {
+            "name": "Neuroforce",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

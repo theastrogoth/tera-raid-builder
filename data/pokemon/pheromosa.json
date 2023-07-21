@@ -1,7 +1,10 @@
 {
     "name": "Pheromosa",
     "abilities": [
-        "Beast Boost"
+        {
+            "name": "Beast Boost",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

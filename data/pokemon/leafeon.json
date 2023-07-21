@@ -1,8 +1,14 @@
 {
     "name": "Leafeon",
     "abilities": [
-        "Leaf Guard",
-        "Chlorophyll"
+        {
+            "name": "Leaf Guard",
+            "hidden": false
+        },
+        {
+            "name": "Chlorophyll",
+            "hidden": true
+        }
     ],
     "types": [
         "grass"

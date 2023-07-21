@@ -1,7 +1,10 @@
 {
     "name": "Buzzwole",
     "abilities": [
-        "Beast Boost"
+        {
+            "name": "Beast Boost",
+            "hidden": false
+        }
     ],
     "types": [
         "bug",

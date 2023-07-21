@@ -1,9 +1,18 @@
 {
     "name": "Omastar",
     "abilities": [
-        "Swift Swim",
-        "Shell Armor",
-        "Weak Armor"
+        {
+            "name": "Swift Swim",
+            "hidden": false
+        },
+        {
+            "name": "Shell Armor",
+            "hidden": false
+        },
+        {
+            "name": "Weak Armor",
+            "hidden": true
+        }
     ],
     "types": [
         "rock",

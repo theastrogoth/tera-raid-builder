@@ -1,9 +1,18 @@
 {
     "name": "Nacli",
     "abilities": [
-        "Purifying Salt",
-        "Sturdy",
-        "Clear Body"
+        {
+            "name": "Purifying Salt",
+            "hidden": false
+        },
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Clear Body",
+            "hidden": true
+        }
     ],
     "types": [
         "rock"

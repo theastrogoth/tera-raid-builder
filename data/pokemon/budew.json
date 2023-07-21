@@ -1,9 +1,18 @@
 {
     "name": "Budew",
     "abilities": [
-        "Natural Cure",
-        "Poison Point",
-        "Leaf Guard"
+        {
+            "name": "Natural Cure",
+            "hidden": false
+        },
+        {
+            "name": "Poison Point",
+            "hidden": false
+        },
+        {
+            "name": "Leaf Guard",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

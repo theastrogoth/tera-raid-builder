@@ -1,7 +1,10 @@
 {
     "name": "Palafin",
     "abilities": [
-        "Zero To Hero"
+        {
+            "name": "Zero To Hero",
+            "hidden": false
+        }
     ],
     "types": [
         "water"

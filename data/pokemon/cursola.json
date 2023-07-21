@@ -1,8 +1,14 @@
 {
     "name": "Cursola",
     "abilities": [
-        "Weak Armor",
-        "Perish Body"
+        {
+            "name": "Weak Armor",
+            "hidden": false
+        },
+        {
+            "name": "Perish Body",
+            "hidden": true
+        }
     ],
     "types": [
         "ghost"

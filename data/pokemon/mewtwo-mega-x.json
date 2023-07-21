@@ -1,7 +1,10 @@
 {
     "name": "Mewtwo-Mega-X",
     "abilities": [
-        "Steadfast"
+        {
+            "name": "Steadfast",
+            "hidden": false
+        }
     ],
     "types": [
         "psychic",

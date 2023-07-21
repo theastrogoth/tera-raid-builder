@@ -1,8 +1,14 @@
 {
     "name": "Brambleghast",
     "abilities": [
-        "Wind Rider",
-        "Infiltrator"
+        {
+            "name": "Wind Rider",
+            "hidden": false
+        },
+        {
+            "name": "Infiltrator",
+            "hidden": true
+        }
     ],
     "types": [
         "grass",

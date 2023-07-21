@@ -1,8 +1,14 @@
 {
     "name": "Bagon",
     "abilities": [
-        "Rock Head",
-        "Sheer Force"
+        {
+            "name": "Rock Head",
+            "hidden": false
+        },
+        {
+            "name": "Sheer Force",
+            "hidden": true
+        }
     ],
     "types": [
         "dragon"

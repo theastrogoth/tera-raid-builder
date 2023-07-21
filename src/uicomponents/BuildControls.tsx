@@ -170,19 +170,18 @@ return (
 function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
     return (
         <Stack direction="row" alignItems="center" spacing={0.25}>
-            <img src={getTypeIconURL(move.type)} height="25px" />
+                {!prettyMode &&
+                    <img src={getTypeIconURL(move.type)} height="25px" />
+                }
             <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingLeft: 0.5, paddingRight: 0.5 }}>
                 {move.name}
             </Typography>
-            {move.method === "egg" &&
-                <img src={getMoveMethodIconURL("egg")} height="20px" />
-            }
-            {/* {move.method === "egg" &&
-                <img src={getMoveMethodIconURL("mirror_herb")} height="20px" />
-            } */}
-            {move.method === "machine" &&
-                <img src={getMoveMethodIconURL(move.type)} height="20px"/>
-            }
+                {move.method === "egg" && prettyMode &&
+                    <img src={getMoveMethodIconURL("egg")} height="20px" />
+                }
+                {move.method === "machine" && prettyMode &&
+                    <img src={getMoveMethodIconURL(move.type)} height="20px"/>
+                }
         </Stack>
     )
 }
@@ -278,7 +277,9 @@ function ItemWithIcon({item, prettyMode}: {item: string, prettyMode: boolean}) {
     console.log(item)
     return (
         <Stack direction="row" alignItems="center" spacing={0.25}>
-            <img src={getItemSpriteURL(item)} height="20px" />
+            {!prettyMode &&
+                <img src={getItemSpriteURL(item)} height="20px" />
+            }
             <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingLeft: 0.5, paddingRight: 0.5 }}>
                 {item}
             </Typography>

@@ -210,6 +210,9 @@ export type RaidTurnResult = {
 
 export type BuildInfo = {
     name: string;
+    description: string;
+    notes: string;
+    credits: string;
     pokemon: Raider[],
     turns: RaidTurnInfo[],
     groups: number[][],

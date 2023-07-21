@@ -166,8 +166,8 @@ function App() {
 
   return (
   <ThemeProvider theme={theme}> 
-    <Box sx= {{ p: 1}}>  
-      <CssBaseline />
+    <CssBaseline />
+    <Box>  
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
     </Box>
     <Stack direction="row">

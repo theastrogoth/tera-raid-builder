@@ -419,7 +419,7 @@ function MoveSelectionContainer({raiders, index, info, setInfo, buttonsVisible}:
 function AddButton({onClick, visible, disabled=false}: {onClick: () => void, visible: boolean, disabled?: boolean}) {
     const [color, setColor] = useState<"inherit" | "primary">("inherit");
     return (
-        <Box height="30px" alignSelf="left" alignContent="center">
+        <Box height="30px" alignSelf="center" alignContent="center">
             <Box hidden={!visible}>
                 <Button
                     color={color}

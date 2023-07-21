@@ -441,13 +441,14 @@ export class RaidMove {
                 const hasContrary = fl_target.ability === "Contrary";
                 const boostCoefficient = hasSimple ? 2 : hasContrary ? -1 : 1;
                 const flingItem = this._user.item;
-                this._user.item = undefined;
+                console.log("Fling", flingItem, this.raidState.raiders[this.userID].item)
                 switch (flingItem) {
                     case "Light Ball":
                         if (hasNoStatus(fl_target)) { fl_target.status = "par"; }
                         break;
                     case "Flame Orb":
                         if (!fl_target.types.includes("Fire") && hasNoStatus(fl_target)) { fl_target.status = "brn"; }
+                        console.log("Fling Flame Orb", this._user, fl_target, this._raidState)
                         break;
                     case "Toxic Orb":
                         if (!fl_target.types.includes("Poison") && hasNoStatus(fl_target)) { fl_target.status = "tox"; }
@@ -514,6 +515,7 @@ export class RaidMove {
                         break;
                     default: break;
                     }
+                this._user.item = undefined;
                 break;
             // other
             case "Endure":
@@ -704,20 +706,17 @@ export class RaidMove {
                     break;
                 case "Flame Orb":
                     if (!this._user.types.includes("Fire")) { 
-                        this._user.status = "brn"; 
-                        this._user.item = undefined; 
+                        this._user.status = "brn";  
                     }
                     break;
                 case "Toxic Orb":
                     if (!this._user.types.includes("Poison")) { 
                         this._user.status = "tox"; 
-                        this._user.item = undefined;
                     }
                     break;
                 case "Poison Barb":
                     if (!this._user.types.includes("Poison")) { 
                         this._user.status = "psn"; 
-                        this._user.item = undefined;
                     }
                     break;
                 case "White Herb":

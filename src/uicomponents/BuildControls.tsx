@@ -24,7 +24,7 @@ import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 import { Typography } from "@mui/material";
 import { MoveSetItem, Raider } from "../raidcalc/interface";
-import { getMoveMethodIconURL } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getTypeIconURL } from "../utils";
 
 import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
 
@@ -40,6 +40,10 @@ function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetIt
 function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[]): {name: AbilityName, hidden: boolean} {
     const option = abilities.find((ability) => ability.name == name);
     return option || {name: "(No Ability)" as AbilityName, hidden: false};
+}
+
+function findOptionFromItemName(name?: string): string {
+    return name !== undefined && name !== "(No Item)" ? name : "Any";
 }
 
 function createAbilityOptions(abilities: {name: AbilityName, hidden: boolean}[]) {
@@ -115,14 +119,16 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
     paddingLeft: '0px',
     paddingRight: '8px',
     borderBottom: 0,
-  }));
+}));
+
+
   
-  const RightCell = styled(TableCell)(({ theme }) => ({
-      fontWeight: theme.typography.fontWeightMedium,
-      textAlign: 'left',
-      padding: '0px',
-      borderBottom: 0,
-  })); 
+const RightCell = styled(TableCell)(({ theme }) => ({
+    fontWeight: theme.typography.fontWeightMedium,
+    textAlign: 'left',
+    padding: '0px',
+    borderBottom: 0,
+})); 
   
 function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
 return (
@@ -164,7 +170,8 @@ return (
 function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
     return (
         <Stack direction="row" alignItems="center" spacing={0.25}>
-            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
+            <img src={getTypeIconURL(move.type)} height="25px" />
+            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingLeft: 0.5, paddingRight: 0.5 }}>
                 {move.name}
             </Typography>
             {move.method === "egg" &&
@@ -174,7 +181,7 @@ function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolea
                 <img src={getMoveMethodIconURL("mirror_herb")} height="20px" />
             } */}
             {move.method === "machine" &&
-                <img src={getMoveMethodIconURL(move.type)} height="20px" />
+                <img src={getMoveMethodIconURL(move.type)} height="20px"/>
             }
         </Stack>
     )
@@ -267,6 +274,55 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
     )
 }
 
+function ItemWithIcon({item, prettyMode}: {item: string, prettyMode: boolean}) {
+    console.log(item)
+    return (
+        <Stack direction="row" alignItems="center" spacing={0.25}>
+            <img src={getItemSpriteURL(item)} height="20px" />
+            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingLeft: 0.5, paddingRight: 0.5 }}>
+                {item}
+            </Typography>
+        </Stack>
+    )
+}
+
+function ItemSummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
+    return (
+        <>
+        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+            <TableRow>
+                <LeftCell>
+                    {name}
+                </LeftCell>
+                <RightCell>
+                    {prettyMode &&
+                        <ItemWithIcon item={value} prettyMode={prettyMode} />
+                    }
+                    {!prettyMode &&
+                        <Autocomplete
+                            disablePortal
+                            disableClearable
+                            autoHighlight={true}    
+                            size="small"
+                            value={value || undefined}
+                            options={options}
+                            renderOption={(props, option) => 
+                                <li {...props}><ItemWithIcon item={findOptionFromItemName(option)} prettyMode={prettyMode} /></li>
+                            }
+                            renderInput={(params) => 
+                                <TextField {...params} variant="standard" size="small" />}
+                            onChange={(event: any, newValue: string) => {
+                                setValue(newValue);
+                            }}
+                            sx = {{width: '85%'}}
+                        />
+                    }
+                </RightCell>
+            </TableRow>
+        }
+        </>
+    )
+}
 
 
 function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}: 
@@ -404,7 +460,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>
-                                <SummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={["(No Item)", ...genItems]} prettyMode={prettyMode} />
+                                    <ItemSummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={["(No Item)", ...genItems]} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>

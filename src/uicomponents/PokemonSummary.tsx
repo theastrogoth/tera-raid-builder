@@ -36,7 +36,7 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
         <TextField 
             variant="standard"
             fullWidth
-            inputProps={{ maxLength: 20, style: {fontWeight: "bold",fontSize: 25, textAlign: "center"}}}
+            inputProps={{ maxLength: 12, style: {fontWeight: "bold",fontSize: 25, textAlign: "center"}}}
             margin="dense"
             value={str}
             onChange={(e) => setStr(e.target.value)}

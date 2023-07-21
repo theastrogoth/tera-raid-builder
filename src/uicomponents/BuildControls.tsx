@@ -473,7 +473,7 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
             };
         }
         // @ts-ignore
-        setPokemon(new Raider(pokemon.id, (pokemon.name + ": " + name), new Pokemon(gen, pokemon.name, {
+        setPokemon(new Raider(pokemon.id, name, new Pokemon(gen, pokemon.name, {
             // @ts-ignore
             level: parseInt(set["level"]),
             // @ts-ignore

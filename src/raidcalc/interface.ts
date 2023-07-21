@@ -156,6 +156,9 @@ export class RaidState {
 
 export type RaidBattleInfo = {
     name?: string;
+    description?: string;
+    notes?: string;
+    credits?: string;
     startingState: RaidState;
     turns: RaidTurnInfo[];
     groups: number[][];

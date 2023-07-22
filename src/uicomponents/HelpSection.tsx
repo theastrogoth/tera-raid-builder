@@ -79,6 +79,7 @@ function BuildHelpSection({}: {}) {
     const [ivHelpOpen, setIvHelpOpen] = useState(false);
     const [natureHelpOpen, setNatureHelpOpen] = useState(false);
     const [eggMoveHelpOpen, setEggMoveHelpOpen] = useState(false);
+    const [abilitiesHelpOpen, setAbilitiesHelpOpen] = useState(false);
 
     return (
         <Box>
@@ -180,13 +181,58 @@ function BuildHelpSection({}: {}) {
             </Box>
             <Box sx={{ p: 2 }}>
                 <Typography variant="h6" gutterBottom>
-                    Nature
+                    Natures
                 </Typography>
+                <CollapseButton open={natureHelpOpen} setOpen={setNatureHelpOpen} />
+                <Collapse in={natureHelpOpen} >
+                    <Typography variant="body2" gutterBottom>
+                        A Pokémon's nature increases one stat by 10% and decreases another stat by 10%.
+                        It is important to make sure your Pokémon's nature complements the kind of role it will fill in a raid.
+                        For example, a Pokémon that will be a physical attacker might have the Adamant nature, which increases its Attack stat and decreases its Special Attack stat.
+                    </Typography>
+                    <Typography variant="body2" gutterBottom>
+                        You can change a Pokémon's nature by giving it a Nature Mint, which can be purchased at any Chansey Supply shop.
+                    </Typography>
+                </Collapse>
             </Box>
             <Box sx={{ p: 2 }}>
                 <Typography variant="h6" gutterBottom>
                     Egg Moves
                 </Typography>
+                <CollapseButton open={eggMoveHelpOpen} setOpen={setEggMoveHelpOpen} />
+                <Collapse in={eggMoveHelpOpen} >
+                    <Typography variant="body2" gutterBottom>
+                        Egg moves are moves that a Pokémon can only learn in two ways.
+                        The first way is to breed a female Pokémon with a Pokémon of a compatible species that knows the egg move. Any eggs hatched
+                    </Typography>
+                    <Typography variant="body2" gutterBottom>
+                        The second, easier way is to first make sure that the Pokémon has an empty move slot by making it forget a move,
+                        then give it a Mirror Herb to hold, and finally starting a picnic with the Pokémon as well as another Pokémon of any species that knows the egg move.
+                        After a few seconds, you can exit the picnic, and your Pokémon will have learned the egg move.
+                    </Typography>
+                </Collapse>
+            </Box>
+            <Box sx={{ p: 2 }}>
+                <Typography variant="h6" gutterBottom>
+                    Abilities
+                </Typography>
+                <CollapseButton open={abilitiesHelpOpen} setOpen={setAbilitiesHelpOpen} />
+                <Collapse in={abilitiesHelpOpen} >
+                    <Typography variant="body2" gutterBottom>
+                        A Pokémon's ability is a passive effect that can have a variety of effects in battle.
+                        Some abilities are more useful than others, so it is often important to make sure your Pokémon has the best ability for its role in a raid.
+                        For example, some strategies rely on a Pokémon's ability to activate a weather effect with the Drizzle or Drought abilities.
+                    </Typography>
+                    <Typography variant="body2" gutterBottom>
+                        In some cases, you can change a Pokémon's ability by giving it an Ability Capsule, which can be purchased at any Chansey Supply shop.
+                        However, not all Pokémon have multiple abilities, and some Pokémon have hidden abilities that cannot accessed with an Ability Capsule.
+                    </Typography>
+                    <Typography variant="body2" gutterBottom>
+                        To obtain a Pokémon with a hidden ability, you can use an Ability Patch on a Pokémon.
+                        If you don't have an Ability Patch, there is a small chance to obtain them as loot from 6 start Tera Raids.
+                        Also, many Pokémon caught in a 6 star Tera Raid have a chance to have a hidden ability.
+                    </Typography>
+                </Collapse>
             </Box>
         </Box>
     )

@@ -32,7 +32,6 @@ export type LightTurnInfo = {
 
 export type LightBuildInfo = {
     name?: string,
-    description?: string,
     notes?: string,
     credits?: string,
     pokemon: LightPokemon[],

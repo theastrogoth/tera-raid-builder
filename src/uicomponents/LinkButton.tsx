@@ -61,11 +61,10 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
         });
         const groups = obj.groups || [];
         const name = obj.name || "";
-        const description = obj.description || "";
         const notes = obj.notes || "";
         const credits = obj.credits || "";
 
-        return {name, description, notes, credits, pokemon, turns, groups}
+        return {name, notes, credits, pokemon, turns, groups}
     } catch (e) {
         return null;
     }
@@ -74,7 +73,6 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
 function serializeInfo(info: RaidBattleInfo): string {
     const obj: LightBuildInfo = {
         name: info.name || "",
-        description: info.description || "",
         notes: info.notes || "",
         credits: info.credits || "",
         pokemon: info.startingState.raiders.map(
@@ -134,11 +132,10 @@ function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setIn
                     res = deserializeInfo(hash);
                 }
                 if (res) {
-                    const {name, description, notes, credits, pokemon, turns, groups} = res;
+                    const {name, notes, credits, pokemon, turns, groups} = res;
                     const startingState = new RaidState(pokemon, pokemon.map((r) => new Field()));
                     setInfo({
                         name: name,
-                        description: description,
                         notes: notes,
                         credits: credits,
                         startingState: startingState,

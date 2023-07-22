@@ -5,6 +5,7 @@ Contributions welcome!
 
 ### Image Assets
 - Most image assets provided by EZ (u/Gimikyu_). Thanks!
+- Tera type icons adapated from [JorMxDos](https://www.deviantart.com/jormxdos).
 
 ### Data
 - Learnset, Ability, and Move data originally obtained from [PokéAPI](https://pokeapi.co/).

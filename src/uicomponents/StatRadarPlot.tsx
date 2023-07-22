@@ -74,7 +74,7 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
                             color: isDark ? "#cccccc" : "#888888",
                         },
                         name: "axis",
-                        r: [1, 1, 1, 1, 1, 1, 1],
+                        r: [.99, .99, .99, .99, .99, .99, .99],
                         theta: ticktexts,
                         fill: "toself",
                         fillcolor: "rgba(0, 0, 0, .1)",

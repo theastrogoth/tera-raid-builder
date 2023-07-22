@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableBody from '@mui/material/TableBody';
@@ -9,7 +10,6 @@ import TableCell from '@mui/material/TableCell';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
-import Select from '@mui/material/Select';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import TuneIcon from '@mui/icons-material/Tune';
@@ -22,7 +22,7 @@ import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
-import { Typography } from "@mui/material";
+import { Popper, Typography } from "@mui/material";
 import { MoveSetItem, Raider } from "../raidcalc/interface";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL } from "../utils";
 
@@ -173,29 +173,106 @@ return (
     )
 }
 
-function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
+function MovePopper({move, prettyMode, showPopper, anchorEl}: {move: MoveSetItem, prettyMode: boolean, showPopper: boolean, anchorEl: HTMLElement | null}) {
     return (
-        <Stack direction="row" alignItems="center" spacing={0.25}>
-                {!prettyMode &&
-                    <img src={getTypeIconURL(move.type)} height="25px" />
-                }
-            <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
-                {move.name}
-            </Typography>
-                {move.method === "egg" && prettyMode &&
-                    <img src={getMoveMethodIconURL("egg")} height="20px" />
-                }
-                {move.method === "machine" && prettyMode &&
-                    <img src={getMoveMethodIconURL(move.type)} height="20px"/>
-                }
-        </Stack>
+        <Popper 
+            open={showPopper} 
+            anchorEl={anchorEl} 
+            placement="bottom-start"
+            disablePortal={false}
+            sx={{ position: "relative", zIndex: 1000000 }}
+        >
+            <Paper sx={{ p: 1 }}>
+                <TableContainer>
+                    <Table size="small" width="100%">
+                        <TableBody>
+                            <TableRow>
+                                <LeftCell>
+                                    Type
+                                </LeftCell>
+                                <RightCell>
+                                    e.g. Physical, Status, etc
+                                </RightCell>
+                            </TableRow>
+                            <TableRow>
+                                <LeftCell>
+                                    BP
+                                </LeftCell>
+                                <RightCell>
+                                    Put BP here
+                                </RightCell>
+                            </TableRow>
+                            <TableRow>
+                                <LeftCell>
+                                    Accuracy
+                                </LeftCell>
+                                <RightCell>
+                                    Put Acc here
+                                </RightCell>
+                            </TableRow>
+                            <TableRow>
+                                <LeftCell>
+                                    Status Effects?
+                                </LeftCell>
+                                <RightCell>
+                                    This might be a lot
+                                </RightCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Paper>
+
+        </Popper>
+    )
+}
+
+function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseOut = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+    return (
+        <Box onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <Stack direction="row" alignItems="center" spacing={0.25} >
+                    {!prettyMode &&
+                        <img src={getTypeIconURL(move.type)} height="25px" />
+                    }
+                <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
+                    {move.name}
+                </Typography>
+                    {move.method === "egg" && prettyMode &&
+                        <img src={getMoveMethodIconURL("egg")} height="20px" />
+                    }
+                    {move.method === "machine" && prettyMode &&
+                        <img src={getMoveMethodIconURL(move.type)} height="20px"/>
+                    }
+            </Stack>
+            <MovePopper move={move} prettyMode={prettyMode} showPopper={showPopper} anchorEl={anchorEl}/>
+        </Box>
     )
 }
 
 function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], prettyMode: boolean}) {
     return (
         <>
-        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+        {((prettyMode && value !== "(No Move)") || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}

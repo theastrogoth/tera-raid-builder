@@ -9428,7 +9428,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: {0: 'Swarm'},
     nfe: true,
   },
-  Oinkologne: {
+  'Oinkologne-M': {
     types: ['Normal'],
     bs: {hp: 110, at: 100, df: 75, sa: 59, sd: 80, sp: 65},
     weightkg: 120,
@@ -9440,7 +9440,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 115, at: 90, df: 70, sa: 59, sd: 90, sp: 65},
     weightkg: 120,
     abilities: {0: 'Aroma Veil'},
-    baseSpecies: 'Oinkologne',
+    baseSpecies: 'Oinkologne-M',
   },
   Orthworm: {
     types: ['Steel'],

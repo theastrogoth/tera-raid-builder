@@ -29,7 +29,10 @@ function HelpSection({}: {}) {
     const [buildHelpOpen, setBuildHelpOpen] = useState(false);
 
     return (
-    <Stack spacing={1} sx={{ p: 2 }}>
+    <Stack spacing={0} sx={{ p: 2 }}>
+        <Typography variant="body1" gutterBottom>
+            Click on the button to the right of a section header to expand or collapse that section.
+        </Typography>
         <Box sx={{ p: 2 }}>
             <Stack direction="row" spacing={1} alignItems="center">
                 <Typography variant="h5" gutterBottom>
@@ -83,7 +86,7 @@ function BuildHelpSection({}: {}) {
 
     return (
         <Box>
-            <Box sx={{ p: 1 }}>
+            <Box sx={{ paddingLeft: 1, marginBottom: 2 }}>
                 <Typography variant="body1" gutterBottom>
                     Helpful Resources:
                 </Typography>
@@ -93,7 +96,7 @@ function BuildHelpSection({}: {}) {
                     </Typography>
                 </Link>
             </Box>
-            <Box sx={{ p: 2 }}>
+            <Box sx={{ paddingLeft: 2, my: 1  }}>
                 <Stack direction="row" spacing={1} alignItems="center">
                     <Typography variant="h6" gutterBottom>
                         Individual Values (IVs)
@@ -148,13 +151,13 @@ function BuildHelpSection({}: {}) {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Typography variant="body2" gutterBottom>
-                            Most Tera Raid builds benefit from having all IVs maximized ("Best" or "Hyper trained!"). 
-                        </Typography>
                     </Box>
+                    <Typography variant="body2" gutterBottom>
+                            Most Tera Raid builds benefit from having all IVs maximized ("Best" or "Hyper trained!"). 
+                    </Typography>
                 </Collapse>
             </Box>
-            <Box sx={{ p: 2 }}>
+            <Box sx={{ paddingLeft: 2, my: 1  }}>
                 <Stack direction="row" spacing={1} alignItems="center">
                     <Typography variant="h6" gutterBottom>
                         Effort Values (IVs)
@@ -179,11 +182,13 @@ function BuildHelpSection({}: {}) {
                     </Typography>
                 </Collapse>
             </Box>
-            <Box sx={{ p: 2 }}>
-                <Typography variant="h6" gutterBottom>
-                    Natures
-                </Typography>
-                <CollapseButton open={natureHelpOpen} setOpen={setNatureHelpOpen} />
+            <Box sx={{ paddingLeft: 2, my: 1  }}>
+                <Stack direction="row" spacing={1} alignItems="center">
+                    <Typography variant="h6" gutterBottom>
+                        Natures
+                    </Typography>
+                    <CollapseButton open={natureHelpOpen} setOpen={setNatureHelpOpen} />
+                </Stack>
                 <Collapse in={natureHelpOpen} >
                     <Typography variant="body2" gutterBottom>
                         A Pokémon's nature increases one stat by 10% and decreases another stat by 10%.
@@ -195,28 +200,33 @@ function BuildHelpSection({}: {}) {
                     </Typography>
                 </Collapse>
             </Box>
-            <Box sx={{ p: 2 }}>
-                <Typography variant="h6" gutterBottom>
-                    Egg Moves
-                </Typography>
-                <CollapseButton open={eggMoveHelpOpen} setOpen={setEggMoveHelpOpen} />
+            <Box sx={{ paddingLeft: 2, my: 1  }}>
+                <Stack direction="row" spacing={1} alignItems="center">
+                    <Typography variant="h6" gutterBottom>
+                        Egg Moves
+                    </Typography>
+                    <CollapseButton open={eggMoveHelpOpen} setOpen={setEggMoveHelpOpen} />
+                </Stack>
                 <Collapse in={eggMoveHelpOpen} >
                     <Typography variant="body2" gutterBottom>
                         Egg moves are moves that a Pokémon can only learn in two ways.
-                        The first way is to breed a female Pokémon with a Pokémon of a compatible species that knows the egg move. Any eggs hatched
+                        The first way is to breed a female Pokémon with a Pokémon of a compatible species that knows the egg move. 
+                        Any Pokémon hatched from their eggs will know the egg move.
                     </Typography>
                     <Typography variant="body2" gutterBottom>
                         The second, easier way is to first make sure that the Pokémon has an empty move slot by making it forget a move,
-                        then give it a Mirror Herb to hold, and finally starting a picnic with the Pokémon as well as another Pokémon of any species that knows the egg move.
+                        then giving it a Mirror Herb to hold, and finally starting a picnic with the Pokémon as well as another Pokémon of any species that knows the egg move.
                         After a few seconds, you can exit the picnic, and your Pokémon will have learned the egg move.
                     </Typography>
                 </Collapse>
             </Box>
-            <Box sx={{ p: 2 }}>
-                <Typography variant="h6" gutterBottom>
-                    Abilities
-                </Typography>
-                <CollapseButton open={abilitiesHelpOpen} setOpen={setAbilitiesHelpOpen} />
+            <Box sx={{ paddingLeft: 2, my: 1  }}>
+                <Stack direction="row" spacing={1} alignItems="center">
+                    <Typography variant="h6" gutterBottom>
+                        Abilities
+                    </Typography>
+                    <CollapseButton open={abilitiesHelpOpen} setOpen={setAbilitiesHelpOpen} />
+                </Stack>
                 <Collapse in={abilitiesHelpOpen} >
                     <Typography variant="body2" gutterBottom>
                         A Pokémon's ability is a passive effect that can have a variety of effects in battle.

@@ -8,22 +8,25 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TextField from '@mui/material/TextField';
+import Typography from "@mui/material/Typography";
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import TuneIcon from '@mui/icons-material/Tune';
+import Popper from "@mui/material/Popper";
 
 import { styled } from '@mui/material/styles';
 
-import { Pokemon, StatsTable, Generations } from '../calc';
+import { Move, Pokemon, StatsTable, Generations } from '../calc';
 import { Nature, MoveName, AbilityName } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
-import { Popper, Typography } from "@mui/material";
-import { MoveSetItem, Raider } from "../raidcalc/interface";
+
+import { MoveData, MoveSetItem, Raider } from "../raidcalc/interface";
+import PokedexService from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL } from "../utils";
 
 import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
@@ -173,56 +176,70 @@ return (
     )
 }
 
-function MovePopper({move, prettyMode, showPopper, anchorEl}: {move: MoveSetItem, prettyMode: boolean, showPopper: boolean, anchorEl: HTMLElement | null}) {
+function MovePopper({moveItem, prettyMode, showPopper, anchorEl}: {moveItem: MoveSetItem, prettyMode: boolean, showPopper: boolean, anchorEl: HTMLElement | null}) {
+    const [moveData, setMoveData] = useState<MoveData | null>(null);
+    const [move, setMove] = useState<Move | null>(null);
+    useEffect(() => {
+        if (showPopper && (moveData === null || moveData.name !== moveItem.name)) {
+            async function fetchMoveData() {
+                const newData = await PokedexService.getMoveByName(moveItem.name);
+                if (newData) {
+                    setMoveData(newData);
+                    setMove(new Move(gen, moveItem.name));
+                }
+            }
+            fetchMoveData().catch((e) => console.log(e));
+        }
+    }, [moveItem, showPopper])
+
     return (
         <Popper 
             open={showPopper} 
             anchorEl={anchorEl} 
-            placement="bottom-start"
+            placement="bottom"
             disablePortal={false}
             sx={{ position: "relative", zIndex: 1000000 }}
         >
-            <Paper sx={{ p: 1 }}>
-                <TableContainer>
-                    <Table size="small" width="100%">
-                        <TableBody>
-                            <TableRow>
-                                <LeftCell>
-                                    Type
-                                </LeftCell>
-                                <RightCell>
-                                    e.g. Physical, Status, etc
-                                </RightCell>
-                            </TableRow>
-                            <TableRow>
-                                <LeftCell>
-                                    BP
-                                </LeftCell>
-                                <RightCell>
-                                    Put BP here
-                                </RightCell>
-                            </TableRow>
-                            <TableRow>
-                                <LeftCell>
-                                    Accuracy
-                                </LeftCell>
-                                <RightCell>
-                                    Put Acc here
-                                </RightCell>
-                            </TableRow>
-                            <TableRow>
-                                <LeftCell>
-                                    Status Effects?
-                                </LeftCell>
-                                <RightCell>
-                                    This might be a lot
-                                </RightCell>
-                            </TableRow>
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Paper>
-
+            {(moveData && move) &&
+                <Paper sx={{ p: 1 }}>
+                    <TableContainer>
+                        <Table size="small" width="100%">
+                            <TableBody>
+                                {move.category !== undefined &&
+                                <TableRow>
+                                    <LeftCell>
+                                        Category
+                                    </LeftCell>
+                                    <RightCell>
+                                        {move.category}
+                                    </RightCell>
+                                </TableRow>
+                                }
+                                {moveData.power !== null &&
+                                    <TableRow>
+                                        <LeftCell>
+                                            Power
+                                        </LeftCell>
+                                        <RightCell>
+                                            {moveData.power}
+                                        </RightCell>
+                                    </TableRow>
+                                }
+                                {moveData.accuracy !== null &&
+                                    <TableRow>
+                                        <LeftCell>
+                                            Accuracy
+                                        </LeftCell>
+                                        <RightCell>
+                                            {moveData.accuracy}
+                                        </RightCell>
+                                    </TableRow>
+                                }
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Paper>
+            }
         </Popper>
     )
 }
@@ -264,7 +281,7 @@ function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolea
                         <img src={getMoveMethodIconURL(move.type)} height="20px"/>
                     }
             </Stack>
-            <MovePopper move={move} prettyMode={prettyMode} showPopper={showPopper} anchorEl={anchorEl}/>
+            <MovePopper moveItem={move} prettyMode={prettyMode} showPopper={showPopper} anchorEl={anchorEl}/>
         </Box>
     )
 }

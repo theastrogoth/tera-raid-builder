@@ -17,7 +17,7 @@ function StratHeader({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInfo
   return (
     <Box justifyContent="center">
       {prettyMode &&
-        <Typography variant="h4" sx={{ textAlign: "center", my: 1 }}>
+        <Typography variant="h4" fontWeight="bold" sx={{ textAlign: "center", my: 1 }}>
           {info.name}
         </Typography>
       }

@@ -21,7 +21,8 @@ import LinkButton from './uicomponents/LinkButton.tsx';
 import { Generations, Pokemon, Field} from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
 import { Raider, RaidBattleInfo, RaidState } from './raidcalc/interface.ts';
-import TitleField from './uicomponents/TitleField.tsx';
+import StratHeader from './uicomponents/StratHeader.tsx';
+import StratFooter from './uicomponents/StratFooter.tsx';
 
 // import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 
@@ -174,7 +175,7 @@ function App() {
       <Stack direction="column" justifyContent="center">
         <Grid container justifyContent="center" sx={{ my: 1 }}>
           <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
-            <TitleField info={info} setInfo={setInfo} prettyMode={prettyMode} />
+            <StratHeader info={info} setInfo={setInfo} prettyMode={prettyMode} />
           </Grid>
         </Grid>
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
@@ -196,6 +197,7 @@ function App() {
           <Grid item>
             <RaidControls info={info} setInfo={setInfo} prettyMode={prettyMode} />
           </Grid>
+          <StratFooter info={info} setInfo={setInfo} prettyMode={prettyMode} />
         </Grid>
         <Grid container justifyContent="left" sx={{ my: 1 }}>
           <Grid item xs={12}>

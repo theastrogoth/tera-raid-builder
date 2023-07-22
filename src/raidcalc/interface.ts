@@ -156,6 +156,8 @@ export class RaidState {
 
 export type RaidBattleInfo = {
     name?: string;
+    notes?: string;
+    credits?: string;
     startingState: RaidState;
     turns: RaidTurnInfo[];
     groups: number[][];
@@ -207,6 +209,8 @@ export type RaidTurnResult = {
 
 export type BuildInfo = {
     name: string;
+    notes: string;
+    credits: string;
     pokemon: Raider[],
     turns: RaidTurnInfo[],
     groups: number[][],

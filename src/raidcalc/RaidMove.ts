@@ -125,7 +125,7 @@ export class RaidMove {
         this.applyAbilityEffects();
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyItemEffects();
+        this.applyItemEffects(!this.movesFirst);
         this.setFlags();
         this._user.lastMove = this.moveData;
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
@@ -441,13 +441,14 @@ export class RaidMove {
                 const hasContrary = fl_target.ability === "Contrary";
                 const boostCoefficient = hasSimple ? 2 : hasContrary ? -1 : 1;
                 const flingItem = this._user.item;
-                this._user.item = undefined;
+                console.log("Fling", flingItem, this.raidState.raiders[this.userID].item)
                 switch (flingItem) {
                     case "Light Ball":
                         if (hasNoStatus(fl_target)) { fl_target.status = "par"; }
                         break;
                     case "Flame Orb":
                         if (!fl_target.types.includes("Fire") && hasNoStatus(fl_target)) { fl_target.status = "brn"; }
+                        console.log("Fling Flame Orb", this._user, fl_target, this._raidState)
                         break;
                     case "Toxic Orb":
                         if (!fl_target.types.includes("Poison") && hasNoStatus(fl_target)) { fl_target.status = "tox"; }
@@ -514,6 +515,7 @@ export class RaidMove {
                         break;
                     default: break;
                     }
+                this._user.item = undefined;
                 break;
             // other
             case "Endure":
@@ -587,7 +589,7 @@ export class RaidMove {
         }
     }
 
-    private applyItemEffects() {
+    private applyItemEffects(endOfTurn: boolean = false) {
         /// Item-related effects
         // Focus Sash
         for (let id of this._affectedIDs) {
@@ -637,6 +639,14 @@ export class RaidMove {
                         pokemon.item = undefined;
                         this._boosts[id].atk = this._boosts[id].atk || 0 + pokemon.boosts.atk - origAtk;
                         this._boosts[id].spa = this._boosts[id].spa || 0 + pokemon.boosts.spa - origSpa;
+                        break;
+                    case "White Herb":
+                        for (let stat in this._user.boosts) {
+                            let changed = false;
+                            // @ts-ignore
+                            if (this._user.boosts[stat] < 0) { this._user.boosts[stat] = 0; changed = true; }
+                            if (changed) { this._user.item = undefined; }
+                        }
                         break;
                     case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
                         if (this.move.type === "Fire") { pokemon.item = undefined; }
@@ -697,35 +707,24 @@ export class RaidMove {
             }
         }
         // Ailment-inducing Items
-        if (hasNoStatus(this._user)) {
+        if (hasNoStatus(this._user) && endOfTurn) {
             switch (this._user.item) {
                 case "Light Ball":
                     this._user.status = "par";
                     break;
                 case "Flame Orb":
                     if (!this._user.types.includes("Fire")) { 
-                        this._user.status = "brn"; 
-                        this._user.item = undefined; 
+                        this._user.status = "brn";  
                     }
                     break;
                 case "Toxic Orb":
                     if (!this._user.types.includes("Poison")) { 
                         this._user.status = "tox"; 
-                        this._user.item = undefined;
                     }
                     break;
                 case "Poison Barb":
                     if (!this._user.types.includes("Poison")) { 
                         this._user.status = "psn"; 
-                        this._user.item = undefined;
-                    }
-                    break;
-                case "White Herb":
-                    for (let stat in this._user.boosts) {
-                        let changed = false;
-                        // @ts-ignore
-                        if (this._user.boosts[stat] < 0) { this._user.boosts[stat] = 0; changed = true; }
-                        if (changed) { this._user.item = undefined; }
                     }
                     break;
                 default: break

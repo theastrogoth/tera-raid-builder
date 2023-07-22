@@ -32,6 +32,8 @@ export type LightTurnInfo = {
 
 export type LightBuildInfo = {
     name?: string,
+    notes?: string,
+    credits?: string,
     pokemon: LightPokemon[],
     turns: LightTurnInfo[],
     groups?: number[][],

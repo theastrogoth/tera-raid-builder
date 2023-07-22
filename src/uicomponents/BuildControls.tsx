@@ -37,7 +37,7 @@ function findOptionFromPokemonName(name: string): string {
 }
 
 function findOptionFromTeraTypeName(name?: string): string {
-    return name !== undefined && name !== "???" ? name : "Not Tera'd";
+    return name !== undefined && name !== "???" ? name : "Inactive";
 }
 
 function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetItem {

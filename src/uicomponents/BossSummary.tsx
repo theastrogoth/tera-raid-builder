@@ -96,7 +96,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                                     src={getPokemonArtURL(pokemon.name)}
                                     onError={({ currentTarget }) => {
                                         currentTarget.onerror = null; // prevents looping
-                                        currentTarget.src=getItemSpriteURL("pokeball");
+                                        currentTarget.src=getPokemonArtURL("placeholder");
                                     }}
                                 />
                             </Box>

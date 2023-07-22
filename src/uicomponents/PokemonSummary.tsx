@@ -126,7 +126,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                                     src={getPokemonArtURL(pokemon.name)}
                                     onError={({ currentTarget }) => {
                                         currentTarget.onerror = null; // prevents looping
-                                        currentTarget.src=getItemSpriteURL("pokeball");
+                                        currentTarget.src=getPokemonArtURL("placeholder");
                                     }}
                                     alt=""
                                 />

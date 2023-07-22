@@ -24,13 +24,21 @@ import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 import { Typography } from "@mui/material";
 import { MoveSetItem, Raider } from "../raidcalc/interface";
-import { getMoveMethodIconURL } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL } from "../utils";
 
 import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
 
 // we will always use Gen 9
 const gen = Generations.get(9);
 
+
+function findOptionFromPokemonName(name: string): string {
+    return name;
+}
+
+function findOptionFromTeraTypeName(name?: string): string {
+    return name !== undefined && name !== "???" ? name : "Inactive";
+}
 
 function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetItem {
     const option = moveSet.find((move) => move.name == name);
@@ -40,6 +48,10 @@ function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetIt
 function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[]): {name: AbilityName, hidden: boolean} {
     const option = abilities.find((ability) => ability.name == name);
     return option || {name: "(No Ability)" as AbilityName, hidden: false};
+}
+
+function findOptionFromItemName(name?: string): string {
+    return name !== undefined && name !== "(No Item)" ? name : "Any";
 }
 
 function createAbilityOptions(abilities: {name: AbilityName, hidden: boolean}[]) {
@@ -115,14 +127,14 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
     paddingLeft: '0px',
     paddingRight: '8px',
     borderBottom: 0,
-  }));
+}));
   
-  const RightCell = styled(TableCell)(({ theme }) => ({
-      fontWeight: theme.typography.fontWeightMedium,
-      textAlign: 'left',
-      padding: '0px',
-      borderBottom: 0,
-  })); 
+const RightCell = styled(TableCell)(({ theme }) => ({
+    fontWeight: theme.typography.fontWeightMedium,
+    textAlign: 'left',
+    padding: '0px',
+    borderBottom: 0,
+})); 
   
 function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
 return (
@@ -164,18 +176,18 @@ return (
 function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
     return (
         <Stack direction="row" alignItems="center" spacing={0.25}>
-            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
+                {!prettyMode &&
+                    <img src={getTypeIconURL(move.type)} height="25px" />
+                }
+            <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
                 {move.name}
             </Typography>
-            {move.method === "egg" &&
-                <img src={getMoveMethodIconURL("egg")} height="20px" />
-            }
-            {/* {move.method === "egg" &&
-                <img src={getMoveMethodIconURL("mirror_herb")} height="20px" />
-            } */}
-            {move.method === "machine" &&
-                <img src={getMoveMethodIconURL(move.type)} height="20px" />
-            }
+                {move.method === "egg" && prettyMode &&
+                    <img src={getMoveMethodIconURL("egg")} height="20px" />
+                }
+                {move.method === "machine" && prettyMode &&
+                    <img src={getMoveMethodIconURL(move.type)} height="20px"/>
+                }
         </Stack>
     )
 }
@@ -267,7 +279,63 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
     )
 }
 
+function GenericWithIcon({name, spriteFetcher, prettyMode}: {name: string, spriteFetcher: Function, prettyMode: boolean}) {
+    return (
+        <Stack direction="row" alignItems="center" spacing={0.25}>
+            {!prettyMode &&
+                <Box
+                sx={{
+                    width: "25px",
+                    height: "25px",
+                    overflow: 'hidden',
+                    background: `url(${spriteFetcher(name)}) no-repeat center center / contain`,
+                }}
+                />
+            }
+            <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
+                {name}
+            </Typography>
+        </Stack>
+    )
+}
 
+function GenericIconSummaryRow({name, value, setValue, options, optionFinder, spriteFetcher, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], optionFinder: Function, spriteFetcher: Function, prettyMode: boolean}) {
+    return (
+        <>
+        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+            <TableRow>
+                <LeftCell>
+                    {name}
+                </LeftCell>
+                <RightCell>
+                    {prettyMode &&
+                        <GenericWithIcon name={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} />
+                    }
+                    {!prettyMode &&
+                        <Autocomplete
+                            disablePortal
+                            disableClearable
+                            autoHighlight={true}    
+                            size="small"
+                            value={value || undefined}
+                            options={options}
+                            renderOption={(props, option) => 
+                                <li {...props}><GenericWithIcon name={optionFinder(option)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} /></li>
+                            }
+                            renderInput={(params) => 
+                                <TextField {...params} variant="standard" size="small" />}
+                            onChange={(event: any, newValue: string) => {
+                                setValue(newValue);
+                            }}
+                            sx = {{width: '85%'}}
+                        />
+                    }
+                </RightCell>
+            </TableRow>
+        }
+        </>
+    )
+}
 
 function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}: 
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
@@ -346,8 +414,9 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} prettyMode={prettyMode} />
-                                <SummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} prettyMode={prettyMode}/>
+                                {/* <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} prettyMode={prettyMode} /> */}
+                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode}/>
+                                <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode}/>
                                 {/* <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={["(No Ability)", ...abilities]} prettyMode={prettyMode}/> */}
                                 <AbilitySummaryRow 
                                             name="Ability"
@@ -404,7 +473,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>
-                                <SummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={["(No Item)", ...genItems]} prettyMode={prettyMode} />
+                                    <GenericIconSummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={["(No Item)", ...genItems]} optionFinder={findOptionFromItemName} spriteFetcher={getItemSpriteURL} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>

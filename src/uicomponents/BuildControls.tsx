@@ -179,6 +179,7 @@ return (
                         size="small"
                         value={value || undefined}
                         options={options}
+                        renderOption={(props, option) => <li {...props}><Typography variant="body2">{option}</Typography></li>}
                         renderInput={(params) => 
                             <TextField {...params} variant="standard" size="small" />}
                         onChange={(event: any, newValue: string) => {

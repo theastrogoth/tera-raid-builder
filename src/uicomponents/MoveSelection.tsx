@@ -57,6 +57,66 @@ const handleAddTurn = (info: RaidBattleInfo, setInfo: (i: RaidBattleInfo) => voi
     setInfo(prepareGroups(newInfo));
 }
 
+function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void}) {
+    const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
+    const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
+    const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
+
+    return (
+        <Stack direction="row">
+        <FormControl component="fieldset" size="small">
+            <FormGroup>
+                <Stack direction="row" spacing={-1}>
+                    <FormControlLabel 
+                        control={
+                            <Checkbox 
+                                size="small" 
+                                style={{ padding: "4px"}}
+                                checked={critChecked}
+                                onChange={
+                                    (e) => {
+                                        setMoveInfo({...moveInfo, options: {...moveInfo.options, crit: !critChecked}});
+                                    }
+                                }
+                            />} 
+                        label={<Typography variant="body2">Crit</Typography>}
+                        labelPlacement="top"
+                        
+                    />
+                    <FormControlLabel 
+                        control={
+                            <Checkbox 
+                                size="small" 
+                                style={{ padding: "4px"}}
+                                checked={effectChecked}
+                                onChange={
+                                    (e) => {
+                                        setMoveInfo({...moveInfo, options: {...moveInfo.options, secondaryEffects: !effectChecked}});
+                                    }
+                                }
+                            />} 
+                        label={<Typography variant="body2">Effect</Typography>}
+                        labelPlacement="top"
+                    />
+                </Stack>
+            </FormGroup>
+        </FormControl>
+        <Stack direction="column" sx={{ paddingLeft: 1.5}}>
+            <Typography variant="body2">Roll</Typography>
+            <Select
+                size="small"
+                variant="standard"
+                value = {roll}
+                onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
+                sx={{ width : "40px"}}
+            >
+                {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)}
+            </Select>
+        </Stack>
+    </Stack>
+    )
+}
+
 function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: Raider[], info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
     const roles = raiders.map((raider) => raider.role);
     const moveInfo = info.turns[index].moveInfo;
@@ -127,9 +187,6 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     let validTargets = [0,1,2,3,4];
     if (!disableTarget) { validTargets.splice(moveInfo.userID, 1); }
     
-    const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
-    const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
-    const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
             <Stack width="415px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">
@@ -175,55 +232,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                 </Box>
                 <Box flexGrow={1} />
             </Stack>
-            <FormControl component="fieldset" size="small">
-                <FormGroup>
-                    <Stack direction="row" spacing={-1}>
-                        <FormControlLabel 
-                            control={
-                                <Checkbox 
-                                    size="small" 
-                                    style={{ padding: "4px"}}
-                                    checked={critChecked}
-                                    onChange={
-                                        (e) => {
-                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, crit: !critChecked}});
-                                        }
-                                    }
-                                />} 
-                            label={<Typography variant="body2">Crit</Typography>}
-                            labelPlacement="top"
-                            
-                        />
-                        <FormControlLabel 
-                            control={
-                                <Checkbox 
-                                    size="small" 
-                                    style={{ padding: "4px"}}
-                                    checked={effectChecked}
-                                    onChange={
-                                        (e) => {
-                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, secondaryEffects: !effectChecked}});
-                                        }
-                                    }
-                                />} 
-                            label={<Typography variant="body2">Effect</Typography>}
-                            labelPlacement="top"
-                        />
-                    </Stack>
-                </FormGroup>
-            </FormControl>
-            <Stack direction="column" sx={{ paddingLeft: 2}}>
-                <Typography variant="body2">Roll</Typography>
-                <Select
-                    size="small"
-                    variant="standard"
-                    value = {roll}
-                    onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
-                    sx={{ width : "40px"}}
-                >
-                    {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)}
-                </Select>
-            </Stack>
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} />
         </Stack>
     )
 }
@@ -251,15 +260,23 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
             fetchData().catch((e) => console.log(e));
         }
       }, [moveName, turnID])
-
-    const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
-    const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
-    const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
+    
     return (
-        <Stack direction="row" spacing={0} alignItems="center" justifyContent="right">
-            <Stack direction="row" width="370px" spacing={0.5} alignItems="center" justifyContent="right">
+        <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
+            <Stack direction="row" width="415px" spacing={0.5} alignItems="center" justifyContent="right">
                 <Box flexGrow={1} />
-                <Typography variant="body2">{info.startingState.raiders[0].role + " uses"}</Typography>
+                <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
+                    <Box
+                        sx={{
+                            width: "25px",
+                            height: "25px",
+                            overflow: 'hidden',
+                            background: `url(${getPokemonSpriteURL(boss.name)}) no-repeat center center / contain`,
+                        }}
+                    />
+                    <Typography variant="body2">{boss.role}</Typography>
+                </Stack>
+                <Typography variant="body2">uses</Typography>
                 <Select 
                     size="small"
                     variant="standard"
@@ -271,56 +288,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                 </Select>
                 <Box flexGrow={1} />
             </Stack>
-            <FormControl component="fieldset">
-                <FormGroup>
-                    <Stack direction="row" spacing={-1}>
-                        <FormControlLabel 
-                            control={
-                                <Checkbox 
-                                    size="small" 
-                                    style={{ padding: "4px"}}
-                                    checked={critChecked}
-                                    onChange={
-                                        (e) => {
-                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, crit: !critChecked}});
-                                        }
-                                    }
-                                />} 
-                            label="Crit"
-                            labelPlacement="top"
-                        />
-                        <FormControlLabel 
-                            control={
-                                <Checkbox 
-                                    size="small" 
-                                    style={{ padding: "4px"}}
-                                    checked={effectChecked}
-                                    onChange={
-                                        (e) => {
-                                            setMoveInfo({...moveInfo, options: {...moveInfo.options, secondaryEffects: !effectChecked}});
-                                        }
-                                    }
-                                />} 
-                            label="Effect"
-                            labelPlacement="top"
-                        />
-                    </Stack>
-                </FormGroup>
-            </FormControl>
-            <Stack direction="column" sx={{ paddingLeft: 1}}>
-                <Typography>
-                    Roll
-                </Typography>
-                <Select
-                    size="small"
-                    variant="standard"
-                    value = {roll}
-                    onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
-                    sx={{ width : "40px"}}
-                >
-                    {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}>{r}</MenuItem>)}
-                </Select>
-            </Stack>
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} />
         </Stack>
     )
 }
@@ -484,7 +452,7 @@ function MoveSelectionCard({raiders, index, info, setInfo, buttonsVisible}: {rai
     return (        
         <Stack direction="column" spacing={0}>
             <Paper 
-                sx={{ maxWidth: "550px", backgroundColor: color, my: 1}} 
+                sx={{ maxWidth: "585px", backgroundColor: color, my: 1}} 
             >
 
                 <Stack direction="row">

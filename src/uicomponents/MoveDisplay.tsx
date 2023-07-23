@@ -31,8 +31,8 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
                 <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
                     <Box
                         sx={{
-                            width: "25px",
-                            height: "25px",
+                            width: "30px",
+                            height: "30px",
                             overflow: 'hidden',
                             background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
                         }}
@@ -56,8 +56,8 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
                     <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
                         <Box
                             sx={{
-                                width: "25px",
-                                height: "25px",
+                                width: "30px",
+                                height: "30px",
                                 overflow: 'hidden',
                                 background: `url(${getPokemonSpriteURL(targetName)}) no-repeat center center / contain`,
                             }}

@@ -45,7 +45,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
 
     return (
         <Box>
-            <Paper elevation={3} sx={{ mx: 1, my: 1, width: 540, display: "flex", flexDirection: "column", padding: "0px"}}>                
+            <Paper elevation={3} sx={{ mx: 1, my: 1, width: 530, display: "flex", flexDirection: "column", padding: "0px"}}>                
                 <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight={prettyMode ? undefined : "600px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
@@ -118,7 +118,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                             </Box>
                         </Box>
                     </Box>
-                    <Stack direction="row" spacing={-3} >
+                    <Stack direction="row" spacing={-5} >
                         <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
                             <BossBuildControls moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />

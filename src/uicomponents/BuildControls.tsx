@@ -57,6 +57,11 @@ function findOptionFromItemName(name?: string): string {
     return name !== undefined && name !== "(No Item)" ? name : "Any";
 }
 
+function findOptionFromNature(name: string, natures: Nature[]): Nature {
+    const option = natures.find((nature) => nature.name === name); 
+    return option || {name: "Hardy", plus: "atk", minus: "atk", kind: "Nature", id: toID("Hardy")};
+}
+
 function createAbilityOptions(abilities: {name: AbilityName, hidden: boolean}[]) {
     return ["(No Ability)", ...abilities.map((ability) => ability.name)];
 }
@@ -157,7 +162,7 @@ const RightCell = styled(TableCell)(({ theme }) => ({
     borderBottom: 0,
 })); 
   
-function SummaryRow({name, value, setValue, options, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean}) {
+function SummaryRow({name, value, setValue, options, prettyMode, optionFinder = (option: any) => option}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean, optionFinder?: Function}) {
 return (
     <>
     {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
@@ -179,7 +184,7 @@ return (
                         size="small"
                         value={value || undefined}
                         options={options}
-                        renderOption={(props, option) => <li {...props}><Typography variant="body2">{option}</Typography></li>}
+                        renderOption={(props, option) => <li {...props}><Typography variant="body2">{optionFinder(option)}</Typography></li>}
                         renderInput={(params) => 
                             <TextField {...params} variant="standard" size="small" />}
                         onChange={(event: any, newValue: string) => {
@@ -603,7 +608,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
     {
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
-    const [genNatures, ] = useState([...gen.natures].map(nature => natureToOption(nature)).sort());
+    const [genNatures, ] = useState([...gen.natures].sort());
     const [genItems, ] = useState([...gen.items].map(item => item.name).sort());
     
     const [editStatsOpen, setEditStatsOpen] = useState(false);
@@ -638,7 +643,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
     }
 
     return (
-        <Box justifyContent="center" alignItems="top" width="300px">
+        <Box justifyContent="center" alignItems="top" width="250px" sx={{ zIndex: 2 }}>
             {!prettyMode &&
                 <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
                     <Button 
@@ -687,7 +692,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                                             abilities={abilities}
                                             prettyMode={prettyMode}
                                         /> 
-                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : natureToOption(gen.natures.get(toID(pokemon.nature)) as Nature)} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures} prettyMode={prettyMode}/>
+                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures))} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell>Level</LeftCell>
                                     <RightCell>

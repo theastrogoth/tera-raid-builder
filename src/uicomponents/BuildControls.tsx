@@ -19,7 +19,7 @@ import Popper from "@mui/material/Popper";
 import { styled } from '@mui/material/styles';
 
 import { Move, Pokemon, StatsTable, Generations } from '../calc';
-import { Nature, MoveName, AbilityName } from "../calc/data/interface";
+import { Nature, MoveName, AbilityName, StatID } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
@@ -94,8 +94,26 @@ function prettyStatName(stat: string) {
     }
 }
 
+function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
+    let str = '';
+    let empty = true;
+    for (let statChange of statChanges) {
+        if (statChange.change != 0) {
+            if (!empty) {
+                str = str + ', ';
+            }
+            empty = false;
+            const statAbbr = prettyStatName(statChange.stat);
+            const change = statChange.change;
+            str = str + (change < 0 ? " " : " +" ) + statChange.change + " " + statAbbr;
+        }
+    }
+    if (str.length == 0) { return "none"; }
+    return str;
+}
+
 function evsToString(pokemon: Pokemon) {
-    let str = ''
+    let str = '';
     let empty = true
     for (let keyval of Object.entries(pokemon.evs)) {
         if (keyval[1] != 0) {
@@ -176,6 +194,20 @@ return (
     )
 }
 
+function MoveModalRow({name, value, getString = (val: any) => val, show = true}: {name: string, value: any, getString?: (val: any) => string, show?: boolean}) {
+    return (show ? 
+        <TableRow>
+            <LeftCell>
+                {name}
+            </LeftCell>
+            <RightCell>
+                {getString(value)}
+            </RightCell>
+        </TableRow>
+        : <></>
+    )   
+}
+
 function MovePopper({moveItem, prettyMode, showPopper, anchorEl}: {moveItem: MoveSetItem, prettyMode: boolean, showPopper: boolean, anchorEl: HTMLElement | null}) {
     const [moveData, setMoveData] = useState<MoveData | null>(null);
     const [move, setMove] = useState<Move | null>(null);
@@ -205,36 +237,79 @@ function MovePopper({moveItem, prettyMode, showPopper, anchorEl}: {moveItem: Mov
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                {move.category !== undefined &&
-                                <TableRow>
-                                    <LeftCell>
-                                        Category
-                                    </LeftCell>
-                                    <RightCell>
-                                        {move.category}
-                                    </RightCell>
-                                </TableRow>
-                                }
-                                {moveData.power !== null &&
-                                    <TableRow>
-                                        <LeftCell>
-                                            Power
-                                        </LeftCell>
-                                        <RightCell>
-                                            {moveData.power}
-                                        </RightCell>
-                                    </TableRow>
-                                }
-                                {moveData.accuracy !== null &&
-                                    <TableRow>
-                                        <LeftCell>
-                                            Accuracy
-                                        </LeftCell>
-                                        <RightCell>
-                                            {moveData.accuracy}
-                                        </RightCell>
-                                    </TableRow>
-                                }
+                                <MoveModalRow 
+                                    name="Type"
+                                    value={move.type}
+                                    show={move.type !== undefined}
+                                />
+                                <MoveModalRow 
+                                    name="Category"
+                                    value={move.category}
+                                    show={move.category !== undefined}
+                                />
+                                <MoveModalRow 
+                                    name="Power"
+                                    value={move.bp}
+                                    show={!Number.isNaN(move.bp) && move.bp > 0}
+                                />
+                                <MoveModalRow
+                                    name="Healing"
+                                    value={moveData.healing}
+                                    getString={(v: number): string => v.toString() + "%"}
+                                    show={!Number.isNaN(moveData.healing) && moveData.healing! !== 0}
+                                />
+                                <MoveModalRow
+                                    name={(moveData.drain! > 0) ? "Drain" : "Recoil"}
+                                    value={moveData.drain}
+                                    getString={(v: number): string => Math.abs(v).toString() + "%"}
+                                    show={!Number.isNaN(moveData.drain) && moveData.drain! !== 0}
+                                />
+                                <MoveModalRow
+                                    name="Accuracy"
+                                    value={moveData.accuracy}
+                                    getString={(v: number): string => v.toString() + "%"}
+                                    show={!Number.isNaN(moveData.accuracy)}
+                                />
+                                <MoveModalRow
+                                    name="# Hits"
+                                    value={[moveData.minHits, moveData.maxHits]}
+                                    getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
+                                    show={!Number.isNaN(moveData.maxHits) && moveData.maxHits! > 1}
+                                />
+                                <MoveModalRow
+                                    name="Priority"
+                                    value={moveData.priority}
+                                    getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
+                                    show={!Number.isNaN(moveData.priority) && moveData.priority! !== 0}
+                                />
+                                <MoveModalRow
+                                    name="Status"
+                                    value={moveData.ailment}
+                                    show={moveData.ailment !== null}
+                                />
+                                <MoveModalRow
+                                    name=""
+                                    value={moveData.ailmentChance}
+                                    show={!Number.isNaN(moveData.ailmentChance) && moveData.ailmentChance! > 0}
+                                />
+                                <MoveModalRow
+                                    name="Stat Changes"
+                                    value={moveData.statChanges}
+                                    getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v)}
+                                    show={moveData.statChanges !== null}
+                                />
+                                <MoveModalRow
+                                    name=""
+                                    value={moveData.statChance}
+                                    getString={(v: number): string => v.toString() + "% chance"}
+                                    show={!Number.isNaN(moveData.statChance) && moveData.statChance! > 0}
+                                />
+                                <MoveModalRow
+                                    name=""
+                                    value={moveData.flinchChance}
+                                    getString={(v: number): string => v.toString() + "% flinch chance"}
+                                    show={!Number.isNaN(moveData.flinchChance) && moveData.flinchChance! > 0}
+                                />
                             </TableBody>
                         </Table>
                     </TableContainer>

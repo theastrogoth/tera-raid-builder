@@ -157,26 +157,36 @@ export class RaidTurn {
     private applyEndOfTurnItemEffects() {
         for (let id of [0, this.raiderID]) {
             const pokemon = this._raidState.raiders[id];
-
+            const result = this._raiderMovesFirst ? (
+                id === 0 ? this._result2 : this._result1
+            ) : (
+                id === 0 ? this._result1 : this._result2
+            );
             // Ailment-inducing Items
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Light Ball":
-                        pokemon.status = "par";
+                        if (!pokemon.types.includes("Electric")) {
+                            pokemon.status = "par";
+                            result.flags[id].push("par inflicted");
+                        }
                         break;
                     case "Flame Orb":
                         if (!pokemon.types.includes("Fire")) { 
                             pokemon.status = "brn";  
+                            result.flags[id].push("brn inflicted");
                         }
                         break;
                     case "Toxic Orb":
                         if (!pokemon.types.includes("Poison")) { 
                             pokemon.status = "tox"; 
+                            result.flags[id].push("tox inflicted");
                         }
                         break;
                     case "Poison Barb":
                         if (!pokemon.types.includes("Poison")) { 
                             pokemon.status = "psn"; 
+                            result.flags[id].push("psn inflicted");
                         }
                         break;
                     default: break

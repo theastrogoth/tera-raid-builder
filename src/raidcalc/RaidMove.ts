@@ -706,30 +706,7 @@ export class RaidMove {
                 pokemon.item = undefined;
             }
         }
-        // Ailment-inducing Items
-        if (hasNoStatus(this._user) && endOfTurn) {
-            switch (this._user.item) {
-                case "Light Ball":
-                    this._user.status = "par";
-                    break;
-                case "Flame Orb":
-                    if (!this._user.types.includes("Fire")) { 
-                        this._user.status = "brn";  
-                    }
-                    break;
-                case "Toxic Orb":
-                    if (!this._user.types.includes("Poison")) { 
-                        this._user.status = "tox"; 
-                    }
-                    break;
-                case "Poison Barb":
-                    if (!this._user.types.includes("Poison")) { 
-                        this._user.status = "psn"; 
-                    }
-                    break;
-                default: break
-            }
-        }
+
         // Other Berry Consumption
         for (let i=0; i<5; i++) {
             if (this._damage[i] > 0) {
@@ -910,8 +887,4 @@ export class RaidMove {
             }
         }
     }
-
-    // private handleFlags() {
-    //     //
-    // }
 }

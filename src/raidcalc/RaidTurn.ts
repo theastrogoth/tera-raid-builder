@@ -119,6 +119,8 @@ export class RaidTurn {
                 this.raiderOptions).result();
             this._raidState = this._result2.state;
         }
+        // item effects
+        this.applyEndOfTurnItemEffects();
         // Clear Endure (since side-attacks are not endured)
         this._raidState.raiders[this.raiderID].isEndure = false;
         this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
@@ -151,5 +153,35 @@ export class RaidTurn {
             this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
         }
     }
-    
+
+    private applyEndOfTurnItemEffects() {
+        for (let id of [0, this.raiderID]) {
+            const pokemon = this._raidState.raiders[id];
+
+            // Ailment-inducing Items
+            if (pokemon.status === undefined || pokemon.status === "") {
+                switch (pokemon.item) {
+                    case "Light Ball":
+                        pokemon.status = "par";
+                        break;
+                    case "Flame Orb":
+                        if (!pokemon.types.includes("Fire")) { 
+                            pokemon.status = "brn";  
+                        }
+                        break;
+                    case "Toxic Orb":
+                        if (!pokemon.types.includes("Poison")) { 
+                            pokemon.status = "tox"; 
+                        }
+                        break;
+                    case "Poison Barb":
+                        if (!pokemon.types.includes("Poison")) { 
+                            pokemon.status = "psn"; 
+                        }
+                        break;
+                    default: break
+                }
+            }
+        }
+    }
 }

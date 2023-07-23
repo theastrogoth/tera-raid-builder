@@ -125,10 +125,14 @@ export class RaidMove {
         this.applyAbilityEffects();
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyItemEffects(!this.movesFirst);
+        this.applyItemEffects();
         this.setFlags();
         this._user.lastMove = this.moveData;
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
+        return this.output;
+    }
+
+    public get output(): RaidMoveResult {
         return {
             state: this._raidState,
             userID: this.userID,
@@ -589,7 +593,7 @@ export class RaidMove {
         }
     }
 
-    private applyItemEffects(endOfTurn: boolean = false) {
+    public applyItemEffects() {
         /// Item-related effects
         // Focus Sash
         for (let id of this._affectedIDs) {

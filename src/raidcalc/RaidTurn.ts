@@ -24,6 +24,9 @@ export class RaidTurn {
     _raiderMove!:     Move;
     _bossMove!:       Move;
 
+    _raidMove1!:      RaidMove;
+    _raidMove2!:      RaidMove;
+
     _result1!:        RaidMoveResult;
     _result2!:        RaidMoveResult;
     _raidState!:      RaidState;
@@ -77,7 +80,7 @@ export class RaidTurn {
             if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         } 
         if (this._raiderMovesFirst) {
-            this._result1 = new RaidMove(
+            this._raidMove1 = new RaidMove(
                 rMoveData,
                 this._raiderMove, 
                 this._raidState, 
@@ -85,9 +88,10 @@ export class RaidTurn {
                 tID,
                 rID,
                 this._raiderMovesFirst,
-                this.raiderOptions).result();
+                this.raiderOptions);
+            this._result1 = this._raidMove1.result();
             this._raidState = this._result1.state;
-            this._result2 = new RaidMove(
+            this._raidMove2 = new RaidMove(
                 bMoveData,
                 this._bossMove, 
                 this._raidState, 
@@ -95,10 +99,9 @@ export class RaidTurn {
                 this.raiderID,
                 this.raiderID,
                 !this._raiderMovesFirst,
-                this.bossOptions).result();
-            this._raidState = this._result2.state;
+                this.bossOptions);
         } else {
-            this._result1 = new RaidMove(
+            this._raidMove1 = new RaidMove(
                 bMoveData, 
                 this._bossMove, 
                 this._raidState, 
@@ -106,9 +109,10 @@ export class RaidTurn {
                 this.raiderID,
                 this.raiderID,
                 !this._raiderMovesFirst,
-                this.bossOptions).result();
+                this.bossOptions);
+            this._result1 = this._raidMove1.result();
             this._raidState = this._result1.state;
-            this._result2 = new RaidMove(
+            this._raidMove2 = new RaidMove(
                 rMoveData, 
                 this._raiderMove, 
                 this._raidState, 
@@ -116,9 +120,12 @@ export class RaidTurn {
                 tID,
                 rID,
                 this._raiderMovesFirst,
-                this.raiderOptions).result();
-            this._raidState = this._result2.state;
+                this.raiderOptions);
         }
+        this._raidMove2.result();
+        this._raidMove2.applyItemEffects(); // A final check for items triggered by end-of-turn damage
+        this._result2 = this._raidMove2.output
+        this._raidState = this._result2.state;
         // item effects
         this.applyEndOfTurnItemEffects();
         // Clear Endure (since side-attacks are not endured)
@@ -157,36 +164,31 @@ export class RaidTurn {
     private applyEndOfTurnItemEffects() {
         for (let id of [0, this.raiderID]) {
             const pokemon = this._raidState.raiders[id];
-            const result = this._raiderMovesFirst ? (
-                id === 0 ? this._result2 : this._result1
-            ) : (
-                id === 0 ? this._result1 : this._result2
-            );
             // Ailment-inducing Items
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Light Ball":
                         if (!pokemon.types.includes("Electric")) {
                             pokemon.status = "par";
-                            result.flags[id].push("par inflicted");
+                            this._result2.flags[id].push("par inflicted");
                         }
                         break;
                     case "Flame Orb":
                         if (!pokemon.types.includes("Fire")) { 
                             pokemon.status = "brn";  
-                            result.flags[id].push("brn inflicted");
+                            this._result2.flags[id].push("brn inflicted");
                         }
                         break;
                     case "Toxic Orb":
                         if (!pokemon.types.includes("Poison")) { 
                             pokemon.status = "tox"; 
-                            result.flags[id].push("tox inflicted");
+                            this._result2.flags[id].push("tox inflicted");
                         }
                         break;
                     case "Poison Barb":
                         if (!pokemon.types.includes("Poison")) { 
                             pokemon.status = "psn"; 
-                            result.flags[id].push("psn inflicted");
+                            this._result2.flags[id].push("psn inflicted");
                         }
                         break;
                     default: break

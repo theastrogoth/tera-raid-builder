@@ -34,7 +34,7 @@ function RaidControls({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInf
     }, [info, prettyMode]);
 
     return (
-        <Box width={575} sx={{ mx: 1}}>
+        <Box width={600} sx={{ mx: 1}}>
             <Box paddingBottom={1}>
                 <Tabs value={value} onChange={handleChange} centered>
                     <Tab label="Move Order" value={1} />

@@ -2,7 +2,6 @@ import React, { useState, useEffect }  from "react"
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -21,6 +20,7 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
+import { getPokemonSpriteURL } from "../utils";
 
 // function timeout(delay: number) {
 //     return new Promise( res => setTimeout(res, delay) );
@@ -104,6 +104,26 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
             moveInfo.moveData.target === "all-pokemon" ||
             moveInfo.moveData.target === "entire-field";
 
+    const renderPokemonMenuItem = (checkDisabled: boolean = false) => (value: number) => {
+        const raider = checkDisabled ? (disableTarget ? raiders[moveInfo.userID] : raiders[value]) : raiders[value];
+        const role = raider.role;
+        const name = raider.name;
+        return (
+            <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
+                <Box
+                    sx={{
+                        width: "25px",
+                        height: "25px",
+                        overflow: 'hidden',
+                        background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                    }}
+                />
+                <Typography variant="body2">{role}</Typography>
+            </Stack>
+        )
+    }
+        
+
     let validTargets = [0,1,2,3,4];
     if (!disableTarget) { validTargets.splice(moveInfo.userID, 1); }
     
@@ -111,55 +131,51 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
     return (
-        <Stack direction="row" spacing={0} alignItems="center" justifyContent="right">
-            <Stack width="370px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">
+        <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
+            <Stack width="415px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">
                 <Box flexGrow={1} />
                 <Box>
                     <Select
                         size="small"
                         variant="standard"
                         value = {moveInfo.userID}
+                        renderValue={renderPokemonMenuItem()}
                         onChange={(e) => setInfoParam("userID")(e.target.value)}
-                        sx={{ maxWidth : "100px"}}
+                        sx={{ maxWidth : "130px"}}
                     >
                         {roles.slice(1).map((role, i) => <MenuItem key={i} value={i+1}>{role}</MenuItem>)}
                     </Select>
                 </Box>
-                <Typography variant="body1">uses</Typography>
+                <Typography variant="body2">uses</Typography>
                 <Box>
                     <Select 
                         size="small"
                         variant="standard"
                         value = {moveInfo.moveData.name}
+                        renderValue={(value) => <Typography variant="body2">{value}</Typography>}
                         onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
                         sx={{ maxWidth : "120px"}}
                     >
                         {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
                     </Select>
                 </Box>
-                <Typography variant="body1">on</Typography>
+                <Typography variant="body2">on</Typography>
                 <Box>
                     <Select
                         size="small"
                         variant="standard"
                         value = {moveInfo.targetID}
-                        renderValue={(value) => {
-                            let display = roles[value];
-                            if (disableTarget) {
-                                display = roles[moveInfo.userID]
-                            }
-                            return display;
-                        }}
+                        renderValue={renderPokemonMenuItem(true)}
                         disabled = {disableTarget}
                         onChange={(e) =>setInfoParam("targetID")(e.target.value)}
-                        sx={{ maxWidth : "100px"}}
+                        sx={{ maxWidth : "130px"}}
                     >
                         {validTargets.map((id, i) => <MenuItem key={i} value={id}>{roles[id]}</MenuItem>)}
                     </Select>
                 </Box>
                 <Box flexGrow={1} />
             </Stack>
-            <FormControl component="fieldset">
+            <FormControl component="fieldset" size="small">
                 <FormGroup>
                     <Stack direction="row" spacing={-1}>
                         <FormControlLabel 
@@ -174,8 +190,9 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                                         }
                                     }
                                 />} 
-                            label="Crit"
+                            label={<Typography variant="body2">Crit</Typography>}
                             labelPlacement="top"
+                            
                         />
                         <FormControlLabel 
                             control={
@@ -189,24 +206,22 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                                         }
                                     }
                                 />} 
-                            label="Effect"
+                            label={<Typography variant="body2">Effect</Typography>}
                             labelPlacement="top"
                         />
                     </Stack>
                 </FormGroup>
             </FormControl>
-            <Stack direction="column" sx={{ paddingLeft: 1}}>
-                <Typography>
-                    Roll
-                </Typography>
+            <Stack direction="column" sx={{ paddingLeft: 2}}>
+                <Typography variant="body2">Roll</Typography>
                 <Select
                     size="small"
                     variant="standard"
                     value = {roll}
                     onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
-                    sx={{ width : "50px"}}
+                    sx={{ width : "40px"}}
                 >
-                    {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}>{r}</MenuItem>)}
+                    {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)}
                 </Select>
             </Stack>
         </Stack>
@@ -244,7 +259,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
         <Stack direction="row" spacing={0} alignItems="center" justifyContent="right">
             <Stack direction="row" width="370px" spacing={0.5} alignItems="center" justifyContent="right">
                 <Box flexGrow={1} />
-                <Typography variant="body1">{info.startingState.raiders[0].role + " uses"}</Typography>
+                <Typography variant="body2">{info.startingState.raiders[0].role + " uses"}</Typography>
                 <Select 
                     size="small"
                     variant="standard"
@@ -301,7 +316,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                     variant="standard"
                     value = {roll}
                     onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
-                    sx={{ width : "50px"}}
+                    sx={{ width : "40px"}}
                 >
                     {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}>{r}</MenuItem>)}
                 </Select>

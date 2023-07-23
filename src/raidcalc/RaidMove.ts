@@ -125,10 +125,14 @@ export class RaidMove {
         this.applyAbilityEffects();
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyItemEffects(!this.movesFirst);
+        this.applyItemEffects();
         this.setFlags();
         this._user.lastMove = this.moveData;
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
+        return this.output;
+    }
+
+    public get output(): RaidMoveResult {
         return {
             state: this._raidState,
             userID: this.userID,
@@ -589,7 +593,7 @@ export class RaidMove {
         }
     }
 
-    private applyItemEffects(endOfTurn: boolean = false) {
+    public applyItemEffects() {
         /// Item-related effects
         // Focus Sash
         for (let id of this._affectedIDs) {
@@ -706,30 +710,7 @@ export class RaidMove {
                 pokemon.item = undefined;
             }
         }
-        // Ailment-inducing Items
-        if (hasNoStatus(this._user) && endOfTurn) {
-            switch (this._user.item) {
-                case "Light Ball":
-                    this._user.status = "par";
-                    break;
-                case "Flame Orb":
-                    if (!this._user.types.includes("Fire")) { 
-                        this._user.status = "brn";  
-                    }
-                    break;
-                case "Toxic Orb":
-                    if (!this._user.types.includes("Poison")) { 
-                        this._user.status = "tox"; 
-                    }
-                    break;
-                case "Poison Barb":
-                    if (!this._user.types.includes("Poison")) { 
-                        this._user.status = "psn"; 
-                    }
-                    break;
-                default: break
-            }
-        }
+
         // Other Berry Consumption
         for (let i=0; i<5; i++) {
             if (this._damage[i] > 0) {
@@ -910,8 +891,4 @@ export class RaidMove {
             }
         }
     }
-
-    // private handleFlags() {
-    //     //
-    // }
 }

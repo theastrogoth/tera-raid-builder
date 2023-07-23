@@ -1,30 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TextField from '@mui/material/TextField';
+import Typography from "@mui/material/Typography";
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
-import Select from '@mui/material/Select';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import TuneIcon from '@mui/icons-material/Tune';
+import Popper from "@mui/material/Popper";
 
 import { styled } from '@mui/material/styles';
 
-import { Pokemon, StatsTable, Generations } from '../calc';
-import { Nature, MoveName, AbilityName } from "../calc/data/interface";
+import { Move, Pokemon, StatsTable, Generations } from '../calc';
+import { Nature, MoveName, AbilityName, StatID } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
-import { Typography } from "@mui/material";
-import { MoveSetItem, Raider } from "../raidcalc/interface";
-import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL } from "../utils";
+
+import { MoveData, MoveSetItem, Raider } from "../raidcalc/interface";
+import PokedexService from "../services/getdata";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName } from "../utils";
 
 import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
 
@@ -91,8 +94,26 @@ function prettyStatName(stat: string) {
     }
 }
 
+function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
+    let str = '';
+    let empty = true;
+    for (let statChange of statChanges) {
+        if (statChange.change != 0) {
+            if (!empty) {
+                str = str + ', ';
+            }
+            empty = false;
+            const statAbbr = prettyStatName(statChange.stat);
+            const change = statChange.change;
+            str = str + (change < 0 ? " " : " +" ) + statChange.change + " " + statAbbr;
+        }
+    }
+    if (str.length == 0) { return "none"; }
+    return str;
+}
+
 function evsToString(pokemon: Pokemon) {
-    let str = ''
+    let str = '';
     let empty = true
     for (let keyval of Object.entries(pokemon.evs)) {
         if (keyval[1] != 0) {
@@ -173,29 +194,241 @@ return (
     )
 }
 
-function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
+function ModalRow({name, value, getString = (val: any) => val, show = true, iconURLs = null}: {name: string, value: any, getString?: (val: any) => string, show?: boolean, iconURLs?: string[] | null}) {
+    return (show ? 
+        <TableRow>
+            <LeftCell>
+                {name}
+            </LeftCell>
+            <RightCell sx={{display: "flex", flexDirection: "row"}}>
+                {iconURLs !== null && iconURLs.map((iconURL, index) => (
+                    <Stack key={index} direction="row" spacing={0.5} alignItems="center" >
+                        <Box>{getString(value)}</Box>
+                        <Box
+                            sx={{
+                                width: "20px",
+                                height: "20px",
+                                overflow: 'hidden',
+                                background: `url(${iconURL}) no-repeat center center / contain`,
+                            }}
+                        />
+                    </Stack>
+                ))}
+                {iconURLs === null && getString(value)}
+            </RightCell>
+        </TableRow>
+        : <></>
+    )   
+}
+
+function PokemonPopper({name, showPopper, anchorEl}: {name: string, showPopper: boolean, anchorEl: HTMLElement | null}) {
+    
+    const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+
+    useEffect(() => {
+        if (showPopper && (pokemon === null || pokemon.name !== name)) {
+            setPokemon(new Pokemon(gen, name));
+        }
+    }, [name, showPopper])
+    
     return (
-        <Stack direction="row" alignItems="center" spacing={0.25}>
-                {!prettyMode &&
-                    <img src={getTypeIconURL(move.type)} height="25px" />
+        <Popper
+            open={showPopper}
+            anchorEl={anchorEl}
+            placement="bottom"
+            disablePortal={false}
+            sx={{ position: "relative", zIndex: 1000000 }}
+        >
+            <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
+                <TableContainer>
+                    <Table size="small" width="100%">
+                        <TableBody>
+                            <ModalRow name={(pokemon && pokemon.types.length > 1) ? "Types" : "Type"} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
+                            <ModalRow name="Stats:" value="" />
+                            <ModalRow name="HP"  value={pokemon ? pokemon.species.baseStats.hp  : ""} />
+                            <ModalRow name="Atk" value={pokemon ? pokemon.species.baseStats.atk : ""} />
+                            <ModalRow name="Def" value={pokemon ? pokemon.species.baseStats.def : ""} />
+                            <ModalRow name="SpA" value={pokemon ? pokemon.species.baseStats.spa : ""} />
+                            <ModalRow name="SpD" value={pokemon ? pokemon.species.baseStats.spd : ""} />
+                            <ModalRow name="Spe" value={pokemon ? pokemon.species.baseStats.spe : ""} />
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Paper>
+        </Popper>
+    )
+}
+
+function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, showPopper: boolean, anchorEl: HTMLElement | null}) {
+    const [moveData, setMoveData] = useState<MoveData | null>(null);
+    const [move, setMove] = useState<Move | null>(null);
+    useEffect(() => {
+        if (showPopper && (moveData === null || moveData.name !== moveItem.name)) {
+            async function fetchMoveData() {
+                const newData = await PokedexService.getMoveByName(moveItem.name);
+                if (newData) {
+                    setMoveData(newData);
+                    setMove(new Move(gen, moveItem.name));
                 }
-            <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
-                {move.name}
-            </Typography>
-                {move.method === "egg" && prettyMode &&
-                    <img src={getMoveMethodIconURL("egg")} height="20px" />
-                }
-                {move.method === "machine" && prettyMode &&
-                    <img src={getMoveMethodIconURL(move.type)} height="20px"/>
-                }
-        </Stack>
+            }
+            fetchMoveData().catch((e) => console.log(e));
+        }
+    }, [moveItem, showPopper])
+
+    const spriteURL = 
+        moveItem.method === "level-up" ? [getMoveMethodIconURL("rare_candy")] :
+        moveItem.method === "machine" ? [getMoveMethodIconURL(moveItem.type)] : 
+        moveItem.method === "egg" ? [getMoveMethodIconURL("egg")] : null;
+
+    return (
+        <Popper 
+            open={showPopper} 
+            anchorEl={anchorEl} 
+            placement="bottom"
+            disablePortal={false}
+            sx={{ position: "relative", zIndex: 1000000 }}
+        >
+            {(moveData && move) &&
+                <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
+                    <TableContainer>
+                        <Table size="small" width="100%">
+                            <TableBody>
+                                <ModalRow 
+                                    name="Type"
+                                    value={move.type}
+                                    show={move.type !== undefined}
+                                />
+                                <ModalRow 
+                                    name="Category"
+                                    value={move.category}
+                                    show={move.category !== undefined}
+                                />
+                                <ModalRow 
+                                    name="Power"
+                                    value={move.bp}
+                                    show={move.bp !== undefined && move.bp > 0}
+                                />
+                                <ModalRow
+                                    name="Healing"
+                                    value={moveData.healing}
+                                    getString={(v: number): string => v.toString() + "%"}
+                                    show={moveData.healing !== null && moveData.healing! !== 0}
+                                />
+                                <ModalRow
+                                    name={(moveData.drain! > 0) ? "Drain" : "Recoil"}
+                                    value={moveData.drain}
+                                    getString={(v: number): string => Math.abs(v).toString() + "%"}
+                                    show={moveData.drain !== null && moveData.drain! !== 0}
+                                />
+                                <ModalRow
+                                    name="Accuracy"
+                                    value={moveData.accuracy}
+                                    getString={(v: number): string => v.toString() + "%"}
+                                    show={moveData.accuracy !== null}
+                                />
+                                <ModalRow
+                                    name="# Hits"
+                                    value={[moveData.minHits, moveData.maxHits]}
+                                    getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
+                                    show={moveData.maxHits !== null && moveData.maxHits! > 1}
+                                />
+                                <ModalRow
+                                    name="Priority"
+                                    value={moveData.priority}
+                                    getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
+                                    show={moveData.priority !== null && moveData.priority! !== 0}
+                                />
+                                <ModalRow
+                                    name="Status"
+                                    value={getAilmentReadableName(moveData.ailment)}
+                                    show={moveData.ailment !== null}
+                                />
+                                <ModalRow
+                                    name=""
+                                    value={moveData.ailmentChance}
+                                    getString={(v: number): string => v.toString() + "% Chance" }
+                                    show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
+                                />
+                                <ModalRow
+                                    name="Stat Changes"
+                                    value={moveData.statChanges}
+                                    getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v)}
+                                    show={moveData.statChanges !== null}
+                                />
+                                <ModalRow
+                                    name=""
+                                    value={moveData.statChance}
+                                    getString={(v: number): string => v.toString() + "% Chance"}
+                                    show={moveData.statChance !== null && moveData.statChance! > 0}
+                                />
+                                <ModalRow
+                                    name=""
+                                    value={moveData.flinchChance}
+                                    getString={(v: number): string => v.toString() + "% Flinch Chance"}
+                                    show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
+                                />
+                                <ModalRow
+                                    name="Learn Method"
+                                    value={getLearnMethodReadableName(moveItem.method)}
+                                    show={moveItem.method !== undefined}
+                                    iconURLs={spriteURL}
+                                />
+                                    
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Paper>
+            }
+        </Popper>
+    )
+}
+
+function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseOut = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+    return (
+        <Box onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <Stack direction="row" alignItems="center" spacing={0.25} >
+                    {!prettyMode &&
+                        <img src={getTypeIconURL(move.type)} height="25px" />
+                    }
+                <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
+                    {move.name}
+                </Typography>
+                    {move.method === "egg" && prettyMode &&
+                        <img src={getMoveMethodIconURL("egg")} height="20px" />
+                    }
+                    {move.method === "machine" && prettyMode &&
+                        <img src={getMoveMethodIconURL(move.type)} height="20px"/>
+                    }
+            </Stack>
+            <MovePopper moveItem={move} showPopper={showPopper} anchorEl={anchorEl}/>
+        </Box>
     )
 }
 
 function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], prettyMode: boolean}) {
     return (
         <>
-        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+        {((prettyMode && value !== "(No Move)") || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
@@ -279,27 +512,54 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
     )
 }
 
-function GenericWithIcon({name, spriteFetcher, prettyMode}: {name: string, spriteFetcher: Function, prettyMode: boolean}) {
+function GenericWithIcon({name, spriteFetcher, prettyMode, ModalComponent = null, modalProps = null}: {name: string, spriteFetcher: Function, prettyMode: boolean, ModalComponent?: ((p: any) => JSX.Element) | null, modalProps?: any}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        if (ModalComponent === null) return;
+        const target = event.currentTarget;
+        if(timer.current === null) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseOut = () => {
+        if (ModalComponent === null) return;
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
     return (
-        <Stack direction="row" alignItems="center" spacing={0.25}>
-            {!prettyMode &&
-                <Box
-                sx={{
-                    width: "25px",
-                    height: "25px",
-                    overflow: 'hidden',
-                    background: `url(${spriteFetcher(name)}) no-repeat center center / contain`,
-                }}
-                />
-            }
-            <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
-                {name}
-            </Typography>
-        </Stack>
+        <Box onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <Stack direction="row" alignItems="center" spacing={0.25}>
+                {!prettyMode &&
+                    <Box
+                    sx={{
+                        width: "25px",
+                        height: "25px",
+                        overflow: 'hidden',
+                        background: `url(${spriteFetcher(name)}) no-repeat center center / contain`,
+                    }}
+                    />
+                }
+                <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
+                    {name}
+                </Typography>
+                {ModalComponent !== null &&
+                    <ModalComponent showPopper={showPopper} anchorEl={anchorEl} {...modalProps} />
+                }
+            </Stack>
+        </Box>
     )
 }
 
-function GenericIconSummaryRow({name, value, setValue, options, optionFinder, spriteFetcher, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], optionFinder: Function, spriteFetcher: Function, prettyMode: boolean}) {
+function GenericIconSummaryRow({name, value, setValue, options, optionFinder, spriteFetcher, prettyMode, ModalComponent, modalProps}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], optionFinder: Function, spriteFetcher: Function, prettyMode: boolean, ModalComponent?: ((p: any) => JSX.Element) | null, modalProps?: any}) {
     return (
         <>
         {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
@@ -320,7 +580,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                             value={value || undefined}
                             options={options}
                             renderOption={(props, option) => 
-                                <li {...props}><GenericWithIcon name={optionFinder(option)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} /></li>
+                                <li {...props}><GenericWithIcon name={optionFinder(option)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{name: option}} /></li>
                             }
                             renderInput={(params) => 
                                 <TextField {...params} variant="standard" size="small" />}
@@ -415,7 +675,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                         <Table size="small" width="100%">
                             <TableBody>
                                 {/* <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} prettyMode={prettyMode} /> */}
-                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode}/>
+                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} />
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode}/>
                                 {/* <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={["(No Ability)", ...abilities]} prettyMode={prettyMode}/> */}
                                 <AbilitySummaryRow 

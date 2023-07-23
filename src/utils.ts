@@ -56,7 +56,7 @@ const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {
     if (name == "Flabébé") { return "flabebe"; } // ugh
-    return name.replace(' ','_').replace('.','').replace("’", '').replace("'", '').replace(':','').replace('é','e').toLowerCase();
+    return name.replaceAll(' ','_').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
 }
 
 export function getItemSpriteURL(name: string) {
@@ -95,4 +95,17 @@ export function prepareSummaryName(name: string) {
     }
     const words = name.split("-")
     return words.map(word => word[0].toUpperCase() + word.substr(1)).join(" ");
+}
+
+export function getAilmentReadableName(ailment?: string) {
+    return ailment ? ailment.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") : null;
+}
+
+export function getLearnMethodReadableName(learnMethod: string) {
+    return (
+        learnMethod === "level-up" ? "Level Up" : 
+        learnMethod === "machine" ? "TM" :
+        learnMethod === "egg" ? "Egg" :
+        "Special"
+    )
 }

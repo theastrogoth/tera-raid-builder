@@ -400,14 +400,14 @@ function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolea
             }, 500)
         }
     }
-    const handleMouseOut = () => {
+    const handleMouseLeave = () => {
         setShowPopper(false);
         setAnchorEl(null);
         clearTimeout(timer.current as NodeJS.Timeout);
         timer.current = null;
     }
     return (
-        <Box onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
             <Stack direction="row" alignItems="center" spacing={0.25} >
                     {!prettyMode &&
                         <img src={getTypeIconURL(move.type)} height="25px" />
@@ -530,7 +530,7 @@ function GenericWithIcon({name, spriteFetcher, prettyMode, ModalComponent = null
             }, 500)
         }
     }
-    const handleMouseOut = () => {
+    const handleMouseLeave = () => {
         if (ModalComponent === null) return;
         setShowPopper(false);
         setAnchorEl(null);
@@ -538,7 +538,7 @@ function GenericWithIcon({name, spriteFetcher, prettyMode, ModalComponent = null
         timer.current = null;
     }
     return (
-        <Box onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
             <Stack direction="row" alignItems="center" spacing={0.25}>
                 {!prettyMode &&
                     <Box

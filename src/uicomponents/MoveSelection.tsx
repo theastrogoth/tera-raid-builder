@@ -2,17 +2,21 @@ import React, { useState, useEffect }  from "react"
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import TableContainer from "@mui/material/TableContainer";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from '@mui/icons-material/Add';
+import MenuIcon from '@mui/icons-material/Menu';
 // import Collapse from '@mui/material/Collapse';
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
@@ -46,7 +50,7 @@ const handleAddTurn = (info: RaidBattleInfo, setInfo: (i: RaidBattleInfo) => voi
         id: uniqueId,
         group: group,
         moveInfo: {userID: 1, targetID: 0, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min" }},
-        bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "max" }},
+        bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: true, secondaryEffects: true, roll: "max" }},
     }
     newTurns.splice(index, 0, newTurn);
 
@@ -58,62 +62,94 @@ const handleAddTurn = (info: RaidBattleInfo, setInfo: (i: RaidBattleInfo) => voi
 }
 
 function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void}) {
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+    
     const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
 
     return (
-        <Stack direction="row">
-        <FormControl component="fieldset" size="small">
-            <FormGroup>
-                <Stack direction="row" spacing={-1}>
-                    <FormControlLabel 
-                        control={
-                            <Checkbox 
-                                size="small" 
-                                style={{ padding: "4px"}}
-                                checked={critChecked}
-                                onChange={
-                                    (e) => {
-                                        setMoveInfo({...moveInfo, options: {...moveInfo.options, crit: !critChecked}});
-                                    }
-                                }
-                            />} 
-                        label={<Typography variant="body2">Crit</Typography>}
-                        labelPlacement="top"
-                        
-                    />
-                    <FormControlLabel 
-                        control={
-                            <Checkbox 
-                                size="small" 
-                                style={{ padding: "4px"}}
-                                checked={effectChecked}
-                                onChange={
-                                    (e) => {
-                                        setMoveInfo({...moveInfo, options: {...moveInfo.options, secondaryEffects: !effectChecked}});
-                                    }
-                                }
-                            />} 
-                        label={<Typography variant="body2">Effect</Typography>}
-                        labelPlacement="top"
-                    />
-                </Stack>
-            </FormGroup>
-        </FormControl>
-        <Stack direction="column" sx={{ paddingLeft: 1.5}}>
-            <Typography variant="body2">Roll</Typography>
-            <Select
-                size="small"
-                variant="standard"
-                value = {roll}
-                onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
-                sx={{ width : "40px"}}
+        <Box>
+            <IconButton 
+                onClick={handleClick}
             >
-                {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)}
-            </Select>
-        </Stack>
-    </Stack>
+                <MenuIcon />
+            </IconButton>
+            <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                  }}
+            >
+                <Stack direction="column" spacing={1} sx={{ p: 1 }}>
+                    <Typography variant="body1" fontWeight="bold" paddingLeft={1.5}>Options:</Typography>
+                    <TableContainer>
+                        <Table size="small">
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell>Crit</TableCell>
+                                    <TableCell>
+                                        <Checkbox 
+                                            size="small" 
+                                            style={{ padding: "4px"}}
+                                            checked={critChecked}
+                                            onChange={
+                                                (e) => {
+                                                    setMoveInfo({...moveInfo, options: {...moveInfo.options, crit: !critChecked}});
+                                                }
+                                            }
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>Effect</TableCell>
+                                    <TableCell>
+                                        <Checkbox 
+                                            size="small" 
+                                            style={{ padding: "4px"}}
+                                            checked={effectChecked}
+                                            onChange={
+                                                (e) => {
+                                                    setMoveInfo({...moveInfo, options: {...moveInfo.options, secondaryEffects: !effectChecked}});
+                                                }
+                                            }
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell sx={{ borderBottom: 0 }}>Roll</TableCell>
+                                    <TableCell sx={{ borderBottom: 0 }}>
+                                        <Select
+                                            size="small"
+                                            variant="standard"
+                                            value = {roll}
+                                            onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
+                                            sx={{ width : "40px"}}
+                                        >
+                                            {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)}
+                                        </Select>
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Stack>
+            </Menu>
+        </Box>
     )
 }
 
@@ -162,48 +198,53 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
             moveInfo.moveData.target === "all-other-pokemon" ||
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "all-pokemon" ||
-            moveInfo.moveData.target === "entire-field";
-
-    const renderPokemonMenuItem = (checkDisabled: boolean = false) => (value: number) => {
-        const raider = checkDisabled ? (disableTarget ? raiders[moveInfo.userID] : raiders[value]) : raiders[value];
-        const role = raider.role;
-        const name = raider.name;
-        return (
-            <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
-                <Box
-                    sx={{
-                        width: "25px",
-                        height: "25px",
-                        overflow: 'hidden',
-                        background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
-                    }}
-                />
-                <Typography variant="body2">{role}</Typography>
-            </Stack>
-        )
-    }
-        
+            moveInfo.moveData.target === "entire-field";      
 
     let validTargets = [0,1,2,3,4];
     if (!disableTarget) { validTargets.splice(moveInfo.userID, 1); }
     
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
-            <Stack width="415px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">
-                <Box flexGrow={1} />
+            <Stack width="510px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">
+                <Box flexGrow={4} />
                 <Box>
                     <Select
                         size="small"
                         variant="standard"
                         value = {moveInfo.userID}
-                        renderValue={renderPokemonMenuItem()}
                         onChange={(e) => setInfoParam("userID")(e.target.value)}
-                        sx={{ maxWidth : "130px"}}
+                        MenuProps={{
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "left"
+                            },
+                        }}
+                        sx={{ maxWidth : "175px" }}
                     >
-                        {roles.slice(1).map((role, i) => <MenuItem key={i} value={i+1}>{role}</MenuItem>)}
+                        {roles.slice(1).map((role, i) => {
+                            const raider = raiders[i+1];
+                            const name = raider.name;
+                            return (
+                            <MenuItem key={i} value={i+1}>
+                                <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
+                                    <Box
+                                        sx={{
+                                            width: "25px",
+                                            height: "25px",
+                                            overflow: 'hidden',
+                                            background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                                        }}
+                                    />
+                                    <Typography variant="body2">{role}</Typography>
+                                </Stack>
+                            </MenuItem>
+                            )}
+                        )}
                     </Select>
                 </Box>
+                <Box flexGrow={1} />
                 <Typography variant="body2">uses</Typography>
+                <Box flexGrow={1} />
                 <Box>
                     <Select 
                         size="small"
@@ -211,26 +252,46 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                         value = {moveInfo.moveData.name}
                         renderValue={(value) => <Typography variant="body2">{value}</Typography>}
                         onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
-                        sx={{ maxWidth : "120px"}}
+                        sx={{ maxWidth : "130px" }}
                     >
                         {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
                     </Select>
                 </Box>
+                <Box flexGrow={1} />
                 <Typography variant="body2">on</Typography>
+                <Box flexGrow={1} />
                 <Box>
                     <Select
                         size="small"
                         variant="standard"
                         value = {moveInfo.targetID}
-                        renderValue={renderPokemonMenuItem(true)}
                         disabled = {disableTarget}
                         onChange={(e) =>setInfoParam("targetID")(e.target.value)}
-                        sx={{ maxWidth : "130px"}}
+                        sx={{ maxWidth : "175px"}}
                     >
-                        {validTargets.map((id, i) => <MenuItem key={i} value={id}>{roles[id]}</MenuItem>)}
+                        {validTargets.map((id, i) => {
+                            const raider = disableTarget ? raiders[moveInfo.userID] : raiders[id];
+                            const role = raider.role;
+                            const name = raider.name;
+                            return (
+                            <MenuItem key={i} value={id}>
+                                <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
+                                    <Box
+                                        sx={{
+                                            width: "25px",
+                                            height: "25px",
+                                            overflow: 'hidden',
+                                            background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                                        }}
+                                    />
+                                    <Typography variant="body2">{role}</Typography>
+                                </Stack>
+                            </MenuItem>
+                            )}
+                        )}
                     </Select>
                 </Box>
-                <Box flexGrow={1} />
+                <Box flexGrow={4} />
             </Stack>
             <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} />
         </Stack>
@@ -263,8 +324,8 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
-            <Stack direction="row" width="415px" spacing={0.5} alignItems="center" justifyContent="right">
-                <Box flexGrow={1} />
+            <Stack direction="row" width="510px" spacing={0.5} alignItems="center" justifyContent="right">
+                <Box flexGrow={6} />
                 <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
                     <Box
                         sx={{
@@ -276,7 +337,9 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                     />
                     <Typography variant="body2">{boss.role}</Typography>
                 </Stack>
+                <Box flexGrow={1} />
                 <Typography variant="body2">uses</Typography>
+                <Box flexGrow={1} />
                 <Select 
                     size="small"
                     variant="standard"
@@ -286,7 +349,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                 >
                     {moveSet.map((move, i) => <MenuItem key={i} value={move}><Typography variant="body2">{move}</Typography></MenuItem>)}
                 </Select>
-                <Box flexGrow={1} />
+                <Box flexGrow={6} />
             </Stack>
             <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} />
         </Stack>

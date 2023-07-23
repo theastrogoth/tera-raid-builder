@@ -27,8 +27,8 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     return (
         <>
         {move !== "" &&
-            <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
-                <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
+            <Stack direction="row" spacing={1.5} alignItems="center" justifyContent="center">
+                <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                     <Box
                         sx={{
                             width: "30px",
@@ -53,7 +53,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
                     </Typography>
                 }
                 {target !== "" &&
-                    <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
+                    <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                         <Box
                             sx={{
                                 width: "30px",

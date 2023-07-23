@@ -96,3 +96,16 @@ export function prepareSummaryName(name: string) {
     const words = name.split("-")
     return words.map(word => word[0].toUpperCase() + word.substr(1)).join(" ");
 }
+
+export function getAilmentReadableName(ailment?: string) {
+    return ailment ? ailment.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") : null;
+}
+
+export function getLearnMethodReadableName(learnMethod: string) {
+    return (
+        learnMethod === "level-up" ? "Level Up" : 
+        learnMethod === "machine" ? "TM" :
+        learnMethod === "egg" ? "Egg" :
+        "Special"
+    )
+}

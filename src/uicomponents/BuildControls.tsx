@@ -27,7 +27,7 @@ import ImportExportArea from "./ImportExportArea";
 
 import { MoveData, MoveSetItem, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
-import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName } from "../utils";
 
 import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
 
@@ -194,27 +194,27 @@ return (
     )
 }
 
-function ModalRow({name, value, getString = (val: any) => val, show = true, iconURL = null}: {name: string, value: any, getString?: (val: any) => string, show?: boolean, iconURL?: string | null}) {
+function ModalRow({name, value, getString = (val: any) => val, show = true, iconURLs = null}: {name: string, value: any, getString?: (val: any) => string, show?: boolean, iconURLs?: string[] | null}) {
     return (show ? 
         <TableRow>
             <LeftCell>
                 {name}
             </LeftCell>
-            <RightCell>
-                {iconURL !== null &&
-                    <Stack direction="row" spacing={0.5} alignItems="center" >
+            <RightCell sx={{display: "flex", flexDirection: "row"}}>
+                {iconURLs !== null && iconURLs.map((iconURL, index) => (
+                    <Stack key={index} direction="row" spacing={0.5} alignItems="center" >
                         <Box>{getString(value)}</Box>
                         <Box
                             sx={{
-                                width: "25px",
-                                height: "25px",
+                                width: "20px",
+                                height: "20px",
                                 overflow: 'hidden',
                                 background: `url(${iconURL}) no-repeat center center / contain`,
                             }}
                         />
                     </Stack>
-                }
-                {iconURL === null && getString(value)}
+                ))}
+                {iconURLs === null && getString(value)}
             </RightCell>
         </TableRow>
         : <></>
@@ -243,8 +243,8 @@ function PokemonPopper({name, showPopper, anchorEl}: {name: string, showPopper: 
                 <TableContainer>
                     <Table size="small" width="100%">
                         <TableBody>
-                            <ModalRow name={(pokemon && pokemon.types.length > 1) ? "Types" : "Type"} value={pokemon ? pokemon.types.join(", ") : ""} />
-                            <ModalRow name="Base Stats:" value="" />
+                            <ModalRow name={(pokemon && pokemon.types.length > 1) ? "Types" : "Type"} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
+                            <ModalRow name="Stats:" value="" />
                             <ModalRow name="HP"  value={pokemon ? pokemon.species.baseStats.hp  : ""} />
                             <ModalRow name="Atk" value={pokemon ? pokemon.species.baseStats.atk : ""} />
                             <ModalRow name="Def" value={pokemon ? pokemon.species.baseStats.def : ""} />
@@ -275,8 +275,10 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
         }
     }, [moveItem, showPopper])
 
-    const spriteFetcher = moveItem.method === "machine" ? getMoveMethodIconURL(moveItem.type) : 
-                          moveItem.method === "egg" ? getMoveMethodIconURL("egg") : null;
+    const spriteURL = 
+        moveItem.method === "level-up" ? [getMoveMethodIconURL("rare_candy")] :
+        moveItem.method === "machine" ? [getMoveMethodIconURL(moveItem.type)] : 
+        moveItem.method === "egg" ? [getMoveMethodIconURL("egg")] : null;
 
     return (
         <Popper 
@@ -338,13 +340,13 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
                                 />
                                 <ModalRow
                                     name="Status"
-                                    value={moveData.ailment}
+                                    value={getAilmentReadableName(moveData.ailment)}
                                     show={moveData.ailment !== null}
                                 />
                                 <ModalRow
                                     name=""
                                     value={moveData.ailmentChance}
-                                    getString={(v: number): string => v.toString() + "% chance" }
+                                    getString={(v: number): string => v.toString() + "% Chance" }
                                     show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
                                 />
                                 <ModalRow
@@ -356,20 +358,20 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
                                 <ModalRow
                                     name=""
                                     value={moveData.statChance}
-                                    getString={(v: number): string => v.toString() + "% chance"}
+                                    getString={(v: number): string => v.toString() + "% Chance"}
                                     show={moveData.statChance !== null && moveData.statChance! > 0}
                                 />
                                 <ModalRow
                                     name=""
                                     value={moveData.flinchChance}
-                                    getString={(v: number): string => v.toString() + "% flinch chance"}
+                                    getString={(v: number): string => v.toString() + "% Flinch Chance"}
                                     show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
                                 />
                                 <ModalRow
                                     name="Learn Method"
-                                    value={moveItem.method}
+                                    value={getLearnMethodReadableName(moveItem.method)}
                                     show={moveItem.method !== undefined}
-                                    iconURL={spriteFetcher}
+                                    iconURLs={spriteURL}
                                 />
                                     
                             </TableBody>

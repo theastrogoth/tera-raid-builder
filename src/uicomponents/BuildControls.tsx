@@ -72,7 +72,7 @@ function createMoveOptions(moves: MoveSetItem[]) {
 
 function natureToOption(nature: Nature) {
     if (nature.plus == nature.minus) { return nature.name }
-    return nature.name + "\n(+" + prettyStatName(nature.plus as string) + ", -" + prettyStatName(nature.minus as string) + ")";
+    return nature.name + " (+" + prettyStatName(nature.plus as string) + ", -" + prettyStatName(nature.minus as string) + ")";
 }
 
 function prettyStatName(stat: string) {
@@ -185,6 +185,7 @@ return (
                         onChange={(event: any, newValue: string) => {
                             setValue(newValue);
                         }}
+                        componentsProps={{ popper: { style: { width: 'fit-content' } } }}
                         sx = {{width: '85%'}}
                         style={{ whiteSpace: "pre-wrap" }}
                     />
@@ -454,6 +455,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {
                             onChange={(event: any, newValue: string) => {
                                 setValue(newValue);
                             }}
+                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
                             sx = {{width: '85%'}}
                         />
                     }
@@ -504,6 +506,7 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
                             onChange={(event: any, newValue: string) => {
                                 setValue(newValue);
                             }}
+                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
                             sx = {{width: '85%'}}
                         />
                     }
@@ -589,6 +592,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                             onChange={(event: any, newValue: string) => {
                                 setValue(newValue);
                             }}
+                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
                             sx = {{width: '85%'}}
                         />
                     }

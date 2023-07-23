@@ -233,7 +233,7 @@ function MovePopper({moveItem, prettyMode, showPopper, anchorEl}: {moveItem: Mov
             sx={{ position: "relative", zIndex: 1000000 }}
         >
             {(moveData && move) &&
-                <Paper sx={{ p: 1 }}>
+                <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
@@ -250,37 +250,37 @@ function MovePopper({moveItem, prettyMode, showPopper, anchorEl}: {moveItem: Mov
                                 <MoveModalRow 
                                     name="Power"
                                     value={move.bp}
-                                    show={!Number.isNaN(move.bp) && move.bp > 0}
+                                    show={move.bp !== undefined && move.bp > 0}
                                 />
                                 <MoveModalRow
                                     name="Healing"
                                     value={moveData.healing}
                                     getString={(v: number): string => v.toString() + "%"}
-                                    show={!Number.isNaN(moveData.healing) && moveData.healing! !== 0}
+                                    show={moveData.healing !== null && moveData.healing! !== 0}
                                 />
                                 <MoveModalRow
                                     name={(moveData.drain! > 0) ? "Drain" : "Recoil"}
                                     value={moveData.drain}
                                     getString={(v: number): string => Math.abs(v).toString() + "%"}
-                                    show={!Number.isNaN(moveData.drain) && moveData.drain! !== 0}
+                                    show={moveData.drain !== null && moveData.drain! !== 0}
                                 />
                                 <MoveModalRow
                                     name="Accuracy"
                                     value={moveData.accuracy}
                                     getString={(v: number): string => v.toString() + "%"}
-                                    show={!Number.isNaN(moveData.accuracy)}
+                                    show={moveData.accuracy !== null}
                                 />
                                 <MoveModalRow
                                     name="# Hits"
                                     value={[moveData.minHits, moveData.maxHits]}
                                     getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
-                                    show={!Number.isNaN(moveData.maxHits) && moveData.maxHits! > 1}
+                                    show={moveData.maxHits !== null && moveData.maxHits! > 1}
                                 />
                                 <MoveModalRow
                                     name="Priority"
                                     value={moveData.priority}
                                     getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
-                                    show={!Number.isNaN(moveData.priority) && moveData.priority! !== 0}
+                                    show={moveData.priority !== null && moveData.priority! !== 0}
                                 />
                                 <MoveModalRow
                                     name="Status"
@@ -290,7 +290,8 @@ function MovePopper({moveItem, prettyMode, showPopper, anchorEl}: {moveItem: Mov
                                 <MoveModalRow
                                     name=""
                                     value={moveData.ailmentChance}
-                                    show={!Number.isNaN(moveData.ailmentChance) && moveData.ailmentChance! > 0}
+                                    getString={(v: number): string => v.toString() + "% chance" }
+                                    show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
                                 />
                                 <MoveModalRow
                                     name="Stat Changes"
@@ -302,13 +303,13 @@ function MovePopper({moveItem, prettyMode, showPopper, anchorEl}: {moveItem: Mov
                                     name=""
                                     value={moveData.statChance}
                                     getString={(v: number): string => v.toString() + "% chance"}
-                                    show={!Number.isNaN(moveData.statChance) && moveData.statChance! > 0}
+                                    show={moveData.statChance !== null && moveData.statChance! > 0}
                                 />
                                 <MoveModalRow
                                     name=""
                                     value={moveData.flinchChance}
                                     getString={(v: number): string => v.toString() + "% flinch chance"}
-                                    show={!Number.isNaN(moveData.flinchChance) && moveData.flinchChance! > 0}
+                                    show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
                                 />
                             </TableBody>
                         </Table>

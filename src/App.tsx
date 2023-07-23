@@ -43,6 +43,10 @@ function App() {
         main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
       },
       //@ts-ignore
+      modal: {
+        main: lightMode === 'dark' ? "#666666" : "#dedede"
+      },
+      //@ts-ignore
       group0: {
         main: lightMode === "dark" ? "#571b20" : "#f7b5ba",
       },

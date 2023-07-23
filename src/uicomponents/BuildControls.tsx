@@ -194,14 +194,27 @@ return (
     )
 }
 
-function ModalRow({name, value, getString = (val: any) => val, show = true}: {name: string, value: any, getString?: (val: any) => string, show?: boolean}) {
+function ModalRow({name, value, getString = (val: any) => val, show = true, iconURL = null}: {name: string, value: any, getString?: (val: any) => string, show?: boolean, iconURL?: string | null}) {
     return (show ? 
         <TableRow>
             <LeftCell>
                 {name}
             </LeftCell>
             <RightCell>
-                {getString(value)}
+                {iconURL !== null &&
+                    <Stack direction="row" spacing={0.5} alignItems="center" >
+                        <Box>{getString(value)}</Box>
+                        <Box
+                            sx={{
+                                width: "25px",
+                                height: "25px",
+                                overflow: 'hidden',
+                                background: `url(${iconURL}) no-repeat center center / contain`,
+                            }}
+                        />
+                    </Stack>
+                }
+                {iconURL === null && getString(value)}
             </RightCell>
         </TableRow>
         : <></>
@@ -261,6 +274,9 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
             fetchMoveData().catch((e) => console.log(e));
         }
     }, [moveItem, showPopper])
+
+    const spriteFetcher = moveItem.method === "machine" ? getMoveMethodIconURL(moveItem.type) : 
+                          moveItem.method === "egg" ? getMoveMethodIconURL("egg") : null;
 
     return (
         <Popper 
@@ -349,6 +365,13 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
                                     getString={(v: number): string => v.toString() + "% flinch chance"}
                                     show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
                                 />
+                                <ModalRow
+                                    name="Learn Method"
+                                    value={moveItem.method}
+                                    show={moveItem.method !== undefined}
+                                    iconURL={spriteFetcher}
+                                />
+                                    
                             </TableBody>
                         </Table>
                     </TableContainer>

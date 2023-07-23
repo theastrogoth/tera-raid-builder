@@ -2,7 +2,7 @@
     "name": "Ice Beam",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

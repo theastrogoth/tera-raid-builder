@@ -2,7 +2,7 @@
     "name": "Psyshield Bash",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 70,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Shift Gear",
     "category": "net-good-stats",
     "target": "user",
-    "type": "steel",
+    "type": "Steel",
     "power": null,
     "accuracy": null,
     "priority": 0,

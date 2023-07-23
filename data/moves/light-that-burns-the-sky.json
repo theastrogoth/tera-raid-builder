@@ -2,7 +2,7 @@
     "name": "Light That Burns The Sky",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 200,
     "accuracy": null,
     "priority": 0,

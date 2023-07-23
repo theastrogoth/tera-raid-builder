@@ -2,7 +2,7 @@
     "name": "Rage Powder",
     "category": "unique",
     "target": "user",
-    "type": "bug",
+    "type": "Bug",
     "power": null,
     "accuracy": null,
     "priority": 2,

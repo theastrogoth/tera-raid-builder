@@ -2,7 +2,7 @@
     "name": "Sand Tomb",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 35,
     "accuracy": 85,
     "priority": 0,

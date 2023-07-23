@@ -2,7 +2,7 @@
     "name": "Icy Wind",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "ice",
+    "type": "Ice",
     "power": 55,
     "accuracy": 95,
     "priority": 0,

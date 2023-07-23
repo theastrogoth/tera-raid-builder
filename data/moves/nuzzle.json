@@ -2,7 +2,7 @@
     "name": "Nuzzle",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 20,
     "accuracy": 100,
     "priority": 0,

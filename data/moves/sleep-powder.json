@@ -2,7 +2,7 @@
     "name": "Sleep Powder",
     "category": "ailment",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": null,
     "accuracy": 75,
     "priority": 0,

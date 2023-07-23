@@ -2,7 +2,7 @@
     "name": "Salt Cure",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "rock",
+    "type": "Rock",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Wake-Up Slap",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

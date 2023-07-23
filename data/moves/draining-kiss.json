@@ -2,7 +2,7 @@
     "name": "Draining Kiss",
     "category": "damage+heal",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

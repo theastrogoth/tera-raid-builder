@@ -2,7 +2,7 @@
     "name": "Swift",
     "category": "damage",
     "target": "all-opponents",
-    "type": "normal",
+    "type": "Normal",
     "power": 60,
     "accuracy": null,
     "priority": 0,

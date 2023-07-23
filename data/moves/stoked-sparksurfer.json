@@ -2,7 +2,7 @@
     "name": "Stoked Sparksurfer",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 175,
     "accuracy": null,
     "priority": 0,

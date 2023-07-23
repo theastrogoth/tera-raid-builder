@@ -2,7 +2,7 @@
     "name": "Poison Powder",
     "category": "ailment",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": null,
     "accuracy": 75,
     "priority": 0,

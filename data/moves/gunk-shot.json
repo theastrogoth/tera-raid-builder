@@ -2,7 +2,7 @@
     "name": "Gunk Shot",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": 120,
     "accuracy": 80,
     "priority": 0,

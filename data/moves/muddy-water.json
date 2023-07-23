@@ -2,7 +2,7 @@
     "name": "Muddy Water",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "water",
+    "type": "Water",
     "power": 90,
     "accuracy": 85,
     "priority": 0,

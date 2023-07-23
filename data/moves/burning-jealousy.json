@@ -2,7 +2,7 @@
     "name": "Burning Jealousy",
     "category": "damage+ailment",
     "target": "all-opponents",
-    "type": "fire",
+    "type": "Fire",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

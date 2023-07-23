@@ -2,7 +2,7 @@
     "name": "Precipice Blades",
     "category": "damage",
     "target": "all-opponents",
-    "type": "ground",
+    "type": "Ground",
     "power": 120,
     "accuracy": 85,
     "priority": 0,

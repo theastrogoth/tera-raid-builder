@@ -2,7 +2,7 @@
     "name": "Skitter Smack",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 70,
     "accuracy": 90,
     "priority": 0,

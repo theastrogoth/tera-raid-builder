@@ -2,7 +2,7 @@
     "name": "Magical Torque",
     "category": null,
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

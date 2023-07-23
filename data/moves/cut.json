@@ -2,7 +2,7 @@
     "name": "Cut",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 50,
     "accuracy": 95,
     "priority": 0,

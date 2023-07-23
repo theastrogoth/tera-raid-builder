@@ -2,7 +2,7 @@
     "name": "Soul-Stealing 7-Star Strike",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 195,
     "accuracy": null,
     "priority": 0,

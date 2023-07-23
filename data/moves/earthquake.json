@@ -2,7 +2,7 @@
     "name": "Earthquake",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

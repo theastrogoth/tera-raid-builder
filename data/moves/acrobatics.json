@@ -2,7 +2,7 @@
     "name": "Acrobatics",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 55,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Cross Poison",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

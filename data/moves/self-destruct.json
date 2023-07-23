@@ -2,7 +2,7 @@
     "name": "Self-Destruct",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 200,
     "accuracy": 100,
     "priority": 0,

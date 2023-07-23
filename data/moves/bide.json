@@ -2,7 +2,7 @@
     "name": "Bide",
     "category": "damage",
     "target": "user",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 1,

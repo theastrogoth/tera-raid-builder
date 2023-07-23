@@ -2,7 +2,7 @@
     "name": "Spin Out",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

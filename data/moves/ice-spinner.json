@@ -2,7 +2,7 @@
     "name": "Ice Spinner",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

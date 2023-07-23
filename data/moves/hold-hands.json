@@ -2,7 +2,7 @@
     "name": "Hold Hands",
     "category": "unique",
     "target": "ally",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 0,

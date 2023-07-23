@@ -2,7 +2,7 @@
     "name": "Shadow Down",
     "category": null,
     "target": "opponents-field",
-    "type": "shadow",
+    "type": "Shadow",
     "power": null,
     "accuracy": 100,
     "priority": 0,

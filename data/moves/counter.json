@@ -2,7 +2,7 @@
     "name": "Counter",
     "category": "damage",
     "target": "specific-move",
-    "type": "fighting",
+    "type": "Fighting",
     "power": null,
     "accuracy": 100,
     "priority": -5,

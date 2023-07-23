@@ -2,7 +2,7 @@
     "name": "Shadow Hold",
     "category": null,
     "target": "opponents-field",
-    "type": "shadow",
+    "type": "Shadow",
     "power": null,
     "accuracy": null,
     "priority": 0,

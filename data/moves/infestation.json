@@ -2,7 +2,7 @@
     "name": "Infestation",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 20,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Crunch",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

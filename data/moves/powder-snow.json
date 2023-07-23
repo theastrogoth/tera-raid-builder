@@ -2,7 +2,7 @@
     "name": "Powder Snow",
     "category": "damage+ailment",
     "target": "all-opponents",
-    "type": "ice",
+    "type": "Ice",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

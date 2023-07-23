@@ -2,7 +2,7 @@
     "name": "Fairy Lock",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "fairy",
+    "type": "Fairy",
     "power": null,
     "accuracy": null,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Fairy Wind",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

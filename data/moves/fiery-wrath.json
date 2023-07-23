@@ -2,7 +2,7 @@
     "name": "Fiery Wrath",
     "category": "damage",
     "target": "all-opponents",
-    "type": "dark",
+    "type": "Dark",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

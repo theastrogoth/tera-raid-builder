@@ -2,7 +2,7 @@
     "name": "Rising Voltage",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

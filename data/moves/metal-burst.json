@@ -2,7 +2,7 @@
     "name": "Metal Burst",
     "category": "damage",
     "target": "specific-move",
-    "type": "steel",
+    "type": "Steel",
     "power": null,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Bolt Strike",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 130,
     "accuracy": 85,
     "priority": 0,

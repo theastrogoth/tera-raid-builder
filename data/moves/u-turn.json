@@ -2,7 +2,7 @@
     "name": "U-Turn",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Mind Blown",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 150,
     "accuracy": 100,
     "priority": 0,

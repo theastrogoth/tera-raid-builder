@@ -2,7 +2,7 @@
     "name": "Acid",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "poison",
+    "type": "Poison",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

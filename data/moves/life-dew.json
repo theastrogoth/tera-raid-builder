@@ -2,7 +2,7 @@
     "name": "Life Dew",
     "category": "heal",
     "target": "user-and-allies",
-    "type": "water",
+    "type": "Water",
     "power": null,
     "accuracy": null,
     "priority": 0,

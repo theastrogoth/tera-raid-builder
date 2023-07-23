@@ -2,7 +2,7 @@
     "name": "Chloroblast",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 150,
     "accuracy": 95,
     "priority": 0,

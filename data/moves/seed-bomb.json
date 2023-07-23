@@ -2,7 +2,7 @@
     "name": "Seed Bomb",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

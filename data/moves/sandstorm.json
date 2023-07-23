@@ -2,7 +2,7 @@
     "name": "Sandstorm",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "rock",
+    "type": "Rock",
     "power": null,
     "accuracy": null,
     "priority": 0,

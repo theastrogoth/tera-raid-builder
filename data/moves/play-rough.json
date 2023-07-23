@@ -2,7 +2,7 @@
     "name": "Play Rough",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 90,
     "accuracy": 90,
     "priority": 0,

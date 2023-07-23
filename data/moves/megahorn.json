@@ -2,7 +2,7 @@
     "name": "Megahorn",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 120,
     "accuracy": 85,
     "priority": 0,

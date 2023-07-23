@@ -2,7 +2,7 @@
     "name": "Jet Punch",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 60,
     "accuracy": 100,
     "priority": 1,

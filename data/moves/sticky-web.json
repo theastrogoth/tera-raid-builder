@@ -2,7 +2,7 @@
     "name": "Sticky Web",
     "category": "field-effect",
     "target": "opponents-field",
-    "type": "bug",
+    "type": "Bug",
     "power": null,
     "accuracy": null,
     "priority": 0,

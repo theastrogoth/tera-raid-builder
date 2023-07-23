@@ -2,7 +2,7 @@
     "name": "Ice Punch",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

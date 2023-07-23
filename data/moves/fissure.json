@@ -2,7 +2,7 @@
     "name": "Fissure",
     "category": "ohko",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": null,
     "accuracy": 30,
     "priority": 0,

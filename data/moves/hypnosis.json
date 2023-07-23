@@ -2,7 +2,7 @@
     "name": "Hypnosis",
     "category": "ailment",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": null,
     "accuracy": 60,
     "priority": 0,

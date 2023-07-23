@@ -2,7 +2,7 @@
     "name": "Bolt Beak",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 85,
     "accuracy": 100,
     "priority": 0,

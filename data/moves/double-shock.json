@@ -2,7 +2,7 @@
     "name": "Double Shock",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

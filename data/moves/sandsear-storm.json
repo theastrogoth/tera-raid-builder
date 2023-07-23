@@ -2,7 +2,7 @@
     "name": "Sandsear Storm",
     "category": "damage+ailment",
     "target": "all-opponents",
-    "type": "ground",
+    "type": "Ground",
     "power": 100,
     "accuracy": 80,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Steamroller",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 65,
     "accuracy": 100,
     "priority": 0,

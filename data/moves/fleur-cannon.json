@@ -2,7 +2,7 @@
     "name": "Fleur Cannon",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 130,
     "accuracy": 90,
     "priority": 0,

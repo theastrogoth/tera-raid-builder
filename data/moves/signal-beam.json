@@ -2,7 +2,7 @@
     "name": "Signal Beam",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Coaching",
     "category": "net-good-stats",
     "target": "user-and-allies",
-    "type": "fighting",
+    "type": "Fighting",
     "power": null,
     "accuracy": null,
     "priority": 0,

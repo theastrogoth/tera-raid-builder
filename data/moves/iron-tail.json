@@ -2,7 +2,7 @@
     "name": "Iron Tail",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 100,
     "accuracy": 75,
     "priority": 0,

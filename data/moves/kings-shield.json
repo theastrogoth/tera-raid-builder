@@ -2,7 +2,7 @@
     "name": "Kings Shield",
     "category": "unique",
     "target": "user",
-    "type": "steel",
+    "type": "Steel",
     "power": null,
     "accuracy": null,
     "priority": 4,

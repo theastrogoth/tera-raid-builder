@@ -2,7 +2,7 @@
     "name": "Fiery Dance",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

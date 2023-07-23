@@ -2,7 +2,7 @@
     "name": "Shadow Claw",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

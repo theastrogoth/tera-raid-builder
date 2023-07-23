@@ -2,7 +2,7 @@
     "name": "Toxic",
     "category": "ailment",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": null,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Overdrive",
     "category": "damage",
     "target": "all-opponents",
-    "type": "electric",
+    "type": "Electric",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

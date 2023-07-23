@@ -2,7 +2,7 @@
     "name": "Morning Sun",
     "category": "heal",
     "target": "user",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 0,

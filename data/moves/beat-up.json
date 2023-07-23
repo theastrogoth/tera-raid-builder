@@ -2,7 +2,7 @@
     "name": "Beat Up",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": null,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Court Change",
     "category": "unique",
     "target": "entire-field",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": 100,
     "priority": 0,

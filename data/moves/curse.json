@@ -2,7 +2,7 @@
     "name": "Curse",
     "category": "unique",
     "target": "specific-move",
-    "type": "ghost",
+    "type": "Ghost",
     "power": null,
     "accuracy": null,
     "priority": 0,

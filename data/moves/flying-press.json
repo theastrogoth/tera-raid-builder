@@ -2,7 +2,7 @@
     "name": "Flying Press",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 100,
     "accuracy": 95,
     "priority": 0,

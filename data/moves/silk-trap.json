@@ -2,7 +2,7 @@
     "name": "Silk Trap",
     "category": "unique",
     "target": "user",
-    "type": "bug",
+    "type": "Bug",
     "power": 0,
     "accuracy": null,
     "priority": 4,

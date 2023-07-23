@@ -2,7 +2,7 @@
     "name": "Rock Tomb",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "rock",
+    "type": "Rock",
     "power": 60,
     "accuracy": 95,
     "priority": 0,

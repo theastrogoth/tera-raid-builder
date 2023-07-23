@@ -2,7 +2,7 @@
     "name": "Spark",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 65,
     "accuracy": 100,
     "priority": 0,

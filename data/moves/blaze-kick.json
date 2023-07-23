@@ -2,7 +2,7 @@
     "name": "Blaze Kick",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 85,
     "accuracy": 90,
     "priority": 0,

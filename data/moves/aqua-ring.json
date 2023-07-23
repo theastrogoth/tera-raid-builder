@@ -2,7 +2,7 @@
     "name": "Aqua Ring",
     "category": "unique",
     "target": "user",
-    "type": "water",
+    "type": "Water",
     "power": null,
     "accuracy": null,
     "priority": 0,

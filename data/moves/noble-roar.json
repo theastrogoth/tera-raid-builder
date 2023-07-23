@@ -2,7 +2,7 @@
     "name": "Noble Roar",
     "category": "net-good-stats",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": 100,
     "priority": 0,

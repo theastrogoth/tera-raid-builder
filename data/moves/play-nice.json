@@ -2,7 +2,7 @@
     "name": "Play Nice",
     "category": "net-good-stats",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 0,

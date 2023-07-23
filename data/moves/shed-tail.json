@@ -2,7 +2,7 @@
     "name": "Shed Tail",
     "category": null,
     "target": "user",
-    "type": "normal",
+    "type": "Normal",
     "power": 0,
     "accuracy": null,
     "priority": 0,

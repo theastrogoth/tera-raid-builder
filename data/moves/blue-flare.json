@@ -2,7 +2,7 @@
     "name": "Blue Flare",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 130,
     "accuracy": 85,
     "priority": 0,

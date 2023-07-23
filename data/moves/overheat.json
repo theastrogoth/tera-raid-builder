@@ -2,7 +2,7 @@
     "name": "Overheat",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 130,
     "accuracy": 90,
     "priority": 0,

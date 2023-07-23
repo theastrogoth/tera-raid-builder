@@ -2,7 +2,7 @@
     "name": "Thunder Cage",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 80,
     "accuracy": 90,
     "priority": 0,

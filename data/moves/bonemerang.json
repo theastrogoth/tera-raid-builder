@@ -2,7 +2,7 @@
     "name": "Bonemerang",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 50,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Peck",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 35,
     "accuracy": 100,
     "priority": 0,

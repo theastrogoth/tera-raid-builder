@@ -2,7 +2,7 @@
     "name": "Psyblade",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Drum Beating",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

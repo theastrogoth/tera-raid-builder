@@ -2,7 +2,7 @@
     "name": "Baby Doll Eyes",
     "category": "net-good-stats",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": null,
     "accuracy": 100,
     "priority": 1,

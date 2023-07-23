@@ -2,7 +2,7 @@
     "name": "High Jump Kick",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 130,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Grassy Glide",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

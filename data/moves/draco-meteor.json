@@ -2,7 +2,7 @@
     "name": "Draco Meteor",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 130,
     "accuracy": 90,
     "priority": 0,

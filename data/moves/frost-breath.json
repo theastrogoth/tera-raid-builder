@@ -2,7 +2,7 @@
     "name": "Frost Breath",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 60,
     "accuracy": 90,
     "priority": 0,

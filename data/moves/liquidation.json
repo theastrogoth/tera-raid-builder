@@ -2,7 +2,7 @@
     "name": "Liquidation",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 85,
     "accuracy": 100,
     "priority": 0,

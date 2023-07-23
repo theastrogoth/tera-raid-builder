@@ -2,7 +2,7 @@
     "name": "Aurora Veil",
     "category": "field-effect",
     "target": "users-field",
-    "type": "ice",
+    "type": "Ice",
     "power": null,
     "accuracy": null,
     "priority": 0,

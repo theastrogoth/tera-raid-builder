@@ -2,7 +2,7 @@
     "name": "Sky Uppercut",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 85,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Mud Shot",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 55,
     "accuracy": 95,
     "priority": 0,

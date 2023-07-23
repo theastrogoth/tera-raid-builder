@@ -2,7 +2,7 @@
     "name": "Hydro Pump",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 110,
     "accuracy": 80,
     "priority": 0,

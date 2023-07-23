@@ -2,7 +2,7 @@
     "name": "Parabolic Charge",
     "category": "damage+heal",
     "target": "all-other-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 65,
     "accuracy": 100,
     "priority": 0,

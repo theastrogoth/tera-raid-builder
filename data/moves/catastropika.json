@@ -2,7 +2,7 @@
     "name": "Catastropika",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 210,
     "accuracy": null,
     "priority": 0,

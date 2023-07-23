@@ -2,7 +2,7 @@
     "name": "Thunder Punch",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

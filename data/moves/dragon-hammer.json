@@ -2,7 +2,7 @@
     "name": "Dragon Hammer",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

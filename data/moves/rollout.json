@@ -2,7 +2,7 @@
     "name": "Rollout",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "rock",
+    "type": "Rock",
     "power": 30,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Karate Chop",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

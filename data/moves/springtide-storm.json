@@ -2,7 +2,7 @@
     "name": "Springtide Storm",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 100,
     "accuracy": 80,
     "priority": 0,

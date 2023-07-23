@@ -2,7 +2,7 @@
     "name": "String Shot",
     "category": "net-good-stats",
     "target": "all-opponents",
-    "type": "bug",
+    "type": "Bug",
     "power": null,
     "accuracy": 95,
     "priority": 0,

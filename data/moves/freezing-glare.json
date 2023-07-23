@@ -2,7 +2,7 @@
     "name": "Freezing Glare",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

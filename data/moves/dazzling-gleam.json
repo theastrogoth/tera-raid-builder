@@ -2,7 +2,7 @@
     "name": "Dazzling Gleam",
     "category": "damage",
     "target": "all-opponents",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Trailblaze",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Obstruct",
     "category": "unique",
     "target": "user",
-    "type": "dark",
+    "type": "Dark",
     "power": null,
     "accuracy": 100,
     "priority": 4,

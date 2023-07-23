@@ -2,7 +2,7 @@
     "name": "Brutal Swing",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

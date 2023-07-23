@@ -2,7 +2,7 @@
     "name": "Magical Leaf",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 60,
     "accuracy": null,
     "priority": 0,

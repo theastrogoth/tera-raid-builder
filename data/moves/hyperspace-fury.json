@@ -2,7 +2,7 @@
     "name": "Hyperspace Fury",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 100,
     "accuracy": null,
     "priority": 0,

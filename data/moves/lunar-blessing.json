@@ -2,7 +2,7 @@
     "name": "Lunar Blessing",
     "category": "unique",
     "target": "all-allies",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 0,
     "accuracy": null,
     "priority": 0,

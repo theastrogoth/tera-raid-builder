@@ -2,7 +2,7 @@
     "name": "Max Phantasm",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 10,
     "accuracy": null,
     "priority": 0,

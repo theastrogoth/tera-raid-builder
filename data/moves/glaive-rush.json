@@ -2,7 +2,7 @@
     "name": "Glaive Rush",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

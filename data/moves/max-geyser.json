@@ -2,7 +2,7 @@
     "name": "Max Geyser",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "water",
+    "type": "Water",
     "power": 10,
     "accuracy": null,
     "priority": 0,

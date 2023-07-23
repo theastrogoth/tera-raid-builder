@@ -2,7 +2,7 @@
     "name": "Glacial Lance",
     "category": "damage",
     "target": "all-opponents",
-    "type": "ice",
+    "type": "Ice",
     "power": 130,
     "accuracy": 100,
     "priority": 0,

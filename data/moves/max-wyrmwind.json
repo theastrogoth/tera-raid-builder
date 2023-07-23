@@ -2,7 +2,7 @@
     "name": "Max Wyrmwind",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 10,
     "accuracy": null,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Grudge",
     "category": "unique",
     "target": "user",
-    "type": "ghost",
+    "type": "Ghost",
     "power": null,
     "accuracy": null,
     "priority": 0,

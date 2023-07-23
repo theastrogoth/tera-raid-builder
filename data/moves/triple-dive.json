@@ -2,7 +2,7 @@
     "name": "Triple Dive",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 30,
     "accuracy": 95,
     "priority": 0,

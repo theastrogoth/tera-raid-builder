@@ -2,7 +2,7 @@
     "name": "Flame Charge",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

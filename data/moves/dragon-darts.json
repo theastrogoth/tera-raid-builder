@@ -2,7 +2,7 @@
     "name": "Dragon Darts",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

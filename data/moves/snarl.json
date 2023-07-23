@@ -2,7 +2,7 @@
     "name": "Snarl",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "dark",
+    "type": "Dark",
     "power": 55,
     "accuracy": 95,
     "priority": 0,

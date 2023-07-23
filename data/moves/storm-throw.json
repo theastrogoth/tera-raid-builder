@@ -2,7 +2,7 @@
     "name": "Storm Throw",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

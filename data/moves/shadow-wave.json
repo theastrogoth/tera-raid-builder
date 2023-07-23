@@ -2,7 +2,7 @@
     "name": "Shadow Wave",
     "category": null,
     "target": "opponents-field",
-    "type": "shadow",
+    "type": "Shadow",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

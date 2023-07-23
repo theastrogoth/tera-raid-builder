@@ -2,7 +2,7 @@
     "name": "Future Sight",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

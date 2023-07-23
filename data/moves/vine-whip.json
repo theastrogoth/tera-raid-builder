@@ -2,7 +2,7 @@
     "name": "Vine Whip",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 45,
     "accuracy": 100,
     "priority": 0,

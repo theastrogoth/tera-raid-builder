@@ -2,7 +2,7 @@
     "name": "Glitzy Glow",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 80,
     "accuracy": 95,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Whirlpool",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 35,
     "accuracy": 85,
     "priority": 0,

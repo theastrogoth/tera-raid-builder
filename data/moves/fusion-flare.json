@@ -2,7 +2,7 @@
     "name": "Fusion Flare",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Glaciate",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "ice",
+    "type": "Ice",
     "power": 65,
     "accuracy": 95,
     "priority": 0,

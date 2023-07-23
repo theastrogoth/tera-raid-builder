@@ -2,7 +2,7 @@
     "name": "Captivate",
     "category": "net-good-stats",
     "target": "all-opponents",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Fire Blast",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 110,
     "accuracy": 85,
     "priority": 0,

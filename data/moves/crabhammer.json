@@ -2,7 +2,7 @@
     "name": "Crabhammer",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 100,
     "accuracy": 90,
     "priority": 0,

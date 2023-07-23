@@ -2,7 +2,7 @@
     "name": "Revival Blessing",
     "category": "unique",
     "target": "fainting-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 0,
     "accuracy": null,
     "priority": 0,

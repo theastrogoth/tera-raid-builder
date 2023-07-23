@@ -2,7 +2,7 @@
     "name": "Twineedle",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 25,
     "accuracy": 100,
     "priority": 0,

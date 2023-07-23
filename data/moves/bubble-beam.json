@@ -2,7 +2,7 @@
     "name": "Bubble Beam",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 65,
     "accuracy": 100,
     "priority": 0,

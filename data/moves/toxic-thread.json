@@ -2,7 +2,7 @@
     "name": "Toxic Thread",
     "category": "swagger",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": null,
     "accuracy": 100,
     "priority": 0,

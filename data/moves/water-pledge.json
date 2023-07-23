@@ -2,7 +2,7 @@
     "name": "Water Pledge",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Water Sport",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "water",
+    "type": "Water",
     "power": null,
     "accuracy": null,
     "priority": 0,

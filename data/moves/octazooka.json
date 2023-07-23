@@ -2,7 +2,7 @@
     "name": "Octazooka",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 65,
     "accuracy": 85,
     "priority": 0,

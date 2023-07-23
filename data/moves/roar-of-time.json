@@ -2,7 +2,7 @@
     "name": "Roar Of Time",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 150,
     "accuracy": 90,
     "priority": 0,

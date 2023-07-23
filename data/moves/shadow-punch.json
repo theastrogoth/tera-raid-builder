@@ -2,7 +2,7 @@
     "name": "Shadow Punch",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 60,
     "accuracy": null,
     "priority": 0,

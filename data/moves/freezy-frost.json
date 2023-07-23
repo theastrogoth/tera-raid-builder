@@ -2,7 +2,7 @@
     "name": "Freezy Frost",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 100,
     "accuracy": 90,
     "priority": 0,

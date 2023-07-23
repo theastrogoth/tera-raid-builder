@@ -2,7 +2,7 @@
     "name": "Dragon Tail",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 60,
     "accuracy": 90,
     "priority": -6,

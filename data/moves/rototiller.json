@@ -2,7 +2,7 @@
     "name": "Rototiller",
     "category": "net-good-stats",
     "target": "all-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": null,
     "accuracy": null,
     "priority": 0,

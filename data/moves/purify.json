@@ -2,7 +2,7 @@
     "name": "Purify",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": null,
     "accuracy": null,
     "priority": 0,

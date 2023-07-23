@@ -2,7 +2,7 @@
     "name": "Steel Beam",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 140,
     "accuracy": 95,
     "priority": 0,

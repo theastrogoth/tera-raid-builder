@@ -2,7 +2,7 @@
     "name": "Bite",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

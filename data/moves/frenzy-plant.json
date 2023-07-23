@@ -2,7 +2,7 @@
     "name": "Frenzy Plant",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 150,
     "accuracy": 90,
     "priority": 0,

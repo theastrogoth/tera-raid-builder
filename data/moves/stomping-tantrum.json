@@ -2,7 +2,7 @@
     "name": "Stomping Tantrum",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Buzzy Buzz",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

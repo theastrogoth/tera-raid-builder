@@ -2,7 +2,7 @@
     "name": "Max Strike",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "normal",
+    "type": "Normal",
     "power": 10,
     "accuracy": null,
     "priority": 0,

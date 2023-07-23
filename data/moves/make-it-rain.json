@@ -2,7 +2,7 @@
     "name": "Make It Rain",
     "category": "damage+raise",
     "target": "all-opponents",
-    "type": "steel",
+    "type": "Steel",
     "power": 120,
     "accuracy": 100,
     "priority": 0,
@@ -13,7 +13,7 @@
     "statChanges": [
         {
             "stat": "spa",
-            "value": -1
+            "change": null
         }
     ],
     "flinchChance": null,

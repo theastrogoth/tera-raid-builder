@@ -2,7 +2,7 @@
     "name": "Victory Dance",
     "category": "net-good-stats",
     "target": "user",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 0,
     "accuracy": null,
     "priority": 0,

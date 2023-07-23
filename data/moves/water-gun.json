@@ -2,7 +2,7 @@
     "name": "Water Gun",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

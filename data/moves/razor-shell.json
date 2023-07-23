@@ -2,7 +2,7 @@
     "name": "Razor Shell",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 75,
     "accuracy": 95,
     "priority": 0,

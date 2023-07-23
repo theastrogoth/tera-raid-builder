@@ -2,7 +2,7 @@
     "name": "Belch",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": 120,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Tidy Up",
     "category": "unique",
     "target": "user",
-    "type": "normal",
+    "type": "Normal",
     "power": 0,
     "accuracy": null,
     "priority": 0,

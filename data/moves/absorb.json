@@ -2,7 +2,7 @@
     "name": "Absorb",
     "category": "damage+heal",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 20,
     "accuracy": 100,
     "priority": 0,

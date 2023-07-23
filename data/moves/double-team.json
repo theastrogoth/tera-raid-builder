@@ -2,7 +2,7 @@
     "name": "Double Team",
     "category": "net-good-stats",
     "target": "user",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 0,

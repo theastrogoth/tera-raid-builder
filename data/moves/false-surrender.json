@@ -2,7 +2,7 @@
     "name": "False Surrender",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 80,
     "accuracy": null,
     "priority": 0,

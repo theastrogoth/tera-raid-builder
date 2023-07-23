@@ -2,7 +2,7 @@
     "name": "Smack Down",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "rock",
+    "type": "Rock",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

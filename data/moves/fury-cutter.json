@@ -2,7 +2,7 @@
     "name": "Fury Cutter",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 40,
     "accuracy": 95,
     "priority": 0,

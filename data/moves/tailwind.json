@@ -2,7 +2,7 @@
     "name": "Tailwind",
     "category": "field-effect",
     "target": "users-field",
-    "type": "flying",
+    "type": "Flying",
     "power": null,
     "accuracy": null,
     "priority": 0,

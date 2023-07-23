@@ -2,7 +2,7 @@
     "name": "Clanging Scales",
     "category": "damage+raise",
     "target": "all-opponents",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 110,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Razor Leaf",
     "category": "damage",
     "target": "all-opponents",
-    "type": "grass",
+    "type": "Grass",
     "power": 55,
     "accuracy": 95,
     "priority": 0,

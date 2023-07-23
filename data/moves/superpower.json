@@ -2,7 +2,7 @@
     "name": "Superpower",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

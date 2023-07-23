@@ -2,7 +2,7 @@
     "name": "Mystical Fire",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

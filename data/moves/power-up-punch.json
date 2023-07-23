@@ -2,7 +2,7 @@
     "name": "Power-Up Punch",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Detect",
     "category": "unique",
     "target": "user",
-    "type": "fighting",
+    "type": "Fighting",
     "power": null,
     "accuracy": null,
     "priority": 4,

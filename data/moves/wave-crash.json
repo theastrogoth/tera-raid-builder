@@ -2,7 +2,7 @@
     "name": "Wave Crash",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

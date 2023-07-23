@@ -2,7 +2,7 @@
     "name": "Electro Ball",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": null,
     "accuracy": 100,
     "priority": 0,

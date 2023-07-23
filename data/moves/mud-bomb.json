@@ -2,7 +2,7 @@
     "name": "Mud Bomb",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 65,
     "accuracy": 85,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Water Shuriken",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 15,
     "accuracy": 100,
     "priority": 1,

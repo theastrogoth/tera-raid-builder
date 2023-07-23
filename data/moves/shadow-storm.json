@@ -2,7 +2,7 @@
     "name": "Shadow Storm",
     "category": null,
     "target": "opponents-field",
-    "type": "shadow",
+    "type": "Shadow",
     "power": 95,
     "accuracy": 100,
     "priority": 0,

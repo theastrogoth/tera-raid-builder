@@ -2,7 +2,7 @@
     "name": "Slam",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 80,
     "accuracy": 75,
     "priority": 0,

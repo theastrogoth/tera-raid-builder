@@ -2,7 +2,7 @@
     "name": "Dragon Energy",
     "category": "damage",
     "target": "all-opponents",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 150,
     "accuracy": 100,
     "priority": 0,

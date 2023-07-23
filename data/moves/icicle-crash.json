@@ -2,7 +2,7 @@
     "name": "Icicle Crash",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 85,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Plasma Fists",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

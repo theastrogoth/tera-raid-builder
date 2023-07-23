@@ -2,7 +2,7 @@
     "name": "Heat Wave",
     "category": "damage+ailment",
     "target": "all-opponents",
-    "type": "fire",
+    "type": "Fire",
     "power": 95,
     "accuracy": 90,
     "priority": 0,

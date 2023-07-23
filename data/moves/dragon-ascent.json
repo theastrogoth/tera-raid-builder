@@ -2,7 +2,7 @@
     "name": "Dragon Ascent",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

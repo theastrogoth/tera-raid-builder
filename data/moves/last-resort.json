@@ -2,7 +2,7 @@
     "name": "Last Resort",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 140,
     "accuracy": 100,
     "priority": 0,

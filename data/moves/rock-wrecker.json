@@ -2,7 +2,7 @@
     "name": "Rock Wrecker",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "rock",
+    "type": "Rock",
     "power": 150,
     "accuracy": 90,
     "priority": 0,

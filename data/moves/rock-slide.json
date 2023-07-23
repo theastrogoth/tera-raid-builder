@@ -2,7 +2,7 @@
     "name": "Rock Slide",
     "category": "damage",
     "target": "all-opponents",
-    "type": "rock",
+    "type": "Rock",
     "power": 75,
     "accuracy": 90,
     "priority": 0,

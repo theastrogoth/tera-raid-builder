@@ -2,7 +2,7 @@
     "name": "Magnetic Flux",
     "category": "net-good-stats",
     "target": "user-and-allies",
-    "type": "electric",
+    "type": "Electric",
     "power": null,
     "accuracy": null,
     "priority": 0,

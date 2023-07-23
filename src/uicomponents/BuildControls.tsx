@@ -72,12 +72,7 @@ function createMoveOptions(moves: MoveSetItem[]) {
 
 function natureToOption(nature: Nature) {
     if (nature.plus == nature.minus) { return nature.name }
-    return nature.name + " (+" + prettyStatName(nature.plus as string) + ", -" + prettyStatName(nature.minus as string) + ")";
-}
-
-function optionToNature(option: string | undefined) {
-    if (!option) { return "Hardy"; }
-    return option.slice(0,-13);
+    return nature.name + "\n(+" + prettyStatName(nature.plus as string) + ", -" + prettyStatName(nature.minus as string) + ")";
 }
 
 function prettyStatName(stat: string) {
@@ -184,13 +179,14 @@ return (
                         size="small"
                         value={value || undefined}
                         options={options}
-                        renderOption={(props, option) => <li {...props}><Typography variant="body2">{optionFinder(option)}</Typography></li>}
+                        renderOption={(props, option) => <li {...props}><Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{optionFinder(option)}</Typography></li>}
                         renderInput={(params) => 
                             <TextField {...params} variant="standard" size="small" />}
                         onChange={(event: any, newValue: string) => {
                             setValue(newValue);
                         }}
                         sx = {{width: '85%'}}
+                        style={{ whiteSpace: "pre-wrap" }}
                     />
                 }
             </RightCell>
@@ -692,7 +688,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                                             abilities={abilities}
                                             prettyMode={prettyMode}
                                         /> 
-                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={(val: string) => setPokemonProperty("nature")(optionToNature(val))} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures))} prettyMode={prettyMode}/>
+                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={setPokemonProperty("nature")} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures))} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell>Level</LeftCell>
                                     <RightCell>

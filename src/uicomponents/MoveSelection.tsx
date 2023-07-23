@@ -284,7 +284,7 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
                     onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
                     sx={{ maxWidth : "150px"}}
                 >
-                    {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
+                    {moveSet.map((move, i) => <MenuItem key={i} value={move}><Typography variant="body2">{move}</Typography></MenuItem>)}
                 </Select>
                 <Box flexGrow={1} />
             </Stack>

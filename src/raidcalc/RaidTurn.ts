@@ -4,6 +4,7 @@ import { MoveData, RaidMoveOptions, RaidState, RaidTurnResult, RaidMoveResult, R
 import { getModifiedStat } from "../calc/mechanics/util";
 import { Raider } from "./interface";
 import { RaidMove } from "./RaidMove";
+import { AbilityName, ItemName } from "../calc/data/interface";
 
 const gen = Generations.get(9);
 
@@ -142,7 +143,7 @@ export class RaidTurn {
     private setTurnOrder() {
         this._raider = this.raidState.raiders[this.raiderID];
         this._boss = this.raidState.raiders[0];
-
+        
         // first compare priority
         const raiderPriority = this.raiderMoveData.priority || this._raiderMove.priority;
         const bossPriority = this.bossMoveData.priority || this._bossMove.priority;
@@ -154,20 +155,33 @@ export class RaidTurn {
             // if priority is the same, compare speed
             let raiderSpeed = getModifiedStat(this._raider.stats.spe, this._raider.boosts.spe, gen);
             let bossSpeed = getModifiedStat(this._boss.stats.spe, this._boss.boosts.spe, gen);
-            raiderSpeed = this.modifyRaiderSpeedByItem(raiderSpeed, this._raider);
-            bossSpeed = this.modifyRaiderSpeedByItem(bossSpeed, this._boss);
-            const bossField = this.raidState.fields[0];
+            
+            raiderSpeed = this.modifyPokemonSpeedByStatus(raiderSpeed, this._raider.status, this._raider.ability)
+            bossSpeed = this.modifyPokemonSpeedByStatus(bossSpeed, this._boss.status, this._boss.ability)
+
+            raiderSpeed = this.modifyPokemonSpeedByItem(raiderSpeed, this._raider.item);
+            bossSpeed = this.modifyPokemonSpeedByItem(bossSpeed, this._boss.item);
+
+            raiderSpeed = this.modifyPokemonSpeedByAbility(raiderSpeed, this._raider.ability, this._raider.abilityOn, this._raider.status);
+            bossSpeed = this.modifyPokemonSpeedByAbility(bossSpeed, this._boss.ability, this._boss.abilityOn, this._boss.status);
+
             const raiderField = this.raidState.fields[this.raiderID];
-            if (raiderField.attackerSide.isTailwind) { raiderSpeed *= 2 };
-            if (bossField.attackerSide.isTailwind) { bossSpeed *= 2 };
+            const bossField = this.raidState.fields[0];
+            raiderSpeed = this.modifyPokemonSpeedByField(raiderSpeed, raiderField, this._raider.ability)
+            bossSpeed = this.modifyPokemonSpeedByField(bossSpeed, bossField, this._boss.ability)
+
             this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
         }
     }
 
-    private modifyRaiderSpeedByItem(speed : number, pokemon: Raider) {
-        switch(pokemon.item) {
+    private modifyPokemonSpeedByStatus(speed: number, status?: string, ability?: AbilityName) {
+        return status === "par" && ability !== "Quick Feet" ? speed * .5 : speed;
+    }
+
+    private modifyPokemonSpeedByItem(speed : number, item?: ItemName) {
+        switch(item) {
             case "Choice Scarf":
-                return speed * 1.5; // 6144/4096
+                return speed * 1.5;
             case "Iron Ball":
             case "Macho Brace":
             case "Power Anklet":
@@ -176,14 +190,43 @@ export class RaidTurn {
             case "Power Bracer":
             case "Power Lens":
             case "Power Weight":
-                return speed * .5; // 2048/4096
+                return speed * .5;
             case "Lagging Tail":
             case "Full Incense":
-                return -1;
+                return 0;
             // TODO: Quick Powder doubles the speed of untransformed Ditto
             default:
                 return speed;
         }
+    }
+
+    private modifyPokemonSpeedByAbility(speed: number, ability?: AbilityName, abilityOn?: boolean, status?: string) {
+        switch(ability) {
+            case "Unburden":
+                return abilityOn ? speed * 2 : speed;
+            case "Slow Start":
+                return abilityOn ? speed * .5 : speed;
+            case "Quick Feet":
+                return status ? speed * 1.5 : speed;
+            default:
+                return speed;
+        }
+    }
+
+    private modifyPokemonSpeedByField(speed: number, field: Field, ability?: AbilityName) {
+        if (
+            ability === "Chlorophyll" && field.weather?.includes("Sun") ||
+            ability === "Sand Rush" && field.weather?.includes("Sand") ||
+            ability === "Slush Rush" && field.weather?.includes("Snow") ||
+            ability === "Swift Swim" && field.weather?.includes("Rain") ||
+            ability === "Surge Surfer" && field.terrain?.includes("Electric")
+        ) {
+            speed *= 2;
+        }
+        if (field.attackerSide.isTailwind) {
+            speed *= 2;
+        }
+        return speed;
     }
 
     private applyEndOfTurnItemEffects() {

@@ -142,6 +142,7 @@ export class RaidTurn {
     private setTurnOrder() {
         this._raider = this.raidState.raiders[this.raiderID];
         this._boss = this.raidState.raiders[0];
+
         // first compare priority
         const raiderPriority = this.raiderMoveData.priority || this._raiderMove.priority;
         const bossPriority = this.bossMoveData.priority || this._bossMove.priority;
@@ -153,11 +154,35 @@ export class RaidTurn {
             // if priority is the same, compare speed
             let raiderSpeed = getModifiedStat(this._raider.stats.spe, this._raider.boosts.spe, gen);
             let bossSpeed = getModifiedStat(this._boss.stats.spe, this._boss.boosts.spe, gen);
+            raiderSpeed = this.modifyRaiderSpeedByItem(raiderSpeed, this._raider);
+            bossSpeed = this.modifyRaiderSpeedByItem(bossSpeed, this._boss);
             const bossField = this.raidState.fields[0];
             const raiderField = this.raidState.fields[this.raiderID];
             if (raiderField.attackerSide.isTailwind) { raiderSpeed *= 2 };
             if (bossField.attackerSide.isTailwind) { bossSpeed *= 2 };
             this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
+        }
+    }
+
+    private modifyRaiderSpeedByItem(speed : number, pokemon: Raider) {
+        switch(pokemon.item) {
+            case "Choice Scarf":
+                return speed * 1.5; // 6144/4096
+            case "Iron Ball":
+            case "Macho Brace":
+            case "Power Anklet":
+            case "Power Band":
+            case "Power Belt":
+            case "Power Bracer":
+            case "Power Lens":
+            case "Power Weight":
+                return speed * .5; // 2048/4096
+            case "Lagging Tail":
+            case "Full Incense":
+                return -1;
+            // TODO: Quick Powder doubles the speed of untransformed Ditto
+            default:
+                return speed;
         }
     }
 

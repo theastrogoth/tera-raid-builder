@@ -2,7 +2,7 @@
     "name": "Breaking Swipe",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

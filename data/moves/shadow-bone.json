@@ -2,7 +2,7 @@
     "name": "Shadow Bone",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 85,
     "accuracy": 100,
     "priority": 0,

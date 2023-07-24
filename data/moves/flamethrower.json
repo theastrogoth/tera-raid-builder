@@ -2,7 +2,7 @@
     "name": "Flamethrower",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Aromatic Mist",
     "category": "net-good-stats",
     "target": "ally",
-    "type": "fairy",
+    "type": "Fairy",
     "power": null,
     "accuracy": null,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Origin Pulse",
     "category": "damage",
     "target": "all-opponents",
-    "type": "water",
+    "type": "Water",
     "power": 110,
     "accuracy": 85,
     "priority": 0,

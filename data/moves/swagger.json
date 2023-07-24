@@ -2,7 +2,7 @@
     "name": "Swagger",
     "category": "swagger",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": 85,
     "priority": 0,

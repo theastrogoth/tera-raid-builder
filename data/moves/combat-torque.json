@@ -2,7 +2,7 @@
     "name": "Combat Torque",
     "category": null,
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

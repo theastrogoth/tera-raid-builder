@@ -2,7 +2,7 @@
     "name": "Mortal Spin",
     "category": "unique",
     "target": "all-opponents",
-    "type": "poison",
+    "type": "Poison",
     "power": 30,
     "accuracy": 100,
     "priority": 0,

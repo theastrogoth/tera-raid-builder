@@ -2,7 +2,7 @@
     "name": "Needle Arm",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

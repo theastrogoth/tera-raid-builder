@@ -2,7 +2,7 @@
     "name": "Twister",
     "category": "damage",
     "target": "all-opponents",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

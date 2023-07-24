@@ -2,7 +2,7 @@
     "name": "Coil",
     "category": "net-good-stats",
     "target": "user",
-    "type": "poison",
+    "type": "Poison",
     "power": null,
     "accuracy": null,
     "priority": 0,

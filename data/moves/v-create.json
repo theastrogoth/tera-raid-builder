@@ -2,7 +2,7 @@
     "name": "V-Create",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 180,
     "accuracy": 95,
     "priority": 0,

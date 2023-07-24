@@ -2,7 +2,7 @@
     "name": "Thunderous Kick",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

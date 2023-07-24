@@ -2,7 +2,7 @@
     "name": "Feather Dance",
     "category": "net-good-stats",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": null,
     "accuracy": 100,
     "priority": 0,

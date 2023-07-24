@@ -2,7 +2,7 @@
     "name": "Psychic Fangs",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 85,
     "accuracy": 100,
     "priority": 0,

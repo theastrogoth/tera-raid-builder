@@ -2,7 +2,7 @@
     "name": "Tail Glow",
     "category": "net-good-stats",
     "target": "user",
-    "type": "bug",
+    "type": "Bug",
     "power": null,
     "accuracy": null,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Perish Song",
     "category": "ailment",
     "target": "all-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 0,

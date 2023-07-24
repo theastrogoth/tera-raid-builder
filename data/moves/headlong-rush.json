@@ -2,7 +2,7 @@
     "name": "Headlong Rush",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

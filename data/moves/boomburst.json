@@ -2,7 +2,7 @@
     "name": "Boomburst",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 140,
     "accuracy": 100,
     "priority": 0,

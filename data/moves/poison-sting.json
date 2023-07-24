@@ -2,7 +2,7 @@
     "name": "Poison Sting",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": 15,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Moonblast",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 95,
     "accuracy": 100,
     "priority": 0,

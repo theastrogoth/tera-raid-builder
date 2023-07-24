@@ -2,7 +2,7 @@
     "name": "Sacred Fire",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 100,
     "accuracy": 95,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Gigaton Hammer",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 160,
     "accuracy": 100,
     "priority": 0,

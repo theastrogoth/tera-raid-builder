@@ -2,7 +2,7 @@
     "name": "Bullet Seed",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 25,
     "accuracy": 100,
     "priority": 0,

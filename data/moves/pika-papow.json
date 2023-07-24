@@ -2,7 +2,7 @@
     "name": "Pika Papow",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": null,
     "accuracy": null,
     "priority": 0,

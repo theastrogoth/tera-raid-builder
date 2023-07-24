@@ -2,7 +2,7 @@
     "name": "Charge",
     "category": "net-good-stats",
     "target": "user",
-    "type": "electric",
+    "type": "Electric",
     "power": null,
     "accuracy": null,
     "priority": 0,

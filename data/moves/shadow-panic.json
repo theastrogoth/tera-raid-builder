@@ -2,7 +2,7 @@
     "name": "Shadow Panic",
     "category": null,
     "target": "opponents-field",
-    "type": "shadow",
+    "type": "Shadow",
     "power": null,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Quick Guard",
     "category": "field-effect",
     "target": "users-field",
-    "type": "fighting",
+    "type": "Fighting",
     "power": null,
     "accuracy": null,
     "priority": 3,

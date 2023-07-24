@@ -2,7 +2,7 @@
     "name": "Acid Spray",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

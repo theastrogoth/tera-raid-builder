@@ -2,7 +2,7 @@
     "name": "Struggle Bug",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "bug",
+    "type": "Bug",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

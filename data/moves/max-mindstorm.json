@@ -2,7 +2,7 @@
     "name": "Max Mindstorm",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 10,
     "accuracy": null,
     "priority": 0,

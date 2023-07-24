@@ -2,7 +2,7 @@
     "name": "Hyperspace Hole",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 80,
     "accuracy": null,
     "priority": 0,

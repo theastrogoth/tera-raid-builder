@@ -2,7 +2,7 @@
     "name": "Low Kick",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": null,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Kinesis",
     "category": "net-good-stats",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": null,
     "accuracy": 80,
     "priority": 0,

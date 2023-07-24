@@ -2,7 +2,7 @@
     "name": "Max Knuckle",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 10,
     "accuracy": null,
     "priority": 0,

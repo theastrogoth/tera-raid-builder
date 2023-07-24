@@ -2,7 +2,7 @@
     "name": "Will-O-Wisp",
     "category": "ailment",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": null,
     "accuracy": 85,
     "priority": 0,

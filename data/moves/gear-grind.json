@@ -2,7 +2,7 @@
     "name": "Gear Grind",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 50,
     "accuracy": 85,
     "priority": 0,

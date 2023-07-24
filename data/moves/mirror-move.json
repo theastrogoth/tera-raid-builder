@@ -2,7 +2,7 @@
     "name": "Mirror Move",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": null,
     "accuracy": null,
     "priority": 0,

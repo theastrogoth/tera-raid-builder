@@ -2,7 +2,7 @@
     "name": "Sunny Day",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "fire",
+    "type": "Fire",
     "power": null,
     "accuracy": null,
     "priority": 0,

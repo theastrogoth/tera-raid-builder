@@ -2,7 +2,7 @@
     "name": "Bone Club",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 65,
     "accuracy": 85,
     "priority": 0,

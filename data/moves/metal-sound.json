@@ -2,7 +2,7 @@
     "name": "Metal Sound",
     "category": "net-good-stats",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": null,
     "accuracy": 85,
     "priority": 0,

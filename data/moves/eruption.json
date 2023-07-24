@@ -2,7 +2,7 @@
     "name": "Eruption",
     "category": "damage",
     "target": "all-opponents",
-    "type": "fire",
+    "type": "Fire",
     "power": 150,
     "accuracy": 100,
     "priority": 0,

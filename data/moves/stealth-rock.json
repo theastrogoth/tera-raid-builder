@@ -2,7 +2,7 @@
     "name": "Stealth Rock",
     "category": "field-effect",
     "target": "opponents-field",
-    "type": "rock",
+    "type": "Rock",
     "power": null,
     "accuracy": null,
     "priority": 0,

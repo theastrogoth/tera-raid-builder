@@ -2,7 +2,7 @@
     "name": "Withdraw",
     "category": "net-good-stats",
     "target": "user",
-    "type": "water",
+    "type": "Water",
     "power": null,
     "accuracy": null,
     "priority": 0,

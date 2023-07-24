@@ -2,7 +2,7 @@
     "name": "Jungle Healing",
     "category": "unique",
     "target": "user-and-allies",
-    "type": "grass",
+    "type": "Grass",
     "power": null,
     "accuracy": null,
     "priority": 0,

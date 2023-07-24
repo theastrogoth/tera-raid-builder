@@ -2,7 +2,7 @@
     "name": "Eerie Impulse",
     "category": "net-good-stats",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": null,
     "accuracy": 100,
     "priority": 0,

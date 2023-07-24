@@ -2,7 +2,7 @@
     "name": "Icicle Spear",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 25,
     "accuracy": 100,
     "priority": 0,

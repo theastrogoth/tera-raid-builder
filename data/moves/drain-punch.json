@@ -2,7 +2,7 @@
     "name": "Drain Punch",
     "category": "damage+heal",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

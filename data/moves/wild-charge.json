@@ -2,7 +2,7 @@
     "name": "Wild Charge",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

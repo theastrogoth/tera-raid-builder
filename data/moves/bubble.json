@@ -2,7 +2,7 @@
     "name": "Bubble",
     "category": "damage+lower",
     "target": "all-opponents",
-    "type": "water",
+    "type": "Water",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

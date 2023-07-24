@@ -2,7 +2,7 @@
     "name": "Shock Wave",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 60,
     "accuracy": null,
     "priority": 0,

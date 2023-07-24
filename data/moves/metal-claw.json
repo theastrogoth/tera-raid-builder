@@ -2,7 +2,7 @@
     "name": "Metal Claw",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 50,
     "accuracy": 95,
     "priority": 0,

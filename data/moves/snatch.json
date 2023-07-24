@@ -2,7 +2,7 @@
     "name": "Snatch",
     "category": "unique",
     "target": "user",
-    "type": "dark",
+    "type": "Dark",
     "power": null,
     "accuracy": null,
     "priority": 4,

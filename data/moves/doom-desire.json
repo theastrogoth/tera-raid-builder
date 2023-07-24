@@ -2,7 +2,7 @@
     "name": "Doom Desire",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 140,
     "accuracy": 100,
     "priority": 0,

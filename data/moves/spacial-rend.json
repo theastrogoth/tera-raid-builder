@@ -2,7 +2,7 @@
     "name": "Spacial Rend",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 100,
     "accuracy": 95,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Double Kick",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 30,
     "accuracy": 100,
     "priority": 0,

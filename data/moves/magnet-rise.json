@@ -2,7 +2,7 @@
     "name": "Magnet Rise",
     "category": "unique",
     "target": "user",
-    "type": "electric",
+    "type": "Electric",
     "power": null,
     "accuracy": null,
     "priority": 0,

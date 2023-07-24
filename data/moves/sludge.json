@@ -2,7 +2,7 @@
     "name": "Sludge",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": 65,
     "accuracy": 100,
     "priority": 0,

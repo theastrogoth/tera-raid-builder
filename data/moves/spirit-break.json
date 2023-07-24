@@ -2,7 +2,7 @@
     "name": "Spirit Break",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

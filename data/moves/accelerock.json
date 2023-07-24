@@ -2,7 +2,7 @@
     "name": "Accelerock",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "rock",
+    "type": "Rock",
     "power": 40,
     "accuracy": 100,
     "priority": 1,

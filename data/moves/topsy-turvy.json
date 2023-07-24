@@ -2,7 +2,7 @@
     "name": "Topsy-Turvy",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": null,
     "accuracy": null,
     "priority": 0,

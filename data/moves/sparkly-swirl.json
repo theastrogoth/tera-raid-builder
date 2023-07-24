@@ -2,7 +2,7 @@
     "name": "Sparkly Swirl",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 120,
     "accuracy": 85,
     "priority": 0,

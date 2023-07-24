@@ -2,7 +2,7 @@
     "name": "Ion Deluge",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "electric",
+    "type": "Electric",
     "power": null,
     "accuracy": null,
     "priority": 1,

@@ -2,7 +2,7 @@
     "name": "Shelter",
     "category": "net-good-stats",
     "target": "user",
-    "type": "steel",
+    "type": "Steel",
     "power": 0,
     "accuracy": null,
     "priority": 0,
@@ -13,7 +13,7 @@
     "statChanges": [
         {
             "stat": "def",
-            "value": 2
+            "change": null
         }
     ],
     "flinchChance": null,

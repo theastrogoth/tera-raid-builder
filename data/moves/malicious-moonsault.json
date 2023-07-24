@@ -2,7 +2,7 @@
     "name": "Malicious Moonsault",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 180,
     "accuracy": null,
     "priority": 0,

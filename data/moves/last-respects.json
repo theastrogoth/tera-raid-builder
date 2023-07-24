@@ -2,7 +2,7 @@
     "name": "Last Respects",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

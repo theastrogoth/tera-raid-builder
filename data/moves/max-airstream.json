@@ -2,7 +2,7 @@
     "name": "Max Airstream",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "flying",
+    "type": "Flying",
     "power": 10,
     "accuracy": null,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Gyro Ball",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": null,
     "accuracy": 100,
     "priority": 0,

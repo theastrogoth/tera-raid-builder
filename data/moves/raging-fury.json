@@ -2,7 +2,7 @@
     "name": "Raging Fury",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

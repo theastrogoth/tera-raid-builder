@@ -2,7 +2,7 @@
     "name": "Crafty Shield",
     "category": "field-effect",
     "target": "users-field",
-    "type": "fairy",
+    "type": "Fairy",
     "power": null,
     "accuracy": null,
     "priority": 3,

@@ -2,7 +2,7 @@
     "name": "Sucker Punch",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 70,
     "accuracy": 100,
     "priority": 1,

@@ -2,7 +2,7 @@
     "name": "Fillet Away",
     "category": "net-good-stats",
     "target": "user",
-    "type": "normal",
+    "type": "Normal",
     "power": 0,
     "accuracy": null,
     "priority": 0,
@@ -17,7 +17,7 @@
         },
         {
             "stat": "spa",
-            "change": 2  
+            "change": 2
         },
         {
             "stat": "spe",

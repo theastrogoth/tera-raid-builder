@@ -2,7 +2,7 @@
     "name": "Twin Beam",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

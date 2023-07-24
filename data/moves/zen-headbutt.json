@@ -2,7 +2,7 @@
     "name": "Zen Headbutt",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 80,
     "accuracy": 90,
     "priority": 0,

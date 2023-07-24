@@ -2,7 +2,7 @@
     "name": "Searing Sunraze Smash",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 200,
     "accuracy": null,
     "priority": 0,

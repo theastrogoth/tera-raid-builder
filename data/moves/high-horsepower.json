@@ -2,7 +2,7 @@
     "name": "High Horsepower",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 95,
     "accuracy": 95,
     "priority": 0,

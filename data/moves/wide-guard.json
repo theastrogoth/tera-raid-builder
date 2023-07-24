@@ -2,7 +2,7 @@
     "name": "Wide Guard",
     "category": "field-effect",
     "target": "users-field",
-    "type": "rock",
+    "type": "Rock",
     "power": null,
     "accuracy": null,
     "priority": 3,

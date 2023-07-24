@@ -2,7 +2,7 @@
     "name": "Shadow Break",
     "category": null,
     "target": "selected-pokemon",
-    "type": "shadow",
+    "type": "Shadow",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Lets Snuggle Forever",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 190,
     "accuracy": null,
     "priority": 0,

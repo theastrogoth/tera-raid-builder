@@ -2,7 +2,7 @@
     "name": "Pollen Puff",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

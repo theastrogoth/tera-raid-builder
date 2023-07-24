@@ -2,7 +2,7 @@
     "name": "Snap Trap",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 35,
     "accuracy": 100,
     "priority": 0,

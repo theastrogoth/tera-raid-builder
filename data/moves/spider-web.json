@@ -2,7 +2,7 @@
     "name": "Spider Web",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": null,
     "accuracy": null,
     "priority": 0,

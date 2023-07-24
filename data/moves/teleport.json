@@ -2,7 +2,7 @@
     "name": "Teleport",
     "category": "unique",
     "target": "user",
-    "type": "psychic",
+    "type": "Psychic",
     "power": null,
     "accuracy": null,
     "priority": -6,

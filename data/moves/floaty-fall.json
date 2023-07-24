@@ -2,7 +2,7 @@
     "name": "Floaty Fall",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 90,
     "accuracy": 95,
     "priority": 0,

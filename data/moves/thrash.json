@@ -2,7 +2,7 @@
     "name": "Thrash",
     "category": "damage",
     "target": "random-opponent",
-    "type": "normal",
+    "type": "Normal",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

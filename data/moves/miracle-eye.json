@@ -2,7 +2,7 @@
     "name": "Miracle Eye",
     "category": "ailment",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": null,
     "accuracy": null,
     "priority": 0,

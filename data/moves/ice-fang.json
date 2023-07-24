@@ -2,7 +2,7 @@
     "name": "Ice Fang",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 65,
     "accuracy": 95,
     "priority": 0,

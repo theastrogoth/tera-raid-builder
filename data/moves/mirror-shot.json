@@ -2,7 +2,7 @@
     "name": "Mirror Shot",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 65,
     "accuracy": 85,
     "priority": 0,

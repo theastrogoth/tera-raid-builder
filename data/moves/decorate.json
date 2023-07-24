@@ -2,7 +2,7 @@
     "name": "Decorate",
     "category": "net-good-stats",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": null,
     "accuracy": null,
     "priority": 0,

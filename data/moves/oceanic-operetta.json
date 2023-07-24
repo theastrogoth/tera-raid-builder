@@ -2,7 +2,7 @@
     "name": "Oceanic Operetta",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 195,
     "accuracy": null,
     "priority": 0,

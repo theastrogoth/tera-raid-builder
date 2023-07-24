@@ -2,7 +2,7 @@
     "name": "10 000 000 Volt Thunderbolt",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 195,
     "accuracy": null,
     "priority": 0,

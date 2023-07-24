@@ -2,7 +2,7 @@
     "name": "Shadow Blast",
     "category": null,
     "target": "selected-pokemon",
-    "type": "shadow",
+    "type": "Shadow",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

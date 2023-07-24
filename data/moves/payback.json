@@ -2,7 +2,7 @@
     "name": "Payback",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

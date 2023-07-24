@@ -2,7 +2,7 @@
     "name": "Barb Barrage",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

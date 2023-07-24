@@ -2,7 +2,7 @@
     "name": "Splintered Stormshards",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "rock",
+    "type": "Rock",
     "power": 190,
     "accuracy": null,
     "priority": 0,

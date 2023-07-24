@@ -2,7 +2,7 @@
     "name": "Sheer Cold",
     "category": "ohko",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": null,
     "accuracy": 30,
     "priority": 0,

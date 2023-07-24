@@ -2,7 +2,7 @@
     "name": "Clangorous Soulblaze",
     "category": "damage+raise",
     "target": "all-opponents",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 185,
     "accuracy": null,
     "priority": 0,

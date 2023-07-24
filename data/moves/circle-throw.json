@@ -2,7 +2,7 @@
     "name": "Circle Throw",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 60,
     "accuracy": 90,
     "priority": -6,

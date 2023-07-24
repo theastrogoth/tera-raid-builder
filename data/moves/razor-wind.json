@@ -2,7 +2,7 @@
     "name": "Razor Wind",
     "category": "damage",
     "target": "all-opponents",
-    "type": "normal",
+    "type": "Normal",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

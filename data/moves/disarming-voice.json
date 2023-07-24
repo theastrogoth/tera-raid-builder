@@ -2,7 +2,7 @@
     "name": "Disarming Voice",
     "category": "damage",
     "target": "all-opponents",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 40,
     "accuracy": null,
     "priority": 0,

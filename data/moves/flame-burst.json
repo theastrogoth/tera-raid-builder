@@ -2,7 +2,7 @@
     "name": "Flame Burst",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

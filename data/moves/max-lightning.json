@@ -2,7 +2,7 @@
     "name": "Max Lightning",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "electric",
+    "type": "Electric",
     "power": 10,
     "accuracy": null,
     "priority": 0,

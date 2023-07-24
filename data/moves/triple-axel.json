@@ -2,7 +2,7 @@
     "name": "Triple Axel",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 20,
     "accuracy": 90,
     "priority": 0,

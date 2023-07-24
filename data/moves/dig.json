@@ -2,7 +2,7 @@
     "name": "Dig",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

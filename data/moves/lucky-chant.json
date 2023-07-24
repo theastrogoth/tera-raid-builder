@@ -2,7 +2,7 @@
     "name": "Lucky Chant",
     "category": "field-effect",
     "target": "users-field",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 0,

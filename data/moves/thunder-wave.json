@@ -2,7 +2,7 @@
     "name": "Thunder Wave",
     "category": "ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": null,
     "accuracy": 90,
     "priority": 0,

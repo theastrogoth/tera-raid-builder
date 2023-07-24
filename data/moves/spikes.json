@@ -2,7 +2,7 @@
     "name": "Spikes",
     "category": "field-effect",
     "target": "opponents-field",
-    "type": "ground",
+    "type": "Ground",
     "power": null,
     "accuracy": null,
     "priority": 0,

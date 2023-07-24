@@ -2,7 +2,7 @@
     "name": "Aurora Beam",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 65,
     "accuracy": 100,
     "priority": 0,

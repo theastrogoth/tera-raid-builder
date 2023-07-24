@@ -2,7 +2,7 @@
     "name": "Dragon Pulse",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 85,
     "accuracy": 100,
     "priority": 0,

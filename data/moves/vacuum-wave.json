@@ -2,7 +2,7 @@
     "name": "Vacuum Wave",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 40,
     "accuracy": 100,
     "priority": 1,

@@ -2,7 +2,7 @@
     "name": "Powder",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": null,
     "accuracy": 100,
     "priority": 1,

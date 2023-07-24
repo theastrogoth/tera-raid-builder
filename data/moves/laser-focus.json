@@ -2,7 +2,7 @@
     "name": "Laser Focus",
     "category": "unique",
     "target": "user",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 0,

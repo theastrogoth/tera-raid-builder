@@ -2,7 +2,7 @@
     "name": "Esper Wing",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 80,
     "accuracy": 100,
     "priority": 0,
@@ -13,7 +13,7 @@
     "statChanges": [
         {
             "stat": "spe",
-            "value": 1
+            "change": null
         }
     ],
     "flinchChance": null,

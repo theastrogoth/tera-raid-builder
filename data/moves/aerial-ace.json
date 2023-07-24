@@ -2,7 +2,7 @@
     "name": "Aerial Ace",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 60,
     "accuracy": null,
     "priority": 0,

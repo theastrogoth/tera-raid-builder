@@ -2,7 +2,7 @@
     "name": "Meteor Mash",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 90,
     "accuracy": 90,
     "priority": 0,

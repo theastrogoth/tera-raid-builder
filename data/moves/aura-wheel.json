@@ -2,7 +2,7 @@
     "name": "Aura Wheel",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 110,
     "accuracy": 100,
     "priority": 0,

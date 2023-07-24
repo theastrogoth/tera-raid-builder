@@ -2,7 +2,7 @@
     "name": "Geomancy",
     "category": "net-good-stats",
     "target": "user",
-    "type": "fairy",
+    "type": "Fairy",
     "power": null,
     "accuracy": null,
     "priority": 0,

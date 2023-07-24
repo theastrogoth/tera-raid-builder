@@ -2,7 +2,7 @@
     "name": "Blast Burn",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 150,
     "accuracy": 90,
     "priority": 0,

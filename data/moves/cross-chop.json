@@ -2,7 +2,7 @@
     "name": "Cross Chop",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 100,
     "accuracy": 80,
     "priority": 0,

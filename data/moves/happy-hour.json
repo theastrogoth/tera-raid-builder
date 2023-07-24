@@ -2,7 +2,7 @@
     "name": "Happy Hour",
     "category": "unique",
     "target": "users-field",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 0,

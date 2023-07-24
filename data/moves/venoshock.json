@@ -2,7 +2,7 @@
     "name": "Venoshock",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "poison",
+    "type": "Poison",
     "power": 65,
     "accuracy": 100,
     "priority": 0,

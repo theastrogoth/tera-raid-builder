@@ -2,7 +2,7 @@
     "name": "Solar Blade",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 125,
     "accuracy": 100,
     "priority": 0,

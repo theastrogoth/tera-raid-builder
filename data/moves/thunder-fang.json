@@ -2,7 +2,7 @@
     "name": "Thunder Fang",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 65,
     "accuracy": 95,
     "priority": 0,

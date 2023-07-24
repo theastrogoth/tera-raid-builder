@@ -2,7 +2,7 @@
     "name": "Charge Beam",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 50,
     "accuracy": 90,
     "priority": 0,

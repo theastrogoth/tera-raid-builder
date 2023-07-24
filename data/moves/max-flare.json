@@ -2,7 +2,7 @@
     "name": "Max Flare",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "fire",
+    "type": "Fire",
     "power": 100,
     "accuracy": null,
     "priority": 0,

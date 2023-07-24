@@ -2,7 +2,7 @@
     "name": "Petal Dance",
     "category": "damage",
     "target": "random-opponent",
-    "type": "grass",
+    "type": "Grass",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

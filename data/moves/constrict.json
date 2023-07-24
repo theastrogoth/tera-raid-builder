@@ -2,7 +2,7 @@
     "name": "Constrict",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 10,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Magnet Bomb",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 60,
     "accuracy": null,
     "priority": 0,

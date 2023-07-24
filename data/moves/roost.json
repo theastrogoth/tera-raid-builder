@@ -2,7 +2,7 @@
     "name": "Roost",
     "category": "heal",
     "target": "user",
-    "type": "flying",
+    "type": "Flying",
     "power": null,
     "accuracy": null,
     "priority": 0,

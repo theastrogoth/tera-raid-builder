@@ -2,7 +2,7 @@
     "name": "Bullet Punch",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 40,
     "accuracy": 100,
     "priority": 1,

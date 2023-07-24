@@ -2,7 +2,7 @@
     "name": "Light Screen",
     "category": "field-effect",
     "target": "users-field",
-    "type": "psychic",
+    "type": "Psychic",
     "power": null,
     "accuracy": null,
     "priority": 0,

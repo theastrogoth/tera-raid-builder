@@ -2,7 +2,7 @@
     "name": "Natures Madness",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": null,
     "accuracy": 90,
     "priority": 0,

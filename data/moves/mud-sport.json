@@ -2,7 +2,7 @@
     "name": "Mud Sport",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "ground",
+    "type": "Ground",
     "power": null,
     "accuracy": null,
     "priority": 0,

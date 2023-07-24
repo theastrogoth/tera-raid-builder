@@ -2,7 +2,7 @@
     "name": "Searing Shot",
     "category": "damage+ailment",
     "target": "all-other-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Mega Drain",
     "category": "damage+heal",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

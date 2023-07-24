@@ -2,7 +2,7 @@
     "name": "Poison Gas",
     "category": "ailment",
     "target": "all-opponents",
-    "type": "poison",
+    "type": "Poison",
     "power": null,
     "accuracy": 90,
     "priority": 0,

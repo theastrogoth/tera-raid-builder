@@ -2,7 +2,7 @@
     "name": "Sweet Kiss",
     "category": "ailment",
     "target": "selected-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": null,
     "accuracy": 75,
     "priority": 0,

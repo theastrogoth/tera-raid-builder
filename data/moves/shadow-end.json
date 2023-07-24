@@ -2,7 +2,7 @@
     "name": "Shadow End",
     "category": null,
     "target": "selected-pokemon",
-    "type": "shadow",
+    "type": "Shadow",
     "power": 120,
     "accuracy": 60,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Aeroblast",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 100,
     "accuracy": 95,
     "priority": 0,

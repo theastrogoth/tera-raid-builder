@@ -2,7 +2,7 @@
     "name": "Steel Roller",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 130,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Ruination",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 1,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Power Trip",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 20,
     "accuracy": 100,
     "priority": 0,

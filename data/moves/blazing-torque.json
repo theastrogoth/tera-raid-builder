@@ -2,7 +2,7 @@
     "name": "Blazing Torque",
     "category": null,
     "target": "selected-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

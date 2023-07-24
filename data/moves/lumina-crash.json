@@ -2,7 +2,7 @@
     "name": "Lumina Crash",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 80,
     "accuracy": 100,
     "priority": 0,
@@ -13,7 +13,7 @@
     "statChanges": [
         {
             "stat": "spd",
-            "value": -2
+            "change": null
         }
     ],
     "flinchChance": null,

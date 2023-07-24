@@ -2,7 +2,7 @@
     "name": "Mountain Gale",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ice",
+    "type": "Ice",
     "power": 100,
     "accuracy": 85,
     "priority": 0,

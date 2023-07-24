@@ -2,7 +2,7 @@
     "name": "Sappy Seed",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 100,
     "accuracy": 90,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Ceaseless Edge",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 65,
     "accuracy": 90,
     "priority": 0,

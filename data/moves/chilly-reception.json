@@ -2,7 +2,7 @@
     "name": "Chilly Reception",
     "category": "unique",
     "target": "entire-field",
-    "type": "ice",
+    "type": "Ice",
     "power": 0,
     "accuracy": null,
     "priority": 0,

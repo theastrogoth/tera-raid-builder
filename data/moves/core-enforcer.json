@@ -2,7 +2,7 @@
     "name": "Core Enforcer",
     "category": "damage",
     "target": "all-opponents",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

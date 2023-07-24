@@ -2,7 +2,7 @@
     "name": "Drill Peck",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

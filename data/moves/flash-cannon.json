@@ -2,7 +2,7 @@
     "name": "Flash Cannon",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "steel",
+    "type": "Steel",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

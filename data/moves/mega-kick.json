@@ -2,7 +2,7 @@
     "name": "Mega Kick",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 120,
     "accuracy": 75,
     "priority": 0,

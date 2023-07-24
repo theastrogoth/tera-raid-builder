@@ -2,7 +2,7 @@
     "name": "Thunder",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "electric",
+    "type": "Electric",
     "power": 110,
     "accuracy": 70,
     "priority": 0,

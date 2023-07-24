@@ -2,7 +2,7 @@
     "name": "Cotton Guard",
     "category": "net-good-stats",
     "target": "user",
-    "type": "grass",
+    "type": "Grass",
     "power": null,
     "accuracy": null,
     "priority": 0,

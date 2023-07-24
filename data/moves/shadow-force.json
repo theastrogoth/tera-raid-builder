@@ -2,7 +2,7 @@
     "name": "Shadow Force",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 120,
     "accuracy": 100,
     "priority": 0,

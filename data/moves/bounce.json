@@ -2,7 +2,7 @@
     "name": "Bounce",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 85,
     "accuracy": 85,
     "priority": 0,

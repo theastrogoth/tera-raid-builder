@@ -2,7 +2,7 @@
     "name": "Horn Leech",
     "category": "damage+heal",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

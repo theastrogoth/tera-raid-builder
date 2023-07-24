@@ -2,7 +2,7 @@
     "name": "Heart Stamp",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

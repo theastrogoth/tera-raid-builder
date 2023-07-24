@@ -2,7 +2,7 @@
     "name": "Sky Attack",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "flying",
+    "type": "Flying",
     "power": 140,
     "accuracy": 90,
     "priority": 0,

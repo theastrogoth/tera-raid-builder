@@ -2,7 +2,7 @@
     "name": "Sinister Arrow Raid",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 180,
     "accuracy": null,
     "priority": 0,

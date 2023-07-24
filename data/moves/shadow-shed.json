@@ -2,7 +2,7 @@
     "name": "Shadow Shed",
     "category": null,
     "target": "entire-field",
-    "type": "shadow",
+    "type": "Shadow",
     "power": null,
     "accuracy": null,
     "priority": 0,

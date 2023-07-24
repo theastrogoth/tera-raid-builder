@@ -2,7 +2,7 @@
     "name": "Vital Throw",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 70,
     "accuracy": null,
     "priority": -1,

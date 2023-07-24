@@ -2,7 +2,7 @@
     "name": "Mud-Slap",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": 20,
     "accuracy": 100,
     "priority": 0,

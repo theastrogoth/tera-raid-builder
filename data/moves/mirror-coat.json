@@ -2,7 +2,7 @@
     "name": "Mirror Coat",
     "category": "damage",
     "target": "specific-move",
-    "type": "psychic",
+    "type": "Psychic",
     "power": null,
     "accuracy": 100,
     "priority": -5,

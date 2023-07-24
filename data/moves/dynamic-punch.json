@@ -2,7 +2,7 @@
     "name": "Dynamic Punch",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 100,
     "accuracy": 50,
     "priority": 0,

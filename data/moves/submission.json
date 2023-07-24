@@ -2,7 +2,7 @@
     "name": "Submission",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 80,
     "accuracy": 80,
     "priority": 0,

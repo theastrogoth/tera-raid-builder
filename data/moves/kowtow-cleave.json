@@ -2,7 +2,7 @@
     "name": "Kowtow Cleave",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 85,
     "accuracy": null,
     "priority": 0,

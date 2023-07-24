@@ -2,7 +2,7 @@
     "name": "Lick",
     "category": "damage+ailment",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 30,
     "accuracy": 100,
     "priority": 0,

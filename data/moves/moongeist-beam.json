@@ -2,7 +2,7 @@
     "name": "Moongeist Beam",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

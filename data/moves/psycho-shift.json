@@ -2,7 +2,7 @@
     "name": "Psycho Shift",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": null,
     "accuracy": 100,
     "priority": 0,

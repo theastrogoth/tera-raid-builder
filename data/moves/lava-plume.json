@@ -2,7 +2,7 @@
     "name": "Lava Plume",
     "category": "damage+ailment",
     "target": "all-other-pokemon",
-    "type": "fire",
+    "type": "Fire",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Dark Void",
     "category": "ailment",
     "target": "all-opponents",
-    "type": "dark",
+    "type": "Dark",
     "power": null,
     "accuracy": 50,
     "priority": 0,

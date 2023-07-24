@@ -2,7 +2,7 @@
     "name": "Surging Strikes",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 25,
     "accuracy": 100,
     "priority": 0,

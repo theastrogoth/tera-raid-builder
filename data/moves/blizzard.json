@@ -2,7 +2,7 @@
     "name": "Blizzard",
     "category": "damage+ailment",
     "target": "all-opponents",
-    "type": "ice",
+    "type": "Ice",
     "power": 110,
     "accuracy": 70,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Night Daze",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "dark",
+    "type": "Dark",
     "power": 85,
     "accuracy": 95,
     "priority": 0,

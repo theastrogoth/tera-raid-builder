@@ -2,7 +2,7 @@
     "name": "Magnitude",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "ground",
+    "type": "Ground",
     "power": null,
     "accuracy": 100,
     "priority": 0,

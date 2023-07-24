@@ -2,7 +2,7 @@
     "name": "Shadow Rush",
     "category": null,
     "target": "selected-pokemon",
-    "type": "shadow",
+    "type": "Shadow",
     "power": 55,
     "accuracy": 100,
     "priority": 0,

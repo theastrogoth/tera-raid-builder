@@ -2,7 +2,7 @@
     "name": "Max Darkness",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "dark",
+    "type": "Dark",
     "power": 10,
     "accuracy": null,
     "priority": 0,

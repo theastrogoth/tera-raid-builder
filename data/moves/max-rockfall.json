@@ -2,7 +2,7 @@
     "name": "Max Rockfall",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "rock",
+    "type": "Rock",
     "power": 10,
     "accuracy": null,
     "priority": 0,

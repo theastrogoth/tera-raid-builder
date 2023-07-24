@@ -2,7 +2,7 @@
     "name": "Struggle",
     "category": "damage",
     "target": "random-opponent",
-    "type": "normal",
+    "type": "Normal",
     "power": 50,
     "accuracy": null,
     "priority": 0,

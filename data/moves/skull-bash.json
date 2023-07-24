@@ -2,7 +2,7 @@
     "name": "Skull Bash",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 130,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Psycho Boost",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 140,
     "accuracy": 90,
     "priority": 0,

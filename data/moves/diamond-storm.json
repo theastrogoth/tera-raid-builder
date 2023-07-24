@@ -2,7 +2,7 @@
     "name": "Diamond Storm",
     "category": "damage+raise",
     "target": "all-opponents",
-    "type": "rock",
+    "type": "Rock",
     "power": 100,
     "accuracy": 95,
     "priority": 0,

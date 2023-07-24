@@ -2,7 +2,7 @@
     "name": "Max Steelspike",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "steel",
+    "type": "Steel",
     "power": 10,
     "accuracy": null,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Bitter Malice",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 75,
     "accuracy": 100,
     "priority": 0,

@@ -2,7 +2,7 @@
     "name": "Thousand Arrows",
     "category": "damage",
     "target": "all-opponents",
-    "type": "ground",
+    "type": "Ground",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

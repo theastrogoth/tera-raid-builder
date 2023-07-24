@@ -2,7 +2,7 @@
     "name": "Explosion",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 250,
     "accuracy": 100,
     "priority": 0,

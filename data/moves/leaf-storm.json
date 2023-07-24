@@ -2,7 +2,7 @@
     "name": "Leaf Storm",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 130,
     "accuracy": 90,
     "priority": 0,

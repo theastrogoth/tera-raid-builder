@@ -2,7 +2,7 @@
     "name": "Shore Up",
     "category": "heal",
     "target": "user",
-    "type": "ground",
+    "type": "Ground",
     "power": null,
     "accuracy": null,
     "priority": 0,

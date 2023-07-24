@@ -2,7 +2,7 @@
     "name": "Uproar",
     "category": "damage",
     "target": "random-opponent",
-    "type": "normal",
+    "type": "Normal",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

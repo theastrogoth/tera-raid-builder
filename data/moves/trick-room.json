@@ -2,7 +2,7 @@
     "name": "Trick Room",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "psychic",
+    "type": "Psychic",
     "power": null,
     "accuracy": null,
     "priority": -7,

@@ -2,7 +2,7 @@
     "name": "Spirit Shackle",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "ghost",
+    "type": "Ghost",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

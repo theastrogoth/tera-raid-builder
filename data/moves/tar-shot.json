@@ -2,7 +2,7 @@
     "name": "Tar Shot",
     "category": "swagger",
     "target": "selected-pokemon",
-    "type": "rock",
+    "type": "Rock",
     "power": null,
     "accuracy": 100,
     "priority": 0,

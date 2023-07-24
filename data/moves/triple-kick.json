@@ -2,7 +2,7 @@
     "name": "Triple Kick",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 10,
     "accuracy": 90,
     "priority": 0,

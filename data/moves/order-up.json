@@ -2,7 +2,7 @@
     "name": "Order Up",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "dragon",
+    "type": "Dragon",
     "power": 80,
     "accuracy": 100,
     "priority": 0,

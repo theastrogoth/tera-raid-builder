@@ -2,7 +2,7 @@
     "name": "Fell Stinger",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "bug",
+    "type": "Bug",
     "power": 50,
     "accuracy": 100,
     "priority": 0,

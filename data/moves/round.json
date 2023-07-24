@@ -2,7 +2,7 @@
     "name": "Round",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "normal",
+    "type": "Normal",
     "power": 60,
     "accuracy": 100,
     "priority": 0,

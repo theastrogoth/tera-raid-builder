@@ -2,7 +2,7 @@
     "name": "Hammer Arm",
     "category": "damage+raise",
     "target": "selected-pokemon",
-    "type": "fighting",
+    "type": "Fighting",
     "power": 100,
     "accuracy": 90,
     "priority": 0,

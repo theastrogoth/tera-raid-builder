@@ -2,7 +2,7 @@
     "name": "Strength Sap",
     "category": "unique",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": null,
     "accuracy": 100,
     "priority": 0,

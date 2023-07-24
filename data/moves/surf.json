@@ -2,7 +2,7 @@
     "name": "Surf",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "water",
+    "type": "Water",
     "power": 90,
     "accuracy": 100,
     "priority": 0,

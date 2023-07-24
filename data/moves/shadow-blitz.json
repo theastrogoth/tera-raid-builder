@@ -2,7 +2,7 @@
     "name": "Shadow Blitz",
     "category": null,
     "target": "selected-pokemon",
-    "type": "shadow",
+    "type": "Shadow",
     "power": 40,
     "accuracy": 100,
     "priority": 0,

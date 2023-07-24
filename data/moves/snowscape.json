@@ -2,7 +2,7 @@
     "name": "Snowscape",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "ice",
+    "type": "Ice",
     "power": 0,
     "accuracy": null,
     "priority": 0,

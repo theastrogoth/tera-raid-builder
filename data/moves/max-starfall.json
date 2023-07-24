@@ -2,7 +2,7 @@
     "name": "Max Starfall",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 10,
     "accuracy": null,
     "priority": 0,

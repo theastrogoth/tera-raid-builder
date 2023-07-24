@@ -2,7 +2,7 @@
     "name": "Max Quake",
     "category": "damage",
     "target": "selected-pokemon-me-first",
-    "type": "ground",
+    "type": "Ground",
     "power": 10,
     "accuracy": null,
     "priority": 0,

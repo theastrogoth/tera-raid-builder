@@ -2,7 +2,7 @@
     "name": "Hail",
     "category": "whole-field-effect",
     "target": "entire-field",
-    "type": "ice",
+    "type": "Ice",
     "power": null,
     "accuracy": null,
     "priority": 0,

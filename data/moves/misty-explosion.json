@@ -2,7 +2,7 @@
     "name": "Misty Explosion",
     "category": "damage",
     "target": "all-other-pokemon",
-    "type": "fairy",
+    "type": "Fairy",
     "power": 100,
     "accuracy": 100,
     "priority": 0,

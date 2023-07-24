@@ -2,7 +2,7 @@
     "name": "Helping Hand",
     "category": "unique",
     "target": "ally",
-    "type": "normal",
+    "type": "Normal",
     "power": null,
     "accuracy": null,
     "priority": 5,

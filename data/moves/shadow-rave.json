@@ -2,7 +2,7 @@
     "name": "Shadow Rave",
     "category": null,
     "target": "opponents-field",
-    "type": "shadow",
+    "type": "Shadow",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

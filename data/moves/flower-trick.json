@@ -2,7 +2,7 @@
     "name": "Flower Trick",
     "category": "damage",
     "target": "selected-pokemon",
-    "type": "grass",
+    "type": "Grass",
     "power": 70,
     "accuracy": null,
     "priority": 0,

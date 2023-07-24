@@ -2,7 +2,7 @@
     "name": "Mist Ball",
     "category": "damage+lower",
     "target": "selected-pokemon",
-    "type": "psychic",
+    "type": "Psychic",
     "power": 70,
     "accuracy": 100,
     "priority": 0,

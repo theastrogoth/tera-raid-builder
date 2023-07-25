@@ -1,11 +1,13 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
 import { RaidBattleInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
-import { Paper } from "@mui/material";
+import { getPokemonSpriteURL } from "../utils";
 
 function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
 
+    const name = raiders[turn.moveInfo.userID].name;
     const user = raiders[turn.moveInfo.userID].role;
 
     let target = raiders[turn.moveInfo.targetID].role;
@@ -15,6 +17,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     if ([undefined, "user", "user-and-allies", "all-allies"].includes(turn.moveInfo.moveData.target)) {
         target = "";
     }
+    const targetName = raiders[turn.moveInfo.targetID].name;
 
     let move: string = turn.moveInfo.moveData.name;
     if (move == "(No Move)") {
@@ -24,10 +27,20 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     return (
         <>
         {move !== "" &&
-            <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
-                <Typography variant="body1" fontWeight="bold">
-                    {user}
-                </Typography>
+            <Stack direction="row" spacing={1.5} alignItems="center" justifyContent="center">
+                <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
+                    <Box
+                        sx={{
+                            width: "30px",
+                            height: "30px",
+                            overflow: 'hidden',
+                            background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                        }}
+                    />
+                    <Typography variant="body1" fontWeight="bold">
+                        {user}
+                    </Typography>
+                </Stack>
                 <Typography variant="body1">
                     uses
                 </Typography>
@@ -40,9 +53,19 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
                     </Typography>
                 }
                 {target !== "" &&
-                    <Typography variant="body1" fontWeight="bold">
-                        {target}
-                    </Typography>
+                    <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
+                        <Box
+                            sx={{
+                                width: "30px",
+                                height: "30px",
+                                overflow: 'hidden',
+                                background: `url(${getPokemonSpriteURL(targetName)}) no-repeat center center / contain`,
+                            }}
+                        />
+                        <Typography variant="body1" fontWeight="bold">
+                            {target}
+                        </Typography>
+                    </Stack>
                 }
             </Stack>
         }

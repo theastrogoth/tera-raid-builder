@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/material/styles';
@@ -30,7 +29,8 @@ function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [lightMode, setLightMode] = useState<('dark' | 'light')>(prefersDarkMode ? 'dark' : 'light');
   const [prettyMode, setPrettyMode] = useState<boolean>(false);
-  const theme = createTheme({
+  
+  const [theme, setTheme] = useState(createTheme({
     palette: {
       mode: lightMode,
       background: {
@@ -102,7 +102,85 @@ function App() {
         }
       }
     }
-  });  
+  }));  
+
+  useEffect(() => {
+    setTheme(createTheme(
+      {
+        palette: {
+          mode: lightMode,
+          background: {
+            paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6',
+          },
+          primary: {
+            main: lightMode === 'dark' ? "#faa5a0" : "#ed382d",
+          },
+          secondary: {
+            main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+          },
+          //@ts-ignore
+          modal: {
+            main: lightMode === 'dark' ? "#666666" : "#dedede"
+          },
+          //@ts-ignore
+          group0: {
+            main: lightMode === "dark" ? "#571b20" : "#f7b5ba",
+          },
+          //@ts-ignore
+          group1: {
+            main: lightMode === "dark" ? "#144e52" : "#c5e6e8"
+          },
+          //@ts-ignore
+          group2: {
+            main: lightMode === "dark" ? "#205220" : "#b0f5b0"
+          },
+          //@ts-ignore
+          group3: {
+            main: lightMode === "dark" ? "#443769" : "#ccbff5",
+          },
+          //@ts-ignore
+          group4: {
+            main: lightMode === "dark" ? "#c79240" : "#ffe0b0"
+          },
+          //@ts-ignore
+          group5: {
+            main: lightMode === "dark" ? "#5fa116" : "#d7faaf"
+          },
+          //@ts-ignore
+          group6: {
+            main: lightMode === "dark" ? "#993f64" : "#fccce1"
+          },
+          //@ts-ignore
+          group7: {
+            main: lightMode === "dark" ? "#4f4215": "#d4caa7"
+          },
+          //@ts-ignore
+          group8: {
+            main: lightMode === "dark" ? "#520438": "#c4b1be"
+          },
+          //@ts-ignore
+          group9: {
+            main: lightMode === "dark" ? "#363336": "#b3b3b3"
+          },
+        },
+        typography: {
+          fontSize: 11,
+        },
+        components: {
+          MuiSlider: {
+            styleOverrides: {
+              root: {
+                padding: "0px",
+                '@media (pointer: coarse)': {
+                  padding: "0px",
+                }
+              }
+            }
+          }
+        }
+      }
+    ))
+  }, [lightMode])
 
   const gen = Generations.get(9); 
 

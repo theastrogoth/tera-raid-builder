@@ -7,7 +7,7 @@ import { Generations, Pokemon } from '../calc';
 import { AbilityName, Generation } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
-import BuildControls, { BossBuildControls } from "./BuildControls";
+import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
 import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
@@ -121,7 +121,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                     <Stack direction="row" spacing={-5} >
                         <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
-                            <BossBuildControls moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
+                            <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
                             <Box flexGrow={1} />
                             <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier}/>
                         </Stack>

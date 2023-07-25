@@ -769,7 +769,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
     )
 }
 
-export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
+function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
     {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
 {
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -919,8 +919,8 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                 </TableContainer>
             </Stack>
         </Box>
-
     )
 }
+export const BossBuildControlsMemo = React.memo(BossBuildControls, (prevProps, nextProps) => JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && prevProps.prettyMode === nextProps.prettyMode);
 
-export default React.memo(BuildControls);
+export default React.memo(BuildControls, (prevProps, nextProps) => JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && prevProps.prettyMode === nextProps.prettyMode);

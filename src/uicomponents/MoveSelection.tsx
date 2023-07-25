@@ -380,7 +380,7 @@ function MoveSelectionContainer({raiders, index, info, setInfo, buttonsVisible, 
                     {...provided.dragHandleProps}
                 >
                     <Collapse in={collapseIn} timeout={250}>
-                        <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} buttonsVisible={buttonsVisible} setTransitionIn={setTransitionIn} setTransitionOut={setTransitionOut} />
+                        <MoveSelectionCardMemo raiders={raiders} index={index} info={info} setInfo={setInfo} buttonsVisible={buttonsVisible} setTransitionIn={setTransitionIn} setTransitionOut={setTransitionOut} />
                     </Collapse>
                     {/* <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} buttonsVisible={buttonsVisible} /> */}
 
@@ -474,6 +474,12 @@ function MoveSelectionCard({raiders, index, info, setInfo, buttonsVisible, setTr
         </Stack>
     )
 }
+const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProps) => (
+    prevProps.index === nextProps.index && 
+    JSON.stringify(prevProps.raiders[prevProps.index]) === JSON.stringify(nextProps.raiders[nextProps.index]) &&
+    JSON.stringify(prevProps.info.turns[prevProps.index]) === JSON.stringify(nextProps.info.turns[nextProps.index]) &&    
+    prevProps.buttonsVisible === nextProps.buttonsVisible
+));
 
 function prepareGroups(info: RaidBattleInfo) {
     const newInfo = {...info};

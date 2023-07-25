@@ -721,7 +721,7 @@ export class RaidMove {
             }
         }
         // Booster Energy
-        if (this._user.item === "Booster Energy" && (this._user.ability === "Protosynthesis" || this._user.ability === "Quark Drive")) {
+        if (this._user.item === "Booster Energy" && (this._user.ability === "Protosynthesis" || this._user.ability === "Quark Drive") && this._user.abilityOn !== true) {
             this._user.abilityOn = true;
             const qpStat = getQPBoostedStat(this._user) as StatIDExceptHP;
             this._user.boostedStat = qpStat;
@@ -829,9 +829,11 @@ export class RaidMove {
         for (let i=0; i<5; i++) {
             if (initialItems[i] !== finalItems[i]) {
                 if (finalItems[i] === undefined) {
-                    this._flags[i].push(initialItems[i] + " lost")
+                    this._flags[i].push(initialItems[i] + " lost");
+                } else if (initialItems[i] === undefined) {
+                    this._flags[i].push(finalItems[i] + " gained");
                 } else {
-                    this._flags[i].push(initialItems[i] + " replaced with " + finalItems[i])
+                    this._flags[i].push(initialItems[i] + " replaced with " + finalItems[i]);
                 }
             }
         }

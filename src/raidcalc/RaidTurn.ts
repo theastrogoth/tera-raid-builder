@@ -10,15 +10,13 @@ import pranksterMoves from "../data/prankster_moves.json"
 const gen = Generations.get(9);
 
 export class RaidTurn {
-    raidState:      RaidState;
+    raidState:      RaidState; // We shouldn't mutate this state; it is the result from the previous turn
     raiderID:       number;
     targetID:       number;
     raiderMoveData!: MoveData;
     bossMoveData!:   MoveData;
     raiderOptions:  RaidMoveOptions;
     bossOptions:    RaidMoveOptions;
-
-    //options should include crit, boosts/drops, status effect, min/max damage roll
 
     _raiderMovesFirst!: boolean;
     _raider!:         Raider;
@@ -31,7 +29,9 @@ export class RaidTurn {
 
     _result1!:        RaidMoveResult;
     _result2!:        RaidMoveResult;
-    _raidState!:      RaidState;
+    _raidState!:      RaidState; // This tracks changes during this turn
+
+    _flags!:          string[][]; 
 
 
     constructor(raidState: RaidState, info: RaidTurnInfo) {
@@ -54,14 +54,15 @@ export class RaidTurn {
         if (this.bossOptions.crit) this._bossMove.isCrit = true;
         if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
 
+        // copy the raid state
+        this._raidState = this.raidState.clone();
+        this._flags = [[], [], [], [], []];
+
         // set Protosynthesis / Quark Drive boosts before getting turn order & processing raid turns
         this.setQPBoosts();
 
         // determine which move goes first
         this.setTurnOrder();
-
-        // copy the raid state
-        this._raidState = this.raidState.clone();
 
         let rID = this.raiderID;
         let tID = this.targetID;
@@ -136,6 +137,11 @@ export class RaidTurn {
         // Clear Endure (since side-attacks are not endured)
         this._raidState.raiders[this.raiderID].isEndure = false;
         this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
+        // Add QP related flags to the first turn
+        for (let i=0; i<5; i++) {
+            this._result1.flags[i] = this._result1.flags[i].concat(this._flags[i]);
+        }
+
         return {
             state: this._raidState,
             results: [this._result1, this._result2],
@@ -145,25 +151,27 @@ export class RaidTurn {
     }
 
     private setQPBoosts() {
-        this.raidState.raiders.map((raider, index) => {
+        this._raidState.raiders.map((raider, index) => {
             if (raider.ability === "Protosynthesis" || raider.ability === "Quark Drive") {
                 if (raider.usedBoosterEnergy) { return; } // do not change Boost after Booster Energy consumption
                 if ( !raider.abilityOn && ( // we only need to set QP if it is currently inactive
-                        (this.raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
-                        (this.raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
+                        (this._raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
+                        (this._raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
                     )
                 ) { // Sun / Electric Terrain has priority over Booster Energy, Booster Energy is not consumed if QP is already active
                     raider.abilityOn = true;
                     raider.boostedStat = undefined;
                     const qpStat = getQPBoostedStat(raider) as StatIDExceptHP;
                     raider.boostedStat = qpStat;
+                    this._flags[index].push(raider.ability + " activated");
                 } else if ( raider.abilityOn && ( // we only meed to remove QP if it is currently active
-                        (!this.raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
-                        (!this.raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
+                        (!this._raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
+                        (!this._raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
                     )
                 ) { // If a booster energy has not been consumed and the Sun / Electric Terrain is removed, QP will be deactivated 
                     raider.abilityOn = false;
                     raider.boostedStat = undefined;
+                    this._flags[index].push(raider.ability + " deactivated");
                 }
                 // If Booster Energy is held and QP is currently inactive, consume it
                 if (!raider.abilityOn && raider.item === "Booster Energy") { // if the raider acquires Booster Energy outside of Turn 0
@@ -173,14 +181,15 @@ export class RaidTurn {
                     raider.boostedStat = qpStat;
                     raider.item = undefined;
                     raider.usedBoosterEnergy = true;
+                    this._flags[index].push("Booster Energy consumed");
                 }
             }
         })
     }
 
     private setTurnOrder() {
-        this._raider = this.raidState.raiders[this.raiderID];
-        this._boss = this.raidState.raiders[0];
+        this._raider = this._raidState.raiders[this.raiderID];
+        this._boss = this._raidState.raiders[0];
 
         this.modifyMovePriorityByAbility(this.raiderMoveData, this._raider);
         this.modifyMovePriorityByAbility(this.bossMoveData, this._boss);
@@ -197,8 +206,8 @@ export class RaidTurn {
             let raiderSpeed = getModifiedStat(this._raider.stats.spe, this._raider.boosts.spe, gen);
             let bossSpeed = getModifiedStat(this._boss.stats.spe, this._boss.boosts.spe, gen);
 
-            const raiderField = this.raidState.fields[this.raiderID];
-            const bossField = this.raidState.fields[0];
+            const raiderField = this._raidState.fields[this.raiderID];
+            const bossField = this._raidState.fields[0];
             raiderSpeed = this.applySpeedModifiers(raiderSpeed, this._raider, raiderField);
             bossSpeed = this.applySpeedModifiers(bossSpeed, this._boss, bossField);
 

@@ -203,4 +203,4 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
     );
 }
 
-export default React.memo(StatsControls, (prev, next) => (prev.pokemon.ivs === next.pokemon.ivs && prev.pokemon.evs === next.pokemon.evs))
+export default React.memo(StatsControls, (prev, next) => (JSON.stringify(prev.pokemon.ivs) === JSON.stringify(next.pokemon.ivs) && JSON.stringify(prev.pokemon.evs) === JSON.stringify(next.pokemon.evs)))

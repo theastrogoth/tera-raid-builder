@@ -921,6 +921,15 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         </Box>
     )
 }
-export const BossBuildControlsMemo = React.memo(BossBuildControls, (prevProps, nextProps) => JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && prevProps.prettyMode === nextProps.prettyMode);
+export const BossBuildControlsMemo = React.memo(BossBuildControls, 
+    (prevProps, nextProps) => 
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        JSON.stringify(prevProps.moveSet) === JSON.stringify(nextProps.moveSet) &&
+        prevProps.prettyMode === nextProps.prettyMode);
 
-export default React.memo(BuildControls, (prevProps, nextProps) => JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && prevProps.prettyMode === nextProps.prettyMode);
+export default React.memo(BuildControls, 
+    (prevProps, nextProps) => 
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        JSON.stringify(prevProps.abilities) === JSON.stringify(nextProps.abilities) &&
+        JSON.stringify(prevProps.moveSet) === JSON.stringify(nextProps.moveSet) &&
+        prevProps.prettyMode === nextProps.prettyMode);

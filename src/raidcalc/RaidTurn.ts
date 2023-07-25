@@ -1,10 +1,11 @@
 import { State } from "../calc/state";
 import { calculate, Field, Generations, Move, Pokemon } from "../calc";
 import { MoveData, RaidMoveOptions, RaidState, RaidTurnResult, RaidMoveResult, RaidTurnInfo } from "./interface";
-import { getModifiedStat } from "../calc/mechanics/util";
+import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import { Raider } from "./interface";
 import { RaidMove } from "./RaidMove";
-import { AbilityName, ItemName } from "../calc/data/interface";
+import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
+import pranksterMoves from "../data/prankster_moves.json"
 
 const gen = Generations.get(9);
 
@@ -52,6 +53,9 @@ export class RaidTurn {
         this._bossMove = new Move(9, this.bossMoveData.name, this.bossOptions);
         if (this.bossOptions.crit) this._bossMove.isCrit = true;
         if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
+
+        // set Protosynthesis / Quark Drive boosts before getting turn order & processing raid turns
+        this.setQPBoosts();
 
         // determine which move goes first
         this.setTurnOrder();
@@ -140,10 +144,35 @@ export class RaidTurn {
 
     }
 
+    private setQPBoosts() {
+        this.raidState.raiders.map((raider, index) => {
+            if (raider.ability === "Protosynthesis" || raider.ability === "Quark Drive") {
+                if (
+                    (this.raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
+                    (this.raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
+                ) { // Sun / Electric Terrain has priority over Booster Energy, Booster Energy is not consumed if QP is already active
+                    raider.abilityOn = true;
+                    raider.boostedStat = undefined;
+                    const qpStat = getQPBoostedStat(raider) as StatIDExceptHP;
+                    raider.boostedStat = qpStat;
+                } else if (raider.item === "Booster Energy") { // if the raider acquires Booster Energy outside of Turn 0
+                    raider.abilityOn = true;
+                    raider.boostedStat = undefined;
+                    const qpStat = getQPBoostedStat(raider) as StatIDExceptHP;
+                    raider.boostedStat = qpStat;
+                    raider.item = undefined;
+                }
+            }
+        })
+    }
+
     private setTurnOrder() {
         this._raider = this.raidState.raiders[this.raiderID];
         this._boss = this.raidState.raiders[0];
-        
+
+        this.modifyMovePriorityByAbility(this.raiderMoveData, this._raider);
+        this.modifyMovePriorityByAbility(this.bossMoveData, this._boss);
+
         // first compare priority
         const raiderPriority = this.raiderMoveData.priority || this._raiderMove.priority;
         const bossPriority = this.bossMoveData.priority || this._bossMove.priority;
@@ -155,23 +184,44 @@ export class RaidTurn {
             // if priority is the same, compare speed
             let raiderSpeed = getModifiedStat(this._raider.stats.spe, this._raider.boosts.spe, gen);
             let bossSpeed = getModifiedStat(this._boss.stats.spe, this._boss.boosts.spe, gen);
-            
-            raiderSpeed = this.modifyPokemonSpeedByStatus(raiderSpeed, this._raider.status, this._raider.ability)
-            bossSpeed = this.modifyPokemonSpeedByStatus(bossSpeed, this._boss.status, this._boss.ability)
-
-            raiderSpeed = this.modifyPokemonSpeedByItem(raiderSpeed, this._raider.item);
-            bossSpeed = this.modifyPokemonSpeedByItem(bossSpeed, this._boss.item);
-
-            raiderSpeed = this.modifyPokemonSpeedByAbility(raiderSpeed, this._raider.ability, this._raider.abilityOn, this._raider.status);
-            bossSpeed = this.modifyPokemonSpeedByAbility(bossSpeed, this._boss.ability, this._boss.abilityOn, this._boss.status);
 
             const raiderField = this.raidState.fields[this.raiderID];
             const bossField = this.raidState.fields[0];
-            raiderSpeed = this.modifyPokemonSpeedByField(raiderSpeed, raiderField, this._raider.ability)
-            bossSpeed = this.modifyPokemonSpeedByField(bossSpeed, bossField, this._boss.ability)
+            raiderSpeed = this.applySpeedModifiers(raiderSpeed, this._raider, raiderField);
+            bossSpeed = this.applySpeedModifiers(bossSpeed, this._boss, bossField);
 
             this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
         }
+    }
+
+    private modifyMovePriorityByAbility(moveData: MoveData, raider: Raider) {
+        const ability = raider.ability;
+
+        switch (ability) {
+            case "Prankster": // do dark-type prankster failure elsewhere
+                if (moveData.priority !== undefined && pranksterMoves.includes(moveData.name)) {
+                    moveData.priority += 1;
+                }
+                break;
+            case "Gale Wings":
+                if (moveData.priority !== undefined && raider.curHP() === raider.maxHP() && moveData.type === "Flying") {
+                    moveData.priority += 1;
+                }
+                break;
+            case "Triage": // Comfey's signature ability
+                break;
+            default:
+                break;
+        }
+    }
+
+    private applySpeedModifiers(speed: number, raider: Raider, field: Field) {
+        speed = this.modifyPokemonSpeedByStatus(speed, raider.status, raider.ability);
+        speed = this.modifyPokemonSpeedByItem(speed, raider.item);
+        speed = this.modifyPokemonSpeedByAbility(speed, raider.ability, raider.abilityOn, raider.status);
+        speed = this.modifyPokemonSpeedByQP(speed, field, raider.ability, raider.item, raider.boostedStat as StatIDExceptHP);
+        speed = this.modifyPokemonSpeedByField(speed, field);
+        return speed;
     }
 
     private modifyPokemonSpeedByStatus(speed: number, status?: string, ability?: AbilityName) {
@@ -211,6 +261,10 @@ export class RaidTurn {
             default:
                 return speed;
         }
+    }
+
+    private modifyPokemonSpeedByQP(speed: number, field: Field, ability?: AbilityName, item?: ItemName, qpBoostedStat?: StatIDExceptHP) {
+        return qpBoostedStat === "spe" ? speed * 1.5 : speed;
     }
 
     private modifyPokemonSpeedByField(speed: number, field: Field, ability?: AbilityName) {

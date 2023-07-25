@@ -177,13 +177,13 @@ export class RaidMove {
         this._damage = [0,0,0,0,0];
         this._desc = ['','','','',''];
         const moveUser = this.getPokemon(this.userID);
-        if ((this._fields[this.userID].terrain === "Electric" && moveUser.ability === "Quark Drive")  ||
-            (this._fields[this.userID].weather === "Sun" && moveUser.ability === "Protosynthesis")
-        ) {
-            moveUser.abilityOn = true;
-            const qpStat = getQPBoostedStat(moveUser) as StatIDExceptHP;
-            moveUser.boostedStat = qpStat;
-        }
+        // if ((this._fields[this.userID].terrain === "Electric" && moveUser.ability === "Quark Drive")  ||
+        //     (this._fields[this.userID].weather === "Sun" && moveUser.ability === "Protosynthesis")
+        // ) {
+        //     moveUser.abilityOn = true;
+        //     const qpStat = getQPBoostedStat(moveUser) as StatIDExceptHP;
+        //     moveUser.boostedStat = qpStat;
+        // }
         for (let id of this._affectedIDs) {
             const target = this.getPokemon(id);
             const moveField = this.getMoveField(this.userID, id);

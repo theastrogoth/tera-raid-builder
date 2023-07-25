@@ -28,6 +28,7 @@ export class Pokemon implements State.Pokemon {
   item?: I.ItemName;
   teraType?: I.TypeName;
   isQP? : boolean;
+  usedBoosterEnergy? : boolean;
 
   nature: I.NatureName;
   ivs: I.StatsTable;
@@ -172,6 +173,7 @@ export class Pokemon implements State.Pokemon {
       isSaltCure: this.isSaltCure,
       alliesFainted: this.alliesFainted,
       boostedStat: this.boostedStat,
+      usedBoosterEnergy: this.usedBoosterEnergy,
       item: this.item,
       gender: this.gender,
       nature: this.nature,

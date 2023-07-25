@@ -147,20 +147,32 @@ export class RaidTurn {
     private setQPBoosts() {
         this.raidState.raiders.map((raider, index) => {
             if (raider.ability === "Protosynthesis" || raider.ability === "Quark Drive") {
-                if (
-                    (this.raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
-                    (this.raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
+                if (raider.usedBoosterEnergy) { return; } // do not change Boost after Booster Energy consumption
+                if ( !raider.abilityOn && ( // we only need to set QP if it is currently inactive
+                        (this.raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
+                        (this.raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
+                    )
                 ) { // Sun / Electric Terrain has priority over Booster Energy, Booster Energy is not consumed if QP is already active
                     raider.abilityOn = true;
                     raider.boostedStat = undefined;
                     const qpStat = getQPBoostedStat(raider) as StatIDExceptHP;
                     raider.boostedStat = qpStat;
-                } else if (raider.item === "Booster Energy") { // if the raider acquires Booster Energy outside of Turn 0
+                } else if ( raider.abilityOn && ( // we only meed to remove QP if it is currently active
+                        (!this.raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
+                        (!this.raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
+                    )
+                ) { // If a booster energy has not been consumed and the Sun / Electric Terrain is removed, QP will be deactivated 
+                    raider.abilityOn = false;
+                    raider.boostedStat = undefined;
+                }
+                // If Booster Energy is held and QP is currently inactive, consume it
+                if (!raider.abilityOn && raider.item === "Booster Energy") { // if the raider acquires Booster Energy outside of Turn 0
                     raider.abilityOn = true;
                     raider.boostedStat = undefined;
                     const qpStat = getQPBoostedStat(raider) as StatIDExceptHP;
                     raider.boostedStat = qpStat;
                     raider.item = undefined;
+                    raider.usedBoosterEnergy = true;
                 }
             }
         })

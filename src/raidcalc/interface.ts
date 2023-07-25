@@ -1,6 +1,6 @@
 import { Pokemon, Field, StatID } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import {toID, extend, assignWithout} from '../calc/util';
+import { extend } from '../calc/util';
 
 export type MoveSetItem = {
     name: MoveName,
@@ -166,6 +166,8 @@ export type RaidBattleInfo = {
 export type RaidBattleResults = {
     endState: RaidState;
     turnResults: RaidTurnResult[]; 
+    turnZeroFlags: string[][];
+    turnZeroOrder: number[];
 }
 
 export type RaidMoveOptions = {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from "react"
+import React, { useState, useEffect, useRef }  from "react"
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -17,7 +17,7 @@ import TableCell from "@mui/material/TableCell";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from '@mui/icons-material/Add';
 import MenuIcon from '@mui/icons-material/Menu';
-// import Collapse from '@mui/material/Collapse';
+import Collapse from '@mui/material/Collapse';
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -26,11 +26,7 @@ import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "..
 import PokedexService from "../services/getdata";
 import { getPokemonSpriteURL } from "../utils";
 
-// function timeout(delay: number) {
-//     return new Promise( res => setTimeout(res, delay) );
-// }
-
-const handleAddTurn = (info: RaidBattleInfo, setInfo: (i: RaidBattleInfo) => void) => (index: number) => () => {
+const handleAddTurn = (info: RaidBattleInfo, setInfo: (i: RaidBattleInfo) => void, setTransitionIn: (n: number) => void) => (index: number) => () => {
     let uniqueId = 0;
     info.turns.forEach((turn) => {
         if (turn.id >= uniqueId) {
@@ -59,6 +55,7 @@ const handleAddTurn = (info: RaidBattleInfo, setInfo: (i: RaidBattleInfo) => voi
         newInfo.groups[group].push(uniqueId);
     }
     setInfo(prepareGroups(newInfo));
+    setTransitionIn(uniqueId);
 }
 
 function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void}) {
@@ -356,82 +353,19 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     )
 }
 
-function MoveSelectionContainer({raiders, index, info, setInfo, buttonsVisible}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, buttonsVisible: boolean}) {
+function MoveSelectionContainer({raiders, index, info, setInfo, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut}: 
+    {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void}) 
+{
     const turnID = info.turns[index].id;
-    // const [collapseIn, setCollapseIn] = useState(false);
-    // const [initiateCollapse, setInitiateCollapse] = useState(false);
-    // const [initiateGrow, setInitiateGrow] = useState(false);
-    // const [triggerRemove, setTriggerRemove] = useState(false);
-    // const [triggerAdd, setTriggerAdd] = useState(false);
-    // const [waitAdd, setWaitAdd] = useState(false);
+    const collapseIn = transitionOut !== turnID && transitionIn !== turnID;
 
-    // const brandNewTurnID = !turnIDs.current.includes(turnID);
+    console.log("Move Selection Animation", turnID, collapseIn, transitionIn, transitionOut)
 
-    // const useCollapse = initiateCollapse || triggerAdd;
-    // const hideCard = useCollapse || initiateGrow || brandNewTurnID;
-
-    // useEffect(() => {
-    //     if (brandNewTurnID) {
-    //         setInitiateGrow(true);
-    //         setCollapseIn(false);
-    //     } else {
-    //         setCollapseIn(true);
-    //     }
-    //     turnIDs.current = info.turns.map((turn) => turn.id);
-    // }, [brandNewTurnID])
-
-    // useEffect(() => {
-    //     if (initiateGrow) {
-    //         setCollapseIn(false);
-    //         setTriggerAdd(true);
-    //     }
-    // }, [initiateGrow])
-
-    // useEffect(() => {
-    //     if (triggerAdd) {
-    //         setCollapseIn(true);
-    //         setWaitAdd(true);
-    //     }
-    // }, [triggerAdd])
-
-    // useEffect(() => {
-    //     if (waitAdd) {
-    //         async function addTurn() {
-    //             await timeout(400)
-    //             setInitiateGrow(false);
-    //             setTriggerAdd(false);
-    //             setWaitAdd(false);
-    //         }
-    //         addTurn();
-    //     }
-    // }, [waitAdd])
-
-    // useEffect(() => {
-    //     if (initiateCollapse && !triggerAdd) {
-    //         setCollapseIn(false);
-    //         setTriggerRemove(true);
-    //     }
-    // }, [initiateCollapse])
-
-    // useEffect(() => {
-    //     if (triggerRemove) {
-    //         async function removeTurn() {
-    //             await timeout(400);
-    //             handleRemoveTurn()
-    //             setTriggerRemove(false);
-    //             setInitiateCollapse(false);
-    //             setCollapseIn(true);
-    //         }
-    //         removeTurn();
-    //     }
-    // }, [triggerRemove])
-
-    // const handleRemoveTurn = () => {
-    //     let newTurns = [...info.turns];
-    //     newTurns.splice(index, 1);
-    //     setInfo({...info, turns: newTurns});
-    //     turnIDs.current = newTurns.map((turn) => turn.id);
-    // }
+    useEffect(() => {
+        if (transitionIn === turnID) {
+            setTransitionIn(-1);
+        }
+    }, [transitionIn])
 
     return (
         <Draggable
@@ -445,15 +379,10 @@ function MoveSelectionContainer({raiders, index, info, setInfo, buttonsVisible}:
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                 >
-                    {/* {useCollapse &&
-                        <Collapse appear={false} in={collapseIn} timeout={250}>
-                            <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} setInitiateCollapse={setInitiateCollapse}/>
-                        </Collapse>
-                    }
-                    {!hideCard &&
-                        <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} setInitiateCollapse={setInitiateCollapse}/>
-                    } */}
-                    <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} buttonsVisible={buttonsVisible} />
+                    <Collapse in={collapseIn} timeout={250}>
+                        <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} buttonsVisible={buttonsVisible} setTransitionIn={setTransitionIn} setTransitionOut={setTransitionOut} />
+                    </Collapse>
+                    {/* <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} buttonsVisible={buttonsVisible} /> */}
 
                 </div>
             )}
@@ -501,12 +430,17 @@ function CloseButton({onClick, visible, disabled=false}: {onClick: () => void, v
     )
 }
 
-function MoveSelectionCard({raiders, index, info, setInfo, buttonsVisible}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, buttonsVisible: boolean}) {
-
+function MoveSelectionCard({raiders, index, info, setInfo, buttonsVisible, setTransitionIn, setTransitionOut}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, buttonsVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void}) {
+    const timer = useRef<NodeJS.Timeout | null>(null);
     const handleRemoveTurn = () => {
-        let newTurns = [...info.turns];
-        newTurns.splice(index, 1);
-        setInfo(prepareGroups({...info, turns: newTurns}));
+        setTransitionOut(info.turns[index].id);
+        timer.current = setTimeout(() => {
+            let newTurns = [...info.turns];
+            newTurns.splice(index, 1);
+            setInfo(prepareGroups({...info, turns: newTurns}));
+            setTransitionOut(-1);
+            timer.current = null;
+        }, 300)
     }
 
     const group = info.turns[index].group;
@@ -536,7 +470,7 @@ function MoveSelectionCard({raiders, index, info, setInfo, buttonsVisible}: {rai
                     </Stack>
                 </Stack>
             </Paper>
-            <AddButton onClick={handleAddTurn(info, setInfo)(index+1)} visible={buttonsVisible} />
+            <AddButton onClick={handleAddTurn(info, setInfo, setTransitionIn)(index+1)} visible={buttonsVisible} />
         </Stack>
     )
 }
@@ -576,6 +510,8 @@ function prepareGroups(info: RaidBattleInfo) {
 function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
         
     const [buttonsVisible, setButtonsVisible] = useState(true);
+    const [transitionIn, setTransitionIn] = useState(-1);
+    const [transitionOut, setTransitionOut] = useState(-1);
 
     const onDragStart = () => {
         setButtonsVisible(false);
@@ -632,7 +568,7 @@ function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Di
                             ref={provided.innerRef}
                             {...provided.droppableProps} 
                         >
-                            <AddButton onClick={handleAddTurn(info, setInfo)(0)} visible={buttonsVisible}/>
+                            <AddButton onClick={handleAddTurn(info, setInfo, setTransitionIn)(0)} visible={buttonsVisible}/>
                             {
                                 info.turns.map((turn, index) => (
                                     <MoveSelectionContainer 
@@ -642,6 +578,10 @@ function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Di
                                         info={info} 
                                         setInfo={setInfo} 
                                         buttonsVisible={buttonsVisible}
+                                        transitionIn={transitionIn}
+                                        setTransitionIn={setTransitionIn}
+                                        transitionOut={transitionOut}
+                                        setTransitionOut={setTransitionOut}
                                     />
                             ))}
                                 {provided.placeholder}

@@ -11,7 +11,6 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     const name = raiders[turn.moveInfo.userID].name;
     const user = raiders[turn.moveInfo.userID].role;
 
-    console.log("Move Display", turn.moveInfo.moveData.name, turn.moveInfo.targetID,  turn.moveInfo.moveData.target)
     let target = raiders[turn.moveInfo.targetID].role;
     if (target === user) { 
         target = ""

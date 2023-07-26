@@ -19,7 +19,7 @@ import LinkButton from './uicomponents/LinkButton.tsx';
 
 import { Generations, Pokemon, Field} from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
-import { Raider, RaidBattleInfo, RaidState, RaidTurnInfo, RaidStateProps } from './raidcalc/interface.ts';
+import { Raider, RaidBattleInfo, RaidState, RaidTurnInfo, RaidInputProps } from './raidcalc/interface.ts';
 import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
 
@@ -236,34 +236,7 @@ function App() {
   ]);
   const [groups, setGroups] = useState<number[][]>([]);
 
-  // const [info, setInfo] = useState<RaidBattleInfo>({
-  //   name: "",
-  //   startingState: new RaidState([raidBoss, raider1, raider2, raider3, raider4], [0,1,2,3,4].map((i) => new Field())),
-  //   turns: [
-  //     {
-  //       id: 0, 
-  //       moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
-  //       bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
-  //     }
-  //   ],
-  //   groups: [],
-  // })
-
-  // useEffect(() => {
-  //   const newInfo = {
-  //     name: title,
-  //     notes: notes,
-  //     credits: credits,
-  //     startingState: new RaidState([raidBoss, raider1, raider2, raider3, raider4], [0,1,2,3,4].map((i) => new Field())),
-  //     turns: turns,
-  //     groups: groups,
-  //   };
-  //   setInfo(newInfo);
-  // }, 
-  // [raider1, raider2, raider3, raider4, raidBoss, title, credits, notes, turns, groups])
-
-
-  const raidStateProps: RaidStateProps = {
+  const raidInputProps: RaidInputProps = {
     pokemon: [raidBoss, raider1, raider2, raider3, raider4],
     setPokemon: [setRaidBoss, setRaider1, setRaider2, setRaider3, setRaider4],
     turns: turns,
@@ -271,8 +244,6 @@ function App() {
     groups: groups,
     setGroups: setGroups
   }
-
-  console.log(raidStateProps)
 
   return (
   <ThemeProvider theme={theme}> 
@@ -304,7 +275,7 @@ function App() {
             <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} prettyMode={prettyMode} />
           </Grid>
           <Grid item>
-            <RaidControls raidStateProps={raidStateProps} prettyMode={prettyMode} />
+            <RaidControls raidInputProps={raidInputProps} prettyMode={prettyMode} />
           </Grid>
           <StratFooter notes={notes} setNotes={setNotes} credits={credits} setCredits={setCredits} prettyMode={prettyMode} />
         </Grid>
@@ -315,7 +286,7 @@ function App() {
                 <Box flexGrow={1} />
                   <LinkButton 
                     title={title} notes={notes} credits={credits}
-                    raidStateProps={raidStateProps}
+                    raidInputProps={raidInputProps}
                     setTitle={setTitle} setNotes={setNotes} setCredits={setCredits}
                     setPrettyMode={setPrettyMode}
                   />

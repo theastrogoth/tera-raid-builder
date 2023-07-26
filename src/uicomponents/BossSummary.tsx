@@ -11,7 +11,7 @@ import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
 import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
 import { MoveSetItem, Raider } from "../raidcalc/interface";
 
@@ -135,5 +135,6 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
 export default React.memo(BossSummary,
     (prevProps, nextProps) => (
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        arraysEqual(prevProps.pokemon.extraMoves || [], nextProps.pokemon.extraMoves || []) &&
         prevProps.prettyMode === nextProps.prettyMode)
     );

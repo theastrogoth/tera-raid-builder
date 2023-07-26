@@ -22,7 +22,7 @@ import Collapse from '@mui/material/Collapse';
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidStateProps, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidInputProps, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
 import { getPokemonSpriteURL, arraysEqual } from "../utils";
 
@@ -201,7 +201,6 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
     }, [moves])
 
     useEffect(() => {
-        console.log("Load data for", moveName)
         if (moveName === "(No Move)") {
             setMoveInfo({...moveInfo, moveData: {name: moveName}});
         } else if (moveName === "Attack Cheer" || moveName === "Defense Cheer") {
@@ -211,7 +210,6 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
         } else {
             async function fetchData() {
                 let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
-                console.log(moveName, mData)
                 setMoveInfo({...moveInfo, moveData: mData});
             }
             fetchData().catch((e) => console.log(e));
@@ -322,7 +320,6 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
     const [options, setOptions] = useState(moveInfo.options || {crit: true, secondaryEffects: true, roll: "max"});
 
     const setMoveInfo = (newMoveInfo: RaidMoveInfo) => {
-        console.log("New Boss Move Info", newMoveInfo)
         let newTurns = [...turns];
         newTurns[index].bossMoveInfo = newMoveInfo;
         setTurns(newTurns);
@@ -342,7 +339,6 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
         }
       }, [moveName, turnID])
     
-    console.log("Boss Move", moveName)
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
             <Stack direction="row" width="510px" spacing={0.5} alignItems="center" justifyContent="right">
@@ -512,6 +508,7 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
     arraysEqual(prevProps.raiders[prevProps.turns[prevProps.index].moveInfo.userID].moves, nextProps.raiders[nextProps.turns[nextProps.index].moveInfo.userID].moves) &&
     arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&  
+    arraysEqual(prevProps.raiders[0].extraMoves!, nextProps.raiders[0].extraMoves!) &&
     prevProps.buttonsVisible === nextProps.buttonsVisible &&
     prevProps.turns.length === nextProps.turns.length
 ));
@@ -549,8 +546,7 @@ function prepareGroups(turns: RaidTurnInfo[], groups: number[][]) {
     return {turns: newTurns, groups: newGroups};
 }
 
-function MoveSelection({raidStateProps}: {raidStateProps: RaidStateProps}) {
-        
+function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
     const [buttonsVisible, setButtonsVisible] = useState(true);
     const [transitionIn, setTransitionIn] = useState(-1);
     const [transitionOut, setTransitionOut] = useState(-1);
@@ -562,8 +558,8 @@ function MoveSelection({raidStateProps}: {raidStateProps: RaidStateProps}) {
     const onDragEnd = (result: DropResult) => {
         setButtonsVisible(true);
         const {destination, source, draggableId, combine} = result;
-        const newTurns = [...raidStateProps.turns];
-        const newGroups = [...raidStateProps.groups];
+        const newTurns = [...raidInputProps.turns];
+        const newGroups = [...raidInputProps.groups];
         let destinationIndex = destination ? destination.index : source.index;
         if (combine) {
             const movedIndex = result.source.index;
@@ -597,8 +593,8 @@ function MoveSelection({raidStateProps}: {raidStateProps: RaidStateProps}) {
         const movedTurn = newTurns.splice(source.index, 1)[0];
         newTurns.splice(destinationIndex, 0, movedTurn);
         const preparedGroups = prepareGroups(newTurns, newGroups);
-        raidStateProps.setTurns(preparedGroups.turns);
-        raidStateProps.setGroups(preparedGroups.groups);
+        raidInputProps.setTurns(preparedGroups.turns);
+        raidInputProps.setGroups(preparedGroups.groups);
     };
     return (
         <Box>
@@ -613,17 +609,17 @@ function MoveSelection({raidStateProps}: {raidStateProps: RaidStateProps}) {
                             ref={provided.innerRef}
                             {...provided.droppableProps} 
                         >
-                            <AddButton onClick={handleAddTurn(raidStateProps.turns, raidStateProps.groups, raidStateProps.setTurns, raidStateProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
+                            <AddButton onClick={handleAddTurn(raidInputProps.turns, raidInputProps.groups, raidInputProps.setTurns, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
                             {
-                                raidStateProps.turns.map((turn, index) => (
+                                raidInputProps.turns.map((turn, index) => (
                                     <MoveSelectionContainer 
                                         key={index}
-                                        raiders={raidStateProps.pokemon} 
+                                        raiders={raidInputProps.pokemon} 
                                         index={index} 
-                                        turns={raidStateProps.turns}
-                                        setTurns={raidStateProps.setTurns}
-                                        groups={raidStateProps.groups}
-                                        setGroups={raidStateProps.setGroups}
+                                        turns={raidInputProps.turns}
+                                        setTurns={raidInputProps.setTurns}
+                                        groups={raidInputProps.groups}
+                                        setGroups={raidInputProps.setGroups}
                                         buttonsVisible={buttonsVisible}
                                         transitionIn={transitionIn}
                                         setTransitionIn={setTransitionIn}

@@ -27,7 +27,7 @@ import ImportExportArea from "./ImportExportArea";
 
 import { MoveData, MoveSetItem, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
-import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
 
 import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
 
@@ -823,10 +823,11 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         }), []));
     }
 
-    const setBMove = (index: number) => (move: string) => {
+    const setBMove = (index: number) => (move: MoveName) => {
         const newPoke = pokemon.clone();
-        //@ts-ignore
-        newPoke.extraMoves[index] = move;
+        const newExtraMoves = [...newPoke.extraMoves!]
+        newExtraMoves[index] = move;
+        newPoke.extraMoves = newExtraMoves;
         setPokemon(newPoke);
     }
 
@@ -923,14 +924,14 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
 }
 export const BossBuildControlsMemo = React.memo(BossBuildControls, 
     (prevProps, nextProps) => 
-        prevProps.setPokemon === nextProps.setPokemon &&
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
-        JSON.stringify(prevProps.moveSet) === JSON.stringify(nextProps.moveSet) &&
+        arraysEqual(prevProps.pokemon.extraMoves!, nextProps.pokemon.extraMoves!) &&
+        arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         prevProps.prettyMode === nextProps.prettyMode);
 
 export default React.memo(BuildControls, 
     (prevProps, nextProps) => 
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
-        JSON.stringify(prevProps.abilities) === JSON.stringify(nextProps.abilities) &&
-        JSON.stringify(prevProps.moveSet) === JSON.stringify(nextProps.moveSet) &&
+        arraysEqual(prevProps.abilities, nextProps.abilities) &&
+        arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         prevProps.prettyMode === nextProps.prettyMode);

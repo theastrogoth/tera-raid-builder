@@ -7,12 +7,12 @@ import Tab from '@mui/material/Tab';
 import MoveSelection from "./MoveSelection";
 import RaidResults from "./RaidResults";
 import MoveDisplay from './MoveDisplay';
-import { RaidBattleInfo, RaidBattleResults, RaidStateProps } from "../raidcalc/interface";
+import { RaidBattleInfo, RaidBattleResults, RaidInputProps } from "../raidcalc/interface";
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
 
-function RaidControls({raidStateProps, prettyMode}: {raidStateProps: RaidStateProps, prettyMode: boolean}) {
+function RaidControls({raidInputProps, prettyMode}: {raidInputProps: RaidInputProps, prettyMode: boolean}) {
     const [value, setValue] = useState<number>(1);
     const [results, setResults] = useState<RaidBattleResults | null>(null);
 
@@ -29,14 +29,13 @@ function RaidControls({raidStateProps, prettyMode}: {raidStateProps: RaidStatePr
     }, [raidcalcWorker]);
 
     useEffect(() => {
-        console.log(raidStateProps)
         const info = {
-            raiders: raidStateProps.pokemon,
-            turns: raidStateProps.turns,
+            raiders: raidInputProps.pokemon,
+            turns: raidInputProps.turns,
         }
         raidcalcWorker
             .postMessage(info);
-    }, [raidStateProps.pokemon, raidStateProps.turns, prettyMode]);
+    }, [raidInputProps.pokemon, raidInputProps.turns, prettyMode]);
 
     return (
         <Box width={610} sx={{ mx: 1}}>
@@ -50,10 +49,10 @@ function RaidControls({raidStateProps, prettyMode}: {raidStateProps: RaidStatePr
                 <Stack direction="column" spacing={1} >
                     <Box maxHeight={560} sx={{ overflowY: "auto" }}>
                         {!prettyMode &&
-                            <MoveSelection raidStateProps={raidStateProps} />
+                            <MoveSelection raidInputProps={raidInputProps} />
                         }
                         {prettyMode &&
-                            <MoveDisplay turns={raidStateProps.turns} raiders={raidStateProps.pokemon} />
+                            <MoveDisplay turns={raidInputProps.turns} raiders={raidInputProps.pokemon} />
                         }
                     </Box>
                 </Stack>

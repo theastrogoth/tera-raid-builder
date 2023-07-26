@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 
 import { Pokemon, Generations, Field } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import { RaidBattleInfo, Raider, RaidState, BuildInfo, RaidTurnInfo, RaidStateProps } from "../raidcalc/interface";
+import { RaidBattleInfo, Raider, RaidState, BuildInfo, RaidTurnInfo, RaidInputProps } from "../raidcalc/interface";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
 
 import delphox from "../data/official_strats/delphox.json"
@@ -115,8 +115,8 @@ function serializeInfo(info: RaidBattleInfo): string {
     return serialize(obj);
 }
 
-function LinkButton({title, notes, credits, raidStateProps, setTitle, setNotes, setCredits, setPrettyMode}: 
-    { title: string, notes: string, credits: string, raidStateProps: RaidStateProps, 
+function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, setCredits, setPrettyMode}: 
+    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, 
       setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
       setPrettyMode: (p: boolean) => void}) {
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
@@ -148,13 +148,13 @@ function LinkButton({title, notes, credits, raidStateProps, setTitle, setNotes, 
                     setTitle(name);
                     setNotes(notes);
                     setCredits(credits);
-                    raidStateProps.setPokemon[0](pokemon[0]);
-                    raidStateProps.setPokemon[1](pokemon[1]);
-                    raidStateProps.setPokemon[2](pokemon[2]);
-                    raidStateProps.setPokemon[3](pokemon[3]);
-                    raidStateProps.setPokemon[4](pokemon[4]);
-                    raidStateProps.setTurns(turns);
-                    raidStateProps.setGroups(groups);
+                    raidInputProps.setPokemon[0](pokemon[0]);
+                    raidInputProps.setPokemon[1](pokemon[1]);
+                    raidInputProps.setPokemon[2](pokemon[2]);
+                    raidInputProps.setPokemon[3](pokemon[3]);
+                    raidInputProps.setPokemon[4](pokemon[4]);
+                    raidInputProps.setTurns(turns);
+                    raidInputProps.setGroups(groups);
                     setHasLoadedInfo(true);
                 }
             }
@@ -177,9 +177,9 @@ function LinkButton({title, notes, credits, raidStateProps, setTitle, setNotes, 
                     name: title,
                     notes: notes,
                     credits: credits,
-                    startingState: new RaidState(raidStateProps.pokemon, [new Field(), new Field(), new Field(), new Field(), new Field()]),
-                    turns: raidStateProps.turns,
-                    groups: raidStateProps.groups,
+                    startingState: new RaidState(raidInputProps.pokemon, [new Field(), new Field(), new Field(), new Field(), new Field()]),
+                    turns: raidInputProps.turns,
+                    groups: raidInputProps.groups,
                 });
                 navigator.clipboard.writeText(link)
             }}

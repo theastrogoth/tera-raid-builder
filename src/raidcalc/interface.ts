@@ -217,7 +217,7 @@ export type BuildInfo = {
 }
 
 // used for passing data to React components
-export type RaidStateProps = {
+export type RaidInputProps = {
     pokemon: Raider[],
     setPokemon: ((r: Raider) => void)[],
     turns: RaidTurnInfo[],

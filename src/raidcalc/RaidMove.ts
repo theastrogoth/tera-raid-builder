@@ -253,13 +253,31 @@ export class RaidMove {
                 continue;
             }
             // Type-based immunities
-            if (moveType === "Ground" && pokemon.types.includes("Flying")) { 
-                this._doesNotEffect[id] = true; 
-                continue;
-            }
-            if (moveType === "Electric" && pokemon.types.includes("Ground")) { 
-                this._doesNotEffect[id] = true; 
-                continue;
+            if (category !== "Status") {
+                if (moveType === "Ground" && pokemon.types.includes("Flying")) { 
+                    this._doesNotEffect[id] = true; 
+                    continue;
+                }
+                if (moveType === "Electric" && pokemon.types.includes("Ground")) { 
+                    this._doesNotEffect[id] = true; 
+                    continue;
+                }
+                if (["Normal", "Fighting"].includes(moveType || "") && pokemon.types.includes("Ghost")) {
+                    this._moveFails = false;
+                    continue;
+                }
+                if (moveType === "Ghost" && pokemon.types.includes("Normal")) {
+                    this._moveFails = false;
+                    continue;
+                }
+                if (moveType === "Dragon" && pokemon.types.includes("Fairy")) {
+                    this._doesNotEffect[id] = true;
+                    continue;
+                }
+                if (moveType === "Psychic" && pokemon.types.includes("Dark")) {
+                    this._doesNotEffect[id] = true;
+                    continue;
+                }
             }
             if (pokemon.ability === "Levitate" && moveType === "Ground") { 
                 this._doesNotEffect[id] = true; 
@@ -273,7 +291,6 @@ export class RaidMove {
                 this._doesNotEffect[id] = true;
                 continue;
             }
-            this._moveFails = false;
         }
     }
 

@@ -22,7 +22,7 @@ import Collapse from '@mui/material/Collapse';
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidMoveInfo, RaidStateProps, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidStateProps, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
 import { getPokemonSpriteURL, arraysEqual } from "../utils";
 
@@ -319,6 +319,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
     const moveSet = ["(No Move)", ...boss.moves, ...(boss.extraMoves) || []];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
+    const [options, setOptions] = useState(moveInfo.options || {crit: true, secondaryEffects: true, roll: "max"});
 
     const setMoveInfo = (newMoveInfo: RaidMoveInfo) => {
         console.log("New Boss Move Info", newMoveInfo)
@@ -326,6 +327,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
         newTurns[index].bossMoveInfo = newMoveInfo;
         setTurns(newTurns);
         setMoveName(newMoveInfo.moveData.name);
+        setOptions(newMoveInfo.options as RaidMoveOptions);
     }
 
     useEffect(() => {
@@ -501,6 +503,12 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     prevProps.turns[prevProps.index].moveInfo.targetID === nextProps.turns[nextProps.index].moveInfo.targetID &&
     prevProps.turns[prevProps.index].moveInfo.moveData.name === nextProps.turns[nextProps.index].moveInfo.moveData.name &&
     prevProps.turns[prevProps.index].bossMoveInfo.moveData.name === nextProps.turns[nextProps.index].bossMoveInfo.moveData.name &&
+    prevProps.turns[prevProps.index].moveInfo.options?.crit === nextProps.turns[nextProps.index].moveInfo.options?.crit &&
+    prevProps.turns[prevProps.index].moveInfo.options?.secondaryEffects === nextProps.turns[nextProps.index].moveInfo.options?.secondaryEffects &&
+    prevProps.turns[prevProps.index].moveInfo.options?.roll === nextProps.turns[nextProps.index].moveInfo.options?.roll &&
+    prevProps.turns[prevProps.index].bossMoveInfo.options?.crit === nextProps.turns[nextProps.index].bossMoveInfo.options?.crit &&
+    prevProps.turns[prevProps.index].bossMoveInfo.options?.secondaryEffects === nextProps.turns[nextProps.index].bossMoveInfo.options?.secondaryEffects &&
+    prevProps.turns[prevProps.index].bossMoveInfo.options?.roll === nextProps.turns[nextProps.index].bossMoveInfo.options?.roll &&
     arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
     arraysEqual(prevProps.raiders[prevProps.turns[prevProps.index].moveInfo.userID].moves, nextProps.raiders[nextProps.turns[nextProps.index].moveInfo.userID].moves) &&
     arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&  

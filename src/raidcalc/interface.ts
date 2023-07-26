@@ -215,3 +215,13 @@ export type BuildInfo = {
     turns: RaidTurnInfo[],
     groups: number[][],
 }
+
+// used for passing data to React components
+export type RaidStateProps = {
+    pokemon: Raider[],
+    setPokemon: ((r: Raider) => void)[],
+    turns: RaidTurnInfo[],
+    setTurns: (t: RaidTurnInfo[]) => void,
+    groups: number[][],
+    setGroups: (g: number[][]) => void,
+  }

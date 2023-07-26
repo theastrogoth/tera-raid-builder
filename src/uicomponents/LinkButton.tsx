@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 
 import { Pokemon, Generations, Field } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import { RaidBattleInfo, Raider, RaidState, BuildInfo } from "../raidcalc/interface";
+import { RaidBattleInfo, Raider, RaidState, BuildInfo, RaidTurnInfo, RaidStateProps } from "../raidcalc/interface";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
 
 import delphox from "../data/official_strats/delphox.json"
@@ -115,7 +115,10 @@ function serializeInfo(info: RaidBattleInfo): string {
     return serialize(obj);
 }
 
-function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {
+function LinkButton({title, notes, credits, raidStateProps, setTitle, setNotes, setCredits, setPrettyMode}: 
+    { title: string, notes: string, credits: string, raidStateProps: RaidStateProps, 
+      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
+      setPrettyMode: (p: boolean) => void}) {
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
     const hash = location.hash
@@ -134,14 +137,24 @@ function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setIn
                 if (res) {
                     const {name, notes, credits, pokemon, turns, groups} = res;
                     const startingState = new RaidState(pokemon, pokemon.map((r) => new Field()));
-                    setInfo({
-                        name: name,
-                        notes: notes,
-                        credits: credits,
-                        startingState: startingState,
-                        turns: turns,
-                        groups: groups,
-                    })
+                    // setInfo({
+                    //     name: name,
+                    //     notes: notes,
+                    //     credits: credits,
+                    //     startingState: startingState,
+                    //     turns: turns,
+                    //     groups: groups,
+                    // })
+                    setTitle(name);
+                    setNotes(notes);
+                    setCredits(credits);
+                    raidStateProps.setPokemon[0](pokemon[0]);
+                    raidStateProps.setPokemon[1](pokemon[1]);
+                    raidStateProps.setPokemon[2](pokemon[2]);
+                    raidStateProps.setPokemon[3](pokemon[3]);
+                    raidStateProps.setPokemon[4](pokemon[4]);
+                    raidStateProps.setTurns(turns);
+                    raidStateProps.setGroups(groups);
                     setHasLoadedInfo(true);
                 }
             }
@@ -160,7 +173,14 @@ function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setIn
         <Button
             variant="outlined"
             onClick={() => {
-                const link = window.location.href.split("#")[0] + "#" + serializeInfo(info);
+                const link = window.location.href.split("#")[0] + "#" + serializeInfo({
+                    name: title,
+                    notes: notes,
+                    credits: credits,
+                    startingState: new RaidState(raidStateProps.pokemon, [new Field(), new Field(), new Field(), new Field(), new Field()]),
+                    turns: raidStateProps.turns,
+                    groups: raidStateProps.groups,
+                });
                 navigator.clipboard.writeText(link)
             }}
         >

@@ -7,12 +7,12 @@ import Tab from '@mui/material/Tab';
 import MoveSelection from "./MoveSelection";
 import RaidResults from "./RaidResults";
 import MoveDisplay from './MoveDisplay';
-import { RaidBattleInfo, RaidBattleResults } from "../raidcalc/interface";
+import { RaidBattleInfo, RaidBattleResults, RaidStateProps } from "../raidcalc/interface";
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
 
-function RaidControls({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, prettyMode: boolean}) {
+function RaidControls({raidStateProps, prettyMode}: {raidStateProps: RaidStateProps, prettyMode: boolean}) {
     const [value, setValue] = useState<number>(1);
     const [results, setResults] = useState<RaidBattleResults | null>(null);
 
@@ -29,9 +29,14 @@ function RaidControls({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInf
     }, [raidcalcWorker]);
 
     useEffect(() => {
+        console.log(raidStateProps)
+        const info = {
+            raiders: raidStateProps.pokemon,
+            turns: raidStateProps.turns,
+        }
         raidcalcWorker
-            .postMessage({info});
-    }, [info, prettyMode]);
+            .postMessage(info);
+    }, [raidStateProps.pokemon, raidStateProps.turns, prettyMode]);
 
     return (
         <Box width={610} sx={{ mx: 1}}>
@@ -45,10 +50,10 @@ function RaidControls({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInf
                 <Stack direction="column" spacing={1} >
                     <Box maxHeight={560} sx={{ overflowY: "auto" }}>
                         {!prettyMode &&
-                            <MoveSelection info={info} setInfo={setInfo} />
+                            <MoveSelection raidStateProps={raidStateProps} />
                         }
                         {prettyMode &&
-                            <MoveDisplay info={info} />
+                            <MoveDisplay turns={raidStateProps.turns} raiders={raidStateProps.pokemon} />
                         }
                     </Box>
                 </Stack>
@@ -60,4 +65,4 @@ function RaidControls({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInf
     )
 }
 
-export default RaidControls;
+export default React.memo(RaidControls);

@@ -22,26 +22,26 @@ import Collapse from '@mui/material/Collapse';
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidBattleInfo, RaidMoveInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { MoveData, RaidMoveInfo, RaidStateProps, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
-import { getPokemonSpriteURL } from "../utils";
+import { getPokemonSpriteURL, arraysEqual } from "../utils";
 
-const handleAddTurn = (info: RaidBattleInfo, setInfo: (i: RaidBattleInfo) => void, setTransitionIn: (n: number) => void) => (index: number) => () => {
+const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: RaidTurnInfo[]) => void, setGroups: (g: number[][]) => void, setTransitionIn: (n: number) => void) => (index: number) => () => {
     let uniqueId = 0;
-    info.turns.forEach((turn) => {
+    turns.forEach((turn) => {
         if (turn.id >= uniqueId) {
             uniqueId = turn.id + 1;
         }
     })
     let group: number | undefined = undefined;
-    if (index > 0 && index < info.turns.length) {
-        const prev = info.turns[index-1].group;
-        const next = info.turns[index].group;
+    if (index > 0 && index < turns.length) {
+        const prev = turns[index-1].group;
+        const next = turns[index].group;
         if (prev !== undefined && prev === next) {
             group = prev;
         }
     }
-    let newTurns = [...info.turns];
+    let newTurns = [...turns];
     const newTurn: RaidTurnInfo = {
         id: uniqueId,
         group: group,
@@ -50,11 +50,13 @@ const handleAddTurn = (info: RaidBattleInfo, setInfo: (i: RaidBattleInfo) => voi
     }
     newTurns.splice(index, 0, newTurn);
 
-    const newInfo = {...info, turns: newTurns};
+    const newGroups = [...groups];
     if (group !== undefined) {
-        newInfo.groups[group].push(uniqueId);
+        newGroups[group].push(uniqueId);
     }
-    setInfo(prepareGroups(newInfo));
+    const preparedGroups = prepareGroups(newTurns, newGroups);
+    setTurns(preparedGroups.turns);
+    setGroups(preparedGroups.groups);
     setTransitionIn(uniqueId);
 }
 
@@ -150,18 +152,42 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
     )
 }
 
-function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: Raider[], info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
+function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders: Raider[], turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void}) {
     const roles = raiders.map((raider) => raider.role);
-    const moveInfo = info.turns[index].moveInfo;
+    const moveInfo = turns[index].moveInfo;
     const moveName = moveInfo.moveData.name;
 
     const moves = raiders[moveInfo.userID].moves;
     const moveSet = ["(No Move)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
+
+    const [disableTarget, setDisableTarget] = useState<boolean>(
+            moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.target === undefined ||
+            moveInfo.moveData.target === "user-and-allies" ||
+            moveInfo.moveData.target === "all-other-pokemon" ||
+            moveInfo.moveData.target === "user" ||
+            moveInfo.moveData.target === "all-pokemon" ||
+            moveInfo.moveData.target === "entire-field"   
+    );
+    const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : [0,1,2,3,4].filter((id) => id !== moveInfo.userID));
     
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
-        let newTurns = [...info.turns];
+        let newTurns = [...turns];
         newTurns[index].moveInfo = moveInfo;
-        setInfo({...info, turns: newTurns});
+        setTurns(newTurns);
+
+        const newDisableTarget = (
+            moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.target === undefined ||
+            moveInfo.moveData.target === "user-and-allies" ||
+            moveInfo.moveData.target === "all-other-pokemon" ||
+            moveInfo.moveData.target === "user" ||
+            moveInfo.moveData.target === "all-pokemon" ||
+            moveInfo.moveData.target === "entire-field"
+        );
+        const newValidTargets = newDisableTarget ? [moveInfo.userID] : [0,1,2,3,4].filter((id) => id !== moveInfo.userID);
+        setDisableTarget(newDisableTarget);
+        setValidTargets(newValidTargets);
     }
 
     const setInfoParam = (param: string) => (val: any) => {
@@ -175,6 +201,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     }, [moves])
 
     useEffect(() => {
+        console.log("Load data for", moveName)
         if (moveName === "(No Move)") {
             setMoveInfo({...moveInfo, moveData: {name: moveName}});
         } else if (moveName === "Attack Cheer" || moveName === "Defense Cheer") {
@@ -184,22 +211,13 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
         } else {
             async function fetchData() {
                 let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
+                console.log(moveName, mData)
                 setMoveInfo({...moveInfo, moveData: mData});
             }
             fetchData().catch((e) => console.log(e));
         }
     }, [moveName])
 
-    const disableTarget = moveInfo.moveData.name === "(No Move)" ||
-            moveInfo.moveData.target === "user-and-allies" ||
-            moveInfo.moveData.target === "all-other-pokemon" ||
-            moveInfo.moveData.target === "user" ||
-            moveInfo.moveData.target === "all-pokemon" ||
-            moveInfo.moveData.target === "entire-field";      
-
-    let validTargets = [0,1,2,3,4];
-    if (!disableTarget) { validTargets.splice(moveInfo.userID, 1); }
-    
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
             <Stack width="510px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">
@@ -261,7 +279,7 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
                     <Select
                         size="small"
                         variant="standard"
-                        value = {moveInfo.targetID}
+                        value = {disableTarget ? moveInfo.userID : moveInfo.targetID}
                         disabled = {disableTarget}
                         onChange={(e) =>setInfoParam("targetID")(e.target.value)}
                         sx={{ maxWidth : "175px"}}
@@ -295,16 +313,16 @@ function MoveDropdown({index, raiders, info, setInfo}: {index: number, raiders: 
     )
 }
 
-function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Raider, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
-    const moveInfo = info.turns[index].bossMoveInfo;
+function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: Raider, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void}) {
+    const moveInfo = turns[index].bossMoveInfo;
     const moveName = moveInfo.moveData.name;
-    const turnID = info.turns[index].id;
+    const turnID = turns[index].id;
     const moveSet = ["(No Move)", ...boss.moves, ...(boss.extraMoves) || []];
 
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
-        let newTurns = [...info.turns]; 
+        let newTurns = [...turns];
         newTurns[index].bossMoveInfo = moveInfo;
-        setInfo({...info, turns: newTurns});
+        setTurns(newTurns);
     }
 
     useEffect(() => {
@@ -353,13 +371,11 @@ function BossMoveDropdown({index, boss, info, setInfo}: {index: number, boss: Ra
     )
 }
 
-function MoveSelectionContainer({raiders, index, info, setInfo, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut}: 
-    {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void}) 
+function MoveSelectionContainer({raiders, index, turns, setTurns, groups, setGroups, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut}: 
+    {raiders: Raider[], index: number, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void, groups: number[][], setGroups: (g: number[][]) => void, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void}) 
 {
-    const turnID = info.turns[index].id;
+    const turnID = turns[index].id;
     const collapseIn = transitionOut !== turnID && transitionIn !== turnID;
-
-    console.log("Move Selection Animation", turnID, collapseIn, transitionIn, transitionOut)
 
     useEffect(() => {
         if (transitionIn === turnID) {
@@ -380,10 +396,8 @@ function MoveSelectionContainer({raiders, index, info, setInfo, buttonsVisible, 
                     {...provided.dragHandleProps}
                 >
                     <Collapse in={collapseIn} timeout={250}>
-                        <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} buttonsVisible={buttonsVisible} setTransitionIn={setTransitionIn} setTransitionOut={setTransitionOut} />
+                        <MoveSelectionCardMemo raiders={raiders} index={index} turns={turns} setTurns={setTurns} groups={groups} setGroups={setGroups} buttonsVisible={buttonsVisible} setTransitionIn={setTransitionIn} setTransitionOut={setTransitionOut} />
                     </Collapse>
-                    {/* <MoveSelectionCard raiders={raiders} index={index} info={info} setInfo={setInfo} buttonsVisible={buttonsVisible} /> */}
-
                 </div>
             )}
 
@@ -430,20 +444,22 @@ function CloseButton({onClick, visible, disabled=false}: {onClick: () => void, v
     )
 }
 
-function MoveSelectionCard({raiders, index, info, setInfo, buttonsVisible, setTransitionIn, setTransitionOut}: {raiders: Raider[], index: number, info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, buttonsVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void}) {
+function MoveSelectionCard({raiders, index, turns, setTurns, groups, setGroups, buttonsVisible, setTransitionIn, setTransitionOut}: {raiders: Raider[], index: number, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void, groups: number[][], setGroups: (g: number[][]) => void, buttonsVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void}) {
     const timer = useRef<NodeJS.Timeout | null>(null);
     const handleRemoveTurn = () => {
-        setTransitionOut(info.turns[index].id);
+        setTransitionOut(turns[index].id);
         timer.current = setTimeout(() => {
-            let newTurns = [...info.turns];
+            let newTurns = [...turns];
             newTurns.splice(index, 1);
-            setInfo(prepareGroups({...info, turns: newTurns}));
+            const preparedGroups = prepareGroups(newTurns, groups);
+            setTurns(preparedGroups.turns);
+            setGroups(preparedGroups.groups);
             setTransitionOut(-1);
             timer.current = null;
         }, 300)
     }
 
-    const group = info.turns[index].group;
+    const group = turns[index].group;
     const color = group !== undefined ? "group" + group.toString().slice(-1) + ".main" : undefined;
 
     return (        
@@ -459,55 +475,67 @@ function MoveSelectionCard({raiders, index, info, setInfo, buttonsVisible, setTr
                         alignItems="center"
                         sx={{ p: 0.5 }}
                     >
-                        <MoveDropdown index={index} raiders={raiders} info={info} setInfo={setInfo} />
+                        <MoveDropdown index={index} raiders={raiders} turns={turns} setTurns={setTurns} />
                         {/* <Box width="80%">
                             <Divider />
                         </Box> */}
-                        <BossMoveDropdown index={index} boss={raiders[0]} info={info} setInfo={setInfo}/>
+                        <BossMoveDropdown index={index} boss={raiders[0]} turns={turns} setTurns={setTurns}/>
                     </Stack>
                     <Stack alignItems="center" justifyContent={"center"} paddingRight={0.5}>
-                        <CloseButton onClick={handleRemoveTurn} visible={true} disabled={(info.turns.length <= 1) || !buttonsVisible}/>
+                        <CloseButton onClick={handleRemoveTurn} visible={true} disabled={(turns.length <= 1) || !buttonsVisible}/>
                     </Stack>
                 </Stack>
             </Paper>
-            <AddButton onClick={handleAddTurn(info, setInfo, setTransitionIn)(index+1)} visible={buttonsVisible} />
+            <AddButton onClick={handleAddTurn(turns, groups, setTurns, setGroups, setTransitionIn)(index+1)} visible={buttonsVisible} />
         </Stack>
     )
 }
+const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProps) => (
+    prevProps.index === nextProps.index && 
+    prevProps.turns[prevProps.index].id === nextProps.turns[nextProps.index].id &&
+    prevProps.turns[prevProps.index].moveInfo.userID === nextProps.turns[nextProps.index].moveInfo.userID &&
+    prevProps.turns[prevProps.index].moveInfo.targetID === nextProps.turns[nextProps.index].moveInfo.targetID &&
+    prevProps.turns[prevProps.index].moveInfo.moveData.name === nextProps.turns[nextProps.index].moveInfo.moveData.name &&
+    arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
+    arraysEqual(prevProps.raiders[prevProps.turns[prevProps.index].moveInfo.userID].moves, nextProps.raiders[nextProps.turns[nextProps.index].moveInfo.userID].moves) &&
+    arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&
+    prevProps.buttonsVisible === nextProps.buttonsVisible
+));
 
-function prepareGroups(info: RaidBattleInfo) {
-    const newInfo = {...info};
+function prepareGroups(turns: RaidTurnInfo[], groups: number[][]) {
+    const newTurns = [...turns];
+    let newGroups = [...groups];
     // ensure adjacenty
-    for (let i=0; i<newInfo.turns.length; i++) {
-        const currGroup = newInfo.turns[i].group;
-        const prevGroup = i === 0 ? undefined : newInfo.turns[i-1].group;
-        const nextGroup = i === newInfo.turns.length-1 ? undefined : newInfo.turns[i+1].group;
+    for (let i=0; i<newTurns.length; i++) {
+        const currGroup = newTurns[i].group;
+        const prevGroup = i === 0 ? undefined : newTurns[i-1].group;
+        const nextGroup = i === newTurns.length-1 ? undefined : newTurns[i+1].group;
     
         if (currGroup !== undefined && !(prevGroup === currGroup || currGroup === nextGroup)) {
-            newInfo.groups[currGroup].splice(newInfo.groups[currGroup].indexOf(newInfo.turns[i].id), 1);
-            newInfo.turns[i].group = undefined;
+            newGroups[currGroup].splice(newGroups[currGroup].indexOf(newTurns[i].id), 1);
+            newTurns[i].group = undefined;
         }
     }
     // ensure no singletons
-    newInfo.groups = newInfo.groups.filter((group) => group.length > 1);
+    newGroups = newGroups.filter((group) => group.length > 1);
     // clear old group assignments
-    for (let turn of newInfo.turns) {
+    for (let turn of newTurns) {
         turn.group = undefined;
     }
     // add new group assignments
-    for (let i=0; i<newInfo.groups.length; i++) {
-        const group = newInfo.groups[i];
+    for (let i=0; i<newGroups.length; i++) {
+        const group = newGroups[i];
         for (let turnID of group) {
-            const turn = newInfo.turns.find((turn) => turn.id === turnID);
+            const turn = newTurns.find((turn) => turn.id === turnID);
             if (turn) {
                 turn.group = i;
             }
         }
     }
-    return newInfo;
+    return {turns: newTurns, groups: newGroups};
 }
 
-function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>}) {
+function MoveSelection({raidStateProps}: {raidStateProps: RaidStateProps}) {
         
     const [buttonsVisible, setButtonsVisible] = useState(true);
     const [transitionIn, setTransitionIn] = useState(-1);
@@ -520,40 +548,43 @@ function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Di
     const onDragEnd = (result: DropResult) => {
         setButtonsVisible(true);
         const {destination, source, draggableId, combine} = result;
-        const newInfo = {...info};
+        const newTurns = [...raidStateProps.turns];
+        const newGroups = [...raidStateProps.groups];
         let destinationIndex = destination ? destination.index : source.index;
         if (combine) {
             const movedIndex = result.source.index;
-            const movedID = newInfo.turns[movedIndex].id;
+            const movedID = newTurns[movedIndex].id;
             const targetID = parseInt(combine.draggableId);
-            const idsByIndex = info.turns.map((turn) => turn.id);
+            const idsByIndex = newTurns.map((turn) => turn.id);
             const targetIndex = idsByIndex.indexOf(targetID);
             destinationIndex = movedIndex > targetIndex ? targetIndex : targetIndex-1;
 
-            const movedFromGroup = info.turns[movedIndex].group;
-            const targetGroup = info.turns[targetIndex].group;
+            const movedFromGroup = newTurns[movedIndex].group;
+            const targetGroup = newTurns[targetIndex].group;
 
             // remove membership from former group
             if (movedFromGroup !== undefined) {
-                const groupIndex = info.groups[movedFromGroup].indexOf(movedID);
-                newInfo.groups[movedFromGroup].splice(groupIndex, 1);
+                const groupIndex = newGroups[movedFromGroup].indexOf(movedID);
+                newGroups[movedFromGroup].splice(groupIndex, 1);
             }
             // create new group or add membership to existing group
             if (targetGroup === undefined) {
-                newInfo.turns[movedIndex].group = newInfo.groups.length;
-                newInfo.turns[targetIndex].group = newInfo.groups.length;
-                newInfo.groups.push([targetID, movedID]);
+                newTurns[movedIndex].group = newGroups.length;
+                newTurns[targetIndex].group = newGroups.length;
+                newGroups.push([targetID, movedID]);
             } else {
-                newInfo.turns[movedIndex].group = targetGroup;
-                newInfo.groups[targetGroup].push(movedID);
+                newTurns[movedIndex].group = targetGroup;
+                newGroups[targetGroup].push(movedID);
             } 
         }
         if (!destination && !combine) { return }; 
         if (!combine && (!destination || (destination.droppableId === source.droppableId &&
             destination.index === source.index))) { return }; 
-        const movedTurn = newInfo.turns.splice(source.index, 1)[0];
-        newInfo.turns.splice(destinationIndex, 0, movedTurn);
-        setInfo(prepareGroups(newInfo));
+        const movedTurn = newTurns.splice(source.index, 1)[0];
+        newTurns.splice(destinationIndex, 0, movedTurn);
+        const preparedGroups = prepareGroups(newTurns, newGroups);
+        raidStateProps.setTurns(preparedGroups.turns);
+        raidStateProps.setGroups(preparedGroups.groups);
     };
     return (
         <Box>
@@ -568,15 +599,17 @@ function MoveSelection({info, setInfo}: {info: RaidBattleInfo, setInfo: React.Di
                             ref={provided.innerRef}
                             {...provided.droppableProps} 
                         >
-                            <AddButton onClick={handleAddTurn(info, setInfo, setTransitionIn)(0)} visible={buttonsVisible}/>
+                            <AddButton onClick={handleAddTurn(raidStateProps.turns, raidStateProps.groups, raidStateProps.setTurns, raidStateProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
                             {
-                                info.turns.map((turn, index) => (
+                                raidStateProps.turns.map((turn, index) => (
                                     <MoveSelectionContainer 
                                         key={index}
-                                        raiders={info.startingState.raiders} 
+                                        raiders={raidStateProps.pokemon} 
                                         index={index} 
-                                        info={info} 
-                                        setInfo={setInfo} 
+                                        turns={raidStateProps.turns}
+                                        setTurns={raidStateProps.setTurns}
+                                        groups={raidStateProps.groups}
+                                        setGroups={raidStateProps.setGroups}
                                         buttonsVisible={buttonsVisible}
                                         transitionIn={transitionIn}
                                         setTransitionIn={setTransitionIn}

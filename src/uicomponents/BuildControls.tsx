@@ -930,7 +930,6 @@ export const BossBuildControlsMemo = React.memo(BossBuildControls,
 
 export default React.memo(BuildControls, 
     (prevProps, nextProps) => 
-        prevProps.setPokemon === nextProps.setPokemon &&
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
         JSON.stringify(prevProps.abilities) === JSON.stringify(nextProps.abilities) &&
         JSON.stringify(prevProps.moveSet) === JSON.stringify(nextProps.moveSet) &&

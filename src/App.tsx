@@ -19,11 +19,9 @@ import LinkButton from './uicomponents/LinkButton.tsx';
 
 import { Generations, Pokemon, Field} from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
-import { Raider, RaidBattleInfo, RaidState } from './raidcalc/interface.ts';
+import { Raider, RaidBattleInfo, RaidState, RaidTurnInfo, RaidStateProps } from './raidcalc/interface.ts';
 import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
-
-// import {BOSS_SETDEX_SV} from './data/sets/raid_bosses.ts'
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -184,68 +182,97 @@ function App() {
 
   const gen = Generations.get(9); 
 
-  const defaultRaiders = [
+  const [raidBoss, setRaidBoss] = useState(
     new Raider(0, "Raid Boss", new Pokemon(gen, "Rillaboom", {
       teraType: "Normal",
       bossMultiplier: 3500,
       nature: "Naughty",
       ability: "Grassy Surge",
       moves: ["Take Down", "Wood Hammer", "Acrobatics", "Drum Beating"]
-    }), ["Noble Roar", "Taunt", "Boomburst", "Body Slam"] as MoveName[]),
+    }), ["Noble Roar", "Taunt", "Boomburst", "Body Slam"] as MoveName[])
+  );
+  const [raider1, setRaider1] = useState(
     new Raider(1, "Raider #1", new Pokemon(gen, "Lucario", {
       nature: "Modest",
       ability: "(No Ability)",
       moves: ["Nasty Plot", "Focus Blast"],
       item: "Weakness Policy",
       evs: {hp: 252, spa: 252},
-    })),
+    }))
+  );
+  const [raider2, setRaider2] = useState(
     new Raider(2, "Raider #2", new Pokemon(gen, "Dachsbun", {
       nature: "Bold",
       ability: "Aroma Veil",
       moves: ["Helping Hand"],
       evs: {hp: 252, def: 252},
-    })),
+    }))
+  );
+  const [raider3, setRaider3] = useState(
     new Raider(3, "Raider #3", new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
       ability: "(No Ability)",
       moves: ["Defog", "Fake Tears"],
       evs: {hp: 252, def: 252},
-    })),
+    }))
+  );
+  const [raider4, setRaider4] = useState(
     new Raider(4, "Raider #4", new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
       ability: "(No Ability)",
       moves: ["Defog", "Fake Tears"],
       evs: {hp: 252, def: 252},
-    })),
-  ];
+    }))
+  );
 
-  const [info, setInfo] = useState<RaidBattleInfo>({
-    name: "",
-    startingState: new RaidState(defaultRaiders, defaultRaiders.map((r) => new Field())),
-    turns: [
-      {
-        id: 0, 
-        moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
-        bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
-      }
-    ],
-    groups: [],
-  })
+  const [title, setTitle] = useState<string>("");
+  const [notes, setNotes] = useState<string>("");
+  const [credits, setCredits] = useState<string>("");
+  const [turns, setTurns] = useState<RaidTurnInfo[]>([{
+      id: 0, 
+      moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
+      bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
+    }
+  ]);
+  const [groups, setGroups] = useState<number[][]>([]);
 
-  const raiders = info.startingState.raiders;
+  // const [info, setInfo] = useState<RaidBattleInfo>({
+  //   name: "",
+  //   startingState: new RaidState([raidBoss, raider1, raider2, raider3, raider4], [0,1,2,3,4].map((i) => new Field())),
+  //   turns: [
+  //     {
+  //       id: 0, 
+  //       moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
+  //       bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max" }, moveData: {name: "(No Move)" as MoveName}},
+  //     }
+  //   ],
+  //   groups: [],
+  // })
 
-  const setRaiders = (raiders: Raider[]) => {
-    setInfo({
-      ...info,
-      startingState: new RaidState(raiders, info.startingState.fields.map((f) => f.clone())),
-    })
+  // useEffect(() => {
+  //   const newInfo = {
+  //     name: title,
+  //     notes: notes,
+  //     credits: credits,
+  //     startingState: new RaidState([raidBoss, raider1, raider2, raider3, raider4], [0,1,2,3,4].map((i) => new Field())),
+  //     turns: turns,
+  //     groups: groups,
+  //   };
+  //   setInfo(newInfo);
+  // }, 
+  // [raider1, raider2, raider3, raider4, raidBoss, title, credits, notes, turns, groups])
+
+
+  const raidStateProps: RaidStateProps = {
+    pokemon: [raidBoss, raider1, raider2, raider3, raider4],
+    setPokemon: [setRaidBoss, setRaider1, setRaider2, setRaider3, setRaider4],
+    turns: turns,
+    setTurns: setTurns,
+    groups: groups,
+    setGroups: setGroups
   }
 
-  const setPokemon = (index: number) => (r: Raider) => {
-    const newRaiders = [...raiders];
-    newRaiders[index] = r;
-    setRaiders(newRaiders);
-  }
+  console.log(raidStateProps)
 
   return (
   <ThemeProvider theme={theme}> 
@@ -257,36 +284,41 @@ function App() {
       <Stack direction="column" justifyContent="center">
         <Grid container justifyContent="center" sx={{ my: 1 }}>
           <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
-            <StratHeader info={info} setInfo={setInfo} prettyMode={prettyMode} />
+            <StratHeader title={title} setTitle={setTitle} prettyMode={prettyMode} />
           </Grid>
         </Grid>
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raiders[1]} setPokemon={setPokemon(1)} prettyMode={prettyMode} />
-              <PokemonSummary pokemon={raiders[2]} setPokemon={setPokemon(2)} prettyMode={prettyMode}/>
+              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} prettyMode={prettyMode}/>
             </Stack>
           </Grid>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raiders[3]} setPokemon={setPokemon(3)} prettyMode={prettyMode} />
-              <PokemonSummary pokemon={raiders[4]} setPokemon={setPokemon(4)} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} prettyMode={prettyMode} />
             </Stack>
           </Grid>
           <Grid item>
-            <BossSummary pokemon={raiders[0]} setPokemon={setPokemon(0)} prettyMode={prettyMode} />
+            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} prettyMode={prettyMode} />
           </Grid>
           <Grid item>
-            <RaidControls info={info} setInfo={setInfo} prettyMode={prettyMode} />
+            <RaidControls raidStateProps={raidStateProps} prettyMode={prettyMode} />
           </Grid>
-          <StratFooter info={info} setInfo={setInfo} prettyMode={prettyMode} />
+          <StratFooter notes={notes} setNotes={setNotes} credits={credits} setCredits={setCredits} prettyMode={prettyMode} />
         </Grid>
         <Grid container justifyContent="left" sx={{ my: 1 }}>
           <Grid item xs={12}>
             <Stack >
               <Stack direction="row" sx={{ p: 2 }}>
                 <Box flexGrow={1} />
-                <LinkButton info={info} setInfo={setInfo} setPrettyMode={setPrettyMode}/>
+                  <LinkButton 
+                    title={title} notes={notes} credits={credits}
+                    raidStateProps={raidStateProps}
+                    setTitle={setTitle} setNotes={setNotes} setCredits={setCredits}
+                    setPrettyMode={setPrettyMode}
+                  />
                 <Box flexGrow={1} />
               </Stack>
               <Stack sx={{ mx: 3, my: 3}}>
@@ -300,7 +332,7 @@ function App() {
                   Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
                 </Typography>
                 <Typography variant="h6" sx={{color: "text.secondary"}}>
-                    Contact
+                  Contact
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
                   Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.

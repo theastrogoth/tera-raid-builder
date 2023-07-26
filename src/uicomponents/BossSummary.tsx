@@ -132,4 +132,8 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
     );
 }
 
-export default React.memo(BossSummary);
+export default React.memo(BossSummary,
+    (prevProps, nextProps) => (
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        prevProps.prettyMode === nextProps.prettyMode)
+    );

@@ -252,6 +252,37 @@ export class RaidMove {
                 this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
                 continue;
             }
+            if (pokemon.ability === "Bulletproof" && 
+                [   "Acid Spray",
+                    "Aura Sphere",
+                    "Barrage",
+                    "Beak Blast",
+                    "Bullet Seed",
+                    "Egg Bomb",
+                    "Electro Ball",
+                    "Energy Ball",
+                    "Focus Blast",
+                    "Gyro Ball",
+                    "Ice Ball",
+                    "Magnet Bomb",
+                    "Mist Ball",
+                    "Mud Bomb",
+                    "Octazooka",
+                    "Pollen Puff",
+                    "Pyro Ball",
+                    "Rock Blast",
+                    "Rock Wrecker",
+                    "Searing Shot",
+                    "Seed Bomb",
+                    "Shadow Ball",
+                    "Sludge Bomb",
+                    "Weather Ball",
+                    "Zap Cannon"
+                ].includes(moveName)) 
+            {
+                this._doesNotEffect[id] = true;
+                continue;
+            }
             // Type-based immunities
             if (category !== "Status") {
                 if (moveType === "Ground" && pokemon.types.includes("Flying")) { 

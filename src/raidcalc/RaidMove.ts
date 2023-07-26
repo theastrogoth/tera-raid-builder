@@ -3,7 +3,6 @@ import { getEndOfTurn } from "../calc/desc";
 import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
 import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
 import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat } from "../calc/mechanics/util";
-import { diff } from "jest-diff";
 
 // next time I prepare the move data, I should eliminate the need for translation
 function ailmentToStatus(ailment: AilmentName): StatusName | "" {
@@ -68,6 +67,16 @@ function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender:
     return typeEffectiveness >= 2;
 }
 
+export function getBoostCoefficient(pokemon: Pokemon) {
+    const hasSimple = pokemon.ability === "Simple";
+    const hasContrary = pokemon.ability === "Contrary";
+    return hasSimple ? 2 : hasContrary ? -1 : 1;
+}
+
+export function safeStatStage(value: number) {
+    return Math.max(-6, Math.min(6, value));
+}
+
 // we'll always use generation 9
 const gen = Generations.get(9);
 const dummyMove = new Move(gen, "Splash");
@@ -112,6 +121,7 @@ export class RaidMove {
     public result(): RaidMoveResult {
         this.setOutputRaidState();
         this.setAffectedPokemon();
+        this.applyItemEffects();
         this.setDamage();
         this.setDrain();
         this.setHealing();
@@ -125,10 +135,14 @@ export class RaidMove {
         this.applyAbilityEffects();
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyItemEffects(!this.movesFirst);
+        this.applyItemEffects();
         this.setFlags();
         this._user.lastMove = this.moveData;
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
+        return this.output;
+    }
+
+    public get output(): RaidMoveResult {
         return {
             state: this._raidState,
             userID: this.userID,
@@ -147,7 +161,16 @@ export class RaidMove {
         this._raiders = this._raidState.raiders;
         this._fields = this._raidState.fields;
         this._user = this._raiders[this.userID];
+
+        // initialize arrays
+        this._damage = [0,0,0,0,0];
+        this._drain = [0,0,0,0,0];
+        this._healing = [0,0,0,0,0];
+        this._eot = [undefined, undefined, undefined, undefined];
+        this._boosts = [{},{},{},{},{}];
+        this._desc = ['','','','',''];
         this._flags=[[],[],[],[],[]];
+
     }
 
     private setAffectedPokemon() {
@@ -170,8 +193,6 @@ export class RaidMove {
     }
 
     private setDamage() {
-        this._damage = [0,0,0,0,0];
-        this._desc = ['','','','',''];
         const moveUser = this.getPokemon(this.userID);
         if ((this._fields[this.userID].terrain === "Electric" && moveUser.ability === "Quark Drive")  ||
             (this._fields[this.userID].weather === "Sun" && moveUser.ability === "Protosynthesis")
@@ -207,7 +228,6 @@ export class RaidMove {
     }
 
     private setDrain() { // this also accounts for recoil
-        this._drain = [0,0,0,0,0]
         const drainPercent = this.moveData.drain;
         if (drainPercent) {
             // draining moves should only ever hit a single target in raids
@@ -219,7 +239,6 @@ export class RaidMove {
     }
 
     private setHealing() {
-        this._healing = [0,0,0,0,0];
         const healingPercent = this.moveData.healing;
         for (let id of this._affectedIDs) {
             const target = this.getPokemon(id);
@@ -237,7 +256,6 @@ export class RaidMove {
     }
 
     private applyStatChanges() {
-        this._boosts = [{},{},{},{},{}];
         const category = this.moveData.category;
         const affectedIDs = category == "damage+raise" ? [this.userID] : this._affectedIDs;
         const statChanges = this.moveData.statChanges;
@@ -248,7 +266,7 @@ export class RaidMove {
                 const field = this._fields[id];
                 if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
                 // handle Contrary and Simple
-                const boostCoefficient = pokemon.ability == "Contrary" ? -1 : pokemon.ability == "Simple" ? 2 : 1;
+                const boostCoefficient = getBoostCoefficient(pokemon)
                 for (let statChange of (statChanges || [])) {
                     const stat = statChange.stat;
                     let change = statChange.change * boostCoefficient;
@@ -437,18 +455,14 @@ export class RaidMove {
                 break;
             case "Fling":
                 const fl_target = this.getPokemon(this.targetID);
-                const hasSimple = fl_target.ability === "Simple";
-                const hasContrary = fl_target.ability === "Contrary";
-                const boostCoefficient = hasSimple ? 2 : hasContrary ? -1 : 1;
+                const boostCoefficient = getBoostCoefficient(fl_target);
                 const flingItem = this._user.item;
-                console.log("Fling", flingItem, this.raidState.raiders[this.userID].item)
                 switch (flingItem) {
                     case "Light Ball":
                         if (hasNoStatus(fl_target)) { fl_target.status = "par"; }
                         break;
                     case "Flame Orb":
                         if (!fl_target.types.includes("Fire") && hasNoStatus(fl_target)) { fl_target.status = "brn"; }
-                        console.log("Fling Flame Orb", this._user, fl_target, this._raidState)
                         break;
                     case "Toxic Orb":
                         if (!fl_target.types.includes("Poison") && hasNoStatus(fl_target)) { fl_target.status = "tox"; }
@@ -486,27 +500,27 @@ export class RaidMove {
                     // Stat-Boosting Berries
                     case "Liechi Berry":
                         const origAtk = fl_target.boosts.atk;
-                        fl_target.boosts.atk = Math.max(-6, Math.min(6, fl_target.boosts.atk + boostCoefficient));
+                        fl_target.boosts.atk = safeStatStage(fl_target.boosts.atk + boostCoefficient);
                         this._boosts[this.targetID].atk = this._boosts[this.targetID].atk || 0 + fl_target.boosts.atk - origAtk;
                         break;
                     case "Ganlon Berry":
                         const origDef = fl_target.boosts.def;
-                        fl_target.boosts.def = Math.max(-6, Math.min(6, fl_target.boosts.def + boostCoefficient));
+                        fl_target.boosts.def = safeStatStage(fl_target.boosts.def + boostCoefficient);
                         this._boosts[this.targetID].def = this._boosts[this.targetID].def || 0 + boostCoefficient - origDef;
                         break;
                     case "Petaya Berry":
                         const origSpa = fl_target.boosts.spa;
-                        fl_target.boosts.spa = Math.max(-6, Math.min(6, fl_target.boosts.spa + boostCoefficient));
+                        fl_target.boosts.spa = safeStatStage(fl_target.boosts.spa + boostCoefficient);
                         this._boosts[this.targetID].spa = this._boosts[this.targetID].spa || 0 + boostCoefficient - origSpa;
                         break;
                     case "Apicot Berry":
                         const origSpd = fl_target.boosts.spd;
-                        fl_target.boosts.spd = Math.max(-6, Math.min(6, fl_target.boosts.spd + boostCoefficient));
+                        fl_target.boosts.spd = safeStatStage(fl_target.boosts.spd + boostCoefficient);
                         this._boosts[this.targetID].spd = this._boosts[this.targetID].spd || 0 + boostCoefficient - origSpd;
                         break;
                     case "Salac Berry":
                         const origSpe = fl_target.boosts.spe;
-                        fl_target.boosts.spe = Math.max(-6, Math.min(6, fl_target.boosts.spe + boostCoefficient));
+                        fl_target.boosts.spe = safeStatStage(fl_target.boosts.spe + boostCoefficient);
                         this._boosts[this.targetID].spe = this._boosts[this.targetID].spe || 0 + boostCoefficient - origSpe;
                         break;
                     // Healing Berries
@@ -568,28 +582,32 @@ export class RaidMove {
             for (let id of this._affectedIDs) {
                 const pokemon = this.getPokemon(id);
                 if (pokemon.ability === "Justified" && this._damage[id]>0) { 
-                    pokemon.boosts.atk = Math.min(6, pokemon.boosts.atk + this.move.hits); 
+                    pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + this.move.hits); 
                 }
             }
         }    
         // Unburden
-        if (this._user.ability === "Unburden" && 
-            this._user.item === undefined && 
-            this.raidState.raiders[this.userID].item !== undefined) 
-        {
-            this._user.abilityOn = true;
+        for (let i=0; i<5; i++) {
+            const pokemon = this.getPokemon(i);
+            if (pokemon.ability === "Unburden" && 
+                pokemon.item === undefined && 
+                this.raidState.raiders[i].item !== undefined) 
+            {
+                pokemon.abilityOn = true;
+            }
         }
+
         // Weak Armor
         for (let id of this._affectedIDs) {
             const pokemon = this.getPokemon(id);
             if (this._damage[id] > 0 && pokemon.ability === "Weak Armor") {
-                pokemon.boosts.def = Math.max(-6, pokemon.boosts.def - 1);
-                pokemon.boosts.spe = Math.min(6, pokemon.boosts.spe + 2);
+                pokemon.boosts.def = safeStatStage(pokemon.boosts.def - 1);
+                pokemon.boosts.spe = safeStatStage(pokemon.boosts.spe + 2);
             }
         }
     }
 
-    private applyItemEffects(endOfTurn: boolean = false) {
+    public applyItemEffects() {
         /// Item-related effects
         // Focus Sash
         for (let id of this._affectedIDs) {
@@ -613,13 +631,40 @@ export class RaidMove {
                         // @ts-ignore
                         const origStat = pokemon.boosts[stat];
                         // @ts-ignore
-                        pokemon.boosts[stat] = Math.max(-6, Math.min(6, pokemon.boosts[stat] + bossBoosts[stat])); }
+                        pokemon.boosts[stat] = safeStatStage(pokemon.boosts[stat] + bossBoosts[stat]); }
                         // @ts-ignore
                         const diff = pokemon.boosts[stat] - origStat;
                         // @ts-ignore
                         this._boosts[stat] = this._boosts[stat] || 0 + diff;
                 }
                 if (changed) { pokemon.item = undefined; } // the herb is consumed if a boost is copied.
+            }
+        }
+        // Terrain Seeds
+        for (let i=0; i<5; i++) {
+            const pokemon = this.getPokemon(i);
+            const item = pokemon.item || "";
+            const boostCoefficient = getBoostCoefficient(pokemon);
+            if (item.includes("Seed") && this._fields[i].terrain !== undefined) {
+                if ((item === "Electric Seed" && this._fields[i].terrain === "Electric") ||
+                    (item === "Grassy Seed" && this._fields[i].terrain === "Grassy")
+                   )
+                {
+                    const origDef = pokemon.boosts.def;
+                    pokemon.boosts.def = safeStatStage(pokemon.boosts.def + boostCoefficient);
+                    const diff = pokemon.boosts.def - origDef;
+                    this._boosts[i].def = this._boosts[i].def || 0 + diff;         
+                    pokemon.item = undefined;
+                } else if ((item === "Psychic Seed" && this._fields[i].terrain === "Psychic") ||
+                           (item === "Misty Seed" && this._fields[i].terrain === "Misty")
+                        )
+                {
+                    const origSpd = pokemon.boosts.spd;
+                    pokemon.boosts.spd = safeStatStage(pokemon.boosts.spd + boostCoefficient);
+                    const diff = pokemon.boosts.spd - origSpd;
+                    this._boosts[i].spd = this._boosts[i].spd || 0 + diff;
+                    pokemon.item = undefined;
+                }
             }
         }
         // Weakness Policy and Super-Effective reducing Berries
@@ -629,13 +674,11 @@ export class RaidMove {
             if (this._damage[id] > 0 && isSuperEffective(this.move, this._fields[id], this._user, pokemon)) {
                 switch (pokemon.item) {
                     case "Weakness Policy":
-                        const isSimple = pokemon.ability === "Simple";
-                        const isContrary = pokemon.ability === "Contrary";
-                        const boostCoefficient = isSimple ? 2 : isContrary ? -1 : 1;
+                        const boostCoefficient = getBoostCoefficient(pokemon);
                         const origAtk = pokemon.boosts.atk;
                         const origSpa = pokemon.boosts.spa;
-                        pokemon.boosts.atk = Math.max(-6, Math.min(6, pokemon.boosts.atk + 2 * boostCoefficient));
-                        pokemon.boosts.spa = Math.max(-6, Math.min(6, pokemon.boosts.spa + 2 * boostCoefficient));
+                        pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + 2 * boostCoefficient);
+                        pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 2 * boostCoefficient);
                         pokemon.item = undefined;
                         this._boosts[id].atk = this._boosts[id].atk || 0 + pokemon.boosts.atk - origAtk;
                         this._boosts[id].spa = this._boosts[id].spa || 0 + pokemon.boosts.spa - origSpa;
@@ -706,30 +749,7 @@ export class RaidMove {
                 pokemon.item = undefined;
             }
         }
-        // Ailment-inducing Items
-        if (hasNoStatus(this._user) && endOfTurn) {
-            switch (this._user.item) {
-                case "Light Ball":
-                    this._user.status = "par";
-                    break;
-                case "Flame Orb":
-                    if (!this._user.types.includes("Fire")) { 
-                        this._user.status = "brn";  
-                    }
-                    break;
-                case "Toxic Orb":
-                    if (!this._user.types.includes("Poison")) { 
-                        this._user.status = "tox"; 
-                    }
-                    break;
-                case "Poison Barb":
-                    if (!this._user.types.includes("Poison")) { 
-                        this._user.status = "psn"; 
-                    }
-                    break;
-                default: break
-            }
-        }
+
         // Other Berry Consumption
         for (let i=0; i<5; i++) {
             if (this._damage[i] > 0) {
@@ -740,7 +760,7 @@ export class RaidMove {
             }
         }
         // Booster Energy
-        if (this._user.item === "Booster Energy" && (this._user.ability === "Protosynthesis" || this._user.ability === "Quark Drive")) {
+        if (this._user.item === "Booster Energy" && (this._user.ability === "Protosynthesis" || this._user.ability === "Quark Drive") && this._user.abilityOn !== true) {
             this._user.abilityOn = true;
             const qpStat = getQPBoostedStat(this._user) as StatIDExceptHP;
             this._user.boostedStat = qpStat;
@@ -786,7 +806,6 @@ export class RaidMove {
     }
 
     private setEndOfTurnDamage() {
-        this._eot = [undefined, undefined, undefined, undefined];
         // getEndOfTurn() calculates damage for a defending pokemon. 
         // Here, we'll evaluate end-of-turn damage for both the user and boss only when the move does not go first
         // positive eot indicates healing
@@ -910,8 +929,4 @@ export class RaidMove {
             }
         }
     }
-
-    // private handleFlags() {
-    //     //
-    // }
 }

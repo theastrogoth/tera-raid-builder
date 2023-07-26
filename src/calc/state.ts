@@ -12,6 +12,7 @@ export namespace State {
     isSaltCure?: boolean;
     alliesFainted?: number;
     boostedStat?: I.StatIDExceptHP | 'auto';
+    usedBoosterEnergy?: boolean;
     item?: I.ItemName;
     gender?: I.GenderName;
     nature?: I.NatureName;

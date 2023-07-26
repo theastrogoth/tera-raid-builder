@@ -1,6 +1,6 @@
 import { Pokemon, Field, StatID } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import {toID, extend, assignWithout} from '../calc/util';
+import { extend } from '../calc/util';
 
 export type MoveSetItem = {
     name: MoveName,
@@ -117,6 +117,7 @@ export class Raider extends Pokemon {
                 isSaltCure: this.isSaltCure,
                 alliesFainted: this.alliesFainted,
                 boostedStat: this.boostedStat,
+                usedBoosterEnergy: this.usedBoosterEnergy,
                 item: this.item,
                 gender: this.gender,
                 nature: this.nature,
@@ -166,6 +167,8 @@ export type RaidBattleInfo = {
 export type RaidBattleResults = {
     endState: RaidState;
     turnResults: RaidTurnResult[]; 
+    turnZeroFlags: string[][];
+    turnZeroOrder: number[];
 }
 
 export type RaidMoveOptions = {
@@ -215,3 +218,13 @@ export type BuildInfo = {
     turns: RaidTurnInfo[],
     groups: number[][],
 }
+
+// used for passing data to React components
+export type RaidInputProps = {
+    pokemon: Raider[],
+    setPokemon: ((r: Raider) => void)[],
+    turns: RaidTurnInfo[],
+    setTurns: (t: RaidTurnInfo[]) => void,
+    groups: number[][],
+    setGroups: (g: number[][]) => void,
+  }

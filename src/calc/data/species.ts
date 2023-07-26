@@ -600,7 +600,7 @@ const RBY: {[name: string]: SpeciesData} = {
     bs: {hp: 60, at: 90, df: 55, sp: 100, sl: 90},
     weightkg: 30,
   },
-  Rapidash: {types: ['Fire'], bs: {hp: 65, at: 100, df: 70, sp: 105, sl: 80}, weightkg: 95},
+  // Rapidash: {types: ['Fire'], bs: {hp: 65, at: 100, df: 70, sp: 105, sl: 80}, weightkg: 95},
   // Raticate: {
   //   types: ['Normal'],
   //   bs: {hp: 55, at: 81, df: 60, sp: 97, sl: 50},
@@ -883,7 +883,7 @@ const GSC_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   Mew: {bs: {sa: 100, sd: 100}, gender: 'N'},
   Mewtwo: {bs: {sa: 154, sd: 90}, gender: 'N'},
   Moltres: {bs: {sa: 125, sd: 85}, gender: 'N'},
-  'Mr. Mime': {bs: {sa: 100, sd: 120}},
+  // 'Mr. Mime': {bs: {sa: 100, sd: 120}},
   Muk: {bs: {sa: 65, sd: 100}},
   // Nidoking: {bs: {sa: 85, sd: 75}},
   // Nidoqueen: {bs: {sa: 75, sd: 85}},
@@ -3418,13 +3418,13 @@ const DPP_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     gender: 'N',
     abilities: {0: 'Pressure'},
   },
-  Phione: {
-    types: ['Water'],
-    bs: {hp: 80, at: 80, df: 80, sa: 80, sd: 80, sp: 80},
-    weightkg: 3.1,
-    abilities: {0: 'Hydration'},
-    gender: 'N',
-  },
+  // Phione: {
+  //   types: ['Water'],
+  //   bs: {hp: 80, at: 80, df: 80, sa: 80, sd: 80, sp: 80},
+  //   weightkg: 3.1,
+  //   abilities: {0: 'Hydration'},
+  //   gender: 'N',
+  // },
   // 'Pichu-Spiky-eared': {
   //   types: ['Electric'],
   //   bs: {hp: 20, at: 40, df: 15, sa: 35, sd: 35, sp: 60},
@@ -4450,12 +4450,12 @@ const BW_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   weightkg: 108.8,
   //   abilities: {0: 'Harvest'},
   // },
-  Mandibuzz: {
-    types: ['Dark', 'Flying'],
-    bs: {hp: 110, at: 65, df: 105, sa: 55, sd: 95, sp: 80},
-    weightkg: 39.5,
-    abilities: {0: 'Big Pecks'},
-  },
+  // Mandibuzz: {
+  //   types: ['Dark', 'Flying'],
+  //   bs: {hp: 110, at: 65, df: 105, sa: 55, sd: 95, sp: 80},
+  //   weightkg: 39.5,
+  //   abilities: {0: 'Big Pecks'},
+  // },
   // Maractus: {
   //   types: ['Grass'],
   //   bs: {hp: 75, at: 86, df: 67, sa: 106, sd: 67, sp: 60},
@@ -9428,7 +9428,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: {0: 'Swarm'},
     nfe: true,
   },
-  Oinkologne: {
+  'Oinkologne-M': {
     types: ['Normal'],
     bs: {hp: 110, at: 100, df: 75, sa: 59, sd: 80, sp: 65},
     weightkg: 120,
@@ -9440,7 +9440,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 115, at: 90, df: 70, sa: 59, sd: 90, sp: 65},
     weightkg: 120,
     abilities: {0: 'Aroma Veil'},
-    baseSpecies: 'Oinkologne',
+    baseSpecies: 'Oinkologne-M',
   },
   Orthworm: {
     types: ['Steel'],

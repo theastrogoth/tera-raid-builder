@@ -18,7 +18,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
     const [showHelp, setShowHelp] = useState(false);
     return (
         <Box>
-            <AppBar position="static" color="secondary" sx={{ minWidth: "600px"}}>
+            <AppBar position="static" color="secondary" sx={{ minWidth: "625px"}}>
                 <Toolbar>
                     <Box paddingRight={2}>
                         <img src={process.env.PUBLIC_URL + "/logo192.png"} height={50} />

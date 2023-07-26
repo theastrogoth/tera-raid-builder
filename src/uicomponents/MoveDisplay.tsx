@@ -1,11 +1,14 @@
+import React from "react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
 import { RaidBattleInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
-import { Paper } from "@mui/material";
+import { getPokemonSpriteURL } from "../utils";
 
 function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
 
+    const name = raiders[turn.moveInfo.userID].name;
     const user = raiders[turn.moveInfo.userID].role;
 
     let target = raiders[turn.moveInfo.targetID].role;
@@ -15,6 +18,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     if ([undefined, "user", "user-and-allies", "all-allies"].includes(turn.moveInfo.moveData.target)) {
         target = "";
     }
+    const targetName = raiders[turn.moveInfo.targetID].name;
 
     let move: string = turn.moveInfo.moveData.name;
     if (move == "(No Move)") {
@@ -24,10 +28,20 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     return (
         <>
         {move !== "" &&
-            <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
-                <Typography variant="body1" fontWeight="bold">
-                    {user}
-                </Typography>
+            <Stack direction="row" spacing={1.5} alignItems="center" justifyContent="center">
+                <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
+                    <Box
+                        sx={{
+                            width: "30px",
+                            height: "30px",
+                            overflow: 'hidden',
+                            background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                        }}
+                    />
+                    <Typography variant="body1" fontWeight="bold">
+                        {user}
+                    </Typography>
+                </Stack>
                 <Typography variant="body1">
                     uses
                 </Typography>
@@ -40,9 +54,19 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
                     </Typography>
                 }
                 {target !== "" &&
-                    <Typography variant="body1" fontWeight="bold">
-                        {target}
-                    </Typography>
+                    <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
+                        <Box
+                            sx={{
+                                width: "30px",
+                                height: "30px",
+                                overflow: 'hidden',
+                                background: `url(${getPokemonSpriteURL(targetName)}) no-repeat center center / contain`,
+                            }}
+                        />
+                        <Typography variant="body1" fontWeight="bold">
+                            {target}
+                        </Typography>
+                    </Stack>
                 }
             </Stack>
         }
@@ -51,18 +75,20 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     )
 }
 
-function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[], index: number}) {
-    const turns = info.turns.filter((t, i) => group.includes(i));
+function MoveGroup({turns, group, raiders, index}: {turns: RaidTurnInfo[], group: number[], raiders: Raider[], index: number}) {
+    const newTurns = turns.filter((t, i) => group.includes(i));
     const color = "group" + index + ".main";
     return (
         <Paper sx={{backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
-            <Typography variant="h4" fontWeight="bold" sx={{ position: "absolute", transform: "translate(-60px,-7px)"}}>
-                {index+1}
-            </Typography>
+            <Box position="relative">
+                <Typography variant="h4" fontWeight="bold" sx={{ position: "absolute", transform: "translate(-60px,-7px)"}}>
+                    {index+1}
+                </Typography>
+            </Box>
             <Stack direction="column" spacing={1}>
                 {
-                    turns.map((t, i) => (
-                        <MoveText key={i} raiders={info.startingState.raiders} turn={t} />
+                    newTurns.map((t, i) => (
+                        <MoveText key={i} raiders={raiders} turn={t} />
                     ))
                 }
             </Stack>
@@ -70,11 +96,11 @@ function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[],
     )
 }
 
-function MoveDisplay({info}: {info: RaidBattleInfo}) { 
+function MoveDisplay({turns, raiders}: {turns: RaidTurnInfo[], raiders: Raider[]}) { 
     const displayGroups: number[][] = [];
     let currentGroupIndex = -1;
     let currentGroupID: number | undefined = -1;
-    info.turns.forEach((t, index) => {
+    turns.forEach((t, index) => {
         const g = t.group;
         if (g === undefined || g !== currentGroupID) {
             currentGroupIndex += 1;
@@ -90,7 +116,7 @@ function MoveDisplay({info}: {info: RaidBattleInfo}) {
             {
                 displayGroups.map((g, index) => (
                     <Box key={index}>
-                        <MoveGroup info={info} group={g} index={index} />
+                        <MoveGroup turns={turns} group={g} raiders={raiders} index={index} />
                         {index !== displayGroups.length - 1  && 
                             <Typography align="center" variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
                                 ↓
@@ -105,4 +131,4 @@ function MoveDisplay({info}: {info: RaidBattleInfo}) {
 }
 
 
-export default MoveDisplay;
+export default React.memo(MoveDisplay);

@@ -7,11 +7,11 @@ import { Generations, Pokemon } from '../calc';
 import { AbilityName, Generation } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
-import BuildControls, { BossBuildControls } from "./BuildControls";
+import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
 import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
 import { MoveSetItem, Raider } from "../raidcalc/interface";
 
@@ -45,104 +45,83 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
 
     return (
         <Box>
-            <Paper elevation={3} sx={{ mx: 1, my: 1, width: 575, display: "flex", flexDirection: "column", padding: "0px"}}>                
+            <Paper elevation={3} sx={{ mx: 1, my: 1, width: 530, display: "flex", flexDirection: "column", padding: "0px"}}>                
                 <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight={prettyMode ? undefined : "600px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>
-                    <Box>
-                        <Box
-                            position="relative"
-                            sx={{
-                                transform: "translate(15px, 0px)"
-                            }}
-                        >
-                            <img
-                                height="150px"
-                                src={getPokemonArtURL(pokemon.name)}
-                                onError={({ currentTarget }) => {
-                                    currentTarget.onerror = null; // prevents looping
-                                    currentTarget.src=getItemSpriteURL("pokeball");
-                                }}
-                            />
-                        </Box>
-                        <Box 
-                            position="absolute"
-                            sx={{
-                                transform: "translate(105px, -70px)"
-                            }}
-                        >
-                            <img
-                                // width="95%"
-                                height="70px"
-                                src={pokemon.item ? (
-                                        pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
-                                        getItemSpriteURL(pokemon.item)
-                                    ) : undefined }
-                                onError={({ currentTarget }) => {
-                                    currentTarget.onerror = null; // prevents looping
-                                    currentTarget.src=getItemSpriteURL("pokeball");
-                                }}
-                                hidden={pokemon.item === undefined}
-                                alt=""
-                            />
-                        </Box>
-                        <Box 
-                            position="absolute"
-                            sx={{
-                                transform: "translate(-30px, -150px)"
-                            }}
-                        >
-                            <img
-                                // width="95%"
-                                height="50px"
-                                src={pokemon.types.length > 0 ? (
-                                        pokemon.types[0] === "???" ? undefined :
-                                        getTypeIconURL(pokemon.types[0])
-                                    ) : undefined }
-                                alt=""
-                            />
-                        </Box>
-                        { pokemon.types.length > 1 && 
-                            <Box 
-                                position="absolute"
-                                sx={{
-                                    transform: "translate(-30px, -110px)"
-                                }}
-                            >
+                    <Box width="100%" marginTop="10px" display="flex" justifyContent="center">
+                        <Box position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
+                            <Box position="relative" display="flex">
                                 <img
                                     // width="95%"
-                                    height="50px"
-                                    src={pokemon.types.length > 1 ? (
-                                        pokemon.types[0] === "???" ? undefined :
-                                        getTypeIconURL(pokemon.types[1] as string)
-                                    ) : undefined }
+                                    height="45px"
+                                    src={pokemon.types.length > 0 ? (
+                                            pokemon.types[0] === "???" ? undefined :
+                                            getTypeIconURL(pokemon.types[0])
+                                        ) : undefined }
                                     alt=""
                                 />
                             </Box>
-                        }
-                        { pokemon.teraType !== "???" && 
-                            <Box 
-                                position="absolute"
-                                sx={{
-                                    transform: "translate(-30px, -60px)"
-                                }}
-                            >
+                            { pokemon.types.length > 1 && 
+                                <Box position="relative" display="flex">
+                                    <img
+                                        // width="95%"
+                                        height="45px"
+                                        src={pokemon.types.length > 1 ? (
+                                            pokemon.types[0] === "???" ? undefined :
+                                            getTypeIconURL(pokemon.types[1] as string)
+                                        ) : undefined }
+                                        alt=""
+                                    />
+                                </Box>
+                            }
+                            { pokemon.teraType !== "???" && 
+                                <Box position="relative" display="flex" marginTop="5px">
+                                    <img
+                                        // width="95%"
+                                        height="50px"
+                                        src={(pokemon.teraType === undefined) ? undefined :
+                                            getTeraTypeIconURL(pokemon.teraType as string)
+                                        }
+                                        alt=""
+                                    />
+                                </Box>
+                            }
+                        </Box>
+                        <Box>
+                            <Box position="relative" sx={{filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
+                                <img
+                                    height="150px"
+                                    src={getPokemonArtURL(pokemon.name)}
+                                    onError={({ currentTarget }) => {
+                                        currentTarget.onerror = null; // prevents looping
+                                        currentTarget.src=getPokemonArtURL("placeholder");
+                                    }}
+                                />
+                            </Box>
+                            <Box position="absolute" sx={{bottom: "0px", right: "0px", filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
                                 <img
                                     // width="95%"
-                                    height="50px"
-                                    src={(pokemon.teraType === undefined) ? undefined :
-                                        getTeraTypeIconURL(pokemon.teraType as string)
-                                    }
+                                    height="70px"
+                                    src={pokemon.item ? (
+                                            pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
+                                            getItemSpriteURL(pokemon.item)
+                                        ) : undefined }
+                                    onError={({ currentTarget }) => {
+                                        currentTarget.onerror = null; // prevents looping
+                                        currentTarget.src=getItemSpriteURL("pokeball");
+                                    }}
+                                    hidden={pokemon.item === undefined}
                                     alt=""
                                 />
                             </Box>
-                        }
+                        </Box>
                     </Box>
-                    <Stack direction="row" spacing={-1} >
+                    <Stack direction="row" spacing={-5} >
                         <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
-                            <BossBuildControls moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
+                            <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
                             <Box flexGrow={1} />
                             <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier}/>
                         </Stack>
@@ -153,4 +132,9 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
     );
 }
 
-export default React.memo(BossSummary);
+export default React.memo(BossSummary,
+    (prevProps, nextProps) => (
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        arraysEqual(prevProps.pokemon.extraMoves || [], nextProps.pokemon.extraMoves || []) &&
+        prevProps.prettyMode === nextProps.prettyMode)
+    );

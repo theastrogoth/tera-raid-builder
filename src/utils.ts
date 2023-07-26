@@ -46,7 +46,8 @@ const SPECIAL_NAMES = {
     "well-baked-body":          "Well-Baked Body"
 }
 
-const pokemonArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/arts/"
+const pokemonArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/arts/";
+const pokemonSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/box_sprites/";
 const itemSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/items/";
 const typeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/type_icons/";
 const teraTypeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/tera_type_icons/";
@@ -55,7 +56,7 @@ const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {
     if (name == "Flabébé") { return "flabebe"; } // ugh
-    return name.replace(' ','_').replace('.','').replace("’", '').replace("'", '').replace(':','').replace('é','e').toLowerCase();
+    return name.replaceAll(' ','_').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
 }
 
 export function getItemSpriteURL(name: string) {
@@ -78,6 +79,10 @@ export function getPokemonArtURL(name: string) {
     return pokemonArtProlog + prepareImageAssetName(name) + ".png";
 }
 
+export function getPokemonSpriteURL(name: string) {
+    return pokemonSpriteProlog + prepareImageAssetName(name) + ".png";
+}
+
 export function preparePokedexName(name: string) {
     return name.replace(' ','-').replace('.','').replace("’", '').replace("'", '').replace(':','').replace('é','e').toLowerCase();
 }
@@ -91,3 +96,36 @@ export function prepareSummaryName(name: string) {
     const words = name.split("-")
     return words.map(word => word[0].toUpperCase() + word.substr(1)).join(" ");
 }
+
+export function getAilmentReadableName(ailment?: string) {
+    return ailment ? ailment.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") : null;
+}
+
+export function getLearnMethodReadableName(learnMethod: string) {
+    return (
+        learnMethod === "level-up" ? "Level Up" : 
+        learnMethod === "machine" ? "TM" :
+        learnMethod === "egg" ? "Egg" :
+        "Special"
+    )
+}
+
+export function arraysEqual(a: any[], b: any[]) {
+    if (a === b) return true;
+    if (a == null || b == null) return false;
+    if (a.length !== b.length) return false;
+  
+    // If you don't care about the order of the elements inside
+    // the array, you should sort both arrays here.
+    // Please note that calling sort on an array will modify that array.
+    // you might want to clone your array first.
+  
+    for (var i = 0; i < a.length; ++i) {
+        //@ts-ignore
+        if (b === "Branch Poke") {
+            console.log(a[i], b[i], a[i] === b[i])
+        }
+      if (a[i] !== b[i]) return false;
+    }
+    return true;
+  }

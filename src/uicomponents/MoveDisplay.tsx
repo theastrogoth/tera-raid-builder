@@ -1,3 +1,4 @@
+import React from "react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -74,8 +75,8 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     )
 }
 
-function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[], index: number}) {
-    const turns = info.turns.filter((t, i) => group.includes(i));
+function MoveGroup({turns, group, raiders, index}: {turns: RaidTurnInfo[], group: number[], raiders: Raider[], index: number}) {
+    const newTurns = turns.filter((t, i) => group.includes(i));
     const color = "group" + index + ".main";
     return (
         <Paper sx={{backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
@@ -84,8 +85,8 @@ function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[],
             </Typography>
             <Stack direction="column" spacing={1}>
                 {
-                    turns.map((t, i) => (
-                        <MoveText key={i} raiders={info.startingState.raiders} turn={t} />
+                    newTurns.map((t, i) => (
+                        <MoveText key={i} raiders={raiders} turn={t} />
                     ))
                 }
             </Stack>
@@ -93,11 +94,11 @@ function MoveGroup({info, group, index}: {info: RaidBattleInfo, group: number[],
     )
 }
 
-function MoveDisplay({info}: {info: RaidBattleInfo}) { 
+function MoveDisplay({turns, raiders}: {turns: RaidTurnInfo[], raiders: Raider[]}) { 
     const displayGroups: number[][] = [];
     let currentGroupIndex = -1;
     let currentGroupID: number | undefined = -1;
-    info.turns.forEach((t, index) => {
+    turns.forEach((t, index) => {
         const g = t.group;
         if (g === undefined || g !== currentGroupID) {
             currentGroupIndex += 1;
@@ -113,7 +114,7 @@ function MoveDisplay({info}: {info: RaidBattleInfo}) {
             {
                 displayGroups.map((g, index) => (
                     <Box key={index}>
-                        <MoveGroup info={info} group={g} index={index} />
+                        <MoveGroup turns={turns} group={g} raiders={raiders} index={index} />
                         {index !== displayGroups.length - 1  && 
                             <Typography align="center" variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
                                 ↓
@@ -128,4 +129,4 @@ function MoveDisplay({info}: {info: RaidBattleInfo}) {
 }
 
 
-export default MoveDisplay;
+export default React.memo(MoveDisplay);

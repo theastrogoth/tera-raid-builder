@@ -7,11 +7,11 @@ import { Generations, Pokemon } from '../calc';
 import { AbilityName, Generation } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
-import BuildControls, { BossBuildControls } from "./BuildControls";
+import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
 import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
 import { MoveSetItem, Raider } from "../raidcalc/interface";
 
@@ -121,7 +121,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                     <Stack direction="row" spacing={-5} >
                         <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
-                            <BossBuildControls moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
+                            <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
                             <Box flexGrow={1} />
                             <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier}/>
                         </Stack>
@@ -132,4 +132,9 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
     );
 }
 
-export default React.memo(BossSummary);
+export default React.memo(BossSummary,
+    (prevProps, nextProps) => (
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        arraysEqual(prevProps.pokemon.extraMoves || [], nextProps.pokemon.extraMoves || []) &&
+        prevProps.prettyMode === nextProps.prettyMode)
+    );

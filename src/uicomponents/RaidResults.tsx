@@ -1,3 +1,4 @@
+import React from "react"
 import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
@@ -88,4 +89,4 @@ function RaidResults({results}: {results: RaidBattleResults | null}) {
     )
 }
 
-export default RaidResults;
+export default React.memo(RaidResults);

@@ -159,4 +159,8 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
     );
 }
 
-export default React.memo(PokemonSummary);
+export default React.memo(PokemonSummary, 
+    (prevProps, nextProps) => (
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        prevProps.prettyMode === nextProps.prettyMode)
+    );

@@ -2,32 +2,31 @@ import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { RaidBattleInfo } from "../raidcalc/interface";
 
 
-function StratHeader({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInfo: (r: RaidBattleInfo) => void, prettyMode: boolean}) {
-    const [title, setTitle] = useState(info.name);
+function StratHeader({title, setTitle, prettyMode}: {title: string, setTitle: (t: string) => void, prettyMode: boolean}) {
+    const [fieldTitle, setFieldTitle] = useState(title);
 
     useEffect(() => {
-        if (info.name !== title) {
-            setTitle(info.name);
+        if (title !== fieldTitle) {
+            setFieldTitle(title);
         }
-    }, [info.name])
+    }, [title])
 
   return (
     <Box justifyContent="center">
       {prettyMode &&
         <Typography variant="h4" fontWeight="bold" sx={{ textAlign: "center", my: 1 }}>
-          {info.name}
+          {title}
         </Typography>
       }
       {!prettyMode &&
         <TextField 
           variant="standard"
           placeholder="Give your strategy a name!"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          onBlur={(e) => setInfo({...info, name: e.target.value})}
+          value={fieldTitle}
+          onChange={(e) => setFieldTitle(e.target.value)}
+          onBlur={(e) => setTitle(e.target.value)}
           inputProps={{
             style: {fontSize: 24, fontWeight: "bold", textAlign: "center"},
           }}
@@ -38,4 +37,4 @@ function StratHeader({info, setInfo, prettyMode}: {info: RaidBattleInfo, setInfo
   )
 }
 
-export default StratHeader;
+export default React.memo(StratHeader);

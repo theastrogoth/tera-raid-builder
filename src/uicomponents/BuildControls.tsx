@@ -27,7 +27,7 @@ import ImportExportArea from "./ImportExportArea";
 
 import { MoveData, MoveSetItem, Raider } from "../raidcalc/interface";
 import PokedexService from "../services/getdata";
-import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
 
 import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
 
@@ -769,7 +769,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
     )
 }
 
-export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
+function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
     {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
 {
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -823,10 +823,11 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         }), []));
     }
 
-    const setBMove = (index: number) => (move: string) => {
+    const setBMove = (index: number) => (move: MoveName) => {
         const newPoke = pokemon.clone();
-        //@ts-ignore
-        newPoke.extraMoves[index] = move;
+        const newExtraMoves = [...newPoke.extraMoves!]
+        newExtraMoves[index] = move;
+        newPoke.extraMoves = newExtraMoves;
         setPokemon(newPoke);
     }
 
@@ -919,8 +920,18 @@ export function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                 </TableContainer>
             </Stack>
         </Box>
-
     )
 }
+export const BossBuildControlsMemo = React.memo(BossBuildControls, 
+    (prevProps, nextProps) => 
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        arraysEqual(prevProps.pokemon.extraMoves!, nextProps.pokemon.extraMoves!) &&
+        arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
+        prevProps.prettyMode === nextProps.prettyMode);
 
-export default React.memo(BuildControls);
+export default React.memo(BuildControls, 
+    (prevProps, nextProps) => 
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        arraysEqual(prevProps.abilities, nextProps.abilities) &&
+        arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
+        prevProps.prettyMode === nextProps.prettyMode);

@@ -10,6 +10,7 @@ import TableCell from "@mui/material/TableCell";
 import Collapse from "@mui/material/Collapse";
 import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
+import Divider from "@mui/material/Divider";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
@@ -25,25 +26,17 @@ function CollapseButton({open, setOpen}: {open: boolean, setOpen: React.Dispatch
 }
 
 function HelpSection({}: {}) {
-    const [uiHelpOpen, setUiHelpOpen] = useState(false)
     const [buildHelpOpen, setBuildHelpOpen] = useState(false);
+    const [prettyHelpOpen, setPrettyHelpOpen] = useState(false);
+    const [uiHelpOpen, setUiHelpOpen] = useState(false)
+
 
     return (
     <Stack spacing={0} sx={{ p: 2 }}>
         <Typography variant="body1" gutterBottom>
             Click on the button to the right of a section header to expand or collapse that section.
         </Typography>
-        <Box sx={{ p: 2 }}>
-            <Stack direction="row" spacing={1} alignItems="center">
-                <Typography variant="h5" gutterBottom>
-                    Using this Calculator
-                </Typography>
-                <CollapseButton open={uiHelpOpen} setOpen={setUiHelpOpen} />
-            </Stack>
-            <Collapse in={uiHelpOpen} >
-                <UIHelpSection />
-            </Collapse>
-        </Box>
+        <Divider />
         <Box sx={{ p: 2 }}>
             <Stack direction="row" spacing={1} alignItems="center">
                 <Typography variant="h5" gutterBottom>
@@ -55,25 +48,32 @@ function HelpSection({}: {}) {
                 <BuildHelpSection />
             </Collapse>
         </Box>
-    </Stack>
-    )
-}
-
-function UIHelpSection({}: {}) {
-    return (
-        <Box>
-            <Box sx={{ p: 2 }}>
-                <Typography variant="h6" gutterBottom>
-                    Pokémon Build Controls
+        <Divider />
+        <Box sx={{ p: 2 }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h5" gutterBottom>
+                    Reading a Strategy
                 </Typography>
-            </Box>
-            <Box sx={{ p: 2 }}>
-                <Typography variant="h6" gutterBottom>
-                    Raid Move Controls
-                </Typography>
-            </Box>
+                <CollapseButton open={prettyHelpOpen} setOpen={setPrettyHelpOpen} />
+            </Stack>
+            <Collapse in={prettyHelpOpen} >
+                <PrettyHelpSection />
+            </Collapse>
         </Box>
-
+        <Divider />
+        <Box sx={{ p: 2 }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h5" gutterBottom>
+                    Creating a Strategy
+                </Typography>
+                <CollapseButton open={uiHelpOpen} setOpen={setUiHelpOpen} />
+            </Stack>
+            <Collapse in={uiHelpOpen} >
+                <UIHelpSection />
+            </Collapse>
+        </Box>
+        <Divider />
+    </Stack>
     )
 }
 
@@ -246,6 +246,217 @@ function BuildHelpSection({}: {}) {
             </Box>
         </Box>
     )
+}
+
+function PrettyHelpSection({}: {}) {
+    const [raiderHelpOpen, setRaiderHelpOpen] = useState(false);
+    const [bossHelpOpen, setBossHelpOpen] = useState(false);
+    const [moveHelpOpen, setMoveHelpOpen] = useState(false);
+    const [calcHelpOpen, setCalcHelpOpen] = useState(false);
+
+    return (
+    <Box>
+        <Typography variant="body2" gutterBottom>
+            Strategies are easiest to read when "Pretty Mode" is enabled. Toggle between Pretty Mode and Edit Mode by clicking the button in the top right corner of the page.
+        </Typography>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Raider Builds
+                </Typography>
+                <CollapseButton open={raiderHelpOpen} setOpen={setRaiderHelpOpen} />
+            </Stack>
+            <Collapse in={raiderHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    Pokemon, Nature, Ability, and Item are all visible. If these are not listed, they are not important for the strategy.
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Description of Stat Plots
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                   Description of Move learn method symbols. Hover over a move option to see BP and more
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    What else?
+                </Typography>
+            </Collapse>
+        </Box>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Raid Boss Builds
+                </Typography>
+                <CollapseButton open={bossHelpOpen} setOpen={setBossHelpOpen} />
+            </Stack>
+            <Collapse in={bossHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    Similar display to Raiders
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    HP multiplier
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Extra moves / special boss actions
+                </Typography>
+            </Collapse>
+        </Box>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Move Order
+                </Typography>
+                <CollapseButton open={moveHelpOpen} setOpen={setMoveHelpOpen} />
+            </Stack>
+            <Collapse in={moveHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    Format: pokemon / move / target
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Raid Boss move is hidden in pretty mode
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Grouping by number / colors
+                </Typography>
+            </Collapse>
+        </Box>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Calc Results
+                </Typography>
+                <CollapseButton open={calcHelpOpen} setOpen={setCalcHelpOpen} />
+            </Stack>
+            <Collapse in={calcHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    Damage calculator overview
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    See stat changes, damage ranges, ability activation etc
+                </Typography>
+            </Collapse>
+        </Box>
+    </Box>
+)
+}
+
+function UIHelpSection({}: {}) {
+    const [goalsHelpOpen, setGoalsHelpOpen] = useState(false);
+    const [raiderHelpOpen, setRaiderHelpOpen] = useState(false);
+    const [bossHelpOpen, setBossHelpOpen] = useState(false);
+    const [moveHelpOpen, setMoveHelpOpen] = useState(false);
+    const [calcHelpOpen, setCalcHelpOpen] = useState(false);
+
+    return (
+    <Box>
+        <Typography variant="body2" gutterBottom>
+            Strategies can be created or modified when "Edit Mode" is enabled. Toggle between Edit Mode and Pretty Mode by clicking the button in the top right corner of the page.
+        </Typography>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Strategy Goals
+                </Typography>
+                <CollapseButton open={goalsHelpOpen} setOpen={setGoalsHelpOpen} />
+            </Stack>
+            <Collapse in={goalsHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    Common goals are a OHKO in the first two turns
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Be mindful of raider KOs, proc'ing the shield
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Ease of coordination/accessibility
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Success chance, accuracy, status effects, etc
+                </Typography>
+            </Collapse>
+        </Box>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Raider Builds
+                </Typography>
+                <CollapseButton open={raiderHelpOpen} setOpen={setRaiderHelpOpen} />
+            </Stack>
+            <Collapse in={raiderHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    Pokemon, Nature, Ability, and Item are all Autocomplete/Dropdowns. Hover over a Pokemon option to see base stats
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Edit EVs/IVs with the button, which pulls up sliders/inputs
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Description of Move learn method symbols. Hover over a move option to see BP and more
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Import/Export
+                </Typography>
+            </Collapse>
+        </Box>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Raid Boss Builds
+                </Typography>
+                <CollapseButton open={bossHelpOpen} setOpen={setBossHelpOpen} />
+            </Stack>
+            <Collapse in={bossHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    Similar ui to Raiders
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    HP multiplier
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Extra moves / special boss actions
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Load Raid Boss sets from top right field
+                </Typography>
+            </Collapse>
+        </Box>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Move Order
+                </Typography>
+                <CollapseButton open={moveHelpOpen} setOpen={setMoveHelpOpen} />
+            </Stack>
+            <Collapse in={moveHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    pokemon / move / target selection
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Raid boss move (always targets user)
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Reordering with Drag/Drop
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    Grouping via Drag/Combine
+                </Typography>
+            </Collapse>
+        </Box>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
+                    Calc Results
+                </Typography>
+                <CollapseButton open={calcHelpOpen} setOpen={setCalcHelpOpen} />
+            </Stack>
+            <Collapse in={calcHelpOpen} >
+                <Typography variant="body2" gutterBottom>
+                    Damage calculator overview
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    See stat changes, damage ranges, ability activation etc as you edit moves/builds/order
+                </Typography>
+            </Collapse>
+        </Box>
+    </Box>
+)
 }
 
 export default HelpSection;

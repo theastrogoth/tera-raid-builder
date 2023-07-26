@@ -90,6 +90,7 @@ export class RaidMove {
     raiderID: number;   // the id of the raider who initiated this round
     movesFirst: boolean;
     options: RaidMoveOptions;
+    flinch?: boolean;
 
     _raidState!: RaidState;
     _raiders!: Raider[];
@@ -100,6 +101,7 @@ export class RaidMove {
     _boosts!: Partial<StatsTable>[];
 
     _doesNotEffect!: boolean[];
+    _causesFlinch!: boolean[];
     _moveFails!: boolean; 
 
     _damage!: number[];
@@ -110,7 +112,7 @@ export class RaidMove {
     _desc!: string[];
     _flags!: string[][];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions) {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, flinch?: boolean) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
@@ -119,23 +121,29 @@ export class RaidMove {
         this.raiderID = raiderID;
         this.movesFirst = movesFirst;
         this.options = raidMoveOptions || {};
+        this.flinch = flinch || false;
     }
 
     public result(): RaidMoveResult {
         this.setOutputRaidState();
         this.setAffectedPokemon();
         this.applyItemEffects();
-        this.setDoesNotEffect();
-        this.setDamage();
-        this.setDrain();
-        this.setHealing();
-        this.setSelfDamage();
-        this.applyStatChanges();
-        this.applyAilment();
-        this.applyFieldChanges();
-        this.applyDamage();
-        this.applyItemEffects();        
-        this.applyUniqueMoveEffects();
+        if (this.flinch) {
+            this._desc[this.userID] = this._user.role + " flinched!";
+        } else {
+            this.setDoesNotEffect();
+            this.setDamage();
+            this.setDrain();
+            this.setHealing();
+            this.setSelfDamage();
+            this.applyFlinch();
+            this.applyStatChanges();
+            this.applyAilment();
+            this.applyFieldChanges();
+            this.applyDamage();
+            this.applyItemEffects();        
+            this.applyUniqueMoveEffects();
+        }
         this.applyAbilityEffects();
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
@@ -157,6 +165,7 @@ export class RaidMove {
             eot: this._eot,
             desc: this._desc,
             flags: this._flags,
+            causesFlinch: this._causesFlinch,
         }
     }
 
@@ -168,6 +177,7 @@ export class RaidMove {
 
         // initialize arrays
         this._doesNotEffect = [false, false, false, false, false];
+        this._causesFlinch = [false, false, false, false, false];
         this._damage = [0,0,0,0,0];
         this._drain = [0,0,0,0,0];
         this._healing = [0,0,0,0,0];
@@ -175,7 +185,6 @@ export class RaidMove {
         this._boosts = [{},{},{},{},{}];
         this._desc = ['','','','',''];
         this._flags=[[],[],[],[],[]];
-
     }
 
     private setAffectedPokemon() {
@@ -188,7 +197,6 @@ export class RaidMove {
     }
 
     private setDoesNotEffect() {
-        console.log(this.moveData)
         this._moveFails = true;
         const moveType = this.move.type;
         const category = this.move.category;
@@ -411,12 +419,25 @@ export class RaidMove {
         }
     }
 
+    private applyFlinch() {
+        const flinchChance = this.moveData.flinchChance || 0;
+        if (flinchChance && (this.options.secondaryEffects || flinchChance === 100)) {
+            for (let id of this._affectedIDs) {
+                if (this._doesNotEffect[id]) { continue; }
+                const target = this.getPokemon(id);
+                if (target.item === "Covert Cloak") { continue; }
+                if (target.ability === "Inner Focus" && this._user.ability !== "Mold Breaker") { continue; }
+                this._causesFlinch[id] = true;
+            }
+        }
+    }
+
     private applyStatChanges() {
         const category = this.moveData.category;
         const affectedIDs = category == "damage+raise" ? [this.userID] : this._affectedIDs;
         const statChanges = this.moveData.statChanges;
         const chance = this.moveData.statChance || 100;
-        if (this.options.secondaryEffects || chance === 100 ) {
+        if (chance && (this.options.secondaryEffects || chance === 100 )) {
             for (let id of affectedIDs) {
                 if (this._doesNotEffect[id]) { continue; }
                 const pokemon = this.getPokemon(id);
@@ -982,7 +1003,6 @@ export class RaidMove {
             const defender = this.getPokemon(defID)
             const atk_eot = getEndOfTurn(gen, attacker, defender, dummyMove, this.getMoveField(attacker.id, defender.id));
             const def_eot = getEndOfTurn(gen, defender, attacker, dummyMove, this.getMoveField(defender.id, attacker.id));
-            console.log("eot damage coefficients: ", attacker.bossMultiplier / 100, defender.bossMultiplier / 100)
             atk_eot.damage = Math.floor(atk_eot.damage / ((defender.bossMultiplier || 100) / 100));
             def_eot.damage = Math.floor(def_eot.damage / ((attacker.bossMultiplier || 100) / 100));
             this._eot[defID] = atk_eot;

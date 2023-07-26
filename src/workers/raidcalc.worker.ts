@@ -9,7 +9,6 @@ export {};
 const gen = Generations.get(9);
 
 self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}>) => {
-    console.log(event.data)
     const raidersMessage = event.data.raiders;
     const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, new Pokemon(gen, r.name, {
         level: r.level,

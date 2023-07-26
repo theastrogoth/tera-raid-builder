@@ -80,9 +80,11 @@ function MoveGroup({turns, group, raiders, index}: {turns: RaidTurnInfo[], group
     const color = "group" + index + ".main";
     return (
         <Paper sx={{backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
-            <Typography variant="h4" fontWeight="bold" sx={{ position: "absolute", transform: "translate(-60px,-7px)"}}>
-                {index+1}
-            </Typography>
+            <Box position="relative">
+                <Typography variant="h4" fontWeight="bold" sx={{ position: "absolute", transform: "translate(-60px,-7px)"}}>
+                    {index+1}
+                </Typography>
+            </Box>
             <Stack direction="column" spacing={1}>
                 {
                     newTurns.map((t, i) => (

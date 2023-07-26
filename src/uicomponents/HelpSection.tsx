@@ -461,7 +461,7 @@ function UIHelpSection({}: {}) {
                     Most of the Raid Boss information can be set in the same way as the raiders' information.
                 </Typography>
                 <Typography variant="body1" gutterBottom>
-                    Preset Raid Boss builds can be loaded by first selected the desired species of the Raid Boss, and then using the "Load Boss Set" dropdown menu to choose the desired set.
+                    Preset Raid Boss builds can be loaded by first selecting the desired species of the Raid Boss, and then using the "Load Boss Set" dropdown menu to choose the desired set.
                     Raid Boss sets that can be encountered in-game, either in normal raid dens or through event raids, are available to be loaded.
                     At this time, the extra moves that Raid Bosses can use are not included in the preset builds.
                 </Typography>
@@ -477,14 +477,14 @@ function UIHelpSection({}: {}) {
             <Collapse in={moveHelpOpen} >
                 <Typography variant="body1" gutterBottom>
                     In the "Move Order" tab, moves are listed in order of execution from top to bottom.
-                    Moves can be added or removed with the "Add Move" of "X" buttons.
+                    Moves can be added or removed with the "Add Move" or "X" buttons.
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                     Move can be rearranged by clicking and dragging the moves to their desired positions.
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                     In addition, moves can be organized into groups by dragging one move directly on top of another.
-                    Groups are denoted by shared colors between moves, and are intended to indicate blocks of moves for which execution order does not matter.
+                    Groups are denoted by shared colors and are intended to indicate blocks of moves for which execution order does not matter.
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                     For each move, the Pokémon that will use the move, the name of the move itself, and the target of the move can be selected via dropdown fields.

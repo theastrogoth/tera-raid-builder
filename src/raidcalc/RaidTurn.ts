@@ -153,7 +153,8 @@ export class RaidTurn {
     private setQPBoosts() {
         this._raidState.raiders.map((raider, index) => {
             if (raider.ability === "Protosynthesis" || raider.ability === "Quark Drive") {
-                if (raider.usedBoosterEnergy) { return; } // do not change Boost after Booster Energy consumption
+                if (raider.usedBoosterEnergy) { 
+                    return; } // do not change Boost after Booster Energy consumption
                 if ( !raider.abilityOn && ( // we only need to set QP if it is currently inactive
                         (this._raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
                         (this._raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")

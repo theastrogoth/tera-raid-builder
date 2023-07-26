@@ -73,6 +73,7 @@ export class Pokemon implements State.Pokemon {
     this.isSaltCure = !!options.isSaltCure;
     this.alliesFainted = options.alliesFainted;
     this.boostedStat = options.boostedStat;
+    this.usedBoosterEnergy = options.usedBoosterEnergy;
     this.teraType = options.teraType;
     this.item = options.item;
     this.nature = options.nature || ('Serious' as I.NatureName);

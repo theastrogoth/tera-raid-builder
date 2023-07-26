@@ -279,6 +279,10 @@ export class RaidMove {
                     continue;
                 }
             }
+            if (moveName === "Thunder Wave" && pokemon.types.includes("Ground")) {
+                this._doesNotEffect[id] = true;
+                continue;
+            }
             if (pokemon.ability === "Levitate" && moveType === "Ground") { 
                 this._doesNotEffect[id] = true; 
                 continue;

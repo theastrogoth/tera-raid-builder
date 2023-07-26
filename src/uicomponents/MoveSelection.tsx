@@ -315,14 +315,17 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
 function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: Raider, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void}) {
     const moveInfo = turns[index].bossMoveInfo;
-    const moveName = moveInfo.moveData.name;
     const turnID = turns[index].id;
     const moveSet = ["(No Move)", ...boss.moves, ...(boss.extraMoves) || []];
 
-    const setMoveInfo = (moveInfo: RaidMoveInfo) => {
+    const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
+
+    const setMoveInfo = (newMoveInfo: RaidMoveInfo) => {
+        console.log("New Boss Move Info", newMoveInfo)
         let newTurns = [...turns];
-        newTurns[index].bossMoveInfo = moveInfo;
+        newTurns[index].bossMoveInfo = newMoveInfo;
         setTurns(newTurns);
+        setMoveName(newMoveInfo.moveData.name);
     }
 
     useEffect(() => {
@@ -337,6 +340,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
         }
       }, [moveName, turnID])
     
+    console.log("Boss Move", moveName)
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
             <Stack direction="row" width="510px" spacing={0.5} alignItems="center" justifyContent="right">
@@ -496,10 +500,12 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     prevProps.turns[prevProps.index].moveInfo.userID === nextProps.turns[nextProps.index].moveInfo.userID &&
     prevProps.turns[prevProps.index].moveInfo.targetID === nextProps.turns[nextProps.index].moveInfo.targetID &&
     prevProps.turns[prevProps.index].moveInfo.moveData.name === nextProps.turns[nextProps.index].moveInfo.moveData.name &&
+    prevProps.turns[prevProps.index].bossMoveInfo.moveData.name === nextProps.turns[nextProps.index].bossMoveInfo.moveData.name &&
     arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
     arraysEqual(prevProps.raiders[prevProps.turns[prevProps.index].moveInfo.userID].moves, nextProps.raiders[nextProps.turns[nextProps.index].moveInfo.userID].moves) &&
-    arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&
-    prevProps.buttonsVisible === nextProps.buttonsVisible
+    arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&  
+    prevProps.buttonsVisible === nextProps.buttonsVisible &&
+    prevProps.turns.length === nextProps.turns.length
 ));
 
 function prepareGroups(turns: RaidTurnInfo[], groups: number[][]) {

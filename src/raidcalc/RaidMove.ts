@@ -374,7 +374,7 @@ export class RaidMove {
                 const pokemon = this.getPokemon(id);
                 pokemon.status = "";
             } else {
-                const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100);
+                const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100 / ((target.bossMultiplier || 100) / 100));
                 this._healing[id] += healAmount;
             }
         }
@@ -475,7 +475,7 @@ export class RaidMove {
     }
 
     private setSelfDamage() {
-        const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0) / 100);
+        const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0) / 100) / ((this._user.bossMultiplier || 100) / 100); 
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;
             this._flags[this.userID].push!(selfDamagePercent + "% self damage from " + this.moveData.name + ".")
@@ -951,6 +951,9 @@ export class RaidMove {
             const defender = this.getPokemon(defID)
             const atk_eot = getEndOfTurn(gen, attacker, defender, dummyMove, this.getMoveField(attacker.id, defender.id));
             const def_eot = getEndOfTurn(gen, defender, attacker, dummyMove, this.getMoveField(defender.id, attacker.id));
+            console.log("eot damage coefficients: ", attacker.bossMultiplier / 100, defender.bossMultiplier / 100)
+            atk_eot.damage = Math.floor(atk_eot.damage / ((defender.bossMultiplier || 100) / 100));
+            def_eot.damage = Math.floor(def_eot.damage / ((attacker.bossMultiplier || 100) / 100));
             this._eot[defID] = atk_eot;
             this._eot[atkID] = def_eot;
         }

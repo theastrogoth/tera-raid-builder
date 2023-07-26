@@ -436,6 +436,8 @@ export class RaidMove {
                 if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
                 // volatile status
                 if (status === "") {
+                    // Safeguard blocks confusion
+                    if (ailment === "confusion" && field.attackerSide.isSafeguard) { continue; }
                     // Aroma Veil
                     if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation"].includes(ailment)) {
                         continue;
@@ -451,13 +453,17 @@ export class RaidMove {
                     }
                 // non-volatile status
                 } else {
-                    // Type-based immunities and relevant Abilities
+                    // existing status cannot be overwritten
+                    if (pokemon.status !== "" && pokemon.status !== undefined) { continue; }
+                    // field-based immunities
+                    if (id !== this.userID && (field.attackerSide.isSafeguard || field.hasTerrain("Misty") || field.attackerSide.isProtected)) { continue; }
+                    if (status === "slp" && field.hasTerrain("Electric")) { continue; }
                     if (status === "brn" && pokemon.types.includes("Fire")) { continue; }
                     if (status === "frz" && (pokemon.types.includes("Ice") || pokemon.ability === "Magma Armor")) { continue; }
                     if ((status === "psn" || status === "tox") && (pokemon.ability === "Immunity" || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { continue; }
                     if ((status === "par" && (pokemon.types.includes("Electric") || pokemon.ability === "Limber"))) { continue; }
                     if (status === "slp" && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
-
+                    
                     if (!(field.attackerSide.isProtected || field.attackerSide.isSafeguard || field.hasTerrain("Misty"))
                         && (hasNoStatus(pokemon))) 
                     { 

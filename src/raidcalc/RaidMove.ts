@@ -425,7 +425,7 @@ export class RaidMove {
             for (let id of this._affectedIDs) {
                 if (this._doesNotEffect[id]) { continue; }
                 const target = this.getPokemon(id);
-                if (target.item === "Covert Cloak") { continue; }
+                if (target.item === "Covert Cloak" || target.ability === "Shield Dust") { continue; }
                 if (target.ability === "Inner Focus" && this._user.ability !== "Mold Breaker") { continue; }
                 this._causesFlinch[id] = true;
             }
@@ -442,7 +442,7 @@ export class RaidMove {
                 if (this._doesNotEffect[id]) { continue; }
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];
-                if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
+                if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
                 // handle Contrary and Simple
                 const boostCoefficient = getBoostCoefficient(pokemon)
                 for (let statChange of (statChanges || [])) {
@@ -485,7 +485,7 @@ export class RaidMove {
                 const field = this._fields[id];
                 const status = ailmentToStatus(ailment);
                 // Covert Cloak
-                if (id !== this.userID && this.moveData.category?.includes("damage") && pokemon.item === "Covert Cloak") { continue; }
+                if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
                 // volatile status
                 if (status === "") {
                     // Safeguard blocks confusion

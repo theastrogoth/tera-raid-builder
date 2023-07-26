@@ -188,10 +188,11 @@ export class RaidMove {
     }
 
     private setDoesNotEffect() {
+        console.log(this.moveData)
         this._moveFails = true;
-        const moveType = this.moveData.type;
+        const moveType = this.move.type;
         const category = this.move.category;
-        const moveName = this.moveData.name;
+        const moveName = this.move.name;
         for (let id of this._affectedIDs) {
             const pokemon = this.getPokemon(id);
             const field = this._fields[id];
@@ -208,6 +209,11 @@ export class RaidMove {
             }
             if (pokemon.ability === "Volt Absorb" && moveType === "Electric") { 
                 this._doesNotEffect[id] = true; 
+                this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
+                continue;
+            }
+            if (pokemon.ability === "Earth Eater" && moveType === "Ground") {
+                this._doesNotEffect[id] = true;
                 this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
                 continue;
             }
@@ -292,29 +298,34 @@ export class RaidMove {
         }
         for (let id of this._affectedIDs) {
             if (this._doesNotEffect[id]) {
-                this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).name + "."; // a more specific reason might be helpful
+                this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // a more specific reason might be helpful
             } else {
-                const target = this.getPokemon(id);
-                const moveField = this.getMoveField(this.userID, id);
-                const hits = (this.moveData.maxHits || 1) > 1 ? this.options.hits : 1;
-                const crit = this.options.crit || false;
-                const calcMove = this.move.clone();
-                calcMove.hits = hits || 1;
-                calcMove.isCrit = crit;
-                const result = calculate(9, moveUser, target, calcMove, moveField);
-                const damageResult = result.damage;
-                let damage = 0;
-                const roll = this.options.roll || "avg";
-                if (typeof(damageResult) === "number") {
-                    damage = damageResult;
-                } else {
-                    //@ts-ignore
-                    damage = roll === "max" ? damageResult[damageResult.length-1] : roll === "min" ? damageResult[0] : damageResult[Math.floor(damageResult.length/2)];
+                try {
+                    const target = this.getPokemon(id);
+                    const moveField = this.getMoveField(this.userID, id);
+                    const hits = (this.moveData.maxHits || 1) > 1 ? this.options.hits : 1;
+                    const crit = this.options.crit || false;
+                    const calcMove = this.move.clone();
+                    calcMove.hits = hits || 1;
+                    calcMove.isCrit = crit;
+                    const result = calculate(9, moveUser, target, calcMove, moveField);
+                    const damageResult = result.damage;
+                    let damage = 0;
+                    const roll = this.options.roll || "avg";
+                    if (typeof(damageResult) === "number") {
+                        damage = damageResult;
+                    } else {
+                        //@ts-ignore
+                        damage = roll === "max" ? damageResult[damageResult.length-1] : roll === "min" ? damageResult[0] : damageResult[Math.floor(damageResult.length/2)];
+                    }
+                    this._damage[id] = damage;
+                    this._desc[id] = result.desc();
+                } catch {
+                    this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // temporary fix
                 }
-                this._damage[id] = damage;
-                this._desc[id] = result.desc();
             }
         }
+
         if (this.moveData.category?.includes("damage")) {
             this._fields[this.userID].attackerSide.isHelpingHand = false;
         }
@@ -1019,7 +1030,7 @@ export class RaidMove {
             const initialHP = this.raidState.raiders[i].originalCurHP;
             const finalHP = this._raiders[i].originalCurHP;
             if (initialHP !== finalHP) {
-                const initialPercent = Math.floor(initialHP / this.raidState.raiders[i].maxHP() * 100);
+                const initialPercent = Math.floor(initialHP / this.raidState.raiders[i].maxHP() * 1000)/10;;
                 const finalPercent = Math.floor(finalHP / this._raiders[i].maxHP() * 1000)/10;
                 const hpStr = "HP: " + initialPercent + "% -> " + finalPercent + "%";
                 this._flags[i].push(hpStr);

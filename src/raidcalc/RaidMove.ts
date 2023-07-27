@@ -218,7 +218,7 @@ export class RaidMove {
                 continue;
             }
             // Ability-based immunities
-            if (pokemon.ability !== "Mold Breaker") {
+            if (this._user.ability !== "Mold Breaker") {
                 if (pokemon.ability === "Good as Gold" && category === "Status") { 
                     this._doesNotEffect[id] = true; 
                     continue; 

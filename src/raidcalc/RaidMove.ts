@@ -4,6 +4,7 @@ import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptio
 import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
 import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat, isGrounded } from "../calc/mechanics/util";
 import persistentAbilities from "../data/persistent_abilities.json"
+import bypassProtectMoves from "../data/bypass_protect_moves.json"
 
 // next time I prepare the move data, I should eliminate the need for translation
 function ailmentToStatus(ailment: AilmentName): StatusName | "" {
@@ -111,6 +112,7 @@ export class RaidMove {
     _doesNotEffect!: boolean[];
     _causesFlinch!: boolean[];
     _moveFails!: boolean; 
+    _blockedBy!: string[];
 
     _damage!: number[];
     _healing!: number[];
@@ -140,6 +142,8 @@ export class RaidMove {
             this._desc[this.userID] = this._user.role + " flinched!";
         } else {
             this.setDoesNotEffect();
+            this.checkProtection();
+            this.applyProtection();
             this.setDamage();
             this.setDrain();
             this.setHealing();
@@ -156,6 +160,7 @@ export class RaidMove {
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
         this.applyItemEffects();
+        this.removeProtection();
         this.setFlags();
         this._user.lastMove = this.moveData;
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
@@ -206,6 +211,7 @@ export class RaidMove {
 
     private setDoesNotEffect() {
         this._moveFails = true;
+        this._blockedBy= ["", "", "", "", ""];
         const moveType = this.move.type;
         const category = this.move.category;
         const moveName = this.move.name;
@@ -351,6 +357,53 @@ export class RaidMove {
         }
     }
 
+    private checkProtection() {
+        if (!bypassProtectMoves.includes(this.moveData.name)){
+            for (let id of this._affectedIDs) {
+                if (!this._doesNotEffect[id]) {
+                    const pokemon = this.getPokemon(id);
+                    const field = this._fields[id];
+                    if (field.attackerSide.isProtected) {
+                        this._blockedBy[id] = pokemon.lastMove!.name;
+                    } else if (field.attackerSide.isWideGuard && ["all-pokemon", "all-other-pokemon", "all-opponents"].includes(this.moveData.target || "")) {
+                        this._blockedBy[id] = "Wide Guard";
+                    } else if (field.attackerSide.isQuickGuard && (this.moveData.priority || 0) > 0) {
+                        this._blockedBy[id] = "Quick Guard";
+                    }
+                }
+            }
+        }
+    }
+
+    private applyProtection() {
+        const moveName = this.moveData.name;
+        if (["Protect", "Detect", "Spiky Shield", "Baneful Bunker"].includes(moveName)) {
+            this._fields[this.userID].attackerSide.isProtected = true;
+        } else if (moveName === "Wide Guard")  {
+            if (this.userID === 0) {
+                this._fields[0].attackerSide.isWideGuard = true;
+            } else{
+                for (let i=1; i<5; i++)  {
+                    this._fields[i].attackerSide.isWideGuard = true;
+                }
+            }
+        } else if (moveName === "Quick Guard") {
+            if (this.userID === 0) {
+                this._fields[0].attackerSide.isQuickGuard = true;
+            } else{
+                for (let i=1; i<5; i++)  {
+                    this._fields[i].attackerSide.isQuickGuard = true;
+                }
+            }
+        }
+    }
+
+    private removeProtection() {
+        this._fields[this.userID].attackerSide.isProtected = false;
+        this._fields[this.userID].attackerSide.isWideGuard = false;
+        this._fields[this.userID].attackerSide.isQuickGuard = false;
+    }
+
     private getMoveField(atkID:number, defID: number) {
         const moveField = this.raidState.fields[atkID].clone();
         moveField.defenderSide = this.raidState.fields[defID].attackerSide.clone();
@@ -373,6 +426,8 @@ export class RaidMove {
         for (let id of this._affectedIDs) {
             if (this._doesNotEffect[id]) {
                 this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // a more specific reason might be helpful
+            } else if (this._blockedBy[id] !== "")  {
+                this._desc[id] = this.move.name + " was blocked by " + this._blockedBy[id] + ".";
             } else {
                 try {
                     const target = this.getPokemon(id);
@@ -420,6 +475,7 @@ export class RaidMove {
     private setHealing() {
         const healingPercent = this.moveData.healing;
         for (let id of this._affectedIDs) {
+            if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
             const target = this.getPokemon(id);
             const maxHP = target.maxHP();
             if (this.move.name == "Heal Cheer") {
@@ -439,7 +495,7 @@ export class RaidMove {
         if (flinchChance && (this.options.secondaryEffects || flinchChance === 100)) {
             for (let id of this._affectedIDs) {
                 if (id === 0) { continue; }
-                if (this._doesNotEffect[id]) { continue; }
+                if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
                 const target = this.getPokemon(id);
                 if (target.item === "Covert Cloak" || target.ability === "Shield Dust") { continue; }
                 if (target.ability === "Inner Focus" && this._user.ability !== "Mold Breaker") { continue; }
@@ -457,7 +513,7 @@ export class RaidMove {
         const chance = this.moveData.statChance || 100;
         if (chance && (this.options.secondaryEffects || chance === 100 )) {
             for (let id of affectedIDs) {
-                if (this._doesNotEffect[id]) { continue; }
+                if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];
                 if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
@@ -498,7 +554,7 @@ export class RaidMove {
         const chance = this.moveData.ailmentChance || 100;
         if (ailment && (chance == 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
-                if (this._doesNotEffect[id]) { continue; }
+                if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
                 const field = this._fields[id];
                 const status = ailmentToStatus(ailment);

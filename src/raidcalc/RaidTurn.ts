@@ -143,6 +143,8 @@ export class RaidTurn {
         for (let i=0; i<5; i++) {
             this._result1.flags[i] = this._result1.flags[i].concat(this._flags[i]);
         }
+        // remove protect / wide guard / quick guard effects
+        this.removeProtection();
 
         return {
             state: this._raidState,

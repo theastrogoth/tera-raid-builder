@@ -424,6 +424,7 @@ export class RaidMove {
         const flinchChance = this.moveData.flinchChance || 0;
         if (flinchChance && (this.options.secondaryEffects || flinchChance === 100)) {
             for (let id of this._affectedIDs) {
+                if (id === 0) { continue; }
                 if (this._doesNotEffect[id]) { continue; }
                 const target = this.getPokemon(id);
                 if (target.item === "Covert Cloak" || target.ability === "Shield Dust") { continue; }

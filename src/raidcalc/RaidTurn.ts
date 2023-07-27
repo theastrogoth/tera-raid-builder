@@ -200,7 +200,6 @@ export class RaidTurn {
         // first compare priority
         const raiderPriority = this.raiderMoveData.priority || this._raiderMove.priority;
         const bossPriority = this.bossMoveData.priority || this._bossMove.priority;
-        console.log(raiderPriority, bossPriority)
         if (raiderPriority > bossPriority) {
             this._raiderMovesFirst = true;
         } else if (raiderPriority < bossPriority) {
@@ -217,7 +216,6 @@ export class RaidTurn {
 
             this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
         }
-        console.log(raiderPriority, bossPriority, this._raiderMovesFirst)
     }
 
     private modifyMovePriorityByAbility(moveData: MoveData, raider: Raider) {

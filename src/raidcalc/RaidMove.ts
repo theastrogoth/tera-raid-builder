@@ -3,6 +3,7 @@ import { getEndOfTurn } from "../calc/desc";
 import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
 import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
 import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat } from "../calc/mechanics/util";
+import persistentAbilities from "../data/persistent_abilities.json"
 
 // next time I prepare the move data, I should eliminate the need for translation
 function ailmentToStatus(ailment: AilmentName): StatusName | "" {
@@ -606,113 +607,143 @@ export class RaidMove {
 
     private applyUniqueMoveEffects() {
         /// Ability-affecting moves
+        const target = this.getPokemon(this.targetID);
+
+        const user_ability = this._user.ability as AbilityName;
+        const target_ability = target.ability as AbilityName;
+
         switch (this.move.name) {
             case "Skill Swap": 
-                const ss_target = this.getPokemon(this.targetID);
-                const tempUserAbility = this._user.ability;
-                this._user.ability = ss_target.ability;
-                ss_target.ability = tempUserAbility;
+                if (
+                    !persistentAbilities["uncopyable"].includes(user_ability) &&
+                    !persistentAbilities["uncopyable"].includes(target_ability) &&
+                    !persistentAbilities["unreplaceable"].includes(user_ability) &&
+                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                ) {
+                    const tempUserAbility = user_ability;
+                    this._user.ability = target.ability;
+                    target.ability = tempUserAbility;
+                }
                 break;
+            case "Core Enforcer":
             case "Gastro Acid":
-                const ga_target = this.getPokemon(this.targetID);
-                ga_target.ability = undefined;
+                if (
+                    !persistentAbilities["unsuppressable"].includes(target_ability)
+                ) {
+                    target.ability = undefined;
+                }
+                break;
+            case "Entrainment":
+                if (
+                    !persistentAbilities["uncopyable"].includes(user_ability) &&
+                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                ) {
+                    target.ability = user_ability;
+                }
                 break;
             case "Worry Seed":
-                const ws_target = this.getPokemon(this.targetID);
-                ws_target.ability = "Insomnia" as AbilityName;
+                if (
+                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                ) {
+                    target.ability = "Insomnia" as AbilityName;
+                }
                 break;
             case "Role Play":
-                const rp_target = this.getPokemon(this.targetID);
-                this._user.ability = rp_target.ability;
+                if (
+                    !persistentAbilities["uncopyable"].includes(target_ability) &&
+                    !persistentAbilities["unreplaceable"].includes(user_ability)
+                ) {
+                    this._user.ability = target_ability;
+                }
                 break;
             case "Simple Beam":
-                const sb_target = this.getPokemon(this.targetID);
-                sb_target.ability = "Simple" as AbilityName;
+                if (
+                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                ) {
+                    target.ability = "Simple" as AbilityName;
+                }
                 break;
         /// Item-affecting moves
             case "Knock Off":
-                const ko_target = this.getPokemon(this.targetID);
-                ko_target.item = undefined;
+                target.item = undefined;
                 break;
             case "Trick":
-                const trick_target = this.getPokemon(this.targetID);
                 const tempUserItem = this._user.item;
-                this._user.item = trick_target.item;
-                trick_target.item = tempUserItem;
+                this._user.item = target.item;
+                target.item = tempUserItem;
                 break;
             case "Fling":
-                const fl_target = this.getPokemon(this.targetID);
-                const boostCoefficient = getBoostCoefficient(fl_target);
+                const boostCoefficient = getBoostCoefficient(target);
                 const flingItem = this._user.item;
                 switch (flingItem) {
                     case "Light Ball":
-                        if (hasNoStatus(fl_target)) { fl_target.status = "par"; }
+                        if (hasNoStatus(target)) { target.status = "par"; }
                         break;
                     case "Flame Orb":
-                        if (!fl_target.types.includes("Fire") && hasNoStatus(fl_target)) { fl_target.status = "brn"; }
+                        if (!target.types.includes("Fire") && hasNoStatus(target)) { target.status = "brn"; }
                         break;
                     case "Toxic Orb":
-                        if (!fl_target.types.includes("Poison") && hasNoStatus(fl_target)) { fl_target.status = "tox"; }
+                        if (!target.types.includes("Poison") && hasNoStatus(target)) { target.status = "tox"; }
                         break
                     case "Poison Barb":
-                        if (!fl_target.types.includes("Poison") && hasNoStatus(fl_target)) { fl_target.status = "psn"; }
+                        if (!target.types.includes("Poison") && hasNoStatus(target)) { target.status = "psn"; }
                         break;
                     case "White Herb":
-                        for (let stat in fl_target.boosts) {
+                        for (let stat in target.boosts) {
                             let whiteHerbUsed = false;
                             // @ts-ignore
-                            if (fl_target.boosts[stat] < 0) { fl_target.boosts[stat] = 0; this._boosts[targetID][stat] = 0; whiteHerbUsed = true; }
-                            if ( whiteHerbUsed ) { fl_target.item = undefined; }
+                            if (target.boosts[stat] < 0) { target.boosts[stat] = 0; this._boosts[targetID][stat] = 0; whiteHerbUsed = true; }
+                            if ( whiteHerbUsed ) { target.item = undefined; }
                         }
                         break;
                     // Status-Curing Berries
                     case "Cheri Berry":
-                        if (fl_target.status === "par") { fl_target.status = ""; }
+                        if (target.status === "par") { target.status = ""; }
                         break;
                     case "Chesto Berry":
-                        if (fl_target.status === "slp") { fl_target.status = ""; }
+                        if (target.status === "slp") { target.status = ""; }
                         break;
                     case "Pecha Berry":
-                        if (fl_target.status === "psn") { fl_target.status = ""; }
+                        if (target.status === "psn") { target.status = ""; }
                         break;
                     case "Rawst Berry":
-                        if (fl_target.status === "brn") { fl_target.status = ""; }
+                        if (target.status === "brn") { target.status = ""; }
                         break;
                     case "Aspear Berry":
-                        if (fl_target.status === "frz") { fl_target.status = ""; }
+                        if (target.status === "frz") { target.status = ""; }
                         break;
                     case "Lum Berry":
-                        if (fl_target.status !== "") { fl_target.status = ""; }
+                        if (target.status !== "") { target.status = ""; }
                         break;
                     // Stat-Boosting Berries
                     case "Liechi Berry":
-                        const origAtk = fl_target.boosts.atk;
-                        fl_target.boosts.atk = safeStatStage(fl_target.boosts.atk + boostCoefficient);
-                        this._boosts[this.targetID].atk = this._boosts[this.targetID].atk || 0 + fl_target.boosts.atk - origAtk;
+                        const origAtk = target.boosts.atk;
+                        target.boosts.atk = safeStatStage(target.boosts.atk + boostCoefficient);
+                        this._boosts[this.targetID].atk = this._boosts[this.targetID].atk || 0 + target.boosts.atk - origAtk;
                         break;
                     case "Ganlon Berry":
-                        const origDef = fl_target.boosts.def;
-                        fl_target.boosts.def = safeStatStage(fl_target.boosts.def + boostCoefficient);
+                        const origDef = target.boosts.def;
+                        target.boosts.def = safeStatStage(target.boosts.def + boostCoefficient);
                         this._boosts[this.targetID].def = this._boosts[this.targetID].def || 0 + boostCoefficient - origDef;
                         break;
                     case "Petaya Berry":
-                        const origSpa = fl_target.boosts.spa;
-                        fl_target.boosts.spa = safeStatStage(fl_target.boosts.spa + boostCoefficient);
+                        const origSpa = target.boosts.spa;
+                        target.boosts.spa = safeStatStage(target.boosts.spa + boostCoefficient);
                         this._boosts[this.targetID].spa = this._boosts[this.targetID].spa || 0 + boostCoefficient - origSpa;
                         break;
                     case "Apicot Berry":
-                        const origSpd = fl_target.boosts.spd;
-                        fl_target.boosts.spd = safeStatStage(fl_target.boosts.spd + boostCoefficient);
+                        const origSpd = target.boosts.spd;
+                        target.boosts.spd = safeStatStage(target.boosts.spd + boostCoefficient);
                         this._boosts[this.targetID].spd = this._boosts[this.targetID].spd || 0 + boostCoefficient - origSpd;
                         break;
                     case "Salac Berry":
-                        const origSpe = fl_target.boosts.spe;
-                        fl_target.boosts.spe = safeStatStage(fl_target.boosts.spe + boostCoefficient);
+                        const origSpe = target.boosts.spe;
+                        target.boosts.spe = safeStatStage(target.boosts.spe + boostCoefficient);
                         this._boosts[this.targetID].spe = this._boosts[this.targetID].spe || 0 + boostCoefficient - origSpe;
                         break;
                     // Healing Berries
                     case "Sitrus Berry":
-                        this._healing[this.targetID] += Math.floor(fl_target.maxHP() / 4);
+                        this._healing[this.targetID] += Math.floor(target.maxHP() / 4);
                         break;
                     default: break;
                     }
@@ -723,28 +754,25 @@ export class RaidMove {
                 this._user.isEndure = true;
                 break;
             case "Psych Up":
-                const pu_target = this.getPokemon(this.targetID);
-                for (let stat in pu_target.boosts) {
+                for (let stat in target.boosts) {
                     // @ts-ignore
-                    this._user.boosts[stat] = pu_target.boosts[stat];
-                    this._boosts[this.userID] = {...pu_target.boosts};
+                    this._user.boosts[stat] = target.boosts[stat];
+                    this._boosts[this.userID] = {...target.boosts};
                 }
                 break;
             case "Power Swap":
-                const ps_target = this.getPokemon(this.targetID);
                 const tempUserAtkBoosts = this._user.boosts;
-                this._user.boosts.atk = ps_target.boosts.atk;
-                this._user.boosts.spa = ps_target.boosts.spa;
-                ps_target.boosts.atk = tempUserAtkBoosts.atk;
-                ps_target.boosts.spa = tempUserAtkBoosts.spa;
+                this._user.boosts.atk = target.boosts.atk;
+                this._user.boosts.spa = target.boosts.spa;
+                target.boosts.atk = tempUserAtkBoosts.atk;
+                target.boosts.spa = tempUserAtkBoosts.spa;
                 break;
             case "Guard Swap":
-                const gs_target = this.getPokemon(this.targetID);
                 const tempUserDefBoosts = this._user.boosts;
-                this._user.boosts.def = gs_target.boosts.def;
-                this._user.boosts.spd = gs_target.boosts.spd;
-                gs_target.boosts.def = tempUserDefBoosts.def;
-                gs_target.boosts.spd = tempUserDefBoosts.spd;
+                this._user.boosts.def = target.boosts.def;
+                this._user.boosts.spd = target.boosts.spd;
+                target.boosts.def = tempUserDefBoosts.def;
+                target.boosts.spd = tempUserDefBoosts.spd;
                 break;
             case "Power Trick":
                 const tempAtk = this._user.stats.atk;

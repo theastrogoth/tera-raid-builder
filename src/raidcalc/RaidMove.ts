@@ -2,7 +2,7 @@ import { Move, Field, Pokemon, StatsTable, StatID, Generations, calculate} from 
 import { getEndOfTurn } from "../calc/desc";
 import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
 import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
-import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat } from "../calc/mechanics/util";
+import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat, isGrounded } from "../calc/mechanics/util";
 import persistentAbilities from "../data/persistent_abilities.json"
 
 // next time I prepare the move data, I should eliminate the need for translation
@@ -66,6 +66,13 @@ function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender:
       typeEffectiveness = 1;
     }
     return typeEffectiveness >= 2;
+}
+
+function pokemonIsGrounded(pokemon: Raider, field: Field) {
+    let grounded = isGrounded(pokemon, field);
+    if (pokemon.lastMove) { grounded = grounded || pokemon.lastMove.name === "Roost"; }
+    // TO DO: Ingrain, Smack Down
+    return grounded;
 }
 
 export function getBoostCoefficient(pokemon: Pokemon) {
@@ -206,7 +213,7 @@ export class RaidMove {
             const pokemon = this.getPokemon(id);
             const field = this._fields[id];
             // Terrain-based failure
-            if (field.hasTerrain("Psychic") && this.move.priority > 0) {
+            if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && this.move.priority > 0) {
                 this._doesNotEffect[id] = true;
                 continue;
             }
@@ -510,8 +517,8 @@ export class RaidMove {
                     // existing status cannot be overwritten
                     if (pokemon.status !== "" && pokemon.status !== undefined) { continue; }
                     // field-based immunities
-                    if (id !== this.userID && (field.attackerSide.isSafeguard || field.hasTerrain("Misty") || field.attackerSide.isProtected)) { continue; }
-                    if (status === "slp" && field.hasTerrain("Electric")) { continue; }
+                    if (id !== this.userID && (field.attackerSide.isSafeguard || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { continue; }
+                    if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { continue; }
                     if (status === "brn" && pokemon.types.includes("Fire")) { continue; }
                     if (status === "frz" && (pokemon.types.includes("Ice") || pokemon.ability === "Magma Armor")) { continue; }
                     if ((status === "psn" || status === "tox") && (pokemon.ability === "Immunity" || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { continue; }

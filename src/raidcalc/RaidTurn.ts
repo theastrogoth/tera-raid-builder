@@ -1,5 +1,4 @@
-import { State } from "../calc/state";
-import { calculate, Field, Generations, Move, Pokemon } from "../calc";
+import { Field, Generations, Move, Pokemon } from "../calc";
 import { MoveData, RaidMoveOptions, RaidState, RaidTurnResult, RaidMoveResult, RaidTurnInfo } from "./interface";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import { Raider } from "./interface";
@@ -19,10 +18,14 @@ export class RaidTurn {
     bossOptions:    RaidMoveOptions;
 
     _raiderMovesFirst!: boolean;
-    _raider!:         Raider;
-    _boss!:           Raider;  
-    _raiderMove!:     Move;
-    _bossMove!:       Move;
+    _raider!:           Raider;
+    _boss!:             Raider;  
+    _raiderMove!:       Move;
+    _bossMove!:         Move;
+    _raiderMoveData!:   MoveData;
+    _bossMoveData!:     MoveData;
+    _raiderMoveID!:     number;     // the id of the raider performing the move (affected by instruct)
+    _raiderMoveTarget!: number;
 
     _raidMove1!:      RaidMove;
     _raidMove2!:      RaidMove;
@@ -64,41 +67,26 @@ export class RaidTurn {
         // determine which move goes first
         this.setTurnOrder();
 
-        let rID = this.raiderID;
-        let tID = this.targetID;
-        let rMoveData = this.raiderMoveData;
-        let bMoveData = this.bossMoveData;
-        // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
-        if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
-            rID = this.targetID;
-            tID = this.raidState.raiders[rID].lastTarget!;
-            if (tID === this.targetID) { tID = rID; }
-            rMoveData = this.raidState.raiders[this.targetID].lastMove!
-            this._raiderMove = new Move(9, rMoveData.name, this.raiderOptions);
-            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
-            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
-        } else if (this.raiderMoveData.name === "Copycat") {
-            tID = this.raidState.raiders[rID].lastTarget!;
-            if (tID === this.targetID) { tID = rID; }
-            bMoveData = this.raidState.raiders[this.targetID].lastMove!
-            this._raiderMove = new Move(9, bMoveData.name, this.raiderOptions);
-            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
-            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
-        } 
+        this._raiderMoveID = this.raiderID;
+        this._raiderMoveTarget = this.targetID;
+        this._raiderMoveData = this.raiderMoveData;
+        this._bossMoveData = this.bossMoveData;
+        
+
         if (this._raiderMovesFirst) {
             this._raidMove1 = new RaidMove(
-                rMoveData,
+                this._raiderMoveData,
                 this._raiderMove, 
                 this._raidState, 
-                rID, 
-                tID,
-                rID,
+                this._raiderMoveID, 
+                this._raiderMoveTarget,
+                this.raiderID,
                 this._raiderMovesFirst,
                 this.raiderOptions);
             this._result1 = this._raidMove1.result();
             this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
-                bMoveData,
+                this._bossMoveData,
                 this._bossMove, 
                 this._raidState, 
                 0, 
@@ -109,7 +97,7 @@ export class RaidTurn {
                 this._result1.causesFlinch[0]);
         } else {
             this._raidMove1 = new RaidMove(
-                bMoveData, 
+                this._bossMoveData, 
                 this._bossMove, 
                 this._raidState, 
                 0, 
@@ -120,12 +108,12 @@ export class RaidTurn {
             this._result1 = this._raidMove1.result();
             this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
-                rMoveData, 
+                this._raiderMoveData, 
                 this._raiderMove, 
                 this._raidState, 
-                rID, 
-                tID,
-                rID,
+                this._raiderMoveID, 
+                this._raiderMoveTarget,
+                this.raiderID,
                 this._raiderMovesFirst,
                 this.raiderOptions,
                 this._result1.causesFlinch[this.raiderID]);
@@ -152,6 +140,34 @@ export class RaidTurn {
             raiderMovesFirst: this._raiderMovesFirst
         }
 
+    }
+
+    private applyChangedMove() {
+        // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
+        // Instruct
+        if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
+            this._raiderMoveID = this.targetID;
+            this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;
+            if (this._raiderMoveTarget === this.targetID) { this._raiderMoveTarget = this._raiderMoveID; }
+            this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
+            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+            if (this.raiderOptions.crit) { this._raiderMove.isCrit = true; }
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        // Copycat
+        } else if (this.raiderMoveData.name === "Copycat") {
+            this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;
+            if (this._raiderMoveTarget === this.targetID) { this._raiderMoveTarget = this._raiderMoveID; }
+            this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
+            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        // Since we don't have access to choice lock in the UI, we'll just force the move to be the last move used
+        } else if (this._raider.isChoiceLocked) {
+            this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
+            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        } 
     }
 
     private setQPBoosts() {

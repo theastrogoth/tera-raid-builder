@@ -22,6 +22,7 @@ export namespace State {
     originalCurHP?: number;
     status?: I.StatusName | '';
     volatileStatus?: string[];
+    isChoiceLocked?: boolean;
     teraType?: I.TypeName;
     toxicCounter?: number;
     moves?: I.MoveName[];

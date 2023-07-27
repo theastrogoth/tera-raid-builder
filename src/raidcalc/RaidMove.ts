@@ -159,7 +159,7 @@ export class RaidMove {
         this.applyAbilityEffects();
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyItemEffects();
+        this.applyItemEffects(true);
         this.setFlags();
         this._user.lastMove = this.moveData;
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
@@ -900,39 +900,8 @@ export class RaidMove {
         }
     }
 
-    public applyItemEffects() {
+    public applyItemEffects(afterMove: boolean = false) {
         /// Item-related effects
-        // Focus Sash
-        for (let id of this._affectedIDs) {
-            const pokemon = this.getPokemon(id);
-            if (pokemon.item === "Focus Sash") {
-                if (this._damage[id] >= pokemon.maxHP() && this.raidState.raiders[id].originalCurHP === pokemon.maxHP()) { 
-                    pokemon.item = undefined; 
-                    pokemon.originalCurHP = 1;
-                }
-            }
-        }
-        // Mirror Herb
-        for (let pokemon of this._raiders.slice(1)) { // let's not worry about a Raid boss with an item
-            const bossBoosts = this._boosts[0];
-            if (pokemon.item === "Mirror Herb" && bossBoosts !== undefined) {
-                let changed = false;
-                for (let stat in bossBoosts) {
-                    // @ts-ignore
-                    if (bossBoosts[stat] > 0) { 
-                        changed = true;
-                        // @ts-ignore
-                        const origStat = pokemon.boosts[stat];
-                        // @ts-ignore
-                        pokemon.boosts[stat] = safeStatStage(pokemon.boosts[stat] + bossBoosts[stat]); }
-                        // @ts-ignore
-                        const diff = pokemon.boosts[stat] - origStat;
-                        // @ts-ignore
-                        this._boosts[stat] = this._boosts[stat] || 0 + diff;
-                }
-                if (changed) { pokemon.item = undefined; } // the herb is consumed if a boost is copied.
-            }
-        }
         // Terrain Seeds
         for (let i=0; i<5; i++) {
             const pokemon = this.getPokemon(i);
@@ -957,98 +926,6 @@ export class RaidMove {
                     const diff = pokemon.boosts.spd - origSpd;
                     this._boosts[i].spd = this._boosts[i].spd || 0 + diff;
                     pokemon.item = undefined;
-                }
-            }
-        }
-        // Weakness Policy and Super-Effective reducing Berries
-        //  TO DO - abilities that let users use berries more than once
-        for (let id of this._affectedIDs) {
-            const pokemon = this.getPokemon(id);
-            if (this._damage[id] > 0 && isSuperEffective(this.move, this._fields[id], this._user, pokemon)) {
-                switch (pokemon.item) {
-                    case "Weakness Policy":
-                        const boostCoefficient = getBoostCoefficient(pokemon);
-                        const origAtk = pokemon.boosts.atk;
-                        const origSpa = pokemon.boosts.spa;
-                        pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + 2 * boostCoefficient);
-                        pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 2 * boostCoefficient);
-                        pokemon.item = undefined;
-                        this._boosts[id].atk = this._boosts[id].atk || 0 + pokemon.boosts.atk - origAtk;
-                        this._boosts[id].spa = this._boosts[id].spa || 0 + pokemon.boosts.spa - origSpa;
-                        break;
-                    case "White Herb":
-                        for (let stat in this._user.boosts) {
-                            let changed = false;
-                            // @ts-ignore
-                            if (this._user.boosts[stat] < 0) { this._user.boosts[stat] = 0; changed = true; }
-                            if (changed) { this._user.item = undefined; }
-                        }
-                        break;
-                    case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
-                        if (this.move.type === "Fire") { pokemon.item = undefined; }
-                        break;
-                    case "Passho Berry":
-                        if (this.move.type === "Water") { pokemon.item = undefined; }
-                        break;
-                    case "Wacan Berry":
-                        if (this.move.type === "Electric") { pokemon.item = undefined; }
-                        break;
-                    case "Rindo Berry":
-                        if (this.move.type === "Grass") { pokemon.item = undefined; }
-                        break;
-                    case "Yache Berry":
-                        if (this.move.type === "Ice") { pokemon.item = undefined; }
-                        break;
-                    case "Chople Berry":
-                        if (this.move.type === "Fighting") { pokemon.item = undefined; }
-                        break;
-                    case "Kebia Berry":
-                        if (this.move.type === "Poison") { pokemon.item = undefined; }
-                        break;
-                    case "Shuca Berry":
-                        if (this.move.type === "Ground") { pokemon.item = undefined; }
-                        break;
-                    case "Coba Berry":
-                        if (this.move.type === "Flying") { pokemon.item = undefined; }
-                        break;
-                    case "Payapa Berry":
-                        if (this.move.type === "Psychic") { pokemon.item = undefined; }
-                        break;
-                    case "Tanga Berry":
-                        if (this.move.type === "Bug") { pokemon.item = undefined; }
-                        break;
-                    case "Charti Berry":
-                        if (this.move.type === "Rock") { pokemon.item = undefined; }
-                        break;
-                    case "Kasib Berry":
-                        if (this.move.type === "Ghost") { pokemon.item = undefined; }
-                        break;
-                    case "Haban Berry":
-                        if (this.move.type === "Dragon") { pokemon.item = undefined; }
-                        break;
-                    case "Colbur Berry":
-                        if (this.move.type === "Dark") { pokemon.item = undefined; }
-                        break;
-                    case "Babiri Berry":
-                        if (this.move.type === "Steel") { pokemon.item = undefined; }
-                        break;
-                    case "Roseli Berry":
-                        if (this.move.type === "Fairy") { pokemon.item = undefined; }
-                        break;
-                    default: break;
-                }
-            }
-            if (pokemon.item === "Chiban Berry" && id !== this.userID && this._damage[id] > 0 && this.move.type === "Normal") {
-                pokemon.item = undefined;
-            }
-        }
-
-        // Other Berry Consumption
-        for (let i=0; i<5; i++) {
-            if (this._damage[i] > 0) {
-                if (this._raiders[i].item === "Sitrus Berry" && this._raiders[i].originalCurHP <= Math.floor(this._raiders[i].maxHP() / 2)) {
-                    this._raiders[i].item = undefined;
-                    this._raiders[i].originalCurHP += Math.floor(this._raiders[i].maxHP() / 4);
                 }
             }
         }
@@ -1095,7 +972,135 @@ export class RaidMove {
                 fastestSymbPoke.item = undefined;
             }
         }
-        // ???
+        // Berry Consumption
+        for (let i=0; i<5; i++) {
+            if (this._damage[i] > 0) {
+                if (this._raiders[i].item === "Sitrus Berry" && this._raiders[i].originalCurHP <= Math.floor(this._raiders[i].maxHP() / 2)) {
+                    this._raiders[i].item = undefined;
+                    this._raiders[i].originalCurHP += Math.floor(this._raiders[i].maxHP() / 4);
+                }
+            }
+        }
+        // Only need to check these at the end of a move
+        if (afterMove) {
+            // Focus Sash
+            for (let id of this._affectedIDs) {
+                const pokemon = this.getPokemon(id);
+                if (pokemon.item === "Focus Sash") {
+                    if (this._damage[id] >= pokemon.maxHP() && this.raidState.raiders[id].originalCurHP === pokemon.maxHP()) { 
+                        pokemon.item = undefined; 
+                        pokemon.originalCurHP = 1;
+                    }
+                }
+            }
+            // Mirror Herb
+            for (let pokemon of this._raiders.slice(1)) { // let's not worry about a Raid boss with an item
+                const bossBoosts = this._boosts[0];
+                if (pokemon.item === "Mirror Herb" && bossBoosts !== undefined) {
+                    let changed = false;
+                    for (let stat in bossBoosts) {
+                        // @ts-ignore
+                        if (bossBoosts[stat] > 0) { 
+                            changed = true;
+                            // @ts-ignore
+                            const origStat = pokemon.boosts[stat];
+                            // @ts-ignore
+                            pokemon.boosts[stat] = safeStatStage(pokemon.boosts[stat] + bossBoosts[stat]); }
+                            // @ts-ignore
+                            const diff = pokemon.boosts[stat] - origStat;
+                            // @ts-ignore
+                            this._boosts[stat] = this._boosts[stat] || 0 + diff;
+                    }
+                    if (changed) { pokemon.item = undefined; } // the herb is consumed if a boost is copied.
+                }
+            }
+            // Weakness Policy and Super-Effective reducing Berries
+            //  TO DO - abilities that let users use berries more than once
+            for (let id of this._affectedIDs) {
+                const pokemon = this.getPokemon(id);
+                if (this._damage[id] > 0 && isSuperEffective(this.move, this._fields[id], this._user, pokemon)) {
+                    switch (pokemon.item) {
+                        case "Weakness Policy":
+                            const boostCoefficient = getBoostCoefficient(pokemon);
+                            const origAtk = pokemon.boosts.atk;
+                            const origSpa = pokemon.boosts.spa;
+                            pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + 2 * boostCoefficient);
+                            pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 2 * boostCoefficient);
+                            pokemon.item = undefined;
+                            this._boosts[id].atk = this._boosts[id].atk || 0 + pokemon.boosts.atk - origAtk;
+                            this._boosts[id].spa = this._boosts[id].spa || 0 + pokemon.boosts.spa - origSpa;
+                            break;
+                        case "White Herb":
+                            for (let stat in this._user.boosts) {
+                                let changed = false;
+                                // @ts-ignore
+                                if (this._user.boosts[stat] < 0) { this._user.boosts[stat] = 0; changed = true; }
+                                if (changed) { this._user.item = undefined; }
+                            }
+                            break;
+                        case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
+                            if (this.move.type === "Fire") { pokemon.item = undefined; }
+                            break;
+                        case "Passho Berry":
+                            if (this.move.type === "Water") { pokemon.item = undefined; }
+                            break;
+                        case "Wacan Berry":
+                            if (this.move.type === "Electric") { pokemon.item = undefined; }
+                            break;
+                        case "Rindo Berry":
+                            if (this.move.type === "Grass") { pokemon.item = undefined; }
+                            break;
+                        case "Yache Berry":
+                            if (this.move.type === "Ice") { pokemon.item = undefined; }
+                            break;
+                        case "Chople Berry":
+                            if (this.move.type === "Fighting") { pokemon.item = undefined; }
+                            break;
+                        case "Kebia Berry":
+                            if (this.move.type === "Poison") { pokemon.item = undefined; }
+                            break;
+                        case "Shuca Berry":
+                            if (this.move.type === "Ground") { pokemon.item = undefined; }
+                            break;
+                        case "Coba Berry":
+                            if (this.move.type === "Flying") { pokemon.item = undefined; }
+                            break;
+                        case "Payapa Berry":
+                            if (this.move.type === "Psychic") { pokemon.item = undefined; }
+                            break;
+                        case "Tanga Berry":
+                            if (this.move.type === "Bug") { pokemon.item = undefined; }
+                            break;
+                        case "Charti Berry":
+                            if (this.move.type === "Rock") { pokemon.item = undefined; }
+                            break;
+                        case "Kasib Berry":
+                            if (this.move.type === "Ghost") { pokemon.item = undefined; }
+                            break;
+                        case "Haban Berry":
+                            if (this.move.type === "Dragon") { pokemon.item = undefined; }
+                            break;
+                        case "Colbur Berry":
+                            if (this.move.type === "Dark") { pokemon.item = undefined; }
+                            break;
+                        case "Babiri Berry":
+                            if (this.move.type === "Steel") { pokemon.item = undefined; }
+                            break;
+                        case "Roseli Berry":
+                            if (this.move.type === "Fairy") { pokemon.item = undefined; }
+                            break;
+                        default: break;
+                    }
+                }
+                if (pokemon.item === "Chiban Berry" && id !== this.userID && this._damage[id] > 0 && this.move.type === "Normal") {
+                    pokemon.item = undefined;
+                }
+            }
+            // Choice-locking items
+            if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
+                this._user.isChoiceLocked = true;
+            }
+        }
     }
 
     private setEndOfTurnDamage() {

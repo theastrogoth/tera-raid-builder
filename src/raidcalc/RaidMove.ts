@@ -218,90 +218,100 @@ export class RaidMove {
                 continue;
             }
             // Ability-based immunities
-            if (["Dry Skin", "Water Absorb"].includes(pokemon.ability || "") && moveType === "Water") { 
-                this._doesNotEffect[id] = true; 
-                this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
-                continue;
-            }
-            if (pokemon.ability === "Volt Absorb" && moveType === "Electric") { 
-                this._doesNotEffect[id] = true; 
-                this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
-                continue;
-            }
-            if (pokemon.ability === "Earth Eater" && moveType === "Ground") {
-                this._doesNotEffect[id] = true;
-                this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
-                continue;
-            }
-            if (pokemon.ability === "Flash Fire" && moveType === "Fire") { 
-                this._doesNotEffect[id] = true; 
-                pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
-                const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
-                this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
-                continue;
-            }
-            if (pokemon.ability === "Sap Sipper" && moveType === "Grass") {
-                this._doesNotEffect[id] = true; 
-                pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + 1);
-                const diff = pokemon.boosts.atk - this.raidState.raiders[id].boosts.atk;
-                this._boosts[id].atk = this._boosts[id].atk || 0 + diff;
-                continue;
-            }
-            if (pokemon.ability === "Motor Drive" && moveType === "Electric") {
-                this._doesNotEffect[id] = true;
-                pokemon.boosts.spe = safeStatStage(pokemon.boosts.spe + 1);
-                const diff = pokemon.boosts.spe - this.raidState.raiders[id].boosts.spe;
-                this._boosts[id].spe = this._boosts[id].spe || 0 + diff;
-                continue;
-            }
-            if (pokemon.ability === "Storm Drain" && moveType === "Water") {
-                this._doesNotEffect[id] = true;
-                pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
-                const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
-                this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
-                continue;
-            }
-            if (pokemon.ability === "Lightning Rod" && moveType === "Electric") {
-                this._doesNotEffect[id] = true;
-                pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
-                const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
-                this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
-                continue;
-            }
-            if (pokemon.ability === "Bulletproof" && 
-                [   "Acid Spray",
-                    "Aura Sphere",
-                    "Barrage",
-                    "Beak Blast",
-                    "Bullet Seed",
-                    "Egg Bomb",
-                    "Electro Ball",
-                    "Energy Ball",
-                    "Focus Blast",
-                    "Gyro Ball",
-                    "Ice Ball",
-                    "Magnet Bomb",
-                    "Mist Ball",
-                    "Mud Bomb",
-                    "Octazooka",
-                    "Pollen Puff",
-                    "Pyro Ball",
-                    "Rock Blast",
-                    "Rock Wrecker",
-                    "Searing Shot",
-                    "Seed Bomb",
-                    "Shadow Ball",
-                    "Sludge Bomb",
-                    "Weather Ball",
-                    "Zap Cannon"
-                ].includes(moveName)) 
-            {
-                this._doesNotEffect[id] = true;
-                continue;
+            if (pokemon.ability !== "Mold Breaker") {
+                if (pokemon.ability === "Good as Gold" && category === "Status") { 
+                    this._doesNotEffect[id] = true; 
+                    continue; 
+                }
+                if (["Dry Skin", "Water Absorb"].includes(pokemon.ability || "") && moveType === "Water") { 
+                    this._doesNotEffect[id] = true; 
+                    this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
+                    continue;
+                }
+                if (pokemon.ability === "Volt Absorb" && moveType === "Electric") { 
+                    this._doesNotEffect[id] = true; 
+                    this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
+                    continue;
+                }
+                if (pokemon.ability === "Earth Eater" && moveType === "Ground") {
+                    this._doesNotEffect[id] = true;
+                    this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
+                    continue;
+                }
+                if (pokemon.ability === "Flash Fire" && moveType === "Fire") { 
+                    this._doesNotEffect[id] = true; 
+                    pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
+                    const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
+                    this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
+                    continue;
+                }
+                if (pokemon.ability === "Sap Sipper" && moveType === "Grass") {
+                    this._doesNotEffect[id] = true; 
+                    pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + 1);
+                    const diff = pokemon.boosts.atk - this.raidState.raiders[id].boosts.atk;
+                    this._boosts[id].atk = this._boosts[id].atk || 0 + diff;
+                    continue;
+                }
+                if (pokemon.ability === "Motor Drive" && moveType === "Electric") {
+                    this._doesNotEffect[id] = true;
+                    pokemon.boosts.spe = safeStatStage(pokemon.boosts.spe + 1);
+                    const diff = pokemon.boosts.spe - this.raidState.raiders[id].boosts.spe;
+                    this._boosts[id].spe = this._boosts[id].spe || 0 + diff;
+                    continue;
+                }
+                if (pokemon.ability === "Storm Drain" && moveType === "Water") {
+                    this._doesNotEffect[id] = true;
+                    pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
+                    const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
+                    this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
+                    continue;
+                }
+                if (pokemon.ability === "Lightning Rod" && moveType === "Electric") {
+                    this._doesNotEffect[id] = true;
+                    pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
+                    const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
+                    this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
+                    continue;
+                }
+                if (pokemon.ability === "Bulletproof" && 
+                    [   "Acid Spray",
+                        "Aura Sphere",
+                        "Barrage",
+                        "Beak Blast",
+                        "Bullet Seed",
+                        "Egg Bomb",
+                        "Electro Ball",
+                        "Energy Ball",
+                        "Focus Blast",
+                        "Gyro Ball",
+                        "Ice Ball",
+                        "Magnet Bomb",
+                        "Mist Ball",
+                        "Mud Bomb",
+                        "Octazooka",
+                        "Pollen Puff",
+                        "Pyro Ball",
+                        "Rock Blast",
+                        "Rock Wrecker",
+                        "Searing Shot",
+                        "Seed Bomb",
+                        "Shadow Ball",
+                        "Sludge Bomb",
+                        "Weather Ball",
+                        "Zap Cannon"
+                    ].includes(moveName)) 
+                {
+                    this._doesNotEffect[id] = true;
+                    continue;
+                }
+                if (pokemon.ability === "Levitate" && !pokemonIsGrounded(pokemon, field) && moveType === "Ground") { 
+                    this._doesNotEffect[id] = true; 
+                    continue;
+                }
             }
             // Type-based immunities
-            if (category !== "Status") {
-                if (moveType === "Ground" && pokemon.types.includes("Flying")) { 
+            if (category !== "Status" && pokemon.item !== "Ring Target") {
+                if (moveType === "Ground" && !pokemonIsGrounded(pokemon, field)) { 
                     this._doesNotEffect[id] = true; 
                     continue;
                 }
@@ -326,12 +336,8 @@ export class RaidMove {
                     continue;
                 }
             }
-            if (moveName === "Thunder Wave" && pokemon.types.includes("Ground")) {
+            if (moveName === "Thunder Wave" && pokemon.types.includes("Ground") && pokemon.item !== "Ring Target") {
                 this._doesNotEffect[id] = true;
-                continue;
-            }
-            if (pokemon.ability === "Levitate" && moveType === "Ground") { 
-                this._doesNotEffect[id] = true; 
                 continue;
             }
             if ((moveName.includes("Powder") || moveName.includes("Spore") && moveName !== "Powder Snow") && (pokemon.types.includes("Grass") || pokemon.item === "Safety Goggles")) {

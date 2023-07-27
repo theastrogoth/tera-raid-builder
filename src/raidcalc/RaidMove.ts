@@ -396,6 +396,7 @@ export class RaidMove {
 
         if (this.moveData.category?.includes("damage")) {
             this._fields[this.userID].attackerSide.isHelpingHand = false;
+            if (this.move.type === "Electric") { this._fields[this.userID].attackerSide.isCharged = false; }
         }
     }
 
@@ -444,7 +445,9 @@ export class RaidMove {
     private applyStatChanges() {
         const category = this.moveData.category;
         const affectedIDs = category == "damage+raise" ? [this.userID] : this._affectedIDs;
-        const statChanges = this.moveData.statChanges;
+        let statChanges = this.moveData.statChanges;
+        // handle Growth
+        if (this.move.name === "Growth" && this._fields[this.userID].weather?.includes("Sun")) { statChanges = [{stat: "atk", change: 2}, {stat: "spa", change: 2}]; }
         const chance = this.moveData.statChance || 100;
         if (chance && (this.options.secondaryEffects || chance === 100 )) {
             for (let id of affectedIDs) {
@@ -758,6 +761,9 @@ export class RaidMove {
                 this._user.item = undefined;
                 break;
             // other
+            case "Charge":
+                this._fields[this.userID].attackerSide.isCharged = true;
+                break;
             case "Endure":
                 this._user.isEndure = true;
                 break;
@@ -826,6 +832,14 @@ export class RaidMove {
             if (this._damage[id] > 0 && pokemon.ability === "Weak Armor") {
                 pokemon.boosts.def = safeStatStage(pokemon.boosts.def - 1);
                 pokemon.boosts.spe = safeStatStage(pokemon.boosts.spe + 2);
+            }
+        }
+
+        // Electromorphosis
+        for (let id of this._affectedIDs) {
+            const pokemon = this.getPokemon(id);
+            if (this._damage[id] > 0 && pokemon.ability ===  "Electromorphosis") {
+                this._fields[id].attackerSide.isCharged = true;
             }
         }
     }

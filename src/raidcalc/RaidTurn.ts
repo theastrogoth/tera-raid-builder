@@ -342,4 +342,14 @@ export class RaidTurn {
             }
         }
     }
+
+    private removeProtection() {
+        const fields = this._raidState.fields;
+        fields[this.raiderID].attackerSide.isProtected = false;
+        fields[this.raiderID].attackerSide.isWideGuard = false;
+        fields[this.raiderID].attackerSide.isQuickGuard = false;
+        fields[0].attackerSide.isProtected = false;
+        fields[0].attackerSide.isWideGuard = false;
+        fields[0].attackerSide.isQuickGuard = false;
+    }
 }

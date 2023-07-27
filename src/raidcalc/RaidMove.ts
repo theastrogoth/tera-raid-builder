@@ -160,7 +160,6 @@ export class RaidMove {
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
         this.applyItemEffects();
-        this.removeProtection();
         this.setFlags();
         this._user.lastMove = this.moveData;
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
@@ -364,6 +363,7 @@ export class RaidMove {
                     const pokemon = this.getPokemon(id);
                     const field = this._fields[id];
                     if (field.attackerSide.isProtected) {
+                        console.log("Protected by ", pokemon.lastMove)
                         this._blockedBy[id] = pokemon.lastMove!.name;
                     } else if (field.attackerSide.isWideGuard && ["all-pokemon", "all-other-pokemon", "all-opponents"].includes(this.moveData.target || "")) {
                         this._blockedBy[id] = "Wide Guard";
@@ -396,12 +396,6 @@ export class RaidMove {
                 }
             }
         }
-    }
-
-    private removeProtection() {
-        this._fields[this.userID].attackerSide.isProtected = false;
-        this._fields[this.userID].attackerSide.isWideGuard = false;
-        this._fields[this.userID].attackerSide.isQuickGuard = false;
     }
 
     private getMoveField(atkID:number, defID: number) {

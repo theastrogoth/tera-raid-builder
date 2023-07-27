@@ -134,7 +134,7 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
         } catch (e) {
             console.log(e);
         }
-    }, []);
+    }, [hash]);
 
     useEffect(() => {
         try {

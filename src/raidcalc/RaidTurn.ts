@@ -263,6 +263,7 @@ export class RaidTurn {
         speed = this.modifyPokemonSpeedByAbility(speed, raider.ability, raider.abilityOn, raider.status);
         speed = this.modifyPokemonSpeedByQP(speed, field, raider.ability, raider.item, raider.boostedStat as StatIDExceptHP);
         speed = this.modifyPokemonSpeedByField(speed, field);
+        console.log(speed)
         return speed;
     }
 
@@ -271,6 +272,7 @@ export class RaidTurn {
     }
 
     private modifyPokemonSpeedByItem(speed : number, item?: ItemName) {
+        console.log("Modify Speed By Item", speed, item)
         switch(item) {
             case "Choice Scarf":
                 return speed * 1.5;
@@ -282,6 +284,7 @@ export class RaidTurn {
             case "Power Bracer":
             case "Power Lens":
             case "Power Weight":
+                console.log("Iron Ball")
                 return speed * .5;
             case "Lagging Tail":
             case "Full Incense":

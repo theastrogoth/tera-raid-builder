@@ -1,5 +1,5 @@
 import { Move, Generations } from "../calc";
-import { StatIDExceptHP, MoveName } from "../calc/data/interface";
+import { StatIDExceptHP, MoveName, AbilityName, ItemName } from "../calc/data/interface";
 import { getQPBoostedStat } from "../calc/mechanics/util";
 import { RaidState, RaidBattleInfo, RaidTurnInfo, RaidTurnResult, RaidBattleResults } from "./interface";
 import { getBoostCoefficient, RaidMove, safeStatStage } from "./RaidMove";
@@ -57,7 +57,12 @@ export class RaidBattle {
     private calculateTurnZero(){
         this._turnZeroFlags = [[],[],[],[],[],[],[],[],[],[]];  // each pokemon gets two sets of flags, one for switch-in effects, one for item/ability effects as a result of the first round of effects
         // sort pokemon by speed to see what happens first
-        const speeds = this._state.raiders.map(raider => raider.stats.spe);
+        const speeds = this._state.raiders.map(raider => {
+            let s = raider.stats.spe;
+            s = this.modifyPokemonSpeedByAbility(s, raider.ability);
+            s = this.modifyPokemonSpeedByItem(s, raider.item);
+            return s;
+        });
         const speedOrder = speeds.map((speed, index) => [speed, index]).sort((a, b) => b[0] - a[0]).map(pair => pair[1]);
         this._turnZeroOrder = speedOrder;
         for (let id of speedOrder) {
@@ -247,5 +252,38 @@ export class RaidBattle {
         } 
     }
 
+
+    private modifyPokemonSpeedByItem(speed : number, item?: ItemName) {
+        console.log("Modify Speed By Item", speed, item)
+        switch(item) {
+            case "Choice Scarf":
+                return speed * 1.5;
+            case "Iron Ball":
+            case "Macho Brace":
+            case "Power Anklet":
+            case "Power Band":
+            case "Power Belt":
+            case "Power Bracer":
+            case "Power Lens":
+            case "Power Weight":
+                console.log("Iron Ball")
+                return speed * .5;
+            case "Lagging Tail":
+            case "Full Incense":
+                return 0;
+            // TODO: Quick Powder doubles the speed of untransformed Ditto
+            default:
+                return speed;
+        }
+    }
+
+    private modifyPokemonSpeedByAbility(speed: number, ability?: AbilityName, abilityOn?: boolean, status?: string) {
+        switch(ability) {
+            case "Slow Start":
+                return abilityOn ? speed * .5 : speed;
+            default:
+                return speed;
+        }
+    }
 
 }

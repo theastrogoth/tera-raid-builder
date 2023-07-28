@@ -203,7 +203,7 @@ export class RaidBattle {
             } else if (ability === "Intimidate") {
                 if (id === 0) {
                     for (let intdPokemon of this._state.raiders.slice(1)) {
-                        if (["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
+                        if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
                             const boostCoefficient = getBoostCoefficient(pokemon);
                             const origAtk = intdPokemon.boosts.atk;
                             intdPokemon.boosts.atk = safeStatStage(intdPokemon.boosts.atk - boostCoefficient);
@@ -211,8 +211,8 @@ export class RaidBattle {
                         }
                     }
                 } else {
-                    if (["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
-                        const intdPokemon = this._state.raiders[0];
+                    const intdPokemon = this._state.raiders[0];
+                    if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(intdPokemon.ability || "")) {
                         const boostCoefficient = getBoostCoefficient(intdPokemon);
                         const origAtk = intdPokemon.boosts.atk;
                         intdPokemon.boosts.atk = safeStatStage(intdPokemon.boosts.atk - boostCoefficient);
@@ -252,9 +252,7 @@ export class RaidBattle {
         } 
     }
 
-
     private modifyPokemonSpeedByItem(speed : number, item?: ItemName) {
-        console.log("Modify Speed By Item", speed, item)
         switch(item) {
             case "Choice Scarf":
                 return speed * 1.5;
@@ -266,7 +264,6 @@ export class RaidBattle {
             case "Power Bracer":
             case "Power Lens":
             case "Power Weight":
-                console.log("Iron Ball")
                 return speed * .5;
             case "Lagging Tail":
             case "Full Incense":
@@ -276,7 +273,6 @@ export class RaidBattle {
                 return speed;
         }
     }
-
     private modifyPokemonSpeedByAbility(speed: number, ability?: AbilityName, abilityOn?: boolean, status?: string) {
         switch(ability) {
             case "Slow Start":
@@ -285,5 +281,4 @@ export class RaidBattle {
                 return speed;
         }
     }
-
 }

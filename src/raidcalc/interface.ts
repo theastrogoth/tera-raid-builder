@@ -202,6 +202,7 @@ export type RaidMoveResult= {
     eot: ({damage: number, texts: string[]} | undefined)[];
     desc: string[];
     flags: string[][];
+    causesFlinch: boolean[];
 }
 
 export type RaidTurnResult = {

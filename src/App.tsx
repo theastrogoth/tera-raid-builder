@@ -16,12 +16,12 @@ import BossSummary from './uicomponents/BossSummary.tsx';
 import Navbar from './uicomponents/Navbar.tsx';
 import RaidControls from './uicomponents/RaidControls.tsx';
 import LinkButton from './uicomponents/LinkButton.tsx';
-
-import { Generations, Pokemon, Field} from './calc/index.ts';
-import { MoveName } from './calc/data/interface.ts';
-import { Raider, RaidBattleInfo, RaidState, RaidTurnInfo, RaidInputProps } from './raidcalc/interface.ts';
 import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
+
+import { Generations, Pokemon } from './calc/index.ts';
+import { MoveName } from './calc/data/interface.ts';
+import { Raider, RaidTurnInfo, RaidInputProps } from './raidcalc/interface.ts';
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');

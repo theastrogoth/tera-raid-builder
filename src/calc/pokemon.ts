@@ -40,6 +40,7 @@ export class Pokemon implements State.Pokemon {
   originalCurHP: number;
   status: I.StatusName | '';
   volatileStatus: string[];
+  isChoiceLocked: boolean;
   toxicCounter: number;
 
   moves: I.MoveName[];
@@ -110,6 +111,7 @@ export class Pokemon implements State.Pokemon {
     this.originalCurHP = curHP && curHP <= this.rawStats.hp ? curHP : curHP === 0 ? 0 : this.rawStats.hp;
     this.status = options.status || '';
     this.volatileStatus = options.volatileStatus || [];
+    this.isChoiceLocked = options.isChoiceLocked || false;
     this.toxicCounter = options.toxicCounter || 0;
     this.moves = options.moves || [];
   }
@@ -183,6 +185,8 @@ export class Pokemon implements State.Pokemon {
       boosts: extend(true, {}, this.boosts),
       originalCurHP: this.originalCurHP,
       status: this.status,
+      volatileStatus: this.volatileStatus,
+      isChoiceLocked: this.isChoiceLocked,
       teraType: this.teraType,
       toxicCounter: this.toxicCounter,
       moves: this.moves.slice(),

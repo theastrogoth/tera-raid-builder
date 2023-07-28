@@ -817,6 +817,25 @@ export class RaidMove {
                 this._user.item = undefined;
                 break;
             // other
+            case "Clear Smog":
+                for (let stat in target.boosts) {
+                    // @ts-ignore
+                    target.boosts[stat] = 0;
+                    // @ts-ignore
+                    this._boosts[this.targetID][stat] = 0;
+                }
+                break;
+            case "Haze":
+                for (let id=0; id<5; id++) {
+                    const pokemon = this.getPokemon(id);
+                    for (let stat in this._boosts[id]) {
+                        // @ts-ignore
+                        this._boosts[id][stat] = 0;
+                        // @ts-ignore
+                        pokemon.boosts[stat] = 0;
+                    }
+                }
+                break;
             case "Charge":
                 this._fields[this.userID].attackerSide.isCharged = true;
                 break;

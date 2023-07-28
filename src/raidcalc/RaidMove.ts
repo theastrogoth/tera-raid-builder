@@ -817,6 +817,19 @@ export class RaidMove {
                 this._user.item = undefined;
                 break;
             // other
+            case "Defog":
+                const targetFields = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];
+                for (let field of this._fields) {
+                    field.attackerSide.isReflect = false;
+                    field.attackerSide.isLightScreen = false;
+                    field.attackerSide.isSafeguard = false;
+                    field.attackerSide.isMist = false;
+                    field.terrain = undefined;
+                }
+                for (let field of targetFields) {
+                    field.attackerSide.isAuroraVeil = false;
+                }
+                break;
             case "Clear Smog":
                 for (let stat in target.boosts) {
                     // @ts-ignore

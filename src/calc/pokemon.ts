@@ -28,6 +28,7 @@ export class Pokemon implements State.Pokemon {
   item?: I.ItemName;
   teraType?: I.TypeName;
   isQP? : boolean;
+  usedBoosterEnergy? : boolean;
 
   nature: I.NatureName;
   ivs: I.StatsTable;
@@ -39,6 +40,7 @@ export class Pokemon implements State.Pokemon {
   originalCurHP: number;
   status: I.StatusName | '';
   volatileStatus: string[];
+  isChoiceLocked: boolean;
   toxicCounter: number;
 
   moves: I.MoveName[];
@@ -72,6 +74,7 @@ export class Pokemon implements State.Pokemon {
     this.isSaltCure = !!options.isSaltCure;
     this.alliesFainted = options.alliesFainted;
     this.boostedStat = options.boostedStat;
+    this.usedBoosterEnergy = options.usedBoosterEnergy;
     this.teraType = options.teraType;
     this.item = options.item;
     this.nature = options.nature || ('Serious' as I.NatureName);
@@ -108,6 +111,7 @@ export class Pokemon implements State.Pokemon {
     this.originalCurHP = curHP && curHP <= this.rawStats.hp ? curHP : curHP === 0 ? 0 : this.rawStats.hp;
     this.status = options.status || '';
     this.volatileStatus = options.volatileStatus || [];
+    this.isChoiceLocked = options.isChoiceLocked || false;
     this.toxicCounter = options.toxicCounter || 0;
     this.moves = options.moves || [];
   }
@@ -172,6 +176,7 @@ export class Pokemon implements State.Pokemon {
       isSaltCure: this.isSaltCure,
       alliesFainted: this.alliesFainted,
       boostedStat: this.boostedStat,
+      usedBoosterEnergy: this.usedBoosterEnergy,
       item: this.item,
       gender: this.gender,
       nature: this.nature,
@@ -180,6 +185,8 @@ export class Pokemon implements State.Pokemon {
       boosts: extend(true, {}, this.boosts),
       originalCurHP: this.originalCurHP,
       status: this.status,
+      volatileStatus: this.volatileStatus,
+      isChoiceLocked: this.isChoiceLocked,
       teraType: this.teraType,
       toxicCounter: this.toxicCounter,
       moves: this.moves.slice(),

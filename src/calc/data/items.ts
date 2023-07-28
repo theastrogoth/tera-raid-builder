@@ -71,23 +71,23 @@ const GSC = [
 ];
 
 const GSC_ONLY = [
-  'Berry',
-  'Berserk Gene',
-  'Bitter Berry',
-  'Burnt Berry',
-  'Ice Berry',
-  'Mint Berry',
-  'Miracle Berry',
-  'Mystery Berry',
-  'PRZ Cure Berry',
-  'Gold Berry',
-  'Pink Bow',
-  'Polkadot Bow',
-  'PSN Cure Berry',
-  'Enigma Berry',
+  // 'Berry',
+  // 'Berserk Gene',
+  // 'Bitter Berry',
+  // 'Burnt Berry',
+  // 'Ice Berry',
+  // 'Mint Berry',
+  // 'Miracle Berry',
+  // 'Mystery Berry',
+  // 'PRZ Cure Berry',
+  // 'Gold Berry',
+  // 'Pink Bow',
+  // 'Polkadot Bow',
+  // 'PSN Cure Berry',
+  // 'Enigma Berry',
 ];
 
-const ADV = GSC.filter(i => !GSC_ONLY.includes(i)).concat([
+const ADV = GSC.concat([  //GSC.filter(i => !GSC_ONLY.includes(i)).concat([
   'Aguav Berry',
   'Apicot Berry',
   'Aspear Berry',
@@ -149,7 +149,7 @@ const ADV = GSC.filter(i => !GSC_ONLY.includes(i)).concat([
   'Spelon Berry',
   'Starf Berry',
   'Tamato Berry',
-  'Timer Ball',
+  // 'Timer Ball',
   'Watmel Berry',
   'Wepear Berry',
   'White Herb',
@@ -445,8 +445,8 @@ const SS = SM.concat([
   // 'Fossilized Dino',
   // 'Fossilized Drake',
   // 'Fossilized Fish',
-  'Galarica Cuff',
-  'Galarica Wreath',
+  // 'Galarica Cuff',
+  // 'Galarica Wreath',
   'Heavy-Duty Boots',
   // 'Leek',
   // 'Love Sweet',
@@ -471,7 +471,7 @@ SS.push('Utility Umbrella');
 
 
 // Because we support National Dex all Past items are added back in
-SS.push(...GSC_ONLY, 'Old Amber');
+// SS.push(...GSC_ONLY, 'Old Amber');
 
 const SV = SS.concat([
   'Adamant Crystal',

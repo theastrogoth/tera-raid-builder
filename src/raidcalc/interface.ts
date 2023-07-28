@@ -1,6 +1,6 @@
 import { Pokemon, Field, StatID } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import {toID, extend, assignWithout} from '../calc/util';
+import { extend } from '../calc/util';
 
 export type MoveSetItem = {
     name: MoveName,
@@ -117,6 +117,7 @@ export class Raider extends Pokemon {
                 isSaltCure: this.isSaltCure,
                 alliesFainted: this.alliesFainted,
                 boostedStat: this.boostedStat,
+                usedBoosterEnergy: this.usedBoosterEnergy,
                 item: this.item,
                 gender: this.gender,
                 nature: this.nature,
@@ -156,6 +157,8 @@ export class RaidState {
 
 export type RaidBattleInfo = {
     name?: string;
+    notes?: string;
+    credits?: string;
     startingState: RaidState;
     turns: RaidTurnInfo[];
     groups: number[][];
@@ -164,6 +167,8 @@ export type RaidBattleInfo = {
 export type RaidBattleResults = {
     endState: RaidState;
     turnResults: RaidTurnResult[]; 
+    turnZeroFlags: string[][];
+    turnZeroOrder: number[];
 }
 
 export type RaidMoveOptions = {
@@ -197,6 +202,7 @@ export type RaidMoveResult= {
     eot: ({damage: number, texts: string[]} | undefined)[];
     desc: string[];
     flags: string[][];
+    causesFlinch: boolean[];
 }
 
 export type RaidTurnResult = {
@@ -207,7 +213,19 @@ export type RaidTurnResult = {
 
 export type BuildInfo = {
     name: string;
+    notes: string;
+    credits: string;
     pokemon: Raider[],
     turns: RaidTurnInfo[],
     groups: number[][],
 }
+
+// used for passing data to React components
+export type RaidInputProps = {
+    pokemon: Raider[],
+    setPokemon: ((r: Raider) => void)[],
+    turns: RaidTurnInfo[],
+    setTurns: (t: RaidTurnInfo[]) => void,
+    groups: number[][],
+    setGroups: (g: number[][]) => void,
+  }

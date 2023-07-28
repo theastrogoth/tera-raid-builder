@@ -89,6 +89,8 @@ export class Side implements State.Side {
   isLightScreen: boolean;
   isDefCheered: boolean
   isProtected: boolean;
+  isWideGuard: boolean;
+  isQuickGuard: boolean;
   isSeeded: boolean;
   isForesight: boolean;
   isTailwind: boolean;
@@ -120,6 +122,8 @@ export class Side implements State.Side {
     this.isLightScreen = !!side.isLightScreen;
     this.isDefCheered = !!side.isDefCheered;
     this.isProtected = !!side.isProtected;
+    this.isWideGuard = !!side.isWideGuard;
+    this.isQuickGuard = !!side.isQuickGuard;
     this.isSeeded = !!side.isSeeded;
     this.isForesight = !!side.isForesight;
     this.isTailwind = !!side.isTailwind;

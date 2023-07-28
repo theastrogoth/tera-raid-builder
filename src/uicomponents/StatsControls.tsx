@@ -28,20 +28,20 @@ const EVInput = styled(MuiInput)`
 const LeftCell = styled(TableCell)(({ theme }) => ({
     fontWeight: theme.typography.fontWeightBold,
     textAlign: 'right',
-    paddingTop: '12px',
-    paddingBottom: '5px',
+    paddingTop: '6px',
+    paddingBottom: '6px',
     paddingLeft: '0px',
-    paddingRight: '0px',
+    paddingRight: '4px',
     borderBottom: 0,
   }));
   
   const RightCell = styled(TableCell)(({ theme }) => ({
       fontWeight: theme.typography.fontWeightMedium,
       textAlign: 'center',
-      paddingTop: '12px',
-      paddingBottom: '5px',
-      paddingLeft: '0px',
-      paddingRight: '0px',
+      paddingTop: '6px',
+      paddingBottom: '6px',
+      paddingLeft: '4px',
+      paddingRight: '4px',
       borderBottom: 0,
   }));
 
@@ -67,8 +67,9 @@ function EVSlider({evTotal, ev, setEV}: {evTotal: number, ev: number, setEV: Fun
         }
     }
     return (
-        <Box minWidth="60px">
+        <Box minWidth="50px">
             <Slider
+                size="medium"
                 value={val}
                 step={4}
                 min={0}
@@ -81,12 +82,13 @@ function EVSlider({evTotal, ev, setEV}: {evTotal: number, ev: number, setEV: Fun
     )
 }
 
-function StatTableRow({name, evTotal, iv, setIV, ev, setEV}: {name: string, evTotal: number, iv: number, setIV: Function, ev: number, setEV: Function}) {
+function StatTableRow({name, base, evTotal, iv, setIV, ev, setEV}: {name: string, base: number, evTotal: number, iv: number, setIV: Function, ev: number, setEV: Function}) {
     return (
         <TableRow>
             <LeftCell>
                 {name}
-            </LeftCell>  
+                <Box>{base}</Box>
+            </LeftCell>
             <RightCell>
                 <IVInput 
                     value={iv.toString()}
@@ -190,12 +192,12 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <StatTableRow name="HP"  evTotal={evTotal} iv={pokemon.ivs.hp}  setIV={setIV('hp')}  ev={pokemon.evs.hp}  setEV={setEV('hp')} />
-                        <StatTableRow name="Atk" evTotal={evTotal} iv={pokemon.ivs.atk} setIV={setIV('atk')} ev={pokemon.evs.atk} setEV={setEV('atk')} />
-                        <StatTableRow name="Def" evTotal={evTotal} iv={pokemon.ivs.def} setIV={setIV('def')} ev={pokemon.evs.def} setEV={setEV('def')} />
-                        <StatTableRow name="SpA" evTotal={evTotal} iv={pokemon.ivs.spa} setIV={setIV('spa')} ev={pokemon.evs.spa} setEV={setEV('spa')} />
-                        <StatTableRow name="SpD" evTotal={evTotal} iv={pokemon.ivs.spd} setIV={setIV('spd')} ev={pokemon.evs.spd} setEV={setEV('spd')} />
-                        <StatTableRow name="Spe" evTotal={evTotal} iv={pokemon.ivs.spe} setIV={setIV('spe')} ev={pokemon.evs.spe} setEV={setEV('spe')} />
+                        <StatTableRow name="HP"  base={pokemon.species.baseStats.hp} evTotal={evTotal} iv={pokemon.ivs.hp}  setIV={setIV('hp')}  ev={pokemon.evs.hp}  setEV={setEV('hp')} />
+                        <StatTableRow name="Atk" base={pokemon.species.baseStats.atk} evTotal={evTotal} iv={pokemon.ivs.atk} setIV={setIV('atk')} ev={pokemon.evs.atk} setEV={setEV('atk')} />
+                        <StatTableRow name="Def" base={pokemon.species.baseStats.def} evTotal={evTotal} iv={pokemon.ivs.def} setIV={setIV('def')} ev={pokemon.evs.def} setEV={setEV('def')} />
+                        <StatTableRow name="SpA" base={pokemon.species.baseStats.spa} evTotal={evTotal} iv={pokemon.ivs.spa} setIV={setIV('spa')} ev={pokemon.evs.spa} setEV={setEV('spa')} />
+                        <StatTableRow name="SpD" base={pokemon.species.baseStats.spd} evTotal={evTotal} iv={pokemon.ivs.spd} setIV={setIV('spd')} ev={pokemon.evs.spd} setEV={setEV('spd')} />
+                        <StatTableRow name="Spe" base={pokemon.species.baseStats.spe} evTotal={evTotal} iv={pokemon.ivs.spe} setIV={setIV('spe')} ev={pokemon.evs.spe} setEV={setEV('spe')} />
                     </TableBody>
                 </Table>
             </TableContainer>
@@ -203,4 +205,4 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
     );
 }
 
-export default React.memo(StatsControls, (prev, next) => (prev.pokemon.ivs === next.pokemon.ivs && prev.pokemon.evs === next.pokemon.evs))
+export default React.memo(StatsControls, (prev, next) => (JSON.stringify(prev.pokemon.ivs) === JSON.stringify(next.pokemon.ivs) && JSON.stringify(prev.pokemon.evs) === JSON.stringify(next.pokemon.evs)))

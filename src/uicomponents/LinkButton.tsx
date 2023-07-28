@@ -6,14 +6,8 @@ import Button from "@mui/material/Button";
 
 import { Pokemon, Generations, Field } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import { RaidBattleInfo, Raider, RaidState, BuildInfo } from "../raidcalc/interface";
+import { RaidBattleInfo, Raider, RaidState, BuildInfo, RaidTurnInfo, RaidInputProps } from "../raidcalc/interface";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
-
-import delphox from "../data/official_strats/delphox.json"
-
-const OFFICIAL_STRATS = {
-    "delphox": delphox as LightBuildInfo,
-}
 
 const gen = Generations.get(9);
 
@@ -61,8 +55,10 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
         });
         const groups = obj.groups || [];
         const name = obj.name || "";
+        const notes = obj.notes || "";
+        const credits = obj.credits || "";
 
-        return {name, pokemon, turns, groups}
+        return {name, notes, credits, pokemon, turns, groups}
     } catch (e) {
         return null;
     }
@@ -71,6 +67,8 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
 function serializeInfo(info: RaidBattleInfo): string {
     const obj: LightBuildInfo = {
         name: info.name || "",
+        notes: info.notes || "",
+        credits: info.credits || "",
         pokemon: info.startingState.raiders.map(
             (r) => { return {
                 id: r.id,
@@ -108,40 +106,71 @@ function serializeInfo(info: RaidBattleInfo): string {
         }),
         groups: info.groups || [],
     }
+    console.log(obj); // for developer use
     return serialize(obj);
 }
 
-function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setInfo: React.Dispatch<React.SetStateAction<RaidBattleInfo>>, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {
+function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, setCredits, setPrettyMode}: 
+    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, 
+      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
+      setPrettyMode: (p: boolean) => void}) {
+    const [buildInfo, setBuildInfo] = useState(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
     const hash = location.hash
+
+    useEffect(() => {
+        try {
+            if (hash !== "") {
+                let lcHash = hash.includes('/') ? hash.slice(1).toLowerCase() : hash.slice(1).toLowerCase() + "/main";
+                import(`../data/strats/${lcHash}.json`)
+                .then((module) => {
+                    setBuildInfo(module.default);
+                })
+                .catch((error) => {
+                    console.error('Error importing JSON file:', error);
+                });
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }, [hash]);
+
     useEffect(() => {
         try {
             let res: BuildInfo | null = null;
-            if (hash !== ""){
-                const lcHash = hash.slice(1).toLowerCase();
-                //@ts-ignore
-                if (OFFICIAL_STRATS[lcHash] !== undefined) {
-                    //@ts-ignore
-                    res = lightToFullBuildInfo(OFFICIAL_STRATS[lcHash])
-                } else {
-                    res = deserializeInfo(hash);
-                }
-                if (res) {
-                    const {name, pokemon, turns, groups} = res;
-                    const startingState = new RaidState(pokemon, pokemon.map((r) => new Field()));
-                    setInfo({
-                        name: name,
-                        startingState: startingState,
-                        turns: turns,
-                        groups: groups,
-                    })
-                    setHasLoadedInfo(true);
-                }
+            if (buildInfo) {
+                res = lightToFullBuildInfo(buildInfo);
+            } else {
+                res = deserializeInfo(hash);
+            }
+            if (res) {
+                const {name, notes, credits, pokemon, turns, groups} = res;
+                const startingState = new RaidState(pokemon, pokemon.map((r) => new Field()));
+                // setInfo({
+                //     name: name,
+                //     notes: notes,
+                //     credits: credits,
+                //     startingState: startingState,
+                //     turns: turns,
+                //     groups: groups,
+                // })
+                setTitle(name);
+                setNotes(notes);
+                setCredits(credits);
+                raidInputProps.setPokemon[0](pokemon[0]);
+                raidInputProps.setPokemon[1](pokemon[1]);
+                raidInputProps.setPokemon[2](pokemon[2]);
+                raidInputProps.setPokemon[3](pokemon[3]);
+                raidInputProps.setPokemon[4](pokemon[4]);
+                raidInputProps.setTurns(turns);
+                raidInputProps.setGroups(groups);
+                setHasLoadedInfo(true);
             }
         } catch (e) {
+            console.log(e);
         }
-    }, []);
+    }, [buildInfo]);
 
     useEffect(() => {
         if (hasLoadedInfo) {
@@ -154,7 +183,14 @@ function LinkButton({info, setInfo, setPrettyMode}: {info: RaidBattleInfo, setIn
         <Button
             variant="outlined"
             onClick={() => {
-                const link = window.location.href.split("#")[0] + "#" + serializeInfo(info);
+                const link = window.location.href.split("#")[0] + "#" + serializeInfo({
+                    name: title,
+                    notes: notes,
+                    credits: credits,
+                    startingState: new RaidState(raidInputProps.pokemon, [new Field(), new Field(), new Field(), new Field(), new Field()]),
+                    turns: raidInputProps.turns,
+                    groups: raidInputProps.groups,
+                });
                 navigator.clipboard.writeText(link)
             }}
         >

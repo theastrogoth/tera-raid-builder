@@ -4,7 +4,7 @@ import { MoveData } from '../raidcalc/interface';
 const assetsProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/data/"
 
 export function prepareFileName(name: string) {
-    return name.replace(' ','-').replace('.','').replace("’", '').replace("'", '').replace(':','').replace('é','e').toLowerCase();
+    return name.replaceAll(' ','-').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
 }
 
 export type PokemonData = {

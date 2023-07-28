@@ -1,3 +1,4 @@
+import React from "react"
 import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
@@ -55,9 +56,30 @@ function TurnResultDisplay({state, turnResult, index}: {state: RaidState, turnRe
     )
 }
 
+function TurnZeroDisplay({state, tZeroFlags, tZeroOrder}: {state: RaidState, tZeroFlags: string[][], tZeroOrder: number[]}) {
+    const raiders = state.raiders;
+    let texts = tZeroOrder.map((id) => moveResultText(raiders[id].role, tZeroFlags[id])); 
+    texts = texts.concat(tZeroOrder.map((id) => moveResultText(raiders[id].role, tZeroFlags[id+5])));
+    return (
+        <Stack direction="column" spacing={0} >
+            <Typography variant="h6">Battle Start</Typography>
+            <Stack direction="column" spacing={0}>
+                {
+                    texts.map((text, idx) => (
+                        <Typography key={idx} variant="body2" style={{ whiteSpace: "pre-wrap" }}>{text}</Typography>
+                    ))
+                }
+            </Stack>
+        </Stack>
+    )
+}
+
 function RaidResults({results}: {results: RaidBattleResults | null}) {
     return (
         <Stack direction="column" spacing={1} justifyContent="left" sx={{ p: 2 }}>
+            { results && 
+                <TurnZeroDisplay state={results.endState} tZeroFlags={results.turnZeroFlags} tZeroOrder={results.turnZeroOrder} />
+            }
             {results && 
                 results.turnResults.map((turnResult, index) => (
                     <TurnResultDisplay key={index} state={results.endState} turnResult={turnResult} index={index} />
@@ -67,4 +89,4 @@ function RaidResults({results}: {results: RaidBattleResults | null}) {
     )
 }
 
-export default RaidResults;
+export default React.memo(RaidResults);

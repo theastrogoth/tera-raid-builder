@@ -186,25 +186,25 @@ function App() {
     new Raider(0, "Raid Boss", new Pokemon(gen, "Rillaboom", {
       teraType: "Normal",
       bossMultiplier: 3500,
-      nature: "Naughty",
+      nature: "Jolly",
       ability: "Grassy Surge",
-      moves: ["Take Down", "Wood Hammer", "Acrobatics", "Drum Beating"]
-    }), ["Noble Roar", "Taunt", "Boomburst", "Body Slam"] as MoveName[])
+      moves: ["Drum Beating", "Acrobatics", "Body Slam", "Low Kick"]
+    }), ["Growth", "Boomburst", "Bulk Up"] as MoveName[])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Raider #1", new Pokemon(gen, "Lucario", {
-      nature: "Modest",
-      ability: "(No Ability)",
-      moves: ["Nasty Plot", "Focus Blast"],
-      item: "Weakness Policy",
-      evs: {hp: 252, spa: 252},
+    new Raider(1, "Raider #1", new Pokemon(gen, "Koraidon", {
+      nature: "Adamant",
+      ability: "Orichalcum Pulse",
+      moves: ["Swords Dance", "Collision Course"],
+      item: "Life Orb",
+      evs: {hp: 252, atk: 252},
     }))
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Raider #2", new Pokemon(gen, "Dachsbun", {
-      nature: "Bold",
-      ability: "Aroma Veil",
-      moves: ["Helping Hand"],
+    new Raider(2, "Raider #2", new Pokemon(gen, "Arcanine", {
+      nature: "Jolly",
+      ability: "Intimidate",
+      moves: ["Charm", "Helping Hand"],
       evs: {hp: 252, def: 252},
     }))
   );
@@ -212,15 +212,17 @@ function App() {
     new Raider(3, "Raider #3", new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
       ability: "(No Ability)",
-      moves: ["Defog", "Fake Tears"],
+      moves: ["Screech"],
+      item: "Zoom Lens",
       evs: {hp: 252, def: 252},
     }))
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Raider #4", new Pokemon(gen, "Corviknight", {
+    new Raider(4, "Raider #4", new Pokemon(gen, "Umbreon", {
       nature: "Relaxed",
       ability: "(No Ability)",
-      moves: ["Defog", "Fake Tears"],
+      moves: ["Screech"],
+      item: "Zoom Lens",
       evs: {hp: 252, def: 252},
     }))
   );

@@ -1030,14 +1030,15 @@ export class RaidMove {
                 const bossBoosts = this._boosts[0];
                 if (pokemon.item === "Mirror Herb" && bossBoosts !== undefined) {
                     let changed = false;
+                    const origPokemon = this.raidState.raiders[0];
                     for (let stat in bossBoosts) {
                         // @ts-ignore
                         if (bossBoosts[stat] > 0) { 
                             changed = true;
                             // @ts-ignore
-                            const origStat = pokemon.boosts[stat];
-                            // @ts-ignore
                             pokemon.boosts[stat] = safeStatStage(pokemon.boosts[stat] + bossBoosts[stat]); }
+                            // @ts-ignore
+                            const origStat = origPokemon.boosts[stat] || 0;
                             // @ts-ignore
                             const diff = pokemon.boosts[stat] - origStat;
                             // @ts-ignore
@@ -1236,7 +1237,7 @@ export class RaidMove {
             let boostStr: string[] = [];
             for (let stat in pokemon.boosts) {
                 //@ts-ignore
-                const origStat = origPokemon.boosts[stat];
+                const origStat = origPokemon.boosts[stat] || 0;
                 //@ts-ignore
                 const newStat = pokemon.boosts[stat] === undefined ? origStat : pokemon.boosts[stat];
                 const diff = newStat - origStat;

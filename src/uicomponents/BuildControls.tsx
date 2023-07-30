@@ -590,7 +590,8 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                             renderInput={(params) => 
                                 <TextField {...params} variant="standard" size="small" />}
                             onChange={(event: any, newValue: string) => {
-                                setValue(newValue);
+                                //@ts-ignore
+                                newValue === "???" ? setValue(undefined) : setValue(newValue);
                             }}
                             componentsProps={{ popper: { style: { width: 'fit-content' } } }}
                             sx = {{width: '85%'}}

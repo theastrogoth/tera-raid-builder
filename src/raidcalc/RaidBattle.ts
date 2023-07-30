@@ -197,6 +197,7 @@ export class RaidBattle {
                     const qpStat = getQPBoostedStat (pokemon) as StatIDExceptHP;
                     pokemon.boostedStat = qpStat;
                     pokemon.item = undefined;
+                    pokemon.usedBoosterEnergy = true;
                     this._turnZeroFlags[id].push("Booster Energy consumed");
                 }
             // Intimidate

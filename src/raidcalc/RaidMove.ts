@@ -967,6 +967,7 @@ export class RaidMove {
             const qpStat = getQPBoostedStat(this._user) as StatIDExceptHP;
             this._user.boostedStat = qpStat;
             this._user.item = undefined;
+            this._user.usedBoosterEnergy = true;
         }
         // Symbiosis
         let lostItemId = -1;

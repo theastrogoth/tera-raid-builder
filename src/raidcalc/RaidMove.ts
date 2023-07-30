@@ -1112,7 +1112,7 @@ export class RaidMove {
             const lostItemPokemon = this.getPokemon(lostItemId);
             const symbiosisIds: number[] = []
             for (let id=0; id<5; id++) {
-                if (id !== lostItemId && this.getPokemon(id).ability === "Symbiosis") {
+                if (id !== lostItemId && this.getPokemon(id).ability === "Symbiosis" && this.getPokemon(id).item !== undefined) {
                     symbiosisIds.push(id);
                 }
             }

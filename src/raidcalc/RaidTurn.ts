@@ -85,10 +85,7 @@ export class RaidTurn {
                 this._raiderMovesFirst,
                 this.raiderOptions);
             this._result1 = this._raidMove1.result();
-
-            this.applyMidTurnChanges(this._raidState, this._result1.state);
-            this._raidState = this._result1.state;
-
+        this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
                 this._bossMoveData,
                 this._bossMove, 
@@ -110,10 +107,7 @@ export class RaidTurn {
                 !this._raiderMovesFirst,
                 this.bossOptions);
             this._result1 = this._raidMove1.result();
-            
-            this.applyMidTurnChanges(this._raidState, this._result1.state);
             this._raidState = this._result1.state;
-
             this._raidMove2 = new RaidMove(
                 this._raiderMoveData, 
                 this._raiderMove, 
@@ -175,45 +169,6 @@ export class RaidTurn {
             if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
             if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         } 
-    }
-
-    private applyMidTurnChanges(initialState: RaidState, midTurnState: RaidState) {
-        // mid-turn symbiosis
-        let lostItemId = -1;
-        for (let i=0; i<5; i++) {
-            if (midTurnState.raiders[i].item === undefined && initialState.raiders[i].item !== undefined && midTurnState.raiders[i].ability !== "Symbiosis") {
-                lostItemId = i;
-                break;
-            }
-        }
-        if (lostItemId >=0) {
-            const lostItemPokemon = midTurnState.raiders[lostItemId];
-            const symbiosisIds: number[] = []
-            for (let id=0; id<5; id++) {
-                if (id !== lostItemId && midTurnState.raiders[id].ability === "Symbiosis" && midTurnState.raiders[id].item !== undefined) {
-                    symbiosisIds.push(id);
-                }
-            }
-            if (symbiosisIds.length > 0) {
-                // speed check for symbiosis
-                let fastestSymbId = symbiosisIds[0]
-                let fastestSymbPoke = midTurnState.raiders[fastestSymbId];
-                let fastestSymbSpeed = getModifiedStat(fastestSymbPoke.stats.spe, fastestSymbPoke.boosts.spe, gen);
-                for (let i=1; i<symbiosisIds.length; i++) {
-                    const poke = midTurnState.raiders[symbiosisIds[i]];
-                    const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
-                    const field = midTurnState.fields[i];
-                    if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
-                        fastestSymbId = symbiosisIds[i];
-                        fastestSymbPoke = poke;
-                        fastestSymbSpeed = speed;
-                    } 
-                }
-                // symbiosis item transfer
-                lostItemPokemon.item = fastestSymbPoke.item;
-                fastestSymbPoke.item = undefined;
-            }
-        }
     }
 
     private setQPBoosts() {

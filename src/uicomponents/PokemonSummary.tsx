@@ -26,6 +26,11 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
         }
     }, [pokemon.role])
 
+    useEffect(() => {
+        const name = pokemon.name.split("-")[0]; // some regional forms have long names
+        setRole(name);
+    }, [pokemon.name])
+
     const setRole = (r: string) => {
         const newPoke = pokemon.clone();
         newPoke.role = r;

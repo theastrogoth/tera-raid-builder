@@ -72,6 +72,7 @@ export class RaidTurn {
         this._raiderMoveData = this.raiderMoveData;
         this._bossMoveData = this.bossMoveData;
         
+        this.applyChangedMove();
 
         if (this._raiderMovesFirst) {
             this._raidMove1 = new RaidMove(

@@ -43,8 +43,6 @@ export class RaidMove {
     _affectedIDs!: number[];
     _fields!: Field[];
 
-    _boosts!: Partial<StatsTable>[];
-
     _doesNotEffect!: boolean[];
     _causesFlinch!: boolean[];
     _moveFails!: boolean; 
@@ -127,7 +125,6 @@ export class RaidMove {
         this._drain = [0,0,0,0,0];
         this._healing = [0,0,0,0,0];
         this._eot = [undefined, undefined, undefined, undefined];
-        this._boosts = [{},{},{},{},{}];
         this._desc = ['','','','',''];
         this._flags=[[],[],[],[],[]];
     }
@@ -178,37 +175,39 @@ export class RaidMove {
                 }
                 if (pokemon.ability === "Flash Fire" && moveType === "Fire") { 
                     this._doesNotEffect[id] = true; 
-                    pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
-                    const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
-                    this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
+                    const boost = {spa: 1};
+                    this._raidState.applyStatChange(id, boost);
+                    continue;
+                }
+                if (pokemon.ability === "Well-Baked Body") {
+                    this._doesNotEffect[id] = true;
+                    const boost = {def: 2};
+                    this._raidState.applyStatChange(id, boost);
                     continue;
                 }
                 if (pokemon.ability === "Sap Sipper" && moveType === "Grass") {
                     this._doesNotEffect[id] = true; 
-                    pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + 1);
-                    const diff = pokemon.boosts.atk - this.raidState.raiders[id].boosts.atk;
-                    this._boosts[id].atk = this._boosts[id].atk || 0 + diff;
+                    const boost = {atk: 1};
+                    this._raidState.applyStatChange(id, boost);
                     continue;
                 }
                 if (pokemon.ability === "Motor Drive" && moveType === "Electric") {
                     this._doesNotEffect[id] = true;
+                    const boost = {spe: 1};
+                    this._raidState.applyStatChange(id, boost);
                     pokemon.boosts.spe = safeStatStage(pokemon.boosts.spe + 1);
-                    const diff = pokemon.boosts.spe - this.raidState.raiders[id].boosts.spe;
-                    this._boosts[id].spe = this._boosts[id].spe || 0 + diff;
                     continue;
                 }
                 if (pokemon.ability === "Storm Drain" && moveType === "Water") {
                     this._doesNotEffect[id] = true;
-                    pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
-                    const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
-                    this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
+                    const boost = {spa: 1};
+                    this._raidState.applyStatChange(id, boost);
                     continue;
                 }
                 if (pokemon.ability === "Lightning Rod" && moveType === "Electric") {
                     this._doesNotEffect[id] = true;
-                    pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 1);
-                    const diff = pokemon.boosts.spa - this.raidState.raiders[id].boosts.spa;
-                    this._boosts[id].spa = this._boosts[id].spa || 0 + diff;
+                    const boost = {spa: 1};
+                    this._raidState.applyStatChange(id, boost);
                     continue;
                 }
                 if (pokemon.ability === "Bulletproof" && 
@@ -460,7 +459,7 @@ export class RaidMove {
                     }
                     boost[stat] = change;
                 }
-                this._raidState.applyStatChange(id, boost)
+                this._raidState.applyStatChange(id, boost, true, id === this.userID)
             }
         }
     }
@@ -679,8 +678,8 @@ export class RaidMove {
                     case "White Herb":
                         for (let stat in target.boosts) {
                             let whiteHerbUsed = false;
-                            // @ts-ignore
-                            if (target.boosts[stat] < 0) { target.boosts[stat] = 0; this._boosts[targetID][stat] = 0; whiteHerbUsed = true; }
+                            const statId = stat as StatIDExceptHP;
+                            if (target.boosts[statId] < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
                             if ( whiteHerbUsed ) { target.item = undefined; }
                         }
                         break;
@@ -744,16 +743,14 @@ export class RaidMove {
                 break;
             case "Clear Smog":
                 for (let stat in target.boosts) {
-                    // @ts-ignore
-                    target.boosts[stat] = 0;
-                    // @ts-ignore
-                    this._boosts[this.targetID][stat] = 0;
+                    const statId = stat as StatIDExceptHP;
+                    target.boosts[statId] = 0;
                 }
                 break;
             case "Haze":
                 for (let id=0; id<5; id++) {
                     const pokemon = this.getPokemon(id);
-                    for (let stat in this._boosts[id]) {
+                    for (let stat in pokemon.boosts) {
                         const statId = stat as StatIDExceptHP
                         pokemon.boosts[statId] = 0;
                     }

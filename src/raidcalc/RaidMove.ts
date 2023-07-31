@@ -392,7 +392,7 @@ export class RaidMove {
         if (drainPercent) {
             // draining moves should only ever hit a single target in raids
             if (this._damage) {
-                this._drain[this.userID] = Math.floor(this._damage[this.userID] * drainPercent/100);
+                this._drain[this.userID] = Math.floor(this._damage[this.targetID] * drainPercent/100);
             }
             
         }
@@ -830,6 +830,7 @@ export class RaidMove {
             this._raidState.applyDamage(id, damage, this.move.hits, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
             // apply damage/healing from recoil/drain
             if (pokemon.originalCurHP !== 0) {
+                console.log(this.move.name, drain)
                 this._raidState.applyDamage(id, -drain);
             }
             // apply healing from move

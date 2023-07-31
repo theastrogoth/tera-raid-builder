@@ -507,6 +507,7 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     prevProps.turns[prevProps.index].bossMoveInfo.options?.secondaryEffects === nextProps.turns[nextProps.index].bossMoveInfo.options?.secondaryEffects &&
     prevProps.turns[prevProps.index].bossMoveInfo.options?.roll === nextProps.turns[nextProps.index].bossMoveInfo.options?.roll &&
     arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
+    arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
     arraysEqual(prevProps.raiders[prevProps.turns[prevProps.index].moveInfo.userID].moves, nextProps.raiders[nextProps.turns[nextProps.index].moveInfo.userID].moves) &&
     arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&  
     arraysEqual(prevProps.raiders[0].extraMoves!, nextProps.raiders[0].extraMoves!) &&

@@ -84,7 +84,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
     return (
         <Box>
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
-                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "625px" : "800px"} sx={{ marginTop: 1 }} >
+                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "640px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>

@@ -800,6 +800,42 @@ export class RaidMove {
         if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
             this._user.isChoiceLocked = true;
         }
+        // Symbiosis
+        let lostItemId = -1;
+        for (let i=0; i<5; i++) {
+            if (this._raiders[i].item === undefined && this.raidState.raiders[i].item !== undefined) {
+                lostItemId = i;
+                break;
+            }
+        }
+        if (lostItemId >=0) {
+            const lostItemPokemon = this.getPokemon(lostItemId);
+            const symbiosisIds: number[] = []
+            for (let id=0; id<5; id++) {
+                if (id !== lostItemId && this.getPokemon(id).ability === "Symbiosis" && this.getPokemon(id).item !== undefined) {
+                    symbiosisIds.push(id);
+                }
+            }
+            if (symbiosisIds.length > 0) {
+                // speed check for symbiosis
+                let fastestSymbId = symbiosisIds[0];
+                let fastestSymbPoke = this.getPokemon(fastestSymbId);
+                let fastestSymbSpeed = getModifiedStat(fastestSymbPoke.stats.spe, fastestSymbPoke.boosts.spe, gen);
+                for (let i=1; i<symbiosisIds.length; i++) {
+                    const poke = this.getPokemon(symbiosisIds[i]);
+                    const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
+                    const field = this._fields[i];
+                    if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
+                        fastestSymbId = symbiosisIds[i];
+                        fastestSymbPoke = poke;
+                        fastestSymbSpeed = speed;
+                    } 
+                }
+                // symbiosis item transfer
+                lostItemPokemon.item = fastestSymbPoke.item;
+                fastestSymbPoke.item = undefined;
+            }
+        }
     }
 
     private setEndOfTurnDamage() {

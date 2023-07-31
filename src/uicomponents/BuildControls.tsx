@@ -95,6 +95,10 @@ function prettyStatName(stat: string) {
     }
 }
 
+function checkSetValueIsDefault(value: string) {
+    return value === "???" || value === "(No Move)" || value === "(No Item)" || value === "(No Ability)"
+}
+
 function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
     let str = '';
     let empty = true;
@@ -432,7 +436,7 @@ function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolea
 function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], prettyMode: boolean}) {
     return (
         <>
-        {((prettyMode && value !== "(No Move)") || !prettyMode) &&
+        {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
@@ -483,7 +487,7 @@ function AbilityWithIcon({ability, prettyMode}: {ability: {name: AbilityName, hi
 function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean}) {
     return (
         <>
-        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+        {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
@@ -568,7 +572,7 @@ function GenericWithIcon({name, spriteFetcher, prettyMode, ModalComponent = null
 function GenericIconSummaryRow({name, value, setValue, options, optionFinder, spriteFetcher, prettyMode, ModalComponent, modalProps}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], optionFinder: Function, spriteFetcher: Function, prettyMode: boolean, ModalComponent?: ((p: any) => JSX.Element) | null, modalProps?: any}) {
     return (
         <>
-        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+        {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
@@ -592,7 +596,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                                 <TextField {...params} variant="standard" size="small" />}
                             onChange={(event: any, newValue: string) => {
                                 //@ts-ignore
-                                newValue === "???" ? setValue(undefined) : setValue(newValue);
+                                checkSetValueIsDefault(newValue) ? setValue(undefined) : setValue(newValue);
                             }}
                             componentsProps={{ popper: { style: { width: 'fit-content' } } }}
                             sx = {{width: '85%'}}

@@ -521,7 +521,7 @@ export class RaidMove {
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;
             this._flags[this.userID].push!(selfDamagePercent + "% self damage from " + this.moveData.name + ".")
-            this._damage[this.userID] = this._damage[this.userID] + selfDamage;
+            this._raidState.applyDamage(this.userID, selfDamage);
         }
     }
 

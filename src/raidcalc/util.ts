@@ -23,6 +23,7 @@ export function hasNoStatus(pokemon: Pokemon) {
 
 // See ../calc/mechanics/util.ts for the original
 export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender: Pokemon) {
+    if (!move.type) {return false; }
     const isGhostRevealed =
     attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
     const isRingTarget =

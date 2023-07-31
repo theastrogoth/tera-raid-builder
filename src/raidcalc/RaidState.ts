@@ -178,7 +178,7 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = false): StatsTable {
+    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true): StatsTable {
         const pokemon = this.getPokemon(id);
         const diff = pokemon.applyStatChange(boosts);
         // Mirror Herb and Opportunist
@@ -197,6 +197,7 @@ export class RaidState implements State.RaidState{
                             isPositiveBoost = true;
                         }
                     }
+                    console.log(positiveDiff, isPositiveBoost)
                     if (isPositiveBoost) {
                         this.applyStatChange(opponentId, positiveDiff, false);
                         if (opponent.item === "Mirror Herb") { this.loseItem(opponentId); }

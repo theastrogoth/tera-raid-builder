@@ -203,7 +203,6 @@ export class RaidState implements State.RaidState{
                             isPositiveBoost = true;
                         }
                     }
-                    console.log(positiveDiff, isPositiveBoost)
                     if (isPositiveBoost) {
                         this.applyStatChange(opponentId, positiveDiff, false);
                         if (opponent.item === "Mirror Herb") { this.loseItem(opponentId); }

@@ -662,7 +662,6 @@ export class RaidMove {
                 this._raidState.recieveItem(this.userID, tempTargetItem);
                 break;
             case "Fling":
-                const boostCoefficient = target.boostCoefficient;
                 const flingItem = this._user.item;
                 switch (flingItem) {
                     case "Light Ball":
@@ -791,6 +790,9 @@ export class RaidMove {
                 this._user.stats.atk = this._user.stats.def;
                 this._user.stats.def = tempAtk;
                 break;
+            case "Acupressure":
+                target.randomBoosts += 2;
+                break;
             default: break;
             }
     }
@@ -899,6 +901,11 @@ export class RaidMove {
                 if (diff !== 0) {
                     boostStr.push(stat + " " + (origStat > 0 ? "+" : "") + origStat + " -> " + (newStat > 0 ? "+" : "") + newStat);
                 }
+            }
+            // acupressure check
+            if (pokemon.randomBoosts !== origPokemon.randomBoosts) {
+                const diff = pokemon.randomBoosts - origPokemon.randomBoosts;
+                boostStr.push("random stat " + (origPokemon.randomBoosts > 0 ? "+" : "") + origPokemon.randomBoosts + " -> " + (pokemon.randomBoosts > 0 ? "+" : "") + pokemon.randomBoosts);
             }
             if (boostStr.length > 0) {
                 const displayStr = "Stat changes: (" + boostStr.join(", ") + ")";

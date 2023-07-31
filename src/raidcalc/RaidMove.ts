@@ -842,7 +842,6 @@ export class RaidMove {
     private applyEndOfTurnDamage() {
         for (let i=0; i<5; i++) {
             const damage = this._eot[i] ? -this._eot[i]!.damage : 0;
-            console.log("EOT", this._raidState.raiders[i].role, damage)
             this._raidState.applyDamage(i, damage);
         }
     }

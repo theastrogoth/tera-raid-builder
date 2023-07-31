@@ -85,7 +85,7 @@ export class RaidTurn {
                 this._raiderMovesFirst,
                 this.raiderOptions);
             this._result1 = this._raidMove1.result();
-            this._raidState = this._result1.state;
+        this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
                 this._bossMoveData,
                 this._bossMove, 

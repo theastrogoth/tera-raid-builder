@@ -1,12 +1,19 @@
-import { Field, Generations, Move, Pokemon } from "../calc";
-import { MoveData, RaidMoveOptions, RaidState, RaidTurnResult, RaidMoveResult, RaidTurnInfo } from "./interface";
+import { Field, Generations, Move } from "../calc";
+import { MoveData, RaidMoveOptions, RaidTurnInfo } from "./interface";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
+import { RaidState } from "./RaidState";
 import { Raider } from "./interface";
-import { RaidMove } from "./RaidMove";
+import { RaidMove, RaidMoveResult } from "./RaidMove";
 import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import pranksterMoves from "../data/prankster_moves.json"
 
 const gen = Generations.get(9);
+
+export type RaidTurnResult = {
+    state: RaidState;
+    results: [RaidMoveResult, RaidMoveResult];
+    raiderMovesFirst: boolean;
+}
 
 export class RaidTurn {
     raidState:      RaidState; // We shouldn't mutate this state; it is the result from the previous turn

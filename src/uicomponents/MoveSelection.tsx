@@ -22,7 +22,8 @@ import Collapse from '@mui/material/Collapse';
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidInputProps, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { RaidInputProps } from "../raidcalc/inputs";
 import PokedexService from "../services/getdata";
 import { getPokemonSpriteURL, arraysEqual } from "../utils";
 

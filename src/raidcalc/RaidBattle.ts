@@ -1,11 +1,29 @@
 import { Move, Generations } from "../calc";
 import { StatIDExceptHP, MoveName, AbilityName, ItemName } from "../calc/data/interface";
 import { getQPBoostedStat } from "../calc/mechanics/util";
-import { RaidState, RaidBattleInfo, RaidTurnInfo, RaidTurnResult, RaidBattleResults } from "./interface";
-import { getBoostCoefficient, RaidMove, safeStatStage } from "./RaidMove";
-import { RaidTurn } from "./RaidTurn";
+import { RaidTurnInfo } from "./interface";
+import { RaidState } from "./RaidState";
+import { RaidMove } from "./RaidMove";
+import { getBoostCoefficient, safeStatStage } from "./util";
+import { RaidTurn, RaidTurnResult } from "./RaidTurn";
 
 const gen = Generations.get(9);
+
+export type RaidBattleInfo = {
+    name?: string;
+    notes?: string;
+    credits?: string;
+    startingState: RaidState;
+    turns: RaidTurnInfo[];
+    groups: number[][];
+}
+
+export type RaidBattleResults = {
+    endState: RaidState;
+    turnResults: RaidTurnResult[]; 
+    turnZeroFlags: string[][];
+    turnZeroOrder: number[];
+}
 
 export class RaidBattle {
     startingState: RaidState;

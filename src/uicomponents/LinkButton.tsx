@@ -6,8 +6,12 @@ import Button from "@mui/material/Button";
 
 import { Pokemon, Generations, Field } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import { RaidBattleInfo, Raider, RaidState, BuildInfo, RaidTurnInfo, RaidInputProps } from "../raidcalc/interface";
+import { RaidInputProps, BuildInfo } from "../raidcalc/inputs";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
+import { Raider } from "../raidcalc/Raider";
+import { RaidState } from "../raidcalc/RaidState";
+import { RaidBattleInfo } from "../raidcalc/RaidBattle";
+
 
 const gen = Generations.get(9);
 
@@ -22,7 +26,7 @@ function deserializeInfo(hash: string): BuildInfo | null {
 
 function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
     try {
-        const pokemon = (obj.pokemon as LightPokemon[]).map((r) => new Raider(r.id, r.role, 
+        const pokemon = (obj.pokemon as LightPokemon[]).map((r) => new Raider(r.id, r.role, new Field(), 
             new Pokemon(gen, r.name, {
                 ability: r.ability || undefined,
                 item: r.item || undefined,
@@ -146,7 +150,7 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
             }
             if (res) {
                 const {name, notes, credits, pokemon, turns, groups} = res;
-                const startingState = new RaidState(pokemon, pokemon.map((r) => new Field()));
+                const startingState = new RaidState(pokemon);
                 // setInfo({
                 //     name: name,
                 //     notes: notes,
@@ -187,7 +191,7 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
                     name: title,
                     notes: notes,
                     credits: credits,
-                    startingState: new RaidState(raidInputProps.pokemon, [new Field(), new Field(), new Field(), new Field(), new Field()]),
+                    startingState: new RaidState(raidInputProps.pokemon),
                     turns: raidInputProps.turns,
                     groups: raidInputProps.groups,
                 });

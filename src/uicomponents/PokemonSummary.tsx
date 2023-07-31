@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 
-import { Generations, Pokemon } from '../calc';
+import { Generations } from '../calc';
 import { toID } from '../calc/util';
 
 import StatRadarPlot from "./StatRadarPlot";
@@ -12,7 +12,8 @@ import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
-import { MoveSetItem, Raider } from "../raidcalc/interface";
+import { MoveSetItem } from "../raidcalc/interface";
+import { Raider } from "../raidcalc/Raider";
 import { AbilityName } from "../calc/data/interface";
 
 const gen = Generations.get(9); // we will only use gen 9

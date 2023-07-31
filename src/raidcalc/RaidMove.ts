@@ -1,89 +1,25 @@
-import { Move, Field, Pokemon, StatsTable, StatID, Generations, calculate} from "../calc";
+import { Move, Field, StatsTable, Generations, calculate} from "../calc";
 import { getEndOfTurn } from "../calc/desc";
-import { RaidState, Raider, AilmentName, MoveData, RaidMoveResult, RaidMoveOptions } from "./interface";
-import { AbilityName, StatIDExceptHP, StatusName, Terrain, Weather } from "../calc/data/interface";
-import { getMoveEffectiveness, getQPBoostedStat, getModifiedStat, isGrounded } from "../calc/mechanics/util";
+import { MoveData, RaidMoveOptions } from "./interface";
+import { RaidState } from "./RaidState";
+import { Raider } from "./Raider";
+import { AbilityName, StatIDExceptHP, Terrain, Weather } from "../calc/data/interface";
+import { getQPBoostedStat } from "../calc/mechanics/util";
+import { isSuperEffective, safeStatStage, getBoostCoefficient, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 
-// next time I prepare the move data, I should eliminate the need for translation
-function ailmentToStatus(ailment: AilmentName): StatusName | "" {
-    if (ailment == "paralysis") { return "par"; }
-    if (ailment == "poison") { return "psn"; }
-    if (ailment == "burn") { return "brn"; }
-    if (ailment == "freeze") { return "frz"; }
-    if (ailment == "sleep") { return "slp"; }
-    if (ailment == "toxic") { return "tox"; }
-    return ""
-}
-
-function hasNoStatus(pokemon: Pokemon) {
-    return pokemon.status === "" || pokemon.status === undefined;
-}
-
-// See ../calc/mechanics/util.ts for the original
-function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender: Pokemon) {
-    const isGhostRevealed =
-    attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
-    const isRingTarget =
-      defender.hasItem('Ring Target') && !defender.hasAbility('Klutz');
-    const type1Effectiveness = getMoveEffectiveness(
-      gen,
-      move,
-      defender.types[0],
-      isGhostRevealed,
-      field.isGravity,
-      isRingTarget
-    );
-    const type2Effectiveness = defender.types[1]
-      ? getMoveEffectiveness(
-        gen,
-        move,
-        defender.types[1],
-        isGhostRevealed,
-        field.isGravity,
-        isRingTarget
-      )
-      : 1;
-    let typeEffectiveness = type1Effectiveness * type2Effectiveness;
-  
-    if (defender.teraType) {
-      typeEffectiveness = getMoveEffectiveness(
-        gen,
-        move,
-        defender.teraType,
-        isGhostRevealed,
-        field.isGravity,
-        isRingTarget
-      );
-    }
-  
-    if (typeEffectiveness === 0 && move.hasType('Ground') &&
-      defender.hasItem('Iron Ball') && !defender.hasAbility('Klutz')) {
-      typeEffectiveness = 1;
-    }
-  
-    if (typeEffectiveness === 0 && move.named('Thousand Arrows')) {
-      typeEffectiveness = 1;
-    }
-    return typeEffectiveness >= 2;
-}
-
-function pokemonIsGrounded(pokemon: Raider, field: Field) {
-    let grounded = isGrounded(pokemon, field);
-    if (pokemon.lastMove) { grounded = grounded || pokemon.lastMove.name === "Roost"; }
-    // TO DO: Ingrain, Smack Down
-    return grounded;
-}
-
-export function getBoostCoefficient(pokemon: Pokemon) {
-    const hasSimple = pokemon.ability === "Simple";
-    const hasContrary = pokemon.ability === "Contrary";
-    return hasSimple ? 2 : hasContrary ? -1 : 1;
-}
-
-export function safeStatStage(value: number) {
-    return Math.max(-6, Math.min(6, value));
+export type RaidMoveResult= {
+    state: RaidState;
+    userID: number;
+    targetID: number;
+    damage: number[];
+    drain: number[];
+    healing: number[];
+    eot: ({damage: number, texts: string[]} | undefined)[];
+    desc: string[];
+    flags: string[][];
+    causesFlinch: boolean[];
 }
 
 // we'll always use generation 9
@@ -216,7 +152,7 @@ export class RaidMove {
         const moveName = this.move.name;
         for (let id of this._affectedIDs) {
             const pokemon = this.getPokemon(id);
-            const field = this._fields[id];
+            const field = pokemon.field;
             // Terrain-based failure
             if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && this.move.priority > 0) {
                 this._doesNotEffect[id] = true;
@@ -361,7 +297,7 @@ export class RaidMove {
             for (let id of this._affectedIDs) {
                 if (!this._doesNotEffect[id]) {
                     const pokemon = this.getPokemon(id);
-                    const field = this._fields[id];
+                    const field = pokemon.field;
                     if (field.attackerSide.isProtected) {
                         console.log("Protected by ", pokemon.lastMove)
                         this._blockedBy[id] = pokemon.lastMove!.name;
@@ -509,7 +445,7 @@ export class RaidMove {
             for (let id of affectedIDs) {
                 if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
-                const field = this._fields[id];
+                const field = pokemon.field;
                 if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
                 // handle Contrary and Simple
                 const boostCoefficient = getBoostCoefficient(pokemon)
@@ -550,7 +486,7 @@ export class RaidMove {
             for (let id of this._affectedIDs) {
                 if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
-                const field = this._fields[id];
+                const field = pokemon.field;
                 const status = ailmentToStatus(ailment);
                 // Covert Cloak
                 if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
@@ -948,7 +884,7 @@ export class RaidMove {
                     pokemon.boosts.def = safeStatStage(pokemon.boosts.def + boostCoefficient);
                     const diff = pokemon.boosts.def - origDef;
                     this._boosts[i].def = this._boosts[i].def || 0 + diff;         
-                    pokemon.item = undefined;
+                    this._raidState.loseItem(i);
                 } else if ((item === "Psychic Seed" && this._fields[i].terrain === "Psychic") ||
                            (item === "Misty Seed" && this._fields[i].terrain === "Misty")
                         )
@@ -957,7 +893,7 @@ export class RaidMove {
                     pokemon.boosts.spd = safeStatStage(pokemon.boosts.spd + boostCoefficient);
                     const diff = pokemon.boosts.spd - origSpd;
                     this._boosts[i].spd = this._boosts[i].spd || 0 + diff;
-                    pokemon.item = undefined;
+                    this._raidState.loseItem(i);
                 }
             }
         }
@@ -968,42 +904,6 @@ export class RaidMove {
             this._user.boostedStat = qpStat;
             this._user.item = undefined;
             this._user.usedBoosterEnergy = true;
-        }
-        // Symbiosis
-        let lostItemId = -1;
-        for (let i=0; i<5; i++) {
-            if (this._raiders[i].item === undefined && this.raidState.raiders[i].item !== undefined) {
-                lostItemId = i;
-                break;
-            }
-        }
-        if (lostItemId >=0) {
-            const lostItemPokemon = this.getPokemon(lostItemId);
-            const symbiosisIds: number[] = []
-            for (let id=0; id<5; id++) {
-                if (id !== lostItemId && this.getPokemon(id).ability === "Symbiosis") {
-                    symbiosisIds.push(id);
-                }
-            }
-            if (symbiosisIds.length > 0) {
-                // speed check for symbiosis
-                let fastestSymbId = symbiosisIds[0];
-                let fastestSymbPoke = this.getPokemon(fastestSymbId);
-                let fastestSymbSpeed = getModifiedStat(fastestSymbPoke.stats.spe, fastestSymbPoke.boosts.spe, gen);
-                for (let i=1; i<symbiosisIds.length; i++) {
-                    const poke = this.getPokemon(symbiosisIds[i]);
-                    const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
-                    const field = this._fields[i];
-                    if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
-                        fastestSymbId = symbiosisIds[i];
-                        fastestSymbPoke = poke;
-                        fastestSymbSpeed = speed;
-                    } 
-                }
-                // symbiosis item transfer
-                lostItemPokemon.item = fastestSymbPoke.item;
-                fastestSymbPoke.item = undefined;
-            }
         }
         // Berry Consumption
         for (let i=0; i<5; i++) {
@@ -1021,7 +921,7 @@ export class RaidMove {
                 const pokemon = this.getPokemon(id);
                 if (pokemon.item === "Focus Sash") {
                     if (this._damage[id] >= pokemon.maxHP() && this.raidState.raiders[id].originalCurHP === pokemon.maxHP()) { 
-                        pokemon.item = undefined; 
+                        this._raidState.loseItem(id); 
                         pokemon.originalCurHP = 1;
                     }
                 }
@@ -1045,7 +945,7 @@ export class RaidMove {
                             // @ts-ignore
                             this._boosts[stat] = this._boosts[stat] || 0 + diff;
                     }
-                    if (changed) { pokemon.item = undefined; } // the herb is consumed if a boost is copied.
+                    if (changed) { this._raidState.loseItem(pokemon.id); } // the herb is consumed if a boost is copied.
                 }
             }
             // Weakness Policy and Super-Effective reducing Berries
@@ -1060,7 +960,7 @@ export class RaidMove {
                             const origSpa = pokemon.boosts.spa;
                             pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + 2 * boostCoefficient);
                             pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 2 * boostCoefficient);
-                            pokemon.item = undefined;
+                            this._raidState.loseItem(id);
                             this._boosts[id].atk = this._boosts[id].atk || 0 + pokemon.boosts.atk - origAtk;
                             this._boosts[id].spa = this._boosts[id].spa || 0 + pokemon.boosts.spa - origSpa;
                             break;
@@ -1073,61 +973,61 @@ export class RaidMove {
                             }
                             break;
                         case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
-                            if (this.move.type === "Fire") { pokemon.item = undefined; }
+                            if (this.move.type === "Fire") { this._raidState.loseItem(id); }
                             break;
                         case "Passho Berry":
-                            if (this.move.type === "Water") { pokemon.item = undefined; }
+                            if (this.move.type === "Water") { this._raidState.loseItem(id); }
                             break;
                         case "Wacan Berry":
-                            if (this.move.type === "Electric") { pokemon.item = undefined; }
+                            if (this.move.type === "Electric") { this._raidState.loseItem(id); }
                             break;
                         case "Rindo Berry":
-                            if (this.move.type === "Grass") { pokemon.item = undefined; }
+                            if (this.move.type === "Grass") { this._raidState.loseItem(id); }
                             break;
                         case "Yache Berry":
-                            if (this.move.type === "Ice") { pokemon.item = undefined; }
+                            if (this.move.type === "Ice") { this._raidState.loseItem(id); }
                             break;
                         case "Chople Berry":
-                            if (this.move.type === "Fighting") { pokemon.item = undefined; }
+                            if (this.move.type === "Fighting") { this._raidState.loseItem(id); }
                             break;
                         case "Kebia Berry":
-                            if (this.move.type === "Poison") { pokemon.item = undefined; }
+                            if (this.move.type === "Poison") { this._raidState.loseItem(id); }
                             break;
                         case "Shuca Berry":
-                            if (this.move.type === "Ground") { pokemon.item = undefined; }
+                            if (this.move.type === "Ground") { this._raidState.loseItem(id); }
                             break;
                         case "Coba Berry":
-                            if (this.move.type === "Flying") { pokemon.item = undefined; }
+                            if (this.move.type === "Flying") { this._raidState.loseItem(id); }
                             break;
                         case "Payapa Berry":
-                            if (this.move.type === "Psychic") { pokemon.item = undefined; }
+                            if (this.move.type === "Psychic") { this._raidState.loseItem(id); }
                             break;
                         case "Tanga Berry":
-                            if (this.move.type === "Bug") { pokemon.item = undefined; }
+                            if (this.move.type === "Bug") { this._raidState.loseItem(id); }
                             break;
                         case "Charti Berry":
-                            if (this.move.type === "Rock") { pokemon.item = undefined; }
+                            if (this.move.type === "Rock") { this._raidState.loseItem(id); }
                             break;
                         case "Kasib Berry":
-                            if (this.move.type === "Ghost") { pokemon.item = undefined; }
+                            if (this.move.type === "Ghost") { this._raidState.loseItem(id); }
                             break;
                         case "Haban Berry":
-                            if (this.move.type === "Dragon") { pokemon.item = undefined; }
+                            if (this.move.type === "Dragon") { this._raidState.loseItem(id); }
                             break;
                         case "Colbur Berry":
-                            if (this.move.type === "Dark") { pokemon.item = undefined; }
+                            if (this.move.type === "Dark") { this._raidState.loseItem(id); }
                             break;
                         case "Babiri Berry":
-                            if (this.move.type === "Steel") { pokemon.item = undefined; }
+                            if (this.move.type === "Steel") { this._raidState.loseItem(id); }
                             break;
                         case "Roseli Berry":
-                            if (this.move.type === "Fairy") { pokemon.item = undefined; }
+                            if (this.move.type === "Fairy") { this._raidState.loseItem(id); }
                             break;
                         default: break;
                     }
                 }
                 if (pokemon.item === "Chiban Berry" && id !== this.userID && this._damage[id] > 0 && this.move.type === "Normal") {
-                    pokemon.item = undefined;
+                    this._raidState.loseItem(id);
                 }
             }
             // Choice-locking items

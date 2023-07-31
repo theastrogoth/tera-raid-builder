@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
@@ -20,17 +20,22 @@ const gen = Generations.get(9); // we will only use gen 9
 
 export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
     const [str, setStr] = useState(pokemon.role);
+    const roleRef = useRef(pokemon.role);
+    const nameRef = useRef(pokemon.name);
 
     useEffect(() => {
-        if (pokemon.role !== str) {
-            setStr(pokemon.role);
+        if (roleRef.current !== pokemon.role) {
+            roleRef.current = pokemon.role;
+            if (pokemon.role !== str) {
+                setStr(pokemon.role);
+            }
+        } else if (nameRef.current !== pokemon.name) {
+            nameRef.current = pokemon.name;
+            const name = pokemon.name.split("-")[0]; // some regional forms have long names
+            setRole(name);
+            setStr(name);
         }
-    }, [pokemon.role])
-
-    useEffect(() => {
-        const name = pokemon.name.split("-")[0]; // some regional forms have long names
-        setRole(name);
-    }, [pokemon.name])
+    }, [pokemon.role, pokemon.name])
 
     const setRole = (r: string) => {
         const newPoke = pokemon.clone();

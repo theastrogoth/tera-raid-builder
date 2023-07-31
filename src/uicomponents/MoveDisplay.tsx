@@ -41,7 +41,6 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
             move = "";
         }
     }
-    console.log(user, move, target)
     return (
         <>
         {move !== "" &&

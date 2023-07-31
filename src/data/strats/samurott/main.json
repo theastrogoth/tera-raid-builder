@@ -1,380 +1,403 @@
 {
-    "name": "Official OHKO Samurott Strategy",
-    "notes": "",
-    "credits": "r/PokemonScarletViolet Event Raid Support Team",
-    "pokemon": [
+  "name": "Official OHKO Samurott Strategy",
+  "notes": "",
+  "credits": "r/PokemonScarletViolet Event Raid Support Team",
+  "pokemon": [
       {
-        "id": 0,
-        "role": "7⭐event",
-        "name": "Samurott",
-        "ability": "Shell Armor",
-        "nature": "Lonely",
-        "evs": {
-          "hp": 0,
-          "atk": 0,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "teraType": "Bug",
-        "moves": [
-          "Aqua Cutter",
-          "Megahorn",
-          "Night Slash",
-          "Drill Run"
-        ],
-        "bossMultiplier": 3500,
-        "extraMoves": [
-          "Focus Energy",
-          "Swords Dance",
-          "Bulldoze"
-        ]
+          "id": 0,
+          "role": "7⭐event",
+          "name": "Samurott",
+          "ability": "Shell Armor",
+          "nature": "Lonely",
+          "evs": {
+              "hp": 0,
+              "atk": 0,
+              "def": 0,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "teraType": "Bug",
+          "moves": [
+              "Aqua Cutter",
+              "Megahorn",
+              "Night Slash",
+              "Drill Run"
+          ],
+          "bossMultiplier": 3500,
+          "extraMoves": [
+              "Focus Energy",
+              "Swords Dance",
+              "Bulldoze"
+          ]
       },
       {
-        "id": 1,
-        "role": "Koraidon",
-        "name": "Koraidon",
-        "ability": "Orichalcum Pulse",
-        "item": "Life Orb",
-        "nature": "Adamant",
-        "evs": {
-          "hp": 252,
-          "atk": 252,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "moves": [
-          "Swords Dance",
-          "Flare Blitz",
-          "Flame Charge",
-          "Drain Punch"
-        ],
-        "bossMultiplier": 100,
-        "extraMoves": []
+          "id": 1,
+          "role": "Koraidon",
+          "name": "Koraidon",
+          "ability": "Orichalcum Pulse",
+          "item": "Life Orb",
+          "nature": "Adamant",
+          "evs": {
+              "hp": 252,
+              "atk": 252,
+              "def": 0,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "moves": [
+              "Swords Dance",
+              "Flare Blitz",
+              "Flame Charge",
+              "Drain Punch"
+          ],
+          "bossMultiplier": 100,
+          "extraMoves": []
       },
       {
-        "id": 2,
-        "role": "Screecher",
-        "name": "Corviknight",
-        "ability": "(No Ability)",
-        "item": "Zoom Lens",
-        "nature": "Relaxed",
-        "evs": {
-          "hp": 252,
-          "atk": 0,
-          "def": 252,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "moves": [
-          "Screech",
-          "Taunt",
-          "Drill Peck"
-        ],
-        "bossMultiplier": 100,
-        "extraMoves": []
+          "id": 2,
+          "role": "Screecher",
+          "name": "Corviknight",
+          "ability": "(No Ability)",
+          "item": "Zoom Lens",
+          "nature": "Relaxed",
+          "evs": {
+              "hp": 252,
+              "atk": 0,
+              "def": 252,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "moves": [
+              "Screech",
+              "Taunt",
+              "Drill Peck"
+          ],
+          "bossMultiplier": 100,
+          "extraMoves": []
       },
       {
-        "id": 3,
-        "role": "Screecher",
-        "name": "Dudunsparce",
-        "ability": "(No Ability)",
-        "item": "Zoom Lens",
-        "nature": "Relaxed",
-        "evs": {
-          "hp": 252,
-          "atk": 0,
-          "def": 252,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "moves": [
-          "Screech",
-          "Helping Hand",
-          "Sunny Day",
-          "Chilling Water"
-        ],
-        "bossMultiplier": 100,
-        "extraMoves": []
+          "id": 3,
+          "role": "Screecher",
+          "name": "Dudunsparce",
+          "ability": "(No Ability)",
+          "item": "Zoom Lens",
+          "nature": "Relaxed",
+          "evs": {
+              "hp": 252,
+              "atk": 0,
+              "def": 252,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "moves": [
+              "Screech",
+              "Helping Hand",
+              "Sunny Day",
+              "Chilling Water"
+          ],
+          "bossMultiplier": 100,
+          "extraMoves": []
       },
       {
-        "id": 4,
-        "role": "Screecher",
-        "name": "Perrserker",
-        "ability": "Battle Armor",
-        "item": "Zoom Lens",
-        "nature": "Relaxed",
-        "evs": {
-          "hp": 252,
-          "atk": 0,
-          "def": 252,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "moves": [
-          "Screech",
-          "Helping Hand",
-          "Chilling Water"
-        ],
-        "bossMultiplier": 100,
-        "extraMoves": []
+          "id": 4,
+          "role": "Screecher",
+          "name": "Perrserker",
+          "ability": "Battle Armor",
+          "item": "Zoom Lens",
+          "nature": "Relaxed",
+          "evs": {
+              "hp": 252,
+              "atk": 0,
+              "def": 252,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "moves": [
+              "Screech",
+              "Helping Hand",
+              "Chilling Water"
+          ],
+          "bossMultiplier": 100,
+          "extraMoves": []
       }
-    ],
-    "turns": [
+  ],
+  "turns": [
       {
-        "id": 1,
-        "group": 0,
-        "moveInfo": {
-          "name": "Swords Dance",
-          "userID": 1,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 8,
+          "moveInfo": {
+              "name": "(No Move)",
+              "userID": 1,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Focus Energy",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Megahorn",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 0,
-        "group": 0,
-        "moveInfo": {
-          "name": "Screech",
-          "userID": 2,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 1,
+          "group": 0,
+          "moveInfo": {
+              "name": "Swords Dance",
+              "userID": 1,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Megahorn",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Aqua Cutter",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 2,
-        "group": 0,
-        "moveInfo": {
-          "name": "Screech",
-          "userID": 3,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 0,
+          "group": 0,
+          "moveInfo": {
+              "name": "Screech",
+              "userID": 2,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Aqua Cutter",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Megahorn",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 3,
-        "group": 0,
-        "moveInfo": {
-          "name": "Screech",
-          "userID": 4,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 2,
+          "group": 0,
+          "moveInfo": {
+              "name": "Screech",
+              "userID": 3,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Megahorn",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Drill Run",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 5,
-        "group": 1,
-        "moveInfo": {
-          "name": "Attack Cheer",
-          "userID": 2,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 3,
+          "group": 0,
+          "moveInfo": {
+              "name": "Screech",
+              "userID": 4,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Drill Run",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Aqua Cutter",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 6,
-        "group": 1,
-        "moveInfo": {
-          "name": "Attack Cheer",
-          "userID": 3,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 5,
+          "group": 1,
+          "moveInfo": {
+              "name": "Attack Cheer",
+              "userID": 2,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Aqua Cutter",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Megahorn",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 7,
-        "group": 1,
-        "moveInfo": {
-          "name": "Attack Cheer",
-          "userID": 4,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 6,
+          "group": 1,
+          "moveInfo": {
+              "name": "Attack Cheer",
+              "userID": 3,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Megahorn",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Drill Run",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 4,
-        "moveInfo": {
-          "name": "Flare Blitz",
-          "userID": 1,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 7,
+          "group": 1,
+          "moveInfo": {
+              "name": "Attack Cheer",
+              "userID": 4,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Drill Run",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "(No Move)",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
+      },
+      {
+          "id": 4,
+          "moveInfo": {
+              "name": "Flare Blitz",
+              "userID": 1,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "(No Move)",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        }
       }
-    ],
-    "groups": [
+  ],
+  "groups": [
       [
-        0,
-        1,
-        2,
-        3
+          0,
+          1,
+          2,
+          3
       ],
       [
-        6,
-        5,
-        7
+          6,
+          5,
+          7
       ]
-    ]
-  }
+  ]
+}

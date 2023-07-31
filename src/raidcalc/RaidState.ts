@@ -29,10 +29,10 @@ export class RaidState implements State.RaidState{
     }
 
     public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName) {
-        if (damage <= 0) { return; }
         const pokemon = this.getPokemon(id);
-        const originalHP = pokemon.originalCurHP;
         pokemon.applyDamage(damage);
+        if (damage <= 0) { return; } // For healing / no damage, we don't need to make the following checks
+        const originalHP = pokemon.originalCurHP;
         const finalHP = pokemon.originalCurHP;
         const maxHP = pokemon.maxHP();
         /// Berry Consumption triggered by damage

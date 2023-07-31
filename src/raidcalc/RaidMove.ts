@@ -5,7 +5,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, StatIDExceptHP, Terrain, Weather } from "../calc/data/interface";
 import { getQPBoostedStat } from "../calc/mechanics/util";
-import { isSuperEffective, safeStatStage, getBoostCoefficient, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
+import { isSuperEffective, safeStatStage, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 
@@ -73,7 +73,6 @@ export class RaidMove {
     public result(): RaidMoveResult {
         this.setOutputRaidState();
         this.setAffectedPokemon();
-        this.applyItemEffects();
         if (this.flinch) {
             this._desc[this.userID] = this._user.role + " flinched!";
         } else {
@@ -89,13 +88,11 @@ export class RaidMove {
             this.applyAilment();
             this.applyFieldChanges();
             this.applyDamage();
-            this.applyItemEffects();        
             this.applyUniqueMoveEffects();
         }
-        this.applyAbilityEffects();
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyItemEffects(true);
+        this.applyEndOfMoveItemEffects();        
         this.setFlags();
         this._user.lastMove = this.moveData;
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
@@ -447,34 +444,23 @@ export class RaidMove {
                 const pokemon = this.getPokemon(id);
                 const field = pokemon.field;
                 if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
-                // handle Contrary and Simple
-                const boostCoefficient = getBoostCoefficient(pokemon)
+                const boost: Partial<StatsTable> = {};
                 for (let statChange of (statChanges || [])) {
-                    const stat = statChange.stat;
-                    let change = statChange.change * boostCoefficient;
+                    const stat = statChange.stat as StatIDExceptHP;
+                    let change = statChange.change;
                     if (Number.isNaN(change)) {
                         // apparently, I manually put some stat changes are stored under the "value" key rather than "change"
                         // TODO: update the data files to fix this
                         // @ts-ignore
-                        change = statChange.value * boostCoefficient;
+                        change = statChange.value;
                     }
                     if (Number.isNaN(change)) { console.log("Stat change info for " + this.moveData.name + " is missing."); continue; }
                     if (change < 0 && (field.attackerSide.isProtected || (field.attackerSide.isMist && id !== this.userID))) {
                         continue;
                     }
-                    pokemon.boosts[stat] = (pokemon.boosts[statChange.stat] || 0) + change;
-                    if (Math.abs(pokemon.boosts[stat]) > 6) {
-                        pokemon.boosts[stat] = 6 * Math.sign(pokemon.boosts[stat]);
-                    }
-                    for (let stat in pokemon.boosts) {
-                        // @ts-ignore
-                        const diff = pokemon.boosts[stat] - this.raidState.raiders[id].boosts[stat]
-                        if (diff !== 0) {
-                            // @ts-ignore
-                            this._boosts[id][stat] = diff;
-                        }
-                    }
+                    boost[stat] = change;
                 }
+                this._raidState.applyStatChange(id, boost)
             }
         }
     }
@@ -523,7 +509,7 @@ export class RaidMove {
                     if (!(field.attackerSide.isProtected || field.attackerSide.isSafeguard || field.hasTerrain("Misty"))
                         && (hasNoStatus(pokemon))) 
                     { 
-                        pokemon.status = status;
+                        this._raidState.applyStatus(id, status);
                     }
                 }
             }
@@ -543,16 +529,16 @@ export class RaidMove {
         /// Whole-Field Effects
         // Weather
         let weather: (Weather | undefined) = undefined;
-        if (this.move.name == "Rain Dance") { weather = "Rain"; }
-        if (this.move.name == "Sunny Day") { weather = "Sun"; }
-        if (this.move.name == "Sandstorm") { weather = "Sand"; }
-        if (this.move.name == "Snowscape") { weather = "Snow"; }
+        if (this.move.name == "Rain Dance") { this._raidState.applyWeather("Rain"); }
+        if (this.move.name == "Sunny Day") { this._raidState.applyWeather("Sun"); }
+        if (this.move.name == "Sandstorm") { this._raidState.applyWeather("Sand"); }
+        if (this.move.name == "Snowscape") { this._raidState.applyWeather("Snow"); }
         // Terrain
         let terrain: (Terrain | undefined) = undefined;
-        if (this.move.name == "Electric Terrain") { terrain = "Electric"; }
-        if (this.move.name == "Grassy Terrain") { terrain = "Grassy"; }
-        if (this.move.name == "Misty Terrain") { terrain = "Misty"; }
-        if (this.move.name == "Psychic Terrain") { terrain = "Psychic"; }
+        if (this.move.name == "Electric Terrain") { this._raidState.applyTerrain("Electric"); }
+        if (this.move.name == "Grassy Terrain") { this._raidState.applyTerrain("Grassy"); }
+        if (this.move.name == "Misty Terrain") { this._raidState.applyTerrain("Misty"); }
+        if (this.move.name == "Psychic Terrain") { this._raidState.applyTerrain("Psychic"); }
         // Gravity
         const gravity = this.move.name == "Gravity";
         // Trick Room
@@ -563,8 +549,6 @@ export class RaidMove {
         const wonderroom = this.move.name == "Wonder Room";
         // apply effects
         for (let field of this._fields) {
-            field.weather = weather || field.weather;
-            field.terrain = terrain || field.terrain;
             field.isGravity = gravity || field.isGravity;
             field.isTrickRoom = (trickroom ? !field.isTrickRoom : field.isTrickRoom);
             field.isMagicRoom = (magicroom ? !field.isMagicRoom : field.isMagicRoom);
@@ -668,15 +652,17 @@ export class RaidMove {
                 break;
         /// Item-affecting moves
             case "Knock Off":
-                target.item = undefined;
+                this._raidState.loseItem(this.targetID);
                 break;
+            case "Switcheroo":
             case "Trick":
                 const tempUserItem = this._user.item;
-                this._user.item = target.item;
-                target.item = tempUserItem;
+                const tempTargetItem = target.item;
+                this._raidState.recieveItem(this.targetID, tempUserItem);
+                this._raidState.recieveItem(this.userID, tempTargetItem);
                 break;
             case "Fling":
-                const boostCoefficient = getBoostCoefficient(target);
+                const boostCoefficient = target.boostCoefficient;
                 const flingItem = this._user.item;
                 switch (flingItem) {
                     case "Light Ball":
@@ -717,34 +703,25 @@ export class RaidMove {
                         break;
                     case "Lum Berry":
                         if (target.status !== "") { target.status = ""; }
+                        if (target.volatileStatus.includes("confusion")) { target.volatileStatus = target.volatileStatus.filter(status => status !== "confusion"); }
                         break;
                     // Stat-Boosting Berries
                     case "Liechi Berry":
-                        const origAtk = target.boosts.atk;
-                        target.boosts.atk = safeStatStage(target.boosts.atk + boostCoefficient);
-                        this._boosts[this.targetID].atk = this._boosts[this.targetID].atk || 0 + target.boosts.atk - origAtk;
+                        this._raidState.applyStatChange(this.targetID, {atk: 1});
                         break;
                     case "Ganlon Berry":
-                        const origDef = target.boosts.def;
-                        target.boosts.def = safeStatStage(target.boosts.def + boostCoefficient);
-                        this._boosts[this.targetID].def = this._boosts[this.targetID].def || 0 + boostCoefficient - origDef;
+                        this._raidState.applyStatChange(this.targetID, {def: 1});
                         break;
                     case "Petaya Berry":
-                        const origSpa = target.boosts.spa;
-                        target.boosts.spa = safeStatStage(target.boosts.spa + boostCoefficient);
-                        this._boosts[this.targetID].spa = this._boosts[this.targetID].spa || 0 + boostCoefficient - origSpa;
+                        this._raidState.applyStatChange(this.targetID, {spa: 1});
                         break;
                     case "Apicot Berry":
-                        const origSpd = target.boosts.spd;
-                        target.boosts.spd = safeStatStage(target.boosts.spd + boostCoefficient);
-                        this._boosts[this.targetID].spd = this._boosts[this.targetID].spd || 0 + boostCoefficient - origSpd;
+                        this._raidState.applyStatChange(this.targetID, {spd: 1});
                         break;
                     case "Salac Berry":
-                        const origSpe = target.boosts.spe;
-                        target.boosts.spe = safeStatStage(target.boosts.spe + boostCoefficient);
-                        this._boosts[this.targetID].spe = this._boosts[this.targetID].spe || 0 + boostCoefficient - origSpe;
+                        this._raidState.applyStatChange(this.targetID, {spe: 1});
                         break;
-                    // Healing Berries
+                    // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                     case "Sitrus Berry":
                         this._healing[this.targetID] += Math.floor(target.maxHP() / 4);
                         break;
@@ -778,10 +755,8 @@ export class RaidMove {
                 for (let id=0; id<5; id++) {
                     const pokemon = this.getPokemon(id);
                     for (let stat in this._boosts[id]) {
-                        // @ts-ignore
-                        this._boosts[id][stat] = 0;
-                        // @ts-ignore
-                        pokemon.boosts[stat] = 0;
+                        const statId = stat as StatIDExceptHP
+                        pokemon.boosts[statId] = 0;
                     }
                 }
                 break;
@@ -793,9 +768,8 @@ export class RaidMove {
                 break;
             case "Psych Up":
                 for (let stat in target.boosts) {
-                    // @ts-ignore
-                    this._user.boosts[stat] = target.boosts[stat];
-                    this._boosts[this.userID] = {...target.boosts};
+                    const statId = stat as StatIDExceptHP;
+                    this._user.boosts[statId] = target.boosts[statId];
                 }
                 break;
             case "Power Swap":
@@ -821,219 +795,11 @@ export class RaidMove {
             }
     }
 
-    private applyAbilityEffects() {
-        /// Ability-related effects
-        // Anger Point
-        if (this.move.isCrit) {
-            for (let id of this._affectedIDs) {
-                const pokemon = this.getPokemon(id);
-                if (pokemon.ability === "Anger Point") { pokemon.boosts.atk = 6 };
-            }
-        }
-        // Justified
-        if (this.move.type === "Dark") {
-            for (let id of this._affectedIDs) {
-                const pokemon = this.getPokemon(id);
-                if (pokemon.ability === "Justified" && this._damage[id]>0) { 
-                    pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + this.move.hits); 
-                }
-            }
-        }    
-        // Unburden
-        for (let i=0; i<5; i++) {
-            const pokemon = this.getPokemon(i);
-            if (pokemon.ability === "Unburden" && 
-                pokemon.item === undefined && 
-                this.raidState.raiders[i].item !== undefined) 
-            {
-                pokemon.abilityOn = true;
-            }
-        }
-
-        // Weak Armor
-        for (let id of this._affectedIDs) {
-            const pokemon = this.getPokemon(id);
-            if (this._damage[id] > 0 && pokemon.ability === "Weak Armor") {
-                pokemon.boosts.def = safeStatStage(pokemon.boosts.def - 1);
-                pokemon.boosts.spe = safeStatStage(pokemon.boosts.spe + 2);
-            }
-        }
-
-        // Electromorphosis
-        for (let id of this._affectedIDs) {
-            const pokemon = this.getPokemon(id);
-            if (this._damage[id] > 0 && pokemon.ability ===  "Electromorphosis") {
-                this._fields[id].attackerSide.isCharged = true;
-            }
-        }
-    }
-
-    public applyItemEffects(afterMove: boolean = false) {
-        /// Item-related effects
-        // Terrain Seeds
-        for (let i=0; i<5; i++) {
-            const pokemon = this.getPokemon(i);
-            const item = pokemon.item || "";
-            const boostCoefficient = getBoostCoefficient(pokemon);
-            if (item.includes("Seed") && this._fields[i].terrain !== undefined) {
-                if ((item === "Electric Seed" && this._fields[i].terrain === "Electric") ||
-                    (item === "Grassy Seed" && this._fields[i].terrain === "Grassy")
-                   )
-                {
-                    const origDef = pokemon.boosts.def;
-                    pokemon.boosts.def = safeStatStage(pokemon.boosts.def + boostCoefficient);
-                    const diff = pokemon.boosts.def - origDef;
-                    this._boosts[i].def = this._boosts[i].def || 0 + diff;         
-                    this._raidState.loseItem(i);
-                } else if ((item === "Psychic Seed" && this._fields[i].terrain === "Psychic") ||
-                           (item === "Misty Seed" && this._fields[i].terrain === "Misty")
-                        )
-                {
-                    const origSpd = pokemon.boosts.spd;
-                    pokemon.boosts.spd = safeStatStage(pokemon.boosts.spd + boostCoefficient);
-                    const diff = pokemon.boosts.spd - origSpd;
-                    this._boosts[i].spd = this._boosts[i].spd || 0 + diff;
-                    this._raidState.loseItem(i);
-                }
-            }
-        }
-        // Booster Energy
-        if (this._user.item === "Booster Energy" && (this._user.ability === "Protosynthesis" || this._user.ability === "Quark Drive") && this._user.abilityOn !== true) {
-            this._user.abilityOn = true;
-            const qpStat = getQPBoostedStat(this._user) as StatIDExceptHP;
-            this._user.boostedStat = qpStat;
-            this._user.item = undefined;
-            this._user.usedBoosterEnergy = true;
-        }
-        // Berry Consumption
-        for (let i=0; i<5; i++) {
-            if (this._damage[i] > 0) {
-                if (this._raiders[i].item === "Sitrus Berry" && this._raiders[i].originalCurHP <= Math.floor(this._raiders[i].maxHP() / 2)) {
-                    this._raiders[i].item = undefined;
-                    this._raiders[i].originalCurHP += Math.floor(this._raiders[i].maxHP() / 4);
-                }
-            }
-        }
-        // Only need to check these at the end of a move
-        if (afterMove) {
-            // Focus Sash
-            for (let id of this._affectedIDs) {
-                const pokemon = this.getPokemon(id);
-                if (pokemon.item === "Focus Sash") {
-                    if (this._damage[id] >= pokemon.maxHP() && this.raidState.raiders[id].originalCurHP === pokemon.maxHP()) { 
-                        this._raidState.loseItem(id); 
-                        pokemon.originalCurHP = 1;
-                    }
-                }
-            }
-            // Mirror Herb
-            for (let pokemon of this._raiders.slice(1)) { // let's not worry about a Raid boss with an item
-                const bossBoosts = this._boosts[0];
-                if (pokemon.item === "Mirror Herb" && bossBoosts !== undefined) {
-                    let changed = false;
-                    const origPokemon = this.raidState.raiders[0];
-                    for (let stat in bossBoosts) {
-                        // @ts-ignore
-                        if (bossBoosts[stat] > 0) { 
-                            changed = true;
-                            // @ts-ignore
-                            pokemon.boosts[stat] = safeStatStage(pokemon.boosts[stat] + bossBoosts[stat]); }
-                            // @ts-ignore
-                            const origStat = origPokemon.boosts[stat] || 0;
-                            // @ts-ignore
-                            const diff = pokemon.boosts[stat] - origStat;
-                            // @ts-ignore
-                            this._boosts[stat] = this._boosts[stat] || 0 + diff;
-                    }
-                    if (changed) { this._raidState.loseItem(pokemon.id); } // the herb is consumed if a boost is copied.
-                }
-            }
-            // Weakness Policy and Super-Effective reducing Berries
-            //  TO DO - abilities that let users use berries more than once
-            for (let id of this._affectedIDs) {
-                const pokemon = this.getPokemon(id);
-                if (this._damage[id] > 0 && isSuperEffective(this.move, this._fields[id], this._user, pokemon)) {
-                    switch (pokemon.item) {
-                        case "Weakness Policy":
-                            const boostCoefficient = getBoostCoefficient(pokemon);
-                            const origAtk = pokemon.boosts.atk;
-                            const origSpa = pokemon.boosts.spa;
-                            pokemon.boosts.atk = safeStatStage(pokemon.boosts.atk + 2 * boostCoefficient);
-                            pokemon.boosts.spa = safeStatStage(pokemon.boosts.spa + 2 * boostCoefficient);
-                            this._raidState.loseItem(id);
-                            this._boosts[id].atk = this._boosts[id].atk || 0 + pokemon.boosts.atk - origAtk;
-                            this._boosts[id].spa = this._boosts[id].spa || 0 + pokemon.boosts.spa - origSpa;
-                            break;
-                        case "White Herb":
-                            for (let stat in this._user.boosts) {
-                                let changed = false;
-                                // @ts-ignore
-                                if (this._user.boosts[stat] < 0) { this._user.boosts[stat] = 0; changed = true; }
-                                if (changed) { this._user.item = undefined; }
-                            }
-                            break;
-                        case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
-                            if (this.move.type === "Fire") { this._raidState.loseItem(id); }
-                            break;
-                        case "Passho Berry":
-                            if (this.move.type === "Water") { this._raidState.loseItem(id); }
-                            break;
-                        case "Wacan Berry":
-                            if (this.move.type === "Electric") { this._raidState.loseItem(id); }
-                            break;
-                        case "Rindo Berry":
-                            if (this.move.type === "Grass") { this._raidState.loseItem(id); }
-                            break;
-                        case "Yache Berry":
-                            if (this.move.type === "Ice") { this._raidState.loseItem(id); }
-                            break;
-                        case "Chople Berry":
-                            if (this.move.type === "Fighting") { this._raidState.loseItem(id); }
-                            break;
-                        case "Kebia Berry":
-                            if (this.move.type === "Poison") { this._raidState.loseItem(id); }
-                            break;
-                        case "Shuca Berry":
-                            if (this.move.type === "Ground") { this._raidState.loseItem(id); }
-                            break;
-                        case "Coba Berry":
-                            if (this.move.type === "Flying") { this._raidState.loseItem(id); }
-                            break;
-                        case "Payapa Berry":
-                            if (this.move.type === "Psychic") { this._raidState.loseItem(id); }
-                            break;
-                        case "Tanga Berry":
-                            if (this.move.type === "Bug") { this._raidState.loseItem(id); }
-                            break;
-                        case "Charti Berry":
-                            if (this.move.type === "Rock") { this._raidState.loseItem(id); }
-                            break;
-                        case "Kasib Berry":
-                            if (this.move.type === "Ghost") { this._raidState.loseItem(id); }
-                            break;
-                        case "Haban Berry":
-                            if (this.move.type === "Dragon") { this._raidState.loseItem(id); }
-                            break;
-                        case "Colbur Berry":
-                            if (this.move.type === "Dark") { this._raidState.loseItem(id); }
-                            break;
-                        case "Babiri Berry":
-                            if (this.move.type === "Steel") { this._raidState.loseItem(id); }
-                            break;
-                        case "Roseli Berry":
-                            if (this.move.type === "Fairy") { this._raidState.loseItem(id); }
-                            break;
-                        default: break;
-                    }
-                }
-                if (pokemon.item === "Chiban Berry" && id !== this.userID && this._damage[id] > 0 && this.move.type === "Normal") {
-                    this._raidState.loseItem(id);
-                }
-            }
-            // Choice-locking items
-            if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
-                this._user.isChoiceLocked = true;
-            }
+    public applyEndOfMoveItemEffects() {
+        /// Item-related effects that occur at the end of a move
+        // Choice-locking items
+        if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
+            this._user.isChoiceLocked = true;
         }
     }
 
@@ -1056,24 +822,20 @@ export class RaidMove {
     }
 
     private applyDamage() {
-        const roll = this.options.roll || "avg";
         for (let id=0; id<5; id++) {
             const pokemon = this.getPokemon(id);
             const damage = this._damage[id];
             const drain = this._drain[id];
             const healing = this._healing[id];
-            pokemon.originalCurHP = Math.max(0, pokemon.originalCurHP - damage);
-            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
-                pokemon.originalCurHP = 1;
-            }
+            // apply damage from being hit with a damaging movev
+            this._raidState.applyDamage(id, damage, this.move.hits, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
+            // apply damage/healing from recoil/drain
             if (pokemon.originalCurHP !== 0) {
-                pokemon.originalCurHP = Math.min(pokemon.maxHP(), Math.max(0, pokemon.originalCurHP + drain));
+                this._raidState.applyDamage(id, -drain);
             }
-            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
-                pokemon.originalCurHP = 1;
-            }
+            // apply healing from move
             if (pokemon.originalCurHP !== 0) {
-                pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + healing);
+                this._raidState.applyDamage(id, -healing)
             }
         }
     }
@@ -1082,15 +844,7 @@ export class RaidMove {
         for (let i=0; i<5; i++) {
             const pokemon = this.getPokemon(i);
             const damage = this._eot[i] ? -this._eot[i]!.damage : 0;
-            if (damage > 0 && pokemon.originalCurHP > 0) {
-                pokemon.originalCurHP = Math.max(0, pokemon.originalCurHP - damage);
-            } 
-            if (pokemon.isEndure && pokemon.originalCurHP <= 0) {
-                pokemon.originalCurHP = 1;
-            }
-            if (damage < 0 && pokemon.originalCurHP > 0 && pokemon.originalCurHP < pokemon.maxHP()) {
-                pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP - damage);
-            }
+            this._raidState.applyDamage(i, damage);
         }
     }
 

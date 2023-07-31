@@ -1,7 +1,7 @@
 import { Move, Field, Pokemon, Generations } from "../calc";
 import { AilmentName } from "./interface";
 import { Raider } from "./Raider";
-import { StatusName } from "../calc/data/interface";
+import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
 
 const gen = Generations.get(9);
@@ -84,4 +84,65 @@ export function getBoostCoefficient(pokemon: Pokemon) {
 
 export function safeStatStage(value: number) {
     return Math.max(-6, Math.min(6, value));
+}
+
+// Speed modifiers
+
+export function modifyPokemonSpeedByStatus(speed: number, status?: string, ability?: AbilityName) {
+    return status === "par" && ability !== "Quick Feet" ? speed * .5 : speed;
+}
+
+export function modifyPokemonSpeedByItem(speed : number, item?: ItemName) {
+    switch(item) {
+        case "Choice Scarf":
+            return speed * 1.5;
+        case "Iron Ball":
+        case "Macho Brace":
+        case "Power Anklet":
+        case "Power Band":
+        case "Power Belt":
+        case "Power Bracer":
+        case "Power Lens":
+        case "Power Weight":
+            return speed * .5;
+        case "Lagging Tail":
+        case "Full Incense":
+            return 0;
+        // TODO: Quick Powder doubles the speed of untransformed Ditto
+        default:
+            return speed;
+    }
+}
+
+export function modifyPokemonSpeedByAbility(speed: number, ability?: AbilityName, abilityOn?: boolean, status?: string) {
+    switch(ability) {
+        case "Unburden":
+            return abilityOn ? speed * 2 : speed;
+        case "Slow Start":
+            return abilityOn ? speed * .5 : speed;
+        case "Quick Feet":
+            return status ? speed * 1.5 : speed;
+        default:
+            return speed;
+    }
+}
+
+export function modifyPokemonSpeedByQP(speed: number, field: Field, ability?: AbilityName, item?: ItemName, qpBoostedStat?: StatIDExceptHP) {
+    return qpBoostedStat === "spe" ? speed * 1.5 : speed;
+}
+
+export function modifyPokemonSpeedByField(speed: number, field: Field, ability?: AbilityName) {
+    if (
+        ability === "Chlorophyll" && field.weather?.includes("Sun") ||
+        ability === "Sand Rush" && field.weather?.includes("Sand") ||
+        ability === "Slush Rush" && field.weather?.includes("Snow") ||
+        ability === "Swift Swim" && field.weather?.includes("Rain") ||
+        ability === "Surge Surfer" && field.terrain?.includes("Electric")
+    ) {
+        speed *= 2;
+    }
+    if (field.attackerSide.isTailwind) {
+        speed *= 2;
+    }
+    return speed;
 }

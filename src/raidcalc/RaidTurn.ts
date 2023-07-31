@@ -1,10 +1,8 @@
-import { Field, Generations, Move } from "../calc";
+import { Generations, Move } from "../calc";
 import { MoveData, RaidMoveOptions, RaidTurnInfo } from "./interface";
-import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import { RaidState } from "./RaidState";
-import { Raider } from "./interface";
+import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
-import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import pranksterMoves from "../data/prankster_moves.json"
 
 const gen = Generations.get(9);
@@ -68,9 +66,6 @@ export class RaidTurn {
         this._raidState = this.raidState.clone();
         this._flags = [[], [], [], [], []];
 
-        // set Protosynthesis / Quark Drive boosts before getting turn order & processing raid turns
-        this.setQPBoosts();
-
         // determine which move goes first
         this.setTurnOrder();
 
@@ -127,7 +122,6 @@ export class RaidTurn {
                 this._result1.causesFlinch[this.raiderID]);
         }
         this._raidMove2.result();
-        this._raidMove2.applyItemEffects(); // A final check for items triggered by end-of-turn damage
         this._result2 = this._raidMove2.output
         this._raidState = this._result2.state;
         // item effects
@@ -135,10 +129,6 @@ export class RaidTurn {
         // Clear Endure (since side-attacks are not endured)
         this._raidState.raiders[this.raiderID].isEndure = false;
         this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
-        // Add QP related flags to the first turn
-        for (let i=0; i<5; i++) {
-            this._result1.flags[i] = this._result1.flags[i].concat(this._flags[i]);
-        }
         // remove protect / wide guard / quick guard effects
         this.removeProtection();
 
@@ -178,44 +168,6 @@ export class RaidTurn {
         } 
     }
 
-    private setQPBoosts() {
-        this._raidState.raiders.map((raider, index) => {
-            if (raider.ability === "Protosynthesis" || raider.ability === "Quark Drive") {
-                if (raider.usedBoosterEnergy) { 
-                    return; } // do not change Boost after Booster Energy consumption
-                if ( !raider.abilityOn && ( // we only need to set QP if it is currently inactive
-                        (this._raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
-                        (this._raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
-                    )
-                ) { // Sun / Electric Terrain has priority over Booster Energy, Booster Energy is not consumed if QP is already active
-                    raider.abilityOn = true;
-                    raider.boostedStat = undefined;
-                    const qpStat = getQPBoostedStat(raider) as StatIDExceptHP;
-                    raider.boostedStat = qpStat;
-                    this._flags[index].push(raider.ability + " activated");
-                } else if ( raider.abilityOn && ( // we only meed to remove QP if it is currently active
-                        (!this._raidState.fields[index].weather?.includes("Sun") && raider.ability === "Protosynthesis") ||
-                        (!this._raidState.fields[index].terrain?.includes("Electric") && raider.ability === "Quark Drive")
-                    )
-                ) { // If a booster energy has not been consumed and the Sun / Electric Terrain is removed, QP will be deactivated 
-                    raider.abilityOn = false;
-                    raider.boostedStat = undefined;
-                    this._flags[index].push(raider.ability + " deactivated");
-                }
-                // If Booster Energy is held and QP is currently inactive, consume it
-                if (!raider.abilityOn && raider.item === "Booster Energy") { // if the raider acquires Booster Energy outside of Turn 0
-                    raider.abilityOn = true;
-                    raider.boostedStat = undefined;
-                    const qpStat = getQPBoostedStat(raider) as StatIDExceptHP;
-                    raider.boostedStat = qpStat;
-                    raider.item = undefined;
-                    raider.usedBoosterEnergy = true;
-                    this._flags[index].push("Booster Energy consumed");
-                }
-            }
-        })
-    }
-
     private setTurnOrder() {
         this._raider = this._raidState.raiders[this.raiderID];
         this._boss = this._raidState.raiders[0];
@@ -232,14 +184,10 @@ export class RaidTurn {
             this._raiderMovesFirst = false;
         } else {
             // if priority is the same, compare speed
-            let raiderSpeed = getModifiedStat(this._raider.stats.spe, this._raider.boosts.spe, gen);
-            let bossSpeed = getModifiedStat(this._boss.stats.spe, this._boss.boosts.spe, gen);
+            const raiderSpeed = this._raider.effectiveSpeed;
+            const bossSpeed = this._boss.effectiveSpeed;
 
-            const raiderField = this._raidState.fields[this.raiderID];
             const bossField = this._raidState.fields[0];
-            raiderSpeed = this.applySpeedModifiers(raiderSpeed, this._raider, raiderField);
-            bossSpeed = this.applySpeedModifiers(bossSpeed, this._boss, bossField);
-
             this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
         }
     }
@@ -263,74 +211,6 @@ export class RaidTurn {
             default:
                 break;
         }
-    }
-
-    private applySpeedModifiers(speed: number, raider: Raider, field: Field) {
-        speed = this.modifyPokemonSpeedByStatus(speed, raider.status, raider.ability);
-        speed = this.modifyPokemonSpeedByItem(speed, raider.item);
-        speed = this.modifyPokemonSpeedByAbility(speed, raider.ability, raider.abilityOn, raider.status);
-        speed = this.modifyPokemonSpeedByQP(speed, field, raider.ability, raider.item, raider.boostedStat as StatIDExceptHP);
-        speed = this.modifyPokemonSpeedByField(speed, field);
-        return speed;
-    }
-
-    private modifyPokemonSpeedByStatus(speed: number, status?: string, ability?: AbilityName) {
-        return status === "par" && ability !== "Quick Feet" ? speed * .5 : speed;
-    }
-
-    private modifyPokemonSpeedByItem(speed : number, item?: ItemName) {
-        switch(item) {
-            case "Choice Scarf":
-                return speed * 1.5;
-            case "Iron Ball":
-            case "Macho Brace":
-            case "Power Anklet":
-            case "Power Band":
-            case "Power Belt":
-            case "Power Bracer":
-            case "Power Lens":
-            case "Power Weight":
-                return speed * .5;
-            case "Lagging Tail":
-            case "Full Incense":
-                return 0;
-            // TODO: Quick Powder doubles the speed of untransformed Ditto
-            default:
-                return speed;
-        }
-    }
-
-    private modifyPokemonSpeedByAbility(speed: number, ability?: AbilityName, abilityOn?: boolean, status?: string) {
-        switch(ability) {
-            case "Unburden":
-                return abilityOn ? speed * 2 : speed;
-            case "Slow Start":
-                return abilityOn ? speed * .5 : speed;
-            case "Quick Feet":
-                return status ? speed * 1.5 : speed;
-            default:
-                return speed;
-        }
-    }
-
-    private modifyPokemonSpeedByQP(speed: number, field: Field, ability?: AbilityName, item?: ItemName, qpBoostedStat?: StatIDExceptHP) {
-        return qpBoostedStat === "spe" ? speed * 1.5 : speed;
-    }
-
-    private modifyPokemonSpeedByField(speed: number, field: Field, ability?: AbilityName) {
-        if (
-            ability === "Chlorophyll" && field.weather?.includes("Sun") ||
-            ability === "Sand Rush" && field.weather?.includes("Sand") ||
-            ability === "Slush Rush" && field.weather?.includes("Snow") ||
-            ability === "Swift Swim" && field.weather?.includes("Rain") ||
-            ability === "Surge Surfer" && field.terrain?.includes("Electric")
-        ) {
-            speed *= 2;
-        }
-        if (field.attackerSide.isTailwind) {
-            speed *= 2;
-        }
-        return speed;
     }
 
     private applyEndOfTurnItemEffects() {

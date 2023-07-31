@@ -1,8 +1,11 @@
-import { Field, Pokemon } from "../calc";
-import { MoveName, StatsTable, StatIDExceptHP } from "../calc/data/interface";
+import { Field, Pokemon, Generations } from "../calc";
+import { MoveName, StatsTable, StatIDExceptHP, ItemName } from "../calc/data/interface";
 import { extend } from '../calc/util';
-import { safeStatStage } from "./util";
+import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";
+import { getModifiedStat } from "../calc/mechanics/util";
+
+const gen = Generations.get(9);
 
 export class Raider extends Pokemon implements State.Raider {
     id: number;
@@ -66,27 +69,43 @@ export class Raider extends Pokemon implements State.Raider {
         return hasSimple ? 2 : hasContrary ? -1 : 1;
     }
 
+    public get effectiveSpeed(): number {
+        let speed = getModifiedStat(this.stats.spe, this.boosts.spe, gen);
+        speed = modifyPokemonSpeedByStatus(speed, this.status, this.ability);
+        speed = modifyPokemonSpeedByItem(speed, this.item);
+        speed = modifyPokemonSpeedByAbility(speed, this.ability, this.abilityOn, this.status);
+        speed = modifyPokemonSpeedByQP(speed, this.field, this.ability, this.item, this.boostedStat as StatIDExceptHP);
+        speed = modifyPokemonSpeedByField(speed, this.field);
+        return speed;
+    }
+
     public applyDamage(damage: number): number { 
-        this.originalCurHP = Math.max(0, this.originalCurHP - damage);
+        this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
+        if (this.isEndure && this.originalCurHP === 0) {
+            this.originalCurHP = 1;
+        }
         return this.originalCurHP;
     }
 
-    public applyStatChange(boosts: StatsTable): StatsTable {
+    public applyStatChange(boosts: Partial<StatsTable>): StatsTable {
         const diff: StatsTable = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0};
         for (let stat in boosts) {
             const statId = stat as StatIDExceptHP;
             const originalStat = this.boosts[statId];
-            this.boosts[statId] = safeStatStage(this.boosts[statId] + boosts[statId] * this.boostCoefficient)
+            this.boosts[statId] = safeStatStage(this.boosts[statId] + boosts[statId]! * this.boostCoefficient)
             diff[statId] = this.boosts[statId] - originalStat;
         }
         return diff;
     }
 
-    public loseItem(): void {
-         // Unburden
-         if (this.ability === "Unburden" && this.item !== undefined) {
+    public loseItem() {
+        // Unburden
+        if (this.ability === "Unburden" && this.item !== undefined) {
             this.abilityOn = true;
         }
         this.item = undefined;
     }
+
+    
+
 }

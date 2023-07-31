@@ -4,7 +4,7 @@ import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, StatIDExceptHP, Terrain, Weather } from "../calc/data/interface";
-import { getQPBoostedStat } from "../calc/mechanics/util";
+import { getQPBoostedStat, isGrounded } from "../calc/mechanics/util";
 import { isSuperEffective, safeStatStage, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
@@ -331,8 +331,8 @@ export class RaidMove {
     }
 
     private getMoveField(atkID:number, defID: number) {
-        const moveField = this.raidState.fields[atkID].clone();
-        moveField.defenderSide = this.raidState.fields[defID].attackerSide.clone();
+        const moveField = this._raidState.fields[atkID].clone();
+        moveField.defenderSide = this._raidState.fields[defID].attackerSide.clone();
         return moveField;
     }
 
@@ -477,8 +477,8 @@ export class RaidMove {
                 if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
                 // volatile status
                 if (status === "") {
-                    // Safeguard blocks confusion
-                    if (ailment === "confusion" && field.attackerSide.isSafeguard) { continue; }
+                    // Safeguard and Misty Terrain block confusion
+                    if (ailment === "confusion" && (field.attackerSide.isSafeguard  || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { continue; }
                     // Aroma Veil
                     if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation"].includes(ailment)) {
                         continue;
@@ -799,42 +799,6 @@ export class RaidMove {
         // Choice-locking items
         if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
             this._user.isChoiceLocked = true;
-        }
-        // Symbiosis
-        let lostItemId = -1;
-        for (let i=0; i<5; i++) {
-            if (this._raiders[i].item === undefined && this.raidState.raiders[i].item !== undefined) {
-                lostItemId = i;
-                break;
-            }
-        }
-        if (lostItemId >=0) {
-            const lostItemPokemon = this.getPokemon(lostItemId);
-            const symbiosisIds: number[] = []
-            for (let id=0; id<5; id++) {
-                if (id !== lostItemId && this.getPokemon(id).ability === "Symbiosis" && this.getPokemon(id).item !== undefined) {
-                    symbiosisIds.push(id);
-                }
-            }
-            if (symbiosisIds.length > 0) {
-                // speed check for symbiosis
-                let fastestSymbId = symbiosisIds[0];
-                let fastestSymbPoke = this.getPokemon(fastestSymbId);
-                let fastestSymbSpeed = getModifiedStat(fastestSymbPoke.stats.spe, fastestSymbPoke.boosts.spe, gen);
-                for (let i=1; i<symbiosisIds.length; i++) {
-                    const poke = this.getPokemon(symbiosisIds[i]);
-                    const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
-                    const field = this._fields[i];
-                    if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
-                        fastestSymbId = symbiosisIds[i];
-                        fastestSymbPoke = poke;
-                        fastestSymbSpeed = speed;
-                    } 
-                }
-                // symbiosis item transfer
-                lostItemPokemon.item = fastestSymbPoke.item;
-                fastestSymbPoke.item = undefined;
-            }
         }
     }
 

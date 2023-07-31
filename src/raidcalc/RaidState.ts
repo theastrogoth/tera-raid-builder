@@ -186,11 +186,17 @@ export class RaidState implements State.RaidState{
             const opponentIds = id === 0 ? [1,2,3,4] : [0];
             for (const opponentId of opponentIds) {
                 const opponent = this.getPokemon(opponentId);
-                if (opponent.item === "Opportunist" || opponent.item === "Mirror Herb")  {
+                const mirrorHerb = opponent.item === "Mirror Herb";
+                const opportunist = opponent.ability === "Opportunist";
+                if (mirrorHerb || opportunist)  {
+                    const both = mirrorHerb && opportunist;
                     const positiveDiff = {...diff};
                     let isPositiveBoost = false;
                     for (const stat in positiveDiff) {
                         const statId = stat as StatIDExceptHP;
+                        if (both) {
+                            positiveDiff[statId] *= 2;
+                        }
                         if (positiveDiff[statId] <= 0) {
                             positiveDiff[statId] = 0;
                         } else {

@@ -12,19 +12,22 @@ import { Raider } from "../raidcalc/Raider";
 import { RaidState } from "../raidcalc/RaidState";
 import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
+import PokedexService from "../services/getdata";
+import { RaidTurnInfo } from "../raidcalc/interface";
+
 
 const gen = Generations.get(9);
 
-function deserializeInfo(hash: string): BuildInfo | null {
+async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
     try {
         const obj = deserialize(hash);
-        return lightToFullBuildInfo(obj);
+        return await lightToFullBuildInfo(obj);
     } catch (e) {
         return null;
     }
 }
 
-function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
+async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildInfo | null> {
     try {
         const pokemon = (obj.pokemon as LightPokemon[]).map((r) => new Raider(r.id, r.role, new Field(), 
             new Pokemon(gen, r.name, {
@@ -39,24 +42,29 @@ function lightToFullBuildInfo(obj: LightBuildInfo): BuildInfo | null {
                 moves: r.moves || undefined
             }), 
         (r.extraMoves || undefined) as (MoveName[] | undefined)));
-        const turns = (obj.turns as LightTurnInfo[]).map((t) => {
-            return {
+        const turns: RaidTurnInfo[] = [];
+        for (let t of obj.turns as LightTurnInfo[]) {
+            const mdata = await PokedexService.getMoveByName(t.moveInfo.name);
+            const bmdata = await PokedexService.getMoveByName(t.bossMoveInfo.name);
+            
+            const turn = {
                 id: t.id,
                 group: t.group,
                 moveInfo: {
                     userID: t.moveInfo.userID, 
                     targetID: t.moveInfo.targetID, 
                     options: t.moveInfo.options, 
-                    moveData: {name: t.moveInfo.name as MoveName}
+                    moveData: mdata || {name: t.moveInfo.name as MoveName}
                 },
                 bossMoveInfo: {
                     userID: t.bossMoveInfo.userID,
                     targetID: t.bossMoveInfo.targetID,
                     options: t.bossMoveInfo.options,
-                    moveData: {name: t.bossMoveInfo.name as MoveName}
+                    moveData: bmdata || {name: t.bossMoveInfo.name as MoveName}
                 },
-            }
-        });
+            };
+            turns.push(turn);
+        };
         const groups = obj.groups || [];
         const name = obj.name || "";
         const notes = obj.notes || "";
@@ -141,39 +149,33 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
     }, [hash]);
 
     useEffect(() => {
-        try {
-            let res: BuildInfo | null = null;
-            if (buildInfo) {
-                res = lightToFullBuildInfo(buildInfo);
-            } else {
-                res = deserializeInfo(hash);
+        async function loadInfo() {
+            try {
+                let res: BuildInfo | null = null;
+                if (buildInfo) {
+                    res = await lightToFullBuildInfo(buildInfo);
+                } else {
+                    res = await deserializeInfo(hash);
+                }
+                if (res) {
+                    const {name, notes, credits, pokemon, turns, groups} = res;
+                    setTitle(name);
+                    setNotes(notes);
+                    setCredits(credits);
+                    raidInputProps.setPokemon[0](pokemon[0]);
+                    raidInputProps.setPokemon[1](pokemon[1]);
+                    raidInputProps.setPokemon[2](pokemon[2]);
+                    raidInputProps.setPokemon[3](pokemon[3]);
+                    raidInputProps.setPokemon[4](pokemon[4]);
+                    raidInputProps.setTurns(turns);
+                    raidInputProps.setGroups(groups);
+                    setHasLoadedInfo(true);
+                }
+            } catch (e) {
+                console.log(e);
             }
-            if (res) {
-                const {name, notes, credits, pokemon, turns, groups} = res;
-                const startingState = new RaidState(pokemon);
-                // setInfo({
-                //     name: name,
-                //     notes: notes,
-                //     credits: credits,
-                //     startingState: startingState,
-                //     turns: turns,
-                //     groups: groups,
-                // })
-                setTitle(name);
-                setNotes(notes);
-                setCredits(credits);
-                raidInputProps.setPokemon[0](pokemon[0]);
-                raidInputProps.setPokemon[1](pokemon[1]);
-                raidInputProps.setPokemon[2](pokemon[2]);
-                raidInputProps.setPokemon[3](pokemon[3]);
-                raidInputProps.setPokemon[4](pokemon[4]);
-                raidInputProps.setTurns(turns);
-                raidInputProps.setGroups(groups);
-                setHasLoadedInfo(true);
-            }
-        } catch (e) {
-            console.log(e);
         }
+        loadInfo().catch((e) => console.log(e));
     }, [buildInfo]);
 
     useEffect(() => {

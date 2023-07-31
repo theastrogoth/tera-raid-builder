@@ -17,7 +17,10 @@ export type PokemonData = {
 
 export namespace PokedexService {
 
-    export async function getMoveByName(name: string) {
+    export async function getMoveByName(name: string): Promise<MoveData | undefined> {
+        if (["(No Move)", "Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(name)) {
+            return {name: name as MoveName}
+        }
         try {
             const preppedName = prepareFileName(name);
             let response = await fetch(assetsProlog + "moves/" + preppedName + ".json");

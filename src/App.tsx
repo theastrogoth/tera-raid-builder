@@ -19,9 +19,11 @@ import LinkButton from './uicomponents/LinkButton.tsx';
 import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
 
-import { Generations, Pokemon } from './calc/index.ts';
+import { Generations, Pokemon, Field } from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
-import { Raider, RaidTurnInfo, RaidInputProps } from './raidcalc/interface.ts';
+import { RaidTurnInfo } from './raidcalc/interface.ts';
+import { Raider } from './raidcalc/Raider.ts';
+import { RaidInputProps } from './raidcalc/inputs.ts';
 import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 
 function App() {
@@ -184,7 +186,7 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", new Pokemon(gen, "Rillaboom", {
+    new Raider(0, "Raid Boss", new Field(), new Pokemon(gen, "Rillaboom", {
       teraType: "Normal",
       bossMultiplier: 3500,
       nature: "Jolly",
@@ -193,7 +195,7 @@ function App() {
     }), ["Growth", "Boomburst", "Bulk Up"] as MoveName[])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Raider #1", new Pokemon(gen, "Koraidon", {
+    new Raider(1, "Koraidon", new Field(), new Pokemon(gen, "Koraidon", {
       nature: "Adamant",
       ability: "Orichalcum Pulse",
       moves: ["Swords Dance", "Collision Course"],
@@ -202,7 +204,7 @@ function App() {
     }))
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Raider #2", new Pokemon(gen, "Arcanine", {
+    new Raider(2, "Arcanine", new Field(), new Pokemon(gen, "Arcanine", {
       nature: "Jolly",
       ability: "Intimidate",
       moves: ["Charm", "Helping Hand"],
@@ -210,7 +212,7 @@ function App() {
     }))
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Raider #3", new Pokemon(gen, "Corviknight", {
+    new Raider(3, "Corviknight", new Field(), new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
       ability: "(No Ability)",
       moves: ["Screech"],
@@ -219,7 +221,7 @@ function App() {
     }))
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Raider #4", new Pokemon(gen, "Umbreon", {
+    new Raider(4, "Umbreon", new Field(), new Pokemon(gen, "Umbreon", {
       nature: "Relaxed",
       ability: "(No Ability)",
       moves: ["Screech"],

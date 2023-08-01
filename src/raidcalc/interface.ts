@@ -1,6 +1,5 @@
 import { Pokemon, Field, StatID } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import { extend } from '../calc/util';
 
 export type MoveSetItem = {
     name: MoveName,
@@ -85,90 +84,18 @@ export type MoveData = {
     maxHits?:       number,
 }
 
-export class Raider extends Pokemon {
+export interface Raider extends Pokemon {
     id: number;
     role: string;
+    field: Field;
     extraMoves?: MoveName[];// for special boss actions
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     lastMove?: MoveData;    // stored for Instruct and Copycat
     lastTarget?: number;    // stored for Instruct and Copycat
-
-    constructor(id: number, role: string, pokemon: Pokemon, extraMoves: MoveName[] = [], isEndure: boolean = false, lastMove: MoveData | undefined = undefined, lastTarget: number | undefined = undefined) {
-        super(pokemon.gen, pokemon.name, {...pokemon})
-        this.id = id;
-        this.role = role;
-        this.extraMoves = extraMoves;
-        this.isEndure = isEndure;
-        this.lastMove = lastMove;
-        this.lastTarget = lastTarget;
-    }
-
-    clone() {
-        return new Raider(
-            this.id, 
-            this.role, 
-            new Pokemon(this.gen, this.name, {
-                level: this.level,
-                bossMultiplier: this.bossMultiplier,
-                ability: this.ability,
-                abilityOn: this.abilityOn,
-                isDynamaxed: this.isDynamaxed,
-                dynamaxLevel: this.dynamaxLevel,
-                isSaltCure: this.isSaltCure,
-                alliesFainted: this.alliesFainted,
-                boostedStat: this.boostedStat,
-                usedBoosterEnergy: this.usedBoosterEnergy,
-                item: this.item,
-                gender: this.gender,
-                nature: this.nature,
-                ivs: extend(true, {}, this.ivs),
-                evs: extend(true, {}, this.evs),
-                boosts: extend(true, {}, this.boosts),
-                originalCurHP: this.originalCurHP,
-                status: this.status,
-                teraType: this.teraType,
-                toxicCounter: this.toxicCounter,
-                moves: this.moves.slice(),
-                overrides: this.species,
-            }),
-            this.extraMoves,
-            this.isEndure,
-            this.lastMove,
-            this.lastTarget
-        )
-      }
 }
 
-export class RaidState {
-    raiders: Raider[]; // raiders[0] is the boss, while raiders 1-5 are the players
-    fields: Field[];   // each pokemon gets its own field to deal with things like Friend Guard and Protosynthesis
-
-    constructor(raiders: Raider[], fields: Field[]) {
-        this.raiders = raiders;
-        this.fields = fields;
-    }
-
-    clone() {
-        return new RaidState(
-            this.raiders.map(raider => raider.clone()), 
-            this.fields.map(field => field.clone()));
-    }
-}
-
-export type RaidBattleInfo = {
-    name?: string;
-    notes?: string;
-    credits?: string;
-    startingState: RaidState;
-    turns: RaidTurnInfo[];
-    groups: number[][];
-}
-
-export type RaidBattleResults = {
-    endState: RaidState;
-    turnResults: RaidTurnResult[]; 
-    turnZeroFlags: string[][];
-    turnZeroOrder: number[];
+export interface RaidState {
+    raiders: Raider[]; // raiders[0] is the boss, while raiders 1-4 are the players
 }
 
 export type RaidMoveOptions = {
@@ -191,41 +118,3 @@ export type RaidTurnInfo ={
     moveInfo: RaidMoveInfo;
     bossMoveInfo: RaidMoveInfo;
 }
-
-export type RaidMoveResult= {
-    state: RaidState;
-    userID: number;
-    targetID: number;
-    damage: number[];
-    drain: number[];
-    healing: number[];
-    eot: ({damage: number, texts: string[]} | undefined)[];
-    desc: string[];
-    flags: string[][];
-    causesFlinch: boolean[];
-}
-
-export type RaidTurnResult = {
-    state: RaidState;
-    results: [RaidMoveResult, RaidMoveResult];
-    raiderMovesFirst: boolean;
-}
-
-export type BuildInfo = {
-    name: string;
-    notes: string;
-    credits: string;
-    pokemon: Raider[],
-    turns: RaidTurnInfo[],
-    groups: number[][],
-}
-
-// used for passing data to React components
-export type RaidInputProps = {
-    pokemon: Raider[],
-    setPokemon: ((r: Raider) => void)[],
-    turns: RaidTurnInfo[],
-    setTurns: (t: RaidTurnInfo[]) => void,
-    groups: number[][],
-    setGroups: (g: number[][]) => void,
-  }

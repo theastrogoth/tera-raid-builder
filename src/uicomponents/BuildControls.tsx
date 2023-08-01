@@ -25,7 +25,8 @@ import { toID } from '../calc/util';
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 
-import { MoveData, MoveSetItem, Raider } from "../raidcalc/interface";
+import { MoveData, MoveSetItem } from "../raidcalc/interface";
+import { Raider } from "../raidcalc/Raider";
 import PokedexService from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
 
@@ -627,6 +628,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
             setPokemon(new Raider(
                 newPokemon.id, 
                 newPokemon.role, 
+                newPokemon.field,
                 new Pokemon(gen, newPokemon.name, {
                     level: newPokemon.level,
                     ability: newPokemon.ability,
@@ -644,7 +646,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Raider(pokemon.id, pokemon.role, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"})))
+        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"})))
     }
 
     return (
@@ -782,7 +784,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         if (val < 1) val = 1;
         const newPokemon = {...pokemon};
         newPokemon.bossMultiplier = val;
-        setPokemon(new Raider(pokemon.id, pokemon.role,
+        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field,
             new Pokemon(gen, newPokemon.name, {
                 level: newPokemon.level,
                 ability: newPokemon.ability,

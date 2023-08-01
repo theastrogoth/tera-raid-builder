@@ -22,7 +22,8 @@ import Collapse from '@mui/material/Collapse';
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidInputProps, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { RaidInputProps } from "../raidcalc/inputs";
 import PokedexService from "../services/getdata";
 import { getPokemonSpriteURL, arraysEqual } from "../utils";
 
@@ -506,6 +507,7 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     prevProps.turns[prevProps.index].bossMoveInfo.options?.secondaryEffects === nextProps.turns[nextProps.index].bossMoveInfo.options?.secondaryEffects &&
     prevProps.turns[prevProps.index].bossMoveInfo.options?.roll === nextProps.turns[nextProps.index].bossMoveInfo.options?.roll &&
     arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
+    arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
     arraysEqual(prevProps.raiders[prevProps.turns[prevProps.index].moveInfo.userID].moves, nextProps.raiders[nextProps.turns[nextProps.index].moveInfo.userID].moves) &&
     arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&  
     arraysEqual(prevProps.raiders[0].extraMoves!, nextProps.raiders[0].extraMoves!) &&

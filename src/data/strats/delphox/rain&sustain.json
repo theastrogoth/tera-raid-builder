@@ -163,6 +163,29 @@
     ],
     "turns": [
         {
+            "id": 8,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Dazzling Gleam",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max"
+                }
+            }
+        },
+        {
             "id": 0,
             "group": 0,
             "moveInfo": {

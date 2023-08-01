@@ -13,8 +13,7 @@ import MuiInput from '@mui/material/Input';
 import { styled } from '@mui/material/styles';
 
 import { Generations, Pokemon } from "../calc";
-import { Raider } from "../raidcalc/interface";
-import { Generation } from "../calc/data/interface";
+import { Raider } from "../raidcalc/Raider";
 
 const gen = Generations.get(9); // we will only use gen 9
 
@@ -131,7 +130,7 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
             const newEVs = {...pokemon.evs};
             //@ts-ignore
             newEVs[evName] = safeValue;
-            setPokemon(new Raider(pokemon.id, pokemon.role, 
+            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field,
                 new Pokemon(gen, pokemon.name, {
                     level: pokemon.level,
                     ability: pokemon.ability,
@@ -156,7 +155,7 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
             const newIVs = {...pokemon.ivs};
             //@ts-ignore
             newIVs[ivName] = safeValue;
-            setPokemon(new Raider(pokemon.id, pokemon.role, 
+            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field,
                 new Pokemon(gen, pokemon.name, {
                     level: pokemon.level,
                     ability: pokemon.ability,

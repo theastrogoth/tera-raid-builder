@@ -1,11 +1,28 @@
 import { Move, Generations } from "../calc";
-import { StatIDExceptHP, MoveName, AbilityName, ItemName } from "../calc/data/interface";
-import { getQPBoostedStat } from "../calc/mechanics/util";
-import { RaidState, RaidBattleInfo, RaidTurnInfo, RaidTurnResult, RaidBattleResults } from "./interface";
-import { getBoostCoefficient, RaidMove, safeStatStage } from "./RaidMove";
-import { RaidTurn } from "./RaidTurn";
+import { MoveName, ItemName } from "../calc/data/interface";
+import { RaidTurnInfo } from "./interface";
+import { RaidState } from "./RaidState";
+import { RaidMove } from "./RaidMove";
+import { getBoostCoefficient, safeStatStage } from "./util";
+import { RaidTurn, RaidTurnResult } from "./RaidTurn";
 
 const gen = Generations.get(9);
+
+export type RaidBattleInfo = {
+    name?: string;
+    notes?: string;
+    credits?: string;
+    startingState: RaidState;
+    turns: RaidTurnInfo[];
+    groups: number[][];
+}
+
+export type RaidBattleResults = {
+    endState: RaidState;
+    turnResults: RaidTurnResult[]; 
+    turnZeroFlags: string[][];
+    turnZeroOrder: number[];
+}
 
 export class RaidBattle {
     startingState: RaidState;
@@ -57,12 +74,7 @@ export class RaidBattle {
     private calculateTurnZero(){
         this._turnZeroFlags = [[],[],[],[],[],[],[],[],[],[]];  // each pokemon gets two sets of flags, one for switch-in effects, one for item/ability effects as a result of the first round of effects
         // sort pokemon by speed to see what happens first
-        const speeds = this._state.raiders.map(raider => {
-            let s = raider.stats.spe;
-            s = this.modifyPokemonSpeedByAbility(s, raider.ability);
-            s = this.modifyPokemonSpeedByItem(s, raider.item);
-            return s;
-        });
+        const speeds = this._state.raiders.map(raider => raider.effectiveSpeed);
         const speedOrder = speeds.map((speed, index) => [speed, index]).sort((a, b) => b[0] - a[0]).map(pair => pair[1]);
         this._turnZeroOrder = speedOrder;
         for (let id of speedOrder) {
@@ -71,29 +83,19 @@ export class RaidBattle {
             //// Abilites That Take Effect at the start of the battle
             /// Weather Abilities
             if (ability === "Drought") {
-                for (let field of this._state.fields) {
-                    field.weather = "Sun";
-                }
+                this._state.applyWeather("Sun");
                 this._turnZeroFlags[id].push("Drought summons the Sun");
             } else if (ability === "Drizzle") {
-                for (let field of this._state.fields) {
-                    field.weather = "Rain";
-                }
+                this._state.applyWeather("Rain");
                 this._turnZeroFlags[id].push("Drizzle summons the Rain");
             } else if (ability === "Sand Stream") {
-                for (let field of this._state.fields) {
-                    field.weather = "Sand";
-                }
+                this._state.applyWeather("Sand");
                 this._turnZeroFlags[id].push("Sand Stream summons a Sandstorm");
             } else if (ability === "Snow Warning") {
-                for (let field of this._state.fields) {
-                    field.weather = "Snow";
-                }
+                this._state.applyWeather("Snow");
                 this._turnZeroFlags[id].push("Snow Warning summons a Snowstorm");
             } else if (ability === "Orichalcum Pulse") {
-                for (let field of this._state.fields) {
-                    field.weather = "Sun";
-                }
+                this._state.applyWeather("Sun");
                 this._turnZeroFlags[id].push("Orichalcum Pulse summons the Sun");
             } else if (ability === "Cloud Nine" || ability === "Air Lock") {
                 for (let field of this._state.fields) {
@@ -102,29 +104,19 @@ export class RaidBattle {
                 this._turnZeroFlags[id].push("Cloud Nine negates the weather");
             /// Terrain Abilities
             } else if (ability === "Grassy Surge") {
-                for (let field of this._state.fields) {
-                    field.terrain = "Grassy";
-                }
+                this._state.applyTerrain("Grassy");
                 this._turnZeroFlags[id].push("Grassy Surge summons Grassy Terrain");
             } else if (ability === "Electric Surge") {
-                for (let field of this._state.fields) {
-                    field.terrain = "Electric";
-                }
+                this._state.applyTerrain("Electric");
                 this._turnZeroFlags[id].push("Electric Surge summons Electric Terrain");
             } else if (ability === "Misty Surge") {
-                for (let field of this._state.fields) {
-                    field.terrain = "Misty";
-                }
+                this._state.applyTerrain("Misty");
                 this._turnZeroFlags[id].push("Misty Surge summons Misty Terrain");
             } else if (ability === "Psychic Surge") {
-                for (let field of this._state.fields) {
-                    field.terrain = "Psychic";
-                }
+                this._state.applyTerrain("Psychic");
                 this._turnZeroFlags[id].push("Psychic Surge summons Psychic Terrain");
             } else if (ability === "Hadron Engine") {
-                for (let field of this._state.fields) {
-                    field.terrain = "Electric";
-                }
+                this._state.applyTerrain("Electric");
                 this._turnZeroFlags[id].push("Hadron Engine summons Electric Terrain");
             /// Ruin Abilities
             } else if (ability === "Sword of Ruin") {
@@ -192,13 +184,8 @@ export class RaidBattle {
                 this._turnZeroFlags[id].push("Friend Guard reduces allies' damage taken");
             // Protosynthesis and Quark Drive
             } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
-                if (pokemon.item === "Booster Energy") {
-                    pokemon.abilityOn = true;
-                    const qpStat = getQPBoostedStat (pokemon) as StatIDExceptHP;
-                    pokemon.boostedStat = qpStat;
-                    pokemon.item = undefined;
-                    pokemon.usedBoosterEnergy = true;
-                    this._turnZeroFlags[id].push("Booster Energy consumed");
+                if (pokemon.item === "Booster Energy" && !pokemon.abilityOn) {
+                    this._state.recieveItem(id, "Booster Energy" as ItemName); // consume Booster Energy
                 }
             // Intimidate
             } else if (ability === "Intimidate") {
@@ -251,35 +238,5 @@ export class RaidBattle {
                 this._turnZeroFlags[i+5] = this._turnZeroFlags[i+5].concat(moveResult.flags[i]);
             }
         } 
-    }
-
-    private modifyPokemonSpeedByItem(speed : number, item?: ItemName) {
-        switch(item) {
-            case "Choice Scarf":
-                return speed * 1.5;
-            case "Iron Ball":
-            case "Macho Brace":
-            case "Power Anklet":
-            case "Power Band":
-            case "Power Belt":
-            case "Power Bracer":
-            case "Power Lens":
-            case "Power Weight":
-                return speed * .5;
-            case "Lagging Tail":
-            case "Full Incense":
-                return 0;
-            // TODO: Quick Powder doubles the speed of untransformed Ditto
-            default:
-                return speed;
-        }
-    }
-    private modifyPokemonSpeedByAbility(speed: number, ability?: AbilityName, abilityOn?: boolean, status?: string) {
-        switch(ability) {
-            case "Slow Start":
-                return abilityOn ? speed * .5 : speed;
-            default:
-                return speed;
-        }
     }
 }

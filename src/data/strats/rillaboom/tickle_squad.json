@@ -162,6 +162,29 @@
     ],
     "turns": [
         {
+            "id": 9,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Growth",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max"
+                }
+            }
+        },
+        {
             "id": 8,
             "moveInfo": {
                 "name": "Defense Cheer",

@@ -1,6 +1,7 @@
-import { RaidBattle } from "../raidcalc/RaidBattle";
-import { RaidBattleInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
-import { RaidState } from "../raidcalc/interface";
+import { RaidBattle, RaidBattleInfo } from "../raidcalc/RaidBattle";
+import { RaidTurnInfo } from "../raidcalc/interface";
+import { RaidState } from "../raidcalc/RaidState";
+import { Raider } from "../raidcalc/Raider";
 import { Field, Pokemon, Generations } from "../calc";
 
 declare var self: DedicatedWorkerGlobalScope;
@@ -10,7 +11,7 @@ const gen = Generations.get(9);
 
 self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}>) => {
     const raidersMessage = event.data.raiders;
-    const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, new Pokemon(gen, r.name, {
+    const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, new Field(), new Pokemon(gen, r.name, {
         level: r.level,
         bossMultiplier: r.bossMultiplier,
         ability: r.ability,
@@ -22,9 +23,7 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}
         moves: r.moves,
     }), r.extraMoves))
 
-    const fields = raiders.map((r) => new Field());
-
-    const state = new RaidState(raiders, fields);
+    const state = new RaidState(raiders);
     const info: RaidBattleInfo = {
         startingState: state,
         turns: event.data.turns,

@@ -20,25 +20,50 @@ import { saveAs } from 'file-saver';
 import Button from "@mui/material/Button"
 import { Hidden } from "@mui/material";
 
-import ReactDomServer from "react-dom/server";
+import { createRoot } from 'react-dom/client';
+import { flushSync } from 'react-dom';
+import { ThemeProvider } from "@emotion/react";
+import { useTheme } from "@emotion/react";
+import CssBaseline from "@mui/material/CssBaseline";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
-function saveStaticHTML(raidInputProps: RaidInputProps, title?: string, notes?: string, credits?: string) {
-    const htmlContent = [ ReactDomServer.renderToStaticMarkup(
-        // This would need to be filled out with everything we want to show. I don't think we would reuse many of the UI components here.
-        <>
-            <PokemonSummary pokemon={raidInputProps.pokemon[1]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
-        </>
-    )];
-    console.log(htmlContent)
-    var bl = new Blob(htmlContent, {type: "text/html"});
-    var a = document.createElement("a");
-    a.href = URL.createObjectURL(bl);
-    a.download = (title || "strategy" ) + ".html";
-    a.hidden = true;
-    document.body.appendChild(a);
-    a.innerHTML = "something random - nobody will see this, it doesn't matter what you put here";
-    a.click();
+
+function saveGraphic(theme: any, raidInputProps: RaidInputProps, title?: string, notes?: string, credits?: string) {
+    const tempEl = document.createElement('tempEl');
+    const root = createRoot(tempEl);
+    flushSync(() => {
+        root.render(
+            // We might not want to actually reuse UI components here
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <Stack direction={"column"} spacing={1} alignItems="center" justifyContent="center">
+                <Typography variant="h4" >
+                  {title}
+                </Typography>
+                <Stack direction={"row"} spacing={1}>
+                  <PokemonSummary pokemon={raidInputProps.pokemon[1]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
+                  <PokemonSummary pokemon={raidInputProps.pokemon[2]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
+                  <PokemonSummary pokemon={raidInputProps.pokemon[3]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
+                  <PokemonSummary pokemon={raidInputProps.pokemon[4]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
+                </Stack>
+              </Stack>
+            </ThemeProvider>       
+        );
+      });
     
+    document.body.appendChild(tempEl); // this makes the element findable for html2canvas
+
+    html2canvas(tempEl, {allowTaint: true, useCORS: true}).then((canvas) => {
+      canvas.toBlob((blob) => {
+          if (blob) {
+              saveAs(blob, title + '.png');
+          } else {
+              saveAs(getPokemonArtURL("wo-chien"), "live_reaction.png");
+          }
+      });
+    });
+    tempEl.remove(); // remove the element from the DOM
 }
 
 
@@ -50,19 +75,11 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
     const hash = location.hash
+    const theme = useTheme();
 
     const handleDownload = () => {
         try {
-            // html2canvas(document.body, {allowTaint: true, useCORS: true}).then((canvas) => {
-            //     canvas.toBlob((blob) => {
-            //         if (blob) {
-            //             saveAs(blob, title + '.png');
-            //         } else {
-            //             saveAs(getPokemonArtURL("wo-chien"), "live_reaction.png");
-            //         }
-            //     });
-            // });
-            saveStaticHTML(raidInputProps, title, notes, credits);
+            saveGraphic(theme, raidInputProps, title, notes, credits);
         } catch (e) {
             console.log(e)
         }

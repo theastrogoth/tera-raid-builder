@@ -22,6 +22,7 @@ import StratFooter from './uicomponents/StratFooter.tsx';
 import { Generations, Pokemon } from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
 import { Raider, RaidTurnInfo, RaidInputProps } from './raidcalc/interface.ts';
+import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -287,6 +288,13 @@ function App() {
               <Stack direction="row" sx={{ p: 2 }}>
                 <Box flexGrow={1} />
                   <LinkButton 
+                    title={title} notes={notes} credits={credits}
+                    raidInputProps={raidInputProps}
+                    setTitle={setTitle} setNotes={setNotes} setCredits={setCredits}
+                    setPrettyMode={setPrettyMode}
+                  />
+                  <Box width="15px"/>
+                  <GraphicsButton
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps}
                     setTitle={setTitle} setNotes={setNotes} setCredits={setCredits}

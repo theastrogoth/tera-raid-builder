@@ -473,7 +473,7 @@ export function getWeightFactor(pokemon: Pokemon) {
     : (pokemon.hasAbility('Light Metal') || pokemon.hasItem('Float Stone')) ? 0.5 : 1;
 }
 
-export function countBoosts(gen: Generation, boosts: StatsTable) {
+export function countBoosts(gen: Generation, boosts: StatsTable, randomBoosts: number = 0) {
   let sum = 0;
 
   const STATS: StatID[] = gen.num === 1
@@ -485,7 +485,7 @@ export function countBoosts(gen: Generation, boosts: StatsTable) {
     const boost = boosts[stat];
     if (boost && boost > 0) sum += boost;
   }
-  return sum;
+  return sum + randomBoosts;
 }
 
 export function getEVDescriptionText(

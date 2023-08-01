@@ -19,6 +19,7 @@ export namespace State {
     ivs?: Partial<I.StatsTable>;
     evs?: Partial<I.StatsTable>;
     boosts?: Partial<I.StatsTable>;
+    randomBoosts?: number;
     originalCurHP?: number;
     status?: I.StatusName | '';
     volatileStatus?: string[];

@@ -7,7 +7,8 @@ import Tab from '@mui/material/Tab';
 import MoveSelection from "./MoveSelection";
 import RaidResults from "./RaidResults";
 import MoveDisplay from './MoveDisplay';
-import { RaidBattleInfo, RaidBattleResults, RaidInputProps } from "../raidcalc/interface";
+import { RaidInputProps } from "../raidcalc/inputs";
+import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));

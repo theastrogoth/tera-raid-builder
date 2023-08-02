@@ -152,6 +152,19 @@ describe('Specific Test Cases', () => {
     // T4 Levitate type is immune to ground move
     expect(result.turnResults[3].results[0].damage[4]).toEqual(0);
   })
+  test('infiltrator_prankster_trickroom', async () => {
+    const hash = "#H4sIAAAAAAAAA7VV204bMRD9FctPrbRqcyGAeOPWFhUqIJEqNcqDszubmHg9K18CAfHYf+j39Us69u6SDeIhoKJsnLF3Zs6Zm/PAc37A0xuLmifc8YPxuJNwLQrgkySIMquF1EhHKhZS1Jkwq9M8h9RZOjKoVFDqJtxbMGcnwZMwM3BRxNJJ1DZo9BI+M+hLOi1wCWc6RxKnaO1Fs638aHQQXKcGMhlBSlxAUZH0RoeT6MnW7ObBp3ALWjPIA89SxDWLK9ToRBV4HR/pT6WSbkWSdFDEc3Ie3sAyIMi4KliCCrhgxGhVQk3eNsy9crJUEkywu3NGXMS3k0nCl/zggVNOdxN+ZlCzb0Jnlo26nwZsSIoOZiuWo2F7f//8ZmfagYIYIj3XOAXj2Af/+fDeU+rhHLAUJvvIk3H0uZ9Q2C2bljjUsgx0tFcq4VdeAlUuGu2R0dNn8tgc9rvPHnrV7XQqB2N+pOT9PWE3rtlwjqEXToRZsEuvbMjJCITJvWLniAvKdr9D9mN+Ia2LZnhrUxHq0KDuJ912VvizzZUPzk+MXAbnR4iW8s9ONZhZKNhhJgqh12H1Br34fXVooNSKYHwo/7FCC+wYi6lwFEJQG7f4Uv98V5AvJG8Jl0boReAW7KnwVDNyI0IjHgtVbBCsyEVpa4JDrzURFCHokZHpgl0jFi+w61OWYVkVviXRUEkVeg3D7hfZsnOI87NB7y1tMaTphHT+ApcdYuBQ3yCNasVnY3eJt1TLYRmb6Aum3rKhsPP/wemnzIB99aFZ17Qm9cgMorMoEsMPP5CFUaWJ6jbH/SQX1M71ygupOZk/PtlU7dwhg1rdGQ/VwgtxF5Ub9cHa7RvR1lOzNWSvSkTjoZUOKsrWsOsZ3xa3v4nb6tretrDrW2Zb0J1GLyDWzUhM3g1v0MJrXxxbF/T1kLubeW3dAO+Z2L1N1I178T2ipQGlf/0O/VBRJzSxj/8ArxE+95gIAAA=";
+    const result = await resultsFromHash(hash);
+    // T4 Prankster moves first with Sunny Day, Wide Guard blocks Blizzard
+    expect(result.turnResults[3].results[0].userID).toEqual(2); // Klefki moves first
+    expect(result.turnResults[3].results[1].damage[2]).toEqual(0); // Wide Guard blocks Blizzard
+    // T5 Infiltrator Screech hits through Mist, Wide Guard blocks Blizzard
+    expect(result.turnResults[4].results[0].damage[3]).toEqual(0); // Wide Guard blocks Blizzard
+    expect(result.turnResults[4].state.raiders[0].boosts.def).toEqual(-2); // Screech lowers defense
+    // T8 Trick Room lets Iron Hands outspeed
+    expect(result.turnResults[7].results[0].userID).toEqual(1); // Iron Hands moves first
+    expect(result.turnResults[7].state.raiders[0].field.isTrickRoom).toEqual(true); // Trick Room is up
+  })
 })
 
 // Test cases for OHKO strats

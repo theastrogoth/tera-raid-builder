@@ -295,7 +295,6 @@ export class RaidMove {
                     const pokemon = this.getPokemon(id);
                     const field = pokemon.field;
                     if (field.attackerSide.isProtected) {
-                        console.log("Protected by ", pokemon.lastMove)
                         this._blockedBy[id] = pokemon.lastMove!.name;
                     } else if (field.attackerSide.isWideGuard && ["all-pokemon", "all-other-pokemon", "all-opponents"].includes(this.moveData.target || "")) {
                         this._blockedBy[id] = "Wide Guard";
@@ -827,10 +826,9 @@ export class RaidMove {
             const drain = this._drain[id];
             const healing = this._healing[id];
             // apply damage from being hit with a damaging movev
-            this._raidState.applyDamage(id, damage, this.move.hits, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
+            this._raidState.applyDamage(id, damage, this.move.hits || 1, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
             // apply damage/healing from recoil/drain
             if (pokemon.originalCurHP !== 0) {
-                console.log(this.move.name, drain)
                 this._raidState.applyDamage(id, -drain);
             }
             // apply healing from move

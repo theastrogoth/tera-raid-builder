@@ -31,9 +31,9 @@ export class RaidState implements State.RaidState{
     public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
+        const originalHP = pokemon.originalCurHP;
         pokemon.applyDamage(damage);
         if (damage <= 0) { return; } // For healing / no damage, we don't need to make the following checks
-        const originalHP = pokemon.originalCurHP;
         const finalHP = pokemon.originalCurHP;
         const maxHP = pokemon.maxHP();
         /// Berry Consumption triggered by damage
@@ -341,6 +341,7 @@ export class RaidState implements State.RaidState{
                 } else if (pokemon.field.terrain !== "Electric" && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
                     pokemon.boostedStat = undefined;
+                    if (pokemon.item === "Booster Energy") { this.recieveItem(id, "Booster Energy" as ItemName); }
                 }
             }
             // Terrain Seeds
@@ -373,6 +374,7 @@ export class RaidState implements State.RaidState{
                 } else if ((pokemon.field.weather || "").includes("Sun")  && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
                     pokemon.boostedStat = undefined;
+                    if (pokemon.item === "Booster Energy") { this.recieveItem(id, "Booster Energy" as ItemName); }
                 }
             }
         }

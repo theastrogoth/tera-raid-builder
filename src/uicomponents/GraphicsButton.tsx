@@ -205,14 +205,19 @@ const ExecutionSection = styled(Box)({
 
 });
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundImageURL: string, title?: string, notes?: string, credits?: string) {
+    console.log("loaded Image", backgroundImageURL)
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
-                <GraphicsContainer>
+                <GraphicsContainer 
+                    style={{
+                        backgroundImage: `linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${backgroundImageURL})`,
+                    }} 
+                >
                     <Header>
                         <BossWrapper>
                             {/* <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera> */}
@@ -286,10 +291,26 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
     const location = useLocation();
     const hash = location.hash
     const theme = useTheme();
+    const loadedImageURLRef = useRef<string>(getPokemonArtURL("wo-chien"));
+
+    const fileInputClicked = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const imageFile = (e.target.files || [null])[0];
+        const imageFileURL = imageFile ? URL.createObjectURL(imageFile) : getPokemonArtURL("wo-chien");
+        loadedImageURLRef.current = imageFileURL;
+    }
+
+    const handleFocusBack = () => {
+        window.removeEventListener('focus', handleFocusBack);
+        setTimeout(() => handleDownload(), 100)
+    }
+
+    const clickedFileInput = () => {
+        window.addEventListener('focus', handleFocusBack);
+    }
 
     const handleDownload = () => {
         try {
-            const graphicTop = generateGraphic(theme, raidInputProps, title, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, loadedImageURLRef.current, title, notes, credits);
             saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)
@@ -297,14 +318,24 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
     };
     
     return (
-        <Button
-            variant="outlined"
-            onClick={() => {
-                handleDownload();
-            }}
-        >
-            Download Graphic
-        </Button>
+        <Box>
+            <input
+                accept="image/*"
+                style={{ display: 'none' }}
+                id="graphic-button-file"
+                type="file"
+                onClick={clickedFileInput}
+                onChange={fileInputClicked}
+            />
+            <label htmlFor="graphic-button-file">
+                <Button
+                    variant="outlined"
+                    component="span"
+                >
+                    Choose Background & Download Graphic
+                </Button>
+            </label>
+        </Box>
     );
 };
 

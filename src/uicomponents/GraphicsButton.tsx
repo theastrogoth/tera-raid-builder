@@ -89,7 +89,7 @@ const BossTera = styled("img")({
 const Title = styled(Typography)({
     color: "white",
     fontWeight: "inherit",
-    fontSize: "15em",
+    fontSize: "16em",
     margin: "0px",
 });
 
@@ -99,8 +99,45 @@ const Subtitle = styled(Typography)({
     margin: "0px",
 });
 
+const Builds = styled(Box)({
+
+});
+
+const Separator = styled(Box)({
+    height: "150px",
+    alignItems: "center",
+    display: "flex",
+    position: "relative"
+});
+
+const LeftBar = styled("hr")({
+    border: "4px solid rgba(255, 255, 255, 0.65)",
+    margin: "0px 100px",
+    position: "absolute",
+    width: "39%",
+    left: "0"
+});
+
+const SeparatorLabel = styled(Typography)({
+    color: "white",
+    fontSize: "8em",
+    margin: "0px",
+    position: "absolute",
+    textAlign: "center",
+    width: "100%"
+});
+
+const RightBar = styled("hr")({
+    border: "4px solid rgba(255, 255, 255, 0.65)",
+    margin: "0px 100px",
+    position: "absolute",
+    width: "39%",
+    right: "0"
+});
+
 function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: string, notes?: string, credits?: string) {
     const graphicTop = document.createElement('graphic_top');
+    graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
     flushSync(() => {
         root.render(
@@ -108,13 +145,20 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: str
                 <GraphicsContainer>
                     <Header>
                         <BossWrapper>
-                            <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera>
-                            {/* <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.id)}></Boss> */}
+                            {/* <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera> */}
+                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.id)}></Boss>
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
                         <Title>{title}</Title>
                         <Subtitle>Created by: {credits}</Subtitle>
                     </Header>
+                    <Builds>
+                        <Separator>
+                            <LeftBar />
+                            <SeparatorLabel>Builds</SeparatorLabel>
+                            <RightBar />
+                        </Separator> 
+                    </Builds>
                 </GraphicsContainer> 
             </ThemeProvider>     
         );

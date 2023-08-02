@@ -19,42 +19,86 @@ import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
 import { Hidden } from "@mui/material";
+import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
 import { flushSync } from 'react-dom';
 import { ThemeProvider } from "@emotion/react";
 import { useTheme } from "@emotion/react";
+import { createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { opacity } from "html2canvas/dist/types/css/property-descriptors/opacity";
+import { backgroundPosition } from "html2canvas/dist/types/css/property-descriptors/background-position";
+  
+const graphicsTheme = createTheme({
+    typography: {
+        fontFamily: 'renogare, sans-serif',
+    },
+    // @ts-ignore
+    overrides: {
+        '@font-face': {
+            fontFamily: 'renogare',
+            src: `
+                local('renogare'),
+                url('/fonts/Renogare-Regular.otf') format('opentype')`,
+        },
+    },
+});
 
+const GraphicsContainer = styled(Box)({
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${getPokemonArtURL("wo-chien")})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    fontWeight: "lighter",
+    fontKerning: "auto",
+    textShadow: "0px 0px 15px rgba(0, 0, 0, .35)"
+});
 
-function saveGraphic(theme: any, raidInputProps: RaidInputProps, title?: string, notes?: string, credits?: string) {
-    const tempEl = document.createElement('tempEl');
-    const root = createRoot(tempEl);
+const Header = styled(Box)({
+    padding: "100px 100px 25px 100px",
+    height: "auto",
+    position: "relative"
+});
+
+const Title = styled(Typography)({
+    color: "white",
+    fontWeight: "inherit",
+    fontSize: "10em",
+    margin: "0px",
+    padding: "10px",
+});
+
+const Subtitle = styled(Typography)({
+    color: "rgba(255, 255, 255, 0.65)",
+    fontSize: "5.5em",
+    margin: "0px",
+    padding: "10px"
+});
+
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: string, notes?: string, credits?: string) {
+    const graphicTop = document.createElement('graphic_top');
+    const root = createRoot(graphicTop);
     flushSync(() => {
         root.render(
-            // We might not want to actually reuse UI components here
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <Stack direction={"column"} spacing={1} alignItems="center" justifyContent="center">
-                <Typography variant="h4" >
-                  {title}
-                </Typography>
-                <Stack direction={"row"} spacing={1}>
-                  <PokemonSummary pokemon={raidInputProps.pokemon[1]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
-                  <PokemonSummary pokemon={raidInputProps.pokemon[2]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
-                  <PokemonSummary pokemon={raidInputProps.pokemon[3]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
-                  <PokemonSummary pokemon={raidInputProps.pokemon[4]} setPokemon={(p: Raider) => {return; }} prettyMode={true} />
-                </Stack>
-              </Stack>
-            </ThemeProvider>       
+            <ThemeProvider theme={graphicsTheme}>
+                <GraphicsContainer>
+                    <Header>
+                        <Title>{title}</Title>
+                        <Subtitle>Created by: {credits}</Subtitle>
+                    </Header>
+                </GraphicsContainer> 
+            </ThemeProvider>     
         );
-      });
+    });
     
-    document.body.appendChild(tempEl); // this makes the element findable for html2canvas
+    document.body.appendChild(graphicTop); // this makes the element findable for html2canvas
+    return graphicTop;
+}
 
-    html2canvas(tempEl, {allowTaint: true, useCORS: true}).then((canvas) => {
+function saveGraphic(graphicTop: HTMLElement, title: string) {
+    html2canvas(graphicTop, {allowTaint: true, useCORS: true, windowWidth: 2000}).then((canvas) => {
       canvas.toBlob((blob) => {
           if (blob) {
               saveAs(blob, title + '.png');
@@ -63,7 +107,7 @@ function saveGraphic(theme: any, raidInputProps: RaidInputProps, title?: string,
           }
       });
     });
-    tempEl.remove(); // remove the element from the DOM
+    // graphicTop.remove(); // remove the element from the DOM
 }
 
 
@@ -79,7 +123,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
 
     const handleDownload = () => {
         try {
-            saveGraphic(theme, raidInputProps, title, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, title, notes, credits);
+            saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)
         }

@@ -48,6 +48,7 @@ const graphicsTheme = createTheme({
 });
 
 const GraphicsContainer = styled(Box)({
+    width: "3600px",
     backgroundImage: `linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${getPokemonArtURL("wo-chien")})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -62,19 +63,40 @@ const Header = styled(Box)({
     position: "relative"
 });
 
+const BossWrapper = styled(Box)({
+    height: "450px",
+    width: "450px",
+    position: "absolute",
+    right: "100px",
+    top: "50px",
+    display: "flex",
+    justifyContent: "center"
+});
+
+const Boss = styled("img")({
+    height: "100%",
+    position: "absolute",
+    right: "0px"
+});
+
+const BossTera = styled("img")({
+    width: "60%",
+    position: "absolute",
+    bottom: "0px",
+    alignSelf: "center"
+});
+
 const Title = styled(Typography)({
     color: "white",
     fontWeight: "inherit",
-    fontSize: "10em",
+    fontSize: "15em",
     margin: "0px",
-    padding: "10px",
 });
 
 const Subtitle = styled(Typography)({
     color: "rgba(255, 255, 255, 0.65)",
-    fontSize: "5.5em",
+    fontSize: "8em",
     margin: "0px",
-    padding: "10px"
 });
 
 function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: string, notes?: string, credits?: string) {
@@ -85,6 +107,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: str
             <ThemeProvider theme={graphicsTheme}>
                 <GraphicsContainer>
                     <Header>
+                        <BossWrapper>
+                            <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera>
+                            {/* <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.id)}></Boss> */}
+                            {/* Need to figure out how to show the tera type nicely */}
+                        </BossWrapper>
                         <Title>{title}</Title>
                         <Subtitle>Created by: {credits}</Subtitle>
                     </Header>
@@ -98,16 +125,16 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: str
 }
 
 function saveGraphic(graphicTop: HTMLElement, title: string) {
-    html2canvas(graphicTop, {allowTaint: true, useCORS: true, windowWidth: 2000}).then((canvas) => {
+    html2canvas(graphicTop, {allowTaint: true, useCORS: true, windowWidth: 3600}).then((canvas) => {
       canvas.toBlob((blob) => {
           if (blob) {
-              saveAs(blob, title + '.png');
+            //   saveAs(blob, title + '.png'); // commented for now, I dont want to keep downloading images every time I make a change
           } else {
               saveAs(getPokemonArtURL("wo-chien"), "live_reaction.png");
           }
       });
     });
-    // graphicTop.remove(); // remove the element from the DOM
+    // graphicTop.remove(); // remove the element from the DOM // commented for now, I dont want the element to be remove in development
 }
 
 

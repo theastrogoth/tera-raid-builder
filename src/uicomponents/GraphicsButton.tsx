@@ -52,7 +52,6 @@ const GraphicsContainer = styled(Box)({
     backgroundImage: `linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${getPokemonArtURL("wo-chien")})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    fontWeight: "lighter",
     fontKerning: "auto",
     textShadow: "0px 0px 15px rgba(0, 0, 0, .35)"
 });
@@ -87,6 +86,8 @@ const BossTera = styled("img")({
 });
 
 const Title = styled(Typography)({
+    height: "250px",
+    lineHeight: "250px",
     color: "white",
     fontWeight: "inherit",
     fontSize: "16em",
@@ -99,7 +100,7 @@ const Subtitle = styled(Typography)({
     margin: "0px",
 });
 
-const Builds = styled(Box)({
+const BuildsSection = styled(Box)({
 
 });
 
@@ -114,7 +115,7 @@ const LeftBar = styled("hr")({
     border: "4px solid rgba(255, 255, 255, 0.65)",
     margin: "0px 100px",
     position: "absolute",
-    width: "39%",
+    width: "37%",
     left: "0"
 });
 
@@ -131,8 +132,77 @@ const RightBar = styled("hr")({
     border: "4px solid rgba(255, 255, 255, 0.65)",
     margin: "0px 100px",
     position: "absolute",
-    width: "39%",
+    width: "37%",
     right: "0"
+});
+
+const BuildsContainer = styled(Box)({
+    width: "auto",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "0px 100px",
+    margin: "80px 0px"
+});
+
+const BuildWrapper = styled(Box)({
+    width: "775px",
+    backgroundColor: "rgba(255, 255, 255, .35)",
+    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
+    marginTop: "200px",
+    position: "relative",
+    fontSize: "2.2em",
+    color: "white"
+});
+
+const Build = styled(Box)({
+    width: "675px",
+    margin: "50px"
+});
+
+const BuildHeader = styled(Box)({
+    position: "relative"
+});
+
+const BuildArt = styled("img")({
+    width: "375px",
+    position: "absolute",
+    top: "-290px",
+    right: "0px",
+    filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.35))"
+});
+
+const BuildItemArt = styled("img")({
+    width: "175px",
+    position: "absolute",
+    top: "-75px",
+    right: "0px",
+    filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.35))"
+});
+
+const BuildTypes = styled(Stack)({
+    
+});
+
+const BuildTypeIcon = styled("img")({
+    height: "125px",
+    marginBottom: "10px",
+    filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.65))"
+});
+
+const BuildRole = styled(Typography)({
+    height: "85px",
+    color: "white",
+    fontSize: "2.6em",
+    margin: "0px"
+});
+
+const BuildHeaderSeparator = styled("hr")({
+    border: "4px solid rgba(255, 255, 255, .35)",
+    margin: "30px 0px"
+});
+
+const ExecutionSection = styled(Box)({
+
 });
 
 function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: string, notes?: string, credits?: string) {
@@ -146,19 +216,44 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, title?: str
                     <Header>
                         <BossWrapper>
                             {/* <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera> */}
-                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.id)}></Boss>
+                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.id)} />
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
                         <Title>{title}</Title>
                         <Subtitle>Created by: {credits}</Subtitle>
                     </Header>
-                    <Builds>
+                    <BuildsSection>
                         <Separator>
                             <LeftBar />
-                            <SeparatorLabel>Builds</SeparatorLabel>
+                            <SeparatorLabel>The Crew</SeparatorLabel>
                             <RightBar />
                         </Separator> 
-                    </Builds>
+                        <BuildsContainer>
+                            <BuildWrapper>
+                                <Build>
+                                    <BuildHeader>
+                                        <BuildArt src={getPokemonArtURL(raidInputProps.pokemon[1].species.id)}/>
+                                        {raidInputProps.pokemon[1].item ? 
+                                            <BuildItemArt src={getItemSpriteURL(raidInputProps.pokemon[1].item)} /> : null}
+                                        <BuildTypes direction="row">
+                                            {raidInputProps.pokemon[1].types.map(type => (
+                                                <BuildTypeIcon src={getTypeIconURL(type)}/>
+                                            ))}
+                                        </BuildTypes>
+                                        <BuildRole>{raidInputProps.pokemon[1].role}</BuildRole>
+                                        <BuildHeaderSeparator />
+                                    </BuildHeader>
+                                </Build>
+                            </BuildWrapper>
+                        </BuildsContainer>
+                    </BuildsSection>
+                    <ExecutionSection>
+                        <Separator>
+                            <LeftBar />
+                            <SeparatorLabel>Execution</SeparatorLabel>
+                            <RightBar />
+                        </Separator> 
+                    </ExecutionSection>
                 </GraphicsContainer> 
             </ThemeProvider>     
         );

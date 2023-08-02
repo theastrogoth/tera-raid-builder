@@ -453,7 +453,7 @@ export class RaidMove {
                         change = statChange.value;
                     }
                     if (Number.isNaN(change)) { console.log("Stat change info for " + this.moveData.name + " is missing."); continue; }
-                    if (change < 0 && (field.attackerSide.isProtected || (field.attackerSide.isMist && id !== this.userID))) {
+                    if (change < 0 && id !== this.userID && (field.attackerSide.isProtected || (field.attackerSide.isMist && this._user.ability !== "Infiltrator"))) {
                         continue;
                     }
                     boost[stat] = change;
@@ -477,7 +477,7 @@ export class RaidMove {
                 // volatile status
                 if (status === "") {
                     // Safeguard and Misty Terrain block confusion
-                    if (ailment === "confusion" && (field.attackerSide.isSafeguard  || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { continue; }
+                    if (ailment === "confusion" && ((field.attackerSide.isSafeguard && this._user.ability !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { continue; }
                     // Aroma Veil
                     if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation"].includes(ailment)) {
                         continue;
@@ -494,9 +494,9 @@ export class RaidMove {
                 // non-volatile status
                 } else {
                     // existing status cannot be overwritten
-                    if (pokemon.status !== "" && pokemon.status !== undefined) { continue; }
+                    if (!hasNoStatus(pokemon)) { continue; }
                     // field-based immunities
-                    if (id !== this.userID && (field.attackerSide.isSafeguard || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { continue; }
+                    if (id !== this.userID && ((field.attackerSide.isSafeguard && this._user.ability !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { continue; }
                     if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { continue; }
                     if (status === "brn" && pokemon.types.includes("Fire")) { continue; }
                     if (status === "frz" && (pokemon.types.includes("Ice") || pokemon.ability === "Magma Armor")) { continue; }
@@ -504,11 +504,7 @@ export class RaidMove {
                     if ((status === "par" && (pokemon.types.includes("Electric") || pokemon.ability === "Limber"))) { continue; }
                     if (status === "slp" && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
                     
-                    if (!(field.attackerSide.isProtected || field.attackerSide.isSafeguard || field.hasTerrain("Misty"))
-                        && (hasNoStatus(pokemon))) 
-                    { 
-                        this._raidState.applyStatus(id, status);
-                    }
+                    this._raidState.applyStatus(id, status);
                 }
             }
         }
@@ -526,13 +522,11 @@ export class RaidMove {
     private applyFieldChanges() {
         /// Whole-Field Effects
         // Weather
-        let weather: (Weather | undefined) = undefined;
         if (this.move.name == "Rain Dance") { this._raidState.applyWeather("Rain"); }
         if (this.move.name == "Sunny Day") { this._raidState.applyWeather("Sun"); }
         if (this.move.name == "Sandstorm") { this._raidState.applyWeather("Sand"); }
         if (this.move.name == "Snowscape") { this._raidState.applyWeather("Snow"); }
         // Terrain
-        let terrain: (Terrain | undefined) = undefined;
         if (this.move.name == "Electric Terrain") { this._raidState.applyTerrain("Electric"); }
         if (this.move.name == "Grassy Terrain") { this._raidState.applyTerrain("Grassy"); }
         if (this.move.name == "Misty Terrain") { this._raidState.applyTerrain("Misty"); }

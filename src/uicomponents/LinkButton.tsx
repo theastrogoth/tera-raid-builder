@@ -18,7 +18,7 @@ import { RaidTurnInfo } from "../raidcalc/interface";
 
 const gen = Generations.get(9);
 
-async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
+export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
     try {
         const obj = deserialize(hash);
         return await lightToFullBuildInfo(obj);
@@ -27,7 +27,7 @@ async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
     }
 }
 
-async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildInfo | null> {
+export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildInfo | null> {
     try {
         const pokemon = (obj.pokemon as LightPokemon[]).map((r) => new Raider(r.id, r.role, new Field(), 
             new Pokemon(gen, r.name, {

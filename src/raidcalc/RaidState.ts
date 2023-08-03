@@ -31,58 +31,14 @@ export class RaidState implements State.RaidState{
     public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
-        pokemon.applyDamage(damage);
-        if (damage <= 0) { return; } // For healing / no damage, we don't need to make the following checks
         const originalHP = pokemon.originalCurHP;
-        const finalHP = pokemon.originalCurHP;
+        pokemon.applyDamage(damage);
         const maxHP = pokemon.maxHP();
-        /// Berry Consumption triggered by damage
-        if (pokemon.item && pokemon.item?.includes("Berry")) {
-            // 50% HP Berries
-            if (finalHP <= maxHP / 2) {
-                if (pokemon.item === "Sitrus Berry") {
-                    pokemon.originalCurHP += Math.floor(maxHP / 4);
-                    this.loseItem(id);
-                }
-            }
-            // 33% HP Berries
-            // TO DO
-            // if (finalHP <= maxHP / 3) {
-            //     switch (pokemon.item) {
-
-            //     }
-            // }
-            // 25% HP Berries
-            if (finalHP <= maxHP / 4) {
-                switch (pokemon.item) {
-                    case "Liechi Berry":
-                        this.applyStatChange(id, {atk: 1}, true, true);
-                        this.loseItem(id);
-                        break;
-                    case "Ganlon Berry":
-                        this.applyStatChange(id, {def: 1}, true, true);
-                        this.loseItem(id);
-                        break;
-                    case "Petaya Berry":
-                        this.applyStatChange(id, {spa: 1}, true, true);
-                        this.loseItem(id);
-                        break;
-                    case "Apicot Berry":
-                        this.applyStatChange(id, {spd: 1}, true, true);
-                        this.loseItem(id);
-                        break;
-                    case "Salac Berry":
-                        this.applyStatChange(id, {spe: 1}, true, true);
-                        this.loseItem(id);
-                        break;
-                }
-            }
-        }
         if (nHits > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
             // Item consumption triggered by damage
             // Focus Sash
             if (pokemon.item === "Focus Sash" || pokemon.ability === "Sturdy") {
-                if (finalHP <= 0 && originalHP === maxHP) { 
+                if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
                     pokemon.originalCurHP = 1;
                     if (pokemon.ability !== "Sturdy") { this.loseItem(id); } 
                 }
@@ -186,18 +142,63 @@ export class RaidState implements State.RaidState{
                 this.applyStatChange(id, boost, true, true);
             }
             // Anger Shell
-            if (pokemon.ability === "Anger Shell" && originalHP > maxHP/2 && finalHP <= maxHP/2) {
+            if (pokemon.ability === "Anger Shell" && originalHP > maxHP/2 && pokemon.originalCurHP <= maxHP/2) {
                 const boost = {atk: 1, spa: 1, spe: 1};
                 this.applyStatChange(id, boost, true, true);
             }
             // Berserk
-            if (pokemon.ability === "Berserk" && originalHP > maxHP/2 && finalHP <= maxHP/2) {
+            if (pokemon.ability === "Berserk" && originalHP > maxHP/2 && pokemon.originalCurHP <= maxHP/2) {
                 const boost = {spa: 1};
                 this.applyStatChange(id, boost, true, true);
             }
             // Electromorphosis
             if (pokemon.ability ===  "Electromorphosis") {
                 pokemon.field.attackerSide.isCharged = true;
+            }
+        }
+        /// Berry Consumption triggered by damage
+        if (pokemon.item && pokemon.item?.includes("Berry")) {
+            // 50% HP Berries
+            if (pokemon.originalCurHP <= maxHP / 2) {
+                if (pokemon.item === "Sitrus Berry") {
+                    pokemon.originalCurHP += Math.floor(maxHP / 4);
+                    this.loseItem(id);
+                } else if (pokemon.item === "Oran Berry") {
+                    pokemon.originalCurHP = Math.min(maxHP, pokemon.originalCurHP + 10);
+                    this.loseItem(id);
+                }
+            }
+            // 33% HP Berries
+            // TO DO
+            // if (pokemon.originalCurHP <= maxHP / 3) {
+            //     switch (pokemon.item) {
+
+            //     }
+            // }
+            // 25% HP Berries
+            if (pokemon.originalCurHP <= maxHP / 4) {
+                switch (pokemon.item) {
+                    case "Liechi Berry":
+                        this.applyStatChange(id, {atk: 1}, true, true);
+                        this.loseItem(id);
+                        break;
+                    case "Ganlon Berry":
+                        this.applyStatChange(id, {def: 1}, true, true);
+                        this.loseItem(id);
+                        break;
+                    case "Petaya Berry":
+                        this.applyStatChange(id, {spa: 1}, true, true);
+                        this.loseItem(id);
+                        break;
+                    case "Apicot Berry":
+                        this.applyStatChange(id, {spd: 1}, true, true);
+                        this.loseItem(id);
+                        break;
+                    case "Salac Berry":
+                        this.applyStatChange(id, {spe: 1}, true, true);
+                        this.loseItem(id);
+                        break;
+                }
             }
         }
     }
@@ -325,7 +326,8 @@ export class RaidState implements State.RaidState{
         if (item && item.includes("Seed")) {
             this.applyTerrain(pokemon.field.terrain, [id]);
         }
-        // Would berries be consumed immediately upon reciept (via Symbiosis, Trick, etc) if their conditions are met?
+        // Berries consumed immediately upon reciept (via Symbiosis, Trick, etc) if their conditions are met
+        this.applyDamage(id, 0, 0);
     }
 
     public applyTerrain(terrain: Terrain | undefined, ids: number[] = [0,1,2,3,4]) {
@@ -341,6 +343,7 @@ export class RaidState implements State.RaidState{
                 } else if (pokemon.field.terrain !== "Electric" && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
                     pokemon.boostedStat = undefined;
+                    if (pokemon.item === "Booster Energy") { this.recieveItem(id, "Booster Energy" as ItemName); }
                 }
             }
             // Terrain Seeds
@@ -373,6 +376,7 @@ export class RaidState implements State.RaidState{
                 } else if ((pokemon.field.weather || "").includes("Sun")  && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
                     pokemon.boostedStat = undefined;
+                    if (pokemon.item === "Booster Energy") { this.recieveItem(id, "Booster Energy" as ItemName); }
                 }
             }
         }

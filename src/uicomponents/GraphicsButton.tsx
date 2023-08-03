@@ -32,6 +32,11 @@ import Typography from "@mui/material/Typography";
 import { opacity } from "html2canvas/dist/types/css/property-descriptors/opacity";
 import { backgroundPosition } from "html2canvas/dist/types/css/property-descriptors/background-position";
   
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import DownloadIcon from '@mui/icons-material/Download';
+
+
 const graphicsTheme = createTheme({
     typography: {
         fontFamily: 'renogare, sans-serif',
@@ -293,20 +298,20 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getPokemonArtURL("wo-chien"));
 
-    const fileInputClicked = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const imageFile = (e.target.files || [null])[0];
         const imageFileURL = imageFile ? URL.createObjectURL(imageFile) : getPokemonArtURL("wo-chien");
         loadedImageURLRef.current = imageFileURL;
-    }
-
-    const handleFocusBack = () => {
-        window.removeEventListener('focus', handleFocusBack);
-        setTimeout(() => handleDownload(), 100)
-    }
-
-    const clickedFileInput = () => {
-        window.addEventListener('focus', handleFocusBack);
-    }
+    };
 
     const handleDownload = () => {
         try {
@@ -319,23 +324,54 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
     
     return (
         <Box>
-            <input
-                accept="image/*"
-                style={{ display: 'none' }}
-                id="graphic-button-file"
-                type="file"
-                onClick={clickedFileInput}
-                onChange={fileInputClicked}
-            />
-            <label htmlFor="graphic-button-file">
-                <Button
+            <Button 
+                variant="outlined"
+                onClick={handleClick}
+            >
+                Download Graphic
+            </Button>
+            <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                  }}
+            >
+                <MenuItem>
+                    <input
+                        accept="image/*"
+                        style={{ display: 'none' }}
+                        id="graphic-button-file"
+                        type="file"
+                        onChange={handleFileInputChange}
+                    />
+                    <label htmlFor="graphic-button-file">
+                        <Button
+                            variant="outlined"
+                            component="span"
+                        >
+                            Choose Background
+                        </Button>
+                    </label>
+                </MenuItem>
+                <MenuItem>
+                  <Button
                     variant="outlined"
-                    component="span"
-                >
-                    Choose Background & Download Graphic
-                </Button>
-            </label>
+                    onClick={handleDownload}
+                    endIcon={<DownloadIcon />}
+                  >
+                    Dowload
+                  </Button>
+                </MenuItem>
+            </Menu>
         </Box>
+
     );
 };
 

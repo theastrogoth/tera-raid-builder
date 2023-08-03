@@ -21,7 +21,7 @@ import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { Hidden } from "@mui/material";
+import { Hidden, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -35,6 +35,11 @@ import Typography from "@mui/material/Typography";
 import { opacity } from "html2canvas/dist/types/css/property-descriptors/opacity";
 import { backgroundPosition } from "html2canvas/dist/types/css/property-descriptors/background-position";
   
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import DownloadIcon from '@mui/icons-material/Download';
+
+
 const graphicsTheme = createTheme({
     typography: {
         fontFamily: 'renogare, sans-serif',
@@ -264,7 +269,7 @@ const ExecutionSection = styled(Box)({
 
 });
 
-function GenerateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundImageURL: string, title?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     console.log("loaded Image", backgroundImageURL)
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
@@ -285,7 +290,8 @@ function GenerateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundI
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
                         <Title>{title}</Title>
-                        <Subtitle>Created by: {credits}</Subtitle>
+                        {/* <Subtitle>Created by: {credits}</Subtitle> */}
+                        <Subtitle>{subtitle}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>
@@ -382,25 +388,26 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
     const hash = location.hash
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getPokemonArtURL("wo-chien"));
+    const [subtitle, setSubtitle] = useState<string>("");
 
-    const fileInputClicked = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const imageFile = (e.target.files || [null])[0];
         const imageFileURL = imageFile ? URL.createObjectURL(imageFile) : getPokemonArtURL("wo-chien");
         loadedImageURLRef.current = imageFileURL;
-    }
-
-    const handleFocusBack = () => {
-        window.removeEventListener('focus', handleFocusBack);
-        setTimeout(() => handleDownload(), 100)
-    }
-
-    const clickedFileInput = () => {
-        window.addEventListener('focus', handleFocusBack);
-    }
+    };
 
     const handleDownload = () => {
         try {
-            const graphicTop = GenerateGraphic(theme, raidInputProps, loadedImageURLRef.current, title, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, loadedImageURLRef.current, title, subtitle, notes, credits);
             saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)
@@ -409,23 +416,62 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
     
     return (
         <Box>
-            <input
-                accept="image/*"
-                style={{ display: 'none' }}
-                id="graphic-button-file"
-                type="file"
-                onClick={clickedFileInput}
-                onChange={fileInputClicked}
-            />
-            <label htmlFor="graphic-button-file">
-                <Button
+            <Button 
+                variant="outlined"
+                onClick={handleClick}
+            >
+                Download Graphic
+            </Button>
+            <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                  }}
+            >
+                <MenuItem>
+                    <input
+                        accept="image/*"
+                        style={{ display: 'none' }}
+                        id="graphic-button-file"
+                        type="file"
+                        onChange={handleFileInputChange}
+                    />
+                    <label htmlFor="graphic-button-file">
+                        <Button
+                            variant="outlined"
+                            component="span"
+                        >
+                            Choose Background
+                        </Button>
+                    </label>
+                </MenuItem>
+                <MenuItem>
+                    <TextField 
+                        variant="outlined"
+                        placeholder="Subtitle"
+                        value={subtitle}
+                        onChange={(e) => setSubtitle(e.target.value)}
+                    />
+                </MenuItem>
+                <MenuItem>
+                  <Button
                     variant="outlined"
-                    component="span"
-                >
-                    Choose Background & Download Graphic
-                </Button>
-            </label>
+                    onClick={handleDownload}
+                    endIcon={<DownloadIcon />}
+                  >
+                    Dowload
+                  </Button>
+                </MenuItem>
+            </Menu>
         </Box>
+
     );
 };
 

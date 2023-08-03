@@ -6,8 +6,8 @@ import Box from '@mui/material/Box';
 
 import { Pokemon, Generations, Field, Move } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription } from "../utils";
-import { Raider, RaidState, RaidTurnInfo } from "../raidcalc/interface";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL } from "../utils";
+import { Raider, RaidMoveInfo, RaidState, RaidTurnInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
 import { PokedexService, PokemonData } from "../services/getdata"
@@ -21,7 +21,7 @@ import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { Hidden, TextField } from "@mui/material";
+import { Grid, Hidden, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -269,6 +269,81 @@ const ExecutionSection = styled(Box)({
 
 });
 
+const ExecutionOrder = styled(Grid)({
+    justifyContent: "center",
+    alignItems: "center"
+});
+
+const MoveGroup = styled(Grid)({
+    
+}); 
+
+const MoveGroupContainer = styled(Grid)({
+    
+});
+
+const MoveGroupWrapper = styled(Box)({
+    backgroundColor: "rgba(255, 255, 255, .35)",
+    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
+    margin: "40px",
+    position: "relative",
+    color: "white",
+    alignItems: "center",
+    justifyContent: "center",   
+});
+
+const MoveGroupLabelWrapper = styled(Box)({
+    backgroundColor: "rgba(10, 10, 10, .75)",
+    borderRadius: "100px",
+    height: "100px",
+    width: "100px",
+    position: "absolute",
+    top: "-60px",
+    right: "50%",
+    marginRight: "-50px",
+});
+
+// this is hacked together, not too familiar with CSS
+const MoveGroupLabel = styled(Typography)({
+    position: "relative",
+    left: "50%",
+    marginLeft: "-20px",
+    fontSize: "5.5em"
+});
+
+const MoveGroupItem = styled(Grid)({
+
+});
+
+const MoveGroupItemWrapper = styled(Box)({
+    backgroundColor: "rgba(255, 255, 255, .35)",
+    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
+    margin: "40px",
+    position: "relative",
+    fontSize: "2.2em",
+    color: "white"
+});
+
+const MoveGroupItemBox = styled(Box)({
+    height: "150px",
+    width: "750px",
+    lineHeight: "60px",
+    backgroundColor: "rgba(255, 255, 255, .01)",
+    marginTop: "15px",
+    padding: "50px",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontSize: "1.4em",
+    position: "relative"
+});
+
+const RaiderSprite = styled("img")({
+    height: "175px",
+    padding: "0px 20px"
+});
+
 function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
     switch (moveMethod) {
         case "egg":
@@ -280,7 +355,30 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
     }
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+// TODO: move this to a more appropriate place (also used in MoveDisplay)
+function getMoveGroups(raidInputProps: RaidInputProps) {
+    const turns = raidInputProps.turns;
+    const displayGroups: number[][] = [];
+    let currentGroupIndex = -1;
+    let currentGroupID: number | undefined = -1;
+    turns.forEach((t, index) => {
+        if (t.moveInfo.moveData.name === "(No Move)") { return; }
+        const g = t.group;
+        if (g === undefined || g !== currentGroupID) {
+            currentGroupIndex += 1;
+            displayGroups.push([index]);
+        } else {
+            displayGroups[currentGroupIndex].push(index);
+        }
+        currentGroupID = g;
+    })
+    const moveGroups = displayGroups.map(group => 
+        group.map((id) => turns.find((turn) => turn.id === id)!.moveInfo)
+    );
+    return moveGroups;
+}
+
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: RaidMoveInfo[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     console.log("loaded Image", backgroundImageURL)
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
@@ -365,6 +463,34 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             <SeparatorLabel>Execution</SeparatorLabel>
                             <RightBar />
                         </Separator> 
+                        <ExecutionOrder container>
+                            {
+                                moveGroups.map((moveGroup, gidx) => (
+                                    <MoveGroup item key={"move_group_" + gidx}>
+                                        <MoveGroupWrapper>
+                                            <MoveGroupLabelWrapper>
+                                                <MoveGroupLabel>{gidx + 1}</MoveGroupLabel>
+                                            </MoveGroupLabelWrapper>
+                                            <MoveGroupContainer container>
+                                                {
+                                                    moveGroup.map((move, midx) => (
+                                                        <MoveGroupItem item>
+                                                            <MoveGroupItemWrapper>
+                                                                <MoveGroupItemBox key={"move_group_box_" + gidx + "_" + midx}>
+                                                                    <MoveLabel>{move.moveData.name}</MoveLabel>                                                
+                                                                    <RaiderSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].name)} />
+                                                                </MoveGroupItemBox>
+                                                            </MoveGroupItemWrapper>
+                                                        </MoveGroupItem>
+                                                    ))
+                                                }
+                                            </MoveGroupContainer>
+                                        </MoveGroupWrapper>
+                                    </MoveGroup>
+
+                                ))
+                            }
+                        </ExecutionOrder>
                     </ExecutionSection>
                 </GraphicsContainer> 
             </ThemeProvider>     
@@ -387,7 +513,6 @@ function saveGraphic(graphicTop: HTMLElement, title: string) {
     });
     // graphicTop.remove(); // remove the element from the DOM // commented for now, I dont want the element to be remove in development
 }
-
 
 function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNotes, setCredits, setPrettyMode}: 
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, 
@@ -429,8 +554,10 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
                 )
             );
             const moveTypes = moves.map((ms) => ms.map((move) => move.type));
+            // sort moves into groups
+            const moveGroups = getMoveGroups(raidInputProps);
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, loadedImageURLRef.current, title, subtitle, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, loadedImageURLRef.current, title, subtitle, notes, credits);
             saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)

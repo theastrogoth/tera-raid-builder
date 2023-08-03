@@ -165,6 +165,27 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[7].results[0].userID).toEqual(1); // Iron Hands moves first
     expect(result.turnResults[7].state.raiders[0].field.isTrickRoom).toEqual(true); // Trick Room is up
   })
+  test('sturdy_oran', async() => {
+    const hash = "#H4sIAAAAAAAAA72TS2/bMAzHv4rB0wbokEezFbk16B7dlm5oupPhg2zTiRY9DD3SBkW++yjZTtftNKAwYhAUJfL/E8U8QQNLqH45o4GBh2WeTxhorhAKFl1R905lhacjDiuja26PH5oGK+8oZI2U8dCUQXBob65jJW636JNrWi+MdvHEjMHWmtBSVJkD3ujGkFsa59bDsqujjcdYurJYiyTSmj2qDjJYHSOpkuvpdrEm93uyNTaRs+XJ1slir06oCP396HwppPBH8oRHleJUPO7gISqIZCUeUEZdtPz+2GIP7wbyIL1opUAb8x695eu0WxQMDrB8AurpOwbQf3kKXDJivuOizlZUgjbuhJS8NCZSfLLcuWO2CdRCYDpIyeAL9ZhAU/J7Sj7/itMQnE//+mhrOiGdW2MVpxvkcG2DylbIvdBbErqqrClpUUWClalJU/JI8M08ZF9FtaeuzRdUIicm8+B36ZhRZbAuzsIqyH32s6Wr9hCXjN5uzbcaFXUUXvob6m0dm/3dck0U1sbFZ56C/32xri85bGhEsNoRabxr/gfKrFPaBhvghbs5qlIYJ9xrsZBwR/MvxJzBR2noIaPYszcmwgWDH2LPq128+7P35tZkV90f4O0wZa+oXvSTvmD9XloRy/Bg9ISTLjhnDZcOewtKaKD80znjPI2UMB1SvA3YGVD8MSUMKYthOsaUnI0vOR9f8mI8ySKN0ek3xSUqPqEGAAA=";
+    const result = await resultsFromHash(hash);
+    // T1 Sturdy activates, Oran Berry heals
+    expect(result.turnResults[0].state.raiders[1].originalCurHP).toEqual(11);
+    expect(result.turnResults[0].state.raiders[1].item).toEqual("Oran Berry"); // Recieved via Symbiosis from Florges
+    expect(result.turnResults[0].state.raiders[2].item).toEqual("Oran Berry"); // Not yet passed
+    expect(result.turnResults[0].state.raiders[3].item).toEqual(undefined); // passed
+    // T2 Sturdy activates, Oran Berry heals
+    expect(result.turnResults[1].state.raiders[1].originalCurHP).toEqual(11);
+    expect(result.turnResults[1].state.raiders[1].item).toEqual("Oran Berry"); //  Recieved via Symbiosis
+    expect(result.turnResults[1].state.raiders[2].item).toEqual(undefined); // passed
+    // T3 Sturdy activates, Oran Berry heals
+    expect(result.turnResults[2].state.raiders[1].originalCurHP).toEqual(11);
+    expect(result.turnResults[2].state.raiders[1].item).toEqual(undefined); // consumed
+    // T4 Sturdy activates, Oran Berry heals
+    expect(result.turnResults[3].state.raiders[1].originalCurHP).toEqual(1); // Sturdy activates for the last time
+    expect(result.turnResults[3].state.raiders[1].item).toEqual(undefined);
+    // T5 No more berries, KOd
+    expect(result.turnResults[4].state.raiders[1].originalCurHP).toEqual(0); // KO
+  })
 })
 
 // Test cases for OHKO strats

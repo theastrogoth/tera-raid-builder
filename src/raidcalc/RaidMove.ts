@@ -648,10 +648,11 @@ export class RaidMove {
                 break;
             case "Switcheroo":
             case "Trick":
-                const tempUserItem = this._user.item;
-                const tempTargetItem = target.item;
-                this._raidState.recieveItem(this.targetID, tempUserItem);
-                this._raidState.recieveItem(this.userID, tempTargetItem);
+                // These moves don't work in Tera raids
+                // const tempUserItem = this._user.item;
+                // const tempTargetItem = target.item;
+                // this._raidState.recieveItem(this.targetID, tempUserItem);
+                // this._raidState.recieveItem(this.userID, tempTargetItem);
                 break;
             case "Fling":
                 const flingItem = this._user.item;
@@ -820,7 +821,7 @@ export class RaidMove {
             const drain = this._drain[id];
             const healing = this._healing[id];
             // apply damage from being hit with a damaging movev
-            this._raidState.applyDamage(id, damage, this.move.hits || 1, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
+            this._raidState.applyDamage(id, damage, this.move.hits || ((this.move.category || "Status") !== "Status" ? 1 : 0), this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
             // apply damage/healing from recoil/drain
             if (pokemon.originalCurHP !== 0) {
                 this._raidState.applyDamage(id, -drain);

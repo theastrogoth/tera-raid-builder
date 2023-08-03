@@ -24,9 +24,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           # Reads the node version from the .nvmrc file itself 
-          node-version-file: '.nvmrc'
+          # node-version-file: '.nvmrc'
           # The node version can be hard-coded 
-          # node-version: 14
+          node-version: 18
         
       # Consider this as an add on to optimize the execution of actions
       - name: Cache node modules

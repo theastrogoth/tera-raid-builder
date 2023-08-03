@@ -18,7 +18,7 @@ import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { Hidden } from "@mui/material";
+import { Hidden, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -210,7 +210,7 @@ const ExecutionSection = styled(Box)({
 
 });
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundImageURL: string, title?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     console.log("loaded Image", backgroundImageURL)
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
@@ -230,7 +230,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundI
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
                         <Title>{title}</Title>
-                        <Subtitle>Created by: {credits}</Subtitle>
+                        {/* <Subtitle>Created by: {credits}</Subtitle> */}
+                        <Subtitle>{subtitle}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>
@@ -297,6 +298,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
     const hash = location.hash
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getPokemonArtURL("wo-chien"));
+    const [subtitle, setSubtitle] = useState<string>("");
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -315,7 +317,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
 
     const handleDownload = () => {
         try {
-            const graphicTop = generateGraphic(theme, raidInputProps, loadedImageURLRef.current, title, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, loadedImageURLRef.current, title, subtitle, notes, credits);
             saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)
@@ -359,6 +361,14 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
                             Choose Background
                         </Button>
                     </label>
+                </MenuItem>
+                <MenuItem>
+                    <TextField 
+                        variant="outlined"
+                        placeholder="Subtitle"
+                        value={subtitle}
+                        onChange={(e) => setSubtitle(e.target.value)}
+                    />
                 </MenuItem>
                 <MenuItem>
                   <Button

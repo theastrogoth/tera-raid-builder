@@ -279,7 +279,8 @@ const MoveGroup = styled(Grid)({
 }); 
 
 const MoveGroupContainer = styled(Grid)({
-    
+    width: "2400px",
+    alignItems: "left",
 });
 
 const MoveGroupWrapper = styled(Box)({
@@ -288,19 +289,17 @@ const MoveGroupWrapper = styled(Box)({
     margin: "40px",
     position: "relative",
     color: "white",
-    alignItems: "center",
-    justifyContent: "center",   
 });
 
 const MoveGroupLabelWrapper = styled(Box)({
     backgroundColor: "rgba(10, 10, 10, .75)",
     borderRadius: "100px",
-    height: "100px",
-    width: "100px",
+    height: "150px",
+    width: "150px",
     position: "absolute",
-    top: "-60px",
-    right: "50%",
-    marginRight: "-50px",
+    top: "50%",
+    marginTop: "-75px",
+    left: "-160px",
 });
 
 // this is hacked together, not too familiar with CSS
@@ -308,6 +307,8 @@ const MoveGroupLabel = styled(Typography)({
     position: "relative",
     left: "50%",
     marginLeft: "-20px",
+    top: "50%",
+    marginTop: "-50px",
     fontSize: "5.5em"
 });
 
@@ -326,22 +327,40 @@ const MoveGroupItemWrapper = styled(Box)({
 
 const MoveGroupItemBox = styled(Box)({
     height: "150px",
-    width: "750px",
+    width: "2300px",
     lineHeight: "60px",
     backgroundColor: "rgba(255, 255, 255, .01)",
     marginTop: "15px",
     padding: "50px",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     fontSize: "1.4em",
     position: "relative"
 });
 
+const MoveGroupItemText = styled(Typography)({
+    height: "100px",
+    lineHeight: "100px",
+    fontSize: "1.5em",
+    margin: "0px 50px",
+});
+
+const RaiderLabelWrapper = styled(Stack)({
+    margin: "0px 30px",
+    alignItems: "center",
+});
+
+const RaiderLabel = styled(Typography)({
+    height: "100px",
+    lineHeight: "100px",
+    fontSize: "1.6em",
+    margin: "0px 20px",
+});
+
 const RaiderSprite = styled("img")({
-    height: "175px",
-    padding: "0px 20px"
+    height: "200px",
 });
 
 function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
@@ -477,8 +496,22 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                         <MoveGroupItem item>
                                                             <MoveGroupItemWrapper>
                                                                 <MoveGroupItemBox key={"move_group_box_" + gidx + "_" + midx}>
-                                                                    <MoveLabel>{move.moveData.name}</MoveLabel>                                                
-                                                                    <RaiderSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].name)} />
+                                                                    <RaiderLabelWrapper direction="row">
+                                                                        <RaiderLabel>{raidInputProps.pokemon[move.userID].name}</RaiderLabel>
+                                                                        <RaiderSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].name)} />
+                                                                    </RaiderLabelWrapper>
+                                                                    <MoveGroupItemText>uses</MoveGroupItemText>
+                                                                    <MoveGroupItemText>{move.moveData.name}</MoveGroupItemText> 
+                                                                    { !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.moveData.target!) &&
+                                                                        <MoveGroupItemText>on</MoveGroupItemText>
+                                                                    }
+                                                                    { !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.moveData.target!) &&
+                                                                        <RaiderLabelWrapper direction="row">
+                                                                            <RaiderLabel>{raidInputProps.pokemon[move.targetID].name}</RaiderLabel>
+                                                                            <RaiderSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.targetID].name)} />
+                                                                        </RaiderLabelWrapper>   
+                                                                    }
+                                                                    
                                                                 </MoveGroupItemBox>
                                                             </MoveGroupItemWrapper>
                                                         </MoveGroupItem>

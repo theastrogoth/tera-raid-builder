@@ -4,13 +4,13 @@ import { serialize, deserialize } from "../utilities/shrinkstring";
 
 import Box from '@mui/material/Box';
 
-import { Pokemon, Generations, Field } from "../calc";
+import { Pokemon, Generations, Field, Move } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription } from "../utils";
 import { Raider, RaidState, RaidTurnInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
-import { PokedexService } from "../services/getdata"
+import { PokedexService, PokemonData } from "../services/getdata"
 import { MoveData, MoveSetItem } from "../raidcalc/interface";
 
 
@@ -269,7 +269,18 @@ const ExecutionSection = styled(Box)({
 
 });
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
+    switch (moveMethod) {
+        case "egg":
+            return getMoveMethodIconURL("egg");
+        case "machine":
+            return getMoveMethodIconURL(moveType);
+        default:
+            return undefined;
+    }
+}
+
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     console.log("loaded Image", backgroundImageURL)
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
@@ -336,7 +347,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundI
                                                             <MoveBox key={"move_box_" + index}>
                                                                 {raider.moves[index] ? <MoveTypeIcon src={getTypeIconURL("normal")} /> : null}
                                                                 {raider.moves[index] ? <MoveLabel>{raider.moves[index]}</MoveLabel> : null}
-                                                                {raider.moves[index] ? <MoveLearnMethodIcon src={getMoveMethodIconURL("egg")} /> : null}
+                                                                {raider.moves[index] ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} /> : null}
                                                             </MoveBox>
                                                         ))
                                                     }
@@ -405,9 +416,21 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
         loadedImageURLRef.current = imageFileURL;
     };
 
-    const handleDownload = () => {
+    const handleDownload = async () => {
         try {
-            const graphicTop = generateGraphic(theme, raidInputProps, loadedImageURLRef.current, title, subtitle, notes, credits);
+            // get learn method + types for moves (maybe we should be storing these somewhere instead of fetching them in several places)
+            const pokemonData = (await Promise.all(
+                raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
+            )).filter((data) => data !== undefined) as PokemonData[];
+            const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
+            const learnMethods = moves.map((ms, index) => 
+                ms.map((move) => 
+                    pokemonData[index].moves.find((moveData) => moveData.name === move.name)!.learnMethod
+                )
+            );
+            const moveTypes = moves.map((ms) => ms.map((move) => move.type));
+            // generate graphic
+            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, loadedImageURLRef.current, title, subtitle, notes, credits);
             saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)
@@ -463,7 +486,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
                 <MenuItem>
                   <Button
                     variant="outlined"
-                    onClick={handleDownload}
+                    onClick={() => { handleDownload(); handleClose(); }}
                     endIcon={<DownloadIcon />}
                   >
                     Dowload

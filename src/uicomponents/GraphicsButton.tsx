@@ -6,10 +6,13 @@ import Box from '@mui/material/Box';
 
 import { Pokemon, Generations, Field } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription } from "../utils";
 import { Raider, RaidState, RaidTurnInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
+import { PokedexService } from "../services/getdata"
+import { MoveData, MoveSetItem } from "../raidcalc/interface";
+
 
 import PokemonSummary from "./PokemonSummary";
 import BossSummary from "./BossSummary";
@@ -184,15 +187,15 @@ const BuildTypes = styled(Stack)({
 });
 
 const BuildTypeIcon = styled("img")({
-    height: "125px",
-    marginBottom: "10px",
+    height: "100px",
+    margin: "0px 20px 10px 0px",
     filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.65))"
 });
 
 const BuildRole = styled(Typography)({
     height: "85px",
     color: "white",
-    fontSize: "2.6em",
+    fontSize: "2.8em",
     margin: "0px"
 });
 
@@ -201,15 +204,72 @@ const BuildHeaderSeparator = styled("hr")({
     margin: "30px 0px"
 });
 
+const BuildInfoContainer = styled(Stack)({
+    height: "430px",
+});
+
+const BuildInfo = styled(Typography)({
+    fontSize: "1.8em",
+    height: "55px",
+    lineHeight: "55px",
+    margin: "8px 0px",
+    paddingLeft: "1em",
+    textIndent: "-1em"
+});
+
+const BuildMovesSection = styled(Box)({
+    marginTop: "50px"
+});
+
+const MovesHeader = styled(Typography)({
+    color: "white",
+    fontSize: "2.25em",
+    margin: "0px"
+});
+
+const MovesContainer = styled(Stack)({
+
+});
+
+const MoveBox = styled(Box)({
+    height: "100px",
+    lineHeight: "60px",
+    backgroundColor: "rgba(255, 255, 255, .25)",
+    marginTop: "15px",
+    padding: "0px",
+    display: "flex",
+    alignItems: "center",
+    fontSize: "1.4em",
+    position: "relative"
+});
+
+const MoveTypeIcon = styled("img")({
+    height: "80px",
+    padding: "0px 20px"
+});
+
+const MoveLabel = styled(Typography)({
+    height: "100px",
+    lineHeight: "100px",
+    fontSize: "1.3em"
+});
+
+const MoveLearnMethodIcon = styled("img")({
+    height: "80px",
+    position: "absolute",
+    right: "20px"
+});
+
 const ExecutionSection = styled(Box)({
 
 });
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundImageURL: string, title?: string, notes?: string, credits?: string) {
+function GenerateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundImageURL: string, title?: string, notes?: string, credits?: string) {
     console.log("loaded Image", backgroundImageURL)
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
+
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
@@ -233,23 +293,53 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, backgroundI
                             <SeparatorLabel>The Crew</SeparatorLabel>
                             <RightBar />
                         </Separator> 
-                        <BuildsContainer>
-                            <BuildWrapper>
-                                <Build>
-                                    <BuildHeader>
-                                        <BuildArt src={getPokemonArtURL(raidInputProps.pokemon[1].species.id)}/>
-                                        {raidInputProps.pokemon[1].item ? 
-                                            <BuildItemArt src={getItemSpriteURL(raidInputProps.pokemon[1].item)} /> : null}
-                                        <BuildTypes direction="row">
-                                            {raidInputProps.pokemon[1].types.map(type => (
-                                                <BuildTypeIcon src={getTypeIconURL(type)}/>
-                                            ))}
-                                        </BuildTypes>
-                                        <BuildRole>{raidInputProps.pokemon[1].role}</BuildRole>
-                                        <BuildHeaderSeparator />
-                                    </BuildHeader>
-                                </Build>
-                            </BuildWrapper>
+                    <BuildsContainer>    
+                            {
+                                raidInputProps.pokemon.slice(1, 5).map((raider, index) => (
+                                    <BuildWrapper key={index}>
+                                        <Build>
+                                            <BuildHeader>
+                                                <BuildArt src={getPokemonArtURL(raider.species.id)}/>
+                                                {raider.item ? 
+                                                    <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
+                                                <BuildTypes direction="row">
+                                                    {raider.types.map((type, index) => (
+                                                        <BuildTypeIcon key={index} src={getTypeIconURL(type)}/>
+                                                    ))}
+                                                </BuildTypes>
+                                                <BuildRole>{raider.role}</BuildRole>
+                                                <BuildHeaderSeparator />
+                                            </BuildHeader>
+                                            <BuildInfoContainer>
+                                                <BuildInfo>Level: {raider.level}</BuildInfo>
+                                                {raider.item ?
+                                                    <BuildInfo>Item: {raider.item}</BuildInfo> : null}
+                                                {raider.ability !== "(No Ability)" ?
+                                                    <BuildInfo>Ability: {raider.ability}</BuildInfo> : null}
+                                                <BuildInfo>Nature: {raider.nature}</BuildInfo>
+                                                {getEVDescription(raider.evs) ? 
+                                                    <BuildInfo>EVs: {getEVDescription(raider.evs)}</BuildInfo> : null}
+                                                {getIVDescription(raider.ivs) ? 
+                                                    <BuildInfo>IVs: {getIVDescription(raider.ivs)}</BuildInfo> : null}
+                                            </BuildInfoContainer>
+                                            <BuildMovesSection>
+                                                <MovesHeader>Moves:</MovesHeader>
+                                                <MovesContainer>
+                                                    {
+                                                        [...Array(4)].map((val, index) => (
+                                                            <MoveBox key={"move_box_" + index}>
+                                                                {raider.moves[index] ? <MoveTypeIcon src={getTypeIconURL("normal")} /> : null}
+                                                                {raider.moves[index] ? <MoveLabel>{raider.moves[index]}</MoveLabel> : null}
+                                                                {raider.moves[index] ? <MoveLearnMethodIcon src={getMoveMethodIconURL("egg")} /> : null}
+                                                            </MoveBox>
+                                                        ))
+                                                    }
+                                                </MovesContainer>
+                                            </BuildMovesSection>
+                                        </Build>
+                                    </BuildWrapper>
+                                ))
+                            }
                         </BuildsContainer>
                     </BuildsSection>
                     <ExecutionSection>
@@ -310,7 +400,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
 
     const handleDownload = () => {
         try {
-            const graphicTop = generateGraphic(theme, raidInputProps, loadedImageURLRef.current, title, notes, credits);
+            const graphicTop = GenerateGraphic(theme, raidInputProps, loadedImageURLRef.current, title, notes, credits);
             saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)
@@ -338,6 +428,5 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
         </Box>
     );
 };
-
 
 export default GraphicsButton;

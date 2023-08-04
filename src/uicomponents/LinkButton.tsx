@@ -42,7 +42,9 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                 moves: r.moves || undefined
             }), 
             (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
-            (r.extraMoves || undefined) as (MoveName[] | undefined))));
+            (r.extraMoves || undefined) as (MoveName[] | undefined),
+            (r.extraMoves ? (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+        )));
         const turns: RaidTurnInfo[] = [];
         for (let t of obj.turns as LightTurnInfo[]) {
             const mdata = pokemon[t.moveInfo.userID].moveData.find((m) => m && m.name === t.moveInfo.name);

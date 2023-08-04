@@ -165,8 +165,32 @@ export class RaidTurn {
                 }
             }
             this._bossMoveData = this._raidState.raiders[0].moveData.find((move) => move.name === bestMove) as MoveData;
-            console.log(bestMove, this._raidState.raiders[0], this._bossMoveData, this._raidState.raiders[0].moveData, this._raidState.raiders[0].extraMoveData);
             this._bossMove = new Move(9, bestMove, this.bossOptions);
+        }
+        if (this.raiderMoveData.name === "(Most Damaging)") {
+            const moveOptions = this._raidState.raiders[this.raiderID].moves;
+            let bestMove = moveOptions[0];
+            let bestDamage = 0;
+            for (const move of moveOptions) {
+                const testMove = new Move(9, move, this.raiderOptions);
+                const testField = this._raidState.raiders[this.raiderID].field;
+                testField.defenderSide = this._raidState.raiders[this.targetID].field.attackerSide;
+                const result = calculate(9, this._raidState.raiders[this.raiderID], this._raidState.raiders[0], testMove, testField);
+                let damage: number = 0;
+                if (typeof(result.damage) === "number") {
+                    damage = result.damage;
+                } else {
+                    damage = (this.raiderOptions.roll === "min" ? result.damage[0] :
+                              this.raiderOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
+                              result.damage[Math.floor(result.damage.length / 2)]) as number;
+                }
+                if (damage > bestDamage) {
+                    bestMove = move;
+                    bestDamage = damage;
+                }
+            }
+            this._raiderMoveData = this._raidState.raiders[this.raiderID].moveData.find((move) => move.name === bestMove) as MoveData;
+            this._raiderMove = new Move(9, bestMove, this.raiderOptions);
         }
         // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
         // Instruct

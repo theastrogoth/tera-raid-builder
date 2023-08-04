@@ -160,6 +160,7 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
     const moves = raiders[moveInfo.userID].moves;
     const moveSet = ["(No Move)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
+    // const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
@@ -204,6 +205,8 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
     useEffect(() => {
         if (moveName === "(No Move)") {
             setMoveInfo({...moveInfo, moveData: {name: moveName}});
+        } else if (moveName === "(Most Damaging)") {
+            setMoveInfo({...moveInfo, moveData: {name: moveName, target: "selected-pokemon"}});
         } else if (moveName === "Attack Cheer" || moveName === "Defense Cheer") {
             setMoveInfo({...moveInfo, moveData: {name: moveName, priority: 10, category: "field-effect", target: "user-and-allies"}})
         } else if (moveName === "Heal Cheer") {

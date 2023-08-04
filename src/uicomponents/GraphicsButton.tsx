@@ -182,7 +182,6 @@ const BuildsContainer = styled(Box)({
 const BuildWrapper = styled(Box)({
     width: "775px",
     backgroundColor: "rgba(255, 255, 255, .35)",
-    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
     marginTop: "200px",
     position: "relative",
     fontSize: "2.2em",
@@ -309,7 +308,6 @@ const ExecutionTable = styled("table")({
     width: "100%",
     padding: "25px 0px",
     backgroundColor: "rgba(255, 255, 255, .35)",
-    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
 });
 
 const ExecutionRow = styled("tr")({
@@ -323,7 +321,6 @@ const ExecutionGroup = styled(Box)({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
 });
 
 const ExecutionMoveNumber = styled(Typography)({
@@ -354,7 +351,6 @@ const ExecutionMovePokemonWrapper = styled(Box)({
     height: "100px",
     width: "750px",
     backgroundColor: "rgba(255, 255, 255, .35)",
-    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -410,7 +406,6 @@ const ExecutionMoveAction = styled(Typography)({
     overflow: "hidden",
     whiteSpace: "nowrap",
     backgroundColor: "rgba(255, 255, 255, .35)",
-    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
 });
 
 const InfoSection = styled(Box)({
@@ -420,7 +415,6 @@ const InfoSection = styled(Box)({
     padding: "50px",
     position: "relative",
     backgroundColor: "rgba(255, 255, 255, .35)",
-    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
 });
 
 const Notes = styled(Typography)({

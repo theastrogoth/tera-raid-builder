@@ -97,7 +97,8 @@ const GraphicsContainer = styled(Box)({
     backgroundSize: "cover",
     backgroundPosition: "center",
     fontKerning: "auto",
-    textShadow: "0px 0px 15px rgba(0, 0, 0, .35)"
+    textShadow: "0px 0px 15px rgba(0, 0, 0, .35)",
+    paddingBottom: "1px"
 });
 
 const Header = styled(Box)({
@@ -414,126 +415,32 @@ const ExecutionMoveAction = styled(Typography)({
     boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
 });
 
-// const ExecutionOrder = styled(Grid)({
-//     justifyContent: "center",
-//     alignItems: "center"
-// });
+const InfoSection = styled(Box)({
+    width: "auto",
+    justifyContent: "space-between",
+    margin: "100px",
+    padding: "50px",
+    position: "relative",
+    backgroundColor: "rgba(255, 255, 255, .35)",
+    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
+});
 
-// const MoveGroup = styled(Grid)({
-    
-// }); 
+const Notes = styled(Typography)({
+    fontSize: "4.2em",
+    color: "white",
+    marginBottom: "50px"
+});
 
-// const MoveGroupContainer = styled(Grid)({
-//     alignItems: "left",
-// });
+const CreditsContainer = styled(Box)({
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+});
 
-// const MoveGroupWrapper = styled(Box)({
-//     // backgroundColor: "rgba(255, 255, 255, .35)",
-//     // filter: "opacity(70%)",
-//     boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
-//     marginTop: "40px",
-//     marginBottom: "40px",
-//     marginLeft: "25px",
-//     marginRight: "25px",
-//     position: "relative",
-//     color: "white",
-// });
-
-// const MoveGroupLabelWrapper = styled(Box)({
-//     backgroundColor: "rgba(10, 10, 10, .75)",
-//     borderRadius: "100px",
-//     height: "100px",
-//     width: "100px",
-//     position: "absolute",
-//     right: "50%",
-//     marginRight: "-50px",
-//     top: "-60px",
-// });
-
-// // this is hacked together, not too familiar with CSS
-// const MoveGroupLabel = styled(Typography)({
-//     position: "relative",
-//     left: "50%",
-//     marginLeft: "-20px",
-//     top: "50%",
-//     marginTop: "-50px",
-//     fontSize: "5.5em"
-// });
-
-// const MoveGroupItem = styled(Grid)({
-
-// });
-
-// const MoveGroupItemWrapper = styled(Box)({
-//     backgroundColor: "rgba(255, 255, 255, .35)",
-//     boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
-//     margin: "40px",
-//     position: "relative",
-//     fontSize: "2.2em",
-//     color: "white"
-// });
-
-// const MoveGroupItemBox = styled(Box)({
-//     height: "300px",
-//     width: "750px",
-//     lineHeight: "60px",
-//     backgroundColor: "rgba(255, 255, 255, .01)",
-//     marginY: "30px",
-//     padding: "50px, 10px",
-//     display: "flex",
-//     flexDirection: "row",
-//     justifyContent: "center",
-//     alignItems: "center",
-//     fontSize: "1.4em",
-//     position: "relative"
-// });
-
-// const MoveGroupItemContainer = styled(Stack)({
-//     width: "100%",
-// });
-
-// const RaiderMoveContainer = styled(Stack)({
-//     alignItems: "center",
-//     justifyContent: "center",
-// });
-
-// const MoveTargetContainer = styled (Stack)({
-//     alignItems: "center",
-//     justifyContent: "right",
-// });
-
-// const RaiderMoveLabel = styled(Typography)({
-//     height: "100px",
-//     lineHeight: "100px",
-//     fontSize: "1.5em",
-//     margin: "0px 20px",
-// });
-
-// const MoveGroupItemText = styled(Typography)({
-//     height: "100px",
-//     lineHeight: "100px",
-//     fontSize: "1.3em",
-// });
-
-// const RaiderLabelWrapper = styled(Stack)({
-//     margin: "0px 20px",
-//     alignItems: "center",
-// });
-
-// const RaiderLabel = styled(Typography)({
-//     height: "100px",
-//     lineHeight: "100px",
-//     fontSize: "1.3em",
-//     marginRight: "20px",
-// });
-
-// const RaiderSprite = styled("img")({
-//     height: "150px",
-// });
-
-// const TargetSprite = styled("img")({
-//     height: "120px",
-// });
+const Credit = styled(Typography)({
+    fontSize: "4.5em",
+    color: "white"
+});
 
 function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
     switch (moveMethod) {
@@ -593,8 +500,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
                         <Title>{title}</Title>
-                        {/* <Subtitle>Created by: {credits}</Subtitle> */}
-                        <Subtitle>{subtitle}</Subtitle>
+                        <Subtitle>{subtitle ? subtitle : `By: ${credits}`}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>
@@ -698,6 +604,13 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             </ExecutionTable>
                         </ExecutionContainer>
                     </ExecutionSection>
+                    <InfoSection>
+                        {notes && <Notes>{notes}</Notes>}
+                        <CreditsContainer>
+                            <Credit>Credits: {credits}</Credit>
+                            <Credit>Graphic: theastrogoth.github.io/tera-raid-builder/</Credit>
+                        </CreditsContainer>
+                    </InfoSection>
                 </GraphicsContainer> 
             </ThemeProvider>     
         );
@@ -706,53 +619,6 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
     document.body.appendChild(graphicTop); // this makes the element findable for html2canvas
     return graphicTop;
 }
-
-// /*
-// <ExecutionOrder container>
-//                             {
-//                                 moveGroups.map((moveGroup, gidx) => (
-//                                     <MoveGroup item key={"move_group_" + gidx}>
-//                                         {/* @ts-ignore */}
-//                                         <MoveGroupWrapper sx={{backgroundColor: graphicsTheme.palette["group"+gidx.toString().slice(-1)].main}}>
-//                                             <MoveGroupLabelWrapper>
-//                                                 <MoveGroupLabel>{gidx + 1}</MoveGroupLabel>
-//                                             </MoveGroupLabelWrapper>
-//                                             <MoveGroupContainer container>
-//                                                 {
-//                                                     moveGroup.map((move, midx) => (
-//                                                         <MoveGroupItem item key={"move_group_item_" + gidx + "_" + midx}>
-//                                                             <MoveGroupItemWrapper>
-//                                                                 <MoveGroupItemBox>
-//                                                                 <MoveGroupItemContainer direction="column">
-//                                                                     <RaiderMoveContainer direction="row">
-//                                                                         <RaiderLabelWrapper direction="row">
-//                                                                             <RaiderSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].species.id)} />
-//                                                                             <RaiderMoveLabel>{move.moveData.name}</RaiderMoveLabel> 
-//                                                                         </RaiderLabelWrapper>
-//                                                                     </RaiderMoveContainer>
-//                                                                     { !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.moveData.target!) &&
-//                                                                         <MoveTargetContainer direction="row">
-//                                                                             <MoveGroupItemText>on</MoveGroupItemText>
-//                                                                             <RaiderLabelWrapper direction="row">
-//                                                                                 <RaiderLabel>{raidInputProps.pokemon[move.targetID].role}</RaiderLabel>
-//                                                                                 <TargetSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.targetID].species.id)} />
-//                                                                             </RaiderLabelWrapper>
-//                                                                         </MoveTargetContainer>
-//                                                                     }                                                                    
-//                                                                 </MoveGroupItemContainer>
-//                                                                 </MoveGroupItemBox>
-//                                                             </MoveGroupItemWrapper>
-//                                                         </MoveGroupItem>
-//                                                     ))
-//                                                 }
-//                                             </MoveGroupContainer>
-//                                         </MoveGroupWrapper>
-//                                     </MoveGroup>
-
-//                                 ))
-//                             }
-//                         </ExecutionOrder>
-// */
 
 function saveGraphic(graphicTop: HTMLElement, title: string) {
     html2canvas(graphicTop, {allowTaint: true, useCORS: true, windowWidth: 3600}).then((canvas) => {
@@ -869,7 +735,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
                     onClick={() => { handleDownload(); handleClose(); }}
                     endIcon={<DownloadIcon />}
                   >
-                    Dowload
+                    Download
                   </Button>
                 </MenuItem>
             </Menu>

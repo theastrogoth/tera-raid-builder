@@ -46,43 +46,47 @@ const graphicsTheme = createTheme({
     palette: {
         //@ts-ignore
         group0: {
-            main: "rgb(87, 27, 32, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff5789aa 0%, #ffa77aaa 50%, #ffee82aa 100%)"
         },
         //@ts-ignore
         group1: {
-            main: "rgb(20, 78, 82, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #d1e332aa 0%, #5ce681aa 50%, #30bce3aa 100%);"
         },
         //@ts-ignore
         group2: {
-            main: "rgb(32, 82, 32, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #75baffaa 0%, #ae82ffaa 50%, #ff9cd2aa 100%);"
         },
         //@ts-ignore
         group3: {
-            main: "rgb(68, 55, 105, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #e9d18daa 0%, #f6c5dbaa 50%, #8e5788aa 100%);",
         },
         //@ts-ignore
         group4: {
-            main: "rgb(199, 146, 64, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #5c5c5caa 0%, #949494aa 50%, #e0e0e0aa 100%);",
         },
         //@ts-ignore
         group5: {
-            main: "rgb(95, 161, 22, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff5599aa 0%, #cd8ba7aa 50%, #6bdcd3aa 100%);",
         },
         //@ts-ignore
         group6: {
-            main: "rgb(153, 63, 100, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #c47efaaa 0%, #96a8d2aa 50%, #c99981aa 100%);",
         },
         //@ts-ignore
         group7: {
-            main: "rgb(79, 66, 21, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #44ebd4aa 0%, #73b4ffaa 50%, #a88af2aa 100%);",
         },
         //@ts-ignore
         group8: {
-            main: "rgb(82, 4, 56, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ebdb73aa 0%, #e6bbedaa 50%, #06a3f0aa 100%);",
         },
         //@ts-ignore
         group9: {
-            main: "rgb(54, 51, 54, 0.5)",
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff8b6baa 0%, #fff78caa 50%, #96ff94aa 100%);",
+        },
+        //@ts-ignore
+        group10: {
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #dca1ffaa 0%, #ffa8baaa 50%, #ff9b80aa 100%);",
         },
     }
 });
@@ -301,126 +305,232 @@ const ExecutionSection = styled(Box)({
 
 });
 
-const ExecutionOrder = styled(Grid)({
-    justifyContent: "center",
-    alignItems: "center"
-});
-
-const MoveGroup = styled(Grid)({
-    
-}); 
-
-const MoveGroupContainer = styled(Grid)({
-    alignItems: "left",
-});
-
-const MoveGroupWrapper = styled(Box)({
-    // backgroundColor: "rgba(255, 255, 255, .35)",
-    // filter: "opacity(70%)",
-    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
-    marginTop: "40px",
-    marginBottom: "40px",
-    marginLeft: "25px",
-    marginRight: "25px",
-    position: "relative",
-    color: "white",
-});
-
-const MoveGroupLabelWrapper = styled(Box)({
-    backgroundColor: "rgba(10, 10, 10, .75)",
-    borderRadius: "100px",
-    height: "100px",
-    width: "100px",
-    position: "absolute",
-    right: "50%",
-    marginRight: "-50px",
-    top: "-60px",
-});
-
-// this is hacked together, not too familiar with CSS
-const MoveGroupLabel = styled(Typography)({
-    position: "relative",
-    left: "50%",
-    marginLeft: "-20px",
-    top: "50%",
-    marginTop: "-50px",
-    fontSize: "5.5em"
-});
-
-const MoveGroupItem = styled(Grid)({
-
-});
-
-const MoveGroupItemWrapper = styled(Box)({
-    backgroundColor: "rgba(255, 255, 255, .35)",
-    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
-    margin: "40px",
+const ExecutionContainer = styled(Stack)({
+    width: "auto",
+    justifyContent: "space-between",
+    margin: "100px",
     position: "relative",
     fontSize: "2.2em",
     color: "white"
 });
 
-const MoveGroupItemBox = styled(Box)({
-    height: "300px",
-    width: "750px",
-    lineHeight: "60px",
-    backgroundColor: "rgba(255, 255, 255, .01)",
-    marginY: "30px",
-    padding: "50px, 10px",
+const ExecutionTable = styled("table")({
+    width: "100%",
+    padding: "25px 0px",
+    backgroundColor: "rgba(255, 255, 255, .35)",
+    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
+});
+
+const ExecutionRow = styled("tr")({
+
+});
+
+const ExecutionGroup = styled(Box)({
+    margin: "25px 50px",
+    padding: "0px 50px",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
-    fontSize: "1.4em",
-    position: "relative"
+    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
 });
 
-const MoveGroupItemContainer = styled(Stack)({
-    width: "100%",
+const ExecutionMoveNumber = styled(Typography)({
+    height: "125px",
+    width: "125px",
+    lineHeight: "125px",
+    fontSize: "5em",
+    textAlign: "center"
 });
 
-const RaiderMoveContainer = styled(Stack)({
-    alignItems: "center",
-    justifyContent: "center",
+const ExecutionMoveContainer = styled(Box)({
+    height: "100%",
+    width: "90%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly"
 });
 
-const MoveTargetContainer = styled (Stack)({
-    alignItems: "center",
-    justifyContent: "right",
-});
-
-const RaiderMoveLabel = styled(Typography)({
+const ExecutionMove = styled(Box)({
     height: "100px",
-    lineHeight: "100px",
-    fontSize: "1.5em",
-    margin: "0px 20px",
+    color: "black",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
 });
 
-const MoveGroupItemText = styled(Typography)({
+const ExecutionMovePokemonWrapper = styled(Box)({
     height: "100px",
-    lineHeight: "100px",
-    fontSize: "1.3em",
+    width: "750px",
+    backgroundColor: "rgba(255, 255, 255, .35)",
+    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
 });
-
-const RaiderLabelWrapper = styled(Stack)({
-    margin: "0px 20px",
-    alignItems: "center",
-});
-
-const RaiderLabel = styled(Typography)({
+const ExecutionMovePokemonWrapperEmpty = styled(Box)({
     height: "100px",
+    width: "750px",
+});
+
+const ExecutionMovePokemonName = styled(Typography)({
+    color: "white",
+    fontSize: "1.8em",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    padding: "0px 50px"
+});
+
+const ExecutionMovePokemonIcon = styled("img")({
+    height: "130px",
+    marginRight: "15px"
+});
+
+const ExecutionMoveTag = styled(Typography)({
+    height: "100px",
+    width: "300px",
+    color: "white",
+    fontSize: "1.8em",
+    textAlign: "center",
     lineHeight: "100px",
-    fontSize: "1.3em",
-    marginRight: "20px",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
 });
 
-const RaiderSprite = styled("img")({
-    height: "150px",
+const ExecutionMoveAction = styled(Typography)({
+    height: "100px",
+    width: "650px",
+    color: "white",
+    fontSize: "1.8em",
+    textAlign: "center",
+    lineHeight: "100px",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    backgroundColor: "rgba(255, 255, 255, .35)",
+    boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
 });
 
-const TargetSprite = styled("img")({
-    height: "120px",
-});
+// const ExecutionOrder = styled(Grid)({
+//     justifyContent: "center",
+//     alignItems: "center"
+// });
+
+// const MoveGroup = styled(Grid)({
+    
+// }); 
+
+// const MoveGroupContainer = styled(Grid)({
+//     alignItems: "left",
+// });
+
+// const MoveGroupWrapper = styled(Box)({
+//     // backgroundColor: "rgba(255, 255, 255, .35)",
+//     // filter: "opacity(70%)",
+//     boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
+//     marginTop: "40px",
+//     marginBottom: "40px",
+//     marginLeft: "25px",
+//     marginRight: "25px",
+//     position: "relative",
+//     color: "white",
+// });
+
+// const MoveGroupLabelWrapper = styled(Box)({
+//     backgroundColor: "rgba(10, 10, 10, .75)",
+//     borderRadius: "100px",
+//     height: "100px",
+//     width: "100px",
+//     position: "absolute",
+//     right: "50%",
+//     marginRight: "-50px",
+//     top: "-60px",
+// });
+
+// // this is hacked together, not too familiar with CSS
+// const MoveGroupLabel = styled(Typography)({
+//     position: "relative",
+//     left: "50%",
+//     marginLeft: "-20px",
+//     top: "50%",
+//     marginTop: "-50px",
+//     fontSize: "5.5em"
+// });
+
+// const MoveGroupItem = styled(Grid)({
+
+// });
+
+// const MoveGroupItemWrapper = styled(Box)({
+//     backgroundColor: "rgba(255, 255, 255, .35)",
+//     boxShadow: "0 0 30px rgba(0, 0, 0, .35)",
+//     margin: "40px",
+//     position: "relative",
+//     fontSize: "2.2em",
+//     color: "white"
+// });
+
+// const MoveGroupItemBox = styled(Box)({
+//     height: "300px",
+//     width: "750px",
+//     lineHeight: "60px",
+//     backgroundColor: "rgba(255, 255, 255, .01)",
+//     marginY: "30px",
+//     padding: "50px, 10px",
+//     display: "flex",
+//     flexDirection: "row",
+//     justifyContent: "center",
+//     alignItems: "center",
+//     fontSize: "1.4em",
+//     position: "relative"
+// });
+
+// const MoveGroupItemContainer = styled(Stack)({
+//     width: "100%",
+// });
+
+// const RaiderMoveContainer = styled(Stack)({
+//     alignItems: "center",
+//     justifyContent: "center",
+// });
+
+// const MoveTargetContainer = styled (Stack)({
+//     alignItems: "center",
+//     justifyContent: "right",
+// });
+
+// const RaiderMoveLabel = styled(Typography)({
+//     height: "100px",
+//     lineHeight: "100px",
+//     fontSize: "1.5em",
+//     margin: "0px 20px",
+// });
+
+// const MoveGroupItemText = styled(Typography)({
+//     height: "100px",
+//     lineHeight: "100px",
+//     fontSize: "1.3em",
+// });
+
+// const RaiderLabelWrapper = styled(Stack)({
+//     margin: "0px 20px",
+//     alignItems: "center",
+// });
+
+// const RaiderLabel = styled(Typography)({
+//     height: "100px",
+//     lineHeight: "100px",
+//     fontSize: "1.3em",
+//     marginRight: "20px",
+// });
+
+// const RaiderSprite = styled("img")({
+//     height: "150px",
+// });
+
+// const TargetSprite = styled("img")({
+//     height: "120px",
+// });
 
 function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
     switch (moveMethod) {
@@ -463,12 +573,14 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
 
+    console.log(getMoveGroups(raidInputProps))
+
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
                 <GraphicsContainer 
                     style={{
-                        backgroundImage: `linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${backgroundImageURL})`,
+                        backgroundImage: `linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(${backgroundImageURL})`,
                     }} 
                 >
                     <Header>
@@ -487,7 +599,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             <SeparatorLabel>The Crew</SeparatorLabel>
                             <RightBar />
                         </Separator> 
-                    <BuildsContainer>    
+                        <BuildsContainer>    
                             {
                                 raidInputProps.pokemon.slice(1, 5).map((raider, index) => (
                                     <BuildWrapper key={index}>
@@ -542,50 +654,46 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             <SeparatorLabel>Execution</SeparatorLabel>
                             <RightBar />
                         </Separator> 
-                        <ExecutionOrder container>
-                            {
-                                moveGroups.map((moveGroup, gidx) => (
-                                    <MoveGroup item key={"move_group_" + gidx}>
-                                        {/* @ts-ignore */}
-                                        <MoveGroupWrapper sx={{backgroundColor: graphicsTheme.palette["group"+gidx.toString().slice(-1)].main}}>
-                                            <MoveGroupLabelWrapper>
-                                                <MoveGroupLabel>{gidx + 1}</MoveGroupLabel>
-                                            </MoveGroupLabelWrapper>
-                                            <MoveGroupContainer container>
-                                                {
-                                                    moveGroup.map((move, midx) => (
-                                                        <MoveGroupItem item key={"move_group_item_" + gidx + "_" + midx}>
-                                                            <MoveGroupItemWrapper>
-                                                                <MoveGroupItemBox>
-                                                                <MoveGroupItemContainer direction="column">
-                                                                    <RaiderMoveContainer direction="row">
-                                                                        <RaiderLabelWrapper direction="row">
-                                                                            <RaiderSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].species.id)} />
-                                                                            <RaiderMoveLabel>{move.moveData.name}</RaiderMoveLabel> 
-                                                                        </RaiderLabelWrapper>
-                                                                    </RaiderMoveContainer>
-                                                                    { !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.moveData.target!) &&
-                                                                        <MoveTargetContainer direction="row">
-                                                                            <MoveGroupItemText>on</MoveGroupItemText>
-                                                                            <RaiderLabelWrapper direction="row">
-                                                                                <RaiderLabel>{raidInputProps.pokemon[move.targetID].role}</RaiderLabel>
-                                                                                <TargetSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.targetID].species.id)} />
-                                                                            </RaiderLabelWrapper>
-                                                                        </MoveTargetContainer>
-                                                                    }                                                                    
-                                                                </MoveGroupItemContainer>
-                                                                </MoveGroupItemBox>
-                                                            </MoveGroupItemWrapper>
-                                                        </MoveGroupItem>
-                                                    ))
-                                                }
-                                            </MoveGroupContainer>
-                                        </MoveGroupWrapper>
-                                    </MoveGroup>
-
-                                ))
-                            }
-                        </ExecutionOrder>
+                        <ExecutionContainer direction="row">
+                            <ExecutionTable>
+                                {
+                                    getMoveGroups(raidInputProps).map((moveGroup, index) => (
+                                        <ExecutionRow key={index}>
+                                            <ExecutionGroup sx={{
+                                                //@ts-ignore
+                                                background: graphicsTheme.palette["group"+index.toString().slice(-1)].main,
+                                                height: (175*moveGroup.length).toString() + "px"
+                                            }}>
+                                                <ExecutionMoveNumber>{index}</ExecutionMoveNumber>
+                                                <ExecutionMoveContainer>
+                                                    {
+                                                        moveGroup.map((move, moveIndex) => (
+                                                            <ExecutionMove key={moveIndex}>
+                                                                <ExecutionMovePokemonWrapper>
+                                                                    <ExecutionMovePokemonName>{raidInputProps.pokemon[move.userID].role}</ExecutionMovePokemonName>
+                                                                    <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].species.name)} />
+                                                                </ExecutionMovePokemonWrapper>
+                                                                <ExecutionMoveTag>uses</ExecutionMoveTag>
+                                                                <ExecutionMoveAction>{move.moveData.name}</ExecutionMoveAction>
+                                                                <ExecutionMoveTag>{!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.moveData.target!)? "on": ""}</ExecutionMoveTag>
+                                                                {!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.moveData.target!) ?
+                                                                    <ExecutionMovePokemonWrapper>
+                                                                        <ExecutionMovePokemonName>{raidInputProps.pokemon[move.targetID].role}</ExecutionMovePokemonName>
+                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.targetID].species.name)} />
+                                                                    </ExecutionMovePokemonWrapper>
+                                                                    :
+                                                                    <ExecutionMovePokemonWrapperEmpty />
+                                                                }
+                                                            </ExecutionMove>
+                                                        ))
+                                                    }
+                                                </ExecutionMoveContainer>
+                                            </ExecutionGroup>
+                                        </ExecutionRow>
+                                    ))
+                                }
+                            </ExecutionTable>
+                        </ExecutionContainer>
                     </ExecutionSection>
                 </GraphicsContainer> 
             </ThemeProvider>     
@@ -595,6 +703,53 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
     document.body.appendChild(graphicTop); // this makes the element findable for html2canvas
     return graphicTop;
 }
+
+// /*
+// <ExecutionOrder container>
+//                             {
+//                                 moveGroups.map((moveGroup, gidx) => (
+//                                     <MoveGroup item key={"move_group_" + gidx}>
+//                                         {/* @ts-ignore */}
+//                                         <MoveGroupWrapper sx={{backgroundColor: graphicsTheme.palette["group"+gidx.toString().slice(-1)].main}}>
+//                                             <MoveGroupLabelWrapper>
+//                                                 <MoveGroupLabel>{gidx + 1}</MoveGroupLabel>
+//                                             </MoveGroupLabelWrapper>
+//                                             <MoveGroupContainer container>
+//                                                 {
+//                                                     moveGroup.map((move, midx) => (
+//                                                         <MoveGroupItem item key={"move_group_item_" + gidx + "_" + midx}>
+//                                                             <MoveGroupItemWrapper>
+//                                                                 <MoveGroupItemBox>
+//                                                                 <MoveGroupItemContainer direction="column">
+//                                                                     <RaiderMoveContainer direction="row">
+//                                                                         <RaiderLabelWrapper direction="row">
+//                                                                             <RaiderSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].species.id)} />
+//                                                                             <RaiderMoveLabel>{move.moveData.name}</RaiderMoveLabel> 
+//                                                                         </RaiderLabelWrapper>
+//                                                                     </RaiderMoveContainer>
+//                                                                     { !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.moveData.target!) &&
+//                                                                         <MoveTargetContainer direction="row">
+//                                                                             <MoveGroupItemText>on</MoveGroupItemText>
+//                                                                             <RaiderLabelWrapper direction="row">
+//                                                                                 <RaiderLabel>{raidInputProps.pokemon[move.targetID].role}</RaiderLabel>
+//                                                                                 <TargetSprite src={getPokemonSpriteURL(raidInputProps.pokemon[move.targetID].species.id)} />
+//                                                                             </RaiderLabelWrapper>
+//                                                                         </MoveTargetContainer>
+//                                                                     }                                                                    
+//                                                                 </MoveGroupItemContainer>
+//                                                                 </MoveGroupItemBox>
+//                                                             </MoveGroupItemWrapper>
+//                                                         </MoveGroupItem>
+//                                                     ))
+//                                                 }
+//                                             </MoveGroupContainer>
+//                                         </MoveGroupWrapper>
+//                                     </MoveGroup>
+
+//                                 ))
+//                             }
+//                         </ExecutionOrder>
+// */
 
 function saveGraphic(graphicTop: HTMLElement, title: string) {
     html2canvas(graphicTop, {allowTaint: true, useCORS: true, windowWidth: 3600}).then((canvas) => {

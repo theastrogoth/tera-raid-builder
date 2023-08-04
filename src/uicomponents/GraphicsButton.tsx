@@ -614,14 +614,22 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
 }
 
 function saveGraphic(graphicTop: HTMLElement, title: string) {
-    html2canvas(graphicTop, {allowTaint: true, useCORS: true, windowWidth: 3600}).then((canvas) => {
-      canvas.toBlob((blob) => {
-          if (blob) {
-              saveAs(blob, title + '.png');
-          } else {
-              saveAs(getMiscImageURL("failure"), "failed_generation.png");
-          }
-      });
+    html2canvas(graphicTop, {
+        allowTaint: true, 
+        useCORS: true,
+        windowWidth: 3600,
+        scale: 1,
+        imageTimeout: 15000,
+    }).then((canvas) => {
+    //   canvas.toBlob((blob) => {
+    //       if (blob) {
+    //           saveAs(blob, title + '.png');
+    //       } else {
+    //           saveAs(getMiscImageURL("failure"), "failed_generation.png");
+    //       }
+    //   });
+        const graphicUrl = canvas.toDataURL("image/png");
+        saveAs(graphicUrl, title + '.png');
     });
     graphicTop.remove(); // remove the element from the DOM
 }

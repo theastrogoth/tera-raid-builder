@@ -1,3 +1,5 @@
+import { StatsTable } from "./calc";
+
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
     "ho-oh":        "Ho-Oh",
@@ -46,6 +48,7 @@ const SPECIAL_NAMES = {
     "well-baked-body":          "Well-Baked Body"
 }
 
+const miscImagesProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/misc/"
 const pokemonArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/arts/";
 const pokemonSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/box_sprites/";
 const itemSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/items/";
@@ -57,6 +60,10 @@ const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 export function prepareImageAssetName(name: string) {
     if (name == "Flabébé") { return "flabebe"; } // ugh
     return name.replaceAll(' ','_').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
+}
+
+export function getMiscImageURL(name: string) {
+    return miscImagesProlog + prepareImageAssetName(name) + ".png";
 }
 
 export function getItemSpriteURL(name: string) {
@@ -97,6 +104,10 @@ export function prepareSummaryName(name: string) {
     return words.map(word => word[0].toUpperCase() + word.substr(1)).join(" ");
 }
 
+const capitalizeFirstLetter = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 export function getAilmentReadableName(ailment?: string) {
     return ailment ? ailment.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") : null;
 }
@@ -108,6 +119,28 @@ export function getLearnMethodReadableName(learnMethod: string) {
         learnMethod === "egg" ? "Egg" :
         "Special"
     )
+}
+
+export function getStatReadableName(stat: string) {
+    return (
+        stat === "hp" ? "HP" :
+        stat === "atk" ? "Atk" :
+        stat === "def" ? "Def" :
+        stat === "spa" ? "SpAtk" :
+        stat === "spd" ? "SpDef" :
+        stat === "spe" ? "Speed" :
+        "???"
+    )
+}
+
+export function getEVDescription(evs: StatsTable) {
+    const filteredPairs = Object.entries(evs).filter(([key, value]) => value !== 0);
+    return filteredPairs.length === 0 ? undefined : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
+}
+
+export function getIVDescription(ivs: StatsTable) {
+    const filteredPairs = Object.entries(ivs).filter(([key, value]) => value !== 31);
+    return filteredPairs.length === 0 ? "All Hypertrained" : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
 }
 
 export function arraysEqual(a: any[], b: any[]) {

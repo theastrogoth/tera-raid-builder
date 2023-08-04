@@ -24,6 +24,7 @@ import { MoveName } from './calc/data/interface.ts';
 import { RaidTurnInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
+import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -293,6 +294,11 @@ function App() {
                     raidInputProps={raidInputProps}
                     setTitle={setTitle} setNotes={setNotes} setCredits={setCredits}
                     setPrettyMode={setPrettyMode}
+                  />
+                  <Box width="15px"/>
+                  <GraphicsButton
+                    title={title} notes={notes} credits={credits}
+                    raidInputProps={raidInputProps}
                   />
                 <Box flexGrow={1} />
               </Stack>

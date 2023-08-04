@@ -388,7 +388,15 @@ const ExecutionMovePokemonIcon = styled("img")({
     width: "auto",
     maxHeight: "140px",
     maxWidth: "140px",
-    marginRight: "15px"
+});
+
+const ExecutionMovePokemonIconWrapper = styled(Box)({
+    height: "140px",
+    width: "140px",
+    marginRight: "15px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
 });
 
 const ExecutionMoveTag = styled(Typography)({
@@ -580,7 +588,9 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                             <ExecutionMove key={moveIndex}>
                                                                 <ExecutionMovePokemonWrapper>
                                                                     <ExecutionMovePokemonName>{raidInputProps.pokemon[move.userID].role}</ExecutionMovePokemonName>
-                                                                    <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].species.name)} />
+                                                                    <ExecutionMovePokemonIconWrapper>
+                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].species.name)} />
+                                                                    </ExecutionMovePokemonIconWrapper>
                                                                 </ExecutionMovePokemonWrapper>
                                                                 <ExecutionMoveTag>uses</ExecutionMoveTag>
                                                                 <ExecutionMoveAction>{move.moveData.name}</ExecutionMoveAction>
@@ -588,7 +598,9 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                 {!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.moveData.target!) ?
                                                                     <ExecutionMovePokemonWrapper>
                                                                         <ExecutionMovePokemonName>{raidInputProps.pokemon[move.targetID].role}</ExecutionMovePokemonName>
-                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.targetID].species.name)} />
+                                                                        <ExecutionMovePokemonIconWrapper>
+                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.targetID].species.name)} />
+                                                                        </ExecutionMovePokemonIconWrapper>
                                                                     </ExecutionMovePokemonWrapper>
                                                                     :
                                                                     <ExecutionMovePokemonWrapperEmpty />

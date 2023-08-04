@@ -39,19 +39,9 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import DownloadIcon from '@mui/icons-material/Download';
 
-
 const graphicsTheme = createTheme({
     typography: {
-        fontFamily: 'renogare, sans-serif',
-    },
-    // @ts-ignore
-    overrides: {
-        '@font-face': {
-            fontFamily: 'renogare',
-            src: `
-                local('renogare'),
-                url('/fonts/Renogare-Regular.otf') format('opentype')`,
-        },
+         fontFamily: ['Poppins', "sans-serif"].join(','),
     },
     palette: {
         //@ts-ignore

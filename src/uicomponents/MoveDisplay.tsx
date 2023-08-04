@@ -3,13 +3,13 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import { RaidBattleInfo, RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { RaidTurnInfo, Raider } from "../raidcalc/interface";
 import { getPokemonSpriteURL } from "../utils";
 
 function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
 
-    const name = raiders[turn.moveInfo.userID].name;
-    const user = raiders[turn.moveInfo.userID].role;
+    let name = raiders[turn.moveInfo.userID].name;
+    let user = raiders[turn.moveInfo.userID].role;
 
     let target = raiders[turn.moveInfo.targetID].role;
     if (target === user) { 
@@ -18,13 +18,29 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     if ([undefined, "user", "user-and-allies", "all-allies"].includes(turn.moveInfo.moveData.target)) {
         target = "";
     }
-    const targetName = raiders[turn.moveInfo.targetID].name;
+    let targetName = raiders[turn.moveInfo.targetID].name;
 
     let move: string = turn.moveInfo.moveData.name;
     if (move == "(No Move)") {
         move = "";
     }
 
+    if (move === "") {
+        name = raiders[0].name;
+        user = raiders[0].role;
+        target = raiders[turn.bossMoveInfo.targetID].role;
+        if (target === user) { 
+            target = ""
+        }
+        if ([undefined, "user", "user-and-allies", "all-allies"].includes(turn.moveInfo.moveData.target)) {
+            target = "";
+        }
+        targetName = raiders[turn.bossMoveInfo.targetID].name;
+        move = turn.bossMoveInfo.moveData.name;
+        if (move == "(No Move)") {
+            move = "";
+        }
+    }
     return (
         <>
         {move !== "" &&

@@ -657,7 +657,7 @@ export function calculateBasePowerSMSSSV(
     desc.moveBP = basePower;
     break;
   case 'Punishment':
-    basePower = Math.min(200, 60 + 20 * countBoosts(gen, defender.boosts));
+    basePower = Math.min(200, 60 + 20 * countBoosts(gen, defender.boosts, defender.randomBoosts));
     desc.moveBP = basePower;
     break;
   case 'Low Kick':
@@ -686,7 +686,7 @@ export function calculateBasePowerSMSSSV(
     break;
   case 'Stored Power':
   case 'Power Trip':
-    basePower = 20 + 20 * countBoosts(gen, attacker.boosts);
+    basePower = 20 + 20 * countBoosts(gen, attacker.boosts, attacker.randomBoosts);
     desc.moveBP = basePower;
     break;
   case 'Acrobatics':
@@ -881,7 +881,7 @@ export function calculateBPModsSMSSSV(
   if ((move.named('Facade') && attacker.hasStatus('brn', 'par', 'psn', 'tox')) ||
     (move.named('Brine') && defender.curHP() <= defender.maxHP() / 2) ||
     (move.named('Venoshock') && defender.hasStatus('psn', 'tox')) ||
-    (move.named('Lash Out') && (countBoosts(gen, attacker.boosts) < 0))
+    (move.named('Lash Out') && (countBoosts(gen, attacker.boosts, attacker.randomBoosts) < 0))
   ) {
     bpMods.push(8192);
     desc.moveBP = basePower * 2;

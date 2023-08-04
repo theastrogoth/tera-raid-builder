@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 
-import { Generations, Pokemon } from '../calc';
+import { Generations } from '../calc';
 import { toID } from '../calc/util';
 
 import StatRadarPlot from "./StatRadarPlot";
@@ -12,19 +12,30 @@ import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
-import { MoveSetItem, Raider } from "../raidcalc/interface";
+import { MoveSetItem } from "../raidcalc/interface";
+import { Raider } from "../raidcalc/Raider";
 import { AbilityName } from "../calc/data/interface";
 
 const gen = Generations.get(9); // we will only use gen 9
 
 export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
     const [str, setStr] = useState(pokemon.role);
+    const roleRef = useRef(pokemon.role);
+    const nameRef = useRef(pokemon.name);
 
     useEffect(() => {
-        if (pokemon.role !== str) {
-            setStr(pokemon.role);
+        if (roleRef.current !== pokemon.role) {
+            roleRef.current = pokemon.role;
+            if (pokemon.role !== str) {
+                setStr(pokemon.role);
+            }
+        } else if (nameRef.current !== pokemon.name) {
+            nameRef.current = pokemon.name;
+            const name = pokemon.name.split("-")[0]; // some regional forms have long names
+            setRole(name);
+            setStr(name);
         }
-    }, [pokemon.role])
+    }, [pokemon.role, pokemon.name])
 
     const setRole = (r: string) => {
         const newPoke = pokemon.clone();
@@ -73,7 +84,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
     return (
         <Box>
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
-                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "625px" : "800px"} sx={{ marginTop: 1 }} >
+                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "640px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>

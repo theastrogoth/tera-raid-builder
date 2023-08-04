@@ -7,8 +7,8 @@ import OutputIcon from '@mui/icons-material/Output';
 import TextField from '@mui/material/TextField';
 
 import { Pokemon, Stats, SPECIES, ABILITIES, TYPE_CHART, StatsTable, ITEMS } from "../calc";
-import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, TypeName, Generation } from "../calc/data/interface";
-import { Raider } from "../raidcalc/interface";
+import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, TypeName } from "../calc/data/interface";
+import { Raider } from "../raidcalc/Raider";
 
 function serialize(array: string[], separator: String) {
 	var text = "";
@@ -331,7 +331,7 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: 
 						onClick={() => {
 							const newPoke = addSet(textValue)
 							if (newPoke) {
-								const newRaider = new Raider(pokemon.id, pokemon.role, newPoke)
+								const newRaider = new Raider(pokemon.id, pokemon.role, pokemon.field, newPoke)
 								setPokemon(newRaider)
 							}
 						}}

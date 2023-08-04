@@ -72,6 +72,7 @@ export class Field implements State.Field {
       isSwordOfRuin: this.isSwordOfRuin,
       isTabletsOfRuin: this.isTabletsOfRuin,
       isVesselOfRuin: this.isVesselOfRuin,
+      isTrickRoom: this.isTrickRoom,
       isCloudNine: this.isCloudNine,
     });
   }

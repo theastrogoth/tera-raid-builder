@@ -2,9 +2,12 @@ import React from "react"
 import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
-
-import { RaidState, RaidBattleResults, RaidTurnResult, RaidMoveResult } from "../raidcalc/interface"
 import ButtonBase from "@mui/material/ButtonBase"
+
+import { RaidState } from "../raidcalc/interface"
+import { RaidBattleResults } from "../raidcalc/RaidBattle"
+import { RaidTurnResult } from "../raidcalc/RaidTurn"
+import { RaidMoveResult } from "../raidcalc/RaidMove"
 
 function CopyTextButton({text}: {text: string}) {
     return (

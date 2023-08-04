@@ -15,18 +15,18 @@ export function decompress(s: string = ''){
 }
 
 export const serialize = (obj: any) => {
-    const str = CJSON.stringify(obj);
-    const compressedStr = compress(str);
-    return compressedStr;
+  const str = CJSON.stringify(obj);
+  const compressedStr = compress(str);
+  return compressedStr;
 }
 
 export const deserialize = (str: string) => {
-    let obj: any;
-    try {
-        const decompressedStr = decompress(str);
-        obj = CJSON.parse(decompressedStr);
-    } catch {
-        obj = JSON.parse(str);
-    }
-    return obj;
+  let obj: any;
+  try {
+      const decompressedStr = decompress(str);
+      obj = CJSON.parse(decompressedStr);
+  } catch {
+      obj = JSON.parse(str);
+  }
+  return obj;
 }

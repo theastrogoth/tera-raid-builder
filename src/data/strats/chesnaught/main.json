@@ -1,368 +1,391 @@
 {
-    "name": "Flower Power: OHKO Chesnaught Strategy",
-    "notes": "",
-    "credits": "r/PokePortal Event Raid Support Team",
-    "pokemon": [
+  "name": "Flower Power: OHKO Chesnaught Strategy",
+  "notes": "",
+  "credits": "r/PokePortal Event Raid Support Team",
+  "pokemon": [
       {
-        "id": 0,
-        "role": "7⭐event",
-        "name": "Chesnaught",
-        "ability": "Bulletproof",
-        "nature": "Impish",
-        "evs": {
-          "hp": 0,
-          "atk": 0,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "teraType": "Rock",
-        "moves": [
-          "Earthquake",
-          "Hammer Arm",
-          "Stone Edge",
-          "Wood Hammer"
-        ],
-        "bossMultiplier": 3500,
-        "extraMoves": [
-          "Iron Defense",
-          "Bulk Up",
-          "Curse"
-        ]
+          "id": 0,
+          "role": "7⭐event",
+          "name": "Chesnaught",
+          "ability": "Bulletproof",
+          "nature": "Impish",
+          "evs": {
+              "hp": 0,
+              "atk": 0,
+              "def": 0,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "teraType": "Rock",
+          "moves": [
+              "Earthquake",
+              "Hammer Arm",
+              "Stone Edge",
+              "Wood Hammer"
+          ],
+          "bossMultiplier": 3500,
+          "extraMoves": [
+              "Iron Defense",
+              "Bulk Up",
+              "Curse"
+          ]
       },
       {
-        "id": 1,
-        "role": "Lilligant",
-        "name": "Lilligant",
-        "ability": "(No Ability)",
-        "item": "Life Orb",
-        "nature": "Modest",
-        "evs": {
-          "hp": 252,
-          "atk": 0,
-          "def": 0,
-          "spa": 252,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "moves": [
-          "Growth",
-          "Solar Beam"
-        ],
-        "bossMultiplier": 100,
-        "extraMoves": []
+          "id": 1,
+          "role": "Lilligant",
+          "name": "Lilligant",
+          "ability": "(No Ability)",
+          "item": "Life Orb",
+          "nature": "Modest",
+          "evs": {
+              "hp": 252,
+              "atk": 0,
+              "def": 0,
+              "spa": 252,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "moves": [
+              "Growth",
+              "Solar Beam"
+          ],
+          "bossMultiplier": 100,
+          "extraMoves": []
       },
       {
-        "id": 2,
-        "role": "Sun Support",
-        "name": "Koraidon",
-        "ability": "Orichalcum Pulse",
-        "nature": "Hardy",
-        "evs": {
-          "hp": 252,
-          "atk": 0,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "moves": [
-          "Helping Hand"
-        ],
-        "bossMultiplier": 100,
-        "extraMoves": []
+          "id": 2,
+          "role": "Sun Support",
+          "name": "Koraidon",
+          "ability": "Orichalcum Pulse",
+          "nature": "Hardy",
+          "evs": {
+              "hp": 252,
+              "atk": 0,
+              "def": 0,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "moves": [
+              "Helping Hand"
+          ],
+          "bossMultiplier": 100,
+          "extraMoves": []
       },
       {
-        "id": 3,
-        "role": "Fake Tears",
-        "name": "Corviknight",
-        "ability": "(No Ability)",
-        "nature": "Hardy",
-        "evs": {
-          "hp": 252,
-          "atk": 0,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "moves": [
-          "Fake Tears"
-        ],
-        "bossMultiplier": 100,
-        "extraMoves": []
+          "id": 3,
+          "role": "Fake Tears",
+          "name": "Corviknight",
+          "ability": "(No Ability)",
+          "nature": "Hardy",
+          "evs": {
+              "hp": 252,
+              "atk": 0,
+              "def": 0,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "moves": [
+              "Fake Tears"
+          ],
+          "bossMultiplier": 100,
+          "extraMoves": []
       },
       {
-        "id": 4,
-        "role": "Fake Tears",
-        "name": "Corviknight",
-        "ability": "(No Ability)",
-        "nature": "Hardy",
-        "evs": {
-          "hp": 252,
-          "atk": 0,
-          "def": 0,
-          "spa": 0,
-          "spd": 0,
-          "spe": 0
-        },
-        "ivs": {
-          "hp": 31,
-          "atk": 31,
-          "def": 31,
-          "spa": 31,
-          "spd": 31,
-          "spe": 31
-        },
-        "level": 100,
-        "moves": [
-          "Fake Tears"
-        ],
-        "bossMultiplier": 100,
-        "extraMoves": []
+          "id": 4,
+          "role": "Fake Tears",
+          "name": "Corviknight",
+          "ability": "(No Ability)",
+          "nature": "Hardy",
+          "evs": {
+              "hp": 252,
+              "atk": 0,
+              "def": 0,
+              "spa": 0,
+              "spd": 0,
+              "spe": 0
+          },
+          "ivs": {
+              "hp": 31,
+              "atk": 31,
+              "def": 31,
+              "spa": 31,
+              "spd": 31,
+              "spe": 31
+          },
+          "level": 100,
+          "moves": [
+              "Fake Tears"
+          ],
+          "bossMultiplier": 100,
+          "extraMoves": []
       }
-    ],
-    "turns": [
+  ],
+  "turns": [
       {
-        "id": 3,
-        "group": 0,
-        "moveInfo": {
-          "name": "Growth",
-          "userID": 1,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 10,
+          "moveInfo": {
+              "name": "(No Move)",
+              "userID": 1,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Iron Defense",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Hammer Arm",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 0,
-        "group": 0,
-        "moveInfo": {
-          "name": "Attack Cheer",
-          "userID": 2,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 3,
+          "group": 0,
+          "moveInfo": {
+              "name": "Growth",
+              "userID": 1,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Hammer Arm",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Wood Hammer",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 5,
-        "group": 0,
-        "moveInfo": {
-          "name": "Fake Tears",
-          "userID": 4,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 0,
+          "group": 0,
+          "moveInfo": {
+              "name": "Attack Cheer",
+              "userID": 2,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Wood Hammer",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Wood Hammer",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 2,
-        "group": 0,
-        "moveInfo": {
-          "name": "Fake Tears",
-          "userID": 3,
-          "targetID": 1,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 5,
+          "group": 0,
+          "moveInfo": {
+              "name": "Fake Tears",
+              "userID": 4,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Wood Hammer",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Wood Hammer",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 6,
-        "group": 1,
-        "moveInfo": {
-          "name": "Helping Hand",
-          "userID": 2,
-          "targetID": 1,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 2,
+          "group": 0,
+          "moveInfo": {
+              "name": "Fake Tears",
+              "userID": 3,
+              "targetID": 1,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Wood Hammer",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Wood Hammer",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 8,
-        "group": 1,
-        "moveInfo": {
-          "name": "Fake Tears",
-          "userID": 4,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 6,
+          "group": 1,
+          "moveInfo": {
+              "name": "Helping Hand",
+              "userID": 2,
+              "targetID": 1,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Wood Hammer",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Wood Hammer",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 7,
-        "group": 1,
-        "moveInfo": {
-          "name": "Fake Tears",
-          "userID": 3,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 8,
+          "group": 1,
+          "moveInfo": {
+              "name": "Fake Tears",
+              "userID": 4,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Wood Hammer",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "Wood Hammer",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
-          }
-        }
       },
       {
-        "id": 9,
-        "moveInfo": {
-          "name": "Solar Beam",
-          "userID": 1,
-          "targetID": 0,
-          "options": {
-            "crit": false,
-            "secondaryEffects": false,
-            "roll": "min"
+          "id": 7,
+          "group": 1,
+          "moveInfo": {
+              "name": "Fake Tears",
+              "userID": 3,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "Wood Hammer",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        },
-        "bossMoveInfo": {
-          "name": "(No Move)",
-          "userID": 0,
-          "targetID": 1,
-          "options": {
-            "crit": true,
-            "secondaryEffects": true,
-            "roll": "max"
+      },
+      {
+          "id": 9,
+          "moveInfo": {
+              "name": "Solar Beam",
+              "userID": 1,
+              "targetID": 0,
+              "options": {
+                  "crit": false,
+                  "secondaryEffects": false,
+                  "roll": "min"
+              }
+          },
+          "bossMoveInfo": {
+              "name": "(No Move)",
+              "userID": 0,
+              "targetID": 1,
+              "options": {
+                  "crit": true,
+                  "secondaryEffects": true,
+                  "roll": "max"
+              }
           }
-        }
       }
-    ],
-    "groups": [
+  ],
+  "groups": [
       [
-        5,
-        3,
-        2,
-        0
+          5,
+          3,
+          2,
+          0
       ],
       [
-        7,
-        8,
-        6
+          7,
+          8,
+          6
       ]
-    ]
-  }
+  ]
+}

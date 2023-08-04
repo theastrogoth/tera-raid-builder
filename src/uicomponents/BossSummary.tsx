@@ -3,8 +3,8 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 
-import { Generations, Pokemon } from '../calc';
-import { AbilityName, Generation } from "../calc/data/interface";
+import { Generations } from '../calc';
+import { AbilityName } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
@@ -13,7 +13,8 @@ import { RoleField } from "./PokemonSummary";
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
-import { MoveSetItem, Raider } from "../raidcalc/interface";
+import { MoveSetItem } from "../raidcalc/interface";
+import { Raider } from "../raidcalc/Raider";
 
 const gen = Generations.get(9); // we only use gen 9
 

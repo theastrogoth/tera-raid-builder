@@ -25,7 +25,8 @@ import { toID } from '../calc/util';
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 
-import { MoveData, MoveSetItem, Raider } from "../raidcalc/interface";
+import { MoveData, MoveSetItem } from "../raidcalc/interface";
+import { Raider } from "../raidcalc/Raider";
 import PokedexService from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
 
@@ -92,6 +93,10 @@ function prettyStatName(stat: string) {
         default:
             return stat;
     }
+}
+
+function checkSetValueIsDefault(value: string) {
+    return value === "???" || value === "(No Move)" || value === "(No Item)" || value === "(No Ability)"
 }
 
 function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
@@ -431,7 +436,7 @@ function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolea
 function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], prettyMode: boolean}) {
     return (
         <>
-        {((prettyMode && value !== "(No Move)") || !prettyMode) &&
+        {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
@@ -482,7 +487,7 @@ function AbilityWithIcon({ability, prettyMode}: {ability: {name: AbilityName, hi
 function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean}) {
     return (
         <>
-        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+        {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
@@ -567,7 +572,7 @@ function GenericWithIcon({name, spriteFetcher, prettyMode, ModalComponent = null
 function GenericIconSummaryRow({name, value, setValue, options, optionFinder, spriteFetcher, prettyMode, ModalComponent, modalProps}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], optionFinder: Function, spriteFetcher: Function, prettyMode: boolean, ModalComponent?: ((p: any) => JSX.Element) | null, modalProps?: any}) {
     return (
         <>
-        {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
+        {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
                     {name}
@@ -590,7 +595,8 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                             renderInput={(params) => 
                                 <TextField {...params} variant="standard" size="small" />}
                             onChange={(event: any, newValue: string) => {
-                                setValue(newValue);
+                                //@ts-ignore
+                                checkSetValueIsDefault(newValue) ? setValue(undefined) : setValue(newValue);
                             }}
                             componentsProps={{ popper: { style: { width: 'fit-content' } } }}
                             sx = {{width: '85%'}}
@@ -622,6 +628,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
             setPokemon(new Raider(
                 newPokemon.id, 
                 newPokemon.role, 
+                newPokemon.field,
                 new Pokemon(gen, newPokemon.name, {
                     level: newPokemon.level,
                     ability: newPokemon.ability,
@@ -639,7 +646,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Raider(pokemon.id, pokemon.role, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"})))
+        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"})))
     }
 
     return (
@@ -777,7 +784,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         if (val < 1) val = 1;
         const newPokemon = {...pokemon};
         newPokemon.bossMultiplier = val;
-        setPokemon(new Raider(pokemon.id, pokemon.role,
+        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field,
             new Pokemon(gen, newPokemon.name, {
                 level: newPokemon.level,
                 ability: newPokemon.ability,

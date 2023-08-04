@@ -192,7 +192,19 @@ function App() {
       nature: "Jolly",
       ability: "Grassy Surge",
       moves: ["Drum Beating", "Acrobatics", "Body Slam", "Low Kick"]
-    }), ["Growth", "Boomburst", "Bulk Up"] as MoveName[])
+    }), 
+    [
+      {name: "Drum Beating" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spe", change:-1}], statChance: 100},
+      {name: "Acrobatics" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Body Slam" as MoveName, category: "damage+ailment", target: "selected-pokemon", ailment: "paralysis", ailmentChance: 30},
+      {name: "Low Kick" as MoveName, category: "damage", target: "selected-pokemon"},
+    ], 
+    ["Growth", "Boomburst", "Bulk Up"] as MoveName[], 
+    [
+      {name: "Growth" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "spa", change: 1}], statChance: 100},
+      {name: "Boomburst" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Bulk Up" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "def", change: 1}], statChance: 100},
+    ])
   );
   const [raider1, setRaider1] = useState(
     new Raider(1, "Koraidon", new Field(), new Pokemon(gen, "Koraidon", {
@@ -201,7 +213,11 @@ function App() {
       moves: ["Swords Dance", "Collision Course"],
       item: "Life Orb",
       evs: {hp: 252, atk: 252},
-    }))
+    }), 
+    [
+      {name: "Swords Dance" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 2}], statChance: 100},
+      {name: "Collision Course" as MoveName, category: "damage", target: "selected-pokemon"},
+    ])
   );
   const [raider2, setRaider2] = useState(
     new Raider(2, "Arcanine", new Field(), new Pokemon(gen, "Arcanine", {
@@ -209,7 +225,11 @@ function App() {
       ability: "Intimidate",
       moves: ["Charm", "Helping Hand"],
       evs: {hp: 252, def: 252},
-    }))
+    }), 
+    [
+      {name: "Charm" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "atk", change: -2}], statChance: 100},
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
+    ])
   );
   const [raider3, setRaider3] = useState(
     new Raider(3, "Corviknight", new Field(), new Pokemon(gen, "Corviknight", {
@@ -218,7 +238,10 @@ function App() {
       moves: ["Screech"],
       item: "Zoom Lens",
       evs: {hp: 252, def: 252},
-    }))
+    }), 
+    [
+      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
+    ])
   );
   const [raider4, setRaider4] = useState(
     new Raider(4, "Umbreon", new Field(), new Pokemon(gen, "Umbreon", {
@@ -227,7 +250,10 @@ function App() {
       moves: ["Screech"],
       item: "Zoom Lens",
       evs: {hp: 252, def: 252},
-    }))
+    }), 
+    [
+      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
+    ])
   );
 
   const [title, setTitle] = useState<string>("");

@@ -88,7 +88,9 @@ export interface Raider extends Pokemon {
     id: number;
     role: string;
     field: Field;
+    moveData: MoveData[];
     extraMoves?: MoveName[];// for special boss actions
+    extraMoveData?: MoveData[];
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     lastMove?: MoveData;    // stored for Instruct and Copycat
     lastTarget?: number;    // stored for Instruct and Copycat

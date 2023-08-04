@@ -1,4 +1,4 @@
-import { Generations, Move } from "../calc";
+import { Generations, Move, calculate } from "../calc";
 import { MoveData, RaidMoveOptions, RaidTurnInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
@@ -141,6 +141,33 @@ export class RaidTurn {
     }
 
     private applyChangedMove() {
+        // For this option, pick the most damaging move based on the current field.
+        if (this.bossMoveData.name === "(Most Damaging)") {
+            const moveOptions = this._raidState.raiders[0].moves;
+            let bestMove = moveOptions[0];
+            let bestDamage = 0;
+            for (const move of moveOptions) {
+                const testMove = new Move(9, move, this.bossOptions);
+                const testField = this._raidState.raiders[0].field;
+                testField.defenderSide = this._raidState.raiders[this.raiderID].field.attackerSide;
+                const result = calculate(9, this._raidState.raiders[0], this._raidState.raiders[this.raiderID], testMove, testField);
+                let damage: number = 0;
+                if (typeof(result.damage) === "number") {
+                    damage = result.damage;
+                } else {
+                    damage = (this.bossOptions.roll === "min" ? result.damage[0] :
+                              this.bossOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
+                              result.damage[Math.floor(result.damage.length / 2)]) as number;
+                }
+                if (damage > bestDamage) {
+                    bestMove = move;
+                    bestDamage = damage;
+                }
+            }
+            this._bossMoveData = this._raidState.raiders[0].moveData.find((move) => move.name === bestMove) as MoveData;
+            console.log(bestMove, this._raidState.raiders[0], this._bossMoveData, this._raidState.raiders[0].moveData, this._raidState.raiders[0].extraMoveData);
+            this._bossMove = new Move(9, bestMove, this.bossOptions);
+        }
         // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
         // Instruct
         if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {

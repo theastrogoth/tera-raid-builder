@@ -24,7 +24,7 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import PokedexService from "../services/getdata";
+// import PokedexService from "../services/getdata";
 import { getPokemonSpriteURL, arraysEqual } from "../utils";
 
 const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: RaidTurnInfo[]) => void, setGroups: (g: number[][]) => void, setTransitionIn: (n: number) => void) => (index: number) => () => {
@@ -209,11 +209,13 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
         } else if (moveName === "Heal Cheer") {
             setMoveInfo({...moveInfo, moveData: {name: moveName, priority: 10, category: "heal", target: "user-and-allies"}})
         } else {
-            async function fetchData() {
-                let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
-                setMoveInfo({...moveInfo, moveData: mData});
-            }
-            fetchData().catch((e) => console.log(e));
+            // async function fetchData() {
+            //     let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
+            //     setMoveInfo({...moveInfo, moveData: mData});
+            // }
+            // fetchData().catch((e) => console.log(e));
+            const mData = raiders[moveInfo.userID].moveData.find((m) => m.name === moveName) as MoveData;
+            setMoveInfo({...moveInfo, moveData: mData});
         }
     }, [moveName])
 
@@ -315,7 +317,7 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: Raider, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void}) {
     const moveInfo = turns[index].bossMoveInfo;
     const turnID = turns[index].id;
-    const moveSet = ["(No Move)", ...boss.moves, ...(boss.extraMoves) || []];
+    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || []];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
     const [options, setOptions] = useState(moveInfo.options || {crit: true, secondaryEffects: true, roll: "max"});
@@ -329,14 +331,19 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
     }
 
     useEffect(() => {
-        if (moveName === "(No Move)") {
+        if (moveName === "(No Move)" || moveName === "(Most Damaging)") {
             setMoveInfo({...moveInfo, moveData: {name: moveName}});
         } else {
-            async function fetchData() {
-                let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
-                setMoveInfo({...moveInfo, moveData: mData});
+            // async function fetchData() {
+            //     let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
+            //     setMoveInfo({...moveInfo, moveData: mData});
+            // }
+            // fetchData().catch((e) => console.log(e));
+            let mData = boss.moveData.find((m) => m.name === moveName);
+            if (!mData) {
+                mData = boss.extraMoveData!.find((m) => m.name === moveName) as MoveData;
             }
-            fetchData().catch((e) => console.log(e));
+            setMoveInfo({...moveInfo, moveData: mData});
         }
       }, [moveName, turnID])
     

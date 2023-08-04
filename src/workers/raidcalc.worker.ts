@@ -21,7 +21,7 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}
         item: r.item,
         teraType: r.teraType,
         moves: r.moves,
-    }), r.extraMoves))
+    }), r.moveData, r.extraMoves, r.extraMoveData))
 
     const state = new RaidState(raiders);
     const info: RaidBattleInfo = {

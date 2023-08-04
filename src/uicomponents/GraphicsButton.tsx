@@ -339,7 +339,7 @@ const ExecutionMoveNumber = styled(Typography)({
     height: "125px",
     width: "125px",
     lineHeight: "125px",
-    fontSize: "5em",
+    fontSize: "4.5em",
     textAlign: "center"
 });
 
@@ -383,7 +383,10 @@ const ExecutionMovePokemonName = styled(Typography)({
 });
 
 const ExecutionMovePokemonIcon = styled("img")({
-    height: "130px",
+    height: "auto",
+    width: "auto",
+    maxHeight: "140px",
+    maxWidth: "140px",
     marginRight: "15px"
 });
 
@@ -664,7 +667,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                 background: graphicsTheme.palette["group"+index.toString().slice(-1)].main,
                                                 height: (175*moveGroup.length).toString() + "px"
                                             }}>
-                                                <ExecutionMoveNumber>{index}</ExecutionMoveNumber>
+                                                <ExecutionMoveNumber>{index + 1}</ExecutionMoveNumber>
                                                 <ExecutionMoveContainer>
                                                     {
                                                         moveGroup.map((move, moveIndex) => (

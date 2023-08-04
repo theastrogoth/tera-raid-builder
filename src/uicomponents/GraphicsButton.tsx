@@ -1,27 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
-import { serialize, deserialize } from "../utilities/shrinkstring";
+import React, { useState, useRef } from "react";
 
 import Box from '@mui/material/Box';
 
-import { Pokemon, Generations, Field, Move } from "../calc";
-import { MoveName, TypeName } from "../calc/data/interface";
+import { Move } from "../calc";
+import { TypeName } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL } from "../utils";
-import { Raider, RaidMoveInfo, RaidState, RaidTurnInfo } from "../raidcalc/interface";
+import { RaidMoveInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
 import { PokedexService, PokemonData } from "../services/getdata"
-import { MoveData, MoveSetItem } from "../raidcalc/interface";
 
-
-import PokemonSummary from "./PokemonSummary";
-import BossSummary from "./BossSummary";
 
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { Grid, Hidden, TextField, Theme } from "@mui/material";
+import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -29,11 +22,8 @@ import { flushSync } from 'react-dom';
 import { ThemeProvider } from "@emotion/react";
 import { useTheme } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { opacity } from "html2canvas/dist/types/css/property-descriptors/opacity";
-import { backgroundPosition } from "html2canvas/dist/types/css/property-descriptors/background-position";
   
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -468,7 +458,6 @@ function getMoveGroups(raidInputProps: RaidInputProps) {
     let currentGroupIndex = -1;
     let currentGroupID: number | undefined = -1;
     turns.forEach((t, index) => {
-        // console.log(t.moveInfo.moveData.name)
         if (t.moveInfo.moveData.name === "(No Move)") { return; }
         const g = t.group;
         if (g === undefined || g !== currentGroupID) {
@@ -490,8 +479,6 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
-
-    console.log(getMoveGroups(raidInputProps))
 
     flushSync(() => {
         root.render(
@@ -551,7 +538,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                     {
                                                         [...Array(4)].map((val, index) => (
                                                             <MoveBox key={"move_box_" + index}>
-                                                                {raider.moves[index] ? <MoveTypeIcon src={getTypeIconURL("normal")} /> : null}
+                                                                {raider.moves[index] ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} /> : null}
                                                                 {raider.moves[index] ? <MoveLabel>{raider.moves[index]}</MoveLabel> : null}
                                                                 {raider.moves[index] ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} /> : null}
                                                             </MoveBox>
@@ -636,23 +623,18 @@ function saveGraphic(graphicTop: HTMLElement, title: string) {
     html2canvas(graphicTop, {allowTaint: true, useCORS: true, windowWidth: 3600}).then((canvas) => {
       canvas.toBlob((blob) => {
           if (blob) {
-            //   saveAs(blob, title + '.png'); // commented for now, I dont want to keep downloading images every time I make a change
+              saveAs(blob, title + '.png');
           } else {
-              saveAs(getPokemonArtURL("wo-chien"), "live_reaction.png");
+              saveAs(getPokemonArtURL("wo-chien"), "failed_generation.png");
           }
       });
     });
-    // graphicTop.remove(); // remove the element from the DOM // commented for now, I dont want the element to be remove in development
+    graphicTop.remove(); // remove the element from the DOM
 }
 
-function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNotes, setCredits, setPrettyMode}: 
-    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, 
-      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
-      setPrettyMode: (p: boolean) => void}) {
-    const [buildInfo, setBuildInfo] = useState(null);
-    const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
-    const location = useLocation();
-    const hash = location.hash
+function GraphicsButton({title, notes, credits, raidInputProps}: 
+    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, }) {
+
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getPokemonArtURL("wo-chien"));
     const [subtitle, setSubtitle] = useState<string>("");
@@ -678,6 +660,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, setTitle, setNot
             const pokemonData = (await Promise.all(
                 raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
             )).filter((data) => data !== undefined) as PokemonData[];
+            
             const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
             const learnMethods = moves.map((ms, index) => 
                 ms.map((move) => 

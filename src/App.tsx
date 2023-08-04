@@ -299,8 +299,6 @@ function App() {
                   <GraphicsButton
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps}
-                    setTitle={setTitle} setNotes={setNotes} setCredits={setCredits}
-                    setPrettyMode={setPrettyMode}
                   />
                 <Box flexGrow={1} />
               </Stack>

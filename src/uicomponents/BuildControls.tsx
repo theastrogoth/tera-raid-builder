@@ -642,6 +642,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                 }),
                 newPokemon.moveData,
                 newPokemon.extraMoves,
+                newPokemon.extraMoveData,
             ))
         }
     }
@@ -670,6 +671,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                 }),
                 newPokemon.moveData,
                 newPokemon.extraMoves,
+                newPokemon.extraMoveData,
             ))
         }
     }

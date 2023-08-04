@@ -142,7 +142,9 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
                     bossMultiplier: pokemon.bossMultiplier,                
                     evs: newEVs,
                 }),
+                pokemon.moveData,
                 pokemon.extraMoves,
+                pokemon.extraMoveData,
                 ),
             )
         }
@@ -167,7 +169,9 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
                     bossMultiplier: pokemon.bossMultiplier,                
                     ivs: newIVs,
                 }),
+                pokemon.moveData,
                 pokemon.extraMoves,
+                pokemon.extraMoveData,
             ))
         }
     };

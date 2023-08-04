@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import { Move } from "../calc";
 import { TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL } from "../utils";
 import { RaidMoveInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
@@ -83,7 +83,7 @@ const graphicsTheme = createTheme({
 
 const GraphicsContainer = styled(Box)({
     width: "3600px",
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${getPokemonArtURL("wo-chien")})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${getMiscImageURL("default")})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     fontKerning: "auto",
@@ -625,7 +625,7 @@ function saveGraphic(graphicTop: HTMLElement, title: string) {
           if (blob) {
               saveAs(blob, title + '.png');
           } else {
-              saveAs(getPokemonArtURL("wo-chien"), "failed_generation.png");
+              saveAs(getMiscImageURL("failure"), "failed_generation.png");
           }
       });
     });
@@ -636,7 +636,7 @@ function GraphicsButton({title, notes, credits, raidInputProps}:
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, }) {
 
     const theme = useTheme();
-    const loadedImageURLRef = useRef<string>(getPokemonArtURL("wo-chien"));
+    const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
     const [subtitle, setSubtitle] = useState<string>("");
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -650,7 +650,7 @@ function GraphicsButton({title, notes, credits, raidInputProps}:
 
     const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const imageFile = (e.target.files || [null])[0];
-        const imageFileURL = imageFile ? URL.createObjectURL(imageFile) : getPokemonArtURL("wo-chien");
+        const imageFileURL = imageFile ? URL.createObjectURL(imageFile) : getMiscImageURL("default");
         loadedImageURLRef.current = imageFileURL;
     };
 

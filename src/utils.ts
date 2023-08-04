@@ -48,6 +48,7 @@ const SPECIAL_NAMES = {
     "well-baked-body":          "Well-Baked Body"
 }
 
+const miscImagesProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/misc/"
 const pokemonArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/arts/";
 const pokemonSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/box_sprites/";
 const itemSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/items/";
@@ -59,6 +60,10 @@ const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 export function prepareImageAssetName(name: string) {
     if (name == "Flabébé") { return "flabebe"; } // ugh
     return name.replaceAll(' ','_').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
+}
+
+export function getMiscImageURL(name: string) {
+    return miscImagesProlog + prepareImageAssetName(name) + ".png";
 }
 
 export function getItemSpriteURL(name: string) {

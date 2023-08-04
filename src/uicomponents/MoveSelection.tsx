@@ -47,7 +47,7 @@ const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: 
         id: uniqueId,
         group: group,
         moveInfo: {userID: 1, targetID: 0, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min" }},
-        bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(No Move)" as MoveName}, options: {crit: true, secondaryEffects: true, roll: "max" }},
+        bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(Most Damaging)" as MoveName}, options: {crit: true, secondaryEffects: true, roll: "max" }},
     }
     newTurns.splice(index, 0, newTurn);
 

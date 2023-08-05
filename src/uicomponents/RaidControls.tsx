@@ -35,7 +35,14 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
         }
         raidcalcWorker
             .postMessage(info);
-    }, [raidInputProps.pokemon, raidInputProps.turns, prettyMode]);
+    }, [raidInputProps.turns, 
+        raidInputProps.pokemon[0], 
+        raidInputProps.pokemon[1], 
+        raidInputProps.pokemon[2], 
+        raidInputProps.pokemon[3], 
+        raidInputProps.pokemon[4]
+      ]
+    );
 
     return (
         <Box width={610} sx={{ mx: 1}}>

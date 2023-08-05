@@ -24,7 +24,9 @@ import { MoveName } from './calc/data/interface.ts';
 import { RaidTurnInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
+import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
 import GraphicsButton from './uicomponents/GraphicsButton.tsx';
+import { RaidState } from './raidcalc/RaidState.ts';
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -276,6 +278,15 @@ function App() {
     setGroups: setGroups
   }
 
+  const [results, setResults] = useState<RaidBattleResults>(
+    {
+      endState: new RaidState(raidInputProps.pokemon),
+      turnResults: [],
+      turnZeroOrder: [],
+      turnZeroFlags: [],
+    }
+  );
+
   return (
   <ThemeProvider theme={theme}> 
     <CssBaseline />
@@ -306,7 +317,7 @@ function App() {
             <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} prettyMode={prettyMode} />
           </Grid>
           <Grid item>
-            <RaidControls raidInputProps={raidInputProps} prettyMode={prettyMode} />
+            <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} prettyMode={prettyMode} />
           </Grid>
           <StratFooter notes={notes} setNotes={setNotes} credits={credits} setCredits={setCredits} prettyMode={prettyMode} />
         </Grid>
@@ -324,7 +335,7 @@ function App() {
                   <Box width="15px"/>
                   <GraphicsButton
                     title={title} notes={notes} credits={credits}
-                    raidInputProps={raidInputProps}
+                    raidInputProps={raidInputProps} results={results}
                   />
                 <Box flexGrow={1} />
               </Stack>

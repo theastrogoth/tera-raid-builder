@@ -159,7 +159,7 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
     const moveName = moveInfo.moveData.name;
 
     const moves = raiders[moveInfo.userID].moves;
-    const moveSet = ["(No Move)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
+    const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
     // const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(

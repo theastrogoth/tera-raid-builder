@@ -1,5 +1,5 @@
 import { Generations, Move, calculate } from "../calc";
-import { MoveData, RaidMoveOptions, RaidTurnInfo } from "./interface";
+import { MoveData, RaidMoveOptions, RaidTurnInfo, RaidMoveInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
@@ -11,6 +11,11 @@ export type RaidTurnResult = {
     state: RaidState;
     results: [RaidMoveResult, RaidMoveResult];
     raiderMovesFirst: boolean;
+    raiderMoveUsed: string;
+    id: number;
+    group?: number;
+    moveInfo: RaidMoveInfo;
+    bossMoveInfo: RaidMoveInfo;
 }
 
 export class RaidTurn {
@@ -21,6 +26,8 @@ export class RaidTurn {
     bossMoveData!:   MoveData;
     raiderOptions:  RaidMoveOptions;
     bossOptions:    RaidMoveOptions;
+    id:        number;
+    group?:     number;
 
     _raiderMovesFirst!: boolean;
     _raider!:           Raider;
@@ -31,6 +38,7 @@ export class RaidTurn {
     _bossMoveData!:     MoveData;
     _raiderMoveID!:     number;     // the id of the raider performing the move (affected by instruct)
     _raiderMoveTarget!: number;
+    _raiderMoveUsed!:   string;
 
     _raidMove1!:      RaidMove;
     _raidMove2!:      RaidMove;
@@ -48,6 +56,8 @@ export class RaidTurn {
         this.targetID = info.moveInfo.targetID;
         this.raiderMoveData = info.moveInfo.moveData;
         this.bossMoveData = info.bossMoveInfo.moveData;
+        this.id = info.id;
+        this.group = info.group;
 
         this.raiderOptions = info.moveInfo.options || {};
         this.bossOptions = info.bossMoveInfo.options || {};
@@ -73,7 +83,8 @@ export class RaidTurn {
         this._raiderMoveTarget = this.targetID;
         this._raiderMoveData = this.raiderMoveData;
         this._bossMoveData = this.bossMoveData;
-        
+        this._raiderMoveUsed = this._raiderMoveData.name;
+
         this.applyChangedMove();
 
         if (this._raiderMovesFirst) {
@@ -135,7 +146,22 @@ export class RaidTurn {
         return {
             state: this._raidState,
             results: [this._result1, this._result2],
-            raiderMovesFirst: this._raiderMovesFirst
+            raiderMovesFirst: this._raiderMovesFirst,
+            raiderMoveUsed: this._raiderMoveUsed,
+            id: this.id,
+            group: this.group,
+            moveInfo: {
+                userID: this.raiderID,
+                targetID: this.targetID,
+                moveData: this.raiderMoveData,
+                options: this.raiderOptions,
+            },
+            bossMoveInfo: {
+                userID: 0,
+                targetID: this.raiderID,
+                moveData: this.bossMoveData,
+                options: this.bossOptions,
+            },
         }
 
     }
@@ -191,6 +217,7 @@ export class RaidTurn {
             }
             this._raiderMoveData = this._raidState.raiders[this.raiderID].moveData.find((move) => move.name === bestMove) as MoveData;
             this._raiderMove = new Move(9, bestMove, this.raiderOptions);
+            this._raiderMoveUsed = bestMove;
         }
         // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
         // Instruct

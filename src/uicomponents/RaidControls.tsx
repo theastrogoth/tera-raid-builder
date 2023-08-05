@@ -13,9 +13,8 @@ import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
 
-function RaidControls({raidInputProps, prettyMode}: {raidInputProps: RaidInputProps, prettyMode: boolean}) {
+function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean}) {
     const [value, setValue] = useState<number>(1);
-    const [results, setResults] = useState<RaidBattleResults | null>(null);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -53,7 +52,7 @@ function RaidControls({raidInputProps, prettyMode}: {raidInputProps: RaidInputPr
                             <MoveSelection raidInputProps={raidInputProps} />
                         }
                         {prettyMode &&
-                            <MoveDisplay turns={raidInputProps.turns} raiders={raidInputProps.pokemon} />
+                            <MoveDisplay turns={results.turnResults} raiders={raidInputProps.pokemon} />
                         }
                     </Box>
                 </Stack>

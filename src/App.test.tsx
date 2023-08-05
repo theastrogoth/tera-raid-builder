@@ -186,6 +186,22 @@ describe('Specific Test Cases', () => {
     // T5 No more berries, KOd
     expect(result.turnResults[4].state.raiders[1].originalCurHP).toEqual(0); // KO
   })
+  test('most_damaging', async() => {
+    const hash = "#H4sIAAAAAAAAA8VUwW7bMAz9FYOnDdAhcZI2yy1rN6zAvMPaXWb4oNh0okWWDEnOEhT591GyjbRbAhTLssIGQVF8fI8S7UcoYQb5D6sVMHAwS9MBA8UrhIx5VxSdkxvhKMVirlXBze5DWWLuLIWMltInDRk0Fs3dra/EzRJdcHXthFbWZ8QMlkY3NUUrvcE7VWpyF9rapF+2dZR26EvnBgsRSGq9xqoV2RjlI6GS7dStfE3u1mQLLL3OmgdbBIsdO0lF6Pqj/IWQwu3IEw6rEKfifgc3nkEEK3GD0vOi4Q+7GjvxtlfeSCdqKdB43NYZnoTdLGOwgdkj0JleMYDuTUNgykhzgj+ht2++6GjeynkLTDVSMvjErRcXANcE6J94Emf7Pjwa/vbS1nAwaEuk8JGvMXpAbrzc97rYRfeS+1bnaASX0Tz3/cyFiW4aRx3SOXl0mvUMUzb0ShrlQoMH77hiUxxTPHip3j/Z6dISvlRY0RXBc/8/KRgxuM93bhW6PnjH2G+4wbKR/5Z/zOBbtTAYhv/gPeeH71pX0WcMX8ZXlHyLxTkyqFGDmK+ezEPWze6EdUlhNW6V+JknGUPaC+ERK7m02FmohAKqsD9gEm1ddMsrvhRqScgBYTukMw22Biq+DbgeOaGsU9zxxbnjk9yji3OPTnKPL849Pf++n/6HXkr77hXH7Or8q/6blq9fYcKy8HXvfwEyTpKzCggAAA==";  
+    const result = await resultsFromHash(hash);
+    // T1 Haunter is damaged most by Aerial Ace (Immune to Body Slam, SpD > Def)
+    expect(result.turnResults[0].results[0].desc[1].includes("Aerial Ace")).toEqual(true);
+    // T2 Magnemite is damaged most by Body Slam (Resists Flying)
+    expect(result.turnResults[1].results[0].desc[2].includes("Body Slam")).toEqual(true);
+    // T3 Scyther is damaged most by Aerial Ace (Weak to Flying, SpD > Def)
+    expect(result.turnResults[2].results[0].desc[3].includes("Aerial Ace")).toEqual(true);
+    // T4 Umbreon is damaged most by Body Slam (Neutral to moves)
+    expect(result.turnResults[3].results[0].desc[4].includes("Body Slam")).toEqual(true);
+    // T6 Haunter is damaged most by Air Cutter (after Fake Tears)
+    expect(result.turnResults[5].results[0].desc[1].includes("Air Cutter")).toEqual(true);
+    // T8 Scyther is damaged most by Air Cutter (after Fake Tears)
+    expect(result.turnResults[7].results[0].desc[3].includes("Air Cutter")).toEqual(true);
+  })
 })
 
 // Test cases for OHKO strats

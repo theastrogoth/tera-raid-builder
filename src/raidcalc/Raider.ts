@@ -11,17 +11,22 @@ export class Raider extends Pokemon implements State.Raider {
     id: number;
     role: string;
     field: Field;               // each pokemon gets its own field to deal with things like Helping Hand and Protect
+    moveData: State.MoveData[];   
     extraMoves?: MoveName[];    // for special boss actions
+    extraMoveData?: State.MoveData[];
+
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
 
-    constructor(id: number, role: string, field: Field, pokemon: Pokemon, extraMoves: MoveName[] = [], isEndure: boolean = false, lastMove: State.MoveData | undefined = undefined, lastTarget: number | undefined = undefined) {
+    constructor(id: number, role: string, field: Field, pokemon: Pokemon, moveData: State.MoveData[], extraMoves: MoveName[] = [], extraMoveData: State.MoveData[] = [], isEndure: boolean = false, lastMove: State.MoveData | undefined = undefined, lastTarget: number | undefined = undefined) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
         this.role = role;
         this.field = field;
+        this.moveData = moveData;
         this.extraMoves = extraMoves;
+        this.extraMoveData = extraMoveData;
         this.isEndure = isEndure;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
@@ -57,7 +62,9 @@ export class Raider extends Pokemon implements State.Raider {
                 moves: this.moves.slice(),
                 overrides: this.species,
             }),
+            this.moveData,
             this.extraMoves,
+            this.extraMoveData,
             this.isEndure,
             this.lastMove,
             this.lastTarget

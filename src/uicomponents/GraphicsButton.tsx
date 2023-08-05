@@ -28,6 +28,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import DownloadIcon from '@mui/icons-material/Download';
+import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
 const graphicsTheme = createTheme({
     typography: {
@@ -446,13 +447,13 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
 }
 
 // TODO: move this to a more appropriate place (also used in MoveDisplay)
-function getMoveGroups(raidInputProps: RaidInputProps) {
-    const turns = raidInputProps.turns;
+function getMoveGroups(results: RaidBattleResults) {
+    const turns = results.turnResults;
     const displayGroups: number[][] = [];
     let currentGroupIndex = -1;
     let currentGroupID: number | undefined = -1;
     turns.forEach((t, index) => {
-        if (t.moveInfo.moveData.name === "(No Move)") { return; }
+        if (t.raiderMoveUsed === "(No Move)") { return; }
         const g = t.group;
         if (g === undefined || g !== currentGroupID) {
             currentGroupIndex += 1;
@@ -463,12 +464,12 @@ function getMoveGroups(raidInputProps: RaidInputProps) {
         currentGroupID = g;
     })
     const moveGroups = displayGroups.map(group => 
-        group.map((id) => turns[id]!.moveInfo)
+        group.map((id) => { return {move: turns[id]!.raiderMoveUsed, info: turns[id]!.moveInfo} })
     );
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: RaidMoveInfo[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo}[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     console.log("loaded Image", backgroundImageURL)
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
@@ -555,7 +556,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                         <ExecutionContainer direction="row">
                             <ExecutionTable>
                                 {
-                                    getMoveGroups(raidInputProps).map((moveGroup, index) => (
+                                    moveGroups.map((moveGroup, index) => (
                                         <ExecutionRow key={index}>
                                             <ExecutionGroup sx={{
                                                 //@ts-ignore
@@ -568,19 +569,19 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                         moveGroup.map((move, moveIndex) => (
                                                             <ExecutionMove key={moveIndex}>
                                                                 <ExecutionMovePokemonWrapper>
-                                                                    <ExecutionMovePokemonName>{raidInputProps.pokemon[move.userID].role}</ExecutionMovePokemonName>
+                                                                    <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.userID].role}</ExecutionMovePokemonName>
                                                                     <ExecutionMovePokemonIconWrapper>
-                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.userID].species.name)} />
+                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.userID].species.name)} />
                                                                     </ExecutionMovePokemonIconWrapper>
                                                                 </ExecutionMovePokemonWrapper>
                                                                 <ExecutionMoveTag>uses</ExecutionMoveTag>
-                                                                <ExecutionMoveAction>{move.moveData.name}</ExecutionMoveAction>
-                                                                <ExecutionMoveTag>{!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.moveData.target!)? "on": ""}</ExecutionMoveTag>
-                                                                {!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.moveData.target!) ?
+                                                                <ExecutionMoveAction>{move.move}</ExecutionMoveAction>
+                                                                <ExecutionMoveTag>{!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)? "on": ""}</ExecutionMoveTag>
+                                                                {!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!) ?
                                                                     <ExecutionMovePokemonWrapper>
-                                                                        <ExecutionMovePokemonName>{raidInputProps.pokemon[move.targetID].role}</ExecutionMovePokemonName>
+                                                                        <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.targetID].role}</ExecutionMovePokemonName>
                                                                         <ExecutionMovePokemonIconWrapper>
-                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.targetID].species.name)} />
+                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.targetID].species.name)} />
                                                                         </ExecutionMovePokemonIconWrapper>
                                                                     </ExecutionMovePokemonWrapper>
                                                                     :
@@ -634,8 +635,8 @@ function saveGraphic(graphicTop: HTMLElement, title: string) {
     graphicTop.remove(); // remove the element from the DOM
 }
 
-function GraphicsButton({title, notes, credits, raidInputProps}: 
-    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, }) {
+function GraphicsButton({title, notes, credits, raidInputProps, results}: 
+    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, results: RaidBattleResults, }) {
 
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
@@ -671,7 +672,7 @@ function GraphicsButton({title, notes, credits, raidInputProps}:
             );
             const moveTypes = moves.map((ms) => ms.map((move) => move.type));
             // sort moves into groups
-            const moveGroups = getMoveGroups(raidInputProps);
+            const moveGroups = getMoveGroups(results);
             // generate graphic
             const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, loadedImageURLRef.current, title, subtitle, notes, credits);
             saveGraphic(graphicTop, title);

@@ -131,7 +131,8 @@ export class RaidMove {
 
     private setAffectedPokemon() {
         const targetType = this.moveData.target;
-        if (targetType == "user") { this._affectedIDs = [this.userID]; }
+        if (this.moveData.name === "Heal Cheer") { this._affectedIDs = [1,2,3,4]; }
+        else if (targetType == "user") { this._affectedIDs = [this.userID]; }
         else if (targetType == "selected-pokemon" || targetType == "all-opponents") { this._affectedIDs = [this.targetID]; }
         else if (targetType == "all-allies") { this._affectedIDs = [1,2,3,4].splice(this.userID, 1); }
         else if (targetType == "user-and-allies") { this._affectedIDs = [1,2,3,4]; }
@@ -801,16 +802,14 @@ export class RaidMove {
         // Here, we'll evaluate end-of-turn damage for both the user and boss only when the move does not go first
         // positive eot indicates healing
         if (!this.movesFirst) {
-            const atkID = this.userID;
-            const defID = this.userID == 0 ? this.raiderID : 0;
-            const attacker = this._user;
-            const defender = this.getPokemon(defID)
-            const atk_eot = getEndOfTurn(gen, attacker, defender, dummyMove, this.getMoveField(attacker.id, defender.id));
-            const def_eot = getEndOfTurn(gen, defender, attacker, dummyMove, this.getMoveField(defender.id, attacker.id));
-            atk_eot.damage = Math.floor(atk_eot.damage / ((defender.bossMultiplier || 100) / 100));
-            def_eot.damage = Math.floor(def_eot.damage / ((attacker.bossMultiplier || 100) / 100));
-            this._eot[defID] = atk_eot;
-            this._eot[atkID] = def_eot;
+            const raider = this._raiders[this.raiderID];
+            const boss = this._raiders[0];
+            const raider_eot = getEndOfTurn(gen, boss, raider, dummyMove, this.getMoveField(0, this.raiderID));
+            const boss_eot = getEndOfTurn(gen, raider, boss, dummyMove, this.getMoveField(this.raiderID, 0));
+            raider_eot.damage = Math.floor(raider_eot.damage / ((raider.bossMultiplier || 100) / 100));
+            boss_eot.damage = Math.floor(boss_eot.damage / ((boss.bossMultiplier || 100) / 100));
+            this._eot[this.raiderID] = raider_eot;
+            this._eot[0] = boss_eot;
         }
     }
 

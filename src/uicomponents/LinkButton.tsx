@@ -48,7 +48,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
         const turns: RaidTurnInfo[] = [];
         for (let t of obj.turns as LightTurnInfo[]) {
             const mdata = pokemon[t.moveInfo.userID].moveData.find((m) => m && m.name === t.moveInfo.name);
-            const bmdata = pokemon[0].moveData.find((m) => m && m.name === t.bossMoveInfo.name);
+            const bmdata = [...pokemon[0].moveData, ...pokemon[0].extraMoveData!].find((m) => m && m.name === t.bossMoveInfo.name);
             
             const turn = {
                 id: t.id,

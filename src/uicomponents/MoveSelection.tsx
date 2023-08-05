@@ -342,10 +342,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
             //     setMoveInfo({...moveInfo, moveData: mData});
             // }
             // fetchData().catch((e) => console.log(e));
-            let mData = boss.moveData.find((m) => m.name === moveName);
-            if (!mData) {
-                mData = boss.extraMoveData!.find((m) => m.name === moveName) as MoveData;
-            }
+            const mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === moveName) as MoveData;
             setMoveInfo({...moveInfo, moveData: mData});
         }
       }, [moveName, turnID])

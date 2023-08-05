@@ -4,9 +4,10 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { RaidTurnResult } from "../raidcalc/RaidTurn";
 import { getPokemonSpriteURL } from "../utils";
 
-function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
+function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
 
     let name = raiders[turn.moveInfo.userID].name;
     let user = raiders[turn.moveInfo.userID].role;
@@ -20,7 +21,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     }
     let targetName = raiders[turn.moveInfo.targetID].name;
 
-    let move: string = turn.moveInfo.moveData.name;
+    let move: string = turn.raiderMoveUsed;
     if (move == "(No Move)") {
         move = "";
     }
@@ -91,7 +92,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnInfo}) {
     )
 }
 
-function MoveGroup({turns, group, raiders, index}: {turns: RaidTurnInfo[], group: number[], raiders: Raider[], index: number}) {
+function MoveGroup({turns, group, raiders, index}: {turns: RaidTurnResult[], group: number[], raiders: Raider[], index: number}) {
     const newTurns = turns.filter((t, i) => group.includes(i));
     const color = "group" + index + ".main";
     return (
@@ -112,7 +113,7 @@ function MoveGroup({turns, group, raiders, index}: {turns: RaidTurnInfo[], group
     )
 }
 
-function MoveDisplay({turns, raiders}: {turns: RaidTurnInfo[], raiders: Raider[]}) { 
+function MoveDisplay({turns, raiders}: {turns: RaidTurnResult[], raiders: Raider[]}) { 
     const displayGroups: number[][] = [];
     let currentGroupIndex = -1;
     let currentGroupID: number | undefined = -1;

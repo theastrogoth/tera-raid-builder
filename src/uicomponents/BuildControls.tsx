@@ -640,13 +640,44 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                     teraType: newPokemon.teraType,
                     bossMultiplier: newPokemon.bossMultiplier,
                 }),
+                newPokemon.moveData,
                 newPokemon.extraMoves,
+                newPokemon.extraMoveData,
+            ))
+        }
+    }
+
+    const setPokemonProperties = (propNames: string[]) => {
+        return (vals: any[]) => {
+            const newPokemon = {...pokemon};
+            propNames.forEach((propName, i) => {
+                // @ts-ignore
+                newPokemon[propName] = vals[i];
+            })
+            setPokemon(new Raider(
+                newPokemon.id, 
+                newPokemon.role, 
+                newPokemon.field,
+                new Pokemon(gen, newPokemon.name, {
+                    level: newPokemon.level,
+                    ability: newPokemon.ability,
+                    nature: newPokemon.nature,
+                    item: newPokemon.item,
+                    ivs: newPokemon.ivs,
+                    evs: newPokemon.evs,
+                    moves: newPokemon.moves,
+                    teraType: newPokemon.teraType,
+                    bossMultiplier: newPokemon.bossMultiplier,
+                }),
+                newPokemon.moveData,
+                newPokemon.extraMoves,
+                newPokemon.extraMoveData,
             ))
         }
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"})))
+        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"}), []))
     }
 
     return (
@@ -756,10 +787,12 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                                             key={index}
                                             name={index==0 ? "Moves" : ""}
                                             value={pokemon.moves[index] || "(No Move)"} 
-                                            setValue={(moveOption: string) => {
+                                            setValue={async (moveOption: string) => {
                                                 const newMoves = [...pokemon.moves as string[]];
                                                 newMoves[index] = moveOption;
-                                                setPokemonProperty("moves")(newMoves);
+                                                const newMoveData = [...pokemon.moveData];
+                                                newMoveData[index] = (await PokedexService.getMoveByName(moveOption)) || {name: "(No Move)" as MoveName, target: "user"};
+                                                setPokemonProperties(["moves", "moveData"])([newMoves, newMoveData]);
                                             }}
                                             options={createMoveOptions(moveSet)}
                                             moveSet={moveSet}
@@ -796,7 +829,9 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                 teraType: newPokemon.teraType,
                 bossMultiplier: newPokemon.bossMultiplier,
             }),
+            pokemon.moveData,
             pokemon.extraMoves,
+            pokemon.extraMoveData,
         ));
     }
 

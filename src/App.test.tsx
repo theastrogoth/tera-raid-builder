@@ -42,10 +42,11 @@ async function resultsFromHash(hash: string) {
 async function testOHKO(strategy: LightBuildInfo) {
   const result = await resultsFromLightBuild(strategy);
   expect(result.endState.raiders[0].originalCurHP).toEqual(0); // check for the OHKO
-  // check that all raiders did not faint
-  for (let i=1; i<=4; i++) {
-    expect(result.endState.raiders[i].originalCurHP).not.toEqual(0);
-  }
+  // Some strategies include risk of fainting, so the following checks have beein omitted
+  // // check that all raiders did not faint
+  // for (let i=2; i<=4; i++) { // We'll i=1 as the convention for DPS, which will sometimes faint due to recoil
+  //   expect(result.endState.raiders[i].originalCurHP).not.toEqual(0);
+  // }
 }
 
 // Test cases for specific interactions
@@ -55,7 +56,7 @@ describe('Specific Test Cases', () => {
     const hash: string = "#H4sIAAAAAAAAA7WUW2/aMBSA/4rlp03KAyWwVX2pgDJKV1qtdE+IB5OcgBfHjnyhRRX/feeYQMtUadNURLAcn9t3Ls4LL/gFz345o3nCPb+YzVoJ16ICPk9oK/Nmk1npUcVBZnQu7GZYFJB5h0fWKEVKZwkPDuz4ijwJuwQft6b20mhHGu2EL60JNZ5WZg1jXRjcLoxzk/3rzo82Hsh1ZiGXMUhtSqh2kMFqOomeXEO3Ip/Cl7jmUBBnLeKaxxWa6IgKvMkP9RdSSb/BnfRQxXN0ThJYUwQZVwVrUBQXrHjc1NDAuz15UF7WSoIlu2dvxSRK5/OEr/nFC8eafkn4dHqTsrE1ml0LnZMxPj3nyWwWlc4TzONByJz10S1KH6RSYmEMkY2scG7DpgHLyhMdlEr4DdYd4aPxVzQ+/Obb/WF69seDorMWxrkzthKY1Yxf2VCxPggv9ZKQMmsW+JIRQd/kGFMJIrg1T+y7zEqsZNpFFzNkMk9+FdVMtQjW0Xz0gyrZzxrTbyDOE+znyJQBhUf5/wjCluzKyjXsfFAx2FCDXVJLermohPaH/Nrddvz/e46Xl5eU4EAZB2yAiCICAlaNUdaYCenN3qDiiDzaoEviu7dCL4Ml7ummWkjjJB3fygLYvV1EZpUf8bVeCf/OF5s442PtvA2Zf4cmpcJ5oKGfiOBWMRz/ZiXonI2wfPQ6wGmznmGWovwopmtQNY5DbBX6fMS2K3gHsIMtHd3dPwzZZBghl7IUlq7ipzvDervr9Xk/r9cI/J/zuuN6BZg3d6aLHYuy+NY5oGLpWruzNCmEctCsvJKao/n2YECgdGGRsoWT2thgR2C38Eo8R4u9TRe1jkIeGogs6cmCto6DvplidHC6XA91RPOe9yIr2WAF9NFqnzBq503U41lMXz18eNTucYmPvxunKDJOMYo6cxzo7W9OYO9BiQcAAA==";
     const build = await deserialize(hash);
     expect(build).not.toBeNull();
-    testOHKO(build as LightBuildInfo);
+    await testOHKO(build as LightBuildInfo);
   })
   test('qp_activation', async () => {
     const hash: string = "#H4sIAAAAAAAAA8VUUU/bMBD+K5H3skme1NACXd/oAI1JbAx4q/Jgkkvw4trR2anIEP99ZyehTcue1m5KZJ3Pd9/35e7iZ5azGUt/WqMZZ47NFosRZ1osgSXcmzLrjBSloxALqdGZwOYizyF1llxolPJBMWe1Bbw690gCC3DBNJWTRlsfccRZgaauyLs0K7jSuSHzwVh73W9bHG0ceOgUIZOBpDIlLFuRNWrvCUi2U/foMYUrac0g9zorEdYsrNCxk1Rg3fdR/INU0jVkSQfL4CdwfwIrzyDDqmAFyvMCivumgk687ZXXyslKSUCf9+RQXIfTJOFsxWbPjGp6whnr3kVwTDlpvhUyi+YEQQe3UEhQUEqy338z0Vkr7QPjulaKsy8CMxIakk8p+fVJXnrnON566SgejVqARRLsRdLHT3ncKgCM3sXEeoVGR/NaZ6FCP2qBZXSOcuV3nx9NpSCaA6Kv1l+LYZcI8As+nge4s6Jtw67Eo7XEIwq8kTqtMX2UfgwuFI0fyjS6q2nU9lanNe49fa0gql1Z47WsMSn5jkIXNdZk3jXLB2ms9C2dG2NpZqILDVjsp2xz0lVGcwRRviFrspY1IbqvsihUU9V5vjNT7AacaMQeG3otrWteS8bZpZK62NCYdIN/zLuUsJu0wvwPQ6piOgvuMc+FstCtbOmb8NJLGeaMKOvNHPEUcvqsY5qlAe9mKamhf0DZC/N4yNyWhrp1SM6TLc6N/+2wZZ4MibfmYnJQ7uP/9dGnQ+L+Qjsw63TIunNx0cgfkv7Tv652Em6Sl98TYWNjswgAAA==";
@@ -186,68 +187,95 @@ describe('Specific Test Cases', () => {
     // T5 No more berries, KOd
     expect(result.turnResults[4].state.raiders[1].originalCurHP).toEqual(0); // KO
   })
+  test('most_damaging', async() => {
+    const hash = "#H4sIAAAAAAAAA8VUwW7bMAz9FYOnDdAhcZI2yy1rN6zAvMPaXWb4oNh0okWWDEnOEhT591GyjbRbAhTLssIGQVF8fI8S7UcoYQb5D6sVMHAwS9MBA8UrhIx5VxSdkxvhKMVirlXBze5DWWLuLIWMltInDRk0Fs3dra/EzRJdcHXthFbWZ8QMlkY3NUUrvcE7VWpyF9rapF+2dZR26EvnBgsRSGq9xqoV2RjlI6GS7dStfE3u1mQLLL3OmgdbBIsdO0lF6Pqj/IWQwu3IEw6rEKfifgc3nkEEK3GD0vOi4Q+7GjvxtlfeSCdqKdB43NYZnoTdLGOwgdkj0JleMYDuTUNgykhzgj+ht2++6GjeynkLTDVSMvjErRcXANcE6J94Emf7Pjwa/vbS1nAwaEuk8JGvMXpAbrzc97rYRfeS+1bnaASX0Tz3/cyFiW4aRx3SOXl0mvUMUzb0ShrlQoMH77hiUxxTPHip3j/Z6dISvlRY0RXBc/8/KRgxuM93bhW6PnjH2G+4wbKR/5Z/zOBbtTAYhv/gPeeH71pX0WcMX8ZXlHyLxTkyqFGDmK+ezEPWze6EdUlhNW6V+JknGUPaC+ERK7m02FmohAKqsD9gEm1ddMsrvhRqScgBYTukMw22Biq+DbgeOaGsU9zxxbnjk9yji3OPTnKPL849Pf++n/6HXkr77hXH7Or8q/6blq9fYcKy8HXvfwEyTpKzCggAAA==";  
+    const result = await resultsFromHash(hash);
+    // T1 Haunter is damaged most by Aerial Ace (Immune to Body Slam, SpD > Def)
+    expect(result.turnResults[0].results[0].desc[1].includes("Aerial Ace")).toEqual(true);
+    // T2 Magnemite is damaged most by Body Slam (Resists Flying)
+    expect(result.turnResults[1].results[0].desc[2].includes("Body Slam")).toEqual(true);
+    // T3 Scyther is damaged most by Aerial Ace (Weak to Flying, SpD > Def)
+    expect(result.turnResults[2].results[0].desc[3].includes("Aerial Ace")).toEqual(true);
+    // T4 Umbreon is damaged most by Body Slam (Neutral to moves)
+    expect(result.turnResults[3].results[0].desc[4].includes("Body Slam")).toEqual(true);
+    // T6 Haunter is damaged most by Air Cutter (after Fake Tears)
+    expect(result.turnResults[5].results[0].desc[1].includes("Air Cutter")).toEqual(true);
+    // T8 Scyther is damaged most by Air Cutter (after Fake Tears)
+    expect(result.turnResults[7].results[0].desc[3].includes("Air Cutter")).toEqual(true);
+  })
+  test('mirrorherb_symbiosis_instruct_terrain', async() => {
+    const module = await import(`./data/strats/rillaboom/shrimpiosis.json`)
+    const result = await resultsFromLightBuild(module as LightBuildInfo);
+    // T0: Mirror Herb copies Growth, Weakness Policy passed
+    expect(result.turnResults[0].state.raiders[1].boosts.spa).toEqual(1);
+    expect(result.turnResults[0].state.raiders[1].item).toEqual("Weakness Policy");
+    // T5: Oranguru is targeted when using instruct, heals from Grassy Terrain after instruct instead of Qwilfish
+    expect(result.turnResults[4].results[0].desc[4].includes("Def Oranguru")).toEqual(true);
+    expect(result.turnResults[4].results[1].flags[4].join().includes("HP")).toEqual(true);
+  })
 })
 
 // Test cases for OHKO strats
 describe('OHKO tests, Official Strats', () => {
-  test('decidueye', async () => {
-    const module = await import(`./data/strats/decidueye/main.json`)
-    testOHKO(module as LightBuildInfo);
-  })
+  // Decidueye seems to have been a 93.8% chance rather than a guarantee
+  // test('decidueye', async () => {
+  //   const module = await import(`./data/strats/decidueye/main.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('samurott', async () => {
     const module = await import(`./data/strats/samurott/main.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('samurott/tauros', async () => {
     const module = await import(`./data/strats/samurott/tauros.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('typhlosion', async () => {
     const module = await import(`./data/strats/typhlosion/main.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('inteleon', async () => {
     const module = await import(`./data/strats/inteleon/main.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('chesnaught', async () => {
     const module = await import(`./data/strats/chesnaught/main.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('chesnaught/gholdengo', async () => {
     const module = await import(`./data/strats/chesnaught/gholdengo.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('delphox', async () => {
     const module = await import(`./data/strats/delphox/main.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('delphox/rain&sustain', async () => {
     const module = await import(`./data/strats/delphox/rain&sustain.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('rillaboom', async () => {
     const module = await import(`./data/strats/rillaboom/main.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('rillaboom/tickle_squad', async () => {
     const module = await import(`./data/strats/rillaboom/tickle_squad.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
 })
 
 describe('OHKO tests, Alternative Strats', () => {
   test('rillaboom/shrimpiosis', async () => {
     const module = await import(`./data/strats/rillaboom/shrimpiosis.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('rillaboom/pump_up_the_cham', async () => {
     const module = await import(`./data/strats/rillaboom/pump_up_the_cham.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
   test('rillaboom/timmys_revenge', async () => {
     const module = await import(`./data/strats/rillaboom/timmys_revenge.json`)
-    testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo);
   })
 })
 

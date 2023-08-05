@@ -29,7 +29,7 @@ export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
 
 export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildInfo | null> {
     try {
-        const pokemon = (obj.pokemon as LightPokemon[]).map((r) => new Raider(r.id, r.role, new Field(), 
+        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r) => new Raider(r.id, r.role, new Field(), 
             new Pokemon(gen, r.name, {
                 ability: r.ability || undefined,
                 item: r.item || undefined,
@@ -41,11 +41,14 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                 bossMultiplier: r.bossMultiplier || undefined,
                 moves: r.moves || undefined
             }), 
-        (r.extraMoves || undefined) as (MoveName[] | undefined)));
+            (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+            (r.extraMoves || undefined) as (MoveName[] | undefined),
+            (r.extraMoves ? (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+        )));
         const turns: RaidTurnInfo[] = [];
         for (let t of obj.turns as LightTurnInfo[]) {
-            const mdata = await PokedexService.getMoveByName(t.moveInfo.name);
-            const bmdata = await PokedexService.getMoveByName(t.bossMoveInfo.name);
+            const mdata = pokemon[t.moveInfo.userID].moveData.find((m) => m && m.name === t.moveInfo.name);
+            const bmdata = [...pokemon[0].moveData, ...pokemon[0].extraMoveData!].find((m) => m && m.name === t.bossMoveInfo.name);
             
             const turn = {
                 id: t.id,

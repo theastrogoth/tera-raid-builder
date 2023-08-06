@@ -675,7 +675,6 @@ export class RaidMove {
                             let whiteHerbUsed = false;
                             const statId = stat as StatIDExceptHP;
                             if (target.boosts[statId] < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
-                            if ( whiteHerbUsed ) { target.item = undefined; }
                         }
                         break;
                     // Status-Curing Berries
@@ -720,7 +719,7 @@ export class RaidMove {
                         break;
                     default: break;
                     }
-                this._user.item = undefined;
+                this._raidState.loseItem(this.userID);
                 break;
             // other
             case "Defog":

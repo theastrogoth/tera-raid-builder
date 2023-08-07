@@ -242,9 +242,8 @@ const BuildInfoContainer = styled(Stack)({
 
 const BuildInfo = styled(Typography)({
     fontSize: "1.8em",
-    height: "55px",
     lineHeight: "55px",
-    margin: "8px 0px",
+    margin: "4px 0px",
     paddingLeft: "1em",
     textIndent: "-1em"
 });
@@ -490,7 +489,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
                         <Title>{title ? title : "Untitled"}</Title>
-                        <Subtitle>{subtitle ? subtitle : (credits ? `By: ${credits})` : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`)}</Subtitle>
+                        <Subtitle>{subtitle ? subtitle : (credits ? `By: ${credits}` : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`)}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>

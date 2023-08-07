@@ -489,8 +489,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name)} />
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
-                        <Title>{title}</Title>
-                        <Subtitle>{subtitle ? subtitle : `By: ${credits}`}</Subtitle>
+                        <Title>{title ? title : "Untitled"}</Title>
+                        <Subtitle>{subtitle ? subtitle : (credits ? `By: ${credits})` : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`)}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>

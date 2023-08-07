@@ -3,8 +3,8 @@ import { getEndOfTurn } from "../calc/desc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
-import { AbilityName, StatIDExceptHP, Terrain, Weather } from "../calc/data/interface";
-import { getQPBoostedStat, isGrounded } from "../calc/mechanics/util";
+import { AbilityName, StatIDExceptHP } from "../calc/data/interface";
+import { getQPBoostedStat } from "../calc/mechanics/util";
 import { isSuperEffective, safeStatStage, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
@@ -47,6 +47,8 @@ export class RaidMove {
     _causesFlinch!: boolean[];
     _moveFails!: boolean; 
     _blockedBy!: string[];
+
+    _flingItem?: string;
 
     _damage!: number[];
     _healing!: number[];
@@ -375,6 +377,11 @@ export class RaidMove {
                     }
                     this._damage[id] = damage;
                     this._desc[id] = result.desc();
+                    // for Fling / Symbiosis interactions, the Flinger should lose their item before the target recieves damage
+                    if (this.moveData.name === "Fling" && this._user.item) {
+                        this._flingItem = moveUser.item;
+                        this._raidState.loseItem(this.userID);
+                    }
                 } catch {
                     this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // temporary fix
                 }
@@ -656,70 +663,70 @@ export class RaidMove {
                 // this._raidState.recieveItem(this.userID, tempTargetItem);
                 break;
             case "Fling":
-                const flingItem = this._user.item;
-                switch (flingItem) {
-                    case "Light Ball":
-                        if (hasNoStatus(target)) { target.status = "par"; }
-                        break;
-                    case "Flame Orb":
-                        if (!target.types.includes("Fire") && hasNoStatus(target)) { target.status = "brn"; }
-                        break;
-                    case "Toxic Orb":
-                        if (!target.types.includes("Poison") && hasNoStatus(target)) { target.status = "tox"; }
-                        break
-                    case "Poison Barb":
-                        if (!target.types.includes("Poison") && hasNoStatus(target)) { target.status = "psn"; }
-                        break;
-                    case "White Herb":
-                        for (let stat in target.boosts) {
-                            let whiteHerbUsed = false;
-                            const statId = stat as StatIDExceptHP;
-                            if (target.boosts[statId] < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
-                        }
-                        break;
-                    // Status-Curing Berries
-                    case "Cheri Berry":
-                        if (target.status === "par") { target.status = ""; }
-                        break;
-                    case "Chesto Berry":
-                        if (target.status === "slp") { target.status = ""; }
-                        break;
-                    case "Pecha Berry":
-                        if (target.status === "psn") { target.status = ""; }
-                        break;
-                    case "Rawst Berry":
-                        if (target.status === "brn") { target.status = ""; }
-                        break;
-                    case "Aspear Berry":
-                        if (target.status === "frz") { target.status = ""; }
-                        break;
-                    case "Lum Berry":
-                        if (target.status !== "") { target.status = ""; }
-                        if (target.volatileStatus.includes("confusion")) { target.volatileStatus = target.volatileStatus.filter(status => status !== "confusion"); }
-                        break;
-                    // Stat-Boosting Berries
-                    case "Liechi Berry":
-                        this._raidState.applyStatChange(this.targetID, {atk: 1});
-                        break;
-                    case "Ganlon Berry":
-                        this._raidState.applyStatChange(this.targetID, {def: 1});
-                        break;
-                    case "Petaya Berry":
-                        this._raidState.applyStatChange(this.targetID, {spa: 1});
-                        break;
-                    case "Apicot Berry":
-                        this._raidState.applyStatChange(this.targetID, {spd: 1});
-                        break;
-                    case "Salac Berry":
-                        this._raidState.applyStatChange(this.targetID, {spe: 1});
-                        break;
-                    // Healing Berries (TO DO, other healing berries that confuse depending on nature)
-                    case "Sitrus Berry":
-                        this._healing[this.targetID] += Math.floor(target.maxHP() / 4);
-                        break;
-                    default: break;
+                if (this._flingItem) {
+                    switch (this._flingItem) {
+                        case "Light Ball":
+                            if (hasNoStatus(target)) { target.status = "par"; }
+                            break;
+                        case "Flame Orb":
+                            if (!target.types.includes("Fire") && hasNoStatus(target)) { target.status = "brn"; }
+                            break;
+                        case "Toxic Orb":
+                            if (!target.types.includes("Poison") && hasNoStatus(target)) { target.status = "tox"; }
+                            break
+                        case "Poison Barb":
+                            if (!target.types.includes("Poison") && hasNoStatus(target)) { target.status = "psn"; }
+                            break;
+                        case "White Herb":
+                            for (let stat in target.boosts) {
+                                let whiteHerbUsed = false;
+                                const statId = stat as StatIDExceptHP;
+                                if (target.boosts[statId] < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
+                            }
+                            break;
+                        // Status-Curing Berries
+                        case "Cheri Berry":
+                            if (target.status === "par") { target.status = ""; }
+                            break;
+                        case "Chesto Berry":
+                            if (target.status === "slp") { target.status = ""; }
+                            break;
+                        case "Pecha Berry":
+                            if (target.status === "psn") { target.status = ""; }
+                            break;
+                        case "Rawst Berry":
+                            if (target.status === "brn") { target.status = ""; }
+                            break;
+                        case "Aspear Berry":
+                            if (target.status === "frz") { target.status = ""; }
+                            break;
+                        case "Lum Berry":
+                            if (target.status !== "") { target.status = ""; }
+                            if (target.volatileStatus.includes("confusion")) { target.volatileStatus = target.volatileStatus.filter(status => status !== "confusion"); }
+                            break;
+                        // Stat-Boosting Berries
+                        case "Liechi Berry":
+                            this._raidState.applyStatChange(this.targetID, {atk: 1});
+                            break;
+                        case "Ganlon Berry":
+                            this._raidState.applyStatChange(this.targetID, {def: 1});
+                            break;
+                        case "Petaya Berry":
+                            this._raidState.applyStatChange(this.targetID, {spa: 1});
+                            break;
+                        case "Apicot Berry":
+                            this._raidState.applyStatChange(this.targetID, {spd: 1});
+                            break;
+                        case "Salac Berry":
+                            this._raidState.applyStatChange(this.targetID, {spe: 1});
+                            break;
+                        // Healing Berries (TO DO, other healing berries that confuse depending on nature)
+                        case "Sitrus Berry":
+                            this._healing[this.targetID] += Math.floor(target.maxHP() / 4);
+                            break;
+                        default: break;
                     }
-                this._raidState.loseItem(this.userID);
+                }
                 break;
             // other
             case "Defog":

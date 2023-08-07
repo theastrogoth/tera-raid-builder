@@ -9,6 +9,8 @@ import TextField from '@mui/material/TextField';
 import { Pokemon, Stats, SPECIES, ABILITIES, TYPE_CHART, StatsTable, ITEMS } from "../calc";
 import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, TypeName } from "../calc/data/interface";
 import { Raider } from "../raidcalc/Raider";
+import PokedexService from "../services/getdata";
+import { MoveData } from "../raidcalc/interface";
 
 function serialize(array: string[], separator: String) {
 	var text = "";
@@ -328,10 +330,11 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: 
 					<Button 
 						variant="outlined" 
 						startIcon={<InputIcon/>}
-						onClick={() => {
+						onClick={async () => {
 							const newPoke = addSet(textValue)
+							const newMoveData = await Promise.all(newPoke.moves.map(async (move) => PokedexService.getMoveByName(move))) as MoveData[];
 							if (newPoke) {
-								const newRaider = new Raider(pokemon.id, pokemon.role, pokemon.field, newPoke)
+								const newRaider = new Raider(pokemon.id, pokemon.role, pokemon.field, newPoke, newMoveData, [], [])
 								setPokemon(newRaider)
 							}
 						}}

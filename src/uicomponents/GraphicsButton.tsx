@@ -242,9 +242,8 @@ const BuildInfoContainer = styled(Stack)({
 
 const BuildInfo = styled(Typography)({
     fontSize: "1.8em",
-    height: "55px",
     lineHeight: "55px",
-    margin: "8px 0px",
+    margin: "4px 0px",
     paddingLeft: "1em",
     textIndent: "-1em"
 });
@@ -485,11 +484,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                     <Header>
                         <BossWrapper>
                             {/* <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera> */}
-                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.id)} />
+                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name)} />
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
-                        <Title>{title}</Title>
-                        <Subtitle>{subtitle ? subtitle : `By: ${credits}`}</Subtitle>
+                        <Title>{title ? title : "Untitled"}</Title>
+                        <Subtitle>{subtitle ? subtitle : (credits ? `By: ${credits}` : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`)}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>
@@ -503,7 +502,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
-                                                <BuildArt src={getPokemonArtURL(raider.name)}/>
+                                                <BuildArt src={getPokemonArtURL(raider.species.name)}/>
                                                 {raider.item ? 
                                                     <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
                                                 <BuildTypes direction="row">

@@ -18,36 +18,36 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
     const [showHelp, setShowHelp] = useState(false);
     return (
         <Box>
-            <AppBar position="static" color="secondary" sx={{ minWidth: "625px"}}>
+            <AppBar position="static" color="secondary" sx={{ minWidth: "700px"}}>
                 <Toolbar>
-                    <Box paddingRight={2}>
-                        <img src={process.env.PUBLIC_URL + "/navbar_logo.png"} height={60} />
+                    <Box paddingRight={2} sx={{ transform: "translate(0px, 2px)"}}>
+                        <img src={process.env.PUBLIC_URL + "/logo192.png"} height={60} />
                     </Box>
-                    {/* <Typography 
-                        variant="h5"
+                    <Typography 
+                        variant="h4"
                         sx={{
                             mr: 1,
                             display: "flex",
-                            fontWeight: 700,
+                            fontWeight: 800,
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
                     >
                         Tera Raid Builder
                     </Typography>
-                    <Box sx = {{ transform: "translate(-3px, -6px)"}}>
+                    <Box sx = {{ transform: "translate(-3px, 8px)"}}>
                         <Typography 
                             variant="body2"
                             sx={{
                                 mr: 1,
-                                fontWeight: 700,
+                                fontWeight: 800,
                                 color: 'inherit',
                                 textDecoration: 'none',
                             }}
                         >
                             Beta
                         </Typography>
-                    </Box> */}
+                    </Box>
                     <Box component="div" sx={{ flexGrow: 1 }} />
                     <Box component="div" >
                         <Button

@@ -865,11 +865,14 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         }), []));
     }
 
-    const setBMove = (index: number) => (move: MoveName) => {
+    const setBMove = (index: number) => async (move: MoveName) => {
         const newPoke = pokemon.clone();
         const newExtraMoves = [...newPoke.extraMoves!]
         newExtraMoves[index] = move;
         newPoke.extraMoves = newExtraMoves;
+        const newExtraMoveData = [...pokemon.extraMoveData!];
+        newExtraMoveData[index] = (await PokedexService.getMoveByName(move)) || {name: "(No Move)" as MoveName, target: "user"};
+        newPoke.extraMoveData = newExtraMoveData;
         setPokemon(newPoke);
     }
 

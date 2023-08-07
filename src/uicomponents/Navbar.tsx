@@ -10,23 +10,20 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import Collapse from "@mui/material/Collapse";
 
-import Download from "@mui/icons-material/Download";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import DarkLightModeSwitch from "./DarkLightModeSwitch";
 import HelpSection from "./HelpSection";
-import GraphicsButton from "./GraphicsButton";
 
 function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {  
     const [showHelp, setShowHelp] = useState(false);
-    const [showGraphic, setShowGraphic] = useState(false);
     return (
         <Box>
             <AppBar position="static" color="secondary" sx={{ minWidth: "625px"}}>
                 <Toolbar>
                     <Box paddingRight={2}>
-                        <img src={process.env.PUBLIC_URL + "/logo192.png"} height={45} />
+                        <img src={process.env.PUBLIC_URL + "/navbar_logo.png"} height={60} />
                     </Box>
-                    <Typography 
+                    {/* <Typography 
                         variant="h5"
                         sx={{
                             mr: 1,
@@ -50,7 +47,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
                         >
                             Beta
                         </Typography>
-                    </Box>
+                    </Box> */}
                     <Box component="div" sx={{ flexGrow: 1 }} />
                     <Box component="div" >
                         <Button

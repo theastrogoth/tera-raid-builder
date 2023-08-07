@@ -469,11 +469,10 @@ function getMoveGroups(results: RaidBattleResults) {
 }
 
 function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo}[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
-    console.log("loaded Image", backgroundImageURL)
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
-
+    
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>

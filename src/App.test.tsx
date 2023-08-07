@@ -213,6 +213,26 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[4].results[0].desc[4].includes("Def Oranguru")).toEqual(true);
     expect(result.turnResults[4].results[1].flags[4].join().includes("HP")).toEqual(true);
   })
+  test('fling_symbiosis', async() => {
+    const hash = "#H4sIAAAAAAAAA71UUU/bMBD+K5GfhhRpbdNCx1sLY3SDgeimSYv64CSXxqtjR7bTUiH++85OUpJqEhESE5U5O3f3fffd2U8kJeck/qOlID4x5DwMBz4RNAey8q3JktqIFTPooiGWIqFq/zlNITYaj5Tk3DoNfVJqUItLm4mqNRhnysIwKbT1GPlkrWRZ4Gkut7AQqUQzklrfNtsqj5AGbOpYQcIcSCE3kFckSyXsicuka3aZzUnNBtcEUsuzoG5N3Ao1OlIFUteH/hHjzOzRYgZyd47J7RfYWgTmVg5b4BYXFP2xL6AmrxvmJTes4AyUjXs0it66r6uVT7bk/Imgpqc+WbKcUeEtM7lL5M7Wgb+LTLFHzPvRGpgwdN5THwt6oCzx5pgf3R4Y5zSS0lL8oqjWe29Zor7EFyXnPvmKDcAqXPAZBh/+Vs/NYTA8+uGn4QBxvkuVUywvJJeqzL05UMPEGoFmsZIRbmLLYC4TxOTUMriRO+8bizcoaTDBFCFykjuTOTeZR6XSdlDmJd94PwvUoSYx9bGx98jeKUG69ofv0ptV7TjB7S+gGwFae/eSs9h2aJbQnArTqnI0GdV1ovV6pU6qkFxwqcG7QJ7U1Li2XydYjfUKW3RxXu4UFetSlaRjLvd5xKS2HcMWShaDN6cicQLw5EDxhWCvVtQEF0IbVcbmH4QClEEIljFO3Rh2NkcK/sZWeDfgbsqxdm8jtsTLCHH2imhj7KtiOVSkWuYRvyscJvDuVIT2Ii+Yzo7oNSTHvQle8Wpyr4EXaHnXticvDFf19Zr4dYTbjdvl4IQOquPATynXUK8kZ4JghudDTDPyAwypA7BrUC0kp4/OvQmYoFcH8hJSbA3OYQb23Rj1he3e0b7goy54rdO4L2j7JegLeUiO8YfBCd4TMWghzoyh8aZRt3dT3wJ71viNjwYPJRi+H+xpC/b/6DttIR7eKByt4D0n91N3cruPd+++ti74a8D4SOCnMf6zGp/50xW+HM9/AQVx5XgmCQAA";
+    const result = await resultsFromHash(hash);
+    // T3: Primeape uses Fling, Choice Band passed
+    expect(result.turnResults[2].state.raiders[4].item).toEqual("Choice Band");
+    expect(result.turnResults[2].state.raiders[2].item).toEqual(undefined);
+    // T5: Passimian doesn't get the Choice Band
+    expect(result.turnResults[4].state.raiders[1].item).toEqual(undefined);
+    // Check that there is no OHKO
+    expect(result.endState.raiders[0].originalCurHP).not.toEqual(0);
+
+    // If Passimian moves before Primeape, it will get the Choice Band instead
+    const hash2 = "#H4sIAAAAAAAAA71UbWvbMBD+K0afVhAsTZw267ekXddsfaPZGCzkg2xfYi2yZCQ5aSj97zvJdmqHQc0gI0Gc5Lt7nrvnpBeyJBck/m2UJJRYcjGf9yiRLAOyoM7kSWXEmlt0MRArmTC9+7xcQmwNHmklhHM6paQwoKdXLhPTK7DeVLnlShrn0adkpVWR42mmNjCVS4VmpIy5q7dlHqksuNSxhoR7kFytIStJFlq6E5/JVOxSl5PZNa4JLB3PnPk18StU6EgVSFUf+kdccLtDi1vI/Dkmd19g4xC4XwVsQDhc0Oz7LoeKvKmZF8LyXHDQLu7Zanbnvy4WlGzIxQvBnp5RMuMZZzKYpWqbqK2rA/+XqebPmPejMzDh3HuPKBb0xHgSTDA/uj1xIViklKP4RTNjdsGswP4SKgshKPmKAmAVPvgcg/e/xWt9ODg9+OOn0x7i3CudMSxvTq50kQUTYJbLFQKNY60i3MSOwUQliCmYY3CrtsE3Hq+xpYMhppgjJ7W1qXdTWVRo4wZlUoh18CPHPlQkRhSFfUT2vhOkbX+4V8G4lOMEtz+BrSUYEzwqwWOn0DhhGZO2UWV/2K/qROv9Sn2r5uRSKAPBJfJktsJ1ep1gNc5r3qCL8/KgmVwVuiAtc7bLIq6MUwwlVDyGYMJk4hsgkj3FN4KdpKgITqWxuojtXwgNsA1S8pQL5sewtTno4C+UIrgFf1MOe/dvxGZ4GSFO32laiLpqnkFJqmEe8LvGYYLgQUdoT7Ocm/SAXk0y7EzwWpSTewMiRyu4cZq8MVxU12tIqwi/C5vl4IT2yuMBXTJhoFpJxiXBDK/7mHrkexhSBaBqUC4kY8/evQ4YolcL8gqWKA3OYQru3eh3hW3f0a7ggzb42FoWr2vsziU3H4SuyP3aL6S1POEx8cIG3n5eB8dEPK+ThweD98blGLBnDdj/U+iogbh/o1DgwTEn91N7ctuPd+fJbVzw94DxkfDdPacjNEPaX+DL8foHPzrRSSYJAAA=";
+    const result2 = await resultsFromHash(hash2);
+    // T3: Passimian loses WP, gets Choice Band
+    expect(result2.turnResults[2].state.raiders[1].item).toEqual("Choice Band");
+    expect(result2.turnResults[2].state.raiders[2].item).toEqual(undefined);
+    // check OHKO
+    expect(result2.endState.raiders[0].originalCurHP).toEqual(0);
+  })
 })
 
 // Test cases for OHKO strats

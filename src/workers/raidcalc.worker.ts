@@ -23,6 +23,8 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}
         moves: r.moves,
     }), r.moveData, r.extraMoves, r.extraMoveData))
 
+    console.log("Worker Data", raiders, event.data.turns)
+
     const state = new RaidState(raiders);
     const info: RaidBattleInfo = {
         startingState: state,

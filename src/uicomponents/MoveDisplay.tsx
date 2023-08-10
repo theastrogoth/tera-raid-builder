@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import { RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { Raider } from "../raidcalc/interface";
 import { RaidTurnResult } from "../raidcalc/RaidTurn";
 import { getPokemonSpriteURL } from "../utils";
 
@@ -37,7 +37,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
             target = "";
         }
         targetName = raiders[turn.bossMoveInfo.targetID].name;
-        move = turn.bossMoveInfo.moveData.name;
+        move = turn.bossMoveUsed;
         if (move == "(No Move)") {
             move = "";
         }

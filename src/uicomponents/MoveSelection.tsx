@@ -46,8 +46,8 @@ const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: 
     const newTurn: RaidTurnInfo = {
         id: uniqueId,
         group: group,
-        moveInfo: {userID: 1, targetID: 0, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min" }},
-        bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(Most Damaging)" as MoveName}, options: {crit: true, secondaryEffects: true, roll: "max" }},
+        moveInfo: {userID: 1, targetID: 0, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1 }},
+        bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(Most Damaging)" as MoveName}, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10 }},
     }
     newTurns.splice(index, 0, newTurn);
 
@@ -144,6 +144,24 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
                                         </Select>
                                     </TableCell>
                                 </TableRow>
+                                { (moveInfo.moveData.maxHits && moveInfo.moveData.maxHits > 1) &&
+                                    <TableRow>
+                                        <TableCell sx={{ borderBottom: 0 }}># Hits</TableCell>
+                                        <TableCell sx={{ borderBottom: 0 }}>
+                                            <Select
+                                                size="small"
+                                                variant="standard"
+                                                value = {moveInfo.options ? moveInfo.options.hits : 1}
+                                                onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, hits: Number(e.target.value) }})}
+                                                sx={{ width : "40px"}}
+                                            >
+                                                {[...Array(moveInfo.moveData.maxHits!+1).keys()].slice(moveInfo.moveData.minHits || 1)
+                                                    .map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)
+                                                }
+                                            </Select>
+                                        </TableCell>
+                                    </TableRow>
+                                }
                             </TableBody>
                         </Table>
                     </TableContainer>
@@ -160,7 +178,6 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
     const moves = raiders[moveInfo.userID].moves;
     const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
-    // const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
@@ -197,30 +214,30 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
     }
     
     useEffect(() => {
-        if (!moves.includes(moveName)) {
-            setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: "(No Move)" as MoveName}});
+        if (!moveSet.includes(moveName)) {
+            setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
         }
-    }, [moves])
+    }, [moveSet])
 
-    useEffect(() => {
-        if (moveName === "(No Move)") {
-            setMoveInfo({...moveInfo, moveData: {name: moveName}});
-        } else if (moveName === "(Most Damaging)") {
-            setMoveInfo({...moveInfo, moveData: {name: moveName, target: "selected-pokemon"}});
-        } else if (moveName === "Attack Cheer" || moveName === "Defense Cheer") {
-            setMoveInfo({...moveInfo, moveData: {name: moveName, priority: 10, category: "field-effect", target: "user-and-allies"}})
-        } else if (moveName === "Heal Cheer") {
-            setMoveInfo({...moveInfo, moveData: {name: moveName, priority: 10, category: "heal", target: "user-and-allies"}})
-        } else {
-            // async function fetchData() {
-            //     let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
-            //     setMoveInfo({...moveInfo, moveData: mData});
-            // }
-            // fetchData().catch((e) => console.log(e));
-            const mData = raiders[moveInfo.userID].moveData.find((m) => m.name === moveName) as MoveData;
-            setMoveInfo({...moveInfo, moveData: mData});
-        }
-    }, [moveName])
+    // useEffect(() => {
+    //     if (moveName === "(No Move)") {
+    //         setMoveInfo({...moveInfo, moveData: {name: moveName}});
+    //     } else if (moveName === "(Most Damaging)") {
+    //         setMoveInfo({...moveInfo, moveData: {name: moveName, target: "selected-pokemon"}});
+    //     } else if (moveName === "Attack Cheer" || moveName === "Defense Cheer") {
+    //         setMoveInfo({...moveInfo, moveData: {name: moveName, priority: 10, category: "field-effect", target: "user-and-allies"}})
+    //     } else if (moveName === "Heal Cheer") {
+    //         setMoveInfo({...moveInfo, moveData: {name: moveName, priority: 10, category: "heal", target: "user-and-allies"}})
+    //     } else {
+    //         // async function fetchData() {
+    //         //     let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
+    //         //     setMoveInfo({...moveInfo, moveData: mData});
+    //         // }
+    //         // fetchData().catch((e) => console.log(e));
+    //         const mData = raiders[moveInfo.userID].moveData.find((m) => m.name === moveName) as MoveData;
+    //         setMoveInfo({...moveInfo, moveData: mData});
+    //     }
+    // }, [moveName])
 
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
@@ -270,7 +287,21 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
                         variant="standard"
                         value = {moveInfo.moveData.name}
                         renderValue={(value) => <Typography variant="body2">{value}</Typography>}
-                        onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
+                        onChange={(e) => {
+                            const name = e.target.value as MoveName;
+                            let mData: MoveData = {name: name};
+                            if (name === "(No Move)") {
+                            } else if (name === "(Most Damaging)") {
+                                mData = {name: name, target: "selected-pokemon"};
+                            } else if (name === "Attack Cheer" || name === "Defense Cheer") {
+                                mData = {name: name, priority: 10, category: "field-effect", target: "user-and-allies"};
+                            } else if (name === "Heal Cheer") {
+                                mData = {name: name, priority: 10, category: "heal", target: "user-and-allies"};
+                            } else {
+                                mData = raiders[moveInfo.userID].moveData.find((m) => m.name === name) as MoveData;
+                            }
+                            setMoveInfo({...moveInfo, moveData: mData})}
+                        }
                         sx={{ maxWidth : "130px" }}
                     >
                         {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
@@ -319,7 +350,6 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
 function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: Raider, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void}) {
     const moveInfo = turns[index].bossMoveInfo;
-    const turnID = turns[index].id;
     const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || []];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
@@ -334,18 +364,25 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
     }
 
     useEffect(() => {
-        if (moveName === "(No Move)" || moveName === "(Most Damaging)") {
-            setMoveInfo({...moveInfo, moveData: {name: moveName}});
-        } else {
-            // async function fetchData() {
-            //     let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
-            //     setMoveInfo({...moveInfo, moveData: mData});
-            // }
-            // fetchData().catch((e) => console.log(e));
-            const mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === moveName) as MoveData;
-            setMoveInfo({...moveInfo, moveData: mData});
+        if (!moveSet.includes(moveName)) {
+            setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
         }
-      }, [moveName, turnID])
+    }, [moveSet])
+
+    // useEffect(() => {
+    //     if (moveName === "(No Move)" || moveName === "(Most Damaging)") {
+    //         setMoveInfo({...moveInfo, moveData: {name: moveName}});
+    //     } else {
+    //         // async function fetchData() {
+    //         //     let mData = await PokedexService.getMoveByName(moveName) as MoveData;     
+    //         //     setMoveInfo({...moveInfo, moveData: mData});
+    //         // }
+    //         // fetchData().catch((e) => console.log(e));
+    //         const mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === moveName) as MoveData;
+    //         console.log("Set moveData", mData)
+    //         setMoveInfo({...moveInfo, moveData: mData});
+    //     }
+    //   }, [moveName, turnID])
     
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
@@ -369,7 +406,14 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
                     size="small"
                     variant="standard"
                     value = {moveName}
-                    onChange={(e) => setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: (e.target.value || "(No Move)") as MoveName}})}
+                    onChange={(e) => {
+                        const name = e.target.value as MoveName;
+                        let mData: MoveData = {name: name};
+                        if (name !== "(No Move)" && name !== "(Most Damaging)") {
+                            mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === name) as MoveData;
+                        }
+                        setMoveInfo({...moveInfo, moveData: mData})}
+                    }
                     sx={{ maxWidth : "150px"}}
                 >
                     {moveSet.map((move, i) => <MenuItem key={i} value={move}><Typography variant="body2">{move}</Typography></MenuItem>)}
@@ -507,12 +551,16 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     prevProps.turns[prevProps.index].moveInfo.targetID === nextProps.turns[nextProps.index].moveInfo.targetID &&
     prevProps.turns[prevProps.index].moveInfo.moveData.name === nextProps.turns[nextProps.index].moveInfo.moveData.name &&
     prevProps.turns[prevProps.index].bossMoveInfo.moveData.name === nextProps.turns[nextProps.index].bossMoveInfo.moveData.name &&
+    prevProps.turns[prevProps.index].moveInfo.moveData.maxHits === nextProps.turns[nextProps.index].moveInfo.moveData.maxHits &&
+    prevProps.turns[prevProps.index].bossMoveInfo.moveData.maxHits === nextProps.turns[nextProps.index].bossMoveInfo.moveData.maxHits &&
     prevProps.turns[prevProps.index].moveInfo.options?.crit === nextProps.turns[nextProps.index].moveInfo.options?.crit &&
     prevProps.turns[prevProps.index].moveInfo.options?.secondaryEffects === nextProps.turns[nextProps.index].moveInfo.options?.secondaryEffects &&
     prevProps.turns[prevProps.index].moveInfo.options?.roll === nextProps.turns[nextProps.index].moveInfo.options?.roll &&
+    prevProps.turns[prevProps.index].moveInfo.options?.hits === nextProps.turns[nextProps.index].moveInfo.options?.hits &&
     prevProps.turns[prevProps.index].bossMoveInfo.options?.crit === nextProps.turns[nextProps.index].bossMoveInfo.options?.crit &&
     prevProps.turns[prevProps.index].bossMoveInfo.options?.secondaryEffects === nextProps.turns[nextProps.index].bossMoveInfo.options?.secondaryEffects &&
     prevProps.turns[prevProps.index].bossMoveInfo.options?.roll === nextProps.turns[nextProps.index].bossMoveInfo.options?.roll &&
+    prevProps.turns[prevProps.index].bossMoveInfo.options?.hits === nextProps.turns[nextProps.index].bossMoveInfo.options?.hits &&
     arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
     arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
     arraysEqual(prevProps.raiders[prevProps.turns[prevProps.index].moveInfo.userID].moves, nextProps.raiders[nextProps.turns[nextProps.index].moveInfo.userID].moves) &&

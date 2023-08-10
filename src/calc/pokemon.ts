@@ -43,6 +43,7 @@ export class Pokemon implements State.Pokemon {
   volatileStatus: string[];
   isChoiceLocked: boolean;
   toxicCounter: number;
+  hitsTaken: number;
 
   moves: I.MoveName[];
 
@@ -115,6 +116,7 @@ export class Pokemon implements State.Pokemon {
     this.volatileStatus = options.volatileStatus || [];
     this.isChoiceLocked = options.isChoiceLocked || false;
     this.toxicCounter = options.toxicCounter || 0;
+    this.hitsTaken = options.hitsTaken || 0;
     this.moves = options.moves || [];
   }
 
@@ -192,6 +194,7 @@ export class Pokemon implements State.Pokemon {
       isChoiceLocked: this.isChoiceLocked,
       teraType: this.teraType,
       toxicCounter: this.toxicCounter,
+      hitsTaken: this.hitsTaken,
       moves: this.moves.slice(),
       overrides: this.species,
     });

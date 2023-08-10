@@ -35,6 +35,7 @@ export class RaidMove {
     raiderID: number;   // the id of the raider who initiated this round
     movesFirst: boolean;
     options: RaidMoveOptions;
+    hits: number;
     flinch?: boolean;
 
     _raidState!: RaidState;
@@ -45,7 +46,6 @@ export class RaidMove {
 
     _doesNotEffect!: boolean[];
     _causesFlinch!: boolean[];
-    _moveFails!: boolean; 
     _blockedBy!: string[];
 
     _flingItem?: string;
@@ -68,6 +68,8 @@ export class RaidMove {
         this.movesFirst = movesFirst;
         this.options = raidMoveOptions || {};
         this.flinch = flinch || false;
+        this.hits = this.move.category === "Status" ? 0 : Math.max(this.moveData.minHits || 1, Math.min(this.moveData.maxHits || 1, this.options.hits || 1));
+        this.hits = this.raidState.raiders[this.userID].ability === "Skill Link" ? (this.moveData.maxHits || 1) : this.hits;
     }
 
     public result(): RaidMoveResult {
@@ -142,7 +144,6 @@ export class RaidMove {
     }
 
     private setDoesNotEffect() {
-        this._moveFails = true;
         this._blockedBy= ["", "", "", "", ""];
         const moveType = this.move.type;
         const category = this.move.category;
@@ -260,11 +261,11 @@ export class RaidMove {
                     continue;
                 }
                 if (["Normal", "Fighting"].includes(moveType || "") && pokemon.types.includes("Ghost")) {
-                    this._moveFails = false;
+                    this._doesNotEffect[id] = true;
                     continue;
                 }
                 if (moveType === "Ghost" && pokemon.types.includes("Normal")) {
-                    this._moveFails = false;
+                    this._doesNotEffect[id] = true;
                     continue;
                 }
                 if (moveType === "Dragon" && pokemon.types.includes("Fairy")) {
@@ -363,7 +364,7 @@ export class RaidMove {
                     const hits = (this.moveData.maxHits || 1) > 1 ? this.options.hits : 1;
                     const crit = this.options.crit || false;
                     const calcMove = this.move.clone();
-                    calcMove.hits = hits || 1;
+                    calcMove.hits = this.hits;
                     calcMove.isCrit = crit;
                     const result = calculate(9, moveUser, target, calcMove, moveField);
                     const damageResult = result.damage;
@@ -826,7 +827,7 @@ export class RaidMove {
             const drain = this._drain[id];
             const healing = this._healing[id];
             // apply damage from being hit with a damaging movev
-            this._raidState.applyDamage(id, damage, this.move.hits || ((this.move.category || "Status") !== "Status" ? 1 : 0), this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
+            this._raidState.applyDamage(id, damage, this.hits, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
             // apply damage/healing from recoil/drain
             if (pokemon.originalCurHP !== 0) {
                 this._raidState.applyDamage(id, -drain);

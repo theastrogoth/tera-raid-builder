@@ -689,6 +689,10 @@ export function calculateBasePowerSMSSSV(
     basePower = 20 + 20 * countBoosts(gen, attacker.boosts, attacker.randomBoosts);
     desc.moveBP = basePower;
     break;
+  case 'Rage Fist':
+    basePower = 50 + 50 * Math.min(6, attacker.hitsTaken);
+    desc.moveBP = basePower;
+    break;
   case 'Acrobatics':
     basePower = move.bp * (attacker.hasItem('Flying Gem') || !attacker.item ? 2 : 1);
     desc.moveBP = basePower;

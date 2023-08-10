@@ -13,7 +13,7 @@ import { RaidState } from "../raidcalc/RaidState";
 import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
-import { RaidTurnInfo } from "../raidcalc/interface";
+import { MoveData, RaidTurnInfo } from "../raidcalc/interface";
 
 
 const gen = Generations.get(9);
@@ -47,9 +47,28 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
         )));
         const turns: RaidTurnInfo[] = [];
         for (let t of obj.turns as LightTurnInfo[]) {
-            const mdata = pokemon[t.moveInfo.userID].moveData.find((m) => m && m.name === t.moveInfo.name);
-            const bmdata = [...pokemon[0].moveData, ...pokemon[0].extraMoveData!].find((m) => m && m.name === t.bossMoveInfo.name);
+            const name = t.moveInfo.name as MoveName;
+            let mdata: MoveData = {name: name};
+            if (name === "(No Move)") {
+            } else if (name === "(Most Damaging)") {
+                mdata = {name: name, target: "selected-pokemon"};
+            } else if (name === "Attack Cheer" || name === "Defense Cheer") {
+                mdata = {name: name, priority: 10, category: "field-effect", target: "user-and-allies"};
+            } else if (name === "Heal Cheer") {
+                mdata = {name: name, priority: 10, category: "heal", target: "user-and-allies"};
+            } else {
+                mdata = pokemon[t.moveInfo.userID].moveData.find((m) => m && m.name === t.moveInfo.name) || {name: name};
+            }
             
+            const bname = t.bossMoveInfo.name as MoveName;
+            let bmdata: MoveData = {name: bname};
+            if (bname === "(No Move)") {
+            } else if (bname === "(Most Damaging)") {
+                bmdata = {name: bname as MoveName, target: "selected-pokemon"};
+            } else {
+                bmdata = [...pokemon[0].moveData, ...pokemon[0].extraMoveData!].find((m) => m && m.name === t.bossMoveInfo.name) || {name: bname};
+            }
+
             const turn = {
                 id: t.id,
                 group: t.group,

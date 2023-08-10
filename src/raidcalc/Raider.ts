@@ -40,6 +40,7 @@ export class Raider extends Pokemon implements State.Raider {
             new Pokemon(this.gen, this.name, {
                 level: this.level,
                 bossMultiplier: this.bossMultiplier,
+                statMultipliers: this.statMultipliers,
                 ability: this.ability,
                 abilityOn: this.abilityOn,
                 isDynamaxed: this.isDynamaxed,

@@ -5,6 +5,7 @@ export namespace State {
     name: I.SpeciesName;
     level?: number;
     bossMultiplier?: number;
+    statMultipliers?: I.StatsTable;
     ability?: I.AbilityName;
     abilityOn?: boolean;
     isDynamaxed?: boolean;

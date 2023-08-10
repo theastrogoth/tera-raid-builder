@@ -40,7 +40,6 @@ export class RaidState implements State.RaidState{
         if (nHits > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
             if (damage > 0) {
                 pokemon.hitsTaken = pokemon.hitsTaken + nHits;
-                console.log(id, nHits, pokemon.hitsTaken)
             }
             // Item consumption triggered by damage
             // Focus Sash
@@ -140,7 +139,6 @@ export class RaidState implements State.RaidState{
             }    
             // Weak Armor
             if (pokemon.ability === "Weak Armor") {
-                console.log("Weak Armor triggered", id, nHits)
                 const boost = {def: -1 * nHits, spe: 2 * nHits};
                 this.applyStatChange(id, boost, true, true);
             }

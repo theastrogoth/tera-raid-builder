@@ -188,49 +188,48 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", new Field(), new Pokemon(gen, "Rillaboom", {
-      teraType: "Normal",
+    new Raider(0, "Raid Boss", new Field(), new Pokemon(gen, "Mewtwo", {
+      teraType: "Psychic",
       bossMultiplier: 3500,
-      nature: "Jolly",
-      ability: "Grassy Surge",
-      moves: ["Drum Beating", "Acrobatics", "Body Slam", "Low Kick"]
+      nature: "Modest",
+      ability: "Unnerve",
+      moves: ["Psyshock", "Psychic", "Aura Sphere", "Shadow Ball"]
     }), 
     [
-      {name: "Drum Beating" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spe", change:-1}], statChance: 100},
-      {name: "Acrobatics" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Body Slam" as MoveName, category: "damage+ailment", target: "selected-pokemon", ailment: "paralysis", ailmentChance: 30},
-      {name: "Low Kick" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Psyshock" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Psychic" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Shadow Ball" as MoveName, category: "damage", target: "selected-pokemon"},
     ], 
-    ["Growth", "Boomburst", "Bulk Up"] as MoveName[], 
+    ["Nasty Plot", "Agility", "Psychic Terrain"] as MoveName[], 
     [
-      {name: "Growth" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "spa", change: 1}], statChance: 100},
-      {name: "Boomburst" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Bulk Up" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "def", change: 1}], statChance: 100},
+      {name: "Nasty Plot" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 2}], statChance: 100},
+      {name: "Agility" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spe", change: 2}], statChance: 100},
+      {name: "Psychic Terrain" as MoveName, category: "field-effect", target: "user"},
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Koraidon", new Field(), new Pokemon(gen, "Koraidon", {
-      nature: "Adamant",
-      ability: "Orichalcum Pulse",
-      moves: ["Swords Dance", "Collision Course"],
-      item: "Life Orb",
-      evs: {hp: 252, atk: 252},
+    new Raider(1, "Krookodile", new Field(), new Pokemon(gen, "Krookodile", {
+      nature: "Jolly",
+      ability: "Anger Point",
+      moves: ["Power Trip"],
+      item: "Choice Band",
+      evs: {atk: 252, spe: 252},
     }), 
     [
-      {name: "Swords Dance" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 2}], statChance: 100},
-      {name: "Collision Course" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Power Trip" as MoveName, category: "damage", target: "selected-pokemon"},
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Arcanine", new Field(), new Pokemon(gen, "Arcanine", {
-      nature: "Jolly",
-      ability: "Intimidate",
-      moves: ["Charm", "Helping Hand"],
-      evs: {hp: 252, def: 252},
+    new Raider(2, "Meowscarada", new Field(), new Pokemon(gen, "Meowscarada", {
+      level: 36,
+      nature: "Hardy",
+      ability: "(No Ability)",
+      moves: ["Flower Trick"],
+      item: "Focus Sash"
     }), 
     [
-      {name: "Charm" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "atk", change: -2}], statChance: 100},
-      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
+      {name: "Flower Trick" as MoveName, category: "damage", target: "selected-pokemon"},
     ])
   );
   const [raider3, setRaider3] = useState(
@@ -239,7 +238,7 @@ function App() {
       ability: "(No Ability)",
       moves: ["Screech"],
       item: "Zoom Lens",
-      evs: {hp: 252, def: 252},
+      evs: {hp: 252, spd: 252},
     }), 
     [
       {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
@@ -247,11 +246,11 @@ function App() {
   );
   const [raider4, setRaider4] = useState(
     new Raider(4, "Umbreon", new Field(), new Pokemon(gen, "Umbreon", {
-      nature: "Relaxed",
+      nature: "Sassy",
       ability: "(No Ability)",
       moves: ["Screech"],
       item: "Zoom Lens",
-      evs: {hp: 252, def: 252},
+      evs: {hp: 252, spd: 252},
     }), 
     [
       {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
@@ -286,7 +285,6 @@ function App() {
       turnZeroFlags: [],
     }
   );
-  console.log(results)
 
   return (
   <ThemeProvider theme={theme}> 

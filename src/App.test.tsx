@@ -233,6 +233,16 @@ describe('Specific Test Cases', () => {
     // check OHKO
     expect(result2.endState.raiders[0].originalCurHP).toEqual(0);
   })
+  test('ragefist_boost', async() => {
+    const hash = "#H4sIAAAAAAAAA71U227bMAz9FUNPLeCHXLeib1kvWIemCJZuA2b4QbUZm7UsGZKc1Cj676VkO42HAhs2LEigUJTIc3hI5Zlt2DlLHo2SLGSWnUfRKGSSl8Di0JmYOmMcstqAvrl0l7jOwHpTVRaVNO7GJGSZVnVF3lJt4UZuFJkPyphlv20TJhotnRhIlEy5bq42G0isIZdWQtBPjtZ0mFJZcCeJhhT9nUoVULZcay2dx6OaLnnu8LktaE1h42Aq7tfUr9AxJSRgXZl0/wEF2oYstFB6PyV3J7B1COhXAVtw9Cxoft9U0BVq+iprYbESCNrFPVnNl/40jkO2ZefPjKT9EDLWfSPvOAuJ8xJ2dufE2hvfpAS9JQRZC0F+lYIhzXzIRwrZf+KX3jkd//Klo/GIsq9Mk+SYEKIzjdVYOOp7N1vnPFW74BP34i9qzYN1lYN2Wk3nlCJid9zYJlgJ5Rq3yHq1uhzBPWjNUVKpHZ2zkHq3kBJzFNwrNdh8R8sFgWA7CT+AFxKMCVZKYOISf6FBaA7qncwnXcVk/b5mr1rErmTadvErzyC4RpIw9ufRAVEahguhSBfftwNzXaAQwS3Kom/DZ67T5i+60PO5STARQHUD1+8wmRK80lssJGa502W4O7lTwaId1FPa/lSqDG7Bv4A1N+aN2ECsPxmRjt6aHhkk+TvMZgRhlXxU9OJabQa7ldqBprL8dFyrpDYBMcrZvyvmanav6PSAVNw9nZnP5E1SbqAtNXXcnszDDRcGupWVNKQhIfTwFHiyVMYGl7zkGcqMlB29xVpdQ7uwkj9R5MiF9sGzcHJAoFeP2jg6Bvb0AHthLU+K4CIH14/ZcQjM2yb1qfrHNj4O+myIfmz1x0P4tz+Y/10/TX/kxm4a01N4eQUWW2aRvQcAAA==";
+    const result = await resultsFromHash(hash);
+    // T2: Annihilape has taken 5 hits
+    expect(result.turnResults[1].state.raiders[1].hitsTaken).toEqual(5);
+    // T4: Annihilape has taken 6 hits
+    expect(result.turnResults[3].state.raiders[1].hitsTaken).toEqual(6);
+    // T6: OHKO
+    expect(result.turnResults[5].state.raiders[0].originalCurHP).toEqual(0);
+  })
 })
 
 // Test cases for OHKO strats

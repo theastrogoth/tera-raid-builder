@@ -286,6 +286,7 @@ function App() {
       turnZeroFlags: [],
     }
   );
+  console.log(results)
 
   return (
   <ThemeProvider theme={theme}> 

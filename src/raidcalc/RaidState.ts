@@ -1,7 +1,6 @@
 import { Field, Generations, Move, StatsTable } from "../calc";
 import { Raider } from "./Raider";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
-import { safeStatStage } from "./util";
 import * as State from "./interface";
 import { ItemName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
 
@@ -32,10 +31,17 @@ export class RaidState implements State.RaidState{
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
-        pokemon.applyDamage(damage * nHits); // damage is per-hit
+        if (nHits > 0 && damage > 0) {
+            pokemon.applyDamage(damage * nHits); // damage is per-hit for multi-hit moves
+        } else {
+            pokemon.applyDamage(damage);
+        }
         const maxHP = pokemon.maxHP();
-        pokemon.hitsTaken = pokemon.hitsTaken + nHits;
         if (nHits > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
+            if (damage > 0) {
+                pokemon.hitsTaken = pokemon.hitsTaken + nHits;
+                console.log(id, nHits, pokemon.hitsTaken)
+            }
             // Item consumption triggered by damage
             // Focus Sash
             if (pokemon.item === "Focus Sash" || pokemon.ability === "Sturdy") {

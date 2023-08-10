@@ -290,7 +290,6 @@ export class RaidMove {
                 continue;
             }
         }
-        this._affectedIDs = this._affectedIDs.filter(id => !this._doesNotEffect[id]);
     }
 
     private checkProtection() {
@@ -822,12 +821,11 @@ export class RaidMove {
     }
 
     private applyDamage() {
-        for (let id of this._affectedIDs) {
+        for (let id=0; id<5; id++) {
             const pokemon = this.getPokemon(id);
             const damage = this._damage[id];
             const drain = this._drain[id];
             const healing = this._healing[id];
-            const hits = this.hits;
             // apply damage from being hit with a damaging movev
             this._raidState.applyDamage(id, damage, this.hits, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
             // apply damage/healing from recoil/drain

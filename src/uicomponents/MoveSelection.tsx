@@ -178,7 +178,6 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
     const moves = raiders[moveInfo.userID].moves;
     const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
-    // const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
@@ -215,10 +214,10 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
     }
     
     useEffect(() => {
-        if (!moves.includes(moveName)) {
-            setMoveInfo({...moveInfo, moveData: {...moveInfo.moveData, name: "(No Move)" as MoveName}});
+        if (!moveSet.includes(moveName)) {
+            setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
         }
-    }, [moves])
+    }, [moveSet])
 
     // useEffect(() => {
     //     if (moveName === "(No Move)") {
@@ -351,7 +350,6 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
 function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: Raider, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void}) {
     const moveInfo = turns[index].bossMoveInfo;
-    const turnID = turns[index].id;
     const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || []];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
@@ -364,6 +362,12 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
         setMoveName(newMoveInfo.moveData.name);
         setOptions(newMoveInfo.options as RaidMoveOptions);
     }
+
+    useEffect(() => {
+        if (!moveSet.includes(moveName)) {
+            setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
+        }
+    }, [moveSet])
 
     // useEffect(() => {
     //     if (moveName === "(No Move)" || moveName === "(Most Damaging)") {

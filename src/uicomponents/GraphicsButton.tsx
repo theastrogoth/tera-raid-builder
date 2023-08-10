@@ -661,11 +661,14 @@ function GraphicsButton({title, notes, credits, raidInputProps, results}:
             const pokemonData = (await Promise.all(
                 raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
             )).filter((data) => data !== undefined) as PokemonData[];
-            
+            console.log(pokemonData)
             const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
             const learnMethods = moves.map((ms, index) => 
                 ms.map((move) => 
-                    pokemonData[index].moves.find((moveData) => moveData.name === move.name)!.learnMethod
+                    {
+                        const m = pokemonData[index].moves.find((moveData) => moveData.name === move.name);
+                        return m ? m.learnMethod : "level-up";
+                    }
                 )
             );
             const moveTypes = moves.map((ms) => ms.map((move) => move.type));

@@ -26,6 +26,7 @@ export namespace State {
     isChoiceLocked?: boolean;
     teraType?: I.TypeName;
     toxicCounter?: number;
+    hitsTaken?: number;
     moves?: I.MoveName[];
     overrides?: Partial<I.Specie>;
   }

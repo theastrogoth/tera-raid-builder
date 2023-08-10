@@ -32,8 +32,9 @@ export class RaidState implements State.RaidState{
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
-        pokemon.applyDamage(damage);
+        pokemon.applyDamage(damage * nHits); // damage is per-hit
         const maxHP = pokemon.maxHP();
+        pokemon.hitsTaken = pokemon.hitsTaken + nHits;
         if (nHits > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
             // Item consumption triggered by damage
             // Focus Sash

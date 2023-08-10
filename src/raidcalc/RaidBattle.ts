@@ -1,10 +1,11 @@
-import { Move, Generations } from "../calc";
-import { MoveName, ItemName } from "../calc/data/interface";
+import { Move, Generations, Pokemon } from "../calc";
+import { MoveName, ItemName, SpeciesName } from "../calc/data/interface";
 import { RaidTurnInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { RaidMove } from "./RaidMove";
 import { getBoostCoefficient, safeStatStage } from "./util";
 import { RaidTurn, RaidTurnResult } from "./RaidTurn";
+import { Raider } from "./Raider";
 
 const gen = Generations.get(9);
 
@@ -220,6 +221,38 @@ export class RaidBattle {
                 this._turnZeroFlags[0].push("Def: " + origDef + "->" + pokemon.boosts.def + " (Dauntless Shield)");
             } else {
                 // 
+            }
+            /// special interactions
+            // Mew stat boosts for Mewtwo event.
+            if (id !== 0 && pokemon.name === "Mew" && this._state.raiders[0].name === "Mewtwo") {
+                console.log(pokemon.stats)
+                this._state.raiders[id] = new Raider(
+                    id,
+                    pokemon.role,
+                    pokemon.field.clone(),
+                    new Pokemon(
+                        gen,
+                        pokemon.name as SpeciesName,
+                        {
+                            ...pokemon,
+                            statMultipliers: {
+                                hp: 1.5,
+                                atk: 1.2,
+                                def: 1.2,
+                                spa: 1.2,
+                                spd: 1.2,
+                                spe: 1.2,
+                            }
+                        }
+                    ),
+                    [...pokemon.moveData],
+                    [...(pokemon.extraMoves || [])],
+                    [...(pokemon.extraMoveData || [])],
+
+                );
+                this._state.raiders[id].originalCurHP = this._state.raiders[id].maxHP();
+                this._turnZeroFlags[id].push(pokemon.role + " is going to go all out against this formidable opponent!")
+                console.log(id, this._state.raiders[id].stats);
             }
         }
         // check for item/ability activation by executing dummy moves

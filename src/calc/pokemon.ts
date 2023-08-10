@@ -17,6 +17,7 @@ export class Pokemon implements State.Pokemon {
 
   level: number;
   bossMultiplier: number;
+  statMultipliers: I.StatsTable;
   gender?: I.GenderName;
   ability?: I.AbilityName;
   abilityOn?: boolean;
@@ -55,6 +56,7 @@ export class Pokemon implements State.Pokemon {
       ivs?: Partial<I.StatsTable> & {spc?: number};
       evs?: Partial<I.StatsTable> & {spc?: number};
       boosts?: Partial<I.StatsTable> & {spc?: number};
+      statMultipliers?: Partial<I.StatsTable> & {spc?: number};
     } = {}
   ) {
     this.species = extend(true, {}, gen.species.get(toID(name)), options.overrides);
@@ -66,6 +68,8 @@ export class Pokemon implements State.Pokemon {
 
     this.level = options.level || 100;
     this.bossMultiplier = options.bossMultiplier || 100;
+    this.statMultipliers = Pokemon.withDefault(gen, options.statMultipliers, 1);
+
     this.gender = options.gender || this.species.gender || 'M';
     this.ability = options.ability || this.species.abilities?.[0] || undefined;
     this.abilityOn = !!options.abilityOn;
@@ -173,6 +177,7 @@ export class Pokemon implements State.Pokemon {
     return new Pokemon(this.gen, this.name, {
       level: this.level,
       bossMultiplier: this.bossMultiplier,
+      statMultipliers: this.statMultipliers,
       ability: this.ability,
       abilityOn: this.abilityOn,
       isDynamaxed: this.isDynamaxed,
@@ -201,7 +206,7 @@ export class Pokemon implements State.Pokemon {
   }
 
   private calcStat(gen: I.Generation, stat: I.StatID) {
-    return Stats.calcStat(
+    return Math.floor(this.statMultipliers[stat] * Stats.calcStat(
       gen,
       stat,
       this.species.baseStats[stat],
@@ -209,7 +214,7 @@ export class Pokemon implements State.Pokemon {
       this.evs[stat]!,
       this.level,
       this.nature
-    );
+    ));
   }
 
   static getForme(

@@ -123,17 +123,18 @@ export class RaidState implements State.RaidState{
             }
             // Water Compaction
             if (moveType === "Water" && pokemon.ability === "Water Compaction") {
-                const boost = {def: 2};
+                const boost = {def: 2 * nHits};
                 this.applyStatChange(id, boost, true, true);
             }
             // Justified
             if (moveType === "Dark" && pokemon.ability === "Justified") {
-                const boost = {atk: 1};
+                const boost = {atk: nHits};
                 this.applyStatChange(id, boost, true, true);
             }    
             // Weak Armor
             if (pokemon.ability === "Weak Armor") {
-                const boost = {def: -1, spe: 2};
+                console.log("Weak Armor triggered", id, nHits)
+                const boost = {def: -1 * nHits, spe: 2 * nHits};
                 this.applyStatChange(id, boost, true, true);
             }
             // Stamina

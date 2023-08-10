@@ -170,7 +170,7 @@ export class RaidTurn {
         // For this option, pick the most damaging move based on the current field.
         if (this.bossMoveData.name === "(Most Damaging)") {
             const moveOptions = this._raidState.raiders[0].moves;
-            let bestMove = moveOptions[0];
+            let bestMove = "(No Move)";
             let bestDamage = 0;
             for (const move of moveOptions) {
                 const testMove = new Move(9, move, this.bossOptions);
@@ -190,12 +190,12 @@ export class RaidTurn {
                     bestDamage = damage;
                 }
             }
-            this._bossMoveData = this._raidState.raiders[0].moveData.find((move) => move.name === bestMove) as MoveData;
+            this._bossMoveData = this._raidState.raiders[0].moveData.find((move) => move.name === bestMove) || {name: bestMove} as MoveData;
             this._bossMove = new Move(9, bestMove, this.bossOptions);
         }
         if (this.raiderMoveData.name === "(Most Damaging)") {
             const moveOptions = this._raidState.raiders[this.raiderID].moves;
-            let bestMove = moveOptions[0];
+            let bestMove = "(No Move)";
             let bestDamage = 0;
             for (const move of moveOptions) {
                 const testMove = new Move(9, move, this.raiderOptions);
@@ -215,7 +215,7 @@ export class RaidTurn {
                     bestDamage = damage;
                 }
             }
-            this._raiderMoveData = this._raidState.raiders[this.raiderID].moveData.find((move) => move.name === bestMove) as MoveData;
+            this._raiderMoveData = this._raidState.raiders[this.raiderID].moveData.find((move) => move.name === bestMove) || {name: bestMove} as MoveData;
             this._raiderMove = new Move(9, bestMove, this.raiderOptions);
             this._raiderMoveUsed = bestMove;
         }

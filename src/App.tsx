@@ -263,8 +263,8 @@ function App() {
   const [credits, setCredits] = useState<string>("");
   const [turns, setTurns] = useState<RaidTurnInfo[]>([{
       id: 0, 
-      moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min" }, moveData: {name: "(No Move)" as MoveName}}, 
-      bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max" }, moveData: {name: "(Most Damaging)" as MoveName}},
+      moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
+      bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
     }
   ]);
   const [groups, setGroups] = useState<number[][]>([]);

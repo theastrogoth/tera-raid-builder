@@ -184,8 +184,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Rock Smash",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Rock Tomb",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Roost",
+            "learnMethod": "egg"
         },
         {
             "name": "Scary Face",

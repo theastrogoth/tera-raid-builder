@@ -29,7 +29,7 @@
     "moves": [
         {
             "name": "Acid Spray",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Acupressure",

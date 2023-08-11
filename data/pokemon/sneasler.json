@@ -77,7 +77,7 @@
         },
         {
             "name": "Counter",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Dark Pulse",
@@ -204,6 +204,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Night Slash",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Poison Jab",
             "learnMethod": "level-up"
         },
@@ -218,6 +222,10 @@
         {
             "name": "Quick Attack",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Quick Guard",
+            "learnMethod": "egg"
         },
         {
             "name": "Rain Dance",
@@ -302,6 +310,10 @@
         {
             "name": "Swift",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Switcheroo",
+            "learnMethod": "egg"
         },
         {
             "name": "Swords Dance",

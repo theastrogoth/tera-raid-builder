@@ -64,6 +64,18 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Confuse Ray",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Defog",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Double Team",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -124,6 +136,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Leaf Blade",
             "learnMethod": "level-up"
         },
@@ -182,6 +198,10 @@
         {
             "name": "Rock Tomb",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Roost",
+            "learnMethod": "egg"
         },
         {
             "name": "Scary Face",

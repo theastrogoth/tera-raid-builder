@@ -32,6 +32,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Aqua Cutter",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Aqua Jet",
             "learnMethod": "level-up"
         },
@@ -68,8 +72,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Copycat",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Dark Pulse",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Detect",
+            "learnMethod": "egg"
         },
         {
             "name": "Dig",
@@ -140,12 +152,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Liquidation",
             "learnMethod": "machine"
         },
         {
             "name": "Megahorn",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Night Slash",
+            "learnMethod": "egg"
         },
         {
             "name": "Protect",
@@ -168,8 +188,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Sacred Sword",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Scary Face",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Screech",
+            "learnMethod": "egg"
         },
         {
             "name": "Slash",

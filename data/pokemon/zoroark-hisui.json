@@ -44,6 +44,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Comeuppance",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Confuse Ray",
             "learnMethod": "machine"
         },
@@ -60,12 +64,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Detect",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Dig",
             "learnMethod": "machine"
         },
         {
             "name": "Endure",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Extrasensory",
+            "learnMethod": "egg"
         },
         {
             "name": "Facade",
@@ -142,6 +154,10 @@
         {
             "name": "Low Sweep",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Memento",
+            "learnMethod": "egg"
         },
         {
             "name": "Nasty Plot",

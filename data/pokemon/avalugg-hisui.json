@@ -28,6 +28,10 @@
     },
     "moves": [
         {
+            "name": "Aurora Veil",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Avalanche",
             "learnMethod": "level-up"
         },
@@ -122,6 +126,14 @@
         {
             "name": "Iron Head",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Mirror Coat",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Mist",
+            "learnMethod": "egg"
         },
         {
             "name": "Mountain Gale",

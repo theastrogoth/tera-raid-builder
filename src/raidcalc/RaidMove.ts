@@ -147,6 +147,7 @@ export class RaidMove {
         this._blockedBy= ["", "", "", "", ""];
         const moveType = this.move.type;
         const category = this.move.category;
+        const targetType = this.moveData.target
         const moveName = this.move.name;
         for (let id of this._affectedIDs) {
             const pokemon = this.getPokemon(id);
@@ -158,7 +159,7 @@ export class RaidMove {
             }
             // Ability-based immunities
             if (this._user.ability !== "Mold Breaker") {
-                if (pokemon.ability === "Good As Gold" && category === "Status") { 
+                if (pokemon.ability === "Good As Gold" && category === "Status" && targetType !== "user") { 
                     this._doesNotEffect[id] = true; 
                     continue; 
                 }

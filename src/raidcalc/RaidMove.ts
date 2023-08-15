@@ -158,7 +158,7 @@ export class RaidMove {
             }
             // Ability-based immunities
             if (this._user.ability !== "Mold Breaker") {
-                if (pokemon.ability === "Good as Gold" && category === "Status") { 
+                if (pokemon.ability === "Good As Gold" && category === "Status") { 
                     this._doesNotEffect[id] = true; 
                     continue; 
                 }
@@ -589,7 +589,11 @@ export class RaidMove {
         // Helping Hand
         const helpinghand = this.move.name == "Helping Hand";
         if (helpinghand) {
-            this._fields[this.targetID].attackerSide.isHelpingHand = true;
+            if (this._doesNotEffect[this.targetID]) {
+                this._desc[this.targetID] = this.move.name + " does not affect " + this.getPokemon(this.targetID).role + "."; // a more specific reason might be helpful
+            } else {
+                this._fields[this.targetID].attackerSide.isHelpingHand = true;
+            }
         }
     }
 

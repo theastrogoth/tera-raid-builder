@@ -18,6 +18,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from '@mui/icons-material/Add';
 import MenuIcon from '@mui/icons-material/Menu';
 import Collapse from '@mui/material/Collapse';
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -241,7 +242,7 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
-            <Stack width="510px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">
+            <Stack width="485px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">
                 <Box flexGrow={4} />
                 <Box>
                     <Select
@@ -386,7 +387,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
     
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
-            <Stack direction="row" width="510px" spacing={0.5} alignItems="center" justifyContent="right">
+            <Stack direction="row" width="485px" spacing={0.5} alignItems="center" justifyContent="right">
                 <Box flexGrow={6} />
                 <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
                     <Box
@@ -521,8 +522,10 @@ function MoveSelectionCard({raiders, index, turns, setTurns, groups, setGroups, 
             <Paper 
                 sx={{ maxWidth: "585px", backgroundColor: color, my: 1}} 
             >
-
                 <Stack direction="row">
+                    <Stack alignItems="center" justifyContent={"center"} paddingLeft={0.5}>
+                        <DragIndicatorIcon/>
+                    </Stack>
                     <Stack
                         direction = "column"
                         spacing={0.5}

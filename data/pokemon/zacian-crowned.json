@@ -32,6 +32,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Behemoth Blade",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Body Slam",
             "learnMethod": "machine"
         },
@@ -110,10 +114,6 @@
         {
             "name": "Iron Defense",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Iron Head",
-            "learnMethod": "level-up"
         },
         {
             "name": "Metal Claw",

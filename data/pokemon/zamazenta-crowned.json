@@ -24,6 +24,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Behemoth Bash",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Bite",
             "learnMethod": "level-up"
         },
@@ -109,10 +113,6 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Iron Head",
             "learnMethod": "level-up"
         },
         {

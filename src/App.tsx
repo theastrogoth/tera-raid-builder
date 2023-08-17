@@ -193,13 +193,13 @@ function App() {
       bossMultiplier: 3500,
       nature: "Modest",
       ability: "Unnerve",
-      moves: ["Psyshock", "Psychic", "Aura Sphere", "Shadow Ball"]
+      moves: ["Psystrike", "Psychic", "Shadow Ball", "Aura Sphere"]
     }), 
     [
-      {name: "Psyshock" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Psystrike" as MoveName, category: "damage", target: "selected-pokemon"},
       {name: "Psychic" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
       {name: "Shadow Ball" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
     ], 
     ["Nasty Plot", "Agility", "Psychic Terrain"] as MoveName[], 
     [

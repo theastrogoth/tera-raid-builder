@@ -18,7 +18,9 @@ import Popper from "@mui/material/Popper";
 import Switch from "@mui/material/Switch";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 
-import { darken, lighten, styled, SxProps, Theme } from '@mui/material/styles';
+import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+import { inputLabelClasses } from "@mui/material/InputLabel";
+import { alpha, darken, lighten, styled, SxProps, Theme } from '@mui/material/styles';
 
 import { Move, Pokemon, StatsTable, Generations, Field } from '../calc';
 import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName, NatureName, TypeName } from "../calc/data/interface";
@@ -34,6 +36,7 @@ import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTyp
 
 import { RAIDER_SETDEX_SV } from "../data/sets/raiders";
 import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
+import { useTheme } from "@emotion/react";
 
 type SetOption = {
     name: string,
@@ -232,6 +235,7 @@ const filterSetOptions = createFilterOptions({
 const LeftCell = styled(TableCell)(({ theme }) => ({
     fontWeight: theme.typography.fontWeightBold,
     textAlign: 'right',
+    justifyContent: 'right',
     paddingTop: '0px',
     paddingBottom: '0px',
     paddingLeft: '0px',
@@ -698,9 +702,35 @@ const GroupHeader = styled('div')(({ theme }) => ({
     padding: '4px 10px',
     backgroundColor:
       theme.palette.mode === 'light'
-        ? lighten(theme.palette.primary.light, 0.5)
+        ? lighten(theme.palette.primary.light, 0.7)
         : darken(theme.palette.primary.main, 0.6),
 }));
+
+const StyledTextField = styled(TextField)(({theme}) => ({
+    [`& .${outlinedInputClasses.root} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.primary.main
+    },
+    [`&:hover .${outlinedInputClasses.root} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.primary.main,
+      borderWidth: 1.5,
+      backgroundColor: alpha(theme.palette.primary.main, 0.05)
+    },
+    [`& .${outlinedInputClasses.root}.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.primary.main,
+      borderWidth: 1.5,
+    },
+    [`& .${outlinedInputClasses.input}`]: {
+      color: theme.palette.primary.main
+    },
+    [`&:hover .${outlinedInputClasses.input}`]: {
+      color: theme.palette.primary.main
+    },
+    [`& .${outlinedInputClasses.root}.${outlinedInputClasses.focused} .${outlinedInputClasses.input}`]: {
+      color: theme.palette.mode === 'light'
+        ? "black"
+        : "white",
+    },
+  }));
 
 function SetLoadGroupHeader({pokemon}: {pokemon: SpeciesName}) {
     return (
@@ -723,6 +753,7 @@ function SetLoadGroupHeader({pokemon}: {pokemon: SpeciesName}) {
 }
 
 function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 150}}: {setOptions: SetOption[], loadSet: (opt: SetOption) => Promise<void>, placeholder?: string, sx?: SxProps<Theme>}) {
+    const theme = useTheme();
     return (
         <Autocomplete 
             disablePortal
@@ -745,13 +776,13 @@ function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 1
             }}
             getOptionLabel={(option: SetOption) => option.name}
             renderInput={(params) => 
-                <TextField 
-                    {...params} variant="outlined" placeholder={placeholder} size="small" 
+                <StyledTextField 
+                    {...params} variant="outlined" placeholder={placeholder} size="small"
                     sx={{
                         "& .MuiInputBase-input": {
                             overflow: "hidden",
-                            textOverflow: "clip"
-                        }
+                            textOverflow: "clip",
+                        },
                         }}
                 />}
             onChange={(event: any, newValue: SetOption) => {
@@ -766,6 +797,22 @@ function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 1
             style={{ whiteSpace: "pre-wrap" }}
         />
     )
+}
+
+function ShinySwitch({pokemon, setShiny}: {pokemon: Raider, setShiny: ((sh: boolean) => void)}) {
+    return (
+        <Box>
+            <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
+                <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >Shiny</Typography>
+                <Switch
+                    size='small'
+                    checked={pokemon.shiny || false}
+                    onChange={(e) => setShiny(!pokemon.shiny)}
+            
+                />
+            </Stack>
+        </Box>
+    );
 }
 
 function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isBoss = false}: 
@@ -846,7 +893,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
             )
         ) as MoveData[];
     
-        setPokemon(new Raider(pokemon.id, set.pokemon, set.shiny, new Field(), new Pokemon(gen, set.pokemon, {
+        const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
             bossMultiplier: undefined,
             teraType: undefined,
@@ -856,7 +903,9 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
             moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),
             ivs: set.ivs || {},
             evs: set.evs || {},
-        }), moveData));
+        });
+
+        setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, new Field(), poke, moveData));
     }
 
     const handleChangeSpecies = (val: string) => {
@@ -867,6 +916,20 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
         <Box justifyContent="center" alignItems="top" width="250px" sx={{ zIndex: 2 }}>
             {!prettyMode &&
                 <Stack direction="column" alignItems="center">
+                    {!isBoss &&
+                        <Stack direction="row" spacing={1.25} justifyContent="center" alignItems="center">
+                            <ShinySwitch 
+                                pokemon={pokemon}
+                                setShiny={setPokemonProperty("shiny")}
+                            />
+                            <SetLoadField
+                                setOptions={raiderSetOptions}
+                                loadSet={loadSet}
+                                placeholder="Load Build"
+                                sx={{ width: 140 }}
+                            />
+                        </Stack>
+                    }
                     <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
                         <Button 
                             variant="outlined" 
@@ -888,14 +951,6 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                             {importExportOpen ? "Edit Pok\u00E9mon" : "Import/Export"}
                         </Button>
                     </Stack>
-                    {!isBoss &&
-                        <SetLoadField
-                            setOptions={raiderSetOptions}
-                            loadSet={loadSet}
-                            placeholder="Load Build"
-                            sx={{ width: 200 }}
-                        />
-                    }
                 </Stack>
             }
             {(!prettyMode && importExportOpen) &&
@@ -962,18 +1017,6 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                                     <LeftCell>EVs</LeftCell>
                                     <RightCell>{evsToString(pokemon)}</RightCell>
                                 </TableRow>
-                                {!prettyMode &&
-                                    <TableRow>
-                                        <LeftCell>Shiny</LeftCell>
-                                        <RightCell>
-                                            <Switch
-                                                checked={pokemon.shiny || false}
-                                                onChange={(e) => setPokemonProperty("shiny")(!pokemon.shiny)}
-                                            />
-                                        </RightCell>
-                                    </TableRow>
-
-                                }
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '5px'}} />
                                 </TableRow>
@@ -1038,6 +1081,12 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         ));
     }
 
+    const setShiny = (shiny: boolean) => {
+        const newPokemon = pokemon.clone();
+        newPokemon.shiny = shiny;
+        setPokemon(newPokemon)
+    }
+
     const loadSet = async (set: SetOption) => { 
         const moveData = await Promise.all(
             (set.moves || []).map(
@@ -1046,8 +1095,8 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                 (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
             )
         ) as MoveData[];
-    
-        setPokemon(new Raider(pokemon.id, set.pokemon, set.shiny, new Field(), new Pokemon(gen, set.pokemon, {
+
+        const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
             bossMultiplier: set.bossMultiplier || 100,
             teraType: set.teraType || undefined,
@@ -1057,7 +1106,9 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
             moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),
             ivs: set.ivs || {},
             evs: set.evs || {},
-        }), moveData));
+        });
+    
+        setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, new Field(), poke, moveData));
     }
 
     const setBMove = (index: number) => async (move: MoveName) => {
@@ -1079,7 +1130,14 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                         <TableBody>
                             {!prettyMode &&
                             <TableRow>
-                                <LeftCell sx={{ paddingBottom: 2 }}>
+                                <LeftCell sx={{ paddingBottom: 1 }}>
+                                    <Stack direction="row">
+                                        <Box flexGrow={1}/>
+                                        <ShinySwitch
+                                            pokemon={pokemon}
+                                            setShiny={setShiny}
+                                        />
+                                    </Stack>
                                 </LeftCell>
                                 <RightCell sx={{ paddingBottom: 2 }}>
                                     <SetLoadField

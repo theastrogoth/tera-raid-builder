@@ -116,7 +116,7 @@ function App() {
             paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6',
           },
           primary: {
-            main: lightMode === 'dark' ? "#faa5a0" : "#ed382d",
+            main: lightMode === 'dark' ? "#faa5a0" : "#db3227",
           },
           secondary: {
             main: lightMode === 'dark' ? "#faa5a0" : "#940f07"

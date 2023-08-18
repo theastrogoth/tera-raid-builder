@@ -3,7 +3,7 @@ export const RAIDER_SETDEX_SV = {
         "Bulky DPS": {
             "level":100,
             "item":"Choice Band",
-            "ability":"(Def)iant",
+            "ability":"Defiant",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
             "moves":["Rage Fist","Close Combat","Bulk Up","Drain Punch"]
@@ -11,7 +11,7 @@ export const RAIDER_SETDEX_SV = {
         "Fast DPS": {
             "level":100,
             "item":"Choice Band",
-            "ability":"(Def)iant",
+            "ability":"Defiant",
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Rage Fist","Close Combat","Bulk Up","Drain Punch"]
@@ -568,7 +568,7 @@ export const RAIDER_SETDEX_SV = {
             "item":"Leftovers",
             "ability":"Intimidate",
             "nature":"Bold",
-            "evs":{"hp":252,"def":252},
+            "evs":{"hp":252,"df":252},
             "moves":["Acid Spray","Chilling Water","Acupressure","Taunt"] 
         }
     },
@@ -578,7 +578,7 @@ export const RAIDER_SETDEX_SV = {
             "item":"Leftovers",
             "ability":"Intimidate",
             "nature":"Bold",
-            "evs":{"hp":252,"def":252},
+            "evs":{"hp":252,"df":252},
             "moves":["Acid Spray","Chilling Water","Acupressure","Taunt"] 
         }
     },
@@ -604,7 +604,7 @@ export const RAIDER_SETDEX_SV = {
             "item":"Life Orb",
             "nature":"Modest",
             "evs":{"df":252,"sa":252},
-            "moves":["Iron (Def)ense","Nasty Plot","Stored Power","Psychic Terrain"]
+            "moves":["Iron Defense","Nasty Plot","Stored Power","Psychic Terrain"]
         }
     },
     "Slowking":  {

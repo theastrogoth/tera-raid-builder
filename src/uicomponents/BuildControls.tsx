@@ -15,7 +15,7 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import TuneIcon from '@mui/icons-material/Tune';
 import Popper from "@mui/material/Popper";
-import Checkbox from "@mui/material/Checkbox";
+import Switch from "@mui/material/Switch";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 
 import { darken, lighten, styled, SxProps, Theme } from '@mui/material/styles';
@@ -966,7 +966,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                                     <TableRow>
                                         <LeftCell>Shiny</LeftCell>
                                         <RightCell>
-                                            <Checkbox
+                                            <Switch
                                                 checked={pokemon.shiny || false}
                                                 onChange={(e) => setPokemonProperty("shiny")(!pokemon.shiny)}
                                             />

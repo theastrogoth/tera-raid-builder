@@ -29,7 +29,7 @@ export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
 
 export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildInfo | null> {
     try {
-        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r) => new Raider(r.id, r.role, new Field(), 
+        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r) => new Raider(r.id, r.role, r.shiny, new Field(), 
             new Pokemon(gen, r.name, {
                 ability: r.ability || undefined,
                 item: r.item || undefined,
@@ -108,6 +108,7 @@ function serializeInfo(info: RaidBattleInfo): string {
                 id: r.id,
                 role: r.role,
                 name: r.name,
+                shiny: r.shiny,
                 ability: r.ability,
                 item: r.item,
                 nature: r.nature,

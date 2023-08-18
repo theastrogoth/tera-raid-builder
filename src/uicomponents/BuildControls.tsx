@@ -15,6 +15,7 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import TuneIcon from '@mui/icons-material/Tune';
 import Popper from "@mui/material/Popper";
+import Checkbox from "@mui/material/Checkbox";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 
 import { darken, lighten, styled, SxProps, Theme } from '@mui/material/styles';
@@ -37,6 +38,7 @@ import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
 type SetOption = {
     name: string,
     pokemon: SpeciesName,
+    shiny?: boolean,
     level?: number,
     item?: ItemName,
     ability?: AbilityName,
@@ -94,6 +96,7 @@ function setdexToOptions(dex: Object): SetOption[] {
             const option: SetOption = {
                 name: setname,
                 pokemon: pokemon,
+                shiny: !!set.shiny,
                 level: level,
                 item: set.item,
                 ability: set.ability,
@@ -784,6 +787,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
             setPokemon(new Raider(
                 newPokemon.id, 
                 newPokemon.role, 
+                newPokemon.shiny,
                 newPokemon.field,
                 new Pokemon(gen, newPokemon.name, {
                     level: newPokemon.level,
@@ -813,6 +817,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
             setPokemon(new Raider(
                 newPokemon.id, 
                 newPokemon.role, 
+                newPokemon.shiny,
                 newPokemon.field,
                 new Pokemon(gen, newPokemon.name, {
                     level: newPokemon.level,
@@ -841,7 +846,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
             )
         ) as MoveData[];
     
-        setPokemon(new Raider(pokemon.id, set.pokemon, new Field(), new Pokemon(gen, set.pokemon, {
+        setPokemon(new Raider(pokemon.id, set.pokemon, set.shiny, new Field(), new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
             bossMultiplier: undefined,
             teraType: undefined,
@@ -855,7 +860,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"}), []))
+        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"}), []))
     }
 
     return (
@@ -957,6 +962,18 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                                     <LeftCell>EVs</LeftCell>
                                     <RightCell>{evsToString(pokemon)}</RightCell>
                                 </TableRow>
+                                {!prettyMode &&
+                                    <TableRow>
+                                        <LeftCell>Shiny</LeftCell>
+                                        <RightCell>
+                                            <Checkbox
+                                                checked={pokemon.shiny || false}
+                                                onChange={(e) => setPokemonProperty("shiny")(!pokemon.shiny)}
+                                            />
+                                        </RightCell>
+                                    </TableRow>
+
+                                }
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '5px'}} />
                                 </TableRow>
@@ -1003,7 +1020,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         if (val < 1) val = 1;
         const newPokemon = {...pokemon};
         newPokemon.bossMultiplier = val;
-        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field,
+        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field,
             new Pokemon(gen, newPokemon.name, {
                 level: newPokemon.level,
                 ability: newPokemon.ability,
@@ -1030,7 +1047,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
             )
         ) as MoveData[];
     
-        setPokemon(new Raider(pokemon.id, set.pokemon, new Field(), new Pokemon(gen, set.pokemon, {
+        setPokemon(new Raider(pokemon.id, set.pokemon, set.shiny, new Field(), new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
             bossMultiplier: set.bossMultiplier || 100,
             teraType: set.teraType || undefined,

@@ -4,6 +4,7 @@ export type LightPokemon = {
     id: number,
     role: string
     name: string,
+    shiny?: boolean,
     ability?: string,
     item?: string,
     nature?: string,

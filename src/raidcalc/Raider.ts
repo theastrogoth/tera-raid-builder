@@ -10,6 +10,7 @@ const gen = Generations.get(9);
 export class Raider extends Pokemon implements State.Raider {
     id: number;
     role: string;
+    shiny: boolean;
     field: Field;               // each pokemon gets its own field to deal with things like Helping Hand and Protect
     moveData: State.MoveData[];   
     extraMoves?: MoveName[];    // for special boss actions
@@ -19,10 +20,11 @@ export class Raider extends Pokemon implements State.Raider {
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
 
-    constructor(id: number, role: string, field: Field, pokemon: Pokemon, moveData: State.MoveData[], extraMoves: MoveName[] = [], extraMoveData: State.MoveData[] = [], isEndure: boolean = false, lastMove: State.MoveData | undefined = undefined, lastTarget: number | undefined = undefined) {
+    constructor(id: number, role: string, shiny: boolean | undefined, field: Field, pokemon: Pokemon, moveData: State.MoveData[], extraMoves: MoveName[] = [], extraMoveData: State.MoveData[] = [], isEndure: boolean = false, lastMove: State.MoveData | undefined = undefined, lastTarget: number | undefined = undefined) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
         this.role = role;
+        this.shiny = !!shiny;
         this.field = field;
         this.moveData = moveData;
         this.extraMoves = extraMoves;
@@ -36,6 +38,7 @@ export class Raider extends Pokemon implements State.Raider {
         return new Raider(
             this.id, 
             this.role, 
+            this.shiny,
             this.field.clone(),
             new Pokemon(this.gen, this.name, {
                 level: this.level,

@@ -188,7 +188,7 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", new Field(), new Pokemon(gen, "Mewtwo", {
+    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Mewtwo", {
       teraType: "Psychic",
       bossMultiplier: 3500,
       nature: "Modest",
@@ -209,7 +209,7 @@ function App() {
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Krookodile", new Field(), new Pokemon(gen, "Krookodile", {
+    new Raider(1, "Krookodile", false, new Field(), new Pokemon(gen, "Krookodile", {
       nature: "Jolly",
       ability: "Anger Point",
       moves: ["Power Trip"],
@@ -221,7 +221,7 @@ function App() {
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Meowscarada", new Field(), new Pokemon(gen, "Meowscarada", {
+    new Raider(2, "Meowscarada", false, new Field(), new Pokemon(gen, "Meowscarada", {
       level: 36,
       nature: "Hardy",
       ability: "(No Ability)",
@@ -233,7 +233,7 @@ function App() {
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Corviknight", new Field(), new Pokemon(gen, "Corviknight", {
+    new Raider(3, "Corviknight", false, new Field(), new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
       ability: "(No Ability)",
       moves: ["Screech"],
@@ -245,7 +245,7 @@ function App() {
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Umbreon", new Field(), new Pokemon(gen, "Umbreon", {
+    new Raider(4, "Umbreon", false, new Field(), new Pokemon(gen, "Umbreon", {
       nature: "Sassy",
       ability: "(No Ability)",
       moves: ["Screech"],

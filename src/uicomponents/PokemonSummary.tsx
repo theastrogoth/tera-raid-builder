@@ -134,7 +134,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                             <Box position="relative" sx={{filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
                                 <img
                                     height="150px"
-                                    src={getPokemonArtURL(pokemon.name)}
+                                    src={getPokemonArtURL(pokemon.name, pokemon.shiny)}
                                     onError={({ currentTarget }) => {
                                         currentTarget.onerror = null; // prevents looping
                                         currentTarget.src=getPokemonArtURL("placeholder");

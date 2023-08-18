@@ -87,6 +87,7 @@ export type MoveData = {
 export interface Raider extends Pokemon {
     id: number;
     role: string;
+    shiny?: boolean;
     field: Field;
     moveData: MoveData[];
     extraMoves?: MoveName[];// for special boss actions

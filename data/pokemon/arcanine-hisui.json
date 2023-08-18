@@ -52,12 +52,24 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Covet",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "level-up"
         },
         {
             "name": "Dig",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Double Kick",
+            "learnMethod": "egg"
         },
         {
             "name": "Dragon Pulse",
@@ -112,6 +124,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Head Smash",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Heat Wave",
             "learnMethod": "machine"
         },
@@ -138,6 +154,10 @@
         {
             "name": "Leer",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Morning Sun",
+            "learnMethod": "egg"
         },
         {
             "name": "Outrage",
@@ -246,6 +266,10 @@
         {
             "name": "Thief",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Thrash",
+            "learnMethod": "egg"
         },
         {
             "name": "Thunder Fang",

@@ -112,6 +112,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Healing Wish",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Helping Hand",
             "learnMethod": "level-up"
         },
@@ -126,6 +130,10 @@
         {
             "name": "Ice Spinner",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Ingrain",
+            "learnMethod": "egg"
         },
         {
             "name": "Leaf Blade",
@@ -220,6 +228,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Sweet Scent",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Swords Dance",
             "learnMethod": "machine"
         },
@@ -246,6 +258,10 @@
         {
             "name": "Victory Dance",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Worry Seed",
+            "learnMethod": "egg"
         }
     ]
 }

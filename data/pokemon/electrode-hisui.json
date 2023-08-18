@@ -108,12 +108,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Leech Seed",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
         {
             "name": "Rain Dance",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Recycle",
+            "learnMethod": "egg"
         },
         {
             "name": "Reflect",
@@ -206,6 +214,10 @@
         {
             "name": "Wild Charge",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Worry Seed",
+            "learnMethod": "egg"
         }
     ]
 }

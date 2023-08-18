@@ -52,6 +52,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Covet",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Defense Curl",
             "learnMethod": "level-up"
         },
@@ -62,6 +70,10 @@
         {
             "name": "Double-Edge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Double Kick",
+            "learnMethod": "egg"
         },
         {
             "name": "Earthquake",
@@ -78,6 +90,10 @@
         {
             "name": "Eruption",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Extrasensory",
+            "learnMethod": "egg"
         },
         {
             "name": "Facade",
@@ -138,6 +154,10 @@
         {
             "name": "Hex",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Howl",
+            "learnMethod": "egg"
         },
         {
             "name": "Hyper Beam",

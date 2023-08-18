@@ -146,13 +146,14 @@ export const RAIDER_SETDEX_SV = {
         }
     },
     "Forretress": {
-        "Sun Support": {
+        "Golden Snitch": {
             "level":100,
             "item":"Covert Cloak",
             "ability":"Sturdy",
             "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
-            "moves":["Sunny Day","Helping Hand"]
+            "moves":["Sunny Day","Helping Hand"],
+            "shiny":true,
         }
     },
     "Gholdengo":  {
@@ -668,13 +669,14 @@ export const RAIDER_SETDEX_SV = {
             "evs":{"at":252,"sp":252},
             "moves":["Double-Edge"]
         },
-        "Support": {
+        "Green Vomit": {
             "level":100,
             "item":"Leftovers",
             "ability":"Intimidate",
             "nature":"Jolly",
             "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand"]
+            "moves":["Helping Hand"],
+            "shiny":true,
         }
     },
     "Tauros-Paldea-Aqua-Breed": {

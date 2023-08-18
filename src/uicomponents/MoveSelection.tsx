@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
-import Checkbox from "@mui/material/Checkbox";
+import Switch from "@mui/material/Switch";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
@@ -103,7 +103,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
                                 <TableRow>
                                     <TableCell>Crit</TableCell>
                                     <TableCell>
-                                        <Checkbox 
+                                        <Switch 
                                             size="small" 
                                             style={{ padding: "4px"}}
                                             checked={critChecked}
@@ -118,7 +118,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
                                 <TableRow>
                                     <TableCell>Effect</TableCell>
                                     <TableCell>
-                                        <Checkbox 
+                                        <Switch 
                                             size="small" 
                                             style={{ padding: "4px"}}
                                             checked={effectChecked}

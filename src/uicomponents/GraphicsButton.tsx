@@ -490,7 +490,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                     <Header>
                         <BossWrapper>
                             <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera>
-                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name)} />
+                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name, raidInputProps.pokemon[0].shiny)} />
                         </BossWrapper>
                         <Title>{title ? title : "Untitled"}</Title>
                         <Subtitle>{subtitle ? subtitle : (credits ? `By: ${credits}` : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`)}</Subtitle>
@@ -507,7 +507,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
-                                                <BuildArt src={getPokemonArtURL(raider.species.name)}/>
+                                                <BuildArt src={getPokemonArtURL(raider.species.name, raider.shiny)}/>
                                                 {raider.item ? 
                                                     <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
                                                 <BuildTypes direction="row">

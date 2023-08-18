@@ -229,6 +229,7 @@ export class RaidBattle {
                 this._state.raiders[id] = new Raider(
                     id,
                     pokemon.role,
+                    pokemon.shiny,
                     pokemon.field.clone(),
                     new Pokemon(
                         gen,

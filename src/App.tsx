@@ -348,6 +348,9 @@ function App() {
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
                   Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
                 </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Sugimiori-style artwork for shiny Pokémon has been adapted from <Link href="https://tonofdirt726.imgbb.com/">the recolors</Link> created by Tonofdirt726 <Link href="https://www.reddit.com/r/ShinyPokemon/comments/tda106/art_shiny_recolors_of_the_sugimoristyle_artwork/">(u/ton_of_dirt726)</Link>
+                </Typography>
                 <Typography variant="h6" sx={{color: "text.secondary"}}>
                   Contact
                 </Typography>

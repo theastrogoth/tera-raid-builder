@@ -5191,13 +5191,13 @@ const XY_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   nfe: true,
   //   abilities: {0: 'Tough Claws'},
   // },
-  // Braixen: {
-  //   types: ['Fire'],
-  //   bs: {hp: 59, at: 59, df: 58, sa: 90, sd: 70, sp: 73},
-  //   weightkg: 14.5,
-  //   nfe: true,
-  //   abilities: {0: 'Blaze'},
-  // },
+  Braixen: {
+    types: ['Fire'],
+    bs: {hp: 59, at: 59, df: 58, sa: 90, sd: 70, sp: 73},
+    weightkg: 14.5,
+    nfe: true,
+    abilities: {0: 'Blaze'},
+  },
   // Bunnelby: {
   //   types: ['Normal'],
   //   bs: {hp: 38, at: 36, df: 38, sa: 32, sd: 36, sp: 57},
@@ -6365,13 +6365,13 @@ const SM_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   nfe: true,
   //   abilities: {0: 'Honey Gather'},
   // },
-  // Dartrix: {
-  //   types: ['Grass', 'Flying'],
-  //   bs: {hp: 78, at: 75, df: 75, sa: 70, sd: 70, sp: 52},
-  //   weightkg: 16,
-  //   nfe: true,
-  //   abilities: {0: 'Overgrow'},
-  // },
+  Dartrix: {
+    types: ['Grass', 'Flying'],
+    bs: {hp: 78, at: 75, df: 75, sa: 70, sd: 70, sp: 52},
+    weightkg: 16,
+    nfe: true,
+    abilities: {0: 'Overgrow'},
+  },
   Decidueye: {
     types: ['Grass', 'Ghost'],
     bs: {hp: 78, at: 107, df: 75, sa: 100, sd: 100, sp: 70},
@@ -7902,13 +7902,13 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: {0: 'Clear Body'},
     nfe: true,
   },
-  // Drizzile: {
-  //   types: ['Water'],
-  //   bs: {hp: 65, at: 60, df: 55, sa: 95, sd: 55, sp: 90},
-  //   weightkg: 11.5,
-  //   abilities: {0: 'Torrent'},
-  //   nfe: true,
-  // },
+  Drizzile: {
+    types: ['Water'],
+    bs: {hp: 65, at: 60, df: 55, sa: 95, sd: 55, sp: 90},
+    weightkg: 11.5,
+    abilities: {0: 'Torrent'},
+    nfe: true,
+  },
   // Dubwool: {
   //   types: ['Normal'],
   //   bs: {hp: 72, at: 80, df: 100, sa: 60, sd: 90, sp: 88},

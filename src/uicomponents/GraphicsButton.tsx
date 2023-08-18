@@ -484,7 +484,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                     <Header>
                         <BossWrapper>
                             {/* <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera> */}
-                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name)} />
+                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name, raidInputProps.pokemon[0].shiny)} />
                             {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
                         <Title>{title ? title : "Untitled"}</Title>
@@ -502,7 +502,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
-                                                <BuildArt src={getPokemonArtURL(raider.species.name)}/>
+                                                <BuildArt src={getPokemonArtURL(raider.species.name, raider.shiny)}/>
                                                 {raider.item ? 
                                                     <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
                                                 <BuildTypes direction="row">

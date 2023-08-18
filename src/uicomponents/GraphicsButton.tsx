@@ -99,8 +99,8 @@ const Header = styled(Box)({
 });
 
 const BossWrapper = styled(Box)({
-    height: "450px",
-    width: "450px",
+    height: "550px",
+    width: "550px",
     position: "absolute",
     right: "100px",
     top: "50px",
@@ -111,29 +111,35 @@ const BossWrapper = styled(Box)({
 const Boss = styled("img")({
     height: "100%",
     position: "absolute",
-    right: "0px"
+    right: "0px",
+    zIndex: 10002,
 });
 
 const BossTera = styled("img")({
-    width: "60%",
+    width: "70%",
     position: "absolute",
     bottom: "0px",
-    alignSelf: "center"
+    alignSelf: "center",
+    zIndex: 10001,
+    transform: "translate(-250px, 0px)"
 });
 
 const Title = styled(Typography)({
-    height: "250px",
-    lineHeight: "250px",
+    // height: "250px",
+    // lineHeight: "250px",
+    maxWidth: "2800px",
     color: "white",
     fontWeight: "inherit",
     fontSize: "16em",
     margin: "0px",
+    zIndex: 10003,
 });
 
 const Subtitle = styled(Typography)({
     color: "rgba(255, 255, 255, 0.65)",
     fontSize: "8em",
     margin: "0px",
+    zIndex: 10004,
 });
 
 const BuildsSection = styled(Box)({
@@ -483,9 +489,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                 >
                     <Header>
                         <BossWrapper>
-                            {/* <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera> */}
+                            <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera>
                             <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name)} />
-                            {/* Need to figure out how to show the tera type nicely */}
                         </BossWrapper>
                         <Title>{title ? title : "Untitled"}</Title>
                         <Subtitle>{subtitle ? subtitle : (credits ? `By: ${credits}` : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`)}</Subtitle>

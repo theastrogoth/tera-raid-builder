@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import { Move } from "../calc";
 import { TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL } from "../utils";
 import { RaidMoveInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
@@ -112,16 +112,14 @@ const Boss = styled("img")({
     height: "100%",
     position: "absolute",
     right: "0px",
-    zIndex: 10002,
 });
 
 const BossTera = styled("img")({
-    width: "70%",
+    width: "100%",
     position: "absolute",
     bottom: "0px",
     alignSelf: "center",
-    zIndex: 10001,
-    transform: "translate(-250px, 0px)"
+    transform: "translate(0px, -100px)"
 });
 
 const Title = styled(Typography)({
@@ -132,14 +130,12 @@ const Title = styled(Typography)({
     fontWeight: "inherit",
     fontSize: "16em",
     margin: "0px",
-    zIndex: 10003,
 });
 
 const Subtitle = styled(Typography)({
     color: "rgba(255, 255, 255, 0.65)",
     fontSize: "8em",
     margin: "0px",
-    zIndex: 10004,
 });
 
 const BuildsSection = styled(Box)({
@@ -489,8 +485,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                 >
                     <Header>
                         <BossWrapper>
-                            <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera>
                             <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name, raidInputProps.pokemon[0].shiny)} />
+                            <BossTera src={getTeraTypeBannerURL(raidInputProps.pokemon[0].teraType || "blank")}></BossTera>
                         </BossWrapper>
                         <Title>{title ? title : "Untitled"}</Title>
                         <Subtitle>{subtitle ? subtitle : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle>

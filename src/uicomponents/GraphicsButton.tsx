@@ -79,6 +79,10 @@ const graphicsTheme = createTheme({
         group10: {
             main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #dca1ffaa 0%, #ffa8baaa 50%, #ff9b80aa 100%);",
         },
+        //@ts-ignore
+        group11: {
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #1BB0BDaa 0%, #42C6B9aa 50%, #b1dfc0aa 100%);",
+        },
     }
 });
 
@@ -558,7 +562,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                         <ExecutionRow key={index}>
                                             <ExecutionGroup sx={{
                                                 //@ts-ignore
-                                                background: graphicsTheme.palette["group"+index.toString().slice(-1)].main,
+                                                background: graphicsTheme.palette["group"+(index.toString() % 12)].main,
                                                 height: (175*moveGroup.length).toString() + "px"
                                             }}>
                                                 <ExecutionMoveNumber>{index + 1}</ExecutionMoveNumber>

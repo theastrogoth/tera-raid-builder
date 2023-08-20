@@ -119,7 +119,7 @@ const BossTera = styled("img")({
     position: "absolute",
     bottom: "0px",
     alignSelf: "center",
-    transform: "translate(0px, -100px)"
+    transform: "translate(0px, -50px)"
 });
 
 const Title = styled(Typography)({

@@ -28,6 +28,7 @@ export namespace State {
     teraType?: I.TypeName;
     toxicCounter?: number;
     hitsTaken?: number;
+    changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName];
     moves?: I.MoveName[];
     overrides?: Partial<I.Specie>;
   }

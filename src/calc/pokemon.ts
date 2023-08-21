@@ -45,6 +45,7 @@ export class Pokemon implements State.Pokemon {
   isChoiceLocked: boolean;
   toxicCounter: number;
   hitsTaken: number;
+  changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName];
 
   moves: I.MoveName[];
 
@@ -63,7 +64,7 @@ export class Pokemon implements State.Pokemon {
 
     this.gen = gen;
     this.name = options.name || name as I.SpeciesName;
-    this.types = this.species.types;
+    this.types = options.changedTypes || this.species.types;
     this.weightkg = this.species.weightkg;
 
     this.level = options.level || 100;
@@ -121,6 +122,7 @@ export class Pokemon implements State.Pokemon {
     this.isChoiceLocked = options.isChoiceLocked || false;
     this.toxicCounter = options.toxicCounter || 0;
     this.hitsTaken = options.hitsTaken || 0;
+    this.changedTypes = options.changedTypes;
     this.moves = options.moves || [];
   }
 
@@ -200,6 +202,7 @@ export class Pokemon implements State.Pokemon {
       teraType: this.teraType,
       toxicCounter: this.toxicCounter,
       hitsTaken: this.hitsTaken,
+      changedTypes: this.changedTypes,
       moves: this.moves.slice(),
       overrides: this.species,
     });

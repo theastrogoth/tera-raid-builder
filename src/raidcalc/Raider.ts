@@ -64,6 +64,7 @@ export class Raider extends Pokemon implements State.Raider {
                 teraType: this.teraType,
                 toxicCounter: this.toxicCounter,
                 hitsTaken: this.hitsTaken,
+                changedTypes: this.changedTypes,
                 moves: this.moves.slice(),
                 overrides: this.species,
             }),

@@ -225,7 +225,6 @@ export class RaidBattle {
             /// special interactions
             // Mew stat boosts for Mewtwo event.
             if (id !== 0 && pokemon.name === "Mew" && this._state.raiders[0].name === "Mewtwo") {
-                console.log(pokemon.stats)
                 this._state.raiders[id] = new Raider(
                     id,
                     pokemon.role,

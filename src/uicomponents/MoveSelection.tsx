@@ -61,7 +61,7 @@ const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: 
     setTransitionIn(uniqueId);
 }
 
-function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void}) {
+function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, isBoss?: boolean}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -74,6 +74,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
     const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
+    const activateTeraChecked = moveInfo.options ? (moveInfo.options.activateTera || false) : false;
 
     return (
         <Box>
@@ -100,6 +101,23 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
                     <TableContainer>
                         <Table size="small">
                             <TableBody>
+                                { !isBoss &&
+                                    <TableRow>
+                                        <TableCell>Tera</TableCell>
+                                        <TableCell>
+                                            <Switch 
+                                                size="small" 
+                                                style={{ padding: "4px"}}
+                                                checked={activateTeraChecked}
+                                                onChange={
+                                                    (e) => {
+                                                        setMoveInfo({...moveInfo, options: {...moveInfo.options, activateTera: !activateTeraChecked}});
+                                                    }
+                                                }
+                                            />
+                                        </TableCell>
+                                    </TableRow>
+                                }
                                 <TableRow>
                                     <TableCell>Crit</TableCell>
                                     <TableCell>
@@ -420,7 +438,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
                 </Select>
                 <Box flexGrow={6} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} />
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} isBoss />
         </Stack>
     )
 }

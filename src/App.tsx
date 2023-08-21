@@ -190,6 +190,7 @@ function App() {
   const [raidBoss, setRaidBoss] = useState(
     new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Mewtwo", {
       teraType: "Psychic",
+      isTera: true,
       bossMultiplier: 3500,
       nature: "Modest",
       ability: "Unnerve",

@@ -105,7 +105,8 @@ export type RaidMoveOptions = {
     crit?: boolean;
     secondaryEffects?: boolean;
     hits?: number;
-    roll?: "max" | "min" | "avg"
+    roll?: "max" | "min" | "avg";
+    activateTera?: boolean;
 }
 
 export type RaidMoveInfo = {

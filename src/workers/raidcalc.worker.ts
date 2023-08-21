@@ -23,6 +23,8 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}
         moves: r.moves,
     }), r.moveData, r.extraMoves, r.extraMoveData))
 
+    raiders[0].isTera = true; // ensure the boss is Tera'd on T0
+
     const state = new RaidState(raiders);
     const info: RaidBattleInfo = {
         startingState: state,

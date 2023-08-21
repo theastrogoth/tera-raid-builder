@@ -387,4 +387,9 @@ export class RaidState implements State.RaidState{
             }
         }
     }
+
+    public activateTera(id: number): boolean {
+        const pokemon = this.getPokemon(id);
+        return pokemon.activateTera();
+    }
 }

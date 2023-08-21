@@ -19,8 +19,9 @@ export class Raider extends Pokemon implements State.Raider {
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
+    attackCounter: number;      // stored for Tera activation
 
-    constructor(id: number, role: string, shiny: boolean | undefined, field: Field, pokemon: Pokemon, moveData: State.MoveData[], extraMoves: MoveName[] = [], extraMoveData: State.MoveData[] = [], isEndure: boolean = false, lastMove: State.MoveData | undefined = undefined, lastTarget: number | undefined = undefined) {
+    constructor(id: number, role: string, shiny: boolean | undefined, field: Field, pokemon: Pokemon, moveData: State.MoveData[], extraMoves: MoveName[] = [], extraMoveData: State.MoveData[] = [], isEndure: boolean = false, lastMove: State.MoveData | undefined = undefined, lastTarget: number | undefined = undefined, attackCounter: number | undefined = 0) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
         this.role = role;
@@ -32,6 +33,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isEndure = isEndure;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
+        this.attackCounter = attackCounter;
     }
 
     clone(): Raider {
@@ -62,6 +64,7 @@ export class Raider extends Pokemon implements State.Raider {
                 originalCurHP: this.originalCurHP,
                 status: this.status,
                 teraType: this.teraType,
+                isTera: this.isTera,
                 toxicCounter: this.toxicCounter,
                 hitsTaken: this.hitsTaken,
                 changedTypes: this.changedTypes,
@@ -73,7 +76,8 @@ export class Raider extends Pokemon implements State.Raider {
             this.extraMoveData,
             this.isEndure,
             this.lastMove,
-            this.lastTarget
+            this.lastTarget,
+            this.attackCounter
         )
     }
 
@@ -120,6 +124,12 @@ export class Raider extends Pokemon implements State.Raider {
         this.item = undefined;
     }
 
-    
+    public activateTera(): boolean {
+        if (!this.isTera && this.attackCounter >= 3) {
+            this.isTera = true;
+            return true;
+        }
+        return false;
+    }
 
 }

@@ -26,6 +26,7 @@ export namespace State {
     volatileStatus?: string[];
     isChoiceLocked?: boolean;
     teraType?: I.TypeName;
+    isTera?: boolean;
     toxicCounter?: number;
     hitsTaken?: number;
     changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName];

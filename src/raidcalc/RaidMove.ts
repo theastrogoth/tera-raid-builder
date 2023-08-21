@@ -355,6 +355,7 @@ export class RaidMove {
             const qpStat = getQPBoostedStat(moveUser) as StatIDExceptHP;
             moveUser.boostedStat = qpStat;
         }
+        let hasCausedDamage = false;
         for (let id of this._affectedIDs) {
             if (this._doesNotEffect[id]) {
                 this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // a more specific reason might be helpful
@@ -364,7 +365,6 @@ export class RaidMove {
                 try {
                     const target = this.getPokemon(id);
                     const moveField = this.getMoveField(this.userID, id);
-                    const hits = (this.moveData.maxHits || 1) > 1 ? this.options.hits : 1;
                     const crit = this.options.crit || false;
                     const calcMove = this.move.clone();
                     calcMove.hits = this.hits;
@@ -386,15 +386,18 @@ export class RaidMove {
                         this._flingItem = moveUser.item;
                         this._raidState.loseItem(this.userID);
                     }
+                    if (damage > 0) {
+                        hasCausedDamage = true;
+                    }
                 } catch {
                     this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // temporary fix
                 }
             }
         }
-
         if (this.moveData.category?.includes("damage")) {
             this._fields[this.userID].attackerSide.isHelpingHand = false;
             if (this.move.type === "Electric") { this._fields[this.userID].attackerSide.isCharged = false; }
+            if (hasCausedDamage) { this._user.attackCounter++; }
         }
     }
 

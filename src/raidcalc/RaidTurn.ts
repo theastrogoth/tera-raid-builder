@@ -17,6 +17,7 @@ export type RaidTurnResult = {
     group?: number;
     moveInfo: RaidMoveInfo;
     bossMoveInfo: RaidMoveInfo;
+    flags: string[][];
 }
 
 export class RaidTurn {
@@ -77,6 +78,12 @@ export class RaidTurn {
         // copy the raid state
         this._raidState = this.raidState.clone();
         this._flags = [[], [], [], [], []];
+
+        // activate Terastallization if specified
+        if (this.raiderOptions.activateTera) {
+            const activatedTera = this._raidState.activateTera(this.raiderID);
+            if (activatedTera) { this._flags[this.raiderID].push("Tera activated"); }
+        }
 
         // determine which move goes first
         this.setTurnOrder();
@@ -166,6 +173,7 @@ export class RaidTurn {
                 moveData: this.bossMoveData,
                 options: this.bossOptions,
             },
+            flags: this._flags,
         }
 
     }

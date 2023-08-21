@@ -96,7 +96,9 @@ export class RaidMove {
         this.applyEndOfTurnDamage();
         this.applyEndOfMoveItemEffects();        
         this.setFlags();
-        this._user.lastMove = this.moveData;
+        if (!["(No Move)", "Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
+            this._user.lastMove = this.moveData;
+        }
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
         return this.output;
     }

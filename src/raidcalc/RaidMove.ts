@@ -663,26 +663,26 @@ export class RaidMove {
                 if (!(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Water")) {
                     target.types = ["Water"];
                     target.changedTypes = ["Water"];
-                    this._desc[target.id] += ", " + "Soak changed " + target.name + "'s type to Water!";
+                    this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — " + "Soak changed " + target.name + "'s type to Water!";
                 } else {
-                    this._desc[target.id] += ", " + "Soak failed!";
+                    this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — " + "Soak failed!";
                 }
                 break;
             case "Conversion":
                 this._user.types = [this.move.type];
                 this._user.changedTypes = [this.move.type];
-                this._desc[this.userID] += ", " + this._user.name + " transformed into the " + this.move.type.toUpperCase() + " type!";
+                this._desc[this.userID] = this._user.name + " Conversion vs. " + target.name + " — " + this._user.name + " transformed into the " + this.move.type.toUpperCase() + " type!";
                 break;
             case "Reflect Type":
                 if (target.teraType !== undefined || target.teraType !== "???") {
                     this._user.types = target.types;
                     this._user.changedTypes = target.types;
-                    this._desc[this.userID] += ", " + this._user.name + "'s types changed to match " + target.name + "'s!";
+                    this._desc[this.userID] = this._user.name + " Reflect Type vs. " + target.name + " — " + this._user.name + "'s types changed to match " + target.name + "'s!";
                 } else {
                     this._user.types = [target.teraType];
                     this._user.changedTypes = [target.teraType];
                 }
-                this._desc[this.userID] += ", " + this._user.name + "'s type changed to match " + target.name + "'s!";
+                this._desc[this.userID] = this._user.name + " Reflect Type vs. " + target.name + " — " + this._user.name + "'s type changed to match " + target.name + "'s!";
                 break;
         /// Item-affecting moves
             case "Knock Off":

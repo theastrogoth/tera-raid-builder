@@ -92,24 +92,31 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
     )
 }
 
-function MoveGroup({turns, group, raiders, index}: {turns: RaidTurnResult[], group: number[], raiders: Raider[], index: number}) {
+function MoveGroup({turns, group, raiders, index, max}: {turns: RaidTurnResult[], group: number[], raiders: Raider[], index: number, max: number}) {
     const newTurns = turns.filter((t, i) => group.includes(i));
-    const color = "group" + index + ".main";
+    const color = "group" + index.toString().slice(-1) + ".main";
     return (
-        <Paper sx={{backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
-            <Box position="relative">
-                <Typography variant="h4" fontWeight="bold" sx={{ position: "absolute", transform: "translate(-60px,-7px)"}}>
-                    {index+1}
-                </Typography>
-            </Box>
-            <Stack direction="column" spacing={1}>
-                {
-                    newTurns.map((t, i) => (
-                        <MoveText key={i} raiders={raiders} turn={t} />
-                    ))
+        <Stack direction="row">
+            <Typography variant="h4" fontWeight="bold" margin="15px">
+                {index+1}
+            </Typography>
+            <Stack>
+                <Paper sx={{backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
+                    <Stack direction="column" spacing={1}>
+                    {
+                        newTurns.map((t, i) => (
+                            <MoveText key={i} raiders={raiders} turn={t} />
+                        ))
+                    }
+                    </Stack>                    
+                </Paper>
+                {index !== max - 1  && 
+                    <Typography align="center" variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
+                        ↓
+                    </Typography>
                 }
             </Stack>
-        </Paper>
+        </Stack>
     )
 }
 
@@ -133,12 +140,7 @@ function MoveDisplay({turns, raiders}: {turns: RaidTurnResult[], raiders: Raider
             {
                 displayGroups.map((g, index) => (
                     <Box key={index}>
-                        <MoveGroup turns={turns} group={g} raiders={raiders} index={index} />
-                        {index !== displayGroups.length - 1  && 
-                            <Typography align="center" variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
-                                ↓
-                            </Typography>
-                        }
+                        <MoveGroup turns={turns} group={g} raiders={raiders} index={index} max={displayGroups.length}/>
                     </Box>
                 ))
 

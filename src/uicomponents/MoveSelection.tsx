@@ -524,7 +524,7 @@ function MoveSelectionCard({raiders, index, turns, setTurns, groups, setGroups, 
             >
                 <Stack direction="row">
                     <Stack alignItems="center" justifyContent={"center"} paddingLeft={0.5}>
-                        <DragIndicatorIcon/>
+                        <DragIndicatorIcon color="subdued" />
                     </Stack>
                     <Stack
                         direction = "column"

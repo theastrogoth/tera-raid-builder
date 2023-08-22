@@ -46,6 +46,10 @@ function App() {
         main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
       },
       //@ts-ignore
+      subdued: {
+        main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe"
+      },
+      //@ts-ignore
       modal: {
         main: lightMode === 'dark' ? "#666666" : "#dedede"
       },
@@ -120,6 +124,10 @@ function App() {
           },
           secondary: {
             main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+          },
+          //@ts-ignore
+          subdued: {
+            main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe"
           },
           //@ts-ignore
           modal: {

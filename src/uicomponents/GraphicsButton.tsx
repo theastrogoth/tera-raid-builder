@@ -387,6 +387,23 @@ const ExecutionMovePokemonIconWrapper = styled(Box)({
     justifyContent: "center"
 });
 
+const ExecutionMoveTeraIcon = styled("img")({
+    height: "auto",
+    width: "auto",
+    maxHeight: "140px",
+    maxWidth: "140px",
+});
+
+const ExecutionMoveTeraIconWrapper = styled(Box)({
+    position: "absolute",
+    transform: "translate(1620px, -20px)",
+    height: "140px",
+    width: "140px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+});
+
 const ExecutionMoveTag = styled(Typography)({
     height: "100px",
     width: "300px",
@@ -465,12 +482,17 @@ function getMoveGroups(results: RaidBattleResults) {
         currentGroupID = g;
     })
     const moveGroups = displayGroups.map(group => 
-        group.map((id) => { return {move: turns[id]!.raiderMoveUsed, info: turns[id]!.moveInfo} })
+        group.map((id) => { return {
+            move: turns[id]!.raiderMoveUsed, 
+            info: turns[id]!.moveInfo, 
+            teraActivated: !!(turns[id]!.moveInfo.options!.activateTera && 
+                              turns[id]!.flags[turns[id]!.moveInfo.userID].includes("Tera activated"))} 
+        })
     );
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo}[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, teraActivated: boolean}[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -575,6 +597,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                 </ExecutionMovePokemonWrapper>
                                                                 <ExecutionMoveTag>uses</ExecutionMoveTag>
                                                                 <ExecutionMoveAction>{move.move}</ExecutionMoveAction>
+                                                                {move.teraActivated &&
+                                                                    <ExecutionMoveTeraIconWrapper>
+                                                                        <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                    </ExecutionMoveTeraIconWrapper>
+                                                                }
                                                                 <ExecutionMoveTag>{!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)? "on": ""}</ExecutionMoveTag>
                                                                 {!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!) ?
                                                                     <ExecutionMovePokemonWrapper>

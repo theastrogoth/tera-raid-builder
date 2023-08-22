@@ -25,7 +25,7 @@ import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 // import PokedexService from "../services/getdata";
-import { getPokemonSpriteURL, arraysEqual } from "../utils";
+import { getPokemonSpriteURL, arraysEqual, getTeraTypeIconURL } from "../utils";
 
 const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: RaidTurnInfo[]) => void, setGroups: (g: number[][]) => void, setTransitionIn: (n: number) => void) => (index: number) => () => {
     let uniqueId = 0;
@@ -299,7 +299,18 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
                 <Box flexGrow={1} />
                 <Typography variant="body2">uses</Typography>
                 <Box flexGrow={1} />
-                <Box>
+                <Stack direction="row" justifyContent="center" alignItems="center">
+                    {/* {(moveInfo.options!.activateTera && raiders[moveInfo.userID].teraType) &&
+                        <Box
+                            sx={{
+                                width: "25px",
+                                height: "25px",
+                                overflow: 'hidden',
+                                background: `url(${getTeraTypeIconURL(raiders[moveInfo.userID].teraType!)}) no-repeat center center / contain`,
+                            }}
+                        />
+
+                    } */}
                     <Select 
                         size="small"
                         variant="standard"
@@ -324,7 +335,7 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
                     >
                         {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
                     </Select>
-                </Box>
+                </Stack>
                 <Box flexGrow={1} />
                 <Typography variant="body2">on</Typography>
                 <Box flexGrow={1} />

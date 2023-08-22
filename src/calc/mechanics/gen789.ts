@@ -614,6 +614,19 @@ export function calculateSMSSSV(
 
   result.damage = childDamage ? [damage, childDamage] : damage;
 
+  // Tera Raid Shield
+  if (defender.shieldData && defender.shieldActive) {
+    // TODO: Handle case when attacker tera and move type do not match
+    const damageCoef = atkTeraType === move.type 
+      ? defender.shieldData.shieldDamageRateTera / 100 
+      : defender.shieldData.shieldDamageRate / 100;
+    result.damage = result.damage.map((dmg) => typeof(dmg) === "number" 
+      ? pokeRound(dmg * damageCoef)
+      : dmg.map((dmg2) => pokeRound(dmg2 * damageCoef)
+    )) as number[] | [number[], number[]];
+    desc.shieldActive = true;
+  }
+
   // #endregion
 
   return result;

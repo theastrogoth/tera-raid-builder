@@ -29,7 +29,7 @@ import { toID } from '../calc/util';
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 
-import { MoveData, MoveSetItem } from "../raidcalc/interface";
+import { MoveData, MoveSetItem, ShieldData } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
@@ -49,8 +49,10 @@ type SetOption = {
     ivs?: Partial<StatsTable>,
     evs?: Partial<StatsTable>,
     moves?: MoveName[],
+    extraMoves?: MoveName[],
     bossMultiplier?: number,
     teraType?: TypeName,
+    shieldData?: ShieldData,
 }
 
 // we will always use Gen 9
@@ -107,8 +109,13 @@ function setdexToOptions(dex: Object): SetOption[] {
                 ivs: setdexStats(set.ivs),
                 evs: setdexStats(set.evs),
                 moves: set.moves,
+                extraMoves: set.extraMoves,
                 bossMultiplier: bossMultiplier,
                 teraType: set.teraType,
+                shieldData: set.shieldData,
+            }
+            if (pokemon === "Mewtwo") {
+                console.log("Loaded Option", setname, option)
             }
             options.push(option);
         }
@@ -828,59 +835,21 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
-            const newPokemon = {...pokemon};
+            const newPokemon = pokemon.clone();
             // @ts-ignore
             newPokemon[propName] = val;
-            setPokemon(new Raider(
-                newPokemon.id, 
-                newPokemon.role, 
-                newPokemon.shiny,
-                newPokemon.field,
-                new Pokemon(gen, newPokemon.name, {
-                    level: newPokemon.level,
-                    ability: newPokemon.ability,
-                    nature: newPokemon.nature,
-                    item: newPokemon.item,
-                    ivs: newPokemon.ivs,
-                    evs: newPokemon.evs,
-                    moves: newPokemon.moves,
-                    teraType: newPokemon.teraType,
-                    bossMultiplier: newPokemon.bossMultiplier,
-                }),
-                newPokemon.moveData,
-                newPokemon.extraMoves,
-                newPokemon.extraMoveData,
-            ))
+            setPokemon(newPokemon.clone())
         }
     }
 
     const setPokemonProperties = (propNames: string[]) => {
         return (vals: any[]) => {
-            const newPokemon = {...pokemon};
+            const newPokemon = pokemon.clone();
             propNames.forEach((propName, i) => {
                 // @ts-ignore
                 newPokemon[propName] = vals[i];
             })
-            setPokemon(new Raider(
-                newPokemon.id, 
-                newPokemon.role, 
-                newPokemon.shiny,
-                newPokemon.field,
-                new Pokemon(gen, newPokemon.name, {
-                    level: newPokemon.level,
-                    ability: newPokemon.ability,
-                    nature: newPokemon.nature,
-                    item: newPokemon.item,
-                    ivs: newPokemon.ivs,
-                    evs: newPokemon.evs,
-                    moves: newPokemon.moves,
-                    teraType: newPokemon.teraType,
-                    bossMultiplier: newPokemon.bossMultiplier,
-                }),
-                newPokemon.moveData,
-                newPokemon.extraMoves,
-                newPokemon.extraMoveData,
-            ))
+            setPokemon(newPokemon.clone())
         }
     }
 
@@ -1061,24 +1030,9 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
         if (val < 1) val = 1;
-        const newPokemon = {...pokemon};
+        const newPokemon = pokemon.clone();
         newPokemon.bossMultiplier = val;
-        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field,
-            new Pokemon(gen, newPokemon.name, {
-                level: newPokemon.level,
-                ability: newPokemon.ability,
-                nature: newPokemon.nature,
-                item: newPokemon.item,
-                ivs: newPokemon.ivs,
-                evs: newPokemon.evs,
-                moves: newPokemon.moves,
-                teraType: newPokemon.teraType,
-                bossMultiplier: newPokemon.bossMultiplier,
-            }),
-            pokemon.moveData,
-            pokemon.extraMoves,
-            pokemon.extraMoveData,
-        ));
+        setPokemon(newPokemon.clone())        
     }
 
     const setShiny = (shiny: boolean) => {
@@ -1096,6 +1050,14 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
             )
         ) as MoveData[];
 
+        const extraMoveData = await Promise.all(
+            (set.extraMoves || []).map(
+                async (move) => await PokedexService.getMoveByName(move)
+            ).map(
+                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
+            )
+        ) as MoveData[];
+
         const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
             bossMultiplier: set.bossMultiplier || 100,
@@ -1106,9 +1068,19 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
             moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),
             ivs: set.ivs || {},
             evs: set.evs || {},
+            shieldData: set.shieldData,
         });
     
-        setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, new Field(), poke, moveData));
+        setPokemon(new Raider(
+            pokemon.id, 
+            poke.species.baseSpecies || poke.name, 
+            set.shiny, 
+            new Field(), 
+            poke, 
+            moveData,
+            set.extraMoves || ["(No Move)","(No Move)","(No Move)","(No Move)"] as MoveName[],
+            extraMoveData,
+        ));
     }
 
     const setBMove = (index: number) => async (move: MoveName) => {

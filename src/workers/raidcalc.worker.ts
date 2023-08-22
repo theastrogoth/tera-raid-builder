@@ -21,6 +21,7 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}
         item: r.item,
         teraType: r.teraType,
         moves: r.moves,
+        shieldData: r.shieldData,
     }), r.moveData, r.extraMoves, r.extraMoveData))
 
     raiders[0].isTera = true; // ensure the boss is Tera'd on T0

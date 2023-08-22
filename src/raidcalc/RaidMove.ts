@@ -864,6 +864,7 @@ export class RaidMove {
             const healing = this._healing[id];
             // apply damage from being hit with a damaging movev
             this._raidState.applyDamage(id, damage, this.hits, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
+            if (id === 0) { pokemon.checkShield(); }
             // apply damage/healing from recoil/drain
             if (pokemon.originalCurHP !== 0) {
                 this._raidState.applyDamage(id, -drain);
@@ -883,6 +884,16 @@ export class RaidMove {
     }
 
     private setFlags() {
+        // check for shield changes
+        const initialShield = this.raidState.raiders[0].shieldActive;
+        const finalShield = this._raiders[0].shieldActive;
+        if (initialShield !== finalShield) {
+            if (finalShield) {
+                this._flags[0].push("Shield activated");
+            } else {
+                this._flags[0].push("Shield broken");
+            }
+        }
         // check for item changes
         const initialItems = this.raidState.raiders.map(p => p.item);
         const finalItems = this._raiders.map(p => p.item);

@@ -40,7 +40,8 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                 teraType: (r.teraType || undefined) as (TypeName | undefined),
                 isTera: i === 0,
                 bossMultiplier: r.bossMultiplier || undefined,
-                moves: r.moves || undefined
+                moves: r.moves || undefined,
+                shieldData: r.shieldData || undefined,
             }), 
             (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
             (r.extraMoves || undefined) as (MoveName[] | undefined),
@@ -120,6 +121,7 @@ function serializeInfo(info: RaidBattleInfo): string {
                 moves: r.moves,
                 bossMultiplier: r.bossMultiplier,
                 extraMoves: r.extraMoves,
+                shieldData: r.shieldData,
             }}
         ),
         turns: info.turns.map((t) => {

@@ -84,6 +84,14 @@ export type MoveData = {
     maxHits?:       number,
 }
 
+export type ShieldData  = {
+    hpTrigger: number;
+    timeTrigger: number;
+    shieldCancelDamage: number;
+    shieldDamageRate: number;
+    shieldDamageRateTera: number;
+}
+
 export interface Raider extends Pokemon {
     id: number;
     role: string;
@@ -95,6 +103,8 @@ export interface Raider extends Pokemon {
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     lastMove?: MoveData;    // stored for Instruct and Copycat
     lastTarget?: number;    // stored for Instruct and Copycat
+    shieldActivateHP?: number;
+    shieldBroken?: boolean;
 }
 
 export interface RaidState {

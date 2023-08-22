@@ -56,6 +56,7 @@ export interface RawDesc {
   weather?: Weather;
   isDefenderDynamaxed?: boolean;
   isCharged?: boolean;
+  shieldActive?: boolean;
 }
 
 export function display(
@@ -995,6 +996,9 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
   }
   if (description.isWonderRoom) {
     output += ' in Wonder Room';
+  }
+  if (description.shieldActive) {
+    output += ' through Tera Raid Shield';
   }
   return output;
 }

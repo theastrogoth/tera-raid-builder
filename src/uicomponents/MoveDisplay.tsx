@@ -4,6 +4,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { Raider } from "../raidcalc/interface";
+import { getDisplayMoveGroups } from "../raidcalc/util"
 import { RaidTurnResult } from "../raidcalc/RaidTurn";
 import { getPokemonSpriteURL } from "../utils";
 
@@ -121,19 +122,20 @@ function MoveGroup({turns, group, raiders, index, max}: {turns: RaidTurnResult[]
 }
 
 function MoveDisplay({turns, raiders}: {turns: RaidTurnResult[], raiders: Raider[]}) { 
-    const displayGroups: number[][] = [];
-    let currentGroupIndex = -1;
-    let currentGroupID: number | undefined = -1;
-    turns.forEach((t, index) => {
-        const g = t.group;
-        if (g === undefined || g !== currentGroupID) {
-            currentGroupIndex += 1;
-            displayGroups.push([index]);
-        } else {
-            displayGroups[currentGroupIndex].push(index);
-        }
-        currentGroupID = g;
-    })
+    const displayGroups = getDisplayMoveGroups(turns);
+    // const displayGroups: number[][] = [];
+    // let currentGroupIndex = -1;
+    // let currentGroupID: number | undefined = -1;
+    // turns.forEach((t, index) => {
+    //     const g = t.group;
+    //     if (g === undefined || g !== currentGroupID) {
+    //         currentGroupIndex += 1;
+    //         displayGroups.push([index]);
+    //     } else {
+    //         displayGroups[currentGroupIndex].push(index);
+    //     }
+    //     currentGroupID = g;
+    // })
 
     return (
         <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">

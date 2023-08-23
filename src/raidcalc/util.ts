@@ -147,3 +147,21 @@ export function modifyPokemonSpeedByField(speed: number, field: Field, ability?:
     }
     return speed;
 }
+
+// no idea if this should go here
+export function getDisplayMoveGroups(turns: RaidTurnResult[]) {
+    const displayGroups: number[][] = [];
+    let currentGroupIndex = -1;
+    let currentGroupID: number | undefined = -1;
+    turns.forEach((t, index) => {
+        const g = t.group;
+        if (g === undefined || g !== currentGroupID) {
+            currentGroupIndex += 1;
+            displayGroups.push([index]);
+        } else {
+            displayGroups[currentGroupIndex].push(index);
+        }
+        currentGroupID = g;
+    });
+    return displayGroups;
+}

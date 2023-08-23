@@ -8,6 +8,7 @@ export namespace State {
     shieldCancelDamage: number;
     shieldDamageRate: number;
     shieldDamageRateTera: number;
+    shieldDamageRateTeraChange: number;
   }
 
   export interface Pokemon {

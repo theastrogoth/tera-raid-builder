@@ -195,7 +195,7 @@ function App() {
       nature: "Modest",
       ability: "Unnerve",
       moves: ["Psystrike", "Psychic", "Shadow Ball", "Aura Sphere"],
-      shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 40, shieldDamageRate: 20, shieldDamageRateTera: 70}
+      shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 40, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
       {name: "Psystrike" as MoveName, category: "damage", target: "selected-pokemon"},

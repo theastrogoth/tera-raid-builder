@@ -90,6 +90,7 @@ export type ShieldData  = {
     shieldCancelDamage: number;
     shieldDamageRate: number;
     shieldDamageRateTera: number;
+    shieldDamageRateTeraChange: number;
 }
 
 export interface Raider extends Pokemon {

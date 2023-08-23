@@ -90,7 +90,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                                 </Box>
                             }
                         </Box>
-                        <Box>
+                        <Box position="relative">
                             <Box position="relative" sx={{filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
                                 <img
                                     height="150px"
@@ -104,7 +104,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                             <Box position="absolute" sx={{bottom: "0px", right: "0px", filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
                                 <img
                                     // width="95%"
-                                    height="70px"
+                                    height="65px"
                                     src={pokemon.item ? (
                                             pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
                                             getItemSpriteURL(pokemon.item)

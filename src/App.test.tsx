@@ -257,22 +257,22 @@ describe('Specific Test Cases', () => {
     const hash = "#H4sIAAAAAAAAA81TO2/bMBD+KwKnFNDgZ9p4s+M+MjgwmmQSNNDSSWJNkQJJyREC//fe0ZRjtB2KDk0giT7e87vvzi+sYAuW/bBasZg5tkiSUcwUr4GlMYkiJ2Ecs9aCuVuTEzclOC/qxgmtLHlMYlYa3TaorXUHd6rQKO60tZvhekqYGeHQYiHTKuem/1wUkDmLKqOlxJ9KOJ9xHjOeOdFxB49geIChtANyzgzkwoc1eg/1CX5rFGk8EBvqVQSJuz2eORRUueH+zP0JATwWBxY6R30lVE9xOyGFI0k4qL0di5AHdFRJ+FNCB4TcIczHvoHAgR0IaKUTjRRgKO7ZGb7x1jSNWccWLwxZ/xgzFt7EK25ixP6dizxaYQo0bODgDshpwaWFmD0pBabDUqqVEq06B4u8+thPGHt+0uOgnI5/edE0HmGZre2zSmRYmkTrjNhTD2c1e6h4rg/RivsBLVvDo4emAkPkTeeYImH33Lo+2kpNw12WA20hR4QTNFwo7DnAuYlxmEulRCUk95RdXkKTaygEV5TxttIiA0SgaGzLnNdeHzqbzCf++/uWv1aa6EqQ4hKiL8L6IlJbiG51veN0XbVyHz3R+qwJe7RtVVZhx5QguWgEt2cr9jyrWnYhhRau7nW0PG3Rh2FY37jJ+3+blU+Q/I5h+g4wzN4QQxr+NjNcK2/zt2l8Od8xpvbq6wAqQKtxL9HoTAuY6HgOvdrgjkRrXLVSqBJRj9DLG+fe+XSwmj9j+IhCh+AZ7sR7QDH9Dyiu/4DiHP8KZfamhKR+SY4/AS/MV1HuBgAA";
     const result = await resultsFromHash(hash);
     // T1: Annihilape has attacked 1 time, can't activate Tera
-    expect(result.turnResults[0].state.raiders[1].attackCounter).toEqual(1);
+    expect(result.turnResults[0].state.raiders[1].teraCharge).toEqual(1);
     expect(result.turnResults[0].state.raiders[1].isTera).toEqual(false);
     expect(result.turnResults[0].flags[1].length).toEqual(0); // No flag for tera activation 
     expect(result.turnResults[0].results[1].desc.includes("Tera Ghost")).toEqual(false); // No Tera in the desc
     // T2: Annihilape has attacked 2 times, can't activate Tera
-    expect(result.turnResults[1].state.raiders[1].attackCounter).toEqual(2);
+    expect(result.turnResults[1].state.raiders[1].teraCharge).toEqual(2);
     expect(result.turnResults[1].state.raiders[1].isTera).toEqual(false);
     expect(result.turnResults[1].flags[1].length).toEqual(0);
     expect(result.turnResults[1].results[1].desc.includes("Tera Ghost")).toEqual(false);
     // T3: Annihilape has attacked 3 times (at the end of the turn), can't activate Tera (during the turn)
-    expect(result.turnResults[2].state.raiders[1].attackCounter).toEqual(3);
+    expect(result.turnResults[2].state.raiders[1].teraCharge).toEqual(3);
     expect(result.turnResults[2].state.raiders[1].isTera).toEqual(false);
     expect(result.turnResults[2].flags[1].length).toEqual(0);
     expect(result.turnResults[2].results[1].desc.includes("Tera Ghost")).toEqual(false);
     // T4: Annihilape has attacked 4 times (at the end of the turn), has activated Tera
-    expect(result.turnResults[3].state.raiders[1].attackCounter).toEqual(4);
+    expect(result.turnResults[3].state.raiders[1].teraCharge).toEqual(4);
     expect(result.turnResults[3].state.raiders[1].isTera).toEqual(true);
     expect(result.turnResults[3].flags[1][0].includes("Tera activated")).toEqual(true);
     expect(result.turnResults[3].results[1].desc[0].includes("Tera Ghost")).toEqual(true);

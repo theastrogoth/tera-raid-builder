@@ -41,7 +41,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                 isTera: i === 0,
                 bossMultiplier: r.bossMultiplier || undefined,
                 moves: r.moves || undefined,
-                shieldData: r.shieldData || undefined,
+                shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
             }), 
             (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
             (r.extraMoves || undefined) as (MoveName[] | undefined),

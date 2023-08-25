@@ -1,5 +1,5 @@
 import { Field, Pokemon, Generations } from "../calc";
-import { MoveName, StatsTable, StatIDExceptHP, ItemName, TypeName } from "../calc/data/interface";
+import { MoveName, StatsTable, StatIDExceptHP, ItemName, TypeName, AbilityName } from "../calc/data/interface";
 import { extend } from '../calc/util';
 import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";
@@ -19,12 +19,32 @@ export class Raider extends Pokemon implements State.Raider {
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
-    attackCounter: number;      // stored for Tera activation
+    teraCharge: number;      // stored for Tera activation
 
     shieldActivateHP?: number;
     shieldBroken?: boolean;
 
-    constructor(id: number, role: string, shiny: boolean | undefined, field: Field, pokemon: Pokemon, moveData: State.MoveData[], extraMoves: MoveName[] = [], extraMoveData: State.MoveData[] = [], isEndure: boolean = false, lastMove: State.MoveData | undefined = undefined, lastTarget: number | undefined = undefined, attackCounter: number | undefined = 0, shieldActivateHP: number | undefined = undefined, shieldBroken: boolean | undefined = undefined) {
+    abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
+    originalAbility: AbilityName | "(None)";   // stores ability when nullified
+
+    constructor(
+        id: number, 
+        role: string, 
+        shiny: boolean | undefined, 
+        field: Field, 
+        pokemon: Pokemon, 
+        moveData: State.MoveData[], 
+        extraMoves: MoveName[] = [], 
+        extraMoveData: State.MoveData[] = [], 
+        isEndure: boolean = false, 
+        lastMove: State.MoveData | undefined = undefined, 
+        lastTarget: number | undefined = undefined, 
+        teraCharge: number | undefined = 0, 
+        shieldActivateHP: number | undefined = undefined, 
+        shieldBroken: boolean | undefined = undefined, 
+        abilityNullified: number | undefined = 0, 
+        originalAbility: AbilityName | "(None)" = "(None)"
+    ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
         this.role = role;
@@ -36,9 +56,11 @@ export class Raider extends Pokemon implements State.Raider {
         this.isEndure = isEndure;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
-        this.attackCounter = attackCounter;
+        this.teraCharge = teraCharge;
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
+        this.abilityNullified = abilityNullified;
+        this.originalAbility = originalAbility;
     }
 
     clone(): Raider {
@@ -84,9 +106,11 @@ export class Raider extends Pokemon implements State.Raider {
             this.isEndure,
             this.lastMove,
             this.lastTarget,
-            this.attackCounter,
+            this.teraCharge,
             this.shieldActivateHP,
             this.shieldBroken,
+            this.abilityNullified,
+            this.originalAbility,
         )
     }
 
@@ -134,7 +158,7 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public activateTera(): boolean {
-        if (!this.isTera && this.attackCounter >= 3) {
+        if (!this.isTera && this.teraCharge >= 3) {
             this.isTera = true;
             return true;
         }

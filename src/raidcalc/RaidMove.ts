@@ -96,7 +96,14 @@ export class RaidMove {
         this.applyEndOfTurnDamage();
         this.applyEndOfMoveItemEffects();        
         this.setFlags();
-        if (!["(No Move)", "Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
+        if (![
+                "(No Move)", 
+                "Attack Cheer",
+                "Defense Cheer", 
+                "Heal Cheer", 
+                "Remove Negative Effects", 
+                "Remove Stat Boosts & Abilities",
+            ].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
         }
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
@@ -397,7 +404,7 @@ export class RaidMove {
         if (this.moveData.category?.includes("damage")) {
             this._fields[this.userID].attackerSide.isHelpingHand = false;
             if (this.move.type === "Electric") { this._fields[this.userID].attackerSide.isCharged = false; }
-            if (hasCausedDamage) { this._user.attackCounter++; }
+            if (hasCausedDamage) { this._user.teraCharge++; }
         }
     }
 
@@ -611,6 +618,32 @@ export class RaidMove {
         const target_ability = target.ability as AbilityName;
 
         switch (this.move.name) {
+            case "Remove Stat Boosts & Abilities":
+                if (this.userID !== 0) {
+                    throw new Error("Only the Raid boss can remove stat boosts and abilities!")
+                }
+                this._desc[this.targetID] = "The Raid Boss nullified all stat boosts and abilities!"
+                for (let i=1; i<5; i++) {
+                    const pokemon = this.getPokemon(i);
+                    pokemon.ability = undefined;
+                    pokemon.abilityNullified = 2;
+                    for (let stat in pokemon.boosts) {
+                        pokemon.boosts[stat as StatIDExceptHP] = Math.min(0, pokemon.boosts[stat as StatIDExceptHP] || 0);
+                    }
+                }
+                break;
+            case "Remove Negative Effects":
+                if (this.userID !== 0) {
+                    throw new Error("Only the Raid boss can remove negative effects!")
+                }
+                this._desc[this.targetID] = "The Raid Boss removed all negative effects from itself!"
+                const boss = this.getPokemon(0);
+                boss.status = "";
+                boss.volatileStatus = [];
+                for (let stat in boss.boosts) {
+                    boss.boosts[stat as StatIDExceptHP] = Math.max(0, boss.boosts[stat as StatIDExceptHP] || 0);
+                }
+                break;
             case "Skill Swap": 
                 if (
                     !persistentAbilities["uncopyable"].includes(user_ability) &&

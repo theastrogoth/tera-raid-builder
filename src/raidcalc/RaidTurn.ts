@@ -4,6 +4,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json"
+import { AbilityName } from "../calc/data/interface";
 
 const gen = Generations.get(9);
 
@@ -97,6 +98,24 @@ export class RaidTurn {
 
         this.applyChangedMove();
 
+        // count down nullified ability counter
+        if (this._raidState.getPokemon(this.raiderID).abilityNullified) {
+            this._raidState.getPokemon(this.raiderID).abilityNullified!--;
+            if (this._raidState.getPokemon(this.raiderID).abilityNullified === 0) { // restore ability after a full turn
+                this._raidState.getPokemon(this.raiderID).ability = this._raidState.getPokemon(this.raiderID).originalAbility as AbilityName;
+            }
+        }
+
+        // steal tera charge
+        if (this.bossOptions.stealTeraCharge) {
+            this._flags[0].push("The Raid Boss stole a Tera charge!");
+            for (let i=1; i<5; i++) {
+                const pokemon = this._raidState.getPokemon(i);
+                pokemon.teraCharge = Math.max(0, (pokemon.teraCharge || 0) - 1);
+            }
+        }
+
+        // execute moves
         if (this._raiderMovesFirst) {
             this._raidMove1 = new RaidMove(
                 this._raiderMoveData,

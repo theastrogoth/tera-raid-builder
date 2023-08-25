@@ -180,6 +180,23 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                         </TableCell>
                                     </TableRow>
                                 }
+                                {isBoss &&
+                                    <TableRow>
+                                        <TableCell sx={{ borderBottom: 0 }}>Steal Charge</TableCell>
+                                        <TableCell sx={{ borderBottom: 0 }}>
+                                            <Switch 
+                                                size="small" 
+                                                style={{ padding: "4px"}}
+                                                checked={moveInfo.options?.stealTeraCharge || false}
+                                                onChange={
+                                                    (e) => {
+                                                        setMoveInfo({...moveInfo, options: {...moveInfo.options, stealTeraCharge: !moveInfo.options?.stealTeraCharge}});
+                                                    }
+                                                }
+                                            />
+                                        </TableCell>
+                                    </TableRow>
+                                }
                             </TableBody>
                         </Table>
                     </TableContainer>
@@ -379,7 +396,7 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
 function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: Raider, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void}) {
     const moveInfo = turns[index].bossMoveInfo;
-    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || []];
+    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Remove Stat Boosts & Abilities"];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
     const [options, setOptions] = useState(moveInfo.options || {crit: true, secondaryEffects: true, roll: "max"});
@@ -438,7 +455,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
                     onChange={(e) => {
                         const name = e.target.value as MoveName;
                         let mData: MoveData = {name: name};
-                        if (name !== "(No Move)" && name !== "(Most Damaging)") {
+                        if (!["(No Move)", "(Most Damaging)", "Remove Negative Effects", "Remove Stat Boosts & Abiltiies"].includes(name)) {
                             mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === name) as MoveData;
                         }
                         setMoveInfo({...moveInfo, moveData: mData})}

@@ -286,6 +286,10 @@ describe('Specific Test Cases', () => {
     expect(result.turnZeroFlags[5].includes("Shield activated")).toEqual(true); // index 5 includes flags from the boss's "dummy" turn
     // T1: Acid Spray does only 1 damage due to shield multiplier
     expect(result.turnResults[0].results[1].damage[0]).toEqual(1);
+    // T2: Seed Sower activates, Grassy Seed consumed
+    expect(result.turnResults[1].results[0].flags[3].includes("Grassy Seed lost")).toEqual(true);
+    expect(result.turnResults[1].state.raiders[3].item).toEqual(undefined);
+    
   })
 })
 

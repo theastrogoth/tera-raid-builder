@@ -154,10 +154,6 @@ export function arraysEqual(a: any[], b: any[]) {
     // you might want to clone your array first.
   
     for (var i = 0; i < a.length; ++i) {
-        //@ts-ignore
-        if (b === "Branch Poke") {
-            console.log(a[i], b[i], a[i] === b[i])
-        }
       if (a[i] !== b[i]) return false;
     }
     return true;

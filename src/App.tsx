@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { createTheme } from '@mui/material/styles';
+import { alpha, createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -37,10 +37,10 @@ function App() {
     palette: {
       mode: lightMode,
       background: {
-        paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6',
+        paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6'
       },
       primary: {
-        main: lightMode === 'dark' ? "#faa5a0" : "#ed382d",
+        main: lightMode === 'dark' ? "#faa5a0" : "#ed382d"
       },
       secondary: {
         main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
@@ -50,12 +50,16 @@ function App() {
         main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe"
       },
       //@ts-ignore
+      transparency: {
+        main: lightMode === 'dark' ? alpha("#000000",0.3) : alpha("#ffffff",0.3)
+      },
+      //@ts-ignore
       modal: {
         main: lightMode === 'dark' ? "#666666" : "#dedede"
       },
       //@ts-ignore
       group0: {
-        main: lightMode === "dark" ? "#571b20" : "#f7b5ba",
+        main: lightMode === "dark" ? "#571b20" : "#f7b5ba"
       },
       //@ts-ignore
       group1: {
@@ -67,7 +71,7 @@ function App() {
       },
       //@ts-ignore
       group3: {
-        main: lightMode === "dark" ? "#443769" : "#ccbff5",
+        main: lightMode === "dark" ? "#443769" : "#ccbff5"
       },
       //@ts-ignore
       group4: {
@@ -270,11 +274,12 @@ function App() {
   const [credits, setCredits] = useState<string>("");
   const [turns, setTurns] = useState<RaidTurnInfo[]>([{
       id: 0, 
+      group: 0,
       moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
       bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
     }
   ]);
-  const [groups, setGroups] = useState<number[][]>([]);
+  const [groups, setGroups] = useState<number[][]>([[0]]);
 
   const raidInputProps: RaidInputProps = {
     pokemon: [raidBoss, raider1, raider2, raider3, raider4],

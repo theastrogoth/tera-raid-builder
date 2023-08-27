@@ -50,10 +50,6 @@ function App() {
         main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe"
       },
       //@ts-ignore
-      transparency: {
-        main: lightMode === 'dark' ? alpha("#000000",0.3) : alpha("#ffffff",0.3)
-      },
-      //@ts-ignore
       modal: {
         main: lightMode === 'dark' ? "#666666" : "#dedede"
       },

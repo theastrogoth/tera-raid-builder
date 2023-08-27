@@ -555,19 +555,29 @@ function MoveGroupContainer({raidInputProps, index, buttonsVisible, transitionIn
 
     return (
         <Stack spacing={0.75}>
-            <Droppable droppableId={`${index}`}>
-                    {(provided) => (
-                        <Paper
-                            ref={provided.innerRef}
-                            {...provided.droppableProps} 
-                            sx={{ backgroundColor: color, width: "585px" }}
-                        >
-                            <MoveGroupCard raidInputProps={raidInputProps} index={index} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} />
-                            {provided.placeholder}
-                        </Paper>
-                    )}
+            <Droppable droppableId={`${2*index+1}`}>
+                {(provided) => (
+                    <Paper
+                        ref={provided.innerRef}
+                        {...provided.droppableProps} 
+                        sx={{ backgroundColor: color, width: "585px" }}
+                    >
+                        <MoveGroupCard raidInputProps={raidInputProps} index={index} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} />
+                        {provided.placeholder}
+                    </Paper>
+                )}
             </Droppable>
-            <AddButton onClick={handleAddTurn(raidInputProps.turns, raidInputProps.groups, raidInputProps.setTurns, raidInputProps.setGroups, setTransitionIn)(index+1)} visible={buttonsVisible}/>
+            <Droppable droppableId={`${2*(index+1)}`}>
+                {(provided) => (
+                    <Box
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        sx={{ width: "585px", height: "30px", alignItems: "center", justifyContent: "center"}}
+                    >
+                        <AddButton onClick={handleAddTurn(raidInputProps.turns, raidInputProps.groups, raidInputProps.setTurns, raidInputProps.setGroups, setTransitionIn)(index+1)} visible={buttonsVisible}/>
+                    </Box>
+                )}
+            </Droppable>
         </Stack>
     )
 }
@@ -614,6 +624,7 @@ const reorder = (list: number[], startIndex: number, endIndex: number) => {
 };
  
 const move = (source: number[], destination: number[], sourceIndex: number, destIndex: number) => {
+    console.log(source, destination)
     const sourceClone = Array.from(source);
     const destClone = Array.from(destination);
     const [removed] = sourceClone.splice(sourceIndex, 1);
@@ -647,26 +658,36 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
     const onDragEnd = (result: DropResult) => {
         setButtonsVisible(true);
         const {destination, source, draggableId, combine} = result;
+        console.log("Drag end", destination, source)
         if (!destination) { 
             return;
         }
 
-        const sInd = +source.droppableId;
-        const dInd = +destination.droppableId;
+        const sInd = (parseInt(source.droppableId)-1) / 2;
+        const dInd = (parseInt(destination.droppableId)-1) / 2;
         if (dInd === sInd && 
             destination.index === source.index
         ) {
             return;
         }
 
-        // reorder turns within a group
         let newGroups = [...raidInputProps.groups];
-        if (sInd === dInd) {
+        if (sInd === dInd) { // reorder turns within a group
+            console.log("Reorder within group")
             newGroups[sInd] = reorder(raidInputProps.groups[sInd], source.index, destination.index);
-        } else {
+        } else if ( dInd % 1 === 0) { // move to an existing group
+            console.log("Move to existing group")
             const moveResult = move(raidInputProps.groups[sInd], raidInputProps.groups[dInd], source.index, destination.index);
             newGroups[sInd] = moveResult[0];
             newGroups[dInd] = moveResult[1];
+        } else { // add a new group and move the item to it
+            console.log("Create new group")
+            const newGroupInd = Math.ceil(dInd);
+            const sourceGroupInd = newGroupInd <= sInd ? sInd+1 : sInd;
+            newGroups.splice(newGroupInd, 0, [])
+            const moveResult = move(newGroups[sourceGroupInd], newGroups[newGroupInd], source.index, destination.index);
+            newGroups[sourceGroupInd] = moveResult[0];
+            newGroups[newGroupInd] = moveResult[1];
         }
         newGroups = newGroups.filter((group) => group.length > 0);
         const newTurns = prepareTurns(raidInputProps.turns, newGroups);
@@ -681,7 +702,17 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
                 onDragEnd={onDragEnd}
             >
                 <Stack direction="column" spacing={1} sx = {{ my: 1}}>
-                    <AddButton onClick={handleAddTurn(raidInputProps.turns, raidInputProps.groups, raidInputProps.setTurns, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
+                    <Droppable droppableId={'0'}>
+                        {(provided) => (
+                            <Box
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                                sx={{ width: "100%", minHeight: "50px", alignItems: "center" }}
+                            >
+                                <AddButton onClick={handleAddTurn(raidInputProps.turns, raidInputProps.groups, raidInputProps.setTurns, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
+                            </Box>
+                        )}
+                    </Droppable>
                     {
                         raidInputProps.groups.map((group, index) => (
                             <MoveGroupContainer 

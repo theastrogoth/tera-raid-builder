@@ -624,8 +624,8 @@ export function calculateSMSSSV(
         : defender.shieldData.shieldDamageRate / 100;
     damageCoef = damageCoef || 1;
     result.damage = result.damage.map((dmg) => typeof(dmg) === "number" 
-      ? pokeRound(dmg * damageCoef)
-      : dmg.map((dmg2) => pokeRound(dmg2 * damageCoef)
+      ? Math.max(dmg > 0 ? 1 : 0, pokeRound(dmg * damageCoef))
+      : dmg.map((dmg2) => Math.max(dmg2 > 0 ? 1 : 0, pokeRound(dmg2 * damageCoef))
     )) as number[] | [number[], number[]];
     desc.shieldActive = true;
   }

@@ -68,8 +68,9 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
                     {teraActivated && 
                         <Box
                             sx={{
-                                width: "30px",
-                                height: "30px",
+                                width: "25px",
+                                height: "25px",
+                                marginRight: "5px",
                                 overflow: 'hidden',
                                 background: `url(${getTeraTypeIconURL(turn.state.raiders[turn.moveInfo.userID].teraType || "Inactive")}) no-repeat center center / contain`,
                             }}

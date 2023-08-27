@@ -52,7 +52,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>
                     <Box width="100%" marginTop="10px" display="flex" justifyContent="center">
-                        <Box position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
+                        <Box width="50px" position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
                             <Box position="relative" display="flex">
                                 <img
                                     // width="95%"

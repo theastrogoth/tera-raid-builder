@@ -27,6 +27,7 @@ import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider } from ".
 import { RaidInputProps } from "../raidcalc/inputs";
 // import PokedexService from "../services/getdata";
 import { getPokemonSpriteURL, arraysEqual } from "../utils";
+import { getGroupedTurnIDs, getGroupedTurns } from "../raidcalc/util";
 
 const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: RaidTurnInfo[]) => void, setGroups: (g: number[][]) => void, setTransitionIn: (n: number) => void) => (index: number) => () => {
     let uniqueId = 0;
@@ -524,6 +525,7 @@ function MoveSelectionCard({raiders, index, turns, setTurns, groups, setGroups, 
             >
                 <Stack direction="row">
                     <Stack alignItems="center" justifyContent={"center"} paddingLeft={0.5}>
+                        {/* @ts-ignore */}
                         <DragIndicatorIcon color="subdued" />
                     </Stack>
                     <Stack
@@ -547,6 +549,7 @@ function MoveSelectionCard({raiders, index, turns, setTurns, groups, setGroups, 
         </Stack>
     )
 }
+
 const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProps) => (
     prevProps.index === nextProps.index && 
     prevProps.turns[prevProps.index].id === nextProps.turns[nextProps.index].id &&
@@ -606,95 +609,243 @@ function prepareGroups(turns: RaidTurnInfo[], groups: number[][]) {
     return {turns: newTurns, groups: newGroups};
 }
 
-function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
+const MoveCard = (props: any) => {
+    const index = props.index;
+    const turn = props.turn;
+    const raidInputProps = props.raidInputProps;
+    const raiders = raidInputProps.pokemon;
+    const turns = raidInputProps.turns;
+    const setTurns = raidInputProps.setTurns;
+
+    return (        
+        <Stack direction="column" spacing={0}>
+            <Paper 
+                sx={{ maxWidth: "585px", my: 1}} 
+            >
+                <Stack direction="row">
+                    <Stack alignItems="center" justifyContent={"center"} paddingLeft={0.5}>
+                        {/* @ts-ignore */}
+                        <DragIndicatorIcon color="subdued" />
+                    </Stack>
+                    <Stack
+                        direction = "column"
+                        spacing={0.5}
+                        alignItems="center"
+                        sx={{ p: 0.5 }}
+                    >
+                        <MoveDropdown index={index} raiders={raiders} turns={turns} setTurns={setTurns} />
+                        {/* <Box width="80%">
+                            <Divider />
+                        </Box> */}
+                        <BossMoveDropdown index={index} boss={raiders[0]} turns={turns} setTurns={setTurns}/>
+                    </Stack>
+                    {/* <Stack alignItems="center" justifyContent={"center"} paddingRight={0.5}>
+                        <CloseButton onClick={handleRemoveTurn} visible={true} disabled={(turns.length <= 1) || !buttonsVisible}/>
+                    </Stack> */}
+                </Stack>
+            </Paper>
+            {/* <AddButton onClick={handleAddTurn(turns, groups, setTurns, setGroups, setTransitionIn)(index+1)} visible={buttonsVisible} /> */}
+        </Stack>
+    )
+}
+
+const MovesContainer = React.memo(function MovesWrapper(props: any) {
+    const group = props.group;
+    const raidInputProps = props.raidInputProps;
+
     const [buttonsVisible, setButtonsVisible] = useState(true);
     const [transitionIn, setTransitionIn] = useState(-1);
     const [transitionOut, setTransitionOut] = useState(-1);
 
-    const onDragStart = () => {
-        setButtonsVisible(false);
+    return group.map((turn: any, index: number) => (
+        <Draggable key={turn.id} draggableId={"group" + props.index + "turn" + turn.id} index={index}>
+            {(provided) => (
+                <Box ref={provided.innerRef}{...provided.draggableProps}
+                        {...provided.dragHandleProps}>
+                    <MoveCard
+                        ref={provided.innerRef}
+                        key={index}
+                        // raiders={raidInputProps.pokemon} 
+                        index={index}
+                        turn={turn}
+                        raidInputProps={raidInputProps}
+                        // turns={raidInputProps.turns}
+                        // setTurns={raidInputProps.setTurns}
+                        // groups={raidInputProps.groups}
+                        // setGroups={raidInputProps.setGroups}
+                        // buttonsVisible={buttonsVisible}
+                        // setTransitionIn={setTransitionIn}
+                        // setTransitionOut={setTransitionOut}
+                        
+                    />
+                </Box>
+                // <Paper ref={provided.innerRef}
+                // {...provided.draggableProps}
+                // {...provided.dragHandleProps}>asdf</Paper>
+            )}
+        </Draggable>
+    ));
+});
+
+const MovesContainerWrapper = (props: any) => {
+    const index = props.index;
+    const type = props.type;
+    const group = props.group;
+    const raidInputProps = props.raidInputProps;
+
+    return (
+        <Droppable droppableId={"group" + index} type={type}>
+            {(provided) => (
+                <Box {...provided.droppableProps}>
+                    <Box ref={provided.innerRef}>
+                        <MovesContainer group={group} raidInputProps={raidInputProps}/>
+                        {provided.placeholder}
+                    </Box>    
+                </Box>
+            )}
+        </Droppable>
+    )
+}
+
+const MoveGroupCard = (props: any) => {
+    const index = props.index;
+    const group = props.group;
+    const raidInputProps = props.raidInputProps;
+
+    const color = group !== undefined ? "group" + (index).toString().slice(-1) + ".main" : undefined;
+
+    return (
+        <Draggable draggableId={"group" + index} index={index}>
+            {(provided) => (
+                <Paper sx={{ maxWidth: "585px", backgroundColor: color, my: 3}} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                    <Stack alignItems={"center"}>
+                        <Box>
+                            <Typography>Group {index + 1}</Typography>
+                        </Box>
+                        <Box>
+                            <MovesContainerWrapper index={index} type="TURNS" group={group} raidInputProps={raidInputProps}/>
+                        </Box>
+                    </Stack>
+                </Paper>
+            )}
+        </Draggable>
+    )
+}
+
+function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
+    const groups = getGroupedTurns(raidInputProps.turns);
+    const onDragEnd = () => {
+        console.log("drag end")
     }
-
-    const onDragEnd = (result: DropResult) => {
-        setButtonsVisible(true);
-        const {destination, source, draggableId, combine} = result;
-        const newTurns = [...raidInputProps.turns];
-        const newGroups = [...raidInputProps.groups];
-        let destinationIndex = destination ? destination.index : source.index;
-        if (combine) {
-            const movedIndex = result.source.index;
-            const movedID = newTurns[movedIndex].id;
-            const targetID = parseInt(combine.draggableId);
-            const idsByIndex = newTurns.map((turn) => turn.id);
-            const targetIndex = idsByIndex.indexOf(targetID);
-            destinationIndex = movedIndex > targetIndex ? targetIndex : targetIndex-1;
-
-            const movedFromGroup = newTurns[movedIndex].group;
-            const targetGroup = newTurns[targetIndex].group;
-
-            // remove membership from former group
-            if (movedFromGroup !== undefined) {
-                const groupIndex = newGroups[movedFromGroup].indexOf(movedID);
-                newGroups[movedFromGroup].splice(groupIndex, 1);
-            }
-            // create new group or add membership to existing group
-            if (targetGroup === undefined) {
-                newTurns[movedIndex].group = newGroups.length;
-                newTurns[targetIndex].group = newGroups.length;
-                newGroups.push([targetID, movedID]);
-            } else {
-                newTurns[movedIndex].group = targetGroup;
-                newGroups[targetGroup].push(movedID);
-            } 
-        }
-        if (!destination && !combine) { return }; 
-        if (!combine && (!destination || (destination.droppableId === source.droppableId &&
-            destination.index === source.index))) { return }; 
-        const movedTurn = newTurns.splice(source.index, 1)[0];
-        newTurns.splice(destinationIndex, 0, movedTurn);
-        const preparedGroups = prepareGroups(newTurns, newGroups);
-        raidInputProps.setTurns(preparedGroups.turns);
-        raidInputProps.setGroups(preparedGroups.groups);
-    };
     return (
         <Box>
-            <DragDropContext
-                onDragStart={onDragStart}
-                // onDragUpdate={}
-                onDragEnd={onDragEnd}
-            >
-                <Droppable droppableId={"raid-turns"} isCombineEnabled>
+            <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable droppableId="raid-groups" type="GROUPS" direction="vertical">
                     {(provided) => (
-                        <Stack direction="column" spacing={0} sx = {{ my: 1}}
-                            ref={provided.innerRef}
-                            {...provided.droppableProps} 
-                        >
-                            <AddButton onClick={handleAddTurn(raidInputProps.turns, raidInputProps.groups, raidInputProps.setTurns, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
+                        <Box ref={provided.innerRef} {...provided.droppableProps}>
                             {
-                                raidInputProps.turns.map((turn, index) => (
-                                    <MoveSelectionContainer 
-                                        key={index}
-                                        raiders={raidInputProps.pokemon} 
-                                        index={index} 
-                                        turns={raidInputProps.turns}
-                                        setTurns={raidInputProps.setTurns}
-                                        groups={raidInputProps.groups}
-                                        setGroups={raidInputProps.setGroups}
-                                        buttonsVisible={buttonsVisible}
-                                        transitionIn={transitionIn}
-                                        setTransitionIn={setTransitionIn}
-                                        transitionOut={transitionOut}
-                                        setTransitionOut={setTransitionOut}
-                                    />
-                            ))}
-                                {provided.placeholder}
-                            </Stack>
-                        )
-                    }
+                                groups.map((group, index) => (
+                                    <MoveGroupCard key={"group" + index} index={index} group={group} raidInputProps={raidInputProps}/>
+                                ))
+                            }
+                            {provided.placeholder}
+                        </Box>
+                    )}
                 </Droppable>
             </DragDropContext>
         </Box>
     )
 }
+
+// function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
+//     const [buttonsVisible, setButtonsVisible] = useState(true);
+//     const [transitionIn, setTransitionIn] = useState(-1);
+//     const [transitionOut, setTransitionOut] = useState(-1);
+
+//     const onDragStart = () => {
+//         setButtonsVisible(false);
+//     }
+
+//     const onDragEnd = (result: DropResult) => {
+//         setButtonsVisible(true);
+//         const {destination, source, draggableId, combine} = result;
+//         const newTurns = [...raidInputProps.turns];
+//         const newGroups = [...raidInputProps.groups];
+//         let destinationIndex = destination ? destination.index : source.index;
+//         if (combine) {
+//             const movedIndex = result.source.index;
+//             const movedID = newTurns[movedIndex].id;
+//             const targetID = parseInt(combine.draggableId);
+//             const idsByIndex = newTurns.map((turn) => turn.id);
+//             const targetIndex = idsByIndex.indexOf(targetID);
+//             destinationIndex = movedIndex > targetIndex ? targetIndex : targetIndex-1;
+
+//             const movedFromGroup = newTurns[movedIndex].group;
+//             const targetGroup = newTurns[targetIndex].group;
+
+//             // remove membership from former group
+//             if (movedFromGroup !== undefined) {
+//                 const groupIndex = newGroups[movedFromGroup].indexOf(movedID);
+//                 newGroups[movedFromGroup].splice(groupIndex, 1);
+//             }
+//             // create new group or add membership to existing group
+//             if (targetGroup === undefined) {
+//                 newTurns[movedIndex].group = newGroups.length;
+//                 newTurns[targetIndex].group = newGroups.length;
+//                 newGroups.push([targetID, movedID]);
+//             } else {
+//                 newTurns[movedIndex].group = targetGroup;
+//                 newGroups[targetGroup].push(movedID);
+//             } 
+//         }
+//         if (!destination && !combine) { return }; 
+//         if (!combine && (!destination || (destination.droppableId === source.droppableId &&
+//             destination.index === source.index))) { return }; 
+//         const movedTurn = newTurns.splice(source.index, 1)[0];
+//         newTurns.splice(destinationIndex, 0, movedTurn);
+//         const preparedGroups = prepareGroups(newTurns, newGroups);
+//         raidInputProps.setTurns(preparedGroups.turns);
+//         raidInputProps.setGroups(preparedGroups.groups);
+//     };
+//     return (
+//         <Box>
+//             <DragDropContext
+//                 onDragStart={onDragStart}
+//                 // onDragUpdate={}
+//                 onDragEnd={onDragEnd}
+//             >
+//                 <Droppable droppableId={"raid-turns"} isCombineEnabled>
+//                     {(provided) => (
+//                         <Stack direction="column" spacing={0} sx = {{ my: 1}}
+//                             ref={provided.innerRef}
+//                             {...provided.droppableProps} 
+//                         >
+//                             <AddButton onClick={handleAddTurn(raidInputProps.turns, raidInputProps.groups, raidInputProps.setTurns, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
+//                             {
+//                                 raidInputProps.turns.map((turn, index) => (
+//                                     <MoveSelectionContainer 
+//                                         key={index}
+//                                         raiders={raidInputProps.pokemon} 
+//                                         index={index} 
+//                                         turns={raidInputProps.turns}
+//                                         setTurns={raidInputProps.setTurns}
+//                                         groups={raidInputProps.groups}
+//                                         setGroups={raidInputProps.setGroups}
+//                                         buttonsVisible={buttonsVisible}
+//                                         transitionIn={transitionIn}
+//                                         setTransitionIn={setTransitionIn}
+//                                         transitionOut={transitionOut}
+//                                         setTransitionOut={setTransitionOut}
+//                                     />
+//                             ))}
+//                                 {provided.placeholder}
+//                             </Stack>
+//                         )
+//                     }
+//                 </Droppable>
+//             </DragDropContext>
+//         </Box>
+//     )
+// }
 
 export default React.memo(MoveSelection);

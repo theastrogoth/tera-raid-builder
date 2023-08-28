@@ -6,7 +6,7 @@ import { Move } from "../calc";
 import { TypeName } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL } from "../utils";
 import { RaidMoveInfo } from "../raidcalc/interface";
-import { getDisplayMoveGroups } from "../raidcalc/util";
+import { getGroupedTurnIDs } from "../raidcalc/util";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
 
@@ -450,10 +450,9 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
     }
 }
 
-// TODO: move this to a more appropriate place (also used in MoveDisplay)
 function getMoveGroups(results: RaidBattleResults) {
     const turns = results.turnResults;
-    const displayGroups = getDisplayMoveGroups(turns);
+    const displayGroups = getGroupedTurnIDs(turns);
 
     const moveGroups = displayGroups.map(group => 
         group.map((id) => { return {move: turns[id]!.raiderMoveUsed, info: turns[id]!.moveInfo} })

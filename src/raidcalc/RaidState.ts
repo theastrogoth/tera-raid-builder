@@ -37,7 +37,7 @@ export class RaidState implements State.RaidState{
             pokemon.applyDamage(damage);
         }
         const maxHP = pokemon.maxHP();
-        if (nHits > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
+        if (nHits > 0 && damage > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
             if (damage > 0) {
                 pokemon.hitsTaken = pokemon.hitsTaken + nHits;
             }

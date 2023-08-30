@@ -81,15 +81,14 @@ export class RaidMove {
             this.setDoesNotEffect();
             this.checkProtection();
             this.applyProtection();
-            this.setDamage();
-            this.setDrain();
-            this.setHealing();
-            this.setSelfDamage();
+            this.applyDamage();
+            this.applyDrain();
+            this.applyHealing();
+            this.applySelfDamage();
             this.applyFlinch();
             this.applyStatChanges();
             this.applyAilment();
             this.applyFieldChanges();
-            this.applyDamage();
             this.applyUniqueMoveEffects();
         }
         this.setEndOfTurnDamage();
@@ -346,7 +345,7 @@ export class RaidMove {
         return this._raiders[id];
     }
 
-    private setDamage() {
+    private applyDamage() {
         const moveUser = this.getPokemon(this.userID);
         if ((this._fields[this.userID].terrain === "Electric" && moveUser.ability === "Quark Drive")  ||
             (this._fields[this.userID].weather === "Sun" && moveUser.ability === "Protosynthesis")
@@ -363,23 +362,43 @@ export class RaidMove {
             } else {
                 try {
                     const target = this.getPokemon(id);
-                    const moveField = this.getMoveField(this.userID, id);
-                    const hits = (this.moveData.maxHits || 1) > 1 ? this.options.hits : 1;
                     const crit = this.options.crit || false;
-                    const calcMove = this.move.clone();
-                    calcMove.hits = this.hits;
-                    calcMove.isCrit = crit;
-                    const result = calculate(9, moveUser, target, calcMove, moveField);
-                    const damageResult = result.damage;
-                    let damage = 0;
                     const roll = this.options.roll || "avg";
-                    if (typeof(damageResult) === "number") {
-                        damage = damageResult;
-                    } else {
-                        //@ts-ignore
-                        damage = roll === "max" ? damageResult[damageResult.length-1] : roll === "min" ? damageResult[0] : damageResult[Math.floor(damageResult.length/2)];
+                    const superEffective = isSuperEffective(this.move, target.field, this._user, target);
+                    let results = [];
+                    let damageResult: number | number[] | undefined = undefined;
+                    let totalDamage = 0;
+                    // calculate each hit from a multi-hit move
+                    for (let i=0; i<this.hits; i++) { 
+                        const calcMove = this.move.clone();
+                        calcMove.hits = 1;
+                        calcMove.isCrit = crit;
+                        const moveField = this.getMoveField(this.userID, id);
+                        const result = calculate(9, moveUser, target, calcMove, moveField);
+                        results.push(result);
+                        if (damageResult === undefined) {
+                            // @ts-ignore
+                            damageResult = result.damage;
+                        } else if (typeof(damageResult) === "number") {
+                            damageResult = (damageResult as number) + (result.damage as number);
+                        } else {
+                            damageResult = (damageResult as number[]).map((val, i) => val + (result.damage as number[])[i]);
+                        }
+                        let hitDamage = 0;
+                        if (typeof(damageResult) === "number") {
+                            hitDamage = damageResult;
+                        } else {
+                            //@ts-ignore
+                            hitDamage = roll === "max" ? damageResult[damageResult.length-1] : roll === "min" ? damageResult[0] : damageResult[Math.floor(damageResult.length/2)];
+                        }
+                        this._raidState.applyDamage(id, hitDamage, 1, this.move.isCrit, superEffective, this.move.type);
+                        totalDamage += hitDamage;
                     }
-                    this._damage[id] = damage;
+                    // prepare desc from results
+                    const result = results[0];
+                    result.damage = damageResult as number | number[];
+                    result.rawDesc.hits = this.hits;
+                    this._damage[id] = totalDamage;
                     this._desc[id] = result.desc();
                     // for Fling / Symbiosis interactions, the Flinger should lose their item before the target recieves damage
                     if (this.moveData.name === "Fling" && this._user.item) {
@@ -398,18 +417,20 @@ export class RaidMove {
         }
     }
 
-    private setDrain() { // this also accounts for recoil
+    private applyDrain() { // this also accounts for recoil
         const drainPercent = this.moveData.drain;
         if (drainPercent) {
             // draining moves should only ever hit a single target in raids
             if (this._damage) {
                 this._drain[this.userID] = Math.floor(this._damage[this.targetID] * drainPercent/100);
             }
-            
+            if (this._drain[this.userID] && this._user.originalCurHP > 0) {
+                this._raidState.applyDamage(this.userID, -this._drain[this.userID])
+            }
         }
     }
 
-    private setHealing() {
+    private applyHealing() {
         const healingPercent = this.moveData.healing;
         for (let id of this._affectedIDs) {
             if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
@@ -423,6 +444,11 @@ export class RaidMove {
             } else {
                 const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100 / ((target.bossMultiplier || 100) / 100));
                 this._healing[id] += healAmount;
+            }
+        }
+        for (let id=1; id<5; id++) {
+            if (this._healing[id] && this.getPokemon(id).originalCurHP > 0) {
+                this._raidState.applyDamage(id, -this._healing[id])
             }
         }
     }
@@ -522,7 +548,7 @@ export class RaidMove {
         }
     }
 
-    private setSelfDamage() {
+    private applySelfDamage() {
         const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0) / 100) / ((this._user.bossMultiplier || 100) / 100); 
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;
@@ -850,25 +876,6 @@ export class RaidMove {
             boss_eot.damage = Math.floor(boss_eot.damage / ((boss.bossMultiplier || 100) / 100));
             this._eot[this.raiderID] = raider_eot;
             this._eot[0] = boss_eot;
-        }
-    }
-
-    private applyDamage() {
-        for (let id=0; id<5; id++) {
-            const pokemon = this.getPokemon(id);
-            const damage = this._damage[id];
-            const drain = this._drain[id];
-            const healing = this._healing[id];
-            // apply damage from being hit with a damaging movev
-            this._raidState.applyDamage(id, damage, this.hits, this.move.isCrit, isSuperEffective(this.move, pokemon.field, this._user, pokemon), this.move.type)
-            // apply damage/healing from recoil/drain
-            if (pokemon.originalCurHP !== 0) {
-                this._raidState.applyDamage(id, -drain);
-            }
-            // apply healing from move
-            if (pokemon.originalCurHP !== 0) {
-                this._raidState.applyDamage(id, -healing)
-            }
         }
     }
 

@@ -291,6 +291,12 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[1].state.raiders[3].item).toEqual(undefined);
     
   })
+  test('multi-hit-weak-armor', async() => {
+    const hash = "#H4sIAAAAAAAAA61TS0/cMBD+K5ZPVMph2QdF3JZSVNouQiyoh9UeTDybmDieyHZ2iRD/vWOvAwGhPtQqkTNPzzffTB75hp/w/N6h4Rn3/GS1GmXciBr4OguikkE4zHjrwF6chSBhC/BRxMYrNC5EjDNeWGwbsta4hQuzQRLv0LlFr+4vzK3y5HGQo5HCdp83G8i9I5NFrelTKu9STYMegie3IFWMabCCeo+1tSZYYlWXLi9DfeErOiVsQplGxFPGExJSqgQ8tUn2Upku5N0prXyQlIc6+qlIiIBtqKTiqWELAaYHK266BlLDru+21V41WoENeQ/eikX0rtcZ3/KTR04UH2Wcp3cVDccZYb8WSrJTuoIcC9j5HRG4EdpBxm+NAbulUqbVmrwowRGJMfcj5T4/66feODl885LrcERlrlyXlyqn0kF03qoq9PBs5stSSNyxUxGnMW+tYMumBBvIm8zoihW/FM537EpjmOS86GlLd7AbsFYoQz0nOMcZDfObRaxQqkj9UElNzk0Bll2hMuHWTyWqHAiFCaP7SqvRDRoez8apZZJ+33SkjfrFHVW4saqhVoJ9NUA4DqzjzuXCCin4Gy1hPLhENt+vyQcKOce8dWwpXEnKF2Fl9/dDmRz18M51jy+v3gE4IYJRexAFqDD911oC+ANExea2Rvuf4A3oW1ZKa7bciffom9LieDT3SL9l3P1X2vv0fUchQbIzGnTYIylqYV7WOsz4Zc5/DvMa84qdalrRAcx1+tOmWYqLGlE6aIoYHu3tswQ4wa5plzOq0kOgtIMFOs/OCHGhTEHNjGjFU663LewPXosHyhyF1D55SoGvEAzwZtNfIZj9M4J15OLpJz2MB3X1BQAA";
+    const result = await resultsFromHash(hash);
+    // T1: Rock Blast does higher damage due to Weak Armor activating after each hit
+    expect(result.turnResults[1].results[1].damage[0]).toEqual(481);
+  })
 })
 
 // Test cases for OHKO strats

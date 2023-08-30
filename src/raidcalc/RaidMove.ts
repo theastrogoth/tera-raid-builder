@@ -74,6 +74,7 @@ export class RaidMove {
 
     public result(): RaidMoveResult {
         this.setOutputRaidState();
+        this._raidState.raiders[0].checkShield(); // check for shield activation
         this.setAffectedPokemon();
         if (this.flinch) {
             this._desc[this.userID] = this._user.role + " flinched!";
@@ -393,11 +394,11 @@ export class RaidMove {
                             damageResult = (damageResult as number[]).map((val, i) => val + (result.damage as number[])[i]);
                         }
                         let hitDamage = 0;
-                        if (typeof(damageResult) === "number") {
-                            hitDamage = damageResult;
+                        if (typeof(result.damage) === "number") {
+                            hitDamage = result.damage as number;
                         } else {
                             //@ts-ignore
-                            hitDamage = roll === "max" ? damageResult[damageResult.length-1] : roll === "min" ? damageResult[0] : damageResult[Math.floor(damageResult.length/2)];
+                            hitDamage = roll === "max" ? result.damage[result.damage.length-1] : roll === "min" ? result.damage[0] : result.damage[Math.floor(result.damage.length/2)];
                         }
                         this._raidState.applyDamage(id, hitDamage, 1, this.move.isCrit, superEffective, this.move.type);
                         totalDamage += hitDamage;

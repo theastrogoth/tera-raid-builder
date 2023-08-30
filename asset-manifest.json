@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tera-raid-builder/static/css/main.e6c13ad2.css",
-    "main.js": "/tera-raid-builder/static/js/main.11df72e6.js",
-    "static/js/518.6c8ee1f3.chunk.js": "/tera-raid-builder/static/js/518.6c8ee1f3.chunk.js",
+    "main.js": "/tera-raid-builder/static/js/main.de6057a8.js",
+    "static/js/518.74af14d2.chunk.js": "/tera-raid-builder/static/js/518.74af14d2.chunk.js",
     "static/js/866.9056cb39.chunk.js": "/tera-raid-builder/static/js/866.9056cb39.chunk.js",
     "static/js/78.938f6aa1.chunk.js": "/tera-raid-builder/static/js/78.938f6aa1.chunk.js",
     "static/js/486.6b4f5ee1.chunk.js": "/tera-raid-builder/static/js/486.6b4f5ee1.chunk.js",
@@ -21,13 +21,13 @@
     "static/js/64.67e0125d.chunk.js": "/tera-raid-builder/static/js/64.67e0125d.chunk.js",
     "index.html": "/tera-raid-builder/index.html",
     "main.e6c13ad2.css.map": "/tera-raid-builder/static/css/main.e6c13ad2.css.map",
-    "main.11df72e6.js.map": "/tera-raid-builder/static/js/main.11df72e6.js.map",
-    "518.6c8ee1f3.chunk.js.map": "/tera-raid-builder/static/js/518.6c8ee1f3.chunk.js.map",
+    "main.de6057a8.js.map": "/tera-raid-builder/static/js/main.de6057a8.js.map",
+    "518.74af14d2.chunk.js.map": "/tera-raid-builder/static/js/518.74af14d2.chunk.js.map",
     "787.f2f3d9e4.chunk.js.map": "/tera-raid-builder/static/js/787.f2f3d9e4.chunk.js.map",
     "64.67e0125d.chunk.js.map": "/tera-raid-builder/static/js/64.67e0125d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.11df72e6.js"
+    "static/js/main.de6057a8.js"
   ]
 }

@@ -406,7 +406,7 @@ export class RaidMove {
                     // prepare desc from results
                     const result = results[0];
                     result.damage = damageResult as number | number[];
-                    result.rawDesc.hits = this.hits;
+                    result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
                     this._damage[id] = totalDamage;
                     this._desc[id] = result.desc();
                     // for Fling / Symbiosis interactions, the Flinger should lose their item before the target recieves damage

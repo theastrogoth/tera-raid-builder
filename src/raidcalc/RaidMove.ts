@@ -418,7 +418,7 @@ export class RaidMove {
                         hasCausedDamage = true;
                     }
                 } catch {
-                    this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // temporary fix
+                    this._desc[id] = this._user.name + " " + this.move.name + " vs. " + this.getPokemon(id).name ; // temporary fix
                 }
             }
         }

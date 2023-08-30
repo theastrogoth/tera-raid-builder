@@ -37,7 +37,7 @@ export class RaidState implements State.RaidState{
             pokemon.applyDamage(damage);
         }
         const maxHP = pokemon.maxHP();
-        if (nHits > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
+        if (nHits > 0 && damage > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
             if (damage > 0) {
                 pokemon.hitsTaken = pokemon.hitsTaken + nHits;
             }
@@ -160,6 +160,10 @@ export class RaidState implements State.RaidState{
             // Electromorphosis
             if (pokemon.ability ===  "Electromorphosis") {
                 pokemon.field.attackerSide.isCharged = true;
+            }
+            // Seed Sower
+            if (pokemon.ability === "Seed Sower") {
+                this.applyTerrain("Grassy");
             }
         }
         /// Berry Consumption triggered by damage
@@ -386,5 +390,10 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+    }
+
+    public activateTera(id: number): boolean {
+        const pokemon = this.getPokemon(id);
+        return pokemon.activateTera();
     }
 }

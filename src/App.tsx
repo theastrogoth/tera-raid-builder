@@ -190,10 +190,12 @@ function App() {
   const [raidBoss, setRaidBoss] = useState(
     new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Mewtwo", {
       teraType: "Psychic",
+      isTera: true,
       bossMultiplier: 3500,
       nature: "Modest",
       ability: "Unnerve",
-      moves: ["Psystrike", "Psychic", "Shadow Ball", "Aura Sphere"]
+      moves: ["Psystrike", "Psychic", "Shadow Ball", "Aura Sphere"],
+      shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 40, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
       {name: "Psystrike" as MoveName, category: "damage", target: "selected-pokemon"},

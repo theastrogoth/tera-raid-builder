@@ -29,7 +29,7 @@ export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
 
 export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildInfo | null> {
     try {
-        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r) => new Raider(r.id, r.role, r.shiny, new Field(), 
+        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => new Raider(r.id, r.role, r.shiny, new Field(), 
             new Pokemon(gen, r.name, {
                 ability: r.ability || undefined,
                 item: r.item || undefined,
@@ -38,8 +38,10 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                 ivs: r.ivs || undefined,
                 level: r.level || undefined,
                 teraType: (r.teraType || undefined) as (TypeName | undefined),
+                isTera: i === 0,
                 bossMultiplier: r.bossMultiplier || undefined,
-                moves: r.moves || undefined
+                moves: r.moves || undefined,
+                shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
             }), 
             (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
             (r.extraMoves || undefined) as (MoveName[] | undefined),
@@ -119,6 +121,7 @@ function serializeInfo(info: RaidBattleInfo): string {
                 moves: r.moves,
                 bossMultiplier: r.bossMultiplier,
                 extraMoves: r.extraMoves,
+                shieldData: r.shieldData,
             }}
         ),
         turns: info.turns.map((t) => {

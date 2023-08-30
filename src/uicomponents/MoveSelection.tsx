@@ -25,7 +25,7 @@ import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 // import PokedexService from "../services/getdata";
-import { getPokemonSpriteURL, arraysEqual } from "../utils";
+import { getPokemonSpriteURL, arraysEqual, getTeraTypeIconURL } from "../utils";
 
 const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: RaidTurnInfo[]) => void, setGroups: (g: number[][]) => void, setTransitionIn: (n: number) => void) => (index: number) => () => {
     let uniqueId = 0;
@@ -61,7 +61,7 @@ const handleAddTurn = (turns: RaidTurnInfo[], groups: number[][], setTurns: (t: 
     setTransitionIn(uniqueId);
 }
 
-function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void}) {
+function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, isBoss?: boolean}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -74,6 +74,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
     const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
+    const activateTeraChecked = moveInfo.options ? (moveInfo.options.activateTera || false) : false;
 
     return (
         <Box>
@@ -100,6 +101,23 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
                     <TableContainer>
                         <Table size="small">
                             <TableBody>
+                                { !isBoss &&
+                                    <TableRow>
+                                        <TableCell>Tera</TableCell>
+                                        <TableCell>
+                                            <Switch 
+                                                size="small" 
+                                                style={{ padding: "4px"}}
+                                                checked={activateTeraChecked}
+                                                onChange={
+                                                    (e) => {
+                                                        setMoveInfo({...moveInfo, options: {...moveInfo.options, activateTera: !activateTeraChecked}});
+                                                    }
+                                                }
+                                            />
+                                        </TableCell>
+                                    </TableRow>
+                                }
                                 <TableRow>
                                     <TableCell>Crit</TableCell>
                                     <TableCell>
@@ -159,6 +177,23 @@ function MoveOptionsControls({moveInfo, setMoveInfo}: {moveInfo: RaidMoveInfo, s
                                                     .map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)
                                                 }
                                             </Select>
+                                        </TableCell>
+                                    </TableRow>
+                                }
+                                {isBoss &&
+                                    <TableRow>
+                                        <TableCell sx={{ borderBottom: 0 }}>Steal Charge</TableCell>
+                                        <TableCell sx={{ borderBottom: 0 }}>
+                                            <Switch 
+                                                size="small" 
+                                                style={{ padding: "4px"}}
+                                                checked={moveInfo.options?.stealTeraCharge || false}
+                                                onChange={
+                                                    (e) => {
+                                                        setMoveInfo({...moveInfo, options: {...moveInfo.options, stealTeraCharge: !moveInfo.options?.stealTeraCharge}});
+                                                    }
+                                                }
+                                            />
                                         </TableCell>
                                     </TableRow>
                                 }
@@ -281,7 +316,18 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
                 <Box flexGrow={1} />
                 <Typography variant="body2">uses</Typography>
                 <Box flexGrow={1} />
-                <Box>
+                <Stack direction="row" justifyContent="center" alignItems="center">
+                    {/* {(moveInfo.options!.activateTera && raiders[moveInfo.userID].teraType) &&
+                        <Box
+                            sx={{
+                                width: "25px",
+                                height: "25px",
+                                overflow: 'hidden',
+                                background: `url(${getTeraTypeIconURL(raiders[moveInfo.userID].teraType!)}) no-repeat center center / contain`,
+                            }}
+                        />
+
+                    } */}
                     <Select 
                         size="small"
                         variant="standard"
@@ -306,7 +352,7 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
                     >
                         {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
                     </Select>
-                </Box>
+                </Stack>
                 <Box flexGrow={1} />
                 <Typography variant="body2">on</Typography>
                 <Box flexGrow={1} />
@@ -350,7 +396,7 @@ function MoveDropdown({index, raiders, turns, setTurns}: {index: number, raiders
 
 function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: Raider, turns: RaidTurnInfo[], setTurns: (t: RaidTurnInfo[]) => void}) {
     const moveInfo = turns[index].bossMoveInfo;
-    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || []];
+    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Remove Stat Boosts & Abilities"];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
     const [options, setOptions] = useState(moveInfo.options || {crit: true, secondaryEffects: true, roll: "max"});
@@ -409,7 +455,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
                     onChange={(e) => {
                         const name = e.target.value as MoveName;
                         let mData: MoveData = {name: name};
-                        if (name !== "(No Move)" && name !== "(Most Damaging)") {
+                        if (!["(No Move)", "(Most Damaging)", "Remove Negative Effects", "Remove Stat Boosts & Abiltiies"].includes(name)) {
                             mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === name) as MoveData;
                         }
                         setMoveInfo({...moveInfo, moveData: mData})}
@@ -420,7 +466,7 @@ function BossMoveDropdown({index, boss, turns, setTurns}: {index: number, boss: 
                 </Select>
                 <Box flexGrow={6} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} />
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} isBoss />
         </Stack>
     )
 }

@@ -80,12 +80,15 @@ export function calculateSMSSSV(
   checkInfiltrator(attacker, field.defenderSide);
   checkInfiltrator(defender, field.attackerSide);
 
+  const atkTeraType = attacker.isTera ? attacker.teraType : undefined;
+  const defTeraType = defender.isTera ? defender.teraType : undefined;
+
   const desc: RawDesc = {
     attackerName: attacker.name,
-    attackerTera: attacker.teraType,
+    attackerTera: atkTeraType,
     moveName: move.name,
     defenderName: defender.name,
-    defenderTera: defender.teraType,
+    defenderTera: defTeraType,
     isDefenderDynamaxed: defender.isDynamaxed,
     isWonderRoom: field.isWonderRoom,
   };
@@ -207,7 +210,7 @@ export function calculateSMSSSV(
     'Natural Gift',
     'Weather Ball',
     'Terrain Pulse',
-  ) || (move.named('Tera Blast') && attacker.teraType);
+  ) || (move.named('Tera Blast') && atkTeraType);
 
   if (!move.isZ && !noTypeChange) {
     const normal = move.hasType('Normal');
@@ -232,8 +235,8 @@ export function calculateSMSSSV(
     }
   }
 
-  if (move.named('Tera Blast') && attacker.teraType) {
-    type = attacker.teraType;
+  if (move.named('Tera Blast') && atkTeraType) {
+    type = atkTeraType;
   }
 
   move.type = type;
@@ -271,11 +274,11 @@ export function calculateSMSSSV(
     : 1;
   let typeEffectiveness = type1Effectiveness * type2Effectiveness;
 
-  if (defender.teraType) {
+  if (defTeraType) {
     typeEffectiveness = getMoveEffectiveness(
       gen,
       move,
-      defender.teraType,
+      defTeraType,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
@@ -428,8 +431,9 @@ export function calculateSMSSSV(
   // #region (Special) Attack
   const attack = calculateAttackSMSSSV(gen, attacker, defender, move, field, desc, isCritical);
   const attackSource = move.named('Foul Play') ? defender : attacker;
+  const atkSourceTeraType = attackSource.isTera ? attackSource.teraType : undefined;
   if (move.named('Photon Geyser', 'Light That Burns The Sky') ||
-      (move.named('Tera Blast') && attackSource.teraType)) {
+      (move.named('Tera Blast') && atkSourceTeraType)) {
     move.category = attackSource.stats.atk > attackSource.stats.spa ? 'Physical' : 'Special';
   }
   const attackStat =
@@ -503,11 +507,11 @@ export function calculateSMSSSV(
   let stabMod = 4096;
   if (attacker.hasOriginalType(move.type)) {
     stabMod += 2048;
-  } else if (attacker.hasAbility('Protean', 'Libero') && !attacker.teraType) {
+  } else if (attacker.hasAbility('Protean', 'Libero') && !atkTeraType) {
     stabMod += 2048;
     desc.attackerAbility = attacker.ability;
   }
-  const teraType = attacker.teraType;
+  const teraType = atkTeraType;
   if (teraType === move.type) {
     stabMod += 2048;
     desc.attackerTera = teraType;
@@ -610,6 +614,22 @@ export function calculateSMSSSV(
 
   result.damage = childDamage ? [damage, childDamage] : damage;
 
+  // Tera Raid Shield
+  if (defender.shieldData && defender.shieldActive) {
+    // TODO: Handle case when attacker tera and move type do not match
+    let damageCoef = atkTeraType === move.type 
+      ? defender.shieldData.shieldDamageRateTera / 100 
+      : atkTeraType ? 
+        defender.shieldData.shieldDamageRateTeraChange / 100 
+        : defender.shieldData.shieldDamageRate / 100;
+    damageCoef = damageCoef || 1;
+    result.damage = result.damage.map((dmg) => typeof(dmg) === "number" 
+      ? Math.max(dmg > 0 ? 1 : 0, pokeRound(dmg * damageCoef))
+      : dmg.map((dmg2) => Math.max(dmg2 > 0 ? 1 : 0, pokeRound(dmg2 * damageCoef))
+    )) as number[] | [number[], number[]];
+    desc.shieldActive = true;
+  }
+
   // #endregion
 
   return result;
@@ -628,6 +648,7 @@ export function calculateBasePowerSMSSSV(
   turnOrder = field.isTrickRoom ? (turnOrder === 'first' ? 'last' : 'first') : turnOrder;
 
   let basePower: number;
+  const atkTeraType = attacker.isTera ? attacker.teraType : undefined;
 
   switch (move.name) {
   case 'Payback':
@@ -831,8 +852,8 @@ export function calculateBasePowerSMSSSV(
   );
   basePower = OF16(Math.max(1, pokeRound((basePower * chainMods(bpMods, 41, 2097152)) / 4096)));
   if (
-    attacker.teraType && move.type === attacker.teraType &&
-    attacker.hasType(attacker.teraType) && move.hits === 1 &&
+    atkTeraType && move.type === atkTeraType &&
+    attacker.hasType(atkTeraType) && move.hits === 1 &&
     move.priority <= 0 && move.bp > 0 && !move.named('Dragon Energy', 'Eruption', 'Water Spout') &&
     basePower < 60 && gen.num >= 9
   ) {
@@ -854,6 +875,7 @@ export function calculateBPModsSMSSSV(
   turnOrder: string
 ) {
   const bpMods = [];
+  const defTeraType = defender.isTera ? defender.teraType : undefined;
 
   // Move effects
 
@@ -911,7 +933,7 @@ export function calculateBPModsSMSSSV(
       attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
     const isRingTarget =
       defender.hasItem('Ring Target') && !defender.hasAbility('Klutz');
-    const types = defender.teraType ? [defender.teraType] : defender.types;
+    const types = defTeraType ? [defTeraType] : defender.types;
     const type1Effectiveness = getMoveEffectiveness(
       gen,
       move,
@@ -1135,8 +1157,9 @@ export function calculateAttackSMSSSV(
 ) {
   let attack: number;
   const attackSource = move.named('Foul Play') ? defender : attacker;
+  const atkSourceTeraType = attackSource.isTera ? attackSource.teraType : undefined;
   if (move.named('Photon Geyser', 'Light That Burns The Sky') ||
-      (move.named('Tera Blast') && attackSource.teraType)) {
+      (move.named('Tera Blast') && atkSourceTeraType)) {
     move.category = attackSource.stats.atk > attackSource.stats.spa ? 'Physical' : 'Special';
   }
   const attackStat =

@@ -1,4 +1,4 @@
-import { RaidMoveOptions } from "./interface"
+import { RaidMoveOptions, ShieldData } from "./interface"
 
 export type LightPokemon = {
     id: number,
@@ -15,6 +15,7 @@ export type LightPokemon = {
     bossMultiplier?: number,
     moves?: string[],
     extraMoves?: string[],
+    shieldData?: ShieldData,
 }
 
 export type LightMoveInfo = {

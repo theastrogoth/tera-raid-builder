@@ -1,5 +1,5 @@
 import { Field, Pokemon, Generations } from "../calc";
-import { MoveName, StatsTable, StatIDExceptHP, ItemName } from "../calc/data/interface";
+import { MoveName, StatsTable, StatIDExceptHP, ItemName, TypeName, AbilityName } from "../calc/data/interface";
 import { extend } from '../calc/util';
 import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";
@@ -19,8 +19,32 @@ export class Raider extends Pokemon implements State.Raider {
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
+    teraCharge: number;      // stored for Tera activation
 
-    constructor(id: number, role: string, shiny: boolean | undefined, field: Field, pokemon: Pokemon, moveData: State.MoveData[], extraMoves: MoveName[] = [], extraMoveData: State.MoveData[] = [], isEndure: boolean = false, lastMove: State.MoveData | undefined = undefined, lastTarget: number | undefined = undefined) {
+    shieldActivateHP?: number;
+    shieldBroken?: boolean;
+
+    abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
+    originalAbility: AbilityName | "(None)";   // stores ability when nullified
+
+    constructor(
+        id: number, 
+        role: string, 
+        shiny: boolean | undefined, 
+        field: Field, 
+        pokemon: Pokemon, 
+        moveData: State.MoveData[], 
+        extraMoves: MoveName[] = [], 
+        extraMoveData: State.MoveData[] = [], 
+        isEndure: boolean = false, 
+        lastMove: State.MoveData | undefined = undefined, 
+        lastTarget: number | undefined = undefined, 
+        teraCharge: number | undefined = 0, 
+        shieldActivateHP: number | undefined = undefined, 
+        shieldBroken: boolean | undefined = undefined, 
+        abilityNullified: number | undefined = 0, 
+        originalAbility: AbilityName | "(None)" = "(None)"
+    ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
         this.role = role;
@@ -32,6 +56,11 @@ export class Raider extends Pokemon implements State.Raider {
         this.isEndure = isEndure;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
+        this.teraCharge = teraCharge;
+        this.shieldActivateHP = shieldActivateHP;
+        this.shieldBroken = shieldBroken;
+        this.abilityNullified = abilityNullified;
+        this.originalAbility = originalAbility;
     }
 
     clone(): Raider {
@@ -62,6 +91,9 @@ export class Raider extends Pokemon implements State.Raider {
                 originalCurHP: this.originalCurHP,
                 status: this.status,
                 teraType: this.teraType,
+                isTera: this.isTera,
+                shieldData: this.shieldData,
+                shieldActive: this.shieldActive,
                 toxicCounter: this.toxicCounter,
                 hitsTaken: this.hitsTaken,
                 changedTypes: this.changedTypes,
@@ -73,7 +105,12 @@ export class Raider extends Pokemon implements State.Raider {
             this.extraMoveData,
             this.isEndure,
             this.lastMove,
-            this.lastTarget
+            this.lastTarget,
+            this.teraCharge,
+            this.shieldActivateHP,
+            this.shieldBroken,
+            this.abilityNullified,
+            this.originalAbility,
         )
     }
 
@@ -120,6 +157,33 @@ export class Raider extends Pokemon implements State.Raider {
         this.item = undefined;
     }
 
-    
+    public activateTera(): boolean {
+        if (!this.isTera && this.teraCharge >= 3) {
+            this.isTera = true;
+            return true;
+        }
+        return false;
+    }
+
+    public checkShield() {
+        if (this.id !== 0) { return; }
+        if (!this.shieldData) { return; }
+        if (this.shieldBroken) { return; }
+        if (this.originalCurHP === 0) { return; }
+        if (this.shieldActivateHP === undefined) { // check for shield activation by damage
+            const activationHP = this.shieldData.hpTrigger / 100 * this.maxHP();
+            if (this.originalCurHP <= activationHP) {
+                this.shieldActive = true;
+                this.shieldActivateHP = this.originalCurHP;
+            }
+        } else { // check for shield breaking by damage
+            const breakHP = this.shieldActivateHP - (this.shieldData.shieldCancelDamage / 100 * this.maxHP());
+            if (this.originalCurHP < breakHP) {
+                this.shieldActive = false;
+                this.shieldBroken = true;
+                // TODO: adjust damage overflow from breaking shield?
+            }
+        }
+    }
 
 }

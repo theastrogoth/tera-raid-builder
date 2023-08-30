@@ -161,6 +161,10 @@ export class RaidState implements State.RaidState{
             if (pokemon.ability ===  "Electromorphosis") {
                 pokemon.field.attackerSide.isCharged = true;
             }
+            // Seed Sower
+            if (pokemon.ability === "Seed Sower") {
+                this.applyTerrain("Grassy");
+            }
         }
         /// Berry Consumption triggered by damage
         if (pokemon.item && pokemon.item?.includes("Berry")) {
@@ -386,5 +390,10 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+    }
+
+    public activateTera(id: number): boolean {
+        const pokemon = this.getPokemon(id);
+        return pokemon.activateTera();
     }
 }

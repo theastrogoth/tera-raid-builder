@@ -11,11 +11,14 @@ import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from '@mui/icons-material/Menu';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import TuneIcon from '@mui/icons-material/Tune';
 import Popper from "@mui/material/Popper";
 import Switch from "@mui/material/Switch";
+import Menu from "@mui/material/Menu";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
@@ -29,13 +32,13 @@ import { toID } from '../calc/util';
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 
-import { MoveData, MoveSetItem } from "../raidcalc/interface";
+import { MoveData, MoveSetItem, ShieldData } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
 
-import { RAIDER_SETDEX_SV } from "../data/sets/raiders";
-import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
+import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
+import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
 import { useTheme } from "@emotion/react";
 
 type SetOption = {
@@ -49,8 +52,10 @@ type SetOption = {
     ivs?: Partial<StatsTable>,
     evs?: Partial<StatsTable>,
     moves?: MoveName[],
+    extraMoves?: MoveName[],
     bossMultiplier?: number,
     teraType?: TypeName,
+    shieldData?: ShieldData,
 }
 
 // we will always use Gen 9
@@ -107,8 +112,13 @@ function setdexToOptions(dex: Object): SetOption[] {
                 ivs: setdexStats(set.ivs),
                 evs: setdexStats(set.evs),
                 moves: set.moves,
+                extraMoves: set.extraMoves,
                 bossMultiplier: bossMultiplier,
                 teraType: set.teraType,
+                shieldData: set.shieldData,
+            }
+            if (pokemon === "Mewtwo") {
+                console.log("Loaded Option", setname, option)
             }
             options.push(option);
         }
@@ -117,7 +127,7 @@ function setdexToOptions(dex: Object): SetOption[] {
 }
 
 const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
-const bossSetOptions = setdexToOptions(BOSS_SETDEX_SV).filter((opt) => opt.name.includes("\u2b50"));
+const bossSetOptions = setdexToOptions(BOSS_SETDEX_SV);
 
 function findOptionFromPokemonName(name: string): string {
     return name;
@@ -828,59 +838,21 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
-            const newPokemon = {...pokemon};
+            const newPokemon = pokemon.clone();
             // @ts-ignore
             newPokemon[propName] = val;
-            setPokemon(new Raider(
-                newPokemon.id, 
-                newPokemon.role, 
-                newPokemon.shiny,
-                newPokemon.field,
-                new Pokemon(gen, newPokemon.name, {
-                    level: newPokemon.level,
-                    ability: newPokemon.ability,
-                    nature: newPokemon.nature,
-                    item: newPokemon.item,
-                    ivs: newPokemon.ivs,
-                    evs: newPokemon.evs,
-                    moves: newPokemon.moves,
-                    teraType: newPokemon.teraType,
-                    bossMultiplier: newPokemon.bossMultiplier,
-                }),
-                newPokemon.moveData,
-                newPokemon.extraMoves,
-                newPokemon.extraMoveData,
-            ))
+            setPokemon(newPokemon.clone())
         }
     }
 
     const setPokemonProperties = (propNames: string[]) => {
         return (vals: any[]) => {
-            const newPokemon = {...pokemon};
+            const newPokemon = pokemon.clone();
             propNames.forEach((propName, i) => {
                 // @ts-ignore
                 newPokemon[propName] = vals[i];
             })
-            setPokemon(new Raider(
-                newPokemon.id, 
-                newPokemon.role, 
-                newPokemon.shiny,
-                newPokemon.field,
-                new Pokemon(gen, newPokemon.name, {
-                    level: newPokemon.level,
-                    ability: newPokemon.ability,
-                    nature: newPokemon.nature,
-                    item: newPokemon.item,
-                    ivs: newPokemon.ivs,
-                    evs: newPokemon.evs,
-                    moves: newPokemon.moves,
-                    teraType: newPokemon.teraType,
-                    bossMultiplier: newPokemon.bossMultiplier,
-                }),
-                newPokemon.moveData,
-                newPokemon.extraMoves,
-                newPokemon.extraMoveData,
-            ))
+            setPokemon(newPokemon.clone())
         }
     }
 
@@ -1055,60 +1027,220 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
     )
 }
 
+function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    const setShieldData = (newData: ShieldData) => {
+        const newPokemon = pokemon.clone();
+        newPokemon.shieldData = newData;
+        setPokemon(newPokemon);
+    }
+    const setShieldHPTrigger = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.min(100, Math.max(0, safeVal));
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.hpTrigger = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldTimeTrigger = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.min(100, Math.max(0, safeVal));
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.timeTrigger = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldCancelDamage = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.min(100, Math.max(0, safeVal));
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.shieldCancelDamage = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldDamageRate = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.max(0, safeVal);
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.shieldDamageRate = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldDamageRateTera = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.max(0, safeVal);
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.shieldDamageRateTera = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldDamageRateTeraChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.max(0, safeVal);
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.shieldDamageRateTeraChange = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    return (
+        <Box>
+            <IconButton 
+                onClick={handleClick}
+            >
+                <MenuIcon />
+            </IconButton>
+            <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+            >
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>HP Trigger (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.hpTrigger}
+                            onChange={setShieldHPTrigger}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Time Trigger (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.timeTrigger}
+                            onChange={setShieldTimeTrigger}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Bar Size (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.shieldCancelDamage}
+                            onChange={setShieldCancelDamage}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                    <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.shieldDamageRate}
+                            onChange={setShieldDamageRate}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Tera Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.shieldDamageRateTera}
+                            onChange={setShieldDamageRateTera}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Mismatched Tera Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.shieldDamageRateTeraChange}
+                            onChange={setShieldDamageRateTeraChange}
+                        />
+                    </TableCell>
+                </TableRow>
+            </Menu>
+        </Box>
+    )
+}
+
 function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
     {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
 {
+    const setPokemonProperty = (propName: string) => {
+        return (val: any) => {
+            const newPokemon = pokemon.clone();
+            // @ts-ignore
+            newPokemon[propName] = val;
+            setPokemon(newPokemon.clone())
+        }
+    }
+
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
         if (val < 1) val = 1;
-        const newPokemon = {...pokemon};
-        newPokemon.bossMultiplier = val;
-        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field,
-            new Pokemon(gen, newPokemon.name, {
-                level: newPokemon.level,
-                ability: newPokemon.ability,
-                nature: newPokemon.nature,
-                item: newPokemon.item,
-                ivs: newPokemon.ivs,
-                evs: newPokemon.evs,
-                moves: newPokemon.moves,
-                teraType: newPokemon.teraType,
-                bossMultiplier: newPokemon.bossMultiplier,
-            }),
-            pokemon.moveData,
-            pokemon.extraMoves,
-            pokemon.extraMoveData,
-        ));
-    }
-
-    const setShiny = (shiny: boolean) => {
         const newPokemon = pokemon.clone();
-        newPokemon.shiny = shiny;
-        setPokemon(newPokemon)
-    }
-
-    const loadSet = async (set: SetOption) => { 
-        const moveData = await Promise.all(
-            (set.moves || []).map(
-                async (move) => await PokedexService.getMoveByName(move)
-            ).map(
-                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
-            )
-        ) as MoveData[];
-
-        const poke = new Pokemon(gen, set.pokemon, {
-            level: set.level || 100,
-            bossMultiplier: set.bossMultiplier || 100,
-            teraType: set.teraType || undefined,
-            ability: set.ability || "(No Ability)" as AbilityName,
-            item: undefined,
-            nature: (set.nature || "Hardy"),
-            moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),
-            ivs: set.ivs || {},
-            evs: set.evs || {},
-        });
-    
-        setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, new Field(), poke, moveData));
+        newPokemon.bossMultiplier = val;
+        setPokemon(newPokemon.clone())        
     }
 
     const setBMove = (index: number) => async (move: MoveName) => {
@@ -1120,6 +1252,48 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         newExtraMoveData[index] = (await PokedexService.getMoveByName(move)) || {name: "(No Move)" as MoveName, target: "user"};
         newPoke.extraMoveData = newExtraMoveData;
         setPokemon(newPoke);
+    }
+
+    const loadSet = async (set: SetOption) => { 
+        const moveData = await Promise.all(
+            (set.moves || []).map(
+                async (move) => await PokedexService.getMoveByName(move)
+            ).map(
+                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
+            )
+        ) as MoveData[];
+
+        const extraMoveData = await Promise.all(
+            (set.extraMoves || []).map(
+                async (move) => await PokedexService.getMoveByName(move)
+            ).map(
+                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
+            )
+        ) as MoveData[];
+
+        const poke = new Pokemon(gen, set.pokemon, {
+            level: set.level || 100,
+            bossMultiplier: set.bossMultiplier || 100,
+            teraType: set.teraType || undefined,
+            ability: set.ability || "(No Ability)" as AbilityName,
+            item: set.item || undefined,
+            nature: (set.nature || "Hardy"),
+            moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),
+            ivs: set.ivs || {},
+            evs: set.evs || {},
+            shieldData: set.shieldData,
+        });
+    
+        setPokemon(new Raider(
+            pokemon.id, 
+            poke.species.baseSpecies || poke.name, 
+            set.shiny, 
+            new Field(), 
+            poke, 
+            moveData,
+            set.extraMoves || ["(No Move)","(No Move)","(No Move)","(No Move)"] as MoveName[],
+            extraMoveData,
+        ));
     }
 
     return (
@@ -1135,7 +1309,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                                         <Box flexGrow={1}/>
                                         <ShinySwitch
                                             pokemon={pokemon}
-                                            setShiny={setShiny}
+                                            setShiny={setPokemonProperty("shiny")}
                                         />
                                     </Stack>
                                 </LeftCell>
@@ -1174,6 +1348,14 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                                     }
                                 </RightCell>
                             </TableRow>
+                            {!prettyMode &&
+                                <TableRow>
+                                    <LeftCell>Shield Options</LeftCell>
+                                    <RightCell>
+                                        <ShieldOptions pokemon={pokemon} setPokemon={setPokemon} />
+                                    </RightCell>
+                                </TableRow>
+                            }
                             {
                                 [0,1,2,3].map((index) => {
                                     return <MoveSummaryRow 

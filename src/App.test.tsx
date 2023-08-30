@@ -253,6 +253,44 @@ describe('Specific Test Cases', () => {
     const strategy = deserialize(hash) as LightBuildInfo;
     await testOHKO(strategy);
   })
+  test('tera_activation', async() => {
+    const hash = "#H4sIAAAAAAAAA81TO2/bMBD+KwKnFNDgZ9p4s+M+MjgwmmQSNNDSSWJNkQJJyREC//fe0ZRjtB2KDk0giT7e87vvzi+sYAuW/bBasZg5tkiSUcwUr4GlMYkiJ2Ecs9aCuVuTEzclOC/qxgmtLHlMYlYa3TaorXUHd6rQKO60tZvhekqYGeHQYiHTKuem/1wUkDmLKqOlxJ9KOJ9xHjOeOdFxB49geIChtANyzgzkwoc1eg/1CX5rFGk8EBvqVQSJuz2eORRUueH+zP0JATwWBxY6R30lVE9xOyGFI0k4qL0di5AHdFRJ+FNCB4TcIczHvoHAgR0IaKUTjRRgKO7ZGb7x1jSNWccWLwxZ/xgzFt7EK25ixP6dizxaYQo0bODgDshpwaWFmD0pBabDUqqVEq06B4u8+thPGHt+0uOgnI5/edE0HmGZre2zSmRYmkTrjNhTD2c1e6h4rg/RivsBLVvDo4emAkPkTeeYImH33Lo+2kpNw12WA20hR4QTNFwo7DnAuYlxmEulRCUk95RdXkKTaygEV5TxttIiA0SgaGzLnNdeHzqbzCf++/uWv1aa6EqQ4hKiL8L6IlJbiG51veN0XbVyHz3R+qwJe7RtVVZhx5QguWgEt2cr9jyrWnYhhRau7nW0PG3Rh2FY37jJ+3+blU+Q/I5h+g4wzN4QQxr+NjNcK2/zt2l8Od8xpvbq6wAqQKtxL9HoTAuY6HgOvdrgjkRrXLVSqBJRj9DLG+fe+XSwmj9j+IhCh+AZ7sR7QDH9Dyiu/4DiHP8KZfamhKR+SY4/AS/MV1HuBgAA";
+    const result = await resultsFromHash(hash);
+    // T1: Annihilape has attacked 1 time, can't activate Tera
+    expect(result.turnResults[0].state.raiders[1].teraCharge).toEqual(1);
+    expect(result.turnResults[0].state.raiders[1].isTera).toEqual(false);
+    expect(result.turnResults[0].flags[1].length).toEqual(0); // No flag for tera activation 
+    expect(result.turnResults[0].results[1].desc.includes("Tera Ghost")).toEqual(false); // No Tera in the desc
+    // T2: Annihilape has attacked 2 times, can't activate Tera
+    expect(result.turnResults[1].state.raiders[1].teraCharge).toEqual(2);
+    expect(result.turnResults[1].state.raiders[1].isTera).toEqual(false);
+    expect(result.turnResults[1].flags[1].length).toEqual(0);
+    expect(result.turnResults[1].results[1].desc.includes("Tera Ghost")).toEqual(false);
+    // T3: Annihilape has attacked 3 times (at the end of the turn), can't activate Tera (during the turn)
+    expect(result.turnResults[2].state.raiders[1].teraCharge).toEqual(3);
+    expect(result.turnResults[2].state.raiders[1].isTera).toEqual(false);
+    expect(result.turnResults[2].flags[1].length).toEqual(0);
+    expect(result.turnResults[2].results[1].desc.includes("Tera Ghost")).toEqual(false);
+    // T4: Annihilape has attacked 4 times (at the end of the turn), has activated Tera
+    expect(result.turnResults[3].state.raiders[1].teraCharge).toEqual(4);
+    expect(result.turnResults[3].state.raiders[1].isTera).toEqual(true);
+    expect(result.turnResults[3].flags[1][0].includes("Tera activated")).toEqual(true);
+    expect(result.turnResults[3].results[1].desc[0].includes("Tera Ghost")).toEqual(true);
+  })
+  test('tera_shield', async() => {
+    const hash = "#H4sIAAAAAAAAA8VWS2/bOBD+KwJPW4DFWn6lzS3rLLYBYmw2MtCDoQMtjSQ2FCmQlFuhyH/vDC3ZquGiCIpmAZseDuf1zQv+ygp2zbJPzmjGmWfX2+2EMy1qYCknUuZExJy1DuzdLQkJW4IPpGm8NNqRxJSz0pq2QW5t9nCnC4Pkzji3Hq4Hg5mVHl8cZEbnwnZ/FwVk3iHLGqXwp5I+WFxwJjIv98LDBqzow9DGAwlnFnIZ1BrzBPUh/NZq4oRAXO+vopCEf8Izh4I8NyKceTjhKLaxsizBkh1Zw+nmKgkqXwmdgboVtSjhyDxcHzHCC6wQ9GX2qhK6hD5tCJvUQ86DuO4o4p1U0hMlPdThHeGRBOwJowyngj1Qzjwa3XQN9Nl3Q+pb5WWjZMABX7wV6/51iMpjXlPO9uz6K8PiX3HGwqf985Os664yRSHczhpfkY1tEIonHBP2IJ9EVrVsRBVCOeDsXpaV11KX0aOhJId79JcI1f2vlYD1D4be8eliysla/5s+Dw+z+OyDT/EE3X7EFFIkLGktVXNTtToP+B6U6NBjW1Z4ubNGRxshFSZ5MUHFLXsUUke3VEZ8D9rpwdv7YPn45fF0wq8wliGamJjsvrVCe0nJO5E94pXRmFtL1VpVRmYQJQ1kJLo2ObhzvMsX4P3HCucI7z2IIkq8sXUIX+sOwZDHINFF2FcWERJDliK6DZc0GNmmXLdKjfBg293YnVE4XWxM9ngSgDxKzOeQ1xW2jPXRShlBQ7QSqj7DM1Rx+RI8YwiJKKBshaVuecAtADp6aAsqb9JpbD0n3Q+hzDAkZXInw3CcyB5K6JfoZueM3Z2SRQCpS+pGuuqIhhwMaOLF8qw+k+NxAc1NJjFjjQ1w1m3+NlGCFs8HUA1Nwgeh89AdUim6H9r4R5jmnP2LLVa2lubrRPaYNqCgEb7qXlCdczQ/qc6ddt62GW1q3ITZEw6WqY+znOD2BWq1RygUbu9zIGm/KebYaMQ5+MVKjdM0w6gCf9Hj6tHV1MTxafxQ7Y+1cT4KOxST94ZRfQZdDBMOB6vFF9QMkzsoz1HwuwhGbTd9nQAmgxu0Mx7i+HXcz0buT1Wdnwz8TudHNzMaBaGiVQW0VF4p9YuR+/+h9ZYj96+e+qvv+/5i5y0vRRCM/nIYuAJQdRL+xy35PE3T5+dv7gJS1m0KAAA=";
+    const strategy = deserialize(hash) as LightBuildInfo;
+    await testOHKO(strategy); // OHKO after Lurantis activates Tera
+    const result = await resultsFromHash(hash);
+    // T0: Shield activates immediately
+    expect(result.turnZeroFlags[5].includes("Shield activated")).toEqual(true); // index 5 includes flags from the boss's "dummy" turn
+    // T1: Acid Spray does only 1 damage due to shield multiplier
+    expect(result.turnResults[0].results[1].damage[0]).toEqual(1);
+    // T2: Seed Sower activates, Grassy Seed consumed
+    expect(result.turnResults[1].results[0].flags[3].includes("Grassy Seed lost")).toEqual(true);
+    expect(result.turnResults[1].state.raiders[3].item).toEqual(undefined);
+    
+  })
 })
 
 // Test cases for OHKO strats

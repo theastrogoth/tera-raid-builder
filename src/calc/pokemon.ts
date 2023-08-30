@@ -28,6 +28,9 @@ export class Pokemon implements State.Pokemon {
   boostedStat?: I.StatIDExceptHP | 'auto';
   item?: I.ItemName;
   teraType?: I.TypeName;
+  isTera: boolean;
+  shieldData?: State.ShieldData;
+  shieldActive?: boolean;
   isQP? : boolean;
   usedBoosterEnergy? : boolean;
 
@@ -83,6 +86,9 @@ export class Pokemon implements State.Pokemon {
     this.boostedStat = options.boostedStat;
     this.usedBoosterEnergy = options.usedBoosterEnergy;
     this.teraType = options.teraType;
+    this.isTera = !!options.isTera;
+    this.shieldData = options.shieldData;
+    this.shieldActive = options.shieldActive;
     this.item = options.item;
     this.nature = options.nature || ('Serious' as I.NatureName);
     this.ivs = Pokemon.withDefault(gen, options.ivs, 31);
@@ -200,6 +206,9 @@ export class Pokemon implements State.Pokemon {
       volatileStatus: this.volatileStatus,
       isChoiceLocked: this.isChoiceLocked,
       teraType: this.teraType,
+      isTera: this.isTera,
+      shieldData: this.shieldData,
+      shieldActive: this.shieldActive,
       toxicCounter: this.toxicCounter,
       hitsTaken: this.hitsTaken,
       changedTypes: this.changedTypes,

@@ -1,4 +1,4 @@
-export const RAIDER_SETDEX_SV = {
+{
     "Annihilape": {
         "Bulky DPS": {
             "level":100,
@@ -153,7 +153,7 @@ export const RAIDER_SETDEX_SV = {
             "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
             "moves":["Sunny Day","Helping Hand"],
-            "shiny":true,
+            "shiny":true
         }
     },
     "Gholdengo":  {
@@ -676,7 +676,7 @@ export const RAIDER_SETDEX_SV = {
             "nature":"Jolly",
             "evs":{"hp":252,"df":252},
             "moves":["Helping Hand"],
-            "shiny":true,
+            "shiny":true
         }
     },
     "Tauros-Paldea-Aqua-Breed": {
@@ -695,7 +695,7 @@ export const RAIDER_SETDEX_SV = {
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Wave Crash","Close Combat","Raging Bull"]
-        },
+        }
     },
     "Tauros-Paldea-Blaze-Breed": {
         "Bulky Anger Point":  {
@@ -713,7 +713,7 @@ export const RAIDER_SETDEX_SV = {
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Flare Blitz","Close Combat","Raging Bull"]
-        },
+        }
     },
     "Tauros-Paldea-Combat-Breed": {
         "Bulky Anger Point":  {
@@ -731,7 +731,7 @@ export const RAIDER_SETDEX_SV = {
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Close Combat","Raging Bull"]
-        },
+        }
     },
     "Tinkaton": {
         "DPS": {
@@ -749,7 +749,7 @@ export const RAIDER_SETDEX_SV = {
             "nature":"Adamant",
             "evs":{"hp":252,"df":252},
             "moves":["Helping Hand"]
-        },
+        }
     },
     "Torkoal": {
         "Sun Support (Def)":  {
@@ -829,7 +829,7 @@ export const RAIDER_SETDEX_SV = {
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Screech"]
-        },
+        }
     },
     "Zacian-Crowned":{
         "DPS":{
@@ -841,4 +841,4 @@ export const RAIDER_SETDEX_SV = {
             "moves":["Swords Dance","Behemoth Blade","Sacred Sword","Play Rough"]
         }
     }
-};
+}

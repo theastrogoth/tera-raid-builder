@@ -252,7 +252,6 @@ export class RaidBattle {
                 );
                 this._state.raiders[id].originalCurHP = this._state.raiders[id].maxHP();
                 this._turnZeroFlags[id].push(pokemon.role + " is going to go all out against this formidable opponent!")
-                console.log(id, this._state.raiders[id].stats);
             }
         }
         // check for item/ability activation by executing dummy moves

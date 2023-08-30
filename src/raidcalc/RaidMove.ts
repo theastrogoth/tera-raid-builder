@@ -95,7 +95,14 @@ export class RaidMove {
         this.applyEndOfTurnDamage();
         this.applyEndOfMoveItemEffects();        
         this.setFlags();
-        if (!["(No Move)", "Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
+        if (![
+                "(No Move)", 
+                "Attack Cheer",
+                "Defense Cheer", 
+                "Heal Cheer", 
+                "Remove Negative Effects", 
+                "Remove Stat Boosts & Abilities",
+            ].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
         }
         this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
@@ -354,6 +361,7 @@ export class RaidMove {
             const qpStat = getQPBoostedStat(moveUser) as StatIDExceptHP;
             moveUser.boostedStat = qpStat;
         }
+        let hasCausedDamage = false;
         for (let id of this._affectedIDs) {
             if (this._doesNotEffect[id]) {
                 this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // a more specific reason might be helpful
@@ -405,15 +413,18 @@ export class RaidMove {
                         this._flingItem = moveUser.item;
                         this._raidState.loseItem(this.userID);
                     }
+                    if (totalDamage > 0) {
+                        hasCausedDamage = true;
+                    }
                 } catch {
                     this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // temporary fix
                 }
             }
         }
-
         if (this.moveData.category?.includes("damage")) {
             this._fields[this.userID].attackerSide.isHelpingHand = false;
             if (this.move.type === "Electric") { this._fields[this.userID].attackerSide.isCharged = false; }
+            if (hasCausedDamage) { this._user.teraCharge++; }
         }
     }
 
@@ -634,6 +645,32 @@ export class RaidMove {
         const target_ability = target.ability as AbilityName;
 
         switch (this.move.name) {
+            case "Remove Stat Boosts & Abilities":
+                if (this.userID !== 0) {
+                    throw new Error("Only the Raid boss can remove stat boosts and abilities!")
+                }
+                this._desc[this.targetID] = "The Raid Boss nullified all stat boosts and abilities!"
+                for (let i=1; i<5; i++) {
+                    const pokemon = this.getPokemon(i);
+                    pokemon.ability = undefined;
+                    pokemon.abilityNullified = 2;
+                    for (let stat in pokemon.boosts) {
+                        pokemon.boosts[stat as StatIDExceptHP] = Math.min(0, pokemon.boosts[stat as StatIDExceptHP] || 0);
+                    }
+                }
+                break;
+            case "Remove Negative Effects":
+                if (this.userID !== 0) {
+                    throw new Error("Only the Raid boss can remove negative effects!")
+                }
+                this._desc[this.targetID] = "The Raid Boss removed all negative effects from itself!"
+                const boss = this.getPokemon(0);
+                boss.status = "";
+                boss.volatileStatus = [];
+                for (let stat in boss.boosts) {
+                    boss.boosts[stat as StatIDExceptHP] = Math.max(0, boss.boosts[stat as StatIDExceptHP] || 0);
+                }
+                break;
             case "Skill Swap": 
                 if (
                     !persistentAbilities["uncopyable"].includes(user_ability) &&
@@ -887,6 +924,16 @@ export class RaidMove {
     }
 
     private setFlags() {
+        // check for shield changes
+        const initialShield = this.raidState.raiders[0].shieldActive;
+        const finalShield = this._raiders[0].shieldActive;
+        if (initialShield !== finalShield) {
+            if (finalShield) {
+                this._flags[0].push("Shield activated");
+            } else {
+                this._flags[0].push("Shield broken");
+            }
+        }
         // check for item changes
         const initialItems = this.raidState.raiders.map(p => p.item);
         const finalItems = this._raiders.map(p => p.item);

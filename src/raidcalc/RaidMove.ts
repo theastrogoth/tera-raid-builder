@@ -947,6 +947,18 @@ export class RaidMove {
                 }
             }
         }
+        // check for ability changes
+        const initialAbilities = this.raidState.raiders.map(p => p.ability);
+        const finalAbilities = this._raiders.map(p => p.ability);
+        for (let i=0; i<5; i++) {
+            if (initialAbilities[i] !== finalAbilities[i])  {
+                if (finalAbilities[i] === undefined) {
+                    this._flags[i].push(initialAbilities[i] + " nullified")
+                } else {
+                    this._flags[i].push("ability changed to " + finalAbilities[i])
+                }
+            }
+        }
         // check for ability triggers
         const initialAbilityOn = this.raidState.raiders.map(p => p.abilityOn);
         const finalAbilityOn = this._raiders.map(p => p.abilityOn);

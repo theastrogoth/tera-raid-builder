@@ -329,12 +329,6 @@ export class RaidTurn {
             // Ailment-inducing Items
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
-                    case "Light Ball":
-                        if (!pokemon.types.includes("Electric")) {
-                            pokemon.status = "par";
-                            this._result2.flags[id].push("par inflicted");
-                        }
-                        break;
                     case "Flame Orb":
                         if (!pokemon.types.includes("Fire")) { 
                             pokemon.status = "brn";  

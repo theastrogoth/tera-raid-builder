@@ -32,10 +32,12 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
         const info = {
             raiders: raidInputProps.pokemon,
             turns: raidInputProps.turns,
+            repeats: raidInputProps.repeats,
         }
         raidcalcWorker
             .postMessage(info);
     }, [raidInputProps.turns, 
+        raidInputProps.repeats,
         raidInputProps.pokemon[0], 
         raidInputProps.pokemon[1], 
         raidInputProps.pokemon[2], 

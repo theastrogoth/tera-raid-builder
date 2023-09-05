@@ -5,10 +5,10 @@ import { RaidTurnInfo } from "./interface";
 export type RaidInputProps = {
   pokemon: Raider[],
   setPokemon: ((r: Raider) => void)[],
-  turns: RaidTurnInfo[],
-  setTurns: (t: RaidTurnInfo[]) => void,
-  groups: number[][],
-  setGroups: (g: number[][]) => void,
+  turns: RaidTurnInfo[][],
+  repeats: number[],
+  setTurns: (t: RaidTurnInfo[][]) => void,
+  setRepeats: (r: number[]) => void,
 }
 
 export type BuildInfo = {

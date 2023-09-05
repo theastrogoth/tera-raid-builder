@@ -21,7 +21,7 @@ import StratFooter from './uicomponents/StratFooter.tsx';
 
 import { Generations, Pokemon, Field } from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
-import { RaidTurnInfo } from './raidcalc/interface.ts';
+import { TurnGroupInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
 import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
@@ -270,22 +270,27 @@ function App() {
   const [title, setTitle] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [credits, setCredits] = useState<string>("");
-  const [turns, setTurns] = useState<RaidTurnInfo[][]>([[{
+  const [groups, setGroups] = useState<TurnGroupInfo[]>([
+    {
       id: 0, 
-      group: 0,
-      moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
-      bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
+      repeats: 1,
+      turns: [
+        {
+          id: 0,
+          group: 0,
+          moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
+          bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
+        }
+      ]
     }
-  ]]);
+  ]);
   const [repeats, setRepeats] = useState<number[]>([1]);
 
   const raidInputProps: RaidInputProps = {
     pokemon: [raidBoss, raider1, raider2, raider3, raider4],
     setPokemon: [setRaidBoss, setRaider1, setRaider2, setRaider3, setRaider4],
-    turns: turns,
-    repeats: repeats,
-    setTurns: setTurns,
-    setRepeats: setRepeats
+    groups: groups,
+    setGroups: setGroups,
   }
 
   const [results, setResults] = useState<RaidBattleResults>(

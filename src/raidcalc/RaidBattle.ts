@@ -1,6 +1,6 @@
 import { Move, Generations, Pokemon } from "../calc";
 import { MoveName, ItemName, SpeciesName } from "../calc/data/interface";
-import { RaidTurnInfo } from "./interface";
+import { RaidTurnInfo, TurnGroupInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { RaidMove } from "./RaidMove";
 import { getBoostCoefficient, safeStatStage } from "./util";
@@ -14,8 +14,7 @@ export type RaidBattleInfo = {
     notes?: string;
     credits?: string;
     startingState: RaidState;
-    turns: RaidTurnInfo[][]; // turns are stored in arrays by group
-    repeats?: number[]; // each group can be repeated multiple times if specified
+    groups: TurnGroupInfo[];
 }
 
 export type RaidBattleResults = {
@@ -27,8 +26,7 @@ export type RaidBattleResults = {
 
 export class RaidBattle {
     startingState: RaidState;
-    turns: RaidTurnInfo[][];
-    repeats?: number[];
+    groups: TurnGroupInfo[];
 
     _state!: RaidState;
     _turnResults!: RaidTurnResult[];
@@ -38,7 +36,7 @@ export class RaidBattle {
 
     constructor(info: RaidBattleInfo) {
         this.startingState = info.startingState;
-        this.turns = info.turns;
+        this.groups = info.groups;
     }
 
     public result(): RaidBattleResults {
@@ -65,11 +63,11 @@ export class RaidBattle {
 
     private calculateTurns(){
         this._turnResults = [];
-        for (let i = 0; i < this.turns.length; i++) {
-            const turnGroup = this.turns[i];
-            for (let j = 0; j < turnGroup.length; j++) {
-                const turn = turnGroup[j];
-                const repeats = this.repeats ? this.repeats[i] : 1;
+        for (let i = 0; i < this.groups.length; i++) {
+            const turns = this.groups[i].turns;
+            for (let j = 0; j < turns.length; j++) {
+                const turn = turns[j];
+                const repeats = this.groups[i].repeats || 1;
                 for (let k = 0; k < repeats; k++) {
                     const result = new RaidTurn(this._state, turn).result();
                     this._turnResults.push(result);

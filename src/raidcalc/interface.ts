@@ -131,9 +131,15 @@ export type RaidMoveInfo = {
     options?: RaidMoveOptions;
 }
 
-export type RaidTurnInfo ={
+export type RaidTurnInfo = {
     id: number;
     group: number;
     moveInfo: RaidMoveInfo;
     bossMoveInfo: RaidMoveInfo;
+}
+
+export type TurnGroupInfo = {
+    id: number,
+    turns: RaidTurnInfo[],
+    repeats?: number,
 }

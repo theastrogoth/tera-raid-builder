@@ -31,13 +31,11 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
     useEffect(() => {
         const info = {
             raiders: raidInputProps.pokemon,
-            turns: raidInputProps.turns,
-            repeats: raidInputProps.repeats,
+            groups: raidInputProps.groups,
         }
         raidcalcWorker
             .postMessage(info);
-    }, [raidInputProps.turns, 
-        raidInputProps.repeats,
+    }, [raidInputProps.groups, 
         raidInputProps.pokemon[0], 
         raidInputProps.pokemon[1], 
         raidInputProps.pokemon[2], 
@@ -56,7 +54,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
             </Box>
             <Box hidden={value !== 1}>
                 <Stack direction="column" spacing={1} >
-                    <Box maxHeight={560} sx={{ overflowY: "auto" }}>
+                    <Box sx={{ height: 560, overflowY: "auto" }}>
                         {!prettyMode &&
                             <MoveSelection raidInputProps={raidInputProps} />
                         }
@@ -66,7 +64,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
                     </Box>
                 </Stack>
             </Box>
-            <Box hidden={value !== 2} maxHeight={525} sx={{ overflowY: "auto" }}>
+            <Box hidden={value !== 2} sx={{ height: 560, overflowY: "auto" }}>
                 <RaidResults results={results} />
             </Box>
         </Box>

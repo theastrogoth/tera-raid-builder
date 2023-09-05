@@ -262,21 +262,21 @@ function App() {
   const [title, setTitle] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [credits, setCredits] = useState<string>("");
-  const [turns, setTurns] = useState<RaidTurnInfo[]>([{
+  const [turns, setTurns] = useState<RaidTurnInfo[][]>([[{
       id: 0, 
       moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
       bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
     }
-  ]);
-  const [groups, setGroups] = useState<number[][]>([]);
+  ]]);
+  const [repeats, setRepeats] = useState<number[]>([1]);
 
   const raidInputProps: RaidInputProps = {
     pokemon: [raidBoss, raider1, raider2, raider3, raider4],
     setPokemon: [setRaidBoss, setRaider1, setRaider2, setRaider3, setRaider4],
     turns: turns,
+    repeats: repeats,
     setTurns: setTurns,
-    groups: groups,
-    setGroups: setGroups
+    setRepeats: setRepeats
   }
 
   const [results, setResults] = useState<RaidBattleResults>(

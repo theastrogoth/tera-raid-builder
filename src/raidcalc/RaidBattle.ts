@@ -14,8 +14,8 @@ export type RaidBattleInfo = {
     notes?: string;
     credits?: string;
     startingState: RaidState;
-    turns: RaidTurnInfo[];
-    groups: number[][];
+    turns: RaidTurnInfo[][]; // turns are stored in arrays by group
+    repeats?: number[]; // each group can be repeated multiple times if specified
 }
 
 export type RaidBattleResults = {
@@ -27,7 +27,8 @@ export type RaidBattleResults = {
 
 export class RaidBattle {
     startingState: RaidState;
-    turns: RaidTurnInfo[];
+    turns: RaidTurnInfo[][];
+    repeats?: number[];
 
     _state!: RaidState;
     _turnResults!: RaidTurnResult[];
@@ -65,10 +66,16 @@ export class RaidBattle {
     private calculateTurns(){
         this._turnResults = [];
         for (let i = 0; i < this.turns.length; i++) {
-            const turn = this.turns[i];
-            const result = new RaidTurn(this._state, turn).result();
-            this._turnResults.push(result);
-            this._state = result.state;
+            const turnGroup = this.turns[i];
+            for (let j = 0; j < turnGroup.length; j++) {
+                const turn = turnGroup[j];
+                const repeats = this.repeats ? this.repeats[i] : 1;
+                for (let k = 0; k < repeats; k++) {
+                    const result = new RaidTurn(this._state, turn).result();
+                    this._turnResults.push(result);
+                    this._state = result.state;
+                }
+            }
         }
     }
 

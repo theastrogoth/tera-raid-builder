@@ -51,7 +51,6 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
         const groupIds: number[] = [];
         let usedGroupIds: number[] = obj.turns.map((t) => t.group === undefined ? -1 : t.group);
         usedGroupIds = usedGroupIds.filter((g, index) => usedGroupIds.indexOf(g) === index && g !== -1);
-        console.log("Loaded Group IDs: ", usedGroupIds);
         for (let t of obj.turns as LightTurnInfo[]) {
             const name = t.moveInfo.name as MoveName;
             let mdata: MoveData = {name: name};
@@ -91,7 +90,6 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                     moveData: bmdata || {name: t.bossMoveInfo.name as MoveName}
                 },
             };
-            console.log("Loaded Turn Group ID: ", t.group)
             if (turn.group === undefined) { // create a new group with a unique id
                 let uniqueGroupId = 0;
                 while (usedGroupIds.includes(uniqueGroupId)) {
@@ -110,7 +108,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
             } else { // create a new group with the same id
                 let repeats = 1;
                 if (obj.groups && obj.repeats) {
-                    for (let i = 0; i < groups.length; i++) {
+                    for (let i = 0; i < obj.groups.length; i++) {
                         if (obj.groups[i].includes(t.id)) {
                             repeats = obj.repeats[i];
                             break;

@@ -5,11 +5,9 @@ import Box from '@mui/material/Box';
 import { Move } from "../calc";
 import { TypeName } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL } from "../utils";
-import { RaidMoveInfo } from "../raidcalc/interface";
-import { getDisplayMoveGroups } from "../raidcalc/util";
+import { RaidMoveInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
-
 
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
@@ -340,7 +338,7 @@ const ExecutionMoveNumber = styled(Typography)({
 
 const ExecutionMoveContainer = styled(Box)({
     height: "100%",
-    width: "90%",
+    width: "85%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly"
@@ -470,22 +468,23 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
 }
 
 // TODO: move this to a more appropriate place (also used in MoveDisplay)
-function getMoveGroups(results: RaidBattleResults) {
-    const turns = results.turnResults;
-    const displayGroups = getDisplayMoveGroups(turns);
-
-    const moveGroups = displayGroups.map(group => 
-        group.map((id) => { return {
-            move: turns[id]!.raiderMoveUsed, 
-            info: turns[id]!.moveInfo, 
-            teraActivated: !!(turns[id]!.moveInfo.options!.activateTera && 
-                              turns[id]!.flags[turns[id]!.moveInfo.userID].includes("Tera activated"))} 
+function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
+    const moveGroups = groups.map((group, groupIndex) => 
+        group.turns.map((t) => { 
+            const turnResult = results.turnResults.find((r) => t.id === r.id)!;
+            return {
+                move: turnResult.raiderMoveUsed, 
+                info: turnResult.moveInfo, 
+                repeats: group.repeats,
+                teraActivated: !!(turnResult!.moveInfo.options!.activateTera && 
+                                turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
+            } 
         })
     );
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, teraActivated: boolean}[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -610,7 +609,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                         ))
                                                     }
                                                 </ExecutionMoveContainer>
-                                            </ExecutionGroup>
+                                                <ExecutionMoveNumber>{repeats[index] > 1 ? "×" + (index + 1) : ""}</ExecutionMoveNumber>
+                                                </ExecutionGroup>
                                         </ExecutionRow>
                                     ))
                                 }
@@ -682,7 +682,6 @@ function GraphicsButton({title, notes, credits, raidInputProps, results}:
             const pokemonData = (await Promise.all(
                 raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
             )).filter((data) => data !== undefined) as PokemonData[];
-            console.log(pokemonData)
             const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
             const learnMethods = moves.map((ms, index) => 
                 ms.map((move) => 
@@ -694,9 +693,10 @@ function GraphicsButton({title, notes, credits, raidInputProps, results}:
             );
             const moveTypes = moves.map((ms) => ms.map((move) => move.type));
             // sort moves into groups
-            const moveGroups = getMoveGroups(results);
+            const moveGroups = getMoveGroups(raidInputProps.groups, results);
+            const repeats = raidInputProps.groups.map((group) => group.repeats || 1);
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, loadedImageURLRef.current, title, subtitle, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits);
             saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)

@@ -59,7 +59,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
                             <MoveSelection raidInputProps={raidInputProps} />
                         }
                         {prettyMode &&
-                            <MoveDisplay turns={results.turnResults} raiders={raidInputProps.pokemon} />
+                            <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results}/>
                         }
                     </Box>
                 </Stack>

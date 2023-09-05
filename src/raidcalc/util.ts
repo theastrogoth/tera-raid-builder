@@ -49,7 +49,7 @@ export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, de
       : 1;
     let typeEffectiveness = type1Effectiveness * type2Effectiveness;
   
-    if (defender.teraType) {
+    if (defender.isTera && defender.teraType) {
       typeEffectiveness = getMoveEffectiveness(
         gen,
         move,

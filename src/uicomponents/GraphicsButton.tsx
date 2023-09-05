@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import { Move } from "../calc";
 import { TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL } from "../utils";
 import { RaidMoveInfo } from "../raidcalc/interface";
 import { getDisplayMoveGroups } from "../raidcalc/util";
 import { RaidInputProps } from "../raidcalc/inputs";
@@ -104,8 +104,8 @@ const Header = styled(Box)({
 });
 
 const BossWrapper = styled(Box)({
-    height: "450px",
-    width: "450px",
+    height: "550px",
+    width: "550px",
     position: "absolute",
     right: "100px",
     top: "50px",
@@ -116,19 +116,21 @@ const BossWrapper = styled(Box)({
 const Boss = styled("img")({
     height: "100%",
     position: "absolute",
-    right: "0px"
+    right: "0px",
 });
 
 const BossTera = styled("img")({
-    width: "60%",
+    width: "100%",
     position: "absolute",
     bottom: "0px",
-    alignSelf: "center"
+    alignSelf: "center",
+    transform: "translate(0px, -50px)"
 });
 
 const Title = styled(Typography)({
-    height: "250px",
-    lineHeight: "250px",
+    // height: "250px",
+    // lineHeight: "250px",
+    maxWidth: "2800px",
     color: "white",
     fontWeight: "inherit",
     fontSize: "16em",
@@ -390,6 +392,23 @@ const ExecutionMovePokemonIconWrapper = styled(Box)({
     justifyContent: "center"
 });
 
+const ExecutionMoveTeraIcon = styled("img")({
+    height: "auto",
+    width: "auto",
+    maxHeight: "140px",
+    maxWidth: "140px",
+});
+
+const ExecutionMoveTeraIconWrapper = styled(Box)({
+    position: "absolute",
+    transform: "translate(1620px, -20px)",
+    height: "140px",
+    width: "140px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+});
+
 const ExecutionMoveTag = styled(Typography)({
     height: "100px",
     width: "300px",
@@ -456,12 +475,17 @@ function getMoveGroups(results: RaidBattleResults) {
     const displayGroups = getDisplayMoveGroups(turns);
 
     const moveGroups = displayGroups.map(group => 
-        group.map((id) => { return {move: turns[id]!.raiderMoveUsed, info: turns[id]!.moveInfo} })
+        group.map((id) => { return {
+            move: turns[id]!.raiderMoveUsed, 
+            info: turns[id]!.moveInfo, 
+            teraActivated: !!(turns[id]!.moveInfo.options!.activateTera && 
+                              turns[id]!.flags[turns[id]!.moveInfo.userID].includes("Tera activated"))} 
+        })
     );
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo}[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, teraActivated: boolean}[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -476,12 +500,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                 >
                     <Header>
                         <BossWrapper>
-                            {/* <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera> */}
-                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name)} />
-                            {/* Need to figure out how to show the tera type nicely */}
+                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name, raidInputProps.pokemon[0].shiny)} />
+                            <BossTera src={getTeraTypeBannerURL(raidInputProps.pokemon[0].teraType || "blank")}></BossTera>
                         </BossWrapper>
                         <Title>{title ? title : "Untitled"}</Title>
-                        <Subtitle>{subtitle ? subtitle : (credits ? `By: ${credits}` : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`)}</Subtitle>
+                        <Subtitle>{subtitle ? subtitle : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>
@@ -495,7 +518,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
-                                                <BuildArt src={getPokemonArtURL(raider.species.name)}/>
+                                                <BuildArt src={getPokemonArtURL(raider.species.name, raider.shiny)}/>
                                                 {raider.item ? 
                                                     <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
                                                 <BuildTypes direction="row">
@@ -567,6 +590,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                 </ExecutionMovePokemonWrapper>
                                                                 <ExecutionMoveTag>uses</ExecutionMoveTag>
                                                                 <ExecutionMoveAction>{move.move}</ExecutionMoveAction>
+                                                                {move.teraActivated &&
+                                                                    <ExecutionMoveTeraIconWrapper>
+                                                                        <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                    </ExecutionMoveTeraIconWrapper>
+                                                                }
                                                                 <ExecutionMoveTag>{!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)? "on": ""}</ExecutionMoveTag>
                                                                 {!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!) ?
                                                                     <ExecutionMovePokemonWrapper>

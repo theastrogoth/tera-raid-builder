@@ -334,7 +334,7 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: 
 							const newPoke = addSet(textValue)
 							const newMoveData = await Promise.all(newPoke.moves.map(async (move) => PokedexService.getMoveByName(move))) as MoveData[];
 							if (newPoke) {
-								const newRaider = new Raider(pokemon.id, pokemon.role, pokemon.field, newPoke, newMoveData, [], [])
+								const newRaider = new Raider(pokemon.id, pokemon.role, false, pokemon.field, newPoke, newMoveData, [], [])
 								setPokemon(newRaider)
 							}
 						}}

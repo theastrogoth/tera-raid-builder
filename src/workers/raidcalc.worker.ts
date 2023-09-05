@@ -11,7 +11,7 @@ const gen = Generations.get(9);
 
 self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}>) => {
     const raidersMessage = event.data.raiders;
-    const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, new Field(), new Pokemon(gen, r.name, {
+    const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, r.shiny, new Field(), new Pokemon(gen, r.name, {
         level: r.level,
         bossMultiplier: r.bossMultiplier,
         ability: r.ability,
@@ -21,7 +21,10 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}
         item: r.item,
         teraType: r.teraType,
         moves: r.moves,
+        shieldData: r.shieldData,
     }), r.moveData, r.extraMoves, r.extraMoveData))
+
+    raiders[0].isTera = true; // ensure the boss is Tera'd on T0
 
     const state = new RaidState(raiders);
     const info: RaidBattleInfo = {

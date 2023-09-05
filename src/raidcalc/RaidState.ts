@@ -37,7 +37,12 @@ export class RaidState implements State.RaidState{
             pokemon.applyDamage(damage);
         }
         const maxHP = pokemon.maxHP();
-        if (nHits > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
+        const opponents = id === 0 ? [1,2,3,4] : [0];
+        let unnerve = false;
+        for (let i of opponents) {
+            if (this.getPokemon(i).ability === "Unnerve") { unnerve = true; break; }
+        }
+        if (nHits > 0 && damage > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
             if (damage > 0) {
                 pokemon.hitsTaken = pokemon.hitsTaken + nHits;
             }
@@ -53,66 +58,67 @@ export class RaidState implements State.RaidState{
             // Weakness Policy and Super-Effective reducing Berries
             // TO DO - abilities that let users use berries more than once
             if (damage > 0 && isSuperEffective) {
-                switch (pokemon.item) {
-                    case "Weakness Policy":
-                        this.applyStatChange(id, {atk: 2, spa: 2}, true, true)
-                        this.loseItem(id);
-                        break;
-                    case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
-                        if (moveType === "Fire") { this.loseItem(id); }
-                        break;
-                    case "Passho Berry":
-                        if (moveType === "Water") { this.loseItem(id); }
-                        break;
-                    case "Wacan Berry":
-                        if (moveType === "Electric") { this.loseItem(id); }
-                        break;
-                    case "Rindo Berry":
-                        if (moveType === "Grass") { this.loseItem(id); }
-                        break;
-                    case "Yache Berry":
-                        if (moveType === "Ice") { this.loseItem(id); }
-                        break;
-                    case "Chople Berry":
-                        if (moveType === "Fighting") { this.loseItem(id); }
-                        break;
-                    case "Kebia Berry":
-                        if (moveType === "Poison") { this.loseItem(id); }
-                        break;
-                    case "Shuca Berry":
-                        if (moveType === "Ground") { this.loseItem(id); }
-                        break;
-                    case "Coba Berry":
-                        if (moveType === "Flying") { this.loseItem(id); }
-                        break;
-                    case "Payapa Berry":
-                        if (moveType === "Psychic") { this.loseItem(id); }
-                        break;
-                    case "Tanga Berry":
-                        if (moveType === "Bug") { this.loseItem(id); }
-                        break;
-                    case "Charti Berry":
-                        if (moveType === "Rock") { this.loseItem(id); }
-                        break;
-                    case "Kasib Berry":
-                        if (moveType === "Ghost") { this.loseItem(id); }
-                        break;
-                    case "Haban Berry":
-                        if (moveType === "Dragon") { this.loseItem(id); }
-                        break;
-                    case "Colbur Berry":
-                        if (moveType === "Dark") { this.loseItem(id); }
-                        break;
-                    case "Babiri Berry":
-                        if (moveType === "Steel") { this.loseItem(id); }
-                        break;
-                    case "Roseli Berry":
-                        if (moveType === "Fairy") { this.loseItem(id); }
-                        break;
-                    default: break;
+                if (pokemon.item === "Weakness Policy") {
+                    this.applyStatChange(id, {atk: 2, spa: 2}, true, true)
+                    this.loseItem(id);
+                } else if (!unnerve) {
+                    switch (pokemon.item) {
+                        case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
+                            if (moveType === "Fire") { this.loseItem(id); }
+                            break;
+                        case "Passho Berry":
+                            if (moveType === "Water") { this.loseItem(id); }
+                            break;
+                        case "Wacan Berry":
+                            if (moveType === "Electric") { this.loseItem(id); }
+                            break;
+                        case "Rindo Berry":
+                            if (moveType === "Grass") { this.loseItem(id); }
+                            break;
+                        case "Yache Berry":
+                            if (moveType === "Ice") { this.loseItem(id); }
+                            break;
+                        case "Chople Berry":
+                            if (moveType === "Fighting") { this.loseItem(id); }
+                            break;
+                        case "Kebia Berry":
+                            if (moveType === "Poison") { this.loseItem(id); }
+                            break;
+                        case "Shuca Berry":
+                            if (moveType === "Ground") { this.loseItem(id); }
+                            break;
+                        case "Coba Berry":
+                            if (moveType === "Flying") { this.loseItem(id); }
+                            break;
+                        case "Payapa Berry":
+                            if (moveType === "Psychic") { this.loseItem(id); }
+                            break;
+                        case "Tanga Berry":
+                            if (moveType === "Bug") { this.loseItem(id); }
+                            break;
+                        case "Charti Berry":
+                            if (moveType === "Rock") { this.loseItem(id); }
+                            break;
+                        case "Kasib Berry":
+                            if (moveType === "Ghost") { this.loseItem(id); }
+                            break;
+                        case "Haban Berry":
+                            if (moveType === "Dragon") { this.loseItem(id); }
+                            break;
+                        case "Colbur Berry":
+                            if (moveType === "Dark") { this.loseItem(id); }
+                            break;
+                        case "Babiri Berry":
+                            if (moveType === "Steel") { this.loseItem(id); }
+                            break;
+                        case "Roseli Berry":
+                            if (moveType === "Fairy") { this.loseItem(id); }
+                            break;
+                        default: break;
+                    }
                 }
             }
-            if (pokemon.item === "Chiban Berry" && moveType === "Normal") {
+            if (!unnerve && pokemon.item === "Chiban Berry" && moveType === "Normal") {
                 this.loseItem(id);
             }
             
@@ -161,9 +167,13 @@ export class RaidState implements State.RaidState{
             if (pokemon.ability ===  "Electromorphosis") {
                 pokemon.field.attackerSide.isCharged = true;
             }
+            // Seed Sower
+            if (pokemon.ability === "Seed Sower") {
+                this.applyTerrain("Grassy");
+            }
         }
         /// Berry Consumption triggered by damage
-        if (pokemon.item && pokemon.item?.includes("Berry")) {
+        if (!unnerve && pokemon.item && pokemon.item?.includes("Berry")) {
             // 50% HP Berries
             if (pokemon.originalCurHP <= maxHP / 2) {
                 if (pokemon.item === "Sitrus Berry") {
@@ -386,5 +396,10 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+    }
+
+    public activateTera(id: number): boolean {
+        const pokemon = this.getPokemon(id);
+        return pokemon.activateTera();
     }
 }

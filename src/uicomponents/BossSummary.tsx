@@ -52,7 +52,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>
                     <Box width="100%" marginTop="10px" display="flex" justifyContent="center">
-                        <Box position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
+                        <Box width="50px" position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
                             <Box position="relative" display="flex">
                                 <img
                                     // width="95%"
@@ -90,11 +90,11 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                                 </Box>
                             }
                         </Box>
-                        <Box>
+                        <Box position="relative">
                             <Box position="relative" sx={{filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
                                 <img
                                     height="150px"
-                                    src={getPokemonArtURL(pokemon.name)}
+                                    src={getPokemonArtURL(pokemon.name, pokemon.shiny)}
                                     onError={({ currentTarget }) => {
                                         currentTarget.onerror = null; // prevents looping
                                         currentTarget.src=getPokemonArtURL("placeholder");
@@ -104,7 +104,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                             <Box position="absolute" sx={{bottom: "0px", right: "0px", filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
                                 <img
                                     // width="95%"
-                                    height="70px"
+                                    height="65px"
                                     src={pokemon.item ? (
                                             pokemon.item === "(No Item)" ? getItemSpriteURL("any") :
                                             getItemSpriteURL(pokemon.item)
@@ -120,7 +120,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                         </Box>
                     </Box>
                     <Stack direction="row" spacing={-5} >
-                        <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} />
+                        <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} isBoss />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
                             <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
                             <Box flexGrow={1} />

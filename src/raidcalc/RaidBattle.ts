@@ -225,10 +225,10 @@ export class RaidBattle {
             /// special interactions
             // Mew stat boosts for Mewtwo event.
             if (id !== 0 && pokemon.name === "Mew" && this._state.raiders[0].name === "Mewtwo") {
-                console.log(pokemon.stats)
                 this._state.raiders[id] = new Raider(
                     id,
                     pokemon.role,
+                    pokemon.shiny,
                     pokemon.field.clone(),
                     new Pokemon(
                         gen,
@@ -252,7 +252,6 @@ export class RaidBattle {
                 );
                 this._state.raiders[id].originalCurHP = this._state.raiders[id].maxHP();
                 this._turnZeroFlags[id].push(pokemon.role + " is going to go all out against this formidable opponent!")
-                console.log(id, this._state.raiders[id].stats);
             }
         }
         // check for item/ability activation by executing dummy moves

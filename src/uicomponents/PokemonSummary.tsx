@@ -31,7 +31,7 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
             }
         } else if (nameRef.current !== pokemon.name) {
             nameRef.current = pokemon.name;
-            const name = pokemon.name.split("-")[0]; // some regional forms have long names
+            const name = pokemon.species.baseSpecies || pokemon.name; // some regional forms have long names
             setRole(name);
             setStr(name);
         }
@@ -89,7 +89,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>
                     <Box width="100%" marginTop="10px" display="flex" justifyContent="center">
-                        <Box position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
+                        <Box width="50px" position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
                             <Box position="relative" display="flex">
                                 <img
                                     // width="95%"
@@ -134,7 +134,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                             <Box position="relative" sx={{filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
                                 <img
                                     height="150px"
-                                    src={getPokemonArtURL(pokemon.name)}
+                                    src={getPokemonArtURL(pokemon.name, pokemon.shiny)}
                                     onError={({ currentTarget }) => {
                                         currentTarget.onerror = null; // prevents looping
                                         currentTarget.src=getPokemonArtURL("placeholder");

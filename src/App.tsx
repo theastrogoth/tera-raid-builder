@@ -120,7 +120,7 @@ function App() {
             paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6',
           },
           primary: {
-            main: lightMode === 'dark' ? "#faa5a0" : "#ed382d",
+            main: lightMode === 'dark' ? "#faa5a0" : "#db3227",
           },
           secondary: {
             main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
@@ -196,18 +196,20 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", new Field(), new Pokemon(gen, "Mewtwo", {
+    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Mewtwo", {
       teraType: "Psychic",
+      isTera: true,
       bossMultiplier: 3500,
       nature: "Modest",
       ability: "Unnerve",
-      moves: ["Psyshock", "Psychic", "Aura Sphere", "Shadow Ball"]
+      moves: ["Psystrike", "Psychic", "Shadow Ball", "Aura Sphere"],
+      shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 40, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
-      {name: "Psyshock" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Psystrike" as MoveName, category: "damage", target: "selected-pokemon"},
       {name: "Psychic" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
       {name: "Shadow Ball" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
     ], 
     ["Nasty Plot", "Agility", "Psychic Terrain"] as MoveName[], 
     [
@@ -217,7 +219,7 @@ function App() {
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Krookodile", new Field(), new Pokemon(gen, "Krookodile", {
+    new Raider(1, "Krookodile", false, new Field(), new Pokemon(gen, "Krookodile", {
       nature: "Jolly",
       ability: "Anger Point",
       moves: ["Power Trip"],
@@ -229,7 +231,7 @@ function App() {
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Meowscarada", new Field(), new Pokemon(gen, "Meowscarada", {
+    new Raider(2, "Meowscarada", false, new Field(), new Pokemon(gen, "Meowscarada", {
       level: 36,
       nature: "Hardy",
       ability: "(No Ability)",
@@ -241,7 +243,7 @@ function App() {
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Corviknight", new Field(), new Pokemon(gen, "Corviknight", {
+    new Raider(3, "Corviknight", false, new Field(), new Pokemon(gen, "Corviknight", {
       nature: "Relaxed",
       ability: "(No Ability)",
       moves: ["Screech"],
@@ -253,7 +255,7 @@ function App() {
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Umbreon", new Field(), new Pokemon(gen, "Umbreon", {
+    new Raider(4, "Umbreon", false, new Field(), new Pokemon(gen, "Umbreon", {
       nature: "Sassy",
       ability: "(No Ability)",
       moves: ["Screech"],
@@ -352,16 +354,22 @@ function App() {
                   Acknowledgements
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Thank you to the <Link href="https://reddit.com/r/pokeportal">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc">davbou's fork</Link>.
+                  Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc" target="_blank">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc" target="_blank">davbou's fork</Link>.
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Sugimori-style artwork for shiny Pokémon has been adapted from <Link href="https://tonofdirt726.imgbb.com/" target="_blank">the recolors</Link> created by Tonofdirt726 <Link href="https://www.reddit.com/r/ShinyPokemon/comments/tda106/art_shiny_recolors_of_the_sugimoristyle_artwork/" target="_blank">(u/ton_of_dirt726)</Link>
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Additional assets and vectors adapted from art created by <Link href="https://www.deviantart.com/jormxdos" target="_blank">JorMxDos</Link>
                 </Typography>
                 <Typography variant="h6" sx={{color: "text.secondary"}}>
                   Contact
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/">this project's Github repository</Link>.
+                  Please submit issues or feature requests at <Link href="https://github.com/theastrogoth/tera-raid-builder/" target="_blank">this project's Github repository</Link>.
                 </Typography>
               </Stack>
             </Stack>

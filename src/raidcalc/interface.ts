@@ -1,5 +1,5 @@
 import { Pokemon, Field, StatID } from "../calc";
-import { MoveName, TypeName } from "../calc/data/interface";
+import { AbilityName, MoveName, TypeName } from "../calc/data/interface";
 
 export type MoveSetItem = {
     name: MoveName,
@@ -84,9 +84,19 @@ export type MoveData = {
     maxHits?:       number,
 }
 
+export type ShieldData  = {
+    hpTrigger: number;
+    timeTrigger: number;
+    shieldCancelDamage: number;
+    shieldDamageRate: number;
+    shieldDamageRateTera: number;
+    shieldDamageRateTeraChange: number;
+}
+
 export interface Raider extends Pokemon {
     id: number;
     role: string;
+    shiny?: boolean;
     field: Field;
     moveData: MoveData[];
     extraMoves?: MoveName[];// for special boss actions
@@ -94,6 +104,11 @@ export interface Raider extends Pokemon {
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     lastMove?: MoveData;    // stored for Instruct and Copycat
     lastTarget?: number;    // stored for Instruct and Copycat
+    teraCharge?: number;    // stored for Tera activation check
+    shieldActivateHP?: number;
+    shieldBroken?: boolean;
+    abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
+    originalAbility?: AbilityName | "(None)"; // stores ability when nullified
 }
 
 export interface RaidState {
@@ -104,7 +119,9 @@ export type RaidMoveOptions = {
     crit?: boolean;
     secondaryEffects?: boolean;
     hits?: number;
-    roll?: "max" | "min" | "avg"
+    roll?: "max" | "min" | "avg";
+    activateTera?: boolean;
+    stealTeraCharge?: boolean;
 }
 
 export type RaidMoveInfo = {

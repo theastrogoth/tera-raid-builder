@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import { Raider } from "../raidcalc/interface";
 import { getDisplayMoveGroups } from "../raidcalc/util"
 import { RaidTurnResult } from "../raidcalc/RaidTurn";
-import { getPokemonSpriteURL } from "../utils";
+import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
 
 function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
 
@@ -26,6 +26,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
     if (move == "(No Move)") {
         move = "";
     }
+    let teraActivated = turn.flags[turn.moveInfo.userID].includes("Tera activated");
 
     if (move === "") {
         name = raiders[0].name;
@@ -42,6 +43,7 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
         if (move == "(No Move)") {
             move = "";
         }
+        teraActivated = false;
     }
     return (
         <>
@@ -63,9 +65,22 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
                 <Typography variant="body1">
                     uses
                 </Typography>
-                <Typography variant="body1" fontWeight="bold">
-                    {move}
-                </Typography>
+                <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
+                    {teraActivated && 
+                        <Box
+                            sx={{
+                                width: "25px",
+                                height: "25px",
+                                marginRight: "5px",
+                                overflow: 'hidden',
+                                background: `url(${getTeraTypeIconURL(turn.state.raiders[turn.moveInfo.userID].teraType || "Inactive")}) no-repeat center center / contain`,
+                            }}
+                        />
+                    }
+                    <Typography variant="body1" fontWeight="bold">
+                        {move}
+                    </Typography>
+                </Stack>
                 {target !== "" &&
                     <Typography variant="body1">
                         on

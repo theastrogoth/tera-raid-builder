@@ -65,10 +65,10 @@ export class RaidBattle {
         this._turnResults = [];
         for (let i = 0; i < this.groups.length; i++) {
             const turns = this.groups[i].turns;
-            for (let j = 0; j < turns.length; j++) {
-                const turn = turns[j];
-                const repeats = this.groups[i].repeats || 1;
-                for (let k = 0; k < repeats; k++) {
+            const repeats = this.groups[i].repeats || 1;
+            for (let j = 0; j < repeats; j++) {
+                for (let k = 0; k < turns.length; k++) {
+                    const turn = turns[k];
                     const result = new RaidTurn(this._state, turn).result();
                     this._turnResults.push(result);
                     this._state = result.state;

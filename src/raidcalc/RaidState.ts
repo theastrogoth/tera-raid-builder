@@ -246,7 +246,7 @@ export class RaidState implements State.RaidState{
                         if (both) {
                             positiveDiff[statId] *= 2;
                         }
-                        if (positiveDiff[statId] <= 0) {
+                        if (positiveDiff[statId] || 0 <= 0) {
                             positiveDiff[statId] = 0;
                         } else {
                             hasPositiveBoost = true;
@@ -264,7 +264,7 @@ export class RaidState implements State.RaidState{
             let used = false
             for (const stat in pokemon.boosts) {
                 const statId = stat as StatIDExceptHP;
-                if (pokemon.boosts[statId] < 0) {
+                if (pokemon.boosts[statId] || 0 < 0) {
                     pokemon.boosts[statId] = 0;
                     used = true;
                 }

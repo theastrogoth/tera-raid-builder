@@ -3,8 +3,8 @@ export type ID = (string & As<'ID'>) | (string & { __isID: true }) | '';
 export type GenerationNum = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 export type GenderName = 'M' | 'F' | 'N';
 export type StatID = 'hp' | StatIDExceptHP;
-export type StatIDExceptHP = 'atk' | 'def' | 'spa' | 'spd' | 'spe';
-export type StatsTable<T = number> = {[stat in StatID]: T};
+export type StatIDExceptHP = 'atk' | 'def' | 'spa' | 'spd' | 'spe' | 'acc' | 'eva';
+export type StatsTable<T = number> = {hp: T, atk: T, def: T, spa: T, spd: T, spe: T, acc?: T, eva?: T};
 
 export type AbilityName = string & As<'AbilityName'>;
 export type ItemName = string & As<'ItemName'>;

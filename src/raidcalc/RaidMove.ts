@@ -779,7 +779,7 @@ export class RaidMove {
                             for (let stat in target.boosts) {
                                 let whiteHerbUsed = false;
                                 const statId = stat as StatIDExceptHP;
-                                if (target.boosts[statId] < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
+                                if (target.boosts[statId] || 0 < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
                             }
                             break;
                         // Status-Curing Berries
@@ -864,7 +864,7 @@ export class RaidMove {
             case "Psych Up":
                 for (let stat in target.boosts) {
                     const statId = stat as StatIDExceptHP;
-                    this._user.boosts[statId] = target.boosts[statId];
+                    this._user.boosts[statId] = target.boosts[statId] || 0;
                 }
                 break;
             case "Power Swap":

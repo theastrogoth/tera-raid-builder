@@ -336,6 +336,15 @@ const ExecutionMoveNumber = styled(Typography)({
     textAlign: "center"
 });
 
+const ExecutionRepeatNumber = styled(Typography)({
+    height: "125px",
+    width: "125px",
+    lineHeight: "125px",
+    fontSize: "4.5em",
+    textAlign: "left",
+    transform: "translate(-25px, 0px)"
+});
+
 const ExecutionMoveContainer = styled(Box)({
     height: "100%",
     width: "85%",
@@ -399,7 +408,7 @@ const ExecutionMoveTeraIcon = styled("img")({
 
 const ExecutionMoveTeraIconWrapper = styled(Box)({
     position: "absolute",
-    transform: "translate(1620px, -20px)",
+    transform: "translate(1520px, -20px)",
     height: "140px",
     width: "140px",
     display: "flex",
@@ -609,7 +618,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                         ))
                                                     }
                                                 </ExecutionMoveContainer>
-                                                <ExecutionMoveNumber>{repeats[index] > 1 ? "×" + (index + 1) : ""}</ExecutionMoveNumber>
+                                                <ExecutionRepeatNumber>{repeats[index] > 1 ? "×" + (repeats[index]) : ""}</ExecutionRepeatNumber>
                                                 </ExecutionGroup>
                                         </ExecutionRow>
                                     ))

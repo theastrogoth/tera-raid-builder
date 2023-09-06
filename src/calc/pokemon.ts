@@ -32,7 +32,8 @@ export class Pokemon implements State.Pokemon {
   shieldData?: State.ShieldData;
   shieldActive?: boolean;
   isQP? : boolean;
-  usedBoosterEnergy? : boolean;
+  usedBoosterEnergy?: boolean;
+  isIngrain?: boolean;
 
   nature: I.NatureName;
   ivs: I.StatsTable;
@@ -85,6 +86,7 @@ export class Pokemon implements State.Pokemon {
     this.alliesFainted = options.alliesFainted;
     this.boostedStat = options.boostedStat;
     this.usedBoosterEnergy = options.usedBoosterEnergy;
+    this.isIngrain = options.isIngrain;
     this.teraType = options.teraType;
     this.isTera = !!options.isTera;
     this.shieldData = options.shieldData;
@@ -194,6 +196,7 @@ export class Pokemon implements State.Pokemon {
       alliesFainted: this.alliesFainted,
       boostedStat: this.boostedStat,
       usedBoosterEnergy: this.usedBoosterEnergy,
+      isIngrain: this.isIngrain,
       item: this.item,
       gender: this.gender,
       nature: this.nature,
@@ -218,10 +221,10 @@ export class Pokemon implements State.Pokemon {
   }
 
   private calcStat(gen: I.Generation, stat: I.StatID) {
-    return Math.floor(this.statMultipliers[stat] * Stats.calcStat(
+    return Math.floor(this.statMultipliers[stat]! * Stats.calcStat(
       gen,
       stat,
-      this.species.baseStats[stat],
+      this.species.baseStats[stat]!,
       this.ivs[stat]!,
       this.evs[stat]!,
       this.level,

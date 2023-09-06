@@ -672,6 +672,11 @@ export function getEndOfTurn(
     texts.push('Volcalith damage');
   }
 
+  if (defender.isIngrain)  {
+    damage += Math.floor(defender.maxHP() * (defender.item === "Big Root" ? 0.3 : 1/16));
+    texts.push('Ingrain recovery');
+  }
+
   return {damage, texts};
 }
 

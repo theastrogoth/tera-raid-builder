@@ -74,6 +74,10 @@ export class RaidMove {
 
     public result(): RaidMoveResult {
         this.setOutputRaidState();
+        if (this._user.originalCurHP === 0) {
+            const output = this.output;
+            return output;
+        }
         this._raidState.raiders[0].checkShield(); // check for shield activation
         this.setAffectedPokemon();
         if (this.flinch) {
@@ -553,7 +557,12 @@ export class RaidMove {
                         continue;
                     } else if (!pokemon.volatileStatus.includes(ailment)) {
                         pokemon.volatileStatus.push!(ailment)
-                        this._flags[id].push(ailment + " inflicted")
+                        if (ailment === "ingrain") {
+                            this._flags[id].push(pokemon.name + " planted its roots!");
+                            pokemon.isIngrain = true;
+                        } else {
+                            this._flags[id].push(ailment + " inflicted")
+                        }
                     }
                 // non-volatile status
                 } else {
@@ -669,7 +678,7 @@ export class RaidMove {
                 for (let i=1; i<5; i++) {
                     const pokemon = this.getPokemon(i);
                     pokemon.ability = undefined;
-                    pokemon.abilityNullified = 2;
+                    pokemon.abilityNullified = 3;
                     for (let stat in pokemon.boosts) {
                         pokemon.boosts[stat as StatIDExceptHP] = Math.min(0, (pokemon.boosts[stat as StatIDExceptHP] || 0));
                     }
@@ -914,6 +923,9 @@ export class RaidMove {
                     this._raidState.applyStatus(this.userID, "slp");
                 }
                 break;
+            case "Ingrain":
+                this._user.isIngrain = true;
+                break;
             default: break;
             }
     }
@@ -958,6 +970,12 @@ export class RaidMove {
                 this._flags[0].push("Shield activated");
             } else {
                 this._flags[0].push("Shield broken");
+            }
+        }
+        // check for fainting
+        for (let i=0; i<5; i++) {
+            if (this._raiders[i].originalCurHP <= 0 && this.raidState.raiders[i].originalCurHP > 0) {
+                this._flags[i].push(this._raiders[i].name + " fainted!");
             }
         }
         // check for item changes

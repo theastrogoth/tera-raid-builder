@@ -84,6 +84,7 @@ export class Raider extends Pokemon implements State.Raider {
                 alliesFainted: this.alliesFainted,
                 boostedStat: this.boostedStat,
                 usedBoosterEnergy: this.usedBoosterEnergy,
+                isIngrain: this.isIngrain,
                 item: this.item,
                 gender: this.gender,
                 nature: this.nature,

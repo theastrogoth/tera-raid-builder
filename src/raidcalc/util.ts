@@ -1,10 +1,8 @@
 import { Move, Field, Pokemon, Generations } from "../calc";
 import { AilmentName, RaidTurnInfo } from "./interface";
 import { Raider } from "./Raider";
-import { RaidTurnResult } from "./RaidTurn";
 import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
-import { RaidTurnResult } from "./RaidTurn";
 
 const gen = Generations.get(9);
 

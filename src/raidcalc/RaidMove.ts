@@ -4,7 +4,7 @@ import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, StatIDExceptHP } from "../calc/data/interface";
-import { getQPBoostedStat } from "../calc/mechanics/util";
+import { getQPBoostedStat, isGrounded } from "../calc/mechanics/util";
 import { isSuperEffective, safeStatStage, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
@@ -94,15 +94,17 @@ export class RaidMove {
         }
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyEndOfMoveItemEffects();        
+        this.applyEndOfMoveItemEffects();       
+        this._raidState.raiders[0].checkShield(); // check for shield breaking 
         this.setFlags();
+        // store move data and target
         if (![
                 "(No Move)", 
                 "Attack Cheer",
                 "Defense Cheer", 
                 "Heal Cheer", 
                 "Remove Negative Effects", 
-                "Remove Stat Boosts & Abilities",
+                "Clear Boosts / Abilities",
             ].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
         }
@@ -382,6 +384,18 @@ export class RaidMove {
                         const calcMove = this.move.clone();
                         calcMove.hits = 1;
                         calcMove.isCrit = crit;
+                        // handle moves that are affected by repeated use
+                        if (this._user.lastMove && (this.moveData.name === this._user.lastMove.name)) {
+                            this._user.moveRepeated = (this._user.moveRepeated || 0) + 1;
+                            calcMove.timesUsed = this._user.moveRepeated;
+                        } else {
+                            this._user.moveRepeated = 0;
+                        }
+                        calcMove.timesUsed = (this._user.moveRepeated || 0) + 1;
+                        if (this._user.item === "Metronome") {
+                            calcMove.timesUsedWithMetronome = calcMove.timesUsed;
+                        }
+                        // get calc result
                         const moveField = this.getMoveField(this.userID, id);
                         const result = calculate(9, moveUser, target, calcMove, moveField);
                         results.push(result);
@@ -548,12 +562,13 @@ export class RaidMove {
                     // field-based immunities
                     if (id !== this.userID && ((field.attackerSide.isSafeguard && this._user.ability !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { continue; }
                     if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { continue; }
+                    // type-based and ability-based immunities
                     if (status === "brn" && pokemon.types.includes("Fire")) { continue; }
                     if (status === "frz" && (pokemon.types.includes("Ice") || pokemon.ability === "Magma Armor")) { continue; }
                     if ((status === "psn" || status === "tox") && (pokemon.ability === "Immunity" || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { continue; }
                     if ((status === "par" && (pokemon.types.includes("Electric") || pokemon.ability === "Limber"))) { continue; }
                     if (status === "slp" && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
-                    
+                    if (pokemon.field.hasWeather("Sun") && pokemon.ability === "Leaf Guard") { continue; }
                     this._raidState.applyStatus(id, status);
                 }
             }
@@ -646,7 +661,7 @@ export class RaidMove {
         const target_ability = target.ability as AbilityName;
 
         switch (this.move.name) {
-            case "Remove Stat Boosts & Abilities":
+            case "Clear Boosts / Abilities":
                 if (this.userID !== 0) {
                     throw new Error("Only the Raid boss can remove stat boosts and abilities!")
                 }
@@ -656,7 +671,7 @@ export class RaidMove {
                     pokemon.ability = undefined;
                     pokemon.abilityNullified = 2;
                     for (let stat in pokemon.boosts) {
-                        pokemon.boosts[stat as StatIDExceptHP] = Math.min(0, pokemon.boosts[stat as StatIDExceptHP] || 0);
+                        pokemon.boosts[stat as StatIDExceptHP] = Math.min(0, (pokemon.boosts[stat as StatIDExceptHP] || 0));
                     }
                 }
                 break;
@@ -779,7 +794,7 @@ export class RaidMove {
                             for (let stat in target.boosts) {
                                 let whiteHerbUsed = false;
                                 const statId = stat as StatIDExceptHP;
-                                if (target.boosts[statId] || 0 < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
+                                if ((target.boosts[statId] || 0) < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
                             }
                             break;
                         // Status-Curing Berries
@@ -889,6 +904,16 @@ export class RaidMove {
             case "Acupressure":
                 target.randomBoosts += 2;
                 break;
+            case "Rest":
+                if ((this._user.status !== "slp")
+                    && !(isGrounded(this._user, this._user.field) && this._user.field.hasTerrain("Misty") || this._user.field.hasTerrain("Electric")) 
+                    && !["Insomnia", "Purifying Salt", "Vital Spirit"].includes(this._user.ability as string)
+                    && !(this._user.field.hasWeather("Sun") && this._user.ability === "Leaf Guard")
+                ) {
+                    this._user.originalCurHP = this._user.maxHP();
+                    this._raidState.applyStatus(this.userID, "slp");
+                }
+                break;
             default: break;
             }
     }
@@ -942,6 +967,8 @@ export class RaidMove {
             if (initialItems[i] !== finalItems[i]) {
                 if (finalItems[i] === undefined) {
                     this._flags[i].push(initialItems[i] + " lost")
+                } else if (initialItems[i] === undefined) {
+                    this._flags[i].push(finalItems[i] + " gained")
                 } else {
                     this._flags[i].push(initialItems[i] + " replaced with " + finalItems[i])
                 }

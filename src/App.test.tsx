@@ -24,7 +24,6 @@ async function resultsFromLightBuild(strategy: LightBuildInfo) {
     notes: buildInfo.notes,
     credits: buildInfo.credits,
     startingState: startingState,
-    turns: buildInfo.turns,
     groups: buildInfo.groups,
   }
   const battle = new RaidBattle(battleInfo);

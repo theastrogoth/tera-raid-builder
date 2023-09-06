@@ -104,6 +104,7 @@ export interface Raider extends Pokemon {
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     lastMove?: MoveData;    // stored for Instruct and Copycat
     lastTarget?: number;    // stored for Instruct and Copycat
+    moveRepeated?: number;  // stored for boost from Metronome, Fury Cutter, etc
     teraCharge?: number;    // stored for Tera activation check
     shieldActivateHP?: number;
     shieldBroken?: boolean;

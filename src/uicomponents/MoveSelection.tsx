@@ -410,7 +410,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups}:
     {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void}) 
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
-    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Remove Stat Boosts & Abilities"];
+    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Clear Boosts / Abilities"];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
     const [options, setOptions] = useState(moveInfo.options || {crit: true, secondaryEffects: true, roll: "max"});
@@ -454,7 +454,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups}:
                     onChange={(e) => {
                         const name = e.target.value as MoveName;
                         let mData: MoveData = {name: name};
-                        if (!["(No Move)", "(Most Damaging)", "Remove Negative Effects", "Remove Stat Boosts & Abiltiies"].includes(name)) {
+                        if (!["(No Move)", "(Most Damaging)", "Remove Negative Effects", "Clear Boosts / Abilities"].includes(name)) {
                             mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === name) as MoveData;
                         }
                         setMoveInfo({...moveInfo, moveData: mData})}

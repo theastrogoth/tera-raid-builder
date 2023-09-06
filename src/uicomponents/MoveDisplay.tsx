@@ -111,7 +111,6 @@ function MoveText({raiders, turn, result}: {raiders: Raider[], turn: RaidTurnInf
 
 function MoveGroup({group, results, raiders, index, max}: {group: TurnGroupInfo, results: RaidBattleResults, raiders: Raider[], index: number, max: number}) {
     const turns = group.turns;
-    const result = results.turnResults.find((r) => r.group === group.id)!;
     const color = "group" + group.id.toString().slice(-1) + ".main";
     return (
         <Stack direction="column">
@@ -123,7 +122,7 @@ function MoveGroup({group, results, raiders, index, max}: {group: TurnGroupInfo,
                     <Stack direction="column" spacing={1}>
                     {
                         turns.map((t, i) => (
-                            <MoveText key={i} raiders={raiders} turn={t} result={result} />
+                            <MoveText key={i} raiders={raiders} turn={t} result={results.turnResults.find((r) => r.id === t.id)!} />
                         ))
                     }
                     </Stack>                    

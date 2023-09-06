@@ -12,7 +12,7 @@
     "ailment": null,
     "statChanges": [
         {
-            "stat": "accuracy",
+            "stat": "acc",
             "change": -1
         }
     ],

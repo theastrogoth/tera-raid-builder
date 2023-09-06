@@ -432,8 +432,8 @@ export class RaidState implements State.RaidState{
             pokemon.extraMoves,
             pokemon.extraMoveData,
             false,      // isEndure
-            undefined,  // lastMove
-            undefined,  // lastTarget
+            pokemon.lastMove,
+            pokemon.lastTarget,
             undefined,  // moveRepeated
             pokemon.teraCharge,
             pokemon.shieldActivateHP,

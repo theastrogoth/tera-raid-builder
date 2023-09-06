@@ -1,6 +1,6 @@
 import { Move, Generations, Pokemon } from "../calc";
 import { MoveName, ItemName, SpeciesName } from "../calc/data/interface";
-import { RaidTurnInfo } from "./interface";
+import { RaidTurnInfo, TurnGroupInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { RaidMove } from "./RaidMove";
 import { getBoostCoefficient, safeStatStage } from "./util";
@@ -14,8 +14,7 @@ export type RaidBattleInfo = {
     notes?: string;
     credits?: string;
     startingState: RaidState;
-    turns: RaidTurnInfo[];
-    groups: number[][];
+    groups: TurnGroupInfo[];
 }
 
 export type RaidBattleResults = {
@@ -27,7 +26,7 @@ export type RaidBattleResults = {
 
 export class RaidBattle {
     startingState: RaidState;
-    turns: RaidTurnInfo[];
+    groups: TurnGroupInfo[];
 
     _state!: RaidState;
     _turnResults!: RaidTurnResult[];
@@ -37,7 +36,7 @@ export class RaidBattle {
 
     constructor(info: RaidBattleInfo) {
         this.startingState = info.startingState;
-        this.turns = info.turns;
+        this.groups = info.groups;
     }
 
     public result(): RaidBattleResults {
@@ -64,11 +63,17 @@ export class RaidBattle {
 
     private calculateTurns(){
         this._turnResults = [];
-        for (let i = 0; i < this.turns.length; i++) {
-            const turn = this.turns[i];
-            const result = new RaidTurn(this._state, turn).result();
-            this._turnResults.push(result);
-            this._state = result.state;
+        for (let i = 0; i < this.groups.length; i++) {
+            const turns = this.groups[i].turns;
+            const repeats = this.groups[i].repeats || 1;
+            for (let j = 0; j < repeats; j++) {
+                for (let k = 0; k < turns.length; k++) {
+                    const turn = turns[k];
+                    const result = new RaidTurn(this._state, turn).result();
+                    this._turnResults.push(result);
+                    this._state = result.state;
+                }
+            }
         }
     }
 
@@ -225,10 +230,10 @@ export class RaidBattle {
             /// special interactions
             // Mew stat boosts for Mewtwo event.
             if (id !== 0 && pokemon.name === "Mew" && this._state.raiders[0].name === "Mewtwo") {
-                console.log(pokemon.stats)
                 this._state.raiders[id] = new Raider(
                     id,
                     pokemon.role,
+                    pokemon.shiny,
                     pokemon.field.clone(),
                     new Pokemon(
                         gen,
@@ -252,7 +257,6 @@ export class RaidBattle {
                 );
                 this._state.raiders[id].originalCurHP = this._state.raiders[id].maxHP();
                 this._turnZeroFlags[id].push(pokemon.role + " is going to go all out against this formidable opponent!")
-                console.log(id, this._state.raiders[id].stats);
             }
         }
         // check for item/ability activation by executing dummy moves

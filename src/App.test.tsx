@@ -24,7 +24,6 @@ async function resultsFromLightBuild(strategy: LightBuildInfo) {
     notes: buildInfo.notes,
     credits: buildInfo.credits,
     startingState: startingState,
-    turns: buildInfo.turns,
     groups: buildInfo.groups,
   }
   const battle = new RaidBattle(battleInfo);
@@ -247,6 +246,55 @@ describe('Specific Test Cases', () => {
     const hash = "#H4sIAAAAAAAAA71UbWvbMBD+K0Iw6MDr7KRpS79ly7aUtU0gHYOFfFDsc6xFlowkJ/FK//tOsp26JR86WErC+STf3fPcmx9oSq9o/NsoSQNq6dV8HgZUshzoInAqTxol1tyiiYFYyYTp6kuaQmwNXmklhDOKAloa0NcjF4npFVivqsJyJY2z6AV0pVVZ4G2uNnAtU4XqUhlz2x7rOFJZcKFjDQn3IIVaQ16TLLV0Nz6SadhlLiaza5QJpI5nwbxMvIQGHakCbfJD+yUX3FaocQu5v8fg7g1sHAL3UsAGhMMFze6rAhrypmVeCssLwUE7v53V7Na/XSwCuqFXDxRreh7QW9iS0XSGNhMpKpIqTfrhjoynxGmDHdlym5EPs2JE0NRu1al7EiyiIYz0wndkqZSxxCrChCDGMmsCYhThlphMlSIhiSIgVbnKSMJytgJnuyqZZtICHjIgk/H3ySlSKD/iaWisVt+UzWgw9ywvg9DzRHDaUX5ICXqDactSCLxXCRicBO9ygS773+KxvexHL/74KgrDOsKcTk2F2HztSjnLWKK25BMmhadhqRmZFRn4LqBdnPEYe9cP0Xu+aBEug8gTpK2cVTLOtJL8j/P7CWwtwRgyVYLHrr8HSfcGvVq+mvgdM7YiU6HcJoxhh8yiF8RwyCZY8VWpS/pMnVX5kivD3dzc8BSboZcuCtNJtSdWU/rXel5LLGcZ2wN0+gi8LqVl0q1GRz25U2RYz/97PP5SKic34Bdrxow5RMlrryZ1r3bYOlcmUXC5ImMmkwMEz3DA8qUGv9pP2gt6N5Ba3Cr9/+h9ZWsg98C06ZBaNJsw8AG9ivy6XY/a+36QMmGgkTTnkqL/497p5NZt68gtImaPOYTo23his6AWNGc779d6DoJeB/lZ7bCX0ZGx+x3sToGwScfOOuogD61l8Zp8zsB9U3uIflzs89YOgzRT2z96whcd0Lct9aCDvP9yvEGZz+rVe5rt3THXCVd57lYJlwbVC2zyYIEb/vgX7e0lCfEIAAA=";
     const strategy = deserialize(hash) as LightBuildInfo;
     await testOHKO(strategy);
+  })
+  test('instruct_cheer_reflecttype', async() => {
+    const hash = "#H4sIAAAAAAAAA8VWbW/aMBD+K5E/bVImkQB9+0ZLpVYaLSqd+gHxwU0uxMOxI9uhZVX/++5ch6UVWid1YwKZ4853z3MvOXhiBTth2XerFYuZYyfzeS9milfAFjGJIichiVljwVyO6RI3S3Be1LUTWlm6kcZsaXRTo7bSa7hUhUbxXls7ab++BMyMcGixkGmVc7M5LwrInEWV0VLiRymcDZhKOyBLZiAX/k6tV1C9cG2MIo1HtSF4SfjcrfDMoSCYmvsz9ycEpogELKSJ+lKoDfndCykcScJB5e0IQjdgTUjCnxLWQDQdGH67qSEkbNtsG+lELQUY8nt0hk+8dbGI2ZqdPDEs8UHMWHjPveIoRu43XOTRKYZAwwQe3AMWsODSQsy+KQVmjVCqkRKtOgeLRfS+h+i7fS2eW2U/efNGU9JDmKndZKXIEJpE64xYUQ5bNZuVPNcP0Sn33Rg1hkezugRDxesPMcScXXHrNtFUaurkaNmWLcSIbsEYLhTmHOgcxYnPiYUzpDXbqKw0WokfxOAO+EqBtdFUS5FRvFtR4fi1GaVJ6pNMh/Q5GLzKtbcjVV+sOTvjsoomQtEIYGgJKpo2BQ3HDRQSZy8KbRxzs0ITUsNMKcC8kwBOzbXhatmYhnXFbSrVvdBWUPO+igKia3OPImH/SmCYhj556V3+7Eqbikvq1KXCRjWZ20Gs7+ueN9mKdaRAa8wreiLO1wJr6mA3o7Q3wPPPKN1xR5M9ZzNR1RKiU+DVDlIDbHRDhPD8MpJa8i2lqRa4bKJb3WRlO9AfKlNo8yjDx2dWG06TcwGyFmoZXXCVd+gtwvM2QA3G8jLWr5sL1jN5MQwD48C7woGOEbPlg36fJtq6CGvMlwj2mWHIN77YNHLlj+jaI9/WGxkkHQadGd2qP4bvkX8Df9xB75ZusB/4ow78GApQFqKzEmi20v0wSA7bu/23myDBKuyDQb/DYOQcz1ZtDfbUhWTQYbDdMdiB/eSf/lf0ISK1gV7ti3jwd1bAuwwOOgw6Pz7/egXgFqRf5B6toGP6o5X6UaRHgr4NkdgCl+XzT6b4rTocCgAA";
+    const strategy = deserialize(hash) as LightBuildInfo;
+    await testOHKO(strategy);
+  })
+  test('tera_activation', async() => {
+    const hash = "#H4sIAAAAAAAAA81TO2/bMBD+KwKnFNDgZ9p4s+M+MjgwmmQSNNDSSWJNkQJJyREC//fe0ZRjtB2KDk0giT7e87vvzi+sYAuW/bBasZg5tkiSUcwUr4GlMYkiJ2Ecs9aCuVuTEzclOC/qxgmtLHlMYlYa3TaorXUHd6rQKO60tZvhekqYGeHQYiHTKuem/1wUkDmLKqOlxJ9KOJ9xHjOeOdFxB49geIChtANyzgzkwoc1eg/1CX5rFGk8EBvqVQSJuz2eORRUueH+zP0JATwWBxY6R30lVE9xOyGFI0k4qL0di5AHdFRJ+FNCB4TcIczHvoHAgR0IaKUTjRRgKO7ZGb7x1jSNWccWLwxZ/xgzFt7EK25ixP6dizxaYQo0bODgDshpwaWFmD0pBabDUqqVEq06B4u8+thPGHt+0uOgnI5/edE0HmGZre2zSmRYmkTrjNhTD2c1e6h4rg/RivsBLVvDo4emAkPkTeeYImH33Lo+2kpNw12WA20hR4QTNFwo7DnAuYlxmEulRCUk95RdXkKTaygEV5TxttIiA0SgaGzLnNdeHzqbzCf++/uWv1aa6EqQ4hKiL8L6IlJbiG51veN0XbVyHz3R+qwJe7RtVVZhx5QguWgEt2cr9jyrWnYhhRau7nW0PG3Rh2FY37jJ+3+blU+Q/I5h+g4wzN4QQxr+NjNcK2/zt2l8Od8xpvbq6wAqQKtxL9HoTAuY6HgOvdrgjkRrXLVSqBJRj9DLG+fe+XSwmj9j+IhCh+AZ7sR7QDH9Dyiu/4DiHP8KZfamhKR+SY4/AS/MV1HuBgAA";
+    const result = await resultsFromHash(hash);
+    // T1: Annihilape has attacked 1 time, can't activate Tera
+    expect(result.turnResults[0].state.raiders[1].teraCharge).toEqual(1);
+    expect(result.turnResults[0].state.raiders[1].isTera).toEqual(false);
+    expect(result.turnResults[0].flags[1].length).toEqual(0); // No flag for tera activation 
+    expect(result.turnResults[0].results[1].desc.includes("Tera Ghost")).toEqual(false); // No Tera in the desc
+    // T2: Annihilape has attacked 2 times, can't activate Tera
+    expect(result.turnResults[1].state.raiders[1].teraCharge).toEqual(2);
+    expect(result.turnResults[1].state.raiders[1].isTera).toEqual(false);
+    expect(result.turnResults[1].flags[1].length).toEqual(0);
+    expect(result.turnResults[1].results[1].desc.includes("Tera Ghost")).toEqual(false);
+    // T3: Annihilape has attacked 3 times (at the end of the turn), can't activate Tera (during the turn)
+    expect(result.turnResults[2].state.raiders[1].teraCharge).toEqual(3);
+    expect(result.turnResults[2].state.raiders[1].isTera).toEqual(false);
+    expect(result.turnResults[2].flags[1].length).toEqual(0);
+    expect(result.turnResults[2].results[1].desc.includes("Tera Ghost")).toEqual(false);
+    // T4: Annihilape has attacked 4 times (at the end of the turn), has activated Tera
+    expect(result.turnResults[3].state.raiders[1].teraCharge).toEqual(4);
+    expect(result.turnResults[3].state.raiders[1].isTera).toEqual(true);
+    expect(result.turnResults[3].flags[1][0].includes("Tera activated")).toEqual(true);
+    expect(result.turnResults[3].results[1].desc[0].includes("Tera Ghost")).toEqual(true);
+  })
+  test('tera_shield', async() => {
+    const hash = "#H4sIAAAAAAAAA8VWS2/bOBD+KwJPW4DFWn6lzS3rLLYBYmw2MtCDoQMtjSQ2FCmQlFuhyH/vDC3ZquGiCIpmAZseDuf1zQv+ygp2zbJPzmjGmWfX2+2EMy1qYCknUuZExJy1DuzdLQkJW4IPpGm8NNqRxJSz0pq2QW5t9nCnC4Pkzji3Hq4Hg5mVHl8cZEbnwnZ/FwVk3iHLGqXwp5I+WFxwJjIv98LDBqzow9DGAwlnFnIZ1BrzBPUh/NZq4oRAXO+vopCEf8Izh4I8NyKceTjhKLaxsizBkh1Zw+nmKgkqXwmdgboVtSjhyDxcHzHCC6wQ9GX2qhK6hD5tCJvUQ86DuO4o4p1U0hMlPdThHeGRBOwJowyngj1Qzjwa3XQN9Nl3Q+pb5WWjZMABX7wV6/51iMpjXlPO9uz6K8PiX3HGwqf985Os664yRSHczhpfkY1tEIonHBP2IJ9EVrVsRBVCOeDsXpaV11KX0aOhJId79JcI1f2vlYD1D4be8eliysla/5s+Dw+z+OyDT/EE3X7EFFIkLGktVXNTtToP+B6U6NBjW1Z4ubNGRxshFSZ5MUHFLXsUUke3VEZ8D9rpwdv7YPn45fF0wq8wliGamJjsvrVCe0nJO5E94pXRmFtL1VpVRmYQJQ1kJLo2ObhzvMsX4P3HCucI7z2IIkq8sXUIX+sOwZDHINFF2FcWERJDliK6DZc0GNmmXLdKjfBg293YnVE4XWxM9ngSgDxKzOeQ1xW2jPXRShlBQ7QSqj7DM1Rx+RI8YwiJKKBshaVuecAtADp6aAsqb9JpbD0n3Q+hzDAkZXInw3CcyB5K6JfoZueM3Z2SRQCpS+pGuuqIhhwMaOLF8qw+k+NxAc1NJjFjjQ1w1m3+NlGCFs8HUA1Nwgeh89AdUim6H9r4R5jmnP2LLVa2lubrRPaYNqCgEb7qXlCdczQ/qc6ddt62GW1q3ITZEw6WqY+znOD2BWq1RygUbu9zIGm/KebYaMQ5+MVKjdM0w6gCf9Hj6tHV1MTxafxQ7Y+1cT4KOxST94ZRfQZdDBMOB6vFF9QMkzsoz1HwuwhGbTd9nQAmgxu0Mx7i+HXcz0buT1Wdnwz8TudHNzMaBaGiVQW0VF4p9YuR+/+h9ZYj96+e+qvv+/5i5y0vRRCM/nIYuAJQdRL+xy35PE3T5+dv7gJS1m0KAAA=";
+    const strategy = deserialize(hash) as LightBuildInfo;
+    await testOHKO(strategy); // OHKO after Lurantis activates Tera
+    const result = await resultsFromHash(hash);
+    // T0: Shield activates immediately
+    expect(result.turnZeroFlags[5].includes("Shield activated")).toEqual(true); // index 5 includes flags from the boss's "dummy" turn
+    // T1: Acid Spray does only 1 damage due to shield multiplier
+    expect(result.turnResults[0].results[1].damage[0]).toEqual(1);
+    // T2: Seed Sower activates, Grassy Seed consumed
+    expect(result.turnResults[1].results[0].flags[3].includes("Grassy Seed lost")).toEqual(true);
+    expect(result.turnResults[1].state.raiders[3].item).toEqual(undefined);
+    
+  })
+  test('multi-hit-weak-armor', async() => {
+    const hash = "#H4sIAAAAAAAAA61TS0/cMBD+K5ZPVMph2QdF3JZSVNouQiyoh9UeTDybmDieyHZ2iRD/vWOvAwGhPtQqkTNPzzffTB75hp/w/N6h4Rn3/GS1GmXciBr4OguikkE4zHjrwF6chSBhC/BRxMYrNC5EjDNeWGwbsta4hQuzQRLv0LlFr+4vzK3y5HGQo5HCdp83G8i9I5NFrelTKu9STYMegie3IFWMabCCeo+1tSZYYlWXLi9DfeErOiVsQplGxFPGExJSqgQ8tUn2Upku5N0prXyQlIc6+qlIiIBtqKTiqWELAaYHK266BlLDru+21V41WoENeQ/eikX0rtcZ3/KTR04UH2Wcp3cVDccZYb8WSrJTuoIcC9j5HRG4EdpBxm+NAbulUqbVmrwowRGJMfcj5T4/66feODl885LrcERlrlyXlyqn0kF03qoq9PBs5stSSNyxUxGnMW+tYMumBBvIm8zoihW/FM537EpjmOS86GlLd7AbsFYoQz0nOMcZDfObRaxQqkj9UElNzk0Bll2hMuHWTyWqHAiFCaP7SqvRDRoez8apZZJ+33SkjfrFHVW4saqhVoJ9NUA4DqzjzuXCCin4Gy1hPLhENt+vyQcKOce8dWwpXEnKF2Fl9/dDmRz18M51jy+v3gE4IYJRexAFqDD911oC+ANExea2Rvuf4A3oW1ZKa7bciffom9LieDT3SL9l3P1X2vv0fUchQbIzGnTYIylqYV7WOsz4Zc5/DvMa84qdalrRAcx1+tOmWYqLGlE6aIoYHu3tswQ4wa5plzOq0kOgtIMFOs/OCHGhTEHNjGjFU663LewPXosHyhyF1D55SoGvEAzwZtNfIZj9M4J15OLpJz2MB3X1BQAA";
+    const result = await resultsFromHash(hash);
+    // T1: Rock Blast does higher damage due to Weak Armor activating after each hit
+    expect(result.turnResults[1].results[1].damage[0]).toEqual(481);
   })
 })
 

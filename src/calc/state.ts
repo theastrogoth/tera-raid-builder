@@ -1,6 +1,16 @@
 import * as I from './data/interface';
 
 export namespace State {
+
+  export type ShieldData  = {
+    hpTrigger: number;
+    timeTrigger: number;
+    shieldCancelDamage: number;
+    shieldDamageRate: number;
+    shieldDamageRateTera: number;
+    shieldDamageRateTeraChange: number;
+  }
+
   export interface Pokemon {
     name: I.SpeciesName;
     level?: number;
@@ -26,8 +36,12 @@ export namespace State {
     volatileStatus?: string[];
     isChoiceLocked?: boolean;
     teraType?: I.TypeName;
+    isTera?: boolean;
+    shieldData?: ShieldData;
+    shieldActive?: boolean;
     toxicCounter?: number;
     hitsTaken?: number;
+    changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName];
     moves?: I.MoveName[];
     overrides?: Partial<I.Specie>;
   }

@@ -1,8 +1,8 @@
 import {Natures, Generation, TypeName, StatID, StatsTable} from './data/interface';
 import {toID} from './util';
 
-const RBY: Array<StatID | 'spc'> = ['hp', 'atk', 'def', 'spc', 'spe'];
-const GSC: StatID[] = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
+const RBY: Array<StatID | 'spc'> = ['hp', 'atk', 'def', 'spc', 'spe', 'acc', 'eva'];
+const GSC: StatID[] = ['hp', 'atk', 'def', 'spa', 'spd', 'spe', 'acc', 'eva'];
 const ADV: StatID[] = GSC;
 const DPP: StatID[] = GSC;
 const BW: StatID[] = GSC;
@@ -199,8 +199,8 @@ export const Stats = new (class {
       let hpPowerX = 0;
       let i = 1;
       for (const s in stats) {
-        hpTypeX += i * (ivs[s as StatID] % 2);
-        hpPowerX += i * (tr(ivs[s as StatID] / 2) % 2);
+        hpTypeX += i * (ivs[s as StatID]! % 2);
+        hpPowerX += i * (tr(ivs[s as StatID]! / 2) % 2);
         i *= 2;
       }
       return {

@@ -22,11 +22,11 @@ function MoveText({raiders, turn, result}: {raiders: Raider[], turn: RaidTurnInf
     }
     let targetName = raiders[turn.moveInfo.targetID].name;
 
-    let move: string = result.raiderMoveUsed;
+    let move: string = result ? result.raiderMoveUsed : "";
     if (move == "(No Move)") {
         move = "";
     }
-    let teraActivated = result.flags[turn.moveInfo.userID].includes("Tera activated");
+    let teraActivated = result && result.flags[turn.moveInfo.userID].includes("Tera activated");
 
     if (move === "") {
         name = raiders[0].name;
@@ -39,7 +39,7 @@ function MoveText({raiders, turn, result}: {raiders: Raider[], turn: RaidTurnInf
             target = "";
         }
         targetName = raiders[turn.bossMoveInfo.targetID].name;
-        move = result.bossMoveUsed;
+        move = result ? result.bossMoveUsed : "";
         if (move == "(No Move)") {
             move = "";
         }

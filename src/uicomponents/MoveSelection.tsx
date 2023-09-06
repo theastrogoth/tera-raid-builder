@@ -784,14 +784,12 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
     const onDragEnd = (result: DropResult) => {
         setButtonsVisible(true);
         const {destination, source, type} = result;
-        console.log("Drag end", destination, source)
         if (!destination) { 
             return;
         }
 
         const sIdx = parseInt(source.droppableId);
         const dIdx = parseInt(destination.droppableId);
-        console.log(sIdx, dIdx, sIdx, dIdx)
         if (dIdx === sIdx && 
             destination.index === source.index
         ) {
@@ -801,7 +799,6 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
         let newGroups = [...raidInputProps.groups];
         if (type === "turn"){ // a turn was dragged
             if (sIdx === dIdx) { // reorder turns within a group
-                console.log("Reorder within group")
                 const newGroup = {
                     id: newGroups[sIdx].id,
                     repeats: newGroups[sIdx].repeats,
@@ -809,13 +806,12 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
                 };
                 newGroups[sIdx] = newGroup;
             } else { // move to an existing group
-                console.log("Move to existing group: From " + sIdx + " to " + dIdx)
                 const [sourceGroup, destGroup] = move(newGroups[sIdx], newGroups[dIdx], source.index, destination.index);
                 newGroups[sIdx] = sourceGroup;
                 newGroups[dIdx] = destGroup;
             }
         } else { // a group was dragged
-            newGroups = reorder(newGroups, sIdx, dIdx) as TurnGroupInfo[];
+            newGroups = reorder(newGroups, source.index, destination.index) as TurnGroupInfo[];
         }
         raidInputProps.setGroups(newGroups);
     };

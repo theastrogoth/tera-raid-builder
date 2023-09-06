@@ -4,7 +4,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
-import { getDisplayMoveGroups } from "../raidcalc/util"
 import { RaidTurnResult } from "../raidcalc/RaidTurn";
 import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";

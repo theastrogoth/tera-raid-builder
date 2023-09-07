@@ -204,7 +204,7 @@ function App() {
       ability: "Unnerve",
       moves: ["Psystrike", "Ice Beam", "Aura Sphere", "Calm Mind"],
       item: "Chesto Berry",
-      evs: {def: 252, spd: 252},
+      evs: {def: 252, spa: 6, spd: 252},
       shieldData: {hpTrigger: 100, timeTrigger: 100, shieldCancelDamage: 50, shieldDamageRate: 10, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
@@ -216,8 +216,7 @@ function App() {
     ["Calm Mind", "Rest"] as MoveName[], 
     [
       {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1},{stat: "spd", change: 1}], statChance: 100},
-      {name: "Rest" as MoveName, category: "heal", target: "user", healing: 100, ailment: "sleep", ailmentChance: 100},
-      {name: "Psychic Terrain" as MoveName, category: "field-effect", target: "user"},
+      {name: "Rest" as MoveName, category: "unique", target: "user"},
     ])
   );
   const [raider1, setRaider1] = useState(

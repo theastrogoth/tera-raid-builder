@@ -875,10 +875,10 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
                                 >
                                     <Box flexGrow={1} />
                                     <AddButton label="Add Group" onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
-                                    {provided.placeholder}
                                     <Box flexGrow={1} />
                                 </Stack>
-                                        {/* </div>
+                                            {/* {provided.placeholder}
+                                        </div>
                                     )}
                                 </Droppable> */}
                                 {

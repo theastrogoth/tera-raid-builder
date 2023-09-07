@@ -667,13 +667,14 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                     <Stack direction="column" width="100%">
                         <Droppable droppableId={`${groupIndex}`} type="turn">
                             {(provided) => (
-                                <div
+                                <Box
                                     ref={provided.innerRef}
-                                    {...provided.droppableProps} 
+                                    {...provided.droppableProps}
+                                    sx={{ minHeight: "60px" }} 
                                 >
                                     <MoveGroupCard raidInputProps={raidInputProps} groupIndex={groupIndex} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} />
                                     {provided.placeholder}
-                                </div>
+                                </Box>
                             )}
                         </Droppable>
                         <Stack direction="row" justifyContent="center" alignItems="center" sx={{ paddingTop: 0.5, width: "100%" }}>
@@ -712,7 +713,24 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                     </Stack>
                 </Stack>
             </Paper>
-            <AddButton label="Add Group" onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} visible={buttonsVisible}/>
+            {/* <Droppable droppableId={`${groupIndex + 0.5}`} type="turn">
+                {(provided) => (
+                    <div
+                        ref={provided.innerRef}
+                        {...provided.droppableProps} 
+                    > */}
+            <Stack
+                direction="row"
+                sx = {{ width: "100%"}}
+            >   
+                <Box flexGrow={1} />
+                <AddButton label="Add Group" onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} visible={buttonsVisible}/>
+                <Box flexGrow={1} />
+            </Stack>
+                        {/* {provided.placeholder}
+                    </div>
+                )}
+            </Droppable> */}
         </Stack>
     )
 }
@@ -787,18 +805,30 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
         if (!destination) { 
             return;
         }
-
-        const sIdx = parseInt(source.droppableId);
-        const dIdx = parseInt(destination.droppableId);
-        if (dIdx === sIdx && 
+        if (destination.droppableId === source.droppableId && 
             destination.index === source.index
         ) {
             return;
         }
 
+        const sIdx = parseInt(source.droppableId);
+        const dIdx = parseInt(destination.droppableId);
+
         let newGroups = [...raidInputProps.groups];
         if (type === "turn"){ // a turn was dragged
-            if (sIdx === dIdx) { // reorder turns within a group
+            if (destination.droppableId.slice(-2) === ".5") { // move to a new group
+                let uniqueGroupId = 0;
+                while (newGroups.find((g) => g.id === uniqueGroupId)) {
+                    uniqueGroupId++;
+                }
+                const movedTurn = newGroups[sIdx].turns.splice(source.index, 1)[0];
+                const newGroup = {
+                    id: uniqueGroupId,
+                    repeats: 1,
+                    turns: [movedTurn],
+                };
+                newGroups.splice(Math.ceil(parseFloat(destination.droppableId)), 0, newGroup);
+            } else if (sIdx === dIdx) { // reorder turns within a group
                 const newGroup = {
                     id: newGroups[sIdx].id,
                     repeats: newGroups[sIdx].repeats,
@@ -818,11 +848,6 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
 
     return (
         <Box justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
-            <Stack direction="row">
-                <Box flexGrow={1} />
-                <AddButton label="Add Group" onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
-                <Box flexGrow={1} />
-            </Stack>
             <DragDropContext
                 onDragStart={onDragStart}
                 onDragEnd={onDragEnd}
@@ -838,6 +863,24 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
                                 spacing={0.25} 
                                 sx={{ marginTop: 0.25 }}
                             >
+                                {/* <Droppable droppableId={`${-0.5}`} type="turn">
+                                    {(provided) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.droppableProps} 
+                                        > */}
+                                <Stack
+                                    direction="row"
+                                    sx={{ width: "100%" }}
+                                >
+                                    <Box flexGrow={1} />
+                                    <AddButton label="Add Group" onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
+                                    {provided.placeholder}
+                                    <Box flexGrow={1} />
+                                </Stack>
+                                        {/* </div>
+                                    )}
+                                </Droppable> */}
                                 {
                                     raidInputProps.groups.map((group, index) => (
                                         <Draggable

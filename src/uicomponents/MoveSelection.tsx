@@ -670,7 +670,7 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                                 <Box
                                     ref={provided.innerRef}
                                     {...provided.droppableProps}
-                                    sx={{ minHeight: "60px" }} 
+                                    // sx={{ minHeight: "60px" }} 
                                 >
                                     <MoveGroupCard raidInputProps={raidInputProps} groupIndex={groupIndex} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} />
                                     {provided.placeholder}

@@ -25,9 +25,9 @@ import { styled } from '@mui/material/styles';
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
+import { MoveData, RaidMoveInfo, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import { getPokemonSpriteURL, arraysEqual, getTeraTypeIconURL } from "../utils";
+import { getPokemonSpriteURL, arraysEqual } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 
@@ -284,6 +284,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups}:
         if (!moveSet.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveSet])
 
     return (
@@ -413,20 +414,19 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups}:
     const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Clear Boosts / Abilities"];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
-    const [options, setOptions] = useState(moveInfo.options || {crit: true, secondaryEffects: true, roll: "max"});
 
     const setMoveInfo = (newMoveInfo: RaidMoveInfo) => {
         let newGroups = [...groups];
         newGroups[groupIndex].turns[turnIndex].bossMoveInfo = newMoveInfo;
         setGroups(newGroups);
         setMoveName(newMoveInfo.moveData.name);
-        setOptions(newMoveInfo.options as RaidMoveOptions);
     }
 
     useEffect(() => {
         if (!moveSet.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveSet])
 
     return (
@@ -480,6 +480,7 @@ function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGrou
         if (transitionIn === turnID) {
             setTransitionIn(-1);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transitionIn])
 
     return (
@@ -818,8 +819,12 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
         if (type === "turn"){ // a turn was dragged
             if (destination.droppableId.slice(-2) === ".5") { // move to a new group
                 let uniqueGroupId = 0;
-                while (newGroups.find((g) => g.id === uniqueGroupId)) {
-                    uniqueGroupId++;
+                const takenIds = newGroups.map((g) => g.id);
+                for (let i=0; i<=takenIds.length+1; i++) {
+                    if (!takenIds.includes(i)) {
+                        uniqueGroupId = i;
+                        break;
+                    }
                 }
                 const movedTurn = newGroups[sIdx].turns.splice(source.index, 1)[0];
                 const newGroup = {

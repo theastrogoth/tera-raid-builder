@@ -15,6 +15,12 @@ const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", impor
 
 function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean}) {
     const [value, setValue] = useState<number>(1);
+    const groups = raidInputProps.groups;
+    const boss = raidInputProps.pokemon[0];
+    const pokemon1 = raidInputProps.pokemon[1];
+    const pokemon2 = raidInputProps.pokemon[2];
+    const pokemon3 = raidInputProps.pokemon[3];
+    const pokemon4 = raidInputProps.pokemon[4];
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -26,7 +32,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
                 setResults(event.data);
             }
         }
-    }, [raidcalcWorker]);
+    }, [setResults]);
 
     useEffect(() => {
         const info = {
@@ -35,12 +41,13 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
         }
         raidcalcWorker
             .postMessage(info);
-    }, [raidInputProps.groups, 
-        raidInputProps.pokemon[0], 
-        raidInputProps.pokemon[1], 
-        raidInputProps.pokemon[2], 
-        raidInputProps.pokemon[3], 
-        raidInputProps.pokemon[4]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [groups, 
+        boss, 
+        pokemon1, 
+        pokemon2, 
+        pokemon3, 
+        pokemon4
       ]
     );
 

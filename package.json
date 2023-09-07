@@ -45,7 +45,11 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "unicode-bom": "off",
+      "no-mixed-operators": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -60,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "@types/react-plotly.js": "^2.6.0",
     "gh-pages": "^5.0.0"
   }

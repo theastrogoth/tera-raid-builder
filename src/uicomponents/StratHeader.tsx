@@ -11,6 +11,7 @@ function StratHeader({title, setTitle, prettyMode}: {title: string, setTitle: (t
         if (title !== fieldTitle) {
             setFieldTitle(title);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [title])
 
   return (

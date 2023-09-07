@@ -99,6 +99,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                                         currentTarget.onerror = null; // prevents looping
                                         currentTarget.src=getPokemonArtURL("placeholder");
                                     }}
+                                    alt=""
                                 />
                             </Box>
                             <Box position="absolute" sx={{bottom: "0px", right: "0px", filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>

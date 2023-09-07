@@ -1,4 +1,4 @@
-import { Field, Generations, Move, Pokemon, StatsTable } from "../calc";
+import { Field, Generations, Pokemon, StatsTable } from "../calc";
 import { Raider } from "./Raider";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";

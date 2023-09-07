@@ -31,7 +31,7 @@ export function exportPokemon(pokemon: Pokemon) {
 	finalText = checkExportExceptions(pokemon.name) + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
 	finalText += "Level: " + pokemon.level + "\n";
 	finalText += pokemon.bossMultiplier > 100 ? "Boss Health multiplier: " + pokemon.bossMultiplier + "\n" : "";
-	finalText += pokemon.nature && gen > 2 ? pokemon.nature + " Nature" + "\n" : "";
+	finalText += pokemon.nature && gen > 2 ? pokemon.nature + " Nature\n" : "";
 	finalText += pokemon.teraType && gen > 8 ? "Tera Type: " + pokemon.teraType + "\n": "";
 	finalText += pokemon.ability ? "Ability: " + pokemon.ability + "\n" : "";
 	if (gen > 2) {
@@ -54,12 +54,12 @@ export function exportPokemon(pokemon: Pokemon) {
 	}
 
 	var IVs_Array = [];
-	for (var stat in pokemon.ivs) {
+	for (var ivStat in pokemon.ivs) {
         //@ts-ignore
-		var iv = pokemon.ivs[stat] ? pokemon.ivs[stat] : 0;
+		var iv = pokemon.ivs[ivStat] ? pokemon.ivs[stat] : 0;
 		if (iv < 31) {
             //@ts-ignore
-			IVs_Array.push(iv + " " + Stats.displayStat(stat));
+			IVs_Array.push(iv + " " + Stats.displayStat(ivStat));
 		}
 	}
 	if (IVs_Array.length > 0) {
@@ -132,17 +132,17 @@ function getStats(currentPoke: Partial<Pokemon>, rows: string[], offset: number)
 
 		}
 		currentAbility = rows[x] ? rows[x].trim().split(":") : '';
-		if (currentAbility[0] == "Ability") {
+		if (currentAbility[0] === "Ability") {
 			currentPoke.ability = currentAbility[1].trim() as AbilityName;
 		}
 
 		currentTeraType = rows[x] ? rows[x].trim().split(":") : '';
-		if (currentTeraType[0] == "Tera Type") {
+		if (currentTeraType[0] === "Tera Type") {
 			currentPoke.teraType = currentTeraType[1].trim() as TypeName;
 		}
 
 		currentNature = rows[x] ? rows[x].trim().split(" ") : '';
-		if (currentNature[1] == "Nature") {
+		if (currentNature[1] === "Nature") {
 			currentPoke.nature = currentNature[0] as NatureName;
 		}
 	}
@@ -152,7 +152,7 @@ function getStats(currentPoke: Partial<Pokemon>, rows: string[], offset: number)
 function getItem(currentRow: string[], j: number) {
 	for (;j < currentRow.length; j++) {
 		var item = currentRow[j].trim();
-		if (ITEMS[9].indexOf(item) != -1) {
+		if (ITEMS[9].indexOf(item) !== -1) {
 			return item;
 		}
 	}
@@ -163,12 +163,12 @@ function getMoves(currentPoke: Partial<Pokemon>, rows: string[], offset: number)
 	var moves = [];
 	for (var x = offset; x < offset + 12; x++) {
 		if (rows[x]) {
-			if (rows[x][0] == "-") {
+			if (rows[x][0] === "-") {
 				movesFound = true;
 				var move = rows[x].substr(2, rows[x].length - 2).replace("[", "").replace("]", "").replace("  ", "");
 				moves.push(move);
 			} else {
-				if (movesFound == true) {
+				if (movesFound === true) {
 					break;
 				}
 			}

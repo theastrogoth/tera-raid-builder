@@ -51,6 +51,7 @@ function EVSlider({evTotal, ev, setEV}: {evTotal: number, ev: number, setEV: Fun
         if (val !== ev) {
             setVal(ev);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ev])
     
     const handleEVChange = (e: Event | React.SyntheticEvent, value: number) => {

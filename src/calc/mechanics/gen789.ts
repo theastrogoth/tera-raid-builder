@@ -409,7 +409,7 @@ export function calculateSMSSSV(
     desc.hits = move.hits;
   }
 
-  const turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
+  // const turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
 
   // #endregion
   // #region Base Power
@@ -1059,7 +1059,7 @@ export function calculateBPModsSMSSSV(
   }
 
   if (field.attackerSide.powerSpots > 0){
-    for(var i = 0; i < field.attackerSide.powerSpots; i++){
+    for(var ii = 0; ii < field.attackerSide.powerSpots; ii++){
         bpMods.push(5325);
     }
     desc.powerSpots = field.attackerSide.powerSpots;

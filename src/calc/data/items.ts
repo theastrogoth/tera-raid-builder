@@ -70,7 +70,7 @@ const GSC = [
   'Water Stone',
 ];
 
-const GSC_ONLY = [
+// const GSC_ONLY = [
   // 'Berry',
   // 'Berserk Gene',
   // 'Bitter Berry',
@@ -85,7 +85,7 @@ const GSC_ONLY = [
   // 'Polkadot Bow',
   // 'PSN Cure Berry',
   // 'Enigma Berry',
-];
+// ];
 
 const ADV = GSC.concat([  //GSC.filter(i => !GSC_ONLY.includes(i)).concat([
   'Aguav Berry',

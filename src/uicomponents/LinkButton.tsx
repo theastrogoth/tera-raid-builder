@@ -206,6 +206,7 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
         } catch (e) {
             console.log(e);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hash]);
 
     useEffect(() => {
@@ -235,6 +236,7 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
             }
         }
         loadInfo().catch((e) => console.log(e));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [buildInfo]);
 
     useEffect(() => {
@@ -242,6 +244,7 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
             setPrettyMode(true);
             setHasLoadedInfo(false);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hasLoadedInfo]);
 
     return (

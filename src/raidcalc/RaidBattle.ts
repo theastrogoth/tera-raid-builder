@@ -1,11 +1,9 @@
-import { Move, Generations, Pokemon } from "../calc";
-import { MoveName, ItemName, SpeciesName } from "../calc/data/interface";
+import { Move, Generations } from "../calc";
+import { MoveName } from "../calc/data/interface";
 import { TurnGroupInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { RaidMove } from "./RaidMove";
-import { getBoostCoefficient, safeStatStage } from "./util";
 import { RaidTurn, RaidTurnResult } from "./RaidTurn";
-import { Raider } from "./Raider";
 
 const gen = Generations.get(9);
 

@@ -29,10 +29,15 @@ export type Primitive = string | number | boolean | bigint | symbol | undefined 
 export type Builtin = Primitive | Function | Date | Error | RegExp;
 
 export type IsTuple<T> =
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   T extends [infer A] ? T
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   : T extends [infer A, infer B] ? T
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   : T extends [infer A, infer B, infer C] ? T
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   : T extends [infer A, infer B, infer C, infer D] ? T
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   : T extends [infer A, infer B, infer C, infer D, infer E] ? T
   : never;
 

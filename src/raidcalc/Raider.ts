@@ -1,5 +1,5 @@
 import { Field, Pokemon, Generations } from "../calc";
-import { MoveName, StatsTable, StatIDExceptHP, ItemName, TypeName, AbilityName } from "../calc/data/interface";
+import { MoveName, StatsTable, StatIDExceptHP, AbilityName } from "../calc/data/interface";
 import { extend } from '../calc/util';
 import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";

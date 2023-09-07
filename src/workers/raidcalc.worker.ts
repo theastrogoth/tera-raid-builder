@@ -1,5 +1,5 @@
 import { RaidBattle, RaidBattleInfo } from "../raidcalc/RaidBattle";
-import { RaidTurnInfo, TurnGroupInfo } from "../raidcalc/interface";
+import { TurnGroupInfo } from "../raidcalc/interface";
 import { RaidState } from "../raidcalc/RaidState";
 import { Raider } from "../raidcalc/Raider";
 import { Field, Pokemon, Generations } from "../calc";

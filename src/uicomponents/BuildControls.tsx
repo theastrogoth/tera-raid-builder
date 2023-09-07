@@ -22,7 +22,6 @@ import Menu from "@mui/material/Menu";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
-import { inputLabelClasses } from "@mui/material/InputLabel";
 import { alpha, darken, lighten, styled, SxProps, Theme } from '@mui/material/styles';
 
 import { Move, Pokemon, StatsTable, Generations, Field } from '../calc';
@@ -39,7 +38,6 @@ import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTyp
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
-import { useTheme } from "@emotion/react";
 
 type SetOption = {
     name: string,
@@ -138,12 +136,12 @@ function findOptionFromTeraTypeName(name?: string): string {
 }
 
 function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetItem {
-    const option = moveSet.find((move) => move.name == name);
+    const option = moveSet.find((move) => move.name === name);
     return option || {name: "(No Move)" as MoveName, method: "level-up", type: "Normal"};
 }
 
 function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[]): {name: AbilityName, hidden: boolean} {
-    const option = abilities.find((ability) => ability.name == name);
+    const option = abilities.find((ability) => ability.name === name);
     return option || {name: "(No Ability)" as AbilityName, hidden: false};
 }
 
@@ -165,7 +163,7 @@ function createMoveOptions(moves: MoveSetItem[]) {
 }
 
 function natureToOption(nature: Nature) {
-    if (nature.plus == nature.minus) { return nature.name }
+    if (nature.plus === nature.minus) { return nature.name }
     return nature.name + " (+" + prettyStatName(nature.plus as string) + ", -" + prettyStatName(nature.minus as string) + ")";
 }
 
@@ -196,7 +194,7 @@ function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
     let str = '';
     let empty = true;
     for (let statChange of statChanges) {
-        if (statChange.change != 0) {
+        if (statChange.change !== 0) {
             if (!empty) {
                 str = str + ', ';
             }
@@ -206,7 +204,7 @@ function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
             str = str + (change < 0 ? " " : " +" ) + statChange.change + " " + statAbbr;
         }
     }
-    if (str.length == 0) { return "none"; }
+    if (str.length === 0) { return "none"; }
     return str;
 }
 
@@ -214,18 +212,18 @@ function evsToString(pokemon: Pokemon) {
     let str = '';
     let empty = true
     for (let keyval of Object.entries(pokemon.evs)) {
-        if (keyval[1] != 0) {
+        if (keyval[1] !== 0) {
             if (!empty) {
                 str = str + ', ';
             }
             empty = false;
             let statAbbr = prettyStatName(keyval[0]);
             const nature = gen.natures.get(toID(pokemon.nature));
-            const natureEffect = nature ? (keyval[0] == nature.minus ? '-' : (keyval[0] == nature.plus ? '+' : '')) : '';
+            const natureEffect = nature ? (keyval[0] === nature.minus ? '-' : (keyval[0] === nature.plus ? '+' : '')) : '';
             str = str + statAbbr + ' ' + keyval[1] + natureEffect;
         }
     } 
-    if (str.length == 0) { return "none"; }
+    if (str.length === 0) { return "none"; }
     return str;
 }
 
@@ -335,7 +333,7 @@ function PokemonPopper({name, showPopper, anchorEl}: {name: string, showPopper: 
         if (showPopper && (pokemon === null || pokemon.name !== name)) {
             setPokemon(new Pokemon(gen, name));
         }
-    }, [name, showPopper])
+    }, [name, pokemon, showPopper])
     
     return (
         <Popper
@@ -379,7 +377,7 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
             }
             fetchMoveData().catch((e) => console.log(e));
         }
-    }, [moveItem, showPopper])
+    }, [moveItem, moveData, showPopper])
 
     const spriteURL = 
         moveItem.method === "level-up" ? [getMoveMethodIconURL("rare_candy")] :
@@ -514,16 +512,16 @@ function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolea
         <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
             <Stack direction="row" alignItems="center" spacing={0.25} >
                     {!prettyMode &&
-                        <img src={getTypeIconURL(move.type)} height="25px" />
+                        <img src={getTypeIconURL(move.type)} height="25px" alt="" />
                     }
                 <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
                     {move.name}
                 </Typography>
                     {move.method === "egg" && prettyMode &&
-                        <img src={getMoveMethodIconURL("egg")} height="20px" />
+                        <img src={getMoveMethodIconURL("egg")} height="20px" alt="" />
                     }
                     {move.method === "machine" && prettyMode &&
-                        <img src={getMoveMethodIconURL(move.type)} height="20px"/>
+                        <img src={getMoveMethodIconURL(move.type)} height="20px" alt="" />
                     }
             </Stack>
             <MovePopper moveItem={move} showPopper={showPopper} anchorEl={anchorEl}/>
@@ -576,7 +574,7 @@ function AbilityWithIcon({ability, prettyMode}: {ability: {name: AbilityName, hi
                 {ability.name}
             </Typography>
             {ability.hidden === true &&
-                <img src={getMoveMethodIconURL("ability_patch")} height="20px" />
+                <img src={getMoveMethodIconURL("ability_patch")} height="20px" alt="" />
             }
         </Stack>
     )
@@ -763,7 +761,6 @@ function SetLoadGroupHeader({pokemon}: {pokemon: SpeciesName}) {
 }
 
 function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 150}}: {setOptions: SetOption[], loadSet: (opt: SetOption) => Promise<void>, placeholder?: string, sx?: SxProps<Theme>}) {
-    const theme = useTheme();
     return (
         <Autocomplete 
             disablePortal
@@ -1003,7 +1000,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                                     [0,1,2,3].map((index) => {
                                         return <MoveSummaryRow 
                                             key={index}
-                                            name={index==0 ? "Moves" : ""}
+                                            name={index === 0 ? "Moves" : ""}
                                             value={pokemon.moves[index] || "(No Move)"} 
                                             setValue={async (moveOption: string) => {
                                                 const newMoves = [...pokemon.moves as string[]];
@@ -1360,7 +1357,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                                 [0,1,2,3].map((index) => {
                                     return <MoveSummaryRow 
                                         key={index}
-                                        name={index==0 ? "Extra Moves" : ""}
+                                        name={index === 0 ? "Extra Moves" : ""}
                                         // @ts-ignore
                                         value={pokemon.extraMoves[index] || "(No Move)"}
                                         setValue={setBMove(index)}

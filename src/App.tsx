@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { alpha, createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -298,7 +298,6 @@ function App() {
       ]
     }
   ]);
-  const [repeats, setRepeats] = useState<number[]>([1]);
 
   const raidInputProps: RaidInputProps = {
     pokemon: [raidBoss, raider1, raider2, raider3, raider4],

@@ -112,7 +112,7 @@ export class RaidMove {
             ].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
         }
-        this._user.lastTarget = this.moveData.target == "user" ? this.userID : this.targetID;
+        this._user.lastTarget = this.moveData.target === "user" ? this.userID : this.targetID;
         return this.output;
     }
 
@@ -151,10 +151,10 @@ export class RaidMove {
     private setAffectedPokemon() {
         const targetType = this.moveData.target;
         if (this.moveData.name === "Heal Cheer") { this._affectedIDs = [1,2,3,4]; }
-        else if (targetType == "user") { this._affectedIDs = [this.userID]; }
-        else if (targetType == "selected-pokemon" || targetType == "all-opponents") { this._affectedIDs = [this.targetID]; }
-        else if (targetType == "all-allies") { this._affectedIDs = [1,2,3,4].splice(this.userID, 1); }
-        else if (targetType == "user-and-allies") { this._affectedIDs = [1,2,3,4]; }
+        else if (targetType === "user") { this._affectedIDs = [this.userID]; }
+        else if (targetType === "selected-pokemon" || targetType === "all-opponents") { this._affectedIDs = [this.targetID]; }
+        else if (targetType === "all-allies") { this._affectedIDs = [1,2,3,4].splice(this.userID, 1); }
+        else if (targetType === "user-and-allies") { this._affectedIDs = [1,2,3,4]; }
         else { this._affectedIDs = [this.targetID]; }
     }
 
@@ -466,7 +466,7 @@ export class RaidMove {
             if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
             const target = this.getPokemon(id);
             const maxHP = target.maxHP();
-            if (this.move.name == "Heal Cheer") {
+            if (this.move.name === "Heal Cheer") {
                 const roll = this.options.roll || "avg";
                 this._healing[id] += roll === "min" ? Math.floor(maxHP * 0.2) : roll === "max" ? maxHP : Math.floor(maxHP * 0.6);
                 const pokemon = this.getPokemon(id);
@@ -499,7 +499,7 @@ export class RaidMove {
 
     private applyStatChanges() {
         const category = this.moveData.category;
-        const affectedIDs = category == "damage+raise" ? [this.userID] : this._affectedIDs;
+        const affectedIDs = category === "damage+raise" ? [this.userID] : this._affectedIDs;
         let statChanges = this.moveData.statChanges;
         // handle Growth
         if (this.move.name === "Growth" && this._fields[this.userID].weather?.includes("Sun")) { statChanges = [{stat: "atk", change: 2}, {stat: "spa", change: 2}]; }
@@ -534,7 +534,7 @@ export class RaidMove {
     private applyAilment() {
         const ailment = this.moveData.ailment;
         const chance = this.moveData.ailmentChance || 100;
-        if (ailment && (chance == 100 || this.options.secondaryEffects)) {
+        if (ailment && (chance === 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
                 if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
@@ -596,23 +596,23 @@ export class RaidMove {
     private applyFieldChanges() {
         /// Whole-Field Effects
         // Weather
-        if (this.move.name == "Rain Dance") { this._raidState.applyWeather("Rain"); }
-        if (this.move.name == "Sunny Day") { this._raidState.applyWeather("Sun"); }
-        if (this.move.name == "Sandstorm") { this._raidState.applyWeather("Sand"); }
-        if (this.move.name == "Snowscape") { this._raidState.applyWeather("Snow"); }
+        if (this.move.name === "Rain Dance") { this._raidState.applyWeather("Rain"); }
+        if (this.move.name === "Sunny Day") { this._raidState.applyWeather("Sun"); }
+        if (this.move.name === "Sandstorm") { this._raidState.applyWeather("Sand"); }
+        if (this.move.name === "Snowscape") { this._raidState.applyWeather("Snow"); }
         // Terrain
-        if (this.move.name == "Electric Terrain") { this._raidState.applyTerrain("Electric"); }
-        if (this.move.name == "Grassy Terrain") { this._raidState.applyTerrain("Grassy"); }
-        if (this.move.name == "Misty Terrain") { this._raidState.applyTerrain("Misty"); }
-        if (this.move.name == "Psychic Terrain") { this._raidState.applyTerrain("Psychic"); }
+        if (this.move.name === "Electric Terrain") { this._raidState.applyTerrain("Electric"); }
+        if (this.move.name === "Grassy Terrain") { this._raidState.applyTerrain("Grassy"); }
+        if (this.move.name === "Misty Terrain") { this._raidState.applyTerrain("Misty"); }
+        if (this.move.name === "Psychic Terrain") { this._raidState.applyTerrain("Psychic"); }
         // Gravity
-        const gravity = this.move.name == "Gravity";
+        const gravity = this.move.name === "Gravity";
         // Trick Room
-        const trickroom = this.move.name == "Trick Room";
+        const trickroom = this.move.name === "Trick Room";
         // Magic Room
-        const magicroom = this.move.name == "Magic Room";
+        const magicroom = this.move.name === "Magic Room";
         // Wonder Room
-        const wonderroom = this.move.name == "Wonder Room";
+        const wonderroom = this.move.name === "Wonder Room";
         // apply effects
         for (let field of this._fields) {
             field.isGravity = gravity || field.isGravity;
@@ -622,23 +622,23 @@ export class RaidMove {
         }
         /// Side Effects
         // Reflect
-        let reflect = this.move.name == "Reflect";
+        let reflect = this.move.name === "Reflect";
         // Light Screen
-        let lightscreen = this.move.name == "Light Screen";
+        let lightscreen = this.move.name === "Light Screen";
         // Aurora Veil
-        let auroraveil = this.move.name == "Aurora Veil";
+        let auroraveil = this.move.name === "Aurora Veil";
         // Mist
-        let mist = this.move.name == "Mist";
+        let mist = this.move.name === "Mist";
         // Safeguard
-        let safeguard = this.move.name == "Safeguard";
+        let safeguard = this.move.name === "Safeguard";
         // Tailwind
-        let tailwind = this.move.name == "Tailwind";
+        let tailwind = this.move.name === "Tailwind";
         // Attack Cheer
-        let attackcheer = this.move.name == "Attack Cheer";
+        let attackcheer = this.move.name === "Attack Cheer";
         // Defense Cheer
-        let defensecheer = this.move.name == "Defense Cheer";
+        let defensecheer = this.move.name === "Defense Cheer";
         // apply effects
-        const sideFieldIDs = this.userID == 0 ? [0] : [1,2,3,4];
+        const sideFieldIDs = this.userID === 0 ? [0] : [1,2,3,4];
         for (let id of sideFieldIDs) {
             const field = this._fields[id];
             field.attackerSide.isReflect = reflect || field.attackerSide.isReflect;
@@ -652,7 +652,7 @@ export class RaidMove {
         }
 
         // Helping Hand
-        const helpinghand = this.move.name == "Helping Hand";
+        const helpinghand = this.move.name === "Helping Hand";
         if (helpinghand) {
             if (this._doesNotEffect[this.targetID]) {
                 this._desc[this.targetID] = this.move.name + " does not affect " + this.getPokemon(this.targetID).role + "."; // a more specific reason might be helpful
@@ -751,9 +751,9 @@ export class RaidMove {
                 if (!(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Water")) {
                     target.types = ["Water"];
                     target.changedTypes = ["Water"];
-                    this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — " + "Soak changed " + target.name + "'s type to Water!";
+                    this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — Soak changed " + target.name + "'s type to Water!";
                 } else {
-                    this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — " + "Soak failed!";
+                    this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — Soak failed!";
                 }
                 break;
             case "Conversion":
@@ -801,9 +801,8 @@ export class RaidMove {
                             break;
                         case "White Herb":
                             for (let stat in target.boosts) {
-                                let whiteHerbUsed = false;
                                 const statId = stat as StatIDExceptHP;
-                                if ((target.boosts[statId] || 0) < 0) { target.boosts[statId] = 0; whiteHerbUsed = true; }
+                                if ((target.boosts[statId] || 0) < 0) { target.boosts[statId] = 0; }
                             }
                             break;
                         // Status-Curing Berries
@@ -1045,7 +1044,6 @@ export class RaidMove {
             }
             // acupressure check
             if (pokemon.randomBoosts !== origPokemon.randomBoosts) {
-                const diff = pokemon.randomBoosts - origPokemon.randomBoosts;
                 boostStr.push("random stat " + (origPokemon.randomBoosts > 0 ? "+" : "") + origPokemon.randomBoosts + " -> " + (pokemon.randomBoosts > 0 ? "+" : "") + pokemon.randomBoosts);
             }
             if (boostStr.length > 0) {

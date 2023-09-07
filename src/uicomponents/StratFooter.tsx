@@ -12,12 +12,14 @@ function StratFooter({notes, setNotes, credits, setCredits, prettyMode}: {notes:
         if (notes !== fieldNotes) {
             setFieldNotes(notes);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [notes])
 
     useEffect(() => {
         if (credits !== fieldCredits) {
             setFieldCredits(credits);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [credits])
     
     return (

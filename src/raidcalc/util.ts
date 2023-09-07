@@ -8,12 +8,12 @@ const gen = Generations.get(9);
 
 // next time I prepare the move data, I should eliminate the need for translation
 export function ailmentToStatus(ailment: AilmentName): StatusName | "" {
-    if (ailment == "paralysis") { return "par"; }
-    if (ailment == "poison") { return "psn"; }
-    if (ailment == "burn") { return "brn"; }
-    if (ailment == "freeze") { return "frz"; }
-    if (ailment == "sleep") { return "slp"; }
-    if (ailment == "toxic") { return "tox"; }
+    if (ailment === "paralysis") { return "par"; }
+    if (ailment === "poison") { return "psn"; }
+    if (ailment === "burn") { return "brn"; }
+    if (ailment === "freeze") { return "frz"; }
+    if (ailment === "sleep") { return "slp"; }
+    if (ailment === "toxic") { return "tox"; }
     return ""
 }
 

@@ -35,6 +35,7 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
             setRole(name);
             setStr(name);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.role, pokemon.name])
 
     const setRole = (r: string) => {
@@ -77,6 +78,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
         setMoveSet(set);
       }
       fetchData().catch((e) => console.log(e));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.name])
 
     const nature = gen.natures.get(toID(pokemon.nature));

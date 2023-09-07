@@ -1,8 +1,9 @@
-import { Field, Generations, Move, StatsTable } from "../calc";
+import { Field, Generations, Move, Pokemon, StatsTable } from "../calc";
 import { Raider } from "./Raider";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
-import { ItemName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
+import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
+import { getBoostCoefficient, safeStatStage } from "./util";
 
 const gen = Generations.get(9);
 
@@ -246,7 +247,7 @@ export class RaidState implements State.RaidState{
                         if (both) {
                             positiveDiff[statId] *= 2;
                         }
-                        if (positiveDiff[statId] <= 0) {
+                        if ((positiveDiff[statId] || 0) <= 0) {
                             positiveDiff[statId] = 0;
                         } else {
                             hasPositiveBoost = true;
@@ -264,7 +265,7 @@ export class RaidState implements State.RaidState{
             let used = false
             for (const stat in pokemon.boosts) {
                 const statId = stat as StatIDExceptHP;
-                if (pokemon.boosts[statId] < 0) {
+                if ((pokemon.boosts[statId] || 0) < 0) {
                     pokemon.boosts[statId] = 0;
                     used = true;
                 }
@@ -401,5 +402,319 @@ export class RaidState implements State.RaidState{
     public activateTera(id: number): boolean {
         const pokemon = this.getPokemon(id);
         return pokemon.activateTera();
+    }
+
+    public faint(id: number) {
+        let pokemon = this.getPokemon(id);
+        const ability = pokemon.ability;
+        // reset stats, status, etc, keeping a few things 
+        this.raiders[id] = new Raider(
+            id,
+            pokemon.role,
+            pokemon.shiny,
+            pokemon.field,
+            new Pokemon(
+                gen,
+                pokemon.name,
+                {
+                    level: pokemon.level,
+                    ability: pokemon.originalAbility, // restore original ability
+                    item: pokemon.item,
+                    nature: pokemon.nature,
+                    ivs: pokemon.ivs,
+                    evs: pokemon.evs,
+                    hitsTaken: pokemon.hitsTaken,
+                    moves: pokemon.moves,
+                    originalCurHP: 0,
+                },
+            ),
+            pokemon.moveData,
+            pokemon.extraMoves,
+            pokemon.extraMoveData,
+            false,      // isEndure
+            pokemon.lastMove,
+            pokemon.lastTarget,
+            undefined,  // moveRepeated
+            pokemon.teraCharge,
+            pokemon.shieldActivateHP,
+            pokemon.shieldBroken,
+            0,          // abilityNullified
+            pokemon.originalAbility
+        );
+
+
+        
+        /// remove ability effects that are removed upon fainting
+        // on/off field-based abilties
+        if (ability === "Cloud Nine") {
+            if (
+                !this.raiders
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Cloud Nine" as AbilityName)
+            ) {
+                for (let field of this.fields) {
+                    field.isCloudNine = false;
+                }
+            }
+        } else if (ability === "Sword of Ruin") {
+            if (
+                !this.raiders
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Sword of Ruin" as AbilityName)
+            ) {
+                for (let field of this.fields) {
+                    field.isSwordOfRuin = false;
+                }
+            }
+        } else if (ability === "Beads of Ruin") {
+            if (
+                !this.raiders
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Beads of Ruin" as AbilityName)
+            ) {
+                for (let field of this.fields) {
+                    field.isBeadsOfRuin = false;
+                }
+            }
+        } else if (ability === "Vessel of Ruin") {
+            if (
+                !this.raiders
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Vessel of Ruin" as AbilityName)
+            ) {
+                for (let field of this.fields) {
+                    field.isVesselOfRuin = false;
+                }
+            }
+        } else if (ability === "Tablets of Ruin") {
+            if (
+                !this.raiders
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Tablets of Ruin" as AbilityName)
+            ) {
+                for (let field of this.fields) {
+                    field.isTabletsOfRuin = false;
+                }
+            }
+        // stackable abilities
+        } else if (ability === "Steely Spirit") {
+            if (id === 0) {
+                this.fields[0].attackerSide.steelySpirits -= 1;
+            } else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.steelySpirits -= 1;
+                }
+            }
+        } else if (ability === "Power Spot") {
+            if (id === 0) {
+                this.fields[0].attackerSide.powerSpots -= 1;
+            } else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.powerSpots -= 1;
+                }
+            }
+        } else if (ability === "Friend Guard") {
+            if (id !== 0) {
+                for (let fid=1; fid<5; fid++) {
+                    if (id !== fid) {
+                        this.fields[fid].attackerSide.friendGuards -= 1;
+                    }
+                }
+            }
+        // single-side field abilities
+        } else if (ability === "Aroma Veil") {
+            if (id === 0) {
+                this.fields[0].attackerSide.isAromaVeil = false;
+            } else if (
+                !this.raiders.slice(1)
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Aroma Veil" as AbilityName)
+            ) {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.isAromaVeil = false;
+                }
+            }
+        }
+    }
+
+    public switchIn(id: number): string[][] {
+        const pokemon = this.getPokemon(id);
+        const ability = pokemon.ability;
+        const flags: string[][] = [[],[],[],[],[]];
+        // reset HP
+        pokemon.originalCurHP = pokemon.maxHP();
+        //// Abilites That Take Effect upon switch-in
+        /// Weather Abilities
+        if (ability === "Drought") {
+            this.applyWeather("Sun");
+            flags[id].push("Drought summons the Sun");
+        } else if (ability === "Drizzle") {
+            this.applyWeather("Rain");
+            flags[id].push("Drizzle summons the Rain");
+        } else if (ability === "Sand Stream") {
+            this.applyWeather("Sand");
+            flags[id].push("Sand Stream summons a Sandstorm");
+        } else if (ability === "Snow Warning") {
+            this.applyWeather("Snow");
+            flags[id].push("Snow Warning summons a Snowstorm");
+        } else if (ability === "Orichalcum Pulse") {
+            this.applyWeather("Sun");
+            flags[id].push("Orichalcum Pulse summons the Sun");
+        } else if (ability === "Cloud Nine" || ability === "Air Lock") {
+            for (let field of this.fields) {
+                field.isCloudNine = true;
+            }
+            flags[id].push("Cloud Nine negates the weather");
+        /// Terrain Abilities
+        } else if (ability === "Grassy Surge") {
+            this.applyTerrain("Grassy");
+            flags[id].push("Grassy Surge summons Grassy Terrain");
+        } else if (ability === "Electric Surge") {
+            this.applyTerrain("Electric");
+            flags[id].push("Electric Surge summons Electric Terrain");
+        } else if (ability === "Misty Surge") {
+            this.applyTerrain("Misty");
+            flags[id].push("Misty Surge summons Misty Terrain");
+        } else if (ability === "Psychic Surge") {
+            this.applyTerrain("Psychic");
+            flags[id].push("Psychic Surge summons Psychic Terrain");
+        } else if (ability === "Hadron Engine") {
+            this.applyTerrain("Electric");
+            flags[id].push("Hadron Engine summons Electric Terrain");
+        /// Ruin Abilities
+        } else if (ability === "Sword of Ruin") {
+            for (let field of this.fields) {
+                field.isSwordOfRuin = true;
+            }
+            flags[id].push("Sword of Ruin lowers Defenses");
+        } else if (ability === "Beads of Ruin") {
+            for (let field of this.fields) {
+                field.isBeadsOfRuin = true;
+            }
+            flags[id].push("Beads of Ruin lowers Special Defenses");
+        } else if (ability === "Vessel of Ruin") {
+            for (let field of this.fields) {
+                field.isVesselOfRuin = true;
+            }
+            flags[id].push("Vessel of Ruin lowers Special Attacks");
+        } else if (ability === "Tablets of Ruin") {
+            for (let field of this.fields) {
+                field.isTabletsOfRuin = true;
+            }
+            flags[id].push("Tablets of Ruin lowers Attacks");
+        /// Other Field-Related Abilities
+        // Steely Spirit
+        } else if (ability === "Steely Spirit") {
+            if (id === 0) {
+                this.fields[0].attackerSide.steelySpirits += 1;
+            }
+            else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.steelySpirits += 1;
+                }
+            }
+            flags[id].push("Steely Spirit boosts Allies' Steel-type attacks");
+        // Aroma Veil
+        } else if (ability === "Aroma Veil") {
+            if (id === 0) {
+                this.fields[0].attackerSide.isAromaVeil = true;
+            } else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.isAromaVeil = true;
+                }
+            }
+            flags[id].push("Aroma Veil protects allies");
+        // Power Spot
+        } else if (ability === "Power Spot") {
+            if (id === 0) {
+                this.fields[0].attackerSide.powerSpots += 1;
+            } else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.powerSpots += 1;
+                }
+            }
+            flags[id].push("Power Spot boosts attack power");
+        // Friend Guard
+        } else if (ability === "Friend Guard") {
+            if (id !== 0) {
+                for (let fid=1; fid<5; fid++) {
+                    if (id !== fid) {
+                        this.fields[fid].attackerSide.friendGuards += 1;
+                    }
+                }
+                this.fields[0].defenderSide.friendGuards += 1; // this shouldn't ever be used
+            }
+            flags[id].push("Friend Guard reduces allies' damage taken");
+        // Protosynthesis and Quark Drive
+        } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
+            if (pokemon.item === "Booster Energy" && !pokemon.abilityOn) {
+                this.recieveItem(id, "Booster Energy" as ItemName); // consume Booster Energy
+            }
+        // Intimidate
+        } else if (ability === "Intimidate") {
+            if (id === 0) {
+                for (let intdPokemon of this.raiders.slice(1)) {
+                    if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
+                        const boostCoefficient = getBoostCoefficient(pokemon);
+                        const origAtk = intdPokemon.boosts.atk;
+                        intdPokemon.boosts.atk = safeStatStage(intdPokemon.boosts.atk - boostCoefficient);
+                        flags[intdPokemon.id].push("Atk: " + origAtk + "->" + intdPokemon.boosts.atk + " (Intimidate)");
+                    }
+                }
+            } else {
+                const intdPokemon = this.raiders[0];
+                if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(intdPokemon.ability || "")) {
+                    const boostCoefficient = getBoostCoefficient(intdPokemon);
+                    const origAtk = intdPokemon.boosts.atk;
+                    intdPokemon.boosts.atk = safeStatStage(intdPokemon.boosts.atk - boostCoefficient);
+                    flags[id].push("Atk: " + origAtk + "->" + intdPokemon.boosts.atk + " (Intimidate)");
+
+                }                
+            }
+        // Intrepid Sword
+        } else if (ability === "Intrepid Sword") {
+            const origAtk = pokemon.boosts.atk;
+            pokemon.boosts.atk += 1;
+            flags[id].push("Atk: " + origAtk + "->" + pokemon.boosts.atk + " (Intrepid Sword)");
+        // Dauntless Shield
+        } else if (ability === "Dauntless Shield") {
+            const origDef = pokemon.boosts.def;
+            pokemon.boosts.def += 1;
+            flags[id].push("Def: " + origDef + "->" + pokemon.boosts.def + " (Dauntless Shield)");
+        } else {
+            // 
+        }
+        /// special interactions
+        // Mew stat boosts for Mewtwo event.
+        if (id !== 0 && pokemon.name === "Mew" && this.raiders[0].name === "Mewtwo") {
+            this.raiders[id] = new Raider(
+                id,
+                pokemon.role,
+                pokemon.shiny,
+                pokemon.field.clone(),
+                new Pokemon(
+                    gen,
+                    pokemon.name as SpeciesName,
+                    {
+                        ...pokemon,
+                        statMultipliers: {
+                            hp: 1.5,
+                            atk: 1.2,
+                            def: 1.2,
+                            spa: 1.2,
+                            spd: 1.2,
+                            spe: 1.2,
+                        }
+                    }
+                ),
+                [...pokemon.moveData],
+                [...(pokemon.extraMoves || [])],
+                [...(pokemon.extraMoveData || [])],
+
+            );
+            this.raiders[id].originalCurHP = this.raiders[id].maxHP();
+            flags[id].push(pokemon.role + " is going to go all out against this formidable opponent!")
+        }
+        return flags;
     }
 }

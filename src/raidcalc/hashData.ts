@@ -39,5 +39,6 @@ export type LightBuildInfo = {
     pokemon: LightPokemon[],
     turns: LightTurnInfo[],
     groups?: number[][],
+    repeats?: number[],
 }
 

@@ -19,7 +19,8 @@ export class Raider extends Pokemon implements State.Raider {
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
-    teraCharge: number;      // stored for Tera activation
+    moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
+    teraCharge: number;         // stored for Tera activation
 
     shieldActivateHP?: number;
     shieldBroken?: boolean;
@@ -39,6 +40,7 @@ export class Raider extends Pokemon implements State.Raider {
         isEndure: boolean = false, 
         lastMove: State.MoveData | undefined = undefined, 
         lastTarget: number | undefined = undefined, 
+        moveRepeated: number | undefined = undefined,
         teraCharge: number | undefined = 0, 
         shieldActivateHP: number | undefined = undefined, 
         shieldBroken: boolean | undefined = undefined, 
@@ -56,6 +58,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isEndure = isEndure;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
+        this.moveRepeated = moveRepeated;
         this.teraCharge = teraCharge;
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
@@ -81,6 +84,7 @@ export class Raider extends Pokemon implements State.Raider {
                 alliesFainted: this.alliesFainted,
                 boostedStat: this.boostedStat,
                 usedBoosterEnergy: this.usedBoosterEnergy,
+                isIngrain: this.isIngrain,
                 item: this.item,
                 gender: this.gender,
                 nature: this.nature,
@@ -106,6 +110,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.isEndure,
             this.lastMove,
             this.lastTarget,
+            this.moveRepeated,
             this.teraCharge,
             this.shieldActivateHP,
             this.shieldBroken,
@@ -139,12 +144,12 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public applyStatChange(boosts: Partial<StatsTable>): StatsTable {
-        const diff: StatsTable = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0};
+        const diff: StatsTable = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, acc: 0, eva: 0};
         for (let stat in boosts) {
             const statId = stat as StatIDExceptHP;
-            const originalStat = this.boosts[statId];
-            this.boosts[statId] = safeStatStage(this.boosts[statId] + boosts[statId]! * this.boostCoefficient)
-            diff[statId] = this.boosts[statId] - originalStat;
+            const originalStat = this.boosts[statId] || 0;
+            this.boosts[statId] = safeStatStage(originalStat + (boosts[statId] || 0) * this.boostCoefficient)
+            diff[statId] = (this.boosts[statId] || 0) - originalStat;
         }
         return diff;
     }

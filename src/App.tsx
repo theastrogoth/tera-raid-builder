@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { createTheme } from '@mui/material/styles';
+import { alpha, createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -21,7 +21,7 @@ import StratFooter from './uicomponents/StratFooter.tsx';
 
 import { Generations, Pokemon, Field } from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
-import { RaidTurnInfo } from './raidcalc/interface.ts';
+import { TurnGroupInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
 import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
@@ -37,13 +37,17 @@ function App() {
     palette: {
       mode: lightMode,
       background: {
-        paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6',
+        paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6'
       },
       primary: {
-        main: lightMode === 'dark' ? "#faa5a0" : "#ed382d",
+        main: lightMode === 'dark' ? "#faa5a0" : "#ed382d"
       },
       secondary: {
         main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+      },
+      //@ts-ignore
+      subdued: {
+        main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe"
       },
       //@ts-ignore
       modal: {
@@ -51,7 +55,7 @@ function App() {
       },
       //@ts-ignore
       group0: {
-        main: lightMode === "dark" ? "#571b20" : "#f7b5ba",
+        main: lightMode === "dark" ? "#571b20" : "#f7b5ba"
       },
       //@ts-ignore
       group1: {
@@ -63,7 +67,7 @@ function App() {
       },
       //@ts-ignore
       group3: {
-        main: lightMode === "dark" ? "#443769" : "#ccbff5",
+        main: lightMode === "dark" ? "#443769" : "#ccbff5"
       },
       //@ts-ignore
       group4: {
@@ -120,6 +124,10 @@ function App() {
           },
           secondary: {
             main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+          },
+          //@ts-ignore
+          subdued: {
+            main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe"
           },
           //@ts-ignore
           modal: {
@@ -191,92 +199,112 @@ function App() {
     new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Mewtwo", {
       teraType: "Psychic",
       isTera: true,
-      bossMultiplier: 3500,
+      bossMultiplier: 5000,
       nature: "Modest",
       ability: "Unnerve",
-      moves: ["Psystrike", "Psychic", "Shadow Ball", "Aura Sphere"],
-      shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 40, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
+      moves: ["Psystrike", "Ice Beam", "Aura Sphere", "Calm Mind"],
+      item: "Chesto Berry",
+      evs: {def: 252, spa: 6, spd: 252},
+      shieldData: {hpTrigger: 100, timeTrigger: 100, shieldCancelDamage: 50, shieldDamageRate: 10, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
       {name: "Psystrike" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Psychic" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Shadow Ball" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Ice Beam" as MoveName, category: "damage", target: "selected-pokemon"},
       {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1},{stat: "spd", change: 1}], statChance: 100},
     ], 
-    ["Nasty Plot", "Agility", "Psychic Terrain"] as MoveName[], 
+    ["Calm Mind", "Rest"] as MoveName[], 
     [
-      {name: "Nasty Plot" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 2}], statChance: 100},
-      {name: "Agility" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spe", change: 2}], statChance: 100},
-      {name: "Psychic Terrain" as MoveName, category: "field-effect", target: "user"},
+      {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1},{stat: "spd", change: 1}], statChance: 100},
+      {name: "Rest" as MoveName, category: "unique", target: "user"},
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Krookodile", false, new Field(), new Pokemon(gen, "Krookodile", {
-      nature: "Jolly",
-      ability: "Anger Point",
-      moves: ["Power Trip"],
-      item: "Choice Band",
-      evs: {atk: 252, spe: 252},
+    new Raider(1, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
+      nature: "Adamant",
+      teraType: "Bug",
+      ability: "Synchronize",
+      moves: ["Swords Dance","X-Scissor","Leech Life","Misty Terrain"],
+      item: "Metronome",
+      evs: {hp: 252, atk: 252},
     }), 
     [
-      {name: "Power Trip" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Swords Dance" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 2}], statChance: 100},
+      {name: "X-Scissor" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Leech Life" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Misty Terrain" as MoveName, category: "field-effect", target: "entire-field"},
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Meowscarada", false, new Field(), new Pokemon(gen, "Meowscarada", {
-      level: 36,
-      nature: "Hardy",
-      ability: "(No Ability)",
-      moves: ["Flower Trick"],
-      item: "Focus Sash"
+    new Raider(2, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
+      nature: "Bold",
+      ability: "Synchronize",
+      moves: ["Struggle Bug","Mud-Slap","Life Dew","Helping Hand"],
+      item: "Covert Cloak",
+      evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Flower Trick" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Struggle Bug" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spa", change: -1}], statChance: 100},
+      {name: "Mud-Slap" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "acc", change: -1}], statChance: 100},
+      {name: "Life Dew" as MoveName, category: "heal", target: "user-and-allies"},
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Corviknight", false, new Field(), new Pokemon(gen, "Corviknight", {
-      nature: "Relaxed",
-      ability: "(No Ability)",
-      moves: ["Screech"],
-      item: "Zoom Lens",
+    new Raider(3, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
+      nature: "Bold",
+      ability: "Synchronize",
+      moves: ["Struggle Bug","Mud-Slap","Life Dew","Helping Hand"],
+      item: "Covert Cloak",
       evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
+      {name: "Struggle Bug" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spa", change: -1}], statChance: 100},
+      {name: "Mud-Slap" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "acc", change: -1}], statChance: 100},
+      {name: "Life Dew" as MoveName, category: "heal", target: "user-and-allies"},
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Umbreon", false, new Field(), new Pokemon(gen, "Umbreon", {
-      nature: "Sassy",
-      ability: "(No Ability)",
-      moves: ["Screech"],
-      item: "Zoom Lens",
+    new Raider(3, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
+      nature: "Bold",
+      ability: "Synchronize",
+      moves: ["Struggle Bug","Mud-Slap","Life Dew","Helping Hand"],
+      item: "Covert Cloak",
       evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
+      {name: "Struggle Bug" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spa", change: -1}], statChance: 100},
+      {name: "Mud-Slap" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "acc", change: -1}], statChance: 100},
+      {name: "Life Dew" as MoveName, category: "heal", target: "user-and-allies"},
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
 
   const [title, setTitle] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [credits, setCredits] = useState<string>("");
-  const [turns, setTurns] = useState<RaidTurnInfo[]>([{
+  const [groups, setGroups] = useState<TurnGroupInfo[]>([
+    {
       id: 0, 
-      moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
-      bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
+      repeats: 1,
+      turns: [
+        {
+          id: 0,
+          group: 0,
+          moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
+          bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
+        }
+      ]
     }
   ]);
-  const [groups, setGroups] = useState<number[][]>([]);
+  const [repeats, setRepeats] = useState<number[]>([1]);
 
   const raidInputProps: RaidInputProps = {
     pokemon: [raidBoss, raider1, raider2, raider3, raider4],
     setPokemon: [setRaidBoss, setRaider1, setRaider2, setRaider3, setRaider4],
-    turns: turns,
-    setTurns: setTurns,
     groups: groups,
-    setGroups: setGroups
+    setGroups: setGroups,
   }
 
   const [results, setResults] = useState<RaidBattleResults>(

@@ -1,5 +1,5 @@
 import { RaidBattle, RaidBattleInfo } from "../raidcalc/RaidBattle";
-import { RaidTurnInfo } from "../raidcalc/interface";
+import { RaidTurnInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidState } from "../raidcalc/RaidState";
 import { Raider } from "../raidcalc/Raider";
 import { Field, Pokemon, Generations } from "../calc";
@@ -9,7 +9,7 @@ export {};
 
 const gen = Generations.get(9);
 
-self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}>) => {
+self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[]}>) => {
     const raidersMessage = event.data.raiders;
     const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, r.shiny, new Field(), new Pokemon(gen, r.name, {
         level: r.level,
@@ -29,8 +29,7 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], turns: RaidTurnInfo[]}
     const state = new RaidState(raiders);
     const info: RaidBattleInfo = {
         startingState: state,
-        turns: event.data.turns,
-        groups: []
+        groups: event.data.groups,
     }
 
     const battle = new RaidBattle(info);

@@ -13,7 +13,7 @@ import { RaidState } from "../raidcalc/RaidState";
 import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
-import { MoveData, RaidTurnInfo } from "../raidcalc/interface";
+import { MoveData, RaidTurnInfo, TurnGroupInfo } from "../raidcalc/interface";
 
 
 const gen = Generations.get(9);
@@ -47,7 +47,10 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
             (r.extraMoves || undefined) as (MoveName[] | undefined),
             (r.extraMoves ? (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
         )));
-        const turns: RaidTurnInfo[] = [];
+        const groups: TurnGroupInfo[] = [];
+        const groupIds: number[] = [];
+        let usedGroupIds: number[] = obj.turns.map((t) => t.group === undefined ? -1 : t.group);
+        usedGroupIds = usedGroupIds.filter((g, index) => usedGroupIds.indexOf(g) === index && g !== -1);
         for (let t of obj.turns as LightTurnInfo[]) {
             const name = t.moveInfo.name as MoveName;
             let mdata: MoveData = {name: name};
@@ -87,14 +90,44 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                     moveData: bmdata || {name: t.bossMoveInfo.name as MoveName}
                 },
             };
-            turns.push(turn);
+            if (turn.group === undefined) { // create a new group with a unique id
+                let uniqueGroupId = 0;
+                while (usedGroupIds.includes(uniqueGroupId)) {
+                    uniqueGroupId++;
+                }
+                usedGroupIds.push(uniqueGroupId);
+                groupIds.push(uniqueGroupId);
+                turn.group = uniqueGroupId;
+                groups.push({
+                    id: uniqueGroupId,
+                    repeats: 1,
+                    turns: [turn as RaidTurnInfo],
+                })
+            } else if (groupIds.includes(turn.group)) { // add turn to existing group
+                groups.find((g) => g.id === t.group)!.turns.push(turn as RaidTurnInfo);
+            } else { // create a new group with the same id
+                let repeats = 1;
+                if (obj.groups && obj.repeats) {
+                    for (let i = 0; i < obj.groups.length; i++) {
+                        if (obj.groups[i].includes(t.id)) {
+                            repeats = obj.repeats[i];
+                            break;
+                        }
+                    }
+                }
+                groupIds.push(turn.group);
+                groups.push({
+                    id: turn.group,
+                    repeats: repeats,
+                    turns: [turn as RaidTurnInfo],
+                });
+            }
         };
-        const groups = obj.groups || [];
         const name = obj.name || "";
         const notes = obj.notes || "";
         const credits = obj.credits || "";
 
-        return {name, notes, credits, pokemon, turns, groups}
+        return {name, notes, credits, pokemon, groups}
     } catch (e) {
         return null;
     }
@@ -124,7 +157,7 @@ function serializeInfo(info: RaidBattleInfo): string {
                 shieldData: r.shieldData,
             }}
         ),
-        turns: info.turns.map((t) => {
+        turns: info.groups.map((g) => g.turns.map((t) => {
             return {
                 id: t.id,
                 group: t.group,
@@ -141,8 +174,9 @@ function serializeInfo(info: RaidBattleInfo): string {
                     options: t.bossMoveInfo.options,
                 }
             }
-        }),
-        groups: info.groups || [],
+        })).flat(),
+        groups: info.groups.map((g) => g.turns.map((t) => t.id)),
+        repeats: info.groups.map((g) => g.repeats || 1),
     }
     console.log(obj); // for developer use
     return serialize(obj);
@@ -184,7 +218,7 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
                     res = await deserializeInfo(hash);
                 }
                 if (res) {
-                    const {name, notes, credits, pokemon, turns, groups} = res;
+                    const {name, notes, credits, pokemon, groups} = res;
                     setTitle(name);
                     setNotes(notes);
                     setCredits(credits);
@@ -193,7 +227,6 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
                     raidInputProps.setPokemon[2](pokemon[2]);
                     raidInputProps.setPokemon[3](pokemon[3]);
                     raidInputProps.setPokemon[4](pokemon[4]);
-                    raidInputProps.setTurns(turns);
                     raidInputProps.setGroups(groups);
                     setHasLoadedInfo(true);
                 }
@@ -220,7 +253,6 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
                     notes: notes,
                     credits: credits,
                     startingState: new RaidState(raidInputProps.pokemon),
-                    turns: raidInputProps.turns,
                     groups: raidInputProps.groups,
                 });
                 navigator.clipboard.writeText(link)

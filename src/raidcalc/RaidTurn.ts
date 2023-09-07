@@ -4,7 +4,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json"
-import { AbilityName } from "../calc/data/interface";
+import { AbilityName, MoveName } from "../calc/data/interface";
 
 const gen = Generations.get(9);
 
@@ -79,6 +79,26 @@ export class RaidTurn {
         // copy the raid state
         this._raidState = this.raidState.clone();
         this._flags = [[], [], [], [], []];
+
+        // switch-in if previously fainted
+        if (this._raidState.raiders[this.raiderID].curHP() === 0) {
+            this._flags[this.raiderID].push("Switched in");
+            this._raidState.switchIn(this.raiderID);
+            // use dummy move to activate conditional items/abilities
+            const moveResult = new RaidMove(
+                {name: "(No move)" as MoveName, target: "user"}, 
+                new Move(gen, "(No move)"), 
+                this._raidState,
+                this.raiderID,
+                this.raiderID,
+                this.raiderID,
+                true,
+                ).result();
+            this._raidState = moveResult.state;
+            for (let i=0; i<5; i++) {
+                this._flags[i] = this._flags[i].concat(moveResult.flags[i]);
+            }
+        }
 
         // activate Terastallization if specified
         if (this.raiderOptions.activateTera) {

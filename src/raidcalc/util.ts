@@ -1,5 +1,5 @@
 import { Move, Field, Pokemon, Generations } from "../calc";
-import { AilmentName } from "./interface";
+import { AilmentName, RaidTurnInfo } from "./interface";
 import { Raider } from "./Raider";
 import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
@@ -146,4 +146,28 @@ export function modifyPokemonSpeedByField(speed: number, field: Field, ability?:
         speed *= 2;
     }
     return speed;
+}
+
+// no idea if this should go here
+export function getGroupedTurnIDs(turns: RaidTurnInfo[]) {
+    const displayGroups: number[][] = [];
+    let currentGroupIndex = -1;
+    let currentGroupID: number | undefined = -1;
+    turns.forEach((t, index) => {
+        const g = t.group;
+        if (g === undefined || g !== currentGroupID) {
+            currentGroupIndex += 1;
+            displayGroups.push([index]);
+        } else {
+            displayGroups[currentGroupIndex].push(index);
+        }
+        currentGroupID = g;
+    });
+    return displayGroups;
+}
+
+export function getGroupedTurns(turns: RaidTurnInfo[]) {
+    const groupedTurnIDs = getGroupedTurnIDs(turns);
+    const groupedTurns = groupedTurnIDs.map(indicesArray => indicesArray.map(index => turns[index]));
+    return groupedTurns;
 }

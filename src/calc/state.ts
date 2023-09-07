@@ -24,6 +24,7 @@ export namespace State {
     alliesFainted?: number;
     boostedStat?: I.StatIDExceptHP | 'auto';
     usedBoosterEnergy?: boolean;
+    isIngrain?: boolean;
     item?: I.ItemName;
     gender?: I.GenderName;
     nature?: I.NatureName;

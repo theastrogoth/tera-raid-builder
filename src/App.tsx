@@ -266,7 +266,7 @@ function App() {
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(3, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
+    new Raider(4, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
       nature: "Bold",
       ability: "Synchronize",
       moves: ["Struggle Bug","Mud-Slap","Life Dew","Helping Hand"],

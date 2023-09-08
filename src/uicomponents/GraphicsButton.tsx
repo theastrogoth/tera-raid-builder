@@ -390,7 +390,7 @@ const ExecutionMovePokemonIcon = styled("img")({
     maxWidth: "140px",
 });
 
-const ExecutionMovePokemonIconWrapper = styled(Box)({
+const ExecutionMovePokemonIconWrapper = styled(Stack)({
     height: "140px",
     width: "140px",
     marginRight: "15px",
@@ -481,9 +481,12 @@ function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
     const moveGroups = groups.map((group, groupIndex) => 
         group.turns.map((t) => { 
             const turnResult = results.turnResults.find((r) => t.id === r.id)!;
+            let move = turnResult.raiderMoveUsed;
+            const info = move === "(No Move)" ? turnResult.bossMoveInfo : turnResult.moveInfo;
+            move = move === "(No Move)" ? turnResult.bossMoveUsed : move;
             return {
-                move: turnResult.raiderMoveUsed, 
-                info: turnResult.moveInfo, 
+                move,
+                info,
                 repeats: group.repeats,
                 teraActivated: !!(turnResult!.moveInfo.options!.activateTera && 
                                 turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
@@ -603,13 +606,28 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                         <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
                                                                     </ExecutionMoveTeraIconWrapper>
                                                                 }
-                                                                <ExecutionMoveTag>{!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)? "on": ""}</ExecutionMoveTag>
-                                                                {!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!) ?
+                                                                <ExecutionMoveTag>{(move.move === "Clear Boosts / Abilities" || move.move === "Remove Negative Effects" || !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)? "on": "")}</ExecutionMoveTag>
+                                                                {(move.move === "Clear Boosts / Abilities" || move.move === "Remove Negative Effects" || !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)) ?
                                                                     <ExecutionMovePokemonWrapper>
-                                                                        <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.targetID].role}</ExecutionMovePokemonName>
-                                                                        <ExecutionMovePokemonIconWrapper>
-                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.targetID].species.name)} />
-                                                                        </ExecutionMovePokemonIconWrapper>
+                                                                        <ExecutionMovePokemonName>
+                                                                            {
+                                                                                move.move === "Clear Boosts / Abilities" ? "Raiders" : 
+                                                                                move.move === "Remove Negative Effects" ? raidInputProps.pokemon[0].role :
+                                                                                raidInputProps.pokemon[move.info.targetID].role
+                                                                            }
+                                                                        </ExecutionMovePokemonName>
+                                                                        { move.move !== "Clear Boosts / Abilities" ?
+                                                                            <ExecutionMovePokemonIconWrapper>
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.move === "Remove Negative Effects" ? 0 : move.info.targetID].species.name)} />
+                                                                            </ExecutionMovePokemonIconWrapper> : 
+                                                                            <ExecutionMovePokemonIconWrapper direction="row" spacing="-50px">
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[1].species.name)} />
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[2].species.name)} />
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[3].species.name)} />
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[4].species.name)} />
+                                                                            </ExecutionMovePokemonIconWrapper>
+
+                                                                        }
                                                                     </ExecutionMovePokemonWrapper>
                                                                     :
                                                                     <ExecutionMovePokemonWrapperEmpty />

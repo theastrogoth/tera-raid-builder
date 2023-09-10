@@ -19,6 +19,7 @@ export type RaidTurnResult = {
     moveInfo: RaidMoveInfo;
     bossMoveInfo: RaidMoveInfo;
     flags: string[][];
+    endFlags: string[];
 }
 
 export class RaidTurn {
@@ -52,6 +53,7 @@ export class RaidTurn {
     _raidState!:      RaidState; // This tracks changes during this turn
 
     _flags!:          string[][]; 
+    _endFlags!:       string[];
 
 
     constructor(raidState: RaidState, info: RaidTurnInfo) {
@@ -79,6 +81,7 @@ export class RaidTurn {
         // copy the raid state
         this._raidState = this.raidState.clone();
         this._flags = [[], [], [], [], []];
+        this._endFlags = [];
 
         // switch-in if previously fainted
         if (this._raidState.raiders[this.raiderID].curHP() === 0) {
@@ -191,6 +194,7 @@ export class RaidTurn {
         this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
         // remove protect / wide guard / quick guard effects
         this.removeProtection();
+        this.countDownFieldEffects();
 
         return {
             state: this._raidState,
@@ -213,6 +217,7 @@ export class RaidTurn {
                 options: this.bossOptions,
             },
             flags: this._flags,
+            endFlags: this._endFlags,
         }
 
     }
@@ -381,5 +386,53 @@ export class RaidTurn {
         fields[0].attackerSide.isProtected = false;
         fields[0].attackerSide.isWideGuard = false;
         fields[0].attackerSide.isQuickGuard = false;
+    }
+
+    private countDownFieldEffects() {
+        const fields = this._raidState.fields;
+        for (let field of fields) {
+            // global effects
+            field.terrainTurnsRemaining = Math.max(0, (field.terrainTurnsRemaining || 0) - 1);
+            field.terrain = field.terrainTurnsRemaining ? field.terrain : undefined;
+            field.weatherTurnsRemaining = Math.max(0, (field.weatherTurnsRemaining || 0) - 1);
+            field.weather = field.weatherTurnsRemaining ? field.weather : undefined;
+            field.isGravity = Math.max(0, field.isGravity - 1);
+            field.isTrickRoom = Math.max(0, field.isTrickRoom - 1);
+            field.isMagicRoom = Math.max(0, field.isMagicRoom - 1);
+            field.isWonderRoom = Math.max(0, field.isWonderRoom - 1);
+            // single-side effects
+            field.attackerSide.isReflect = Math.max(0, field.attackerSide.isReflect - 1);
+            field.attackerSide.isLightScreen = Math.max(0, field.attackerSide.isLightScreen - 1);
+            field.attackerSide.isAuroraVeil = Math.max(0, field.attackerSide.isAuroraVeil - 1);
+            field.attackerSide.isMist = Math.max(0, field.attackerSide.isMist - 1);
+            field.attackerSide.isSafeguard = Math.max(0, field.attackerSide.isSafeguard - 1);
+            field.attackerSide.isTailwind = Math.max(0, field.attackerSide.isTailwind - 1);
+            field.attackerSide.isAtkCheered = Math.max(0, field.attackerSide.isAtkCheered - 1);
+            field.attackerSide.isDefCheered = Math.max(0, field.attackerSide.isDefCheered - 1);
+        }
+        /// add flags for effects that have ended
+        // global
+        if (this.raidState.fields[0].weather && !fields[0].weather) { this._endFlags.push(fields[0].weather! + " ended"); }
+        if (this.raidState.fields[0].terrain && !fields[0].terrain) { this._endFlags.push(fields[0].terrain! + " terrain ended"); }
+        if (this.raidState.fields[0].isGravity && !fields[0].isGravity) { this._endFlags.push("Gravity ended"); }
+        if (this.raidState.fields[0].isTrickRoom && !fields[0].isTrickRoom) { this._endFlags.push("Trick Room ended"); }
+        if (this.raidState.fields[0].isMagicRoom && !fields[0].isMagicRoom) { this._endFlags.push("Magic Room ended"); }
+        if (this.raidState.fields[0].isWonderRoom && !fields[0].isWonderRoom) { this._endFlags.push("Wonder Room ended"); }
+        // boss
+        if (this.raidState.fields[0].attackerSide.isReflect && !fields[0].attackerSide.isReflect) { this._endFlags.push("Reflect ended"); }
+        if (this.raidState.fields[0].attackerSide.isLightScreen && !fields[0].attackerSide.isLightScreen) { this._endFlags.push("Light Screen ended"); }
+        if (this.raidState.fields[0].attackerSide.isAuroraVeil && !fields[0].attackerSide.isAuroraVeil) { this._endFlags.push("Aurora Veil ended"); }
+        if (this.raidState.fields[0].attackerSide.isMist && !fields[0].attackerSide.isMist) { this._endFlags.push("Mist ended"); }
+        if (this.raidState.fields[0].attackerSide.isSafeguard && !fields[0].attackerSide.isSafeguard) { this._endFlags.push("Safeguard ended"); }
+        if (this.raidState.fields[0].attackerSide.isTailwind && !fields[0].attackerSide.isTailwind) { this._endFlags.push("Tailwind ended"); }
+        // raiders
+        if (this.raidState.fields[1].attackerSide.isReflect && !fields[1].attackerSide.isReflect) { this._endFlags.push("Reflect ended"); }
+        if (this.raidState.fields[1].attackerSide.isLightScreen && !fields[1].attackerSide.isLightScreen) { this._endFlags.push("Light Screen ended"); }
+        if (this.raidState.fields[1].attackerSide.isAuroraVeil && !fields[1].attackerSide.isAuroraVeil) { this._endFlags.push("Aurora Veil ended"); }
+        if (this.raidState.fields[1].attackerSide.isMist && !fields[1].attackerSide.isMist) { this._endFlags.push("Mist ended"); }
+        if (this.raidState.fields[1].attackerSide.isSafeguard && !fields[1].attackerSide.isSafeguard) { this._endFlags.push("Safeguard ended"); }
+        if (this.raidState.fields[1].attackerSide.isTailwind && !fields[1].attackerSide.isTailwind) { this._endFlags.push("Tailwind ended"); }
+        if (this.raidState.fields[1].attackerSide.isAtkCheered && !fields[1].attackerSide.isAtkCheered) { this._endFlags.push("Attack Cheer ended"); }
+        if (this.raidState.fields[1].attackerSide.isDefCheered && !fields[1].attackerSide.isDefCheered) { this._endFlags.push("Defense Cheer ended"); }
     }
 }

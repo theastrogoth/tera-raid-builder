@@ -1,6 +1,6 @@
 {
     "name": "Rage Fist",
-    "category": "unique",
+    "category": "damage",
     "target": "selected-pokemon",
     "type": "Ghost",
     "power": 50,

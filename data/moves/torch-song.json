@@ -13,7 +13,7 @@
     "statChanges": [
         {
             "stat": "spa",
-            "change": null
+            "change": 1
         }
     ],
     "flinchChance": null,

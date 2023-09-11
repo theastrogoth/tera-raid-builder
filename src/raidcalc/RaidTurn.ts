@@ -121,14 +121,6 @@ export class RaidTurn {
 
         this.applyChangedMove();
 
-        // count down nullified ability counter
-        if (this._raidState.getPokemon(this.raiderID).abilityNullified) {
-            this._raidState.getPokemon(this.raiderID).abilityNullified!--;
-            if (this._raidState.getPokemon(this.raiderID).abilityNullified === 0) { // restore ability after a full turn
-                this._raidState.getPokemon(this.raiderID).ability = this._raidState.getPokemon(this.raiderID).originalAbility as AbilityName;
-            }
-        }
-
         // steal tera charge
         if (this.bossOptions.stealTeraCharge) {
             this._flags[0].push("The Raid Boss stole a Tera charge!");
@@ -195,6 +187,7 @@ export class RaidTurn {
         // remove protect / wide guard / quick guard effects
         this.removeProtection();
         this.countDownFieldEffects();
+        this.countDownAbilityNullification();
 
         return {
             state: this._raidState,
@@ -412,8 +405,8 @@ export class RaidTurn {
         }
         /// add flags for effects that have ended
         // global
-        if (this.raidState.fields[0].weather && !fields[0].weather) { this._endFlags.push(fields[0].weather! + " ended"); }
-        if (this.raidState.fields[0].terrain && !fields[0].terrain) { this._endFlags.push(fields[0].terrain! + " terrain ended"); }
+        if (this.raidState.fields[0].weather && !fields[0].weather) { this._endFlags.push(this.raidState.fields[0].weather! + " ended"); }
+        if (this.raidState.fields[0].terrain && !fields[0].terrain) { this._endFlags.push(this.raidState.fields[0].terrain! + " terrain ended"); }
         if (this.raidState.fields[0].isGravity && !fields[0].isGravity) { this._endFlags.push("Gravity ended"); }
         if (this.raidState.fields[0].isTrickRoom && !fields[0].isTrickRoom) { this._endFlags.push("Trick Room ended"); }
         if (this.raidState.fields[0].isMagicRoom && !fields[0].isMagicRoom) { this._endFlags.push("Magic Room ended"); }
@@ -434,5 +427,20 @@ export class RaidTurn {
         if (this.raidState.fields[1].attackerSide.isTailwind && !fields[1].attackerSide.isTailwind) { this._endFlags.push("Tailwind ended"); }
         if (this.raidState.fields[1].attackerSide.isAtkCheered && !fields[1].attackerSide.isAtkCheered) { this._endFlags.push("Attack Cheer ended"); }
         if (this.raidState.fields[1].attackerSide.isDefCheered && !fields[1].attackerSide.isDefCheered) { this._endFlags.push("Defense Cheer ended"); }
+    }
+
+    private countDownAbilityNullification() {
+        // count down nullified ability counter
+        const pokemon = this._raidState.getPokemon(this.raiderID);
+        if (pokemon.abilityNullified) {
+            pokemon.abilityNullified!--;
+            if (pokemon.abilityNullified === 0) { // restore ability after a full turn
+                pokemon.ability = pokemon.originalAbility as AbilityName;
+                // Not sure if we need to do anything special here to trigger ability reactivation
+                if (pokemon.ability !== "(None)") {
+                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " restored");
+                }
+            }
+        }
     }
 }

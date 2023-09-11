@@ -63,7 +63,9 @@ export class Field implements State.Field {
     return new Field({
       gameType: this.gameType,
       weather: this.weather,
+      weatherTurnsRemaining: this.weatherTurnsRemaining,
       terrain: this.terrain,
+      terrainTurnsRemaining: this.terrainTurnsRemaining,
       isMagicRoom: this.isMagicRoom,
       isWonderRoom: this.isWonderRoom,
       isGravity: this.isGravity,

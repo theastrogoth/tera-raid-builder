@@ -677,8 +677,11 @@ export class RaidMove {
                 this._desc[this.targetID] = "The Raid Boss nullified all stat boosts and abilities!"
                 for (let i=1; i<5; i++) {
                     const pokemon = this.getPokemon(i);
-                    pokemon.ability = undefined;
-                    pokemon.abilityNullified = 3;
+                    pokemon.ability = "(None)" as AbilityName;
+                    pokemon.abilityOn = false;
+                    pokemon.abilityNullified = 2;
+                    pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers
+                    pokemon.field.attackerSide.isDefCheered = 0;
                     for (let stat in pokemon.boosts) {
                         pokemon.boosts[stat as StatIDExceptHP] = Math.min(0, (pokemon.boosts[stat as StatIDExceptHP] || 0));
                     }
@@ -996,7 +999,7 @@ export class RaidMove {
         const finalAbilities = this._raiders.map(p => p.ability);
         for (let i=0; i<5; i++) {
             if (initialAbilities[i] !== finalAbilities[i])  {
-                if (finalAbilities[i] === undefined) {
+                if (finalAbilities[i] === "(None)" || finalAbilities[i] === undefined) {
                     this._flags[i].push(initialAbilities[i] + " nullified")
                 } else {
                     this._flags[i].push("ability changed to " + finalAbilities[i])

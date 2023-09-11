@@ -44,7 +44,7 @@ export class RaidMove {
     _affectedIDs!: number[];
     _fields!: Field[];
 
-    _doesNotEffect!: boolean[];
+    _doesNotAffect!: (string | undefined)[];
     _causesFlinch!: boolean[];
     _blockedBy!: string[];
 
@@ -81,7 +81,7 @@ export class RaidMove {
         this._raidState.raiders[0].checkShield(); // check for shield activation
         this.setAffectedPokemon();
         if (this.flinch) {
-            this._desc[this.userID] = this._user.role + " flinched!";
+            this._desc[this.userID] = this._user.name + " flinched!";
         } else {
             this.setDoesNotEffect();
             this.checkProtection();
@@ -138,7 +138,7 @@ export class RaidMove {
         this._user = this._raiders[this.userID];
 
         // initialize arrays
-        this._doesNotEffect = [false, false, false, false, false];
+        this._doesNotAffect = [undefined, undefined, undefined, undefined, undefined];
         this._causesFlinch = [false, false, false, false, false];
         this._damage = [0,0,0,0,0];
         this._drain = [0,0,0,0,0];
@@ -169,63 +169,62 @@ export class RaidMove {
             const field = pokemon.field;
             // Terrain-based failure
             if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && this.move.priority > 0) {
-                this._doesNotEffect[id] = true;
+                this._doesNotAffect[id] = "blocked by Psychic Terrain";
                 continue;
             }
             // Ability-based immunities
             if (this._user.ability !== "Mold Breaker") {
                 if (pokemon.ability === "Good As Gold" && category === "Status" && targetType !== "user") { 
-                    this._doesNotEffect[id] = true; 
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue; 
                 }
                 if (["Dry Skin", "Water Absorb"].includes(pokemon.ability || "") && moveType === "Water") { 
-                    this._doesNotEffect[id] = true; 
+                    this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
                     this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
                     continue;
                 }
                 if (pokemon.ability === "Volt Absorb" && moveType === "Electric") { 
-                    this._doesNotEffect[id] = true; 
+                    this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
                     this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
                     continue;
                 }
                 if (pokemon.ability === "Earth Eater" && moveType === "Ground") {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
                     this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
                     continue;
                 }
                 if (pokemon.ability === "Flash Fire" && moveType === "Fire") { 
-                    this._doesNotEffect[id] = true; 
+                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {spa: 1};
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
                 if (pokemon.ability === "Well-Baked Body") {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {def: 2};
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
                 if (pokemon.ability === "Sap Sipper" && moveType === "Grass") {
-                    this._doesNotEffect[id] = true; 
+                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {atk: 1};
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
                 if (pokemon.ability === "Motor Drive" && moveType === "Electric") {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {spe: 1};
                     this._raidState.applyStatChange(id, boost);
-                    pokemon.boosts.spe = safeStatStage(pokemon.boosts.spe + 1);
                     continue;
                 }
                 if (pokemon.ability === "Storm Drain" && moveType === "Water") {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {spa: 1};
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
                 if (pokemon.ability === "Lightning Rod" && moveType === "Electric") {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {spa: 1};
                     this._raidState.applyStatChange(id, boost);
                     continue;
@@ -258,51 +257,51 @@ export class RaidMove {
                         "Zap Cannon"
                     ].includes(moveName)) 
                 {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "blocked by Bulletproof";
                     continue;
                 }
                 if (pokemon.ability === "Levitate" && !pokemonIsGrounded(pokemon, field) && moveType === "Ground") { 
-                    this._doesNotEffect[id] = true; 
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue;
                 }
             }
             // Type-based immunities
             if (category !== "Status" && pokemon.item !== "Ring Target") {
                 if (moveType === "Ground" && !pokemonIsGrounded(pokemon, field)) { 
-                    this._doesNotEffect[id] = true; 
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
                 if (moveType === "Electric" && pokemon.types.includes("Ground")) { 
-                    this._doesNotEffect[id] = true; 
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name; 
                     continue;
                 }
                 if (["Normal", "Fighting"].includes(moveType || "") && pokemon.types.includes("Ghost")) {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
                 if (moveType === "Ghost" && pokemon.types.includes("Normal")) {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
                 if (moveType === "Dragon" && pokemon.types.includes("Fairy")) {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
                 if (moveType === "Psychic" && pokemon.types.includes("Dark")) {
-                    this._doesNotEffect[id] = true;
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
             }
             if (moveName === "Thunder Wave" && pokemon.types.includes("Ground") && pokemon.item !== "Ring Target") {
-                this._doesNotEffect[id] = true;
+                this._doesNotAffect[id] = "does not affect " + pokemon.name;
                 continue;
             }
             if ((moveName.includes("Powder") || moveName.includes("Spore") && moveName !== "Powder Snow") && (pokemon.types.includes("Grass") || pokemon.item === "Safety Goggles")) {
-                this._doesNotEffect[id] = true;
+                this._doesNotAffect[id] = "does not affect " + pokemon.name;
                 continue;
             }
             if (id !== this.userID && this._user.ability === "Prankster" && category === "Status" && pokemon.types.includes("Dark")) {
-                this._doesNotEffect[id] = true;
+                this._doesNotAffect[id] = "does not affect " + pokemon.name;
                 continue;
             }
         }
@@ -311,7 +310,7 @@ export class RaidMove {
     private checkProtection() {
         if (!bypassProtectMoves.includes(this.moveData.name)){
             for (let id of this._affectedIDs) {
-                if (!this._doesNotEffect[id]) {
+                if (!this._doesNotAffect[id]) {
                     const pokemon = this.getPokemon(id);
                     const field = pokemon.field;
                     if (field.attackerSide.isProtected) {
@@ -370,10 +369,10 @@ export class RaidMove {
         }
         let hasCausedDamage = false;
         for (let id of this._affectedIDs) {
-            if (this._doesNotEffect[id]) {
-                this._desc[id] = this.move.name + " does not affect " + this.getPokemon(id).role + "."; // a more specific reason might be helpful
+            if (this._doesNotAffect[id]) {
+                this._desc[id] = this.move.name + " " + this._doesNotAffect[id] + "!";
             } else if (this._blockedBy[id] !== "")  {
-                this._desc[id] = this.move.name + " was blocked by " + this._blockedBy[id] + ".";
+                this._desc[id] = this.move.name + " was blocked by " + this._blockedBy[id] + "!";
             } else {
                 try {
                     const target = this.getPokemon(id);
@@ -463,7 +462,7 @@ export class RaidMove {
     private applyHealing() {
         const healingPercent = this.moveData.healing;
         for (let id of this._affectedIDs) {
-            if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
+            if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
             const target = this.getPokemon(id);
             const maxHP = target.maxHP();
             if (this.move.name === "Heal Cheer") {
@@ -488,7 +487,7 @@ export class RaidMove {
         if (flinchChance && (this.options.secondaryEffects || flinchChance === 100)) {
             for (let id of this._affectedIDs) {
                 if (id === 0) { continue; }
-                if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
+                if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const target = this.getPokemon(id);
                 if (target.item === "Covert Cloak" || target.ability === "Shield Dust") { continue; }
                 if (target.ability === "Inner Focus" && this._user.ability !== "Mold Breaker") { continue; }
@@ -506,7 +505,7 @@ export class RaidMove {
         const chance = this.moveData.statChance || 100;
         if (chance && (this.options.secondaryEffects || chance === 100 )) {
             for (let id of affectedIDs) {
-                if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
+                if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
                 const field = pokemon.field;
                 if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
@@ -536,7 +535,7 @@ export class RaidMove {
         const chance = this.moveData.ailmentChance || 100;
         if (ailment && (chance === 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
-                if (this._doesNotEffect[id] || this._blockedBy[id] !== "") { continue; }
+                if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
                 const field = pokemon.field;
                 const status = ailmentToStatus(ailment);
@@ -654,8 +653,8 @@ export class RaidMove {
         // Helping Hand
         const helpinghand = this.move.name === "Helping Hand";
         if (helpinghand) {
-            if (this._doesNotEffect[this.targetID]) {
-                this._desc[this.targetID] = this.move.name + " does not affect " + this.getPokemon(this.targetID).role + "."; // a more specific reason might be helpful
+            if (this._doesNotAffect[this.targetID]) {
+                this._desc[this.targetID] = this.move.name + " " + this._doesNotAffect[this.targetID] + "!";
             } else {
                 this._fields[this.targetID].attackerSide.isHelpingHand = true;
             }
@@ -679,7 +678,7 @@ export class RaidMove {
                     const pokemon = this.getPokemon(i);
                     pokemon.ability = "(None)" as AbilityName;
                     pokemon.abilityOn = false;
-                    pokemon.abilityNullified = 2;
+                    pokemon.abilityNullified = i === this.targetID ? 2 : 1;
                     pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers
                     pokemon.field.attackerSide.isDefCheered = 0;
                     for (let stat in pokemon.boosts) {
@@ -1042,12 +1041,12 @@ export class RaidMove {
                 const newStat = pokemon.boosts[stat] === undefined ? origStat : pokemon.boosts[stat];
                 const diff = newStat - origStat;
                 if (diff !== 0) {
-                    boostStr.push(stat + " " + (origStat > 0 ? "+" : "") + origStat + " -> " + (newStat > 0 ? "+" : "") + newStat);
+                    boostStr.push(stat + " " + (origStat > 0 ? "+" : "") + origStat + " → " + (newStat > 0 ? "+" : "") + newStat);
                 }
             }
             // acupressure check
             if (pokemon.randomBoosts !== origPokemon.randomBoosts) {
-                boostStr.push("random stat " + (origPokemon.randomBoosts > 0 ? "+" : "") + origPokemon.randomBoosts + " -> " + (pokemon.randomBoosts > 0 ? "+" : "") + pokemon.randomBoosts);
+                boostStr.push("random stat " + (origPokemon.randomBoosts > 0 ? "+" : "") + origPokemon.randomBoosts + " → " + (pokemon.randomBoosts > 0 ? "+" : "") + pokemon.randomBoosts);
             }
             if (boostStr.length > 0) {
                 const displayStr = "Stat changes: (" + boostStr.join(", ") + ")";
@@ -1061,7 +1060,7 @@ export class RaidMove {
             if (initialHP !== finalHP) {
                 const initialPercent = Math.floor(initialHP / this.raidState.raiders[i].maxHP() * 1000)/10;;
                 const finalPercent = Math.floor(finalHP / this._raiders[i].maxHP() * 1000)/10;
-                const hpStr = "HP: " + initialPercent + "% -> " + finalPercent + "%";
+                const hpStr = "HP: " + initialPercent + "% → " + finalPercent + "%";
                 this._flags[i].push(hpStr);
             }
         }

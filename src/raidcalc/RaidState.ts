@@ -715,7 +715,7 @@ export class RaidState implements State.RaidState{
 
             );
             this.raiders[id].originalCurHP = this.raiders[id].maxHP();
-            flags[id].push(pokemon.role + " is going to go all out against this formidable opponent!")
+            flags[id].push(pokemon.name + " is going to go all out against this formidable opponent!")
         }
         return flags;
     }

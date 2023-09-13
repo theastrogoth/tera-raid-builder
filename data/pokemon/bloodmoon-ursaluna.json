@@ -1,0 +1,23 @@
+{
+    "name": "Bloodmoon Ursaluna",
+    "abilities": [
+        {
+            "name": "Mind/'s Eye",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "ground",
+        "normal"
+    ],
+    "stats": {
+        "hp": 113,
+        "atk": 70,
+        "def": 120,
+        "spa": 135,
+        "spd": 65,
+        "spe": 52
+    },
+    "moves": [
+    ]
+}

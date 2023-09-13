@@ -1,0 +1,23 @@
+{
+    "name": "Ogerpon-Wellspring",
+    "abilities": [
+        {
+            "name": "Water Absorb",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "grass",
+        "water"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

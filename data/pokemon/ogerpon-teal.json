@@ -1,0 +1,22 @@
+{
+    "name": "Ogerpon-Teal",
+    "abilities": [
+        {
+            "name": "Defiant",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "grass"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

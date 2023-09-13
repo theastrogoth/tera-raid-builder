@@ -1,0 +1,27 @@
+{
+    "name": "Poltchageist",
+    "abilities": [
+        {
+            "name": "Hospitality",
+            "hidden": false
+        },
+        {
+            "name": "Heat Proof",
+            "hidden": true
+        }
+    ],
+    "types": [
+        "grass",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 40,
+        "atk": 45,
+        "def": 45,
+        "spa": 74,
+        "spd": 54,
+        "spe": 50
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "Ogerpon-Hearthflame",
+    "abilities": [
+        {
+            "name": "Mold Breaker",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "grass",
+        "fire"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 120,
+        "def": 84,
+        "spa": 60,
+        "spd": 96,
+        "spe": 110
+    },
+    "moves": [
+    ]
+}

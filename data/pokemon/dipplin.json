@@ -1,0 +1,31 @@
+{
+    "name": "Dipplin",
+    "abilities": [
+        {
+            "name": "Gluttony",
+            "hidden": false
+        },
+        {
+            "name": "Supersweet Syrup",
+            "hidden": false
+        },
+        {
+            "name": "Sticky Hold",
+            "hidden": true
+        }
+    ],
+    "types": [
+        "grass",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 80,
+        "atk": 80,
+        "def": 110,
+        "spa": 95,
+        "spd": 80,
+        "spe": 40
+    },
+    "moves": [
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "name": "Fezandipiti",
+    "abilities": [
+        {
+            "name": "Toxic Chain",
+            "hidden": false
+        },
+        {
+            "name": "Technician",
+            "hidden": true
+        }
+    ],
+    "types": [
+        "poison",
+        "fairy"
+    ],
+    "stats": {
+        "hp": 88,
+        "atk": 91,
+        "def": 82,
+        "spa": 70,
+        "spd": 125,
+        "spe": 99
+    },
+    "moves": [
+    ]
+}

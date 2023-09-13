@@ -1,0 +1,19 @@
+{
+    "name": "Syrup Bomb",
+    "category": "damage+lower",
+    "target": "selected-pokemon",
+    "type": "Grass",
+    "power": 60,
+    "accuracy": 85,
+    "priority": 0,
+    "drain": 0,
+    "healing": 0,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": null,
+    "flinchChance": 0,
+    "statChance": 100,
+    "ailmentChance": 0,
+    "minHits": null,
+    "maxHits": null
+}

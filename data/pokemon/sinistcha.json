@@ -1,0 +1,27 @@
+{
+    "name": "Sinistcha",
+    "abilities": [
+        {
+            "name": "Hospitality",
+            "hidden": false
+        },
+        {
+            "name": "Heat Proof",
+            "hidden": true
+        }
+    ],
+    "types": [
+        "grass",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 71,
+        "atk": 60,
+        "def": 106,
+        "spa": 121,
+        "spd": 80,
+        "spe": 70
+    },
+    "moves": [
+    ]
+}

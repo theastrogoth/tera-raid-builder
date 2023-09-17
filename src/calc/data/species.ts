@@ -8975,7 +8975,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   Girafarig: {nfe: true},
   Primeape: {nfe: true},
   Tauros: {otherFormes: ['Tauros-Paldea-Aqua-Breed', 'Tauros-Paldea-Blaze-Breed', 'Tauros-Paldea-Combat-Breed']},
-  Ursaluna: {otherFormes: ['Bloodmoon Ursaluna']},
+  Ursaluna: {otherFormes: ['Ursaluna-Bloodmoon']},
   Wooper: {otherFormes: ['Wooper-Paldea']},
   Zacian: {bs: {at: 120}},
   'Zacian-Crowned': {bs: {at: 150}},
@@ -9018,7 +9018,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     weightkg: 113,
     abilities: {0: 'Electromorphosis'},
   },
-  'Bloodmoon Ursaluna': {
+  'Ursaluna-Bloodmoon': {
     types: ['Ground', 'Normal'],
     bs: {hp: 113, at: 70, df: 120, sa: 135, sd: 65, sp: 52},
     weightkg: 333,

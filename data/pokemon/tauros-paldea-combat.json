@@ -1,5 +1,5 @@
 {
-    "name": "Tauros-Paldea-Aqua-Breed",
+    "name": "Tauros-Paldea-Combat",
     "abilities": [
         {
             "name": "Intimidate",
@@ -15,8 +15,7 @@
         }
     ],
     "types": [
-        "fighting",
-        "water"
+        "fighting"
     ],
     "stats": {
         "hp": 75,
@@ -28,7 +27,7 @@
     },
     "moves": [
         {
-            "name": "Aqua Jet",
+            "name": "Assurance",
             "learnMethod": "level-up"
         },
         {
@@ -48,10 +47,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Chilling Water",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Close Combat",
             "learnMethod": "level-up"
         },
@@ -65,6 +60,10 @@
         },
         {
             "name": "Double Kick",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "level-up"
         },
         {
@@ -96,19 +95,11 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Hydro Pump",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Liquidation",
             "learnMethod": "machine"
         },
         {
@@ -172,6 +163,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Surf",
             "learnMethod": "machine"
         },
@@ -206,14 +201,6 @@
         {
             "name": "Trailblaze",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Water Pulse",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Wave Crash",
-            "learnMethod": "level-up"
         },
         {
             "name": "Wild Charge",

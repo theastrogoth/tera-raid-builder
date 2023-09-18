@@ -1,102 +1,74 @@
 {
-    "name": "Tauros-Paldea-Blaze-Breed",
+    "name": "Basculegion",
     "abilities": [
         {
-            "name": "Intimidate",
+            "name": "Swift Swim",
             "hidden": false
         },
         {
-            "name": "Anger Point",
+            "name": "Adaptability",
             "hidden": false
         },
         {
-            "name": "Cud Chew",
+            "name": "Mold Breaker",
             "hidden": true
         }
     ],
     "types": [
-        "fighting",
-        "fire"
+        "water",
+        "ghost"
     ],
     "stats": {
-        "hp": 75,
-        "atk": 110,
-        "def": 105,
-        "spa": 30,
-        "spd": 70,
-        "spe": 100
+        "hp": 120,
+        "atk": 112,
+        "def": 65,
+        "spa": 80,
+        "spd": 75,
+        "spe": 78
     },
     "moves": [
         {
-            "name": "Body Press",
+            "name": "Agility",
             "learnMethod": "machine"
         },
         {
-            "name": "Body Slam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bulk Up",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bulldoze",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Close Combat",
+            "name": "Aqua Jet",
             "learnMethod": "level-up"
         },
         {
-            "name": "Curse",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Dig",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Double Kick",
+            "name": "Bite",
             "learnMethod": "level-up"
         },
         {
-            "name": "Drill Run",
+            "name": "Blizzard",
             "learnMethod": "machine"
         },
         {
-            "name": "Earthquake",
+            "name": "Chilling Water",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Confuse Ray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "level-up"
         },
         {
             "name": "Endeavor",
             "learnMethod": "egg"
         },
         {
-            "name": "Endure",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Facade",
             "learnMethod": "machine"
         },
         {
-            "name": "Fire Blast",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fire Spin",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Flame Charge",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Flamethrower",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Flare Blitz",
+            "name": "Flail",
             "learnMethod": "level-up"
         },
         {
@@ -104,15 +76,51 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Head Smash",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Headbutt",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hex",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hydro Pump",
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
         {
-            "name": "Iron Head",
+            "name": "Ice Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Last Respects",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Liquidation",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Night Shade",
             "learnMethod": "machine"
         },
         {
@@ -120,16 +128,16 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Overheat",
-            "learnMethod": "machine"
+            "name": "Phantom Force",
+            "learnMethod": "level-up"
         },
         {
             "name": "Protect",
             "learnMethod": "machine"
         },
         {
-            "name": "Raging Bull",
-            "learnMethod": "level-up"
+            "name": "Psychic Fangs",
+            "learnMethod": "machine"
         },
         {
             "name": "Rain Dance",
@@ -137,22 +145,6 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Reversal",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rock Slide",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rock Tomb",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sandstorm",
             "learnMethod": "machine"
         },
         {
@@ -160,32 +152,28 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Shadow Ball",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
-            "name": "Smart Strike",
+            "name": "Snowscape",
             "learnMethod": "machine"
         },
         {
-            "name": "Stomping Tantrum",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stone Edge",
-            "learnMethod": "machine"
+            "name": "Soak",
+            "learnMethod": "level-up"
         },
         {
             "name": "Substitute",
             "learnMethod": "machine"
         },
         {
-            "name": "Sunny Day",
+            "name": "Surf",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Swagger",
-            "learnMethod": "level-up"
         },
         {
             "name": "Tackle",
@@ -197,14 +185,10 @@
         },
         {
             "name": "Take Down",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Tera Blast",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thief",
             "learnMethod": "machine"
         },
         {
@@ -212,23 +196,23 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Trailblaze",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Wild Charge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Will-O-Wisp",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Work Up",
+            "name": "Uproar",
             "learnMethod": "level-up"
         },
         {
-            "name": "Zen Headbutt",
+            "name": "Water Gun",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Water Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wave Crash",
             "learnMethod": "level-up"
         }
     ]

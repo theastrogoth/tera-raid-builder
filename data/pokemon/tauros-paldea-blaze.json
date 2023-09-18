@@ -1,5 +1,5 @@
 {
-    "name": "Tauros-Paldea-Combat-Breed",
+    "name": "Tauros-Paldea-Blaze",
     "abilities": [
         {
             "name": "Intimidate",
@@ -15,7 +15,8 @@
         }
     ],
     "types": [
-        "fighting"
+        "fighting",
+        "fire"
     ],
     "stats": {
         "hp": 75,
@@ -26,10 +27,6 @@
         "spe": 100
     },
     "moves": [
-        {
-            "name": "Assurance",
-            "learnMethod": "level-up"
-        },
         {
             "name": "Body Press",
             "learnMethod": "machine"
@@ -63,10 +60,6 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Double-Edge",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Drill Run",
             "learnMethod": "machine"
         },
@@ -87,6 +80,26 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Fire Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fire Spin",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Flame Charge",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Flamethrower",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Flare Blitz",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -104,6 +117,10 @@
         },
         {
             "name": "Outrage",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Overheat",
             "learnMethod": "machine"
         },
         {
@@ -167,10 +184,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Surf",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Swagger",
             "learnMethod": "level-up"
         },
@@ -204,6 +217,10 @@
         },
         {
             "name": "Wild Charge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Will-O-Wisp",
             "learnMethod": "machine"
         },
         {

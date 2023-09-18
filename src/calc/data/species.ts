@@ -8103,7 +8103,7 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: {0: 'Prankster'},
     nfe: true,
   },
-  'Indeedee-M': {
+  Indeedee: {
     types: ['Psychic', 'Normal'],
     bs: {hp: 60, at: 65, df: 55, sa: 105, sd: 95, sp: 95},
     weightkg: 28,
@@ -8115,7 +8115,7 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 70, at: 55, df: 65, sa: 95, sd: 105, sp: 85},
     weightkg: 28,
     abilities: {0: 'Own Tempo'},
-    baseSpecies: 'Indeedee-M',
+    baseSpecies: 'Indeedee',
   },
   Inteleon: {
     types: ['Water'],
@@ -8570,7 +8570,7 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: {0: 'Rattled'},
     nfe: true,
   },
-  'Toxtricity-Amped': {
+  Toxtricity: {
     types: ['Electric', 'Poison'],
     bs: {hp: 75, at: 98, df: 70, sa: 114, sd: 70, sp: 75},
     weightkg: 40,
@@ -8582,14 +8582,14 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   bs: {hp: 75, at: 98, df: 70, sa: 114, sd: 70, sp: 75},
   //   weightkg: 0,
   //   abilities: {0: 'Punk Rock'},
-  //   baseSpecies: 'Toxtricity-Amped',
+  //   baseSpecies: 'Toxtricity',
   // },
   'Toxtricity-Low-Key': {
     types: ['Electric', 'Poison'],
     bs: {hp: 75, at: 98, df: 70, sa: 114, sd: 70, sp: 75},
     weightkg: 40,
     abilities: {0: 'Punk Rock'},
-    baseSpecies: 'Toxtricity-Amped',
+    baseSpecies: 'Toxtricity',
   },
   'Urshifu-Single-Strike': {
     types: ['Fighting', 'Dark'],
@@ -8778,7 +8778,7 @@ const PLA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: {0: 'Strong Jaw'},
     baseSpecies: 'Avalugg',
   },
-  'Basculegion-M': {
+  Basculegion: {
     types: ['Water', 'Ghost'],
     bs: {hp: 120, at: 112, df: 65, sa: 80, sd: 75, sp: 78},
     weightkg: 110,
@@ -8790,7 +8790,7 @@ const PLA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 120, at: 92, df: 65, sa: 100, sd: 75, sp: 78},
     weightkg: 110,
     abilities: {0: 'Swift Swim'},
-    baseSpecies: 'Basculegion-M',
+    baseSpecies: 'Basculegion',
   },
   'Basculin-White-Striped': {
     types: ['Water'],
@@ -8974,7 +8974,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   Dunsparce: {nfe: true},
   Girafarig: {nfe: true},
   Primeape: {nfe: true},
-  Tauros: {otherFormes: ['Tauros-Paldea-Aqua-Breed', 'Tauros-Paldea-Blaze-Breed', 'Tauros-Paldea-Combat-Breed']},
+  Tauros: {otherFormes: ['Tauros-Paldea-Aqua', 'Tauros-Paldea-Blaze', 'Tauros-Paldea-Combat']},
   Ursaluna: {otherFormes: ['Ursaluna-Bloodmoon']},
   Wooper: {otherFormes: ['Wooper-Paldea']},
   Zacian: {bs: {at: 120}},
@@ -9488,7 +9488,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: {0: 'Sturdy'},
     otherFormes: ['Ogerpon-Teal', 'Ogerpon-Wellspring', 'Ogerpon-Hearthflame'],
   },
-  'Oinkologne-M': {
+  Oinkologne: {
     types: ['Normal'],
     bs: {hp: 110, at: 100, df: 75, sa: 59, sd: 80, sp: 65},
     weightkg: 120,
@@ -9500,7 +9500,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 115, at: 90, df: 70, sa: 59, sd: 90, sp: 65},
     weightkg: 120,
     abilities: {0: 'Aroma Veil'},
-    baseSpecies: 'Oinkologne-M',
+    baseSpecies: 'Oinkologne',
   },
   Okidogi: {
     types: ['Poison', 'Fighting'],
@@ -9726,21 +9726,21 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     weightkg: 8,
     abilities: {0: 'Commander'},
   },
-  'Tauros-Paldea-Aqua-Breed': {
+  'Tauros-Paldea-Aqua': {
     types: ['Fighting', 'Water'],
     bs: {hp: 75, at: 110, df: 105, sa: 30, sd: 70, sp: 100},
     weightkg: 88.4,
     abilities: {0: 'Intimidate'},
     baseSpecies: 'Tauros',
   },
-  'Tauros-Paldea-Blaze-Breed': {
+  'Tauros-Paldea-Blaze': {
     types: ['Fighting', 'Fire'],
     bs: {hp: 75, at: 110, df: 105, sa: 30, sd: 70, sp: 100},
     weightkg: 88.4,
     abilities: {0: 'Intimidate'},
     baseSpecies: 'Tauros',
   },
-  'Tauros-Paldea-Combat-Breed': {
+  'Tauros-Paldea-Combat': {
     types: ['Fighting'],
     bs: {hp: 75, at: 110, df: 105, sa: 30, sd: 70, sp: 100},
     weightkg: 88.4,

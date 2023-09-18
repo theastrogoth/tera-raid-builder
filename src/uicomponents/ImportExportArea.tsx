@@ -28,7 +28,8 @@ export function exportPokemon(pokemon: Pokemon) {
     const gen = 9;
 	var EV_counter = 0;
 	var finalText = "";
-	finalText = checkExportExceptions(pokemon.name) + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
+	// finalText = checkExportExceptions(pokemon.name) + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
+	finalText = pokemon.name + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
 	finalText += "Level: " + pokemon.level + "\n";
 	finalText += pokemon.bossMultiplier > 100 ? "Boss Health multiplier: " + pokemon.bossMultiplier + "\n" : "";
 	finalText += pokemon.nature && gen > 2 ? pokemon.nature + " Nature\n" : "";
@@ -257,53 +258,34 @@ function checkImportExceptions(poke: string) {
 	case 'Deerling-Winter':
 		poke = "Deerling";
 		break;
-	// these are meant to resolve naming convention differences between here and smogon
-	case 'Tauros-Paldea-Aqua':
-		poke = "Tauros-Paldea-Aqua-Breed";
-		break;
-	case 'Tauros-Paldea-Blaze':
-		poke = "Tauros-Paldea-Blaze-Breed";
-		break;
-	case 'Indeedee':
-		poke = "Indeedee-M";
-		break;
-	case 'Basculegion':
-		poke = "Basculegion-M";
-		break;
-	case 'Toxtricity':
-		poke = "Toxtricity-Amped";
-		break;
-	case 'Oinkologne':
-		poke = "Oinkologne-M";
-		break;
 	}
 	return poke;
 }
 
-function checkExportExceptions(poke: string) {
-	switch (poke) {
-		// these are meant to resolve naming convention differences between here and smogon
-		case 'Tauros-Paldea-Aqua-Breed':
-			poke = "Tauros-Paldea-Aqua";
-			break;
-		case 'Tauros-Paldea-Blaze-Breed':
-			poke = "Tauros-Paldea-Blaze";
-			break;
-		case 'Indeedee-M':
-			poke = "Indeedee";
-			break;
-		case 'Basculegion-M':
-			poke = "Basculegion";
-			break;
-		case 'Toxtricity-Amped':
-			poke = "Toxtricity";
-			break;
-		case 'Oinkologne-M':
-			poke = "Oinkologne";
-			break;
-	}
-	return poke;
-}
+// function checkExportExceptions(poke: string) {
+// 	switch (poke) {
+// 		// these are meant to resolve naming convention differences between here and smogon
+// 		case 'Tauros-Paldea-Aqua-Breed':
+// 			poke = "Tauros-Paldea-Aqua";
+// 			break;
+// 		case 'Tauros-Paldea-Blaze-Breed':
+// 			poke = "Tauros-Paldea-Blaze";
+// 			break;
+// 		case 'Indeedee-M':
+// 			poke = "Indeedee";
+// 			break;
+// 		case 'Basculegion-M':
+// 			poke = "Basculegion";
+// 			break;
+// 		case 'Toxtricity-Amped':
+// 			poke = "Toxtricity";
+// 			break;
+// 		case 'Oinkologne-M':
+// 			poke = "Oinkologne";
+// 			break;
+// 	}
+// 	return poke;
+// }
 		
 
 function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r: Raider) => void}) {

@@ -172,11 +172,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic",
+            "name": "Psychic Terrain",
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic Terrain",
+            "name": "Psychic",
             "learnMethod": "machine"
         },
         {
@@ -232,11 +232,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {

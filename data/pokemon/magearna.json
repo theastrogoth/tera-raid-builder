@@ -280,12 +280,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Trick Room",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
+            "learnMethod": "level-up"
         },
         {
             "name": "Volt Switch",

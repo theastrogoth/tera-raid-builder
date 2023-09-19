@@ -52,10 +52,6 @@
         },
         {
             "name": "Energy Ball",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Energy Ball",
             "learnMethod": "level-up"
         },
         {
@@ -76,10 +72,6 @@
         },
         {
             "name": "Grassy Glide",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
         {
@@ -108,15 +100,7 @@
         },
         {
             "name": "Magical Leaf",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Magical Leaf",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Play Rough",
-            "learnMethod": "machine"
         },
         {
             "name": "Play Rough",

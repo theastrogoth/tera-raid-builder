@@ -40,10 +40,6 @@
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dark Pulse",
             "learnMethod": "level-up"
         },
         {
@@ -96,10 +92,6 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Haze",
             "learnMethod": "level-up"
         },
         {
@@ -132,15 +124,7 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Nasty Plot",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Night Shade",
-            "learnMethod": "machine"
         },
         {
             "name": "Night Shade",
@@ -243,11 +227,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

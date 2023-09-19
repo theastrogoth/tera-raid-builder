@@ -200,16 +200,16 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Psychic Fangs",
             "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "level-up"
         },
         {
             "name": "Psyshock",
@@ -284,12 +284,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Wave",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",
@@ -300,12 +300,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Trick Room",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
+            "learnMethod": "level-up"
         },
         {
             "name": "Twin Beam",

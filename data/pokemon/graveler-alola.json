@@ -44,16 +44,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
+            "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
             "name": "Charge",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Charge Beam",
-            "learnMethod": "machine"
         },
         {
             "name": "Counter",
@@ -90,10 +86,6 @@
         {
             "name": "Electric Terrain",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Endure",
-            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -169,10 +161,6 @@
         },
         {
             "name": "Rock Blast",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rock Blast",
             "learnMethod": "level-up"
         },
         {
@@ -217,10 +205,6 @@
         },
         {
             "name": "Smack Down",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Smack Down",
             "learnMethod": "level-up"
         },
         {
@@ -229,18 +213,10 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stealth Rock",
             "learnMethod": "level-up"
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stone Edge",
             "learnMethod": "machine"
         },
         {
@@ -268,19 +244,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder Punch",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "level-up"
         },
         {
             "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

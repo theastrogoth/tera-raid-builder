@@ -81,10 +81,6 @@
         },
         {
             "name": "Energy Ball",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Energy Ball",
             "learnMethod": "level-up"
         },
         {
@@ -113,10 +109,6 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Giga Drain",
             "learnMethod": "level-up"
         },
         {
@@ -137,10 +129,6 @@
         },
         {
             "name": "Hydro Pump",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hydro Pump",
             "learnMethod": "level-up"
         },
         {
@@ -157,10 +145,6 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -249,10 +233,6 @@
         },
         {
             "name": "Teeter Dance",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Teeter Dance",
             "learnMethod": "level-up"
         },
         {
@@ -293,10 +273,6 @@
         },
         {
             "name": "Weather Ball",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Zen Headbutt",
             "learnMethod": "machine"
         },
         {

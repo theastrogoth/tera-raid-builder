@@ -125,10 +125,6 @@
         },
         {
             "name": "Low Sweep",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Low Sweep",
             "learnMethod": "level-up"
         },
         {

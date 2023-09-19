@@ -60,10 +60,6 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Charm",
             "learnMethod": "level-up"
         },
         {
@@ -92,10 +88,6 @@
         },
         {
             "name": "Disarming Voice",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Disarming Voice",
             "learnMethod": "level-up"
         },
         {
@@ -108,10 +100,6 @@
         },
         {
             "name": "Dual Wingbeat",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Encore",
             "learnMethod": "machine"
         },
         {
@@ -164,10 +152,6 @@
         },
         {
             "name": "Grass Knot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Gravity",
             "learnMethod": "machine"
         },
         {
@@ -233,10 +217,6 @@
         {
             "name": "Meteor Mash",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Metronome",
-            "learnMethod": "machine"
         },
         {
             "name": "Metronome",
@@ -332,10 +312,6 @@
         },
         {
             "name": "Stored Power",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stored Power",
             "learnMethod": "level-up"
         },
         {
@@ -367,15 +343,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

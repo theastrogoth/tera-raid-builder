@@ -52,10 +52,6 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Charm",
             "learnMethod": "level-up"
         },
         {
@@ -108,10 +104,6 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hydro Pump",
             "learnMethod": "machine"
         },
         {

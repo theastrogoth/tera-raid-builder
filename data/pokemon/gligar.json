@@ -29,10 +29,6 @@
     "moves": [
         {
             "name": "Acrobatics",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Acrobatics",
             "learnMethod": "level-up"
         },
         {
@@ -137,10 +133,6 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Knock Off",
             "learnMethod": "level-up"
         },
         {
@@ -170,10 +162,6 @@
         {
             "name": "Poison Sting",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Poison Tail",
-            "learnMethod": "machine"
         },
         {
             "name": "Poison Tail",
@@ -273,10 +261,6 @@
         },
         {
             "name": "Swords Dance",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swords Dance",
             "learnMethod": "level-up"
         },
         {
@@ -304,15 +288,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
-            "name": "U-turn",
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {
@@ -326,10 +306,6 @@
         {
             "name": "Wing Attack",
             "learnMethod": "egg"
-        },
-        {
-            "name": "X-Scissor",
-            "learnMethod": "machine"
         },
         {
             "name": "X-Scissor",

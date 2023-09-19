@@ -120,12 +120,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Sludge",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Sludge Bomb",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge",
+            "learnMethod": "level-up"
         },
         {
             "name": "Smog",
@@ -172,11 +172,11 @@
             "learnMethod": "egg"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {

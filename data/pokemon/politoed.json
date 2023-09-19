@@ -40,10 +40,6 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Body Slam",
             "learnMethod": "level-up"
         },
         {
@@ -73,10 +69,6 @@
         {
             "name": "Double-Edge",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Earth Power",
-            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -128,18 +120,10 @@
         },
         {
             "name": "Hydro Pump",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hydro Pump",
             "learnMethod": "level-up"
         },
         {
             "name": "Hyper Beam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hyper Voice",
             "learnMethod": "machine"
         },
         {
@@ -184,10 +168,6 @@
         },
         {
             "name": "Mud Shot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Mud Shot",
             "learnMethod": "level-up"
         },
         {
@@ -212,10 +192,6 @@
         },
         {
             "name": "Psychic",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rain Dance",
             "learnMethod": "machine"
         },
         {
@@ -265,10 +241,6 @@
         {
             "name": "Water Gun",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Water Pulse",
-            "learnMethod": "egg"
         },
         {
             "name": "Water Pulse",

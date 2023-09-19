@@ -48,10 +48,6 @@
         },
         {
             "name": "Crunch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Crunch",
             "learnMethod": "level-up"
         },
         {
@@ -112,10 +108,6 @@
         },
         {
             "name": "Play Rough",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Play Rough",
             "learnMethod": "level-up"
         },
         {
@@ -140,19 +132,11 @@
         },
         {
             "name": "Roar",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Roar",
             "learnMethod": "level-up"
         },
         {
             "name": "Sand Attack",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Scary Face",
-            "learnMethod": "machine"
         },
         {
             "name": "Scary Face",
@@ -200,15 +184,7 @@
         },
         {
             "name": "Take Down",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Take Down",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Taunt",
-            "learnMethod": "machine"
         },
         {
             "name": "Taunt",

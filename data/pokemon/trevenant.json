@@ -53,10 +53,6 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Confuse Ray",
             "learnMethod": "level-up"
         },
         {
@@ -141,10 +137,6 @@
         },
         {
             "name": "Hex",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hex",
             "learnMethod": "level-up"
         },
         {
@@ -185,10 +177,6 @@
         },
         {
             "name": "Night Shade",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Phantom Force",
             "learnMethod": "machine"
         },
         {
@@ -237,10 +225,6 @@
         },
         {
             "name": "Shadow Ball",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Shadow Claw",
             "learnMethod": "machine"
         },
         {
@@ -300,15 +284,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Will-O-Wisp",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {

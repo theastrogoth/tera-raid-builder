@@ -139,12 +139,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Psychic Terrain",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "level-up"
         },
         {
             "name": "Psycho Cut",
@@ -215,11 +215,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
@@ -227,12 +227,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Trick Room",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
+            "learnMethod": "level-up"
         },
         {
             "name": "Zen Headbutt",

@@ -244,10 +244,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "level-up"
         },
@@ -256,16 +252,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
             "name": "Trick",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Trick Room",
-            "learnMethod": "machine"
         },
         {
             "name": "U-Turn",

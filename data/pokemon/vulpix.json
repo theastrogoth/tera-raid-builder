@@ -48,10 +48,6 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Confuse Ray",
             "learnMethod": "level-up"
         },
         {
@@ -88,15 +84,7 @@
         },
         {
             "name": "Fire Blast",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fire Blast",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Fire Spin",
-            "learnMethod": "machine"
         },
         {
             "name": "Fire Spin",
@@ -108,14 +96,6 @@
         },
         {
             "name": "Flame Charge",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Flame Charge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Flamethrower",
             "learnMethod": "machine"
         },
         {
@@ -153,10 +133,6 @@
         {
             "name": "Hypnosis",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Imprison",
-            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -199,10 +175,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Roar",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Safeguard",
             "learnMethod": "level-up"
         },
@@ -212,10 +184,6 @@
         },
         {
             "name": "Snarl",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Spite",
             "learnMethod": "machine"
         },
         {
@@ -244,10 +212,6 @@
         },
         {
             "name": "Weather Ball",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Will-O-Wisp",
             "learnMethod": "machine"
         },
         {

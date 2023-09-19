@@ -28,15 +28,7 @@
         },
         {
             "name": "Agility",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Agility",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Bulldoze",
-            "learnMethod": "machine"
         },
         {
             "name": "Bulldoze",
@@ -104,19 +96,11 @@
         },
         {
             "name": "Metal Claw",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Metal Claw",
             "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Mud-Slap",
-            "learnMethod": "egg"
         },
         {
             "name": "Mud-Slap",
@@ -176,10 +160,6 @@
         },
         {
             "name": "Super Fang",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swift",
             "learnMethod": "machine"
         },
         {

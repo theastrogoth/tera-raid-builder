@@ -33,10 +33,6 @@
         },
         {
             "name": "Charge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Charge",
             "learnMethod": "level-up"
         },
         {
@@ -129,10 +125,6 @@
         },
         {
             "name": "Smack Down",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Smack Down",
             "learnMethod": "level-up"
         },
         {
@@ -141,15 +133,7 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stealth Rock",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Stone Edge",
-            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -168,12 +152,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",

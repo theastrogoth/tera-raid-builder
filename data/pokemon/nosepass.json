@@ -56,10 +56,6 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Earth Power",
             "learnMethod": "level-up"
         },
         {
@@ -120,10 +116,6 @@
         },
         {
             "name": "Power Gem",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Power Gem",
             "learnMethod": "level-up"
         },
         {
@@ -132,23 +124,11 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rest",
             "learnMethod": "level-up"
         },
         {
             "name": "Rock Blast",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rock Blast",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Rock Slide",
-            "learnMethod": "machine"
         },
         {
             "name": "Rock Slide",
@@ -168,10 +148,6 @@
         },
         {
             "name": "Sand Tomb",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sandstorm",
             "learnMethod": "machine"
         },
         {
@@ -204,10 +180,6 @@
         },
         {
             "name": "Stone Edge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stone Edge",
             "learnMethod": "level-up"
         },
         {
@@ -235,20 +207,16 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
-            "name": "Thunder Wave",
-            "learnMethod": "level-up"
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",

@@ -196,15 +196,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic Fangs",
             "learnMethod": "level-up"
         },
         {
             "name": "Psychic Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
             "learnMethod": "machine"
         },
         {
@@ -280,10 +280,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -296,15 +292,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {

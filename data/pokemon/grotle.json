@@ -48,10 +48,6 @@
         },
         {
             "name": "Crunch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Crunch",
             "learnMethod": "level-up"
         },
         {
@@ -76,10 +72,6 @@
         },
         {
             "name": "Facade",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Giga Drain",
             "learnMethod": "machine"
         },
         {
@@ -112,10 +104,6 @@
         },
         {
             "name": "Iron Head",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Leaf Storm",
             "learnMethod": "machine"
         },
         {

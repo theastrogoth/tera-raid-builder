@@ -121,10 +121,6 @@
         },
         {
             "name": "Gravity",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Gravity",
             "learnMethod": "level-up"
         },
         {
@@ -197,10 +193,6 @@
         },
         {
             "name": "Psychic",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
             "learnMethod": "level-up"
         },
         {
@@ -213,10 +205,6 @@
         },
         {
             "name": "Reflect",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rest",
             "learnMethod": "machine"
         },
         {
@@ -261,18 +249,10 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swift",
             "learnMethod": "level-up"
         },
         {
             "name": "Tera Blast",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
@@ -284,15 +264,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
@@ -306,10 +290,6 @@
         {
             "name": "Wish",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Zen Headbutt",
-            "learnMethod": "machine"
         },
         {
             "name": "Zen Headbutt",

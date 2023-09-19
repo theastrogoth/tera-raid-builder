@@ -28,16 +28,16 @@
     },
     "moves": [
         {
-            "name": "Acid",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Acid Armor",
             "learnMethod": "egg"
         },
         {
             "name": "Acid Spray",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Acid",
+            "learnMethod": "level-up"
         },
         {
             "name": "Aqua Tail",
@@ -188,12 +188,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "level-up"
         },
         {
             "name": "Twister",

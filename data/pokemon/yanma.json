@@ -33,15 +33,7 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Air Cutter",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Air Slash",
-            "learnMethod": "machine"
         },
         {
             "name": "Air Slash",
@@ -53,15 +45,7 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bug Bite",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Bug Buzz",
-            "learnMethod": "machine"
         },
         {
             "name": "Bug Buzz",
@@ -193,15 +177,7 @@
         },
         {
             "name": "U-turn",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "U-turn",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Uproar",
-            "learnMethod": "machine"
         },
         {
             "name": "Uproar",

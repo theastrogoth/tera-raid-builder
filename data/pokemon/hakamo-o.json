@@ -49,10 +49,6 @@
         },
         {
             "name": "Close Combat",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Close Combat",
             "learnMethod": "level-up"
         },
         {
@@ -69,15 +65,7 @@
         },
         {
             "name": "Dragon Claw",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dragon Claw",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Dragon Dance",
-            "learnMethod": "machine"
         },
         {
             "name": "Dragon Dance",
@@ -85,10 +73,6 @@
         },
         {
             "name": "Dragon Pulse",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dragon Tail",
             "learnMethod": "machine"
         },
         {
@@ -128,16 +112,8 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Focus Punch",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Headbutt",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Iron Defense",
-            "learnMethod": "machine"
         },
         {
             "name": "Iron Defense",
@@ -165,15 +141,7 @@
         },
         {
             "name": "Outrage",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Outrage",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Protect",
-            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -205,10 +173,6 @@
         },
         {
             "name": "Scale Shot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Scary Face",
             "learnMethod": "machine"
         },
         {

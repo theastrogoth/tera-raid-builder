@@ -24,12 +24,12 @@
     },
     "moves": [
         {
-            "name": "Acid",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Acid Spray",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Acid",
+            "learnMethod": "level-up"
         },
         {
             "name": "Bullet Seed",
@@ -85,10 +85,6 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Knock Off",
             "learnMethod": "level-up"
         },
         {
@@ -105,10 +101,6 @@
         },
         {
             "name": "Magical Leaf",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Poison Jab",
             "learnMethod": "machine"
         },
         {

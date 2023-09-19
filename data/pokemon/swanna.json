@@ -33,18 +33,10 @@
         },
         {
             "name": "Aerial Ace",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Aerial Ace",
             "learnMethod": "level-up"
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Air Slash",
             "learnMethod": "machine"
         },
         {
@@ -58,10 +50,6 @@
         {
             "name": "Aqua Ring",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Brave Bird",
-            "learnMethod": "machine"
         },
         {
             "name": "Brave Bird",
@@ -129,10 +117,6 @@
         },
         {
             "name": "Hurricane",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hurricane",
             "learnMethod": "level-up"
         },
         {
@@ -161,10 +145,6 @@
         },
         {
             "name": "Protect",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rain Dance",
             "learnMethod": "machine"
         },
         {
@@ -201,10 +181,6 @@
         },
         {
             "name": "Tailwind",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Tailwind",
             "learnMethod": "level-up"
         },
         {
@@ -218,10 +194,6 @@
         {
             "name": "Water Gun",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Water Pulse",
-            "learnMethod": "machine"
         },
         {
             "name": "Water Pulse",

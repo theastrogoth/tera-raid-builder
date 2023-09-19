@@ -41,10 +41,6 @@
         },
         {
             "name": "Blizzard",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Blizzard",
             "learnMethod": "level-up"
         },
         {
@@ -133,10 +129,6 @@
         },
         {
             "name": "Gyro Ball",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Gyro Ball",
             "learnMethod": "level-up"
         },
         {
@@ -169,10 +161,6 @@
         },
         {
             "name": "Icicle Spear",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Icicle Spear",
             "learnMethod": "level-up"
         },
         {
@@ -181,15 +169,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Iron Defense",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Iron Head",
-            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
@@ -210,10 +190,6 @@
         {
             "name": "Metal Burst",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Metal Claw",
-            "learnMethod": "machine"
         },
         {
             "name": "Metal Claw",
@@ -281,10 +257,6 @@
         },
         {
             "name": "Snowscape",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Snowscape",
             "learnMethod": "level-up"
         },
         {
@@ -309,15 +281,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swift",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Swords Dance",
-            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",

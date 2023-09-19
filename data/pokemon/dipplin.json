@@ -41,10 +41,6 @@
         },
         {
             "name": "Bullet Seed",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bullet Seed",
             "learnMethod": "level-up"
         },
         {
@@ -65,15 +61,7 @@
         },
         {
             "name": "Dragon Pulse",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dragon Pulse",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Dragon Tail",
-            "learnMethod": "machine"
         },
         {
             "name": "Dragon Tail",
@@ -81,10 +69,6 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Energy Ball",
             "learnMethod": "machine"
         },
         {
@@ -149,19 +133,11 @@
         },
         {
             "name": "Protect",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Protect",
             "learnMethod": "level-up"
         },
         {
             "name": "Recover",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Recycle",
-            "learnMethod": "egg"
         },
         {
             "name": "Recycle",
@@ -189,10 +165,6 @@
         },
         {
             "name": "Solar Beam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Substitute",
             "learnMethod": "machine"
         },
         {

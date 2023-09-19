@@ -28,15 +28,7 @@
     "moves": [
         {
             "name": "Amnesia",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Amnesia",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Belch",
-            "learnMethod": "egg"
         },
         {
             "name": "Belch",
@@ -60,10 +52,6 @@
         },
         {
             "name": "Body Press",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Body Slam",
             "learnMethod": "machine"
         },
         {
@@ -93,10 +81,6 @@
         {
             "name": "Covet",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Crunch",
-            "learnMethod": "machine"
         },
         {
             "name": "Crunch",
@@ -156,10 +140,6 @@
         },
         {
             "name": "Fling",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fling",
             "learnMethod": "level-up"
         },
         {
@@ -168,10 +148,6 @@
         },
         {
             "name": "Focus Punch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Giga Impact",
             "learnMethod": "machine"
         },
         {
@@ -192,18 +168,10 @@
         },
         {
             "name": "Heavy Slam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Heavy Slam",
             "learnMethod": "level-up"
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {
@@ -244,10 +212,6 @@
         },
         {
             "name": "Metronome",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Metronome",
             "learnMethod": "level-up"
         },
         {
@@ -269,10 +233,6 @@
         {
             "name": "Recycle",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Rest",
-            "learnMethod": "machine"
         },
         {
             "name": "Rest",
@@ -300,10 +260,6 @@
         },
         {
             "name": "Shadow Ball",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
@@ -359,11 +315,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

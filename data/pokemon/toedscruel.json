@@ -160,12 +160,12 @@
             "learnMethod": "egg"
         },
         {
-            "name": "Reflect",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Reflect Type",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
         },
         {
             "name": "Rest",
@@ -236,11 +236,11 @@
             "learnMethod": "egg"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {

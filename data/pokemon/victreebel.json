@@ -101,10 +101,6 @@
         },
         {
             "name": "Leaf Storm",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Leaf Storm",
             "learnMethod": "level-up"
         },
         {

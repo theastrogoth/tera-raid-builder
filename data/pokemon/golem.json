@@ -45,10 +45,6 @@
         },
         {
             "name": "Bulldoze",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bulldoze",
             "learnMethod": "level-up"
         },
         {
@@ -73,10 +69,6 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Earthquake",
             "learnMethod": "machine"
         },
         {
@@ -137,10 +129,6 @@
         },
         {
             "name": "Heavy Slam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Heavy Slam",
             "learnMethod": "level-up"
         },
         {
@@ -189,10 +177,6 @@
         },
         {
             "name": "Rock Blast",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rock Blast",
             "learnMethod": "level-up"
         },
         {
@@ -229,15 +213,7 @@
         },
         {
             "name": "Smack Down",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Smack Down",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Stealth Rock",
-            "learnMethod": "machine"
         },
         {
             "name": "Stealth Rock",
@@ -245,10 +221,6 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stone Edge",
             "learnMethod": "machine"
         },
         {

@@ -37,10 +37,6 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Air Cutter",
             "learnMethod": "level-up"
         },
         {
@@ -165,10 +161,6 @@
         },
         {
             "name": "Hex",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hurricane",
             "learnMethod": "machine"
         },
         {
@@ -313,10 +305,6 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sunny Day",
             "learnMethod": "level-up"
         },
         {
@@ -342,10 +330,6 @@
         {
             "name": "Tailwind",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Take Down",
-            "learnMethod": "egg"
         },
         {
             "name": "Take Down",

@@ -19,11 +19,11 @@
     },
     "moves": [
         {
-            "name": "Acid",
+            "name": "Acid Spray",
             "learnMethod": "level-up"
         },
         {
-            "name": "Acid Spray",
+            "name": "Acid",
             "learnMethod": "level-up"
         },
         {
@@ -55,12 +55,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Charge Beam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge",
+            "learnMethod": "machine"
         },
         {
             "name": "Close Combat",
@@ -259,10 +259,6 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -273,6 +269,10 @@
         {
             "name": "Thunder Wave",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",

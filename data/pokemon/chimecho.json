@@ -208,10 +208,6 @@
         },
         {
             "name": "Stored Power",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stored Power",
             "learnMethod": "level-up"
         },
         {
@@ -224,10 +220,6 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Take Down",
             "learnMethod": "machine"
         },
         {
@@ -247,15 +239,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Uproar",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {

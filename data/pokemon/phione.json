@@ -40,10 +40,6 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Charm",
             "learnMethod": "level-up"
         },
         {
@@ -116,10 +112,6 @@
         },
         {
             "name": "Rain Dance",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rain Dance",
             "learnMethod": "level-up"
         },
         {
@@ -165,10 +157,6 @@
         {
             "name": "Water Gun",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Water Pulse",
-            "learnMethod": "machine"
         },
         {
             "name": "Water Pulse",

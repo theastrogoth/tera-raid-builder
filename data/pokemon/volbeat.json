@@ -60,10 +60,6 @@
         },
         {
             "name": "Bug Buzz",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bug Buzz",
             "learnMethod": "level-up"
         },
         {
@@ -72,10 +68,6 @@
         },
         {
             "name": "Chilling Water",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Confuse Ray",
             "learnMethod": "machine"
         },
         {
@@ -124,10 +116,6 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Helping Hand",
             "learnMethod": "level-up"
         },
         {
@@ -160,18 +148,10 @@
         },
         {
             "name": "Play Rough",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Play Rough",
             "learnMethod": "level-up"
         },
         {
             "name": "Pounce",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Protect",
             "learnMethod": "machine"
         },
         {
@@ -208,10 +188,6 @@
         },
         {
             "name": "Solar Beam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Struggle Bug",
             "learnMethod": "machine"
         },
         {
@@ -263,15 +239,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
@@ -288,10 +264,6 @@
         },
         {
             "name": "Water Pulse",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Zen Headbutt",
             "learnMethod": "machine"
         },
         {

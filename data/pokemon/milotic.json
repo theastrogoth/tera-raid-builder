@@ -64,14 +64,6 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Confuse Ray",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Disarming Voice",
             "learnMethod": "machine"
         },
         {
@@ -88,10 +80,6 @@
         },
         {
             "name": "Dragon Pulse",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dragon Tail",
             "learnMethod": "machine"
         },
         {
@@ -127,15 +115,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Haze",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Helping Hand",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hydro Pump",
             "learnMethod": "machine"
         },
         {
@@ -192,10 +172,6 @@
         },
         {
             "name": "Rain Dance",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rain Dance",
             "learnMethod": "level-up"
         },
         {
@@ -232,10 +208,6 @@
         },
         {
             "name": "Surf",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Surf",
             "learnMethod": "level-up"
         },
         {
@@ -265,10 +237,6 @@
         {
             "name": "Water Gun",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Water Pulse",
-            "learnMethod": "machine"
         },
         {
             "name": "Water Pulse",

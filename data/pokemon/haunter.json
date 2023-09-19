@@ -244,19 +244,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "level-up"
         },
         {
-            "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
+            "name": "Thunderbolt",
             "learnMethod": "level-up"
         },
         {
@@ -264,12 +260,16 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Toxic",
             "learnMethod": "level-up"
         },
         {
             "name": "Trick Room",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
+            "learnMethod": "level-up"
         },
         {
             "name": "Venoshock",

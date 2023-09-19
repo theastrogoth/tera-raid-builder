@@ -37,10 +37,6 @@
         },
         {
             "name": "Agility",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Agility",
             "learnMethod": "level-up"
         },
         {
@@ -108,16 +104,8 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Lunge",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Megahorn",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Night Shade",
-            "learnMethod": "machine"
         },
         {
             "name": "Night Shade",
@@ -130,10 +118,6 @@
         {
             "name": "Pin Missile",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Poison Jab",
-            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",
@@ -153,10 +137,6 @@
         },
         {
             "name": "Psychic",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
             "learnMethod": "level-up"
         },
         {
@@ -165,10 +145,6 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Scary Face",
             "learnMethod": "machine"
         },
         {
@@ -228,16 +204,16 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
             "name": "Toxic Thread",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

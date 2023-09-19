@@ -29,10 +29,6 @@
     "moves": [
         {
             "name": "Amnesia",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Amnesia",
             "learnMethod": "level-up"
         },
         {
@@ -46,10 +42,6 @@
         {
             "name": "Bite",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Blizzard",
-            "learnMethod": "machine"
         },
         {
             "name": "Blizzard",
@@ -85,15 +77,7 @@
         },
         {
             "name": "Earthquake",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Earthquake",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Endure",
-            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -145,10 +129,6 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Icy Wind",
             "learnMethod": "level-up"
         },
         {
@@ -157,10 +137,6 @@
         },
         {
             "name": "Mud Shot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Mud-Slap",
             "learnMethod": "machine"
         },
         {
@@ -242,10 +218,6 @@
         {
             "name": "Tackle",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Take Down",
-            "learnMethod": "machine"
         },
         {
             "name": "Take Down",

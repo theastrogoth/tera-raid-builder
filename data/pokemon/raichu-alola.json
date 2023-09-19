@@ -36,11 +36,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
+            "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
+            "name": "Charge",
             "learnMethod": "machine"
         },
         {
@@ -156,12 +156,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Psychic Terrain",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "level-up"
         },
         {
             "name": "Psyshock",
@@ -236,10 +236,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "level-up"
         },
@@ -253,6 +249,10 @@
         },
         {
             "name": "Thunderbolt",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "level-up"
         },
         {

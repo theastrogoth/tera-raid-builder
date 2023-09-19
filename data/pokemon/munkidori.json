@@ -89,10 +89,6 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Helping Hand",
             "learnMethod": "level-up"
         },
         {
@@ -125,10 +121,6 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Nasty Plot",
             "learnMethod": "level-up"
         },
         {
@@ -153,23 +145,15 @@
         },
         {
             "name": "Psybeam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Psybeam",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Psychic",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
             "learnMethod": "level-up"
         },
         {
             "name": "Psychic Terrain",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "level-up"
         },
         {
             "name": "Psyshock",

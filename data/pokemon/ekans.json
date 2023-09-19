@@ -27,15 +27,11 @@
     },
     "moves": [
         {
-            "name": "Acid",
+            "name": "Acid Spray",
             "learnMethod": "level-up"
         },
         {
-            "name": "Acid Spray",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Acid Spray",
+            "name": "Acid",
             "learnMethod": "level-up"
         },
         {
@@ -92,15 +88,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Gunk Shot",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Haze",
-            "learnMethod": "machine"
         },
         {
             "name": "Haze",
@@ -144,10 +132,6 @@
         },
         {
             "name": "Poison Tail",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Poison Tail",
             "learnMethod": "machine"
         },
         {
@@ -180,10 +164,6 @@
         },
         {
             "name": "Scary Face",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Scary Face",
             "learnMethod": "machine"
         },
         {
@@ -200,10 +180,6 @@
         },
         {
             "name": "Sludge Bomb",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sludge Bomb",
             "learnMethod": "level-up"
         },
         {
@@ -213,10 +189,6 @@
         {
             "name": "Spit Up",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Spite",
-            "learnMethod": "machine"
         },
         {
             "name": "Spite",
@@ -259,11 +231,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {

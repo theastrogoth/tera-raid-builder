@@ -28,12 +28,12 @@
     },
     "moves": [
         {
-            "name": "Acid",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Acid Spray",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Acid",
+            "learnMethod": "level-up"
         },
         {
             "name": "Amnesia",
@@ -232,12 +232,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Psychic Terrain",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "level-up"
         },
         {
             "name": "Psyshock",
@@ -332,19 +332,19 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "egg"
-        },
-        {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "machine"
+            "name": "Toxic",
+            "learnMethod": "egg"
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {

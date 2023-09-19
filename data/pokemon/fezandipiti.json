@@ -81,10 +81,6 @@
         },
         {
             "name": "Disarming Voice",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Disarming Voice",
             "learnMethod": "level-up"
         },
         {

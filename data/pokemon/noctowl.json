@@ -45,10 +45,6 @@
         },
         {
             "name": "Air Slash",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Air Slash",
             "learnMethod": "level-up"
         },
         {
@@ -153,10 +149,6 @@
         },
         {
             "name": "Night Shade",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Night Shade",
             "learnMethod": "machine"
         },
         {
@@ -177,10 +169,6 @@
         },
         {
             "name": "Rain Dance",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Reflect",
             "learnMethod": "machine"
         },
         {
@@ -249,10 +237,6 @@
         },
         {
             "name": "Take Down",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Take Down",
             "learnMethod": "level-up"
         },
         {
@@ -261,10 +245,6 @@
         },
         {
             "name": "Thief",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

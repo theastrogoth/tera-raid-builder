@@ -40,10 +40,6 @@
         },
         {
             "name": "Aura Sphere",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Aura Sphere",
             "learnMethod": "level-up"
         },
         {
@@ -64,10 +60,6 @@
         },
         {
             "name": "Calm Mind",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Calm Mind",
             "learnMethod": "level-up"
         },
         {
@@ -80,10 +72,6 @@
         },
         {
             "name": "Dig",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Drain Punch",
             "learnMethod": "machine"
         },
         {
@@ -119,10 +107,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Focus Punch",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Force Palm",
             "learnMethod": "level-up"
         },
@@ -145,10 +129,6 @@
         {
             "name": "Hone Claws",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Knock Off",
-            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -184,10 +164,6 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Reversal",
             "learnMethod": "machine"
         },
         {
@@ -236,10 +212,6 @@
         },
         {
             "name": "Trailblaze",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

@@ -33,15 +33,7 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bug Bite",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Bug Buzz",
-            "learnMethod": "machine"
         },
         {
             "name": "Bug Buzz",
@@ -49,10 +41,6 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Endure",
             "learnMethod": "machine"
         },
         {
@@ -109,10 +97,6 @@
         },
         {
             "name": "Protect",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Protect",
             "learnMethod": "level-up"
         },
         {
@@ -154,10 +138,6 @@
         {
             "name": "String Shot",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Struggle Bug",
-            "learnMethod": "machine"
         },
         {
             "name": "Struggle Bug",

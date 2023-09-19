@@ -183,15 +183,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Uproar",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {

@@ -52,10 +52,6 @@
         },
         {
             "name": "Crunch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Crunch",
             "learnMethod": "level-up"
         },
         {
@@ -72,10 +68,6 @@
         },
         {
             "name": "Facade",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fire Fang",
             "learnMethod": "machine"
         },
         {
@@ -108,10 +100,6 @@
         },
         {
             "name": "Ice Fang",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Ice Fang",
             "learnMethod": "level-up"
         },
         {
@@ -128,10 +116,6 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Play Rough",
             "learnMethod": "machine"
         },
         {
@@ -160,19 +144,11 @@
         },
         {
             "name": "Roar",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Roar",
             "learnMethod": "level-up"
         },
         {
             "name": "Sand Attack",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Scary Face",
-            "learnMethod": "machine"
         },
         {
             "name": "Scary Face",
@@ -184,10 +160,6 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Snarl",
             "learnMethod": "machine"
         },
         {
@@ -224,15 +196,7 @@
         },
         {
             "name": "Take Down",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Take Down",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Taunt",
-            "learnMethod": "machine"
         },
         {
             "name": "Taunt",
@@ -244,15 +208,7 @@
         },
         {
             "name": "Thief",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thief",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder Fang",
-            "learnMethod": "machine"
         },
         {
             "name": "Thunder Fang",

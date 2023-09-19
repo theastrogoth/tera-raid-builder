@@ -28,11 +28,11 @@
     },
     "moves": [
         {
-            "name": "Acid",
+            "name": "Acid Spray",
             "learnMethod": "level-up"
         },
         {
-            "name": "Acid Spray",
+            "name": "Acid",
             "learnMethod": "level-up"
         },
         {
@@ -48,12 +48,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Charge Beam",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Charge",
+            "learnMethod": "level-up"
         },
         {
             "name": "Charm",
@@ -244,10 +244,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -264,16 +260,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
             "name": "Toxic",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

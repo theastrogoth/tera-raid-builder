@@ -33,10 +33,6 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Air Cutter",
             "learnMethod": "level-up"
         },
         {
@@ -257,10 +253,6 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sunny Day",
             "learnMethod": "level-up"
         },
         {
@@ -282,10 +274,6 @@
         {
             "name": "Tackle",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Take Down",
-            "learnMethod": "egg"
         },
         {
             "name": "Take Down",

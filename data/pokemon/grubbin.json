@@ -28,31 +28,19 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bug Bite",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Charge",
-            "learnMethod": "machine"
         },
         {
             "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
-            "name": "Crunch",
+            "name": "Charge",
             "learnMethod": "machine"
         },
         {
             "name": "Crunch",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Dig",
-            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -88,10 +76,6 @@
         },
         {
             "name": "Mud Shot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Mud-Slap",
             "learnMethod": "machine"
         },
         {
@@ -168,10 +152,6 @@
         },
         {
             "name": "Wild Charge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "X-Scissor",
             "learnMethod": "machine"
         },
         {

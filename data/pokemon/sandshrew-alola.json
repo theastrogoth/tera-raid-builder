@@ -129,10 +129,6 @@
         },
         {
             "name": "Metal Claw",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Metal Claw",
             "learnMethod": "level-up"
         },
         {
@@ -177,18 +173,10 @@
         },
         {
             "name": "Snowscape",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Snowscape",
             "learnMethod": "level-up"
         },
         {
             "name": "Super Fang",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swift",
             "learnMethod": "machine"
         },
         {

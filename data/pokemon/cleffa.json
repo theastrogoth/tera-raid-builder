@@ -40,10 +40,6 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Charm",
             "learnMethod": "level-up"
         },
         {
@@ -64,18 +60,10 @@
         },
         {
             "name": "Disarming Voice",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Disarming Voice",
             "learnMethod": "level-up"
         },
         {
             "name": "Draining Kiss",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Encore",
             "learnMethod": "machine"
         },
         {

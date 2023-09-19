@@ -45,10 +45,6 @@
         },
         {
             "name": "Bulk Up",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bulk Up",
             "learnMethod": "level-up"
         },
         {
@@ -58,10 +54,6 @@
         {
             "name": "Counter",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Crunch",
-            "learnMethod": "machine"
         },
         {
             "name": "Crunch",
@@ -109,10 +101,6 @@
         },
         {
             "name": "Giga Impact",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Giga Impact",
             "learnMethod": "level-up"
         },
         {
@@ -153,10 +141,6 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Low Kick",
             "learnMethod": "level-up"
         },
         {
@@ -174,10 +158,6 @@
         {
             "name": "Poison Fang",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Poison Jab",
-            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",

@@ -69,10 +69,6 @@
         },
         {
             "name": "Crunch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Crunch",
             "learnMethod": "level-up"
         },
         {
@@ -149,10 +145,6 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Knock Off",
             "learnMethod": "level-up"
         },
         {
@@ -169,10 +161,6 @@
         },
         {
             "name": "Metal Claw",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Metal Claw",
             "learnMethod": "machine"
         },
         {
@@ -186,10 +174,6 @@
         {
             "name": "Night Slash",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Protect",
-            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -249,10 +233,6 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swift",
             "learnMethod": "level-up"
         },
         {
@@ -261,18 +241,10 @@
         },
         {
             "name": "Swords Dance",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swords Dance",
             "learnMethod": "level-up"
         },
         {
             "name": "Take Down",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Taunt",
             "learnMethod": "machine"
         },
         {

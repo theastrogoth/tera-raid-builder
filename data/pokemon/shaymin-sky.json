@@ -25,10 +25,6 @@
         },
         {
             "name": "Air Slash",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Air Slash",
             "learnMethod": "level-up"
         },
         {
@@ -53,10 +49,6 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Energy Ball",
             "learnMethod": "machine"
         },
         {
@@ -97,10 +89,6 @@
         },
         {
             "name": "Leaf Storm",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Leaf Storm",
             "learnMethod": "level-up"
         },
         {
@@ -109,15 +97,7 @@
         },
         {
             "name": "Magical Leaf",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Magical Leaf",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Play Rough",
-            "learnMethod": "machine"
         },
         {
             "name": "Play Rough",

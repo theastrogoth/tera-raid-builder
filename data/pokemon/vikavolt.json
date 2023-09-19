@@ -25,10 +25,6 @@
         },
         {
             "name": "Agility",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Agility",
             "learnMethod": "level-up"
         },
         {
@@ -45,15 +41,7 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bug Bite",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Bug Buzz",
-            "learnMethod": "machine"
         },
         {
             "name": "Bug Buzz",
@@ -64,20 +52,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Charge",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
-            "name": "Crunch",
-            "learnMethod": "machine"
+            "name": "Charge",
+            "learnMethod": "level-up"
         },
         {
             "name": "Crunch",
@@ -85,15 +65,7 @@
         },
         {
             "name": "Dig",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dig",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Discharge",
-            "learnMethod": "egg"
         },
         {
             "name": "Discharge",
@@ -129,10 +101,6 @@
         },
         {
             "name": "Fly",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fly",
             "learnMethod": "level-up"
         },
         {
@@ -153,10 +121,6 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Iron Defense",
             "learnMethod": "level-up"
         },
         {
@@ -169,10 +133,6 @@
         },
         {
             "name": "Mud Shot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Mud-Slap",
             "learnMethod": "machine"
         },
         {
@@ -240,15 +200,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunderbolt",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
@@ -265,10 +221,6 @@
         },
         {
             "name": "Wild Charge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "X-Scissor",
             "learnMethod": "machine"
         },
         {

@@ -184,12 +184,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Sludge",
-            "learnMethod": "egg"
-        },
-        {
             "name": "Sludge Bomb",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge",
+            "learnMethod": "egg"
         },
         {
             "name": "Snowscape",

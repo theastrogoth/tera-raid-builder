@@ -128,15 +128,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic Fangs",
             "learnMethod": "level-up"
         },
         {
             "name": "Psychic Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
             "learnMethod": "machine"
         },
         {

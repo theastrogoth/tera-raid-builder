@@ -36,10 +36,6 @@
         },
         {
             "name": "Agility",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Agility",
             "learnMethod": "level-up"
         },
         {
@@ -152,10 +148,6 @@
         },
         {
             "name": "Spite",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swift",
             "learnMethod": "machine"
         },
         {

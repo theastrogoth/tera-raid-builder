@@ -28,10 +28,6 @@
     "moves": [
         {
             "name": "Amnesia",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Amnesia",
             "learnMethod": "level-up"
         },
         {
@@ -48,10 +44,6 @@
         },
         {
             "name": "Blizzard",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Body Slam",
             "learnMethod": "machine"
         },
         {
@@ -140,10 +132,6 @@
         },
         {
             "name": "Fling",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fling",
             "learnMethod": "level-up"
         },
         {
@@ -185,10 +173,6 @@
         {
             "name": "Lick",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Metronome",
-            "learnMethod": "machine"
         },
         {
             "name": "Metronome",
@@ -283,11 +267,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

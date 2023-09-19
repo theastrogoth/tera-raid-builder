@@ -199,10 +199,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "level-up"
         },
@@ -216,6 +212,10 @@
         },
         {
             "name": "Thunderbolt",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "level-up"
         },
         {

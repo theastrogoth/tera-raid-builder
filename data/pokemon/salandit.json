@@ -220,12 +220,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "level-up"
         },
         {
             "name": "Trailblaze",

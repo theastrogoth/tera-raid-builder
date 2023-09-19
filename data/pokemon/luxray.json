@@ -43,12 +43,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Charge Beam",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Charge",
+            "learnMethod": "level-up"
         },
         {
             "name": "Confuse Ray",
@@ -207,10 +207,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Fang",
             "learnMethod": "level-up"
         },
@@ -221,6 +217,10 @@
         {
             "name": "Thunder Wave",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",

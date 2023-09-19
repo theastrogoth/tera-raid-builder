@@ -41,10 +41,6 @@
         },
         {
             "name": "Air Slash",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Air Slash",
             "learnMethod": "level-up"
         },
         {
@@ -57,15 +53,7 @@
         },
         {
             "name": "Brave Bird",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Brave Bird",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Dark Pulse",
-            "learnMethod": "machine"
         },
         {
             "name": "Dark Pulse",
@@ -125,15 +113,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Iron Defense",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Knock Off",
-            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -150,10 +130,6 @@
         {
             "name": "Mean Look",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Nasty Plot",
-            "learnMethod": "machine"
         },
         {
             "name": "Nasty Plot",
@@ -225,10 +201,6 @@
         },
         {
             "name": "Tailwind",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Tailwind",
             "learnMethod": "level-up"
         },
         {
@@ -249,15 +221,7 @@
         },
         {
             "name": "Toxic",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Toxic",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Toxic",
-            "learnMethod": "machine"
         },
         {
             "name": "U-turn",

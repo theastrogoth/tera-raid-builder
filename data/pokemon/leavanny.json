@@ -41,10 +41,6 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bug Bite",
             "learnMethod": "level-up"
         },
         {
@@ -81,10 +77,6 @@
         },
         {
             "name": "False Swipe",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "False Swipe",
             "learnMethod": "level-up"
         },
         {
@@ -113,10 +105,6 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Helping Hand",
             "learnMethod": "level-up"
         },
         {
@@ -134,10 +122,6 @@
         {
             "name": "Leaf Blade",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Leaf Storm",
-            "learnMethod": "machine"
         },
         {
             "name": "Leaf Storm",
@@ -225,10 +209,6 @@
         },
         {
             "name": "Struggle Bug",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Struggle Bug",
             "learnMethod": "level-up"
         },
         {
@@ -242,10 +222,6 @@
         {
             "name": "Switcheroo",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Swords Dance",
-            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",
@@ -274,10 +250,6 @@
         {
             "name": "Worry Seed",
             "learnMethod": "egg"
-        },
-        {
-            "name": "X-Scissor",
-            "learnMethod": "machine"
         },
         {
             "name": "X-Scissor",

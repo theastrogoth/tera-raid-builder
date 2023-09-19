@@ -27,15 +27,11 @@
     },
     "moves": [
         {
-            "name": "Acid",
+            "name": "Acid Spray",
             "learnMethod": "level-up"
         },
         {
-            "name": "Acid Spray",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Acid Spray",
+            "name": "Acid",
             "learnMethod": "level-up"
         },
         {
@@ -57,10 +53,6 @@
         {
             "name": "Coil",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Crunch",
-            "learnMethod": "machine"
         },
         {
             "name": "Crunch",
@@ -92,10 +84,6 @@
         },
         {
             "name": "Fire Fang",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fire Fang",
             "learnMethod": "level-up"
         },
         {
@@ -116,15 +104,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Gunk Shot",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Haze",
-            "learnMethod": "machine"
         },
         {
             "name": "Haze",
@@ -132,10 +112,6 @@
         },
         {
             "name": "Hyper Beam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Ice Fang",
             "learnMethod": "machine"
         },
         {
@@ -180,10 +156,6 @@
         },
         {
             "name": "Poison Tail",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Poison Tail",
             "learnMethod": "machine"
         },
         {
@@ -216,10 +188,6 @@
         },
         {
             "name": "Scary Face",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Scary Face",
             "learnMethod": "machine"
         },
         {
@@ -236,10 +204,6 @@
         },
         {
             "name": "Sludge Bomb",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sludge Bomb",
             "learnMethod": "level-up"
         },
         {
@@ -249,10 +213,6 @@
         {
             "name": "Spit Up",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Spite",
-            "learnMethod": "machine"
         },
         {
             "name": "Spite",
@@ -300,18 +260,14 @@
         },
         {
             "name": "Thunder Fang",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder Fang",
             "learnMethod": "level-up"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {

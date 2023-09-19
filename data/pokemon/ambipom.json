@@ -36,19 +36,11 @@
         },
         {
             "name": "Agility",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Agility",
             "learnMethod": "level-up"
         },
         {
             "name": "Astonish",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Baton Pass",
-            "learnMethod": "machine"
         },
         {
             "name": "Baton Pass",
@@ -100,10 +92,6 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fling",
             "learnMethod": "machine"
         },
         {
@@ -180,10 +168,6 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Nasty Plot",
             "learnMethod": "level-up"
         },
         {
@@ -256,10 +240,6 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swift",
             "learnMethod": "level-up"
         },
         {
@@ -287,15 +267,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

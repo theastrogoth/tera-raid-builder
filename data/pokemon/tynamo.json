@@ -19,12 +19,12 @@
     },
     "moves": [
         {
-            "name": "Charge",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Charge Beam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge",
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",

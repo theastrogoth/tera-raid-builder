@@ -44,10 +44,6 @@
         },
         {
             "name": "Bulldoze",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bulldoze",
             "learnMethod": "level-up"
         },
         {
@@ -64,10 +60,6 @@
         },
         {
             "name": "Dig",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dig",
             "learnMethod": "level-up"
         },
         {
@@ -76,10 +68,6 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Earthquake",
             "learnMethod": "machine"
         },
         {
@@ -132,10 +120,6 @@
         },
         {
             "name": "Gyro Ball",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Gyro Ball",
             "learnMethod": "level-up"
         },
         {
@@ -164,19 +148,11 @@
         },
         {
             "name": "Metal Claw",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Metal Claw",
             "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Mud-Slap",
-            "learnMethod": "egg"
         },
         {
             "name": "Mud-Slap",
@@ -224,15 +200,7 @@
         },
         {
             "name": "Sand Tomb",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sand Tomb",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Sandstorm",
-            "learnMethod": "machine"
         },
         {
             "name": "Sandstorm",
@@ -288,15 +256,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swift",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Swords Dance",
-            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",

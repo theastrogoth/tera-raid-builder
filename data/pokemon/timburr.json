@@ -32,10 +32,6 @@
         },
         {
             "name": "Bulk Up",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bulk Up",
             "learnMethod": "level-up"
         },
         {
@@ -92,10 +88,6 @@
         },
         {
             "name": "Focus Punch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Focus Punch",
             "learnMethod": "level-up"
         },
         {
@@ -121,10 +113,6 @@
         {
             "name": "Leer",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Low Kick",
-            "learnMethod": "machine"
         },
         {
             "name": "Low Kick",
@@ -164,10 +152,6 @@
         },
         {
             "name": "Rock Slide",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rock Slide",
             "learnMethod": "level-up"
         },
         {
@@ -176,10 +160,6 @@
         },
         {
             "name": "Rock Tomb",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Scary Face",
             "learnMethod": "machine"
         },
         {
@@ -196,10 +176,6 @@
         },
         {
             "name": "Smack Down",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Stone Edge",
             "learnMethod": "machine"
         },
         {

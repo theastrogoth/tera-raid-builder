@@ -52,10 +52,6 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Confuse Ray",
             "learnMethod": "level-up"
         },
         {
@@ -80,10 +76,6 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fire Punch",
             "learnMethod": "level-up"
         },
         {
@@ -104,10 +96,6 @@
         },
         {
             "name": "Gravity",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Gravity",
             "learnMethod": "level-up"
         },
         {
@@ -115,15 +103,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Haze",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Helping Hand",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hex",
             "learnMethod": "machine"
         },
         {
@@ -136,10 +116,6 @@
         },
         {
             "name": "Ice Beam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Ice Punch",
             "learnMethod": "machine"
         },
         {
@@ -176,10 +152,6 @@
         },
         {
             "name": "Night Shade",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Night Shade",
             "learnMethod": "level-up"
         },
         {
@@ -212,10 +184,6 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Shadow Ball",
             "learnMethod": "machine"
         },
         {
@@ -264,22 +232,14 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder Punch",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Trick",
-            "learnMethod": "machine"
         },
         {
             "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Will-O-Wisp",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {

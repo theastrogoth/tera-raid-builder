@@ -53,10 +53,6 @@
         },
         {
             "name": "Bug Buzz",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bug Buzz",
             "learnMethod": "level-up"
         },
         {
@@ -73,15 +69,7 @@
         },
         {
             "name": "Dazzling Gleam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dazzling Gleam",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Draining Kiss",
-            "learnMethod": "machine"
         },
         {
             "name": "Draining Kiss",
@@ -157,10 +145,6 @@
         },
         {
             "name": "Pollen Puff",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Pollen Puff",
             "learnMethod": "level-up"
         },
         {
@@ -205,10 +189,6 @@
         },
         {
             "name": "Stored Power",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Struggle Bug",
             "learnMethod": "machine"
         },
         {

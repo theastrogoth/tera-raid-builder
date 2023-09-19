@@ -49,10 +49,6 @@
         },
         {
             "name": "Blizzard",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Blizzard",
             "learnMethod": "level-up"
         },
         {
@@ -73,18 +69,10 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Confuse Ray",
             "learnMethod": "level-up"
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Dazzling Gleam",
             "learnMethod": "machine"
         },
         {
@@ -165,10 +153,6 @@
         },
         {
             "name": "Ice Beam",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Ice Beam",
             "learnMethod": "level-up"
         },
         {
@@ -181,15 +165,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Icy Wind",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Imprison",
-            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -206,10 +182,6 @@
         {
             "name": "Moonblast",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Nasty Plot",
-            "learnMethod": "machine"
         },
         {
             "name": "Nasty Plot",
@@ -244,19 +216,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Roar",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Spite",
             "learnMethod": "machine"
         },
         {

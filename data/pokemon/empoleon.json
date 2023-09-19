@@ -157,10 +157,6 @@
         },
         {
             "name": "Hydro Pump",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hydro Pump",
             "learnMethod": "level-up"
         },
         {
@@ -193,10 +189,6 @@
         },
         {
             "name": "Liquidation",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Metal Claw",
             "learnMethod": "machine"
         },
         {
@@ -293,10 +285,6 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Swords Dance",
             "learnMethod": "machine"
         },
         {

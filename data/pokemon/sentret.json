@@ -28,19 +28,11 @@
     "moves": [
         {
             "name": "Amnesia",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Amnesia",
             "learnMethod": "level-up"
         },
         {
             "name": "Baby-Doll Eyes",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Baton Pass",
-            "learnMethod": "machine"
         },
         {
             "name": "Baton Pass",
@@ -124,15 +116,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Helping Hand",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Hyper Voice",
-            "learnMethod": "machine"
         },
         {
             "name": "Hyper Voice",
@@ -172,15 +156,7 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rest",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Reversal",
-            "learnMethod": "egg"
         },
         {
             "name": "Reversal",
@@ -255,11 +231,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

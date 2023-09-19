@@ -24,10 +24,6 @@
     "moves": [
         {
             "name": "Acrobatics",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Acrobatics",
             "learnMethod": "level-up"
         },
         {
@@ -64,18 +60,10 @@
         },
         {
             "name": "Encore",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Encore",
             "learnMethod": "machine"
         },
         {
             "name": "Endure",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Facade",
             "learnMethod": "machine"
         },
         {
@@ -100,14 +88,6 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Fire Punch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fire Spin",
             "learnMethod": "machine"
         },
         {
@@ -121,10 +101,6 @@
         {
             "name": "Flame Wheel",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Flamethrower",
-            "learnMethod": "machine"
         },
         {
             "name": "Flamethrower",
@@ -160,15 +136,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Heat Wave",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Helping Hand",
-            "learnMethod": "egg"
         },
         {
             "name": "Helping Hand",
@@ -196,10 +164,6 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Nasty Plot",
             "learnMethod": "machine"
         },
         {
@@ -276,10 +240,6 @@
         },
         {
             "name": "Taunt",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Taunt",
             "learnMethod": "level-up"
         },
         {
@@ -289,10 +249,6 @@
         {
             "name": "Thief",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder Punch",
-            "learnMethod": "egg"
         },
         {
             "name": "Thunder Punch",

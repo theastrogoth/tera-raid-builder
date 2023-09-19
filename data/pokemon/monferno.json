@@ -25,10 +25,6 @@
     "moves": [
         {
             "name": "Acrobatics",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Acrobatics",
             "learnMethod": "level-up"
         },
         {
@@ -45,10 +41,6 @@
         },
         {
             "name": "Burning Jealousy",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Close Combat",
             "learnMethod": "machine"
         },
         {
@@ -74,10 +66,6 @@
         {
             "name": "Ember",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Encore",
-            "learnMethod": "egg"
         },
         {
             "name": "Encore",
@@ -113,14 +101,6 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Fire Punch",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fire Spin",
             "learnMethod": "machine"
         },
         {
@@ -137,10 +117,6 @@
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Flare Blitz",
             "learnMethod": "machine"
         },
         {
@@ -177,15 +153,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Heat Wave",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Helping Hand",
-            "learnMethod": "egg"
         },
         {
             "name": "Helping Hand",
@@ -305,10 +273,6 @@
         },
         {
             "name": "Taunt",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Taunt",
             "learnMethod": "level-up"
         },
         {
@@ -318,10 +282,6 @@
         {
             "name": "Thief",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder Punch",
-            "learnMethod": "egg"
         },
         {
             "name": "Thunder Punch",

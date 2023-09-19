@@ -36,10 +36,6 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Confuse Ray",
             "learnMethod": "machine"
         },
         {
@@ -61,10 +57,6 @@
         {
             "name": "Flail",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Haze",
-            "learnMethod": "machine"
         },
         {
             "name": "Haze",

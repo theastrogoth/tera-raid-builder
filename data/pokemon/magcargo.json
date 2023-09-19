@@ -33,19 +33,11 @@
         },
         {
             "name": "Amnesia",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Amnesia",
             "learnMethod": "level-up"
         },
         {
             "name": "Ancient Power",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Body Slam",
-            "learnMethod": "machine"
         },
         {
             "name": "Body Slam",
@@ -66,10 +58,6 @@
         {
             "name": "Curse",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Earth Power",
-            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -101,10 +89,6 @@
         },
         {
             "name": "Flame Charge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Flamethrower",
             "learnMethod": "machine"
         },
         {
@@ -201,10 +185,6 @@
         },
         {
             "name": "Rock Blast",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Rock Slide",
             "learnMethod": "machine"
         },
         {

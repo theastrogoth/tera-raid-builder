@@ -49,10 +49,6 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Confuse Ray",
             "learnMethod": "level-up"
         },
         {
@@ -85,10 +81,6 @@
         },
         {
             "name": "Fire Spin",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fire Spin",
             "learnMethod": "level-up"
         },
         {
@@ -108,24 +100,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Haze",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Heat Wave",
             "learnMethod": "machine"
         },
         {
             "name": "Hex",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hex",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Imprison",
-            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -145,15 +125,7 @@
         },
         {
             "name": "Night Shade",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Night Shade",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Overheat",
-            "learnMethod": "machine"
         },
         {
             "name": "Overheat",
@@ -181,10 +153,6 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Shadow Ball",
             "learnMethod": "machine"
         },
         {
@@ -228,15 +196,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Will-O-Wisp",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {

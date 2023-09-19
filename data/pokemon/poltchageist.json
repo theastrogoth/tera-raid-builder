@@ -45,15 +45,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Foul Play",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Giga Drain",
-            "learnMethod": "machine"
         },
         {
             "name": "Giga Drain",
@@ -61,10 +53,6 @@
         },
         {
             "name": "Grassy Terrain",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Hex",
             "learnMethod": "machine"
         },
         {
@@ -77,10 +65,6 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Leaf Storm",
             "learnMethod": "machine"
         },
         {
@@ -137,10 +121,6 @@
         },
         {
             "name": "Scald",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Shadow Ball",
             "learnMethod": "machine"
         },
         {

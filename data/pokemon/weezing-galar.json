@@ -113,15 +113,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Haze",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Heat Wave",
-            "learnMethod": "machine"
         },
         {
             "name": "Heat Wave",
@@ -137,10 +129,6 @@
         },
         {
             "name": "Misty Explosion",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Misty Terrain",
             "learnMethod": "machine"
         },
         {
@@ -196,15 +184,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Sludge",
+            "name": "Sludge Bomb",
             "learnMethod": "level-up"
         },
         {
-            "name": "Sludge Bomb",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sludge Bomb",
+            "name": "Sludge",
             "learnMethod": "level-up"
         },
         {
@@ -218,10 +202,6 @@
         {
             "name": "Spit Up",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Spite",
-            "learnMethod": "machine"
         },
         {
             "name": "Spite",
@@ -276,16 +256,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
             "name": "Toxic",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
         },
         {
             "name": "Venoshock",

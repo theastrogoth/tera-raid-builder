@@ -239,15 +239,15 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Sludge",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Sludge Bomb",
             "learnMethod": "level-up"
         },
         {
             "name": "Sludge Wave",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sludge",
             "learnMethod": "level-up"
         },
         {
@@ -295,24 +295,24 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Punch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",
             "learnMethod": "level-up"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "level-up"
         },
         {
             "name": "Venoshock",

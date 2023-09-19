@@ -21,10 +21,6 @@
     "moves": [
         {
             "name": "Agility",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Agility",
             "learnMethod": "level-up"
         },
         {
@@ -45,26 +41,14 @@
         },
         {
             "name": "Bullet Seed",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Bullet Seed",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Charge",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Charge",
-            "learnMethod": "machine"
         },
         {
             "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
-            "name": "Crunch",
+            "name": "Charge",
             "learnMethod": "machine"
         },
         {
@@ -216,10 +200,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Super Fang",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Swagger",
             "learnMethod": "egg"
         },
@@ -252,10 +232,6 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -269,6 +245,10 @@
         },
         {
             "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

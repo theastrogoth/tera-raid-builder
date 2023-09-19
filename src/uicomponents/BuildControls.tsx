@@ -38,6 +38,7 @@ import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTyp
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
+import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 
 type SetOption = {
     name: string,
@@ -125,7 +126,7 @@ function setdexToOptions(dex: Object): SetOption[] {
 }
 
 const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
-const bossSetOptions = setdexToOptions(BOSS_SETDEX_SV);
+const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 
 function findOptionFromPokemonName(name: string): string {
     return name;

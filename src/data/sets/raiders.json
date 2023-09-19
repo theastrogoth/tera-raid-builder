@@ -679,7 +679,7 @@
             "shiny":true
         }
     },
-    "Tauros-Paldea-Aqua-Breed": {
+    "Tauros-Paldea-Aqua": {
         "Bulky Anger Point":  {
             "level":100,
             "item":"Choice Band",
@@ -697,7 +697,7 @@
             "moves":["Wave Crash","Close Combat","Raging Bull"]
         }
     },
-    "Tauros-Paldea-Blaze-Breed": {
+    "Tauros-Paldea-Blaze": {
         "Bulky Anger Point":  {
             "level":100,
             "item":"Choice Band",
@@ -715,7 +715,7 @@
             "moves":["Flare Blitz","Close Combat","Raging Bull"]
         }
     },
-    "Tauros-Paldea-Combat-Breed": {
+    "Tauros-Paldea-Combat": {
         "Bulky Anger Point":  {
             "level":100,
             "item":"Choice Band",

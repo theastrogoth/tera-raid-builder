@@ -13,10 +13,12 @@ import BuildControls from "./BuildControls";
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
 import { MoveSetItem } from "../raidcalc/interface";
+import { MOVES } from "../calc/data/moves";
 import { Raider } from "../raidcalc/Raider";
-import { AbilityName } from "../calc/data/interface";
+import { AbilityName, MoveName } from "../calc/data/interface";
 
 const gen = Generations.get(9); // we will only use gen 9
+const allMoves = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.substring(0,3) !== "Max" && m.substring(0,5) !== "G-Max" && m !== "Dynamax Cannon");
 
 export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
     const [str, setStr] = useState(pokemon.role);
@@ -66,7 +68,10 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
         let pokemonData = await PokedexService.getPokemonByName(pokemon.name) as PokemonData;     
         setAbilities(pokemonData.abilities);
 
-        const moves = pokemonData.moves;
+        let moves = pokemonData.moves;
+        if (moves.length < 1) {
+            moves = allMoves.map(m => ({name: m as MoveName, learnMethod: "level-up"}))
+        }
         const set = moves.map(md => {
             const move = gen.moves.get(toID(md.name));
             return {

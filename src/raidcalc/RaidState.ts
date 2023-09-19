@@ -341,16 +341,17 @@ export class RaidState implements State.RaidState{
         }
         // Terrain Seeds
         if (item && item.includes("Seed")) {
-            this.applyTerrain(pokemon.field.terrain, [id]);
+            this.applyTerrain(pokemon.field.terrain, pokemon.field.terrainTurnsRemaining, [id]);
         }
         // Berries consumed immediately upon reciept (via Symbiosis, Trick, etc) if their conditions are met
         this.applyDamage(id, 0, 0);
     }
 
-    public applyTerrain(terrain: Terrain | undefined, ids: number[] = [0,1,2,3,4]) {
+    public applyTerrain(terrain: Terrain | undefined, turns: number = 20, ids: number[] = [0,1,2,3,4]) {
         for (let id of ids) {
             const pokemon = this.getPokemon(id);
             pokemon.field.terrain = terrain;
+            pokemon.field.terrainTurnsRemaining = turns;
             // Quark Drive
             if (pokemon.ability === "Quark Drive" && !pokemon.usedBoosterEnergy) {
                 if (pokemon.field.terrain === "Electric" && !pokemon.abilityOn) {
@@ -380,10 +381,11 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyWeather(weather: Weather | undefined, ids: number[] = [0,1,2,3,4]) {
+    public applyWeather(weather: Weather | undefined, turns = 20, ids: number[] = [0,1,2,3,4]) {
         for (let id of ids) {
             const pokemon = this.getPokemon(id);
             pokemon.field.weather = weather;
+            pokemon.field.weatherTurnsRemaining = turns;
             // Protosynthesis
             if (pokemon.ability === "Protosynthesis" && !pokemon.usedBoosterEnergy) {
                 if ((pokemon.field.weather || "").includes("Sun") && !pokemon.abilityOn) {
@@ -546,19 +548,19 @@ export class RaidState implements State.RaidState{
         //// Abilites That Take Effect upon switch-in
         /// Weather Abilities
         if (ability === "Drought") {
-            this.applyWeather("Sun");
+            this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
             flags[id].push("Drought summons the Sun");
         } else if (ability === "Drizzle") {
-            this.applyWeather("Rain");
+            this.applyWeather("Rain", pokemon.item === "Damp Rock" ? 32 : 20);
             flags[id].push("Drizzle summons the Rain");
         } else if (ability === "Sand Stream") {
-            this.applyWeather("Sand");
+            this.applyWeather("Sand", pokemon.item === "Smooth Rock" ? 32 : 20);
             flags[id].push("Sand Stream summons a Sandstorm");
         } else if (ability === "Snow Warning") {
-            this.applyWeather("Snow");
+            this.applyWeather("Snow", pokemon.item === "Icy Rock" ? 32 : 20);
             flags[id].push("Snow Warning summons a Snowstorm");
         } else if (ability === "Orichalcum Pulse") {
-            this.applyWeather("Sun");
+            this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
             flags[id].push("Orichalcum Pulse summons the Sun");
         } else if (ability === "Cloud Nine" || ability === "Air Lock") {
             for (let field of this.fields) {
@@ -567,19 +569,19 @@ export class RaidState implements State.RaidState{
             flags[id].push("Cloud Nine negates the weather");
         /// Terrain Abilities
         } else if (ability === "Grassy Surge") {
-            this.applyTerrain("Grassy");
+            this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 32 : 20);
             flags[id].push("Grassy Surge summons Grassy Terrain");
         } else if (ability === "Electric Surge") {
-            this.applyTerrain("Electric");
+            this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
             flags[id].push("Electric Surge summons Electric Terrain");
         } else if (ability === "Misty Surge") {
-            this.applyTerrain("Misty");
+            this.applyTerrain("Misty", pokemon.item === "Terrain Extender" ? 32 : 20);
             flags[id].push("Misty Surge summons Misty Terrain");
         } else if (ability === "Psychic Surge") {
-            this.applyTerrain("Psychic");
+            this.applyTerrain("Psychic", pokemon.item === "Terrain Extender" ? 32 : 20);
             flags[id].push("Psychic Surge summons Psychic Terrain");
         } else if (ability === "Hadron Engine") {
-            this.applyTerrain("Electric");
+            this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
             flags[id].push("Hadron Engine summons Electric Terrain");
         /// Ruin Abilities
         } else if (ability === "Sword of Ruin") {
@@ -713,7 +715,7 @@ export class RaidState implements State.RaidState{
 
             );
             this.raiders[id].originalCurHP = this.raiders[id].maxHP();
-            flags[id].push(pokemon.role + " is going to go all out against this formidable opponent!")
+            flags[id].push(pokemon.name + " is going to go all out against this formidable opponent!")
         }
         return flags;
     }

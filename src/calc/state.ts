@@ -61,10 +61,12 @@ export namespace State {
   export interface Field {
     gameType: I.GameType;
     weather?: I.Weather;
+    weatherTurnsRemaining?: number;
     terrain?: I.Terrain;
-    isMagicRoom?: boolean;
-    isWonderRoom?: boolean;
-    isGravity?: boolean;
+    terrainTurnsRemaining?: number;
+    isMagicRoom?: number;       // # turns remaining
+    isWonderRoom?: number;      // # turns remaining
+    isGravity?: number;         // # turns remaining
     isAuraBreak?: boolean;
     isFairyAura?: boolean;
     isDarkAura?: boolean;
@@ -72,7 +74,7 @@ export namespace State {
     isSwordOfRuin?: boolean;
     isTabletsOfRuin?: boolean;
     isVesselOfRuin?: boolean;
-    isTrickRoom?: boolean;
+    isTrickRoom?: number;       // # turns remaining
     isCloudNine?: boolean;
     attackerSide: Side;
     defenderSide: Side;
@@ -86,29 +88,29 @@ export namespace State {
     cannonade?: boolean;
     volcalith?: boolean;
     isSR?: boolean;
-    isReflect?: boolean;
-    isLightScreen?: boolean;
-    isDefCheered?: boolean;
+    isReflect?: number;         // # turns remaining
+    isLightScreen?: number;     // # turns remaining
+    isDefCheered?: number;      // # turns remaining
     isProtected?: boolean;
     isWideGuard?: boolean;
     isQuickGuard?: boolean;
     isSeeded?: boolean;
     isForesight?: boolean;
-    isTailwind?: boolean;
+    isTailwind?: number;        // # turns remaining
     isHelpingHand?: boolean;
-    isAtkCheered?: boolean;
+    isAtkCheered?: number;      // # turns remaining
     isFlowerGift?: boolean;
     isFriendGuard?: boolean;
     friendGuards?: number;
-    isAuroraVeil?: boolean;
+    isAuroraVeil?: number;      // # turns remaining
     isBattery?: boolean;
     isPowerSpot?: boolean;
     powerSpots?: number;
     steelySpirits?: number;
     isSwitching?: 'out' | 'in';
     isCharged?: boolean;
-    isMist?: boolean;
-    isSafeguard?: boolean;
+    isMist?: number;            // # turns remaining
+    isSafeguard?: number;       // # turns remaining
     isAromaVeil?: boolean;
   }
 }

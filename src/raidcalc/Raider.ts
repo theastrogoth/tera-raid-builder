@@ -45,7 +45,7 @@ export class Raider extends Pokemon implements State.Raider {
         shieldActivateHP: number | undefined = undefined, 
         shieldBroken: boolean | undefined = undefined, 
         abilityNullified: number | undefined = 0, 
-        originalAbility: AbilityName | "(None)" = "(None)"
+        originalAbility: AbilityName | "(None)" | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -63,7 +63,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
         this.abilityNullified = abilityNullified;
-        this.originalAbility = originalAbility;
+        this.originalAbility = originalAbility || pokemon.ability || "(None)";
     }
 
     clone(): Raider {

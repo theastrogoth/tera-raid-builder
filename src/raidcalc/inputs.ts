@@ -1,14 +1,12 @@
 import { Raider } from "./Raider";
-import { RaidTurnInfo } from "./interface";
+import { TurnGroupInfo } from "./interface";
 
 // used for passing data to React components
 export type RaidInputProps = {
   pokemon: Raider[],
   setPokemon: ((r: Raider) => void)[],
-  turns: RaidTurnInfo[],
-  setTurns: (t: RaidTurnInfo[]) => void,
-  groups: number[][],
-  setGroups: (g: number[][]) => void,
+  groups: TurnGroupInfo[],
+  setGroups: (t: TurnGroupInfo[]) => void,
 }
 
 export type BuildInfo = {
@@ -16,6 +14,5 @@ export type BuildInfo = {
   notes: string;
   credits: string;
   pokemon: Raider[],
-  turns: RaidTurnInfo[],
-  groups: number[][],
+  groups: TurnGroupInfo[],
 }

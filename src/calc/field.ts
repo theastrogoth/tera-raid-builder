@@ -4,10 +4,12 @@ import {GameType, Weather, Terrain} from './data/interface';
 export class Field implements State.Field {
   gameType: GameType;
   weather?: Weather;
+  weatherTurnsRemaining?: number;
   terrain?: Terrain;
-  isMagicRoom: boolean;
-  isWonderRoom: boolean;
-  isGravity: boolean;
+  terrainTurnsRemaining?: number;
+  isMagicRoom: number;
+  isWonderRoom: number;
+  isGravity: number;
   isAuraBreak?: boolean;
   isFairyAura?: boolean;
   isDarkAura?: boolean;
@@ -15,7 +17,7 @@ export class Field implements State.Field {
   isSwordOfRuin?: boolean;
   isTabletsOfRuin?: boolean;
   isVesselOfRuin?: boolean;
-  isTrickRoom?: boolean;
+  isTrickRoom: number;
   isCloudNine?: boolean;
   attackerSide: Side;
   defenderSide: Side;
@@ -23,10 +25,12 @@ export class Field implements State.Field {
   constructor(field: Partial<State.Field> = {}) {
     this.gameType = field.gameType || 'Singles';
     this.terrain = field.terrain;
+    this.terrainTurnsRemaining = field.terrainTurnsRemaining;
     this.weather = field.weather;
-    this.isMagicRoom = !!field.isMagicRoom;
-    this.isWonderRoom = !!field.isWonderRoom;
-    this.isGravity = !!field.isGravity;
+    this.weatherTurnsRemaining = field.weatherTurnsRemaining;
+    this.isMagicRoom = field.isMagicRoom || 0;
+    this.isWonderRoom = field.isWonderRoom || 0;
+    this.isGravity = field.isGravity || 0;
     this.isAuraBreak = field.isAuraBreak || false;
     this.isFairyAura = field.isFairyAura || false;
     this.isDarkAura = field.isDarkAura || false;
@@ -34,7 +38,7 @@ export class Field implements State.Field {
     this.isSwordOfRuin = field.isSwordOfRuin || false;
     this.isTabletsOfRuin = field.isTabletsOfRuin || false;
     this.isVesselOfRuin = field.isVesselOfRuin || false;
-    this.isTrickRoom = field.isTrickRoom || false;
+    this.isTrickRoom = field.isTrickRoom || 0;
     this.isCloudNine = field.isCloudNine || false;
 
     this.attackerSide = new Side(field.attackerSide || {});
@@ -59,7 +63,9 @@ export class Field implements State.Field {
     return new Field({
       gameType: this.gameType,
       weather: this.weather,
+      weatherTurnsRemaining: this.weatherTurnsRemaining,
       terrain: this.terrain,
+      terrainTurnsRemaining: this.terrainTurnsRemaining,
       isMagicRoom: this.isMagicRoom,
       isWonderRoom: this.isWonderRoom,
       isGravity: this.isGravity,
@@ -86,29 +92,29 @@ export class Side implements State.Side {
   cannonade: boolean;
   volcalith: boolean;
   isSR: boolean;
-  isReflect: boolean;
-  isLightScreen: boolean;
-  isDefCheered: boolean
+  isReflect: number;
+  isLightScreen: number;
+  isDefCheered: number
   isProtected: boolean;
   isWideGuard: boolean;
   isQuickGuard: boolean;
   isSeeded: boolean;
   isForesight: boolean;
-  isTailwind: boolean;
+  isTailwind: number;
   isHelpingHand: boolean;
-  isAtkCheered: boolean;
+  isAtkCheered: number;
   isFlowerGift: boolean;
   isFriendGuard: boolean;
   friendGuards: number;
-  isAuroraVeil: boolean;
+  isAuroraVeil: number;
   isBattery: boolean;
   isPowerSpot: boolean;
   powerSpots: number;
   steelySpirits: number;
   isSwitching?: 'out' | 'in';
   isCharged: boolean;
-  isMist: boolean;
-  isSafeguard: boolean;
+  isMist: number;
+  isSafeguard: number;
   isAromaVeil: boolean;
 
   constructor(side: State.Side = {}) {
@@ -119,29 +125,29 @@ export class Side implements State.Side {
     this.cannonade = !!side.cannonade;
     this.volcalith = !!side.volcalith;
     this.isSR = !!side.isSR;
-    this.isReflect = !!side.isReflect;
-    this.isLightScreen = !!side.isLightScreen;
-    this.isDefCheered = !!side.isDefCheered;
+    this.isReflect = side.isReflect || 0;
+    this.isLightScreen = side.isLightScreen || 0;
+    this.isDefCheered = side.isDefCheered || 0;
     this.isProtected = !!side.isProtected;
     this.isWideGuard = !!side.isWideGuard;
     this.isQuickGuard = !!side.isQuickGuard;
     this.isSeeded = !!side.isSeeded;
     this.isForesight = !!side.isForesight;
-    this.isTailwind = !!side.isTailwind;
+    this.isTailwind = side.isTailwind || 0;
     this.isHelpingHand = !!side.isHelpingHand;
-    this.isAtkCheered = !!side.isAtkCheered;
+    this.isAtkCheered = side.isAtkCheered || 0;
     this.isFlowerGift = !!side.isFlowerGift;
     this.isFriendGuard = !!side.isFriendGuard;
     this.friendGuards = side.friendGuards || 0;
-    this.isAuroraVeil = !!side.isAuroraVeil;
+    this.isAuroraVeil = side.isAuroraVeil || 0;
     this.isBattery = !!side.isBattery;
     this.isPowerSpot = !!side.isPowerSpot;
     this.powerSpots = side.powerSpots || 0;
     this.steelySpirits = side.steelySpirits || 0;
     this.isSwitching = side.isSwitching;
     this.isCharged = !!side.isCharged;
-    this.isMist = !!side.isMist;
-    this.isSafeguard = !!side.isSafeguard;
+    this.isMist = side.isMist || 0;
+    this.isSafeguard = side.isSafeguard || 0;
     this.isAromaVeil = !!side.isAromaVeil;
   }
 

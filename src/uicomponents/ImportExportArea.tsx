@@ -9,6 +9,8 @@ import TextField from '@mui/material/TextField';
 import { Pokemon, Stats, SPECIES, ABILITIES, TYPE_CHART, StatsTable, ITEMS } from "../calc";
 import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, TypeName } from "../calc/data/interface";
 import { Raider } from "../raidcalc/Raider";
+import PokedexService from "../services/getdata";
+import { MoveData } from "../raidcalc/interface";
 
 function serialize(array: string[], separator: String) {
 	var text = "";
@@ -26,10 +28,11 @@ export function exportPokemon(pokemon: Pokemon) {
     const gen = 9;
 	var EV_counter = 0;
 	var finalText = "";
-	finalText = checkExportExceptions(pokemon.name) + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
+	// finalText = checkExportExceptions(pokemon.name) + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
+	finalText = pokemon.name + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
 	finalText += "Level: " + pokemon.level + "\n";
 	finalText += pokemon.bossMultiplier > 100 ? "Boss Health multiplier: " + pokemon.bossMultiplier + "\n" : "";
-	finalText += pokemon.nature && gen > 2 ? pokemon.nature + " Nature" + "\n" : "";
+	finalText += pokemon.nature && gen > 2 ? pokemon.nature + " Nature\n" : "";
 	finalText += pokemon.teraType && gen > 8 ? "Tera Type: " + pokemon.teraType + "\n": "";
 	finalText += pokemon.ability ? "Ability: " + pokemon.ability + "\n" : "";
 	if (gen > 2) {
@@ -52,12 +55,12 @@ export function exportPokemon(pokemon: Pokemon) {
 	}
 
 	var IVs_Array = [];
-	for (var stat in pokemon.ivs) {
+	for (var ivStat in pokemon.ivs) {
         //@ts-ignore
-		var iv = pokemon.ivs[stat] ? pokemon.ivs[stat] : 0;
+		var iv = pokemon.ivs[ivStat] ? pokemon.ivs[stat] : 0;
 		if (iv < 31) {
             //@ts-ignore
-			IVs_Array.push(iv + " " + Stats.displayStat(stat));
+			IVs_Array.push(iv + " " + Stats.displayStat(ivStat));
 		}
 	}
 	if (IVs_Array.length > 0) {
@@ -130,17 +133,17 @@ function getStats(currentPoke: Partial<Pokemon>, rows: string[], offset: number)
 
 		}
 		currentAbility = rows[x] ? rows[x].trim().split(":") : '';
-		if (currentAbility[0] == "Ability") {
+		if (currentAbility[0] === "Ability") {
 			currentPoke.ability = currentAbility[1].trim() as AbilityName;
 		}
 
 		currentTeraType = rows[x] ? rows[x].trim().split(":") : '';
-		if (currentTeraType[0] == "Tera Type") {
+		if (currentTeraType[0] === "Tera Type") {
 			currentPoke.teraType = currentTeraType[1].trim() as TypeName;
 		}
 
 		currentNature = rows[x] ? rows[x].trim().split(" ") : '';
-		if (currentNature[1] == "Nature") {
+		if (currentNature[1] === "Nature") {
 			currentPoke.nature = currentNature[0] as NatureName;
 		}
 	}
@@ -150,7 +153,7 @@ function getStats(currentPoke: Partial<Pokemon>, rows: string[], offset: number)
 function getItem(currentRow: string[], j: number) {
 	for (;j < currentRow.length; j++) {
 		var item = currentRow[j].trim();
-		if (ITEMS[9].indexOf(item) != -1) {
+		if (ITEMS[9].indexOf(item) !== -1) {
 			return item;
 		}
 	}
@@ -161,12 +164,12 @@ function getMoves(currentPoke: Partial<Pokemon>, rows: string[], offset: number)
 	var moves = [];
 	for (var x = offset; x < offset + 12; x++) {
 		if (rows[x]) {
-			if (rows[x][0] == "-") {
+			if (rows[x][0] === "-") {
 				movesFound = true;
 				var move = rows[x].substr(2, rows[x].length - 2).replace("[", "").replace("]", "").replace("  ", "");
 				moves.push(move);
 			} else {
-				if (movesFound == true) {
+				if (movesFound === true) {
 					break;
 				}
 			}
@@ -255,53 +258,34 @@ function checkImportExceptions(poke: string) {
 	case 'Deerling-Winter':
 		poke = "Deerling";
 		break;
-	// these are meant to resolve naming convention differences between here and smogon
-	case 'Tauros-Paldea-Aqua':
-		poke = "Tauros-Paldea-Aqua-Breed";
-		break;
-	case 'Tauros-Paldea-Blaze':
-		poke = "Tauros-Paldea-Blaze-Breed";
-		break;
-	case 'Indeedee':
-		poke = "Indeedee-M";
-		break;
-	case 'Basculegion':
-		poke = "Basculegion-M";
-		break;
-	case 'Toxtricity':
-		poke = "Toxtricity-Amped";
-		break;
-	case 'Oinkologne':
-		poke = "Oinkologne-M";
-		break;
 	}
 	return poke;
 }
 
-function checkExportExceptions(poke: string) {
-	switch (poke) {
-		// these are meant to resolve naming convention differences between here and smogon
-		case 'Tauros-Paldea-Aqua-Breed':
-			poke = "Tauros-Paldea-Aqua";
-			break;
-		case 'Tauros-Paldea-Blaze-Breed':
-			poke = "Tauros-Paldea-Blaze";
-			break;
-		case 'Indeedee-M':
-			poke = "Indeedee";
-			break;
-		case 'Basculegion-M':
-			poke = "Basculegion";
-			break;
-		case 'Toxtricity-Amped':
-			poke = "Toxtricity";
-			break;
-		case 'Oinkologne-M':
-			poke = "Oinkologne";
-			break;
-	}
-	return poke;
-}
+// function checkExportExceptions(poke: string) {
+// 	switch (poke) {
+// 		// these are meant to resolve naming convention differences between here and smogon
+// 		case 'Tauros-Paldea-Aqua-Breed':
+// 			poke = "Tauros-Paldea-Aqua";
+// 			break;
+// 		case 'Tauros-Paldea-Blaze-Breed':
+// 			poke = "Tauros-Paldea-Blaze";
+// 			break;
+// 		case 'Indeedee-M':
+// 			poke = "Indeedee";
+// 			break;
+// 		case 'Basculegion-M':
+// 			poke = "Basculegion";
+// 			break;
+// 		case 'Toxtricity-Amped':
+// 			poke = "Toxtricity";
+// 			break;
+// 		case 'Oinkologne-M':
+// 			poke = "Oinkologne";
+// 			break;
+// 	}
+// 	return poke;
+// }
 		
 
 function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r: Raider) => void}) {
@@ -328,10 +312,11 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: 
 					<Button 
 						variant="outlined" 
 						startIcon={<InputIcon/>}
-						onClick={() => {
+						onClick={async () => {
 							const newPoke = addSet(textValue)
+							const newMoveData = await Promise.all(newPoke.moves.map(async (move) => PokedexService.getMoveByName(move))) as MoveData[];
 							if (newPoke) {
-								const newRaider = new Raider(pokemon.id, pokemon.role, pokemon.field, newPoke)
+								const newRaider = new Raider(pokemon.id, pokemon.role, false, pokemon.field, newPoke, newMoveData, [], [])
 								setPokemon(newRaider)
 							}
 						}}

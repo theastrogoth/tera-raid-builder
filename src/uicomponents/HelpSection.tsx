@@ -26,10 +26,10 @@ function CollapseButton({open, setOpen}: {open: boolean, setOpen: React.Dispatch
     )
 }
 
-function HelpSection({}: {}) {
+function HelpSection() {
     const [buildHelpOpen, setBuildHelpOpen] = useState(false);
     const [prettyHelpOpen, setPrettyHelpOpen] = useState(false);
-    const [uiHelpOpen, setUiHelpOpen] = useState(false)
+    const [uiHelpOpen, setUiHelpOpen] = useState(false);
 
 
     return (
@@ -78,7 +78,7 @@ function HelpSection({}: {}) {
     )
 }
 
-function BuildHelpSection({}: {}) {
+function BuildHelpSection() {
     const [evHelpOpen, setEvHelpOpen] = useState(false);
     const [ivHelpOpen, setIvHelpOpen] = useState(false);
     const [natureHelpOpen, setNatureHelpOpen] = useState(false);
@@ -159,6 +159,7 @@ function BuildHelpSection({}: {}) {
                             <img 
                                 src={process.env.PUBLIC_URL + "/help-assets/hyper_training.png"} 
                                 height="250"
+                                alt=""
                             />
                             <Typography variant="body2">
                                 Hyper Training NPC in Montenevera
@@ -201,6 +202,7 @@ function BuildHelpSection({}: {}) {
                                 <img 
                                     src={process.env.PUBLIC_URL + "/help-assets/ev_plot.png"} 
                                     height="250"
+                                    alt=""
                                 />
                                 <Typography variant="body2">
                                     EV Chart accessible from the Pokémon Summary Screen
@@ -280,7 +282,7 @@ function BuildHelpSection({}: {}) {
     )
 }
 
-function PrettyHelpSection({}: {}) {
+function PrettyHelpSection() {
     const [raiderHelpOpen, setRaiderHelpOpen] = useState(false);
     const [bossHelpOpen, setBossHelpOpen] = useState(false);
     const [moveHelpOpen, setMoveHelpOpen] = useState(false);
@@ -388,7 +390,7 @@ function PrettyHelpSection({}: {}) {
 )
 }
 
-function UIHelpSection({}: {}) {
+function UIHelpSection() {
     const [goalsHelpOpen, setGoalsHelpOpen] = useState(false);
     const [raiderHelpOpen, setRaiderHelpOpen] = useState(false);
     const [bossHelpOpen, setBossHelpOpen] = useState(false);

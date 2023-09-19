@@ -49,12 +49,42 @@ function moveResultDisplay(state: RaidState, moveResult: RaidMoveResult) {
     )
 }
 
+function TurnFlagDisplay({turnResult}: {turnResult: RaidTurnResult}) {
+    const flags = turnResult.flags || [];
+    const texts = flags.map((flags, idx) => moveResultText(turnResult.state.raiders[idx].role, flags));
+    return (
+        <Stack direction="column" spacing={0}>
+            {
+                texts.map((text, idx) => (
+                    <Typography key={idx} variant="body2" style={{ whiteSpace: "pre-wrap" }}>{text}</Typography>  
+                ))
+            }
+        </Stack>
+    )
+}
+
+function EndTurnFlagDisplay({turnResult}: {turnResult: RaidTurnResult}) {
+    const flags = turnResult.endFlags || [];
+    const texts = flags.map((flag) => "\t"+flag)
+    return (
+        <Stack direction="column" spacing={0}>
+            {
+                texts.map((text, idx) => (
+                    <Typography key={idx} variant="body2" style={{ whiteSpace: "pre-wrap" }}>{text}</Typography>  
+                ))
+            }
+        </Stack>
+    )
+}
+
 function TurnResultDisplay({state, turnResult, index}: {state: RaidState, turnResult: RaidTurnResult, index: number}) { 
     return (
         <Stack direction="column" spacing={0} key={index}>
             <Typography variant="h6">Move {index+1}</Typography>
+            <TurnFlagDisplay turnResult={turnResult} />
             { moveResultDisplay(state, turnResult.results[0]) }
             { moveResultDisplay(state, turnResult.results[1]) }
+            <EndTurnFlagDisplay turnResult={turnResult} />
         </Stack>
     )
 }

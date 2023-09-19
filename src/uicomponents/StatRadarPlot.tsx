@@ -6,7 +6,6 @@ import Plot from "react-plotly.js";
 
 import { StatsTable } from '../calc';
 import { Nature } from "../calc/data/interface";
-import { fontFamily } from '@mui/system';
 
 // These colors were hastily/lazily chosen to roughly match those used in Scarlet/Violet
 const plusColor     = "#ff594a"; // for boosted stat from nature
@@ -21,9 +20,9 @@ const tickorder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
 
 function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature | undefined, evs: StatsTable, stats: StatsTable, bossMultiplier?: number}) {
     const theme = useTheme()
-    const isDark = theme.palette.mode == 'dark';
+    const isDark = theme.palette.mode === 'dark';
 
-    const [rotation, setRotation] = useState(90);
+    const [, setRotation] = useState(90);
     const [revision, setRevision] = useState(1);
     
     // Add a callback that we will use whenever the layout is updated.
@@ -37,15 +36,15 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
 
 
     //@ts-ignore
-    const ticktexts = tickorder.map(stat => stat + ": " + stats[stat.toLowerCase()] + (evs[stat.toLowerCase()] == 252 ? '\u2728' : ''))
+    const ticktexts = tickorder.map(stat => stat + ": " + stats[stat.toLowerCase()] + (evs[stat.toLowerCase()] === 252 ? '\u2728' : ''))
     if (nature) {
         for (let i=0; i<tickorder.length; i++) {
-            if (nature.plus == nature.minus) {
+            if (nature.plus === nature.minus) {
                 ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
             }
-            else if (nature.plus == tickorder[i].toLowerCase()) {
+            else if (nature.plus === tickorder[i].toLowerCase()) {
                 ticktexts[i] = '<span style="color:' + plusColor + '"><b>' + ticktexts[i] + '</b></span>';
-            } else if (nature.minus == tickorder[i].toLowerCase()) {
+            } else if (nature.minus === tickorder[i].toLowerCase()) {
                 ticktexts[i] = '<span style="color:' + minusColor + '"><b>' + ticktexts[i] + '</b></span>';
             }
             else {
@@ -163,4 +162,4 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
     )
 }
 
-export default React.memo(StatRadarPlot, (next, prev) => (next.evs == prev.evs && next.stats == prev.stats && next.nature == prev.nature));
+export default React.memo(StatRadarPlot, (next, prev) => (next.evs === prev.evs && next.stats === prev.stats && next.nature === prev.nature));

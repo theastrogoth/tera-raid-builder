@@ -13,10 +13,12 @@ import BuildControls from "./BuildControls";
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
 import { MoveSetItem } from "../raidcalc/interface";
+import { MOVES } from "../calc/data/moves";
 import { Raider } from "../raidcalc/Raider";
-import { AbilityName } from "../calc/data/interface";
+import { AbilityName, MoveName } from "../calc/data/interface";
 
 const gen = Generations.get(9); // we will only use gen 9
+const allMoves = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.substring(0,3) !== "Max" && m.substring(0,5) !== "G-Max" && m !== "Dynamax Cannon");
 
 export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
     const [str, setStr] = useState(pokemon.role);
@@ -31,10 +33,11 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
             }
         } else if (nameRef.current !== pokemon.name) {
             nameRef.current = pokemon.name;
-            const name = pokemon.name.split("-")[0]; // some regional forms have long names
+            const name = pokemon.species.baseSpecies || pokemon.name; // some regional forms have long names
             setRole(name);
             setStr(name);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.role, pokemon.name])
 
     const setRole = (r: string) => {
@@ -65,7 +68,10 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
         let pokemonData = await PokedexService.getPokemonByName(pokemon.name) as PokemonData;     
         setAbilities(pokemonData.abilities);
 
-        const moves = pokemonData.moves;
+        let moves = pokemonData.moves;
+        if (moves.length < 1) {
+            moves = allMoves.map(m => ({name: m as MoveName, learnMethod: "level-up"}))
+        }
         const set = moves.map(md => {
             const move = gen.moves.get(toID(md.name));
             return {
@@ -77,6 +83,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
         setMoveSet(set);
       }
       fetchData().catch((e) => console.log(e));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.name])
 
     const nature = gen.natures.get(toID(pokemon.nature));
@@ -89,7 +96,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} />
                     </Box>
                     <Box width="100%" marginTop="10px" display="flex" justifyContent="center">
-                        <Box position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
+                        <Box width="50px" position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
                             <Box position="relative" display="flex">
                                 <img
                                     // width="95%"
@@ -134,7 +141,7 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                             <Box position="relative" sx={{filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, .5))"}}>
                                 <img
                                     height="150px"
-                                    src={getPokemonArtURL(pokemon.name)}
+                                    src={getPokemonArtURL(pokemon.name, pokemon.shiny)}
                                     onError={({ currentTarget }) => {
                                         currentTarget.onerror = null; // prevents looping
                                         currentTarget.src=getPokemonArtURL("placeholder");

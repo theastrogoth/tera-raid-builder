@@ -56,6 +56,7 @@ export interface RawDesc {
   weather?: Weather;
   isDefenderDynamaxed?: boolean;
   isCharged?: boolean;
+  shieldActive?: boolean;
 }
 
 export function display(
@@ -671,6 +672,11 @@ export function getEndOfTurn(
     texts.push('Volcalith damage');
   }
 
+  if (defender.isIngrain)  {
+    damage += Math.floor(defender.maxHP() * (defender.item === "Big Root" ? 0.3 : 1/16));
+    texts.push('Ingrain recovery');
+  }
+
   return {damage, texts};
 }
 
@@ -995,6 +1001,9 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
   }
   if (description.isWonderRoom) {
     output += ' in Wonder Room';
+  }
+  if (description.shieldActive) {
+    output += ' through Tera Raid Shield';
   }
   return output;
 }

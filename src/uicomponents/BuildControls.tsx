@@ -11,30 +11,122 @@ import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from '@mui/icons-material/Menu';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import TuneIcon from '@mui/icons-material/Tune';
 import Popper from "@mui/material/Popper";
+import Switch from "@mui/material/Switch";
+import Menu from "@mui/material/Menu";
+import { createFilterOptions } from "@mui/material/Autocomplete";
 
-import { styled } from '@mui/material/styles';
+import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+import { alpha, darken, lighten, styled, SxProps, Theme } from '@mui/material/styles';
 
-import { Move, Pokemon, StatsTable, Generations } from '../calc';
-import { Nature, MoveName, AbilityName, StatID } from "../calc/data/interface";
+import { Move, Pokemon, StatsTable, Generations, Field } from '../calc';
+import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName, NatureName, TypeName } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 
-import { MoveData, MoveSetItem } from "../raidcalc/interface";
+import { MoveData, MoveSetItem, ShieldData } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
 
-import { BOSS_SETDEX_SV } from "../data/sets/raid_bosses";
+import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
+import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
+import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
+
+type SetOption = {
+    name: string,
+    pokemon: SpeciesName,
+    shiny?: boolean,
+    level?: number,
+    item?: ItemName,
+    ability?: AbilityName,
+    nature?: NatureName,
+    ivs?: Partial<StatsTable>,
+    evs?: Partial<StatsTable>,
+    moves?: MoveName[],
+    extraMoves?: MoveName[],
+    bossMultiplier?: number,
+    teraType?: TypeName,
+    shieldData?: ShieldData,
+}
 
 // we will always use Gen 9
 const gen = Generations.get(9);
 
+function setdexStats(input: any): Partial<StatsTable> | undefined {
+    if (!input) return undefined;
+    const stats: Partial<StatsTable> = {};
+    for (let id of Object.keys(input)) {
+        let val = input[id];
+        if (typeof(val) === "string") { val = parseInt(val) };
+        switch (id) {
+            case "hp":
+                stats.hp = val;
+                break;
+            case "at":
+                stats.atk = val;
+                break;
+            case "df":
+                stats.def = val;
+                break;
+            case "sa":
+                stats.spa = val;
+                break;
+            case "sd":
+                stats.spd = val;
+                break;
+            case "sp":
+                stats.spe = val;
+                break;
+        }
+    }
+    return stats;
+}
+function setdexToOptions(dex: Object): SetOption[] {
+    const options: SetOption[] = [];
+    for (let pokemon of (Object.keys(dex) as SpeciesName[])) {
+        // @ts-ignore
+        for (let setname of (Object.keys(dex[pokemon]))) {
+            // @ts-ignore
+            const set = dex[pokemon][setname];
+            let level = set.level || 100;
+            if (typeof(level) === "string") { level = parseInt(level)};
+            let bossMultiplier = set.bossMultiplier || 100;
+            if (typeof(bossMultiplier) === "string") { bossMultiplier = parseInt(bossMultiplier)};
+            const option: SetOption = {
+                name: setname,
+                pokemon: pokemon,
+                shiny: !!set.shiny,
+                level: level,
+                item: set.item,
+                ability: set.ability,
+                nature: set.nature,
+                ivs: setdexStats(set.ivs),
+                evs: setdexStats(set.evs),
+                moves: set.moves,
+                extraMoves: set.extraMoves,
+                bossMultiplier: bossMultiplier,
+                teraType: set.teraType,
+                shieldData: set.shieldData,
+            }
+            if (pokemon === "Mewtwo") {
+                console.log("Loaded Option", setname, option)
+            }
+            options.push(option);
+        }
+    }
+    return options.sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
+}
+
+const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
+const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 
 function findOptionFromPokemonName(name: string): string {
     return name;
@@ -45,12 +137,12 @@ function findOptionFromTeraTypeName(name?: string): string {
 }
 
 function findOptionFromMoveName(name: string, moveSet: MoveSetItem[]): MoveSetItem {
-    const option = moveSet.find((move) => move.name == name);
+    const option = moveSet.find((move) => move.name === name);
     return option || {name: "(No Move)" as MoveName, method: "level-up", type: "Normal"};
 }
 
 function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[]): {name: AbilityName, hidden: boolean} {
-    const option = abilities.find((ability) => ability.name == name);
+    const option = abilities.find((ability) => ability.name === name);
     return option || {name: "(No Ability)" as AbilityName, hidden: false};
 }
 
@@ -72,7 +164,7 @@ function createMoveOptions(moves: MoveSetItem[]) {
 }
 
 function natureToOption(nature: Nature) {
-    if (nature.plus == nature.minus) { return nature.name }
+    if (nature.plus === nature.minus) { return nature.name }
     return nature.name + " (+" + prettyStatName(nature.plus as string) + ", -" + prettyStatName(nature.minus as string) + ")";
 }
 
@@ -103,7 +195,7 @@ function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
     let str = '';
     let empty = true;
     for (let statChange of statChanges) {
-        if (statChange.change != 0) {
+        if (statChange.change !== 0) {
             if (!empty) {
                 str = str + ', ';
             }
@@ -113,7 +205,7 @@ function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
             str = str + (change < 0 ? " " : " +" ) + statChange.change + " " + statAbbr;
         }
     }
-    if (str.length == 0) { return "none"; }
+    if (str.length === 0) { return "none"; }
     return str;
 }
 
@@ -121,18 +213,18 @@ function evsToString(pokemon: Pokemon) {
     let str = '';
     let empty = true
     for (let keyval of Object.entries(pokemon.evs)) {
-        if (keyval[1] != 0) {
+        if (keyval[1] !== 0) {
             if (!empty) {
                 str = str + ', ';
             }
             empty = false;
             let statAbbr = prettyStatName(keyval[0]);
             const nature = gen.natures.get(toID(pokemon.nature));
-            const natureEffect = nature ? (keyval[0] == nature.minus ? '-' : (keyval[0] == nature.plus ? '+' : '')) : '';
+            const natureEffect = nature ? (keyval[0] === nature.minus ? '-' : (keyval[0] === nature.plus ? '+' : '')) : '';
             str = str + statAbbr + ' ' + keyval[1] + natureEffect;
         }
     } 
-    if (str.length == 0) { return "none"; }
+    if (str.length === 0) { return "none"; }
     return str;
 }
 
@@ -145,9 +237,14 @@ function ivsToString(ivs: StatsTable) {
             ivs.spe.toString();
 }
 
+const filterSetOptions = createFilterOptions({
+    stringify: (option: SetOption) => option.pokemon + " " + option.name
+});
+
 const LeftCell = styled(TableCell)(({ theme }) => ({
     fontWeight: theme.typography.fontWeightBold,
     textAlign: 'right',
+    justifyContent: 'right',
     paddingTop: '0px',
     paddingBottom: '0px',
     paddingLeft: '0px',
@@ -237,7 +334,7 @@ function PokemonPopper({name, showPopper, anchorEl}: {name: string, showPopper: 
         if (showPopper && (pokemon === null || pokemon.name !== name)) {
             setPokemon(new Pokemon(gen, name));
         }
-    }, [name, showPopper])
+    }, [name, pokemon, showPopper])
     
     return (
         <Popper
@@ -281,7 +378,7 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
             }
             fetchMoveData().catch((e) => console.log(e));
         }
-    }, [moveItem, showPopper])
+    }, [moveItem, moveData, showPopper])
 
     const spriteURL = 
         moveItem.method === "level-up" ? [getMoveMethodIconURL("rare_candy")] :
@@ -416,16 +513,16 @@ function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolea
         <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
             <Stack direction="row" alignItems="center" spacing={0.25} >
                     {!prettyMode &&
-                        <img src={getTypeIconURL(move.type)} height="25px" />
+                        <img src={getTypeIconURL(move.type)} height="25px" alt="" />
                     }
                 <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
                     {move.name}
                 </Typography>
                     {move.method === "egg" && prettyMode &&
-                        <img src={getMoveMethodIconURL("egg")} height="20px" />
+                        <img src={getMoveMethodIconURL("egg")} height="20px" alt="" />
                     }
                     {move.method === "machine" && prettyMode &&
-                        <img src={getMoveMethodIconURL(move.type)} height="20px"/>
+                        <img src={getMoveMethodIconURL(move.type)} height="20px" alt="" />
                     }
             </Stack>
             <MovePopper moveItem={move} showPopper={showPopper} anchorEl={anchorEl}/>
@@ -478,7 +575,7 @@ function AbilityWithIcon({ability, prettyMode}: {ability: {name: AbilityName, hi
                 {ability.name}
             </Typography>
             {ability.hidden === true &&
-                <img src={getMoveMethodIconURL("ability_patch")} height="20px" />
+                <img src={getMoveMethodIconURL("ability_patch")} height="20px" alt="" />
             }
         </Stack>
     )
@@ -546,7 +643,7 @@ function GenericWithIcon({name, spriteFetcher, prettyMode, ModalComponent = null
         timer.current = null;
     }
     return (
-        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} sx={{ width: "100%" }}>
             <Stack direction="row" alignItems="center" spacing={0.25}>
                 {!prettyMode &&
                     <Box
@@ -609,8 +706,125 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
     )
 }
 
-function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}: 
-        {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
+const GroupHeader = styled('div')(({ theme }) => ({
+    top: '-8px',
+    padding: '4px 10px',
+    backgroundColor:
+      theme.palette.mode === 'light'
+        ? lighten(theme.palette.primary.light, 0.7)
+        : darken(theme.palette.primary.main, 0.6),
+}));
+
+const StyledTextField = styled(TextField)(({theme}) => ({
+    [`& .${outlinedInputClasses.root} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.primary.main
+    },
+    [`&:hover .${outlinedInputClasses.root} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.primary.main,
+      borderWidth: 1.5,
+      backgroundColor: alpha(theme.palette.primary.main, 0.05)
+    },
+    [`& .${outlinedInputClasses.root}.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.primary.main,
+      borderWidth: 1.5,
+    },
+    [`& .${outlinedInputClasses.input}`]: {
+      color: theme.palette.primary.main
+    },
+    [`&:hover .${outlinedInputClasses.input}`]: {
+      color: theme.palette.primary.main
+    },
+    [`& .${outlinedInputClasses.root}.${outlinedInputClasses.focused} .${outlinedInputClasses.input}`]: {
+      color: theme.palette.mode === 'light'
+        ? "black"
+        : "white",
+    },
+  }));
+
+function SetLoadGroupHeader({pokemon}: {pokemon: SpeciesName}) {
+    return (
+        <GroupHeader>
+            <Stack direction="row" alignItems="center" spacing={0.25}>
+                <Box
+                    sx={{
+                        width: "25px",
+                        height: "25px",
+                        overflow: 'hidden',
+                        background: `url(${getPokemonSpriteURL(pokemon)}) no-repeat center center / contain`,
+                    }}
+                />
+                <Typography variant={"body1"} sx={{ fontWeight: "Bold", paddingLeft: 0.5, paddingRight: 0.5 }}>
+                    {pokemon}
+                </Typography>
+            </Stack>
+        </GroupHeader> 
+    )
+}
+
+function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 150}}: {setOptions: SetOption[], loadSet: (opt: SetOption) => Promise<void>, placeholder?: string, sx?: SxProps<Theme>}) {
+    return (
+        <Autocomplete 
+            disablePortal
+            disableClearable
+            autoHighlight={true}    
+            size="small"
+            value={{name:"", pokemon:"Umbreon" as SpeciesName}}
+            sx={sx}
+            options={setOptions}
+            filterOptions={filterSetOptions}
+            groupBy={(option: SetOption) => option.pokemon}
+            renderOption={(props, option) => <li {...props}><Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{option.name}</Typography></li>}
+            renderGroup={(params) => {
+                return  (
+                    <li>
+                        <SetLoadGroupHeader pokemon={params.group as SpeciesName} />
+                        {params.children}
+                    </li>
+                );
+            }}
+            getOptionLabel={(option: SetOption) => option.name}
+            renderInput={(params) => 
+                <StyledTextField 
+                    {...params} variant="outlined" placeholder={placeholder} size="small"
+                    sx={{
+                        "& .MuiInputBase-input": {
+                            overflow: "hidden",
+                            textOverflow: "clip",
+                        },
+                        }}
+                />}
+            onChange={(event: any, newValue: SetOption) => {
+                if (!newValue) return;
+                try {
+                    loadSet(newValue);
+                } catch (e) {
+                    console.log(e)
+                }
+            }}
+            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
+            style={{ whiteSpace: "pre-wrap" }}
+        />
+    )
+}
+
+function ShinySwitch({pokemon, setShiny}: {pokemon: Raider, setShiny: ((sh: boolean) => void)}) {
+    return (
+        <Box>
+            <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
+                <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >Shiny</Typography>
+                <Switch
+                    size='small'
+                    checked={pokemon.shiny || false}
+                    onChange={(e) => setShiny(!pokemon.shiny)}
+            
+                />
+            </Stack>
+        </Box>
+    );
+}
+
+function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isBoss = false}: 
+        {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean, isBoss?: boolean}) 
     {
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
@@ -622,87 +836,91 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
-            const newPokemon = {...pokemon};
+            const newPokemon = pokemon.clone();
             // @ts-ignore
             newPokemon[propName] = val;
-            setPokemon(new Raider(
-                newPokemon.id, 
-                newPokemon.role, 
-                newPokemon.field,
-                new Pokemon(gen, newPokemon.name, {
-                    level: newPokemon.level,
-                    ability: newPokemon.ability,
-                    nature: newPokemon.nature,
-                    item: newPokemon.item,
-                    ivs: newPokemon.ivs,
-                    evs: newPokemon.evs,
-                    moves: newPokemon.moves,
-                    teraType: newPokemon.teraType,
-                    bossMultiplier: newPokemon.bossMultiplier,
-                }),
-                newPokemon.moveData,
-                newPokemon.extraMoves,
-                newPokemon.extraMoveData,
-            ))
+            setPokemon(newPokemon.clone())
         }
     }
 
     const setPokemonProperties = (propNames: string[]) => {
         return (vals: any[]) => {
-            const newPokemon = {...pokemon};
+            const newPokemon = pokemon.clone();
             propNames.forEach((propName, i) => {
                 // @ts-ignore
                 newPokemon[propName] = vals[i];
             })
-            setPokemon(new Raider(
-                newPokemon.id, 
-                newPokemon.role, 
-                newPokemon.field,
-                new Pokemon(gen, newPokemon.name, {
-                    level: newPokemon.level,
-                    ability: newPokemon.ability,
-                    nature: newPokemon.nature,
-                    item: newPokemon.item,
-                    ivs: newPokemon.ivs,
-                    evs: newPokemon.evs,
-                    moves: newPokemon.moves,
-                    teraType: newPokemon.teraType,
-                    bossMultiplier: newPokemon.bossMultiplier,
-                }),
-                newPokemon.moveData,
-                newPokemon.extraMoves,
-                newPokemon.extraMoveData,
-            ))
+            setPokemon(newPokemon.clone())
         }
     }
 
+    const loadSet = async (set: SetOption) => { 
+        const moveData = await Promise.all(
+            (set.moves || []).map(
+                async (move) => await PokedexService.getMoveByName(move)
+            ).map(
+                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
+            )
+        ) as MoveData[];
+    
+        const poke = new Pokemon(gen, set.pokemon, {
+            level: set.level || 100,
+            bossMultiplier: undefined,
+            teraType: undefined,
+            ability: set.ability || "(No Ability)" as AbilityName,
+            item: set.item || undefined,
+            nature: (set.nature || "Hardy"),
+            moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),
+            ivs: set.ivs || {},
+            evs: set.evs || {},
+        });
+
+        setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, new Field(), poke, moveData));
+    }
+
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"}), []))
+        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"}), []))
     }
 
     return (
         <Box justifyContent="center" alignItems="top" width="250px" sx={{ zIndex: 2 }}>
             {!prettyMode &&
-                <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
-                    <Button 
-                        variant="outlined" 
-                        size="small" 
-                        sx={{ width: "120px", textTransform: "none" }} 
-                        disabled={importExportOpen}
-                        onClick={(e) => setEditStatsOpen(!editStatsOpen)}
-                        startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
-                    >
-                        {editStatsOpen ? "Edit Build" : "Edit EVs/IVs"}
-                    </Button>
-                    <Button 
-                        variant="outlined" 
-                        size="small" 
-                        sx={{ width: "120px", textTransform: "none" }} 
-                        onClick={(e) => setImportExportOpen(!importExportOpen)}
-                        endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
-                    >
-                        {importExportOpen ? "Edit Pok\u00E9mon" : "Import/Export"}
-                    </Button>
+                <Stack direction="column" alignItems="center">
+                    {!isBoss &&
+                        <Stack direction="row" spacing={1.25} justifyContent="center" alignItems="center">
+                            <ShinySwitch 
+                                pokemon={pokemon}
+                                setShiny={setPokemonProperty("shiny")}
+                            />
+                            <SetLoadField
+                                setOptions={raiderSetOptions}
+                                loadSet={loadSet}
+                                placeholder="Load Build"
+                                sx={{ width: 140 }}
+                            />
+                        </Stack>
+                    }
+                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
+                        <Button 
+                            variant="outlined" 
+                            size="small" 
+                            sx={{ width: "120px", textTransform: "none" }} 
+                            disabled={importExportOpen}
+                            onClick={(e) => setEditStatsOpen(!editStatsOpen)}
+                            startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
+                        >
+                            {editStatsOpen ? "Edit Build" : "Edit EVs/IVs"}
+                        </Button>
+                        <Button 
+                            variant="outlined" 
+                            size="small" 
+                            sx={{ width: "120px", textTransform: "none" }} 
+                            onClick={(e) => setImportExportOpen(!importExportOpen)}
+                            endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
+                        >
+                            {importExportOpen ? "Edit Pok\u00E9mon" : "Import/Export"}
+                        </Button>
+                    </Stack>
                 </Stack>
             }
             {(!prettyMode && importExportOpen) &&
@@ -718,10 +936,8 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                {/* <SummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} prettyMode={prettyMode} /> */}
                                 <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} />
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode}/>
-                                {/* <SummaryRow name="Ability" value={pokemon.ability || abilities[0]} setValue={setPokemonProperty("ability")} options={["(No Ability)", ...abilities]} prettyMode={prettyMode}/> */}
                                 <AbilitySummaryRow 
                                             name="Ability"
                                             value={pokemon.ability || "(No Move)"} 
@@ -785,7 +1001,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
                                     [0,1,2,3].map((index) => {
                                         return <MoveSummaryRow 
                                             key={index}
-                                            name={index==0 ? "Moves" : ""}
+                                            name={index === 0 ? "Moves" : ""}
                                             value={pokemon.moves[index] || "(No Move)"} 
                                             setValue={async (moveOption: string) => {
                                                 const newMoves = [...pokemon.moves as string[]];
@@ -809,60 +1025,220 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode}:
     )
 }
 
+function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    const setShieldData = (newData: ShieldData) => {
+        const newPokemon = pokemon.clone();
+        newPokemon.shieldData = newData;
+        setPokemon(newPokemon);
+    }
+    const setShieldHPTrigger = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.min(100, Math.max(0, safeVal));
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.hpTrigger = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldTimeTrigger = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.min(100, Math.max(0, safeVal));
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.timeTrigger = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldCancelDamage = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.min(100, Math.max(0, safeVal));
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.shieldCancelDamage = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldDamageRate = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.max(0, safeVal);
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.shieldDamageRate = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldDamageRateTera = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.max(0, safeVal);
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.shieldDamageRateTera = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    const setShieldDamageRateTeraChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let safeVal = parseInt(e.target.value);
+        safeVal = Math.max(0, safeVal);
+        const newShieldData = {...pokemon.shieldData} as ShieldData;
+        newShieldData.shieldDamageRateTeraChange = safeVal;
+        setShieldData(newShieldData);
+    }
+
+    return (
+        <Box>
+            <IconButton 
+                onClick={handleClick}
+            >
+                <MenuIcon />
+            </IconButton>
+            <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+            >
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>HP Trigger (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.hpTrigger}
+                            onChange={setShieldHPTrigger}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Time Trigger (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.timeTrigger}
+                            onChange={setShieldTimeTrigger}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Bar Size (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.shieldCancelDamage}
+                            onChange={setShieldCancelDamage}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                    <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.shieldDamageRate}
+                            onChange={setShieldDamageRate}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Tera Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.shieldDamageRateTera}
+                            onChange={setShieldDamageRateTera}
+                        />
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>Mismatched Tera Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "70px"}}>
+                        <TextField 
+                            size="small"
+                            variant="standard"
+                            type="number"
+                            InputProps={{
+                                inputProps: { 
+                                    step: 1,
+                                }
+                            }}
+                            fullWidth={false}
+                            value={pokemon.shieldData!.shieldDamageRateTeraChange}
+                            onChange={setShieldDamageRateTeraChange}
+                        />
+                    </TableCell>
+                </TableRow>
+            </Menu>
+        </Box>
+    )
+}
+
 function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}: 
     {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean}) 
 {
+    const setPokemonProperty = (propName: string) => {
+        return (val: any) => {
+            const newPokemon = pokemon.clone();
+            // @ts-ignore
+            newPokemon[propName] = val;
+            setPokemon(newPokemon.clone())
+        }
+    }
+
     const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
         if (val < 1) val = 1;
-        const newPokemon = {...pokemon};
+        const newPokemon = pokemon.clone();
         newPokemon.bossMultiplier = val;
-        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field,
-            new Pokemon(gen, newPokemon.name, {
-                level: newPokemon.level,
-                ability: newPokemon.ability,
-                nature: newPokemon.nature,
-                item: newPokemon.item,
-                ivs: newPokemon.ivs,
-                evs: newPokemon.evs,
-                moves: newPokemon.moves,
-                teraType: newPokemon.teraType,
-                bossMultiplier: newPokemon.bossMultiplier,
-            }),
-            pokemon.moveData,
-            pokemon.extraMoves,
-            pokemon.extraMoveData,
-        ));
-    }
-
-    const loadSet = (name: string, set: Object) => { 
-        //@ts-ignore
-        const evs = set["evs"]
-        let numberEVs: Partial<StatsTable> = {};
-        if (evs) {
-            numberEVs = {
-                hp: parseInt(evs.hp),
-                atk: parseInt(evs.at),
-                def: parseInt(evs.df),
-                spa: parseInt(evs.sa),
-                spd: parseInt(evs.sd),
-                spe: parseInt(evs.sp)
-            };
-        }
-        // @ts-ignore
-        setPokemon(new Raider(pokemon.id, name, new Pokemon(gen, pokemon.name, {
-            // @ts-ignore
-            level: parseInt(set["level"]),
-            // @ts-ignore
-            bossMultiplier: parseInt(set["bossMultiplier"]),
-            // @ts-ignore
-            ability: (set["ability"] ? set["ability"] : "(No Ability)"),
-            // @ts-ignore
-            nature: (set["nature"] ? set["nature"] : "Hardy"),
-            // @ts-ignore
-            moves: (set["moves"] ? set["moves"] : ["(No Move)", "(No Move)", "(No Move)", "(No Move)"]),
-            evs: numberEVs,
-        }), []));
+        setPokemon(newPokemon.clone())        
     }
 
     const setBMove = (index: number) => async (move: MoveName) => {
@@ -876,6 +1252,48 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
         setPokemon(newPoke);
     }
 
+    const loadSet = async (set: SetOption) => { 
+        const moveData = await Promise.all(
+            (set.moves || []).map(
+                async (move) => await PokedexService.getMoveByName(move)
+            ).map(
+                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
+            )
+        ) as MoveData[];
+
+        const extraMoveData = await Promise.all(
+            (set.extraMoves || []).map(
+                async (move) => await PokedexService.getMoveByName(move)
+            ).map(
+                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
+            )
+        ) as MoveData[];
+
+        const poke = new Pokemon(gen, set.pokemon, {
+            level: set.level || 100,
+            bossMultiplier: set.bossMultiplier || 100,
+            teraType: set.teraType || undefined,
+            ability: set.ability || "(No Ability)" as AbilityName,
+            item: set.item || undefined,
+            nature: (set.nature || "Hardy"),
+            moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),
+            ivs: set.ivs || {},
+            evs: set.evs || {},
+            shieldData: set.shieldData,
+        });
+    
+        setPokemon(new Raider(
+            pokemon.id, 
+            poke.species.baseSpecies || poke.name, 
+            set.shiny, 
+            new Field(), 
+            poke, 
+            moveData,
+            set.extraMoves || ["(No Move)","(No Move)","(No Move)","(No Move)"] as MoveName[],
+            extraMoveData,
+        ));
+    }
+
     return (
         <Box justifyContent="center" alignItems="top" width="300px">
             <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 1 }}>
@@ -884,38 +1302,20 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                         <TableBody>
                             {!prettyMode &&
                             <TableRow>
-                                <LeftCell sx={{ paddingBottom: 2 }}>
+                                <LeftCell sx={{ paddingBottom: 1 }}>
+                                    <Stack direction="row">
+                                        <Box flexGrow={1}/>
+                                        <ShinySwitch
+                                            pokemon={pokemon}
+                                            setShiny={setPokemonProperty("shiny")}
+                                        />
+                                    </Stack>
                                 </LeftCell>
                                 <RightCell sx={{ paddingBottom: 2 }}>
-                                    <Autocomplete 
-                                        disablePortal
-                                        disableClearable
-                                        autoHighlight={true}    
-                                        size="small"
-                                        value={""}
-                                        sx={{ maxWidth: 140}}
-                                        //@ts-ignore
-                                        options={pokemon.name ? (BOSS_SETDEX_SV[pokemon.name] ? Object.keys(BOSS_SETDEX_SV[pokemon.name]) : []) : []}
-                                        renderInput={(params) => 
-                                            <TextField 
-                                                {...params} variant="outlined" placeholder="Load Boss Set" size="small" 
-                                                sx={{
-                                                    "& .MuiInputBase-input": {
-                                                      overflow: "hidden",
-                                                      textOverflow: "clip"
-                                                    }
-                                                  }}
-                                            />}
-                                        onChange={(event: any, newValue: string) => {
-                                            if (!newValue) return;
-                                            try {
-                                                //@ts-ignore
-                                                const newSet = BOSS_SETDEX_SV[pokemon.name][newValue];
-                                                loadSet(newValue, newSet);
-                                            } catch (e) {
-                                                console.log(e)
-                                            }
-                                        }}
+                                    <SetLoadField
+                                        setOptions={bossSetOptions}
+                                        loadSet={loadSet}
+                                        placeholder="Load Boss Set"
                                     />
                                 </RightCell>
                             </TableRow>
@@ -946,11 +1346,19 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode}:
                                     }
                                 </RightCell>
                             </TableRow>
+                            {!prettyMode &&
+                                <TableRow>
+                                    <LeftCell>Shield Options</LeftCell>
+                                    <RightCell>
+                                        <ShieldOptions pokemon={pokemon} setPokemon={setPokemon} />
+                                    </RightCell>
+                                </TableRow>
+                            }
                             {
                                 [0,1,2,3].map((index) => {
                                     return <MoveSummaryRow 
                                         key={index}
-                                        name={index==0 ? "Extra Moves" : ""}
+                                        name={index === 0 ? "Extra Moves" : ""}
                                         // @ts-ignore
                                         value={pokemon.extraMoves[index] || "(No Move)"}
                                         setValue={setBMove(index)}

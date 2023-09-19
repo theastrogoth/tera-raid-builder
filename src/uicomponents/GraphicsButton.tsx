@@ -4,11 +4,10 @@ import Box from '@mui/material/Box';
 
 import { Move } from "../calc";
 import { TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL } from "../utils";
-import { RaidMoveInfo } from "../raidcalc/interface";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL } from "../utils";
+import { RaidMoveInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
-
 
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
@@ -79,6 +78,10 @@ const graphicsTheme = createTheme({
         group10: {
             main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #dca1ffaa 0%, #ffa8baaa 50%, #ff9b80aa 100%);",
         },
+        //@ts-ignore
+        group11: {
+            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #1BB0BDaa 0%, #42C6B9aa 50%, #b1dfc0aa 100%);",
+        },
     }
 });
 
@@ -99,8 +102,8 @@ const Header = styled(Box)({
 });
 
 const BossWrapper = styled(Box)({
-    height: "450px",
-    width: "450px",
+    height: "550px",
+    width: "550px",
     position: "absolute",
     right: "100px",
     top: "50px",
@@ -111,19 +114,21 @@ const BossWrapper = styled(Box)({
 const Boss = styled("img")({
     height: "100%",
     position: "absolute",
-    right: "0px"
+    right: "0px",
 });
 
 const BossTera = styled("img")({
-    width: "60%",
+    width: "100%",
     position: "absolute",
     bottom: "0px",
-    alignSelf: "center"
+    alignSelf: "center",
+    transform: "translate(0px, -50px)"
 });
 
 const Title = styled(Typography)({
-    height: "250px",
-    lineHeight: "250px",
+    // height: "250px",
+    // lineHeight: "250px",
+    maxWidth: "2800px",
     color: "white",
     fontWeight: "inherit",
     fontSize: "16em",
@@ -242,9 +247,8 @@ const BuildInfoContainer = styled(Stack)({
 
 const BuildInfo = styled(Typography)({
     fontSize: "1.8em",
-    height: "55px",
     lineHeight: "55px",
-    margin: "8px 0px",
+    margin: "4px 0px",
     paddingLeft: "1em",
     textIndent: "-1em"
 });
@@ -332,9 +336,18 @@ const ExecutionMoveNumber = styled(Typography)({
     textAlign: "center"
 });
 
+const ExecutionRepeatNumber = styled(Typography)({
+    height: "125px",
+    width: "125px",
+    lineHeight: "125px",
+    fontSize: "4.5em",
+    textAlign: "left",
+    transform: "translate(-25px, 0px)"
+});
+
 const ExecutionMoveContainer = styled(Box)({
     height: "100%",
-    width: "90%",
+    width: "85%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly"
@@ -377,10 +390,27 @@ const ExecutionMovePokemonIcon = styled("img")({
     maxWidth: "140px",
 });
 
-const ExecutionMovePokemonIconWrapper = styled(Box)({
+const ExecutionMovePokemonIconWrapper = styled(Stack)({
     height: "140px",
     width: "140px",
     marginRight: "15px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+});
+
+const ExecutionMoveTeraIcon = styled("img")({
+    height: "auto",
+    width: "auto",
+    maxHeight: "140px",
+    maxWidth: "140px",
+});
+
+const ExecutionMoveTeraIconWrapper = styled(Box)({
+    position: "absolute",
+    transform: "translate(1520px, -20px)",
+    height: "140px",
+    width: "140px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
@@ -447,29 +477,26 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
 }
 
 // TODO: move this to a more appropriate place (also used in MoveDisplay)
-function getMoveGroups(results: RaidBattleResults) {
-    const turns = results.turnResults;
-    const displayGroups: number[][] = [];
-    let currentGroupIndex = -1;
-    let currentGroupID: number | undefined = -1;
-    turns.forEach((t, index) => {
-        if (t.raiderMoveUsed === "(No Move)") { return; }
-        const g = t.group;
-        if (g === undefined || g !== currentGroupID) {
-            currentGroupIndex += 1;
-            displayGroups.push([index]);
-        } else {
-            displayGroups[currentGroupIndex].push(index);
-        }
-        currentGroupID = g;
-    })
-    const moveGroups = displayGroups.map(group => 
-        group.map((id) => { return {move: turns[id]!.raiderMoveUsed, info: turns[id]!.moveInfo} })
+function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
+    const moveGroups = groups.map((group, groupIndex) => 
+        group.turns.map((t) => { 
+            const turnResult = results.turnResults.find((r) => t.id === r.id)!;
+            let move = turnResult.raiderMoveUsed;
+            const info = move === "(No Move)" ? turnResult.bossMoveInfo : turnResult.moveInfo;
+            move = move === "(No Move)" ? turnResult.bossMoveUsed : move;
+            return {
+                move,
+                info,
+                repeats: group.repeats,
+                teraActivated: !!(turnResult!.moveInfo.options!.activateTera && 
+                                turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
+            } 
+        })
     );
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo}[][], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -484,12 +511,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                 >
                     <Header>
                         <BossWrapper>
-                            {/* <BossTera src={getTeraTypeIconURL(raidInputProps.pokemon[0].teraType || "inactive")}></BossTera> */}
-                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.id)} />
-                            {/* Need to figure out how to show the tera type nicely */}
+                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name, raidInputProps.pokemon[0].shiny)} />
+                            <BossTera src={getTeraTypeBannerURL(raidInputProps.pokemon[0].teraType || "blank")}></BossTera>
                         </BossWrapper>
-                        <Title>{title}</Title>
-                        <Subtitle>{subtitle ? subtitle : `By: ${credits}`}</Subtitle>
+                        <Title>{title ? title : "Untitled"}</Title>
+                        <Subtitle>{subtitle ? subtitle : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>
@@ -503,7 +529,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
-                                                <BuildArt src={getPokemonArtURL(raider.name)}/>
+                                                <BuildArt src={getPokemonArtURL(raider.species.name, raider.shiny)}/>
                                                 {raider.item ? 
                                                     <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
                                                 <BuildTypes direction="row">
@@ -559,7 +585,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                         <ExecutionRow key={index}>
                                             <ExecutionGroup sx={{
                                                 //@ts-ignore
-                                                background: graphicsTheme.palette["group"+index.toString().slice(-1)].main,
+                                                background: graphicsTheme.palette["group"+(index.toString() % 12)].main,
                                                 height: (175*moveGroup.length).toString() + "px"
                                             }}>
                                                 <ExecutionMoveNumber>{index + 1}</ExecutionMoveNumber>
@@ -575,13 +601,33 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                 </ExecutionMovePokemonWrapper>
                                                                 <ExecutionMoveTag>uses</ExecutionMoveTag>
                                                                 <ExecutionMoveAction>{move.move}</ExecutionMoveAction>
-                                                                <ExecutionMoveTag>{!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)? "on": ""}</ExecutionMoveTag>
-                                                                {!["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!) ?
+                                                                {move.teraActivated &&
+                                                                    <ExecutionMoveTeraIconWrapper>
+                                                                        <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                    </ExecutionMoveTeraIconWrapper>
+                                                                }
+                                                                <ExecutionMoveTag>{(move.move === "Clear Boosts / Abilities" || move.move === "Remove Negative Effects" || !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)? "on": "")}</ExecutionMoveTag>
+                                                                {(move.move === "Clear Boosts / Abilities" || move.move === "Remove Negative Effects" || !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)) ?
                                                                     <ExecutionMovePokemonWrapper>
-                                                                        <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.targetID].role}</ExecutionMovePokemonName>
-                                                                        <ExecutionMovePokemonIconWrapper>
-                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.targetID].species.name)} />
-                                                                        </ExecutionMovePokemonIconWrapper>
+                                                                        <ExecutionMovePokemonName>
+                                                                            {
+                                                                                move.move === "Clear Boosts / Abilities" ? "Raiders" : 
+                                                                                move.move === "Remove Negative Effects" ? raidInputProps.pokemon[0].role :
+                                                                                raidInputProps.pokemon[move.info.targetID].role
+                                                                            }
+                                                                        </ExecutionMovePokemonName>
+                                                                        { move.move !== "Clear Boosts / Abilities" ?
+                                                                            <ExecutionMovePokemonIconWrapper>
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.move === "Remove Negative Effects" ? 0 : move.info.targetID].species.name)} />
+                                                                            </ExecutionMovePokemonIconWrapper> : 
+                                                                            <ExecutionMovePokemonIconWrapper direction="row" spacing="-50px">
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[1].species.name)} />
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[2].species.name)} />
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[3].species.name)} />
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[4].species.name)} />
+                                                                            </ExecutionMovePokemonIconWrapper>
+
+                                                                        }
                                                                     </ExecutionMovePokemonWrapper>
                                                                     :
                                                                     <ExecutionMovePokemonWrapperEmpty />
@@ -590,7 +636,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                         ))
                                                     }
                                                 </ExecutionMoveContainer>
-                                            </ExecutionGroup>
+                                                <ExecutionRepeatNumber>{repeats[index] > 1 ? "×" + (repeats[index]) : ""}</ExecutionRepeatNumber>
+                                                </ExecutionGroup>
                                         </ExecutionRow>
                                     ))
                                 }
@@ -662,18 +709,21 @@ function GraphicsButton({title, notes, credits, raidInputProps, results}:
             const pokemonData = (await Promise.all(
                 raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
             )).filter((data) => data !== undefined) as PokemonData[];
-            
             const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
             const learnMethods = moves.map((ms, index) => 
                 ms.map((move) => 
-                    pokemonData[index].moves.find((moveData) => moveData.name === move.name)!.learnMethod
+                    {
+                        const m = pokemonData[index].moves.find((moveData) => moveData.name === move.name);
+                        return m ? m.learnMethod : "level-up";
+                    }
                 )
             );
             const moveTypes = moves.map((ms) => ms.map((move) => move.type));
             // sort moves into groups
-            const moveGroups = getMoveGroups(results);
+            const moveGroups = getMoveGroups(raidInputProps.groups, results);
+            const repeats = raidInputProps.groups.map((group) => group.repeats || 1);
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, loadedImageURLRef.current, title, subtitle, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits);
             saveGraphic(graphicTop, title);
         } catch (e) {
             console.log(e)

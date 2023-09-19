@@ -3,11 +3,12 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import { RaidTurnInfo, Raider } from "../raidcalc/interface";
+import { RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidTurnResult } from "../raidcalc/RaidTurn";
-import { getPokemonSpriteURL } from "../utils";
+import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
+import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
-function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
+function MoveText({raiders, turn, result}: {raiders: Raider[], turn: RaidTurnInfo, result: RaidTurnResult}) {
 
     let name = raiders[turn.moveInfo.userID].name;
     let user = raiders[turn.moveInfo.userID].role;
@@ -21,10 +22,11 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
     }
     let targetName = raiders[turn.moveInfo.targetID].name;
 
-    let move: string = turn.raiderMoveUsed;
-    if (move == "(No Move)") {
+    let move: string = result ? result.raiderMoveUsed : "";
+    if (move ==="(No Move)") {
         move = "";
     }
+    let teraActivated = result && result.flags[turn.moveInfo.userID].includes("Tera activated");
 
     if (move === "") {
         name = raiders[0].name;
@@ -37,10 +39,11 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
             target = "";
         }
         targetName = raiders[turn.bossMoveInfo.targetID].name;
-        move = turn.bossMoveInfo.moveData.name;
-        if (move == "(No Move)") {
+        move = result ? result.bossMoveUsed : "";
+        if (move ==="(No Move)") {
             move = "";
         }
+        teraActivated = false;
     }
     return (
         <>
@@ -62,9 +65,22 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
                 <Typography variant="body1">
                     uses
                 </Typography>
-                <Typography variant="body1" fontWeight="bold">
-                    {move}
-                </Typography>
+                <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
+                    {teraActivated && 
+                        <Box
+                            sx={{
+                                width: "25px",
+                                height: "25px",
+                                marginRight: "5px",
+                                overflow: 'hidden',
+                                background: `url(${getTeraTypeIconURL(result.state.raiders[turn.moveInfo.userID].teraType || "Inactive")}) no-repeat center center / contain`,
+                            }}
+                        />
+                    }
+                    <Typography variant="body1" fontWeight="bold">
+                        {move}
+                    </Typography>
+                </Stack>
                 {target !== "" &&
                     <Typography variant="body1">
                         on
@@ -92,53 +108,46 @@ function MoveText({raiders, turn}: {raiders: Raider[], turn: RaidTurnResult}) {
     )
 }
 
-function MoveGroup({turns, group, raiders, index}: {turns: RaidTurnResult[], group: number[], raiders: Raider[], index: number}) {
-    const newTurns = turns.filter((t, i) => group.includes(i));
-    const color = "group" + index + ".main";
+function MoveGroup({group, results, raiders, index, max}: {group: TurnGroupInfo, results: RaidBattleResults, raiders: Raider[], index: number, max: number}) {
+    const turns = group.turns;
+    const color = "group" + group.id.toString().slice(-1) + ".main";
     return (
-        <Paper sx={{backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
-            <Box position="relative">
-                <Typography variant="h4" fontWeight="bold" sx={{ position: "absolute", transform: "translate(-60px,-7px)"}}>
+        <Stack direction="column">
+            <Stack direction="row" alignItems="center">
+                <Typography variant="h4" fontWeight="bold" margin="15px">
                     {index+1}
                 </Typography>
-            </Box>
-            <Stack direction="column" spacing={1}>
-                {
-                    newTurns.map((t, i) => (
-                        <MoveText key={i} raiders={raiders} turn={t} />
-                    ))
+                <Paper sx={{width: "480px", backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
+                    <Stack direction="column" spacing={1}>
+                    {
+                        turns.map((t, i) => (
+                            <MoveText key={i} raiders={raiders} turn={t} result={results.turnResults.find((r) => r.id === t.id)!} />
+                        ))
+                    }
+                    </Stack>                    
+                </Paper>
+                { (group.repeats && group.repeats > 1) && 
+                    <Typography variant="h4" fontWeight="bold" margin="15px">
+                        {"×"+group.repeats}
+                    </Typography>
                 }
             </Stack>
-        </Paper>
+            {index !== max - 1  && 
+                <Typography align="center" variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
+                    ↓
+                </Typography>
+            }
+        </Stack>
     )
 }
 
-function MoveDisplay({turns, raiders}: {turns: RaidTurnResult[], raiders: Raider[]}) { 
-    const displayGroups: number[][] = [];
-    let currentGroupIndex = -1;
-    let currentGroupID: number | undefined = -1;
-    turns.forEach((t, index) => {
-        const g = t.group;
-        if (g === undefined || g !== currentGroupID) {
-            currentGroupIndex += 1;
-            displayGroups.push([index]);
-        } else {
-            displayGroups[currentGroupIndex].push(index);
-        }
-        currentGroupID = g;
-    })
-
+function MoveDisplay({groups, raiders, results}: {groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults}) { 
     return (
-        <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
+        <Stack direction="column" spacing={0} alignItems="left" justifyContent="center">
             {
-                displayGroups.map((g, index) => (
+                groups.map((group, index) => (
                     <Box key={index}>
-                        <MoveGroup turns={turns} group={g} raiders={raiders} index={index} />
-                        {index !== displayGroups.length - 1  && 
-                            <Typography align="center" variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
-                                ↓
-                            </Typography>
-                        }
+                        <MoveGroup group={group} raiders={raiders} results={results} index={index} max={groups.length}/>
                     </Box>
                 ))
 

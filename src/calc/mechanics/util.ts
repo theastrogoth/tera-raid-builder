@@ -28,7 +28,7 @@ const EV_ITEMS = [
 ];
 
 export function isGrounded(pokemon: Pokemon, field: Field) {
-  return (field.isGravity || pokemon.hasItem('Iron Ball') ||
+  return (field.isGravity || pokemon.hasItem('Iron Ball') || pokemon.isIngrain ||
     (!pokemon.hasType('Flying') &&
       !pokemon.hasAbility('Levitate') &&
       !pokemon.hasItem('Air Balloon')));
@@ -396,8 +396,8 @@ export function getQPBoostedStat(
   for (const stat of ['def', 'spa', 'spd', 'spe'] as StatID[]) {
     if (
       // proto/quark ignore boosts when considering their boost
-      getModifiedStat(pokemon.rawStats[stat], pokemon.boosts[stat], gen) >
-      getModifiedStat(pokemon.rawStats[bestStat], pokemon.boosts[bestStat], gen)
+      getModifiedStat(pokemon.rawStats[stat]!, pokemon.boosts[stat]!, gen) >
+      getModifiedStat(pokemon.rawStats[bestStat]!, pokemon.boosts[bestStat]!, gen)
     ) {
       bestStat = stat;
     }

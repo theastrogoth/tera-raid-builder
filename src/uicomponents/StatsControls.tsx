@@ -51,6 +51,7 @@ function EVSlider({evTotal, ev, setEV}: {evTotal: number, ev: number, setEV: Fun
         if (val !== ev) {
             setVal(ev);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ev])
     
     const handleEVChange = (e: Event | React.SyntheticEvent, value: number) => {
@@ -130,7 +131,7 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
             const newEVs = {...pokemon.evs};
             //@ts-ignore
             newEVs[evName] = safeValue;
-            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field,
+            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field,
                 new Pokemon(gen, pokemon.name, {
                     level: pokemon.level,
                     ability: pokemon.ability,
@@ -139,7 +140,8 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
                     ivs: pokemon.ivs,
                     moves: pokemon.moves,
                     teraType: pokemon.teraType,
-                    bossMultiplier: pokemon.bossMultiplier,                
+                    bossMultiplier: pokemon.bossMultiplier, 
+                    shieldData: pokemon.shieldData,               
                     evs: newEVs,
                 }),
                 pokemon.moveData,
@@ -157,7 +159,7 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
             const newIVs = {...pokemon.ivs};
             //@ts-ignore
             newIVs[ivName] = safeValue;
-            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.field,
+            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field,
                 new Pokemon(gen, pokemon.name, {
                     level: pokemon.level,
                     ability: pokemon.ability,
@@ -166,7 +168,8 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
                     evs: pokemon.evs,
                     moves: pokemon.moves,
                     teraType: pokemon.teraType,
-                    bossMultiplier: pokemon.bossMultiplier,                
+                    bossMultiplier: pokemon.bossMultiplier,     
+                    shieldData: pokemon.shieldData,           
                     ivs: newIVs,
                 }),
                 pokemon.moveData,

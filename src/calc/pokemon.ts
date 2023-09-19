@@ -17,6 +17,7 @@ export class Pokemon implements State.Pokemon {
 
   level: number;
   bossMultiplier: number;
+  statMultipliers: I.StatsTable;
   gender?: I.GenderName;
   ability?: I.AbilityName;
   abilityOn?: boolean;
@@ -27,8 +28,12 @@ export class Pokemon implements State.Pokemon {
   boostedStat?: I.StatIDExceptHP | 'auto';
   item?: I.ItemName;
   teraType?: I.TypeName;
+  isTera: boolean;
+  shieldData?: State.ShieldData;
+  shieldActive?: boolean;
   isQP? : boolean;
-  usedBoosterEnergy? : boolean;
+  usedBoosterEnergy?: boolean;
+  isIngrain?: boolean;
 
   nature: I.NatureName;
   ivs: I.StatsTable;
@@ -43,6 +48,8 @@ export class Pokemon implements State.Pokemon {
   volatileStatus: string[];
   isChoiceLocked: boolean;
   toxicCounter: number;
+  hitsTaken: number;
+  changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName];
 
   moves: I.MoveName[];
 
@@ -54,17 +61,20 @@ export class Pokemon implements State.Pokemon {
       ivs?: Partial<I.StatsTable> & {spc?: number};
       evs?: Partial<I.StatsTable> & {spc?: number};
       boosts?: Partial<I.StatsTable> & {spc?: number};
+      statMultipliers?: Partial<I.StatsTable> & {spc?: number};
     } = {}
   ) {
     this.species = extend(true, {}, gen.species.get(toID(name)), options.overrides);
 
     this.gen = gen;
     this.name = options.name || name as I.SpeciesName;
-    this.types = this.species.types;
+    this.types = options.changedTypes || this.species.types;
     this.weightkg = this.species.weightkg;
 
     this.level = options.level || 100;
     this.bossMultiplier = options.bossMultiplier || 100;
+    this.statMultipliers = Pokemon.withDefault(gen, options.statMultipliers, 1);
+
     this.gender = options.gender || this.species.gender || 'M';
     this.ability = options.ability || this.species.abilities?.[0] || undefined;
     this.abilityOn = !!options.abilityOn;
@@ -76,7 +86,11 @@ export class Pokemon implements State.Pokemon {
     this.alliesFainted = options.alliesFainted;
     this.boostedStat = options.boostedStat;
     this.usedBoosterEnergy = options.usedBoosterEnergy;
+    this.isIngrain = options.isIngrain;
     this.teraType = options.teraType;
+    this.isTera = !!options.isTera;
+    this.shieldData = options.shieldData;
+    this.shieldActive = options.shieldActive;
     this.item = options.item;
     this.nature = options.nature || ('Serious' as I.NatureName);
     this.ivs = Pokemon.withDefault(gen, options.ivs, 31);
@@ -115,6 +129,8 @@ export class Pokemon implements State.Pokemon {
     this.volatileStatus = options.volatileStatus || [];
     this.isChoiceLocked = options.isChoiceLocked || false;
     this.toxicCounter = options.toxicCounter || 0;
+    this.hitsTaken = options.hitsTaken || 0;
+    this.changedTypes = options.changedTypes;
     this.moves = options.moves || [];
   }
 
@@ -171,6 +187,7 @@ export class Pokemon implements State.Pokemon {
     return new Pokemon(this.gen, this.name, {
       level: this.level,
       bossMultiplier: this.bossMultiplier,
+      statMultipliers: this.statMultipliers,
       ability: this.ability,
       abilityOn: this.abilityOn,
       isDynamaxed: this.isDynamaxed,
@@ -179,6 +196,7 @@ export class Pokemon implements State.Pokemon {
       alliesFainted: this.alliesFainted,
       boostedStat: this.boostedStat,
       usedBoosterEnergy: this.usedBoosterEnergy,
+      isIngrain: this.isIngrain,
       item: this.item,
       gender: this.gender,
       nature: this.nature,
@@ -191,22 +209,27 @@ export class Pokemon implements State.Pokemon {
       volatileStatus: this.volatileStatus,
       isChoiceLocked: this.isChoiceLocked,
       teraType: this.teraType,
+      isTera: this.isTera,
+      shieldData: this.shieldData,
+      shieldActive: this.shieldActive,
       toxicCounter: this.toxicCounter,
+      hitsTaken: this.hitsTaken,
+      changedTypes: this.changedTypes,
       moves: this.moves.slice(),
       overrides: this.species,
     });
   }
 
   private calcStat(gen: I.Generation, stat: I.StatID) {
-    return Stats.calcStat(
+    return Math.floor(this.statMultipliers[stat]! * Stats.calcStat(
       gen,
       stat,
-      this.species.baseStats[stat],
+      this.species.baseStats[stat]!,
       this.ivs[stat]!,
       this.evs[stat]!,
       this.level,
       this.nature
-    );
+    ));
   }
 
   static getForme(

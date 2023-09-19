@@ -10,40 +10,37 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import Collapse from "@mui/material/Collapse";
 
-import Download from "@mui/icons-material/Download";
 import HelpOutline from "@mui/icons-material/HelpOutline";
 import DarkLightModeSwitch from "./DarkLightModeSwitch";
 import HelpSection from "./HelpSection";
-import GraphicsButton from "./GraphicsButton";
 
 function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {  
     const [showHelp, setShowHelp] = useState(false);
-    const [showGraphic, setShowGraphic] = useState(false);
     return (
         <Box>
-            <AppBar position="static" color="secondary" sx={{ minWidth: "625px"}}>
+            <AppBar position="static" color="secondary" sx={{ minWidth: "700px"}}>
                 <Toolbar>
-                    <Box paddingRight={2}>
-                        <img src={process.env.PUBLIC_URL + "/logo192.png"} height={45} />
+                    <Box paddingRight={2} sx={{ transform: "translate(0px, 2px)"}}>
+                        <img src={process.env.PUBLIC_URL + "/logo192.png"} height={60} alt="" />
                     </Box>
                     <Typography 
-                        variant="h5"
+                        variant="h4"
                         sx={{
                             mr: 1,
                             display: "flex",
-                            fontWeight: 700,
+                            fontWeight: 800,
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
                     >
                         Tera Raid Builder
                     </Typography>
-                    <Box sx = {{ transform: "translate(-3px, -6px)"}}>
+                    <Box sx = {{ transform: "translate(-3px, 8px)"}}>
                         <Typography 
                             variant="body2"
                             sx={{
                                 mr: 1,
-                                fontWeight: 700,
+                                fontWeight: 800,
                                 color: 'inherit',
                                 textDecoration: 'none',
                             }}

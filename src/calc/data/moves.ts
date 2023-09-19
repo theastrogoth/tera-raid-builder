@@ -4258,6 +4258,11 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     isWind: true,
     target: 'allAdjacentFoes',
   },
+  'Blood Moon': {
+    bp: 140,
+    type: 'Normal',
+    category: 'Special',
+  },
   'Ceaseless Edge': {
     bp: 65,
     type: 'Dark',
@@ -4668,6 +4673,12 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     maxPower: 120,
     makesContact: true,
     isSlicing: true,
+    secondaries: true,
+  },
+  'Syrup Bomb': {
+    bp: 60,
+    type: 'Grass',
+    category: 'Special',
     secondaries: true,
   },
   'Take Heart': {

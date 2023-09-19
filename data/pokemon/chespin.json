@@ -79,6 +79,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Drain",
             "learnMethod": "level-up"
         },
@@ -89,6 +93,10 @@
         {
             "name": "Grass Pledge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
         },
         {
             "name": "Grassy Terrain",
@@ -160,6 +168,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {

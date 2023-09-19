@@ -60,7 +60,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Hydro Pump",
@@ -160,6 +160,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         }
     ]

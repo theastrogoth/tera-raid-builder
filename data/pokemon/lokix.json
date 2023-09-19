@@ -100,6 +100,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leech Life",
             "learnMethod": "machine"
         },
@@ -153,6 +161,10 @@
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

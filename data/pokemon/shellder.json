@@ -79,6 +79,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
             "learnMethod": "level-up"
         },

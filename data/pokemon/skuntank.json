@@ -48,6 +48,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "machine"
         },
@@ -113,7 +117,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -125,6 +129,14 @@
         },
         {
             "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {
@@ -169,6 +181,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -225,6 +241,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Super Fang",
             "learnMethod": "machine"
         },
         {

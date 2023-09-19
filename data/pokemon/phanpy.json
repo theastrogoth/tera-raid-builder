@@ -112,7 +112,7 @@
         },
         {
             "name": "High Horsepower",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Voice",
@@ -124,6 +124,10 @@
         },
         {
             "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -155,6 +159,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "machine"
         },
@@ -165,6 +173,10 @@
         {
             "name": "Rollout",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
         },
         {
             "name": "Sandstorm",
@@ -181,6 +193,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Snore",

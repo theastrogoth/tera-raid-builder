@@ -120,6 +120,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "level-up"
         },
@@ -169,7 +173,7 @@
         },
         {
             "name": "Toxic",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic Spikes",

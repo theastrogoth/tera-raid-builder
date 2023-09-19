@@ -100,6 +100,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Morning Sun",
             "learnMethod": "egg"
         },
@@ -205,6 +209,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {

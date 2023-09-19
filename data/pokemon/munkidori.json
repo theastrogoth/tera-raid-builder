@@ -23,5 +23,237 @@
         "spe": 106
     },
     "moves": [
+        {
+            "name": "Acid Spray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Baton Pass",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Clear Smog",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Confuse Ray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Confusion",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fake Out",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Flatter",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Fling",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gunk Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Hex",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metronome",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Nasty Plot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Nasty Plot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Parting Shot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psybeam",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psyshock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scratch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shadow Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stored Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Venoshock",
+            "learnMethod": "machine"
+        }
     ]
 }

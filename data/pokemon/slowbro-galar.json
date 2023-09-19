@@ -340,6 +340,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Withdraw",
             "learnMethod": "level-up"
         },

@@ -99,7 +99,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Focus Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Punch",
             "learnMethod": "machine"
         },
         {
@@ -112,6 +120,10 @@
         },
         {
             "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Haze",
             "learnMethod": "machine"
         },
         {
@@ -141,6 +153,10 @@
         {
             "name": "Icy Wind",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -264,6 +280,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
         {

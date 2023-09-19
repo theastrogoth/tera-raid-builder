@@ -99,6 +99,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },

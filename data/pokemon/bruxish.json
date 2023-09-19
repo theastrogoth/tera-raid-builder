@@ -84,6 +84,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -169,7 +173,7 @@
         },
         {
             "name": "Super Fang",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Surf",

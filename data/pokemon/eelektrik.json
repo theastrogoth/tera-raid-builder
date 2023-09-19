@@ -39,6 +39,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charge Beam",
             "learnMethod": "level-up"
         },
@@ -91,7 +95,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
             "learnMethod": "machine"
         },
         {
@@ -120,6 +132,10 @@
         },
         {
             "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Super Fang",
             "learnMethod": "machine"
         },
         {

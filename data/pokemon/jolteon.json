@@ -47,6 +47,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charm",
             "learnMethod": "level-up"
         },
@@ -167,6 +171,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sand Attack",
             "learnMethod": "level-up"
         },
@@ -240,6 +248,10 @@
         },
         {
             "name": "Volt Switch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

@@ -107,6 +107,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Headbutt",
             "learnMethod": "level-up"
         },
@@ -141,6 +145,10 @@
         {
             "name": "Icicle Crash",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
@@ -200,6 +208,10 @@
         },
         {
             "name": "Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

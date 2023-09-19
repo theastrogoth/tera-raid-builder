@@ -103,6 +103,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gunk Shot",
             "learnMethod": "level-up"
         },

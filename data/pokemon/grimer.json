@@ -100,7 +100,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -116,6 +116,10 @@
         },
         {
             "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -217,6 +221,10 @@
         {
             "name": "Spit Up",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Stockpile",

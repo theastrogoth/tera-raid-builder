@@ -40,6 +40,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Comeuppance",
             "learnMethod": "level-up"
         },
@@ -126,6 +130,10 @@
         {
             "name": "Inferno",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -216,6 +224,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Super Fang",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Take Down",
             "learnMethod": "machine"
         },
@@ -238,6 +250,10 @@
         {
             "name": "Torment",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

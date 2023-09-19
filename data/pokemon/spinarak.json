@@ -27,5 +27,229 @@
         "spe": 30
     },
     "moves": [
+        {
+            "name": "Absorb",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Acid Spray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Agility",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Agility",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Baton Pass",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bug Buzz",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Cross Poison",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Disable",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Foul Play",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fury Swipes",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Giga Drain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hex",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Infestation",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leech Life",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Megahorn",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Night Shade",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Night Slash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Pin Missile",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Sting",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Pounce",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rage Powder",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Shadow Sneak",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sticky Web",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "String Shot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Struggle Bug",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sucker Punch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic Thread",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Venoshock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "X-Scissor",
+            "learnMethod": "machine"
+        }
     ]
 }

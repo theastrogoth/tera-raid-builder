@@ -140,6 +140,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -153,6 +157,10 @@
         },
         {
             "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {
@@ -186,6 +194,14 @@
         {
             "name": "Iron Head",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -228,6 +244,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Blast",
             "learnMethod": "machine"
         },
@@ -241,6 +261,10 @@
         },
         {
             "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sand Tomb",
             "learnMethod": "machine"
         },
         {
@@ -269,6 +293,10 @@
         },
         {
             "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

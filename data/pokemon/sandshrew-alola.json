@@ -23,5 +23,189 @@
         "spe": 40
     },
     "moves": [
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Avalanche",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Blizzard",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bulldoze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Counter",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Crush Claw",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Defense Curl",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Flail",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Fling",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fury Cutter",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Fury Swipes",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Hone Claws",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Ice Shard",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Iron Head",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Low Kick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metal Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metal Claw",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Mirror Coat",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Mist",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Night Slash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Powder Snow",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rapid Spin",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rollout",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Scratch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Slash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Snowscape",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Snowscape",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Super Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        }
     ]
 }

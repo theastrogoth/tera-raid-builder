@@ -52,6 +52,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Ember",
             "learnMethod": "level-up"
         },
@@ -116,6 +124,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leer",
             "learnMethod": "level-up"
         },
@@ -133,6 +145,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -160,6 +176,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Substitute",
             "learnMethod": "level-up"
         },
@@ -185,6 +205,10 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

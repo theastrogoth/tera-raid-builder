@@ -84,6 +84,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growth",
             "learnMethod": "level-up"
         },
@@ -194,6 +198,10 @@
         {
             "name": "Solar Beam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",

@@ -27,5 +27,245 @@
         "spe": 50
     },
     "moves": [
+        {
+            "name": "Acrobatics",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Agility",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Cutter",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Slash",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Slash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Amnesia",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Brave Bird",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Confuse Ray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Confusion",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Defog",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dream Eater",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Echoed Voice",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Extrasensory",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feather Dance",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Fly",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Growl",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Haze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Heat Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hurricane",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hypnosis",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Moonblast",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Nasty Plot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Night Shade",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Peck",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roost",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skill Swap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stored Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supersonic",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tailwind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Whirlwind",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Wing Attack",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Zen Headbutt",
+            "learnMethod": "machine"
+        }
     ]
 }

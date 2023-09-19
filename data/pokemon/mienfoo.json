@@ -26,5 +26,225 @@
         "spe": 65
     },
     "moves": [
+        {
+            "name": "Acrobatics",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Agility",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Aura Sphere",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Aura Sphere",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Baton Pass",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bounce",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bulk Up",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Close Combat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Detect",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Drain Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Drain Punch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fake Out",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Feint",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Fling",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Force Palm",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Fury Swipes",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Jump Kick",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Hone Claws",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Low Kick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Low Sweep",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pound",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Quick Guard",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Reversal",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Reversal",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stone Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "level-up"
+        }
     ]
 }

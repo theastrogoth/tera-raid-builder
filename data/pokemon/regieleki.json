@@ -35,6 +35,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charge Beam",
             "learnMethod": "machine"
         },

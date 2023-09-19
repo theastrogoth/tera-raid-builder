@@ -18,5 +18,237 @@
         "spe": 100
     },
     "moves": [
+        {
+            "name": "Acid Armor",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Aqua Ring",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Baton Pass",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Blizzard",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bubble Beam",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charm",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Chilling Water",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dazzling Gleam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Disarming Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dive",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fake Tears",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fling",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Haze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Heart Swap",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hydro Pump",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Liquidation",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scald",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skill Swap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stored Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supersonic",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Surf",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tail Glow",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Heart",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Water Gun",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Water Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Water Pulse",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Zen Headbutt",
+            "learnMethod": "machine"
+        }
     ]
 }

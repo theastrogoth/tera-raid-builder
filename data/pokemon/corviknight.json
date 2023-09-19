@@ -68,6 +68,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -201,7 +205,7 @@
         },
         {
             "name": "Spite",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Steel Beam",

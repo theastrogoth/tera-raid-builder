@@ -91,6 +91,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
@@ -104,6 +108,10 @@
         },
         {
             "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -168,6 +176,10 @@
         },
         {
             "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Blade",
             "learnMethod": "machine"
         },
         {

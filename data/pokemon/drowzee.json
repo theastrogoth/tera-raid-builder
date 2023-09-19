@@ -87,6 +87,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -101,6 +105,10 @@
         {
             "name": "Guard Swap",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Haze",
+            "learnMethod": "machine"
         },
         {
             "name": "Headbutt",
@@ -120,6 +128,10 @@
         },
         {
             "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -257,6 +269,10 @@
         {
             "name": "Thunder Wave",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

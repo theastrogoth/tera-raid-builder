@@ -148,7 +148,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Haze",
             "learnMethod": "machine"
         },
         {
@@ -228,6 +236,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "machine"
         },
@@ -245,6 +257,10 @@
         },
         {
             "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {
@@ -329,6 +345,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

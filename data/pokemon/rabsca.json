@@ -92,6 +92,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Guard Swap",
             "learnMethod": "level-up"
         },
@@ -133,6 +137,10 @@
         },
         {
             "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
             "learnMethod": "machine"
         },
         {
@@ -273,7 +281,7 @@
         },
         {
             "name": "Weather Ball",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "X-Scissor",

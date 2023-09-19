@@ -75,6 +75,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -157,6 +161,14 @@
         {
             "name": "Safeguard",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Scald",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Ball",

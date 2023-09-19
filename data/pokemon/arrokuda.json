@@ -75,6 +75,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Focus Energy",
             "learnMethod": "level-up"
         },
@@ -116,6 +120,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {

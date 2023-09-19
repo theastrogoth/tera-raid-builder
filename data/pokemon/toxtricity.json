@@ -280,6 +280,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Venoshock",
             "learnMethod": "level-up"
         },

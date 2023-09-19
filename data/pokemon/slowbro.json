@@ -124,6 +124,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -142,6 +146,10 @@
         {
             "name": "Growl",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Haze",
+            "learnMethod": "machine"
         },
         {
             "name": "Headbutt",
@@ -236,6 +244,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Scald",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Shadow Ball",
             "learnMethod": "machine"
         },
@@ -250,6 +262,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -296,6 +312,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Trick",
             "learnMethod": "level-up"
         },
@@ -313,6 +333,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

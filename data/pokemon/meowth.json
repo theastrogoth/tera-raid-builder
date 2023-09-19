@@ -115,6 +115,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Helping Hand",
             "learnMethod": "machine"
         },
@@ -129,6 +133,14 @@
         {
             "name": "Icy Wind",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Last Resort",

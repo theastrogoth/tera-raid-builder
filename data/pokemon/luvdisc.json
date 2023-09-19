@@ -63,6 +63,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hydro Pump",
             "learnMethod": "level-up"
         },
@@ -93,6 +97,10 @@
         {
             "name": "Safeguard",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",

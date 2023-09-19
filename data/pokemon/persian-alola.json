@@ -127,6 +127,14 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Metal Claw",
             "learnMethod": "machine"
         },
@@ -167,6 +175,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scratch",
             "learnMethod": "level-up"
         },
@@ -192,6 +204,10 @@
         },
         {
             "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

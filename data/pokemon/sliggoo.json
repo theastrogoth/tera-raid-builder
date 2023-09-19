@@ -87,6 +87,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Ice Beam",
             "learnMethod": "machine"
         },
@@ -156,6 +160,10 @@
         },
         {
             "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {

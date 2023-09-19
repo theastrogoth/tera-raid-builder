@@ -43,6 +43,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Covet",
             "learnMethod": "level-up"
         },
@@ -135,6 +139,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -203,6 +211,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "level-up"
         },
@@ -232,6 +244,10 @@
         },
         {
             "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

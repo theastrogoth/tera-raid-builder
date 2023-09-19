@@ -27,5 +27,301 @@
         "spe": 56
     },
     "moves": [
+        {
+            "name": "Ally Switch",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Astonish",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Branch Poke",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Bulldoze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Confuse Ray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Confuse Ray",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dark Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Destiny Bond",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Disable",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Drain Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Forest's Curse",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Foul Play",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Drain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Growth",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Haze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hex",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hex",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Horn Leech",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ingrain",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leaf Storm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leech Seed",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Magical Leaf",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Phantom Force",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Phantom Force",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Slide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Seed Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shadow Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shadow Claw",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Skill Swap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sucker Punch",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Will-O-Wisp",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Will-O-Wisp",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Wood Hammer",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "X-Scissor",
+            "learnMethod": "machine"
+        }
     ]
 }

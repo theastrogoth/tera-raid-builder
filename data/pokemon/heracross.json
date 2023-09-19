@@ -44,6 +44,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bug Buzz",
             "learnMethod": "machine"
         },
@@ -108,6 +112,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fury Attack",
             "learnMethod": "level-up"
         },
@@ -124,6 +132,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Horn Attack",
             "learnMethod": "level-up"
         },
@@ -136,12 +148,20 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leer",
             "learnMethod": "level-up"
         },
         {
             "name": "Low Kick",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
         },
         {
             "name": "Megahorn",
@@ -200,6 +220,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Smart Strike",
             "learnMethod": "machine"
         },
@@ -253,6 +277,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         }
     ]

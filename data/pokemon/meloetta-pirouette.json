@@ -92,11 +92,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
             "learnMethod": "machine"
         },
         {
@@ -114,6 +122,10 @@
         {
             "name": "Ice Punch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",

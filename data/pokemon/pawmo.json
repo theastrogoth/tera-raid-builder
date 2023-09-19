@@ -104,11 +104,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growl",
             "learnMethod": "level-up"
         },
         {
             "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -173,6 +181,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Super Fang",
             "learnMethod": "machine"
         },
         {

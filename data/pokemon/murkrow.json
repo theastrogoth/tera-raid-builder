@@ -72,6 +72,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "level-up"
         },
@@ -126,6 +130,10 @@
         {
             "name": "Icy Wind",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Mean Look",
@@ -196,6 +204,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Substitute",
             "learnMethod": "level-up"
         },
@@ -237,6 +249,10 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

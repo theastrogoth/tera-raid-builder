@@ -135,6 +135,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Lick",
             "learnMethod": "level-up"
         },
@@ -252,6 +260,10 @@
         },
         {
             "name": "Thunder Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {

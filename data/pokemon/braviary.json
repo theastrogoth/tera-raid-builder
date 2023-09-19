@@ -72,6 +72,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -209,6 +213,10 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
         {

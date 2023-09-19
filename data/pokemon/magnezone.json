@@ -36,6 +36,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charge Beam",
             "learnMethod": "machine"
         },
@@ -81,6 +85,10 @@
         },
         {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
             "learnMethod": "machine"
         },
         {

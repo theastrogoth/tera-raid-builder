@@ -68,6 +68,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Eerie Impulse",
             "learnMethod": "machine"
         },
@@ -109,6 +113,10 @@
         },
         {
             "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -197,6 +205,10 @@
         },
         {
             "name": "Volt Switch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

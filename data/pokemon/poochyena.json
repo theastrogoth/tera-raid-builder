@@ -26,5 +26,217 @@
         "spe": 35
     },
     "moves": [
+        {
+            "name": "Assurance",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Astonish",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Bite",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Charm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Covet",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dark Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fire Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Foul Play",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Howl",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Hyper Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leer",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Nasty Plot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Play Rough",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Play Rough",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Fang",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Fangs",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sand Attack",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sucker Punch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Super Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swagger",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Yawn",
+            "learnMethod": "level-up"
+        }
     ]
 }

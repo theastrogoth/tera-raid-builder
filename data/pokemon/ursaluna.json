@@ -128,6 +128,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fury Cutter",
             "learnMethod": "level-up"
         },
@@ -224,6 +228,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "level-up"
         },
@@ -258,6 +266,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Snore",
@@ -317,6 +329,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

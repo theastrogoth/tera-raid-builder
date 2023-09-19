@@ -1,0 +1,259 @@
+{
+    "name": "Urshifu",
+    "abilities": [
+        {
+            "name": "Unseen Fist",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "fighting",
+        "dark"
+    ],
+    "stats": {
+        "hp": 100,
+        "atk": 130,
+        "def": 100,
+        "spa": 63,
+        "spd": 60,
+        "spe": 97
+    },
+    "moves": [
+        {
+            "name": "Acrobatics",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Aura Sphere",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Body Press",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Brick Break",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Bulk Up",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Close Combat",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Counter",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dark Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Detect",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Drain Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dynamic Punch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "False Swipe",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fire Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fling",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Energy",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Focus Punch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Foul Play",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Headbutt",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Iron Head",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leer",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Low Kick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Low Sweep",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metal Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Reversal",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Slide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Smash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stone Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sucker Punch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wicked Blow",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Zen Headbutt",
+            "learnMethod": "machine"
+        }
+    ]
+}

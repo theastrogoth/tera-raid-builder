@@ -205,7 +205,7 @@
         },
         {
             "name": "Spite",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -237,6 +237,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

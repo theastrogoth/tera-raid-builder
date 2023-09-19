@@ -163,6 +163,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "machine"
         },

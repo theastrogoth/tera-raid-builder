@@ -92,6 +92,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Drain",
             "learnMethod": "level-up"
         },
@@ -101,6 +105,10 @@
         },
         {
             "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
             "learnMethod": "machine"
         },
         {
@@ -129,6 +137,10 @@
         },
         {
             "name": "Ice Spinner",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icicle Spear",
             "learnMethod": "machine"
         },
         {

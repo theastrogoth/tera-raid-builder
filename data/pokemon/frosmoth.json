@@ -53,7 +53,7 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Bug Buzz",
@@ -116,6 +116,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
             "learnMethod": "level-up"
         },
@@ -133,6 +137,10 @@
         },
         {
             "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
             "learnMethod": "machine"
         },
         {
@@ -209,6 +217,10 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

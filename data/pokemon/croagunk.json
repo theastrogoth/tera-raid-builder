@@ -124,6 +124,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -146,6 +150,14 @@
         {
             "name": "Icy Wind",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Low Kick",
@@ -224,6 +236,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Substitute",
             "learnMethod": "machine"
         },
@@ -233,6 +249,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Super Fang",
             "learnMethod": "machine"
         },
         {

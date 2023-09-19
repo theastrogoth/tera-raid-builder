@@ -91,6 +91,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Low Kick",
             "learnMethod": "machine"
         },
@@ -180,6 +184,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Super Fang",
             "learnMethod": "machine"
         },
         {

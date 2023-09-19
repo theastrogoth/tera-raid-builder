@@ -104,6 +104,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -140,8 +144,20 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -264,7 +280,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
         {

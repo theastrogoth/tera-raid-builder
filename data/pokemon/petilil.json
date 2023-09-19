@@ -71,6 +71,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growth",
             "learnMethod": "level-up"
         },

@@ -79,6 +79,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -136,6 +140,10 @@
         },
         {
             "name": "Reversal",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {

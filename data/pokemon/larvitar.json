@@ -156,6 +156,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "level-up"
         },
@@ -177,6 +181,10 @@
         },
         {
             "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

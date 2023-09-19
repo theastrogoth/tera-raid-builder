@@ -111,8 +111,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growl",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Haze",
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -137,6 +145,10 @@
         {
             "name": "Ice Shard",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
@@ -172,6 +184,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -233,6 +249,10 @@
         {
             "name": "Water Pulse",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Wish",

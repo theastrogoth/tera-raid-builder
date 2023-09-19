@@ -148,6 +148,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },

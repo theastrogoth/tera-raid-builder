@@ -27,5 +27,313 @@
         "spe": 85
     },
     "moves": [
+        {
+            "name": "Acrobatics",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Acrobatics",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Agility",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Baton Pass",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bulldoze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Counter",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Crabhammer",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Cross Poison",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dark Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Earth Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "False Swipe",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feint",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Fire Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fling",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fury Cutter",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Gunk Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Harden",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metal Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Night Slash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Sting",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Tail",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Tail",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Fangs",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Quick Attack",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Slide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sand Attack",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Screech",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Slash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stealth Rock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stone Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Struggle Bug",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tailwind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Venoshock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wing Attack",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "X-Scissor",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "X-Scissor",
+            "learnMethod": "level-up"
+        }
     ]
 }

@@ -24,6 +24,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Confuse Ray",
             "learnMethod": "level-up"
         },
@@ -94,6 +98,10 @@
         {
             "name": "Inferno",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Lava Plume",

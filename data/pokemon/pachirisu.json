@@ -44,7 +44,7 @@
         },
         {
             "name": "Charge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Charge Beam",
@@ -260,6 +260,10 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

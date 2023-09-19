@@ -36,6 +36,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Chilling Water",
             "learnMethod": "machine"
         },
@@ -93,6 +97,10 @@
         },
         {
             "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {

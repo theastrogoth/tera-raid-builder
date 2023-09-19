@@ -111,6 +111,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -141,6 +145,10 @@
         {
             "name": "Helping Hand",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -211,6 +219,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "machine"
         },
@@ -221,6 +233,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Spikes",

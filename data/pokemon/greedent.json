@@ -99,6 +99,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
@@ -108,6 +116,10 @@
         },
         {
             "name": "Ice Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {

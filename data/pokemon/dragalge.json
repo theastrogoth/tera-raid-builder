@@ -72,6 +72,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Focus Blast",
             "learnMethod": "machine"
         },
@@ -85,7 +89,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Hydro Pump",
@@ -136,6 +140,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scald",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scary Face",
             "learnMethod": "machine"
         },
@@ -157,6 +169,10 @@
         },
         {
             "name": "Snowscape",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

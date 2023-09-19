@@ -115,6 +115,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fury Cutter",
             "learnMethod": "level-up"
         },
@@ -239,6 +243,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Snore",
             "learnMethod": "level-up"
         },
@@ -296,6 +304,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

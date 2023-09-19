@@ -36,6 +36,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "level-up"
         },
@@ -76,6 +80,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
@@ -98,6 +106,10 @@
         {
             "name": "Ingrain",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Storm",
@@ -178,6 +190,10 @@
         {
             "name": "Sunny Day",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Super Fang",
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",

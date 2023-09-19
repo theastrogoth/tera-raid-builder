@@ -23,5 +23,233 @@
         "spe": 70
     },
     "moves": [
+        {
+            "name": "Acid Spray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bullet Seed",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Clear Smog",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Encore",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gastro Acid",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Giga Drain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ingrain",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leaf Blade",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Leaf Storm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leaf Storm",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Leech Life",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Magical Leaf",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pounce",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Power Whip",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Razor Leaf",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Seed Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Powder",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spit Up",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Stockpile",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Strength Sap",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sucker Punch",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swallow",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sweet Scent",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Synthesis",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tickle",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Venoshock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vine Whip",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Worry Seed",
+            "learnMethod": "egg"
+        }
     ]
 }

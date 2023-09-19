@@ -211,6 +211,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Stomping Tantrum",
             "learnMethod": "machine"
         },
@@ -257,6 +261,10 @@
         {
             "name": "Thunder Punch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Vacuum Wave",
+            "learnMethod": "machine"
         },
         {
             "name": "Whirlwind",

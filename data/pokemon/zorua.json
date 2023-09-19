@@ -23,6 +23,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Calm Mind",
             "learnMethod": "machine"
         },
@@ -75,6 +79,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -111,6 +119,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leer",
             "learnMethod": "level-up"
         },
@@ -143,6 +155,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scary Face",
             "learnMethod": "level-up"
         },
@@ -168,6 +184,10 @@
         },
         {
             "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

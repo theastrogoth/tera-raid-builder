@@ -360,6 +360,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Yawn",
             "learnMethod": "level-up"
         },

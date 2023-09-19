@@ -136,6 +136,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leer",
             "learnMethod": "level-up"
         },
@@ -156,7 +160,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scald",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {
@@ -166,6 +182,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Splash",

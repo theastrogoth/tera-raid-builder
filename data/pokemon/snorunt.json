@@ -115,6 +115,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
             "learnMethod": "level-up"
         },
@@ -160,6 +164,10 @@
         },
         {
             "name": "Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

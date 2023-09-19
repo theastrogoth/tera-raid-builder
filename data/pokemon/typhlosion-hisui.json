@@ -44,6 +44,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Calm Mind",
             "learnMethod": "machine"
         },
@@ -68,12 +72,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Double-Edge",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Double Kick",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "level-up"
         },
         {
             "name": "Earthquake",
@@ -140,6 +144,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -200,6 +208,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -213,6 +225,10 @@
         },
         {
             "name": "Reversal",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {

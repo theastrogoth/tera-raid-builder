@@ -40,6 +40,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "level-up"
         },
@@ -104,6 +108,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Heat Crash",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heat Wave",
             "learnMethod": "level-up"
         },
@@ -130,6 +138,10 @@
         {
             "name": "Leer",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
         },
         {
             "name": "Magma Storm",

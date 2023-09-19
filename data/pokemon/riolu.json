@@ -119,6 +119,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Force Palm",
             "learnMethod": "level-up"
         },

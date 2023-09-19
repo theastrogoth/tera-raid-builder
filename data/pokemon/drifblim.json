@@ -112,8 +112,12 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -137,6 +141,10 @@
         },
         {
             "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -200,6 +208,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Stockpile",
             "learnMethod": "level-up"
         },
@@ -257,6 +269,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

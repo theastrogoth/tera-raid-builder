@@ -36,6 +36,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charge Beam",
             "learnMethod": "machine"
         },
@@ -96,6 +100,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -118,6 +126,10 @@
         {
             "name": "Iron Tail",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",

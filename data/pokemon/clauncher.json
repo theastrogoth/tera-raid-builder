@@ -79,6 +79,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Helping Hand",
             "learnMethod": "level-up"
         },
@@ -188,6 +192,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         }
     ]

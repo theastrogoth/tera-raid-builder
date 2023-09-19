@@ -290,6 +290,10 @@
         {
             "name": "Waterfall",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         }
     ]
 }

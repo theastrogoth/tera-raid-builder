@@ -163,6 +163,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Super Fang",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sweet Kiss",
             "learnMethod": "egg"
         },

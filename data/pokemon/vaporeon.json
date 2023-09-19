@@ -111,6 +111,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -179,8 +183,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sand Attack",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Scald",
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Ball",
@@ -244,6 +256,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

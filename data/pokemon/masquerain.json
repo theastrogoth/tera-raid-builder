@@ -72,6 +72,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "level-up"
         },
@@ -141,7 +145,7 @@
         },
         {
             "name": "Lunge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Mist",
@@ -269,6 +273,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

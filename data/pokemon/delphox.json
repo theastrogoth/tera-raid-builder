@@ -32,6 +32,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Calm Mind",
             "learnMethod": "machine"
         },

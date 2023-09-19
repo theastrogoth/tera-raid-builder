@@ -56,6 +56,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bug Buzz",
             "learnMethod": "machine"
         },
@@ -78,6 +82,10 @@
         {
             "name": "Double Team",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -121,6 +129,10 @@
         },
         {
             "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
             "learnMethod": "machine"
         },
         {
@@ -241,6 +253,10 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
         {

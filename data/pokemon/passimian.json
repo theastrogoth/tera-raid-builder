@@ -103,6 +103,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "level-up"
         },
@@ -113,6 +117,10 @@
         {
             "name": "Gunk Shot",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -195,6 +203,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Substitute",
             "learnMethod": "machine"
         },
@@ -232,6 +244,14 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         }
     ]

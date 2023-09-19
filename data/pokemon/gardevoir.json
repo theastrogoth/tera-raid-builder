@@ -124,6 +124,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growl",
             "learnMethod": "level-up"
         },
@@ -165,7 +169,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Life Dew",
@@ -189,6 +193,10 @@
         },
         {
             "name": "Metronome",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Misty Explosion",
             "learnMethod": "machine"
         },
         {
@@ -305,6 +313,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
         {

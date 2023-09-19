@@ -18,5 +18,265 @@
         "spe": 65
     },
     "moves": [
+        {
+            "name": "Ally Switch",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Astonish",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Baton Pass",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Confusion",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Cosmic Power",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Dazzling Gleam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Disable",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Disarming Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Draining Kiss",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Encore",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Extrasensory",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fake Tears",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Growl",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Heal Bell",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Heal Pulse",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Healing Wish",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hypnosis",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psyshock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Recover",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Recycle",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Safeguard",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skill Swap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stored Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stored Power",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Wish",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Wrap",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Yawn",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Zen Headbutt",
+            "learnMethod": "machine"
+        }
     ]
 }

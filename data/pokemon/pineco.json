@@ -79,6 +79,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gyro Ball",
             "learnMethod": "level-up"
         },
@@ -96,6 +100,10 @@
         },
         {
             "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
             "learnMethod": "machine"
         },
         {
@@ -160,7 +168,7 @@
         },
         {
             "name": "Sand Tomb",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Sandstorm",

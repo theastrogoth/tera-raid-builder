@@ -32,6 +32,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charm",
             "learnMethod": "level-up"
         },
@@ -177,6 +181,10 @@
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

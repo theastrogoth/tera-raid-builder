@@ -172,6 +172,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Stealth Rock",
             "learnMethod": "level-up"
         },
@@ -218,6 +222,10 @@
         {
             "name": "Tri Attack",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
         }
     ]
 }

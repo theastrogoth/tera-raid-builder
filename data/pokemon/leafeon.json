@@ -115,6 +115,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growl",
             "learnMethod": "level-up"
         },
@@ -129,6 +133,10 @@
         {
             "name": "Hyper Voice",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
         },
         {
             "name": "Last Resort",
@@ -179,6 +187,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sand Attack",
             "learnMethod": "level-up"
         },
@@ -196,6 +208,10 @@
         },
         {
             "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Blade",
             "learnMethod": "machine"
         },
         {
@@ -244,6 +260,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

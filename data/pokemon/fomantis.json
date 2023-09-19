@@ -23,6 +23,10 @@
     },
     "moves": [
         {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bullet Seed",
             "learnMethod": "machine"
         },
@@ -60,6 +64,10 @@
         },
         {
             "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
             "learnMethod": "machine"
         },
         {
@@ -152,6 +160,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

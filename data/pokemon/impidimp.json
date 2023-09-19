@@ -36,6 +36,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Chilling Water",
             "learnMethod": "machine"
         },
@@ -86,6 +90,10 @@
         {
             "name": "Foul Play",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leech Life",

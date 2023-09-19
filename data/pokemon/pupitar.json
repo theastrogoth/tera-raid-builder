@@ -96,6 +96,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "level-up"
         },
@@ -106,6 +110,10 @@
         {
             "name": "Iron Head",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -156,6 +164,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "level-up"
         },
@@ -177,6 +189,10 @@
         },
         {
             "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

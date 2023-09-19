@@ -28,11 +28,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Bite",
+            "name": "Behemoth Blade",
             "learnMethod": "level-up"
         },
         {
-            "name": "Behemoth Blade",
+            "name": "Bite",
             "learnMethod": "level-up"
         },
         {

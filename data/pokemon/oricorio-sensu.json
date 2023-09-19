@@ -60,6 +60,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },

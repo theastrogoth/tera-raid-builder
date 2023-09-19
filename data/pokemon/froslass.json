@@ -108,6 +108,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Haze",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Headbutt",
             "learnMethod": "level-up"
         },
@@ -148,6 +152,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
             "learnMethod": "level-up"
         },
@@ -165,6 +173,10 @@
         },
         {
             "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
             "learnMethod": "machine"
         },
         {
@@ -213,6 +225,10 @@
         },
         {
             "name": "Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

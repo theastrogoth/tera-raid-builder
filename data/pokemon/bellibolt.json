@@ -171,6 +171,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Volt Switch",
             "learnMethod": "machine"
         },

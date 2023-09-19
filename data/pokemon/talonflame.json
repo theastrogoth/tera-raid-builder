@@ -56,6 +56,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Ember",
             "learnMethod": "level-up"
         },

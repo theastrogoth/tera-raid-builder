@@ -119,6 +119,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growl",
             "learnMethod": "level-up"
         },
@@ -211,6 +215,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sand Attack",
             "learnMethod": "level-up"
         },
@@ -276,6 +284,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

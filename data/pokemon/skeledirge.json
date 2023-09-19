@@ -112,6 +112,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Heat Crash",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heat Wave",
             "learnMethod": "machine"
         },
@@ -162,6 +166,10 @@
         {
             "name": "Overheat",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",

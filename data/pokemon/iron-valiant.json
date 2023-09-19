@@ -308,6 +308,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Vacuum Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Wide Guard",
             "learnMethod": "level-up"
         },

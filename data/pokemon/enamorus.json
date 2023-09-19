@@ -116,6 +116,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Misty Terrain",
             "learnMethod": "machine"
         },
@@ -206,6 +210,10 @@
         {
             "name": "Uproar",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Zen Headbutt",

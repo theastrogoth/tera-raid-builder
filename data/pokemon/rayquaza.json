@@ -132,6 +132,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Helping Hand",
             "learnMethod": "machine"
         },
@@ -184,6 +188,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "level-up"
         },
@@ -193,6 +201,10 @@
         },
         {
             "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {

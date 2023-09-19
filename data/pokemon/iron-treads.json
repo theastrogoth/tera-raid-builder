@@ -68,8 +68,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
         },
         {
             "name": "Horn Attack",

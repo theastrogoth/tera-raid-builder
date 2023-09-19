@@ -92,11 +92,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Harden",
             "learnMethod": "level-up"
         },
         {
             "name": "Heavy Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {
@@ -113,6 +121,10 @@
         },
         {
             "name": "Ice Spinner",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icicle Spear",
             "learnMethod": "machine"
         },
         {

@@ -52,6 +52,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charge Beam",
             "learnMethod": "machine"
         },
@@ -197,7 +201,7 @@
         },
         {
             "name": "Weather Ball",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

@@ -127,6 +127,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Future Sight",
             "learnMethod": "egg"
         },
@@ -176,6 +180,10 @@
         },
         {
             "name": "Low Sweep",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
             "learnMethod": "machine"
         },
         {
@@ -340,6 +348,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

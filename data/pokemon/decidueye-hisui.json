@@ -76,6 +76,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -100,6 +104,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Frenzy Plant",
             "learnMethod": "machine"
         },
@@ -120,12 +128,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
         {
             "name": "Growl",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Haze",
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -137,7 +153,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Blade",
@@ -221,6 +237,10 @@
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {

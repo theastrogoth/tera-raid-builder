@@ -92,6 +92,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heal Pulse",
             "learnMethod": "level-up"
         },
@@ -129,6 +133,10 @@
         },
         {
             "name": "Metronome",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Misty Explosion",
             "learnMethod": "machine"
         },
         {

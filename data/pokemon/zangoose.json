@@ -135,6 +135,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fury Cutter",
             "learnMethod": "level-up"
         },
@@ -177,6 +181,10 @@
         {
             "name": "Icy Wind",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -228,6 +236,10 @@
         },
         {
             "name": "Reversal",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {

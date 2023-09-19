@@ -121,7 +121,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
@@ -161,6 +161,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {
@@ -218,6 +222,10 @@
         {
             "name": "U-Turn",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

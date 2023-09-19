@@ -1,110 +1,125 @@
 {
-    "name": "Oricorio-Baile",
+    "name": "Shaymin",
     "abilities": [
         {
-            "name": "Dancer",
+            "name": "Natural Cure",
             "hidden": false
         }
     ],
     "types": [
-        "fire",
-        "flying"
+        "grass"
     ],
     "stats": {
-        "hp": 75,
-        "atk": 70,
-        "def": 70,
-        "spa": 98,
-        "spd": 70,
-        "spe": 93
+        "hp": 100,
+        "atk": 100,
+        "def": 100,
+        "spa": 100,
+        "spd": 100,
+        "spe": 100
     },
     "moves": [
         {
-            "name": "Acrobatics",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Aerial Ace",
+            "name": "Air Cutter",
             "learnMethod": "machine"
         },
         {
-            "name": "Agility",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Air Cutter",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Air Slash",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Attract",
             "learnMethod": "machine"
         },
         {
             "name": "Baton Pass",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Calm Mind",
             "learnMethod": "machine"
         },
         {
-            "name": "Charm",
+            "name": "Bullet Seed",
             "learnMethod": "machine"
         },
         {
-            "name": "Defog",
-            "learnMethod": "level-up"
+            "name": "Dazzling Gleam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Disarming Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Earth Power",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
             "learnMethod": "machine"
         },
         {
+            "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Energy Ball",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
         {
-            "name": "Feather Dance",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Flatter",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Fly",
+            "name": "Giga Drain",
             "learnMethod": "machine"
         },
         {
-            "name": "Growl",
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Terrain",
             "learnMethod": "level-up"
         },
         {
-            "name": "Helping Hand",
+            "name": "Growth",
             "learnMethod": "level-up"
         },
         {
-            "name": "Hurricane",
+            "name": "Healing Wish",
             "learnMethod": "level-up"
         },
         {
-            "name": "Icy Wind",
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leaf Storm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leech Seed",
             "learnMethod": "level-up"
         },
         {
-            "name": "Peck",
+            "name": "Magical Leaf",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Magical Leaf",
             "learnMethod": "level-up"
         },
         {
-            "name": "Pluck",
-            "learnMethod": "egg"
+            "name": "Play Rough",
+            "learnMethod": "machine"
         },
         {
-            "name": "Pound",
+            "name": "Play Rough",
             "learnMethod": "level-up"
         },
         {
@@ -112,11 +127,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Quiver Dance",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Rain Dance",
+            "name": "Psychic",
             "learnMethod": "machine"
         },
         {
@@ -124,27 +135,19 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Revelation Dance",
+            "name": "Seed Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Seed Flare",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Reversal",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Roost",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Safeguard",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Sandstorm",
-            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Beam",
             "learnMethod": "machine"
         },
         {
@@ -156,6 +159,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sweet Kiss",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sweet Scent",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Swift",
             "learnMethod": "machine"
         },
@@ -164,20 +175,16 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Tailwind",
+            "name": "Synthesis",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Tailwind",
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Taunt",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Teeter Dance",
-            "learnMethod": "level-up"
         },
         {
             "name": "Tera Blast",
@@ -188,7 +195,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "Worry Seed",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Zen Headbutt",
             "learnMethod": "machine"
         }
     ]

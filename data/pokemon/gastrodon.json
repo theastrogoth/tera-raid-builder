@@ -172,6 +172,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "machine"
         },
@@ -245,6 +249,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

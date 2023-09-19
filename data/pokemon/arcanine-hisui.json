@@ -64,11 +64,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Double-Edge",
+            "name": "Double Kick",
             "learnMethod": "egg"
         },
         {
-            "name": "Double Kick",
+            "name": "Double-Edge",
             "learnMethod": "egg"
         },
         {
@@ -126,6 +126,10 @@
         {
             "name": "Head Smash",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Heat Crash",
+            "learnMethod": "machine"
         },
         {
             "name": "Heat Wave",

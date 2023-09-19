@@ -172,6 +172,14 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leer",
             "learnMethod": "level-up"
         },
@@ -196,6 +204,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "machine"
         },
@@ -205,7 +217,7 @@
         },
         {
             "name": "Scale Shot",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Scary Face",

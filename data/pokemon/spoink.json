@@ -111,6 +111,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Mirror Coat",
             "learnMethod": "egg"
         },
@@ -240,6 +244,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

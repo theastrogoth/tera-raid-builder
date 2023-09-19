@@ -128,6 +128,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leer",
             "learnMethod": "level-up"
         },
@@ -165,6 +173,10 @@
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {
@@ -238,6 +250,10 @@
         {
             "name": "Volt Switch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

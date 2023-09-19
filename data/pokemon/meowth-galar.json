@@ -139,6 +139,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Metal Claw",
             "learnMethod": "level-up"
         },
@@ -208,7 +216,7 @@
         },
         {
             "name": "Spite",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Stealth Rock",

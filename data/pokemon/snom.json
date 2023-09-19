@@ -25,7 +25,7 @@
     "moves": [
         {
             "name": "Bug Bite",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Bug Buzz",
@@ -40,7 +40,15 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
             "learnMethod": "machine"
         },
         {

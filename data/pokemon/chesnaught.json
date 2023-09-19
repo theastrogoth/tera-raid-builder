@@ -112,6 +112,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Frenzy Plant",
             "learnMethod": "level-up"
         },
@@ -132,6 +136,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
@@ -140,12 +148,20 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hammer Arm",
             "learnMethod": "level-up"
         },
         {
             "name": "Helping Hand",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -158,6 +174,10 @@
         {
             "name": "Iron Head",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Storm",
@@ -228,6 +248,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "machine"
         },
@@ -253,6 +277,10 @@
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {

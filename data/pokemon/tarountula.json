@@ -91,12 +91,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leech Life",
             "learnMethod": "machine"
         },
         {
             "name": "Lunge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Memento",

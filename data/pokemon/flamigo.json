@@ -80,6 +80,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -125,6 +129,10 @@
         },
         {
             "name": "Low Sweep",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
             "learnMethod": "machine"
         },
         {

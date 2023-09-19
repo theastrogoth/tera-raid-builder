@@ -32,6 +32,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Calm Mind",
             "learnMethod": "machine"
         },
@@ -100,6 +104,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Memento",
             "learnMethod": "level-up"
         },
@@ -121,6 +129,10 @@
         },
         {
             "name": "Phantom Force",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
             "learnMethod": "machine"
         },
         {
@@ -209,6 +221,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {

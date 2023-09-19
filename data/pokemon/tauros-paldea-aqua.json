@@ -96,6 +96,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hydro Pump",
             "learnMethod": "machine"
         },
@@ -105,6 +109,10 @@
         },
         {
             "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {

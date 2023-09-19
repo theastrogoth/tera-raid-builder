@@ -92,6 +92,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leaf Storm",
             "learnMethod": "level-up"
         },
@@ -177,6 +181,10 @@
         },
         {
             "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Blade",
             "learnMethod": "machine"
         },
         {

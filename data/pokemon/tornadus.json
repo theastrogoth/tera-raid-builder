@@ -135,6 +135,14 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leer",
             "learnMethod": "level-up"
         },
@@ -180,6 +188,10 @@
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {
@@ -229,6 +241,10 @@
         {
             "name": "Uproar",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         }
     ]
 }

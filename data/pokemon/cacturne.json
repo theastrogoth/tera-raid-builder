@@ -88,6 +88,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -101,6 +105,10 @@
         },
         {
             "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
             "learnMethod": "machine"
         },
         {
@@ -124,6 +132,14 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leaf Storm",
             "learnMethod": "machine"
         },
@@ -138,6 +154,10 @@
         {
             "name": "Low Kick",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
         },
         {
             "name": "Magical Leaf",
@@ -214,6 +234,10 @@
         {
             "name": "Spiky Shield",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",

@@ -26,5 +26,233 @@
         "spe": 35
     },
     "moves": [
+        {
+            "name": "Ancient Power",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Aqua Jet",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Blizzard",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bubble Beam",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Chilling Water",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Crabhammer",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double Hit",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Dragon Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "False Swipe",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fling",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Guillotine",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Harden",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Hydro Pump",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Leer",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Liquidation",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metal Claw",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Metal Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Night Slash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Razor Shell",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Slide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Slash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Surf",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Switcheroo",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Water Gun",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Water Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "X-Scissor",
+            "learnMethod": "machine"
+        }
     ]
 }

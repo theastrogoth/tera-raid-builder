@@ -95,11 +95,19 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {

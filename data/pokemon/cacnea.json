@@ -83,6 +83,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "machine"
         },
@@ -92,6 +96,10 @@
         },
         {
             "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
             "learnMethod": "machine"
         },
         {
@@ -193,6 +201,10 @@
         {
             "name": "Spikes",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",

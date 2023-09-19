@@ -164,6 +164,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scary Face",
             "learnMethod": "machine"
         },

@@ -56,6 +56,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "level-up"
         },
@@ -108,6 +112,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
             "learnMethod": "level-up"
         },
@@ -137,6 +145,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -190,6 +202,10 @@
         {
             "name": "Water Pulse",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         }
     ]
 }

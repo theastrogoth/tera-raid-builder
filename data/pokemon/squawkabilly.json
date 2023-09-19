@@ -52,6 +52,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -109,6 +113,10 @@
         },
         {
             "name": "Hyper Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {

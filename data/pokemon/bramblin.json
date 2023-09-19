@@ -80,6 +80,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
@@ -114,6 +118,10 @@
         {
             "name": "Phantom Force",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
         },
         {
             "name": "Pounce",
@@ -165,6 +173,10 @@
         },
         {
             "name": "Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

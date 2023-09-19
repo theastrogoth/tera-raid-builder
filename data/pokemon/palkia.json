@@ -96,6 +96,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
             "learnMethod": "level-up"
         },
@@ -129,6 +133,10 @@
         },
         {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
             "learnMethod": "machine"
         },
         {
@@ -180,6 +188,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "machine"
         },
@@ -189,6 +201,10 @@
         },
         {
             "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {

@@ -23,5 +23,249 @@
         "spe": 99
     },
     "moves": [
+        {
+            "name": "Acid Spray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Acrobatics",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Agility",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Cutter",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Slash",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Attract",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Beat Up",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Brave Bird",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Cross Poison",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dark Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dazzling Gleam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Disarming Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Disarming Voice",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double Kick",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Flatter",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Fly",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gunk Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Heat Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hex",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hurricane",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Moonblast",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Nasty Plot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Peck",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Play Rough",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Gas",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Tail",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Quick Attack",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roost",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shadow Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tail Slap",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tailwind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Venoshock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wing Attack",
+            "learnMethod": "level-up"
+        }
     ]
 }

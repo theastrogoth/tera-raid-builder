@@ -91,6 +91,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Focus Energy",
             "learnMethod": "level-up"
         },
@@ -120,7 +124,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
@@ -208,6 +212,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
         {

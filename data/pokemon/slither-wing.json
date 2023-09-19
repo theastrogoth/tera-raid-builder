@@ -100,11 +100,19 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Heat Crash",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heat Wave",
             "learnMethod": "machine"
         },
         {
             "name": "Heavy Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {

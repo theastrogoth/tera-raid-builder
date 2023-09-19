@@ -87,6 +87,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gust",
             "learnMethod": "level-up"
         },

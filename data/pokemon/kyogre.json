@@ -131,6 +131,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "level-up"
         },

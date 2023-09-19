@@ -92,6 +92,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earthquake",
             "learnMethod": "machine"
         },
@@ -137,7 +141,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Heat Wave",
@@ -204,6 +208,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Roost",
             "learnMethod": "level-up"
         },
@@ -265,6 +273,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

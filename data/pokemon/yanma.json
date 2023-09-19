@@ -27,5 +27,193 @@
         "spe": 95
     },
     "moves": [
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Cutter",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Cutter",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Air Slash",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Slash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Ancient Power",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bug Bite",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Bug Buzz",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bug Buzz",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Detect",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double Team",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feint",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Giga Drain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hypnosis",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Leech Life",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pounce",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Quick Attack",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Reversal",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Screech",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Struggle Bug",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supersonic",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tailwind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Whirlwind",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Wing Attack",
+            "learnMethod": "level-up"
+        }
     ]
 }

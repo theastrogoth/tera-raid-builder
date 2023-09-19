@@ -22,5 +22,249 @@
         "spe": 36
     },
     "moves": [
+        {
+            "name": "Absorb",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Amnesia",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bite",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bulldoze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bullet Seed",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Earth Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Drain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Drain",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grass Pledge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Growth",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Heavy Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leaf Storm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leaf Storm",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Leech Seed",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Magical Leaf",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mega Drain",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Razor Leaf",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Seed Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shell Smash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spit Up",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Stealth Rock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stockpile",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Superpower",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Swallow",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Synthesis",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thrash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Tickle",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wide Guard",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Withdraw",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Worry Seed",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Zen Headbutt",
+            "learnMethod": "machine"
+        }
     ]
 }

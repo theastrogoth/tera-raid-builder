@@ -87,6 +87,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bug Buzz",
             "learnMethod": "machine"
         },
@@ -103,7 +107,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charge",
             "learnMethod": "machine"
         },
         {
@@ -176,6 +188,10 @@
         },
         {
             "name": "Drill Run",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dual Wingbeat",
             "learnMethod": "machine"
         },
         {
@@ -263,11 +279,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fly",
             "learnMethod": "machine"
         },
         {
             "name": "Focus Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Focus Punch",
             "learnMethod": "machine"
         },
         {
@@ -295,11 +319,31 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gunk Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Haze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Heat Crash",
             "learnMethod": "machine"
         },
         {
@@ -316,6 +360,10 @@
         },
         {
             "name": "Hex",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {
@@ -355,6 +403,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
             "learnMethod": "machine"
         },
@@ -368,6 +420,14 @@
         },
         {
             "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {
@@ -399,6 +459,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Magical Leaf",
             "learnMethod": "machine"
         },
@@ -409,6 +473,10 @@
         {
             "name": "Metronome",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
         },
         {
             "name": "Misty Terrain",
@@ -456,6 +524,10 @@
         },
         {
             "name": "Pollen Puff",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
             "learnMethod": "machine"
         },
         {
@@ -515,6 +587,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Blast",
             "learnMethod": "machine"
         },
@@ -527,7 +603,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scald",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {
@@ -559,6 +647,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Smart Strike",
             "learnMethod": "machine"
         },
@@ -575,7 +667,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {
@@ -608,6 +708,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Super Fang",
             "learnMethod": "machine"
         },
         {
@@ -663,6 +767,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
@@ -687,6 +795,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Uproar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Venoshock",
             "learnMethod": "machine"
         },
@@ -704,6 +820,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

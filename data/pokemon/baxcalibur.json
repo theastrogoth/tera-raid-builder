@@ -136,6 +136,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
@@ -157,7 +161,7 @@
         },
         {
             "name": "Icicle Spear",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
@@ -185,6 +189,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {

@@ -80,6 +80,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Memento",
             "learnMethod": "level-up"
         },

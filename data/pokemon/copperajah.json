@@ -95,6 +95,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Heat Crash",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "level-up"
         },
@@ -113,6 +117,10 @@
         {
             "name": "Iron Head",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
@@ -164,6 +172,10 @@
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {

@@ -36,6 +36,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Claw",
             "learnMethod": "machine"
         },
@@ -104,6 +108,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leech Life",
             "learnMethod": "machine"
         },
@@ -146,6 +154,10 @@
         {
             "name": "Sand Attack",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
         },
         {
             "name": "Scary Face",

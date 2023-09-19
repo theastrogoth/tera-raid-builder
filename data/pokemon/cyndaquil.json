@@ -31,6 +31,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Covet",
             "learnMethod": "level-up"
         },
@@ -152,6 +156,10 @@
         },
         {
             "name": "Reversal",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {

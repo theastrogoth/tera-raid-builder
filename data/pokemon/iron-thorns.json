@@ -132,6 +132,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
@@ -200,6 +204,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "level-up"
         },
@@ -210,6 +218,10 @@
         {
             "name": "Screech",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Snarl",

@@ -135,6 +135,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -148,6 +152,10 @@
         },
         {
             "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
             "learnMethod": "machine"
         },
         {
@@ -184,6 +192,14 @@
         },
         {
             "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {
@@ -315,6 +331,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Stomping Tantrum",
             "learnMethod": "machine"
         },
@@ -376,6 +396,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

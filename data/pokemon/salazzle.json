@@ -44,6 +44,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Disable",
             "learnMethod": "level-up"
         },
@@ -194,6 +198,10 @@
         {
             "name": "Sand Attack",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
         },
         {
             "name": "Scary Face",

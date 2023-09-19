@@ -131,6 +131,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "machine"
         },
@@ -140,7 +144,7 @@
         },
         {
             "name": "Smack Down",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Stealth Rock",

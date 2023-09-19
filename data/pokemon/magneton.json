@@ -28,6 +28,10 @@
     },
     "moves": [
         {
+            "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charge Beam",
             "learnMethod": "machine"
         },
@@ -70,6 +74,10 @@
         {
             "name": "Flash Cannon",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Gravity",
+            "learnMethod": "machine"
         },
         {
             "name": "Gyro Ball",

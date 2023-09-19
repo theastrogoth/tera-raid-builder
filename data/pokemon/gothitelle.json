@@ -99,6 +99,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heal Pulse",
             "learnMethod": "egg"
         },

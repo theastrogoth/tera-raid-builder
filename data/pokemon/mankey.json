@@ -119,6 +119,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fury Swipes",
             "learnMethod": "level-up"
         },
@@ -133,6 +137,10 @@
         {
             "name": "Ice Punch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -277,6 +285,10 @@
         {
             "name": "U-Turn",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
         }
     ]
 }

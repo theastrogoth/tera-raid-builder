@@ -83,6 +83,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
@@ -128,6 +132,10 @@
         },
         {
             "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sand Tomb",
             "learnMethod": "machine"
         },
         {

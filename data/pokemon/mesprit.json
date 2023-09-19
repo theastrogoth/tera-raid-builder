@@ -135,6 +135,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Light Screen",
             "learnMethod": "machine"
         },

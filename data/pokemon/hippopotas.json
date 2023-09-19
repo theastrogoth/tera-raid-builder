@@ -87,6 +87,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Ice Fang",
             "learnMethod": "machine"
         },

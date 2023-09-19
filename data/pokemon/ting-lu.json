@@ -76,6 +76,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Mean Look",
             "learnMethod": "level-up"
         },

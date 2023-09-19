@@ -224,6 +224,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Whirlpool",
             "learnMethod": "level-up"
         },

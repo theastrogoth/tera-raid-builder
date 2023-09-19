@@ -92,6 +92,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gunk Shot",
             "learnMethod": "machine"
         },

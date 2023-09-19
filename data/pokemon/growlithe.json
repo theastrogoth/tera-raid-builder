@@ -175,6 +175,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Snarl",
             "learnMethod": "machine"
         },

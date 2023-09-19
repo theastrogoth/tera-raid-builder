@@ -152,6 +152,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -200,6 +204,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Last Resort",
             "learnMethod": "level-up"
         },
@@ -218,6 +226,10 @@
         {
             "name": "Mimic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
         },
         {
             "name": "Misty Terrain",
@@ -369,6 +381,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

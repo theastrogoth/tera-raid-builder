@@ -120,6 +120,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Magical Leaf",
             "learnMethod": "machine"
         },

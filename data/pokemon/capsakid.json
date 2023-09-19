@@ -59,6 +59,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
@@ -145,6 +149,10 @@
         {
             "name": "Sunny Day",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Super Fang",
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",

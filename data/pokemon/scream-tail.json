@@ -164,6 +164,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Misty Terrain",
             "learnMethod": "machine"
         },
@@ -218,6 +222,10 @@
         {
             "name": "Rest",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Roar",
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
@@ -297,6 +305,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

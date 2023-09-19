@@ -148,6 +148,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Substitute",
             "learnMethod": "machine"
         },

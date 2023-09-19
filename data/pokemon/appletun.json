@@ -104,12 +104,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
         {
             "name": "Growth",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Headbutt",
@@ -121,6 +129,10 @@
         },
         {
             "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {

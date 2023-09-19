@@ -31,6 +31,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Struggle Bug",
             "learnMethod": "level-up"
         },

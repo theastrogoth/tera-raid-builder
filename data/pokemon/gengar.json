@@ -100,6 +100,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -117,7 +121,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Hex",
@@ -141,6 +145,10 @@
         },
         {
             "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
@@ -177,6 +185,10 @@
         },
         {
             "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
             "learnMethod": "machine"
         },
         {

@@ -27,5 +27,213 @@
         "spe": 98
     },
     "moves": [
+        {
+            "name": "Acrobatics",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Aerial Ace",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Air Cutter",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Slash",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Slash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Aqua Jet",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Aqua Ring",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Brave Bird",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Brave Bird",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Brine",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Bubble Beam",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Chilling Water",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Defog",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Disarming Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dive",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feather Dance",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fly",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gust",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hurricane",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hurricane",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Hydro Pump",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Liquidation",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roost",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Steel Wing",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Surf",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tailwind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tailwind",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Water Gun",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Water Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Water Pulse",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wing Attack",
+            "learnMethod": "level-up"
+        }
     ]
 }

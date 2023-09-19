@@ -123,6 +123,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Last Resort",
             "learnMethod": "level-up"
         },

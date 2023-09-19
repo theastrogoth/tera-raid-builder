@@ -43,6 +43,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "level-up"
         },
@@ -176,7 +180,7 @@
         },
         {
             "name": "Super Fang",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Swift",
@@ -208,6 +212,10 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         }
     ]

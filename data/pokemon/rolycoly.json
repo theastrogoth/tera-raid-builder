@@ -59,6 +59,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heat Crash",
             "learnMethod": "level-up"
         },
@@ -112,6 +116,10 @@
         },
         {
             "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sand Tomb",
             "learnMethod": "machine"
         },
         {

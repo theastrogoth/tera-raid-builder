@@ -91,6 +91,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Mud Shot",
             "learnMethod": "machine"
         },
@@ -104,6 +108,10 @@
         },
         {
             "name": "Phantom Force",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
             "learnMethod": "machine"
         },
         {

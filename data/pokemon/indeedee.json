@@ -80,6 +80,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Healing Wish",
             "learnMethod": "level-up"
         },

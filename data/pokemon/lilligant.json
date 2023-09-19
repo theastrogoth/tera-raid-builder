@@ -75,6 +75,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
@@ -159,6 +163,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Stun Spore",
             "learnMethod": "level-up"
         },
@@ -192,6 +200,14 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

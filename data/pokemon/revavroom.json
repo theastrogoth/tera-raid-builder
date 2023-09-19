@@ -65,7 +65,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Headbutt",
@@ -73,6 +73,10 @@
         },
         {
             "name": "Heavy Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {
@@ -86,6 +90,10 @@
         {
             "name": "Iron Head",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Lick",
@@ -201,7 +209,7 @@
         },
         {
             "name": "Toxic",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic Spikes",

@@ -112,6 +112,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "machine"
         },
@@ -172,6 +176,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Roar Of Time",
             "learnMethod": "level-up"
         },
@@ -185,6 +193,10 @@
         },
         {
             "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {

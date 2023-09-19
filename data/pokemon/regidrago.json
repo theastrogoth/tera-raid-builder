@@ -127,6 +127,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },

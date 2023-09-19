@@ -87,6 +87,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Focus Energy",
             "learnMethod": "level-up"
         },

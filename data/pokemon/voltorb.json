@@ -71,6 +71,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gyro Ball",
             "learnMethod": "level-up"
         },

@@ -112,12 +112,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Harden",
             "learnMethod": "level-up"
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Hex",
@@ -133,6 +137,10 @@
         },
         {
             "name": "Icy Wind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {
@@ -180,6 +188,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scary Face",
             "learnMethod": "machine"
         },
@@ -206,6 +218,10 @@
         {
             "name": "Spit Up",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Stockpile",

@@ -131,7 +131,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gyro Ball",
             "learnMethod": "machine"
         },
         {
@@ -144,6 +152,14 @@
         },
         {
             "name": "Ice Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {
@@ -184,6 +200,10 @@
         },
         {
             "name": "Rock Slide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scald",
             "learnMethod": "machine"
         },
         {
@@ -239,12 +259,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Water Gun",
             "learnMethod": "level-up"
         },
         {
             "name": "Water Pulse",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         }
     ]
 }

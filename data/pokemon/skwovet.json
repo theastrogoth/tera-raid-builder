@@ -75,6 +75,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hyper Voice",
             "learnMethod": "machine"
         },

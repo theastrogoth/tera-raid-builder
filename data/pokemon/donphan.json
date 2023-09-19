@@ -119,6 +119,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Head Smash",
             "learnMethod": "egg"
         },
@@ -132,7 +136,7 @@
         },
         {
             "name": "High Horsepower",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Horn Attack",
@@ -207,6 +211,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "level-up"
         },
@@ -217,6 +225,10 @@
         {
             "name": "Rollout",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
         },
         {
             "name": "Sandstorm",
@@ -237,6 +249,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Smart Strike",

@@ -143,6 +143,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -224,6 +228,10 @@
         },
         {
             "name": "Trick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

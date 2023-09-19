@@ -100,8 +100,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Haze",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Heat Crash",
+            "learnMethod": "machine"
         },
         {
             "name": "Heat Wave",
@@ -160,6 +168,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Slide",
             "learnMethod": "machine"
         },
@@ -185,6 +197,10 @@
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {

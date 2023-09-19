@@ -124,6 +124,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Heat Crash",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heat Wave",
             "learnMethod": "level-up"
         },
@@ -133,6 +137,10 @@
         },
         {
             "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {
@@ -146,6 +154,10 @@
         {
             "name": "Iron Head",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Lava Plume",
@@ -173,6 +185,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {

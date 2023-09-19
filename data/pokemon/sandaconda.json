@@ -95,6 +95,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hurricane",
             "learnMethod": "machine"
         },
@@ -165,6 +169,10 @@
         {
             "name": "Sandstorm",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
         },
         {
             "name": "Scary Face",

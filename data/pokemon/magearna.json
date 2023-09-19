@@ -120,6 +120,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gyro Ball",
             "learnMethod": "level-up"
         },
@@ -166,6 +170,10 @@
         {
             "name": "Magnetic Flux",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
         },
         {
             "name": "Misty Terrain",

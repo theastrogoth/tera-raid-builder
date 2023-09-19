@@ -47,6 +47,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "level-up"
         },
@@ -211,6 +215,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Snarl",
             "learnMethod": "machine"
         },
@@ -228,7 +236,7 @@
         },
         {
             "name": "Super Fang",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Swift",
@@ -260,6 +268,10 @@
         },
         {
             "name": "U-Turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

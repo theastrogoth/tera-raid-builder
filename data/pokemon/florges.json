@@ -111,6 +111,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Misty Terrain",
             "learnMethod": "level-up"
         },

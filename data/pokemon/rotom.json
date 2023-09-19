@@ -96,6 +96,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -122,6 +126,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",

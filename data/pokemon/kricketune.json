@@ -95,8 +95,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leech Life",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
         },
         {
             "name": "Night Slash",
@@ -176,6 +184,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

@@ -87,6 +87,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -96,7 +100,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Hydro Cannon",
@@ -117,6 +121,10 @@
         {
             "name": "Ice Shard",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
@@ -163,11 +171,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scald",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Shadow Ball",
             "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {
@@ -223,6 +239,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Vacuum Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Water Gun",
             "learnMethod": "level-up"
         },
@@ -236,6 +256,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         }
     ]

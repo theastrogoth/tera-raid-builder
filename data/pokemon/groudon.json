@@ -111,12 +111,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
         {
             "name": "Hammer Arm",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Heat Crash",
+            "learnMethod": "machine"
         },
         {
             "name": "Heat Wave",
@@ -128,6 +136,10 @@
         },
         {
             "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
             "learnMethod": "machine"
         },
         {
@@ -171,6 +183,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Blast",
             "learnMethod": "machine"
         },
@@ -180,6 +196,10 @@
         },
         {
             "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sand Tomb",
             "learnMethod": "machine"
         },
         {
@@ -197,6 +217,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",

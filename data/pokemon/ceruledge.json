@@ -164,6 +164,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -201,11 +205,11 @@
         },
         {
             "name": "Solar Blade",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Spite",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -233,6 +237,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
         {

@@ -136,6 +136,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Power Gem",
             "learnMethod": "level-up"
         },

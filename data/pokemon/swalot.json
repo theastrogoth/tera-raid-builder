@@ -131,6 +131,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Metronome",
             "learnMethod": "machine"
         },

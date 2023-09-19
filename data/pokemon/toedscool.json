@@ -72,6 +72,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
@@ -85,7 +89,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Storm",
@@ -97,6 +101,10 @@
         },
         {
             "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
             "learnMethod": "machine"
         },
         {
@@ -217,7 +225,7 @@
         },
         {
             "name": "Toxic",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic Spikes",

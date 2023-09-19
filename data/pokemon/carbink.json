@@ -72,8 +72,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Guard Split",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Harden",
@@ -98,6 +106,10 @@
         {
             "name": "Light Screen",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
         },
         {
             "name": "Misty Terrain",
@@ -145,6 +157,10 @@
         },
         {
             "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sand Tomb",
             "learnMethod": "machine"
         },
         {

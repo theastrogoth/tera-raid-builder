@@ -47,6 +47,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Clear Smog",
             "learnMethod": "level-up"
         },
@@ -112,6 +116,14 @@
         },
         {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Heat Crash",
             "learnMethod": "machine"
         },
         {
@@ -220,6 +232,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

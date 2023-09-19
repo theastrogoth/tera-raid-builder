@@ -112,6 +112,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Nasty Plot",
             "learnMethod": "level-up"
         },
@@ -149,6 +153,10 @@
         },
         {
             "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {

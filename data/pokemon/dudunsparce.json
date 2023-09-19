@@ -119,6 +119,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
             "learnMethod": "machine"
         },
@@ -157,6 +161,10 @@
         {
             "name": "Glare",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Headbutt",
@@ -201,6 +209,10 @@
         {
             "name": "Last Resort",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
@@ -259,6 +271,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scary Face",
             "learnMethod": "machine"
         },
@@ -280,6 +296,10 @@
         },
         {
             "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
             "learnMethod": "machine"
         },
         {
@@ -329,6 +349,14 @@
         {
             "name": "Thunderbolt",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

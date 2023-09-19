@@ -80,6 +80,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
             "learnMethod": "level-up"
         },
@@ -105,6 +109,10 @@
         },
         {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
             "learnMethod": "machine"
         },
         {
@@ -140,6 +148,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -153,6 +165,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -182,6 +198,10 @@
         {
             "name": "Sleep Talk",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",

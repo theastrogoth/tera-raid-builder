@@ -112,6 +112,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Morning Sun",
             "learnMethod": "egg"
         },

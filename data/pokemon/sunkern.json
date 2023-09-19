@@ -171,6 +171,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Worry Seed",
             "learnMethod": "level-up"
         }

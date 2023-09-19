@@ -19,5 +19,193 @@
         "spe": 36
     },
     "moves": [
+        {
+            "name": "Baton Pass",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bite",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bug Bite",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charge",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Crunch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Discharge",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Discharge",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Eerie Impulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electric Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Harden",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud-Slap",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pounce",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spark",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sticky Web",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "String Shot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Struggle Bug",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vise Grip",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Volt Switch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wild Charge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "X-Scissor",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "X-Scissor",
+            "learnMethod": "level-up"
+        }
     ]
 }

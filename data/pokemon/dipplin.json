@@ -27,5 +27,205 @@
         "spe": 40
     },
     "moves": [
+        {
+            "name": "Astonish",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bullet Seed",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bullet Seed",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Defense Curl",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Double Hit",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Draco Meteor",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Breath",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dragon Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Pulse",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dragon Tail",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Tail",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Energy Ball",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Drain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Growth",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Infestation",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Leaf Storm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Outrage",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pollen Puff",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pounce",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Recover",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Recycle",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Recycle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rollout",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Seed Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sucker PUnch",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sweet Scent",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Syrup Bomb",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Withdraw",
+            "learnMethod": "level-up"
+        }
     ]
 }

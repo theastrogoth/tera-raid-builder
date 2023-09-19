@@ -99,6 +99,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Metronome",
             "learnMethod": "machine"
         },
@@ -113,6 +117,10 @@
         {
             "name": "Phantom Force",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
         },
         {
             "name": "Pounce",

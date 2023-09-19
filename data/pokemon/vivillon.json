@@ -202,6 +202,10 @@
         {
             "name": "U-Turn",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         }
     ]
 }

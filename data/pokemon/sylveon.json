@@ -135,6 +135,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Misty Terrain",
             "learnMethod": "level-up"
         },
@@ -180,6 +184,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -236,6 +244,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

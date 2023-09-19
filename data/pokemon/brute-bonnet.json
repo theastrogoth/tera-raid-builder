@@ -108,6 +108,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leaf Storm",
             "learnMethod": "machine"
         },

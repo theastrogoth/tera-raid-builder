@@ -61,7 +61,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Headbutt",
@@ -173,7 +173,7 @@
         },
         {
             "name": "Toxic",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic Spikes",

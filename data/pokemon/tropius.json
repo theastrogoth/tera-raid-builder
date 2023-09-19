@@ -172,6 +172,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Seed Bomb",
             "learnMethod": "level-up"
         },
@@ -186,6 +190,14 @@
         {
             "name": "Solar Beam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Stomp",

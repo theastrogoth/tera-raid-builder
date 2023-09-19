@@ -128,6 +128,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -256,6 +260,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scald",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Shadow Ball",
             "learnMethod": "machine"
         },
@@ -324,6 +332,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Toxic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Trick",
             "learnMethod": "level-up"
         },
@@ -341,6 +353,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

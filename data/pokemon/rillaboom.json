@@ -111,6 +111,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Frenzy Plant",
             "learnMethod": "level-up"
         },
@@ -131,6 +135,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "level-up"
         },
@@ -145,6 +153,10 @@
         {
             "name": "Hammer Arm",
             "learnMethod": "egg"
+        },
+        {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -228,6 +240,10 @@
         },
         {
             "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Blade",
             "learnMethod": "machine"
         },
         {

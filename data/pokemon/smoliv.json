@@ -120,6 +120,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Strength Sap",
             "learnMethod": "egg"
         },
@@ -161,7 +165,7 @@
         },
         {
             "name": "Weather Ball",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         }
     ]
 }

@@ -64,6 +64,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endeavor",
             "learnMethod": "level-up"
         },

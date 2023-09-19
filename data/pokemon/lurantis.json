@@ -27,6 +27,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Bug Bite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bullet Seed",
             "learnMethod": "machine"
         },
@@ -71,6 +75,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grassy Terrain",
             "learnMethod": "machine"
         },
@@ -85,6 +93,10 @@
         {
             "name": "Ingrain",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Blade",
@@ -196,6 +208,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         },
         {

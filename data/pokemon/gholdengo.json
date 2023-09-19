@@ -56,6 +56,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -106,6 +110,10 @@
         {
             "name": "Night Shade",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
         },
         {
             "name": "Power Gem",

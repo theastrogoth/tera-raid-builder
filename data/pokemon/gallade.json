@@ -160,6 +160,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fury Cutter",
             "learnMethod": "level-up"
         },
@@ -217,7 +221,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Blade",
@@ -360,6 +364,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Stone Edge",
             "learnMethod": "machine"
         },
@@ -421,6 +429,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
         {

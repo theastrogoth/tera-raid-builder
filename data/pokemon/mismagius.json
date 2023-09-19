@@ -23,6 +23,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Burning Jealousy",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Calm Mind",
             "learnMethod": "machine"
         },
@@ -119,6 +123,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Magical Leaf",
             "learnMethod": "level-up"
         },
@@ -157,6 +165,10 @@
         {
             "name": "Phantom Force",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
         },
         {
             "name": "Power Gem",

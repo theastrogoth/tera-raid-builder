@@ -124,6 +124,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Grass Knot",
             "learnMethod": "machine"
         },
@@ -156,6 +160,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Light Screen",
             "learnMethod": "machine"
         },
@@ -165,6 +173,10 @@
         },
         {
             "name": "Metronome",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Misty Explosion",
             "learnMethod": "machine"
         },
         {

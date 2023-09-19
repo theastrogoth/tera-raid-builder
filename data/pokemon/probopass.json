@@ -27,5 +27,261 @@
         "spe": 40
     },
     "moves": [
+        {
+            "name": "Block",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Body Press",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bulldoze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dazzling Gleam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Discharge",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Earth Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Earth Power",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fire Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Flash Cannon",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Head Smash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Heavy Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lock-On",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Magnet Rise",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Magnetic Flux",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Power Gem",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Power Gem",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rock Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Blast",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rock Slide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Slide",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rollout",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sandstorm",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spark",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Stealth Rock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Steel Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stomping Tantrum",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stone Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stone Edge",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tri Attack",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Volt Switch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wide Guard",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Wide Guard",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Zap Cannon",
+            "learnMethod": "level-up"
+        }
     ]
 }

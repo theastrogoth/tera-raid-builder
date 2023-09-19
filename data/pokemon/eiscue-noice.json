@@ -67,6 +67,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Freeze-Dry",
             "learnMethod": "level-up"
         },
@@ -105,6 +109,10 @@
         {
             "name": "Icicle Crash",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",

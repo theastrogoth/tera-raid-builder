@@ -88,6 +88,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Helping Hand",
             "learnMethod": "level-up"
         },

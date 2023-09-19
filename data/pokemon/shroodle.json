@@ -169,7 +169,7 @@
         },
         {
             "name": "Super Fang",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Swagger",
@@ -201,7 +201,7 @@
         },
         {
             "name": "Toxic",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

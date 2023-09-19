@@ -160,6 +160,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Sand Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "level-up"
         },
@@ -177,6 +181,10 @@
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {

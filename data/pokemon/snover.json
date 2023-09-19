@@ -68,6 +68,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Grassy Glide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growth",
             "learnMethod": "egg"
         },
@@ -89,6 +93,10 @@
         },
         {
             "name": "Ice Spinner",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Icicle Spear",
             "learnMethod": "machine"
         },
         {

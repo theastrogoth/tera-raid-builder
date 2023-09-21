@@ -1008,6 +1008,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                                                 newMoves[index] = moveOption;
                                                 const newMoveData = [...pokemon.moveData];
                                                 newMoveData[index] = (await PokedexService.getMoveByName(moveOption)) || {name: "(No Move)" as MoveName, target: "user"};
+                                                console.log(newMoveData)
                                                 setPokemonProperties(["moves", "moveData"])([newMoves, newMoveData]);
                                             }}
                                             options={createMoveOptions(moveSet)}

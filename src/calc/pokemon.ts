@@ -12,7 +12,7 @@ export class Pokemon implements State.Pokemon {
   name: I.SpeciesName;
   species: I.Specie;
 
-  types: [I.TypeName] | [I.TypeName, I.TypeName];
+  types: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
   weightkg: number;
 
   level: number;
@@ -49,7 +49,7 @@ export class Pokemon implements State.Pokemon {
   isChoiceLocked: boolean;
   toxicCounter: number;
   hitsTaken: number;
-  changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName];
+  changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
 
   moves: I.MoveName[];
 

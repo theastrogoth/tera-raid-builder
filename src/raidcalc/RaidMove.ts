@@ -750,7 +750,7 @@ export class RaidMove {
                 break;
         /// Type-affecting moves
             case "Soak":
-                if (!(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Water")) {
+                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Water")) {
                     target.types = ["Water"];
                     target.changedTypes = ["Water"];
                     this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — Soak changed " + target.name + "'s type to Water!";
@@ -758,15 +758,41 @@ export class RaidMove {
                     this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — Soak failed!";
                 }
                 break;
+            case "Forest's Curse":
+                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Grass")) {
+                    if (target.types.length === 3) {
+                        target.types[2] = "Grass";
+                    } else {
+                        target.types.push("Grass");
+                    }
+                    target.changedTypes = [...target.types];
+                    this._desc[target.id] = this._user.name + " Forest's Curse vs. " + target.name + " — the Grass type was added to " + target.name + "!";
+                } else {
+                    this._desc[target.id] = this._user.name + " Forest's Curse vs. " + target.name + " — Forest's Curse failed!";
+                } 
+                break;
+            case "Trick-or-Treat":
+                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Ghost")) {
+                    if (target.types.length === 3) {
+                        target.types[2] = "Ghost";
+                    } else {
+                        target.types.push("Ghost");
+                    }
+                    target.changedTypes = [...target.types];
+                    this._desc[target.id] = this._user.name + " Trick-or-Treat vs. " + target.name + " — the Ghost type was added to " + target.name + "!";
+                } else {
+                    this._desc[target.id] = this._user.name + " Trick-or-Treat vs. " + target.name + " — Trick-or-Treat failed!";
+                } 
+                break;
             case "Conversion":
                 this._user.types = [this.move.type];
                 this._user.changedTypes = [this.move.type];
                 this._desc[this.userID] = this._user.name + " Conversion vs. " + target.name + " — " + this._user.name + " transformed into the " + this.move.type.toUpperCase() + " type!";
                 break;
             case "Reflect Type":
-                if (target.teraType !== undefined || target.teraType !== "???") {
+                if (!target.isTera || (target.teraType !== undefined || target.teraType !== "???")) {
                     this._user.types = target.types;
-                    this._user.changedTypes = target.types;
+                    this._user.changedTypes = [...target.types];
                     this._desc[this.userID] = this._user.name + " Reflect Type vs. " + target.name + " — " + this._user.name + "'s types changed to match " + target.name + "'s!";
                 } else {
                     this._user.types = [target.teraType];

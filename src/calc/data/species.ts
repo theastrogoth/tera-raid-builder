@@ -8591,7 +8591,7 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: {0: 'Punk Rock'},
     baseSpecies: 'Toxtricity',
   },
-  'Urshifu-Single-Strike': {
+  Urshifu: {
     types: ['Fighting', 'Dark'],
     bs: {hp: 100, at: 130, df: 100, sa: 63, sd: 60, sp: 97},
     weightkg: 105,
@@ -8603,7 +8603,7 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 100, at: 130, df: 100, sa: 63, sd: 60, sp: 97},
     weightkg: 105,
     abilities: {0: 'Unseen Fist'},
-    baseSpecies: 'Urshifu-Single-Strike',
+    baseSpecies: 'Urshifu',
   },
   // 'Urshifu-Rapid-Strike-Gmax': {
   //   types: ['Fighting', 'Water'],

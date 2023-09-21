@@ -137,7 +137,7 @@ export function getMoveEffectiveness(
   move: Move,
   type: TypeName,
   isGhostRevealed?: boolean,
-  isGravity?: boolean,
+  isGravity?: boolean | number,
   isRingTarget?: boolean,
 ) {
   if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
@@ -246,9 +246,9 @@ export function checkDauntlessShield(source: Pokemon, gen: Generation) {
 
 export function checkInfiltrator(pokemon: Pokemon, affectedSide: Side) {
   if (pokemon.hasAbility('Infiltrator')) {
-    affectedSide.isReflect = false;
-    affectedSide.isLightScreen = false;
-    affectedSide.isAuroraVeil = false;
+    affectedSide.isReflect = 0;
+    affectedSide.isLightScreen = 0;
+    affectedSide.isAuroraVeil = 0;
   }
 }
 

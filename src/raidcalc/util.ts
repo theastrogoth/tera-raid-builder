@@ -3,6 +3,7 @@ import { AilmentName, RaidTurnInfo } from "./interface";
 import { Raider } from "./Raider";
 import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
+import { get } from "http";
 
 const gen = Generations.get(9);
 
@@ -46,6 +47,16 @@ export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, de
         isRingTarget
       )
       : 1;
+    const type3Effectiveness = defender.types[2]
+      ? getMoveEffectiveness(
+        gen,
+        move,
+        defender.types[2],
+        isGhostRevealed,
+        field.isGravity,
+        isRingTarget
+      ) : 1;
+      
     let typeEffectiveness = type1Effectiveness * type2Effectiveness;
   
     if (defender.isTera && defender.teraType) {

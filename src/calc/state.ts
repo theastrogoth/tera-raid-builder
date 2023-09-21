@@ -42,7 +42,7 @@ export namespace State {
     shieldActive?: boolean;
     toxicCounter?: number;
     hitsTaken?: number;
-    changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName];
+    changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
     moves?: I.MoveName[];
     overrides?: Partial<I.Specie>;
   }

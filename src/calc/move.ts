@@ -55,7 +55,7 @@ export class Move implements State.Move {
     this.originalName = name;
     let data: I.Move = extend(true, {name}, gen.moves.get(toID(name)), options.overrides);
 
-    this.hits = 1;
+    this.hits = options.hits || 1;
     // If isZMove but there isn't a corresponding z-move, use the original move
     if (options.useMax && data.maxMove) {
       const maxMoveName: string = getMaxMoveName(
@@ -91,7 +91,7 @@ export class Move implements State.Move {
         category: data.category,
       });
     } else {
-      if (data.multihit) {
+      if (options.hits === undefined && data.multihit) {
         if (typeof data.multihit === 'number') {
           this.hits = data.multihit;
         } else if (options.hits) {

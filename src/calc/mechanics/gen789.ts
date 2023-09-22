@@ -262,7 +262,7 @@ export function calculateSMSSSV(
   }
 
   const isGhostRevealed =
-    attacker.hasAbility('Scrappy') || attacker.hasAbility('Mind\'s Eye') ||
+    attacker.hasAbility('Scrappy') || attacker.hasAbility("Mind's Eye") ||
       field.defenderSide.isForesight;
   const isRingTarget =
     defender.hasItem('Ring Target') && !defender.hasAbility('Klutz');

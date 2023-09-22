@@ -9786,7 +9786,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     types: ['Ground', 'Normal'],
     bs: {hp: 113, at: 70, df: 120, sa: 135, sd: 65, sp: 52},
     weightkg: 333,
-    abilities: {0: 'Mind\'s Eye'},
+    abilities: {0: "Mind's Eye"},
     baseSpecies: 'Ursaluna',
   },
   Varoom: {

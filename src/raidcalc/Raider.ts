@@ -165,6 +165,22 @@ export class Raider extends Pokemon implements State.Raider {
     public activateTera(): boolean {
         if (!this.isTera && this.teraCharge >= 3) {
             this.isTera = true;
+            if (this.name.includes("Ogerpon")) {
+                if (this.name === "Ogerpon") {
+                    this.teraType = "Grass";
+                    this.ability = "Embody Aspect (Teal)" as AbilityName;
+                } else if (this.name === "Ogerpon-Hearthflame") {
+                    this.teraType = "Fire";
+                    this.ability = "Embody Aspect (Hearthflame)" as AbilityName;
+                } else if (this.name === "Ogerpon-Wellspring") {
+                    this.teraType = "Water"
+                    this.ability = "Embody Aspect (Wellspring)" as AbilityName;
+                } else { // (pokemmon.name === "Ogerpon-Cornerstone")
+                    this.teraType = "Rock"
+                    this.ability = "Embody Aspect (Cornerstone)" as AbilityName;
+                }
+                this.abilityOn = true;
+            }
             return true;
         }
         return false;

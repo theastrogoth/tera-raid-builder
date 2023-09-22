@@ -420,6 +420,11 @@ export class RaidMove {
                         this._raidState.applyDamage(id, hitDamage, 1, this.move.isCrit, superEffective, this.move.type);
                         totalDamage += hitDamage;
                     }
+                    if (this.move.name === "Surging Strikes") {
+                        console.log(results)
+                        console.log(this.move)
+                        console.log(this.move.clone())
+                    }
                     // prepare desc from results
                     const result = results[0];
                     result.damage = damageResult as number | number[];

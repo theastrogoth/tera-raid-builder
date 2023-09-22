@@ -873,13 +873,39 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
             moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),
             ivs: set.ivs || {},
             evs: set.evs || {},
+            shieldData: set.shieldData || {
+                hpTrigger: 0,
+                timeTrigger: 0,
+                shieldCancelDamage: 0,
+                shieldDamageRate: 0,
+                shieldDamageRateTera: 0,
+                shieldDamageRateTeraChange: 0,
+            },
         });
 
         setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, new Field(), poke, moveData));
     }
 
     const handleChangeSpecies = (val: string) => {
-        setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field, new Pokemon(gen, val, {nature: "Hardy", ability: "(No Ability)"}), []))
+        setPokemon(new Raider(
+            pokemon.id, 
+            pokemon.role, 
+            pokemon.shiny, 
+            pokemon.field, 
+            new Pokemon(gen, val, {
+                nature: "Hardy", 
+                ability: "(No Ability)",
+                shieldData: !isBoss ? undefined : {
+                    hpTrigger: 0,
+                    timeTrigger: 0,
+                    shieldCancelDamage: 0,
+                    shieldDamageRate: 0,
+                    shieldDamageRateTera: 0,
+                    shieldDamageRateTeraChange: 0,
+                },
+            }), 
+            [],
+        ))
     }
 
     return (

@@ -83,7 +83,7 @@ export class RaidMove {
         if (this.flinch) {
             this._desc[this.userID] = this._user.name + " flinched!";
         } else {
-            this.setDoesNotEffect();
+            this.setDoesNotAffect();
             this.checkProtection();
             this.applyProtection();
             this.applyDamage();
@@ -158,7 +158,7 @@ export class RaidMove {
         else { this._affectedIDs = [this.targetID]; }
     }
 
-    private setDoesNotEffect() {
+    private setDoesNotAffect() {
         this._blockedBy= ["", "", "", "", ""];
         const moveType = this.move.type;
         const category = this.move.category;
@@ -275,7 +275,7 @@ export class RaidMove {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name; 
                     continue;
                 }
-                if (["Normal", "Fighting"].includes(moveType || "") && pokemon.types.includes("Ghost")) {
+                if (["Normal", "Fighting"].includes(moveType || "") && pokemon.types.includes("Ghost") && !(["Scrappy", "Mind's Eye"] as (AbilityName | undefined)[]).includes(this._user.ability)) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
@@ -578,6 +578,12 @@ export class RaidMove {
                     if (status === "slp" && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
                     if (pokemon.field.hasWeather("Sun") && pokemon.ability === "Leaf Guard") { continue; }
                     this._raidState.applyStatus(id, status);
+                }
+                // Toxic Chain
+                if (this._user.ability === "Toxic Chain" && this.options.secondaryEffects && hasNoStatus(pokemon)) {
+                    if (pokemon.ability === "Immunity" || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel")))) {
+                        this._raidState.applyStatus(id, "tox");
+                    }
                 }
             }
         }

@@ -59,6 +59,8 @@ type SetOption = {
 
 // we will always use Gen 9
 const gen = Generations.get(9);
+const genTypes = [...gen.types].map(type => type.name).sort();
+const genItems = ["(No Item)", ...[...gen.items].map(item => item.name).sort()];
 
 function setdexStats(input: any): Partial<StatsTable> | undefined {
     if (!input) return undefined;
@@ -827,12 +829,42 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean, isBoss?: boolean}) 
     {
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
-    const [teratypes, ] = useState([...gen.types].map(type => type.name).sort());
+    const [teratypes, setTeraTypes] = useState(genTypes);
     const [genNatures, ] = useState([...gen.natures].sort());
-    const [genItems, ] = useState([...gen.items].map(item => item.name).sort());
+    const [items, setItems] = useState(genItems);
     
     const [editStatsOpen, setEditStatsOpen] = useState(false);
     const [importExportOpen, setImportExportOpen] = useState(false);
+
+    useEffect(() => {
+        if (pokemon.name.includes("Ogerpon")) {
+            if (pokemon.name === "Ogerpon") {
+                setTeraTypes(["Grass"]);
+                setPokemonProperties(["role", "teraType"])([pokemon.species.name, "Grass"]);
+            } else if (pokemon.name === "Ogerpon-Hearthflame") {
+                setTeraTypes(["Fire"]);
+                setItems(["Hearthflame Mask" as ItemName]);
+                setPokemonProperties(["role", "teraType", "item"])([pokemon.species.name, "Fire", "Hearthflame Mask"]);
+            } else if (pokemon.name === "Ogerpon-Wellspring") {
+                setTeraTypes(["Water"]);
+                setItems(["Wellspring Mask" as ItemName]);
+                setPokemonProperties(["role", "teraType", "item"])([pokemon.species.name, "Water", "Wellspring Mask"]);
+            } else { // (pokemmon.name === "Ogerpon-Cornerstone")
+                setTeraTypes(["Rock"]);
+                setItems(["Cornerstone Mask" as ItemName]);
+                setPokemonProperties(["role", "teraType", "item"])([pokemon.species.name, "Rock", "Cornerstone Mask"]);
+            }
+        } else if (pokemon.name === "Zacian-Crowned") {
+            setItems(["Rusted Sword" as ItemName]);
+            setPokemonProperties(["role","item"])([pokemon.species.name, "Rusted Sword"]);
+        } else if (pokemon.name === "Zamazenta-Crowned") {
+            setItems(["Rusted Shield" as ItemName]);
+            setPokemonProperties(["role","item"])([pokemon.species.name, "Rusted Shield"]);
+        } else {
+            setTeraTypes(genTypes);
+            setItems(genItems);
+        }
+    }, [pokemon.name])
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
@@ -1019,7 +1051,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>
-                                    <GenericIconSummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={["(No Item)", ...genItems]} optionFinder={findOptionFromItemName} spriteFetcher={getItemSpriteURL} prettyMode={prettyMode}/>
+                                    <GenericIconSummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={items} optionFinder={findOptionFromItemName} spriteFetcher={getItemSpriteURL} prettyMode={prettyMode}/>
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>

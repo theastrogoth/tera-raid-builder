@@ -654,34 +654,40 @@ export class RaidState implements State.RaidState{
             }
         // Intimidate
         } else if (ability === "Intimidate") {
-            if (id === 0) {
-                for (let intdPokemon of this.raiders.slice(1)) {
-                    if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
-                        const boostCoefficient = getBoostCoefficient(pokemon);
-                        const origAtk = intdPokemon.boosts.atk;
-                        intdPokemon.boosts.atk = safeStatStage(intdPokemon.boosts.atk - boostCoefficient);
-                        flags[intdPokemon.id].push("Atk: " + origAtk + "->" + intdPokemon.boosts.atk + " (Intimidate)");
-                    }
+            const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
+            for (let opponent of affectedPokemon) {
+                if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
+                    const origAtk = opponent.boosts.atk ||  0;
+                    this.applyStatChange(opponent.id, {atk: -1}, true, false);
+                    flags[opponent.id].push("Atk: " + origAtk + "->" + opponent.boosts.atk + " (Intimidate)");
                 }
-            } else {
-                const intdPokemon = this.raiders[0];
-                if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(intdPokemon.ability || "")) {
-                    const boostCoefficient = getBoostCoefficient(intdPokemon);
-                    const origAtk = intdPokemon.boosts.atk;
-                    intdPokemon.boosts.atk = safeStatStage(intdPokemon.boosts.atk - boostCoefficient);
-                    flags[id].push("Atk: " + origAtk + "->" + intdPokemon.boosts.atk + " (Intimidate)");
-
-                }                
+            }
+        // Supersweet Syrup
+        } else if (ability === "Supersweet Syrup") {
+            const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
+            for (let opponent of affectedPokemon) {
+                const origEva = opponent.boosts.eva || 0;
+                this.applyStatChange(opponent.id, {eva: -1}, true, false);
+                flags[opponent.id].push("Eva: " + origEva + "->" + opponent.boosts.eva + " (Supersweet Syrup)");
+            }
+        // Hospitality 
+        } else if (ability === "Hospitality") {
+            if (id !== 0) {
+                const allies = this.raiders.slice(1).splice(id-1, 1);
+                for (let ally of allies) {
+                    const healing = Math.floor(ally.maxHP() / 4);
+                    this.applyDamage(ally.id, -healing, 0)
+                }
             }
         // Intrepid Sword
         } else if (ability === "Intrepid Sword") {
             const origAtk = pokemon.boosts.atk;
-            pokemon.boosts.atk += 1;
+            this.applyStatChange(id, {atk: 1}, true, true);
             flags[id].push("Atk: " + origAtk + "->" + pokemon.boosts.atk + " (Intrepid Sword)");
         // Dauntless Shield
         } else if (ability === "Dauntless Shield") {
             const origDef = pokemon.boosts.def;
-            pokemon.boosts.def += 1;
+            this.applyStatChange(id, {def: 1}, true, true);
             flags[id].push("Def: " + origDef + "->" + pokemon.boosts.def + " (Dauntless Shield)");
         } else {
             // 

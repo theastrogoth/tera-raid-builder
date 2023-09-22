@@ -26,7 +26,7 @@ export function hasNoStatus(pokemon: Pokemon) {
 export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender: Pokemon) {
     if (!move.type) {return false; }
     const isGhostRevealed =
-    attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
+    attacker.hasAbility('Scrappy') || attacker.hasAbility("Mind's Eye") || field.defenderSide.isForesight;
     const isRingTarget =
       defender.hasItem('Ring Target') && !defender.hasAbility('Klutz');
     const type1Effectiveness = getMoveEffectiveness(
@@ -57,7 +57,7 @@ export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, de
         isRingTarget
       ) : 1;
       
-    let typeEffectiveness = type1Effectiveness * type2Effectiveness;
+    let typeEffectiveness = type1Effectiveness * type2Effectiveness * type3Effectiveness;
   
     if (defender.isTera && defender.teraType) {
       typeEffectiveness = getMoveEffectiveness(

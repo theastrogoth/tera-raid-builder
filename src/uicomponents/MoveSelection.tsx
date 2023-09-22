@@ -414,12 +414,14 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups}:
     const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Clear Boosts / Abilities"];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
+    const [updateCount, setUpdateCount] = useState<number>(0); // just used to trigger rerender
 
     const setMoveInfo = (newMoveInfo: RaidMoveInfo) => {
         let newGroups = [...groups];
         newGroups[groupIndex].turns[turnIndex].bossMoveInfo = newMoveInfo;
         setGroups(newGroups);
         setMoveName(newMoveInfo.moveData.name);
+        setUpdateCount(updateCount+1);
     }
 
     useEffect(() => {

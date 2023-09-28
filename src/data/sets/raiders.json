@@ -43,6 +43,34 @@
             "moves":["Helping Hand","Fake Tears","Charm","Chilling Water"]
         }
     },
+    "Charjabug": {
+        "Battery": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Battery",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Light Screen","Thunder Wave"]
+        }
+    },
+    "Clefairy": {
+        "Friend Guard (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Friend Guard",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Reflect","Gravity"]
+        },
+        "Friend Guard (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Friend Guard",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Light Screen","Gravity"]
+        }
+    },
     "Corviknight": {
         "Fake Tears Support (Def)": {
             "level":100,
@@ -101,6 +129,42 @@
             "moves":["Frost Breath"]
         }
     },
+    "Dipplin": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Supersweet Syrup",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Syrup Bomb","Reflect","Pollen Puff"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Supersweet Syrup",
+            "nature":"Calm",
+            "evs":{"hp":252,"sp":252},
+            "moves":["Syrup Bomb","Reflect","Pollen Puff"]
+        }
+    },
+    "Dusclops": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Pressure",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Taunt","Trick Room","Gravity"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Pressure",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Taunt","Trick Room","Gravity"]
+        }
+    },
     "Florges": {
         "Symbiosis Band (Def)": {
             "level":100,
@@ -156,6 +220,17 @@
             "shiny":true
         }
     },
+    "Geodude-Alola": {
+        "Oran": {
+            "level":1,
+            "item":"Oran Berry",
+            "ability":"Sturdy",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "ivs":{"hp":0},
+            "moves":["Screech","Thunder Wave","Wide Guard","Sunny Day"]
+        }
+    },
     "Gholdengo":  {
         "Bulky DPS": {
             "level":100,
@@ -190,6 +265,24 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
+        }
+    },
+    "Golem-Alola": {
+        "DPS": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Galvanize",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Double-Edge"]
+        },
+        "Setup DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Galvanize",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Double-Edge","Charge","Electric Terrain"]
         }
     },
     "Groudon":{
@@ -246,6 +339,24 @@
             "moves":["Night Slash","Helping Hand","Screech","Snarl"]
         }
     },
+    "Indeedee-F": {
+        "Psychic Terrain (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Psychic Surge",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Reflect","Skill Swap","Heal Pulse"]
+        },
+        "Psychic Terrain (SpD)": {
+            "level":100,
+            "item":"Psychic Seed",
+            "ability":"Psychic Surge",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Light Screen","Skill Swap","Heal Pulse"]
+        }
+    },
     "Iron Hands":{
         "Belly Drum DPS":{
             "level":100,
@@ -272,6 +383,15 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Fake Tears","Helping Hand","Light Scren","Taunt"]
+        }
+    },
+    "Kommo-o": {
+        "Belly Drum DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Belly Drum","Close Combat","Outrage"]
         }
     },
     "Koraidon": {
@@ -364,6 +484,24 @@
             "moves":["Screech"]
         }
     },
+    "Mandibuzz": {
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Big Pecks",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Defog","Taunt","Tailwind"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Big Pecks",
+            "nature":"Careful",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Defog","Taunt","Tailwind"]
+        }
+    },
     "Maushold": {
         "Friend Guard (Def)": {
             "level":100,
@@ -431,6 +569,16 @@
             "moves":["Flower Trick"]
         }
     },
+    "Milotic": {
+        "Support": {
+            "level":100,
+            "item":"Flame Orb",
+            "ability":"Marvel Scale",
+            "nature":"Bold",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Light Screen","Life Dew"]
+        }
+    },
     "Miraidon": {
         "Bulky DPS":{
             "level":100,
@@ -447,6 +595,52 @@
             "nature":"Timid",
             "evs":{"sa":252,"sp":252},
             "moves":["Charge","Electro Drift","Metal Sound","Calm Mind"]
+        }
+    },
+    "Ninetales": {
+        "Sun Support (Def)":  {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Drought",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Will-O-Wisp","Sunny Day"]
+        },
+        "Sun Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Drought",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Will-O-Wisp","Sunny Day"]
+        }
+    },
+    "Ninetales-Alola": {
+        "Snow Support (Def)":  {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Snow Warning",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Aurora Veil","Snowscape"]
+        },
+        "Snow Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Snow Warning",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Aurora Veil","Snowscape"]
+        }
+    },
+    "Nosepass": {
+        "Oran": {
+            "level":1,
+            "item":"Oran Berry",
+            "ability":"Sturdy",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "moves":["Helping Hand","Gravity","Wide Guard","Taunt"]
         }
     },
     "Oranguru": {
@@ -535,6 +729,44 @@
             "moves":["Screech","Helping Hand","Swagger","Snarl"]
         }
     },
+    "Pincurchin": {
+        "Electric Terrain": {
+            "level":100,
+            "item":"Electric Seed",
+            "ability":"Electric Surge",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acupressure","Thunder Wave","Rain Dance","Electric Terrain"]
+        }
+    },
+    "Politoed": {
+        "Rain Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Drizzle",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Rain Dance","Chilling Water","Mud-Slap"]
+        },
+        "Rain Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Drizzle",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Rain Dance","Chilling Water","Mud-Slap"]
+        }
+    },
+    "Poliwrath": {
+        "Belly Drum DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Swift Swim",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Belly Drum","Close Combat","Liquidation"]
+        }
+    },
     "Polteageist": {
         "Armor Swap":{
             "level":100,
@@ -583,6 +815,17 @@
             "moves":["Acid Spray","Chilling Water","Acupressure","Taunt"] 
         }
     },
+    "Ribombee": {
+        "Support":{
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Shield Dust",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Reflect","Light Screen","Fake Tears","Helping Hand"],
+            "shiny":true
+        }
+    },
     "Scovillain":  {
         "Spicy Extract Support (Def)": {
             "level":100,
@@ -615,6 +858,24 @@
             "nature":"Modest",
             "evs":{"sa":252,"sd":252},
             "moves":["Amnesia","Nasty Plot","Stored Power","Psychic Terrain"]
+        }
+    },
+    "Snorlax": {
+        "Belly Drum DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Thick Fat",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Belly Drum","Double-Edge","Earthquake","Heavy Slam"]
+        },
+        "Support": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Thick Fat",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand"]
         }
     },
     "Stonjourner": {
@@ -744,7 +1005,7 @@
         },
         "Mold Breaker": {
             "level":100,
-            "item":"Sirus Berry",
+            "item":"Sitrus Berry",
             "ability":"Own Tempo",
             "nature":"Adamant",
             "evs":{"hp":252,"df":252},
@@ -767,6 +1028,16 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Helping Hand","Sunny Day","Clear Smog",""]
+        }
+    },
+    "Trevenant": {
+        "Forest's Curse": {
+            "level":100,
+            "item":"Sirus Berry",
+            "ability":"Harvest",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Forest's Curse","Reflect","Trick Room","Sunny Day"]
         }
     },
     "Umbreon": {
@@ -814,7 +1085,7 @@
         }
     },
     "Venonat": {
-        "Screech  Support":{
+        "Screech Support": {
             "level":100,
             "item":"Eviolite",
             "ability":"Compound Eyes",
@@ -822,7 +1093,77 @@
             "evs":{"hp":252,"df":252},
             "moves":["Screech","Skill Swap"]
         },
-        "Screech (Carry)":{
+        "Screech (Carry)": {
+            "level":100,
+            "item":"Focus Sash",
+            "ability":"Compound Eyes",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "moves":["Screech"]
+        }
+    },
+    "Weezing": {
+        "Neutralizing Gas (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Neutralizing Gas",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Taunt","Clear Smog","Will-O-Wisp"]
+        },
+        "Neutralizing Gas (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Neutralizing Gas",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Taunt","Clear Smog"]
+        }
+    },
+    "Weezing-Galar": {
+        "Neutralizing Gas (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Neutralizing Gas",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Taunt","Clear Smog","Will-O-Wisp"]
+        },
+        "Neutralizing Gas (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Neutralizing Gas",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Taunt","Clear Smog"]
+        },
+        "Misty Terrain (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Misty Surge",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Taunt","Clear Smog","Misty Terrain"]
+        },
+        "Misty Terrain (SpD)": {
+            "level":100,
+            "item":"Misty Seed",
+            "ability":"Misty Surge",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Taunt","Clear Smog","Misty Terrain"]
+        }
+    },
+    "Yanma": {
+        "Screech Support": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Compound Eyes",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Tailwind","Sunny Day"]
+        },
+        "Screech (Carry)": {
             "level":100,
             "item":"Focus Sash",
             "ability":"Compound Eyes",

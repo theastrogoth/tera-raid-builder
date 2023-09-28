@@ -339,6 +339,16 @@
             "moves":["Night Slash","Helping Hand","Screech","Snarl"]
         }
     },
+    "Illumise": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Prankster",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Tailwind"]
+        }
+    },
     "Indeedee-F": {
         "Psychic Terrain (Def)": {
             "level":100,
@@ -385,6 +395,16 @@
             "moves":["Fake Tears","Helping Hand","Light Scren","Taunt"]
         }
     },
+    "Jirachi": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Serene Grace",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Gravity"]
+        }
+    },
     "Kommo-o": {
         "Belly Drum DPS": {
             "level":100,
@@ -392,6 +412,13 @@
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
             "moves":["Belly Drum","Close Combat","Outrage"]
+        },
+        "Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Noble Roar","Taunt"]
         }
     },
     "Koraidon": {
@@ -476,12 +503,22 @@
             "moves":["Screech", "Helping Hand", "Reflect", "Thunder Wave"]
         },
         "Screech (Carry)": {
-            "level":1,
+            "level":24,
             "item":"Zoom Lens",
             "ability":"Sturdy",
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Screech"]
+        }
+    },
+    "Manaphy": {
+        "Rain DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Hydration",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Tail Glow","Weather Ball", "Hydro Pump"]
         }
     },
     "Mandibuzz": {
@@ -595,6 +632,24 @@
             "nature":"Timid",
             "evs":{"sa":252,"sp":252},
             "moves":["Charge","Electro Drift","Metal Sound","Calm Mind"]
+        }
+    },
+    "Munkidori": {
+        "DPS": {
+            "level":100,
+            "item":"Weakness Policy",
+            "ability":"Toxic Chain",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Nasty Plot","Stored Power"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Toxic Chain",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Clear Smog","Helping Hand","Taunt"]
         }
     },
     "Ninetales": {

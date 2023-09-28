@@ -77,14 +77,14 @@
             "item":"Leftovers",
             "nature":"Impish",
             "evs":{"hp":252,"df":252},
-            "moves":["Fake Tears","Helping Hand","Reflect","Taunt"]
+            "moves":["Fake Tears","Reflect","Taunt","Roost"]
         },
         "Fake Tears Support (SpD)": {
             "level":100,
             "item":"Leftovers",
             "nature":"Careful",
             "evs":{"hp":252,"sd":252},
-            "moves":["Fake Tears","Helping Hand","Light Screen","Taunt"]
+            "moves":["Fake Tears","Light Screen","Taunt","Roost"]
         },
         "Screech Support (Def)": {
             "level":100,
@@ -705,7 +705,7 @@
             "ability":"Symbiosis",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand","Instruct","Chilling Water","Reflect"]
+            "moves":["Instruct","Chilling Water","Taunt","Reflect"]
         },
         "Symbiosis Band (SpD)": {
             "level":100,
@@ -713,7 +713,7 @@
             "ability":"Symbiosis",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Helping Hand","Instruct","Taunt","Light Screen"]
+            "moves":["Instruct","Taunt","Light Screen"]
         },
         "Symbiosis Specs (Def)": {
             "level":100,
@@ -721,7 +721,7 @@
             "ability":"Symbiosis",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand","Instruct","Chilling Water","Reflect"]
+            "moves":["Instruct","Chilling Water","Taunt","Reflect"]
         },
         "Symbiosis Specs (SpD)":  {
             "level":100,
@@ -729,7 +729,7 @@
             "ability":"Symbiosis",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Helping Hand","Instruct","Taunt","Light Screen"]
+            "moves":["Instruct","Taunt","Light Screen"]
         }
     },
     "Pelipper": {
@@ -887,14 +887,14 @@
             "item":"Sitrus Berry",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Fake Tears","Helping Hand","Worry Seed"]
+            "moves":["Spicy Extract","Fake Tears","Helping Hand","Worry Seed"]
         },
         "Spicy Extract Support (SpD)":  {
             "level":100,
             "item":"Sitrus Berry",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Fake Tears","Helping Hand","Worry Seed"]
+            "moves":["Spicy Extract","Fake Tears","Helping Hand","Worry Seed"]
         }
     },
     "Slowbro":  {

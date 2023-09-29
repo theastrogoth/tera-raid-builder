@@ -78,6 +78,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
             kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
         0));
+    koCounts[0] = Math.min(koCounts[0], 1);
     const roles = results.endState.raiders.map((raider) => raider.role);
 
     console.log(koCounts)

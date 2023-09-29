@@ -132,9 +132,9 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].results[0].state.raiders[2].originalCurHP).toEqual(
       t2hp + Math.floor(result.turnResults[2].results[0].state.raiders[2].maxHP()/4)
     );
-    // T4 Flash Fire immune to fire, boosted spa
+    // T4 Flash Fire immune to fire, activates ability
     expect(result.turnResults[3].results[0].damage[3]).toEqual(0);
-    expect(result.turnResults[3].state.raiders[3].boosts.spa).toEqual(1);
+    expect(result.turnResults[3].state.raiders[3].abilityOn).toEqual(true);
     // T5 Storm Drain immune to water, boosted spa
     expect(result.turnResults[4].results[0].damage[4]).toEqual(0);
     expect(result.turnResults[4].state.raiders[4].boosts.spa).toEqual(1);

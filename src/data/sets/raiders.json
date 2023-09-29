@@ -77,28 +77,28 @@
             "item":"Leftovers",
             "nature":"Impish",
             "evs":{"hp":252,"df":252},
-            "moves":["Fake Tears","Reflect","Taunt","Roost"]
+            "moves":["Fake Tears","Reflect","Taunt"]
         },
         "Fake Tears Support (SpD)": {
             "level":100,
             "item":"Leftovers",
             "nature":"Careful",
             "evs":{"hp":252,"sd":252},
-            "moves":["Fake Tears","Light Screen","Taunt","Roost"]
+            "moves":["Fake Tears","Light Screen","Taunt"]
         },
         "Screech Support (Def)": {
             "level":100,
             "item":"Zoom Lens",
             "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
-            "moves":["Screech","Helping Hand","Reflect","Taunt"]
+            "moves":["Screech","Reflect","Taunt"]
         },
         "Screech Support (SpD)": {
             "level":100,
             "item":"Zoom Lens",
             "nature":"Sassy",
             "evs":{"hp":252,"sd":252},
-            "moves":["Screech","Helping Hand","Light Screen","Taunt"]
+            "moves":["Screech","Defog","Light Screen","Taunt"]
         }
     },
     "Crabominable": {
@@ -1082,7 +1082,7 @@
             "ability":"Drought",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Helping Hand","Sunny Day","Clear Smog",""]
+            "moves":["Helping Hand","Sunny Day","Clear Smog"]
         }
     },
     "Trevenant": {

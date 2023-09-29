@@ -195,8 +195,7 @@ export class RaidMove {
                 }
                 if (pokemon.ability === "Flash Fire" && moveType === "Fire") { 
                     this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
-                    const boost = {spa: 1};
-                    this._raidState.applyStatChange(id, boost);
+                    this._raidState.getPokemon(id).abilityOn = true;
                     continue;
                 }
                 if (pokemon.ability === "Well-Baked Body") {

@@ -29,7 +29,7 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function HpDisplay({role, curhp, maxhp}: {role: string, curhp: number, maxhp: number}) {
+function HpDisplayLine({role, curhp, maxhp}: {role: string, curhp: number, maxhp: number}) {
     const hpPercent = curhp / maxhp * 100;
     const color = (hpPercent > 50 ? "#30B72D" : hpPercent >= 20 ? "#F1C44F" : "#EC5132");
     return (
@@ -62,6 +62,18 @@ function HpDisplay({role, curhp, maxhp}: {role: string, curhp: number, maxhp: nu
     );
 }
 
+function HpDisplay({roles, currenthps, maxhps}: {roles: string[], currenthps: number[], maxhps: number[]}) {
+    return (
+        <Stack spacing={1.5} sx={{marginBottom: 1}}>
+            <HpDisplayLine role={roles[0]} curhp={currenthps[0]} maxhp={maxhps[0]} />
+            <HpDisplayLine role={roles[1]} curhp={currenthps[1]} maxhp={maxhps[1]} />
+            <HpDisplayLine role={roles[2]} curhp={currenthps[2]} maxhp={maxhps[2]} />
+            <HpDisplayLine role={roles[3]} curhp={currenthps[3]} maxhp={maxhps[3]} />
+            <HpDisplayLine role={roles[4]} curhp={currenthps[4]} maxhp={maxhps[4]} />
+        </Stack>
+    )
+}
+
 function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean}) {
     const [value, setValue] = useState<number>(1);
     const groups = raidInputProps.groups;
@@ -71,6 +83,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
     const pokemon3 = raidInputProps.pokemon[3];
     const pokemon4 = raidInputProps.pokemon[4];
 
+    const roles = raidInputProps.pokemon.map((raider) => raider.role);
     const currenthps = results.endState.raiders.map((raider) => raider.originalCurHP);
     const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
 
@@ -113,27 +126,21 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
                     </Tabs>
                 </Box>
                 <Box hidden={value !== 1}>
-                    <Stack direction="column" spacing={1} >
-                        <Box sx={{ height: 560, overflowY: "auto" }}>
-                            {!prettyMode &&
-                                <MoveSelection raidInputProps={raidInputProps} />
-                            }
-                            {prettyMode &&
-                                <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results}/>
-                            }
-                        </Box>
-                    </Stack>
+                    <HpDisplay roles={roles} currenthps={currenthps} maxhps={maxhps} />
+                </Box>
+                <Box hidden={value !== 1}>
+                    <Box sx={{ height: 560, overflowY: "auto" }}>
+                        {!prettyMode &&
+                            <MoveSelection raidInputProps={raidInputProps} />
+                        }
+                        {prettyMode &&
+                            <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results}/>
+                        }
+                    </Box>
                 </Box>
                 <Box hidden={value !== 2} sx={{ height: 560, overflowY: "auto" }}>
                     <RaidResults results={results} />
                 </Box>
-                <Stack spacing={1.5} sx={{marginTop: 2}}>
-                    <HpDisplay role={raidInputProps.pokemon[0].role} curhp={currenthps[0]} maxhp={maxhps[0]} />
-                    <HpDisplay role={raidInputProps.pokemon[1].role} curhp={currenthps[1]} maxhp={maxhps[1]} />
-                    <HpDisplay role={raidInputProps.pokemon[2].role} curhp={currenthps[2]} maxhp={maxhps[2]} />
-                    <HpDisplay role={raidInputProps.pokemon[3].role} curhp={currenthps[3]} maxhp={maxhps[3]} />
-                    <HpDisplay role={raidInputProps.pokemon[4].role} curhp={currenthps[4]} maxhp={maxhps[4]} />
-                </Stack>
             </Stack>
         </Box>
     )

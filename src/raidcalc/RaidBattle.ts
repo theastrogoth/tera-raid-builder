@@ -90,8 +90,8 @@ export class RaidBattle {
         // check for item/ability activation by executing dummy moves
         for (let id of speedOrder) {
             const moveResult = new RaidMove(
-                {name: "(No move)" as MoveName, target: "user"}, 
-                new Move(gen, "(No move)"), 
+                {name: "(No Move)" as MoveName, target: "user"}, 
+                new Move(gen, "(No Move)"), 
                 this._state,
                 id,
                 id,

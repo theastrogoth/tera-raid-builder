@@ -173,6 +173,18 @@ function App() {
           group9: {
             main: lightMode === "dark" ? "#363336": "#b3b3b3"
           },
+          //@ts-ignore
+          greenHP: {
+            main: "#30B72D"
+          },
+          //@ts-ignore
+          yellowHP: {
+            main: "#F1C44F"
+          },
+          //@ts-ignore
+          redHP: {
+            main: "#EC5132"
+          },
         },
         typography: {
           fontSize: 11,

@@ -492,7 +492,7 @@
             "ability":"Sturdy",
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
-            "moves":["Helping Hand"]
+            "moves":["Helping Hand","Screech"]
         },
         "Screech Support":{
             "level":100,

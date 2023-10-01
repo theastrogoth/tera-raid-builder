@@ -496,6 +496,7 @@ export function countBoosts(gen: Generation, boosts: StatsTable, randomBoosts: n
 
   const STATS: StatID[] = gen.num === 1
     ? ['atk', 'def', 'spa', 'spe']
+    : gen.num === 9 ? ['atk', 'def', 'spa', 'spd', 'spe', 'acc', 'eva']
     : ['atk', 'def', 'spa', 'spd', 'spe'];
 
   for (const stat of STATS) {

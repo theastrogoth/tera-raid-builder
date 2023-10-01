@@ -89,8 +89,8 @@ export class RaidTurn {
             this._raidState.switchIn(this.raiderID);
             // use dummy move to activate conditional items/abilities
             const moveResult = new RaidMove(
-                {name: "(No move)" as MoveName, target: "user"}, 
-                new Move(gen, "(No move)"), 
+                {name: "(No Move)" as MoveName, target: "user"}, 
+                new Move(gen, "(No Move)"), 
                 this._raidState,
                 this.raiderID,
                 this.raiderID,
@@ -288,7 +288,7 @@ export class RaidTurn {
             if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
             if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         // Since we don't have access to choice lock in the UI, we'll just force the move to be the last move used
-        } else if (this._raider.isChoiceLocked) {
+        } else if (this._raider.isChoiceLocked && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
             this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
             this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
             if (this.raiderOptions.crit) this._raiderMove.isCrit = true;

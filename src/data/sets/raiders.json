@@ -77,28 +77,28 @@
             "item":"Leftovers",
             "nature":"Impish",
             "evs":{"hp":252,"df":252},
-            "moves":["Fake Tears","Helping Hand","Reflect","Taunt"]
+            "moves":["Fake Tears","Reflect","Taunt"]
         },
         "Fake Tears Support (SpD)": {
             "level":100,
             "item":"Leftovers",
             "nature":"Careful",
             "evs":{"hp":252,"sd":252},
-            "moves":["Fake Tears","Helping Hand","Light Screen","Taunt"]
+            "moves":["Fake Tears","Light Screen","Taunt"]
         },
         "Screech Support (Def)": {
             "level":100,
             "item":"Zoom Lens",
             "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
-            "moves":["Screech","Helping Hand","Reflect","Taunt"]
+            "moves":["Screech","Reflect","Taunt"]
         },
         "Screech Support (SpD)": {
             "level":100,
             "item":"Zoom Lens",
             "nature":"Sassy",
             "evs":{"hp":252,"sd":252},
-            "moves":["Screech","Helping Hand","Light Screen","Taunt"]
+            "moves":["Screech","Defog","Light Screen","Taunt"]
         }
     },
     "Crabominable": {
@@ -339,6 +339,16 @@
             "moves":["Night Slash","Helping Hand","Screech","Snarl"]
         }
     },
+    "Illumise": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Prankster",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Tailwind"]
+        }
+    },
     "Indeedee-F": {
         "Psychic Terrain (Def)": {
             "level":100,
@@ -385,6 +395,16 @@
             "moves":["Fake Tears","Helping Hand","Light Scren","Taunt"]
         }
     },
+    "Jirachi": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Serene Grace",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Gravity"]
+        }
+    },
     "Kommo-o": {
         "Belly Drum DPS": {
             "level":100,
@@ -392,6 +412,13 @@
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
             "moves":["Belly Drum","Close Combat","Outrage"]
+        },
+        "Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Noble Roar","Taunt"]
         }
     },
     "Koraidon": {
@@ -476,12 +503,22 @@
             "moves":["Screech", "Helping Hand", "Reflect", "Thunder Wave"]
         },
         "Screech (Carry)": {
-            "level":1,
+            "level":24,
             "item":"Zoom Lens",
             "ability":"Sturdy",
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Screech"]
+        }
+    },
+    "Manaphy": {
+        "Rain DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Hydration",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Tail Glow","Weather Ball", "Hydro Pump"]
         }
     },
     "Mandibuzz": {
@@ -597,6 +634,24 @@
             "moves":["Charge","Electro Drift","Metal Sound","Calm Mind"]
         }
     },
+    "Munkidori": {
+        "DPS": {
+            "level":100,
+            "item":"Weakness Policy",
+            "ability":"Toxic Chain",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Nasty Plot","Stored Power"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Toxic Chain",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Clear Smog","Helping Hand","Taunt"]
+        }
+    },
     "Ninetales": {
         "Sun Support (Def)":  {
             "level":100,
@@ -650,7 +705,7 @@
             "ability":"Symbiosis",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand","Instruct","Chilling Water","Reflect"]
+            "moves":["Instruct","Chilling Water","Taunt","Reflect"]
         },
         "Symbiosis Band (SpD)": {
             "level":100,
@@ -658,7 +713,7 @@
             "ability":"Symbiosis",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Helping Hand","Instruct","Taunt","Light Screen"]
+            "moves":["Instruct","Taunt","Light Screen"]
         },
         "Symbiosis Specs (Def)": {
             "level":100,
@@ -666,7 +721,7 @@
             "ability":"Symbiosis",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand","Instruct","Chilling Water","Reflect"]
+            "moves":["Instruct","Chilling Water","Taunt","Reflect"]
         },
         "Symbiosis Specs (SpD)":  {
             "level":100,
@@ -674,7 +729,7 @@
             "ability":"Symbiosis",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Helping Hand","Instruct","Taunt","Light Screen"]
+            "moves":["Instruct","Taunt","Light Screen"]
         }
     },
     "Pelipper": {
@@ -832,14 +887,14 @@
             "item":"Sitrus Berry",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Fake Tears","Helping Hand","Worry Seed"]
+            "moves":["Spicy Extract","Fake Tears","Helping Hand","Worry Seed"]
         },
         "Spicy Extract Support (SpD)":  {
             "level":100,
             "item":"Sitrus Berry",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Fake Tears","Helping Hand","Worry Seed"]
+            "moves":["Spicy Extract","Fake Tears","Helping Hand","Worry Seed"]
         }
     },
     "Slowbro":  {
@@ -1027,7 +1082,17 @@
             "ability":"Drought",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Helping Hand","Sunny Day","Clear Smog",""]
+            "moves":["Helping Hand","Sunny Day","Clear Smog"]
+        }
+    },
+    "Trevenant": {
+        "Forest's Curse": {
+            "level":100,
+            "item":"Sirus Berry",
+            "ability":"Harvest",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Forest's Curse","Reflect","Trick Room","Sunny Day"]
         }
     },
     "Trevenant": {

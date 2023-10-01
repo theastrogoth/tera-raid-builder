@@ -196,89 +196,71 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Mewtwo", {
-      teraType: "Psychic",
+    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Decidueye-Hisui", {
+      teraType: "Grass",
       isTera: true,
-      bossMultiplier: 5000,
-      nature: "Modest",
-      ability: "Unnerve",
-      moves: ["Psystrike", "Ice Beam", "Aura Sphere", "Calm Mind"],
-      item: "Chesto Berry",
-      evs: {def: 252, spa: 6, spd: 252},
-      shieldData: {hpTrigger: 100, timeTrigger: 100, shieldCancelDamage: 50, shieldDamageRate: 10, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
+      bossMultiplier: 3500,
+      nature: "Adamant",
+      ability: "Scrappy",
+      moves: ["Triple Arrows", "Brave Bird", "Leaf Blade", "Rock Tomb"],
+      shieldData: {hpTrigger: 60, timeTrigger: 60, shieldCancelDamage: 40, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
-      {name: "Psystrike" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Ice Beam" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1},{stat: "spd", change: 1}], statChance: 100},
+      {name: "Triple Arrows" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "def", change: -1}], statChance: 50, flinchChance: 30},
+      {name: "Brave Bird" as MoveName, category: "damage", target: "selected-pokemon", drain: -0.5},
+      {name: "Leaf Blade" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Rock Tomb" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spe", change: -1}], statChance: 100},
     ], 
-    ["Calm Mind", "Rest"] as MoveName[], 
+    ["Tailwind", "Bulk Up", "Sunny Day"] as MoveName[], 
     [
-      {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1},{stat: "spd", change: 1}], statChance: 100},
-      {name: "Rest" as MoveName, category: "unique", target: "user"},
+      {name: "Tailwind" as MoveName, category: "field-effect", target: "users-field"},
+      {name: "Bulk Up" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "def", change: 1}], statChance: 100},
+      {name: "Sunny Day" as MoveName, category: "whole-field-effect", target: "entire-field"},
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
+    new Raider(1, "Tauros", false, new Field(), new Pokemon(gen, "Tauros-Paldea-Blaze", {
       nature: "Adamant",
-      teraType: "Bug",
-      ability: "Synchronize",
-      moves: ["Swords Dance","X-Scissor","Leech Life","Misty Terrain"],
-      item: "Metronome",
-      evs: {hp: 252, atk: 252},
+      ability: "Anger Point",
+      moves: ["Flare Blitz"],
+      item: "Choice Band",
+      evs: {atk: 252, spe: 252},
     }), 
     [
-      {name: "Swords Dance" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 2}], statChance: 100},
-      {name: "X-Scissor" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Leech Life" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Misty Terrain" as MoveName, category: "field-effect", target: "entire-field"},
+      {name: "Flare Blitz" as MoveName, category: "damage", target: "selected-pokemon", drain: -0.5},
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
-      nature: "Bold",
-      ability: "Synchronize",
-      moves: ["Struggle Bug","Mud-Slap","Life Dew","Helping Hand"],
-      item: "Covert Cloak",
-      evs: {hp: 252, spd: 252},
+    new Raider(2, "Meowscarada", false, new Field(), new Pokemon(gen, "Meowscarada", {
+      nature: "Hardy",
+      ability: "(No Ability)",
+      moves: ["Flower Trick"],
+      item: "Focus Sash",
     }), 
     [
-      {name: "Struggle Bug" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spa", change: -1}], statChance: 100},
-      {name: "Mud-Slap" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "acc", change: -1}], statChance: 100},
-      {name: "Life Dew" as MoveName, category: "heal", target: "user-and-allies"},
-      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
+      {name: "Flower Trick" as MoveName, category: "damage", target: "selected-pokemon"},
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
-      nature: "Bold",
-      ability: "Synchronize",
-      moves: ["Struggle Bug","Mud-Slap","Life Dew","Helping Hand"],
-      item: "Covert Cloak",
-      evs: {hp: 252, spd: 252},
+    new Raider(3, "Umbreon", false, new Field(), new Pokemon(gen, "Umbreon", {
+      nature: "Relaxed",
+      ability: "Inner Focus",
+      moves: ["Screech"],
+      item: "Zoom Lens",
+      evs: {hp: 252, def: 252},
     }), 
     [
-      {name: "Struggle Bug" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spa", change: -1}], statChance: 100},
-      {name: "Mud-Slap" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "acc", change: -1}], statChance: 100},
-      {name: "Life Dew" as MoveName, category: "heal", target: "user-and-allies"},
-      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
+      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Mew", false, new Field(), new Pokemon(gen, "Mew", {
-      nature: "Bold",
-      ability: "Synchronize",
-      moves: ["Struggle Bug","Mud-Slap","Life Dew","Helping Hand"],
-      item: "Covert Cloak",
-      evs: {hp: 252, spd: 252},
+    new Raider(4, "Stonjourner", false, new Field(), new Pokemon(gen, "Stonjourner", {
+      nature: "Hardy",
+      ability: "Power Spot",
+      moves: [],
+      item: "Focus Sash",
     }), 
-    [
-      {name: "Struggle Bug" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spa", change: -1}], statChance: 100},
-      {name: "Mud-Slap" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "acc", change: -1}], statChance: 100},
-      {name: "Life Dew" as MoveName, category: "heal", target: "user-and-allies"},
-      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
-    ])
+    [])
   );
 
   const [title, setTitle] = useState<string>("");

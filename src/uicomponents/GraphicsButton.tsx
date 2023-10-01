@@ -558,9 +558,9 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                     {
                                                         [...Array(4)].map((val, index) => (
                                                             <MoveBox key={"move_box_" + index}>
-                                                                {raider.moves[index] ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} /> : null}
-                                                                {raider.moves[index] ? <MoveLabel>{raider.moves[index]}</MoveLabel> : null}
-                                                                {raider.moves[index] ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} /> : null}
+                                                                {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} /> : null}
+                                                                {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveLabel>{raider.moves[index]}</MoveLabel> : null}
+                                                                {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} /> : null}
                                                             </MoveBox>
                                                         ))
                                                     }

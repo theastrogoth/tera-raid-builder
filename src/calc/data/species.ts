@@ -9120,6 +9120,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 80, at: 80, df: 110, sa: 95, sd: 80, sp: 40},
     weightkg: 4.4,
     abilities: {0: 'Supersweet Syrup'},
+    nfe: true,
   },
   Dolliv: {
     types: ['Grass', 'Normal'],

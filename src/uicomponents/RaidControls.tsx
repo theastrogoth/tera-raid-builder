@@ -3,15 +3,130 @@ import Box from '@mui/material/Box';
 import Stack from  '@mui/material/Stack';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
 import RaidResults from "./RaidResults";
 import MoveDisplay from './MoveDisplay';
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
+import { Pokemon } from '../calc';
+import { Slider, Typography } from '@mui/material';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
+
+const HpBar = styled(LinearProgress)(({ theme }) => ({
+    height: 8,
+    borderRadius: 4,
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+      backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+      borderRadius: 4,
+      backgroundColor: "#30B72D",
+    },
+}));
+
+function HpDisplayLine({role, curhp, maxhp, kos}: {role: string, curhp: number, maxhp: number, kos: number}) {
+    const hpPercent = curhp / maxhp * 100;
+    const color = (hpPercent > 50 ? "#30B72D" : hpPercent >= 20 ? "#F1C44F" : "#EC5132");
+    return (
+        <Stack direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
+            <Box sx={{ width: 150 }}>
+                <Stack direction="row">
+                    <Box flexGrow={1}/>
+                    <Typography>
+                        {role}
+                    </Typography>
+                </Stack>
+            </Box>
+            <Box sx={{ width: "100%" }}>
+                <HpBar 
+                    sx={{
+                        '& .MuiLinearProgress-bar': {
+                            backgroundColor: color,
+                        }
+                    }}
+                    variant="determinate" 
+                    value={hpPercent} 
+                />
+            </Box>
+            <Box sx={{ width: 150 }}>
+                <Typography>
+                    {`${curhp}` + " / " + `${maxhp}`}
+                </Typography>
+            </Box>
+            <Box sx={{ width: 150 }}>
+                <Typography>
+                    {kos > 0 ? (`${kos}` + (kos > 1 ? " KOs" : " KO")) : ""}
+                </Typography>
+            </Box>
+        </Stack>
+    );
+}
+
+function HpDisplay({results}: {results: RaidBattleResults}) {
+    const [displayedTurn, setDisplayedTurn] = useState<number>(0);
+    const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
+    const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
+    
+    const turnState = displayedTurn === 0 ? results.endState : results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].state;
+    const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
+
+    const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
+            kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
+        0));
+    koCounts[0] = Math.min(koCounts[0], 1);
+    const roles = results.endState.raiders.map((raider) => raider.role);
+
+    console.log(koCounts)
+
+    useEffect(() => { 
+        if (snapToEnd || displayedTurn > results.turnResults.length) {
+            setDisplayedTurn(results.turnResults.length);
+        }
+    }, [results.turnResults.length]);
+
+    useEffect(() => {
+        if (displayedTurn === results.turnResults.length) {
+            setSnapToEnd(true);
+        } else {
+            setSnapToEnd(false);
+        }
+    }, [displayedTurn]);
+
+    return (
+        <Stack spacing={1} sx={{marginBottom: 2}}>
+            <HpDisplayLine role={roles[0]} curhp={currenthps[0]} maxhp={maxhps[0]} kos={koCounts[0]} />
+            <HpDisplayLine role={roles[1]} curhp={currenthps[1]} maxhp={maxhps[1]} kos={koCounts[1]} />
+            <HpDisplayLine role={roles[2]} curhp={currenthps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
+            <HpDisplayLine role={roles[3]} curhp={currenthps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
+            <HpDisplayLine role={roles[4]} curhp={currenthps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
+            <br/>
+            <Stack direction="row" spacing={3} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
+                <Box sx={{ width: 115 }}>
+                    <Stack direction="row">
+                        <Box flexGrow={1}/>
+                        <Typography>
+                            {displayedTurn === 0 ? "Battle Start" : "Turn " + displayedTurn}
+                        </Typography>
+                    </Stack>
+                </Box>
+                <Slider 
+                    value={displayedTurn}
+                    onChange={(event, newValue) => setDisplayedTurn(newValue as number)}
+                    step={1}
+                    marks
+                    min={0}
+                    max={results.turnResults.length}
+                />
+                <Box sx={{ width: 50 }} />
+            </Stack>
+        </Stack>
+    )
+}
 
 function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean}) {
     const [value, setValue] = useState<number>(1);
@@ -21,6 +136,10 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
     const pokemon2 = raidInputProps.pokemon[2];
     const pokemon3 = raidInputProps.pokemon[3];
     const pokemon4 = raidInputProps.pokemon[4];
+
+    const roles = raidInputProps.pokemon.map((raider) => raider.role);
+    const currenthps = results.endState.raiders.map((raider) => raider.originalCurHP);
+    const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -53,14 +172,17 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
 
     return (
         <Box width={610} sx={{ mx: 1}}>
-            <Box paddingBottom={1}>
-                <Tabs value={value} onChange={handleChange} centered>
-                    <Tab label="Move Order" value={1} />
-                    <Tab label="Calc Results" value={2} />
-                </Tabs>
-            </Box>
-            <Box hidden={value !== 1}>
-                <Stack direction="column" spacing={1} >
+            <Stack>
+                <Box paddingBottom={1}>
+                    <Tabs value={value} onChange={handleChange} centered>
+                        <Tab label="Move Order" value={1} />
+                        <Tab label="Calc Results" value={2} />
+                    </Tabs>
+                </Box>
+                <Box hidden={value !== 1}>
+                    <HpDisplay results={results} />
+                </Box>
+                <Box hidden={value !== 1}>
                     <Box sx={{ height: 560, overflowY: "auto" }}>
                         {!prettyMode &&
                             <MoveSelection raidInputProps={raidInputProps} />
@@ -69,11 +191,11 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
                             <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results}/>
                         }
                     </Box>
-                </Stack>
-            </Box>
-            <Box hidden={value !== 2} sx={{ height: 560, overflowY: "auto" }}>
-                <RaidResults results={results} />
-            </Box>
+                </Box>
+                <Box hidden={value !== 2} sx={{ height: 560, overflowY: "auto" }}>
+                    <RaidResults results={results} />
+                </Box>
+            </Stack>
         </Box>
     )
 }

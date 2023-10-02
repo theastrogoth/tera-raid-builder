@@ -296,6 +296,16 @@ describe('Specific Test Cases', () => {
     // T1: Rock Blast does higher damage due to Weak Armor activating after each hit
     expect(result.turnResults[1].results[1].damage[0]).toEqual(481);
   })
+  test('flashfire_sunnyday', async() => {
+    const hash = "#H4sIAAAAAAAAA61UTW/bMAz9K4ZOG6ABTtKPtbekWZcC7VAk6WWGD4zNOGpkyZDltFnR/15SdpKuWDFsKCIoFEWRj4+kn8RSnIvsvrZGSOHFeZLEUhgoUaSSRZWz0JOiqdFdjdkIXIE+iLbyypqaLfpSFM42FWlLu8Ers7QkLmxd3+yOrcPMKU83NWbW5OC235ZLzHxNKme1pr+V8nVnu2J34Ne057jkVxWEPQ877s3mThUFOkanSjyc6pVCnV+AyVCPoYQC98r2OAX/J9UcHbyjvliBKbAjxViPDD1zmKuQRGXXWLZkNs6wJtAS8sMKwe/Yomw5cqA6RDJbTnahtPIsKY9luCc/bIEb9qHCrnGDTJUnPPNthR3p9Y7xRntVaRUowEfv4Ka73SXkQaSpFBtx/iSo5l+lEN1KguJMEq1TUHk0In90McZM5Q1u8ctE1Y0Scgm6RilmmYOqIrym0VqKYU5cGapv8HJCXva/9HmnHPTeLLrqxRTwuwMOlggqYKUxGjpnHzj6yMEGo5FyXPdrhGU00pBz2lObraO5LRfE6uCYnNBjUPpBGTYdNXod3XETzRpjttEYtmQXYJzKk5jXUSz7sTyN5YAQ7jCeSart0GVglOEoB7FL+1JDvYouFVemzXwCLt/+X97BQcI+HSVJ5f/1BjAbJWmwOyCkFrpF52gq16HOrw8dyk8/bDRsG+rzx+GcoK6UKaIJBI7/CnQgxV25cBiGYi91EK+MQRdd2qzhOv+0toyuMYzNFDU8Yr6H2j/uE8x2/xe41KGI2eo9dEeUgbfm3tK0Bh5/O3Uob+0DoZxVlr9cAWw0owYQH0DnG1hpN4BHwUsQB685prL3WvVxB66DWCoitXdo4UFbfh58qn18eOVdg+0mSnikN6HvQ+QkTvmzlqbPzy88pMiJGAYAAA==";
+    const result = await resultsFromHash(hash);
+    // T1: Sunny Day does not activate Flash Fire
+    expect(result.turnResults[0].state.raiders[1].ability!).toEqual("Flash Fire");
+    expect(!!result.turnResults[0].state.raiders[1].abilityOn).toEqual(false);
+    expect(result.turnResults[0].results[1].flags[1].length).toEqual(0);
+    expect(result.turnResults[0].results[1].desc[2].includes("Sunny Day")).toEqual(true);
+
+  })
 })
 
 // Test cases for OHKO strats

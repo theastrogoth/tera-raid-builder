@@ -153,8 +153,9 @@ export class RaidMove {
         if (this.moveData.name === "Heal Cheer") { this._affectedIDs = [1,2,3,4]; }
         else if (targetType === "user") { this._affectedIDs = [this.userID]; }
         else if (targetType === "selected-pokemon" || targetType === "all-opponents") { this._affectedIDs = [this.targetID]; }
-        else if (targetType === "all-allies") { this._affectedIDs = [1,2,3,4].splice(this.userID, 1); }
-        else if (targetType === "user-and-allies") { this._affectedIDs = [1,2,3,4]; }
+        else if (targetType === "all-allies") { this._affectedIDs = this.userID === 0 ? [] : [1,2,3,4].splice(this.userID, 1); }
+        else if (targetType === "user-and-allies") { this._affectedIDs = this.userID === 0 ? [0] : [1,2,3,4]; }
+        else if (["users-field", "allies-field", "entire-field"].includes(targetType || "")) { this._affectedIDs = [this.userID]; } // make user the target for the purposes of generating the desc
         else { this._affectedIDs = [this.targetID]; }
     }
 
@@ -165,6 +166,7 @@ export class RaidMove {
         const targetType = this.moveData.target
         const moveName = this.move.name;
         for (let id of this._affectedIDs) {
+            if (this.userID === id) { continue; }
             const pokemon = this.getPokemon(id);
             const field = pokemon.field;
             // Terrain-based failure

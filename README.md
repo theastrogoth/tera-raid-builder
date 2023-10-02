@@ -1,7 +1,7 @@
 # tera-raid-builder
 A work-in-progress app to help prepare and share builds for Tera Raid Battles in Pokémon Scarlet & Violet.
 
-Contributions welcome!
+Feedback, suggestions, or contributions welcome!
 
 ### Current Features
 - Display stats and EVs in radar plots (which are saveable as .svg files)
@@ -14,7 +14,9 @@ Contributions welcome!
 - Draggable and groupable raid moves
 - Shareable builds via the URL hash
 - "Pretty Mode" for showing build information in an easily-readable format
-
-### Planned Features
 - Loadable preset Raider and Boss builds
 - Raid boss actions (shield, stat clears, T0 spread moves)
+
+### Planned Features
+- Allow alternate builds within a strategy
+- Handling of niche interactions like Transform

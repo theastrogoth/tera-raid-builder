@@ -72,7 +72,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
             </AppBar>
             <Box>
                 <Collapse in={showHelp}>
-                    <HelpSection />
+                    <HelpSection setOpen={setShowHelp} />
                 </Collapse>
             </Box>
         </Box>

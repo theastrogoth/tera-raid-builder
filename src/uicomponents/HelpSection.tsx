@@ -14,11 +14,12 @@ import IconButton from "@mui/material/IconButton";
 import Divider from "@mui/material/Divider";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import CloseIcon from "@mui/icons-material/Close";
 
-function CollapseButton({open, setOpen}: {open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
+function CollapseButton({open, setOpen, setClosed = () => {}}: {open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, setClosed?: () => void }) {
     return (
         <IconButton
-            onClick={() => setOpen(!open)}
+            onClick={() => { setOpen(!open); setClosed(); }}
             size="small"
         >
             {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -26,24 +27,32 @@ function CollapseButton({open, setOpen}: {open: boolean, setOpen: React.Dispatch
     )
 }
 
-function HelpSection() {
+function HelpSection({setOpen}: {setOpen: (b: boolean) => void}) {
     const [buildHelpOpen, setBuildHelpOpen] = useState(false);
     const [prettyHelpOpen, setPrettyHelpOpen] = useState(false);
     const [uiHelpOpen, setUiHelpOpen] = useState(false);
 
-
     return (
     <Stack spacing={0} sx={{ p: 2, minWidth: "575px" }}>
-        <Typography variant="body1" gutterBottom>
-            Click on the button to the right of a section header to expand or collapse that section.
-        </Typography>
+        <Stack direction="row" alignItems="center" justifyContent="center" sx={{ paddingBottom: 1 }} >
+            <Typography variant="body1" gutterBottom>
+                Click on the button to the right of a section header to expand or collapse that section.
+            </Typography>
+            <Box sx={{ flexGrow: 1 }} />
+            <IconButton
+                onClick={() => setOpen(false)}
+                size="medium"
+            >
+                <CloseIcon />
+            </IconButton>
+        </Stack>
         <Divider />
         <Box sx={{ p: 2 }}>
             <Stack direction="row" spacing={1} alignItems="center">
                 <Typography variant="h5" gutterBottom>
                     Building a Raid-Ready Pokémon
                 </Typography>
-                <CollapseButton open={buildHelpOpen} setOpen={setBuildHelpOpen} />
+                <CollapseButton open={buildHelpOpen} setOpen={setBuildHelpOpen} setClosed={() => { setPrettyHelpOpen(false); setUiHelpOpen(false); }}/>
             </Stack>
             <Collapse in={buildHelpOpen} >
                 <BuildHelpSection />
@@ -55,7 +64,7 @@ function HelpSection() {
                 <Typography variant="h5" gutterBottom>
                     Reading a Strategy
                 </Typography>
-                <CollapseButton open={prettyHelpOpen} setOpen={setPrettyHelpOpen} />
+                <CollapseButton open={prettyHelpOpen} setOpen={setPrettyHelpOpen} setClosed={() => { setBuildHelpOpen(false); setUiHelpOpen(false); }}/>
             </Stack>
             <Collapse in={prettyHelpOpen} >
                 <PrettyHelpSection />
@@ -67,7 +76,7 @@ function HelpSection() {
                 <Typography variant="h5" gutterBottom>
                     Creating a Strategy
                 </Typography>
-                <CollapseButton open={uiHelpOpen} setOpen={setUiHelpOpen} />
+                <CollapseButton open={uiHelpOpen} setOpen={setUiHelpOpen} setClosed={() => { setBuildHelpOpen(false); setPrettyHelpOpen(false); }} />
             </Stack>
             <Collapse in={uiHelpOpen} >
                 <UIHelpSection />
@@ -102,7 +111,7 @@ function BuildHelpSection() {
                     <Typography variant="h6" gutterBottom>
                         Individual Values (IVs)
                     </Typography>
-                    <CollapseButton open={ivHelpOpen} setOpen={setIvHelpOpen} />
+                    <CollapseButton open={ivHelpOpen} setOpen={setIvHelpOpen} setClosed={() => { setEvHelpOpen(false); setNatureHelpOpen(false); setEggMoveHelpOpen(false); setAbilitiesHelpOpen(false); }} />
                 </Stack>
                 <Collapse in={ivHelpOpen} >
                     <Typography variant="body1" gutterBottom>
@@ -178,7 +187,7 @@ function BuildHelpSection() {
                     <Typography variant="h6" gutterBottom>
                         Effort Values (EVs)
                     </Typography>
-                    <CollapseButton open={evHelpOpen} setOpen={setEvHelpOpen} />
+                    <CollapseButton open={evHelpOpen} setOpen={setEvHelpOpen} setClosed={() => { setIvHelpOpen(false); setNatureHelpOpen(false); setEggMoveHelpOpen(false); setAbilitiesHelpOpen(false); }} />
                 </Stack>
                 <Collapse in={evHelpOpen} >
                     <Typography variant="body1" gutterBottom>
@@ -218,7 +227,7 @@ function BuildHelpSection() {
                     <Typography variant="h6" gutterBottom>
                         Natures
                     </Typography>
-                    <CollapseButton open={natureHelpOpen} setOpen={setNatureHelpOpen} />
+                    <CollapseButton open={natureHelpOpen} setOpen={setNatureHelpOpen} setClosed={() => { setIvHelpOpen(false); setEvHelpOpen(false); setEggMoveHelpOpen(false); setAbilitiesHelpOpen(false); }} />
                 </Stack>
                 <Collapse in={natureHelpOpen} >
                     <Typography variant="body1" gutterBottom>
@@ -237,7 +246,7 @@ function BuildHelpSection() {
                     <Typography variant="h6" gutterBottom>
                         Egg Moves
                     </Typography>
-                    <CollapseButton open={eggMoveHelpOpen} setOpen={setEggMoveHelpOpen} />
+                    <CollapseButton open={eggMoveHelpOpen} setOpen={setEggMoveHelpOpen} setClosed={() => { setIvHelpOpen(false); setEvHelpOpen(false); setNatureHelpOpen(false); setAbilitiesHelpOpen(false); }} />
                 </Stack>
                 <Collapse in={eggMoveHelpOpen} >
                     <Typography variant="body1" gutterBottom>
@@ -258,7 +267,7 @@ function BuildHelpSection() {
                     <Typography variant="h6" gutterBottom>
                         Abilities
                     </Typography>
-                    <CollapseButton open={abilitiesHelpOpen} setOpen={setAbilitiesHelpOpen} />
+                    <CollapseButton open={abilitiesHelpOpen} setOpen={setAbilitiesHelpOpen} setClosed={() => { setIvHelpOpen(false); setEvHelpOpen(false); setNatureHelpOpen(false); setEggMoveHelpOpen(false); }} />
                 </Stack>
                 <Collapse in={abilitiesHelpOpen} >
                     <Typography variant="body1" gutterBottom>
@@ -298,7 +307,7 @@ function PrettyHelpSection() {
                 <Typography variant="h6" gutterBottom>
                     Raider Builds
                 </Typography>
-                <CollapseButton open={raiderHelpOpen} setOpen={setRaiderHelpOpen} />
+                <CollapseButton open={raiderHelpOpen} setOpen={setRaiderHelpOpen} setClosed={() => { setBossHelpOpen(false); setMoveHelpOpen(false); setCalcHelpOpen(false); }} />
             </Stack>
             <Collapse in={raiderHelpOpen} >
                 <Typography variant="body1" gutterBottom>
@@ -330,7 +339,7 @@ function PrettyHelpSection() {
                 <Typography variant="h6" gutterBottom>
                     Raid Boss Builds
                 </Typography>
-                <CollapseButton open={bossHelpOpen} setOpen={setBossHelpOpen} />
+                <CollapseButton open={bossHelpOpen} setOpen={setBossHelpOpen} setClosed={() => { setRaiderHelpOpen(false); setMoveHelpOpen(false); setCalcHelpOpen(false); }} />
             </Stack>
             <Collapse in={bossHelpOpen} >
                 <Typography variant="body1" gutterBottom>
@@ -351,7 +360,7 @@ function PrettyHelpSection() {
                 <Typography variant="h6" gutterBottom>
                     Move Order
                 </Typography>
-                <CollapseButton open={moveHelpOpen} setOpen={setMoveHelpOpen} />
+                <CollapseButton open={moveHelpOpen} setOpen={setMoveHelpOpen} setClosed={() => { setRaiderHelpOpen(false); setBossHelpOpen(false); setCalcHelpOpen(false); }}/>
             </Stack>
             <Collapse in={moveHelpOpen} >
                 <Typography variant="body1" gutterBottom>
@@ -373,7 +382,7 @@ function PrettyHelpSection() {
                 <Typography variant="h6" gutterBottom>
                     Calc Results
                 </Typography>
-                <CollapseButton open={calcHelpOpen} setOpen={setCalcHelpOpen} />
+                <CollapseButton open={calcHelpOpen} setOpen={setCalcHelpOpen} setClosed={() => { setRaiderHelpOpen(false); setBossHelpOpen(false); setMoveHelpOpen(false); }}/>
             </Stack>
             <Collapse in={calcHelpOpen} >
                 <Typography variant="body1" gutterBottom>
@@ -393,6 +402,7 @@ function PrettyHelpSection() {
 function UIHelpSection() {
     const [goalsHelpOpen, setGoalsHelpOpen] = useState(false);
     const [raiderHelpOpen, setRaiderHelpOpen] = useState(false);
+    const [subHelpOpen, setSubHelpOpen] = useState(false);
     const [bossHelpOpen, setBossHelpOpen] = useState(false);
     const [moveHelpOpen, setMoveHelpOpen] = useState(false);
     const [calcHelpOpen, setCalcHelpOpen] = useState(false);
@@ -407,7 +417,7 @@ function UIHelpSection() {
                 <Typography variant="h6" gutterBottom>
                     Strategy Goals
                 </Typography>
-                <CollapseButton open={goalsHelpOpen} setOpen={setGoalsHelpOpen} />
+                <CollapseButton open={goalsHelpOpen} setOpen={setGoalsHelpOpen} setClosed={() => { setRaiderHelpOpen(false); setSubHelpOpen(false); setBossHelpOpen(false); setMoveHelpOpen(false); setCalcHelpOpen(false); }}/>
             </Stack>
             <Collapse in={goalsHelpOpen} >
                 <Typography variant="body1" gutterBottom>
@@ -433,7 +443,7 @@ function UIHelpSection() {
                 <Typography variant="h6" gutterBottom>
                     Raider Builds
                 </Typography>
-                <CollapseButton open={raiderHelpOpen} setOpen={setRaiderHelpOpen} />
+                <CollapseButton open={raiderHelpOpen} setOpen={setRaiderHelpOpen} setClosed={() => { setGoalsHelpOpen(false); setSubHelpOpen(false); setBossHelpOpen(false); setMoveHelpOpen(false); setCalcHelpOpen(false); }}/>
             </Stack>
             <Collapse in={raiderHelpOpen} >
                 <Typography variant="body1" gutterBottom>
@@ -454,9 +464,32 @@ function UIHelpSection() {
         <Box sx={{ paddingLeft: 2, my: 1  }}>
             <Stack direction="row" spacing={1} alignItems="center">
                 <Typography variant="h6" gutterBottom>
+                    Substitute Builds
+                </Typography>
+                <CollapseButton open={subHelpOpen} setOpen={setSubHelpOpen} setClosed={() => { setGoalsHelpOpen(false); setRaiderHelpOpen(false); setBossHelpOpen(false); setMoveHelpOpen(false); setCalcHelpOpen(false); }}/>
+            </Stack>
+            <Collapse in={subHelpOpen} >
+                <Typography variant="body1" gutterBottom>
+                    Substitute builds can be created by pressing the "Add Substitute" button near the top of the Build controls. 
+                    Each raider slot can have multiple substitute builds.
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                    When the button "Add Substitute" button is clicked, the build information for that slot will be stored along with the order of moves it uses in the move selection UI.
+                    When moves are added or removed in the move selection UI, moves for each substitute build may need to be manually changed.
+                    For this reason, it is a good idea to add substitute builds as the last step in creating a strategy.
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                    Substitute builds can be loaded by selecting the desired build from the "Load Substitute" menu.
+                    When a substitute is loaded, the current build information is stored as a substitute in its place.
+                </Typography>
+            </Collapse>
+        </Box>
+        <Box sx={{ paddingLeft: 2, my: 1  }}>
+            <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h6" gutterBottom>
                     Raid Boss Builds
                 </Typography>
-                <CollapseButton open={bossHelpOpen} setOpen={setBossHelpOpen} />
+                <CollapseButton open={bossHelpOpen} setOpen={setBossHelpOpen} setClosed={() => { setGoalsHelpOpen(false); setRaiderHelpOpen(false); setSubHelpOpen(false); setMoveHelpOpen(false); setCalcHelpOpen(false); }}/>
             </Stack>
             <Collapse in={bossHelpOpen} >
                 <Typography variant="body1" gutterBottom>
@@ -474,7 +507,7 @@ function UIHelpSection() {
                 <Typography variant="h6" gutterBottom>
                     Move Order
                 </Typography>
-                <CollapseButton open={moveHelpOpen} setOpen={setMoveHelpOpen} />
+                <CollapseButton open={moveHelpOpen} setOpen={setMoveHelpOpen} setClosed={() => { setGoalsHelpOpen(false); setRaiderHelpOpen(false); setSubHelpOpen(false); setBossHelpOpen(false); setCalcHelpOpen(false); }}/>
             </Stack>
             <Collapse in={moveHelpOpen} >
                 <Typography variant="body1" gutterBottom>
@@ -504,7 +537,7 @@ function UIHelpSection() {
                 <Typography variant="h6" gutterBottom>
                     Calc Results
                 </Typography>
-                <CollapseButton open={calcHelpOpen} setOpen={setCalcHelpOpen} />
+                <CollapseButton open={calcHelpOpen} setOpen={setCalcHelpOpen} setClosed={() => { setGoalsHelpOpen(false); setRaiderHelpOpen(false); setSubHelpOpen(false); setBossHelpOpen(false); setMoveHelpOpen(false); }}/>
             </Stack>
             <Collapse in={calcHelpOpen} >
                 <Typography variant="body1" gutterBottom>

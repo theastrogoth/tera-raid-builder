@@ -7941,15 +7941,15 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 75, at: 80, df: 110, sa: 65, sd: 90, sp: 50},
     weightkg: 89,
     abilities: {0: 'Ice Face'},
-    otherFormes: ['Eiscue-Noice'],
+    // otherFormes: ['Eiscue-Noice'],
   },
-  'Eiscue-Noice': {
-    types: ['Ice'],
-    bs: {hp: 75, at: 80, df: 70, sa: 65, sd: 50, sp: 130},
-    weightkg: 89,
-    abilities: {0: 'Ice Face'},
-    baseSpecies: 'Eiscue',
-  },
+  // 'Eiscue-Noice': {
+  //   types: ['Ice'],
+  //   bs: {hp: 75, at: 80, df: 70, sa: 65, sd: 50, sp: 130},
+  //   weightkg: 89,
+  //   abilities: {0: 'Ice Face'},
+  //   baseSpecies: 'Eiscue',
+  // },
   // Eldegoss: {
   //   types: ['Grass'],
   //   bs: {hp: 60, at: 50, df: 90, sa: 80, sd: 120, sp: 60},

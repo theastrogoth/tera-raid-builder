@@ -22,6 +22,7 @@ export namespace State {
     dynamaxLevel?: number;
     isSaltCure?: boolean;
     alliesFainted?: number;
+    proteanLiberoType?: I.TypeName;
     boostedStat?: I.StatIDExceptHP | 'auto';
     usedBoosterEnergy?: boolean;
     isIngrain?: boolean;

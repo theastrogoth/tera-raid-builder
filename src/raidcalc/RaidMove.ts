@@ -175,7 +175,7 @@ export class RaidMove {
                 continue;
             }
             // Ability-based immunities
-            if (this._user.ability !== "Mold Breaker") {
+            if (!this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze")) {
                 if (pokemon.ability === "Good As Gold" && category === "Status" && targetType !== "user") { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue; 
@@ -361,6 +361,12 @@ export class RaidMove {
 
     private applyDamage() {
         const moveUser = this.getPokemon(this.userID);
+        // protean / libero check
+        if ((moveUser.ability === "Protean" || moveUser.ability === "Libero") && !moveUser.abilityOn) {
+            moveUser.proteanLiberoType = this.move.type;
+            moveUser.abilityOn = true;
+        }
+        // QP check
         if ((this._fields[this.userID].terrain === "Electric" && moveUser.ability === "Quark Drive")  ||
             (this._fields[this.userID].weather === "Sun" && moveUser.ability === "Protosynthesis")
         ) {
@@ -368,6 +374,7 @@ export class RaidMove {
             const qpStat = getQPBoostedStat(moveUser) as StatIDExceptHP;
             moveUser.boostedStat = qpStat;
         }
+        // calculate and apply damage
         let hasCausedDamage = false;
         for (let id of this._affectedIDs) {
             if (this._doesNotAffect[id]) {
@@ -418,7 +425,7 @@ export class RaidMove {
                             //@ts-ignore
                             hitDamage = roll === "max" ? result.damage[result.damage.length-1] : roll === "min" ? result.damage[0] : result.damage[Math.floor(result.damage.length/2)];
                         }
-                        this._raidState.applyDamage(id, hitDamage, 1, this.move.isCrit, superEffective, this.move.type);
+                        this._raidState.applyDamage(id, hitDamage, 1, this.move.isCrit, superEffective, this.move.type, this.move.category);
                         totalDamage += hitDamage;
                     }
                     // prepare desc from results
@@ -440,6 +447,7 @@ export class RaidMove {
                 }
             }
         }
+        // adjust tera charge
         if (this.moveData.category?.includes("damage")) {
             this._fields[this.userID].attackerSide.isHelpingHand = false;
             if (this.move.type === "Electric") { this._fields[this.userID].attackerSide.isCharged = false; }
@@ -485,14 +493,18 @@ export class RaidMove {
 
     private applyFlinch() {
         const flinchChance = this.moveData.flinchChance || 0;
+        const ignoreAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze");
         if (flinchChance && (this.options.secondaryEffects || flinchChance === 100)) {
             for (let id of this._affectedIDs) {
                 if (id === 0) { continue; }
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const target = this.getPokemon(id);
                 if (target.item === "Covert Cloak" || target.ability === "Shield Dust") { continue; }
-                if (target.ability === "Inner Focus" && this._user.ability !== "Mold Breaker") { continue; }
+                if (target.ability === "Inner Focus" && !ignoreAbility) { continue; }
                 this._causesFlinch[id] = true;
+                if (this._user.ability === "Steadfast") {
+                    this._raidState.applyStatChange(id, {spe: 1}, true, false);
+                }
             }
         }
     }
@@ -526,7 +538,7 @@ export class RaidMove {
                     }
                     boost[stat] = change;
                 }
-                this._raidState.applyStatChange(id, boost, true, id === this.userID)
+                this._raidState.applyStatChange(id, boost, true, id === this.userID, this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze"))
             }
         }
     }
@@ -534,6 +546,7 @@ export class RaidMove {
     private applyAilment() {
         const ailment = this.moveData.ailment;
         const chance = this.moveData.ailmentChance || 100;
+        const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze");
         if (ailment && (chance === 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
@@ -573,16 +586,16 @@ export class RaidMove {
                     if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { continue; }
                     // type-based and ability-based immunities
                     if (status === "brn" && pokemon.types.includes("Fire")) { continue; }
-                    if (status === "frz" && (pokemon.types.includes("Ice") || pokemon.ability === "Magma Armor")) { continue; }
-                    if ((status === "psn" || status === "tox") && (pokemon.ability === "Immunity" || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { continue; }
-                    if ((status === "par" && (pokemon.types.includes("Electric") || pokemon.ability === "Limber"))) { continue; }
-                    if (status === "slp" && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
-                    if (pokemon.field.hasWeather("Sun") && pokemon.ability === "Leaf Guard") { continue; }
+                    if (status === "frz" && (pokemon.types.includes("Ice") || (!attackerIgnoresAbility && pokemon.ability === "Magma Armor"))) { continue; }
+                    if ((status === "psn" || status === "tox") && ((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { continue; }
+                    if ((status === "par" && (pokemon.types.includes("Electric") || (!attackerIgnoresAbility && pokemon.ability === "Limber")))) { continue; }
+                    if (status === "slp" && !attackerIgnoresAbility && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
+                    if (pokemon.field.hasWeather("Sun") && !attackerIgnoresAbility && pokemon.ability === "Leaf Guard") { continue; }
                     this._raidState.applyStatus(id, status);
                 }
                 // Toxic Chain
                 if (this._user.ability === "Toxic Chain" && this.options.secondaryEffects && hasNoStatus(pokemon)) {
-                    if (pokemon.ability === "Immunity" || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel")))) {
+                    if (!((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) {
                         this._raidState.applyStatus(id, "tox");
                     }
                 }

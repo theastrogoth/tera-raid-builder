@@ -4,6 +4,7 @@ import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
 import { getBoostCoefficient, safeStatStage } from "./util";
+import persistentAbilities from "../data/persistent_abilities.json"
 
 const gen = Generations.get(9);
 
@@ -28,7 +29,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName) {
+    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
@@ -47,7 +48,7 @@ export class RaidState implements State.RaidState{
             if (damage > 0) {
                 pokemon.hitsTaken = pokemon.hitsTaken + nHits;
             }
-            // Item consumption triggered by damage
+            // Item consumption / Ability Activation triggered by damage
             // Focus Sash
             if (pokemon.item === "Focus Sash" || pokemon.ability === "Sturdy") {
                 if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
@@ -55,7 +56,23 @@ export class RaidState implements State.RaidState{
                     if (pokemon.ability !== "Sturdy") { this.loseItem(id); } 
                 }
             }
-
+            // Ice Face
+            if (pokemon.ability === "Ice Face" && !pokemon.abilityOn && moveCategory === "Physical") {
+                pokemon.abilityOn = true;
+                pokemon.originalCurHP = originalHP; // no damage is done
+                return; // don't trigger item use
+            }
+            // Air Balloon
+            if (pokemon.item === "Air Balloon") {
+                this.loseItem(id);
+            }
+            // Disguise
+            if (pokemon.ability === "Disguise" && !pokemon.abilityOn) {
+                pokemon.abilityOn = true;
+                pokemon.originalCurHP = originalHP; // negate damage from attack
+                pokemon.applyDamage(Math.floor(pokemon.maxHP()/8)); // bust disguise, 1/8 max HP damage
+                return; // don't trigger item use (except for Air Balloon)
+            }
             // Weakness Policy and Super-Effective reducing Berries
             // TO DO - abilities that let users use berries more than once
             if (damage > 0 && isSuperEffective) {
@@ -172,6 +189,11 @@ export class RaidState implements State.RaidState{
             if (pokemon.ability === "Seed Sower") {
                 this.applyTerrain("Grassy");
             }
+            // Rattled
+            if (pokemon.ability === "Rattled" && ["Dark", "Ghost", "Bug"].includes(moveType || "")) {
+                const boost = {spe: 1};
+                this.applyStatChange(id, boost, true, true);
+            }
         }
         /// Berry Consumption triggered by damage
         if (!unnerve && pokemon.item && pokemon.item?.includes("Berry")) {
@@ -220,8 +242,19 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, fromSelf: boolean = false): StatsTable {
+    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, fromSelf: boolean = false, ignoreAbility: boolean = false): StatsTable {
         const pokemon = this.getPokemon(id);
+        // Clear Amulet, Clear Body, White Smoke, Full Metal Body
+        if (!fromSelf && (pokemon.item === "Clear Amulet" || (!ignoreAbility && pokemon.hasAbility("Clear Body", "White Smoke", "Full Metal Body")))) {
+            for (const stat in boosts) {
+                const statId = stat as StatIDExceptHP;
+                if ((boosts[statId] || 0) < 0) {
+                    boosts[statId] = 0;
+                    this.loseItem(id);
+                }
+            }
+        }
+        // Apply stat changes
         const diff = pokemon.applyStatChange(boosts);
         // Defiant and Competitive
         if (!fromSelf && (pokemon.ability === "Defiant" || pokemon.ability === "Competitive")) {
@@ -409,6 +442,16 @@ export class RaidState implements State.RaidState{
     public faint(id: number) {
         let pokemon = this.getPokemon(id);
         const ability = pokemon.ability;
+        // check Reciever / Power of Alchemy
+        for (let i=1; i<5; i++) {
+            if (i === id) { continue; }
+            const ally = this.getPokemon(i);
+            if ((ally.ability === "Receiver" || ally.ability === "Power of Alchemy") && ally.originalCurHP !== 0) {
+                if (ability && !persistentAbilities["uncopyable"].includes(ability)) {
+                    ally.ability = ability;
+                }
+            }
+        }
         // reset stats, status, etc, keeping a few things 
         this.raiders[id] = new Raider(
             id,
@@ -428,6 +471,7 @@ export class RaidState implements State.RaidState{
                     hitsTaken: pokemon.hitsTaken,
                     moves: pokemon.moves,
                     originalCurHP: 0,
+                    alliesFainted: (pokemon.alliesFainted || 0) + 1,
                 },
             ),
             pokemon.moveData,
@@ -656,10 +700,15 @@ export class RaidState implements State.RaidState{
         } else if (ability === "Intimidate") {
             const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
             for (let opponent of affectedPokemon) {
-                if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(pokemon.ability || "")) {
+                if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
                     const origAtk = opponent.boosts.atk ||  0;
                     this.applyStatChange(opponent.id, {atk: -1}, true, false);
                     flags[opponent.id].push("Atk: " + origAtk + "->" + opponent.boosts.atk + " (Intimidate)");
+                }
+                if (opponent.hasAbility("Rattled")) {
+                    const origSpe = opponent.boosts.spe || 0;
+                    this.applyStatChange(opponent.id, {spe: 1}, true, true);
+                    flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + "->" + opponent.boosts.spe + " (Rattled)";
                 }
             }
         // Supersweet Syrup
@@ -689,6 +738,17 @@ export class RaidState implements State.RaidState{
             const origDef = pokemon.boosts.def;
             this.applyStatChange(id, {def: 1}, true, true);
             flags[id].push("Def: " + origDef + "->" + pokemon.boosts.def + " (Dauntless Shield)");
+        
+        } else if (ability === "Trace") {
+            const opponentIds = id === 0 ? [1,2,3,4] : [0];
+            for (let oid of opponentIds) { // Trace might be random for bosses, but we'll check abilities in order
+                const copiedAbility = this.raiders[oid].ability;
+                if (copiedAbility && !persistentAbilities["uncopyable"].includes(copiedAbility)) {
+                    pokemon.ability = copiedAbility;
+                    flags[id].push("Trace copies " + copiedAbility);
+                    break;
+                }
+            } 
         } else {
             // 
         }

@@ -900,7 +900,7 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
         const pokemonInfo = removedSubstitute.raider;
         const newPokemon = new Raider(
             pokemon.id, 
-            pokemon.role, 
+            pokemonInfo.role, 
             pokemonInfo.shiny, 
             new Field(), 
             new Pokemon(
@@ -972,26 +972,26 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         if (pokemon.name.includes("Ogerpon")) {
             if (pokemon.name === "Ogerpon") {
                 setTeraTypes(["Grass"]);
-                setPokemonProperties(["role", "teraType"])([pokemon.species.name, "Grass"]);
+                setPokemonProperties(["role", "teraType"])(["Ogerpon", "Grass"]);
             } else if (pokemon.name === "Ogerpon-Hearthflame") {
                 setTeraTypes(["Fire"]);
                 setItems(["Hearthflame Mask" as ItemName]);
-                setPokemonProperties(["role", "teraType", "item"])([pokemon.species.name, "Fire", "Hearthflame Mask"]);
+                setPokemonProperties(["role", "teraType", "item"])(["Ogerpon", "Fire", "Hearthflame Mask"]);
             } else if (pokemon.name === "Ogerpon-Wellspring") {
                 setTeraTypes(["Water"]);
                 setItems(["Wellspring Mask" as ItemName]);
-                setPokemonProperties(["role", "teraType", "item"])([pokemon.species.name, "Water", "Wellspring Mask"]);
+                setPokemonProperties(["role", "teraType", "item"])(["Ogerpon", "Water", "Wellspring Mask"]);
             } else { // (pokemmon.name === "Ogerpon-Cornerstone")
                 setTeraTypes(["Rock"]);
                 setItems(["Cornerstone Mask" as ItemName]);
-                setPokemonProperties(["role", "teraType", "item"])([pokemon.species.name, "Rock", "Cornerstone Mask"]);
+                setPokemonProperties(["role", "teraType", "item"])(["Ogerpon", "Rock", "Cornerstone Mask"]);
             }
         } else if (pokemon.name === "Zacian-Crowned") {
             setItems(["Rusted Sword" as ItemName]);
-            setPokemonProperties(["role","item"])([pokemon.species.name, "Rusted Sword"]);
+            setPokemonProperties(["role","item"])(["Zacian", "Rusted Sword"]);
         } else if (pokemon.name === "Zamazenta-Crowned") {
             setItems(["Rusted Shield" as ItemName]);
-            setPokemonProperties(["role","item"])([pokemon.species.name, "Rusted Shield"]);
+            setPokemonProperties(["role","item"])(["Zamazenta", "Rusted Shield"]);
         } else {
             setTeraTypes(genTypes);
             setItems(genItems);

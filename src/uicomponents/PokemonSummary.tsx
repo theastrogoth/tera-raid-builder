@@ -23,7 +23,7 @@ const allMoves = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.su
 export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
     const [str, setStr] = useState(pokemon.role);
     const roleRef = useRef(pokemon.role);
-    const nameRef = useRef(pokemon.name);
+    const nameRef = useRef(pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
 
     useEffect(() => {
         if (roleRef.current !== pokemon.role) {
@@ -31,10 +31,11 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
             if (pokemon.role !== str) {
                 setStr(pokemon.role);
             }
-            nameRef.current = pokemon.name;
+            nameRef.current = pokemon.species.baseSpecies || pokemon.name;
         } else if ((nameRef.current !== pokemon.name) && ((str === "") || (str === nameRef.current as string))) {
-            nameRef.current = pokemon.name;
-            const name = pokemon.species.baseSpecies || pokemon.name; // some regional forms have long names
+            const name = pokemon.species.baseSpecies || pokemon.name; 
+            nameRef.current = name;
+            roleRef.current = name;
             setRole(name);
             setStr(name);
         }

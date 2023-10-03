@@ -5,7 +5,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, StatIDExceptHP } from "../calc/data/interface";
 import { getQPBoostedStat, isGrounded } from "../calc/mechanics/util";
-import { isSuperEffective, safeStatStage, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
+import { isSuperEffective, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 

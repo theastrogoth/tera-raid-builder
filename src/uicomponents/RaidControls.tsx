@@ -55,12 +55,12 @@ function HpDisplayLine({role, curhp, maxhp, kos}: {role: string, curhp: number, 
             </Box>
             <Box sx={{ width: 150 }}>
                 <Typography>
-                    {`${curhp}` + " / " + `${maxhp}`}
+                    { curhp + " / " + maxhp }
                 </Typography>
             </Box>
             <Box sx={{ width: 150 }}>
                 <Typography>
-                    {kos > 0 ? (`${kos}` + (kos > 1 ? " KOs" : " KO")) : ""}
+                    {kos > 0 ? ( kos  + (kos > 1 ? " KOs" : " KO")) : ""}
                 </Typography>
             </Box>
         </Stack>
@@ -85,6 +85,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
         if (snapToEnd || displayedTurn > results.turnResults.length) {
             setDisplayedTurn(results.turnResults.length);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [results.turnResults.length]);
 
     useEffect(() => {
@@ -93,6 +94,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
         } else {
             setSnapToEnd(false);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [displayedTurn]);
 
     return (
@@ -134,11 +136,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
     const pokemon2 = raidInputProps.pokemon[2];
     const pokemon3 = raidInputProps.pokemon[3];
     const pokemon4 = raidInputProps.pokemon[4];
-
-    const roles = raidInputProps.pokemon.map((raider) => raider.role);
-    const currenthps = results.endState.raiders.map((raider) => raider.originalCurHP);
-    const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
-
+    
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };  

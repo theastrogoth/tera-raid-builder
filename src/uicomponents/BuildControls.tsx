@@ -15,6 +15,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from '@mui/icons-material/Menu';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
+import AddIcon from '@mui/icons-material/Add';
 import TuneIcon from '@mui/icons-material/Tune';
 import Popper from "@mui/material/Popper";
 import Switch from "@mui/material/Switch";
@@ -31,7 +32,7 @@ import { toID } from '../calc/util';
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 
-import { MoveData, MoveSetItem, ShieldData } from "../raidcalc/interface";
+import { MoveData, MoveSetItem, ShieldData, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
@@ -39,6 +40,7 @@ import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTyp
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
 import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
+import { MenuItem } from "@mui/material";
 
 type SetOption = {
     name: string,
@@ -117,9 +119,6 @@ function setdexToOptions(dex: Object): SetOption[] {
                 bossMultiplier: bossMultiplier,
                 teraType: set.teraType,
                 shieldData: set.shieldData,
-            }
-            if (pokemon === "Mewtwo") {
-                console.log("Loaded Option", setname, option)
             }
             options.push(option);
         }
@@ -242,6 +241,26 @@ function ivsToString(ivs: StatsTable) {
 const filterSetOptions = createFilterOptions({
     stringify: (option: SetOption) => option.pokemon + " " + option.name
 });
+
+function makeSubstituteInfo(pokemon: Raider, groups: TurnGroupInfo[]) {
+    const newRaider = pokemon.clone();
+    const newSubstituteMoves: MoveName[] = [];
+    const newSubstituteTargets: number[] = [];
+    for (let g of groups) {
+        for (let t of g.turns) {
+            if (t.moveInfo.userID === pokemon.id) {
+                newSubstituteMoves.push(t.moveInfo.moveData.name);
+                newSubstituteTargets.push(t.moveInfo.targetID);
+            }
+        }
+    }
+    const newSubstitute: SubstituteBuildInfo = {
+        raider: newRaider,
+        substituteMoves: newSubstituteMoves,
+        substituteTargets: newSubstituteTargets,
+    };
+    return newSubstitute;
+}
 
 const LeftCell = styled(TableCell)(({ theme }) => ({
     fontWeight: theme.typography.fontWeightBold,
@@ -825,8 +844,129 @@ function ShinySwitch({pokemon, setShiny}: {pokemon: Raider, setShiny: ((sh: bool
     );
 }
 
-function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isBoss = false}: 
-        {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean, isBoss?: boolean}) 
+function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes, groups, setGroups}: {pokemon: Raider, setPokemon: (r: Raider) => void, substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void}) {
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+    return (
+        <Box>
+            <Button
+                variant="outlined"
+                size="small"
+                sx={{ width: "120px", textTransform: "none" }} 
+                onClick={(e) => handleClick(e)}
+                endIcon={<MenuIcon/>}
+            >
+                Load Subsitute
+            </Button>
+            <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+            >
+                {substitutes.map((sub, idx) => (
+                    <SubstituteMenuItem 
+                        idx={idx}
+                        key={idx}
+                        pokemon={pokemon}
+                        setPokemon={setPokemon}
+                        substitutes={substitutes}
+                        setSubstitutes={setSubstitutes}
+                        groups={groups}
+                        setGroups={setGroups}
+                        handleClose={handleClose}
+                    />
+                ))}
+            </Menu>
+        </Box>
+    )
+}
+
+function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitutes, groups, setGroups, handleClose }: 
+    {idx: number, pokemon: Raider, setPokemon: (r: Raider) => void, substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, handleClose: () => void }) 
+{
+    const sub = substitutes[idx];
+
+    const handleClick = () => {
+        const newSubstitute = makeSubstituteInfo(pokemon, groups)
+        const newSubstitutes = [...substitutes];
+        const removedSubstitute = newSubstitutes.splice(idx, 1, newSubstitute)[0];
+        const newGroups = [...groups];
+        const pokemonInfo = removedSubstitute.raider;
+        const newPokemon = new Raider(
+            pokemon.id, 
+            pokemon.role, 
+            pokemonInfo.shiny, 
+            new Field(), 
+            new Pokemon(
+                gen, 
+                pokemonInfo.name, 
+                {...pokemonInfo},
+            ),
+            pokemonInfo.moveData,
+        )
+        let subMoveIdx = 0;
+        const nSubMoves = removedSubstitute.substituteMoves.length;
+        for (let g of newGroups) {
+            for (let t of g.turns) {
+                if (t.moveInfo.userID === pokemon.id) {
+                    if (subMoveIdx < nSubMoves) {
+                        const moveName = removedSubstitute.substituteMoves[subMoveIdx];
+                        if (["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(moveName)) {
+                            t.moveInfo.moveData = {name: moveName, target: "users-field"} as MoveData;
+                        } else if (moveName === "(Most Damaging)") {
+                            t.moveInfo.moveData = {name: "(Most Damaging)", target: "selected-pokemon"} as MoveData;
+                        } else if (moveName === "(No Move)") {
+                            t.moveInfo.moveData = {name: "(No Move)", target: "selected-pokemon"} as MoveData;
+                        } else {
+                            const moveData = newPokemon.moveData.find(md => md.name === moveName);
+                            if (moveData) { 
+                                t.moveInfo.moveData = moveData; 
+                            } else {
+                                t.moveInfo.moveData = {name: "(No Move)", target: "user"} as MoveData;
+                            }
+                        }
+                        t.moveInfo.targetID = removedSubstitute.substituteTargets[subMoveIdx];
+                        subMoveIdx++;
+                    } else {
+                        if (!["(No Move)", "(Most Damaging)", "Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(t.moveInfo.moveData.name)) {
+                            t.moveInfo.moveData = {name: "(No Move)", target: "selected-pokemon"} as MoveData;
+                            t.moveInfo.targetID = 0;
+                        }
+                    }
+                }
+            }
+        }
+        setPokemon(newPokemon);
+        setSubstitutes(newSubstitutes);
+        setGroups(newGroups);
+    }
+
+    return (
+        <MenuItem
+            onClick={(e) => { handleClick(); handleClose(); }}
+        >
+            <GenericWithIcon name={sub.raider.name} spriteFetcher={getPokemonSpriteURL} prettyMode={false} />
+        </MenuItem>
+    )
+}
+
+function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, prettyMode, isBoss = false}: 
+        {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
+        substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, prettyMode: boolean, isBoss?: boolean}) 
     {
     const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
     const [teratypes, setTeraTypes] = useState(genTypes);
@@ -940,6 +1080,11 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
         ))
     }
 
+    const handleAddSubstitute = () => {
+        const newSubstitute = makeSubstituteInfo(pokemon, groups);
+        setSubstitutes([...substitutes, newSubstitute]);
+    }
+
     return (
         <Box justifyContent="center" alignItems="top" width="250px" sx={{ zIndex: 2 }}>
             {!prettyMode &&
@@ -958,7 +1103,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                             />
                         </Stack>
                     }
-                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
+                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: isBoss ? 2 : 0 }}>
                         <Button 
                             variant="outlined" 
                             size="small" 
@@ -979,6 +1124,31 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                             {importExportOpen ? "Edit Pok\u00E9mon" : "Import/Export"}
                         </Button>
                     </Stack>
+                </Stack>
+            }
+            { !isBoss && (!prettyMode || substitutes.length > 0) && 
+                <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
+                    { !prettyMode &&
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            sx={{ width: "120px", textTransform: "none" }} 
+                            onClick={(e) => handleAddSubstitute()}
+                            startIcon={<AddIcon/>}
+                        >
+                            Add Subsitute
+                        </Button>
+                    }
+                    { substitutes.length > 0 &&
+                        <SubstitutesMenuButton 
+                            pokemon={pokemon}
+                            setPokemon={setPokemon}
+                            substitutes={substitutes}
+                            setSubstitutes={setSubstitutes}
+                            groups={groups}
+                            setGroups={setGroups}
+                        />
+                    }
                 </Stack>
             }
             {(!prettyMode && importExportOpen) &&
@@ -1066,7 +1236,6 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, prettyMode, isB
                                                 newMoves[index] = moveOption;
                                                 const newMoveData = [...pokemon.moveData];
                                                 newMoveData[index] = (await PokedexService.getMoveByName(moveOption)) || {name: "(No Move)" as MoveName, target: "user"};
-                                                console.log(newMoveData)
                                                 setPokemonProperties(["moves", "moveData"])([newMoves, newMoveData]);
                                             }}
                                             options={createMoveOptions(moveSet)}
@@ -1444,6 +1613,7 @@ export const BossBuildControlsMemo = React.memo(BossBuildControls,
 export default React.memo(BuildControls, 
     (prevProps, nextProps) => 
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        JSON.stringify(prevProps.substitutes) === JSON.stringify(nextProps.substitutes) &&
         arraysEqual(prevProps.abilities, nextProps.abilities) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         prevProps.prettyMode === nextProps.prettyMode);

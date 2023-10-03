@@ -81,8 +81,6 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     koCounts[0] = Math.min(koCounts[0], 1);
     const roles = results.endState.raiders.map((raider) => raider.role);
 
-    console.log(koCounts)
-
     useEffect(() => { 
         if (snapToEnd || displayedTurn > results.turnResults.length) {
             setDisplayedTurn(results.turnResults.length);

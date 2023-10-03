@@ -868,14 +868,6 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                }}
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'center',
-                }}
             >
                 {substitutes.map((sub, idx) => (
                     <SubstituteMenuItem 

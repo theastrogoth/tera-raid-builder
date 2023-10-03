@@ -219,7 +219,7 @@ function App() {
     }), 
     [
       {name: "Triple Arrows" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "def", change: -1}], statChance: 50, flinchChance: 30},
-      {name: "Brave Bird" as MoveName, category: "damage", target: "selected-pokemon", drain: -0.5},
+      {name: "Brave Bird" as MoveName, category: "damage", target: "selected-pokemon", drain: -50},
       {name: "Leaf Blade" as MoveName, category: "damage", target: "selected-pokemon"},
       {name: "Rock Tomb" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spe", change: -1}], statChance: 100},
     ], 
@@ -239,7 +239,7 @@ function App() {
       evs: {atk: 252, spe: 252},
     }), 
     [
-      {name: "Flare Blitz" as MoveName, category: "damage", target: "selected-pokemon", drain: -0.5},
+      {name: "Flare Blitz" as MoveName, category: "damage", target: "selected-pokemon", drain: -50},
     ])
   );
   const [raider2, setRaider2] = useState(

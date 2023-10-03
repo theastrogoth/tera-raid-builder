@@ -32,13 +32,11 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
                 setStr(pokemon.role);
             }
             nameRef.current = pokemon.name;
-            console.log("case 1")
         } else if ((nameRef.current !== pokemon.name) && ((str === "") || (str === nameRef.current as string))) {
             nameRef.current = pokemon.name;
             const name = pokemon.species.baseSpecies || pokemon.name; // some regional forms have long names
             setRole(name);
             setStr(name);
-            console.log("case 2")
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.role, pokemon.name])

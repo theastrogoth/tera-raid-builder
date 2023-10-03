@@ -529,7 +529,7 @@ export function calculateSMSSSV(
   let stabMod = 4096;
   if (attacker.hasOriginalType(move.type)) {
     stabMod += 2048;
-  } else if (attacker.hasAbility('Protean', 'Libero') && !atkTeraType) {
+  } else if (attacker.hasAbility('Protean', 'Libero') && attacker.abilityOn && (attacker.proteanLiberoType === move.type) && !atkTeraType) {
     stabMod += 2048;
     desc.attackerAbility = attacker.ability;
   }

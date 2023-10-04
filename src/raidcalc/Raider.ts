@@ -82,6 +82,7 @@ export class Raider extends Pokemon implements State.Raider {
                 dynamaxLevel: this.dynamaxLevel,
                 isSaltCure: this.isSaltCure,
                 alliesFainted: this.alliesFainted,
+                proteanLiberoType: this.proteanLiberoType,
                 boostedStat: this.boostedStat,
                 usedBoosterEnergy: this.usedBoosterEnergy,
                 isIngrain: this.isIngrain,

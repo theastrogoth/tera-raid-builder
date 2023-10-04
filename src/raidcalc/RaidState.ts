@@ -71,6 +71,9 @@ export class RaidState implements State.RaidState{
                 pokemon.abilityOn = true;
                 pokemon.originalCurHP = originalHP; // negate damage from attack
                 pokemon.applyDamage(Math.floor(pokemon.maxHP()/8)); // bust disguise, 1/8 max HP damage
+                if (pokemon.originalCurHP === 0) {
+                    this.faint(id);
+                }
                 return; // don't trigger item use (except for Air Balloon)
             }
             // Weakness Policy and Super-Effective reducing Berries
@@ -239,6 +242,9 @@ export class RaidState implements State.RaidState{
                         break;
                 }
             }
+        }
+        if (pokemon.originalCurHP === 0) {
+            this.faint(id);
         }
     }
 
@@ -446,49 +452,23 @@ export class RaidState implements State.RaidState{
         for (let i=1; i<5; i++) {
             if (i === id) { continue; }
             const ally = this.getPokemon(i);
-            if ((ally.ability === "Receiver" || ally.ability === "Power of Alchemy") && ally.originalCurHP !== 0) {
+            if ((ally.ability === "Receiver" || ally.ability === "Power Of Alchemy") && ally.originalCurHP !== 0) {
                 if (ability && !persistentAbilities["uncopyable"].includes(ability)) {
                     ally.ability = ability;
                 }
             }
         }
-        // reset stats, status, etc, keeping a few things 
-        this.raiders[id] = new Raider(
-            id,
-            pokemon.role,
-            pokemon.shiny,
-            pokemon.field,
-            new Pokemon(
-                gen,
-                pokemon.name,
-                {
-                    level: pokemon.level,
-                    ability: pokemon.originalAbility, // restore original ability
-                    item: pokemon.item,
-                    nature: pokemon.nature,
-                    ivs: pokemon.ivs,
-                    evs: pokemon.evs,
-                    hitsTaken: pokemon.hitsTaken,
-                    moves: pokemon.moves,
-                    originalCurHP: 0,
-                    alliesFainted: (pokemon.alliesFainted || 0) + 1,
-                },
-            ),
-            pokemon.moveData,
-            pokemon.extraMoves,
-            pokemon.extraMoveData,
-            false,      // isEndure
-            pokemon.lastMove,
-            pokemon.lastTarget,
-            undefined,  // moveRepeated
-            pokemon.teraCharge,
-            pokemon.shieldActivateHP,
-            pokemon.shieldBroken,
-            0,          // abilityNullified
-            pokemon.originalAbility
-        );
-
-
+        // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
+        pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
+        pokemon.abilityOn = false;
+        pokemon.boosts = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, eva: 0, acc: 0};
+        pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
+        pokemon.status = "";
+        pokemon.volatileStatus = [];
+        pokemon.originalCurHP = 0;
+        pokemon.isEndure = false;
+        pokemon.abilityNullified = 0;
+        pokemon.moveRepeated = undefined;
         
         /// remove ability effects that are removed upon fainting
         // on/off field-based abilties
@@ -585,11 +565,24 @@ export class RaidState implements State.RaidState{
 
     public switchIn(id: number): string[][] {
         const pokemon = this.getPokemon(id);
-        const ability = pokemon.ability;
+        let ability = pokemon.ability;
         const flags: string[][] = [[],[],[],[],[]];
         // reset HP
         pokemon.originalCurHP = pokemon.maxHP();
         //// Abilites That Take Effect upon switch-in
+        /// Trace (handled separately so the traced ability can activate if applicable)
+        if (ability === "Trace") {
+            const opponentIds = id === 0 ? [1,2,3,4] : [0];
+            for (let oid of opponentIds) { // Trace might be random for bosses, but we'll check abilities in order
+                const copiedAbility = this.raiders[oid].ability;
+                if (copiedAbility && !persistentAbilities["uncopyable"].includes(copiedAbility)) {
+                    pokemon.ability = copiedAbility;
+                    ability = copiedAbility;
+                    flags[id].push("Trace copies " + copiedAbility);
+                    break;
+                }
+            } 
+        }
         /// Weather Abilities
         if (ability === "Drought") {
             this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
@@ -738,17 +731,6 @@ export class RaidState implements State.RaidState{
             const origDef = pokemon.boosts.def;
             this.applyStatChange(id, {def: 1}, true, true);
             flags[id].push("Def: " + origDef + "->" + pokemon.boosts.def + " (Dauntless Shield)");
-        
-        } else if (ability === "Trace") {
-            const opponentIds = id === 0 ? [1,2,3,4] : [0];
-            for (let oid of opponentIds) { // Trace might be random for bosses, but we'll check abilities in order
-                const copiedAbility = this.raiders[oid].ability;
-                if (copiedAbility && !persistentAbilities["uncopyable"].includes(copiedAbility)) {
-                    pokemon.ability = copiedAbility;
-                    flags[id].push("Trace copies " + copiedAbility);
-                    break;
-                }
-            } 
         } else {
             // 
         }

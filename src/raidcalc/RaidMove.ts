@@ -362,7 +362,7 @@ export class RaidMove {
     private applyDamage() {
         const moveUser = this.getPokemon(this.userID);
         // protean / libero check
-        if ((moveUser.ability === "Protean" || moveUser.ability === "Libero") && !moveUser.abilityOn) {
+        if ((this.moveData.category || "").includes("damage") && (moveUser.ability === "Protean" || moveUser.ability === "Libero") && !moveUser.abilityOn) {
             moveUser.proteanLiberoType = this.move.type;
             moveUser.abilityOn = true;
         }
@@ -520,6 +520,7 @@ export class RaidMove {
             for (let id of affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
+                if (pokemon.originalCurHP === 0) { continue; }
                 const field = pokemon.field;
                 if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
                 const boost: Partial<StatsTable> = {};
@@ -551,6 +552,7 @@ export class RaidMove {
             for (let id of this._affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
+                if (pokemon.originalCurHP === 0) { continue; }
                 const field = pokemon.field;
                 const status = ailmentToStatus(ailment);
                 // Covert Cloak
@@ -1020,9 +1022,11 @@ export class RaidMove {
             }
         }
         // check for fainting
+        const fainted = [false, false, false, false, false];
         for (let i=0; i<5; i++) {
             if (this._raiders[i].originalCurHP <= 0 && this.raidState.raiders[i].originalCurHP > 0) {
                 this._flags[i].push(this._raiders[i].name + " fainted!");
+                fainted[i] = true;
             }
         }
         // check for item changes
@@ -1043,6 +1047,7 @@ export class RaidMove {
         const initialAbilities = this.raidState.raiders.map(p => p.ability);
         const finalAbilities = this._raiders.map(p => p.ability);
         for (let i=0; i<5; i++) {
+            if (fainted[i]) { continue; }
             if (initialAbilities[i] !== finalAbilities[i])  {
                 if (finalAbilities[i] === "(None)" || finalAbilities[i] === undefined) {
                     this._flags[i].push(initialAbilities[i] + " nullified")
@@ -1055,6 +1060,7 @@ export class RaidMove {
         const initialAbilityOn = this.raidState.raiders.map(p => p.abilityOn);
         const finalAbilityOn = this._raiders.map(p => p.abilityOn);
         for (let i=0; i<5; i++) {
+            if (fainted[i]) { continue; }
             if (initialAbilityOn[i] !== finalAbilityOn[i]) {
                 if (finalAbilityOn[i]) {
                     this._flags[i].push(this._raiders[i].ability + " activated");
@@ -1067,6 +1073,7 @@ export class RaidMove {
         const initialStatus = this.raidState.raiders.map(p => p.status);
         const finalStatus = this._raiders.map(p => p.status);
         for (let i=0; i<5; i++) {
+            if (fainted[i]) { continue; }
             if (initialStatus[i] !== finalStatus[i]) {
                 if (finalStatus[i] === "" || finalStatus[i] === undefined) {
                     this._flags[i].push(initialStatus[i] + " cured")
@@ -1077,6 +1084,7 @@ export class RaidMove {
         }
         // check for stat changes
         for (let i=0; i<5; i++) {
+            if (fainted[i]) { continue; }
             const pokemon = this.getPokemon(i);
             const origPokemon = this.raidState.raiders[i];
             let boostStr: string[] = [];

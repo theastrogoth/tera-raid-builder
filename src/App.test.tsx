@@ -406,6 +406,20 @@ describe('Specific Test Cases', () => {
     // T3: Scrappy lets normal moves hit Ghost types
     expect(result.turnResults[2].results[0].damage[0]).toBeGreaterThan(0);
   })
+  test('guaranteed-critboosts', async() => {
+    const hash = "#H4sIAAAAAAAAA71VTW/bMAz9K4JOG6ABzkfbtbcmaZcCSQ9Nhh0CH1SbsbXIkiHJab2i/32UYsdJ0R42tIUNhiIl8vGRcp7oml7Q5LfVijLq6MVqFTGqeAE0Zl4VqVd6jFYWzM3Eb+ImAxdUXTqhlfU7+oxmRlclWgu9hRu11qjea2vn7XIXMDHCocdColXKTX21XkPiLJqMlhJ/cuFsszf34bjboExh7U+VPMg0SNhvWxqRZWA8OlFAt7K5AJmOuUpATnjBM9gbd8s77l4zLcHwN8zjnKsMGlKUduChJwZSEYoo9QaKHZmVUd4SaAn1QQnctWxhtT5zoDpkUrUv9l5I4bwmHBTBj3H8Dtj6GCJICVvwVDnEs6xLaEi3LeOVdKKUIlAAj87weeNtC3KcxjGjW3rxRLHn3xmlzbsKhnOGtN5xkZIRxkPHBBKRVlDDt6mwlaBszaUFRheJ4WWJeFUlJaOXKXKlsL8hyilG2T/xc2sc9F686OpFmPCH4T7ZimIDSwnk0hj94LOPDN8CGQnj+z4DviYjyVNf9p1ONmSpi3tkdXCCQfAwF/JBKL91VMkN+emHaFEpVZMJr3FfgHHGTiP/DiPWj9hZxAaIsMV4zrC3N8qBhNDKTm3K/nKryeWuVV/b2qfcpPX/VR4CrOhCiRLIItcOUXr7Kg6uDhbOzVSrJN8gMfRIb/tRlWDIrEr8nVkkGuPNIIzhSMt0j65/0kdkO/kvCG9FljuykNzmPj3IUqiMTHlgG2cBIPGOcS6k9J5feGlMV0zD/BE3XXEDnB+lBJ7lYaQPF6/yjhP6RxsylvzhvQq81kllyZUCk9UhQQbkWtg3GzJkdF55roN8HeWMK8sdGYEx9bvh9PS+BBU3t3cYggUVOT3qWb91nDRgG8iFwOHudd3Ac1/m2joSPn6YCwuJ8FY0Z52pYCdowR/xZGhke3iIG3v7OMeUDj4HQP8AQNfEz8o+wPz78kOn2LA7/ZGZhweZDz4nGOBDC8fJW0XhL7GPcsCGcVjgE8fPz38BUopEdGUIAAA=";
+    const result = await resultsFromHash(hash);
+    // T1: Honchkrow has a guaranteed crit (high chance move + Super Luck + Scope Lens)
+    expect(result.turnResults[0].results[0].desc[0].includes("critical hit")).toEqual(true);
+    // T2: Focus Energy boosts Annihilape's crit stages by 2
+    expect(result.turnResults[1].state.raiders[3].critBoost).toEqual(2);
+    // T3: Annihilape has a guaranteed crit (Razor Claw + Focus Energy)
+    expect(result.turnResults[2].results[0].desc[0].includes("critical hit")).toEqual(true);
+    // T4: Fling + Lansat Berry raises Inteleon's crit stages by 2
+    expect(result.turnResults[3].state.raiders[1].critBoost).toEqual(2);
+    // T5: Inteleon has a guaranteed crit (high chance move + Lansat Berry)
+    expect(result.turnResults[4].results[0].desc[0].includes("critical hit")).toEqual(true);
+  })
 })
 
 

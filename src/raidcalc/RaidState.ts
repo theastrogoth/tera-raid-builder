@@ -240,6 +240,9 @@ export class RaidState implements State.RaidState{
                         this.applyStatChange(id, {spe: 1}, true, true);
                         this.loseItem(id);
                         break;
+                    case "Lansat Berry":
+                        pokemon.critBoost = (pokemon.critBoost || 0) + 2;
+                        this.loseItem(id);
                 }
             }
         }
@@ -462,6 +465,8 @@ export class RaidState implements State.RaidState{
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;
         pokemon.boosts = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, eva: 0, acc: 0};
+        pokemon.critBoost = 0;
+        pokemon.randomBoosts = 0;
         pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
         pokemon.status = "";
         pokemon.volatileStatus = [];

@@ -891,6 +891,9 @@ export class RaidMove {
                         case "Salac Berry":
                             this._raidState.applyStatChange(this.targetID, {spe: 1});
                             break;
+                        case "Lansat Berry":
+                            target.critBoost = (target.critBoost || 0) + 2;
+                            break;
                         // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                         case "Sitrus Berry":
                             this._healing[this.targetID] += Math.floor(target.maxHP() / 4);
@@ -974,6 +977,9 @@ export class RaidMove {
                 break;
             case "Ingrain":
                 this._user.isIngrain = true;
+                break;
+            case "Focus Energy":
+                this._user.critBoost = (this._user.critBoost || 0) + 2;
                 break;
             default: break;
             }
@@ -1101,6 +1107,10 @@ export class RaidMove {
             // acupressure check
             if (pokemon.randomBoosts !== origPokemon.randomBoosts) {
                 boostStr.push("random stat " + (origPokemon.randomBoosts > 0 ? "+" : "") + origPokemon.randomBoosts + " → " + (pokemon.randomBoosts > 0 ? "+" : "") + pokemon.randomBoosts);
+            }
+            // crit stage check
+            if (pokemon.critBoost !== origPokemon.critBoost) {
+                boostStr.push("crit stage +" + origPokemon.critBoost + " → +" + pokemon.critBoost);
             }
             if (boostStr.length > 0) {
                 const displayStr = "Stat changes: (" + boostStr.join(", ") + ")";

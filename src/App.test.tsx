@@ -28,7 +28,11 @@ async function resultsFromLightBuild(strategy: LightBuildInfo) {
   }
   const battle = new RaidBattle(battleInfo);
   const result = battle.result();
-  expect(result.turnResults.length).toEqual(strategy.turns.length); // this checks that the calc didn't encounter an error
+  let totalTurns = strategy.turns.length; 
+  if (strategy.repeats) {
+    totalTurns = strategy.groups!.reduce((a, b, i) => b.length * (strategy.repeats![i] || 1) + a, 0);
+  }
+  expect(result.turnResults.length).toEqual(totalTurns); // this checks that the calc didn't encounter an error
   return result;
 }
 
@@ -304,9 +308,106 @@ describe('Specific Test Cases', () => {
     expect(!!result.turnResults[0].state.raiders[1].abilityOn).toEqual(false);
     expect(result.turnResults[0].results[1].flags[1].length).toEqual(0);
     expect(result.turnResults[0].results[1].desc[2].includes("Sunny Day")).toEqual(true);
-
+  })
+  test('intimidate-abilities', async() => {
+    const hash = "#H4sIAAAAAAAAA7VUTW/bMAz9KwFPG6BDsnYfzW1o1y2HbMCWnQIfFJtxtOrDkOS0QdH/PpKRna7YbgtiyI8UST0+0XmELcyh/pWCBwUZ5uv1VIHXDqFSDE3DYKagTxgXNxykY4tZYOiyCT5xxBsFbQx9R14X9rjw20BwE1JaDuaxYB1Npp2EdfCNjodP2y3WOZErBmvptTM5ldgdl9P5jtYGt5zVaVkbWXEMW0XTthiZnXF4stLOoG2uta/R3minWxydR/O7zn9zrTDqf7ivd9q3WETxISNTryM2Rprowh26o5h99OwRWaQ/7FDnQS3qlk8WqeUkf+BmN8aazMhkdLJPdTgC91zDyGpxjyxVJj6rQ4dF9DQo3ttsOmtEAnzIUS/L7tBQ1lBVCvYwfwS68w8KoDxrcVwpkvVjrLU3nquf4FbbhAoWnoQ2jajne2sVfNGxId6S/o7Sx1/1NDgvZi8e2ppNp8cC60owvST6/Z8lhiJXilS/tdqZludrRIXWjzrqrjv8f05snjjQ9X02jk7ehZ7v4blRmNC4ZIvNuZlcUM823PPUwXNYWHy795MVui6cm8elgp9uE1Emf0TjsHiMk9tQ9+lcPKoyuJdSRSBJ8+prmPDovwYam+J+W1gVbs4Qz9lpwDhrGVKeyFdvfEu5U8ouuTn2eFzA6QfKlNmU89fTiv8Uqurp6TdYvBAvVgUAAA==";
+    const result = await resultsFromHash(hash);
+    // T0: Intimidate only affects the second Raider
+    expect(!!result.endState.raiders[1].boosts.atk).toEqual(false);
+    expect(result.endState.raiders[2].boosts.atk).toEqual(-1);
+    expect(result.endState.raiders[2].boosts.spe).toEqual(1); // boost from Rattled
+    expect(!!result.endState.raiders[3].boosts.atk).toEqual(false);
+    expect(!!result.endState.raiders[4].boosts.atk).toEqual(false);
+  })
+  test('disguise-iceface', async() => {
+    const hash = "#H4sIAAAAAAAAA8VVTW/bMAz9KwFPG6BDnI9uza1LWiyHDMOQW+CD6tAOF1kyJDloWuS/j5LtJC1WYMXWBTZkiiL5Hp9k+wlymED20xkNAjxMVqu+AC1LhFQEk9bBSATUDu18FoKkLdBH01SejHYhYiCgsKau2FuaHc51bti8N84tumlTMLPkecVhZvRa2v1tnmPmHbusUYofG/Kujd2EctJveVxjHrIqGcd1HPEYtrRUFGgDOyrxNHMbQrWeSp2hmslSFnh0NtMf0v/OtUQrX3FPN1IX2IqijcdAPbO4pthEZbZYNmLWVgdPlCX2hxVK36nF3QbkKHVE0vvQ7D0p8sEij2Vc5zohAnehBsVR4Q6DVJ75LPcVtqK7TvFaeaoURQnwwVu5aFe7hryENBWwg8kT8J5/FgDtvYqOa8GycqeWHqUNYp/ZuVQOBXz4Zno3DduPIHStlICvHMDcY4krLnG80kPnHCYvbl5K+v2mwArulLTY+8JVHxn1hmxvWntuk0XjqL5YpU2hT8+rd/WvBW/Kgkra7ms4s1rOM3JFTQ7/Gd/IKjzC9ESCt/eWXFaHjemMlsI8w96dzN6dwlDAd9rKbBN0OFrvuXevEBldmkjanulRrBLNYYMc3gqGTTr3uKXVkiuJX+PkdLhC1sI434sfBNIF5/Y5u831tsZmgFI+cGY8l13ySIwuij68KPqgC32OPvhz9LNPwVuAk78GfvZFegPy1cWQx/8dmV8x/g/zIYu/toR7H6fxB5mk6eHwCz8xf95kCAAA";
+    const result = await resultsFromHash(hash);
+    // T1: Disguise gets busted
+    expect(result.turnResults[0].state.raiders[1].abilityOn).toEqual(true);
+    expect(result.turnResults[0].results[0].flags[1].includes("Disguise activated"));
+    expect(result.turnResults[0].results[0].state.raiders[1].originalCurHP).toEqual(Math.ceil(result.endState.raiders[1].maxHP() * 7 / 8));
+    // T2: Mimikyu faints
+    expect(result.turnResults[1].state.raiders[1].originalCurHP).toEqual(0);
+    expect(result.turnResults[1].state.raiders[1].abilityOn).toEqual(false); // ability resets
+    expect(result.turnResults[1].results[0].flags[1].includes("Mimikyu fainted!")).toEqual(true);
+    // T3: Mimikyu switches in, Disguise gets busted again
+    expect(result.turnResults[2].state.raiders[1].abilityOn).toEqual(true);
+    expect(result.turnResults[2].results[0].flags[1].includes("Disguise activated")).toEqual(true);
+    expect(result.turnResults[2].results[0].state.raiders[1].originalCurHP).toEqual(Math.ceil(result.endState.raiders[1].maxHP() * 7 / 8));
+    // T4: Eiscue gets hit by special move and takes damage, Ice Face doesn't activate
+    expect(result.turnResults[3].state.raiders[2].abilityOn).toEqual(false);
+    expect(result.turnResults[3].state.raiders[2].originalCurHP).toBeLessThan(result.endState.raiders[2].maxHP());
+    // T5: Eiscue gets hit by physical move and takes no damage, Ice Face activates
+    expect(result.turnResults[4].state.raiders[2].abilityOn).toEqual(true);
+    expect(result.turnResults[4].results[0].state.raiders[2].originalCurHP).toEqual(result.turnResults[3].state.raiders[2].originalCurHP);
+    // T6 Eiscue faints
+    expect(result.turnResults[5].state.raiders[2].originalCurHP).toEqual(0);
+    expect(result.turnResults[5].state.raiders[2].abilityOn).toEqual(false); // ability resets
+    expect(result.turnResults[5].results[0].flags[2].includes("Eiscue fainted!")).toEqual(true);
+    // T7 Eiscue switches in, Ice Face activated by a physical move, no damage taken
+    expect(result.turnResults[6].state.raiders[2].abilityOn).toEqual(true);
+    expect(result.turnResults[6].results[0].state.raiders[2].originalCurHP).toEqual(result.endState.raiders[2].maxHP());
+  })
+  test('protean', async() => {
+    const hash = "#H4sIAAAAAAAAA81VS2/bMAz+K4FOG6AB8ZI9mlvQDlgPGYotN8MH1qYdLbJkSHLWoMh/HynLSTq0hwLrOsiWKYqPTx9p+17UYiHKn94aIUUQizyfSmGgRVFIFlXFQiZF79FdX7ERuAZDFG0XlDWeLd5L0Tjbd6Rt7Q6vTW1JvLXer8blELB0KtCOx9KaCtz+S11jGTypnNWaHhsVfLLdcDgIW5orrNmrgzhXccaj2dqppkHH6FSLp5XfKNTVJZgS9RW00OBROSy/Q3hMtUYHT6gvN2AaTKQYG5Chlw4rFQ/R2S22A5m9M6yJtMTzYYcQRrbotJw5Uh0zmT0f9lZpFVhSAdu4T3HYAnccQ8VZ4w6ZqkB41vsOE+l+ZLzXQXVaRQrwLjhYpd3xQAFEUUixE4t7QTX/LIVIVx4VF5JoXboWCHvk7EyuQXuU4s03O1kOaN8KaXqtpfgKriLsMcRHCnEcxWFUzrI/LtrKptMhQM55rJtQwQxxWMSdvBh8Pz0MOIa8kFSHFdpfvgQHFZftwSrBvXFUKjB/D+mqr9790MAdukSnQE+WJZ4gs9UJItX7Rm2h3PTiTHpJJp8AMvtfgMxfG0iRWn0eo0SRyDlVNRu1HxKqhK1V1ETZqf9mA1x+wwjrlPySV3A9DpNo4Y58YtOObnPqiewY4ayDXj5xRqkfifCcvCvrwyR+F5Vpnpd9RuNVjs3jH5aZ+iuf8qee/xR0z+ieF/G3kUZRHA6/AepWudKABwAA";
+    const result = await resultsFromHash(hash);
+    // T1: Protean activates (ground)
+    expect(result.turnResults[0].state.raiders[1].abilityOn).toEqual(true);
+    expect(result.turnResults[0].state.raiders[1].proteanLiberoType).toEqual("Ground");
+    expect(result.turnResults[0].results[0].desc[0].includes("Protean")).toEqual(true);
+    // T2: Protean does not affect moves of other types (flying)
+    expect(result.turnResults[1].state.raiders[1].abilityOn).toEqual(true);
+    expect(result.turnResults[1].state.raiders[1].proteanLiberoType).toEqual("Ground");
+    expect(result.turnResults[1].results[0].desc[0].includes("Protean")).toEqual(false);
+    // T3: Meowscarada faints
+    expect(result.turnResults[2].state.raiders[1].originalCurHP).toEqual(0);
+    expect(result.turnResults[2].state.raiders[1].abilityOn).toEqual(false); // ability resets
+    expect(result.turnResults[2].results[1].flags[1].includes("Meowscarada fainted!")).toEqual(true);
+    // T4: Meowscarada switches in, Protean activates (flying)
+    expect(result.turnResults[3].state.raiders[1].abilityOn).toEqual(true);
+    expect(result.turnResults[3].state.raiders[1].proteanLiberoType).toEqual("Flying");
+    expect(result.turnResults[3].results[0].desc[0].includes("Protean")).toEqual(true);
+    // T5: Protean does not affect moves of other types (ground)
+    expect(result.turnResults[4].state.raiders[1].abilityOn).toEqual(true);
+    expect(result.turnResults[4].state.raiders[1].proteanLiberoType).toEqual("Flying");
+    expect(result.turnResults[4].results[0].desc[0].includes("Protean")).toEqual(false);
+  })
+  test('trace', async() => {
+    const hash = "#H4sIAAAAAAAAA8VUTY/TMBD9K9WcQPIh3S4f29uyRbCHIgSVOEQ5uMkkNXXsyHbCdlf978w4TruLQEIChBI5z+P5ePMyyQPUsITyq7cGBARY5nkmwMgWoRAMVcVgLqD36G5X7CRdgyFC2wVljWePCwGNs31H1tYOeGtqS3BrvV9P2zFh6VSgE4+lNZV0h7d1jWXwZHJWa3rsVPDJd8fpZNjTWmHNUZ2MaxVXPLltnGoadMxOtXje+Z1CXd1IU6JeyVY2eDKO208y/My0QSd/Yb7ZSdNgEsXYgEy9dFip2ERn99iOYvbOsCXKEvvDDmWY1KJuuXKUOlYyB252q7QKjFTANp5THvbAgXOouGockKUKxGdz6DCJ7ifFex1Up1WUAO+Ck+t0OjUUJBSFgAGWD0Dv/LUASHceDVeCZL3e2lZ6Y7/BE1xL7VHAZ9rMvkhnlGlAmF5rARvV0ryImOIlpThdxXEyLuY/3HQ0z7IxQV5ETI/o/eppiinJlSDlP1rSySIPwhkmaiun7u9Z3ZHVGycH/CuseHtmQS/xnXQVDlax0I9w4rFxsvwDFtnvkFhQ/2ovy10Pj1Ai8OyDnV2PE/V84vGeaB7+gRqX/5tIkWb3MmaJcDFW5umnsvPJ/CLRSuRaRZ/r/DxfHLW2Pszih0/jTbEZRafY4HocF2jlHUXG0Yz186zg/0JRHI/fAb6+ps5ZBQAA";
+    const result = await resultsFromHash(hash);
+    // T0: Trace activates, due to speed considerations, the weather ends up as Snow (Snow -> Rain -> Snow (Trace))
+    expect(result.endState.raiders[2].ability).toEqual("Snow Warning");
+    expect(result.endState.raiders[2].originalAbility).toEqual("Trace");
+    expect(result.endState.raiders[0].field.weather).toEqual("Snow");
+    expect(result.turnZeroFlags[2].includes("Trace copies Snow Warning")).toEqual(true);
+  })
+  test('clearamulet-clearbody-whitesmoke', async() => {
+    const hash = "#H4sIAAAAAAAAA7VUwW7bMAz9FUOnDVABJ2nWNbc0abAA61CsAXYwfGBtxtYiS4YsZ82K/PtI2U62Yt1lKCIoTxRJPT5KfhZbMRPZ98YaIYUXsySJpTBQoUglQ5UzGEnRNujWS3YCV6AP0NZeWdOwx1iKwtm2Jmtl97g2W0vw0TbN3bDsEmZOedppMLMmB3e43W4x8w2ZnNWa/krlm9635HTgdzTnuOWoGsKchxlPbhunigIds1MVnldNqVDnCzAZ6iVUUODJ2C2/gv+baYMOXjEvSjAF9qIY65GpZw5zFYqo7Q6rTszWGbYEWUJ9WCP4QS2qlk8OUoeTzIGLfVRaeUbKYxX2KQ974J5zqDBr3CNL5YnP5lBjL3ozKN5qr2qtggT45B3c9btDQR5EmkqxF7NnQT3/KIXoRxIM15JknbsMjDKc/Qy3oBuUYm1IaJUH9UyrtRSfwOXEO4R/oPDTLz0OxsnoxaCtq6kUK8UVJmKlSQxfOvsjMF+41mQlgVsqASuMHmpE7jz7RytqA0k5juOYQh9aYw7REli5z0jhaXfolZzGPMZh0GGTaXocGF1LauEGWmdZmw5c3IPOES5uNPw8lzunlrvo3irDd3ehEVw0r1qNvJzndEF441T7eDruqyf07/pHRD8ImFBa22C0sNUjhFNa1/A9Y48kDU5n4nSBlg4KqKnV4g/cM+443ljuyX816EzwFSoTks66nQW+kSfU0/hGr5kaV9GreGsel1Lcqx1kZSt+Qz2Pd19sNO/e1vu3IpL2j+cyZAlwIl90dTTsTHtmPb9K0SdjdL6ak44yv1viG1NcH+Vdi90kKniimJiDwuFJnPJXKU2Px1+hGa/t1wUAAA==";
+    const result = await resultsFromHash(hash);
+    // T0: Clear Amulet, Clear Body, and White Smoke prevent drop from Intimidate
+    expect(result.endState.raiders[1].boosts.atk).toEqual(0);
+    expect(result.endState.raiders[2].boosts.atk).toEqual(0);
+    expect(result.endState.raiders[3].boosts.atk).toEqual(0);
+    expect(result.endState.raiders[4].boosts.atk).toEqual(-1); // Pikachu is affected by intimidate
+    // T1: Clear Amulet does not block drop from Close Combat use
+    expect(result.endState.raiders[1].boosts.def).toEqual(-1);
+    expect(result.endState.raiders[1].boosts.spd).toEqual(-1);
+  })
+  test('powerofalchemy-receiver-scrappy', async() => {
+    const hash = "#H4sIAAAAAAAAA71US2/bMAz+K4ZOG+ABdh7r2lvabmsP2aPpLfCBtWlbiywZkpw2KPLfR8p20hXrqd1ggaYoPj5+ov0oSnEm8l/OaBELL87W6yQWGhoUWcyqLFhJY9E5tNeX7AS2Qh9U03pptGOPSSwqa7qWrI3Z4rUuDal3xrnluO0T5lZ6OnGYG12A3X0uS8y9I5M1StGrlt4NvjWnA78hWWDJUS0EWQSJB7dbK6sKLaOTDR53rpaoigvQOapLaKDCg7Hf3oD/m+kWLbxgvqhBVziQoo1Hhp5bLGRoojUbbHoyO6vZEmgJ/WGL4Ee2qFuuHKgOlfSOm72TSnrWpMcmnFMe9sAt55BBKtwiU+UJz+2uxYF0NzLeKS9bJQMF+OAtLIfTsSEPIstisRVnj4Lu/FMsxLDWwXAaE61fUVfAKUalBOUwFu++mWjR43wvYt0pFYsrsAWhDsEfKfjwZPvROE2fLTo6mVP22jiaiLVY1VCY++gcwhisVFdUGJ2b5o52F0aXNIHRDTA3q5bYIR4nSZJQ4NWu1cZJZjbUOolnc14TWgnXmM6z/QjkNKZ7+6KgkRVP6EEbmlvlFtp298q+0j58ncUpI8zC9oiArn/Z8VST/LBQRsGh/g9zjzb6XkYLldfYvBoIle+hiHNT7KIVtSteQDWl6uCcbCTw/D7RB2w3mKPc8lS9Faafncw30cJ7yDcvwZoRFLmBvO7EE+3tZ/EI6xmQbPgoZiFLUKd9Zf6sqGw6mucDrAFcI4m79Dh6HLWkYY/CH0XqimITih5ive2wF6KBB4pMOHQMnpFjeshzvEwapv9SffKk+h/XRnPzTwEQ/esk/G4nWXilWbbf/waZwz1OuQYAAA==";
+    const result = await resultsFromHash(hash);
+    // T1: Flamigo faints, Power Of Alchemy and Receiver copy Scrappy
+    expect(result.turnResults[0].state.raiders[2].ability).toEqual("Scrappy");
+    expect(result.turnResults[0].state.raiders[2].originalAbility).toEqual("Power Of Alchemy");
+    expect(result.turnResults[0].state.raiders[3].ability).toEqual("Scrappy");
+    expect(result.turnResults[0].state.raiders[3].originalAbility).toEqual("Receiver");
+    // T2: Scrappy lets normal moves hit Ghost types
+    expect(result.turnResults[1].results[1].damage[0]).toBeGreaterThan(0);
+    // T3: Scrappy lets normal moves hit Ghost types
+    expect(result.turnResults[2].results[0].damage[0]).toBeGreaterThan(0);
   })
 })
+
 
 // Test cases for OHKO strats
 describe('OHKO tests, Official Strats', () => {
@@ -355,6 +456,10 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/rillaboom/tickle_squad.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('mewtwo', async () => {
+    const module = await import(`./data/strats/mewtwo/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 describe('OHKO tests, Alternative Strats', () => {
@@ -368,6 +473,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('rillaboom/timmys_revenge', async () => {
     const module = await import(`./data/strats/rillaboom/timmys_revenge.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('mewtwo/ape', async () => {
+    const module = await import(`./data/strats/mewtwo/ape.json`)
     await testOHKO(module as LightBuildInfo);
   })
 })

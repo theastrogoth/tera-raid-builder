@@ -139,10 +139,11 @@ export function calculateSMSSSV(
     }
   }
 
+  const critStages = (move.highCritChance ? 1 : 0) + (attacker.critBoost || 0) + (attacker.hasAbility("Super Luck") ? 1 : 0) + (attacker.hasItem("Scope Lens", "Razor Claw") ? 1 : 0);
   // Merciless does not ignore Shell Armor, damage dealt to a poisoned Pokemon with Shell Armor
   // will not be a critical hit (UltiMario)
   const isCritical = !defender.hasAbility('Battle Armor', 'Shell Armor') &&
-    (move.isCrit || (attacker.hasAbility('Merciless') && defender.hasStatus('psn', 'tox'))) &&
+    ((move.isCrit || critStages >= 3) || (attacker.hasAbility('Merciless') && defender.hasStatus('psn', 'tox'))) &&
     move.timesUsed === 1;
 
   let type = move.type;

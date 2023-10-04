@@ -13,6 +13,7 @@ export interface MoveData {
   readonly hasCrashDamage?: boolean;
   readonly mindBlownRecoil?: boolean;
   readonly struggleRecoil?: boolean;
+  readonly highCritChance?: boolean;
   readonly willCrit?: boolean;
   readonly drain?: [number, number];
   readonly priority?: number;
@@ -61,7 +62,7 @@ const RBY: {[name: string]: MoveData} = {
   Constrict: {bp: 10, type: 'Normal'},
   Conversion: {bp: 0, category: 'Status', type: 'Normal'},
   Counter: {bp: 1, type: 'Fighting'},
-  Crabhammer: {bp: 90, type: 'Water'},
+  Crabhammer: {bp: 90, type: 'Water', highCritChance: true},
   'Defense Curl': {bp: 0, category: 'Status', type: 'Normal'},
   Dig: {bp: 100, type: 'Ground'},
   Disable: {bp: 0, category: 'Status', type: 'Normal'},
@@ -89,7 +90,7 @@ const RBY: {[name: string]: MoveData} = {
   'Horn Drill': {bp: 0, type: 'Normal'},
   'Hyper Beam': {bp: 150, type: 'Normal'},
   'Jump Kick': {bp: 70, type: 'Fighting', hasCrashDamage: true},
-  'Karate Chop': {bp: 50, type: 'Normal'},
+  'Karate Chop': {bp: 50, type: 'Normal', highCritChance: true},
   'Leech Seed': {bp: 0, category: 'Status', type: 'Grass'},
   'Light Screen': {bp: 0, category: 'Status', type: 'Psychic'},
   Metronome: {bp: 0, category: 'Status', type: 'Normal'},
@@ -104,8 +105,8 @@ const RBY: {[name: string]: MoveData} = {
   Psychic: {bp: 90, type: 'Psychic'},
   Psywave: {bp: 1, type: 'Psychic'},
   Rage: {bp: 20, type: 'Normal'},
-  'Razor Leaf': {bp: 55, type: 'Grass'},
-  'Razor Wind': {bp: 80, type: 'Normal'},
+  'Razor Leaf': {bp: 55, type: 'Grass', highCritChance: true},
+  'Razor Wind': {bp: 80, type: 'Normal', highCritChance: true},
   Recover: {bp: 0, category: 'Status', type: 'Normal'},
   Reflect: {bp: 0, category: 'Status', type: 'Psychic'},
   Rest: {bp: 0, category: 'Status', type: 'Psychic'},
@@ -116,7 +117,7 @@ const RBY: {[name: string]: MoveData} = {
   'Seismic Toss': {bp: 1, type: 'Fighting'},
   'Self-Destruct': {bp: 130, type: 'Normal'},
   'Skull Bash': {bp: 100, type: 'Normal'},
-  Slash: {bp: 70, type: 'Normal'},
+  Slash: {bp: 70, type: 'Normal', highCritChance: true},
   Sludge: {bp: 65, type: 'Poison'},
   'Soft-Boiled': {bp: 0, category: 'Status', type: 'Normal'},
   'Solar Beam': {bp: 120, type: 'Grass'},
@@ -144,7 +145,7 @@ const RBY: {[name: string]: MoveData} = {
   'Low Kick': {bp: 50, type: 'Fighting'},
   'Poison Gas': {bp: 0, category: 'Status', type: 'Poison'},
   'Poison Powder': {bp: 0, category: 'Status', type: 'Poison'},
-  'Sky Attack': {bp: 140, type: 'Flying'},
+  'Sky Attack': {bp: 140, type: 'Flying', highCritChance: true},
   'String Shot': {bp: 0, category: 'Status', type: 'Bug'},
   Surf: {bp: 95, type: 'Water'},
   'Tail Whip': {bp: 0, category: 'Status', type: 'Normal'},
@@ -232,12 +233,12 @@ const GSC_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Sonic Boom': {bp: 0},
   'Super Fang': {bp: 0},
   'Wing Attack': {bp: 60},
-  Aeroblast: {bp: 100, type: 'Flying'},
+  Aeroblast: {bp: 100, type: 'Flying', highCritChance: true},
   Attract: {bp: 0, category: 'Status', type: 'Normal'},
   'Beat Up': {bp: 10, type: 'Dark'},
   'Belly Drum': {bp: 0, category: 'Status', type: 'Normal'},
   'Conversion 2': {bp: 0, category: 'Status', type: 'Normal'},
-  'Cross Chop': {bp: 100, type: 'Fighting'},
+  'Cross Chop': {bp: 100, type: 'Fighting', highCritChance: true},
   Curse: {bp: 0, category: 'Status', type: '???'},
   'Destiny Bond': {bp: 0, category: 'Status', type: 'Ghost'},
   Detect: {bp: 0, category: 'Status', type: 'Fighting', priority: 2},
@@ -478,7 +479,7 @@ const ADV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Icicle Spear': {bp: 10, type: 'Ice', multihit: [2, 5]},
   Ingrain: {bp: 0, category: 'Status', type: 'Grass'},
   'Knock Off': {bp: 20, type: 'Dark', makesContact: true},
-  'Leaf Blade': {bp: 70, type: 'Grass', makesContact: true},
+  'Leaf Blade': {bp: 70, type: 'Grass', makesContact: true, highCritChance: true},
   'Magic Coat': {bp: 0, category: 'Status', type: 'Psychic', priority: 4},
   Memento: {bp: 0, category: 'Status', type: 'Dark'},
   'Nature Power': {bp: 0, category: 'Status', type: 'Normal'},
@@ -516,7 +517,7 @@ const ADV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   Torment: {bp: 0, category: 'Status', type: 'Dark'},
   'Water Sport': {bp: 0, category: 'Status', type: 'Water'},
   Wish: {bp: 0, category: 'Status', type: 'Normal'},
-  'Air Cutter': {bp: 55, type: 'Flying', target: 'allAdjacentFoes'},
+  'Air Cutter': {bp: 55, type: 'Flying', target: 'allAdjacentFoes', highCritChance: true},
   Facade: {bp: 70, type: 'Normal', makesContact: true},
   'Grass Whistle': {bp: 0, category: 'Status', type: 'Grass', isSound: true},
   'Heat Wave': {bp: 100, type: 'Fire', target: 'allAdjacentFoes'},
@@ -538,7 +539,7 @@ const ADV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Silver Wind': {bp: 60, type: 'Bug'},
   'Aerial Ace': {bp: 60, type: 'Flying', makesContact: true},
   'Blast Burn': {bp: 150, type: 'Fire'},
-  'Blaze Kick': {bp: 85, type: 'Fire', makesContact: true},
+  'Blaze Kick': {bp: 85, type: 'Fire', makesContact: true, highCritChance: true},
   'Bulk Up': {bp: 0, category: 'Status', type: 'Fighting'},
   'Calm Mind': {bp: 0, category: 'Status', type: 'Psychic'},
   'Cosmic Power': {bp: 0, category: 'Status', type: 'Psychic'},
@@ -556,7 +557,7 @@ const ADV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Iron Defense': {bp: 0, category: 'Status', type: 'Steel'},
   'Magical Leaf': {bp: 60, type: 'Grass'},
   'Mud Shot': {bp: 55, type: 'Ground'},
-  'Poison Tail': {bp: 50, type: 'Poison', makesContact: true},
+  'Poison Tail': {bp: 50, type: 'Poison', makesContact: true, highCritChance: true},
   'Shadow Punch': {bp: 60, type: 'Ghost', makesContact: true},
   'Shock Wave': {bp: 60, type: 'Electric'},
   Superpower: {bp: 120, type: 'Fighting', self: {boosts: {atk: -1, def: -1}}, makesContact: true},
@@ -1011,7 +1012,7 @@ const DPP_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     category: 'Physical',
   },
   'Seed Flare': {bp: 120, type: 'Grass', category: 'Special'},
-  'Spacial Rend': {bp: 100, type: 'Dragon', category: 'Special'},
+  'Spacial Rend': {bp: 100, type: 'Dragon', category: 'Special', highCritChance: true},
   'Trump Card': {
     bp: 0,
     type: 'Normal',
@@ -1031,7 +1032,7 @@ const DPP_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     makesContact: true,
     category: 'Physical',
   },
-  'Attack Order': {bp: 90, type: 'Bug', category: 'Physical'},
+  'Attack Order': {bp: 90, type: 'Bug', category: 'Physical', highCritChance: true},
   Brine: {bp: 65, type: 'Water', category: 'Special'},
   'Bullet Punch': {
     bp: 40,
@@ -1053,6 +1054,7 @@ const DPP_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     type: 'Poison',
     makesContact: true,
     category: 'Physical',
+    highCritChance: true,
   },
   'Dark Pulse': {bp: 80, type: 'Dark', category: 'Special'},
   'Defend Order': {bp: 0, type: 'Bug'},
@@ -1111,6 +1113,7 @@ const DPP_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     type: 'Dark',
     makesContact: true,
     category: 'Physical',
+    highCritChance: true,
   },
   'Poison Jab': {
     bp: 80,
@@ -1125,7 +1128,7 @@ const DPP_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     makesContact: true,
     category: 'Physical',
   },
-  'Psycho Cut': {bp: 70, type: 'Psychic', category: 'Physical'},
+  'Psycho Cut': {bp: 70, type: 'Psychic', category: 'Physical', highCritChance: true},
   'Rock Polish': {bp: 0, type: 'Rock'},
   'Rock Wrecker': {bp: 150, type: 'Rock', category: 'Physical'},
   'Seed Bomb': {bp: 80, type: 'Grass', category: 'Physical'},
@@ -1134,6 +1137,7 @@ const DPP_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     type: 'Ghost',
     makesContact: true,
     category: 'Physical',
+    highCritChance: true,
   },
   'Shadow Sneak': {
     bp: 40,
@@ -1142,7 +1146,7 @@ const DPP_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     makesContact: true,
     category: 'Physical',
   },
-  'Stone Edge': {bp: 100, type: 'Rock', category: 'Physical'},
+  'Stone Edge': {bp: 100, type: 'Rock', category: 'Physical', highCritChance: true},
   'Thunder Fang': {
     bp: 65,
     type: 'Electric',
@@ -1522,6 +1526,7 @@ const BW_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     type: 'Ground',
     makesContact: true,
     category: 'Physical',
+    highCritChance: true,
   },
   'Dual Chop': {
     bp: 40,
@@ -2387,7 +2392,7 @@ const SM_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'X-Scissor': {zp: 160},
   'Zap Cannon': {zp: 190},
   'Zen Headbutt': {zp: 160},
-  '10,000,000 Volt Thunderbolt': {bp: 195, type: 'Electric', category: 'Special', isZ: true},
+  '10,000,000 Volt Thunderbolt': {bp: 195, type: 'Electric', category: 'Special', highCritChance: true, isZ: true},
   'Acid Downpour': {bp: 1, type: 'Poison', category: 'Physical', isZ: true},
   'All-Out Pummeling': {bp: 1, type: 'Fighting', category: 'Physical', isZ: true},
   'Baddy Bad': {bp: 90, type: 'Dark', category: 'Special', zp: 175},
@@ -3529,6 +3534,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     category: 'Special',
     zp: 160,
     maxPower: 130,
+    highCritChance: true,
   },
   'Scorching Sands': {
     bp: 70,
@@ -4187,6 +4193,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     zp: 140,
     maxPower: 120,
     isSlicing: true,
+    highCritChance: true,
   },
   'Aqua Step': {
     bp: 80,
@@ -4341,6 +4348,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     maxPower: 90,
     makesContact: true,
     secondaries: true,
+    highCritChance: true,
   },
   'Electro Drift': {
     bp: 100,
@@ -4357,6 +4365,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     zp: 160,
     maxPower: 130,
     secondaries: true,
+    highCritChance: true,
   },
   'Fillet Away': {
     bp: 0,
@@ -4433,6 +4442,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     category: 'Physical',
     zp: 180,
     maxPower: 130,
+    highCritChance: true,
   },
   'Jet Punch': {
     bp: 60,
@@ -4745,6 +4755,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     zp: 175,
     maxPower: 90,
     secondaries: true,
+    highCritChance: true,
   },
   'Triple Dive': {
     bp: 30,
@@ -4854,6 +4865,7 @@ class Move implements I.Move {
   readonly mindBlownRecoil?: boolean;
   readonly struggleRecoil?: boolean;
   readonly willCrit?: boolean;
+  readonly highCritChance?: boolean;
   readonly drain?: [number, number];
   readonly priority?: number;
   readonly self?: I.SelfOrSecondaryEffect | null;

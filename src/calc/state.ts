@@ -32,6 +32,7 @@ export namespace State {
     ivs?: Partial<I.StatsTable>;
     evs?: Partial<I.StatsTable>;
     boosts?: Partial<I.StatsTable>;
+    critBoost?: number;
     randomBoosts?: number;
     originalCurHP?: number;
     status?: I.StatusName | '';
@@ -53,6 +54,7 @@ export namespace State {
     useZ?: boolean;
     useMax?: boolean;
     isCrit?: boolean;
+    highCritChance?: boolean;
     isSpread?: boolean;
     hits?: number;
     timesUsed?: number;

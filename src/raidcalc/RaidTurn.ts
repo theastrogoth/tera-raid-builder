@@ -189,6 +189,17 @@ export class RaidTurn {
         this.countDownFieldEffects();
         this.countDownAbilityNullification();
 
+        // Syrup Bomb speed drops
+        for (let i=0; i<5; i++) {
+            const pokemon = this._raidState.getPokemon(i);
+            if (pokemon.syrupBombDrops) {
+                const origSpe = pokemon.boosts.spe || 0;
+                this._raidState.applyStatChange(i, {"spe": -1}, false, false, false);
+                this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
+                pokemon.syrupBombDrops--;
+            }
+        }
+
         return {
             state: this._raidState,
             results: [this._result1, this._result2],

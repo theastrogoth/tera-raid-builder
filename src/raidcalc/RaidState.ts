@@ -544,6 +544,18 @@ export class RaidState implements State.RaidState{
                     field.attackerSide.powerSpots -= 1;
                 }
             }
+        } else if (ability === "Battery") {
+            if (id === 0) {
+                this.fields[0].attackerSide.isBattery = false;
+            } else if (
+                !this.raiders.slice(1)
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Battery" as AbilityName)
+            ) {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.isBattery = false;
+                }
+            }
         } else if (ability === "Friend Guard") {
             if (id !== 0) {
                 for (let fid=1; fid<5; fid++) {
@@ -678,6 +690,14 @@ export class RaidState implements State.RaidState{
                 }
             }
             flags[id].push("Power Spot boosts attack power");
+        } else if (ability === "Battery") {
+            if (id === 0){
+                this.fields[0].attackerSide.isBattery = true;
+            } else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.isBattery = true;
+                }
+            }
         // Friend Guard
         } else if (ability === "Friend Guard") {
             if (id !== 0) {

@@ -981,6 +981,12 @@ export class RaidMove {
             case "Focus Energy":
                 this._user.critBoost = (this._user.critBoost || 0) + 2;
                 break;
+            case "Syrup Bomb":
+                if (!target.syrupBombDrops) {
+                    target.syrupBombDrops = 3;
+                    this._flags[this.targetID].push("Covered in Sticky Syrup!");
+                }
+                break;
             default: break;
             }
     }

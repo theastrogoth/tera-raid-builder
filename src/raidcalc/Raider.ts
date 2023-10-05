@@ -28,6 +28,8 @@ export class Raider extends Pokemon implements State.Raider {
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
     originalAbility: AbilityName | "(None)";   // stores ability when nullified
 
+    syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
+
     constructor(
         id: number, 
         role: string, 
@@ -46,6 +48,7 @@ export class Raider extends Pokemon implements State.Raider {
         shieldBroken: boolean | undefined = undefined, 
         abilityNullified: number | undefined = 0, 
         originalAbility: AbilityName | "(None)" | undefined = undefined,
+        syrupBombDrops: number | undefined = 0,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -64,6 +67,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.shieldBroken = shieldBroken;
         this.abilityNullified = abilityNullified;
         this.originalAbility = originalAbility || pokemon.ability || "(None)";
+        this.syrupBombDrops = syrupBombDrops;
     }
 
     clone(): Raider {
@@ -118,6 +122,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.shieldBroken,
             this.abilityNullified,
             this.originalAbility,
+            this.syrupBombDrops,
         )
     }
 

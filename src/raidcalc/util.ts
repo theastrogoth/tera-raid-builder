@@ -3,7 +3,6 @@ import { AilmentName, RaidTurnInfo } from "./interface";
 import { Raider } from "./Raider";
 import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
-import { get } from "http";
 
 const gen = Generations.get(9);
 

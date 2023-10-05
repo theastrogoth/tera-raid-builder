@@ -144,3 +144,9 @@ export type TurnGroupInfo = {
     turns: RaidTurnInfo[],
     repeats?: number,
 }
+
+export type SubstituteBuildInfo = {
+    raider: Raider,
+    substituteMoves: MoveName[],
+    substituteTargets: number[],
+}

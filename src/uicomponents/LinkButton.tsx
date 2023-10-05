@@ -13,7 +13,7 @@ import { RaidState } from "../raidcalc/RaidState";
 import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
-import { MoveData, RaidTurnInfo, TurnGroupInfo } from "../raidcalc/interface";
+import { MoveData, RaidTurnInfo, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 
 
 const gen = Generations.get(9);
@@ -127,13 +127,42 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
         const notes = obj.notes || "";
         const credits = obj.credits || "";
 
-        return {name, notes, credits, pokemon, groups}
+        const substitutes: SubstituteBuildInfo[][] = await Promise.all((obj.substitutes || [[],[],[],[]]).map(async (subsList) => 
+            await Promise.all(subsList.map(async (s,i) => 
+                    {
+                        const r = s.raider;
+                        const subPoke = new Raider(i+1, r.role, r.shiny, new Field(), 
+                            new Pokemon(gen, r.name, {
+                                ability: r.ability || undefined,
+                                item: r.item || undefined,
+                                nature: r.nature || undefined,
+                                evs: r.evs || undefined,
+                                ivs: r.ivs || undefined,
+                                level: r.level || undefined,
+                                teraType: (r.teraType || undefined) as (TypeName | undefined),
+                                isTera: i === 0,
+                                bossMultiplier: r.bossMultiplier || undefined,
+                                moves: r.moves || undefined,
+                                shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
+                            }), 
+                            (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+                        );
+                        return {
+                            raider: subPoke,
+                            substituteMoves: s.substituteMoves as MoveName[],
+                            substituteTargets: s.substituteTargets,
+                        };
+                    }
+                )),
+            ));
+
+        return {name, notes, credits, pokemon, groups, substitutes}
     } catch (e) {
         return null;
     }
 }
 
-function serializeInfo(info: RaidBattleInfo): string {
+function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][]): string {
     const obj: LightBuildInfo = {
         name: info.name || "",
         notes: info.notes || "",
@@ -177,15 +206,36 @@ function serializeInfo(info: RaidBattleInfo): string {
         })).flat(),
         groups: info.groups.map((g) => g.turns.map((t) => t.id)),
         repeats: info.groups.map((g) => g.repeats || 1),
+        substitutes: substitutes.map((subsList) => subsList.map((s) => {
+            const r = s.raider;
+            return {
+                raider: {
+                    id: r.id,
+                    role: r.role,
+                    name: r.name,
+                    shiny: r.shiny,
+                    ability: r.ability,
+                    item: r.item,
+                    nature: r.nature,
+                    evs: r.evs,
+                    ivs: r.ivs,
+                    level: r.level,
+                    teraType: r.teraType,
+                    moves: r.moves,
+                },
+                substituteMoves: s.substituteMoves,
+                substituteTargets: s.substituteTargets,
+            }
+        })),
     }
     console.log(obj); // for developer use
     return serialize(obj);
 }
 
-function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, setCredits, setPrettyMode}: 
-    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, 
+function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes}: 
+    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
       setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
-      setPrettyMode: (p: boolean) => void}) {
+      setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[] }) {
     const [buildInfo, setBuildInfo] = useState(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
@@ -229,6 +279,10 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
                     raidInputProps.setPokemon[3](pokemon[3]);
                     raidInputProps.setPokemon[4](pokemon[4]);
                     raidInputProps.setGroups(groups);
+                    setSubstitutes[0](res.substitutes[0]);
+                    setSubstitutes[1](res.substitutes[1]);
+                    setSubstitutes[2](res.substitutes[2]);
+                    setSubstitutes[3](res.substitutes[3]);
                     setHasLoadedInfo(true);
                 }
             } catch (e) {
@@ -251,13 +305,16 @@ function LinkButton({title, notes, credits, raidInputProps, setTitle, setNotes, 
         <Button
             variant="outlined"
             onClick={() => {
-                const link = window.location.href.split("#")[0] + "#" + serializeInfo({
-                    name: title,
-                    notes: notes,
-                    credits: credits,
-                    startingState: new RaidState(raidInputProps.pokemon),
-                    groups: raidInputProps.groups,
-                });
+                const link = window.location.href.split("#")[0] + "#" + serializeInfo(
+                    {
+                        name: title,
+                        notes: notes,
+                        credits: credits,
+                        startingState: new RaidState(raidInputProps.pokemon),
+                        groups: raidInputProps.groups,
+                    },
+                    substitutes,
+                );
                 navigator.clipboard.writeText(link)
             }}
         >

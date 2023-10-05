@@ -21,7 +21,7 @@ import StratFooter from './uicomponents/StratFooter.tsx';
 
 import { Generations, Pokemon, Field } from './calc/index.ts';
 import { MoveName } from './calc/data/interface.ts';
-import { TurnGroupInfo } from './raidcalc/interface.ts';
+import { SubstituteBuildInfo, TurnGroupInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
 import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
@@ -219,7 +219,7 @@ function App() {
     }), 
     [
       {name: "Triple Arrows" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "def", change: -1}], statChance: 50, flinchChance: 30},
-      {name: "Brave Bird" as MoveName, category: "damage", target: "selected-pokemon", drain: -0.5},
+      {name: "Brave Bird" as MoveName, category: "damage", target: "selected-pokemon", drain: -50},
       {name: "Leaf Blade" as MoveName, category: "damage", target: "selected-pokemon"},
       {name: "Rock Tomb" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spe", change: -1}], statChance: 100},
     ], 
@@ -239,7 +239,7 @@ function App() {
       evs: {atk: 252, spe: 252},
     }), 
     [
-      {name: "Flare Blitz" as MoveName, category: "damage", target: "selected-pokemon", drain: -0.5},
+      {name: "Flare Blitz" as MoveName, category: "damage", target: "selected-pokemon", drain: -50},
     ])
   );
   const [raider2, setRaider2] = useState(
@@ -292,12 +292,18 @@ function App() {
       ]
     }
   ]);
+  const [substitutes1, setSubstitutes1] = useState<SubstituteBuildInfo[]>([]);
+  const [substitutes2, setSubstitutes2] = useState<SubstituteBuildInfo[]>([]);
+  const [substitutes3, setSubstitutes3] = useState<SubstituteBuildInfo[]>([]);
+  const [substitutes4, setSubstitutes4] = useState<SubstituteBuildInfo[]>([]);
 
   const raidInputProps: RaidInputProps = {
     pokemon: [raidBoss, raider1, raider2, raider3, raider4],
     setPokemon: [setRaidBoss, setRaider1, setRaider2, setRaider3, setRaider4],
     groups: groups,
     setGroups: setGroups,
+    // substitutes: [substitutes1, substitutes2, substitutes3, substitutes4],
+    // setSubstitutes: [setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4],
   }
 
   const [results, setResults] = useState<RaidBattleResults>(
@@ -325,14 +331,14 @@ function App() {
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} prettyMode={prettyMode} />
-              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} prettyMode={prettyMode}/>
+              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} substitutes={substitutes1} setSubstitutes={setSubstitutes1} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} substitutes={substitutes2} setSubstitutes={setSubstitutes2} prettyMode={prettyMode}/>
             </Stack>
           </Grid>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} prettyMode={prettyMode} />
-              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} substitutes={substitutes3} setSubstitutes={setSubstitutes3} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} substitutes={substitutes4} setSubstitutes={setSubstitutes4} prettyMode={prettyMode} />
             </Stack>
           </Grid>
           <Grid item>
@@ -352,6 +358,8 @@ function App() {
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps}
                     setTitle={setTitle} setNotes={setNotes} setCredits={setCredits}
+                    substitutes={[substitutes1, substitutes2, substitutes3, substitutes4]}
+                    setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
                     setPrettyMode={setPrettyMode}
                   />
                   <Box width="15px"/>

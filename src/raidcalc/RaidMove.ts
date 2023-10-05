@@ -254,6 +254,7 @@ export class RaidMove {
                         "Seed Bomb",
                         "Shadow Ball",
                         "Sludge Bomb",
+                        "Syrup Bomb",
                         "Weather Ball",
                         "Zap Cannon"
                     ].includes(moveName)) 

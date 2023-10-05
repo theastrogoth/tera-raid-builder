@@ -1,13 +1,13 @@
 {
     "name": "Triple Arrows",
-    "category": null,
+    "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Fighting",
     "power": 90,
     "accuracy": 100,
     "priority": 0,
-    "drain": null,
-    "healing": null,
+    "drain": 0,
+    "healing": 0,
     "selfDamage": null,
     "ailment": null,
     "statChanges": [
@@ -18,7 +18,7 @@
     ],
     "flinchChance": 30,
     "statChance": 50,
-    "ailmentChance": null,
+    "ailmentChance": 0,
     "minHits": null,
     "maxHits": null
 }

@@ -700,9 +700,12 @@ export class RaidMove {
                 this._desc[this.targetID] = "The Raid Boss nullified all stat boosts and abilities!"
                 for (let i=1; i<5; i++) {
                     const pokemon = this.getPokemon(i);
-                    pokemon.ability = "(None)" as AbilityName;
-                    pokemon.abilityOn = false;
-                    pokemon.abilityNullified = i === this.targetID ? 2 : 1;
+                    // Helping Hand is NOT cleared
+                    if (!pokemon.hasItem("Ability Shield")) {
+                        pokemon.ability = "(None)" as AbilityName;
+                        pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed
+                        pokemon.abilityNullified = i === this.targetID ? 2 : 1;
+                    }
                     pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers
                     pokemon.field.attackerSide.isDefCheered = 0;
                     for (let stat in pokemon.boosts) {

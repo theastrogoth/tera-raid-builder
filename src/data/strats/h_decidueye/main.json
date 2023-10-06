@@ -178,32 +178,6 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Night Slash",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 0,
-            "moveInfo": {
                 "name": "Helping Hand",
                 "userID": 3,
                 "targetID": 1,
@@ -237,6 +211,32 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Night Slash",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "max",
                     "hits": 1
                 }
             },
@@ -303,14 +303,14 @@
                     "shiny": true,
                     "ability": "Anger Point",
                     "item": "Choice Band",
-                    "nature": "Adamant",
+                    "nature": "Impish",
                     "evs": {
                         "hp": 0,
-                        "atk": 252,
-                        "def": 0,
+                        "atk": 172,
+                        "def": 172,
                         "spa": 0,
                         "spd": 0,
-                        "spe": 252
+                        "spe": 164
                     },
                     "ivs": {
                         "hp": 31,
@@ -322,11 +322,11 @@
                     },
                     "level": 100,
                     "moves": [
-                        "Flare Blitz"
+                        "Heat Crash"
                     ]
                 },
                 "substituteMoves": [
-                    "Flare Blitz"
+                    "Heat Crash"
                 ],
                 "substituteTargets": [
                     0

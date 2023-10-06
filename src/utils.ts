@@ -148,6 +148,9 @@ export function getEVDescription(evs: StatsTable) {
 }
 
 export function getIVDescription(ivs: StatsTable) {
+    if (ivs.hp === 13) {
+        return "Untrained"
+    }
     const filteredPairs = Object.entries(ivs).filter(([key, value]) => value !== 31);
     return filteredPairs.length === 0 ? "All Hypertrained" : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
 }

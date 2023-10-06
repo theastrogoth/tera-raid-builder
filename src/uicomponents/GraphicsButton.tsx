@@ -541,12 +541,12 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                 <BuildHeaderSeparator />
                                             </BuildHeader>
                                             <BuildInfoContainer>
-                                                <BuildInfo>Level: {raider.level}</BuildInfo>
+                                                <BuildInfo>Level: {raider.level === 13 ? "Any" : raider.level}</BuildInfo>
                                                 {raider.item ?
                                                     <BuildInfo>Item: {raider.item}</BuildInfo> : null}
                                                 {raider.ability !== "(No Ability)" ?
                                                     <BuildInfo>Ability: {raider.ability}</BuildInfo> : null}
-                                                <BuildInfo>Nature: {raider.nature}</BuildInfo>
+                                                <BuildInfo>Nature: {raider.nature === "Hardy" ? "Any" : raider.nature}</BuildInfo>
                                                 {getEVDescription(raider.evs) ? 
                                                     <BuildInfo>EVs: {getEVDescription(raider.evs)}</BuildInfo> : null}
                                                 {getIVDescription(raider.ivs) ? 

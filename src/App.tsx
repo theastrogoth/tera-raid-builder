@@ -211,23 +211,24 @@ function App() {
     new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Decidueye-Hisui", {
       teraType: "Grass",
       isTera: true,
-      bossMultiplier: 3500,
+      bossMultiplier: 3000,
       nature: "Adamant",
       ability: "Scrappy",
-      moves: ["Triple Arrows", "Brave Bird", "Leaf Blade", "Rock Tomb"],
+      moves: ["Triple Arrows", "Brave Bird", "Shadow Claw", "Leaf Blade"],
       shieldData: {hpTrigger: 60, timeTrigger: 60, shieldCancelDamage: 40, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
       {name: "Triple Arrows" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "def", change: -1}], statChance: 50, flinchChance: 30},
       {name: "Brave Bird" as MoveName, category: "damage", target: "selected-pokemon", drain: -50},
+      {name: "Shadow Claw" as MoveName, category: "damage", target: "selected-pokemon"},
       {name: "Leaf Blade" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Rock Tomb" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "spe", change: -1}], statChance: 100},
     ], 
-    ["Tailwind", "Bulk Up", "Sunny Day"] as MoveName[], 
+    ["Bulk Up", "Swords Dance", "Grassy Terrain", "Leaf Storm"] as MoveName[], 
     [
-      {name: "Tailwind" as MoveName, category: "field-effect", target: "users-field"},
       {name: "Bulk Up" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "def", change: 1}], statChance: 100},
-      {name: "Sunny Day" as MoveName, category: "whole-field-effect", target: "entire-field"},
+      {name: "Swords Dance" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 2}], statChance: 100},
+      {name: "Grassy Terrain" as MoveName, category: "whole-field-effect", target: "entire-field"},
+      {name: "Leaf Storm" as MoveName, category: "damage+raise", target: "selected-pokemon", statChanges: [{stat: "spa", change: -2}], statChance: 100},
     ])
   );
   const [raider1, setRaider1] = useState(
@@ -236,37 +237,39 @@ function App() {
       ability: "Anger Point",
       moves: ["Flare Blitz"],
       item: "Choice Band",
-      evs: {atk: 252, spe: 252},
+      evs: {atk: 252},
     }), 
     [
       {name: "Flare Blitz" as MoveName, category: "damage", target: "selected-pokemon", drain: -50},
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Meowscarada", false, new Field(), new Pokemon(gen, "Meowscarada", {
-      nature: "Hardy",
-      ability: "(No Ability)",
-      moves: ["Flower Trick"],
-      item: "Focus Sash",
-    }), 
-    [
-      {name: "Flower Trick" as MoveName, category: "damage", target: "selected-pokemon"},
-    ])
-  );
-  const [raider3, setRaider3] = useState(
-    new Raider(3, "Umbreon", false, new Field(), new Pokemon(gen, "Umbreon", {
-      nature: "Relaxed",
-      ability: "Inner Focus",
-      moves: ["Screech"],
-      item: "Zoom Lens",
+    new Raider(2, "Honchkrow", false, new Field(), new Pokemon(gen, "Honchkrow", {
+      nature: "Bold",
+      ability: "Super Luck",
+      moves: ["Night Slash"],
+      item: "Scope Lens",
       evs: {hp: 252, def: 252},
     }), 
     [
-      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
+      {name: "Night Slash" as MoveName, category: "damage", target: "selected-pokemon"},
+    ])
+  );
+  const [raider3, setRaider3] = useState(
+    new Raider(3, "Torkoal", false, new Field(), new Pokemon(gen, "Torkoal", {
+      level: 1,
+      nature: "Hardy",
+      ability: "Drought",
+      moves: ["Helping Hand"],
+      item: "Focus Sash",
+    }), 
+    [
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
   const [raider4, setRaider4] = useState(
     new Raider(4, "Stonjourner", false, new Field(), new Pokemon(gen, "Stonjourner", {
+      level: 1,
       nature: "Hardy",
       ability: "Power Spot",
       moves: [],

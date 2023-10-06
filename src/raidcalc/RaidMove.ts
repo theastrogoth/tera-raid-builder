@@ -385,6 +385,7 @@ export class RaidMove {
             } else {
                 try {
                     const target = this.getPokemon(id);
+                    const critStage = (moveUser.critBoost || 0) + (moveUser.ability === "Super Luck" ? 1 : 0) + (moveUser.hasItem("Scope Lens", "Razor Claw") ? 1 : 0) + (this.move.highCritChance ? 1 : 0);
                     const crit = this.options.crit || false;
                     const roll = this.options.roll || "avg";
                     const superEffective = isSuperEffective(this.move, target.field, this._user, target);

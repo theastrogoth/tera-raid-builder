@@ -175,7 +175,7 @@ export class RaidMove {
                 continue;
             }
             // Ability-based immunities
-            if (!this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze")) {
+            if (!(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))) {
                 if (pokemon.ability === "Good As Gold" && category === "Status" && targetType !== "user") { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue; 
@@ -501,7 +501,7 @@ export class RaidMove {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const target = this.getPokemon(id);
                 if (target.item === "Covert Cloak" || target.ability === "Shield Dust") { continue; }
-                if (target.ability === "Inner Focus" && !ignoreAbility) { continue; }
+                if (target.ability === "Inner Focus" && !(ignoreAbility && !target.hasItem("Ability Shield"))) { continue; }
                 this._causesFlinch[id] = true;
                 if (this._user.ability === "Steadfast") {
                     this._raidState.applyStatChange(id, {spe: 1}, true, false);
@@ -540,7 +540,7 @@ export class RaidMove {
                     }
                     boost[stat] = change;
                 }
-                this._raidState.applyStatChange(id, boost, true, id === this.userID, this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze"))
+                this._raidState.applyStatChange(id, boost, true, id === this.userID, this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))
             }
         }
     }
@@ -548,7 +548,6 @@ export class RaidMove {
     private applyAilment() {
         const ailment = this.moveData.ailment;
         const chance = this.moveData.ailmentChance || 100;
-        const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze");
         if (ailment && (chance === 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
@@ -556,6 +555,7 @@ export class RaidMove {
                 if (pokemon.originalCurHP === 0) { continue; }
                 const field = pokemon.field;
                 const status = ailmentToStatus(ailment);
+                const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield");
                 // Covert Cloak
                 if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
                 // volatile status
@@ -729,7 +729,8 @@ export class RaidMove {
                     !persistentAbilities["uncopyable"].includes(user_ability) &&
                     !persistentAbilities["uncopyable"].includes(target_ability) &&
                     !persistentAbilities["unreplaceable"].includes(user_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["unreplaceable"].includes(target_ability) &&
+                    !target.hasItem("Ability Shield")
                 ) {
                     const tempUserAbility = user_ability;
                     this._user.ability = target.ability;
@@ -739,7 +740,8 @@ export class RaidMove {
             case "Core Enforcer":
             case "Gastro Acid":
                 if (
-                    !persistentAbilities["unsuppressable"].includes(target_ability)
+                    !persistentAbilities["unsuppressable"].includes(target_ability) &&
+                    !target.hasItem("Ability Shield")
                 ) {
                     target.ability = undefined;
                 }
@@ -747,14 +749,16 @@ export class RaidMove {
             case "Entrainment":
                 if (
                     !persistentAbilities["uncopyable"].includes(user_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["unreplaceable"].includes(target_ability) &&
+                    !target.hasItem("Ability Shield")
                 ) {
                     target.ability = user_ability;
                 }
                 break;
             case "Worry Seed":
                 if (
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["unreplaceable"].includes(target_ability) && 
+                    !target.hasItem("Ability Shield")
                 ) {
                     target.ability = "Insomnia" as AbilityName;
                 }

@@ -862,7 +862,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
                 onClick={(e) => handleClick(e)}
                 endIcon={<MenuIcon/>}
             >
-                Load Subsitute
+                Load Substitute
             </Button>
             <Menu
                 anchorEl={anchorEl}
@@ -1128,7 +1128,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             onClick={(e) => handleAddSubstitute()}
                             startIcon={<AddIcon/>}
                         >
-                            Add Subsitute
+                            Add Substitute
                         </Button>
                     }
                     { substitutes.length > 0 &&

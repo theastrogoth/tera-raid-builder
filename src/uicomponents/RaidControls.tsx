@@ -72,7 +72,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
     const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
     
-    const turnState = displayedTurn === 0 ? results.endState : results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].state;
+    const turnState = (displayedTurn === 0 || displayedTurn > results.turnResults.length) ? results.endState : results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].state;
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
 
     const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 

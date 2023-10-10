@@ -700,10 +700,14 @@ export class RaidMove {
                 for (let i=1; i<5; i++) {
                     const pokemon = this.getPokemon(i);
                     // Helping Hand is NOT cleared
-                    if (!pokemon.hasItem("Ability Shield")) {
+                    if (!persistentAbilities.unsuppressable.includes(pokemon.ability as AbilityName) 
+                        && pokemon.hasItem("Ability Shield")
+                    ) { // abilities that are not unsupressable are nullified
                         pokemon.ability = "(None)" as AbilityName;
-                        pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed
                         pokemon.abilityNullified = i === this.targetID ? 2 : 1;
+                    }
+                    if (!pokemon.hasItem("Ability Shield")) {
+                        pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed no without Ability Shield
                     }
                     pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers
                     pokemon.field.attackerSide.isDefCheered = 0;

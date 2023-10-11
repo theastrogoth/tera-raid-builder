@@ -50,6 +50,7 @@ export interface RawDesc {
   moveName: string;
   moveTurns?: string;
   moveType?: TypeName;
+  batteries?: number;
   powerSpots?: number;
   rivalry?: 'buffed' | 'nerfed';
   steelySpirits?: number;
@@ -908,6 +909,9 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
   }
   if (description.isBattery) {
     output += ' Battery boosted ';
+  }
+  if (description.batteries) {
+    output += ' with ' + description.batteries + ' Battery ' + (description.batteries === 1 ? 'boost' : 'boosts') + ' ';
   }
   if (description.isPowerSpot) {
     output += ' Power Spot boosted ';

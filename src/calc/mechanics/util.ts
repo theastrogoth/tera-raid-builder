@@ -427,22 +427,23 @@ export function isQPActive(
   pokemon: Pokemon,
   field: Field
 ): boolean {
-  if (!pokemon.boostedStat) {
+  if (!(pokemon.boostedStat && pokemon.abilityOn)) {
     return false;
   }
+  return true;
 
-  const weather = field.weather || '';
-  const terrain = field.terrain;
-  if (
-    (pokemon.hasAbility('Protosynthesis') &&
-      (weather.includes('Sun') || pokemon.abilityOn)) ||
-    (pokemon.hasAbility('Quark Drive') &&
-      (terrain === 'Electric' || pokemon.abilityOn)) ||
-    (pokemon.boostedStat !== 'auto')
-  ) {
-    return true;
-  }
-  return false;
+  // const weather = field.weather || '';
+  // const terrain = field.terrain;
+  // if (
+  //   (pokemon.hasAbility('Protosynthesis') &&
+  //     (weather.includes('Sun') || pokemon.abilityOn)) ||
+  //   (pokemon.hasAbility('Quark Drive') &&
+  //     (terrain === 'Electric' || pokemon.abilityOn)) ||
+  //   (pokemon.boostedStat !== 'auto')
+  // ) {
+  //   return true;
+  // }
+  // return false;
 }
 
 export function getFinalDamage(

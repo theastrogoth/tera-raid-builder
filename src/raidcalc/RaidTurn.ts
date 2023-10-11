@@ -33,6 +33,8 @@ export class RaidTurn {
     id:        number;
     group?:     number;
 
+    _isBossAction!:     boolean;
+
     _raiderMovesFirst!: boolean;
     _raider!:           Raider;
     _boss!:             Raider;  
@@ -70,6 +72,8 @@ export class RaidTurn {
     }
 
     public result(): RaidTurnResult {
+        // check if the turn should be considered a boss action
+        this._isBossAction = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name !== "(No Move)";
         // set up moves
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
@@ -120,7 +124,7 @@ export class RaidTurn {
         this._bossMoveUsed = this._bossMoveData.name;
 
         this.applyChangedMove();
-
+        
         // steal tera charge
         if (this.bossOptions.stealTeraCharge) {
             this._flags[0].push("The Raid Boss stole a Tera charge!");
@@ -129,7 +133,24 @@ export class RaidTurn {
                 pokemon.teraCharge = Math.max(0, (pokemon.teraCharge || 0) - 1);
             }
         }
-
+        
+        if (!this._isBossAction) {
+            // sleep wake-up check
+            const moveUser = this._raidState.getPokemon(this._raiderMoveID);
+            if (moveUser.isSleep === 0 && moveUser.hasStatus("slp")) {
+                moveUser.status = "";
+                this._flags[this._raiderMoveID].push("woke up");
+            }
+            if (this._boss.isSleep === 0 && this._boss.hasStatus("slp")) {
+                this._boss.status = "";
+                this._flags[0].push("woke up");
+            }
+            // taunt shake-off check
+            if (moveUser.isTaunt === 0 && moveUser.volatileStatus.includes("taunt")) {
+                moveUser.volatileStatus = moveUser.volatileStatus.filter((status) => status !== "taunt");
+                this._flags[this._raiderMoveID].push("shook off the taunt");
+            }
+        }
         // execute moves
         if (this._raiderMovesFirst) {
             this._raidMove1 = new RaidMove(
@@ -140,7 +161,9 @@ export class RaidTurn {
                 this._raiderMoveTarget,
                 this.raiderID,
                 this._raiderMovesFirst,
-                this.raiderOptions);
+                this.raiderOptions,
+                this._isBossAction
+            );
             this._result1 = this._raidMove1.result();
         this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
@@ -152,6 +175,7 @@ export class RaidTurn {
                 this.raiderID,
                 !this._raiderMovesFirst,
                 this.bossOptions,
+                this._isBossAction,
                 this._result1.causesFlinch[0]);
         } else {
             this._raidMove1 = new RaidMove(
@@ -162,7 +186,9 @@ export class RaidTurn {
                 this.raiderID,
                 this.raiderID,
                 !this._raiderMovesFirst,
-                this.bossOptions);
+                this.bossOptions,
+                this._isBossAction
+            );
             this._result1 = this._raidMove1.result();
             this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
@@ -174,29 +200,49 @@ export class RaidTurn {
                 this.raiderID,
                 this._raiderMovesFirst,
                 this.raiderOptions,
-                this._result1.causesFlinch[this.raiderID]);
+                this._isBossAction,
+                this._result1.causesFlinch[this.raiderID]
+            );
         }
         this._raidMove2.result();
         this._result2 = this._raidMove2.output
-        this._raidState = this._result2.state;
-        // item effects
-        this.applyEndOfTurnItemEffects();
-        // Clear Endure (since side-attacks are not endured)
-        this._raidState.raiders[this.raiderID].isEndure = false;
-        this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
-        // remove protect / wide guard / quick guard effects
-        this.removeProtection();
-        this.countDownFieldEffects();
-        this.countDownAbilityNullification();
+        this._raidState = this._result2.state.clone();
 
-        // Syrup Bomb speed drops
-        for (let i=0; i<5; i++) {
-            const pokemon = this._raidState.getPokemon(i);
-            if (pokemon.syrupBombDrops) {
-                const origSpe = pokemon.boosts.spe || 0;
-                this._raidState.applyStatChange(i, {"spe": -1}, false, false, false);
-                this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
-                pokemon.syrupBombDrops--;
+        this.removeProtection();
+        if (!this._isBossAction) {
+            // item effects
+            this.applyEndOfTurnItemEffects();
+            // Clear Endure (since side-attacks are not endured)
+            this._raidState.raiders[this.raiderID].isEndure = false;
+            this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
+            // remove protect / wide guard / quick guard effects
+            this.countDownFieldEffects();
+            this.countDownAbilityNullification();
+
+            // Syrup Bomb speed drops
+            for (let i of [0, this.raiderID]) {
+                const pokemon = this._raidState.getPokemon(i);
+                if (pokemon.syrupBombDrops && (i !== 0 || this.raiderID === pokemon.syrupBombSource)) {
+                    const origSpe = pokemon.boosts.spe || 0;
+                    this._raidState.applyStatChange(i, {"spe": -1}, false, false, false);
+                    this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
+                    pokemon.syrupBombDrops--;
+                }
+            }
+            // yawn check
+            for (let i of [0, this.raiderID])  {
+                const pokemon = this._raidState.getPokemon(i);
+                if (pokemon.isYawn && ((i !== 0) || (this.raiderID === pokemon.yawnSource))) {
+                    pokemon.isYawn--;
+                    if (pokemon.isYawn === 0) {
+                        const sleepTurns = i === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
+                                                     (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
+                        pokemon.isSleep = sleepTurns;
+                        pokemon.status = "slp";
+                        pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
+                        this._endFlags.push(pokemon.name + " fell asleep!");
+                    }
+                }
             }
         }
 
@@ -227,8 +273,27 @@ export class RaidTurn {
     }
 
     private applyChangedMove() {
+        // disallow status moves if taunted
+        if (this._boss.isTaunt) {
+            const testMove = new Move(9, this.bossMoveData.name, this.bossOptions);
+            if (testMove.category === "Status" && !["Clear Boosts / Abilities", "Remove Negative Effects"].includes(testMove.name)) {
+                if (this._isBossAction) {
+                    this._bossMoveData = {name: "(No Move)" as MoveName, target: "selected-pokemon", category: "damage"}
+                    this._bossMove = new Move(9, "(No Move)", this.bossOptions);
+                    this._bossMoveUsed = "(No Move)";
+                } else {
+                    this._bossMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
+                }
+            }
+        }
+        if (this._raider.isTaunt) {
+            const testMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
+            if (testMove.category === "Status" && !["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(testMove.name)) {
+                this._raiderMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
+            }
+        }
         // For this option, pick the most damaging move based on the current field.
-        if (this.bossMoveData.name === "(Most Damaging)") {
+        if (this._bossMoveData.name === "(Most Damaging)") {
             const moveOptions = this._raidState.raiders[0].moves;
             let bestMove = "(No Move)";
             let bestDamage = 0;
@@ -254,7 +319,7 @@ export class RaidTurn {
             this._bossMove = new Move(9, bestMove, this.bossOptions);
             this._bossMoveUsed = bestMove;
         }
-        if (this.raiderMoveData.name === "(Most Damaging)") {
+        if (this._raiderMoveData.name === "(Most Damaging)") {
             const moveOptions = this._raidState.raiders[this.raiderID].moves;
             let bestMove = "(No Move)";
             let bestDamage = 0;
@@ -445,11 +510,25 @@ export class RaidTurn {
         const pokemon = this._raidState.getPokemon(this.raiderID);
         if (pokemon.abilityNullified) {
             pokemon.abilityNullified!--;
+            let abilityRestored = false;
+            let abilityReactivated = false;
             if (pokemon.abilityNullified === 0) { // restore ability after a full turn
-                pokemon.ability = pokemon.originalAbility as AbilityName;
+                if (pokemon.ability === "(No Ability)") { // if you overwrite the ability in the meantime, what happens?
+                    this._raidState.changeAbility(this.raiderID, pokemon.originalAbility);
+                    abilityRestored = pokemon.ability !== "(No Ability)";
+                }
+                if (pokemon.nullifyAbilityOn) {
+                    abilityReactivated = pokemon.abilityOn !== true;
+                    pokemon.nullifyAbilityOn = undefined;
+                    pokemon.abilityOn = true;
+                }
                 // Not sure if we need to do anything special here to trigger ability reactivation
-                if (pokemon.ability !== "(None)") {
+                if (abilityRestored && abilityReactivated) {
+                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " restored and reactivated");
+                } else if (abilityRestored) {
                     this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " restored");
+                } else if (abilityReactivated) {
+                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " reactivated");
                 }
             }
         }

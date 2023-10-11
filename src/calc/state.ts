@@ -108,6 +108,7 @@ export namespace State {
     friendGuards?: number;
     isAuroraVeil?: number;      // # turns remaining
     isBattery?: boolean;
+    batteries?: number;
     isPowerSpot?: boolean;
     powerSpots?: number;
     steelySpirits?: number;

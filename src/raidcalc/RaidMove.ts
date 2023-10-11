@@ -4,7 +4,7 @@ import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, StatIDExceptHP } from "../calc/data/interface";
-import { getQPBoostedStat, isGrounded } from "../calc/mechanics/util";
+import { isGrounded } from "../calc/mechanics/util";
 import { isSuperEffective, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
@@ -20,6 +20,7 @@ export type RaidMoveResult= {
     desc: string[];
     flags: string[][];
     causesFlinch: boolean[];
+    isSpread?: boolean;
 }
 
 // we'll always use generation 9
@@ -36,6 +37,7 @@ export class RaidMove {
     movesFirst: boolean;
     options: RaidMoveOptions;
     hits: number;
+    isBossAction?: boolean;
     flinch?: boolean;
 
     _raidState!: RaidState;
@@ -50,6 +52,7 @@ export class RaidMove {
 
     _flingItem?: string;
 
+    _isSpread?: boolean;
     _damage!: number[];
     _healing!: number[];
     _drain!: number[];
@@ -58,7 +61,7 @@ export class RaidMove {
     _desc!: string[];
     _flags!: string[][];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, flinch?: boolean) {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
@@ -67,6 +70,7 @@ export class RaidMove {
         this.raiderID = raiderID;
         this.movesFirst = movesFirst;
         this.options = raidMoveOptions || {};
+        this.isBossAction = isBossAction || false;
         this.flinch = flinch || false;
         this.hits = this.move.category === "Status" ? 0 : Math.max(this.moveData.minHits || 1, Math.min(this.moveData.maxHits || 1, this.options.hits || 1));
         this.hits = this.raidState.raiders[this.userID].ability === "Skill Link" ? (this.moveData.maxHits || 1) : this.hits;
@@ -74,7 +78,7 @@ export class RaidMove {
 
     public result(): RaidMoveResult {
         this.setOutputRaidState();
-        if (this._user.originalCurHP === 0) {
+        if (!this.checkIfMoves()) {
             const output = this.output;
             return output;
         }
@@ -98,7 +102,7 @@ export class RaidMove {
         }
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyEndOfMoveItemEffects();       
+        this.applyEndOfMoveEffects();       
         this._raidState.raiders[0].checkShield(); // check for shield breaking 
         this.setFlags();
         // store move data and target
@@ -128,6 +132,7 @@ export class RaidMove {
             desc: this._desc,
             flags: this._flags,
             causesFlinch: this._causesFlinch,
+            isSpread: this._isSpread,
         }
     }
 
@@ -148,11 +153,44 @@ export class RaidMove {
         this._flags=[[],[],[],[],[]];
     }
 
+    private checkIfMoves(): boolean {
+        if (this._user.originalCurHP === 0) {
+            return false;
+        } else if (this.isBossAction && this.userID !== 0) {
+            return false;
+        } else if (["Attack Cheer", "Defense Cheer", "Heal Cheer", "Remove Negative Effects", "Clear Boosts / Abilities"].includes(this.moveData.name)) {
+            return true;
+        } else {
+            if (this._user.isSleep) {
+                this._desc[this.userID] = this._user.name + " is fast asleep.";
+                this._user.isSleep--; // decrement sleep counter
+                return false;
+            } else if (
+                this._user.isTaunt && 
+                this.move.category === "Status" && 
+                ![
+                    "Clear Boosts / Abilities", 
+                    "Remove Negative Effects",
+                    "Attack Cheer",
+                    "Defense Cheer",
+                    "Heal Cheer",
+                ].includes(this.moveData.name)
+            ) {
+                this._desc[this.userID] = this._user.name + " can't use status moves due to taunt!";
+                this._user.isTaunt--; // decrement taunt counter
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
     private setAffectedPokemon() {
         const targetType = this.moveData.target;
         if (this.moveData.name === "Heal Cheer") { this._affectedIDs = [1,2,3,4]; }
         else if (targetType === "user") { this._affectedIDs = [this.userID]; }
-        else if (targetType === "selected-pokemon" || targetType === "all-opponents") { this._affectedIDs = [this.targetID]; }
+        else if (this.isBossAction && (targetType === "all-other-pokemon" || targetType === "all-opponents")) { this._affectedIDs = [1,2,3,4]; }
+        else if (targetType === "selected-pokemon" || targetType === "all-opponents" || targetType === "all-other-pokemon") { this._affectedIDs = [this.targetID]; }
         else if (targetType === "all-allies") { this._affectedIDs = this.userID === 0 ? [] : [1,2,3,4].splice(this.userID, 1); }
         else if (targetType === "user-and-allies") { this._affectedIDs = this.userID === 0 ? [0] : [1,2,3,4]; }
         else if (["users-field", "allies-field", "entire-field"].includes(targetType || "")) { this._affectedIDs = [this.userID]; } // make user the target for the purposes of generating the desc
@@ -362,18 +400,14 @@ export class RaidMove {
 
     private applyDamage() {
         const moveUser = this.getPokemon(this.userID);
+        // check for spread damage (boss actions only)
+        this._isSpread = this.moveData.category?.includes("damage") && (this._affectedIDs.length > 1);
         // protean / libero check
         if ((this.moveData.category || "").includes("damage") && (moveUser.ability === "Protean" || moveUser.ability === "Libero") && !moveUser.abilityOn) {
-            moveUser.proteanLiberoType = this.move.type;
+            moveUser.types = [this.move.type];
+            moveUser.changedTypes = [this.move.type];
             moveUser.abilityOn = true;
-        }
-        // QP check
-        if ((this._fields[this.userID].terrain === "Electric" && moveUser.ability === "Quark Drive")  ||
-            (this._fields[this.userID].weather === "Sun" && moveUser.ability === "Protosynthesis")
-        ) {
-            moveUser.abilityOn = true;
-            const qpStat = getQPBoostedStat(moveUser) as StatIDExceptHP;
-            moveUser.boostedStat = qpStat;
+            this._flags[this.userID].push("changed to the " + this.move.type + " type");
         }
         // calculate and apply damage
         let hasCausedDamage = false;
@@ -396,6 +430,7 @@ export class RaidMove {
                         const calcMove = this.move.clone();
                         calcMove.hits = 1;
                         calcMove.isCrit = crit;
+                        calcMove.isSpread = !!this._isSpread;
                         // handle moves that are affected by repeated use
                         if (this._user.lastMove && (this.moveData.name === this._user.lastMove.name)) {
                             this._user.moveRepeated = (this._user.moveRepeated || 0) + 1;
@@ -446,6 +481,19 @@ export class RaidMove {
                 } catch {
                     this._desc[id] = this._user.name + " " + this.move.name + " vs. " + this.getPokemon(id).name ; // temporary fix
                 }
+            }
+        }
+        // simplify/remove descs
+        if (this._affectedIDs.length > 1 && !this.moveData.category?.includes("damage")) {
+            for (let id of this._affectedIDs) {
+                this._desc[id] = "";
+            }
+            this._desc[this.userID] = this._user.name + " used " + this.move.name + "!";
+        } else if (this._affectedIDs.length === 1 && !this.moveData.category?.includes("damage")) {
+            if (this._affectedIDs[0] === this.userID) {
+                this._desc[this._affectedIDs[0]] = this._user.name + " used " + this.move.name + "!";
+            } else {
+                this._desc[this._affectedIDs[0]] = this._user.name + " used " + this.move.name + " on " + this.getPokemon(this._affectedIDs[0]).name + "!";
             }
         }
         // adjust tera charge
@@ -563,22 +611,19 @@ export class RaidMove {
                     // Safeguard and Misty Terrain block confusion
                     if (ailment === "confusion" && ((field.attackerSide.isSafeguard && this._user.ability !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { continue; }
                     // Aroma Veil
-                    if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation"].includes(ailment)) {
+                    if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation", "yawn"].includes(ailment)) {
                         continue;
                     // Own Tempo
-                    } else if (pokemon.ability === "Own Tempo" && ailment === "confusion") {
+                    } else if (!attackerIgnoresAbility && pokemon.ability === "Own Tempo" && ailment === "confusion") {
                         continue;
                     // Oblivious
-                    } else if (pokemon.ability === "Oblivious" && (ailment === "taunt" || ailment === "infatuation")) {
+                    } else if (!attackerIgnoresAbility && pokemon.ability === "Oblivious" && (ailment === "taunt" || ailment === "infatuation")) {
+                        continue;
+                    // yawn immunity
+                    } else if (ailment === "yawn" && !attackerIgnoresAbility && (pokemon.hasAbility("Vital Spirit", "Insomnia") || (pokemon.hasAbility("Leaf Guard") && pokemon.field.hasWeather("Sun")))) {
                         continue;
                     } else if (!pokemon.volatileStatus.includes(ailment)) {
-                        pokemon.volatileStatus.push!(ailment)
-                        if (ailment === "ingrain") {
-                            this._flags[id].push(pokemon.name + " planted its roots!");
-                            pokemon.isIngrain = true;
-                        } else {
-                            this._flags[id].push(ailment + " inflicted")
-                        }
+                        this._raidState.applyVolatileStatus(id, ailment, this.movesFirst, this.userID);
                     }
                 // non-volatile status
                 } else {
@@ -595,6 +640,9 @@ export class RaidMove {
                     if (status === "slp" && !attackerIgnoresAbility && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
                     if (pokemon.field.hasWeather("Sun") && !attackerIgnoresAbility && pokemon.ability === "Leaf Guard") { continue; }
                     this._raidState.applyStatus(id, status);
+                    if (status === "slp") { // lasts 1-3 turns
+                        pokemon.isSleep = this.options.roll === "max" ? 3 : this.options.roll === "min" ? 1 : 2;
+                    }
                 }
                 // Toxic Chain
                 if (this._user.ability === "Toxic Chain" && this.options.secondaryEffects && hasNoStatus(pokemon)) {
@@ -700,13 +748,17 @@ export class RaidMove {
                 for (let i=1; i<5; i++) {
                     const pokemon = this.getPokemon(i);
                     // Helping Hand is NOT cleared
-                    if (!persistentAbilities.unsuppressable.includes(pokemon.ability as AbilityName) 
-                        && pokemon.hasItem("Ability Shield")
+                    if (
+                        !persistentAbilities.unsuppressable.includes(pokemon.ability as AbilityName) 
+                        && !pokemon.hasItem("Ability Shield")
+                        && pokemon.ability !== "(No Ability)"
                     ) { // abilities that are not unsupressable are nullified
-                        pokemon.ability = "(None)" as AbilityName;
-                        pokemon.abilityNullified = i === this.targetID ? 2 : 1;
+                        this._raidState.changeAbility(i, "(No Ability)");
                     }
                     if (!pokemon.hasItem("Ability Shield")) {
+                        pokemon.abilityNullified = 1;
+                        pokemon.nullifyAbilityOn = pokemon.abilityOn;
+                        console.log(pokemon.name, pokemon.nullifyAbilityOn)
                         pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed no without Ability Shield
                     }
                     pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers
@@ -724,6 +776,12 @@ export class RaidMove {
                 const boss = this.getPokemon(0);
                 boss.status = "";
                 boss.volatileStatus = [];
+                boss.isTaunt = 0;
+                boss.isSleep = 0;
+                boss.isYawn = 0;
+                boss.yawnSource = 0;
+                boss.syrupBombDrops = 0;
+                boss.syrupBombSource = 0;
                 for (let stat in boss.boosts) {
                     boss.boosts[stat as StatIDExceptHP] = Math.max(0, boss.boosts[stat as StatIDExceptHP] || 0);
                 }
@@ -734,11 +792,12 @@ export class RaidMove {
                     !persistentAbilities["uncopyable"].includes(target_ability) &&
                     !persistentAbilities["unreplaceable"].includes(user_ability) &&
                     !persistentAbilities["unreplaceable"].includes(target_ability) &&
+                    !this._user.hasItem("Ability Shield") && 
                     !target.hasItem("Ability Shield")
                 ) {
                     const tempUserAbility = user_ability;
-                    this._user.ability = target.ability;
-                    target.ability = tempUserAbility;
+                    this._raidState.changeAbility(this.userID, target_ability);
+                    this._raidState.changeAbility(this.targetID, tempUserAbility);
                 }
                 break;
             case "Core Enforcer":
@@ -747,7 +806,7 @@ export class RaidMove {
                     !persistentAbilities["unsuppressable"].includes(target_ability) &&
                     !target.hasItem("Ability Shield")
                 ) {
-                    target.ability = undefined;
+                    this._raidState.changeAbility(this.targetID, "(No Ability)");
                 }
                 break;
             case "Entrainment":
@@ -756,7 +815,7 @@ export class RaidMove {
                     !persistentAbilities["unreplaceable"].includes(target_ability) &&
                     !target.hasItem("Ability Shield")
                 ) {
-                    target.ability = user_ability;
+                    this._raidState.changeAbility(this.targetID, user_ability);
                 }
                 break;
             case "Worry Seed":
@@ -764,7 +823,7 @@ export class RaidMove {
                     !persistentAbilities["unreplaceable"].includes(target_ability) && 
                     !target.hasItem("Ability Shield")
                 ) {
-                    target.ability = "Insomnia" as AbilityName;
+                    this._raidState.changeAbility(this.targetID, "Insomnia" as AbilityName);
                 }
                 break;
             case "Role Play":
@@ -772,14 +831,14 @@ export class RaidMove {
                     !persistentAbilities["uncopyable"].includes(target_ability) &&
                     !persistentAbilities["unreplaceable"].includes(user_ability)
                 ) {
-                    this._user.ability = target_ability;
+                    this._raidState.changeAbility(this.userID, target_ability);
                 }
                 break;
             case "Simple Beam":
                 if (
                     !persistentAbilities["unreplaceable"].includes(target_ability)
                 ) {
-                    target.ability = "Simple" as AbilityName;
+                    this._raidState.changeAbility(this.targetID, "Simple" as AbilityName);
                 }
                 break;
         /// Type-affecting moves
@@ -984,6 +1043,7 @@ export class RaidMove {
                     && !(this._user.field.hasWeather("Sun") && this._user.ability === "Leaf Guard")
                 ) {
                     this._user.originalCurHP = this._user.maxHP();
+                    this._user.isSleep = this.options.roll === "max" ? 1 : this.options.roll === "min" ? 3 : 2;
                     this._raidState.applyStatus(this.userID, "slp");
                 }
                 break;
@@ -1003,7 +1063,7 @@ export class RaidMove {
             }
     }
 
-    public applyEndOfMoveItemEffects() {
+    public applyEndOfMoveEffects() {
         /// Item-related effects that occur at the end of a move
         // Choice-locking items
         if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
@@ -1015,7 +1075,7 @@ export class RaidMove {
         // getEndOfTurn() calculates damage for a defending pokemon. 
         // Here, we'll evaluate end-of-turn damage for both the user and boss only when the move does not go first
         // positive eot indicates healing
-        if (!this.movesFirst) {
+        if (!this.movesFirst && !this.isBossAction) {
             const raider = this._raiders[this.raiderID];
             const boss = this._raiders[0];
             const raider_eot = getEndOfTurn(gen, boss, raider, dummyMove, this.getMoveField(0, this.raiderID));
@@ -1028,13 +1088,52 @@ export class RaidMove {
     }
 
     private applyEndOfTurnDamage() {
-        for (let i=0; i<5; i++) {
-            const damage = this._eot[i] ? -this._eot[i]!.damage : 0;
-            this._raidState.applyDamage(i, damage);
+        if (!this.isBossAction) {
+            for (let i=0; i<5; i++) {
+                const damage = this._eot[i] ? -this._eot[i]!.damage : 0;
+                this._raidState.applyDamage(i, damage);
+            }
         }
     }
 
     private setFlags() {
+        // check for fainting
+        const fainted = [false, false, false, false, false];
+        for (let i=0; i<5; i++) {
+            if (this._raiders[i].originalCurHP <= 0 && this.raidState.raiders[i].originalCurHP > 0) {
+                fainted[i] = true;
+            }
+        }
+        // check for volatile status changes
+        const initialVolatileStatus = this.raidState.raiders.map(p => p.volatileStatus);
+        const finalVolatileStatus = this._raiders.map(p => p.volatileStatus);
+        for (let i=0; i<5; i++) {
+            if (fainted[i]) { continue; }
+            // check for new statuses
+            for (let vStat of finalVolatileStatus[i]) {
+                if (!initialVolatileStatus[i].includes(vStat)) {
+                    if (vStat === "ingrain") {
+                        this._flags[i].push(" planted its roots!");
+                    } else if (vStat === "taunt") {
+                        this._flags[i].push(" fell for the taunt!");
+                    } else if (vStat === "yawn") {
+                        this._flags[i].push(" is getting drowsy...");
+                    } else {
+                        this._flags[i].push(vStat + " inflicted")
+                    }
+                }
+            }
+            // check for removed statuses
+            for (let vStat of initialVolatileStatus[i]) {
+                if (!finalVolatileStatus[i].includes(vStat)) {
+                    if (vStat === "ingrain") {
+                        this._flags[i].push(vStat + " lost");
+                    } else {
+                        this._flags[i].push(vStat + " cured")
+                    }
+                }
+            }
+        }
         // check for shield changes
         const initialShield = this.raidState.raiders[0].shieldActive;
         const finalShield = this._raiders[0].shieldActive;
@@ -1045,12 +1144,10 @@ export class RaidMove {
                 this._flags[0].push("Shield broken");
             }
         }
-        // check for fainting
-        const fainted = [false, false, false, false, false];
+        // display fainting
         for (let i=0; i<5; i++) {
-            if (this._raiders[i].originalCurHP <= 0 && this.raidState.raiders[i].originalCurHP > 0) {
+            if (fainted[i]) {
                 this._flags[i].push(this._raiders[i].name + " fainted!");
-                fainted[i] = true;
             }
         }
         // check for item changes
@@ -1073,7 +1170,7 @@ export class RaidMove {
         for (let i=0; i<5; i++) {
             if (fainted[i]) { continue; }
             if (initialAbilities[i] !== finalAbilities[i])  {
-                if (finalAbilities[i] === "(None)" || finalAbilities[i] === undefined) {
+                if (finalAbilities[i] === "(No Ability)" || finalAbilities[i] === undefined) {
                     this._flags[i].push(initialAbilities[i] + " nullified")
                 } else {
                     this._flags[i].push("ability changed to " + finalAbilities[i])

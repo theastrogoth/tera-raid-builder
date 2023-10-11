@@ -530,9 +530,9 @@ export function calculateSMSSSV(
   let stabMod = 4096;
   if (attacker.hasOriginalType(move.type)) {
     stabMod += 2048;
-  } else if (attacker.hasAbility('Protean', 'Libero') && attacker.abilityOn && (attacker.proteanLiberoType === move.type) && !atkTeraType) {
-    stabMod += 2048;
-    desc.attackerAbility = attacker.ability;
+    if (attacker.hasAbility('Protean', 'Libero') && attacker.types[0] === move.type) {
+      desc.attackerAbility = attacker.ability;
+    }
   }
   const teraType = atkTeraType;
   if (teraType === move.type) {
@@ -1085,6 +1085,13 @@ export function calculateBPModsSMSSSV(
   if (field.attackerSide.isBattery && move.category === 'Special') {
     bpMods.push(5325);
     desc.isBattery = true;
+  }
+
+  if (field.attackerSide.batteries > 0 && move.category === 'Special') {
+    for(var ii = 0; ii < field.attackerSide.batteries; ii++){
+        bpMods.push(5325);
+    }
+    desc.batteries = field.attackerSide.batteries;
   }
 
   if (field.attackerSide.isPowerSpot) {

@@ -102,6 +102,10 @@ export interface Raider extends Pokemon {
     extraMoves?: MoveName[];// for special boss actions
     extraMoveData?: MoveData[];
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
+    isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
+    isSleep?: number;       // store number of turns that a Pokemon is asleep
+    isYawn?: number;        // turn countdown until yawn takes effect\
+    yawnSource?: number;    // id of the pokemon that inflicted the user with Yawn
     lastMove?: MoveData;    // stored for Instruct and Copycat
     lastTarget?: number;    // stored for Instruct and Copycat
     moveRepeated?: number;  // stored for boost from Metronome, Fury Cutter, etc
@@ -109,7 +113,10 @@ export interface Raider extends Pokemon {
     shieldActivateHP?: number;
     shieldBroken?: boolean;
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
-    originalAbility?: AbilityName | "(None)"; // stores ability when nullified
+    nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
+    originalAbility?: AbilityName | "(No Ability)"; // stores ability when nullified
+    syrupBombDrops?: number;
+    syrupBombSource?: number;
 }
 
 export interface RaidState {

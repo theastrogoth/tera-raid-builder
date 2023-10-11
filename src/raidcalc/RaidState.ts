@@ -325,7 +325,7 @@ export class RaidState implements State.RaidState{
         }
         // Status curing berries
         if (pokemon.item === "Cheri Berry" && pokemon.status === "par") { pokemon.status = ""; this.loseItem(id); }
-        if (pokemon.item === "Chesto Berry" && pokemon.status === "slp") { pokemon.status = ""; this.loseItem(id); }
+        if (pokemon.item === "Chesto Berry" && pokemon.status === "slp") { pokemon.status = ""; pokemon.isSleep = 0; this.loseItem(id); }
         if (pokemon.item === "Pecha Berry" && pokemon.status === "psn") { pokemon.status = ""; this.loseItem(id); }
         if (pokemon.item === "Rawst Berry" && pokemon.status === "brn") { pokemon.status = ""; this.loseItem(id); }
         if (pokemon.item === "Aspear Berry" && pokemon.status === "frz") { pokemon.status = ""; this.loseItem(id); }
@@ -334,6 +334,27 @@ export class RaidState implements State.RaidState{
             pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
             this.loseItem(id); 
         }
+    }
+
+    public applyVolatileStatus(id: number, ailment: string, firstMove?: boolean, source?: number) {
+        const pokemon = this.getPokemon(id);
+        if (ailment === "confusion" && pokemon.hasItem("Lum Berry", "Persim Berry")) {
+            this.loseItem(id);
+        } else if (["infatuation", "taunt", "encore", "disable", "torment", "heal-block"].includes(ailment) && pokemon.hasItem("Mental Herb")){
+            this.loseItem(id);
+        } else {
+            pokemon.volatileStatus.push!(ailment);
+            if (ailment === "taunt") {
+                pokemon.isTaunt = (firstMove ? 3 : 4) * (id === 0 ? 4 : 1);
+            } else if (ailment === "yawn") {
+                pokemon.isYawn = 2;
+                pokemon.yawnSource = source;
+            } else if (ailment === "ingrain") {
+                pokemon.isIngrain = true;
+            }
+        }
+
+
     }
 
     public loseItem(id: number) {
@@ -448,34 +469,208 @@ export class RaidState implements State.RaidState{
         return pokemon.activateTera();
     }
 
-    public faint(id: number) {
-        let pokemon = this.getPokemon(id);
-        const ability = pokemon.ability;
-        // check Reciever / Power of Alchemy
-        for (let i=1; i<5; i++) {
-            if (i === id) { continue; }
-            const ally = this.getPokemon(i);
-            if ((ally.ability === "Receiver" || ally.ability === "Power Of Alchemy") && ally.originalCurHP !== 0) {
-                if (ability && !persistentAbilities["uncopyable"].includes(ability)) {
-                    ally.ability = ability;
+    public changeAbility(id: number, ability: AbilityName | "(No Ability)") {
+        const pokemon = this.getPokemon(id);
+        if (pokemon.hasItem("Ability Shield")) { return; }
+        if (ability === "(No Ability)") {
+            if (persistentAbilities.unsuppressable.includes(pokemon.ability || "")) { return; }
+        } else {
+            if (persistentAbilities.unreplaceable.includes(pokemon.ability || "")) { return; }
+        }
+        const oldAbility = pokemon.ability;
+        pokemon.ability = ability as AbilityName;
+        if (pokemon.ability !== oldAbility) {
+            // lost field effects
+            this.removeAbilityFieldEffect(id, oldAbility);
+            // gained field effects
+            this.addAbilityFieldEffect(id, ability, false);
+        }
+    }
+
+    public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchIn: boolean = false): string[][] {
+        const pokemon = this.getPokemon(id);
+        const flags: string[][] = [[],[],[],[],[]];
+        /// Trace (handled separately so the traced ability can activate if applicable)
+        if (ability === "Trace") {
+            const opponentIds = id === 0 ? [1,2,3,4] : [0];
+            for (let oid of opponentIds) { // Trace might be random for bosses, but we'll check abilities in order
+                const copiedAbility = this.raiders[oid].ability;
+                if (copiedAbility && !persistentAbilities["uncopyable"].includes(copiedAbility)) {
+                    pokemon.ability = copiedAbility;
+                    ability = copiedAbility;
+                    flags[id].push("Trace copies " + copiedAbility);
+                    break;
+                }
+            } 
+        }
+        //// Abilities only activated upon switch-in
+        if (switchIn) {
+            /// Weather Abilities
+            if (ability === "Drought") {
+                this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
+                flags[id].push("Drought summons the Sun");
+            } else if (ability === "Drizzle") {
+                this.applyWeather("Rain", pokemon.item === "Damp Rock" ? 32 : 20);
+                flags[id].push("Drizzle summons the Rain");
+            } else if (ability === "Sand Stream") {
+                this.applyWeather("Sand", pokemon.item === "Smooth Rock" ? 32 : 20);
+                flags[id].push("Sand Stream summons a Sandstorm");
+            } else if (ability === "Snow Warning") {
+                this.applyWeather("Snow", pokemon.item === "Icy Rock" ? 32 : 20);
+                flags[id].push("Snow Warning summons a Snowstorm");
+            } else if (ability === "Orichalcum Pulse") {
+                this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
+                flags[id].push("Orichalcum Pulse summons the Sun");
+            } else if (ability === "Cloud Nine" || ability === "Air Lock") {
+                for (let field of this.fields) {
+                    field.isCloudNine = true;
+                }
+                flags[id].push("Cloud Nine negates the weather");
+            /// Terrain Abilities
+            } else if (ability === "Grassy Surge") {
+                this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 32 : 20);
+                flags[id].push("Grassy Surge summons Grassy Terrain");
+            } else if (ability === "Electric Surge") {
+                this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
+                flags[id].push("Electric Surge summons Electric Terrain");
+            } else if (ability === "Misty Surge") {
+                this.applyTerrain("Misty", pokemon.item === "Terrain Extender" ? 32 : 20);
+                flags[id].push("Misty Surge summons Misty Terrain");
+            } else if (ability === "Psychic Surge") {
+                this.applyTerrain("Psychic", pokemon.item === "Terrain Extender" ? 32 : 20);
+                flags[id].push("Psychic Surge summons Psychic Terrain");
+            } else if (ability === "Hadron Engine") {
+                this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
+                flags[id].push("Hadron Engine summons Electric Terrain");
+            /// Ruin Abilities (should be uncopyable / unsupressable)
+            } else if (ability === "Sword of Ruin") {
+                for (let field of this.fields) {
+                    field.isSwordOfRuin = true;
+                }
+                flags[id].push("Sword of Ruin lowers Defenses");
+            } else if (ability === "Beads of Ruin") {
+                for (let field of this.fields) {
+                    field.isBeadsOfRuin = true;
+                }
+                flags[id].push("Beads of Ruin lowers Special Defenses");
+            } else if (ability === "Vessel of Ruin") {
+                for (let field of this.fields) {
+                    field.isVesselOfRuin = true;
+                }
+                flags[id].push("Vessel of Ruin lowers Special Attacks");
+            } else if (ability === "Tablets of Ruin") {
+                for (let field of this.fields) {
+                    field.isTabletsOfRuin = true;
+                }
+                flags[id].push("Tablets of Ruin lowers Attacks");
+            /// others
+            // Intimidate
+            } else if (ability === "Intimidate") {
+                const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
+                for (let opponent of affectedPokemon) {
+                    if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
+                        const origAtk = opponent.boosts.atk ||  0;
+                        this.applyStatChange(opponent.id, {atk: -1}, true, false);
+                        flags[opponent.id].push("Atk: " + origAtk + "->" + opponent.boosts.atk + " (Intimidate)");
+                    }
+                    if (opponent.hasAbility("Rattled")) {
+                        const origSpe = opponent.boosts.spe || 0;
+                        this.applyStatChange(opponent.id, {spe: 1}, true, true);
+                        flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + "->" + opponent.boosts.spe + " (Rattled)";
+                    }
+                }
+            // Supersweet Syrup
+            } else if (ability === "Supersweet Syrup") {
+                const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
+                for (let opponent of affectedPokemon) {
+                    const origEva = opponent.boosts.eva || 0;
+                    this.applyStatChange(opponent.id, {eva: -1}, true, false);
+                    flags[opponent.id].push("Eva: " + origEva + "->" + opponent.boosts.eva + " (Supersweet Syrup)");
+                }
+            // Hospitality 
+            } else if (ability === "Hospitality") {
+                if (id !== 0) {
+                    const allies = this.raiders.slice(1).splice(id-1, 1);
+                    for (let ally of allies) {
+                        const healing = Math.floor(ally.maxHP() / 4);
+                        this.applyDamage(ally.id, -healing, 0)
+                    }
+                }
+            // Intrepid Sword
+            } else if (ability === "Intrepid Sword") {
+                const origAtk = pokemon.boosts.atk;
+                this.applyStatChange(id, {atk: 1}, true, true);
+                flags[id].push("Atk: " + origAtk + "->" + pokemon.boosts.atk + " (Intrepid Sword)");
+            // Dauntless Shield
+            } else if (ability === "Dauntless Shield") {
+                const origDef = pokemon.boosts.def;
+                this.applyStatChange(id, {def: 1}, true, true);
+                flags[id].push("Def: " + origDef + "->" + pokemon.boosts.def + " (Dauntless Shield)");
+            // Protosynthesis and Quark Drive  (should be uncopyable / unsupressable)
+            } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
+                if (pokemon.item === "Booster Energy" && !pokemon.abilityOn) {
+                    this.recieveItem(id, "Booster Energy" as ItemName); // consume Booster Energy
                 }
             }
         }
-        // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
-        pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
-        pokemon.abilityOn = false;
-        pokemon.boosts = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, eva: 0, acc: 0};
-        pokemon.critBoost = 0;
-        pokemon.randomBoosts = 0;
-        pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
-        pokemon.status = "";
-        pokemon.volatileStatus = [];
-        pokemon.originalCurHP = 0;
-        pokemon.isEndure = false;
-        pokemon.abilityNullified = 0;
-        pokemon.moveRepeated = undefined;
-        
-        /// remove ability effects that are removed upon fainting
+        /// Other Field-Related Abilities
+        // Steely Spirit
+        if (ability === "Steely Spirit") {
+            if (id === 0) {
+                this.fields[0].attackerSide.steelySpirits += 1;
+            }
+            else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.steelySpirits += 1;
+                }
+            }
+            flags[id].push("Steely Spirit boosts Allies' Steel-type attacks");
+        // Aroma Veil
+        } else if (ability === "Aroma Veil") {
+            if (id === 0) {
+                this.fields[0].attackerSide.isAromaVeil = true;
+            } else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.isAromaVeil = true;
+                }
+            }
+            flags[id].push("Aroma Veil protects allies");
+        // Power Spot
+        } else if (ability === "Power Spot") {
+            if (id === 0) {
+                this.fields[0].attackerSide.powerSpots += 1;
+            } else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.powerSpots += 1;
+                }
+            }
+            flags[id].push("Power Spot boosts attack power");
+        } else if (ability === "Battery") {
+            if (id === 0) {
+                this.fields[0].attackerSide.batteries += 1;
+            } else {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.batteries += 1;
+                }
+            }
+            flags[id].push("Battery boosts special attack power");
+        // Friend Guard
+        } else if (ability === "Friend Guard") {
+            if (id !== 0) {
+                for (let fid=1; fid<5; fid++) {
+                    if (id !== fid) {
+                        this.fields[fid].attackerSide.friendGuards += 1;
+                    }
+                }
+            }
+            flags[id].push("Friend Guard reduces allies' damage taken");
+        } else {
+            // 
+        }
+        return flags;
+    }
+
+    public removeAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined) {
         // on/off field-based abilties
         if (ability === "Cloud Nine") {
             if (
@@ -539,21 +734,27 @@ export class RaidState implements State.RaidState{
         } else if (ability === "Power Spot") {
             if (id === 0) {
                 this.fields[0].attackerSide.powerSpots -= 1;
+                if (this.fields[0].attackerSide.powerSpots === 0) {
+                }
             } else {
                 for (let field of this.fields.slice(1)) {
                     field.attackerSide.powerSpots -= 1;
+                    if (field.attackerSide.powerSpots === 0) {
+                    }
                 }
             }
         } else if (ability === "Battery") {
             if (id === 0) {
-                this.fields[0].attackerSide.isBattery = false;
-            } else if (
-                !this.raiders.slice(1)
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Battery" as AbilityName)
-            ) {
+                this.fields[0].attackerSide.batteries -= 1;
+                if (this.fields[0].attackerSide.batteries === 0) {
+                    this.fields[0].attackerSide.isBattery = false;
+                }
+            } else {
                 for (let field of this.fields.slice(1)) {
-                    field.attackerSide.isBattery = false;
+                    field.attackerSide.batteries -= 1;
+                    if (field.attackerSide.batteries === 0) {
+                        field.attackerSide.isBattery = false;
+                    }
                 }
             }
         } else if (ability === "Friend Guard") {
@@ -561,6 +762,8 @@ export class RaidState implements State.RaidState{
                 for (let fid=1; fid<5; fid++) {
                     if (id !== fid) {
                         this.fields[fid].attackerSide.friendGuards -= 1;
+                        if (this.fields[fid].attackerSide.friendGuards === 0) {
+                        }
                     }
                 }
             }
@@ -580,186 +783,46 @@ export class RaidState implements State.RaidState{
         }
     }
 
+    public faint(id: number) {
+        let pokemon = this.getPokemon(id);
+        const ability = pokemon.ability;
+        // check Reciever / Power of Alchemy
+        for (let i=1; i<5; i++) {
+            if (i === id) { continue; }
+            const ally = this.getPokemon(i);
+            if ((ally.ability === "Receiver" || ally.ability === "Power Of Alchemy") && ally.originalCurHP !== 0) {
+                if (ability && !persistentAbilities["uncopyable"].includes(ability)) {
+                    ally.ability = ability;
+                }
+            }
+        }
+        // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
+        pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
+        pokemon.abilityOn = false;
+        pokemon.boosts = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, eva: 0, acc: 0};
+        pokemon.critBoost = 0;
+        pokemon.randomBoosts = 0;
+        pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
+        pokemon.status = "";
+        pokemon.volatileStatus = [];
+        pokemon.originalCurHP = 0;
+        pokemon.isEndure = false;
+        pokemon.abilityNullified = 0;
+        pokemon.moveRepeated = undefined;
+        pokemon.changedTypes = undefined;
+        pokemon.types = new Pokemon(9, pokemon.name).types;
+        
+        // remove ability effects that are removed upon fainting
+        this.removeAbilityFieldEffect(id, ability);
+    }
+
     public switchIn(id: number): string[][] {
         const pokemon = this.getPokemon(id);
         let ability = pokemon.ability;
-        const flags: string[][] = [[],[],[],[],[]];
         // reset HP
         pokemon.originalCurHP = pokemon.maxHP();
-        //// Abilites That Take Effect upon switch-in
-        /// Trace (handled separately so the traced ability can activate if applicable)
-        if (ability === "Trace") {
-            const opponentIds = id === 0 ? [1,2,3,4] : [0];
-            for (let oid of opponentIds) { // Trace might be random for bosses, but we'll check abilities in order
-                const copiedAbility = this.raiders[oid].ability;
-                if (copiedAbility && !persistentAbilities["uncopyable"].includes(copiedAbility)) {
-                    pokemon.ability = copiedAbility;
-                    ability = copiedAbility;
-                    flags[id].push("Trace copies " + copiedAbility);
-                    break;
-                }
-            } 
-        }
-        /// Weather Abilities
-        if (ability === "Drought") {
-            this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
-            flags[id].push("Drought summons the Sun");
-        } else if (ability === "Drizzle") {
-            this.applyWeather("Rain", pokemon.item === "Damp Rock" ? 32 : 20);
-            flags[id].push("Drizzle summons the Rain");
-        } else if (ability === "Sand Stream") {
-            this.applyWeather("Sand", pokemon.item === "Smooth Rock" ? 32 : 20);
-            flags[id].push("Sand Stream summons a Sandstorm");
-        } else if (ability === "Snow Warning") {
-            this.applyWeather("Snow", pokemon.item === "Icy Rock" ? 32 : 20);
-            flags[id].push("Snow Warning summons a Snowstorm");
-        } else if (ability === "Orichalcum Pulse") {
-            this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
-            flags[id].push("Orichalcum Pulse summons the Sun");
-        } else if (ability === "Cloud Nine" || ability === "Air Lock") {
-            for (let field of this.fields) {
-                field.isCloudNine = true;
-            }
-            flags[id].push("Cloud Nine negates the weather");
-        /// Terrain Abilities
-        } else if (ability === "Grassy Surge") {
-            this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 32 : 20);
-            flags[id].push("Grassy Surge summons Grassy Terrain");
-        } else if (ability === "Electric Surge") {
-            this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
-            flags[id].push("Electric Surge summons Electric Terrain");
-        } else if (ability === "Misty Surge") {
-            this.applyTerrain("Misty", pokemon.item === "Terrain Extender" ? 32 : 20);
-            flags[id].push("Misty Surge summons Misty Terrain");
-        } else if (ability === "Psychic Surge") {
-            this.applyTerrain("Psychic", pokemon.item === "Terrain Extender" ? 32 : 20);
-            flags[id].push("Psychic Surge summons Psychic Terrain");
-        } else if (ability === "Hadron Engine") {
-            this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
-            flags[id].push("Hadron Engine summons Electric Terrain");
-        /// Ruin Abilities
-        } else if (ability === "Sword of Ruin") {
-            for (let field of this.fields) {
-                field.isSwordOfRuin = true;
-            }
-            flags[id].push("Sword of Ruin lowers Defenses");
-        } else if (ability === "Beads of Ruin") {
-            for (let field of this.fields) {
-                field.isBeadsOfRuin = true;
-            }
-            flags[id].push("Beads of Ruin lowers Special Defenses");
-        } else if (ability === "Vessel of Ruin") {
-            for (let field of this.fields) {
-                field.isVesselOfRuin = true;
-            }
-            flags[id].push("Vessel of Ruin lowers Special Attacks");
-        } else if (ability === "Tablets of Ruin") {
-            for (let field of this.fields) {
-                field.isTabletsOfRuin = true;
-            }
-            flags[id].push("Tablets of Ruin lowers Attacks");
-        /// Other Field-Related Abilities
-        // Steely Spirit
-        } else if (ability === "Steely Spirit") {
-            if (id === 0) {
-                this.fields[0].attackerSide.steelySpirits += 1;
-            }
-            else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.steelySpirits += 1;
-                }
-            }
-            flags[id].push("Steely Spirit boosts Allies' Steel-type attacks");
-        // Aroma Veil
-        } else if (ability === "Aroma Veil") {
-            if (id === 0) {
-                this.fields[0].attackerSide.isAromaVeil = true;
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.isAromaVeil = true;
-                }
-            }
-            flags[id].push("Aroma Veil protects allies");
-        // Power Spot
-        } else if (ability === "Power Spot") {
-            if (id === 0) {
-                this.fields[0].attackerSide.powerSpots += 1;
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.powerSpots += 1;
-                }
-            }
-            flags[id].push("Power Spot boosts attack power");
-        } else if (ability === "Battery") {
-            if (id === 0){
-                this.fields[0].attackerSide.isBattery = true;
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.isBattery = true;
-                }
-            }
-        // Friend Guard
-        } else if (ability === "Friend Guard") {
-            if (id !== 0) {
-                for (let fid=1; fid<5; fid++) {
-                    if (id !== fid) {
-                        this.fields[fid].attackerSide.friendGuards += 1;
-                    }
-                }
-                this.fields[0].defenderSide.friendGuards += 1; // this shouldn't ever be used
-            }
-            flags[id].push("Friend Guard reduces allies' damage taken");
-        // Protosynthesis and Quark Drive
-        } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
-            if (pokemon.item === "Booster Energy" && !pokemon.abilityOn) {
-                this.recieveItem(id, "Booster Energy" as ItemName); // consume Booster Energy
-            }
-        // Intimidate
-        } else if (ability === "Intimidate") {
-            const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
-            for (let opponent of affectedPokemon) {
-                if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
-                    const origAtk = opponent.boosts.atk ||  0;
-                    this.applyStatChange(opponent.id, {atk: -1}, true, false);
-                    flags[opponent.id].push("Atk: " + origAtk + "->" + opponent.boosts.atk + " (Intimidate)");
-                }
-                if (opponent.hasAbility("Rattled")) {
-                    const origSpe = opponent.boosts.spe || 0;
-                    this.applyStatChange(opponent.id, {spe: 1}, true, true);
-                    flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + "->" + opponent.boosts.spe + " (Rattled)";
-                }
-            }
-        // Supersweet Syrup
-        } else if (ability === "Supersweet Syrup") {
-            const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
-            for (let opponent of affectedPokemon) {
-                const origEva = opponent.boosts.eva || 0;
-                this.applyStatChange(opponent.id, {eva: -1}, true, false);
-                flags[opponent.id].push("Eva: " + origEva + "->" + opponent.boosts.eva + " (Supersweet Syrup)");
-            }
-        // Hospitality 
-        } else if (ability === "Hospitality") {
-            if (id !== 0) {
-                const allies = this.raiders.slice(1).splice(id-1, 1);
-                for (let ally of allies) {
-                    const healing = Math.floor(ally.maxHP() / 4);
-                    this.applyDamage(ally.id, -healing, 0)
-                }
-            }
-        // Intrepid Sword
-        } else if (ability === "Intrepid Sword") {
-            const origAtk = pokemon.boosts.atk;
-            this.applyStatChange(id, {atk: 1}, true, true);
-            flags[id].push("Atk: " + origAtk + "->" + pokemon.boosts.atk + " (Intrepid Sword)");
-        // Dauntless Shield
-        } else if (ability === "Dauntless Shield") {
-            const origDef = pokemon.boosts.def;
-            this.applyStatChange(id, {def: 1}, true, true);
-            flags[id].push("Def: " + origDef + "->" + pokemon.boosts.def + " (Dauntless Shield)");
-        } else {
-            // 
-        }
-        /// special interactions
+        // add abilites that Take Effect upon switch-in
+        const flags = this.addAbilityFieldEffect(id, ability, true);
         // Mew stat boosts for Mewtwo event.
         if (id !== 0 && pokemon.name === "Mew" && this.raiders[0].name === "Mewtwo") {
             this.raiders[id] = new Raider(

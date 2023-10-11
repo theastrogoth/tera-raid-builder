@@ -349,15 +349,15 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[6].results[0].state.raiders[2].originalCurHP).toEqual(result.endState.raiders[2].maxHP());
   })
   test('protean', async() => {
-    const hash = "#H4sIAAAAAAAAA81VS2/bMAz+K4FOG6AB8ZI9mlvQDlgPGYotN8MH1qYdLbJkSHLWoMh/HynLSTq0hwLrOsiWKYqPTx9p+17UYiHKn94aIUUQizyfSmGgRVFIFlXFQiZF79FdX7ERuAZDFG0XlDWeLd5L0Tjbd6Rt7Q6vTW1JvLXer8blELB0KtCOx9KaCtz+S11jGTypnNWaHhsVfLLdcDgIW5orrNmrgzhXccaj2dqppkHH6FSLp5XfKNTVJZgS9RW00OBROSy/Q3hMtUYHT6gvN2AaTKQYG5Chlw4rFQ/R2S22A5m9M6yJtMTzYYcQRrbotJw5Uh0zmT0f9lZpFVhSAdu4T3HYAnccQ8VZ4w6ZqkB41vsOE+l+ZLzXQXVaRQrwLjhYpd3xQAFEUUixE4t7QTX/LIVIVx4VF5JoXboWCHvk7EyuQXuU4s03O1kOaN8KaXqtpfgKriLsMcRHCnEcxWFUzrI/LtrKptMhQM55rJtQwQxxWMSdvBh8Pz0MOIa8kFSHFdpfvgQHFZftwSrBvXFUKjB/D+mqr9790MAdukSnQE+WJZ4gs9UJItX7Rm2h3PTiTHpJJp8AMvtfgMxfG0iRWn0eo0SRyDlVNRu1HxKqhK1V1ETZqf9mA1x+wwjrlPySV3A9DpNo4Y58YtOObnPqiewY4ayDXj5xRqkfifCcvCvrwyR+F5Vpnpd9RuNVjs3jH5aZ+iuf8qee/xR0z+ieF/G3kUZRHA6/AepWudKABwAA";
+    const hash = "#H4sIAAAAAAAAA81VS2/bMAz+K4FOG6AB8ZJ0a25Bu0cPGYa1t8AH1mZsLbJkSHLWoOh/Hyk/khYdkBYtOshWKEokP36k4luxFnOR/fbWCCmCmK9WYykMVChSyaLKWUikaDy6i3M+BK7AEEVbB2WN5xMfpSicbWrSVnaLF2ZtSby23i/7ZeswcyrQjsfMmhzc7st6jVnwpHJWa/opVfDd2ZLdQdjQnOOarWqIcx5nHI5dOVUU6BidqnC/8qVCnZ+ByVCfQwUFDsp2+QvCY6ordPAP9VkJpsCOFGMDMvTMYa5iErXdYNWS2TjDmkhLzA9rhHjIN9c+qNCwccsd5c44IvExrtlx6tdKq8CSCljFffLKJ3DLflScNW6RiQuE7mpXY1cC3/Pf6KBqrSIheBMcLLvdPr0AIk2l2Ir5raAO+CyF6J5VVJxKInnhKqBMIoMH8hq0Ryne/bCjRYv2vZCm0VqK7+Bywh5dnJCLYaR3vXKSPHhoKxmPWwcrjmPdiMpniNE07qzS1vbTfYe9y1NJVVmi/eMzcJBzEe+tOrg/HRUOzMshXTb5h0sN3K8LdAr0aJHhsZCp/t+szpuMG32QHmVWfLVZ40eX4EvxErgvLWyOhTkh3tQGsrIRB9JrNsCRwKb/G7C0uzjTqIoikbfvkaTXzjqUHdZKUUsm+9QmLXy+r4R9THadVXANtpOo4IZs2rCd2ZQ6Khk8HPTj6wdOKPQjHp4Sd2l9GMX/XGWKp0Wf0HiTtHm8QZlnNHoP8SbvC/+6RJ8cBH4u0c8IT/dqNeYPJn996Z3QO6V3Jk/S+EEeBp9MZf+k6d3dX9yVanPqCAAA";
     const result = await resultsFromHash(hash);
     // T1: Protean activates (ground)
     expect(result.turnResults[0].state.raiders[1].abilityOn).toEqual(true);
-    expect(result.turnResults[0].state.raiders[1].proteanLiberoType).toEqual("Ground");
+    expect(result.turnResults[0].state.raiders[1].types[0]).toEqual("Ground");
     expect(result.turnResults[0].results[0].desc[0].includes("Protean")).toEqual(true);
     // T2: Protean does not affect moves of other types (flying)
     expect(result.turnResults[1].state.raiders[1].abilityOn).toEqual(true);
-    expect(result.turnResults[1].state.raiders[1].proteanLiberoType).toEqual("Ground");
+    expect(result.turnResults[1].state.raiders[1].types[0]).toEqual("Ground");
     expect(result.turnResults[1].results[0].desc[0].includes("Protean")).toEqual(false);
     // T3: Meowscarada faints
     expect(result.turnResults[2].state.raiders[1].originalCurHP).toEqual(0);
@@ -365,12 +365,18 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].results[1].flags[1].includes("Meowscarada fainted!")).toEqual(true);
     // T4: Meowscarada switches in, Protean activates (flying)
     expect(result.turnResults[3].state.raiders[1].abilityOn).toEqual(true);
-    expect(result.turnResults[3].state.raiders[1].proteanLiberoType).toEqual("Flying");
+    expect(result.turnResults[3].state.raiders[1].types[0]).toEqual("Flying");
     expect(result.turnResults[3].results[0].desc[0].includes("Protean")).toEqual(true);
     // T5: Protean does not affect moves of other types (ground)
     expect(result.turnResults[4].state.raiders[1].abilityOn).toEqual(true);
-    expect(result.turnResults[4].state.raiders[1].proteanLiberoType).toEqual("Flying");
+    expect(result.turnResults[4].state.raiders[1].types[0]).toEqual("Flying");
     expect(result.turnResults[4].results[0].desc[0].includes("Protean")).toEqual(false);
+    // T6: Meowscarada changes to water type due to Soak, but Protean stays activated (flying)
+    expect(result.turnResults[5].state.raiders[1].abilityOn).toEqual(true);
+    expect(result.turnResults[5].state.raiders[1].types[0]).toEqual("Water");
+    // T7: Aerial Ace is no longer STAB due to the type change
+    expect(result.turnResults[6].results[0].desc[0].includes("Protean")).toEqual(false);
+    expect(result.turnResults[6].results[0].damage[0]).toBeLessThan(result.turnResults[3].results[0].damage[0])
   })
   test('trace', async() => {
     const hash = "#H4sIAAAAAAAAA8VUTY/TMBD9K9WcQPIh3S4f29uyRbCHIgSVOEQ5uMkkNXXsyHbCdlf978w4TruLQEIChBI5z+P5ePMyyQPUsITyq7cGBARY5nkmwMgWoRAMVcVgLqD36G5X7CRdgyFC2wVljWePCwGNs31H1tYOeGtqS3BrvV9P2zFh6VSgE4+lNZV0h7d1jWXwZHJWa3rsVPDJd8fpZNjTWmHNUZ2MaxVXPLltnGoadMxOtXje+Z1CXd1IU6JeyVY2eDKO208y/My0QSd/Yb7ZSdNgEsXYgEy9dFip2ERn99iOYvbOsCXKEvvDDmWY1KJuuXKUOlYyB252q7QKjFTANp5THvbAgXOouGockKUKxGdz6DCJ7ifFex1Up1WUAO+Ck+t0OjUUJBSFgAGWD0Dv/LUASHceDVeCZL3e2lZ6Y7/BE1xL7VHAZ9rMvkhnlGlAmF5rARvV0ryImOIlpThdxXEyLuY/3HQ0z7IxQV5ETI/o/eppiinJlSDlP1rSySIPwhkmaiun7u9Z3ZHVGycH/CuseHtmQS/xnXQVDlax0I9w4rFxsvwDFtnvkFhQ/2ovy10Pj1Ai8OyDnV2PE/V84vGeaB7+gRqX/5tIkWb3MmaJcDFW5umnsvPJ/CLRSuRaRZ/r/DxfHLW2Pszih0/jTbEZRafY4HocF2jlHUXG0Yz186zg/0JRHI/fAb6+ps5ZBQAA";
@@ -419,6 +425,106 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[3].state.raiders[1].critBoost).toEqual(2);
     // T5: Inteleon has a guaranteed crit (high chance move + Lansat Berry)
     expect(result.turnResults[4].results[0].desc[0].includes("critical hit")).toEqual(true);
+  })
+  test('yawn+sleep', async() => {
+    const hash = "#H4sIAAAAAAAAA71V224TMRD9lZWfQHKlTRNufcuFUqQWIVIeULQP091J1sRrr2xvQkD9d2a8l7RcRAWiiuWMx57xmeNj7zexFmci/+ytEVIEcbZapVIYqFBkkk1VsDGSovHo3i54EbgNhmjaOihrPK84lWLjbFOTt7I7fGvWlswb6/1VP2wT5k4FmvGYW1OAO7xerzEPnlzOak1/pQq+W1tyOghb6gtcc1QNsS9ij8Oya6c2G3SMTlV4HPlSoS7mYHLUC6hgg4OzHX6A8CvXNTr4jXtegtlgR4qxARl67rBQsYjabrFqyWycYU+kJdaHNUJc5JsbH1RoOLjljmpnHJH4uK85cOk3SqvAlgpYxXnKyitwx3lU7DXukIkLhO76UGN3BL7nv9FB1VpFQvBLcHDVzfblBRBZJsVOnH0TpICXUoiuraLjlSSSP4Aqkhnlo4kF5qpo8IAnF8o3Ssg1aI9SLHMHdU14TaO1FNOCmDN02jHLc8oy/LLb3jke/dBoapTShm8c8GYrQcdZa0ymztk97z5zsMNkphyrYFlCYffJXMOeRpcI62SmoeADGqeUZiVmjd4mH1lJy711hU8WLAfRbXBI6FAdKNNHL4N1FUVHeC/k85TbJJWnqXyRUs7stsf+SpICrqFxllG1xsl70AXCCWH4igMvU1KMS95bxWSIeWlVTgWA4QJ+Jun02enDaYpMr8S5BkcpSS1fCTtPrIYS7tF+BE+qu7AmL7dEq7hn96fZ1IT6ssn5/i1zW2NyiVHSM6uLAXALdwD9YMjv1KYMyVKDLx8KeUw0W7e1wHIfrA7ugu4ZZaSZc5s3PllyYqoLXHH4Cwn2MC9Q18pskgs+rgfinBBfW9T0Jrj44twddGifvLPJtL3eT3mFCo4wz0iLh38AfWT3E+zNn+Bm3f2eRFc0ieEYKSe951mHuMNd8U0ZHYulgCdX1ockvpJEFFWTEntdLFWFbScq+EKR7cZd8IREOBry3BXEceL/7j+6s/8C1yRvTOYl8lv5SAyMqdQ+zzQEyLePDGByB8A9sRO0/3oGJL9VGj9/I+rHcpLFj+ooDkm0fcuy29vvlEpjzagIAAA=";
+    const result = await resultsFromHash(hash);
+    // T1: Yawn inflicts drowsiness
+    expect(result.turnResults[0].results[1].state.raiders[0].isYawn).toEqual(2);
+    expect(result.turnResults[0].state.raiders[0].isYawn).toEqual(1);
+    expect(result.turnResults[0].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
+    // T2: Moves that aren't by the yawn user don't decrement the yawn countdown
+    expect(result.turnResults[1].state.raiders[0].isYawn).toEqual(1);
+    expect(result.turnResults[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
+    expect(result.turnResults[1].state.raiders[0].isSleep).toEqual(0);
+    // T3: Yawn inflicts sleep at the end of the turn
+    expect(result.turnResults[2].results[1].state.raiders[0].isYawn).toEqual(1);
+    expect(result.turnResults[2].results[1].state.raiders[0].isSleep).toEqual(0);
+    expect(result.turnResults[2].results[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
+    expect(result.turnResults[2].results[1].state.raiders[0].status).toEqual("");
+    expect(result.turnResults[2].state.raiders[0].isYawn).toEqual(0);
+    expect(result.turnResults[2].state.raiders[0].isSleep).toEqual(1);
+    expect(result.turnResults[2].state.raiders[0].volatileStatus.includes("yawn")).toEqual(false);
+    expect(result.turnResults[2].state.raiders[0].status).toEqual("slp");
+    expect(result.turnResults[2].endFlags[0].includes("fell asleep")).toEqual(true);
+
+    // T4: Boss sleeps for 1 turn
+    expect(result.turnResults[3].results[1].desc[0].includes("fast asleep")).toEqual(true);
+    expect(result.turnResults[3].state.raiders[0].isSleep).toEqual(0);
+    expect(result.turnResults[3].state.raiders[0].status).toEqual("slp");
+    // T5 Boss wakes up
+    expect(result.turnResults[4].flags[0].includes("woke up")).toEqual(true);
+    expect(result.turnResults[4].results[0].state.raiders[0].isSleep).toEqual(0);
+    expect(result.turnResults[4].results[0].state.raiders[0].status).toEqual("");
+  })
+  test('taunt', async() => {
+    const hash = "#H4sIAAAAAAAAA71W227bOBD9FYJPW4DFypckbd58SbcFmraosk+GHmhpbHFDiVpenKpF/r0z1MXOIos2KBpIoIeXGR4enhnrG9/xS57/40zNBff8crNJBK9lBTwTZKqCjIngwYF9t6ZF0u7BR9M0Xpna0Yqp4HtrQoOjlTnAu3pn0Nwa566Hbhcwt8rjjIPc1IW07dVuB7l3OGSN1vhTKu/6tSWFk/4W2wJ25NXI2BaxhXHZjVX7PVhCpyo49lypQBcrWeeg17KSexgHu+5n6R8bugEr/2d4Vcp6Dz0ptfFA0HMLhYqHaMwtVB2ZwdY0EmmJ54MGZFzkwtZ55QM5d9zh2QlHJD7uW7d09K3SypOlPFRxHqPSCjhQHBVbDQcg4jyiu2kb6K/ADfwH7VWjVSQEvngrr/vZ4Xhe8iwT/MAvv3FUwCvBef9u4sBrgSSvIVdFgJbCj/bLt8oFxcVOageCp7mVTYN466C14IsCmavxtmOUc4wyPtn9MDib/OfFqUmCG/5lpUOUG47X2WhgC2vNHcFeWnkAtlSWVJCWsjB3bKXlHfbeg9yxpZYFXdAswTAbvgz6lv1NSkrvjC0cW5MceL9By/BSrVT14J16Yyv0jvAuxHkiXiVinohpIi4SjJndD9hfC1TAZ9n+G+RXUsvR9DYgGwtl2XuTk3qvFYK37C3YLX+Ml+nZ9AnMrK3ck8Q2vcUWLgeMl8XpzYj9Ad9H1Ci3tDGqJmCD0SG+KVV+y95IStCrgzIoPiJqaXQxgu2gjoAfwE0eQ/vJtTnGJbipqugmlyCrnwU7I1WZg9K6u6PTTgd6VWpjTVO2sXq8MXlwLJWupMVglQnuhwJ8FPeov7RRecuuKHPynyZ5LvhHi5Ui2MBPzQ5z2lZbZZwiOa9Ko3IkRdbFr0L+gNKVOuaMDD8WRNbn9zwORXNGyb2D2gFblUAlYzJMnfVZ3ud6RTcwOR4ZPf+4Ns6zWC5VvX/B0XMy+MZzd4ev5Bf07BD0znNxfoLgVCZi+jz7z07278gT8+fZeTIspTgfDKPq/OJJvK80SMuWBjE49idbxH8NRSX+CTDmvwxjLLRP2HWKz+C/8F5i+el190zsn50AeJjoR0n8XgQXJwge1vPfnXuY//j5hOUkfszM45fImbjIYhcfms/E8GbZ/f13H8QDey8KAAA=";
+    const result = await resultsFromHash(hash);
+    // T3: taunt applied
+    expect(result.turnResults[2].state.raiders[0].isTaunt).toBeGreaterThan(0);
+    expect(result.turnResults[2].results[1].flags[0][0]).toEqual(" fell for the taunt!");
+    // T4: taunt doesn't effect special actions
+    expect(result.turnResults[3].results[1].desc[1]).toEqual("The Raid Boss nullified all stat boosts and abilities!");
+    // T5: taunt prevents use of Bulk Up
+    expect(result.turnResults[4].results[1].desc[0]).toEqual("Decidueye-Hisui can't use status moves due to taunt!");
+  })
+  test('bugmoment-qd', async() => {
+    const hash = "#H4sIAAAAAAAAA71W227bOBD9FYFPLcDFypdc32I72A1Qb7F1Fvtg6IGWRjJrihRIyq5R5K3v/Yd+xX7P/kB/oTPUJc522yRoGliRRuRw5syZQyrvWc7OWfrWGc048+x8uYw506IElnAyZUbGgLPagb2akZOwBfhgmspLox15DDkrrKkrHC3NFq50btBcGefm3WsTMLXS44yD1OhM2P1lnkPqHQ5ZoxQ+1tK71ndN4YTf4D2DnFZVItyzcIfe7drKogBL6GQJt29uLUFlU6FTUDNRigL6web1jfD/N3QNVnxjeLoWuoCWFG08EPTUQiZDEZXZQNmQWVtNI4GWUB9UIIKTq1fOS1/T4oY7rJ1wBOJDXr2n0ldSSU+W9FCGeYxKHrClODLcFWyBiPOI7npfQdsC1/FfKy8rJQMh8M5bMW9nu/K8YEnC2Zadv2eogFPOpmC9zCVk0aQuorkpQft/P3z6/M9HXIbX30JhE5fB/YxjC94Iib6YDSdnkMqshj388rt0tWQ8F8oBZ4vUiqrCanStFGcXGfKqMUyIcoxR+l9y0w2OBv+5cGoQY8LfrKBkS4bNrhREF9aaHWWfWLGFaCItaWSxFpnZRVMldvj2CkQeTZTIqH2jGMMs2aRWm+gv0tliZ2zmohmJhbUJ9hG23Aqpu9ULb2yJqwO8E34c0zWO+TDmJzHGTG467Gcc9XFljUb6/Jrdsb2tkY8/a2E30czKLeV7JXOIXtsVmnOTgbslZng0DLS0z/vJCfwu2QW2IVpUVpCAXm/BrlF+iJ1cln0Jd2i/BY+aRKXbt2JVF+yO3XZzIjwKjkJfbqVBmVIRE6Oyr3A/sKUt6kuFx4GVac/8AwGPUHiyQp1Tr3qrk15dgXU7AB8t9jacUt9H3WN/MO5FrfUe1UOMvPjDRLTJXj4U/Bj1ZkwWDp3OaKFTrIvmHHhJjcCw1qOijdg8FfQDodyDN2n3/BjpjhufET8svR8+avG3VZTUjMFtybjqxdw4H4XDVeoCa4txx7RrwwZpdkkp3uHKJnu7eBwAdXG+EgwfPg+I4QGIw702fpr0zarv5D9BBH2gXnGPacFUgbB4bCMIF/3aykzSt+ERNJz+MIz+DH5E1qPOlfY95KAdRNM10EduhB14hvaPuzTUfu9FuukAPJP+jg8BPL3+7ks/+Eb6wfOkpxO/i9N/3H52cjz/liTsIRon/BTvR/hHrRjg8ywJ/xW2P/JNeHclyc3NF3LAAfptCwAA";
+    const result = await resultsFromHash(hash);
+  })
+  test('friendguard-counters', async() => {
+    const hash = "#H4sIAAAAAAAAA8VWW0/bMBT+K5GfQLK0phegvEEZjGndEGXaQ5UHNzlNvTp2ZjuFDvHfd+w4bTbtAgI6JXWPj8/lOxef9p7MyTFJvxolCSWWHE+nHUokK4Ak1JE8c0RMSWVAX545IaZzsJ5UpeVKGifRpSTXqiqRW6gVXMq5QnKmjBk329pgqrnFEwOpkhnT67fzOaTWIEsrIfBrwa0JsgtnjtklrhnMnVbJ/Jr5FTZiN5rnOWiHjhew3ZkFB5GNmExBnLGC5bBh1ttrZn/HugHN/sAeLZjMISRFKgsOeqoh4z6IUi2hqJNZaek4Pi0+PiiBeSFTzYzltnLKde4wdofDJ977lWsX+owLbh3FLRT+HK06CVg5O9yvAlbgEmcR3c26hFAC0+S/EpaXgvuEwJ3VbBxOm/AsI0lCyYoc3xPsgCNKSHinnjGkmORRZTnMhQOzJedMGKBk76OKTmqs+4TKSghK3jGdoYQ3cIAGNk/y0DB78S8vHsXdWn9KTmZG6Rm6O2dcr6MvXLqqT2wlo0mpfBYmtwA2mqQgLeZx0OmgGtZHF7jzPg5/dty4HlKs3RhLli6YS+uWDAFdYZajK3Xrcva8cBBTiGey5EJEk1vmmvq0Esvoc4k4ncT0X3C7LlYmlCVbIkD9wL9VPIs+qe/wclgvmLEaa5r66/8oiD1KzkCUC3VHWlQAeSrYS8K7xtsSXQnmmvEkr+/II2H2KXmP00Gsy2ruJkp7E8Ceaw4yiy4qxPlymJu+/CvKJNy4vmd5srdtFuzawBwErAFxwXHgxNswUae5PR1UCipWV1AvpGBYm7h2GXT6KBhv1N2NdmNi/0lORwKYjk6VMtZEb8JI4G7WPAFGH7v9OZHvjdF95Ic2l/n+k3x3W77rgtH+bjwPW56blsY7tRPfPXz+V8YHmODGTntCxg3/dd0ftNzvtuCHGHpjpzXPelsLr+n9qOV9t3HHHUx6Y6j9O4MXoLcTAHELwK7aHQf7tOP+M+LHjZkhfvfwM6AHuB7SI3eGduLE/7FsPU4zoc2bJA8PPwBwl796tAsAAA==";
+    const result = await resultsFromHash(hash);
+    // T1: one Friend Guard (only Jigglypuff)
+    expect(result.turnResults[0].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(1);
+    expect(result.turnResults[0].results[1].desc[1].includes("1 ally's Friend Guards")).toEqual(true);
+    // T2: abilities nullified
+    expect(result.turnResults[1].state.raiders[1].ability).toEqual("(No Ability)");
+    expect(result.turnResults[1].state.raiders[2].ability).toEqual("(No Ability)");
+    expect(result.turnResults[1].state.raiders[3].ability).toEqual("(No Ability)");
+    expect(result.turnResults[1].state.raiders[4].ability).toEqual("(No Ability)");
+    // T3: no Friend Guard, Pure Power restored to Medi
+    expect(result.turnResults[2].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(0);
+    expect(result.turnResults[2].results[1].desc[1].includes("Friend Guards")).toEqual(false);
+    expect(result.turnResults[2].results[1].state.raiders[1].ability).toEqual("(No Ability)");
+    expect(result.turnResults[2].state.raiders[1].ability).toEqual("Pure Power");
+    // T4: Friend Guard restored
+    expect(result.turnResults[3].results[1].state.raiders[4].field.attackerSide.friendGuards).toEqual(0);
+    expect(result.turnResults[3].results[1].desc[4].includes("Friend Guards")).toEqual(false);
+    expect(result.turnResults[3].results[1].state.raiders[4].ability).toEqual("(No Ability)");
+    expect(result.turnResults[3].state.raiders[4].ability).toEqual("Friend Guard");
+    // T5: one Friend Guard (only Jigglypuff), Blaze restored to Delphox
+    expect(result.turnResults[4].results[1].state.raiders[3].field.attackerSide.friendGuards).toEqual(1);
+    expect(result.turnResults[4].results[1].desc[3].includes("1 ally's Friend Guards")).toEqual(true);
+    expect(result.turnResults[4].results[1].state.raiders[3].ability).toEqual("(No Ability)");
+    expect(result.turnResults[4].state.raiders[3].ability).toEqual("Blaze");
+    // T6: one Friend Guard (only Jigglypuff)
+    expect(result.turnResults[5].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(1);
+    expect(result.turnResults[5].results[1].desc[1].includes("1 ally's Friend Guards")).toEqual(true);
+    // T7: Medi Skill Swap vs Jigglypuff, no Friend Guard in defensive calc
+    expect(result.turnResults[6].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(0);
+    expect(result.turnResults[6].results[1].desc[1].includes("Friend Guards")).toEqual(false);
+    expect(result.turnResults[6].results[0].state.raiders[1].ability).toEqual("Friend Guard");
+    expect(result.turnResults[6].state.raiders[1].ability).toEqual("Friend Guard");
+    expect(result.turnResults[6].state.raiders[4].ability).toEqual("Pure Power");
+    // T8: Jigglypuff now benefits from Friend Guard (only Medi)
+    expect(result.turnResults[7].results[1].state.raiders[4].field.attackerSide.friendGuards).toEqual(1);
+    expect(result.turnResults[7].results[1].desc[4].includes("1 ally's Friend Guards")).toEqual(true);
+    // T9: Delphox copies Friend Guard from Jigglypuff, benfits from it (only Medi)
+    expect(result.turnResults[8].results[1].state.raiders[3].field.attackerSide.friendGuards).toEqual(1);
+    expect(result.turnResults[8].results[1].desc[3].includes("1 ally's Friend Guards")).toEqual(true);
+    expect(result.turnResults[8].results[0].state.raiders[3].ability).toEqual("Friend Guard");
+    expect(result.turnResults[8].state.raiders[3].ability).toEqual("Friend Guard");
+    // T10: Jigglypuff benefits from 2 Friend Guards (Medi & Delphox)
+    expect(result.turnResults[9].results[1].state.raiders[4].field.attackerSide.friendGuards).toEqual(2);
+    expect(result.turnResults[9].results[1].desc[4].includes("2 allies' Friend Guards")).toEqual(true);
+    // T11: Swalot nullifies Delphox's Friend Guard, benefits from it (only Medi)
+    expect(result.turnResults[10].results[1].state.raiders[2].field.attackerSide.friendGuards).toEqual(1);
+    expect(result.turnResults[10].results[1].desc[2].includes("1 ally's Friend Guards")).toEqual(true);
+    expect(result.turnResults[10].results[0].state.raiders[2].ability).toEqual("(No Ability)");
+    // T12: Medicham doesn't benefit from Friend Guard, since it is the only one with it
+    expect(result.turnResults[11].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(0);
+    expect(result.turnResults[11].results[1].desc[1].includes("Friend Guards")).toEqual(false);
   })
 })
 

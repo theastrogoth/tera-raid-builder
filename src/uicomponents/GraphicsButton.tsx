@@ -483,10 +483,14 @@ function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
             const turnResult = results.turnResults.find((r) => t.id === r.id)!;
             let move = turnResult.raiderMoveUsed;
             const info = move === "(No Move)" ? turnResult.bossMoveInfo : turnResult.moveInfo;
+            const isSpread = !!((move === "(No Move)") && (
+                turnResult.results[0].isSpread || turnResult.results[1].isSpread
+            ))
             move = move === "(No Move)" ? turnResult.bossMoveUsed : move;
             return {
                 move,
                 info,
+                isSpread,
                 repeats: group.repeats,
                 teraActivated: !!(turnResult!.moveInfo.options!.activateTera && 
                                 turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
@@ -496,7 +500,7 @@ function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -611,12 +615,12 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                     <ExecutionMovePokemonWrapper>
                                                                         <ExecutionMovePokemonName>
                                                                             {
-                                                                                move.move === "Clear Boosts / Abilities" ? "Raiders" : 
+                                                                                (move.move === "Clear Boosts / Abilities" || move.isSpread) ? "Raiders" : 
                                                                                 move.move === "Remove Negative Effects" ? raidInputProps.pokemon[0].role :
                                                                                 raidInputProps.pokemon[move.info.targetID].role
                                                                             }
                                                                         </ExecutionMovePokemonName>
-                                                                        { move.move !== "Clear Boosts / Abilities" ?
+                                                                        { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?
                                                                             <ExecutionMovePokemonIconWrapper>
                                                                                 <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.move === "Remove Negative Effects" ? 0 : move.info.targetID].species.name)} />
                                                                             </ExecutionMovePokemonIconWrapper> : 

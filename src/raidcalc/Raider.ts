@@ -17,6 +17,11 @@ export class Raider extends Pokemon implements State.Raider {
     extraMoveData?: State.MoveData[];
 
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
+    isTaunt?: number;           // store number of turns that a Pokemon can't use status moves
+    isSleep?: number;           // store number of turns that a Pokemon is asleep
+    isYawn?: number;            // turn countdown until yawn takes effect
+    yawnSource?: number;        // id of the pokemon that inflicted the user with Yawn
+
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
     moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
@@ -26,9 +31,11 @@ export class Raider extends Pokemon implements State.Raider {
     shieldBroken?: boolean;
 
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
-    originalAbility: AbilityName | "(None)";   // stores ability when nullified
+    nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
+    originalAbility: AbilityName | "(No Ability)";   // stores ability when nullified
 
     syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
+    syrupBombSource?: number; // id of the pokemon that inflicted the user with Syrup Bomb
 
     constructor(
         id: number, 
@@ -40,6 +47,10 @@ export class Raider extends Pokemon implements State.Raider {
         extraMoves: MoveName[] = [], 
         extraMoveData: State.MoveData[] = [], 
         isEndure: boolean = false, 
+        isTaunt: number = 0,
+        isSleep: number = 0,
+        isYawn: number = 0,
+        yawnSource: number | undefined = undefined,
         lastMove: State.MoveData | undefined = undefined, 
         lastTarget: number | undefined = undefined, 
         moveRepeated: number | undefined = undefined,
@@ -47,8 +58,10 @@ export class Raider extends Pokemon implements State.Raider {
         shieldActivateHP: number | undefined = undefined, 
         shieldBroken: boolean | undefined = undefined, 
         abilityNullified: number | undefined = 0, 
-        originalAbility: AbilityName | "(None)" | undefined = undefined,
+        nullifyAbilityOn: boolean | undefined = undefined,
+        originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
         syrupBombDrops: number | undefined = 0,
+        syrupBombSource: number | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -59,6 +72,10 @@ export class Raider extends Pokemon implements State.Raider {
         this.extraMoves = extraMoves;
         this.extraMoveData = extraMoveData;
         this.isEndure = isEndure;
+        this.isTaunt = isTaunt;
+        this.isSleep = isSleep;
+        this.isYawn = isYawn;
+        this.yawnSource = yawnSource;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
         this.moveRepeated = moveRepeated;
@@ -66,8 +83,10 @@ export class Raider extends Pokemon implements State.Raider {
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
         this.abilityNullified = abilityNullified;
-        this.originalAbility = originalAbility || pokemon.ability || "(None)";
+        this.nullifyAbilityOn = nullifyAbilityOn;
+        this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
         this.syrupBombDrops = syrupBombDrops;
+        this.syrupBombSource = syrupBombSource;
     }
 
     clone(): Raider {
@@ -86,7 +105,6 @@ export class Raider extends Pokemon implements State.Raider {
                 dynamaxLevel: this.dynamaxLevel,
                 isSaltCure: this.isSaltCure,
                 alliesFainted: this.alliesFainted,
-                proteanLiberoType: this.proteanLiberoType,
                 boostedStat: this.boostedStat,
                 usedBoosterEnergy: this.usedBoosterEnergy,
                 isIngrain: this.isIngrain,
@@ -100,13 +118,14 @@ export class Raider extends Pokemon implements State.Raider {
                 randomBoosts: this.randomBoosts,
                 originalCurHP: this.originalCurHP,
                 status: this.status,
+                volatileStatus: this.volatileStatus.slice(),
                 teraType: this.teraType,
                 isTera: this.isTera,
                 shieldData: this.shieldData,
                 shieldActive: this.shieldActive,
                 toxicCounter: this.toxicCounter,
                 hitsTaken: this.hitsTaken,
-                changedTypes: this.changedTypes,
+                changedTypes: this.changedTypes ? [...this.changedTypes] : undefined,
                 moves: this.moves.slice(),
                 overrides: this.species,
             }),
@@ -114,6 +133,10 @@ export class Raider extends Pokemon implements State.Raider {
             this.extraMoves,
             this.extraMoveData,
             this.isEndure,
+            this.isTaunt,
+            this.isSleep,
+            this.isYawn,
+            this.yawnSource,
             this.lastMove,
             this.lastTarget,
             this.moveRepeated,
@@ -121,8 +144,10 @@ export class Raider extends Pokemon implements State.Raider {
             this.shieldActivateHP,
             this.shieldBroken,
             this.abilityNullified,
+            this.nullifyAbilityOn,
             this.originalAbility,
             this.syrupBombDrops,
+            this.syrupBombSource,
         )
     }
 

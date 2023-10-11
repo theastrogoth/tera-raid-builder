@@ -27,6 +27,7 @@ import { RaidInputProps } from './raidcalc/inputs.ts';
 import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
 import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 import { RaidState } from './raidcalc/RaidState.ts';
+import StratLoadField from './uicomponents/StratLoadField.tsx';
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -326,6 +327,22 @@ function App() {
     </Box>
     <Stack direction="row">
       <Stack direction="column" justifyContent="center">
+      <Grid container justifyContent="center" alignItems="center" sx={{ marginTop: 1 }}>
+          <Grid item sx={{ mx: 1 }}>
+            <Box width="575px">
+              <StratLoadField
+                raidInputProps={raidInputProps}
+                setTitle={setTitle} 
+                setCredits={setCredits} 
+                setNotes={setNotes} 
+                setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
+              />
+            </Box>
+          </Grid>
+          <Grid item sx={{ mx: 1 }}>
+            <Box width="575px" />
+          </Grid>
+        </Grid>
         <Grid container justifyContent="center" sx={{ my: 1 }}>
           <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
             <StratHeader title={title} setTitle={setTitle} prettyMode={prettyMode} />
@@ -350,6 +367,8 @@ function App() {
           <Grid item>
             <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} prettyMode={prettyMode} />
           </Grid>
+        </Grid>
+        <Grid container justifyContent="center">
           <StratFooter notes={notes} setNotes={setNotes} credits={credits} setCredits={setCredits} prettyMode={prettyMode} />
         </Grid>
         <Grid container justifyContent="left" sx={{ my: 1 }}>

@@ -736,7 +736,7 @@ const GroupHeader = styled('div')(({ theme }) => ({
         : darken(theme.palette.primary.main, 0.6),
 }));
 
-const StyledTextField = styled(TextField)(({theme}) => ({
+export const StyledTextField = styled(TextField)(({theme}) => ({
     [`& .${outlinedInputClasses.root} .${outlinedInputClasses.notchedOutline}`]: {
       borderColor: theme.palette.primary.main
     },
@@ -762,7 +762,7 @@ const StyledTextField = styled(TextField)(({theme}) => ({
     },
   }));
 
-function SetLoadGroupHeader({pokemon}: {pokemon: SpeciesName}) {
+export function SetLoadGroupHeader({pokemon}: {pokemon: SpeciesName}) {
     return (
         <GroupHeader>
             <Stack direction="row" alignItems="center" spacing={0.25}>
@@ -996,6 +996,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             setTeraTypes(genTypes);
             setItems(genItems);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.name])
 
     const setPokemonProperty = (propName: string) => {

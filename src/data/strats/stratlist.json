@@ -1,0 +1,41 @@
+{
+    "Decidueye-Hisui": {
+        "Seeing Red": "h_decidueye/main",
+        "Certified Bug Moment": "h_decidueye/bug_moment"
+    },
+    "Mewtwo": {
+        "The Mew Crew": "mewtwo/main",
+        "3-Turn Ape": "mewtwo/ape"
+    },
+    "Rillaboom": {
+        "Korzilla vs. Rilla Kong": "rillaboom/main",
+        "Tickle Squad": "rillaboom/tickle_squad",
+        "Timmy's Revenge": "rillaboom/timmys_revenge",
+        "Shrimpiosis": "rillaboom/shrimpiosis",
+        "Pump Up the Cham": "rillaboom/pump_up_the_cham"
+    },
+    "Delphox": {
+        "Bonk!": "delphox/main",
+        "Rain & Sustain": "delphox/rain&sustain"
+    },
+    "Chesnaught": {
+        "Flower Power": "chesnaught/main",
+        "Gholdengo": "chesnaught/gholdengo"
+    },
+    "Inteleon": {
+        "Angry Bull": "inteleon/main"
+    },
+    "Typhlosion": {
+        "Angry Krook": "typhlosion/main"
+    },
+    "Samurott": {
+        "Koraidon": "samurott/main",
+        "Tauros": "samurott/tauros"
+    },
+    "Decidueye": {
+        "Miraidon": "decidueye/main"
+    },
+    "Pikachu": {
+        "Contrary Lurantis": "pikachu/main"
+    }
+}

@@ -758,7 +758,6 @@ export class RaidMove {
                     if (!pokemon.hasItem("Ability Shield")) {
                         pokemon.abilityNullified = 1;
                         pokemon.nullifyAbilityOn = pokemon.abilityOn;
-                        console.log(pokemon.name, pokemon.nullifyAbilityOn)
                         pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed no without Ability Shield
                     }
                     pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers

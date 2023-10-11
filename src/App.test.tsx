@@ -468,10 +468,6 @@ describe('Specific Test Cases', () => {
     // T5: taunt prevents use of Bulk Up
     expect(result.turnResults[4].results[1].desc[0]).toEqual("Decidueye-Hisui can't use status moves due to taunt!");
   })
-  test('bugmoment-qd', async() => {
-    const hash = "#H4sIAAAAAAAAA71W227bOBD9FYFPLcDFypdc32I72A1Qb7F1Fvtg6IGWRjJrihRIyq5R5K3v/Yd+xX7P/kB/oTPUJc522yRoGliRRuRw5syZQyrvWc7OWfrWGc048+x8uYw506IElnAyZUbGgLPagb2akZOwBfhgmspLox15DDkrrKkrHC3NFq50btBcGefm3WsTMLXS44yD1OhM2P1lnkPqHQ5ZoxQ+1tK71ndN4YTf4D2DnFZVItyzcIfe7drKogBL6GQJt29uLUFlU6FTUDNRigL6web1jfD/N3QNVnxjeLoWuoCWFG08EPTUQiZDEZXZQNmQWVtNI4GWUB9UIIKTq1fOS1/T4oY7rJ1wBOJDXr2n0ldSSU+W9FCGeYxKHrClODLcFWyBiPOI7npfQdsC1/FfKy8rJQMh8M5bMW9nu/K8YEnC2Zadv2eogFPOpmC9zCVk0aQuorkpQft/P3z6/M9HXIbX30JhE5fB/YxjC94Iib6YDSdnkMqshj388rt0tWQ8F8oBZ4vUiqrCanStFGcXGfKqMUyIcoxR+l9y0w2OBv+5cGoQY8LfrKBkS4bNrhREF9aaHWWfWLGFaCItaWSxFpnZRVMldvj2CkQeTZTIqH2jGMMs2aRWm+gv0tliZ2zmohmJhbUJ9hG23Aqpu9ULb2yJqwO8E34c0zWO+TDmJzHGTG467Gcc9XFljUb6/Jrdsb2tkY8/a2E30czKLeV7JXOIXtsVmnOTgbslZng0DLS0z/vJCfwu2QW2IVpUVpCAXm/BrlF+iJ1cln0Jd2i/BY+aRKXbt2JVF+yO3XZzIjwKjkJfbqVBmVIRE6Oyr3A/sKUt6kuFx4GVac/8AwGPUHiyQp1Tr3qrk15dgXU7AB8t9jacUt9H3WN/MO5FrfUe1UOMvPjDRLTJXj4U/Bj1ZkwWDp3OaKFTrIvmHHhJjcCw1qOijdg8FfQDodyDN2n3/BjpjhufET8svR8+avG3VZTUjMFtybjqxdw4H4XDVeoCa4txx7RrwwZpdkkp3uHKJnu7eBwAdXG+EgwfPg+I4QGIw702fpr0zarv5D9BBH2gXnGPacFUgbB4bCMIF/3aykzSt+ERNJz+MIz+DH5E1qPOlfY95KAdRNM10EduhB14hvaPuzTUfu9FuukAPJP+jg8BPL3+7ks/+Eb6wfOkpxO/i9N/3H52cjz/liTsIRon/BTvR/hHrRjg8ywJ/xW2P/JNeHclyc3NF3LAAfptCwAA";
-    const result = await resultsFromHash(hash);
-  })
   test('friendguard-counters', async() => {
     const hash = "#H4sIAAAAAAAAA8VWW0/bMBT+K5GfQLK0phegvEEZjGndEGXaQ5UHNzlNvTp2ZjuFDvHfd+w4bTbtAgI6JXWPj8/lOxef9p7MyTFJvxolCSWWHE+nHUokK4Ak1JE8c0RMSWVAX545IaZzsJ5UpeVKGifRpSTXqiqRW6gVXMq5QnKmjBk329pgqrnFEwOpkhnT67fzOaTWIEsrIfBrwa0JsgtnjtklrhnMnVbJ/Jr5FTZiN5rnOWiHjhew3ZkFB5GNmExBnLGC5bBh1ttrZn/HugHN/sAeLZjMISRFKgsOeqoh4z6IUi2hqJNZaek4Pi0+PiiBeSFTzYzltnLKde4wdofDJ977lWsX+owLbh3FLRT+HK06CVg5O9yvAlbgEmcR3c26hFAC0+S/EpaXgvuEwJ3VbBxOm/AsI0lCyYoc3xPsgCNKSHinnjGkmORRZTnMhQOzJedMGKBk76OKTmqs+4TKSghK3jGdoYQ3cIAGNk/y0DB78S8vHsXdWn9KTmZG6Rm6O2dcr6MvXLqqT2wlo0mpfBYmtwA2mqQgLeZx0OmgGtZHF7jzPg5/dty4HlKs3RhLli6YS+uWDAFdYZajK3Xrcva8cBBTiGey5EJEk1vmmvq0Esvoc4k4ncT0X3C7LlYmlCVbIkD9wL9VPIs+qe/wclgvmLEaa5r66/8oiD1KzkCUC3VHWlQAeSrYS8K7xtsSXQnmmvEkr+/II2H2KXmP00Gsy2ruJkp7E8Ceaw4yiy4qxPlymJu+/CvKJNy4vmd5srdtFuzawBwErAFxwXHgxNswUae5PR1UCipWV1AvpGBYm7h2GXT6KBhv1N2NdmNi/0lORwKYjk6VMtZEb8JI4G7WPAFGH7v9OZHvjdF95Ic2l/n+k3x3W77rgtH+bjwPW56blsY7tRPfPXz+V8YHmODGTntCxg3/dd0ftNzvtuCHGHpjpzXPelsLr+n9qOV9t3HHHUx6Y6j9O4MXoLcTAHELwK7aHQf7tOP+M+LHjZkhfvfwM6AHuB7SI3eGduLE/7FsPU4zoc2bJA8PPwBwl796tAsAAA==";
     const result = await resultsFromHash(hash);
@@ -580,6 +576,10 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/mewtwo/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('h_decidueye', async () => {
+    const module = await import(`./data/strats/h_decidueye/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 describe('OHKO tests, Alternative Strats', () => {
@@ -597,6 +597,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('mewtwo/ape', async () => {
     const module = await import(`./data/strats/mewtwo/ape.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_decidueye/bug_moment', async () => {
+    const module = await import(`./data/strats/h_decidueye/bug_moment.json`)
     await testOHKO(module as LightBuildInfo);
   })
 })

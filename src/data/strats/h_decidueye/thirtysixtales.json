@@ -1,7 +1,7 @@
 {
-    "name": "Hoo Let the Kids Cook?",
-    "notes": "",
-    "credits": "u/Gimikyu_",
+    "name": "Thirtysixtales",
+    "notes": "Calculated with average-roll double crits on the supports; two high-roll crits have a chance of KOing.",
+    "credits": "u/ChrisReturns",
     "pokemon": [
         {
             "id": 0,
@@ -31,13 +31,13 @@
             "moves": [
                 "Triple Arrows",
                 "Brave Bird",
-                "Leaf Blade",
-                "Shadow Claw"
+                "Shadow Claw",
+                "Leaf Blade"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Swords Dance",
                 "Bulk Up",
+                "Swords Dance",
                 "Grassy Terrain",
                 "Leaf Storm"
             ],
@@ -52,17 +52,17 @@
         },
         {
             "id": 1,
-            "role": "Charmander",
-            "name": "Charmander",
+            "role": "Attacker",
+            "name": "Ninetales",
             "shiny": true,
-            "ability": "Blaze",
+            "ability": "Flash Fire",
             "item": "Life Orb",
-            "nature": "Adamant",
+            "nature": "Modest",
             "evs": {
-                "hp": 252,
-                "atk": 252,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -76,8 +76,8 @@
             },
             "level": 100,
             "moves": [
-                "Belly Drum",
-                "Flare Blitz"
+                "Nasty Plot",
+                "Flamethrower"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -92,19 +92,19 @@
         },
         {
             "id": 2,
-            "role": "Fuecoco",
-            "name": "Fuecoco",
-            "shiny": true,
-            "ability": "(No Ability)",
-            "item": "Eviolite",
+            "role": "Charm+Cheer",
+            "name": "Ninetales",
+            "shiny": false,
+            "ability": "Drought",
+            "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 252,
                 "spa": 0,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -116,8 +116,7 @@
             },
             "level": 100,
             "moves": [
-                "Helping Hand",
-                "Leer"
+                "Charm"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -132,12 +131,12 @@
         },
         {
             "id": 3,
-            "role": "Chimchar",
-            "name": "Chimchar",
-            "shiny": true,
+            "role": "HH+FF",
+            "name": "Ninetales",
+            "shiny": false,
             "ability": "(No Ability)",
-            "item": "Flame Orb",
-            "nature": "Impish",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -156,8 +155,8 @@
             },
             "level": 100,
             "moves": [
-                "Fling",
-                "(No Move)"
+                "Helping Hand",
+                "Flamethrower"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -172,12 +171,12 @@
         },
         {
             "id": 4,
-            "role": "Scorbunny",
-            "name": "Scorbunny",
-            "shiny": true,
-            "ability": "Blaze",
-            "item": "Eviolite",
-            "nature": "Impish",
+            "role": "Fake Tears",
+            "name": "Ninetales",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -196,8 +195,7 @@
             },
             "level": 100,
             "moves": [
-                "Growl",
-                "Sunny Day"
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -216,8 +214,8 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Fling",
-                "userID": 3,
+                "name": "Charm",
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -233,7 +231,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
+                    "roll": "avg",
                     "hits": 10
                 }
             }
@@ -242,7 +240,33 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "Growl",
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "avg",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Fake Tears",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -259,33 +283,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 1,
-            "moveInfo": {
-                "name": "Helping Hand",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "roll": "avg",
                     "hits": 10
                 }
             }
@@ -346,85 +344,7 @@
             "id": 5,
             "group": 3,
             "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 4,
-            "moveInfo": {
-                "name": "Leer",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 4,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 8,
-            "group": 4,
-            "moveInfo": {
-                "name": "Belly Drum",
+                "name": "Nasty Plot",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -441,16 +361,16 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
+                    "roll": "avg",
                     "hits": 10
                 }
             }
         },
         {
-            "id": 9,
-            "group": 5,
+            "id": 6,
+            "group": 4,
             "moveInfo": {
-                "name": "Leer",
+                "name": "Attack Cheer",
                 "userID": 2,
                 "targetID": 0,
                 "options": {
@@ -467,16 +387,42 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
+                    "roll": "avg",
                     "hits": 10
                 }
             }
         },
         {
-            "id": 10,
-            "group": 5,
+            "id": 7,
+            "group": 4,
             "moveInfo": {
-                "name": "Sunny Day",
+                "name": "Flamethrower",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "avg",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 4,
+            "moveInfo": {
+                "name": "Fake Tears",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -493,16 +439,16 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
+                    "roll": "avg",
                     "hits": 10
                 }
             }
         },
         {
-            "id": 11,
-            "group": 6,
+            "id": 9,
+            "group": 5,
             "moveInfo": {
-                "name": "Flare Blitz",
+                "name": "Flamethrower",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -546,15 +492,10 @@
             8
         ],
         [
-            9,
-            10
-        ],
-        [
-            11
+            9
         ]
     ],
     "repeats": [
-        1,
         1,
         1,
         1,

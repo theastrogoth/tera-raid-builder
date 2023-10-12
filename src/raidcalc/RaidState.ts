@@ -3,7 +3,6 @@ import { Raider } from "./Raider";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
-import { getBoostCoefficient, safeStatStage } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 
 const gen = Generations.get(9);
@@ -218,7 +217,7 @@ export class RaidState implements State.RaidState{
             //     }
             // }
             // 25% HP Berries
-            if (pokemon.originalCurHP <= maxHP / 4) {
+            if ((pokemon.originalCurHP <= maxHP / 4) || (pokemon.hasAbility("Gluttony") && (pokemon.originalCurHP <= maxHP / 2))) {
                 switch (pokemon.item) {
                     case "Liechi Berry":
                         this.applyStatChange(id, {atk: 1}, true, true);
@@ -241,7 +240,7 @@ export class RaidState implements State.RaidState{
                         this.loseItem(id);
                         break;
                     case "Lansat Berry":
-                        pokemon.critBoost = (pokemon.critBoost || 0) + 2;
+                        pokemon.isPumped = true;
                         this.loseItem(id);
                 }
             }
@@ -800,7 +799,6 @@ export class RaidState implements State.RaidState{
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;
         pokemon.boosts = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, eva: 0, acc: 0};
-        pokemon.critBoost = 0;
         pokemon.randomBoosts = 0;
         pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
         pokemon.status = "";

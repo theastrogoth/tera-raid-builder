@@ -1,5 +1,5 @@
 {
-  "name": "Official OHKO Samurott Strategy",
+  "name": "Koraidon",
   "notes": "",
   "credits": "r/PokemonScarletViolet Event Raid Support Team",
   "pokemon": [
@@ -103,7 +103,15 @@
               "Drill Peck"
           ],
           "bossMultiplier": 100,
-          "extraMoves": []
+          "extraMoves": [],
+          "shieldData": {
+              "hpTrigger": 80,
+              "timeTrigger": 80,
+              "shieldCancelDamage": 15,
+              "shieldDamageRate": 20,
+              "shieldDamageRateTera": 70,
+              "shieldDamageRateTeraChange": 30
+          }
       },
       {
           "id": 3,

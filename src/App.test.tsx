@@ -418,11 +418,11 @@ describe('Specific Test Cases', () => {
     // T1: Honchkrow has a guaranteed crit (high chance move + Super Luck + Scope Lens)
     expect(result.turnResults[0].results[0].desc[0].includes("critical hit")).toEqual(true);
     // T2: Focus Energy boosts Annihilape's crit stages by 2
-    expect(result.turnResults[1].state.raiders[3].critBoost).toEqual(2);
+    expect(result.turnResults[1].state.raiders[3].isPumped).toEqual(true);
     // T3: Annihilape has a guaranteed crit (Razor Claw + Focus Energy)
     expect(result.turnResults[2].results[0].desc[0].includes("critical hit")).toEqual(true);
     // T4: Fling + Lansat Berry raises Inteleon's crit stages by 2
-    expect(result.turnResults[3].state.raiders[1].critBoost).toEqual(2);
+    expect(result.turnResults[3].state.raiders[1].isPumped).toEqual(true);
     // T5: Inteleon has a guaranteed crit (high chance move + Lansat Berry)
     expect(result.turnResults[4].results[0].desc[0].includes("critical hit")).toEqual(true);
   })
@@ -527,11 +527,22 @@ describe('Specific Test Cases', () => {
 
 // Test cases for OHKO strats
 describe('OHKO tests, Official Strats', () => {
-  // Decidueye seems to have been a 93.8% chance rather than a guarantee
-  // test('decidueye', async () => {
-  //   const module = await import(`./data/strats/decidueye/main.json`)
-  //   await testOHKO(module as LightBuildInfo);
-  // })
+  test('decidueye', async () => {
+    const module = await import(`./data/strats/decidueye/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu', async () => {
+    const module = await import(`./data/strats/pikachu/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('walking_wake', async () => {
+    const module = await import(`./data/strats/walking_wake/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_leaves', async () => {
+    const module = await import(`./data/strats/iron_leaves/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('samurott', async () => {
     const module = await import(`./data/strats/samurott/main.json`)
     await testOHKO(module as LightBuildInfo);
@@ -552,8 +563,8 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/chesnaught/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('chesnaught/gholdengo', async () => {
-    const module = await import(`./data/strats/chesnaught/gholdengo.json`)
+  test('chesnaught/ghold', async () => {
+    const module = await import(`./data/strats/chesnaught/ghold.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('delphox', async () => {
@@ -583,6 +594,46 @@ describe('OHKO tests, Official Strats', () => {
 })
 
 describe('OHKO tests, Alternative Strats', () => {
+  test('decidueye/rotom', async () => {
+    const module = await import(`./data/strats/decidueye/rotom.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('decidueye/rotom', async () => {
+    const module = await import(`./data/strats/decidueye/rotom.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_leaves/krook', async () => {
+    const module = await import(`./data/strats/iron_leaves/krook.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('walking_wake/metro_express', async () => {
+    const module = await import(`./data/strats/walking_wake/metro_express.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('samurott/tauros', async () => {
+    const module = await import(`./data/strats/samurott/tauros.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('typhlosion/hydriggly', async () => {
+    const module = await import(`./data/strats/typhlosion/hydriggly.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('inteleon/tinkaton', async () => {
+    const module = await import(`./data/strats/inteleon/tinkaton.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('inteleon/burn_baby_burn', async () => {
+    const module = await import(`./data/strats/inteleon/burn_baby_burn.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('chesnaught/simple', async () => {
+    const module = await import(`./data/strats/chesnaught/simple.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('delphox/nuke_baby', async () => {
+    const module = await import(`./data/strats/delphox/nuke_baby.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('rillaboom/shrimpiosis', async () => {
     const module = await import(`./data/strats/rillaboom/shrimpiosis.json`)
     await testOHKO(module as LightBuildInfo);
@@ -591,12 +642,28 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/rillaboom/pump_up_the_cham.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('rillaboom/beetle', async () => {
+    const module = await import(`./data/strats/rillaboom/beetle.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('rillaboom/glitter_gang', async () => {
+    const module = await import(`./data/strats/rillaboom/glitter_gang.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('rillaboom/simian_showdown', async () => {
+    const module = await import(`./data/strats/rillaboom/simian_showdown.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('rillaboom/timmys_revenge', async () => {
     const module = await import(`./data/strats/rillaboom/timmys_revenge.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('mewtwo/ape', async () => {
     const module = await import(`./data/strats/mewtwo/ape.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('mewtwo/drops_to_lc', async () => {
+    const module = await import(`./data/strats/mewtwo/drops_to_lc.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('h_decidueye/bug_moment', async () => {

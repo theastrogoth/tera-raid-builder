@@ -370,6 +370,117 @@
                 "substituteTargets": [
                     1
                 ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Samurott",
+                    "name": "Samurott",
+                    "shiny": true,
+                    "ability": "Shell Armor",
+                    "item": "Lansat Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 0
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Night Slash"
+                    ]
+                },
+                "substituteMoves": [
+                    "Night Slash"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Crawdaunt",
+                    "name": "Crawdaunt",
+                    "shiny": true,
+                    "ability": "Shell Armor",
+                    "item": "Lansat Berry",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Night Slash"
+                    ]
+                },
+                "substituteMoves": [
+                    "Night Slash"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "VictreeBel",
+                    "name": "VictreeBel",
+                    "shiny": true,
+                    "ability": "Gluttony",
+                    "item": "Lansat Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 0
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Razor Leaf"
+                    ]
+                },
+                "substituteMoves": [
+                    "Razor Leaf"
+                ],
+                "substituteTargets": [
+                    1
+                ]
             }
         ],
         [
@@ -499,6 +610,80 @@
                         "hp": 252,
                         "atk": 0,
                         "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Venonat",
+                    "name": "Venonat",
+                    "shiny": true,
+                    "ability": "Compound Eyes",
+                    "item": "Focus Sash",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 68
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Yanma",
+                    "name": "Yanma",
+                    "shiny": true,
+                    "ability": "Compound Eyes",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
                         "spa": 0,
                         "spd": 0,
                         "spe": 0

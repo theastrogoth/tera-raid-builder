@@ -70,7 +70,15 @@
           "Metal Sound"
         ],
         "bossMultiplier": 100,
-        "extraMoves": []
+        "extraMoves": [],
+        "shieldData": {
+            "hpTrigger": 60,
+            "timeTrigger": 60,
+            "shieldCancelDamage": 40,
+            "shieldDamageRate": 20,
+            "shieldDamageRateTera": 70,
+            "shieldDamageRateTeraChange": 30
+        }
       },
       {
         "id": 2,
@@ -268,7 +276,7 @@
           "options": {
             "crit": false,
             "secondaryEffects": false,
-            "roll": "min"
+            "roll": "avg"
           }
         },
         "bossMoveInfo": {

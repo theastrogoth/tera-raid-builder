@@ -1,15 +1,15 @@
 {
-    "name": "Certified Bug Moment™️",
+    "name": "Nuke Baby",
     "notes": "",
-    "credits": "u/Suicidal-Lysosome",
+    "credits": "u/Gimikyu_",
     "pokemon": [
         {
             "id": 0,
             "role": "Raid Boss",
-            "name": "Decidueye-Hisui",
+            "name": "Delphox",
             "shiny": false,
-            "ability": "Scrappy",
-            "nature": "Adamant",
+            "ability": "Magician",
+            "nature": "Timid",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,39 +27,38 @@
                 "spe": 31
             },
             "level": 100,
-            "teraType": "Grass",
+            "teraType": "Fairy",
             "moves": [
-                "Triple Arrows",
-                "Brave Bird",
-                "Shadow Claw",
-                "Leaf Blade"
+                "Fire Blast",
+                "Psychic",
+                "Dazzling Gleam",
+                "Will-O-Wisp"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Bulk Up",
-                "Swords Dance",
-                "Grassy Terrain",
-                "Leaf Storm"
+                "Dazzling Gleam",
+                "Magic Room",
+                "Nasty Plot"
             ],
             "shieldData": {
-                "hpTrigger": 60,
-                "timeTrigger": 60,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 85,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "shieldDamageRateTeraChange": 35
             }
         },
         {
             "id": 1,
-            "role": "Iron Moth",
-            "name": "Iron Moth",
-            "shiny": true,
-            "ability": "Quark Drive",
-            "item": "Life Orb",
+            "role": "Spoink",
+            "name": "Spoink",
+            "shiny": false,
+            "ability": "Thick Fat",
+            "item": "Weakness Policy",
             "nature": "Modest",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
@@ -76,8 +75,8 @@
             },
             "level": 100,
             "moves": [
-                "Acid Spray",
-                "Overheat"
+                "Calm Mind",
+                "Stored Power"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -92,18 +91,18 @@
         },
         {
             "id": 2,
-            "role": "Charjabug",
-            "name": "Charjabug",
-            "shiny": false,
-            "ability": "Battery",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "role": "Psyduck",
+            "name": "Psyduck",
+            "shiny": true,
+            "ability": "(No Ability)",
+            "item": "Salac Berry",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -116,33 +115,26 @@
             },
             "level": 100,
             "moves": [
-                "Electric Terrain"
+                "Simple Beam",
+                "Fling"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 3,
-            "role": "Dipplin",
-            "name": "Dipplin",
-            "shiny": false,
-            "ability": "Supersweet Syrup",
+            "role": "Igglybuff",
+            "name": "Igglybuff",
+            "shiny": true,
+            "ability": "Friend Guard",
             "item": "Eviolite",
-            "nature": "Bold",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -155,8 +147,8 @@
             },
             "level": 100,
             "moves": [
-                "Sunny Day",
-                "(No Move)"
+                "Fake Tears",
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -171,18 +163,18 @@
         },
         {
             "id": 4,
-            "role": "Goodra",
-            "name": "Goodra",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "role": "Igglybuff",
+            "name": "Igglybuff",
+            "shiny": true,
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -195,7 +187,7 @@
             },
             "level": 100,
             "moves": [
-                "Acid Spray"
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -211,10 +203,62 @@
     ],
     "turns": [
         {
-            "id": 3,
+            "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Sunny Day",
+                "name": "Simple Beam",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 1,
+            "moveInfo": {
+                "name": "Calm Mind",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Fake Tears",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
@@ -237,11 +281,11 @@
             }
         },
         {
-            "id": 0,
-            "group": 0,
+            "id": 3,
+            "group": 1,
             "moveInfo": {
-                "name": "Electric Terrain",
-                "userID": 2,
+                "name": "Fake Tears",
+                "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -263,10 +307,62 @@
             }
         },
         {
-            "id": 2,
-            "group": 0,
+            "id": 4,
+            "group": 2,
             "moveInfo": {
-                "name": "Acid Spray",
+                "name": "Fling",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 2,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 2,
+            "moveInfo": {
+                "name": "Attack Cheer",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -290,165 +386,9 @@
         },
         {
             "id": 7,
-            "group": 2,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Clear Boosts / Abilities",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 8,
-            "group": 2,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Bulk Up",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 1,
-            "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 3,
-                "targetID": 4,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 4,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 4,
-            "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 4,
-            "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 9,
             "group": 3,
             "moveInfo": {
-                "name": "Overheat",
+                "name": "Stored Power",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -473,28 +413,23 @@
     ],
     "groups": [
         [
-            3,
-            0,
-            2
+            0
         ],
         [
-            7,
-            8
-        ],
-        [
-            5
+            1,
+            2,
+            3
         ],
         [
             4,
-            6,
-            1
+            5,
+            6
         ],
         [
-            9
+            7
         ]
     ],
     "repeats": [
-        1,
         1,
         1,
         1,

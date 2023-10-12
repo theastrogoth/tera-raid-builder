@@ -232,10 +232,10 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
     return serialize(obj);
 }
 
-function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes}: 
+function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading}: 
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
       setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
-      setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[] }) {
+      setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void}) {
     const [buildInfo, setBuildInfo] = useState(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
@@ -244,6 +244,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     useEffect(() => {
         try {
             if (hash !== "") {
+                setLoading(true);
                 let lcHash = hash.includes('/') ? hash.slice(1).toLowerCase() : hash.slice(1).toLowerCase() + "/main";
                 import(`../data/strats/${lcHash}.json`)
                 .then((module) => {
@@ -286,6 +287,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     setHasLoadedInfo(true);
                 }
             } catch (e) {
+                setLoading(false);
                 console.log(e);
             }
         }
@@ -297,6 +299,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         if (hasLoadedInfo) {
             setPrettyMode(true);
             setHasLoadedInfo(false);
+            setLoading(false);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hasLoadedInfo]);

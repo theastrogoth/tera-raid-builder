@@ -962,7 +962,7 @@ export class RaidMove {
                             this._raidState.applyStatChange(this.targetID, {spe: 1});
                             break;
                         case "Lansat Berry":
-                            target.critBoost = (target.critBoost || 0) + 2;
+                            target.isPumped = true;
                             break;
                         // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                         case "Sitrus Berry":
@@ -1050,7 +1050,7 @@ export class RaidMove {
                 this._user.isIngrain = true;
                 break;
             case "Focus Energy":
-                this._user.critBoost = (this._user.critBoost || 0) + 2;
+                this._user.isPumped = true;
                 break;
             case "Syrup Bomb":
                 if (!target.syrupBombDrops) {
@@ -1103,6 +1103,16 @@ export class RaidMove {
                 fainted[i] = true;
             }
         }
+        // crit stage check
+        for (let i=0; i<5; i++) {
+            if (fainted[i]) { continue; }
+            const pokemon = this._raiders[i];
+            const origPokemon = this.raidState.raiders[i];
+            if (pokemon.isPumped !== origPokemon.isPumped) {
+                this._flags[i].push("is getting pumped");
+            }
+        }
+
         // check for volatile status changes
         const initialVolatileStatus = this.raidState.raiders.map(p => p.volatileStatus);
         const finalVolatileStatus = this._raiders.map(p => p.volatileStatus);
@@ -1221,10 +1231,6 @@ export class RaidMove {
             // acupressure check
             if (pokemon.randomBoosts !== origPokemon.randomBoosts) {
                 boostStr.push("random stat " + (origPokemon.randomBoosts > 0 ? "+" : "") + origPokemon.randomBoosts + " → " + (pokemon.randomBoosts > 0 ? "+" : "") + pokemon.randomBoosts);
-            }
-            // crit stage check
-            if (pokemon.critBoost !== origPokemon.critBoost) {
-                boostStr.push("crit stage +" + origPokemon.critBoost + " → +" + pokemon.critBoost);
             }
             if (boostStr.length > 0) {
                 const displayStr = "Stat changes: (" + boostStr.join(", ") + ")";

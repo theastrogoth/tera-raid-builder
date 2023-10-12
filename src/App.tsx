@@ -7,6 +7,8 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -33,6 +35,7 @@ function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [lightMode, setLightMode] = useState<('dark' | 'light')>(prefersDarkMode ? 'dark' : 'light');
   const [prettyMode, setPrettyMode] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   
   const [theme, setTheme] = useState(createTheme({
     palette: {
@@ -322,6 +325,12 @@ function App() {
   return (
   <ThemeProvider theme={theme}> 
     <CssBaseline />
+    <Backdrop
+      sx={{ color: theme.palette.primary.main, zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      open={loading}
+    >
+      <CircularProgress color="inherit" />
+    </Backdrop>
     <Box>  
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
     </Box>
@@ -336,6 +345,7 @@ function App() {
                 setCredits={setCredits} 
                 setNotes={setNotes} 
                 setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
+                setLoading={setLoading}
               />
             </Box>
           </Grid>
@@ -383,6 +393,8 @@ function App() {
                     substitutes={[substitutes1, substitutes2, substitutes3, substitutes4]}
                     setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
                     setPrettyMode={setPrettyMode}
+                    // loading={loading}
+                    setLoading={setLoading}
                   />
                   <Box width="15px"/>
                   <GraphicsButton

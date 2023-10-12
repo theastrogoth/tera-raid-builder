@@ -1,5 +1,5 @@
 {
-    "name": "Flower Power: OHKO Chesnaught Strategy",
+    "name": "Flower Power",
     "notes": "",
     "credits": "r/PokePortal Event Raid Support Team",
     "pokemon": [
@@ -119,13 +119,13 @@
         "bossMultiplier": 100,
         "extraMoves": [],
         "shieldData": {
-          "hpTrigger": 0,
-          "timeTrigger": 0,
-          "shieldCancelDamage": 0,
-          "shieldDamageRate": 0,
-          "shieldDamageRateTera": 0,
-          "shieldDamageRateTeraChange": 0
-        }
+          "hpTrigger": 80,
+          "timeTrigger": 80,
+          "shieldCancelDamage": 40,
+          "shieldDamageRate": 20,
+          "shieldDamageRateTera": 70,
+          "shieldDamageRateTeraChange": 30
+      }
       },
       {
         "id": 3,
@@ -157,12 +157,12 @@
         "bossMultiplier": 100,
         "extraMoves": [],
         "shieldData": {
-          "hpTrigger": 0,
-          "timeTrigger": 0,
-          "shieldCancelDamage": 0,
-          "shieldDamageRate": 0,
-          "shieldDamageRateTera": 0,
-          "shieldDamageRateTeraChange": 0
+          "hpTrigger": 80,
+          "timeTrigger": 80,
+          "shieldCancelDamage": 40,
+          "shieldDamageRate": 20,
+          "shieldDamageRateTera": 70,
+          "shieldDamageRateTeraChange": 30
         }
       },
       {

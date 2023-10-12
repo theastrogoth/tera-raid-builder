@@ -1,5 +1,5 @@
 {
-  "name": "Alternate OHKO Samurott Strategy",
+  "name": "AP Fire Bull",
   "notes": "",
   "credits": "r/PokemonScarletViolet Event Raid Support Team",
   "pokemon": [
@@ -70,7 +70,15 @@
               "Raging Bull"
           ],
           "bossMultiplier": 100,
-          "extraMoves": []
+          "extraMoves": [],
+          "shieldData": {
+              "hpTrigger": 80,
+              "timeTrigger": 80,
+              "shieldCancelDamage": 15,
+              "shieldDamageRate": 20,
+              "shieldDamageRateTera": 70,
+              "shieldDamageRateTeraChange": 30
+          }
       },
       {
           "id": 2,

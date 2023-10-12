@@ -44,9 +44,9 @@ const filterStratOptions = createFilterOptions({
 });
 
 function StratLoadField(
-    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, placeholder="Load Strategy", sx={ width: 260 }}: 
+    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, placeholder="Load Strategy", sx={ width: 260 }}: 
     {raidInputProps: RaidInputProps, setTitle: (t: string) => void, setCredits: (c: string) => void, 
-     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], placeholder?: string, sx?: SxProps<Theme>}) 
+     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, placeholder?: string, sx?: SxProps<Theme>}) 
 {
     const [stratPath, setStratPath] = useState<null | string>(null);
     const [buildInfo, setBuildInfo] = useState<null | LightBuildInfo>(null);
@@ -54,6 +54,7 @@ function StratLoadField(
     useEffect(() => {
         try {
             if (stratPath !== null) {
+                setLoading(true);
                 import(`../data/strats/${stratPath}.json`)
                 .then((module) => {
                     setBuildInfo(module.default);
@@ -63,6 +64,7 @@ function StratLoadField(
                 });
             }
         } catch (e) {
+            setLoading(false);
             console.log(e);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -92,9 +94,10 @@ function StratLoadField(
                     setSubstitutes[1](res.substitutes[1]);
                     setSubstitutes[2](res.substitutes[2]);
                     setSubstitutes[3](res.substitutes[3]);
-                    // setHasLoadedInfo(true);
+                    setLoading(false);
                 }
             } catch (e) {
+                setLoading(false);
                 console.log(e);
             }
         }

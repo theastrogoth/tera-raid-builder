@@ -1,39 +1,60 @@
 {
     "Decidueye-Hisui": {
         "Seeing Red": "h_decidueye/main",
-        "Certified Bug Moment": "h_decidueye/bug_moment"
+        "Certified Bug Moment": "h_decidueye/bug_moment",
+        "Ready the Cannon": "h_decidueye/ready_the_cannon",
+        "Tickle Squad: Charizard Edition": "h_decidueye/tickle_squad_charizard",
+        "Hoo let the kids cook?": "h_decidueye/hoo_let_the_kids_cook"
     },
     "Mewtwo": {
         "The Mew Crew": "mewtwo/main",
-        "3-Turn Ape": "mewtwo/ape"
+        "3-Turn Ape": "mewtwo/ape",
+        "Mewtwo Drops to LC Tier": "mewtwo/drops_to_lc"
     },
     "Rillaboom": {
         "Korzilla vs. Rilla Kong": "rillaboom/main",
         "Tickle Squad": "rillaboom/tickle_squad",
-        "Timmy's Revenge": "rillaboom/timmys_revenge",
         "Shrimpiosis": "rillaboom/shrimpiosis",
-        "Pump Up the Cham": "rillaboom/pump_up_the_cham"
+        "Pump Up the Cham!": "rillaboom/pump_up_the_cham",
+        "The Glitter Gang": "rillaboom/glitter_gang",
+        "Simian Showdown": "rillaboom/simian_showdown",
+        "Comeback Beetle": "rillaboom/beetle",
+        "Lil' Timmy's Revenge": "rillaboom/timmys_revenge"
     },
     "Delphox": {
         "Bonk!": "delphox/main",
-        "Rain & Sustain": "delphox/rain&sustain"
+        "Rain & Sustain": "delphox/rain&sustain",
+        "Nuke Baby": "delphox/nuke_baby"
     },
     "Chesnaught": {
         "Flower Power": "chesnaught/main",
-        "Gholdengo": "chesnaught/gholdengo"
+        "Go For Ghold": "chesnaught/ghold",
+        "Simple as That, Baby!": "chesnaught/simple"
     },
     "Inteleon": {
-        "Angry Bull": "inteleon/main"
+        "AP Fire Bull": "inteleon/main",
+        "Tinkaton": "inteleon/tinkaton",
+        "Burn Baby Burn!": "inteleon/burn_baby_burn"
     },
     "Typhlosion": {
-        "Angry Krook": "typhlosion/main"
+        "AP Krook": "typhlosion/main",
+        "Hydriggly": "typhlosion/hydriggly"
     },
     "Samurott": {
         "Koraidon": "samurott/main",
-        "Tauros": "samurott/tauros"
+        "AP Fire Bull": "samurott/tauros"
     },
     "Decidueye": {
-        "Miraidon": "decidueye/main"
+        "Miraidon": "decidueye/main",
+        "Rotom-tisserie Owl": "decidueye/rotom"
+    },
+    "Walking Wake": {
+        "Shocking Wake": "walking_wake/main",
+        "Metro Express": "walking_wake/metro_express"
+    },
+    "Iron Leaves": {
+        "Kingambit": "iron_leaves/main",
+        "AP Krook": "iron_leaves/krook"
     },
     "Pikachu": {
         "Contrary Lurantis": "pikachu/main"

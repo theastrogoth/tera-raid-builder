@@ -1,5 +1,5 @@
 {
-    "name": "BONK! A 2-Turn 7⭐ Delphox OHKO",
+    "name": "Rain & Sustain",
     "notes": "",
     "credits": "r/PokePortal Event Raid Support Team",
     "pokemon": [
@@ -36,8 +36,17 @@
             "bossMultiplier": 3000,
             "extraMoves": [
                 "Dazzling Gleam",
-                "Magic Room"
-            ]
+                "Magic Room",
+                "Nasty Plot"
+            ],
+            "shieldData": {
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 35
+            }
         },
         {
             "id": 1,

@@ -1,5 +1,5 @@
 {
-    "name": "Heracross vs. H-Decidueye",
+    "name": "Owl Kabob",
     "notes": "",
     "credits": "u/iriomote14",
     "pokemon": [
@@ -95,7 +95,8 @@
             "role": "Corviknight",
             "name": "Corviknight",
             "shiny": false,
-            "ability": "Mirror Armor",
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -178,12 +179,12 @@
             "name": "Dipplin",
             "shiny": false,
             "ability": "Supersweet Syrup",
-            "item": "Eviolite",
+            "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0

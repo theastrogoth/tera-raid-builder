@@ -670,6 +670,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_decidueye/bug_moment.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('h_decidueye/owl_kabob', async () => {
+    const module = await import(`./data/strats/h_decidueye/owl_kabob.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

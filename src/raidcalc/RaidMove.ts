@@ -775,7 +775,7 @@ export class RaidMove {
                 const boss = this.getPokemon(0);
                 boss.status = "";
                 boss.volatileStatus = [];
-                boss.isTaunt = 0;
+                // boss.isTaunt = 0; according to IVSore, taunt isn't cleared
                 boss.isSleep = 0;
                 boss.isYawn = 0;
                 boss.yawnSource = 0;

@@ -522,6 +522,19 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[11].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(0);
     expect(result.turnResults[11].results[1].desc[1].includes("Friend Guards")).toEqual(false);
   })
+  test('faint-sitrus', async() => {
+    const hash = "#H4sIAAAAAAAAA71W0W7bOgz9FUFPG6BhdpJubd+adFsLLMOwdNhD4AfWZmItsmVIcrKs6L+PlO2kK3aB9e7ewYYikSJ5eEjJuZMreS7zr97WUskgz5fLRMkaKpSZ4qkueJIq2Xp015e8CdwaQ5zaJmhbe94xUnLtbNuQtLJbvK5Xlqa31vv5sOwc5k4H0njMbV2A279ZrTAPnkTOGkM/pQ6+31uyOwgbGgtcsVUDcSziiIdtN06v1+gYna7wuPKlRlPMoM7RXEIFazwIu+UnCL8S3aCDfxDPSqjX2JNS24AMPXdY6JhEYzdYdWS2rmZJpCXmhw1C3OTbWx90aNm4445yZxyR+Bi33nPqt9rowDMdsIp68so7cMt+dBwNbpGJC4TuZt9gXwI/8N+aoBujIyH4LTiY99ohvQAyy5TcyvM7SR1wqqTs32UUnCki+RPoQkzJHykuMddFi3t8caV9q6VagfGo5CJ30DSEt26NUfKiIOZqqnb08oq8HJ7sfhCO00cvqdKEAr5zwMGWksrZGBQXztkdR5862KKYasddsCihsDsxM7Cj1XuElZgaKLhA44TcLOW0NRvxmTtpsbOu8OKS20H2AfaCiupA14P1IlhXkXWE91q9SvidJGqUqNcJ+czuB+xnKmUqTFPab/LBLLiWuCAU3znKW5u3XizAl7SYa1M8omN0Mvo9QiKnS/kBfNiLj8byKaIgPogpdRotnn2wgkv7nNCzwfKQxE/EH+FT311Rz+Suq+qDeZcCO7zoWvA56b8gbGr0Xny0RufclVfgiv2/K2+fzRzXUFqCf4DMiiPEMfEKeelvW87wOP0lwIUmsRdTKiiju64azaz3SDqie7qfAHGxQwxikSN38tNJnvxBBlP7oF3+C/yPWM76Az5Rp+qkc8eE4wprj2JWIt8ZY4oWVSf9Me8Pe8VnJj2mSpbP5pbaMd6Xul5TQgkdkd425tslXQGdkjSyNBhPKEx69HMgmYS/HX1mEBxdUYTBi5c9rZpvuifAmPwxjMN984So3OiD/UUIkG+O7Kd/g/2ULoPBz08NP/k71U+GMOTncCeo0f8bnNp/eUrDWE1oPONPOv+hyOK3vX94T6aGN8vu738ALpxO1zMJAAA=";
+    const result = await resultsFromHash(hash);
+    // T4: Dachsbun faints, Sitrus Berry is not used
+    expect(result.turnResults[3].state.raiders[3].originalCurHP).toEqual(0);
+    expect(result.turnResults[3].state.raiders[3].item).toEqual("Sitrus Berry");
+    // T5: Other Daschbun does not faint, Sitrus Berry is used
+    expect(result.turnResults[4].state.raiders[4].originalCurHP).toBeGreaterThan(0);
+    expect(result.turnResults[4].state.raiders[4].item).toEqual(undefined);
+    // T6: Heracross faints, Weakness Policy is not used
+    expect(result.turnResults[5].state.raiders[2].originalCurHP).toEqual(0);
+    expect(result.turnResults[5].state.raiders[2].item).toEqual("Weakness Policy");
+  })
 })
 
 

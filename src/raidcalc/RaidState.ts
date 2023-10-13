@@ -40,6 +40,7 @@ export class RaidState implements State.RaidState{
         const maxHP = pokemon.maxHP();
         const opponents = id === 0 ? [1,2,3,4] : [0];
         let unnerve = false;
+        let fainted = pokemon.originalCurHP <= 0;
         for (let i of opponents) {
             if (this.getPokemon(i).ability === "Unnerve") { unnerve = true; break; }
         }
@@ -53,12 +54,14 @@ export class RaidState implements State.RaidState{
                 if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
                     pokemon.originalCurHP = 1;
                     if (pokemon.ability !== "Sturdy") { this.loseItem(id); } 
+                    fainted = false;
                 }
             }
             // Ice Face
             if (pokemon.ability === "Ice Face" && !pokemon.abilityOn && moveCategory === "Physical") {
                 pokemon.abilityOn = true;
                 pokemon.originalCurHP = originalHP; // no damage is done
+                fainted = false;
                 return; // don't trigger item use
             }
             // Air Balloon
@@ -78,7 +81,7 @@ export class RaidState implements State.RaidState{
             // Weakness Policy and Super-Effective reducing Berries
             // TO DO - abilities that let users use berries more than once
             if (damage > 0 && isSuperEffective) {
-                if (pokemon.item === "Weakness Policy") {
+                if (!fainted && pokemon.item === "Weakness Policy") { // weakness policy isn't consumed if the target faints (?)
                     this.applyStatChange(id, {atk: 2, spa: 2}, true, true)
                     this.loseItem(id);
                 } else if (!unnerve) {
@@ -141,8 +144,14 @@ export class RaidState implements State.RaidState{
             if (!unnerve && pokemon.item === "Chiban Berry" && moveType === "Normal") {
                 this.loseItem(id);
             }
-            
-            // abilities triggered by damage
+            /// abilities triggered by damage even if the target faints
+            // Seed Sower
+            if (pokemon.ability === "Seed Sower") {
+                this.applyTerrain("Grassy");
+            }
+            /// the rest can be skipped if the target faints
+            if (fainted) { this.faint(id); return; }
+            /// abilities triggered by damage if the target survives
             // Anger Point
             if (isCrit && pokemon.ability === "Anger Point") { 
                 const boost = {atk: 12};
@@ -186,10 +195,6 @@ export class RaidState implements State.RaidState{
             // Electromorphosis
             if (pokemon.ability ===  "Electromorphosis") {
                 pokemon.field.attackerSide.isCharged = true;
-            }
-            // Seed Sower
-            if (pokemon.ability === "Seed Sower") {
-                this.applyTerrain("Grassy");
             }
             // Rattled
             if (pokemon.ability === "Rattled" && ["Dark", "Ghost", "Bug"].includes(moveType || "")) {
@@ -244,9 +249,6 @@ export class RaidState implements State.RaidState{
                         this.loseItem(id);
                 }
             }
-        }
-        if (pokemon.originalCurHP === 0) {
-            this.faint(id);
         }
     }
 

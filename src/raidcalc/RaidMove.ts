@@ -755,7 +755,7 @@ export class RaidMove {
                     ) { // abilities that are not unsupressable are nullified
                         this._raidState.changeAbility(i, "(No Ability)");
                     }
-                    if (!pokemon.hasItem("Ability Shield")) {
+                    if (!pokemon.hasItem("Ability Shield") && !pokemon.hasAbility("Disguise", "Ice Face")) {
                         pokemon.abilityNullified = 1;
                         pokemon.nullifyAbilityOn = pokemon.abilityOn;
                         pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed no without Ability Shield

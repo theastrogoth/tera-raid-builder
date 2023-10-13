@@ -468,7 +468,7 @@ export class RaidMove {
                     const result = results[0];
                     result.damage = damageResult as number | number[];
                     result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
-                    this._damage[id] = totalDamage;
+                    this._damage[id] = Math.min(totalDamage, this.raidState.raiders[id].originalCurHP);
                     this._desc[id] = result.desc();
                     // for Fling / Symbiosis interactions, the Flinger should lose their item before the target recieves damage
                     if (this.moveData.name === "Fling" && this._user.item) {
@@ -506,6 +506,7 @@ export class RaidMove {
 
     private applyDrain() { // this also accounts for recoil
         const drainPercent = this.moveData.drain;
+        const damage = this._damage.reduce((a,b) => a + b, 0);
         if (drainPercent) {
             // draining moves should only ever hit a single target in raids
             if (this._damage) {

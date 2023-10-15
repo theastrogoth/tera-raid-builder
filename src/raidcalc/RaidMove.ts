@@ -306,41 +306,42 @@ export class RaidMove {
                 }
             }
             // Type-based immunities
+            const targetTypes = (pokemon.isTera && pokemon.teraType) ? [pokemon.teraType] : pokemon.types;
             if (category !== "Status" && pokemon.item !== "Ring Target") {
                 if (moveType === "Ground" && !pokemonIsGrounded(pokemon, field)) { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
-                if (moveType === "Electric" && pokemon.types.includes("Ground")) { 
+                if (moveType === "Electric" && targetTypes.includes("Ground")) { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name; 
                     continue;
                 }
-                if (["Normal", "Fighting"].includes(moveType || "") && pokemon.types.includes("Ghost") && !(["Scrappy", "Mind's Eye"] as (AbilityName | undefined)[]).includes(this._user.ability)) {
+                if (["Normal", "Fighting"].includes(moveType || "") && targetTypes.includes("Ghost") && !(["Scrappy", "Mind's Eye"] as (AbilityName | undefined)[]).includes(this._user.ability)) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
-                if (moveType === "Ghost" && pokemon.types.includes("Normal")) {
+                if (moveType === "Ghost" && targetTypes.includes("Normal")) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
-                if (moveType === "Dragon" && pokemon.types.includes("Fairy")) {
+                if (moveType === "Dragon" && targetTypes.includes("Fairy")) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
-                if (moveType === "Psychic" && pokemon.types.includes("Dark")) {
+                if (moveType === "Psychic" && targetTypes.includes("Dark")) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
             }
-            if (moveName === "Thunder Wave" && pokemon.types.includes("Ground") && pokemon.item !== "Ring Target") {
+            if (moveName === "Thunder Wave" && targetTypes.includes("Ground") && pokemon.item !== "Ring Target") {
                 this._doesNotAffect[id] = "does not affect " + pokemon.name;
                 continue;
             }
-            if ((moveName.includes("Powder") || moveName.includes("Spore") && moveName !== "Powder Snow") && (pokemon.types.includes("Grass") || pokemon.item === "Safety Goggles")) {
+            if ((moveName.includes("Powder") || moveName.includes("Spore") && moveName !== "Powder Snow") && (targetTypes.includes("Grass") || pokemon.item === "Safety Goggles")) {
                 this._doesNotAffect[id] = "does not affect " + pokemon.name;
                 continue;
             }
-            if (id !== this.userID && this._user.ability === "Prankster" && category === "Status" && pokemon.types.includes("Dark")) {
+            if (id !== this.userID && this._user.ability === "Prankster" && category === "Status" && targetTypes.includes("Dark")) {
                 this._doesNotAffect[id] = "does not affect " + pokemon.name;
                 continue;
             }

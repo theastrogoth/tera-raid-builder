@@ -462,7 +462,7 @@ export class RaidMove {
                             //@ts-ignore
                             hitDamage = roll === "max" ? result.damage[result.damage.length-1] : roll === "min" ? result.damage[0] : result.damage[Math.floor(result.damage.length/2)];
                         }
-                        this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.type, this.move.category);
+                        this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this.move.type, this.move.category);
                         totalDamage += hitDamage;
                     }
                     // prepare desc from results
@@ -497,7 +497,7 @@ export class RaidMove {
                 this._desc[this._affectedIDs[0]] = this._user.name + " used " + this.move.name + " on " + this.getPokemon(this._affectedIDs[0]).name + "!";
             }
         }
-        // adjust tera charge
+        // adjust tera charge and effects that are removed after attacking
         if (this.moveData.category?.includes("damage")) {
             this._fields[this.userID].attackerSide.isHelpingHand = false;
             if (this.move.type === "Electric") { this._fields[this.userID].attackerSide.isCharged = false; }
@@ -1060,6 +1060,16 @@ export class RaidMove {
                     this._flags[this.targetID].push("Covered in Sticky Syrup!");
                 }
                 break;
+            case "Tailwind":
+                // Tailwind is applied in applyFieldChanges()
+                const allies = this.userID !== 0 ? [1,2,3,4] : [0];
+                for (let id of allies) {
+                    const ally = this.getPokemon(id);
+                    if (ally.hasAbility("Wind Power")) {
+                        this._fields[id].attackerSide.isCharged = true;
+                    }
+                }
+                break;
             default: break;
             }
     }
@@ -1114,7 +1124,19 @@ export class RaidMove {
                 this._flags[i].push("is getting pumped");
             }
         }
-
+        // check for charged status
+        for (let i=0; i<5; i++) {
+            if (fainted[i]) { continue; }
+            const pokemon = this._raiders[i];
+            const origPokemon = this.raidState.raiders[i];
+            if (pokemon.field.attackerSide.isCharged !== origPokemon.field.attackerSide.isCharged) {
+                if (pokemon.field.attackerSide.isCharged) {
+                    this._flags[i].push("began charging power!");
+                } else {
+                    this._flags[i].push("is no longer charged");
+                }
+            }
+        }
         // check for volatile status changes
         const initialVolatileStatus = this.raidState.raiders.map(p => p.volatileStatus);
         const finalVolatileStatus = this._raiders.map(p => p.volatileStatus);

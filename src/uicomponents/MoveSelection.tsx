@@ -249,11 +249,15 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups}:
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
             moveInfo.moveData.target === undefined ||
-            moveInfo.moveData.target === "user-and-allies" ||
-            moveInfo.moveData.target === "all-other-pokemon" ||
             moveInfo.moveData.target === "user" ||
-            moveInfo.moveData.target === "all-pokemon" ||
-            moveInfo.moveData.target === "entire-field"   
+            moveInfo.moveData.target === "user-and-allies" ||
+            moveInfo.moveData.target === "all-allies" ||
+            // moveInfo.moveData.target === "all-opponents" ||
+            // moveInfo.moveData.target === "all-other-pokemon" ||
+            // moveInfo.moveData.target === "all-pokemon" ||
+            moveInfo.moveData.target === "users-field" ||
+            moveInfo.moveData.target === "opponents-field" ||
+            moveInfo.moveData.target === "entire-field"
     );
     const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : [0,1,2,3,4].filter((id) => id !== moveInfo.userID));
     

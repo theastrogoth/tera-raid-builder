@@ -535,6 +535,18 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[5].state.raiders[2].originalCurHP).toEqual(0);
     expect(result.turnResults[5].state.raiders[2].item).toEqual("Weakness Policy");
   })
+  test('wind-power', async() => {
+    const hash = "#H4sIAAAAAAAAA81V32vbMBD+V4yeWvAgv7qtfUuajpYt3UgDfTB+UOyLfasseZKctoz+77uT7WQNG+0YjGEjyyfd3fd9urO/i404E9lXZ7SIhRdnSTKIhZYViDTmKeY8GcaicWCv5rxJ2gJ8mJrao9GOd4xiUVjT1GStzBau9MbQdG2cW/SvbcDMoqcVB5nRubSPF5sNZN6RyRql6FGid93eksNJf0djDhv2qmUY8zDCbtvKYlGAZXRYwf7NlQgqP5c6AzWXlSxgZ2xfl9L/yrQCK39jPi+lLqATRRsPDD2zkGMgUZs7qFoxG6vZEmQJ/KAGGTa5Zu08+oadW+2IO+MIwoe8+pGpr1Gh5xl6qMI6ReUdsOU4GEYFW2DhPKFbPdbQHYHr9W+Ux1phEAQevJWLbrWn56VI01hsxdl3QRXwPhYi3EuzBkuHlQTzaUxSLyXm0Yyi0vKNrBprvH9zia5BEW+kckDmUtpaA2/RjVKxuJQ2Jw4hyFsKsrvSp944Hh7ctDQcUL5bUp1wJ2L6rZHRSiITnVtUKlo2rPICClkay9NrLEof3SjpSlJ1fEL+CQPW0ZwLgGwh27vnEHoQpzGd50dUZija57303rKw3jZE6xZ1Hn0x90HGT7iB6LNdMwCTg/MH9EYno3Z8mWLQKBEXirrAmmgmQxNQldlQrEfXJuLzOib4vD15icWoRT86ZNGdzjMaH0zWuOiGBfurY2o5vBLguAU2/m8BTkh+Y7d4p7mgxMFbB5PPZdq25zH3AlKVuGgG1nK7zozKd0h3xfBnaAVX+z2pQfGmYFGqaJpxSUzRRueN58Z4gVHate4kmMJ0/MyfuA5b+0lHrKNXIXXUcK8KuR0tjPNR+BiiLoj0YO8bWqTtk0o+kGebvnPmJMN9+p+4TKhc/0H6UZ+G4uxVnfSavCL5rgtfk5ZkTwb8g+Bvexr+FHSxNY37O02fnn4AbpW1030HAAA=";
+    const result = await resultsFromHash(hash);
+    // T1: Air Cutter activates Wind Power for Kilo1
+    expect(result.turnResults[0].state.raiders[1].field.attackerSide.isCharged).toEqual(true);
+    // T2: Aerial Ace does not activate Wind Power for Kilo2
+    expect(result.turnResults[1].state.raiders[2].field.attackerSide.isCharged).toEqual(false);
+    expect(result.turnResults[1].state.raiders[3].field.attackerSide.isCharged).toEqual(false);
+    // T3: Tailwind activates Wind Power for Kilo2 and Kilo3
+    expect(result.turnResults[2].state.raiders[2].field.attackerSide.isCharged).toEqual(true);
+    expect(result.turnResults[2].state.raiders[3].field.attackerSide.isCharged).toEqual(true);
+  })
 })
 
 

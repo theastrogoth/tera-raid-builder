@@ -2,10 +2,28 @@ import { Field, Generations, Pokemon, StatsTable } from "../calc";
 import { Raider } from "./Raider";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
-import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
+import { AbilityName, ItemName, MoveName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
 import persistentAbilities from "../data/persistent_abilities.json"
 
 const gen = Generations.get(9);
+
+const WIND_MOVES = [
+    "Air Cutter",
+    "Bleakwind Storm",
+    "Blizzard",
+    "Fairy Wind",
+    "Gust",
+    "Heat Wave",
+    "Hurricane",
+    "Icy Wind",
+    "Petal Blizzard",
+    "Sandsear Storm",
+    "Springtide Storm",
+    "Tailwind",
+    "Twister",
+    "Whirlwind",
+    "Wildbolt Storm",
+];
 
 export class RaidState implements State.RaidState{
     raiders: Raider[]; // raiders[0] is the boss, while raiders 1-5 are the players
@@ -28,7 +46,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined) {
+    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
@@ -200,6 +218,11 @@ export class RaidState implements State.RaidState{
             if (pokemon.ability === "Rattled" && ["Dark", "Ghost", "Bug"].includes(moveType || "")) {
                 const boost = {spe: 1};
                 this.applyStatChange(id, boost, true, true);
+            }
+            // Wind Power
+            if (pokemon.ability === "Wind Power" && 
+                WIND_MOVES.includes(moveName as MoveName)) {
+                pokemon.field.attackerSide.isCharged = true;
             }
         }
         /// Berry Consumption triggered by damage

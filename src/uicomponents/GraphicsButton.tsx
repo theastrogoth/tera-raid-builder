@@ -576,6 +576,13 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             }
                         </BuildsContainer>
                     </BuildsSection>
+                    <InfoSection>
+                        {/* {notes && <Notes>{notes}</Notes>} */}
+                        <CreditsContainer>
+                            <Credit>Credits: {credits}</Credit>
+                            <Credit>Graphic: theastrogoth.github.io/tera-raid-builder/</Credit>
+                        </CreditsContainer>
+                    </InfoSection>
                     <ExecutionSection>
                         <Separator>
                             <LeftBar />
@@ -648,13 +655,13 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             </ExecutionTable>
                         </ExecutionContainer>
                     </ExecutionSection>
-                    <InfoSection>
-                        {notes && <Notes>{notes}</Notes>}
-                        <CreditsContainer>
+                    {/* <InfoSection> */}
+                        {notes && <InfoSection><Notes>{notes}</Notes></InfoSection>}
+                        {/* <CreditsContainer>
                             <Credit>Credits: {credits}</Credit>
                             <Credit>Graphic: theastrogoth.github.io/tera-raid-builder/</Credit>
-                        </CreditsContainer>
-                    </InfoSection>
+                        </CreditsContainer> */}
+                    {/* </InfoSection> */}
                 </GraphicsContainer> 
             </ThemeProvider>     
         );

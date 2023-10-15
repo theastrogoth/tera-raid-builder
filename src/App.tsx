@@ -400,6 +400,7 @@ function App() {
                   <GraphicsButton
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps} results={results}
+                    setLoading={setLoading}
                   />
                 <Box flexGrow={1} />
               </Stack>

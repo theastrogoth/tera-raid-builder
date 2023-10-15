@@ -10,6 +10,8 @@ import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
 
 import html2canvas from 'html2canvas';
+//@ts-ignore
+import watermark from "watermarkjs";
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
@@ -23,7 +25,7 @@ import { useTheme } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-  
+
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import DownloadIcon from '@mui/icons-material/Download';
@@ -576,13 +578,6 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             }
                         </BuildsContainer>
                     </BuildsSection>
-                    <InfoSection>
-                        {/* {notes && <Notes>{notes}</Notes>} */}
-                        <CreditsContainer>
-                            <Credit>Credits: {credits}</Credit>
-                            <Credit>Graphic: theastrogoth.github.io/tera-raid-builder/</Credit>
-                        </CreditsContainer>
-                    </InfoSection>
                     <ExecutionSection>
                         <Separator>
                             <LeftBar />
@@ -655,13 +650,13 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             </ExecutionTable>
                         </ExecutionContainer>
                     </ExecutionSection>
-                    {/* <InfoSection> */}
-                        {notes && <InfoSection><Notes>{notes}</Notes></InfoSection>}
-                        {/* <CreditsContainer>
+                    <InfoSection>
+                        {notes && <Notes>{notes}</Notes>}
+                        <CreditsContainer>
                             <Credit>Credits: {credits}</Credit>
                             <Credit>Graphic: theastrogoth.github.io/tera-raid-builder/</Credit>
-                        </CreditsContainer> */}
-                    {/* </InfoSection> */}
+                        </CreditsContainer>
+                    </InfoSection>
                 </GraphicsContainer> 
             </ThemeProvider>     
         );
@@ -671,7 +666,29 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
     return graphicTop;
 }
 
-function saveGraphic(graphicTop: HTMLElement, title: string) {
+const rotate = (xgrid: number, ygrid: number, text: string, gridSize: number) => (target: HTMLCanvasElement) => {
+    const context = target.getContext('2d') as CanvasRenderingContext2D;
+    const textSize = 256;
+    context.font = textSize + 'px Josefin Slab';
+    const metrics = context.measureText(text);
+    const textWidth = Math.min(metrics.width, 2000)
+
+    const shift = textWidth / 2.8284; // 2*sqrt(2)
+    const x = target.width * (1/2 + 1.5 * (xgrid / gridSize) / 2.8284);
+    const y = target.height * (1/2 + (ygrid / gridSize) / 2.8284) + (ygrid / gridSize) * textSize * 1.4142;
+    const x_s = x - shift;
+    const y_s = y + shift;
+  
+    context.translate(x_s, y_s);
+    context.globalAlpha = 0.25;
+    context.fillStyle = '#fff';
+    context.font = textSize + 'px Josefin Slab';
+    context.rotate(-45 * Math.PI / 180);
+    context.fillText(text, 0, 0, 2000);
+    return target;
+};
+
+function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: string, setLoading: (l: boolean) => void) {
     html2canvas(graphicTop, {
         allowTaint: true, 
         useCORS: true,
@@ -679,25 +696,35 @@ function saveGraphic(graphicTop: HTMLElement, title: string) {
         scale: 1,
         imageTimeout: 15000,
     }).then((canvas) => {
-    //   canvas.toBlob((blob) => {
-    //       if (blob) {
-    //           saveAs(blob, title + '.png');
-    //       } else {
-    //           saveAs(getMiscImageURL("failure"), "failed_generation.png");
-    //       }
-    //   });
-        const graphicUrl = canvas.toDataURL("image/png");
-        saveAs(graphicUrl, title + '.png');
+        const graphicUrl = canvas.toDataURL("graphic/png");
+        const gridSize = 1;
+        if (watermarkText && watermarkText !== "") {
+            let wmark = watermark([graphicUrl]);
+            for (let i = -gridSize; i <= gridSize; i++) {
+                for (let j = -gridSize; j <= gridSize; j++) {
+                    wmark = wmark.image(rotate(i, j, watermarkText, gridSize)).render();
+                }
+            }
+            wmark.image((target: HTMLCanvasElement) => target)
+                .then((img: HTMLImageElement) => {
+                    saveAs(img.src, title + '.png')
+                    setLoading(false);
+                });
+        } else {
+            saveAs(graphicUrl, title + '.png')
+            setLoading(false);
+        }
     });
     graphicTop.remove(); // remove the element from the DOM
 }
 
-function GraphicsButton({title, notes, credits, raidInputProps, results}: 
-    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, results: RaidBattleResults, }) {
+function GraphicsButton({title, notes, credits, raidInputProps, results, setLoading}: 
+    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, results: RaidBattleResults, setLoading: (l: boolean) => void}) {
 
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
     const [subtitle, setSubtitle] = useState<string>("");
+    const [watermarkText, setWatermarkText] = useState<string>("");
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -715,6 +742,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results}:
     };
 
     const handleDownload = async () => {
+        setLoading(true);
         try {
             // get learn method + types for moves (maybe we should be storing these somewhere instead of fetching them in several places)
             const pokemonData = (await Promise.all(
@@ -735,8 +763,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, results}:
             const repeats = raidInputProps.groups.map((group) => group.repeats || 1);
             // generate graphic
             const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits);
-            saveGraphic(graphicTop, title);
+            saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
+            setLoading(false);
             console.log(e)
         }
     };
@@ -785,6 +814,14 @@ function GraphicsButton({title, notes, credits, raidInputProps, results}:
                         placeholder="Subtitle"
                         value={subtitle}
                         onChange={(e) => setSubtitle(e.target.value)}
+                    />
+                </MenuItem>
+                <MenuItem>
+                    <TextField 
+                        variant="outlined"
+                        placeholder="Watermark Text"
+                        value={watermarkText}
+                        onChange={(e) => setWatermarkText(e.target.value)}
                     />
                 </MenuItem>
                 <MenuItem>

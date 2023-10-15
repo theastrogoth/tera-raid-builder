@@ -547,6 +547,20 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].state.raiders[2].field.attackerSide.isCharged).toEqual(true);
     expect(result.turnResults[2].state.raiders[3].field.attackerSide.isCharged).toEqual(true);
   })
+  test('skill-swap-intimidate', async() => {
+    const hash = "#H4sIAAAAAAAAA61UUU/bMBD+K5GfNsmTUmAweKMtW5GGNJGiPUR5OOJraurYlu20VKj/fWc3aTc0XjZUyz3f+c6fv/ucF7ZgV6x+8kYzzgK7KsucMw0tsopHU4pojDjrPLrbadwErsGQTGODNNrHHSecNc50lrytWeOtXhgyH433d8NyX7B2MlDEY220ALe9WSywDp5czihFf0sZfL93GctBWNEscBGzLKRZpBkP2+ZONg26iE62eFz5pUQlJqBrVFNoocGDc7+8h/A31xwdvOGeLEE32JOiTcAIvXYoZLqENSts92R2TkdPoiXdDy1C2uS7Rx9k6GLynju6e8SRiE/n6m28+qNUMkRLBmxTnKrGHbiOdWSaFa4xEhcI3XxrsW+BH/jvVJBWyUQIPgcHd310uF4AVlWcrdnVCyMFfOGM9aNMjktOJN+DFNmY6lFgirUUHW7x00z6TjK+AOWRs6J2YC3h1Z1SnF0LYk5Tt1OVc6py+FW7wXk6ejUoNMrpwG8O4mElo3Zahdm1c2YTTx87WGM2li6qoFiCMJtsomBDq+8Ii2ysQMQGneZUpmTjTq2yh6ikYmOc8Nk0yoH1B2wzaqoDqYfsIhjXUnaCd8HP8zjOcn6S84ucala7AfslJwX83DqBidqD1ZNxq0mLUuwF9tXUnc8K8EtazMCJ7b+xkogtWbGSSmXFBiwhjf6ySqEjNNLUTWtJVUmLR7MHNzGtRZKgXOPQrf9G9QaSU87mxq0MRI0erB7HlB5HswzvxdDAzwyVlbrJZqDFWwydkSCC0U+G3mlq4B+rHt8Ps0GXFda8N8RXoKr+qZ2lGskk3n5rMyX2/s89th5hG6U7OqqS0j7cGR+y9NkiEj4yyhwNucF1uJ9YC8+UmQSdAJR5Fb9q0ar4MKpqt/sF/GRgHyUGAAA=";
+    const result = await resultsFromHash(hash);
+    // T1: Intimidate is activated after Skill Swap, which in turn activates Competitive but does not affect Scrappy
+    expect(result.turnResults[0].results[0].state.raiders[0].ability).toEqual("Intimidate");
+    expect(result.turnResults[0].results[0].state.raiders[0].boosts.atk).toEqual(0); // blocked by Scrappy
+    expect(result.turnResults[0].results[0].state.raiders[1].ability).toEqual("Scrappy");
+    expect(result.turnResults[0].results[0].state.raiders[1].boosts.atk).toEqual(0);
+    expect(result.turnResults[0].results[0].state.raiders[2].ability).toEqual("Competitive");
+    expect(result.turnResults[0].results[0].state.raiders[2].boosts.atk).toEqual(-1);
+    expect(result.turnResults[0].results[0].state.raiders[2].boosts.spa).toEqual(2);
+    expect(result.turnResults[0].results[0].state.raiders[3].boosts.atk).toEqual(-1);
+    expect(result.turnResults[0].results[0].state.raiders[4].boosts.atk).toEqual(-1);
+  })
 })
 
 

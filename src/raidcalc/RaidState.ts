@@ -493,7 +493,7 @@ export class RaidState implements State.RaidState{
         return pokemon.activateTera();
     }
 
-    public changeAbility(id: number, ability: AbilityName | "(No Ability)") {
+    public changeAbility(id: number, ability: AbilityName | "(No Ability)", restore: boolean = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.hasItem("Ability Shield")) { return; }
         if (ability === "(No Ability)") {
@@ -507,11 +507,11 @@ export class RaidState implements State.RaidState{
             // lost field effects
             this.removeAbilityFieldEffect(id, oldAbility);
             // gained field effects
-            this.addAbilityFieldEffect(id, ability, false);
+            this.addAbilityFieldEffect(id, ability, false, restore);
         }
     }
 
-    public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchIn: boolean = false): string[][] {
+    public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchIn: boolean = false, restore: boolean = false): string[][] {
         const pokemon = this.getPokemon(id);
         const flags: string[][] = [[],[],[],[],[]];
         /// Trace (handled separately so the traced ability can activate if applicable)
@@ -545,11 +545,6 @@ export class RaidState implements State.RaidState{
             } else if (ability === "Orichalcum Pulse") {
                 this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
                 flags[id].push("Orichalcum Pulse summons the Sun");
-            } else if (ability === "Cloud Nine" || ability === "Air Lock") {
-                for (let field of this.fields) {
-                    field.isCloudNine = true;
-                }
-                flags[id].push("Cloud Nine negates the weather");
             /// Terrain Abilities
             } else if (ability === "Grassy Surge") {
                 this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 32 : 20);
@@ -588,21 +583,6 @@ export class RaidState implements State.RaidState{
                 }
                 flags[id].push("Tablets of Ruin lowers Attacks");
             /// others
-            // Intimidate
-            } else if (ability === "Intimidate") {
-                const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
-                for (let opponent of affectedPokemon) {
-                    if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
-                        const origAtk = opponent.boosts.atk ||  0;
-                        this.applyStatChange(opponent.id, {atk: -1}, true, false);
-                        flags[opponent.id].push("Atk: " + origAtk + "->" + opponent.boosts.atk + " (Intimidate)");
-                    }
-                    if (opponent.hasAbility("Rattled")) {
-                        const origSpe = opponent.boosts.spe || 0;
-                        this.applyStatChange(opponent.id, {spe: 1}, true, true);
-                        flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + "->" + opponent.boosts.spe + " (Rattled)";
-                    }
-                }
             // Supersweet Syrup
             } else if (ability === "Supersweet Syrup") {
                 const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
@@ -638,8 +618,30 @@ export class RaidState implements State.RaidState{
             }
         }
         /// Other Field-Related Abilities
+        // Intimidate (activated on switch in OR ability change, but not when restored after nullification)
+        if (!restore && ability === "Intimidate") {
+            const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
+            for (let opponent of affectedPokemon) {
+                if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
+                    const origAtk = opponent.boosts.atk ||  0;
+                    this.applyStatChange(opponent.id, {atk: -1}, true, false);
+                    flags[opponent.id].push("Atk: " + origAtk + "->" + opponent.boosts.atk + " (Intimidate)");
+                }
+                if (opponent.hasAbility("Rattled")) {
+                    const origSpe = opponent.boosts.spe || 0;
+                    this.applyStatChange(opponent.id, {spe: 1}, true, true);
+                    flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + "->" + opponent.boosts.spe + " (Rattled)";
+                }
+            }
+        }
+        // Cloud Nine / Air Lock
+        if (ability === "Cloud Nine" || ability === "Air Lock") {
+            for (let field of this.fields) {
+                field.isCloudNine = true;
+            }
+            flags[id].push("Cloud Nine negates the weather");
         // Steely Spirit
-        if (ability === "Steely Spirit") {
+        } else if (ability === "Steely Spirit") {
             if (id === 0) {
                 this.fields[0].attackerSide.steelySpirits += 1;
             }

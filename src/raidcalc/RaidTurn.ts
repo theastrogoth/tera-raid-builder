@@ -4,7 +4,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json"
-import { AbilityName, MoveName } from "../calc/data/interface";
+import { MoveName } from "../calc/data/interface";
 
 const gen = Generations.get(9);
 
@@ -299,6 +299,7 @@ export class RaidTurn {
             let bestDamage = 0;
             for (const move of moveOptions) {
                 const testMove = new Move(9, move, this.bossOptions);
+                testMove.isCrit = this.bossOptions.crit || false;
                 const testField = this._raidState.raiders[0].field;
                 testField.defenderSide = this._raidState.raiders[this.raiderID].field.attackerSide;
                 const result = calculate(9, this._raidState.raiders[0], this._raidState.raiders[this.raiderID], testMove, testField);
@@ -325,6 +326,7 @@ export class RaidTurn {
             let bestDamage = 0;
             for (const move of moveOptions) {
                 const testMove = new Move(9, move, this.raiderOptions);
+                testMove.isCrit = this.raiderOptions.crit || false;
                 const testField = this._raidState.raiders[this.raiderID].field;
                 testField.defenderSide = this._raidState.raiders[this.targetID].field.attackerSide;
                 const result = calculate(9, this._raidState.raiders[this.raiderID], this._raidState.raiders[0], testMove, testField);

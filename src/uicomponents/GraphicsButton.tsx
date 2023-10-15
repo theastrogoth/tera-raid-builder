@@ -821,6 +821,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                         variant="outlined"
                         placeholder="Watermark Text"
                         value={watermarkText}
+                        inputProps={{ maxLength: 50 }}
                         onChange={(e) => setWatermarkText(e.target.value)}
                     />
                 </MenuItem>

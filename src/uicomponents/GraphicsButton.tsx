@@ -668,14 +668,17 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
 
 const rotate = (xgrid: number, ygrid: number, text: string, gridSize: number) => (target: HTMLCanvasElement) => {
     const context = target.getContext('2d') as CanvasRenderingContext2D;
-    const textSize = 256;
+    const textSize = 216;
     context.font = textSize + 'px Josefin Slab';
     const metrics = context.measureText(text);
-    const textWidth = Math.min(metrics.width, 2000)
+    const textWidth = Math.min(metrics.width, 1500);
 
-    const shift = textWidth / 2.8284; // 2*sqrt(2)
-    const x = target.width * (1/2 + 1.5 * (xgrid / gridSize) / 2.8284);
-    const y = target.height * (1/2 + (ygrid / gridSize) / 2.8284) + (ygrid / gridSize) * textSize * 1.4142;
+    const xgrid_rot = (xgrid - ygrid) * 0.70711;
+    const ygrid_rot = (xgrid + ygrid) * 0.70711;
+
+    const shift = textWidth / 2.8284;
+    const x = target.width * (1/2 + (xgrid_rot / gridSize / 2));
+    const y = target.height * (1/2 + (ygrid_rot / gridSize / 2));
     const x_s = x - shift;
     const y_s = y + shift;
   
@@ -684,7 +687,7 @@ const rotate = (xgrid: number, ygrid: number, text: string, gridSize: number) =>
     context.fillStyle = '#fff';
     context.font = textSize + 'px Josefin Slab';
     context.rotate(-45 * Math.PI / 180);
-    context.fillText(text, 0, 0, 2000);
+    context.fillText(text, 0, 0, 1500);
     return target;
 };
 
@@ -697,11 +700,12 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
         imageTimeout: 15000,
     }).then((canvas) => {
         const graphicUrl = canvas.toDataURL("graphic/png");
-        const gridSize = 1;
+        const gridSize = 1.1;
+        const gridSizeFloor = Math.floor(gridSize);
         if (watermarkText && watermarkText !== "") {
             let wmark = watermark([graphicUrl]);
-            for (let i = -gridSize; i <= gridSize; i++) {
-                for (let j = -gridSize; j <= gridSize; j++) {
+            for (let i = -gridSizeFloor-1; i <= gridSizeFloor+1; i++) {
+                for (let j = -gridSizeFloor; j <= gridSizeFloor+1; j++) {
                     wmark = wmark.image(rotate(i, j, watermarkText, gridSize)).render();
                 }
             }

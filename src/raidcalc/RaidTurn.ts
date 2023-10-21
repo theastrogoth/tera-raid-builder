@@ -273,6 +273,17 @@ export class RaidTurn {
     }
 
     private applyChangedMove() {
+        // pollen puff
+        if (this.raiderMoveData.name === "Pollen Puff") {
+            if (this.targetID !== 0) { 
+                this._raiderMoveData = {
+                    ...this.raiderMoveData,
+                    power: 0,
+                    category: 'heal',
+                    healing: 50,
+                };
+            }
+        }
         // disallow status moves if taunted
         if (this._boss.isTaunt) {
             const testMove = new Move(9, this.bossMoveData.name, this.bossOptions);
@@ -338,7 +349,7 @@ export class RaidTurn {
                               this.raiderOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
                               result.damage[Math.floor(result.damage.length / 2)]) as number;
                 }
-                if (damage > bestDamage) {
+                if (damage > bestDamage && !(testMove.name === "Pollen Puff" && this.targetID !== 0)) {
                     bestMove = move;
                     bestDamage = damage;
                 }

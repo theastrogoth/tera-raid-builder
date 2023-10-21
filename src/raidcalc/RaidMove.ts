@@ -432,6 +432,9 @@ export class RaidMove {
                         calcMove.hits = 1;
                         calcMove.isCrit = crit;
                         calcMove.isSpread = !!this._isSpread;
+                        if (calcMove.name === "Pollen Puff" && this.userID !== 0 && this.targetID !== 0) {
+                            break;
+                        }
                         // handle moves that are affected by repeated use
                         if (this._user.lastMove && (this.moveData.name === this._user.lastMove.name)) {
                             this._user.moveRepeated = (this._user.moveRepeated || 0) + 1;
@@ -1028,6 +1031,11 @@ export class RaidMove {
                 this._user.boosts.spd = target.boosts.spd;
                 target.boosts.def = tempUserDefBoosts.def;
                 target.boosts.spd = tempUserDefBoosts.spd;
+                break;
+            case "Heart Swap":
+                const tempUserBoosts = this._user.boosts;
+                this._user.boosts = {...target.boosts};
+                target.boosts = {...tempUserBoosts};
                 break;
             case "Power Trick":
                 const tempAtk = this._user.stats.atk;

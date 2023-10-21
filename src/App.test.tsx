@@ -561,6 +561,13 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[0].results[0].state.raiders[3].boosts.atk).toEqual(-1);
     expect(result.turnResults[0].results[0].state.raiders[4].boosts.atk).toEqual(-1);
   })
+  test('pollen-puff-heal', async() => {
+    const hash = "#H4sIAAAAAAAAA7VUbW/TMBD+K5E/gWSk9GUb27d2BTqJoWotn6p8cJNL4tWxI9tpV03779w5STsGEwgN1XLP9/r4uXMeWc6uWHrvjGaceXa1XsecaVEBSziJMiNhwFnjwN7MyEnYAnwQTe2l0Y48hpwV1jQ1aiuzgxudGxQ3xrnb/tgmTK30aHGQGp0Je/iU55B6hyprlMK/UnrX+ZaUTvgt7hnkFFWLsGdhh6PbysqiAEvoZAWnkyslqOxa6BTUTFSigKOyPd4J/zvVCqx4RX1dCl1AR4o2Hgh6aiGT4RK12ULVktlYTZpAS7gf1CCCk2s2zkvfUHDLHd6dcATiQ119oKtvpJKeJOmhCnbMSh6wozwy7Ap2QMR5RLc61NC1wPX8N8rLWslACDx4K247a389L1iScLZjV48MJ+AjZ6xb66C45EjynZBZNMV8aJhBKrMGDvBhLl0jGc+FcsDZMrWirhGvbpTibJIhcxq7HbKcY5bjL3nqlaPBi4WmQYwFv1hBxdYM21kriCbWmj1Vn1qxg2gqLU3BshSZ2UfXSuzx9BVEHk2VyKhBoxjTrNm0UdvoO03Scm9s5qIZjQPrChwibKoVUvfRS29shdEB3gU/j2mNYz6M+UWMOZOnHvslxwmY2I1RckfTchI7Ot59M9GkbeF7tH82aeOipXAlHlaywqf1KzPDs+GfuQn0rtkCHwzoaNHkOQImwzoJthNCHK2F3Iq0bNgz6S/wzYXNDv/WuRbdK4BGeHVjt0bQxB6lDtAMn0pR+rfC0vM0B1VLXURzobPXiBrjeHij7w2+2vBSfjp1+BZmDzZa1uatIb4AlXQPbxxyBHHUtoueLvZq2KvPOmgdwIrmeHAaUYq6Nc5H4RuGHGBsjFW7WG8baDdWiQeMDNPdB4/R8VT9+bChYfg/6+P98bs+SOgjS3LC+5UkT08/AD4kg8a0BgAA";
+    const result = await resultsFromHash(hash);
+    // T2: Pollen Puff heals the target from 1 HP to 50% HP + 1
+    expect(result.turnResults[0].state.raiders[2].originalCurHP).toEqual(1);
+    expect(result.turnResults[1].results[0].state.raiders[2].originalCurHP).toEqual(1 + Math.floor(result.endState.raiders[2].maxHP()/2));
+  })
 })
 
 

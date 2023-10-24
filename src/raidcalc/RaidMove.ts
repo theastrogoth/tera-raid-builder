@@ -792,16 +792,18 @@ export class RaidMove {
                 break;
             case "Skill Swap": 
                 if (
+                    !this._user.hasItem("Ability Shield") && 
+                    !target.hasItem("Ability Shield") &&
                     !persistentAbilities["uncopyable"].includes(user_ability) &&
                     !persistentAbilities["uncopyable"].includes(target_ability) &&
                     !persistentAbilities["unreplaceable"].includes(user_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability) &&
-                    !this._user.hasItem("Ability Shield") && 
-                    !target.hasItem("Ability Shield")
+                    !persistentAbilities["unreplaceable"].includes(target_ability)
                 ) {
                     const tempUserAbility = user_ability;
                     this._raidState.changeAbility(this.userID, target_ability);
                     this._raidState.changeAbility(this.targetID, tempUserAbility);
+                } else {
+                    this._desc[this.targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
             case "Core Enforcer":
@@ -811,6 +813,8 @@ export class RaidMove {
                     !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this.targetID, "(No Ability)");
+                } else {
+                    this._desc[this.targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
             case "Entrainment":
@@ -820,29 +824,39 @@ export class RaidMove {
                     !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this.targetID, user_ability);
+                } else {
+                    this._desc[this.targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
             case "Worry Seed":
                 if (
-                    !persistentAbilities["unreplaceable"].includes(target_ability) && 
-                    !target.hasItem("Ability Shield")
+                    !target.hasItem("Ability Shield") &&
+                    !persistentAbilities["unreplaceable"].includes(target_ability)
                 ) {
                     this._raidState.changeAbility(this.targetID, "Insomnia" as AbilityName);
+                } else {
+                    this._desc[this.targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
             case "Role Play":
                 if (
+                    !this._user.hasItem("Ability Shield") &&
                     !persistentAbilities["uncopyable"].includes(target_ability) &&
                     !persistentAbilities["unreplaceable"].includes(user_ability)
                 ) {
                     this._raidState.changeAbility(this.userID, target_ability);
+                } else {
+                    this._desc[this.targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
             case "Simple Beam":
                 if (
+                    !target.hasItem("Ability Shield") && 
                     !persistentAbilities["unreplaceable"].includes(target_ability)
                 ) {
                     this._raidState.changeAbility(this.targetID, "Simple" as AbilityName);
+                } else {
+                    this._desc[this.targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
         /// Type-affecting moves

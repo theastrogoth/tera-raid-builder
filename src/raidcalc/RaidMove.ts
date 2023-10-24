@@ -493,7 +493,7 @@ export class RaidMove {
                 this._desc[id] = "";
             }
             this._desc[this.userID] = this._user.name + " used " + this.move.name + "!";
-        } else if (this._affectedIDs.length === 1 && !this.moveData.category?.includes("damage")) {
+        } else if (this._affectedIDs.length === 1 && this._damage[this._affectedIDs[0]] === 0) {
             if (this._affectedIDs[0] === this.userID) {
                 this._desc[this._affectedIDs[0]] = this._user.name + " used " + this.move.name + "!";
             } else {
@@ -512,8 +512,8 @@ export class RaidMove {
         const drainPercent = this.moveData.drain;
         const damage = this._damage.reduce((a,b) => a + b, 0);
         if (drainPercent) {
-            // draining moves should only ever hit a single target in raids
-            if (this._damage) {
+            // scripted Matcha Gotcha could potentially drain from multiple raiders
+            if (damage > 0) {
                 this._drain[this.userID] = Math.floor(this._damage[this.targetID] * drainPercent/100);
             }
             if (this._drain[this.userID] && this._user.originalCurHP > 0) {

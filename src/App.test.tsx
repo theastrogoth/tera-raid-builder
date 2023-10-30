@@ -607,6 +607,20 @@ describe('Specific Test Cases', () => {
     // T11: Sunflora uses Solar Beam in Sun
     expect(result.turnResults[10].results[1].desc[0].includes("Solar Beam")).toEqual(true);
   })
+  test('power-herb', async() => {
+    const hash = "#H4sIAAAAAAAAA61US0/jMBD+K5FPi2SklLLL47YUEBy6IIrEIcrBTSaNwbEjP7pUqP99Z5ykLQikZVnFcsbj8Ty++ewXVrFTVjw6oxlnnp1mWcqZFg2wnJMoSxJGnAUH9vqcjIRdgI+iab002pHFAWcLa0KL2sYs4VpXBsW5cW46LDuHhZUedxwURpfCri6qCgrvUGWNUvirpXe9bU3uhH/CuYSKTrUizmWcYWN2b+ViAZaykw1sV66WoMqJ0AWoc9GIBWyU3fJO+PdU92DFB+pJLfQCelC08UCpFxZKGYtozRM0HZjBatJEWGJ90IKIRi7MnZc+0OEOO6yd8ojAx7h6RaXPpZKeJOmhifvolSxgSX5knBUsgYDzmN39qoW+BW7APygvWyUjIPDsrZj2u0N5XrA852zJTl8YMuCYM9aPLCpOOIJ8J2SZnKE/3MAotTIOe79/JV2QjFdCOeDs0kqH3dJBKc6mpgSHvY4+fqCPzZevB+V49Gbg1ijFcJeS6szYhQ2RZBgVSQRWC5XcCitKKnNmlLDJGQjC5tIUwSVnSmDMnI9T9JKxWdB6lZwLwnAiVJNMpSbyPEil9m/2H6Rr0Tgmc8SPUxrjlB+k/IiEfD1kesKx2+isUiYyYyv2lX/7ZZKfXbv2cP/W/AabXIGd4+JK2HL1bzhEJLPdQvOoz/K4tU0POXRjkZnBBrYr9unNVs1cYseoe5PayAKSWQuF+x/ZfZDRGFEAJds2Em8rvgtYx5ivA4Us1dhuvO8fAXWIYHijHw1ez5jZq1WfXNe+WWv8hlgz4eovoPU+Vnl/ww6jjyiOX9N6NOi/97n1GTYSr8RoS9Ax3+V6iuf6U94G6CbWiGc8E1k9HDtEw9HGww562L6/DkytpDdl71OBD/D7YsWfC4xgZym92/Tk5vEBx4+0OR9Gnq/XfwCkfvNGFAcAAA==";
+    const result = await resultsFromHash(hash);
+    // T1: Sunflora uses Solar Beam without charging in Sun
+    expect(result.turnResults[0].results[0].state.raiders[0].field.hasWeather("Sun")).toEqual(true);
+    expect(result.turnResults[0].results[1].desc[0].includes("Solar Beam")).toEqual(true);
+    expect(result.turnResults[0].raiderMoveUsed).toEqual("Solar Beam");
+    expect(result.turnResults[0].state.raiders[1].isCharging).toEqual(false);
+    // T3: Sunflora consumes Power Herb (and gets Specs from Symbiosis) to use Solar Beam without Charging
+    expect(result.turnResults[1].state.raiders[1].field.hasWeather("Rain")).toEqual(true);
+    expect(result.turnResults[2].results[1].desc[0].includes("Solar Beam")).toEqual(true);
+    expect(result.turnResults[2].results[1].desc[0].includes("Choice Specs")).toEqual(true);
+    expect(result.turnResults[2].state.raiders[1].isCharging).toEqual(false);
+  })
 })
 
 

@@ -832,6 +832,8 @@ export class RaidState implements State.RaidState{
         pokemon.volatileStatus = [];
         pokemon.originalCurHP = 0;
         pokemon.isEndure = false;
+        pokemon.isCharging = false;
+        pokemon.isRecharging = false;
         pokemon.abilityNullified = 0;
         pokemon.moveRepeated = undefined;
         pokemon.changedTypes = undefined;

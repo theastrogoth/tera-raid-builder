@@ -91,7 +91,8 @@ export class RaidMove {
         } else if ( // don't move yet for charge moves
             !this._user.isCharging &&
             chargeMoves.includes(this.move.name) &&
-            !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name))
+            !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name)) &&
+            !this._user.hasItem("Power Herb")
         ) {
             this._user.isCharging = true;
             this._desc[this.userID] = this._user.name + " is charging its attack!";
@@ -99,6 +100,13 @@ export class RaidMove {
             this._user.isRecharging = false;
             this._desc[this.userID] = this._user.name + " is recharging!";
         } else {
+            if (!this._user.isCharging && 
+                chargeMoves.includes(this.move.name) && 
+                !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name)) &&
+                this._user.hasItem("Power Herb")
+            ) {
+                this._raidState.loseItem(this.userID);
+            }
             this._user.isCharging = false;
             this.setDoesNotAffect();
             this.checkProtection();

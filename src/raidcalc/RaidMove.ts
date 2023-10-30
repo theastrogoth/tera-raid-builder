@@ -92,6 +92,7 @@ export class RaidMove {
             !this._user.isCharging &&
             chargeMoves.includes(this.move.name) &&
             !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name)) &&
+            !(this._user.field.hasWeather("Rain") && this.move.name === "Electro Shot") &&
             !this._user.hasItem("Power Herb")
         ) {
             this._user.isCharging = true;
@@ -103,6 +104,7 @@ export class RaidMove {
             if (!this._user.isCharging && 
                 chargeMoves.includes(this.move.name) && 
                 !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name)) &&
+                !(this._user.field.hasWeather("Rain") && this.move.name === "Electro Shot") &&
                 this._user.hasItem("Power Herb")
             ) {
                 this._raidState.loseItem(this.userID);

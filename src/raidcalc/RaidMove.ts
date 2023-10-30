@@ -8,6 +8,8 @@ import { isGrounded } from "../calc/mechanics/util";
 import { isSuperEffective, pokemonIsGrounded, ailmentToStatus, hasNoStatus } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
+import chargeMoves from "../data/charge_moves.json";
+import rechargeMoves from "../data/recharge_moves.json";
 
 export type RaidMoveResult= {
     state: RaidState;
@@ -84,9 +86,20 @@ export class RaidMove {
         }
         this._raidState.raiders[0].checkShield(); // check for shield activation
         this.setAffectedPokemon();
-        if (this.flinch) {
+        if (this.flinch) { // prevent moving upon flinch
             this._desc[this.userID] = this._user.name + " flinched!";
+        } else if ( // don't move yet for charge moves
+            !this._user.isCharging &&
+            chargeMoves.includes(this.move.name) &&
+            !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name))
+        ) {
+            this._user.isCharging = true;
+            this._desc[this.userID] = this._user.name + " is charging its attack!";
+        } else if (this._user.isRecharging) {
+            this._user.isRecharging = false;
+            this._desc[this.userID] = this._user.name + " is recharging!";
         } else {
+            this._user.isCharging = false;
             this.setDoesNotAffect();
             this.checkProtection();
             this.applyProtection();
@@ -99,6 +112,9 @@ export class RaidMove {
             this.applyAilment();
             this.applyFieldChanges();
             this.applyUniqueMoveEffects();
+            if (rechargeMoves.includes(this.move.name)) {
+                this._user.isRecharging = true;
+            }
         }
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();

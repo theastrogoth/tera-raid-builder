@@ -568,6 +568,45 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[0].state.raiders[2].originalCurHP).toEqual(1);
     expect(result.turnResults[1].results[0].state.raiders[2].originalCurHP).toEqual(1 + Math.floor(result.endState.raiders[2].maxHP()/2));
   })
+  test('charge-recharge', async() => {
+    const hash = "#H4sIAAAAAAAAA8VWXU/bMBT9K5GfNslIKeX7DQoINHWgFYmHKg8muW28OnZnO4UK8d93r+u0gcFG2WAiMtfXH+fc4+M092zEDlj+3RnNOPPsYDhMOdOiApZxCmVBQYez2oE9P6ZJwo7Bh9BMvTTa0YxNzsbW1FPMVmYG53pkMLwxzvWb7mLD3EqPIw5yowth5yejEeTeYcoapfBfKb2Lc0vaTvgJtgWMaNVUhLYILSynXVk5HoMldrKCVc+VElTREzoHdSwqMYZlctH9JvxzqSuw4oV0rxR6DFEUbTwQ9dxCIUMRUzOBaiFmbTVlgiyhPpiCCJNcfeO89DUtXmiHtROPIHzA1XMq/UYq6SmSHqowjrvSDJjRPjK0CmZAwnlkdzWfQjwC1+hfKy+nSgZB4M5b0Y+jTXlesCzjbMYO7hk6YI8zFp9hSOxzFPmbkEVyhPvhAKKUyjg8+40z6WrJ+EgoB5ydWunwtHStFGd9U4DDsw577OAey7/soUl2O08eHOqkCHcqqc4hO7F1MBmioonAaqGSS2FFQWUOjBI2OQJB2pxh6bGT8W6KmwzZoNZ6nhwLkrAnVJX0pSbvXEulNi42rqWb4uTAZZfvpfR0U76Z8l0KsoeG6D7Hw/5ijZmYQoaTandi8YfoC5tcGqnJ4L3SyBySIxEADws0kW6Lsbm9GeXA6M+CBElRDmF9+aMWE3Ig5YdL+o/0XRFHc/XB3LqcRCNTP+pF6hczsOjTWxw+NXntkoFwJWkqbDFf/wS7Ow3fU2VuURS8kfnktYy7yFGMNVQy3M1WHNkO8BIQrX/CtdNQHeAlhrx8LcstTu4aKRPeFKuw4RiseUnVPyX6N/ei4fqi8X/LPYsXeiukQohitzyFasT8diwkllNJvIGdVf3dx5cvxYVxmbc1LBpWiTtctECO67ZWCLjFI3egUzuvxf7lVbAGgSUM1RDPHD336rpbcq8D223BHnov8knSK4HcsfXu2OinZ49tDeRPX01Cvxuf1wLebQG3ub878B5C/Bfg/Rbwh0pNxm52OIYRaAdvMFjrB3MN7O0W9hngtXwD8BvfJimCf6je+A7Fb85O+GzrYrvDd7Hd4/vYohL0XZhm4etw+UdLMt48Wfbw8BPuj2xddwsAAA==";
+    const result = await resultsFromHash(hash);
+    // T1: Boss is charging Solar Beam
+    expect(result.turnResults[0].results[1].desc[0]).toEqual("Typhlosion-Hisui is charging its attack!");
+    expect(result.turnResults[0].bossMoveUsed).toEqual("Solar Beam (Charging)");
+    expect(result.turnResults[0].state.raiders[0].isCharging).toEqual(true);
+    // T2: Boss uses Solar Beam even though another move is selected
+    expect(result.turnResults[1].results[0].desc[2].includes("Solar Beam")).toEqual(true);
+    expect(result.turnResults[1].bossMoveUsed).toEqual("Solar Beam");
+    expect(result.turnResults[1].state.raiders[0].isCharging).toEqual(false);
+    // T3: Boss uses Hyper Beam
+    expect(result.turnResults[2].results[0].desc[3].includes("Hyper Beam")).toEqual(true);
+    expect(result.turnResults[2].state.raiders[0].isRecharging).toEqual(true);
+    // T4: Boss is recharging and doesn't move
+    expect(result.turnResults[3].results[1].desc[0]).toEqual("Typhlosion-Hisui is recharging!");
+    expect(result.turnResults[3].bossMoveUsed).toEqual("(Recharging)");
+    expect(result.turnResults[3].state.raiders[0].isRecharging).toEqual(false);
+    // T5: Sunflora is charging Solar Beam
+    expect(result.turnResults[4].results[1].desc[4]).toEqual("Sunflora is charging its attack!");
+    expect(result.turnResults[4].raiderMoveUsed).toEqual("Solar Beam (Charging)");
+    expect(result.turnResults[4].state.raiders[4].isCharging).toEqual(true);
+    // T6: Sunflora uses Solar Beam even though another move is selected
+    expect(result.turnResults[5].results[1].desc[0].includes("Solar Beam")).toEqual(true);
+    expect(result.turnResults[5].raiderMoveUsed).toEqual("Solar Beam");
+    expect(result.turnResults[5].state.raiders[4].isCharging).toEqual(false);
+    // T7: Sunflora uses Hyper Beam
+    expect(result.turnResults[6].results[1].desc[0].includes("Hyper Beam")).toEqual(true);
+    expect(result.turnResults[6].state.raiders[4].isRecharging).toEqual(true);
+    // T8: Sunflora is recharging and doesn't move
+    expect(result.turnResults[7].results[1].desc[4]).toEqual("Sunflora is recharging!");
+    expect(result.turnResults[7].raiderMoveUsed).toEqual("(Recharging)");
+    expect(result.turnResults[7].state.raiders[4].isRecharging).toEqual(false);
+    // T10: Typhlosion uses Solar Beam in Sun
+    expect(result.turnResults[8].state.raiders[0].field.hasWeather("Sun")).toEqual(true);
+    expect(result.turnResults[9].results[1].desc[4].includes("Solar Beam")).toEqual(true);
+    // T11: Sunflora uses Solar Beam in Sun
+    expect(result.turnResults[10].results[1].desc[0].includes("Solar Beam")).toEqual(true);
+  })
 })
 
 

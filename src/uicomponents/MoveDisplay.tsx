@@ -77,7 +77,7 @@ function MoveText({raiders, turn, result}: {raiders: Raider[], turn: RaidTurnInf
                             }}
                         />
                     }
-                    <Typography variant="body1" fontWeight="bold">
+                    <Typography variant="body1" fontWeight="bold" align="center">
                         {move}
                     </Typography>
                 </Stack>

@@ -250,8 +250,8 @@ export class RaidTurn {
             state: this._raidState,
             results: [this._result1, this._result2],
             raiderMovesFirst: this._raiderMovesFirst,
-            raiderMoveUsed: this._raiderMoveUsed,
-            bossMoveUsed: this._bossMoveUsed,
+            raiderMoveUsed: this._raiderMoveUsed + (this._raidState.raiders[this.raiderID].isCharging ? " (Charging)" : ""),
+            bossMoveUsed: this._bossMoveUsed + (this._raidState.raiders[0].isCharging ? " (Charging)" : ""),
             id: this.id,
             group: this.group,
             moveInfo: {
@@ -273,6 +273,32 @@ export class RaidTurn {
     }
 
     private applyChangedMove() {
+        // Charge up moves
+        if (this._raider.isCharging) {
+            this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
+            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+            this._raiderMoveUsed = this._raiderMoveData.name;
+        }
+        if (this._boss.isCharging) {
+            this._bossMoveData = this.raidState.raiders[0].lastMove!;
+            this._bossMove = new Move(9, this._bossMoveData.name, this.bossOptions);
+            if (this.bossOptions.crit) this._bossMove.isCrit = true;
+            if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
+            this._bossMoveUsed = this._bossMoveData.name;
+        }
+        // Recharging
+        if (this._raider.isRecharging) {
+            this._raiderMoveData = {name: "(No Move)" as MoveName};
+            this._raiderMove = new Move(9, "(No Move)");
+            this._raiderMoveUsed = "(Recharging)";
+        }
+        if (this._boss.isRecharging) {
+            this._bossMoveData = {name: "(No Move)" as MoveName};
+            this._bossMove = new Move(9, "(No Move)");
+            this._bossMoveUsed = "(Recharging)";
+        }
         // pollen puff
         if (this.raiderMoveData.name === "Pollen Puff") {
             if (this.targetID !== 0) { 
@@ -304,7 +330,7 @@ export class RaidTurn {
             }
         }
         // For this option, pick the most damaging move based on the current field.
-        if (this._bossMoveData.name === "(Most Damaging)") {
+        if (!this.raidState.raiders[0].isCharging && this._bossMoveData.name === "(Most Damaging)") {
             const moveOptions = this._raidState.raiders[0].moves;
             let bestMove = "(No Move)";
             let bestDamage = 0;
@@ -331,7 +357,7 @@ export class RaidTurn {
             this._bossMove = new Move(9, bestMove, this.bossOptions);
             this._bossMoveUsed = bestMove;
         }
-        if (this._raiderMoveData.name === "(Most Damaging)") {
+        if (!this.raidState.raiders[this.raiderID].isCharging && this._raiderMoveData.name === "(Most Damaging)") {
             const moveOptions = this._raidState.raiders[this.raiderID].moves;
             let bestMove = "(No Move)";
             let bestDamage = 0;
@@ -361,13 +387,15 @@ export class RaidTurn {
         // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
         // Instruct
         if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
-            this._raiderMoveID = this.targetID;
-            this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;
-            if (this._raiderMoveTarget === this.targetID) { this._raiderMoveTarget = this._raiderMoveID; }
-            this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
-            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
-            if (this.raiderOptions.crit) { this._raiderMove.isCrit = true; }
-            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+            if (!this.raidState.raiders[this.targetID].isCharging && !this.raidState.raiders[this.targetID].isRecharging) {
+                this._raiderMoveID = this.targetID;
+                this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;
+                if (this._raiderMoveTarget === this.targetID) { this._raiderMoveTarget = this._raiderMoveID; }
+                this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
+                this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+                if (this.raiderOptions.crit) { this._raiderMove.isCrit = true; }
+                if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+            }
         // Copycat
         } else if (this.raiderMoveData.name === "Copycat") {
             this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;
@@ -378,10 +406,11 @@ export class RaidTurn {
             if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         // Since we don't have access to choice lock in the UI, we'll just force the move to be the last move used
         } else if (this._raider.isChoiceLocked && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
-            this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
+            this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
             this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
             if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
             if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+            this._raiderMoveUsed = this._raiderMoveData.name;
         } 
     }
 

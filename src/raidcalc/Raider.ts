@@ -22,6 +22,9 @@ export class Raider extends Pokemon implements State.Raider {
     isYawn?: number;            // turn countdown until yawn takes effect
     yawnSource?: number;        // id of the pokemon that inflicted the user with Yawn
 
+    isCharging?: boolean;       // indicates that a Pokemon is charging a move (e.g. Solar Beam)
+    isRecharging?: boolean;     // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
+
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
     moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
@@ -51,6 +54,8 @@ export class Raider extends Pokemon implements State.Raider {
         isSleep: number = 0,
         isYawn: number = 0,
         yawnSource: number | undefined = undefined,
+        isCharging: boolean = false,
+        isRecharging: boolean = false,
         lastMove: State.MoveData | undefined = undefined, 
         lastTarget: number | undefined = undefined, 
         moveRepeated: number | undefined = undefined,
@@ -76,6 +81,8 @@ export class Raider extends Pokemon implements State.Raider {
         this.isSleep = isSleep;
         this.isYawn = isYawn;
         this.yawnSource = yawnSource;
+        this.isCharging = isCharging;
+        this.isRecharging = isRecharging;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
         this.moveRepeated = moveRepeated;
@@ -137,6 +144,8 @@ export class Raider extends Pokemon implements State.Raider {
             this.isSleep,
             this.isYawn,
             this.yawnSource,
+            this.isCharging,
+            this.isRecharging,
             this.lastMove,
             this.lastTarget,
             this.moveRepeated,

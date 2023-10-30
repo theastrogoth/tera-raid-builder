@@ -212,63 +212,61 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Decidueye-Hisui", {
-      teraType: "Grass",
+    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Typhlosion-Hisui", {
+      teraType: "Fire",
       isTera: true,
       bossMultiplier: 3000,
-      nature: "Adamant",
-      ability: "Scrappy",
-      moves: ["Triple Arrows", "Brave Bird", "Shadow Claw", "Leaf Blade"],
-      shieldData: {hpTrigger: 60, timeTrigger: 60, shieldCancelDamage: 40, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
+      nature: "Modest",
+      ability: "Frisk",
+      moves: ["Eruption", "Infernal Parade", "Solar Beam", "Focus Blast"],
+      shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 30, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
-      {name: "Triple Arrows" as MoveName, category: "damage+lower", target: "selected-pokemon", statChanges: [{stat: "def", change: -1}], statChance: 50, flinchChance: 30},
-      {name: "Brave Bird" as MoveName, category: "damage", target: "selected-pokemon", drain: -50},
-      {name: "Shadow Claw" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Leaf Blade" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Eruption" as MoveName, category: "damage", target: "all-opponents"},
+      {name: "Infernal Parade" as MoveName, category: "damage+ailment", target: "selected-pokemon", ailment: "burn", ailmentChance: 30},
+      {name: "Solar Beam" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Focus Blast" as MoveName, category: "damage", target: "selected-pokemon"},
     ], 
-    ["Bulk Up", "Swords Dance", "Grassy Terrain", "Leaf Storm"] as MoveName[], 
+    ["Sunny Day", "Calm Mind", "Will-O-Wisp"] as MoveName[], 
     [
-      {name: "Bulk Up" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "def", change: 1}], statChance: 100},
-      {name: "Swords Dance" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "atk", change: 2}], statChance: 100},
-      {name: "Grassy Terrain" as MoveName, category: "whole-field-effect", target: "entire-field"},
-      {name: "Leaf Storm" as MoveName, category: "damage+raise", target: "selected-pokemon", statChanges: [{stat: "spa", change: -2}], statChance: 100},
+      {name: "Sunny Day" as MoveName, category: "whole-field-effect", target: "entire-field"},
+      {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1}, {stat: "spd", change: 1}], statChance: 100},
+      {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", ailment: "burn", ailmentChance: 100},
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Tauros", false, new Field(), new Pokemon(gen, "Tauros-Paldea-Blaze", {
+    new Raider(1, "Krookodile", false, new Field(), new Pokemon(gen, "Krookodile", {
       nature: "Adamant",
       ability: "Anger Point",
-      moves: ["Flare Blitz"],
+      moves: ["Earthquake"],
       item: "Choice Band",
-      evs: {atk: 252},
+      evs: {atk: 252, spe: 252},
     }), 
     [
-      {name: "Flare Blitz" as MoveName, category: "damage", target: "selected-pokemon", drain: -50},
+      {name: "Earthquake" as MoveName, category: "damage", target: "all-other-pokemon"},
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Honchkrow", false, new Field(), new Pokemon(gen, "Honchkrow", {
-      nature: "Bold",
-      ability: "Super Luck",
-      moves: ["Night Slash"],
-      item: "Scope Lens",
-      evs: {hp: 252, def: 252},
+    new Raider(2, "Meowscarada", false, new Field(), new Pokemon(gen, "Meowscarada", {
+      nature: "Hardy",
+      moves: ["Flower Trick"],
+      item: "Focus Sash",
+      level: 36,
     }), 
     [
-      {name: "Night Slash" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Flower Trick" as MoveName, category: "damage", target: "selected-pokemon"},
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Torkoal", false, new Field(), new Pokemon(gen, "Torkoal", {
+    new Raider(3, "Magnemite", false, new Field(), new Pokemon(gen, "Magnemite", {
       level: 1,
       nature: "Hardy",
-      ability: "Drought",
-      moves: ["Helping Hand"],
+      ability: "Sturdy",
+      moves: ["Screech"],
       item: "Focus Sash",
     }), 
     [
-      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
+      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
     ])
   );
   const [raider4, setRaider4] = useState(

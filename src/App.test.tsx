@@ -184,9 +184,10 @@ describe('Specific Test Cases', () => {
     // T3 Sturdy activates, Oran Berry heals
     expect(result.turnResults[2].state.raiders[1].originalCurHP).toEqual(11);
     expect(result.turnResults[2].state.raiders[1].item).toEqual(undefined); // consumed
-    // T4 Sturdy activates, Oran Berry heals
-    expect(result.turnResults[3].state.raiders[1].originalCurHP).toEqual(1); // Sturdy activates for the last time
-    expect(result.turnResults[3].state.raiders[1].item).toEqual(undefined);
+    // T4 Sturdy activates, Grassy Terrain heals 1HP
+    expect(result.turnResults[3].results[0].state.raiders[1].originalCurHP).toEqual(1); // Sturdy activates for the last time
+    expect(result.turnResults[3].results[1].state.raiders[1].originalCurHP).toEqual(2); // Grassy Terrain Healing
+    expect(result.turnResults[3].state.raiders[1].item).toEqual(undefined); // no more berries are passed
     // T5 No more berries, KOd
     expect(result.turnResults[4].state.raiders[1].originalCurHP).toEqual(0); // KO
   })

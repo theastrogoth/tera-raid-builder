@@ -98,37 +98,37 @@ export function safeStatStage(value: number) {
     return Math.max(-6, Math.min(6, value));
 }
 
-export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, number] {
+export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, number, string[]] {
     // returns [accuracy (0-100), BP modifier]
     
     const movename = movedata.name;
     // Toxic NEVER misses if used by a poison type
     if (movename === "Toxic" && attacker.hasType("Poison")) {
-        return [100,1];
+        return [100,1,[]];
     }
     // semi-invulnerable moves
     if (defender.isCharging && defender.lastMove) {
         if (["Bounce","Fly","Sky Drop"].includes(defender.lastMove.name)) {
             if (["Gust", "Twister"].includes(movename)) {
-                return [100,2];
+                return [100,2,[]];
             } else if (["Hurricane", "Sky Uppercut", "Smack Down", "Thunder", "Thousand Arrows"].includes(movename)) {
-                return [100,1];
+                return [100,1,[]];
             } else {
-                return [0,1];
+                return [0,1,[]];
             }
         } else if (defender.lastMove.name === "Dig") {
             if (["Earthquake", "Magnitude"].includes(movename)) {
-                return [100,2];
+                return [100,2,[]];
             } else if (movename === "Fissure") {
-                return [100,1];
+                return [100,1,[]];
             } else {
-                return [0,1];
+                return [0,1,[]];
             }
         } else if (defender.lastMove.name === "Dive") {
             if (["Surf", "Whirlpool"].includes(movename)) {
-                return [100,2];
+                return [100,2,[]];
             } else {
-                return [0,1];
+                return [0,1,[]];
             }
         }
     }
@@ -140,58 +140,85 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
         (attacker.field.hasWeather("Snow","Hail") && movename === "Blizzard") ||
         guaranteedHitMoves.includes(movename)
     ) {
-        return [100,1];
+        return [100,1,[]];
     }
 
     let baseAccuracy = movedata.accuracy;
+
+    let weatherMod = false;
     // weather modifiers
     if (attacker.field.hasWeather("Sun") && ["Hurricane","Thunder"].includes(movename)) {
         baseAccuracy = 50;
+        weatherMod = true;
     }
 
     const atkBoost = attacker.boosts.acc || 0;
     const defBoost = defender.boosts.eva || 0;
 
-    let accuracy = baseAccuracy * ((atkBoost + 3) / 3) * ((3 - defBoost) / 3);
+    const accMod = atkBoost >= 0 ? ((atkBoost + 3)/3) : (3/(3 - atkBoost)); 
+    const evaMod = defBoost >= 0 ? (3/(defBoost + 3)) : ((3 - defBoost)/3);
+
+    let accuracy = baseAccuracy * accMod * evaMod;
+    let effects: string[] = []
+    if (atkBoost) {
+        effects.push('Acc ' + (atkBoost > 0 ? '+' : '') + atkBoost);
+    }
+    if (defBoost) {
+        effects.push('Eva ' + (defBoost > 0 ? '+' : '') + defBoost);
+    }
 
     // item modifiers
     if (attacker.hasItem("Wide Lens")) {
         accuracy *= 4505/4096;
+        effects.push("Wide Lens");
     } else if (attacker.hasItem("Zoom Lens") && movesSecond && (attacker.id === 0 || defender.id === 0)) {
         accuracy *= 4915/4096;
+        effects.push("Zoom Lens");
     }
     if (defender.hasItem("Bright Powder") || defender.hasItem("Lax Incense")) {
         accuracy *= 3686/409;
+        effects.push(defender.item!);
     }
 
     // ability modifiers
     if (attacker.hasAbility("Compound Eyes")) {
         accuracy *= 5325/4096;
+        effects.push("Compound Eyes");
     } else if (attacker.hasAbility("Hustle") && category === "Physical") {
         accuracy *= 3277/4096;
+        effects.push("Hustle");
     }
     if (!attackerIgnoresAbility) {
         if (defender.hasAbility("Tangled Feet") && defender.volatileStatus.includes("confusion")) {
             accuracy *= 0.5;
+            effects.push("Tangled Feet");
         }
     }
     // field modifiers
     if (attacker.field.isGravity) {
         accuracy *= 6840/4096;
+        effects.push("Gravity");
     }
     if (!attackerIgnoresAbility && defender.field.hasWeather("Sand") && !defender.field.isCloudNine && defender.hasAbility("Sand Veil")) {
         accuracy *= 3277/4096;
+        effects.push("Sand Veil");
     }
     if (!attackerIgnoresAbility && defender.field.hasWeather("Hail", "Snow") && !defender.field.isCloudNine && defender.hasAbility("Snow Cloak")) {
         accuracy *= 3277/4096;
+        effects.push("Snow Cloak");
     }
 
     // Micle Berry
     if (attacker.isMicle) {
         accuracy *= 4915/4096;
+        effects.push("Micle Berry");
     }
 
-    return [accuracy, 1];
+    if (weatherMod) {
+        effects.push("reduced accuracy in Sun")
+    }
+
+    return [accuracy, 1, effects];
 }
 
 // Speed modifiers

@@ -458,7 +458,7 @@ export class RaidMove {
                 let totalDamage = 0;
 
                 const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
-                const [accuracy, bpModifier] = getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
+                const [accuracy, bpModifier, accEffectsList] = getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
                 if (accuracy > 0) {
                     try {
                         // calculate each hit from a multi-hit move
@@ -526,7 +526,8 @@ export class RaidMove {
                     // add accuracy to desc if there is a chance to miss
                     if (accuracy < 100) {
                         const accString = Math.floor(accuracy * 10) / 10;
-                        this._desc[id] += " [" + accString + "% chance to hit]";
+                        const accEffectsString = accEffectsList.length ? " (" + accEffectsList.join(", ") : ")";
+                        this._desc[id] += " [" + accString + "% chance to hit" + accEffectsString + "]";
                     }
 
                 } else {

@@ -526,7 +526,7 @@ export class RaidMove {
                     // add accuracy to desc if there is a chance to miss
                     if (accuracy < 100) {
                         const accString = Math.floor(accuracy * 10) / 10;
-                        const accEffectsString = accEffectsList.length ? " (" + accEffectsList.join(", ") : ")";
+                        const accEffectsString = accEffectsList.length ? " (" + accEffectsList.join(", ") + ")" : "";
                         this._desc[id] += " [" + accString + "% chance to hit" + accEffectsString + "]";
                     }
 

@@ -1,8 +1,9 @@
 import { Move, Field, Pokemon, Generations } from "../calc";
-import { AilmentName, RaidTurnInfo } from "./interface";
+import { AilmentName, MoveData, RaidTurnInfo } from "./interface";
 import { Raider } from "./Raider";
 import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
+import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 
 const gen = Generations.get(9);
 
@@ -95,6 +96,97 @@ export function getBoostCoefficient(pokemon: Pokemon) {
 
 export function safeStatStage(value: number) {
     return Math.max(-6, Math.min(6, value));
+}
+
+export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, number] {
+    // returns [accuracy (0-100), BP modifier]
+    
+    const movename = movedata.name;
+    // Toxic NEVER misses if used by a poison type
+    if (movename === "Toxic" && attacker.hasType("Poison")) {
+        return [100,1];
+    }
+    // semi-invulnerable moves
+    if (defender.isCharging && defender.lastMove) {
+        if (["Bounce","Fly","Sky Drop"].includes(defender.lastMove.name)) {
+            if (["Gust", "Twister"].includes(movename)) {
+                return [100,2];
+            } else if (["Hurricane", "Sky Uppercut", "Smack Down", "Thunder", "Thousand Arrows"].includes(movename)) {
+                return [100,1];
+            } else {
+                return [0,1];
+            }
+        } else if (defender.lastMove.name === "Dig") {
+            if (["Earthquake", "Magnitude"].includes(movename)) {
+                return [100,2];
+            } else if (movename === "Fissure") {
+                return [100,1];
+            } else {
+                return [0,1];
+            }
+        } else if (defender.lastMove.name === "Dive") {
+            if (["Surf", "Whirlpool"].includes(movename)) {
+                return [100,2];
+            } else {
+                return [0,1];
+            }
+        }
+    }
+    // guaranteed hit moves
+    if (
+        !movedata.accuracy || 
+        (attacker.lastMove && attacker.lastMove.name === "Lock-On") ||
+        (attacker.field.hasWeather("Rain") && ["Thunder","Hurricane"].includes(movename)) ||
+        (attacker.field.hasWeather("Snow","Hail") && movename === "Blizzard") ||
+        guaranteedHitMoves.includes(movename)
+    ) {
+        return [100,1];
+    }
+
+    let baseAccuracy = movedata.accuracy;
+    // weather modifiers
+    if (attacker.field.hasWeather("Sun") && ["Hurricane","Thunder"].includes(movename)) {
+        baseAccuracy = 50;
+    }
+
+    const atkBoost = attacker.boosts.acc || 0;
+    const defBoost = defender.boosts.eva || 0;
+
+    let accuracy = baseAccuracy * ((atkBoost + 3) / 3) * ((3 - defBoost) / 3);
+
+    // item modifiers
+    if (attacker.hasItem("Wide Lens")) {
+        accuracy *= 4505/4096;
+    } else if (attacker.hasItem("Zoom Lens") && movesSecond && (attacker.id === 0 || defender.id === 0)) {
+        accuracy *= 4915/4096;
+    }
+    if (defender.hasItem("Bright Powder") || defender.hasItem("Lax Incense")) {
+        accuracy *= 3686/409;
+    }
+
+    // ability modifiers
+    if (attacker.hasAbility("Compound Eyes")) {
+        accuracy *= 5325/4096;
+    } else if (attacker.hasAbility("Hustle") && category === "Physical") {
+        accuracy *= 3277/4096;
+    }
+    if (!attackerIgnoresAbility) {
+        if (defender.hasAbility("Tangled Feet") && defender.volatileStatus.includes("confusion")) {
+            accuracy *= 0.5;
+        }
+    }
+    // field modifiers
+    if (attacker.field.isGravity) {
+        accuracy *= 6840/4096;
+    }
+    if (!attackerIgnoresAbility && defender.field.hasWeather("Sand") && !defender.field.isCloudNine && defender.hasAbility("Sand Veil")) {
+        accuracy *= 3277/4096;
+    }
+    if (!attackerIgnoresAbility && defender.field.hasWeather("Hail", "Snow") && !defender.field.isCloudNine && defender.hasAbility("Snow Cloak")) {
+        accuracy *= 3277/4096;
+    }
+
+    return [accuracy, 1];
 }
 
 // Speed modifiers

@@ -222,16 +222,16 @@ function App() {
       shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 30, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
-      {name: "Eruption" as MoveName, category: "damage", target: "all-opponents"},
-      {name: "Infernal Parade" as MoveName, category: "damage+ailment", target: "selected-pokemon", ailment: "burn", ailmentChance: 30},
-      {name: "Solar Beam" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Focus Blast" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Eruption" as MoveName, category: "damage", target: "all-opponents", accuracy: 100},
+      {name: "Infernal Parade" as MoveName, category: "damage+ailment", target: "selected-pokemon", accuracy: 100, ailment: "burn", ailmentChance: 30},
+      {name: "Solar Beam" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100},
+      {name: "Focus Blast" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 70},
     ], 
     ["Sunny Day", "Calm Mind", "Will-O-Wisp"] as MoveName[], 
     [
       {name: "Sunny Day" as MoveName, category: "whole-field-effect", target: "entire-field"},
       {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1}, {stat: "spd", change: 1}], statChance: 100},
-      {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", ailment: "burn", ailmentChance: 100},
+      {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", accuracy: 85, ailment: "burn", ailmentChance: 100},
     ])
   );
   const [raider1, setRaider1] = useState(
@@ -243,7 +243,7 @@ function App() {
       evs: {atk: 252, spe: 252},
     }), 
     [
-      {name: "Earthquake" as MoveName, category: "damage", target: "all-other-pokemon"},
+      {name: "Earthquake" as MoveName, category: "damage", target: "all-other-pokemon", accuracy: 100},
     ])
   );
   const [raider2, setRaider2] = useState(
@@ -254,7 +254,7 @@ function App() {
       level: 36,
     }), 
     [
-      {name: "Flower Trick" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Flower Trick" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100},
     ])
   );
   const [raider3, setRaider3] = useState(
@@ -266,7 +266,7 @@ function App() {
       item: "Focus Sash",
     }), 
     [
-      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
+      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 85, statChanges: [{stat: "def", change: -2}], statChance: 100},
     ])
   );
   const [raider4, setRaider4] = useState(

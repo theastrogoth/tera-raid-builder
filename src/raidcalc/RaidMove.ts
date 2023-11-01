@@ -141,6 +141,11 @@ export class RaidMove {
                 "Clear Boosts / Abilities",
             ].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
+            // remove Micle boost
+            this._user.isMicle = false;
+            if (this._user.id !== 0) {
+                this._raidState.raiders[this.raiderID].isMicle = false; // in case of Instruct
+            }
         }
         this._user.lastTarget = this.moveData.target === "user" ? this.userID : this.targetID;
         return this.output;
@@ -1025,6 +1030,9 @@ export class RaidMove {
                             break;
                         case "Lansat Berry":
                             target.isPumped = true;
+                            break;
+                        case "Micle Berry":
+                            target.isMicle = true;
                             break;
                         // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                         case "Sitrus Berry":

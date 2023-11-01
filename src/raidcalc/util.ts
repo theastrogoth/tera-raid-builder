@@ -186,6 +186,11 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
         accuracy *= 3277/4096;
     }
 
+    // Micle Berry
+    if (attacker.isMicle) {
+        accuracy *= 4915/4096;
+    }
+
     return [accuracy, 1];
 }
 

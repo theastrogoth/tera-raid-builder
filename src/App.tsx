@@ -218,13 +218,13 @@ function App() {
       bossMultiplier: 3000,
       nature: "Modest",
       ability: "Frisk",
-      moves: ["Eruption", "Infernal Parade", "Solar Beam", "Focus Blast"],
+      moves: ["Eruption", "Infernal Parade", "Extrasensory", "Focus Blast"],
       shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 30, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
       {name: "Eruption" as MoveName, category: "damage", target: "all-opponents", accuracy: 100},
       {name: "Infernal Parade" as MoveName, category: "damage+ailment", target: "selected-pokemon", accuracy: 100, ailment: "burn", ailmentChance: 30},
-      {name: "Solar Beam" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100},
+      {name: "Extrasensory" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100},
       {name: "Focus Blast" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 70},
     ], 
     ["Sunny Day", "Calm Mind", "Will-O-Wisp"] as MoveName[], 
@@ -263,7 +263,7 @@ function App() {
       nature: "Hardy",
       ability: "Sturdy",
       moves: ["Screech"],
-      item: "Focus Sash",
+      item: "Zoom Lens",
     }), 
     [
       {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 85, statChanges: [{stat: "def", change: -2}], statChance: 100},

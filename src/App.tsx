@@ -261,7 +261,7 @@ function App() {
     new Raider(3, "Pelipper", false, new Field(), new Pokemon(gen, "Pelipper", {
       level: 100,
       nature: "Calm",
-      ability: "Cloud Nine",
+      ability: "Drizzle",
       moves: ["Helping Hand"],
       item: "Rawst Berry",
       evs: {hp: 252, spd: 252},

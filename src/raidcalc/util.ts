@@ -152,19 +152,19 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
         weatherMod = true;
     }
 
-    const atkBoost = attacker.boosts.acc || 0;
-    const defBoost = defender.boosts.eva || 0;
+    const accStage = attacker.boosts.acc || 0;
+    const evaStage = defender.boosts.eva || 0;
+    const calcStage = Math.max(-6, Math.min(6, accStage - evaStage));
 
-    const accMod = atkBoost >= 0 ? ((atkBoost + 3)/3) : (3/(3 - atkBoost)); 
-    const evaMod = defBoost >= 0 ? (3/(defBoost + 3)) : ((3 - defBoost)/3);
+    const accMod = calcStage >= 0 ? ((calcStage + 3)/3) : (3/(3 - calcStage)); 
 
-    let accuracy = baseAccuracy * accMod * evaMod;
+    let accuracy = baseAccuracy * accMod;
     let effects: string[] = []
-    if (atkBoost) {
-        effects.push('Acc ' + (atkBoost > 0 ? '+' : '') + atkBoost);
+    if (accStage) {
+        effects.push('Acc ' + (accStage > 0 ? '+' : '') + accStage);
     }
-    if (defBoost) {
-        effects.push('Eva ' + (defBoost > 0 ? '+' : '') + defBoost);
+    if (evaStage) {
+        effects.push('Eva ' + (evaStage > 0 ? '+' : '') + evaStage);
     }
 
     // item modifiers

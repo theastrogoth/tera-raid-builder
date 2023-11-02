@@ -234,20 +234,21 @@ function App() {
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Krookodile", false, new Field(), new Pokemon(gen, "Krookodile", {
+    new Raider(1, "Tauros", false, new Field(), new Pokemon(gen, "Tauros-Paldea-Aqua", {
       nature: "Adamant",
       ability: "Anger Point",
-      moves: ["Earthquake"],
+      moves: ["Wave Crash"],
       item: "Choice Band",
-      evs: {atk: 252, spe: 252},
+      evs: {atk: 252},
     }), 
     [
-      {name: "Earthquake" as MoveName, category: "damage", target: "all-other-pokemon", accuracy: 100},
+      {name: "Wave Crash" as MoveName, category: "damage+heal", target: "all-other-pokemon", accuracy: 100, drain: -50},
     ])
   );
   const [raider2, setRaider2] = useState(
     new Raider(2, "Honchkrow", false, new Field(), new Pokemon(gen, "Honchkrow", {
       nature: "Calm",
+      ability: "Super Luck",
       moves: ["Night Slash"],
       item: "Scope Lens",
       evs: {hp: 252, spd: 252},
@@ -257,29 +258,28 @@ function App() {
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Golduck", false, new Field(), new Pokemon(gen, "Golduck", {
+    new Raider(3, "Pelipper", false, new Field(), new Pokemon(gen, "Pelipper", {
       level: 100,
-      nature: "Sassy",
+      nature: "Calm",
       ability: "Cloud Nine",
-      moves: ["Screech"],
-      item: "Zoom Lens",
+      moves: ["Helping Hand"],
+      item: "Rawst Berry",
       evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 85, statChanges: [{stat: "def", change: -2}], statChance: 100},
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Medicham", false, new Field(), new Pokemon(gen, "Medicham", {
+    new Raider(4, "Grimmsnarl", false, new Field(), new Pokemon(gen, "Grimmsnarl", {
       level: 100,
       nature: "Calm",
-      ability: "Pure Power",
-      moves: ["Skill Swap"],
-      item: "Sitrus Berry",
+      ability: "Prankster",
+      moves: ["Taunt"],
       evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Skill Swap" as MoveName, category: "unique", target: "selected-pokemon", accuracy: 100},
+      {name: "Taunt" as MoveName, category: "unique", target: "selected-pokemon", accuracy: 100},
     ])
   );
 

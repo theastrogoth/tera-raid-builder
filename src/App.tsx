@@ -225,7 +225,7 @@ function App() {
       {name: "Infernal Parade" as MoveName, category: "damage+ailment", target: "selected-pokemon", accuracy: 100, ailment: "burn", ailmentChance: 30},
       {name: "Flamethrower" as MoveName, category: "damage+ailment", target: "selected-pokemon", accuracy: 100, ailment: "burn", ailmentChance: 10},
       {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", accuracy: 85, ailment: "burn", ailmentChance: 100},
-      {name: "Focus Blast" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 70},
+      {name: "Focus Blast" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 70, statChanges: [{stat: "spd", change: -1}], statChance: 10},
     ], 
     ["Will-O-Wisp", "Sunny Day"] as MoveName[], 
     [

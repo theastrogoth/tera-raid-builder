@@ -1073,6 +1073,14 @@ export class RaidMove {
                     }
                 }
                 break;
+            case "Heal Bell":
+                const selfAndAllies = this.userID === 0 ? [0] : [1,2,3,4];
+                for (let id of selfAndAllies) {
+                    const pokemon = this.getPokemon(id);
+                    if (pokemon.hasAbility("Soundproof") && pokemon.id !== this.userID) { continue; }
+                    pokemon.status = "";
+                }
+                break;
             case "Charge":
                 this._fields[this.userID].attackerSide.isCharged = true;
                 break;

@@ -230,6 +230,7 @@ export class RaidMove {
 
     private setDoesNotAffect() {
         this._blockedBy= ["", "", "", "", ""];
+        if (["Attack Cheer", "Heal Cheer", "Defense Cheer", "Clear Boosts / Abilities", "Remove Negative Effects"].includes(this.moveData.name)) { return; }
         const moveType = this.move.type;
         const category = this.move.category;
         const targetType = this.moveData.target

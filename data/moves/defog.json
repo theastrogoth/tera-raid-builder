@@ -13,7 +13,7 @@
     "statChanges": [
         {
             "stat": "eva",
-            "change": -1,
+            "change": -1
         }
     ],
     "flinchChance": 0,

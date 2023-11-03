@@ -270,7 +270,7 @@ export class RaidMove {
                     this._raidState.getPokemon(id).abilityOn = true;
                     continue;
                 }
-                if (pokemon.ability === "Well-Baked Body") {
+                if (pokemon.ability === "Well-Baked Body" && moveType === "Fire") {
                     this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {def: 2};
                     this._raidState.applyStatChange(id, boost);
@@ -1162,6 +1162,15 @@ export class RaidMove {
         // Choice-locking items
         if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
             this._user.isChoiceLocked = true;
+        }
+        // Hydration
+        if (!this.movesFirst && this._raiders[0].field.hasWeather("Rain")) {
+            if (this._user.hasAbility("Hydration")) {
+                this._user.status = "";
+            }
+            if (this._raiders[0].hasAbility("Hydration")) {
+                this._user.status = "";
+            }
         }
     }
 

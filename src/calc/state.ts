@@ -33,6 +33,7 @@ export namespace State {
     evs?: Partial<I.StatsTable>;
     boosts?: Partial<I.StatsTable>;
     isPumped?: boolean;
+    isMicle?: boolean;
     randomBoosts?: number;
     originalCurHP?: number;
     status?: I.StatusName | '';

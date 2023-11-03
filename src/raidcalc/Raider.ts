@@ -122,6 +122,7 @@ export class Raider extends Pokemon implements State.Raider {
                 evs: extend(true, {}, this.evs),
                 boosts: extend(true, {}, this.boosts),
                 isPumped: this.isPumped,
+                isMicle: this.isMicle,
                 randomBoosts: this.randomBoosts,
                 originalCurHP: this.originalCurHP,
                 status: this.status,

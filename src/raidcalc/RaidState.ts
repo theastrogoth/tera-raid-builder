@@ -270,6 +270,11 @@ export class RaidState implements State.RaidState{
                     case "Lansat Berry":
                         pokemon.isPumped = true;
                         this.loseItem(id);
+                        break;
+                    case "Micle Berry":
+                        pokemon.isMicle = true;
+                        this.loseItem(id);
+                        break;
                 }
             }
         }
@@ -826,6 +831,8 @@ export class RaidState implements State.RaidState{
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;
         pokemon.boosts = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, eva: 0, acc: 0};
+        pokemon.isPumped = false;
+        pokemon.isMicle = false;
         pokemon.randomBoosts = 0;
         pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
         pokemon.status = "";

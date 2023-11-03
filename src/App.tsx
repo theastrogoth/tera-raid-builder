@@ -218,66 +218,69 @@ function App() {
       bossMultiplier: 3000,
       nature: "Modest",
       ability: "Frisk",
-      moves: ["Eruption", "Infernal Parade", "Solar Beam", "Focus Blast"],
+      moves: ["Infernal Parade", "Flamethrower", "Will-O-Wisp", "Focus Blast"],
       shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 30, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
-      {name: "Eruption" as MoveName, category: "damage", target: "all-opponents"},
-      {name: "Infernal Parade" as MoveName, category: "damage+ailment", target: "selected-pokemon", ailment: "burn", ailmentChance: 30},
-      {name: "Solar Beam" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Focus Blast" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Infernal Parade" as MoveName, category: "damage+ailment", target: "selected-pokemon", accuracy: 100, ailment: "burn", ailmentChance: 30},
+      {name: "Flamethrower" as MoveName, category: "damage+ailment", target: "selected-pokemon", accuracy: 100, ailment: "burn", ailmentChance: 10},
+      {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", accuracy: 85, ailment: "burn", ailmentChance: 100},
+      {name: "Focus Blast" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 70, statChanges: [{stat: "spd", change: -1}], statChance: 10},
     ], 
-    ["Sunny Day", "Calm Mind", "Will-O-Wisp"] as MoveName[], 
+    ["Will-O-Wisp", "Sunny Day"] as MoveName[], 
     [
+      {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", accuracy: 85, ailment: "burn", ailmentChance: 100},
       {name: "Sunny Day" as MoveName, category: "whole-field-effect", target: "entire-field"},
-      {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1}, {stat: "spd", change: 1}], statChance: 100},
-      {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", ailment: "burn", ailmentChance: 100},
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Krookodile", false, new Field(), new Pokemon(gen, "Krookodile", {
+    new Raider(1, "Tauros", false, new Field(), new Pokemon(gen, "Tauros-Paldea-Aqua", {
       nature: "Adamant",
       ability: "Anger Point",
-      moves: ["Earthquake"],
+      moves: ["Wave Crash"],
       item: "Choice Band",
-      evs: {atk: 252, spe: 252},
+      evs: {atk: 252},
     }), 
     [
-      {name: "Earthquake" as MoveName, category: "damage", target: "all-other-pokemon"},
+      {name: "Wave Crash" as MoveName, category: "damage+heal", target: "all-other-pokemon", accuracy: 100, drain: -50},
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Meowscarada", false, new Field(), new Pokemon(gen, "Meowscarada", {
-      nature: "Hardy",
-      moves: ["Flower Trick"],
-      item: "Focus Sash",
-      level: 36,
+    new Raider(2, "Honchkrow", false, new Field(), new Pokemon(gen, "Honchkrow", {
+      nature: "Calm",
+      ability: "Super Luck",
+      moves: ["Night Slash"],
+      item: "Scope Lens",
+      evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Flower Trick" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Night Slash" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100},
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Magnemite", false, new Field(), new Pokemon(gen, "Magnemite", {
-      level: 1,
-      nature: "Hardy",
-      ability: "Sturdy",
-      moves: ["Screech"],
-      item: "Focus Sash",
+    new Raider(3, "Chansey", false, new Field(), new Pokemon(gen, "Chansey", {
+      level: 100,
+      nature: "Calm",
+      moves: ["Rain Dance"],
+      item: "Eviolite",
+      evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Screech" as MoveName, category: "net-good-stats", target: "selected-pokemon", statChanges: [{stat: "def", change: -2}], statChance: 100},
+      {name: "Rain Dance" as MoveName, category: "field-effect", target: "entire-field"},
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Stonjourner", false, new Field(), new Pokemon(gen, "Stonjourner", {
-      level: 1,
-      nature: "Hardy",
-      ability: "Power Spot",
-      moves: [],
-      item: "Focus Sash",
+    new Raider(4, "Maushold", false, new Field(), new Pokemon(gen, "Maushold", {
+      level: 100,
+      nature: "Calm",
+      ability: "Friend Guard",
+      moves: ["Helping Hand"],
+      item: "Chople Berry",
+      evs: {hp: 252, spd: 252},
     }), 
-    [])
+    [
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
+    ])
   );
 
   const [title, setTitle] = useState<string>("");

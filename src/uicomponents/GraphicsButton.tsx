@@ -597,7 +597,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                 <ExecutionMoveNumber>{index + 1}</ExecutionMoveNumber>
                                                 <ExecutionMoveContainer>
                                                     {
-                                                        moveGroup.map((move, moveIndex) => (
+                                                        moveGroup.map((move, moveIndex) => { 
+                                                            const showTarget = move.info.userID === 0 ?
+                                                                ( move.isSpread || move.move === "Remove Negative Effects" ) :
+                                                                !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.info.moveData.target!);
+                                                            return (
                                                             <ExecutionMove key={moveIndex}>
                                                                 <ExecutionMovePokemonWrapper>
                                                                     <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.userID].role}</ExecutionMovePokemonName>
@@ -612,8 +616,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                         <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
                                                                     </ExecutionMoveTeraIconWrapper>
                                                                 }
-                                                                <ExecutionMoveTag>{(move.move === "Clear Boosts / Abilities" || move.move === "Remove Negative Effects" || !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)? "on": "")}</ExecutionMoveTag>
-                                                                {(move.move === "Clear Boosts / Abilities" || move.move === "Remove Negative Effects" || !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", " entire-field"].includes(move.info.moveData.target!)) ?
+                                                                <ExecutionMoveTag>{showTarget ? "on": ""}</ExecutionMoveTag>
+                                                                {showTarget ?
                                                                     <ExecutionMovePokemonWrapper>
                                                                         <ExecutionMovePokemonName>
                                                                             {
@@ -639,7 +643,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                     <ExecutionMovePokemonWrapperEmpty />
                                                                 }
                                                             </ExecutionMove>
-                                                        ))
+                                                        )})
                                                     }
                                                 </ExecutionMoveContainer>
                                                 <ExecutionRepeatNumber>{repeats[index] > 1 ? "×" + (repeats[index]) : ""}</ExecutionRepeatNumber>

@@ -258,28 +258,27 @@ function App() {
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Pelipper", false, new Field(), new Pokemon(gen, "Pelipper", {
+    new Raider(3, "Chansey", false, new Field(), new Pokemon(gen, "Chansey", {
       level: 100,
       nature: "Calm",
-      ability: "Drizzle",
+      moves: ["Rain Dance"],
+      item: "Eviolite",
+      evs: {hp: 252, spd: 252},
+    }), 
+    [
+      {name: "Rain Dance" as MoveName, category: "field-effect", target: "entire-field"},
+    ])
+  );
+  const [raider4, setRaider4] = useState(
+    new Raider(4, "Maushold", false, new Field(), new Pokemon(gen, "Maushold", {
+      level: 100,
+      nature: "Calm",
+      ability: "Friend Guard",
       moves: ["Helping Hand"],
-      item: "Rawst Berry",
       evs: {hp: 252, spd: 252},
     }), 
     [
       {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
-    ])
-  );
-  const [raider4, setRaider4] = useState(
-    new Raider(4, "Grimmsnarl", false, new Field(), new Pokemon(gen, "Grimmsnarl", {
-      level: 100,
-      nature: "Calm",
-      ability: "Prankster",
-      moves: ["Taunt"],
-      evs: {hp: 252, spd: 252},
-    }), 
-    [
-      {name: "Taunt" as MoveName, category: "unique", target: "selected-pokemon", accuracy: 100},
     ])
   );
 

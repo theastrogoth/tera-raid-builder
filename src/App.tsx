@@ -275,6 +275,7 @@ function App() {
       nature: "Calm",
       ability: "Friend Guard",
       moves: ["Helping Hand"],
+      item: "Chople Berry",
       evs: {hp: 252, spd: 252},
     }), 
     [

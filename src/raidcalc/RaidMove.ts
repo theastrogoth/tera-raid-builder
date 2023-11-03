@@ -126,9 +126,9 @@ export class RaidMove {
                 this._user.isRecharging = true;
             }
         }
+        this.applyEndOfMoveEffects();       
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
-        this.applyEndOfMoveEffects();       
         this._raidState.raiders[0].checkShield(); // check for shield breaking 
         this.setFlags();
         // store move data and target

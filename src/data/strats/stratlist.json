@@ -1,4 +1,8 @@
 {
+    "Typhlosion-Hisui": {
+        "Big Wave": "h_typlosion/main",
+        "Soggy Sushi": "h_typlosion/sushi"
+    },
     "Decidueye-Hisui": {
         "Seeing Red": "h_decidueye/main",
         "Certified Bug Moment": "h_decidueye/bug_moment",

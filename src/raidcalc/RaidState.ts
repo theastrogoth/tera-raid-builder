@@ -450,7 +450,7 @@ export class RaidState implements State.RaidState{
                     pokemon.abilityOn = true;
                     const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
                     pokemon.boostedStat = statId;
-                } else if (pokemon.field.terrain !== "Electric" && pokemon.abilityOn) {
+                } else if (!pokemon.field.hasTerrain("Electric") && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
                     pokemon.boostedStat = undefined;
                     if (pokemon.item === "Booster Energy") { this.recieveItem(id, "Booster Energy" as ItemName); }
@@ -484,11 +484,11 @@ export class RaidState implements State.RaidState{
                     pokemon.abilityOn = true;
                     const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
                     pokemon.boostedStat = statId;
-                } else if ((pokemon.field.weather || "").includes("Sun")  && pokemon.abilityOn) {
+                } else if (!(pokemon.field.weather || "").includes("Sun") && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
                     pokemon.boostedStat = undefined;
                     if (pokemon.item === "Booster Energy") { this.recieveItem(id, "Booster Energy" as ItemName); }
-                }
+                } 
             }
         }
     }

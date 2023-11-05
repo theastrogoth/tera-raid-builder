@@ -379,7 +379,7 @@ const ExecutionMovePokemonWrapperEmpty = styled(Box)({
 
 const ExecutionMovePokemonName = styled(Typography)({
     color: "white",
-    fontSize: "1.8em",
+    fontSize: "1.7em",
     overflow: "hidden",
     whiteSpace: "nowrap",
     padding: "0px 50px"
@@ -422,7 +422,7 @@ const ExecutionMoveTag = styled(Typography)({
     height: "100px",
     width: "300px",
     color: "white",
-    fontSize: "1.8em",
+    fontSize: "1.7em",
     textAlign: "center",
     lineHeight: "100px",
     overflow: "hidden",
@@ -433,7 +433,7 @@ const ExecutionMoveAction = styled(Typography)({
     height: "100px",
     width: "650px",
     color: "white",
-    fontSize: "1.8em",
+    fontSize: "1.7em",
     textAlign: "center",
     lineHeight: "100px",
     overflow: "hidden",
@@ -441,7 +441,11 @@ const ExecutionMoveAction = styled(Typography)({
     backgroundColor: "rgba(255, 255, 255, .35)",
 });
 
-const InfoSection = styled(Box)({
+const NotesSection = styled(Box)({
+
+});
+
+const NotesContainer = styled(Box)({
     width: "auto",
     justifyContent: "space-between",
     margin: "100px",
@@ -453,7 +457,15 @@ const InfoSection = styled(Box)({
 const Notes = styled(Typography)({
     fontSize: "4.2em",
     color: "white",
-    marginBottom: "50px"
+});
+
+const InfoSection = styled(Box)({
+    width: "auto",
+    justifyContent: "space-between",
+    margin: "100px",
+    padding: "50px",
+    position: "relative",
+    backgroundColor: "rgba(255, 255, 255, .35)",
 });
 
 const CreditsContainer = styled(Box)({
@@ -654,8 +666,17 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             </ExecutionTable>
                         </ExecutionContainer>
                     </ExecutionSection>
+                    <NotesSection>
+                        <Separator>
+                            <LeftBar />
+                                <SeparatorLabel>Notes</SeparatorLabel>
+                                <RightBar />
+                            </Separator> 
+                        <NotesContainer>
+                            {notes && <Notes>{notes}</Notes>}
+                        </NotesContainer>
+                    </NotesSection>
                     <InfoSection>
-                        {notes && <Notes>{notes}</Notes>}
                         <CreditsContainer>
                             <Credit>Credits: {credits}</Credit>
                             <Credit>Graphic: theastrogoth.github.io/tera-raid-builder/</Credit>

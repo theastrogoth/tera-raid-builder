@@ -10,15 +10,41 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import Collapse from "@mui/material/Collapse";
 
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
 import HelpOutline from "@mui/icons-material/HelpOutline";
+import LanguageIcon from '@mui/icons-material/Language';
 import DarkLightModeSwitch from "./DarkLightModeSwitch";
 import HelpSection from "./HelpSection";
 
-function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>}) {  
+type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
+
+const LANGUAGE_NAMES = {
+    'en': 'English',
+    'ja': '日本語',
+    'fr': 'Français',
+    'es': 'Español',
+    'de': 'Deutsch',
+    'it': 'Italiano',
+    'ko': '한국어',
+    'zh-Hant': '繁體中文',
+    'zh-Hans': '简体中文'
+}
+
+function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, setLanguage}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>, language: LanguageOption, setLanguage: (l: LanguageOption) => void}) {  
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        console.log("Here")
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
     const [showHelp, setShowHelp] = useState(false);
     return (
         <Box>
-            <AppBar position="static" color="secondary" sx={{ minWidth: "700px"}}>
+            <AppBar position="static" color="secondary" sx={{ minWidth: "800px"}}>
                 <Toolbar>
                     <Box paddingRight={2} sx={{ transform: "translate(0px, 2px)"}}>
                         <img src={process.env.PUBLIC_URL + "/logo192.png"} height={60} alt="" />
@@ -57,6 +83,36 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode}: {lightMode
                         >
                             {prettyMode ? "Edit Mode" : "Pretty Mode"}
                         </Button>
+                    </Box>
+                    <Box component="div" >
+                        <Button 
+                            color="inherit"
+                            onClick={handleClick}
+                            startIcon={<LanguageIcon />}
+                        >
+                            {LANGUAGE_NAMES[language]}
+                        </Button>
+                        <Menu
+                            anchorEl={anchorEl}
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                        >
+                            {
+                                Object.keys(LANGUAGE_NAMES).map((key) => {
+                                    return (
+                                        <MenuItem onClick={() => {setLanguage(key as LanguageOption); handleClose()}}>{LANGUAGE_NAMES[key as LanguageOption]}</MenuItem>
+                                    )
+                                })
+                            }
+                        </Menu>
                     </Box>
                     <Box component="div" >
                         <Button 

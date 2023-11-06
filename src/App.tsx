@@ -31,11 +31,17 @@ import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
 
+import PokedexService from "./services/getdata";
+
+type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
+
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [lightMode, setLightMode] = useState<('dark' | 'light')>(prefersDarkMode ? 'dark' : 'light');
   const [prettyMode, setPrettyMode] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [language, setLanguage] = useState<LanguageOption>('en');
+  const [translationKey, setTranslationKey] = useState<any>(null);
   
   const [theme, setTheme] = useState(createTheme({
     palette: {
@@ -209,6 +215,19 @@ function App() {
     ))
   }, [lightMode])
 
+  useEffect(() => {
+    if (language !== 'en') {
+      PokedexService.getTranslationKey(language)
+        .then((response) => {
+          console.log(response)
+          setTranslationKey(response);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+      }
+  }, [language])
+
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
@@ -333,7 +352,7 @@ function App() {
       <CircularProgress color="inherit" />
     </Backdrop>
     <Box>  
-      <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} />
+      <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} language={language} setLanguage={setLanguage} />
     </Box>
     <Stack direction="row">
       <Stack direction="column" justifyContent="center">
@@ -362,18 +381,18 @@ function App() {
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} substitutes={substitutes1} setSubstitutes={setSubstitutes1} prettyMode={prettyMode} />
-              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} substitutes={substitutes2} setSubstitutes={setSubstitutes2} prettyMode={prettyMode}/>
+              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} substitutes={substitutes1} setSubstitutes={setSubstitutes1} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} substitutes={substitutes2} setSubstitutes={setSubstitutes2} prettyMode={prettyMode} translationKey={translationKey}/>
             </Stack>
           </Grid>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} substitutes={substitutes3} setSubstitutes={setSubstitutes3} prettyMode={prettyMode} />
-              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} substitutes={substitutes4} setSubstitutes={setSubstitutes4} prettyMode={prettyMode} />
+              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} substitutes={substitutes3} setSubstitutes={setSubstitutes3} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} substitutes={substitutes4} setSubstitutes={setSubstitutes4} prettyMode={prettyMode} translationKey={translationKey} />
             </Stack>
           </Grid>
           <Grid item>
-            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} prettyMode={prettyMode} />
+            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
           <Grid item>
             <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} prettyMode={prettyMode} />

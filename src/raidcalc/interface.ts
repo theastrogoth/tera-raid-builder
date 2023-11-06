@@ -2,7 +2,8 @@ import { Pokemon, Field, StatID } from "../calc";
 import { AbilityName, MoveName, TypeName } from "../calc/data/interface";
 
 export type MoveSetItem = {
-    name: MoveName,
+    name: string,
+    engName: MoveName,
     method: string,
     type: TypeName,
 }

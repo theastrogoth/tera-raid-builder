@@ -61,9 +61,9 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
     )
 }
 
-function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, setSubstitutes, prettyMode}: 
+function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, setSubstitutes, prettyMode, translationKey}: 
     {pokemon: Raider, setPokemon: (r: Raider) => void, groups: TurnGroupInfo[], setGroups: (g: TurnGroupInfo[]) => void, 
-     substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, prettyMode: boolean}) {
+     substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, prettyMode: boolean, translationKey: any}) {
 
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
@@ -80,7 +80,8 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
         const set = moves.map(md => {
             const move = gen.moves.get(toID(md.name));
             return {
-                name: md.name,
+                name: translationKey ? translationKey["moves"][md.name] || md.name: md.name,
+                engName: md.name,
                 method: md.learnMethod,
                 type: move ? (move.type || "Normal") : "Normal",
             }
@@ -182,6 +183,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
                         substitutes={substitutes} 
                         setSubstitutes={setSubstitutes} 
                         prettyMode={prettyMode}
+                        translationKey={translationKey}
                     />
                     <Box flexGrow={1} />
                     <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} />
@@ -196,5 +198,7 @@ export default React.memo(PokemonSummary,
     (prevProps, nextProps) => (
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
         JSON.stringify(prevProps.substitutes) === JSON.stringify(nextProps.substitutes) &&
-        prevProps.prettyMode === nextProps.prettyMode)
+        prevProps.prettyMode === nextProps.prettyMode &&
+        prevProps.translationKey === nextProps.translationKey
+    )
     );

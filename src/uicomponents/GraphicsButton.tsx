@@ -666,16 +666,18 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             </ExecutionTable>
                         </ExecutionContainer>
                     </ExecutionSection>
-                    <NotesSection>
-                        <Separator>
-                            <LeftBar />
-                                <SeparatorLabel>Notes</SeparatorLabel>
-                                <RightBar />
-                            </Separator> 
-                        <NotesContainer>
-                            {notes && <Notes>{notes}</Notes>}
-                        </NotesContainer>
-                    </NotesSection>
+                        {notes && 
+                            <NotesSection>
+                                <Separator>
+                                    <LeftBar />
+                                        <SeparatorLabel>Notes</SeparatorLabel>
+                                        <RightBar />
+                                    </Separator> 
+                                <NotesContainer>
+                                    <Notes>{notes}</Notes>
+                                </NotesContainer>
+                            </NotesSection>
+                        }
                     <InfoSection>
                         <CreditsContainer>
                             <Credit>Credits: {credits}</Credit>

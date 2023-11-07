@@ -43,8 +43,8 @@ function HpDisplayLine({role, name, curhp, maxhp, kos}: {role: string, name: str
                     </Typography>
                     <Box
                         sx={{
-                            width: "20px",
-                            height: "20px",
+                            width: "18px",
+                            height: "18px",
                             margin: "0px 8px",
                             overflow: 'hidden',
                             background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
@@ -63,7 +63,7 @@ function HpDisplayLine({role, name, curhp, maxhp, kos}: {role: string, name: str
                     value={hpPercent} 
                 />
             </Box>
-            <Box sx={{ width: 100 }}>
+            <Box sx={{ width: 150 }}>
                 <Typography>
                     { curhp + " / " + maxhp }
                 </Typography>

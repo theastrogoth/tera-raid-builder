@@ -219,7 +219,6 @@ function App() {
     if (language !== 'en') {
       PokedexService.getTranslationKey(language)
         .then((response) => {
-          console.log(response)
           setTranslationKey(response);
         })
         .catch((e) => {

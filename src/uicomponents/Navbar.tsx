@@ -35,7 +35,6 @@ const LANGUAGE_NAMES = {
 function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, setLanguage}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>, language: LanguageOption, setLanguage: (l: LanguageOption) => void}) {  
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        console.log("Here")
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {

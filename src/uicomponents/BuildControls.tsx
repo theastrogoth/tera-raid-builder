@@ -424,7 +424,6 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
     useEffect(() => {
         if (showPopper && (moveData === null || moveData.name !== moveItem.engName)) {
             async function fetchMoveData() {
-                console.log(moveItem.engName)
                 const newData = await PokedexService.getMoveByName(moveItem.engName);
                 if (newData) {
                     setMoveData(newData);
@@ -1128,7 +1127,6 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         setSubstitutes([...substitutes, newSubstitute]);
     }
 
-    console.log(translationKey)
     return (
         <Box justifyContent="center" alignItems="top" width="250px" sx={{ zIndex: 2 }}>
             {!prettyMode &&
@@ -1656,7 +1654,8 @@ export const BossBuildControlsMemo = React.memo(BossBuildControls,
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
         arraysEqual(prevProps.pokemon.extraMoves!, nextProps.pokemon.extraMoves!) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
-        prevProps.prettyMode === nextProps.prettyMode);
+        prevProps.prettyMode === nextProps.prettyMode &&
+        prevProps.translationKey === nextProps.translationKey);
 
 export default React.memo(BuildControls, 
     (prevProps, nextProps) => 

@@ -20,10 +20,12 @@ import { AbilityName, MoveName } from "../calc/data/interface";
 const gen = Generations.get(9); // we will only use gen 9
 const allMoves = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.substring(0,3) !== "Max" && m.substring(0,5) !== "G-Max" && m !== "Dynamax Cannon");
 
-export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
+export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
     const [str, setStr] = useState(pokemon.role);
     const roleRef = useRef(pokemon.role);
     const nameRef = useRef(pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
+    const translatedName = translationKey ? translationKey["pokemon"][pokemon.species.baseSpecies || pokemon.name] || pokemon.name : pokemon.name;
+
 
     useEffect(() => {
         if (roleRef.current !== pokemon.role) {
@@ -31,16 +33,15 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
             if (pokemon.role !== str) {
                 setStr(pokemon.role);
             }
-            nameRef.current = pokemon.species.baseSpecies || pokemon.name;
-        } else if ((nameRef.current !== pokemon.name) && ((str === "") || (str === nameRef.current as string))) {
-            const name = pokemon.species.baseSpecies || pokemon.name; 
-            nameRef.current = name;
-            roleRef.current = name;
-            setRole(name);
-            setStr(name);
+            nameRef.current = translatedName;
+        } else if ((nameRef.current !== translatedName) && ((str === "") || (str === nameRef.current as string))) {
+            nameRef.current = translatedName;
+            roleRef.current = translatedName;
+            setRole(translatedName);
+            setStr(translatedName);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pokemon.role, pokemon.name])
+    }, [pokemon.role, pokemon.name, translationKey])
 
     const setRole = (r: string) => {
         const newPoke = pokemon.clone();
@@ -99,7 +100,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
                 <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "666px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
-                        <RoleField pokemon={pokemon} setPokemon={setPokemon} />
+                        <RoleField pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />
                     </Box>
                     <Box width="100%" marginTop="10px" display="flex" justifyContent="center">
                         <Box width="50px" position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">

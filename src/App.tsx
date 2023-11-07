@@ -225,7 +225,9 @@ function App() {
         .catch((e) => {
           console.log(e);
         });
-      }
+    } else {
+      setTranslationKey(null);
+    }
   }, [language])
 
   const gen = Generations.get(9); 

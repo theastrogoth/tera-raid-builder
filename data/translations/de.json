@@ -1,5 +1,6 @@
 {
     "abilities": {
+        "(No Ability)": "(Keiner)",
         "Adaptability": "Anpassung",
         "Aerilate": "Zenithaut",
         "Aftermath": "Finalschlag",
@@ -360,6 +361,7 @@
         "Zero to Hero": "Superwechsel"
     },
     "items": {
+        "(No Item)": "(Keiner)",
         "Ability Capsule": "Fähigk.-Kapsel",
         "Ability Patch": "Fähigk.-Pflaster",
         "Ability Shield": "Fähigkeitenschild",
@@ -2116,6 +2118,7 @@
         "★Vul7405": "★Vul7405"
     },
     "moves": {
+        "(No Move)": "(Keiner)",
         "10,000,000 Volt Thunderbolt": "Tausendfacher Donnerblitz",
         "Absorb": "Absorber",
         "Accelerock": "Turbofelsen",
@@ -4098,5 +4101,45 @@
         "Shadow": "Crypto",
         "Steel": "Stahl",
         "Water": "Wasser"
+    },
+    "ui": {
+        "(Most Damaging)": null,
+        "(No Ability)": "(Keiner)",
+        "(No Item)": "(Keiner)",
+        "(No Move)": "(Keiner)",
+        "Ability": "Fähigkeit",
+        "Add Group": "Hinzufügen",
+        "Add Move": "Hinzufügen",
+        "avg": null,
+        "Calc Results": "Berechnungen",
+        "Crit": null,
+        "Critical": null,
+        "Edit Mode": "Edit-Modus",
+        "Effect": null,
+        "Executions": "Iterationen",
+        "Group": null,
+        "Help": "Helfen",
+        "HP Multiplier": null,
+        "Item": "Item",
+        "Level": "Level",
+        "Load": null,
+        "Load Boss Set": null,
+        "Load Build": null,
+        "Load Strategy": null,
+        "max": null,
+        "min": null,
+        "Move": "Attacke",
+        "Move Order": null,
+        "Moves": "Attacken",
+        "Nature": "Wesen",
+        "on": null,
+        "Pretty Mode": "Hübscher Modus",
+        "Results": null,
+        "Roll": null,
+        "Shield Options": null,
+        "Shiny": "Schillernd",
+        "Tera": "Tera",
+        "Tera Type": "Tera-Typ",
+        "uses": null
     }
 }

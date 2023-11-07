@@ -1,5 +1,6 @@
 {
     "abilities": {
+        "(No Ability)": "없음",
         "Adaptability": "적응력",
         "Aerilate": "스카이스킨",
         "Aftermath": "유폭",
@@ -360,6 +361,7 @@
         "Zero to Hero": "마이티체인지"
     },
     "items": {
+        "(No Item)": "없음",
         "Ability Capsule": "특성캡슐",
         "Ability Patch": "특성패치",
         "Ability Shield": "특성가드",
@@ -2116,6 +2118,7 @@
         "★Vul7405": "★Vul7405"
     },
     "moves": {
+        "(No Move)": "없음",
         "10,000,000 Volt Thunderbolt": "1000만볼트",
         "Absorb": "흡수",
         "Accelerock": "액셀록",
@@ -4098,5 +4101,45 @@
         "Shadow": "다크",
         "Steel": "강철",
         "Water": "물"
+    },
+    "ui": {
+        "(Most Damaging)": null,
+        "(No Ability)": "없음",
+        "(No Item)": "없음",
+        "(No Move)": "없음",
+        "Ability": "특성",
+        "Add Group": "추가하다",
+        "Add Move": "추가하다",
+        "avg": null,
+        "Calc Results": "계산",
+        "Crit": null,
+        "Critical": null,
+        "Edit Mode": null,
+        "Effect": null,
+        "Executions": "반복",
+        "Group": null,
+        "Help": "돕다",
+        "HP Multiplier": null,
+        "Item": "도구",
+        "Level": "레벨",
+        "Load": null,
+        "Load Boss Set": null,
+        "Load Build": null,
+        "Load Strategy": null,
+        "max": null,
+        "min": null,
+        "Move": "기술",
+        "Move Order": "기술",
+        "Moves": "기술",
+        "Nature": "성격",
+        "on": null,
+        "Pretty Mode": null,
+        "Results": null,
+        "Roll": null,
+        "Shield Options": null,
+        "Shiny": "빛나는",
+        "Tera": "테라스탈",
+        "Tera Type": "테라스탈",
+        "uses": null
     }
 }

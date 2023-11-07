@@ -1,5 +1,6 @@
 {
     "abilities": {
+        "(No Ability": "(Aucun)",
         "Adaptability": "Adaptabilité",
         "Aerilate": "Peau Céleste",
         "Aftermath": "Boom Final",
@@ -360,6 +361,7 @@
         "Zero to Hero": "Supermutation"
     },
     "items": {
+        "(No Item)": "(Aucun)",
         "Ability Capsule": "Pilule Talent",
         "Ability Patch": "Patch Talent",
         "Ability Shield": "Garde-Talent",
@@ -2116,6 +2118,7 @@
         "★Vul7405": "★Vul7405"
     },
     "moves": {
+        "(No Move)": "(Aucun)",
         "10,000,000 Volt Thunderbolt": "Giga-Tonnerre",
         "Absorb": "Vole-Vie",
         "Accelerock": "Vif Roc",
@@ -4098,5 +4101,45 @@
         "Shadow": "Obscur",
         "Steel": "Acier",
         "Water": "Eau"
+    },
+    "ui": {
+        "(Most Damaging)": null,
+        "(No Ability)": "(Aucun)",
+        "(No Item)": "(Aucun)",
+        "(No Move)": "(Aucun)",
+        "Ability": "Talent",
+        "Add Group": "Ajouter",
+        "Add Move": "Ajouter",
+        "avg": null,
+        "Calc Results": "Calculs",
+        "Crit": null,
+        "Critical": null,
+        "Edit Mode": "Éditer",
+        "Effect": null,
+        "Executions": "Itérations",
+        "Group": null,
+        "Help": "Aide",
+        "HP Multiplier": null,
+        "Item": "Objet",
+        "Level": "Niveau",
+        "Load": null,
+        "Load Boss Set": null,
+        "Load Build": null,
+        "Load Strategy": null,
+        "max": null,
+        "min": null,
+        "Move": "Attaque",
+        "Move Order": null,
+        "Moves": "Attaques",
+        "Nature": "Nature",
+        "on": null,
+        "Pretty Mode": "Esthétique",
+        "Results": null,
+        "Roll": null,
+        "Shield Options": null,
+        "Shiny": "Chroma",
+        "Tera": "Téra",
+        "Tera Type": "Téracristal",
+        "uses": null
     }
 }

@@ -1,5 +1,6 @@
 {
     "abilities": {
+        "(No Ability)": "(Ninguna)",
         "Adaptability": "Adaptable",
         "Aerilate": "Piel Celeste",
         "Aftermath": "Detonación",
@@ -360,6 +361,7 @@
         "Zero to Hero": "Cambio Heroico"
     },
     "items": {
+        "(No Item)": "(Ninguno)",
         "Ability Capsule": "Cáps. Habilidad",
         "Ability Patch": "Parche Habilidad",
         "Ability Shield": "Escudo Habilidad",
@@ -2116,6 +2118,7 @@
         "★Vul7405": "★Vul7405"
     },
     "moves": {
+        "(No Move)": "(Ninguno)",
         "10,000,000 Volt Thunderbolt": "Gigarrayo Fulminante",
         "Absorb": "Absorber",
         "Accelerock": "Roca Veloz",
@@ -4098,5 +4101,45 @@
         "Shadow": null,
         "Steel": "Acero",
         "Water": "Agua"
+    },
+    "ui": {
+        "(Most Damaging)": null,
+        "(No Ability)": "(Ninguna)",
+        "(No Item)": "(Ninguno)",
+        "(No Move)": "(Ninguno)",
+        "Ability": "Habilidad",
+        "Add Group": "Agregar",
+        "Add Move": "Agregar",
+        "avg": null,
+        "Calc Results": "Cálculos",
+        "Crit": null,
+        "Critical": null,
+        "Edit Mode": "Editar",
+        "Effect": null,
+        "Executions": "Iteraciones",
+        "Group": null,
+        "Help": "Ayuda",
+        "HP Multiplier": null,
+        "Item": "Objeto",
+        "Level": "Nivel",
+        "Load": null,
+        "Load Boss Set": null,
+        "Load Build": null,
+        "Load Strategy": null,
+        "max": null,
+        "min": null,
+        "Move": "Ataque",
+        "Move Order": null,
+        "Moves": "Ataques",
+        "Nature": "Naturaleza",
+        "on": null,
+        "Pretty Mode": "Estético",
+        "Results": null,
+        "Roll": null,
+        "Shield Options": null,
+        "Shiny": "Variocolor",
+        "Tera": "Tera",
+        "Tera Type": "Teratipo",
+        "uses": null
     }
 }

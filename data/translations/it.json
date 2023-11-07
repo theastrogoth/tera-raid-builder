@@ -1,5 +1,6 @@
 {
     "abilities": {
+        "(No Ability)": "(Nessuno)",
         "Adaptability": "Adattabilità",
         "Aerilate": "Pellecielo",
         "Aftermath": "Scoppio",
@@ -360,6 +361,7 @@
         "Zero to Hero": "Supercambio"
     },
     "items": {
+        "(No Item)": "(Nessuno)",
         "Ability Capsule": "Capsula abilità",
         "Ability Patch": "Cerotto abilità",
         "Ability Shield": "Scudo abilità",
@@ -2116,6 +2118,7 @@
         "★Vul7405": "★Vul7405"
     },
     "moves": {
+        "(No Item)": "(Nessuno)",
         "10,000,000 Volt Thunderbolt": "Iperfulmine",
         "Absorb": "Assorbimento",
         "Accelerock": "Rocciarapida",
@@ -4098,5 +4101,45 @@
         "Shadow": "Ombra",
         "Steel": "Acciaio",
         "Water": "Acqua"
+    },
+    "ui": {
+        "(Most Damaging)": null,
+        "(No Ability)": "(Nessuno)",
+        "(No Item)": "(Nessuno)",
+        "(No Move)": "(Nessuno)",
+        "Ability": "Abilità",
+        "Add Group": "Aggiungere",
+        "Add Move": "Aggiungere",
+        "avg": null,
+        "Calc Results": "Calcoli",
+        "Crit": null,
+        "Critical": null,
+        "Edit Mode": "Modificare",
+        "Effect": null,
+        "Executions": "Iterazioni",
+        "Group": null,
+        "Help": "Aiuto",
+        "HP Multiplier": null,
+        "Item": "Strumento",
+        "Level": "Livello",
+        "Load": null,
+        "Load Boss Set": null,
+        "Load Build": null,
+        "Load Strategy": null,
+        "max": null,
+        "min": null,
+        "Move": "Mossa",
+        "Move Order": null,
+        "Moves": "Mosse",
+        "Nature": "Natura",
+        "on": null,
+        "Pretty Mode": "Estetica",
+        "Results": null,
+        "Roll": null,
+        "Shield Options": null,
+        "Shiny": "Croma",
+        "Tera": "Tera",
+        "Tera Type": "Teratipo",
+        "uses": null
     }
 }

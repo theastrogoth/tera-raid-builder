@@ -1,5 +1,6 @@
 {
     "abilities": {
+        "(No Ability)": "(なし)",
         "Adaptability": "てきおうりょく",
         "Aerilate": "スカイスキン",
         "Aftermath": "ゆうばく",
@@ -360,6 +361,7 @@
         "Zero to Hero": "マイティチェンジ"
     },
     "items": {
+        "(No Item)": "(なし)",
         "Ability Capsule": "とくせいカプセル",
         "Ability Patch": "とくせいパッチ",
         "Ability Shield": "とくせいガード",
@@ -2116,6 +2118,7 @@
         "★Vul7405": "★Vul7405"
     },
     "moves": {
+        "(No Move)": "(なし)",
         "10,000,000 Volt Thunderbolt": "１０００まんボルト",
         "Absorb": "すいとる",
         "Accelerock": "アクセルロック",
@@ -4098,5 +4101,45 @@
         "Shadow": "ダーク",
         "Steel": "はがね",
         "Water": "みず"
+    },
+    "ui": {
+        "(Most Damaging)": null,
+        "(No Ability)": "(なし)",
+        "(No Item)": "(なし)",
+        "(No Move)": "(なし)",
+        "Ability": "特性",
+        "Add Group": "加算",
+        "Add Move": "加算",
+        "avg": null,
+        "Calc Results": "計算",
+        "Crit": null,
+        "Critical": null,
+        "Edit Mode": null,
+        "Effect": null,
+        "Executions": "反復",
+        "Group": null,
+        "Help": "ヘルプ",
+        "HP Multiplier": null,
+        "Item": "道具",
+        "Level": "レベル",
+        "Load": null,
+        "Load Boss Set": null,
+        "Load Build": null,
+        "Load Strategy": null,
+        "max": null,
+        "min": null,
+        "Move": "わざ",
+        "Move Order": "わざ",
+        "Moves": "わざ",
+        "Nature": "性格",
+        "on": null,
+        "Pretty Mode": null,
+        "Results": null,
+        "Roll": null,
+        "Shield Options": null,
+        "Shiny": "光る",
+        "Tera": "テラ",
+        "Tera Type": "テラスタ",
+        "uses": null
     }
 }

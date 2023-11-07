@@ -1,5 +1,6 @@
 {
     "abilities": {
+        "(No Ability)": "(沒有任何)",
         "Adaptability": "適應力",
         "Aerilate": "飛行皮膚",
         "Aftermath": "引爆",
@@ -360,6 +361,7 @@
         "Zero to Hero": "全能變身"
     },
     "items": {
+        "(No Item)": "(沒有任何)",
         "Ability Capsule": "特性膠囊",
         "Ability Patch": "特性膏藥",
         "Ability Shield": "特性护具",
@@ -2116,6 +2118,7 @@
         "★Vul7405": "★Vul7405"
     },
     "moves": {
+        "(No Move)": "(沒有任何)",
         "10,000,000 Volt Thunderbolt": "千萬伏特",
         "Absorb": "吸取",
         "Accelerock": "衝岩",
@@ -4098,5 +4101,45 @@
         "Shadow": "暗",
         "Steel": "鋼",
         "Water": "水"
+    },
+    "ui": {
+        "(Most Damaging)": null,
+        "(No Ability)": "(沒有任何)",
+        "(No Item)": "(沒有任何)",
+        "(No Move)": "(沒有任何)",
+        "Ability": "特性",
+        "Add Group": "添加",
+        "Add Move": "添加",
+        "avg": null,
+        "Calc Results": "計算",
+        "Crit": null,
+        "Critical": null,
+        "Edit Mode": null,
+        "Effect": null,
+        "Executions": "迭代",
+        "Group": null,
+        "Help": "幫助",
+        "HP Multiplier": null,
+        "Item": "道具",
+        "Level": "等級",
+        "Load": null,
+        "Load Boss Set": null,
+        "Load Build": null,
+        "Load Strategy": null,
+        "max": null,
+        "min": null,
+        "Move": "招式",
+        "Move Order": "招式",
+        "Moves": "招式",
+        "Nature": "性格",
+        "on": null,
+        "Pretty Mode": null,
+        "Results": null,
+        "Roll": null,
+        "Shield Options": null,
+        "Shiny": "發光",
+        "Tera": "太晶化",
+        "Tera Type": "太晶屬性",
+        "uses": null
     }
 }

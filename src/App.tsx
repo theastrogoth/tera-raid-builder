@@ -400,7 +400,7 @@ function App() {
           </Grid>
         </Grid>
         <Grid container justifyContent="center">
-          <StratFooter notes={notes} setNotes={setNotes} credits={credits} setCredits={setCredits} prettyMode={prettyMode} />
+          <StratFooter notes={notes} setNotes={setNotes} credits={credits} setCredits={setCredits} prettyMode={prettyMode} translationKey={translationKey} />
         </Grid>
         <Grid container justifyContent="left" sx={{ my: 1 }}>
           <Grid item xs={12}>

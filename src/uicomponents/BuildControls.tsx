@@ -1627,7 +1627,12 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
                             </TableRow>
                             }
                             <TableRow>
-                                <LeftCell>HP Multiplier (%)</LeftCell>
+                                <LeftCell>
+                                    {
+                                        !translationKey ? "HP Multiplier (%)" : 
+                                        ( translationKey["ui"] ? translationKey["ui"]["HP Multiplier (%)"] || "HP Multiplier (%)" : "HP Multiplier (%)")
+                                    }
+                                </LeftCell>
                                 <RightCell>
                                     {prettyMode &&
                                         <Typography variant="body1">
@@ -1654,7 +1659,12 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
                             </TableRow>
                             {!prettyMode &&
                                 <TableRow>
-                                    <LeftCell>Shield Options</LeftCell>
+                                    <LeftCell>
+                                        {
+                                            !translationKey ? "Shield Options" :
+                                            ( translationKey["ui"] ? translationKey["ui"]["Shield Options"] || "Shield Options" : "Shield Options")
+                                        }
+                                    </LeftCell>
                                     <RightCell>
                                         <ShieldOptions pokemon={pokemon} setPokemon={setPokemon} />
                                     </RightCell>

@@ -314,7 +314,10 @@ return (
     {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
         <TableRow>
             <LeftCell>
-                {name}
+                { 
+                    !translationKey ? name :
+                    translationKey["ui"] ? translationKey["ui"][name] || name : name
+                }
             </LeftCell>
             <RightCell>
                 {prettyMode &&
@@ -590,7 +593,10 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, tr
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
-                    {name}
+                    { 
+                        !translationKey ? name :
+                        translationKey["ui"] ? translationKey["ui"][name] || name : name
+                    }
                 </LeftCell>
                 <RightCell>
                     {prettyMode &&
@@ -646,7 +652,10 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
-                    {name}
+                    {
+                        !translationKey ? name :
+                        translationKey["ui"] ? translationKey["ui"][name] || name : name
+                    }
                 </LeftCell>
                 <RightCell>
                     {prettyMode &&
@@ -736,7 +745,10 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>
-                    {name}
+                    {
+                        !translationKey ? name :
+                        translationKey["ui"] ? translationKey["ui"][name] || name : name
+                    }
                 </LeftCell>
                 <RightCell>
                     {prettyMode &&
@@ -1220,7 +1232,12 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                         /> 
                                 <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={setPokemonProperty("nature")} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures, translationKey))} prettyMode={prettyMode} translationKey={translationKey} translationCategory="natures"/>
                                 <TableRow>
-                                    <LeftCell>Level</LeftCell>
+                                    <LeftCell>
+                                        {
+                                            !translationKey ? "Level" :
+                                            ( translationKey["ui"] ? translationKey["ui"]["Level"] || "Level" : "Level")
+                                        }
+                                    </LeftCell>
                                     <RightCell>
                                         {prettyMode &&
                                             <Typography variant="body1">

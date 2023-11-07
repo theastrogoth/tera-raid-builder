@@ -141,7 +141,7 @@ function MoveGroup({group, results, raiders, index, max}: {group: TurnGroupInfo,
     )
 }
 
-function MoveDisplay({groups, raiders, results}: {groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults}) { 
+function MoveDisplay({groups, raiders, results, translationKey}: {groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults, translationKey: any}) { 
     return (
         <Stack direction="column" spacing={0} alignItems="left" justifyContent="center">
             {

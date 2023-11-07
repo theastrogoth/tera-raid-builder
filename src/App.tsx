@@ -396,7 +396,7 @@ function App() {
             <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
           <Grid item>
-            <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} prettyMode={prettyMode} />
+            <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
         </Grid>
         <Grid container justifyContent="center">

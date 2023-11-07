@@ -684,6 +684,8 @@ export class RaidMove {
                 } else {
                     // existing status cannot be overwritten
                     if (!hasNoStatus(pokemon)) { continue; }
+                    // Purifying Salt blocks all non-volatile statuses
+                    if (pokemon.hasAbility("Purifying Salt")) { continue; }
                     // field-based immunities
                     if (id !== this.userID && ((field.attackerSide.isSafeguard && this._user.ability !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { continue; }
                     if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { continue; }

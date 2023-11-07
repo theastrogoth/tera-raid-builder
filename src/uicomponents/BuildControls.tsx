@@ -328,7 +328,13 @@ return (
                         disableClearable
                         autoHighlight={true}    
                         size="small"
-                        value={value ? (translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][value] : value) : value ) : undefined}                        options={options}
+                        value={value ? (translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][value] : value) : value ) : undefined}                        
+                        options={options}
+                        filterOptions={
+                            createFilterOptions({
+                                stringify: (option: string | undefined) => translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][option || ""] || option : option ) : option
+                            })
+                        }
                         renderOption={(props, option) => <li {...props}><Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{optionFinder(option)}</Typography></li>}
                         renderInput={(params) => 
                             <TextField {...params} variant="standard" size="small" />}
@@ -599,6 +605,11 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, tr
                             size="small"
                             value={value ? ( translationKey ? translationKey["moves"][value] || value : value ) : undefined}
                             options={options}
+                            filterOptions={
+                                createFilterOptions({
+                                    stringify: (option: string | undefined) => translationKey ? ( translationKey["moves"][option || ""] || option ) : option
+                                })
+                            }
                             renderOption={(props, option) => 
                                 <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} prettyMode={prettyMode} /></li>
                             }
@@ -650,6 +661,11 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
                             size="small"
                             value={value ? (translationKey ? translationKey["abilities"][value] || value : value) : undefined}
                             options={options}
+                            filterOptions={
+                                createFilterOptions({
+                                    stringify: (option: string | undefined) => translationKey ? ( translationKey["abilities"][option || ""] || option ) : option
+                                })
+                            }
                             renderOption={(props, option) => 
                                 <li {...props}><AbilityWithIcon ability={findOptionFromAbilityName(option || "(No Ability)", abilities, translationKey)} prettyMode={prettyMode} /></li>
                             }
@@ -735,6 +751,11 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                             size="small"
                             value={value ? (translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][value] : value) : value ) : undefined}
                             options={options}
+                            filterOptions={
+                                createFilterOptions({
+                                    stringify: (option: string | undefined) => translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][option || ""] || option : option ) : option
+                                })
+                            }
                             renderOption={(props, option) => 
                                 <li {...props}><GenericWithIcon name={optionFinder(option, translationKey)} engName={optionFinder(option, null)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{name: option}} /></li>
                             }

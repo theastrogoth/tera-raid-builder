@@ -32,7 +32,7 @@ const LANGUAGE_NAMES = {
     'zh-Hans': '简体中文'
 }
 
-function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, setLanguage}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>, language: LanguageOption, setLanguage: (l: LanguageOption) => void}) {  
+function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, setLanguage, translationKey}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>, language: LanguageOption, setLanguage: (l: LanguageOption) => void, translationKey: any}) {  
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -80,7 +80,15 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                             onClick={() => setPrettyMode(!prettyMode)}
                             startIcon={prettyMode ? <EditIcon /> :  <ImageIcon />}
                         >
-                            {prettyMode ? "Edit Mode" : "Pretty Mode"}
+                            {prettyMode ? 
+                                ( 
+                                    !translationKey ? "Edit Mode" :
+                                    ( translationKey["ui"] ? translationKey["ui"]["Edit Mode"] || "Edit Mode": "Edit Mode") 
+                                ) : 
+                                ( 
+                                    !translationKey ? "Pretty Mode" :
+                                    ( translationKey["ui"] ? translationKey["ui"]["Pretty Mode"] || "Pretty Mode": "Pretty Mode") 
+                                )}
                         </Button>
                     </Box>
                     <Box component="div" >
@@ -119,7 +127,10 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                             onClick={() => setShowHelp(!showHelp)}
                             startIcon={<HelpOutline />}
                         >
-                            Help
+                            {
+                                !translationKey ? "Help" :
+                                ( translationKey["ui"] ? translationKey["ui"]["Help"] || "Help": "Help")
+                            }
                         </Button>
                     </Box>
                     <DarkLightModeSwitch lightMode={lightMode} setLightMode={setLightMode} />

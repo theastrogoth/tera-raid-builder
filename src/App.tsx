@@ -353,7 +353,7 @@ function App() {
       <CircularProgress color="inherit" />
     </Backdrop>
     <Box>  
-      <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} language={language} setLanguage={setLanguage} />
+      <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} language={language} setLanguage={setLanguage} translationKey={translationKey} />
     </Box>
     <Stack direction="row">
       <Stack direction="column" justifyContent="center">

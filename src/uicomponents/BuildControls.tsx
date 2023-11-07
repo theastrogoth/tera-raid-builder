@@ -139,7 +139,7 @@ function findOptionFromPokemonName(name: string, translationKey: any): string {
 
 function findOptionFromTeraTypeName(name: string | undefined, translationKey: any): string {
     if (name === undefined || name === "???") {
-        return "Inactive";
+        return translationKey ? translationKey["types"]["???"] || "???" : "Inactive";
     } else if (!translationKey) {
         return name;
     } else {
@@ -150,7 +150,8 @@ function findOptionFromTeraTypeName(name: string | undefined, translationKey: an
 function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], translationKey: any): MoveSetItem {
     const option = moveSet.find((move) => move.name === name);
     if (!option) {
-        return {name: "(No Move)", engName: "(No Move)", method: "level-up", type: "Normal"} as MoveSetItem;
+        const translatedName = translationKey ? translationKey["moves"]["(No Move)"] || "(No Move)" : "(No Move)";
+        return {name: translatedName, engName: "(No Move)", method: "level-up", type: "Normal"} as MoveSetItem;
     } else if (!translationKey) {
         return option;
     } else {
@@ -161,7 +162,8 @@ function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], translatio
 function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[], translationKey: any): {name: AbilityName, hidden: boolean} {
     const option = abilities.find((ability) => ability.name === name);
     if (!option) {
-        return {name: "(No Ability)" as AbilityName, hidden: false};
+        const translatedName = translationKey ? translationKey["abilities"]["(No Ability)"] || "(No Ability)" : "(No Ability)";
+        return {name: translatedName, hidden: false};
     } else if (!translationKey) {
         return option;
     } else {
@@ -171,7 +173,7 @@ function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, 
 
 function findOptionFromItemName(name: string | undefined, translationKey: any): string {
     if (name === undefined || name === "(No Item)") {
-        return "Any";
+        return !translationKey ? "Any" : translationKey["items"][("(No Item)")] || ("(No Item)");
     } else if (!translationKey) {
         return name;
     } else {
@@ -895,11 +897,16 @@ function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 1
     )
 }
 
-function ShinySwitch({pokemon, setShiny}: {pokemon: Raider, setShiny: ((sh: boolean) => void)}) {
+function ShinySwitch({pokemon, setShiny, translationKey}: {pokemon: Raider, setShiny: ((sh: boolean) => void), translationKey: any }) {
     return (
         <Box>
             <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
-                <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >Shiny</Typography>
+                <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >
+                    { 
+                        !translationKey ? "Shiny" : 
+                        translationKey["ui"] ? translationKey["ui"]["Shiny"] || "Shiny" : "Shiny" 
+                    }
+                </Typography>
                 <Switch
                     size='small'
                     checked={pokemon.shiny || false}
@@ -1155,6 +1162,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             <ShinySwitch 
                                 pokemon={pokemon}
                                 setShiny={setPokemonProperty("shiny")}
+                                translationKey={translationKey}
                             />
                             <SetLoadField
                                 setOptions={raiderSetOptions}
@@ -1605,6 +1613,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
                                         <ShinySwitch
                                             pokemon={pokemon}
                                             setShiny={setPokemonProperty("shiny")}
+                                            translationKey={translationKey}
                                         />
                                     </Stack>
                                 </LeftCell>

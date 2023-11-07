@@ -725,18 +725,28 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                             )}
                         </Droppable>
                         <Stack direction="row" justifyContent="center" alignItems="center" sx={{ paddingTop: 0.5, width: "100%" }}>
-                            <Typography variant="body2" fontWeight="bold" paddingLeft={1}>{"Group # " + (groupIndex+1)}</Typography>
+                            <Typography variant="body2" fontWeight="bold" paddingLeft={1}>
+                                {
+                                    (
+                                        !translationKey ? "Group" : 
+                                        ( translationKey["ui"] ? translationKey["ui"]["Group"] || "Group" : "Group") 
+                                    ) + " # " + (groupIndex+1)}
+                            </Typography>
                             <Box flexGrow={5} />
                             <AddButton 
                                 label={
                                     !translationKey ? "Add Move" :
-                                    ( translationKey["ui"] ? translationKey["ui"]["addMove"] : "Add Move")
+                                    ( translationKey["ui"] ? translationKey["ui"]["Add Move"] || "Add Move" : "Add Move")
                                 }
                                 onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} 
                                 visible={buttonsVisible}
                             />
                             <Box flexGrow={2} />
-                            <Typography variant="body2" fontWeight="bold" paddingRight={1}># Executions:</Typography>
+                            <Typography variant="body2" fontWeight="bold" paddingRight={1}>
+                                {
+                                    "# " + ( !translationKey ? "Executions" : ( translationKey["ui"] ? translationKey["ui"]["Executions"] || "Executions" : "Executions")) + ":"
+                                }
+                            </Typography>
                             <RepeatsInput
                                 value={(raidInputProps.groups[groupIndex].repeats || 1).toString()} 
                                 onChange={(e) => {
@@ -778,7 +788,14 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                 sx = {{ width: "100%"}}
             >   
                 <Box flexGrow={1} />
-                <AddButton label="Add Group" onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} visible={buttonsVisible}/>
+                <AddButton 
+                    label={
+                        !translationKey ? "Add Group" : 
+                        ( translationKey["ui"] ? translationKey["ui"]["Add Group"] || "Add Group" : "Add Group")
+                    } 
+                    onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} 
+                    visible={buttonsVisible}
+                />
                 <Box flexGrow={1} />
             </Stack>
                         {/* {provided.placeholder}

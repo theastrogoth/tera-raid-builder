@@ -130,7 +130,11 @@ const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
 const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 
 function findOptionFromPokemonName(name: string, translationKey: any): string {
-    return !translationKey ? name : translationKey["pokemon"][name] || name;
+    let option = !translationKey ? name : translationKey["pokemon"][name];
+    if (!option) {
+        option = translationKey["pokemon"][name.split('-')[0]] || name;
+    }
+    return option;
 }
 
 function findOptionFromTeraTypeName(name: string | undefined, translationKey: any): string {
@@ -1222,7 +1226,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} translationKey={translationKey} translationCategory="pokemon"/>
+                                <GenericIconSummaryRow name="Pokémon" value={translationKey ? (pokemon.species.baseSpecies || pokemon.species.name) : pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} translationKey={translationKey} translationCategory="pokemon"/>
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
                                 <AbilitySummaryRow 
                                             name="Ability"

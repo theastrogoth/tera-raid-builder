@@ -24,7 +24,8 @@ export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raide
     const [str, setStr] = useState(pokemon.role);
     const roleRef = useRef(pokemon.role);
     const nameRef = useRef(pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
-    const translatedName = translationKey ? translationKey["pokemon"][pokemon.species.baseSpecies || pokemon.name] || pokemon.name : pokemon.name;
+    const speciesName = pokemon.species.baseSpecies || pokemon.name;
+    const translatedName = translationKey ? translationKey["pokemon"][speciesName] || speciesName : speciesName;
 
 
     useEffect(() => {

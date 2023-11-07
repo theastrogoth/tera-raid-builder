@@ -255,6 +255,12 @@ const BuildInfo = styled(Typography)({
     textIndent: "-1em"
 });
 
+const AbilityPatchIcon = styled("img")({
+    height: "55px",
+    margin: "0px 0px 0px 20px",
+    filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.65))"
+});
+
 const BuildMovesSection = styled(Box)({
     marginTop: "50px"
 });
@@ -514,7 +520,7 @@ function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -562,8 +568,14 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                 <BuildInfo>Level: {raider.level === 13 ? "Any" : raider.level}</BuildInfo>
                                                 {raider.item ?
                                                     <BuildInfo>Item: {raider.item}</BuildInfo> : null}
-                                                {raider.ability !== "(No Ability)" ?
-                                                    <BuildInfo>Ability: {raider.ability}</BuildInfo> : null}
+                                                {raider.ability !== "(No Ability)" ? 
+                                                <Stack direction="row">
+                                                    <BuildInfo>Ability: {raider.ability}</BuildInfo>
+                                                    {isHiddenAbility[index] ? 
+                                                        <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
+                                                        : null
+                                                    }
+                                                </Stack> : null}
                                                 <BuildInfo>Nature: {raider.nature === "Hardy" ? "Any" : raider.nature}</BuildInfo>
                                                 {getEVDescription(raider.evs) ? 
                                                     <BuildInfo>EVs: {getEVDescription(raider.evs)}</BuildInfo> : null}
@@ -777,6 +789,11 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
             const pokemonData = (await Promise.all(
                 raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
             )).filter((data) => data !== undefined) as PokemonData[];
+            const isHiddenAbility: boolean[] = pokemonData.map((data, id) => {
+                const ability = raidInputProps.pokemon[id].ability;
+                if (!ability || ability === "(No Ability)") { return false; }
+                return data.abilities.find((ability) => ability.name === raidInputProps.pokemon[id].ability)!.hidden
+            })
             const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
             const learnMethods = moves.map((ms, index) => 
                 ms.map((move) => 
@@ -791,7 +808,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
             const moveGroups = getMoveGroups(raidInputProps.groups, results);
             const repeats = raidInputProps.groups.map((group) => group.repeats || 1);
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, isHiddenAbility, learnMethods, moveTypes, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);

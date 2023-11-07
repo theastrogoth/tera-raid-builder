@@ -13,6 +13,7 @@ import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon } from '../calc';
 import { Slider, Typography } from '@mui/material';
+import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -29,17 +30,26 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function HpDisplayLine({role, curhp, maxhp, kos}: {role: string, curhp: number, maxhp: number, kos: number}) {
+function HpDisplayLine({role, name, curhp, maxhp, kos}: {role: string, name: string, curhp: number, maxhp: number, kos: number}) {
     const hpPercent = curhp / maxhp * 100;
     const color = (hpPercent > 50 ? "#30B72D" : hpPercent >= 20 ? "#F1C44F" : "#EC5132");
     return (
         <Stack direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
-            <Box sx={{ width: 150 }}>
+            <Box sx={{ width: 200 }}>
                 <Stack direction="row">
                     <Box flexGrow={1}/>
                     <Typography>
                         {role}
                     </Typography>
+                    <Box
+                        sx={{
+                            width: "20px",
+                            height: "20px",
+                            margin: "0px 8px",
+                            overflow: 'hidden',
+                            background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                        }}
+                    />
                 </Stack>
             </Box>
             <Box sx={{ width: "100%" }}>
@@ -53,12 +63,12 @@ function HpDisplayLine({role, curhp, maxhp, kos}: {role: string, curhp: number, 
                     value={hpPercent} 
                 />
             </Box>
-            <Box sx={{ width: 150 }}>
+            <Box sx={{ width: 100 }}>
                 <Typography>
                     { curhp + " / " + maxhp }
                 </Typography>
             </Box>
-            <Box sx={{ width: 150 }}>
+            <Box sx={{ width: 75 }}>
                 <Typography>
                     {kos > 0 ? ( kos  + (kos > 1 ? " KOs" : " KO")) : ""}
                 </Typography>
@@ -80,6 +90,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
         0));
     koCounts[0] = Math.min(koCounts[0], 1);
     const roles = results.endState.raiders.map((raider) => raider.role);
+    const names = results.endState.raiders.map((raider) => raider.name);
 
     useEffect(() => { 
         if (snapToEnd || displayedTurn > results.turnResults.length) {
@@ -99,11 +110,11 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
 
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
-            <HpDisplayLine role={roles[0]} curhp={currenthps[0]} maxhp={maxhps[0]} kos={koCounts[0]} />
-            <HpDisplayLine role={roles[1]} curhp={currenthps[1]} maxhp={maxhps[1]} kos={koCounts[1]} />
-            <HpDisplayLine role={roles[2]} curhp={currenthps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
-            <HpDisplayLine role={roles[3]} curhp={currenthps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
-            <HpDisplayLine role={roles[4]} curhp={currenthps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
+            <HpDisplayLine role={roles[0]} name={names[0]} curhp={currenthps[0]} maxhp={maxhps[0]} kos={koCounts[0]} />
+            <HpDisplayLine role={roles[1]} name={names[1]} curhp={currenthps[1]} maxhp={maxhps[1]} kos={koCounts[1]} />
+            <HpDisplayLine role={roles[2]} name={names[2]} curhp={currenthps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
+            <HpDisplayLine role={roles[3]} name={names[3]} curhp={currenthps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
+            <HpDisplayLine role={roles[4]} name={names[4]} curhp={currenthps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
             <br/>
             <Stack direction="row" spacing={3} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
                 <Box sx={{ width: 115 }}>

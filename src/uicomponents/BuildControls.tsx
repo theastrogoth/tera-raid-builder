@@ -322,7 +322,10 @@ return (
             <RightCell>
                 {prettyMode &&
                     <Typography variant="body1">
-                        {value}
+                        {
+                            !translationKey ? value : 
+                            translationKey[translationCategory] ? translationKey[translationCategory][value] || value : value
+                        }
                     </Typography>
                 }
                 {!prettyMode &&
@@ -752,7 +755,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                 </LeftCell>
                 <RightCell>
                     {prettyMode &&
-                        <GenericWithIcon name={optionFinder(name, translationKey)} engName={name} spriteFetcher={spriteFetcher} prettyMode={prettyMode} />
+                        <GenericWithIcon name={optionFinder(value, translationKey)} engName={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} />
                     }
                     {!prettyMode &&
                         <Autocomplete

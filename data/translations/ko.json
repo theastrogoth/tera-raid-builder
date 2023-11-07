@@ -4103,7 +4103,7 @@
         "Water": "물"
     },
     "ui": {
-        "(Most Damaging)": null,
+        "(Most Damaging)": "(최상의)",
         "(No Ability)": "없음",
         "(No Item)": "없음",
         "(No Move)": "없음",
@@ -4133,6 +4133,7 @@
         "Moves": "기술",
         "Nature": "성격",
         "on": null,
+        "Pokémon": "포켓몬",
         "Pretty Mode": null,
         "Results": null,
         "Roll": null,

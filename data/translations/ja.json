@@ -4103,7 +4103,7 @@
         "Water": "みず"
     },
     "ui": {
-        "(Most Damaging)": null,
+        "(Most Damaging)": "(最高)",
         "(No Ability)": "(なし)",
         "(No Item)": "(なし)",
         "(No Move)": "(なし)",
@@ -4133,6 +4133,7 @@
         "Moves": "わざ",
         "Nature": "性格",
         "on": null,
+        "Pokémon": "ポケモン",
         "Pretty Mode": null,
         "Results": null,
         "Roll": null,

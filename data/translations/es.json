@@ -4103,7 +4103,7 @@
         "Water": "Agua"
     },
     "ui": {
-        "(Most Damaging)": null,
+        "(Most Damaging)": "(Mejor)",
         "(No Ability)": "(Ninguna)",
         "(No Item)": "(Ninguno)",
         "(No Move)": "(Ninguno)",
@@ -4133,6 +4133,7 @@
         "Moves": "Ataques",
         "Nature": "Naturaleza",
         "on": null,
+        "Pokémon": "Pokémon",
         "Pretty Mode": "Estético",
         "Results": null,
         "Roll": null,

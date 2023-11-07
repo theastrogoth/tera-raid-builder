@@ -4103,7 +4103,7 @@
         "Water": "水"
     },
     "ui": {
-        "(Most Damaging)": null,
+        "(Most Damaging)": "(最好的)",
         "(No Ability)": "(沒有任何)",
         "(No Item)": "(沒有任何)",
         "(No Move)": "(沒有任何)",
@@ -4133,6 +4133,7 @@
         "Moves": "招式",
         "Nature": "性格",
         "on": null,
+        "Pokémon": "寶可夢",
         "Pretty Mode": null,
         "Results": null,
         "Roll": null,

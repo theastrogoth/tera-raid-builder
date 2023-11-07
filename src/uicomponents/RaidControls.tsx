@@ -92,6 +92,11 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     const roles = results.endState.raiders.map((raider) => raider.role);
     const names = results.endState.raiders.map((raider) => raider.name);
 
+    const currentRaiderRole = displayedTurn === 0 ? roles[0] : roles[results.turnResults[displayedTurn - 1].moveInfo.userID];
+    const currentRaiderMove = (displayedTurn === 0 || results.turnResults[displayedTurn - 1].raiderMoveUsed === "(No Move)") ? "" : currentRaiderRole + " used " + results.turnResults[displayedTurn - 1].raiderMoveUsed;
+    const currentBossMove = (displayedTurn === 0 || results.turnResults[displayedTurn - 1].bossMoveUsed === "(No Move)") ? "" : roles[0] + " used " + results.turnResults[displayedTurn - 1].bossMoveUsed;
+    const currentActions = (currentRaiderMove && currentBossMove) ? currentRaiderMove + " : " + currentBossMove : (!currentRaiderMove && !currentBossMove) ? "No Moves Used": currentRaiderMove + currentBossMove;
+
     useEffect(() => { 
         if (snapToEnd || displayedTurn > results.turnResults.length) {
             setDisplayedTurn(results.turnResults.length);
@@ -115,25 +120,29 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
             <HpDisplayLine role={roles[2]} name={names[2]} curhp={currenthps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
             <HpDisplayLine role={roles[3]} name={names[3]} curhp={currenthps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
             <HpDisplayLine role={roles[4]} name={names[4]} curhp={currenthps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
-            <br/>
-            <Stack direction="row" spacing={3} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
-                <Box sx={{ width: 115 }}>
-                    <Stack direction="row">
-                        <Box flexGrow={1}/>
-                        <Typography>
-                            {displayedTurn === 0 ? "Battle Start" : "Turn " + displayedTurn}
-                        </Typography>
-                    </Stack>
-                </Box>
-                <Slider 
-                    value={displayedTurn}
-                    onChange={(event, newValue) => setDisplayedTurn(newValue as number)}
-                    step={1}
-                    marks
-                    min={0}
-                    max={results.turnResults.length}
-                />
-                <Box sx={{ width: 50 }} />
+            <Stack direction="column" justifyContent="center" alignItems="center">
+                <Typography fontSize={10} noWrap={true}>
+                    {currentActions}
+                </Typography>
+                <Stack direction="row" spacing={3} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
+                    <Box sx={{ width: 115 }}>
+                        <Stack direction="row">
+                            <Box flexGrow={1}/>
+                            <Typography>
+                                {displayedTurn === 0 ? "Battle Start" : "Turn " + displayedTurn}
+                            </Typography>
+                        </Stack>
+                    </Box>
+                    <Slider 
+                        value={displayedTurn}
+                        onChange={(event, newValue) => setDisplayedTurn(newValue as number)}
+                        step={1}
+                        marks
+                        min={0}
+                        max={results.turnResults.length}
+                    />
+                    <Box sx={{ width: 50 }} />
+                </Stack>
             </Stack>
         </Stack>
     )

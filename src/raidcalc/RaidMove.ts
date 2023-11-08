@@ -502,6 +502,9 @@ export class RaidMove {
                                 //@ts-ignore
                                 hitDamage = roll === "max" ? result.damage[result.damage.length-1] : roll === "min" ? result.damage[0] : result.damage[Math.floor(result.damage.length/2)];
                             }
+                            if (calcMove.name === "False Swipe") {
+                                hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
+                            }
                             this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this.move.type, this.move.category);
                             totalDamage += hitDamage;
                         }

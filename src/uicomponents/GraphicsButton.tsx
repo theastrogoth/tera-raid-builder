@@ -789,10 +789,11 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
             const pokemonData = (await Promise.all(
                 raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
             )).filter((data) => data !== undefined) as PokemonData[];
-            const isHiddenAbility: boolean[] = pokemonData.map((data, id) => {
-                const ability = raidInputProps.pokemon[id].ability;
+            const isHiddenAbility: boolean[] = pokemonData.slice(1).map((data, id) => {
+                const ability = raidInputProps.pokemon[id+1].ability;
                 if (!ability || ability === "(No Ability)") { return false; }
-                return data.abilities.find((ability) => ability.name === raidInputProps.pokemon[id].ability)!.hidden
+                const abilityData = data.abilities.find((abilityData) => abilityData.name === ability);
+                return abilityData ? abilityData.hidden || false : false;
             })
             const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
             const learnMethods = moves.map((ms, index) => 

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from  '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Divider from '@mui/material/Divider';
+import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Popover from '@mui/material/Popover';
 import styled from '@mui/material/styles/styled';
@@ -11,6 +15,7 @@ import styled from '@mui/material/styles/styled';
 import MoveSelection from "./MoveSelection";
 import RaidResults from "./RaidResults";
 import MoveDisplay from './MoveDisplay';
+
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon } from '../calc';
@@ -19,6 +24,12 @@ import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
+
+const Icon = styled(Avatar)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? "#7e7e7e" : "#bebebe",
+    width: "40px",
+    height: "40px",
+}));
 
 const HpBar = styled(LinearProgress)(({ theme }) => ({
     height: 8,
@@ -33,6 +44,7 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, name: string, curhp: number, lasthp: number, maxhp: number, kos: number}) {
+    const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
     const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -91,9 +103,9 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                     <HpBar 
                         sx={{
                             '& .MuiLinearProgress-bar': {
-                                backgroundColor: "#000000",
+                                backgroundColor: theme.palette.mode === 'light' ? "#909090" : "#ffffff",
                             },
-                            opacity: "10%",
+                            opacity: "25%",
                             position: "absolute",
                             width: "100%"
                         }}
@@ -130,9 +142,29 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                 onClose={handlePopoverClose}
                 disableRestoreFocus
             >
-                <Paper sx={{ p: 1, backgroundColor: "modal.main" }}>
-                    <Stack direction="column">
-                        <Typography>Stuff Goes Here</Typography>
+                <Paper sx={{ p: 2, backgroundColor: "modal.main", width: "200px" }}>
+                    
+                    <Stack direction="column" spacing={.5}>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
+                            <Stack direction="column" spacing={0}>
+                                <Typography fontSize={18} mb={-.5}>{role}</Typography>
+                                <Typography fontSize={10}>{name}</Typography>
+                            </Stack>
+                        </Stack>
+                        <Divider textAlign="left" orientation="horizontal" flexItem>Stat Boosts</Divider>
+                        <Typography>Placeholder</Typography>
+                        <Divider textAlign="left" orientation="horizontal" flexItem>Modifiers</Divider>
+                        <Chip label="Placeholder" size="small" color="primary"/>
                     </Stack>
                 </Paper>
             </Popover>

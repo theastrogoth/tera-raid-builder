@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Stack from  '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import Popover from '@mui/material/Popover';
 import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
@@ -31,67 +33,110 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, name: string, curhp: number, lasthp: number, maxhp: number, kos: number}) {
+    const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handlePopoverClose = () => {
+      setAnchorEl(null);
+    };
+  
+    const open = Boolean(anchorEl);
+
     const hpPercent = curhp / maxhp * 100;
     const lasthpPercent = lasthp / maxhp * 100;
     const color = (hpPercent > 50 ? "#30B72D" : hpPercent >= 20 ? "#F1C44F" : "#EC5132");
+
     return (
-        <Stack direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
-            <Box sx={{ width: 200 }}>
-                <Stack direction="row">
-                    <Box flexGrow={1}/>
-                    <Typography>
-                        {role}
-                    </Typography>
-                    <Box
-                        sx={{
-                            width: "18px",
-                            height: "18px",
-                            margin: "0px 8px",
-                            overflow: 'hidden',
-                            background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
-                        }}
-                    />
-                </Stack>
-            </Box>
-            <Box sx={{ width: "100%" , position: "relative"}}>
-                
-                <HpBar 
-                    sx={{
-                        '& .MuiLinearProgress-bar': {
-                            backgroundColor: color,
-                        },
-                        opacity: "100%",
-                        position: "absolute",
-                        width: "100%"
-                    }}
+        <Box>
+            <Stack 
+                direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }} 
+                aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true"
+                onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}
+            >
+                <Box sx={{ width: 200 }}>
+                    <Stack direction="row">
+                        <Box flexGrow={1}/>
+                        <Typography>
+                            {role}
+                        </Typography>
+                        <Box
+                            sx={{
+                                width: "18px",
+                                height: "18px",
+                                margin: "0px 8px",
+                                overflow: 'hidden',
+                                background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                            }}
+                        />
+                    </Stack>
+                </Box>
+                <Box sx={{ width: "100%" , position: "relative"}}>
                     
-                    variant="determinate" 
-                    value={hpPercent} 
-                />
-                <HpBar 
-                    sx={{
-                        '& .MuiLinearProgress-bar': {
-                            backgroundColor: "#000000",
-                        },
-                        opacity: "10%",
-                        position: "absolute",
-                        width: "100%"
-                    }}
-                    variant="determinate" 
-                    value={hpPercent === lasthpPercent ? 0 : lasthpPercent} 
-                />
-            </Box>
-            <Box sx={{ width: 150 }}>
-                <Typography>
-                    { curhp + " / " + maxhp }
-                </Typography>
-            </Box>
-            <Box sx={{ width: 75 }}>
-                <Typography>
-                    {kos > 0 ? ( kos  + (kos > 1 ? " KOs" : " KO")) : ""}
-                </Typography>
-            </Box>
-        </Stack>
+                    <HpBar 
+                        sx={{
+                            '& .MuiLinearProgress-bar': {
+                                backgroundColor: color,
+                            },
+                            opacity: "100%",
+                            position: "absolute",
+                            width: "100%"
+                        }}
+                        
+                        variant="determinate" 
+                        value={hpPercent} 
+                    />
+                    <HpBar 
+                        sx={{
+                            '& .MuiLinearProgress-bar': {
+                                backgroundColor: "#000000",
+                            },
+                            opacity: "10%",
+                            position: "absolute",
+                            width: "100%"
+                        }}
+                        variant="determinate" 
+                        value={hpPercent === lasthpPercent ? 0 : lasthpPercent} 
+                    />
+                </Box>
+                <Box sx={{ width: 150 }}>
+                    <Typography>
+                        { curhp + " / " + maxhp }
+                    </Typography>
+                </Box>
+                <Box sx={{ width: 75 }}>
+                    <Typography>
+                        {kos > 0 ? ( kos  + (kos > 1 ? " KOs" : " KO")) : ""}
+                    </Typography>
+                </Box>
+            </Stack>
+            <Popover
+                id={"mouse-over-popover"+role}
+                sx={{
+                pointerEvents: 'none',
+                }}
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+                }}
+                transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+            >
+                <Paper sx={{ p: 1, backgroundColor: "modal.main" }}>
+                    <Stack direction="column">
+                        <Typography>Stuff Goes Here</Typography>
+                    </Stack>
+                </Paper>
+            </Popover>
+        </Box>
     );
 }
 

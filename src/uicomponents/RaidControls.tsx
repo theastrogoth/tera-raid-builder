@@ -64,10 +64,11 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                         position: "absolute",
                         width: "100%"
                     }}
+                    
                     variant="determinate" 
                     value={hpPercent} 
                 />
-                {(hpPercent !== lasthpPercent) && <HpBar 
+                <HpBar 
                     sx={{
                         '& .MuiLinearProgress-bar': {
                             backgroundColor: "#000000",
@@ -77,9 +78,8 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                         width: "100%"
                     }}
                     variant="determinate" 
-                    value={lasthpPercent} 
+                    value={hpPercent === lasthpPercent ? 0 : lasthpPercent} 
                 />
-                }
             </Box>
             <Box sx={{ width: 150 }}>
                 <Typography>

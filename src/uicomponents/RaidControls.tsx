@@ -21,6 +21,7 @@ import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon } from '../calc';
 import { Slider, Typography } from '@mui/material';
 import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
+import { RaidTurnResult } from '../raidcalc/RaidTurn';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -175,9 +176,9 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
     
     const turnState = (displayedTurn === 0 || displayedTurn > results.turnResults.length) ? results.endState : results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].state;
-    const lastTurnState = (displayedTurn <= 1 || displayedTurn > results.turnResults.length) ? results.endState: results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 2].state;
+    const prevTurnState = (displayedTurn <= 1 || displayedTurn > results.turnResults.length) ? results.endState: results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 2].state;
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
-    const lasthps = displayedTurn <= 1 ? maxhps : lastTurnState.raiders.map((raider) => raider.originalCurHP);
+    const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
     const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
             kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
@@ -186,10 +187,12 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     const roles = results.endState.raiders.map((raider) => raider.role);
     const names = results.endState.raiders.map((raider) => raider.name);
 
-    const currentRaiderRole = displayedTurn === 0 ? roles[0] : roles[results.turnResults[displayedTurn - 1].moveInfo.userID];
-    const currentRaiderMove = (displayedTurn === 0 || results.turnResults[displayedTurn - 1].raiderMoveUsed === "(No Move)") ? "" : currentRaiderRole + " used " + results.turnResults[displayedTurn - 1].raiderMoveUsed;
-    const currentBossMove = (displayedTurn === 0 || results.turnResults[displayedTurn - 1].bossMoveUsed === "(No Move)") ? "" : roles[0] + " used " + results.turnResults[displayedTurn - 1].bossMoveUsed;
-    const currentActions = (currentRaiderMove && currentBossMove) ? currentRaiderMove + " : " + currentBossMove : (!currentRaiderMove && !currentBossMove) ? "No Moves Used": currentRaiderMove + currentBossMove;
+    const currentBossRole = turnState.raiders[0].role;
+    const currentRaiderRole = getCurrentRaiderRole(results, displayedTurn, roles);
+    const currentMoves = getCurrentMoves(results, displayedTurn);
+    const currentBossMove = currentMoves[0];
+    const currentRaiderMove = currentMoves[1];
+    const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove);
 
     useEffect(() => { 
         if (snapToEnd || displayedTurn > results.turnResults.length) {
@@ -209,14 +212,14 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
 
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
-            <HpDisplayLine role={roles[0]} name={names[0]} curhp={currenthps[0]} lasthp={lasthps[0]} maxhp={maxhps[0]} kos={koCounts[0]} />
-            <HpDisplayLine role={roles[1]} name={names[1]} curhp={currenthps[1]} lasthp={lasthps[1]} maxhp={maxhps[1]} kos={koCounts[1]} />
-            <HpDisplayLine role={roles[2]} name={names[2]} curhp={currenthps[2]} lasthp={lasthps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
-            <HpDisplayLine role={roles[3]} name={names[3]} curhp={currenthps[3]} lasthp={lasthps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
-            <HpDisplayLine role={roles[4]} name={names[4]} curhp={currenthps[4]} lasthp={lasthps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
+            <HpDisplayLine role={roles[0]} name={names[0]} curhp={currenthps[0]} lasthp={prevhps[0]} maxhp={maxhps[0]} kos={koCounts[0]} />
+            <HpDisplayLine role={roles[1]} name={names[1]} curhp={currenthps[1]} lasthp={prevhps[1]} maxhp={maxhps[1]} kos={koCounts[1]} />
+            <HpDisplayLine role={roles[2]} name={names[2]} curhp={currenthps[2]} lasthp={prevhps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
+            <HpDisplayLine role={roles[3]} name={names[3]} curhp={currenthps[3]} lasthp={prevhps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
+            <HpDisplayLine role={roles[4]} name={names[4]} curhp={currenthps[4]} lasthp={prevhps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>
-                    {currentActions}
+                    {currentTurnText}
                 </Typography>
                 <Stack direction="row" spacing={3} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
                     <Box sx={{ width: 115 }}>
@@ -240,6 +243,74 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
             </Stack>
         </Stack>
     )
+}
+
+function getCurrentRaiderRole(results: RaidBattleResults, displayedTurn: number, roles: String[]) {
+    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+        return roles[0];
+    }
+    else {
+        try {
+            return roles[results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].moveInfo.userID]
+        }
+        catch(e) {
+            return roles[0];
+        }
+    }
+}
+
+function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number) {
+    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+        return undefined;
+    }
+    else {
+        try {
+            const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
+            if (currentRaiderMove === "(No Move)") {
+                return undefined
+            }
+            else {
+                return currentRaiderMove
+            }
+        }
+        catch(e) {
+            return undefined;
+        }
+    }
+}
+
+function getCurrentMoves(results: RaidBattleResults, displayedTurn: number) {
+    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+        return [undefined, undefined];
+    }
+    else {
+        try {
+            let currentMoves: any[] = []
+            const currentBossMove = results.turnResults[displayedTurn - 1].bossMoveUsed
+            currentMoves = [...currentMoves, currentBossMove === "(No Move)" ? undefined : currentBossMove]
+            const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
+            currentMoves = [...currentMoves, currentRaiderMove === "(No Move)" ? undefined : currentRaiderMove]
+            return currentMoves
+        }
+        catch(e) {
+            return [undefined, undefined];
+        }
+    }
+}
+
+function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove?: String, raiderMove?: String) {
+    if (!bossMove && !raiderMove) {
+        return "No Moves Used";
+    }
+    else if (bossMove && !raiderMove) {
+        return `${bossRole} used ${bossMove}`;
+    }
+    else if (!bossMove && raiderMove) {
+        return `${raiderRole} used ${raiderMove}`;
+    }
+    else {
+        return `${bossRole} used ${bossMove} : ${raiderRole} used ${raiderMove}`;
+    }
 }
 
 function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean}) {

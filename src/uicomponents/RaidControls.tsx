@@ -106,7 +106,6 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                                 backgroundColor: theme.palette.mode === 'light' ? "#909090" : "#ffffff",
                             },
                             opacity: "25%",
-                            position: "absolute",
                             width: "100%"
                         }}
                         variant="determinate" 

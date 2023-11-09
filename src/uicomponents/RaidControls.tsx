@@ -30,8 +30,9 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function HpDisplayLine({role, name, curhp, maxhp, kos}: {role: string, name: string, curhp: number, maxhp: number, kos: number}) {
+function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, name: string, curhp: number, lasthp: number, maxhp: number, kos: number}) {
     const hpPercent = curhp / maxhp * 100;
+    const lasthpPercent = lasthp / maxhp * 100;
     const color = (hpPercent > 50 ? "#30B72D" : hpPercent >= 20 ? "#F1C44F" : "#EC5132");
     return (
         <Stack direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
@@ -52,16 +53,33 @@ function HpDisplayLine({role, name, curhp, maxhp, kos}: {role: string, name: str
                     />
                 </Stack>
             </Box>
-            <Box sx={{ width: "100%" }}>
+            <Box sx={{ width: "100%" , position: "relative"}}>
+                
                 <HpBar 
                     sx={{
                         '& .MuiLinearProgress-bar': {
                             backgroundColor: color,
-                        }
+                        },
+                        opacity: "100%",
+                        position: "absolute",
+                        width: "100%"
                     }}
                     variant="determinate" 
                     value={hpPercent} 
                 />
+                {(hpPercent !== lasthpPercent) && <HpBar 
+                    sx={{
+                        '& .MuiLinearProgress-bar': {
+                            backgroundColor: "#000000",
+                        },
+                        opacity: "10%",
+                        position: "absolute",
+                        width: "100%"
+                    }}
+                    variant="determinate" 
+                    value={lasthpPercent} 
+                />
+                }
             </Box>
             <Box sx={{ width: 150 }}>
                 <Typography>
@@ -83,7 +101,9 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
     
     const turnState = (displayedTurn === 0 || displayedTurn > results.turnResults.length) ? results.endState : results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].state;
+    const lastTurnState = (displayedTurn <= 1 || displayedTurn > results.turnResults.length) ? results.endState: results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 2].state;
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
+    const lasthps = displayedTurn <= 1 ? maxhps : lastTurnState.raiders.map((raider) => raider.originalCurHP);
 
     const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
             kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
@@ -115,11 +135,11 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
 
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
-            <HpDisplayLine role={roles[0]} name={names[0]} curhp={currenthps[0]} maxhp={maxhps[0]} kos={koCounts[0]} />
-            <HpDisplayLine role={roles[1]} name={names[1]} curhp={currenthps[1]} maxhp={maxhps[1]} kos={koCounts[1]} />
-            <HpDisplayLine role={roles[2]} name={names[2]} curhp={currenthps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
-            <HpDisplayLine role={roles[3]} name={names[3]} curhp={currenthps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
-            <HpDisplayLine role={roles[4]} name={names[4]} curhp={currenthps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
+            <HpDisplayLine role={roles[0]} name={names[0]} curhp={currenthps[0]} lasthp={lasthps[0]} maxhp={maxhps[0]} kos={koCounts[0]} />
+            <HpDisplayLine role={roles[1]} name={names[1]} curhp={currenthps[1]} lasthp={lasthps[1]} maxhp={maxhps[1]} kos={koCounts[1]} />
+            <HpDisplayLine role={roles[2]} name={names[2]} curhp={currenthps[2]} lasthp={lasthps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
+            <HpDisplayLine role={roles[3]} name={names[3]} curhp={currenthps[3]} lasthp={lasthps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
+            <HpDisplayLine role={roles[4]} name={names[4]} curhp={currenthps[4]} lasthp={lasthps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>
                     {currentActions}

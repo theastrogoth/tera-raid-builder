@@ -26,9 +26,7 @@ import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
 
 const Icon = styled(Avatar)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? "#7e7e7e" : "#bebebe",
-    width: "40px",
-    height: "40px",
+    backgroundColor: theme.palette.mode === 'light' ? "#bebebe" : "#7e7e7e",
 }));
 
 const HpBar = styled(LinearProgress)(({ theme }) => ({
@@ -74,15 +72,16 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                         <Typography>
                             {role}
                         </Typography>
-                        <Box
-                            sx={{
-                                width: "18px",
-                                height: "18px",
-                                margin: "0px 8px",
-                                overflow: 'hidden',
-                                background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
-                            }}
-                        />
+                        <Avatar sx={{width: "20px", height: "20px", marginLeft: "8px"}} variant="rounded">
+                            <Box
+                                sx={{
+                                    width: "16px",
+                                    height: "16px",
+                                    overflow: 'hidden',
+                                    background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                                }}
+                            />
+                        </Avatar>
                     </Stack>
                 </Box>
                 <Box sx={{ width: "100%" , position: "relative"}}>
@@ -142,7 +141,6 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                 disableRestoreFocus
             >
                 <Paper sx={{ p: 2, backgroundColor: "modal.main", width: "200px" }}>
-                    
                     <Stack direction="column" spacing={.5}>
                         <Stack direction="row" alignItems="center" spacing={1}>
                             <Icon variant="rounded">

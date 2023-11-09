@@ -34,7 +34,8 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     height: 8,
     borderRadius: 4,
     [`&.${linearProgressClasses.colorPrimary}`]: {
-      backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+        backgroundColor: "#ffffff00"
+    //   backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
     },
     [`& .${linearProgressClasses.bar}`]: {
       borderRadius: 4,
@@ -57,7 +58,7 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
     const open = Boolean(anchorEl);
 
     const hpPercent = curhp / maxhp * 100;
-    const lasthpPercent = lasthp / maxhp * 100;
+    const prevhpPercent = lasthp / maxhp * 100;
     const color = (hpPercent > 50 ? "#30B72D" : hpPercent >= 20 ? "#F1C44F" : "#EC5132");
 
     return (
@@ -86,7 +87,33 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                     </Stack>
                 </Box>
                 <Box sx={{ width: "100%" , position: "relative"}}>
-                    
+                    {/* Full Bar */}
+                    <HpBar 
+                        sx={{
+                            '& .MuiLinearProgress-bar': {
+                                backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+                            },
+                            opacity: "100%",
+                            position: "absolute",
+                            width: "100%"
+                        }}
+                        variant="determinate" 
+                        value={100} 
+                    />
+                    {/* prevHP > curHP */}
+                    <HpBar 
+                        sx={{
+                            '& .MuiLinearProgress-bar': {
+                                backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
+                            },
+                            opacity: hpPercent < prevhpPercent ? "25%" : "0%",
+                            position: "absolute",
+                            width: "100%"
+                        }}
+                        variant="determinate" 
+                        value={ hpPercent < prevhpPercent ? prevhpPercent : hpPercent}
+                    />
+                    {/* curHP */}
                     <HpBar 
                         sx={{
                             '& .MuiLinearProgress-bar': {
@@ -100,16 +127,17 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                         variant="determinate" 
                         value={hpPercent} 
                     />
+                    {/* curHP > prevHP */}
                     <HpBar 
                         sx={{
                             '& .MuiLinearProgress-bar': {
-                                backgroundColor: theme.palette.mode === 'light' ? "#909090" : "#ffffff",
+                                backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
                             },
-                            opacity: "25%",
+                            opacity: hpPercent > prevhpPercent ? "25%" : "0%",
                             width: "100%"
                         }}
                         variant="determinate" 
-                        value={hpPercent === lasthpPercent ? 0 : lasthpPercent} 
+                        value={ hpPercent > prevhpPercent ? prevhpPercent : hpPercent}
                     />
                 </Box>
                 <Box sx={{ width: 150 }}>

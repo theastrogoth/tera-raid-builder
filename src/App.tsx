@@ -422,6 +422,7 @@ function App() {
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps} results={results}
                     setLoading={setLoading}
+                    translationKey={translationKey}
                   />
                 <Box flexGrow={1} />
               </Stack>

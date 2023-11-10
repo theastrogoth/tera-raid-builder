@@ -17,6 +17,7 @@ import HelpOutline from "@mui/icons-material/HelpOutline";
 import LanguageIcon from '@mui/icons-material/Language';
 import DarkLightModeSwitch from "./DarkLightModeSwitch";
 import HelpSection from "./HelpSection";
+import { getTranslation } from "../utils";
 
 type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
 
@@ -81,14 +82,9 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                             startIcon={prettyMode ? <EditIcon /> :  <ImageIcon />}
                         >
                             {prettyMode ? 
-                                ( 
-                                    !translationKey ? "Edit Mode" :
-                                    ( translationKey["ui"] ? translationKey["ui"]["Edit Mode"] || "Edit Mode": "Edit Mode") 
-                                ) : 
-                                ( 
-                                    !translationKey ? "Pretty Mode" :
-                                    ( translationKey["ui"] ? translationKey["ui"]["Pretty Mode"] || "Pretty Mode": "Pretty Mode") 
-                                )}
+                                getTranslation("Edit Mode", translationKey) : 
+                                getTranslation("Pretty Mode", translationKey)
+                            }
                         </Button>
                     </Box>
                     <Box component="div" >
@@ -127,10 +123,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                             onClick={() => setShowHelp(!showHelp)}
                             startIcon={<HelpOutline />}
                         >
-                            {
-                                !translationKey ? "Help" :
-                                ( translationKey["ui"] ? translationKey["ui"]["Help"] || "Help": "Help")
-                            }
+                            { getTranslation("Help", translationKey) }
                         </Button>
                     </Box>
                     <DarkLightModeSwitch lightMode={lightMode} setLightMode={setLightMode} />

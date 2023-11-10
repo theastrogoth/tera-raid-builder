@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+import { getTranslation } from "../utils";
 
 function StratFooter({notes, setNotes, credits, setCredits, prettyMode, translationKey}: {notes: string, setNotes: (n: string) => void, credits: string, setCredits: (c: string) => void, prettyMode: boolean, translationKey: any}) {
     const [fieldNotes, setFieldNotes] = useState(notes);
@@ -28,11 +29,7 @@ function StratFooter({notes, setNotes, credits, setCredits, prettyMode, translat
                 <Stack width="575px" sx={{ mx: 1, my: 1}} >
                     { (!prettyMode || (notes && notes.length > 0 )) &&
                         <Typography variant="h5" sx={{ textAlign: "left" }}>
-                            { 
-                                (!translationKey ? "Notes" :
-                                 ( translationKey["ui"] ? translationKey["ui"]["Notes"] || "Notes" : "Notes" )
-                                ) + ":"
-                            }
+                            { getTranslation("Notes", translationKey, "ui") + ":" }
                         </Typography>
                     }
                     { prettyMode &&
@@ -64,11 +61,8 @@ function StratFooter({notes, setNotes, credits, setCredits, prettyMode, translat
                 <Stack width="575px" sx={{ mx: 1, my: 1}} >
                     { (!prettyMode || (credits && credits.length > 0 )) &&
                         <Typography variant="h5" sx={{ textAlign: "left" }}>
-                            { 
-                                (!translationKey ? "Credits" :
-                                 ( translationKey["ui"] ? translationKey["ui"]["Credits"] || "Credits" : "Credits" )
-                                ) + ":"
-                            }                        </Typography>
+                            { getTranslation("Credits", translationKey, "ui") + ":" }
+                     </Typography>
                     }
                     { prettyMode &&
                         <Typography variant="body1" style={{whiteSpace: 'pre-line'}} sx={{ textAlign: "left" }}>

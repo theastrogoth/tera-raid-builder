@@ -155,6 +155,12 @@ export function getIVDescription(ivs: StatsTable) {
     return filteredPairs.length === 0 ? "All Hypertrained" : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
 }
 
+export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {
+    if (!translationKey) { return word; }
+    if (!translationKey[translationCategory]) { return word; }
+    return translationKey[translationCategory][word] || word;
+}
+
 export function arraysEqual(a: any[], b: any[]) {
     if (a === b) return true;
     if (a === null || b === null) return false;

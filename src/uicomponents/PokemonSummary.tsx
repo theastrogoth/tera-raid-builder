@@ -11,7 +11,7 @@ import StatRadarPlot from "./StatRadarPlot";
 import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getTranslation } from "../utils";
 import { MoveSetItem, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { MOVES } from "../calc/data/moves";
 import { Raider } from "../raidcalc/Raider";
@@ -25,8 +25,7 @@ export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raide
     const roleRef = useRef(pokemon.role);
     const nameRef = useRef(pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
     const speciesName = pokemon.species.baseSpecies || pokemon.name;
-    const translatedName = translationKey ? translationKey["pokemon"][speciesName] || speciesName : speciesName;
-
+    const translatedName = getTranslation(speciesName, translationKey, "pokemon");
 
     useEffect(() => {
         if (roleRef.current !== pokemon.role) {
@@ -82,7 +81,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
         const set = moves.map(md => {
             const move = gen.moves.get(toID(md.name));
             return {
-                name: translationKey ? translationKey["moves"][md.name] || md.name: md.name,
+                name: getTranslation(md.name, translationKey, "moves"),
                 engName: md.name,
                 method: md.learnMethod,
                 type: move ? (move.type || "Normal") : "Normal",

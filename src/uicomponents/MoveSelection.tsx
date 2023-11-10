@@ -27,7 +27,7 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidMoveInfo, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import { getPokemonSpriteURL, arraysEqual } from "../utils";
+import { getPokemonSpriteURL, arraysEqual, getTranslation } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 
@@ -351,8 +351,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
                         value = {moveInfo.moveData.name}
                         renderValue={
                             (value) => <Typography variant="body2">{
-                                !translationKey ? value : 
-                                (translationKey["moves"] ? translationKey["moves"][value] || value : value )
+                                getTranslation(value, translationKey, "moves")
                             }</Typography>
                         }
                         onChange={(e) => {
@@ -380,10 +379,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
                             <Typography 
                                 variant="body2"
                             >
-                                {
-                                    !translationKey ? move :
-                                    ( translationKey["moves"] ? translationKey["moves"][move] || move : move )
-                                }
+                                { getTranslation(move, translationKey, "moves") }
                             </Typography>
                         </MenuItem>
                     )}
@@ -478,8 +474,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                     value = {moveName}
                     renderValue={
                         (value) => <Typography variant="body2">{
-                            !translationKey ? value : 
-                            (translationKey["moves"] ? translationKey["moves"][value] || value : value )
+                            getTranslation(value, translationKey, "moves")
                         }</Typography>
                     }
                     onChange={(e) => {
@@ -500,10 +495,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                             <Typography 
                                 variant="body2"
                             >
-                                {
-                                    !translationKey ? move :
-                                    ( translationKey["moves"] ? translationKey["moves"][move] || move : move )
-                                }
+                                { getTranslation(move, translationKey, "moves") }
                             </Typography>
                         </MenuItem>
                     )}
@@ -727,24 +719,19 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                         <Stack direction="row" justifyContent="center" alignItems="center" sx={{ paddingTop: 0.5, width: "100%" }}>
                             <Typography variant="body2" fontWeight="bold" paddingLeft={1}>
                                 {
-                                    (
-                                        !translationKey ? "Group" : 
-                                        ( translationKey["ui"] ? translationKey["ui"]["Group"] || "Group" : "Group") 
-                                    ) + " # " + (groupIndex+1)}
+                                    getTranslation("Group", translationKey) + " # " + (groupIndex+1)
+                                }
                             </Typography>
                             <Box flexGrow={5} />
                             <AddButton 
-                                label={
-                                    !translationKey ? "Add Move" :
-                                    ( translationKey["ui"] ? translationKey["ui"]["Add Move"] || "Add Move" : "Add Move")
-                                }
+                                label={ getTranslation("Add Move", translationKey) }
                                 onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} 
                                 visible={buttonsVisible}
                             />
                             <Box flexGrow={2} />
                             <Typography variant="body2" fontWeight="bold" paddingRight={1}>
                                 {
-                                    "# " + ( !translationKey ? "Executions" : ( translationKey["ui"] ? translationKey["ui"]["Executions"] || "Executions" : "Executions")) + ":"
+                                    "# " + getTranslation("Executions", translationKey) + ":"
                                 }
                             </Typography>
                             <RepeatsInput
@@ -789,10 +776,7 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
             >   
                 <Box flexGrow={1} />
                 <AddButton 
-                    label={
-                        !translationKey ? "Add Group" : 
-                        ( translationKey["ui"] ? translationKey["ui"]["Add Group"] || "Add Group" : "Add Group")
-                    } 
+                    label={ getTranslation("Add Group", translationKey) }
                     onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} 
                     visible={buttonsVisible}
                 />
@@ -951,10 +935,7 @@ function MoveSelection({raidInputProps, translationKey}: {raidInputProps: RaidIn
                                 >
                                     <Box flexGrow={1} />
                                     <AddButton 
-                                        label={
-                                            !translationKey ? "Add Group" :
-                                            ( translationKey["ui"] ? translationKey["ui"]["Add Group"] || "Add Group" : "Add Group")
-                                        }
+                                        label={ getTranslation("Add Group", translationKey) }
                                         onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(0)} 
                                         visible={buttonsVisible}
                                     />

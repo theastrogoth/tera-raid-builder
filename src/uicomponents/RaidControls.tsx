@@ -13,6 +13,7 @@ import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon } from '../calc';
 import { Slider, Typography } from '@mui/material';
+import { getTranslation } from '../utils';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -110,9 +111,9 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
                     <Stack direction="row">
                         <Box flexGrow={1}/>
                         <Typography>
-                            {displayedTurn === 0 ? "Battle Start" : (
-                                !translationKey ? "Turn" : ( translationKey["ui"] ? translationKey["ui"]["Turn"] || "Turn" : "Turn")
-                            ) + " " + displayedTurn}
+                            {displayedTurn === 0 ? "Battle Start" :
+                                getTranslation("Turn", translationKey) + " " + displayedTurn
+                            }
                         </Typography>
                     </Stack>
                 </Box>
@@ -174,17 +175,11 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
                 <Box paddingBottom={1}>
                     <Tabs value={value} onChange={handleChange} centered>
                         <Tab 
-                            label={
-                                !translationKey ? "Move Order" :
-                                ( translationKey["ui"] ? translationKey["ui"]["Move Order"] || "Move Order" : "Move Order") 
-                            } 
+                            label={getTranslation("Move Order", translationKey)} 
                             value={1} 
                         />
                         <Tab 
-                            label={
-                                !translationKey ? "Calc Results" : 
-                                ( translationKey["ui"] ? translationKey["ui"]["Calc Results"] || "Calc Results" : "Calc Results")
-                            } 
+                            label={getTranslation("Calc Results", translationKey)}
                             value={2} 
                         />
                     </Tabs>

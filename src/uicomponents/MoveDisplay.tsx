@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidTurnResult } from "../raidcalc/RaidTurn";
-import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
+import { getPokemonSpriteURL, getTeraTypeIconURL, getTranslation } from "../utils";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
 function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], turn: RaidTurnInfo, result: RaidTurnResult, translationKey: any}) {
@@ -46,7 +46,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
         teraActivated = false;
     }
 
-    move = !translationKey ? move : ( translationKey["moves"] ? translationKey["moves"][move] || move : move );
+    move = getTranslation(move, translationKey, "moves");
 
     return (
         <>
@@ -66,10 +66,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
                     </Typography>
                 </Stack>
                 <Typography variant="body1">
-                    {
-                        !translationKey ? "uses" : 
-                        ( translationKey["ui"] ? translationKey["ui"]["uses"] || "uses" : "uses" )
-                    }
+                    { getTranslation("uses", translationKey) }
                 </Typography>
                 <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
                     {teraActivated && 
@@ -89,10 +86,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
                 </Stack>
                 {target !== "" &&
                     <Typography variant="body1">
-                    {
-                        !translationKey ? "on" : 
-                        ( translationKey["ui"] ? translationKey["ui"]["on"] || "on" : "on" )
-                    }
+                        { getTranslation("on", translationKey) }
                     </Typography>
                 }
                 {target !== "" &&

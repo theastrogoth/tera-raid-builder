@@ -11,7 +11,7 @@ import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
 import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual, getTranslation } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
 import { MoveSetItem } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
@@ -31,7 +31,7 @@ function BossSummary({pokemon, setPokemon, prettyMode, translationKey}: {pokemon
         const set = moves.map(md => {
             const move = gen.moves.get(toID(md.name));
             return {
-                name: translationKey ? translationKey["moves"][md.name] || md.name : md.name,
+                name: getTranslation(md.name, translationKey, "moves"),
                 engName: md.name,
                 method: md.learnMethod,
                 type: move ? (move.type || "Normal") : "Normal",

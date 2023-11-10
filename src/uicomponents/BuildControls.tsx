@@ -35,7 +35,7 @@ import ImportExportArea from "./ImportExportArea";
 import { MoveData, MoveSetItem, ShieldData, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService from "../services/getdata";
-import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation } from "../utils";
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
@@ -130,9 +130,9 @@ const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
 const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 
 function findOptionFromPokemonName(name: string, translationKey: any): string {
-    let option = !translationKey ? name : translationKey["pokemon"][name];
+    let option = getTranslation(name, translationKey, "pokemon");
     if (!option) {
-        option = translationKey["pokemon"][name.split('-')[0]] || name;
+        option = getTranslation(name.split('-')[0], translationKey, "pokemon");
     }
     return option;
 }
@@ -150,7 +150,7 @@ function findOptionFromTeraTypeName(name: string | undefined, translationKey: an
 function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], translationKey: any): MoveSetItem {
     const option = moveSet.find((move) => move.name === name);
     if (!option) {
-        const translatedName = translationKey ? translationKey["moves"]["(No Move)"] || "(No Move)" : "(No Move)";
+        const translatedName = getTranslation("(No Move)", translationKey, "moves");
         return {name: translatedName, engName: "(No Move)", method: "level-up", type: "Normal"} as MoveSetItem;
     } else if (!translationKey) {
         return option;
@@ -162,7 +162,7 @@ function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], translatio
 function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[], translationKey: any): {name: AbilityName, hidden: boolean} {
     const option = abilities.find((ability) => ability.name === name);
     if (!option) {
-        const translatedName = translationKey ? translationKey["abilities"]["(No Ability)"] || "(No Ability)" : "(No Ability)";
+        const translatedName = getTranslation("(No Ability)", translationKey, "abilities");
         return {name: translatedName, hidden: false};
     } else if (!translationKey) {
         return option;
@@ -319,20 +319,10 @@ return (
     <>
     {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
         <TableRow>
-            <LeftCell>
-                { 
-                    !translationKey ? name :
-                    translationKey["ui"] ? translationKey["ui"][name] || name : name
-                }
-            </LeftCell>
+            <LeftCell>{ getTranslation(name, translationKey, "ui") }</LeftCell>
             <RightCell>
                 {prettyMode &&
-                    <Typography variant="body1">
-                        {
-                            !translationKey ? value : 
-                            translationKey[translationCategory] ? translationKey[translationCategory][value] || value : value
-                        }
-                    </Typography>
+                    <Typography variant="body1">{ getTranslation(value, translationKey, translationCategory) }</Typography>
                 }
                 {!prettyMode &&
                     <Autocomplete
@@ -340,11 +330,11 @@ return (
                         disableClearable
                         autoHighlight={true}    
                         size="small"
-                        value={value ? (translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][value] : value) : value ) : undefined}                        
+                        value={value ? getTranslation(value, translationKey, translationCategory) : undefined}                        
                         options={options}
                         filterOptions={
                             createFilterOptions({
-                                stringify: (option: string | undefined) => translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][option || ""] || option : option ) : option
+                                stringify: (option: string | undefined) => getTranslation(option || "", translationKey, translationCategory)
                             })
                         }
                         renderOption={(props, option) => <li {...props}><Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{optionFinder(option)}</Typography></li>}
@@ -601,12 +591,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, tr
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
-                <LeftCell>
-                    { 
-                        !translationKey ? name :
-                        translationKey["ui"] ? translationKey["ui"][name] || name : name
-                    }
-                </LeftCell>
+                <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell>
                     {prettyMode &&
                         <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} prettyMode={prettyMode} />
@@ -617,11 +602,11 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, tr
                             disableClearable
                             autoHighlight={true}    
                             size="small"
-                            value={value ? ( translationKey ? translationKey["moves"][value] || value : value ) : undefined}
+                            value={value ? getTranslation(value, translationKey, "moves") : undefined}
                             options={options}
                             filterOptions={
                                 createFilterOptions({
-                                    stringify: (option: string | undefined) => translationKey ? ( translationKey["moves"][option || ""] || option ) : option
+                                    stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "moves")
                                 })
                             }
                             renderOption={(props, option) => 
@@ -660,12 +645,7 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
-                <LeftCell>
-                    {
-                        !translationKey ? name :
-                        translationKey["ui"] ? translationKey["ui"][name] || name : name
-                    }
-                </LeftCell>
+                <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell>
                     {prettyMode &&
                         <AbilityWithIcon ability={findOptionFromAbilityName(value, abilities, translationKey)} prettyMode={prettyMode} />
@@ -676,11 +656,11 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
                             disableClearable
                             autoHighlight={true}    
                             size="small"
-                            value={value ? (translationKey ? translationKey["abilities"][value] || value : value) : undefined}
+                            value={value ? getTranslation(value, translationKey, "abilities") : undefined}
                             options={options}
                             filterOptions={
                                 createFilterOptions({
-                                    stringify: (option: string | undefined) => translationKey ? ( translationKey["abilities"][option || ""] || option ) : option
+                                    stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "abilities")
                                 })
                             }
                             renderOption={(props, option) => 
@@ -753,12 +733,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
-                <LeftCell>
-                    {
-                        !translationKey ? name :
-                        translationKey["ui"] ? translationKey["ui"][name] || name : name
-                    }
-                </LeftCell>
+                <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell>
                     {prettyMode &&
                         <GenericWithIcon name={optionFinder(value, translationKey)} engName={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} />
@@ -769,11 +744,11 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                             disableClearable
                             autoHighlight={true}    
                             size="small"
-                            value={value ? (translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][value] : value) : value ) : undefined}
+                            value={value ? getTranslation(value, translationKey, translationCategory) : undefined}
                             options={options}
                             filterOptions={
                                 createFilterOptions({
-                                    stringify: (option: string | undefined) => translationKey ? ( translationKey[translationCategory] ? translationKey[translationCategory][option || ""] || option : option ) : option
+                                    stringify: (option: string | undefined) => getTranslation(option || "", translationKey, translationCategory)
                                 })
                             }
                             renderOption={(props, option) => 
@@ -902,10 +877,7 @@ function ShinySwitch({pokemon, setShiny, translationKey}: {pokemon: Raider, setS
         <Box>
             <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
                 <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >
-                    { 
-                        !translationKey ? "Shiny" : 
-                        translationKey["ui"] ? translationKey["ui"]["Shiny"] || "Shiny" : "Shiny" 
-                    }
+                    { getTranslation("Shiny", translationKey) }
                 </Typography>
                 <Switch
                     size='small'
@@ -1234,7 +1206,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                <GenericIconSummaryRow name="Pokémon" value={translationKey ? (pokemon.species.baseSpecies || pokemon.species.name) : pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} translationKey={translationKey} translationCategory="pokemon"/>
+                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} translationKey={translationKey} translationCategory="pokemon"/>
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
                                 <AbilitySummaryRow 
                                             name="Ability"
@@ -1247,12 +1219,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                         /> 
                                 <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={setPokemonProperty("nature")} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures, translationKey))} prettyMode={prettyMode} translationKey={translationKey} translationCategory="natures"/>
                                 <TableRow>
-                                    <LeftCell>
-                                        {
-                                            !translationKey ? "Level" :
-                                            ( translationKey["ui"] ? translationKey["ui"]["Level"] || "Level" : "Level")
-                                        }
-                                    </LeftCell>
+                                    <LeftCell>{ getTranslation("Level", translationKey) }</LeftCell>
                                     <RightCell>
                                         {prettyMode &&
                                             <Typography variant="body1">
@@ -1628,10 +1595,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
                             }
                             <TableRow>
                                 <LeftCell>
-                                    {
-                                        !translationKey ? "HP Multiplier (%)" : 
-                                        ( translationKey["ui"] ? translationKey["ui"]["HP Multiplier (%)"] || "HP Multiplier (%)" : "HP Multiplier (%)")
-                                    }
+                                    { getTranslation("HP Multiplier (%)", translationKey) }
                                 </LeftCell>
                                 <RightCell>
                                     {prettyMode &&
@@ -1660,10 +1624,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
                             {!prettyMode &&
                                 <TableRow>
                                     <LeftCell>
-                                        {
-                                            !translationKey ? "Shield Options" :
-                                            ( translationKey["ui"] ? translationKey["ui"]["Shield Options"] || "Shield Options" : "Shield Options")
-                                        }
+                                        { getTranslation("Shield Options", translationKey) }
                                     </LeftCell>
                                     <RightCell>
                                         <ShieldOptions pokemon={pokemon} setPokemon={setPokemon} />

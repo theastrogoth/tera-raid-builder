@@ -138,8 +138,15 @@ export function getStatReadableName(stat: string) {
         stat === "spa" ? "SpAtk" :
         stat === "spd" ? "SpDef" :
         stat === "spe" ? "Speed" :
+        stat === "acc" ? "Acc" :
+        stat === "eva" ? "Eva" :
         "???"
     )
+}
+
+export function getStatOrder(stat: string) {
+    const order = ["hp", "atk", "def", "spa", "spd", "spe", "acc", "eva"];
+    return order.indexOf(stat);
 }
 
 export function getEVDescription(evs: StatsTable) {

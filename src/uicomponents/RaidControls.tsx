@@ -18,9 +18,9 @@ import MoveDisplay from './MoveDisplay';
 
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { Pokemon } from '../calc';
+import { Pokemon, StatsTable } from '../calc';
 import { Slider, Typography } from '@mui/material';
-import { getPokemonSpriteURL, getTeraTypeIconURL } from "../utils";
+import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatReadableName } from "../utils";
 import { RaidTurnResult } from '../raidcalc/RaidTurn';
 
 
@@ -35,7 +35,6 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     borderRadius: 4,
     [`&.${linearProgressClasses.colorPrimary}`]: {
         backgroundColor: "#ffffff00"
-    //   backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
     },
     [`& .${linearProgressClasses.bar}`]: {
       borderRadius: 4,
@@ -43,7 +42,33 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, name: string, curhp: number, lasthp: number, maxhp: number, kos: number}) {
+function StatBoosts({statBoosts}: {statBoosts: StatsTable}) {
+    const filteredStatTable = Object.fromEntries(Object.entries(statBoosts).filter(([stat, boosts]) => boosts !== 0));
+    const statEntries = Object.entries(filteredStatTable);
+    const sortedStatEntries = statEntries.sort((a, b) => {
+        return getStatOrder(b[0]) - getStatOrder(a[0]);
+    });
+
+    return (
+        <Stack direction="row" spacing={.5} useFlexGap flexWrap="wrap">
+            {sortedStatEntries && sortedStatEntries.map(([stat, boosts]) => (
+                <Paper elevation={0} variant='outlined'>
+                    <Typography fontSize={10} m={.5}>
+                        {`${getStatReadableName(stat)} : ${boosts > 0 ? '+' : ''}${boosts}`}
+                    </Typography>
+                </Paper>
+            ))}
+            {(sortedStatEntries.length === 0) &&
+                <Paper elevation={0} variant='outlined'>
+                    <Typography fontSize={10} m={.5}>No Stat Changes</Typography>
+                </Paper>
+                
+            }
+        </Stack>
+    )
+}
+
+function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos, statBoosts}: {role: string, name: string, curhp: number, lasthp: number, maxhp: number, kos: number, statBoosts: StatsTable}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -188,7 +213,7 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
                             </Stack>
                         </Stack>
                         <Divider textAlign="left" orientation="horizontal" flexItem>Stat Boosts</Divider>
-                        <Typography>Placeholder</Typography>
+                        <StatBoosts statBoosts={statBoosts}></StatBoosts>
                         <Divider textAlign="left" orientation="horizontal" flexItem>Modifiers</Divider>
                         <Chip label="Placeholder" size="small" color="primary"/>
                     </Stack>
@@ -199,6 +224,7 @@ function HpDisplayLine({role, name, curhp, lasthp, maxhp, kos}: {role: string, n
 }
 
 function HpDisplay({results}: {results: RaidBattleResults}) {
+    console.log(results)
     const [displayedTurn, setDisplayedTurn] = useState<number>(0);
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
     const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
@@ -214,6 +240,8 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     koCounts[0] = Math.min(koCounts[0], 1);
     const roles = results.endState.raiders.map((raider) => raider.role);
     const names = results.endState.raiders.map((raider) => raider.name);
+
+    const statBoosts = turnState.raiders.map((raider) => raider.boosts);
 
     const currentBossRole = turnState.raiders[0].role;
     const currentRaiderRole = getCurrentRaiderRole(results, displayedTurn, roles);
@@ -240,11 +268,11 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
 
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
-            <HpDisplayLine role={roles[0]} name={names[0]} curhp={currenthps[0]} lasthp={prevhps[0]} maxhp={maxhps[0]} kos={koCounts[0]} />
-            <HpDisplayLine role={roles[1]} name={names[1]} curhp={currenthps[1]} lasthp={prevhps[1]} maxhp={maxhps[1]} kos={koCounts[1]} />
-            <HpDisplayLine role={roles[2]} name={names[2]} curhp={currenthps[2]} lasthp={prevhps[2]} maxhp={maxhps[2]} kos={koCounts[2]} />
-            <HpDisplayLine role={roles[3]} name={names[3]} curhp={currenthps[3]} lasthp={prevhps[3]} maxhp={maxhps[3]} kos={koCounts[3]} />
-            <HpDisplayLine role={roles[4]} name={names[4]} curhp={currenthps[4]} lasthp={prevhps[4]} maxhp={maxhps[4]} kos={koCounts[4]} />
+            <HpDisplayLine role={roles[0]} name={names[0]} curhp={currenthps[0]} lasthp={prevhps[0]} maxhp={maxhps[0]} kos={koCounts[0]} statBoosts={statBoosts[0]}/>
+            <HpDisplayLine role={roles[1]} name={names[1]} curhp={currenthps[1]} lasthp={prevhps[1]} maxhp={maxhps[1]} kos={koCounts[1]} statBoosts={statBoosts[1]} />
+            <HpDisplayLine role={roles[2]} name={names[2]} curhp={currenthps[2]} lasthp={prevhps[2]} maxhp={maxhps[2]} kos={koCounts[2]} statBoosts={statBoosts[2]}/>
+            <HpDisplayLine role={roles[3]} name={names[3]} curhp={currenthps[3]} lasthp={prevhps[3]} maxhp={maxhps[3]} kos={koCounts[3]} statBoosts={statBoosts[3]}/>
+            <HpDisplayLine role={roles[4]} name={names[4]} curhp={currenthps[4]} lasthp={prevhps[4]} maxhp={maxhps[4]} kos={koCounts[4]} statBoosts={statBoosts[4]}/>
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>
                     {currentTurnText}

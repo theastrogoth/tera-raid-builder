@@ -20,7 +20,7 @@ import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon, Side, StatsTable } from '../calc';
 import { Slider, Typography } from '@mui/material';
-import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords } from "../utils";
+import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL } from "../utils";
 import { RaidTurnResult } from '../raidcalc/RaidTurn';
 import { Raider } from '../raidcalc/Raider';
 
@@ -31,10 +31,14 @@ type Modifiers = {
     atkCheer?: boolean,
     defCheer?: boolean,
     helpingHand?: boolean,
+    tera ?: string,
+    // teraCharge ?: number,
+    shield ?: boolean,
     battery?: number,
     friendGuard?: number,
     powerSpot?: number,
     steelySpirit?: number,
+    paradoxBoost?: string,
     auroraVeil?: boolean,
     lightScreen?: boolean,
     reflect?: boolean,
@@ -97,40 +101,66 @@ function StatChanges({statChanges}: {statChanges: StatsTable}) {
     );
 }
 
-function ModifierStringTag({modifier, value}: {modifier: string, value: string}) {
+function ModifierGenericTag({text}: {text: String}) {
     return (
         <Paper elevation={0} variant='outlined'>
             <Typography fontSize={10} m={.5}>
-                {`${convertCamelCaseToWords(modifier)} : ${getStatusReadableName(value)}`}
+                {text}
             </Typography>
         </Paper>
+    );
+}
+
+
+function ModifierStatusTag({modifier, value}: {modifier: string, value: string}) {
+    return (
+        <ModifierGenericTag text={`${convertCamelCaseToWords(modifier)} : ${getStatusReadableName(value)}`} />
+    );
+}
+
+function ModifierTypeTag({modifier, value}: {modifier: string, value: string}) {
+    return (
+        <ModifierGenericTag text={`${convertCamelCaseToWords(modifier)} : ${convertCamelCaseToWords(value)}`} />
+    );
+}
+
+function ModifierStatTag({modifier, value}: {modifier: string, value: string}) {
+    return (
+        <ModifierGenericTag text={`${convertCamelCaseToWords(modifier)} : ${getStatReadableName(value)}`} />
     );
 }
 
 function ModifierBooleanTag({modifier}: {modifier: string}) {
     return (
-        <Paper elevation={0} variant='outlined'>
-            <Typography fontSize={10} m={.5}>
-                {convertCamelCaseToWords(modifier)}
-            </Typography>
-        </Paper>
+        <ModifierGenericTag text={convertCamelCaseToWords(modifier)} />
     );
 }
 
 function ModifierNumberTag({modifier, value}: {modifier: string, value: number}) {
     return (
-        <Paper elevation={0} variant='outlined'>
-            <Typography fontSize={10} m={.5}>
-                {`${convertCamelCaseToWords(modifier)}${value > 1 ? 'x' + value : ''}`}
-            </Typography>
-        </Paper>
+        <ModifierGenericTag text ={`${convertCamelCaseToWords(modifier)}${value > 1 ? ' x' + value : ''}`} />
+    );
+}
+
+function NoModifersTag({modifiers}: {modifiers: Modifiers}) {
+    return (
+        <ModifierGenericTag text="No Modifiers" />
     );
 }
 
 function ModifierTagDispatcher({modifier, value}: {modifier: string, value: any}) {
     switch(typeof value) {
         case "string":
-            return value !== "" && <ModifierStringTag modifier={modifier} value={value}/>;
+            if (modifier === "status") {
+                return value !== "" && <ModifierStatusTag modifier={modifier} value={value}/>
+            }
+            else if (modifier === "tera") {
+                return value !== "" && <ModifierTypeTag modifier={modifier} value={value}/>
+            }
+            else if (modifier === "paradoxBoost") {
+                return value !== "" && <ModifierStatTag modifier={modifier} value={value}/>
+            }
+            break;
         case "boolean":
             return value && <ModifierBooleanTag modifier={modifier}/>;
         case "number":
@@ -140,15 +170,7 @@ function ModifierTagDispatcher({modifier, value}: {modifier: string, value: any}
     }
 }
 
-function NoModifersTag({modifiers}: {modifiers: Modifiers}) {
-    return (
-        <Paper elevation={0} variant='outlined'>
-            <Typography fontSize={10} m={.5}>
-               No Modifiers
-            </Typography>
-        </Paper>   
-    );
-}
+
 
 function ModifierTags({modifiers}: {modifiers: Modifiers}) {
     const noModifiers = Object.entries(modifiers).every(([key, value]) => {
@@ -157,14 +179,14 @@ function ModifierTags({modifiers}: {modifiers: Modifiers}) {
     return (
         <Stack direction="row" spacing={.5} useFlexGap flexWrap="wrap">
             {Object.entries(modifiers).map(([modifier, value]) => (
-                <ModifierTagDispatcher modifier={modifier} value={value}/>
+                <ModifierTagDispatcher key={modifier} modifier={modifier} value={value}/>
             ))}
             {noModifiers && <NoModifersTag modifiers={modifiers}/>}
         </Stack>
     );
 }
 
-function HpDisplayLine({role, name, curhp, prevhp, maxhp, kos, statChanges, modifiers}: {role: string, name: string, curhp: number, prevhp: number, maxhp: number, kos: number, statChanges: StatsTable, modifiers: object}) {
+function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, statChanges, modifiers}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, kos: number, statChanges: StatsTable, modifiers: object}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -302,10 +324,21 @@ function HpDisplayLine({role, name, curhp, prevhp, maxhp, kos, statChanges, modi
                                         background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
                                     }}
                                 />
+                                {item && <Box
+                                    sx={{
+                                        width: "20px",
+                                        height: "20px",
+                                        position: "absolute",
+                                        bottom: "0px",
+                                        right: "0px",
+                                        overflow: 'hidden',
+                                        background: `url(${getItemSpriteURL(item)}) no-repeat center center / contain`,
+                                    }}
+                                />}
                             </Icon>
                             <Stack direction="column" spacing={0}>
                                 <Typography fontSize={18} mb={-.5}>{role}</Typography>
-                                <Typography fontSize={10}>{name}</Typography>
+                                <Typography fontSize={10}>Ability: {ability === "(No Ability)" ? "None" : ability}</Typography>
                             </Stack>
                         </Stack>
                         <Divider textAlign="left" orientation="horizontal" flexItem>Stat Changes</Divider>
@@ -335,6 +368,8 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     koCounts[0] = Math.min(koCounts[0], 1);
     const roles = results.endState.raiders.map((raider) => raider.role);
     const names = results.endState.raiders.map((raider) => raider.name);
+    const items = turnState.raiders.map((raider) => raider.item);
+    const abilities = turnState.raiders.map((raider) => raider.ability);
 
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
     const getModifiers = (raider: Raider): Modifiers => {
@@ -342,10 +377,14 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
             "atkCheer": raider.field.attackerSide.isAtkCheered > 0,
             "defCheer": raider.field.attackerSide.isDefCheered > 0,
             "helpingHand": raider.field.attackerSide.isHelpingHand,
+            "tera": raider.isTera ? raider.teraType : "",
+            // "teraCharge": raider.teraCharge,
+            "shield": raider.shieldActive,
             "battery": raider.field.attackerSide.batteries,
             "friendGuard": raider.field.attackerSide.friendGuards,
             "powerSpot": raider.field.attackerSide.powerSpots,
             "steelySpirit": raider.field.attackerSide.steelySpirits,
+            "paradoxBoost": raider.abilityOn && raider.boostedStat ? raider.boostedStat : "",
             "auroraVeil": raider.field.attackerSide.isAuroraVeil > 0,
             "lightScreen": raider.field.attackerSide.isLightScreen > 0,
             "reflect": raider.field.attackerSide.isReflect > 0,
@@ -366,7 +405,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
             "yawn": raider.isYawn !== undefined && raider.isYawn !== 0,
         }
     }
-    const modifiers = results.endState.raiders.map((raider) => getModifiers(raider));
+    const modifiers = turnState.raiders.map((raider) => getModifiers(raider));
 
     const currentBossRole = turnState.raiders[0].role;
     const currentRaiderRole = getCurrentRaiderRole(results, displayedTurn, roles);
@@ -394,7 +433,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]}/>
+                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]}/>
             ))};
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>

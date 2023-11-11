@@ -17,7 +17,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
     if (target === user) { 
         target = ""
     }
-    if ([undefined, "user", "user-and-allies", "all-allies"].includes(turn.moveInfo.moveData.target)) {
+    if ([undefined, "user", "user-and-allies", "all-allies", "users-field", "opponents-field", "entire-field", ].includes(turn.moveInfo.moveData.target)) {
         target = "";
     }
     let targetName = raiders[turn.moveInfo.targetID].name;

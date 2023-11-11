@@ -851,7 +851,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                             variant="outlined"
                             component="span"
                         >
-                            { getTranslation("Choose Background", translationKey) }
+                            { getTranslation("Choose background", translationKey) }
                         </Button>
                     </label>
                 </MenuItem>

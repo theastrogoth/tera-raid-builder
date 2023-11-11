@@ -3323,6 +3323,23 @@
         "accuracy": "precisione",
         "evasion": "elusione"
     },
+    "status": {
+        "Burn": "Scottato",
+        "Confusion": "Confusione",
+        "Disable": "Inibitore",
+        "Embargo": "Divieto",
+        "Encore": "Ripeti",
+        "Freeze": "Congelato",
+        "Heal Block": "Anticura",
+        "Leech Seed": "Parassiseme",
+        "Paralysis": "Paralizzato",
+        "Poisoned": "Avvelenato",
+        "Sleep": "Addormentato",
+        "Taunt": "Provocazione",
+        "Torment": "Attaccalite",
+        "Toxic": "Iperavvelenato",
+        "Yawn": "Sbadiglio"
+    },
     "types": {
         "???": "???",
         "Bug": "Coleottero",

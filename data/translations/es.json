@@ -3320,6 +3320,23 @@
         "accuracy": "Precisión",
         "evasion": "Evasión"
     },
+    "status": {
+        "Burn": "Quemado",
+        "Confusion": "Confusión",
+        "Disable": "Anulación",
+        "Embargo": "Embargo",
+        "Encore": "Otra Vez",
+        "Freeze": "Congelado",
+        "Heal Block": "Anticura",
+        "Leech Seed": "Drenadoras",
+        "Paralysis": "Paralizado",
+        "Poisoned": "Envenenado",
+        "Sleep": "Dormido",
+        "Taunt": "Mofa",
+        "Torment": "Tormento",
+        "Toxic": "Gravemente envenenado",
+        "Yawn": "Bostezo"
+    },
     "types": {
         "???": "???",
         "Bug": "Bicho",

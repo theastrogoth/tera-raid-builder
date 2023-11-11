@@ -3258,6 +3258,23 @@
         "accuracy": "명중률",
         "evasion": "회피율"
     },
+    "status": {
+        "Burn": "화상",
+        "Confusion": "혼란",
+        "Disable": "사슬묶기",
+        "Embargo": "금제",
+        "Encore": "앙코르",
+        "Freeze": "얼음",
+        "Heal Block": "회복봉인",
+        "Leech Seed": "씨뿌리기",
+        "Paralysis": "마비",
+        "Poisoned": "독",
+        "Sleep": "잠듦",
+        "Taunt": "도발",
+        "Torment": "트집",
+        "Toxic": "맹독",
+        "Yawn": "하품"
+    },
     "types": {
         "???": "???",
         "Bug": "벌레",

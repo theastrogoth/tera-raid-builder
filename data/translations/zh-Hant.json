@@ -3614,6 +3614,23 @@
         "accuracy": "命中",
         "evasion": "閃避"
     },
+    "status": {
+        "Burn": "灼傷",
+        "Confusion": "混亂",
+        "Disable": "定身法",
+        "Embargo": "查封",
+        "Encore": "再來一次",
+        "Freeze": "冰凍",
+        "Heal Block": "回復封鎖",
+        "Leech Seed": "寄生種子",
+        "Paralysis": "麻痺",
+        "Poisoned": "中毒",
+        "Sleep": "睡眠",
+        "Taunt": "挑釁",
+        "Torment": "無理取鬧",
+        "Toxic": "猛毒",
+        "Yawn": "哈欠"
+    },
     "types": {
         "???": "???",
         "Bug": "蟲",

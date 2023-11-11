@@ -3257,6 +3257,23 @@
         "accuracy": "命中",
         "evasion": "闪避"
     },
+    "status": {
+        "Burn": "灼伤",
+        "Confusion": "混乱",
+        "Disable": "定身法",
+        "Embargo": "查封",
+        "Encore": "再来一次",
+        "Freeze": "冰冻",
+        "Heal Block": "回复封锁",
+        "Leech Seed": "寄生种子",
+        "Paralysis": "麻痺",
+        "Poisoned": "中毒",
+        "Sleep": "睡眠",
+        "Taunt": "挑衅",
+        "Torment": "无理取闹",
+        "Toxic": "剧毒",
+        "Yawn": "哈欠"
+    },
     "types": {
         "???": "???",
         "Bug": "虫",

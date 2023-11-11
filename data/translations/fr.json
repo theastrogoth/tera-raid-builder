@@ -3320,6 +3320,23 @@
         "accuracy": "Précision",
         "evasion": "Esquive"
     },
+    "status": {
+        "Burn": "Brûlure",
+        "Confusion": "Confusion",
+        "Disable": "Entrave",
+        "Embargo": "Embargo",
+        "Encore": "Encore",
+        "Freeze": "Gel",
+        "Heal Block": "Anti-Soin",
+        "Leech Seed": "Vampigraine",
+        "Paralysis": "Paralysie",
+        "Poisoned": "Empoisonné",
+        "Sleep": "Sommeil",
+        "Taunt": "Provoc",
+        "Torment": "Tourmente",
+        "Toxic": "Gravement empoisonné",
+        "Yawn": "Bâillement"
+    },
     "types": {
         "???": "???",
         "Bug": "Insecte",

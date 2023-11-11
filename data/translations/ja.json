@@ -3666,6 +3666,23 @@
         "accuracy": "めいちゅう",
         "evasion": "かいひ"
     },
+    "status": {
+        "Burn": "やけど",
+        "Confusion": "混乱",
+        "Disable": "かなしばり",
+        "Embargo": "さしおさえ",
+        "Encore": "アンコール",
+        "Freeze": "凍り",
+        "Heal Block": "かいふくふうじ",
+        "Leech Seed": "やどりぎのタネ",
+        "Paralysis": "まひ",
+        "Poisoned": "毒",
+        "Sleep": "眠り",
+        "Taunt": "ちょうはつ",
+        "Torment": "いちゃもん",
+        "Toxic": "猛毒",
+        "Yawn": "あくび"
+    },
     "types": {
         "???": "？？？",
         "Bug": "むし",

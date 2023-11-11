@@ -823,7 +823,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                 variant="outlined"
                 onClick={handleClick}
             >
-                { getTranslation("Download Graphic", translationKey) }
+                { getTranslation("Download graphic", translationKey) }
             </Button>
             <Menu
                 anchorEl={anchorEl}
@@ -858,7 +858,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                 <MenuItem>
                     <TextField 
                         variant="outlined"
-                        placeholder="Subtitle"
+                        placeholder={getTranslation("Subtitle", translationKey)}
                         value={subtitle}
                         onChange={(e) => setSubtitle(e.target.value)}
                     />
@@ -866,7 +866,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                 <MenuItem>
                     <TextField 
                         variant="outlined"
-                        placeholder="Watermark Text"
+                        placeholder={getTranslation("Watermark Text", translationKey)}
                         value={watermarkText}
                         inputProps={{ maxLength: 50 }}
                         onChange={(e) => setWatermarkText(e.target.value)}

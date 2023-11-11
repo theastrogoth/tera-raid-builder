@@ -130,9 +130,11 @@ const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
 const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 
 function findOptionFromPokemonName(name: string, translationKey: any): string {
-    let option = getTranslation(name, translationKey, "pokemon");
+    // let option = getTranslation(name, translationKey, "pokemon");
+    let option = translationKey ? translationKey["pokemon"][name] || undefined : name;
     if (!option) {
-        option = getTranslation(name.split('-')[0], translationKey, "pokemon");
+        const splitName = name.split('-')[0];
+        option = translationKey ? translationKey["pokemon"][splitName] || splitName : splitName;
     }
     return option;
 }
@@ -382,7 +384,7 @@ function ModalRow({name, value, getString = (val: any) => val, show = true, icon
     )   
 }
 
-function PokemonPopper({name, showPopper, anchorEl}: {name: string, showPopper: boolean, anchorEl: HTMLElement | null}) {
+function PokemonPopper({name, showPopper, anchorEl, translationKey}: {name: string, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
     
     const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
@@ -404,14 +406,15 @@ function PokemonPopper({name, showPopper, anchorEl}: {name: string, showPopper: 
                 <TableContainer>
                     <Table size="small" width="100%">
                         <TableBody>
-                            <ModalRow name={(pokemon && pokemon.types.length > 1) ? "Types" : "Type"} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
-                            <ModalRow name="Stats:" value="" />
-                            <ModalRow name="HP"  value={pokemon ? pokemon.species.baseStats.hp  : ""} />
-                            <ModalRow name="Atk" value={pokemon ? pokemon.species.baseStats.atk : ""} />
-                            <ModalRow name="Def" value={pokemon ? pokemon.species.baseStats.def : ""} />
-                            <ModalRow name="SpA" value={pokemon ? pokemon.species.baseStats.spa : ""} />
-                            <ModalRow name="SpD" value={pokemon ? pokemon.species.baseStats.spd : ""} />
-                            <ModalRow name="Spe" value={pokemon ? pokemon.species.baseStats.spe : ""} />
+                            {/* <ModalRow name={(pokemon && pokemon.types.length > 1) ? "Types" : "Type"} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} /> */}
+                            <ModalRow name={getTranslation("Type", translationKey, "ui")} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
+                            <ModalRow name={getTranslation("Stats", translationKey, "ui") + ":"} value="" />
+                            <ModalRow name={getTranslation("HP", translationKey, "stats")}  value={pokemon ? pokemon.species.baseStats.hp  : ""} />
+                            <ModalRow name={getTranslation("Atk", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.atk : ""} />
+                            <ModalRow name={getTranslation("Def", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.def : ""} />
+                            <ModalRow name={getTranslation("SpA", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.spa : ""} />
+                            <ModalRow name={getTranslation("SpD", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.spd : ""} />
+                            <ModalRow name={getTranslation("Spe", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.spe : ""} />
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -501,7 +504,7 @@ function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem:
                                 />
                                 <ModalRow
                                     name={getTranslation("Status", translationKey)}
-                                    value={getAilmentReadableName(moveData.ailment)}
+                                    value={getTranslation(getAilmentReadableName(moveData.ailment) || "", translationKey, "status")}
                                     show={moveData.ailment !== null}
                                 />
                                 <ModalRow
@@ -530,7 +533,7 @@ function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem:
                                 />
                                 <ModalRow
                                     name={getTranslation("Learn Method", translationKey)}
-                                    value={getLearnMethodReadableName(moveItem.method)}
+                                    value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
                                     show={moveItem.method !== undefined}
                                     iconURLs={spriteURL}
                                 />
@@ -752,7 +755,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                                 })
                             }
                             renderOption={(props, option) => 
-                                <li {...props}><GenericWithIcon name={optionFinder(option, translationKey)} engName={optionFinder(option, null)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{name: option}} /></li>
+                                <li {...props}><GenericWithIcon name={optionFinder(option, translationKey)} engName={optionFinder(option, null)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: option}} /></li>
                             }
                             renderInput={(params) => 
                                 <TextField {...params} variant="standard" size="small" />}
@@ -806,7 +809,7 @@ export const StyledTextField = styled(TextField)(({theme}) => ({
     },
   }));
 
-export function SetLoadGroupHeader({pokemon}: {pokemon: SpeciesName}) {
+export function SetLoadGroupHeader({pokemon, translationKey}: {pokemon: SpeciesName, translationKey: any}) {
     return (
         <GroupHeader>
             <Stack direction="row" alignItems="center" spacing={0.25}>
@@ -819,14 +822,14 @@ export function SetLoadGroupHeader({pokemon}: {pokemon: SpeciesName}) {
                     }}
                 />
                 <Typography variant={"body1"} sx={{ fontWeight: "Bold", paddingLeft: 0.5, paddingRight: 0.5 }}>
-                    {pokemon}
+                    {findOptionFromPokemonName(pokemon, translationKey)}
                 </Typography>
             </Stack>
         </GroupHeader> 
     )
 }
 
-function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 150}}: {setOptions: SetOption[], loadSet: (opt: SetOption) => Promise<void>, placeholder?: string, sx?: SxProps<Theme>}) {
+function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 150}, translationKey}: {setOptions: SetOption[], loadSet: (opt: SetOption) => Promise<void>, placeholder?: string, sx?: SxProps<Theme>, translationKey: any}) {
     return (
         <Autocomplete 
             disablePortal
@@ -842,7 +845,7 @@ function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 1
             renderGroup={(params) => {
                 return  (
                     <li>
-                        <SetLoadGroupHeader pokemon={params.group as SpeciesName} />
+                        <SetLoadGroupHeader pokemon={params.group as SpeciesName} translationKey={translationKey} />
                         {params.children}
                     </li>
                 );
@@ -908,7 +911,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
                 onClick={(e) => handleClick(e)}
                 endIcon={<MenuIcon/>}
             >
-                Load Substitute
+                {getTranslation("Load Substitute", translationKey)}
             </Button>
             <Menu
                 anchorEl={anchorEl}
@@ -1139,8 +1142,9 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             <SetLoadField
                                 setOptions={raiderSetOptions}
                                 loadSet={loadSet}
-                                placeholder="Load Build"
+                                placeholder={getTranslation("Load Build", translationKey)}
                                 sx={{ width: 140 }}
+                                translationKey={translationKey}
                             />
                         </Stack>
                     }
@@ -1153,7 +1157,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             onClick={(e) => setEditStatsOpen(!editStatsOpen)}
                             startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
                         >
-                            {editStatsOpen ? "Edit Build" : "Edit EVs/IVs"}
+                            {editStatsOpen ? getTranslation("Edit Build",translationKey) : getTranslation("Edit EVs/IVs",translationKey)}
                         </Button>
                         <Button 
                             variant="outlined" 
@@ -1162,7 +1166,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             onClick={(e) => setImportExportOpen(!importExportOpen)}
                             endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
                         >
-                            {importExportOpen ? "Edit Pok\u00E9mon" : "Import/Export"}
+                            {importExportOpen ? getTranslation("Edit Pok\u00E9mon",translationKey) : getTranslation("Import/Export",translationKey)}
                         </Button>
                     </Stack>
                 </Stack>
@@ -1177,7 +1181,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             onClick={(e) => handleAddSubstitute()}
                             startIcon={<AddIcon/>}
                         >
-                            Add Substitute
+                            {getTranslation("Add Substitute", translationKey)}
                         </Button>
                     }
                     { substitutes.length > 0 &&
@@ -1194,11 +1198,11 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 </Stack>
             }
             {(!prettyMode && importExportOpen) &&
-                <ImportExportArea pokemon={pokemon} setPokemon={setPokemon}/>
+                <ImportExportArea pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />
             }
             {(!prettyMode && editStatsOpen && !importExportOpen) &&
                 <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 0 }}>
-                    <StatsControls pokemon={pokemon} setPokemon={setPokemon}/>    
+                    <StatsControls pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />    
                 </Stack>
             }
             {(prettyMode || (!editStatsOpen && !importExportOpen)) &&
@@ -1206,7 +1210,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} translationKey={translationKey} translationCategory="pokemon"/>
+                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} modalProps={{translationKey: translationKey}} translationKey={translationKey} translationCategory="pokemon"/>
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
                                 <AbilitySummaryRow 
                                             name="Ability"
@@ -1251,11 +1255,11 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                     </RightCell>
                                 </TableRow>
                                 <TableRow>
-                                    <LeftCell>IVs</LeftCell>
+                                    <LeftCell>{getTranslation("IVs", translationKey)}</LeftCell>
                                     <RightCell>{ivsToString(pokemon.ivs)}</RightCell>
                                 </TableRow>
                                 <TableRow>
-                                    <LeftCell>EVs</LeftCell>
+                                    <LeftCell>{getTranslation("EVs", translationKey)}</LeftCell>
                                     <RightCell>{evsToString(pokemon, translationKey)}</RightCell>
                                 </TableRow>
                                 <TableRow>
@@ -1297,7 +1301,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     )
 }
 
-function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
+function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -1381,7 +1385,9 @@ function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: 
                 }}
             >
                 <TableRow>
-                    <TableCell sx={{width: "150px", textAlign: "right"}}>HP Trigger (%)</TableCell>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>
+                    { getTranslation("HP Trigger", translationKey) + " (%)" }
+                    </TableCell>
                     <TableCell sx={{width: "70px"}}>
                         <TextField 
                             size="small"
@@ -1399,7 +1405,9 @@ function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: 
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell sx={{width: "150px", textAlign: "right"}}>Time Trigger (%)</TableCell>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>
+                        { getTranslation("Time Trigger", translationKey) + " (%)" }
+                    </TableCell>
                     <TableCell sx={{width: "70px"}}>
                         <TextField 
                             size="small"
@@ -1417,7 +1425,9 @@ function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: 
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell sx={{width: "150px", textAlign: "right"}}>Bar Size (%)</TableCell>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>
+                        { getTranslation("Bar Size", translationKey) + " (%)" }
+                    </TableCell>
                     <TableCell sx={{width: "70px"}}>
                         <TextField 
                             size="small"
@@ -1435,7 +1445,9 @@ function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: 
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell sx={{width: "150px", textAlign: "right"}}>Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>
+                    { getTranslation("Damage Rate", translationKey) + " (%)" }
+                    </TableCell>
                     <TableCell sx={{width: "70px"}}>
                     <TextField 
                             size="small"
@@ -1453,7 +1465,9 @@ function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: 
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell sx={{width: "150px", textAlign: "right"}}>Tera Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>
+                       { getTranslation("Tera Damage Rate", translationKey) + " (%)" }
+                    </TableCell>
                     <TableCell sx={{width: "70px"}}>
                         <TextField 
                             size="small"
@@ -1471,7 +1485,9 @@ function ShieldOptions({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: 
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell sx={{width: "150px", textAlign: "right"}}>Mismatched Tera Damage Rate (%)</TableCell>
+                    <TableCell sx={{width: "150px", textAlign: "right"}}>
+                        { getTranslation("Mismatched Tera Damage Rate", translationKey) + " (%)" }
+                    </TableCell>
                     <TableCell sx={{width: "70px"}}>
                         <TextField 
                             size="small"
@@ -1588,7 +1604,8 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
                                     <SetLoadField
                                         setOptions={bossSetOptions}
                                         loadSet={loadSet}
-                                        placeholder="Load Boss Set"
+                                        placeholder={getTranslation("Load Boss Set", translationKey)}
+                                        translationKey={translationKey}
                                     />
                                 </RightCell>
                             </TableRow>
@@ -1627,7 +1644,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
                                         { getTranslation("Shield Options", translationKey) }
                                     </LeftCell>
                                     <RightCell>
-                                        <ShieldOptions pokemon={pokemon} setPokemon={setPokemon} />
+                                        <ShieldOptions pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />
                                     </RightCell>
                                 </TableRow>
                             }

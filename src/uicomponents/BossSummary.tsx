@@ -126,7 +126,7 @@ function BossSummary({pokemon, setPokemon, prettyMode, translationKey}: {pokemon
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
                             <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} translationKey={translationKey}/>
                             <Box flexGrow={1} />
-                            <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier}/>
+                            <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier} translationKey={translationKey} />
                         </Stack>
                     </Stack>
                 </Stack>

@@ -111,8 +111,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
                     <Stack direction="row">
                         <Box flexGrow={1}/>
                         <Typography>
-                            {displayedTurn === 0 ? "Battle Start" :
-                                getTranslation("Turn", translationKey) + " " + displayedTurn
+                            {displayedTurn === 0 ? getTranslation("Battle Start",translationKey) :
+                                getTranslation("Move", translationKey) + " " + displayedTurn
                             }
                         </Typography>
                     </Stack>

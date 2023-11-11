@@ -14,6 +14,7 @@ import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
 import { MoveData, RaidTurnInfo, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
+import { getTranslation } from "../utils";
 
 
 const gen = Generations.get(9);
@@ -232,10 +233,10 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
     return serialize(obj);
 }
 
-function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading}: 
+function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, translationKey}: 
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
       setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
-      setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void}) {
+      setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, translationKey: any}) {
     const [buildInfo, setBuildInfo] = useState(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
@@ -321,7 +322,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 navigator.clipboard.writeText(link)
             }}
         >
-            Copy Link to this Build!
+            {getTranslation("Copy link to this build!", translationKey)}
         </Button>
     )
 }

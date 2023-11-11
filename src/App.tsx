@@ -32,6 +32,7 @@ import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
 
 import PokedexService from "./services/getdata";
+import { getTranslation } from './utils.ts';
 
 type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
 
@@ -367,6 +368,8 @@ function App() {
                 setNotes={setNotes} 
                 setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
                 setLoading={setLoading}
+                placeholder={getTranslation("Load Strategy", translationKey)}
+                translationKey={translationKey}
               />
             </Box>
           </Grid>
@@ -376,7 +379,7 @@ function App() {
         </Grid>
         <Grid container justifyContent="center" sx={{ my: 1 }}>
           <Grid item xs={10} sm={10} md={10} lg={8} xl={6} justifyContent="center">
-            <StratHeader title={title} setTitle={setTitle} prettyMode={prettyMode} />
+            <StratHeader title={title} setTitle={setTitle} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
         </Grid>
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
@@ -416,6 +419,7 @@ function App() {
                     setPrettyMode={setPrettyMode}
                     // loading={loading}
                     setLoading={setLoading}
+                    translationKey={translationKey}
                   />
                   <Box width="15px"/>
                   <GraphicsButton

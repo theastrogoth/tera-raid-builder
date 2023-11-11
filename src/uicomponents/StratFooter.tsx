@@ -42,7 +42,7 @@ function StratFooter({notes, setNotes, credits, setCredits, prettyMode, translat
                             multiline={true}
                             minRows={1}
                             maxRows={4}
-                            placeholder="Enter any notes you want to save with this strategy."
+                            placeholder={getTranslation("Enter any notes you want to save with this strategy.",translationKey)}
                             inputProps={{
                                 spellCheck: 'false',
                             }}
@@ -74,7 +74,7 @@ function StratFooter({notes, setNotes, credits, setCredits, prettyMode, translat
                             multiline={true}
                             minRows={1}
                             maxRows={4}
-                            placeholder="Enter any credits you want to save with this strategy."
+                            placeholder={getTranslation("Enter any credits you want to save with this strategy.",translationKey)}
                             inputProps={{
                                 spellCheck: 'false',
                             }}

@@ -24,16 +24,23 @@ export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raide
     const [str, setStr] = useState(pokemon.role);
     const roleRef = useRef(pokemon.role);
     const nameRef = useRef(pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
+    const [nameIsRaidBoss, setNameIsRaidBoss] = useState(pokemon.role === "Raid Boss");
+    
     const speciesName = pokemon.species.baseSpecies || pokemon.name;
     const translatedName = getTranslation(speciesName, translationKey, "pokemon");
 
     useEffect(() => {
         if (roleRef.current !== pokemon.role) {
             roleRef.current = pokemon.role;
+            setNameIsRaidBoss(false);
             if (pokemon.role !== str) {
                 setStr(pokemon.role);
             }
             nameRef.current = translatedName;
+        } else if (nameIsRaidBoss) {
+            const rbTranslated = getTranslation("Raid Boss", translationKey);
+            setRole(rbTranslated);
+            setStr(rbTranslated);
         } else if ((nameRef.current !== translatedName) && ((str === "") || (str === nameRef.current as string))) {
             nameRef.current = translatedName;
             roleRef.current = translatedName;
@@ -187,7 +194,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
                         translationKey={translationKey}
                     />
                     <Box flexGrow={1} />
-                    <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} />
+                    <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} translationKey={translationKey} />
                     {/* <Box flexGrow={1} /> */}
                 </Stack>
             </Paper>

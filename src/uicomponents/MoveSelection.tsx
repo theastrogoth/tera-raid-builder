@@ -91,7 +91,7 @@ const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (
     setTransitionIn(uniqueId);
 }
 
-function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, isBoss?: boolean}) {
+function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translationKey}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, isBoss?: boolean, translationKey: any}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -127,13 +127,17 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                   }}
             >
                 <Stack direction="column" spacing={1}>
-                    <Typography variant="body1" fontWeight="bold" paddingLeft={1.5}>Options:</Typography>
+                    <Typography variant="body1" fontWeight="bold" paddingLeft={1.5}>
+                        {getTranslation("Options",translationKey) + ":"}
+                    </Typography>
                     <TableContainer>
                         <Table size="small">
                             <TableBody>
                                 { !isBoss &&
                                     <TableRow>
-                                        <TableCell>Tera</TableCell>
+                                        <TableCell>
+                                            {getTranslation("Tera",translationKey)}
+                                        </TableCell>
                                         <TableCell>
                                             <Switch 
                                                 size="small" 
@@ -149,7 +153,9 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                     </TableRow>
                                 }
                                 <TableRow>
-                                    <TableCell>Crit</TableCell>
+                                    <TableCell>
+                                        {getTranslation("Crit",translationKey)}
+                                    </TableCell>
                                     <TableCell>
                                         <Switch 
                                             size="small" 
@@ -164,7 +170,9 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell>Effect</TableCell>
+                                    <TableCell>
+                                        {getTranslation("Effect",translationKey)}
+                                    </TableCell>
                                     <TableCell>
                                         <Switch 
                                             size="small" 
@@ -179,22 +187,27 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell sx={{ borderBottom: 0 }}>Roll</TableCell>
+                                    <TableCell sx={{ borderBottom: 0 }}>
+                                        {getTranslation("Roll",translationKey)}
+                                    </TableCell>
                                     <TableCell sx={{ borderBottom: 0 }}>
                                         <Select
                                             size="small"
                                             variant="standard"
                                             value = {roll}
+                                            renderValue = {(value) => <Typography variant="body2">{getTranslation(value, translationKey)}</Typography>}
                                             onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
-                                            sx={{ width : "40px"}}
+                                            sx={{ width : "100px"}}
                                         >
-                                            {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)}
+                                            {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{getTranslation(r, translationKey)}</Typography></MenuItem>)}
                                         </Select>
                                     </TableCell>
                                 </TableRow>
                                 { (moveInfo.moveData.maxHits && moveInfo.moveData.maxHits > 1) &&
                                     <TableRow>
-                                        <TableCell sx={{ borderBottom: 0 }}># Hits</TableCell>
+                                        <TableCell sx={{ borderBottom: 0 }}>
+                                            {getTranslation("# Hits", translationKey)}
+                                        </TableCell>
                                         <TableCell sx={{ borderBottom: 0 }}>
                                             <Select
                                                 size="small"
@@ -212,7 +225,9 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                 }
                                 {isBoss &&
                                     <TableRow>
-                                        <TableCell sx={{ borderBottom: 0 }}>Steal Charge</TableCell>
+                                        <TableCell sx={{ borderBottom: 0 }}>
+                                            {getTranslation("Steal Charge", translationKey)}
+                                        </TableCell>
                                         <TableCell sx={{ borderBottom: 0 }}>
                                             <Switch 
                                                 size="small" 
@@ -331,7 +346,9 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
                     </Select>
                 </Box>
                 <Box flexGrow={1} />
-                <Typography variant="body2">uses</Typography>
+                <Typography variant="body2">
+                    {getTranslation("uses", translationKey)}
+                </Typography>
                 <Box flexGrow={1} />
                 <Stack direction="row" justifyContent="center" alignItems="center">
                     {/* {(moveInfo.options!.activateTera && raiders[moveInfo.userID].teraType) &&
@@ -386,7 +403,9 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
                     </Select>
                 </Stack>
                 <Box flexGrow={1} />
-                <Typography variant="body2">on</Typography>
+                <Typography variant="body2">
+                {getTranslation("on", translationKey)}
+                </Typography>
                 <Box flexGrow={1} />
                 <Box>
                     <Select
@@ -421,7 +440,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
                 </Box>
                 <Box flexGrow={4} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} />
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} translationKey={translationKey}/>
         </Stack>
     )
 }
@@ -466,7 +485,9 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                     <Typography variant="body2">{boss.role}</Typography>
                 </Stack>
                 <Box flexGrow={1} />
-                <Typography variant="body2">uses</Typography>
+                <Typography variant="body2">
+                    {getTranslation("uses", translationKey)}
+                </Typography>
                 <Box flexGrow={1} />
                 <Select 
                     size="small"
@@ -502,7 +523,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                 </Select>
                 <Box flexGrow={6} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} isBoss />
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} isBoss translationKey={translationKey} />
         </Stack>
     )
 }

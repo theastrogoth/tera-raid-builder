@@ -44,9 +44,9 @@ const filterStratOptions = createFilterOptions({
 });
 
 function StratLoadField(
-    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, placeholder="Load Strategy", sx={ width: 260 }}: 
+    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, placeholder="Load Strategy", sx={ width: 260 }, translationKey}: 
     {raidInputProps: RaidInputProps, setTitle: (t: string) => void, setCredits: (c: string) => void, 
-     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, placeholder?: string, sx?: SxProps<Theme>}) 
+     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, placeholder?: string, sx?: SxProps<Theme>, translationKey: any}) 
 {
     const [stratPath, setStratPath] = useState<null | string>(null);
     const [buildInfo, setBuildInfo] = useState<null | LightBuildInfo>(null);
@@ -121,7 +121,7 @@ function StratLoadField(
             renderGroup={(params) => {
                 return  (
                     <li>
-                        <SetLoadGroupHeader pokemon={params.group as SpeciesName} />
+                        <SetLoadGroupHeader pokemon={params.group as SpeciesName} translationKey={translationKey}/>
                         {params.children}
                     </li>
                 );

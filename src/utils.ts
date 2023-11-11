@@ -173,6 +173,11 @@ export function getIVDescription(ivs: StatsTable) {
     const filteredPairs = Object.entries(ivs).filter(([key, value]) => value !== 31);
     return filteredPairs.length === 0 ? "All Hypertrained" : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
 }
+export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {
+    if (!translationKey) { return word; }
+    if (!translationKey[translationCategory]) { return word; }
+    return translationKey[translationCategory][word] || word;
+}
 
 export function convertCamelCaseToWords(input: string): string {
     const words = input.replace(/([a-z])([A-Z])/g, '$1 $2');  

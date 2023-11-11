@@ -27,7 +27,7 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidMoveInfo, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import { getPokemonSpriteURL, arraysEqual } from "../utils";
+import { getPokemonSpriteURL, arraysEqual, getTranslation } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 
@@ -91,7 +91,7 @@ const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (
     setTransitionIn(uniqueId);
 }
 
-function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, isBoss?: boolean}) {
+function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translationKey}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, isBoss?: boolean, translationKey: any}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -127,13 +127,17 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                   }}
             >
                 <Stack direction="column" spacing={1}>
-                    <Typography variant="body1" fontWeight="bold" paddingLeft={1.5}>Options:</Typography>
+                    <Typography variant="body1" fontWeight="bold" paddingLeft={1.5}>
+                        {getTranslation("Options",translationKey) + ":"}
+                    </Typography>
                     <TableContainer>
                         <Table size="small">
                             <TableBody>
                                 { !isBoss &&
                                     <TableRow>
-                                        <TableCell>Tera</TableCell>
+                                        <TableCell>
+                                            {getTranslation("Tera",translationKey)}
+                                        </TableCell>
                                         <TableCell>
                                             <Switch 
                                                 size="small" 
@@ -149,7 +153,9 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                     </TableRow>
                                 }
                                 <TableRow>
-                                    <TableCell>Crit</TableCell>
+                                    <TableCell>
+                                        {getTranslation("Crit",translationKey)}
+                                    </TableCell>
                                     <TableCell>
                                         <Switch 
                                             size="small" 
@@ -164,7 +170,9 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell>Effect</TableCell>
+                                    <TableCell>
+                                        {getTranslation("Effect",translationKey)}
+                                    </TableCell>
                                     <TableCell>
                                         <Switch 
                                             size="small" 
@@ -179,29 +187,34 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell sx={{ borderBottom: 0 }}>Roll</TableCell>
+                                    <TableCell sx={{ borderBottom: 0 }}>
+                                        {getTranslation("Roll",translationKey)}
+                                    </TableCell>
                                     <TableCell sx={{ borderBottom: 0 }}>
                                         <Select
                                             size="small"
                                             variant="standard"
                                             value = {roll}
+                                            renderValue = {(value) => <Typography variant="body2">{getTranslation(value, translationKey)}</Typography>}
                                             onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
-                                            sx={{ width : "40px"}}
+                                            sx={{ minWidth : "50px"}}
                                         >
-                                            {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)}
+                                            {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{getTranslation(r, translationKey)}</Typography></MenuItem>)}
                                         </Select>
                                     </TableCell>
                                 </TableRow>
                                 { (moveInfo.moveData.maxHits && moveInfo.moveData.maxHits > 1) &&
                                     <TableRow>
-                                        <TableCell sx={{ borderBottom: 0 }}># Hits</TableCell>
+                                        <TableCell sx={{ borderBottom: 0 }}>
+                                            {getTranslation("# Hits", translationKey)}
+                                        </TableCell>
                                         <TableCell sx={{ borderBottom: 0 }}>
                                             <Select
                                                 size="small"
                                                 variant="standard"
                                                 value = {moveInfo.options ? moveInfo.options.hits : 1}
                                                 onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, hits: Number(e.target.value) }})}
-                                                sx={{ width : "40px"}}
+                                                sx={{ minWidth : "50px"}}
                                             >
                                                 {[...Array(moveInfo.moveData.maxHits!+1).keys()].slice(moveInfo.moveData.minHits || 1)
                                                     .map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)
@@ -212,7 +225,9 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
                                 }
                                 {isBoss &&
                                     <TableRow>
-                                        <TableCell sx={{ borderBottom: 0 }}>Steal Charge</TableCell>
+                                        <TableCell sx={{ borderBottom: 0 }}>
+                                            {getTranslation("Steal Charge", translationKey)}
+                                        </TableCell>
                                         <TableCell sx={{ borderBottom: 0 }}>
                                             <Switch 
                                                 size="small" 
@@ -236,8 +251,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false}: {moveInfo:
     )
 }
 
-function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups}: 
-    {groupIndex: number, turnIndex: number, raiders: Raider[], groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void}) 
+function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, translationKey}: 
+    {groupIndex: number, turnIndex: number, raiders: Raider[], groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, translationKey: any}) 
 {
     const roles = raiders.map((raider) => raider.role);
     const moveInfo = groups[groupIndex].turns[turnIndex].moveInfo;
@@ -331,7 +346,9 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups}:
                     </Select>
                 </Box>
                 <Box flexGrow={1} />
-                <Typography variant="body2">uses</Typography>
+                <Typography variant="body2">
+                    {getTranslation("uses", translationKey)}
+                </Typography>
                 <Box flexGrow={1} />
                 <Stack direction="row" justifyContent="center" alignItems="center">
                     {/* {(moveInfo.options!.activateTera && raiders[moveInfo.userID].teraType) &&
@@ -349,7 +366,11 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups}:
                         size="small"
                         variant="standard"
                         value = {moveInfo.moveData.name}
-                        renderValue={(value) => <Typography variant="body2">{value}</Typography>}
+                        renderValue={
+                            (value) => <Typography variant="body2">{
+                                getTranslation(value, translationKey, "moves")
+                            }</Typography>
+                        }
                         onChange={(e) => {
                             const name = e.target.value as MoveName;
                             let mData: MoveData = {name: name};
@@ -367,11 +388,24 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups}:
                         }
                         sx={{ maxWidth : "130px" }}
                     >
-                        {moveSet.map((move, i) => <MenuItem key={i} value={move}>{move}</MenuItem>)}
+                        {moveSet.map((move, i) => 
+                        <MenuItem 
+                            key={i} 
+                            value={move}
+                        >
+                            <Typography 
+                                variant="body2"
+                            >
+                                { getTranslation(move, translationKey, "moves") }
+                            </Typography>
+                        </MenuItem>
+                    )}
                     </Select>
                 </Stack>
                 <Box flexGrow={1} />
-                <Typography variant="body2">on</Typography>
+                <Typography variant="body2">
+                {getTranslation("on", translationKey)}
+                </Typography>
                 <Box flexGrow={1} />
                 <Box>
                     <Select
@@ -406,13 +440,13 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups}:
                 </Box>
                 <Box flexGrow={4} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} />
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} translationKey={translationKey}/>
         </Stack>
     )
 }
 
-function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups}: 
-    {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void}) 
+function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, translationKey}: 
+    {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, translationKey: any}) 
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
     const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Clear Boosts / Abilities"];
@@ -451,12 +485,19 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups}:
                     <Typography variant="body2">{boss.role}</Typography>
                 </Stack>
                 <Box flexGrow={1} />
-                <Typography variant="body2">uses</Typography>
+                <Typography variant="body2">
+                    {getTranslation("uses", translationKey)}
+                </Typography>
                 <Box flexGrow={1} />
                 <Select 
                     size="small"
                     variant="standard"
                     value = {moveName}
+                    renderValue={
+                        (value) => <Typography variant="body2">{
+                            getTranslation(value, translationKey, "moves")
+                        }</Typography>
+                    }
                     onChange={(e) => {
                         const name = e.target.value as MoveName;
                         let mData: MoveData = {name: name};
@@ -467,17 +508,28 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups}:
                     }
                     sx={{ maxWidth : "150px"}}
                 >
-                    {moveSet.map((move, i) => <MenuItem key={i} value={move}><Typography variant="body2">{move}</Typography></MenuItem>)}
+                    {moveSet.map((move, i) => 
+                        <MenuItem 
+                            key={i} 
+                            value={move}
+                        >
+                            <Typography 
+                                variant="body2"
+                            >
+                                { getTranslation(move, translationKey, "moves") }
+                            </Typography>
+                        </MenuItem>
+                    )}
                 </Select>
                 <Box flexGrow={6} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} isBoss />
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} isBoss translationKey={translationKey} />
         </Stack>
     )
 }
 
-function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGroups, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut}: 
-    {raiders: Raider[], turnIndex: number, groupIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void}) 
+function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGroups, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
+    {raiders: Raider[], turnIndex: number, groupIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) 
 {
     const turnID = groups[groupIndex].turns[turnIndex].id;
     const collapseIn = transitionOut !== turnID && transitionIn !== turnID;
@@ -503,7 +555,7 @@ function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGrou
                         {...provided.dragHandleProps}
                     >
                         <Collapse in={collapseIn} timeout={250}>
-                            <MoveSelectionCardMemo raiders={raiders} groupIndex={groupIndex} turnIndex={turnIndex} groups={groups} setGroups={setGroups} buttonsVisible={buttonsVisible} setTransitionIn={setTransitionIn} setTransitionOut={setTransitionOut} />
+                            <MoveSelectionCardMemo raiders={raiders} groupIndex={groupIndex} turnIndex={turnIndex} groups={groups} setGroups={setGroups} buttonsVisible={buttonsVisible} setTransitionIn={setTransitionIn} setTransitionOut={setTransitionOut} translationKey={translationKey}/>
                         </Collapse>
                     </div>
                 )}
@@ -553,8 +605,8 @@ function CloseButton({onClick, visible, disabled=false}: {onClick: () => void, v
     )
 }
 
-function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, buttonsVisible, setTransitionIn, setTransitionOut}: 
-    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, buttonsVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void}) 
+function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, buttonsVisible, setTransitionIn, setTransitionOut, translationKey}: 
+    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, buttonsVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any}) 
 {
     const timer = useRef<NodeJS.Timeout | null>(null);
     const handleRemoveTurn = () => {
@@ -587,11 +639,11 @@ function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, b
                         alignItems="center"
                         sx={{ p: 0.5 }}
                     >
-                        <MoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} raiders={raiders} groups={groups} setGroups={setGroups} />
+                        <MoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} raiders={raiders} groups={groups} setGroups={setGroups} translationKey={translationKey} />
                         {/* <Box width="80%">
                             <Divider />
                         </Box> */}
-                        <BossMoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} boss={raiders[0]} groups={groups} setGroups={setGroups}/>
+                        <BossMoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} boss={raiders[0]} groups={groups} setGroups={setGroups} translationKey={translationKey} />
                     </Stack>
                     <Stack alignItems="center" justifyContent={"center"} paddingRight={0.5}>
                         <CloseButton onClick={handleRemoveTurn} visible={true} disabled={!buttonsVisible}/>
@@ -632,12 +684,13 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&  
         arraysEqual(prevProps.raiders[0].extraMoves!, nextProps.raiders[0].extraMoves!) &&
         prevProps.buttonsVisible === nextProps.buttonsVisible &&
-        prevProps.groups.length === nextProps.groups.length
+        prevProps.groups.length === nextProps.groups.length &&
+        prevProps.translationKey === nextProps.translationKey
     )
 });
 
-function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut}: 
-    {raidInputProps: RaidInputProps, groupIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void}) {
+function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
+    {raidInputProps: RaidInputProps, groupIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) {
     
     const color = "group" + raidInputProps.groups[groupIndex].id.toString().slice(-1) + ".main";
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -679,17 +732,29 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                                     {...provided.droppableProps}
                                     // sx={{ minHeight: "60px" }} 
                                 >
-                                    <MoveGroupCard raidInputProps={raidInputProps} groupIndex={groupIndex} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} />
+                                    <MoveGroupCard raidInputProps={raidInputProps} groupIndex={groupIndex} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} translationKey={translationKey} />
                                     {provided.placeholder}
                                 </Box>
                             )}
                         </Droppable>
                         <Stack direction="row" justifyContent="center" alignItems="center" sx={{ paddingTop: 0.5, width: "100%" }}>
-                            <Typography variant="body2" fontWeight="bold" paddingLeft={1}>{"Group # " + (groupIndex+1)}</Typography>
+                            <Typography variant="body2" fontWeight="bold" paddingLeft={1}>
+                                {
+                                    getTranslation("Group", translationKey) + " # " + (groupIndex+1)
+                                }
+                            </Typography>
                             <Box flexGrow={5} />
-                            <AddButton label="Add Move" onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} visible={buttonsVisible}/>
+                            <AddButton 
+                                label={ getTranslation("Add Move", translationKey) }
+                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} 
+                                visible={buttonsVisible}
+                            />
                             <Box flexGrow={2} />
-                            <Typography variant="body2" fontWeight="bold" paddingRight={1}># Executions:</Typography>
+                            <Typography variant="body2" fontWeight="bold" paddingRight={1}>
+                                {
+                                    "# " + getTranslation("Executions", translationKey) + ":"
+                                }
+                            </Typography>
                             <RepeatsInput
                                 value={(raidInputProps.groups[groupIndex].repeats || 1).toString()} 
                                 onChange={(e) => {
@@ -731,7 +796,11 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                 sx = {{ width: "100%"}}
             >   
                 <Box flexGrow={1} />
-                <AddButton label="Add Group" onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} visible={buttonsVisible}/>
+                <AddButton 
+                    label={ getTranslation("Add Group", translationKey) }
+                    onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} 
+                    visible={buttonsVisible}
+                />
                 <Box flexGrow={1} />
             </Stack>
                         {/* {provided.placeholder}
@@ -743,8 +812,8 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
 }
    
    
-function MoveGroupCard({raidInputProps, groupIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut}: 
-    {raidInputProps: RaidInputProps, groupIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void}) 
+function MoveGroupCard({raidInputProps, groupIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
+    {raidInputProps: RaidInputProps, groupIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) 
 {
     return  (
         <Stack direction="column" spacing={0.5} sx={{ minHeight: "1px" }}>
@@ -763,6 +832,7 @@ function MoveGroupCard({raidInputProps, groupIndex, buttonsVisible, transitionIn
                             setTransitionIn={setTransitionIn}
                             transitionOut={transitionOut}
                             setTransitionOut={setTransitionOut}
+                            translationKey={translationKey}
                         />
                     )
                 })}
@@ -797,7 +867,7 @@ const move = (source: TurnGroupInfo, destination: TurnGroupInfo, sourceIndex: nu
     return [sourceClone, destClone];
 };
 
-function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
+function MoveSelection({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
     const [buttonsVisible, setButtonsVisible] = useState(true);
     const [transitionIn, setTransitionIn] = useState(-1);
     const [transitionOut, setTransitionOut] = useState(-1);
@@ -885,7 +955,11 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
                                     sx={{ width: "100%" }}
                                 >
                                     <Box flexGrow={1} />
-                                    <AddButton label="Add Group" onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(0)} visible={buttonsVisible}/>
+                                    <AddButton 
+                                        label={ getTranslation("Add Group", translationKey) }
+                                        onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(0)} 
+                                        visible={buttonsVisible}
+                                    />
                                     <Box flexGrow={1} />
                                 </Stack>
                                             {/* {provided.placeholder}
@@ -914,6 +988,7 @@ function MoveSelection({raidInputProps}: {raidInputProps: RaidInputProps}) {
                                                         setTransitionIn={setTransitionIn}
                                                         transitionOut={transitionOut}
                                                         setTransitionOut={setTransitionOut}
+                                                        translationKey={translationKey}
                                                     />
                                                 </div>
                                             )}

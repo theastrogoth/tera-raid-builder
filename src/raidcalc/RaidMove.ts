@@ -502,6 +502,9 @@ export class RaidMove {
                                 //@ts-ignore
                                 hitDamage = roll === "max" ? result.damage[result.damage.length-1] : roll === "min" ? result.damage[0] : result.damage[Math.floor(result.damage.length/2)];
                             }
+                            if (calcMove.name === "False Swipe") {
+                                hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
+                            }
                             this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this.move.type, this.move.category);
                             totalDamage += hitDamage;
                         }
@@ -619,6 +622,8 @@ export class RaidMove {
         let statChanges = this.moveData.statChanges;
         // handle Growth
         if (this.move.name === "Growth" && this._fields[this.userID].weather?.includes("Sun")) { statChanges = [{stat: "atk", change: 2}, {stat: "spa", change: 2}]; }
+        // handle Curse
+        if (this.move.name === "Curse" && this._raiders[this.userID].hasType("Ghost")) { return; } // no stat changes
         const chance = this.moveData.statChance || 100;
         if (chance && (this.options.secondaryEffects || chance === 100 )) {
             for (let id of affectedIDs) {
@@ -684,6 +689,8 @@ export class RaidMove {
                 } else {
                     // existing status cannot be overwritten
                     if (!hasNoStatus(pokemon)) { continue; }
+                    // Purifying Salt blocks all non-volatile statuses
+                    if (pokemon.hasAbility("Purifying Salt")) { continue; }
                     // field-based immunities
                     if (id !== this.userID && ((field.attackerSide.isSafeguard && this._user.ability !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { continue; }
                     if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { continue; }
@@ -1151,6 +1158,12 @@ export class RaidMove {
                     if (ally.hasAbility("Wind Power")) {
                         this._fields[id].attackerSide.isCharged = true;
                     }
+                }
+                break;
+            case "Curse": 
+                if (this._user.hasType("Ghost")) {
+                    this._raidState.applyDamage(this.userID, this._user.maxHP() / 2, 0);
+                    // (Ghost) Curse probably doesn't work in raids
                 }
                 break;
             default: break;

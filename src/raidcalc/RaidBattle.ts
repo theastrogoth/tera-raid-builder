@@ -20,6 +20,7 @@ export type RaidBattleResults = {
     turnResults: RaidTurnResult[]; 
     turnZeroFlags: string[][];
     turnZeroOrder: number[];
+    turnZeroState: RaidState;
 }
 
 export class RaidBattle {
@@ -41,12 +42,14 @@ export class RaidBattle {
         try {
             this._state = this.startingState.clone();
             this.calculateTurnZero();
+            const t0 = this._state.clone();
             this.calculateTurns();
             return {
                 endState: this._state,
                 turnResults: this._turnResults,
                 turnZeroFlags: this._turnZeroFlags,
-                turnZeroOrder: this._turnZeroOrder
+                turnZeroOrder: this._turnZeroOrder,
+                turnZeroState: t0
             }
         } catch (e) {
             console.error(e);
@@ -54,7 +57,8 @@ export class RaidBattle {
                 endState: this.startingState.clone(),
                 turnResults: [],
                 turnZeroFlags: [[],[],[],[],[],[],[],[],[],[]],
-                turnZeroOrder: [0,1,2,3,4]
+                turnZeroOrder: [0,1,2,3,4],
+                turnZeroState: this.startingState.clone()
             }
         }
     }

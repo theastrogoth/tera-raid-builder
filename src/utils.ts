@@ -1,3 +1,4 @@
+import { string } from "yargs";
 import { StatsTable } from "./calc";
 
 const SPECIAL_NAMES = {
@@ -177,6 +178,16 @@ export function getTranslation(word: string, translationKey: any, translationCat
     if (!translationKey) { return word; }
     if (!translationKey[translationCategory]) { return word; }
     return translationKey[translationCategory][word] || word;
+}
+
+export function getTranslationWithoutCategory(word: string, translationKey: any) {
+    if (!translationKey) { return word; }
+    for (const category in translationKey) {
+        if (translationKey[category][word]) {
+            return translationKey[category][word];
+        }
+    }
+    return word;
 }
 
 export function convertCamelCaseToWords(input: string): string {

@@ -20,7 +20,7 @@ import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon, Side, StatsTable } from '../calc';
 import { Slider, Typography } from '@mui/material';
-import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL } from "../utils";
+import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { RaidTurnResult } from '../raidcalc/RaidTurn';
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
@@ -29,8 +29,8 @@ import { getTranslation } from '../utils';
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
 
 type Modifiers = {
-    atkCheer?: boolean,
-    defCheer?: boolean,
+    attackCheer?: boolean,
+    defenseCheer?: boolean,
     helpingHand?: boolean,
     tera ?: string,
     // teraCharge ?: number,
@@ -39,7 +39,7 @@ type Modifiers = {
     friendGuard?: number,
     powerSpot?: number,
     steelySpirit?: number,
-    paradoxBoost?: string,
+    boostedStat?: string, // from Paradox Abilities
     auroraVeil?: boolean,
     lightScreen?: boolean,
     reflect?: boolean,
@@ -53,7 +53,7 @@ type Modifiers = {
     choiceLocked?: boolean,
     endure?: boolean,
     ingrain?: boolean,
-    micle?: boolean,
+    micleBerry?: boolean,
     pumped?: boolean,
     saltCure?: boolean,
     taunt?: boolean,
@@ -76,7 +76,7 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function StatChanges({statChanges}: {statChanges: StatsTable}) {
+function StatChanges({statChanges, translationKey}: {statChanges: StatsTable, translationKey: any}) {
     const filteredStatTable = Object.fromEntries(Object.entries(statChanges).filter(([stat, boosts]) => boosts !== 0));
     const statEntries = Object.entries(filteredStatTable);
     const sortedStatEntries = statEntries.sort((a, b) => {
@@ -88,7 +88,7 @@ function StatChanges({statChanges}: {statChanges: StatsTable}) {
             {sortedStatEntries && sortedStatEntries.map(([stat, boosts]) => (
                 <Paper key={stat} elevation={0} variant='outlined'>
                     <Typography fontSize={10} m={.5}>
-                        {`${getStatReadableName(stat)} : ${boosts > 0 ? '+' : ''}${boosts}`}
+                        {`${getTranslation(getStatReadableName(stat), translationKey, "stats")} : ${boosts > 0 ? '+' : ''}${boosts}`}
                     </Typography>
                 </Paper>
             ))}
@@ -113,33 +113,33 @@ function ModifierGenericTag({text}: {text: String}) {
 }
 
 
-function ModifierStatusTag({modifier, value}: {modifier: string, value: string}) {
+function ModifierStatusTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${convertCamelCaseToWords(modifier)} : ${getStatusReadableName(value)}`} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatusReadableName(value),translationKey,"status")}`} />
     );
 }
 
-function ModifierTypeTag({modifier, value}: {modifier: string, value: string}) {
+function ModifierTypeTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${convertCamelCaseToWords(modifier)} : ${convertCamelCaseToWords(value)}`} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(convertCamelCaseToWords(value),translationKey,"types")}`} />
     );
 }
 
-function ModifierStatTag({modifier, value}: {modifier: string, value: string}) {
+function ModifierStatTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${convertCamelCaseToWords(modifier)} : ${getStatReadableName(value)}`} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatReadableName(value),translationKey,"stats")}`} />
     );
 }
 
-function ModifierBooleanTag({modifier}: {modifier: string}) {
+function ModifierBooleanTag({modifier, translationKey}: {modifier: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={convertCamelCaseToWords(modifier)} />
+        <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} />
     );
 }
 
-function ModifierNumberTag({modifier, value}: {modifier: string, value: number}) {
+function ModifierNumberTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
     return (
-        <ModifierGenericTag text ={`${convertCamelCaseToWords(modifier)}${value > 1 ? ' x' + value : ''}`} />
+        <ModifierGenericTag text ={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} />
     );
 }
 
@@ -149,23 +149,23 @@ function NoModifersTag({modifiers}: {modifiers: Modifiers}) {
     );
 }
 
-function ModifierTagDispatcher({modifier, value}: {modifier: string, value: any}) {
+function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: string, value: any, translationKey: any}) {
     switch(typeof value) {
         case "string":
             if (modifier === "status") {
-                return value !== "" && <ModifierStatusTag modifier={modifier} value={value}/>
+                return value !== "" && <ModifierStatusTag modifier={modifier} value={value} translationKey={translationKey}/>
             }
             else if (modifier === "tera") {
-                return value !== "" && <ModifierTypeTag modifier={modifier} value={value}/>
+                return value !== "" && <ModifierTypeTag modifier={modifier} value={value} translationKey={translationKey}/>
             }
-            else if (modifier === "paradoxBoost") {
-                return value !== "" && <ModifierStatTag modifier={modifier} value={value}/>
+            else if (modifier === "boostedStat") {
+                return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
             }
             break;
         case "boolean":
-            return value && <ModifierBooleanTag modifier={modifier}/>;
+            return value && <ModifierBooleanTag modifier={modifier} translationKey={translationKey}/>;
         case "number":
-            return value > 0 && <ModifierNumberTag modifier={modifier} value={value}/>;
+            return value > 0 && <ModifierNumberTag modifier={modifier} value={value} translationKey={translationKey}/>;
         default:
             return undefined;
     }
@@ -173,21 +173,21 @@ function ModifierTagDispatcher({modifier, value}: {modifier: string, value: any}
 
 
 
-function ModifierTags({modifiers}: {modifiers: Modifiers}) {
+function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, translationKey: any}) {
     const noModifiers = Object.entries(modifiers).every(([key, value]) => {
         return !value || value === 0 || value === '';
     });
     return (
         <Stack direction="row" spacing={.5} useFlexGap flexWrap="wrap">
             {Object.entries(modifiers).map(([modifier, value]) => (
-                <ModifierTagDispatcher key={modifier} modifier={modifier} value={value}/>
+                <ModifierTagDispatcher key={modifier} modifier={modifier} value={value} translationKey={translationKey}/>
             ))}
             {noModifiers && <NoModifersTag modifiers={modifiers}/>}
         </Stack>
     );
 }
 
-function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, statChanges, modifiers}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, kos: number, statChanges: StatsTable, modifiers: object}) {
+function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, statChanges, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, kos: number, statChanges: StatsTable, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -339,13 +339,13 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
                             </Icon>
                             <Stack direction="column" spacing={0}>
                                 <Typography fontSize={18} mb={-.5}>{role}</Typography>
-                                <Typography fontSize={10}>Ability: {ability === "(No Ability)" ? "None" : ability}</Typography>
+                                <Typography fontSize={10}>{getTranslation("Ability", translationKey) + ": " + (ability === "(No Ability)" ? getTranslation("none", translationKey) : getTranslation(ability || "", translationKey, "abilities"))}</Typography>
                             </Stack>
                         </Stack>
-                        <Divider textAlign="left" orientation="horizontal" flexItem>Stat Changes</Divider>
-                        <StatChanges statChanges={statChanges}/>
-                        <Divider textAlign="left" orientation="horizontal" flexItem>Modifiers</Divider>
-                        <ModifierTags modifiers={modifiers}/>
+                        <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Stat Changes", translationKey)}</Divider>
+                        <StatChanges statChanges={statChanges} translationKey={translationKey} />
+                        <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Modifiers", translationKey)}</Divider>
+                        <ModifierTags modifiers={modifiers} translationKey={translationKey} />
                     </Stack>
                 </Paper>
             </Popover>
@@ -383,8 +383,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
     const getModifiers = (raider: Raider): Modifiers => {
         return {
-            "atkCheer": raider.field.attackerSide.isAtkCheered > 0,
-            "defCheer": raider.field.attackerSide.isDefCheered > 0,
+            "attackCheer": raider.field.attackerSide.isAtkCheered > 0,
+            "defenseCheer": raider.field.attackerSide.isDefCheered > 0,
             "helpingHand": raider.field.attackerSide.isHelpingHand,
             "tera": raider.isTera ? raider.teraType : "",
             // "teraCharge": raider.teraCharge,
@@ -393,7 +393,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "friendGuard": raider.field.attackerSide.friendGuards,
             "powerSpot": raider.field.attackerSide.powerSpots,
             "steelySpirit": raider.field.attackerSide.steelySpirits,
-            "paradoxBoost": raider.abilityOn && raider.boostedStat ? raider.boostedStat : "",
+            "boostedStat": raider.abilityOn && raider.boostedStat ? raider.boostedStat : "",
             "auroraVeil": raider.field.attackerSide.isAuroraVeil > 0,
             "lightScreen": raider.field.attackerSide.isLightScreen > 0,
             "reflect": raider.field.attackerSide.isReflect > 0,
@@ -407,7 +407,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "choiceLocked": raider.isChoiceLocked,
             "endure": raider.isEndure,
             "ingrain": raider.isIngrain,
-            "micle": raider.isMicle,
+            "micleBerry": raider.isMicle,
             "pumped": raider.isPumped,
             "saltCure": raider.isSaltCure,
             "taunt": raider.isTaunt !== undefined && raider.isTaunt !== 0,
@@ -418,10 +418,10 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
 
     const currentBossRole = turnState.raiders[0].role;
     const currentRaiderRole = getCurrentRaiderRole(results, displayedTurn, roles);
-    const currentMoves = getCurrentMoves(results, displayedTurn);
+    const currentMoves = getCurrentMoves(results, displayedTurn, translationKey);
     const currentBossMove = currentMoves[0];
     const currentRaiderMove = currentMoves[1];
-    const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove);
+    const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove, translationKey);
 
     useEffect(() => { 
         if (snapToEnd || displayedTurn > results.turnResults.length) {
@@ -442,7 +442,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]}/>
+                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]} translationKey={translationKey} />
             ))};
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>
@@ -488,7 +488,7 @@ function getCurrentRaiderRole(results: RaidBattleResults, displayedTurn: number,
     }
 }
 
-function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number) {
+function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
         return undefined;
     }
@@ -499,7 +499,7 @@ function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number)
                 return undefined
             }
             else {
-                return currentRaiderMove
+                return getTranslation(currentRaiderMove, translationKey, "moves");
             }
         }
         catch(e) {
@@ -508,7 +508,7 @@ function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number)
     }
 }
 
-function getCurrentMoves(results: RaidBattleResults, displayedTurn: number) {
+function getCurrentMoves(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
         return [undefined, undefined];
     }
@@ -516,9 +516,9 @@ function getCurrentMoves(results: RaidBattleResults, displayedTurn: number) {
         try {
             let currentMoves: any[] = []
             const currentBossMove = results.turnResults[displayedTurn - 1].bossMoveUsed
-            currentMoves = [...currentMoves, currentBossMove === "(No Move)" ? undefined : currentBossMove]
+            currentMoves = [...currentMoves, currentBossMove === "(No Move)" ? undefined : getTranslation(currentBossMove, translationKey, "moves")]
             const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
-            currentMoves = [...currentMoves, currentRaiderMove === "(No Move)" ? undefined : currentRaiderMove]
+            currentMoves = [...currentMoves, currentRaiderMove === "(No Move)" ? undefined : getTranslation(currentRaiderMove, translationKey, "moves")]
             return currentMoves
         }
         catch(e) {
@@ -527,18 +527,19 @@ function getCurrentMoves(results: RaidBattleResults, displayedTurn: number) {
     }
 }
 
-function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove?: String, raiderMove?: String) {
+function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: String | undefined, raiderMove: String | undefined, translationKey: any) {
     if (!bossMove && !raiderMove) {
-        return "No Moves Used";
+        return getTranslation("No Moves Used", translationKey);
     }
-    else if (bossMove && !raiderMove) {
-        return `${bossRole} used ${bossMove}`;
+    const usedTranslation = getTranslation("used", translationKey);
+    if (bossMove && !raiderMove) {
+        return `${bossRole} ${usedTranslation} ${bossMove}`;
     }
     else if (!bossMove && raiderMove) {
-        return `${raiderRole} used ${raiderMove}`;
+        return `${raiderRole} ${usedTranslation} ${raiderMove}`;
     }
     else {
-        return `${bossRole} used ${bossMove} : ${raiderRole} used ${raiderMove}`;
+        return `${bossRole} ${usedTranslation} ${bossMove} : ${raiderRole} ${usedTranslation} ${raiderMove}`;
     }
 }
 

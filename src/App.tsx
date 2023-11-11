@@ -431,22 +431,29 @@ function App() {
                 <Box flexGrow={1} />
               </Stack>
               <Stack sx={{ mx: 3, my: 3}}>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary", marginBottom: "10px"}}>
+                  Created by <Link href="https://reddit.com/u/theAstroGoth" target="_blank">u/theAstroGoth</Link> and <Link href="https://reddit.com/u/Gimikyu_" target="_blank">u/Gimikyu_</Link>.
+                  This Projects is open source and hosted on <Link href="https://github.com/theastrogoth/tera-raid-builder/" target="_blank">Github</Link>.
+                </Typography>
                 <Typography variant="h6" sx={{color: "text.secondary"}}>
                   Acknowledgements
-                </Typography>
-                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
                   Damage calculations are based on the <Link href="https://github.com/smogon/damage-calc/tree/master/calc" target="_blank">@smogon/calc</Link> package, with additional changes from <Link href="https://github.com/davbou/damage-calc" target="_blank">davbou's fork</Link>.
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Sugimori-style artwork for shiny Pokémon has been adapted from <Link href="https://tonofdirt726.imgbb.com/" target="_blank">the recolors</Link> created by Tonofdirt726 <Link href="https://www.reddit.com/r/ShinyPokemon/comments/tda106/art_shiny_recolors_of_the_sugimoristyle_artwork/" target="_blank">(u/ton_of_dirt726)</Link>
+                  Sugimori-style artwork for shiny Pokémon has been adapted from <Link href="https://tonofdirt726.imgbb.com/" target="_blank">the recolors</Link> created by Tonofdirt726 <Link href="https://www.reddit.com/r/ShinyPokemon/comments/tda106/art_shiny_recolors_of_the_sugimoristyle_artwork/" target="_blank">(u/ton_of_dirt726)</Link>.
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Additional assets and vectors adapted from art created by <Link href="https://www.deviantart.com/jormxdos" target="_blank">JorMxDos</Link>
+                  Additional assets and vectors adapted from art created by <Link href="https://www.deviantart.com/jormxdos" target="_blank">JorMxDos</Link>.
                 </Typography>
-                <Typography variant="h6" sx={{color: "text.secondary"}}>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  German translations for the user interface were kindly provided by <Link href="https://reddit.com/u/AzuriteLeopard" target="_blank">u/AzuriteLeopard</Link>.
+                </Typography>
+                <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
+                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+                </Typography>
+                <Typography variant="h6" sx={{color: "text.secondary", marginTop: "10px"}}>
                   Contact
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>

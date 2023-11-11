@@ -226,7 +226,7 @@ function checkSetValueIsDefault(value: string) {
     return value === "???" || value === "(No Move)" || value === "(No Item)" || value === "(No Ability)"
 }
 
-function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
+function statChangesToString(statChanges: {stat: StatID, change: number}[], translationKey: any) {
     let str = '';
     let empty = true;
     for (let statChange of statChanges) {
@@ -240,11 +240,11 @@ function statChangesToString(statChanges: {stat: StatID, change: number}[]) {
             str = str + (change < 0 ? " " : " +" ) + statChange.change + " " + statAbbr;
         }
     }
-    if (str.length === 0) { return "none"; }
+    if (str.length === 0) { return getTranslation("none", translationKey); }
     return str;
 }
 
-function evsToString(pokemon: Pokemon) {
+function evsToString(pokemon: Pokemon, translationKey: any) {
     let str = '';
     let empty = true
     for (let keyval of Object.entries(pokemon.evs)) {
@@ -253,13 +253,13 @@ function evsToString(pokemon: Pokemon) {
                 str = str + ', ';
             }
             empty = false;
-            let statAbbr = prettyStatName(keyval[0]);
+            let statAbbr = getTranslation(prettyStatName(keyval[0]), translationKey, "stats");
             const nature = gen.natures.get(toID(pokemon.nature));
             const natureEffect = nature ? (keyval[0] === nature.minus ? '-' : (keyval[0] === nature.plus ? '+' : '')) : '';
             str = str + statAbbr + ' ' + keyval[1] + natureEffect;
         }
     } 
-    if (str.length === 0) { return "none"; }
+    if (str.length === 0) { return getTranslation("none", translationKey); }
     return str;
 }
 
@@ -420,7 +420,7 @@ function PokemonPopper({name, showPopper, anchorEl}: {name: string, showPopper: 
     )
 }
 
-function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, showPopper: boolean, anchorEl: HTMLElement | null}) {
+function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem: MoveSetItem, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
     const [moveData, setMoveData] = useState<MoveData | null>(null);
     const [move, setMove] = useState<Move | null>(null);
     useEffect(() => {
@@ -455,52 +455,52 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
                         <Table size="small" width="100%">
                             <TableBody>
                                 <ModalRow 
-                                    name="Type"
+                                    name={getTranslation("Type", translationKey)}
                                     value={move.type}
                                     show={move.type !== undefined}
                                 />
                                 <ModalRow 
-                                    name="Category"
+                                    name={getTranslation("Category", translationKey)}
                                     value={move.category}
                                     show={move.category !== undefined}
                                 />
                                 <ModalRow 
-                                    name="Power"
+                                    name={getTranslation("Power", translationKey)}
                                     value={move.bp}
                                     show={move.bp !== undefined && move.bp > 0}
                                 />
                                 <ModalRow
-                                    name="Healing"
+                                    name={getTranslation("Healing", translationKey)}
                                     value={moveData.healing}
                                     getString={(v: number): string => v.toString() + "%"}
                                     show={moveData.healing !== null && moveData.healing! !== 0}
                                 />
                                 <ModalRow
-                                    name={(moveData.drain! > 0) ? "Drain" : "Recoil"}
+                                    name={(moveData.drain! > 0) ? getTranslation("Drain", translationKey) : getTranslation("Recoil", translationKey)}
                                     value={moveData.drain}
                                     getString={(v: number): string => Math.abs(v).toString() + "%"}
                                     show={moveData.drain !== null && moveData.drain! !== 0}
                                 />
                                 <ModalRow
-                                    name="Accuracy"
+                                    name={getTranslation("Accuracy", translationKey)}
                                     value={moveData.accuracy}
                                     getString={(v: number): string => v.toString() + "%"}
                                     show={moveData.accuracy !== null}
                                 />
                                 <ModalRow
-                                    name="# Hits"
+                                    name={getTranslation("# Hits", translationKey)}
                                     value={[moveData.minHits, moveData.maxHits]}
                                     getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
                                     show={moveData.maxHits !== null && moveData.maxHits! > 1}
                                 />
                                 <ModalRow
-                                    name="Priority"
+                                    name={getTranslation("Priority", translationKey)}
                                     value={moveData.priority}
                                     getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
                                     show={moveData.priority !== null && moveData.priority! !== 0}
                                 />
                                 <ModalRow
-                                    name="Status"
+                                    name={getTranslation("Status", translationKey)}
                                     value={getAilmentReadableName(moveData.ailment)}
                                     show={moveData.ailment !== null}
                                 />
@@ -511,15 +511,15 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
                                     show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
                                 />
                                 <ModalRow
-                                    name="Stat Changes"
+                                    name={getTranslation("Stat Changes", translationKey)}
                                     value={moveData.statChanges}
-                                    getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v)}
+                                    getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v, translationKey)}
                                     show={moveData.statChanges !== null}
                                 />
                                 <ModalRow
                                     name=""
                                     value={moveData.statChance}
-                                    getString={(v: number): string => v.toString() + "% Chance"}
+                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey)}
                                     show={moveData.statChance !== null && moveData.statChance! > 0}
                                 />
                                 <ModalRow
@@ -529,7 +529,7 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
                                     show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
                                 />
                                 <ModalRow
-                                    name="Learn Method"
+                                    name={getTranslation("Learn Method", translationKey)}
                                     value={getLearnMethodReadableName(moveItem.method)}
                                     show={moveItem.method !== undefined}
                                     iconURLs={spriteURL}
@@ -544,7 +544,7 @@ function MovePopper({moveItem, showPopper, anchorEl}: {moveItem: MoveSetItem, sh
     )
 }
 
-function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolean}) {
+function MoveWithIcon({move, prettyMode, translationKey}: {move: MoveSetItem, prettyMode: boolean, translationKey: any}) {
     const [showPopper, setShowPopper] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -581,7 +581,7 @@ function MoveWithIcon({move, prettyMode}: {move: MoveSetItem, prettyMode: boolea
                         <img src={getMoveMethodIconURL(move.type)} height="20px" alt="" />
                     }
             </Stack>
-            <MovePopper moveItem={move} showPopper={showPopper} anchorEl={anchorEl}/>
+            <MovePopper moveItem={move} showPopper={showPopper} anchorEl={anchorEl} translationKey={translationKey}/>
         </Box>
     )
 }
@@ -594,7 +594,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, tr
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell>
                     {prettyMode &&
-                        <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} prettyMode={prettyMode} />
+                        <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} prettyMode={prettyMode} translationKey={translationKey} />
                     }
                     {!prettyMode &&
                         <Autocomplete
@@ -610,7 +610,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, tr
                                 })
                             }
                             renderOption={(props, option) => 
-                                <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} prettyMode={prettyMode} /></li>
+                                <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} prettyMode={prettyMode} translationKey={translationKey} /></li>
                             }
                             renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
                             onChange={(event: any, newValue: string) => {
@@ -1256,7 +1256,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell>EVs</LeftCell>
-                                    <RightCell>{evsToString(pokemon)}</RightCell>
+                                    <RightCell>{evsToString(pokemon, translationKey)}</RightCell>
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '5px'}} />

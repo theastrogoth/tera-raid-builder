@@ -1,7 +1,7 @@
 {
     "name": "Curse",
-    "category": "unique",
-    "target": "specific-move",
+    "category": "net-good-stats",
+    "target": "user",
     "type": "Ghost",
     "power": null,
     "accuracy": null,
@@ -10,7 +10,20 @@
     "healing": 0,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 1
+        },
+        {
+            "stat": "def",
+            "change": 1
+        },
+        {
+            "stat": "spe",
+            "change": -1
+        }
+    ],
     "flinchChance": 0,
     "statChance": 0,
     "ailmentChance": 0,

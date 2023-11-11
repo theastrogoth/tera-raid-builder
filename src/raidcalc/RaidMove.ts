@@ -622,6 +622,8 @@ export class RaidMove {
         let statChanges = this.moveData.statChanges;
         // handle Growth
         if (this.move.name === "Growth" && this._fields[this.userID].weather?.includes("Sun")) { statChanges = [{stat: "atk", change: 2}, {stat: "spa", change: 2}]; }
+        // handle Curse
+        if (this.move.name === "Curse" && this._raiders[this.userID].hasType("Ghost")) { return; } // no stat changes
         const chance = this.moveData.statChance || 100;
         if (chance && (this.options.secondaryEffects || chance === 100 )) {
             for (let id of affectedIDs) {
@@ -1156,6 +1158,12 @@ export class RaidMove {
                     if (ally.hasAbility("Wind Power")) {
                         this._fields[id].attackerSide.isCharged = true;
                     }
+                }
+                break;
+            case "Curse": 
+                if (this._user.hasType("Ghost")) {
+                    this._raidState.applyDamage(this.userID, this._user.maxHP() / 2, 0);
+                    // (Ghost) Curse probably doesn't work in raids
                 }
                 break;
             default: break;

@@ -52,7 +52,7 @@ type Modifiers = {
     pumped?: boolean,
     saltCure?: boolean,
     taunt?: boolean,
-    yawn?: boolean,
+    yawn?: boolean
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -140,12 +140,26 @@ function ModifierTagDispatcher({modifier, value}: {modifier: string, value: any}
     }
 }
 
+function NoModifersTag({modifiers}: {modifiers: Modifiers}) {
+    return (
+        <Paper elevation={0} variant='outlined'>
+            <Typography fontSize={10} m={.5}>
+               No Modifiers
+            </Typography>
+        </Paper>   
+    );
+}
+
 function ModifierTags({modifiers}: {modifiers: Modifiers}) {
+    const noModifiers = Object.entries(modifiers).every(([key, value]) => {
+        return !value || value === 0 || value === '';
+    });
     return (
         <Stack direction="row" spacing={.5} useFlexGap flexWrap="wrap">
             {Object.entries(modifiers).map(([modifier, value]) => (
                 <ModifierTagDispatcher modifier={modifier} value={value}/>
             ))}
+            {noModifiers && <NoModifersTag modifiers={modifiers}/>}
         </Stack>
     );
 }
@@ -306,7 +320,6 @@ function HpDisplayLine({role, name, curhp, prevhp, maxhp, kos, statChanges, modi
 }
 
 function HpDisplay({results}: {results: RaidBattleResults}) {
-    console.log(results)
     const [displayedTurn, setDisplayedTurn] = useState<number>(0);
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
     const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );

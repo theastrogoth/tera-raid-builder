@@ -130,6 +130,18 @@ export function getLearnMethodReadableName(learnMethod: string) {
     )
 }
 
+export function getStatusReadableName(status: string) {
+    return (
+        status === "slp" ? "Asleep" :
+        status === "psn" ? "Poisoned" :
+        status === "brn" ? "Burned" :
+        status === "frz" ? "Frozen" : 
+        status === "par" ? "Paralyzed" : 
+        status === "tox" ? "Toxic" :
+        "???"
+    )
+}
+
 export function getStatReadableName(stat: string) {
     return (
         stat === "hp" ? "HP" :
@@ -160,6 +172,12 @@ export function getIVDescription(ivs: StatsTable) {
     }
     const filteredPairs = Object.entries(ivs).filter(([key, value]) => value !== 31);
     return filteredPairs.length === 0 ? "All Hypertrained" : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
+}
+
+export function convertCamelCaseToWords(input: string): string {
+    const words = input.replace(/([a-z])([A-Z])/g, '$1 $2');  
+    const capitalizedWords = words.replace(/\b\w/g, (match) => match.toUpperCase());
+    return capitalizedWords;
 }
 
 export function arraysEqual(a: any[], b: any[]) {

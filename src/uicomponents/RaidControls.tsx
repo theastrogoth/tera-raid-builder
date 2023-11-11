@@ -20,11 +20,40 @@ import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon, Side, StatsTable } from '../calc';
 import { Slider, Typography } from '@mui/material';
-import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatReadableName } from "../utils";
+import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords } from "../utils";
 import { RaidTurnResult } from '../raidcalc/RaidTurn';
+import { Raider } from '../raidcalc/Raider';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
+
+type Modifiers = {
+    atkCheer?: boolean,
+    defCheer?: boolean,
+    helpingHand?: boolean,
+    battery?: number,
+    friendGuard?: number,
+    powerSpot?: number,
+    steelySpirit?: number,
+    auroraVeil?: boolean,
+    lightScreen?: boolean,
+    reflect?: boolean,
+    tailwind?: boolean,
+    safeguard?: boolean,
+    mist?: boolean,
+    charged?: boolean,
+    status?: string,
+    abilityNullified?: boolean,
+    charging?: boolean,
+    choiceLocked?: boolean,
+    endure?: boolean,
+    ingrain?: boolean,
+    micle?: boolean,
+    pumped?: boolean,
+    saltCure?: boolean,
+    taunt?: boolean,
+    yawn?: boolean,
+}
 
 const Icon = styled(Avatar)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'light' ? "#bebebe" : "#7e7e7e",
@@ -68,43 +97,60 @@ function StatChanges({statChanges}: {statChanges: StatsTable}) {
     );
 }
 
-function GenericModifier({text}: {text: string}) {
+function ModifierStringTag({modifier, value}: {modifier: string, value: string}) {
     return (
         <Paper elevation={0} variant='outlined'>
             <Typography fontSize={10} m={.5}>
-                {text}
+                {`${convertCamelCaseToWords(modifier)} : ${getStatusReadableName(value)}`}
             </Typography>
         </Paper>
     );
 }
 
-function Modifiers({field}: {field: Side}) {
-    console.log(field)
+function ModifierBooleanTag({modifier}: {modifier: string}) {
+    return (
+        <Paper elevation={0} variant='outlined'>
+            <Typography fontSize={10} m={.5}>
+                {convertCamelCaseToWords(modifier)}
+            </Typography>
+        </Paper>
+    );
+}
+
+function ModifierNumberTag({modifier, value}: {modifier: string, value: number}) {
+    return (
+        <Paper elevation={0} variant='outlined'>
+            <Typography fontSize={10} m={.5}>
+                {`${convertCamelCaseToWords(modifier)}${value > 1 ? 'x' + value : ''}`}
+            </Typography>
+        </Paper>
+    );
+}
+
+function ModifierTagDispatcher({modifier, value}: {modifier: string, value: any}) {
+    switch(typeof value) {
+        case "string":
+            return value !== "" && <ModifierStringTag modifier={modifier} value={value}/>;
+        case "boolean":
+            return value && <ModifierBooleanTag modifier={modifier}/>;
+        case "number":
+            return value > 0 && <ModifierNumberTag modifier={modifier} value={value}/>;
+        default:
+            return undefined;
+    }
+}
+
+function ModifierTags({modifiers}: {modifiers: Modifiers}) {
     return (
         <Stack direction="row" spacing={.5} useFlexGap flexWrap="wrap">
-            {field.isAtkCheered > 0 && <GenericModifier text="Atk Cheer"/>}
-            {field.isDefCheered > 0 && <GenericModifier text="Def Cheer"/>}
-            {field.isHelpingHand && <GenericModifier text="Helping Hand"/>}
-
-            {field.batteries > 0 && <GenericModifier text={`Battery x${field.batteries}`}/>}
-            {field.friendGuards > 0 && <GenericModifier text={`Friend Guard x${field.friendGuards}`}/>}
-            {field.powerSpots > 0 && <GenericModifier text={`Power Spot x${field.powerSpots}`}/>}
-            {field.steelySpirits > 0 && <GenericModifier text={`Steely Spirits x${field.steelySpirits}`}/>}
-
-            {field.isAuroraVeil > 0 && <GenericModifier text="Aurora Veil"/>}
-            {field.isLightScreen > 0 && <GenericModifier text="Light Screen"/>}
-            {field.isReflect > 0 && <GenericModifier text="Reflect"/>}
-
-            {field.isTailwind > 0 && <GenericModifier text="Tailwind"/>}
-            {field.isSafeguard > 0 && <GenericModifier text="Safeguard"/>}
-            {field.isMist > 0 &&<GenericModifier text="Mist"/>}
-
-            {field.isCharged && <GenericModifier text="Charged"/>}
+            {Object.entries(modifiers).map(([modifier, value]) => (
+                <ModifierTagDispatcher modifier={modifier} value={value}/>
+            ))}
         </Stack>
     );
 }
 
-function HpDisplayLine({role, name, curhp, prevhp, maxhp, kos, statChanges, field}: {role: string, name: string, curhp: number, prevhp: number, maxhp: number, kos: number, statChanges: StatsTable, field: Side}) {
+function HpDisplayLine({role, name, curhp, prevhp, maxhp, kos, statChanges, modifiers}: {role: string, name: string, curhp: number, prevhp: number, maxhp: number, kos: number, statChanges: StatsTable, modifiers: object}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -251,7 +297,7 @@ function HpDisplayLine({role, name, curhp, prevhp, maxhp, kos, statChanges, fiel
                         <Divider textAlign="left" orientation="horizontal" flexItem>Stat Changes</Divider>
                         <StatChanges statChanges={statChanges}/>
                         <Divider textAlign="left" orientation="horizontal" flexItem>Modifiers</Divider>
-                        <Modifiers field={field}/>
+                        <ModifierTags modifiers={modifiers}/>
                     </Stack>
                 </Paper>
             </Popover>
@@ -278,7 +324,36 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     const names = results.endState.raiders.map((raider) => raider.name);
 
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
-    const fields = turnState.raiders.map((raider) => raider.field.attackerSide);
+    const getModifiers = (raider: Raider): Modifiers => {
+        return {
+            "atkCheer": raider.field.attackerSide.isAtkCheered > 0,
+            "defCheer": raider.field.attackerSide.isDefCheered > 0,
+            "helpingHand": raider.field.attackerSide.isHelpingHand,
+            "battery": raider.field.attackerSide.batteries,
+            "friendGuard": raider.field.attackerSide.friendGuards,
+            "powerSpot": raider.field.attackerSide.powerSpots,
+            "steelySpirit": raider.field.attackerSide.steelySpirits,
+            "auroraVeil": raider.field.attackerSide.isAuroraVeil > 0,
+            "lightScreen": raider.field.attackerSide.isLightScreen > 0,
+            "reflect": raider.field.attackerSide.isReflect > 0,
+            "tailwind": raider.field.attackerSide.isTailwind > 0,
+            "safeguard": raider.field.attackerSide.isSafeguard > 0,
+            "mist": raider.field.attackerSide.isMist > 0,
+            "charged": raider.field.attackerSide.isCharged,
+            "status": raider.status,
+            "abilityNullified": raider.abilityNullified !== undefined && raider.abilityNullified !== 0,
+            "charging": raider.isCharging,
+            "choiceLocked": raider.isChoiceLocked,
+            "endure": raider.isEndure,
+            "ingrain": raider.isIngrain,
+            "micle": raider.isMicle,
+            "pumped": raider.isPumped,
+            "saltCure": raider.isSaltCure,
+            "taunt": raider.isTaunt !== undefined && raider.isTaunt !== 0,
+            "yawn": raider.isYawn !== undefined && raider.isYawn !== 0,
+        }
+    }
+    const modifiers = results.endState.raiders.map((raider) => getModifiers(raider));
 
     const currentBossRole = turnState.raiders[0].role;
     const currentRaiderRole = getCurrentRaiderRole(results, displayedTurn, roles);
@@ -306,7 +381,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} field={fields[i]}/>
+                <HpDisplayLine key={i} role={roles[i]} name={names[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]}/>
             ))};
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>

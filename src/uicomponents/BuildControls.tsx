@@ -200,9 +200,9 @@ function createMoveOptions(moves: MoveSetItem[]) {
     return ["(No Move)", ...moves.map((move) => move.name)];
 }
 
-function natureToOption(nature: Nature) {
+function natureToOption(nature: Nature, translationKey: any) {
     if (nature.plus === nature.minus) { return nature.name }
-    return nature.name + " (+" + prettyStatName(nature.plus as string) + ", -" + prettyStatName(nature.minus as string) + ")";
+    return nature.name + " (+" + getTranslation(prettyStatName(nature.plus as string),translationKey,"stats") + ", -" + getTranslation(prettyStatName(nature.minus as string),translationKey,"stats") + ")";
 }
 
 function prettyStatName(stat: string) {
@@ -237,7 +237,7 @@ function statChangesToString(statChanges: {stat: StatID, change: number}[], tran
                 str = str + ', ';
             }
             empty = false;
-            const statAbbr = prettyStatName(statChange.stat);
+            const statAbbr = getTranslation(prettyStatName(statChange.stat), translationKey, "stats");
             const change = statChange.change;
             str = str + (change < 0 ? " " : " +" ) + statChange.change + " " + statAbbr;
         }
@@ -459,12 +459,12 @@ function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem:
                             <TableBody>
                                 <ModalRow 
                                     name={getTranslation("Type", translationKey)}
-                                    value={move.type}
+                                    value={getTranslation(move.type, translationKey, "types")}
                                     show={move.type !== undefined}
                                 />
                                 <ModalRow 
                                     name={getTranslation("Category", translationKey)}
-                                    value={move.category}
+                                    value={getTranslation(move.category, translationKey, "ui")}
                                     show={move.category !== undefined}
                                 />
                                 <ModalRow 
@@ -510,7 +510,7 @@ function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem:
                                 <ModalRow
                                     name=""
                                     value={moveData.ailmentChance}
-                                    getString={(v: number): string => v.toString() + "% Chance" }
+                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey) }
                                     show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
                                 />
                                 <ModalRow
@@ -528,7 +528,7 @@ function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem:
                                 <ModalRow
                                     name=""
                                     value={moveData.flinchChance}
-                                    getString={(v: number): string => v.toString() + "% Flinch Chance"}
+                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
                                     show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
                                 />
                                 <ModalRow
@@ -747,11 +747,16 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                             disableClearable
                             autoHighlight={true}    
                             size="small"
-                            value={value ? getTranslation(value, translationKey, translationCategory) : undefined}
+                            value={value ? (
+                                    translationCategory === "pokemon" ? findOptionFromPokemonName(value, translationKey) : getTranslation(value, translationKey, translationCategory) 
+                                ) : undefined
+                            }
                             options={options}
                             filterOptions={
                                 createFilterOptions({
-                                    stringify: (option: string | undefined) => getTranslation(option || "", translationKey, translationCategory)
+                                    stringify: (option: string | undefined) => (
+                                        translationCategory === "pokemon" ? findOptionFromPokemonName(option || "", translationKey) : getTranslation(option || "", translationKey, translationCategory)
+                                    )
                                 })
                             }
                             renderOption={(props, option) => 
@@ -1221,7 +1226,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                             prettyMode={prettyMode}
                                             translationKey={translationKey}
                                         /> 
-                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={setPokemonProperty("nature")} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures, translationKey))} prettyMode={prettyMode} translationKey={translationKey} translationCategory="natures"/>
+                                <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={setPokemonProperty("nature")} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures, translationKey), translationKey)} prettyMode={prettyMode} translationKey={translationKey} translationCategory="natures"/>
                                 <TableRow>
                                     <LeftCell>{ getTranslation("Level", translationKey) }</LeftCell>
                                     <RightCell>

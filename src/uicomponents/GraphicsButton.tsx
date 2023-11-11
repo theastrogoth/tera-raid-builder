@@ -866,7 +866,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                 <MenuItem>
                     <TextField 
                         variant="outlined"
-                        placeholder={getTranslation("Watermark Text", translationKey)}
+                        placeholder={getTranslation("Watermark text", translationKey)}
                         value={watermarkText}
                         inputProps={{ maxLength: 50 }}
                         onChange={(e) => setWatermarkText(e.target.value)}

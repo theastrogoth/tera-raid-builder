@@ -197,7 +197,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translation
                                             value = {roll}
                                             renderValue = {(value) => <Typography variant="body2">{getTranslation(value, translationKey)}</Typography>}
                                             onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, roll: e.target.value as "min" | "max" | "avg" }})}
-                                            sx={{ width : "100px"}}
+                                            sx={{ minWidth : "50px"}}
                                         >
                                             {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{getTranslation(r, translationKey)}</Typography></MenuItem>)}
                                         </Select>
@@ -214,7 +214,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translation
                                                 variant="standard"
                                                 value = {moveInfo.options ? moveInfo.options.hits : 1}
                                                 onChange={(e) => setMoveInfo({...moveInfo, options: {...moveInfo.options, hits: Number(e.target.value) }})}
-                                                sx={{ width : "40px"}}
+                                                sx={{ minWidth : "50px"}}
                                             >
                                                 {[...Array(moveInfo.moveData.maxHits!+1).keys()].slice(moveInfo.moveData.minHits || 1)
                                                     .map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{r}</Typography></MenuItem>)

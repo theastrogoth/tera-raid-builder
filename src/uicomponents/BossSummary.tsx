@@ -121,8 +121,9 @@ function BossSummary({pokemon, setPokemon, prettyMode, translationKey}: {pokemon
                             </Box>
                         </Box>
                     </Box>
-                    <Stack direction="row" spacing={-5} >
+                    <Stack direction="row" spacing={-2} >
                         <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} isBoss translationKey={translationKey} />
+                        <Box flexGrow={1} />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
                             <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} translationKey={translationKey}/>
                             <Box flexGrow={1} />

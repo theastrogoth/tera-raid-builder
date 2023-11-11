@@ -163,4 +163,4 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
     )
 }
 
-export default React.memo(StatRadarPlot, (next, prev) => (next.evs === prev.evs && next.stats === prev.stats && next.nature === prev.nature));
+export default React.memo(StatRadarPlot, (next, prev) => (next.evs === prev.evs && next.stats === prev.stats && next.nature === prev.nature && next.translationKey === prev.translationKey));

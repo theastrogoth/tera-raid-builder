@@ -3472,7 +3472,7 @@
         "TM": "TM",
         "Type": "Typ",
         "Untrained": "Untrainiert",
-        "used": null, 
+        "used": "benutzt", 
         "uses": "benutzt",
         "Watermark text": "Text für Wasserzeichen"
     }

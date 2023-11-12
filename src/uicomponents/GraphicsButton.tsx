@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import { Move } from "../calc";
 import { TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation } from "../utils";
 import { RaidMoveInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
@@ -253,6 +253,12 @@ const BuildInfo = styled(Typography)({
     margin: "4px 0px",
     paddingLeft: "1em",
     textIndent: "-1em"
+});
+
+const AbilityPatchIcon = styled("img")({
+    height: "55px",
+    margin: "0px 0px 0px 20px",
+    filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.65))"
 });
 
 const BuildMovesSection = styled(Box)({
@@ -514,7 +520,7 @@ function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -538,7 +544,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                     <BuildsSection>
                         <Separator>
                             <LeftBar />
-                            <SeparatorLabel>The Crew</SeparatorLabel>
+                            <SeparatorLabel>{ !translationKey ? "The Crew" : getTranslation("Pokémon", translationKey) }</SeparatorLabel>
                             <RightBar />
                         </Separator> 
                         <BuildsContainer>    
@@ -559,25 +565,31 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                 <BuildHeaderSeparator />
                                             </BuildHeader>
                                             <BuildInfoContainer>
-                                                <BuildInfo>Level: {raider.level === 13 ? "Any" : raider.level}</BuildInfo>
+                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (raider.level === 13 ? getTranslation("Any",translationKey) : raider.level) }</BuildInfo>
                                                 {raider.item ?
-                                                    <BuildInfo>Item: {raider.item}</BuildInfo> : null}
-                                                {raider.ability !== "(No Ability)" ?
-                                                    <BuildInfo>Ability: {raider.ability}</BuildInfo> : null}
-                                                <BuildInfo>Nature: {raider.nature === "Hardy" ? "Any" : raider.nature}</BuildInfo>
+                                                    <BuildInfo>{ getTranslation("Item", translationKey) + ": " + getTranslation(raider.item, translationKey, "items")}</BuildInfo> : null}
+                                                {!!raider.ability && raider.ability !== "(No Ability)" ? 
+                                                <Stack direction="row">
+                                                    <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(raider.ability, translationKey, "abilities") }</BuildInfo>
+                                                    {isHiddenAbility[index] ? 
+                                                        <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
+                                                        : null
+                                                    }
+                                                </Stack> : null}
+                                                <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(raider.nature, translationKey, "natures")) }</BuildInfo>
                                                 {getEVDescription(raider.evs) ? 
-                                                    <BuildInfo>EVs: {getEVDescription(raider.evs)}</BuildInfo> : null}
+                                                    <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(raider.evs)}</BuildInfo> : null}
                                                 {getIVDescription(raider.ivs) ? 
-                                                    <BuildInfo>IVs: {getIVDescription(raider.ivs)}</BuildInfo> : null}
+                                                    <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs)}</BuildInfo> : null}
                                             </BuildInfoContainer>
                                             <BuildMovesSection>
-                                                <MovesHeader>Moves:</MovesHeader>
+                                                <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
                                                 <MovesContainer>
                                                     {
                                                         [...Array(4)].map((val, index) => (
                                                             <MoveBox key={"move_box_" + index}>
                                                                 {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} /> : null}
-                                                                {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveLabel>{raider.moves[index]}</MoveLabel> : null}
+                                                                {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel> : null}
                                                                 {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} /> : null}
                                                             </MoveBox>
                                                         ))
@@ -593,7 +605,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                     <ExecutionSection>
                         <Separator>
                             <LeftBar />
-                            <SeparatorLabel>Execution</SeparatorLabel>
+                            <SeparatorLabel>{!translationKey ? "Execution" : getTranslation("Moves", translationKey)}</SeparatorLabel>
                             <RightBar />
                         </Separator> 
                         <ExecutionContainer direction="row">
@@ -621,19 +633,19 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                                                                         <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.userID].species.name)} />
                                                                     </ExecutionMovePokemonIconWrapper>
                                                                 </ExecutionMovePokemonWrapper>
-                                                                <ExecutionMoveTag>uses</ExecutionMoveTag>
-                                                                <ExecutionMoveAction>{move.move}</ExecutionMoveAction>
+                                                                <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
+                                                                <ExecutionMoveAction>{getTranslation(move.move, translationKey, "moves")}</ExecutionMoveAction>
                                                                 {move.teraActivated &&
                                                                     <ExecutionMoveTeraIconWrapper>
                                                                         <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
                                                                     </ExecutionMoveTeraIconWrapper>
                                                                 }
-                                                                <ExecutionMoveTag>{showTarget ? "on": ""}</ExecutionMoveTag>
+                                                                <ExecutionMoveTag>{showTarget ? getTranslation("on", translationKey) : ""}</ExecutionMoveTag>
                                                                 {showTarget ?
                                                                     <ExecutionMovePokemonWrapper>
                                                                         <ExecutionMovePokemonName>
                                                                             {
-                                                                                (move.move === "Clear Boosts / Abilities" || move.isSpread) ? "Raiders" : 
+                                                                                (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
                                                                                 move.move === "Remove Negative Effects" ? raidInputProps.pokemon[0].role :
                                                                                 raidInputProps.pokemon[move.info.targetID].role
                                                                             }
@@ -670,7 +682,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                             <NotesSection>
                                 <Separator>
                                     <LeftBar />
-                                        <SeparatorLabel>Notes</SeparatorLabel>
+                                        <SeparatorLabel>{ getTranslation("Notes", translationKey) }</SeparatorLabel>
                                         <RightBar />
                                     </Separator> 
                                 <NotesContainer>
@@ -680,8 +692,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, learnMethod
                         }
                     <InfoSection>
                         <CreditsContainer>
-                            <Credit>Credits: {credits}</Credit>
-                            <Credit>Graphic: theastrogoth.github.io/tera-raid-builder/</Credit>
+                            <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>
+                            <Credit>{getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</Credit>
                         </CreditsContainer>
                     </InfoSection>
                 </GraphicsContainer> 
@@ -749,8 +761,8 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
     graphicTop.remove(); // remove the element from the DOM
 }
 
-function GraphicsButton({title, notes, credits, raidInputProps, results, setLoading}: 
-    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, results: RaidBattleResults, setLoading: (l: boolean) => void}) {
+function GraphicsButton({title, notes, credits, raidInputProps, results, setLoading, translationKey}: 
+    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, results: RaidBattleResults, setLoading: (l: boolean) => void, translationKey: any}) {
 
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
@@ -779,6 +791,12 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
             const pokemonData = (await Promise.all(
                 raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
             )).filter((data) => data !== undefined) as PokemonData[];
+            const isHiddenAbility: boolean[] = pokemonData.slice(1).map((data, id) => {
+                const ability = raidInputProps.pokemon[id+1].ability;
+                if (!ability || ability === "(No Ability)") { return false; }
+                const abilityData = data.abilities.find((abilityData) => abilityData.name === ability);
+                return abilityData ? abilityData.hidden || false : false;
+            })
             const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
             const learnMethods = moves.map((ms, index) => 
                 ms.map((move) => 
@@ -793,7 +811,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
             const moveGroups = getMoveGroups(raidInputProps.groups, results);
             const repeats = raidInputProps.groups.map((group) => group.repeats || 1);
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, learnMethods, moveTypes, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits);
+            const graphicTop = generateGraphic(theme, raidInputProps, isHiddenAbility, learnMethods, moveTypes, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);
@@ -807,7 +825,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                 variant="outlined"
                 onClick={handleClick}
             >
-                Download Graphic
+                { getTranslation("Download graphic", translationKey) }
             </Button>
             <Menu
                 anchorEl={anchorEl}
@@ -835,14 +853,14 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                             variant="outlined"
                             component="span"
                         >
-                            Choose Background
+                            { getTranslation("Choose background", translationKey) }
                         </Button>
                     </label>
                 </MenuItem>
                 <MenuItem>
                     <TextField 
                         variant="outlined"
-                        placeholder="Subtitle"
+                        placeholder={getTranslation("Subtitle", translationKey)}
                         value={subtitle}
                         onChange={(e) => setSubtitle(e.target.value)}
                     />
@@ -850,7 +868,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                 <MenuItem>
                     <TextField 
                         variant="outlined"
-                        placeholder="Watermark Text"
+                        placeholder={getTranslation("Watermark text", translationKey)}
                         value={watermarkText}
                         inputProps={{ maxLength: 50 }}
                         onChange={(e) => setWatermarkText(e.target.value)}
@@ -862,7 +880,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                     onClick={() => { handleDownload(); handleClose(); }}
                     endIcon={<DownloadIcon />}
                   >
-                    Download
+                    { getTranslation("Download", translationKey) }
                   </Button>
                 </MenuItem>
             </Menu>

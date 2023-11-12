@@ -13,6 +13,7 @@ import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon } from '../calc';
 import { Slider, Typography } from '@mui/material';
+import { getTranslation } from '../utils';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -67,7 +68,7 @@ function HpDisplayLine({role, curhp, maxhp, kos}: {role: string, curhp: number, 
     );
 }
 
-function HpDisplay({results}: {results: RaidBattleResults}) {
+function HpDisplay({results, translationKey}: {results: RaidBattleResults, translationKey: any}) {
     const [displayedTurn, setDisplayedTurn] = useState<number>(0);
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
     const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
@@ -110,7 +111,9 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
                     <Stack direction="row">
                         <Box flexGrow={1}/>
                         <Typography>
-                            {displayedTurn === 0 ? "Battle Start" : "Turn " + displayedTurn}
+                            {displayedTurn === 0 ? getTranslation("Battle Start",translationKey) :
+                                getTranslation("Move", translationKey) + " " + displayedTurn
+                            }
                         </Typography>
                     </Stack>
                 </Box>
@@ -128,7 +131,7 @@ function HpDisplay({results}: {results: RaidBattleResults}) {
     )
 }
 
-function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean}) {
+function RaidControls({raidInputProps, results, setResults, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
     const groups = raidInputProps.groups;
     const boss = raidInputProps.pokemon[0];
@@ -171,20 +174,26 @@ function RaidControls({raidInputProps, results, setResults, prettyMode}: {raidIn
             <Stack>
                 <Box paddingBottom={1}>
                     <Tabs value={value} onChange={handleChange} centered>
-                        <Tab label="Move Order" value={1} />
-                        <Tab label="Calc Results" value={2} />
+                        <Tab 
+                            label={getTranslation("Move Order", translationKey)} 
+                            value={1} 
+                        />
+                        <Tab 
+                            label={getTranslation("Calc Results", translationKey)}
+                            value={2} 
+                        />
                     </Tabs>
                 </Box>
                 <Box hidden={value !== 1}>
-                    <HpDisplay results={results} />
+                    <HpDisplay results={results} translationKey={translationKey}/>
                 </Box>
                 <Box hidden={value !== 1}>
                     <Box sx={{ height: 560, overflowY: "auto" }}>
                         {!prettyMode &&
-                            <MoveSelection raidInputProps={raidInputProps} />
+                            <MoveSelection raidInputProps={raidInputProps} translationKey={translationKey}/>
                         }
                         {prettyMode &&
-                            <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results}/>
+                            <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results} translationKey={translationKey}/>
                         }
                     </Box>
                 </Box>

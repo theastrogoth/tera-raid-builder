@@ -11,6 +11,7 @@ import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, TypeName } fr
 import { Raider } from "../raidcalc/Raider";
 import PokedexService from "../services/getdata";
 import { MoveData } from "../raidcalc/interface";
+import { getTranslation } from "../utils";
 
 function serialize(array: string[], separator: String) {
 	var text = "";
@@ -288,7 +289,7 @@ function checkImportExceptions(poke: string) {
 // }
 		
 
-function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r: Raider) => void}) {
+function ImportExportArea({pokemon, setPokemon, translationKey}: { pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
 	const [textValue, setTextValue] = useState('');
 	return (
 		<Box>
@@ -298,7 +299,7 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: 
 					multiline={true}
 					minRows={14}
 					maxRows={14}
-					placeholder="Paste a set here and press Import, or press Export"
+					placeholder={getTranslation("Paste a set here and press Import, or press Export", translationKey)}
 					inputProps={{ 
 						spellCheck: 'false',
 					}}
@@ -321,7 +322,7 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: 
 							}
 						}}
 					>
-						Import
+						{getTranslation("Import", translationKey)}
 					</Button>
 					<Button 
 						variant="outlined" 
@@ -330,7 +331,7 @@ function ImportExportArea({pokemon, setPokemon}: { pokemon: Raider, setPokemon: 
 							setTextValue(exportPokemon(pokemon))
 						}}
 					>
-						Export
+						{getTranslation("Export", translationKey)}
 					</Button>
 				</Stack>
 			</Stack>

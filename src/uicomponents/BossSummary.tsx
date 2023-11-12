@@ -11,14 +11,14 @@ import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
 import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual, getTranslation } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
 import { MoveSetItem } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 
 const gen = Generations.get(9); // we only use gen 9
 
-function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
+function BossSummary({pokemon, setPokemon, prettyMode, translationKey}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean, translationKey: any}) {
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
   
@@ -31,7 +31,8 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
         const set = moves.map(md => {
             const move = gen.moves.get(toID(md.name));
             return {
-                name: md.name,
+                name: getTranslation(md.name, translationKey, "moves"),
+                engName: md.name,
                 method: md.learnMethod,
                 type: move ? (move.type || "Normal") : "Normal",
             }
@@ -49,7 +50,7 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 530, display: "flex", flexDirection: "column", padding: "0px"}}>                
                 <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight={prettyMode ? undefined : "600px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
-                        <RoleField pokemon={pokemon} setPokemon={setPokemon} />
+                        <RoleField pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey}/>
                     </Box>
                     <Box width="100%" marginTop="10px" display="flex" justifyContent="center">
                         <Box width="50px" position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
@@ -120,12 +121,13 @@ function BossSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPok
                             </Box>
                         </Box>
                     </Box>
-                    <Stack direction="row" spacing={-5} >
-                        <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} isBoss />
+                    <Stack direction="row" spacing={-2} >
+                        <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} isBoss translationKey={translationKey} />
+                        <Box flexGrow={1} />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
-                            <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} />
+                            <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} translationKey={translationKey}/>
                             <Box flexGrow={1} />
-                            <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier}/>
+                            <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier} translationKey={translationKey} />
                         </Stack>
                     </Stack>
                 </Stack>
@@ -138,5 +140,6 @@ export default React.memo(BossSummary,
     (prevProps, nextProps) => (
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
         arraysEqual(prevProps.pokemon.extraMoves || [], nextProps.pokemon.extraMoves || []) &&
-        prevProps.prettyMode === nextProps.prettyMode)
+        prevProps.prettyMode === nextProps.prettyMode &&
+        prevProps.translationKey === nextProps.translationKey)
     );

@@ -678,16 +678,18 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                             </ExecutionTable>
                         </ExecutionContainer>
                     </ExecutionSection>
-                    <NotesSection>
-                        <Separator>
-                            <LeftBar />
-                                <SeparatorLabel>{ getTranslation("Notes", translationKey) }</SeparatorLabel>
-                                <RightBar />
-                            </Separator> 
-                        <NotesContainer>
-                            {notes && <Notes>{notes}</Notes>}
-                        </NotesContainer>
-                    </NotesSection>
+                        {notes && 
+                            <NotesSection>
+                                <Separator>
+                                    <LeftBar />
+                                        <SeparatorLabel>{ getTranslation("Notes", translationKey) }</SeparatorLabel>
+                                        <RightBar />
+                                    </Separator> 
+                                <NotesContainer>
+                                    <Notes>{notes}</Notes>
+                                </NotesContainer>
+                            </NotesSection>
+                        }
                     <InfoSection>
                         <CreditsContainer>
                             <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>

@@ -341,6 +341,7 @@ function App() {
       turnResults: [],
       turnZeroOrder: [],
       turnZeroFlags: [],
+      turnZeroState: new RaidState(raidInputProps.pokemon),
     }
   );
 

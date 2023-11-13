@@ -1,7 +1,17 @@
 {
     "Typhlosion-Hisui": {
         "Big Wave": "h_typhlosion/main",
-        "Soggy Sushi": "h_typhlosion/sushi"
+        "Soggy Sushi": "h_typhlosion/sushi",
+        "Cinch, Clinch, & Pinch": "h_typhlosion/pinch",
+        "Vafoureon": "h_typhlosion/vafoureon",
+        "Puppies of Past & Present": "h_typhlosion/puppies",
+        "Foie Gras": "h_typhlosion/foie_gras",
+        "Team Eeveelution": "h_typhlosion/eeveelution",
+        "A Whaley Good Time": "h_typhlosion/whaley_good_time",
+        "Gastrosire": "h_typhlosion/gastrosire",
+        "Otter Domination": "h_typhlosion/otter_domination",
+        "Fight Fire with Fire": "h_typhlosion/fight_fire_with_fire",
+        "Cursed Salt": "h_typhlosion/cursed_salt"
     },
     "Decidueye-Hisui": {
         "Seeing Red": "h_decidueye/main",

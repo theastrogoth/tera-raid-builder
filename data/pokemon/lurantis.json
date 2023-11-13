@@ -36,7 +36,7 @@
         },
         {
             "name": "Defog",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -187,6 +187,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Superpower",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Sweet Scent",
             "learnMethod": "level-up"
         },
@@ -216,7 +220,7 @@
         },
         {
             "name": "Worry Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "X-Scissor",

@@ -260,6 +260,7 @@ function App() {
   );
   const [raider1, setRaider1] = useState(
     new Raider(1, "Lurantis", false, new Field(), new Pokemon(gen, "Lurantis", {
+      teraType: "Fighting",
       nature: "Adamant",
       ability: "Contrary",
       moves: ["Superpower"],

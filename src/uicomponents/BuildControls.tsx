@@ -17,6 +17,7 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import AddIcon from '@mui/icons-material/Add';
 import TuneIcon from '@mui/icons-material/Tune';
+import CloseIcon from '@mui/icons-material/Close';
 import Popper from "@mui/material/Popper";
 import Switch from "@mui/material/Switch";
 import Menu from "@mui/material/Menu";
@@ -912,7 +913,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
             <Button
                 variant="outlined"
                 size="small"
-                sx={{ width: "120px", textTransform: "none" }} 
+                sx={{ width: "125px", textTransform: "none" }} 
                 onClick={(e) => handleClick(e)}
                 endIcon={<MenuIcon/>}
             >
@@ -923,6 +924,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
                 open={open}
                 onClose={handleClose}
             >
+                <Stack direction="column" spacing={1}>
                 {substitutes.map((sub, idx) => (
                     <SubstituteMenuItem 
                         idx={idx}
@@ -937,6 +939,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
                         translationKey={translationKey}
                     />
                 ))}
+                </Stack>
             </Menu>
         </Box>
     )
@@ -1002,12 +1005,28 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
         setGroups(newGroups);
     }
 
+    const handleDelete = () => {
+        const newSubstitutes = [...substitutes];
+        newSubstitutes.splice(idx, 1);
+        setSubstitutes(newSubstitutes);
+    }
+
     return (
-        <MenuItem
-            onClick={(e) => { handleClick(); handleClose(); }}
-        >
-            <GenericWithIcon name={findOptionFromPokemonName(sub.raider.name, translationKey)} engName={findOptionFromPokemonName(sub.raider.name, null)} spriteFetcher={getPokemonSpriteURL} prettyMode={false} />
-        </MenuItem>
+        <Stack direction="row" justifyContent="center" alignItems="center">
+            <MenuItem
+                onClick={(e) => { handleClick(); handleClose(); }}
+                sx={{width: "100%"}}
+            >
+                <GenericWithIcon name={findOptionFromPokemonName(sub.raider.name, translationKey)} engName={findOptionFromPokemonName(sub.raider.name, null)} spriteFetcher={getPokemonSpriteURL} prettyMode={false} />
+            </MenuItem>
+            <IconButton
+                onClick={() => handleDelete()}
+                size="small"
+                sx={{ mx: "5px"}}
+            >
+                <CloseIcon />
+            </IconButton>
+        </Stack>
     )
 }
 
@@ -1134,7 +1153,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     }
 
     return (
-        <Box justifyContent="center" alignItems="top" width="250px" sx={{ zIndex: 2 }}>
+        <Box justifyContent="center" alignItems="top" width="260px" sx={{ zIndex: 2 }}>
             {!prettyMode &&
                 <Stack direction="column" alignItems="center">
                     {!isBoss &&
@@ -1157,7 +1176,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         <Button 
                             variant="outlined" 
                             size="small" 
-                            sx={{ width: "120px", textTransform: "none" }} 
+                            sx={{ width: "125px", textTransform: "none" }} 
                             disabled={importExportOpen}
                             onClick={(e) => setEditStatsOpen(!editStatsOpen)}
                             startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
@@ -1167,7 +1186,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         <Button 
                             variant="outlined" 
                             size="small" 
-                            sx={{ width: "120px", textTransform: "none" }} 
+                            sx={{ width: "125px", textTransform: "none" }} 
                             onClick={(e) => setImportExportOpen(!importExportOpen)}
                             endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
                         >
@@ -1182,7 +1201,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         <Button
                             variant="outlined"
                             size="small"
-                            sx={{ width: "120px", textTransform: "none" }} 
+                            sx={{ width: "125px", textTransform: "none" }} 
                             onClick={(e) => handleAddSubstitute()}
                             startIcon={<AddIcon/>}
                         >

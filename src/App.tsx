@@ -233,74 +233,78 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Typhlosion-Hisui", {
-      teraType: "Fire",
+    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Eevee", {
+      teraType: "Normal",
       isTera: true,
-      bossMultiplier: 3000,
-      nature: "Modest",
-      ability: "Frisk",
-      moves: ["Infernal Parade", "Flamethrower", "Will-O-Wisp", "Focus Blast"],
-      shieldData: {hpTrigger: 80, timeTrigger: 80, shieldCancelDamage: 30, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
+      bossMultiplier: 5000,
+      nature: "Relaxed",
+      ability: "Anticipation",
+      item: "Eviolite",
+      evs: {hp: 252, spa: 252},
+      moves: ["Hyper Voice", "Mud-Slap", "Shadow Ball", "Stored Power"],
+      shieldData: {hpTrigger: 100, timeTrigger: 100, shieldCancelDamage: 100, shieldDamageRate: 1, shieldDamageRateTera: 120, shieldDamageRateTeraChange: 70}
     }), 
     [
-      {name: "Infernal Parade" as MoveName, category: "damage+ailment", target: "selected-pokemon", accuracy: 100, ailment: "burn", ailmentChance: 30},
-      {name: "Flamethrower" as MoveName, category: "damage+ailment", target: "selected-pokemon", accuracy: 100, ailment: "burn", ailmentChance: 10},
-      {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", accuracy: 85, ailment: "burn", ailmentChance: 100},
-      {name: "Focus Blast" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 70, statChanges: [{stat: "spd", change: -1}], statChance: 10},
+      {name: "Hyper Voice" as MoveName, category: "damage", target: "all-opponents", accuracy: 100},
+      {name: "Mud-Slap" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "acc", change: -1}], statChance: 100},
+      {name: "Shadow Ball" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "spd", change: -1}], statChance: 20},
+      {name: "Stored Power" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100},
     ], 
-    ["Will-O-Wisp", "Sunny Day"] as MoveName[], 
+    ["Calm Mind", "Curse", "Fake Tears", "Charm"] as MoveName[], 
     [
-      {name: "Will-O-Wisp" as MoveName, category: "ailment", target: "selected-pokemon", accuracy: 85, ailment: "burn", ailmentChance: 100},
-      {name: "Sunny Day" as MoveName, category: "whole-field-effect", target: "entire-field"},
+      {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1}, {stat: "spd", change: 1}], statChance: 100},
+      {name: "Curse" as MoveName, category: "unique", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "def", change: 1}, {stat: "spe", change: -1}], statChance: 100},
+      {name: "Charm" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "atk", change: -2}], statChance: 100},
+      {name: "Fake Tears" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "spd", change: -2}], statChance: 100},
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Tauros", false, new Field(), new Pokemon(gen, "Tauros-Paldea-Aqua", {
+    new Raider(1, "Lurantis", false, new Field(), new Pokemon(gen, "Lurantis", {
       nature: "Adamant",
-      ability: "Anger Point",
-      moves: ["Wave Crash"],
+      ability: "Contrary",
+      moves: ["Superpower"],
       item: "Choice Band",
-      evs: {atk: 252},
+      evs: {hp: 252, atk: 252},
     }), 
     [
-      {name: "Wave Crash" as MoveName, category: "damage+heal", target: "all-other-pokemon", accuracy: 100, drain: -50},
+      {name: "Superpower" as MoveName, category: "damage+raise", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "atk", change: -1}, {stat: "def", change: -1}], statChance: 100},
     ])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Honchkrow", false, new Field(), new Pokemon(gen, "Honchkrow", {
+    new Raider(2, "Oranguru", false, new Field(), new Pokemon(gen, "Oranguru", {
       nature: "Calm",
-      ability: "Super Luck",
-      moves: ["Night Slash"],
-      item: "Scope Lens",
+      ability: "(No Ability)",
+      moves: ["Instruct"],
+      item: "Sitrus Berry",
       evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Night Slash" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100},
+      {name: "Instruct" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Chansey", false, new Field(), new Pokemon(gen, "Chansey", {
+    new Raider(3, "Medicham", false, new Field(), new Pokemon(gen, "Medicham", {
       level: 100,
       nature: "Calm",
-      moves: ["Rain Dance"],
-      item: "Eviolite",
+      moves: ["Skill Swap", "Helping Hand"],
+      item: "Sitrus Berry",
       evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Rain Dance" as MoveName, category: "field-effect", target: "entire-field"},
+      {name: "Skill Swap" as MoveName, category: "unique", target: "selected-pokemon"},
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Maushold", false, new Field(), new Pokemon(gen, "Maushold", {
+    new Raider(4, "Stonjourner", false, new Field(), new Pokemon(gen, "Stonjourner", {
       level: 100,
       nature: "Calm",
-      ability: "Friend Guard",
-      moves: ["Helping Hand"],
-      item: "Chople Berry",
+      ability: "Power Spot",
+      moves: [],
+      item: "Focus Sash",
       evs: {hp: 252, spd: 252},
     }), 
     [
-      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
 

@@ -239,6 +239,10 @@ export class RaidMove {
             if (this.userID === id) { continue; }
             const pokemon = this.getPokemon(id);
             const field = pokemon.field;
+            // Status Moves blocked by Boss Shield
+            if (this.userID !== 0 && pokemon.shieldActive && category === "Status") {
+                this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s shield!";
+            }
             // Terrain-based failure
             if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && this.move.priority > 0) {
                 this._doesNotAffect[id] = "blocked by Psychic Terrain";
@@ -795,13 +799,15 @@ export class RaidMove {
     }
 
     private applyUniqueMoveEffects() {
-        /// Ability-affecting moves
         const target = this.getPokemon(this.targetID);
 
         const user_ability = this._user.ability as AbilityName;
         const target_ability = target.ability as AbilityName;
 
+        if (this._doesNotAffect[this.targetID]) { return; }
+
         switch (this.move.name) {
+            /// Ability-affecting moves
             case "Clear Boosts / Abilities":
                 if (this.userID !== 0) {
                     throw new Error("Only the Raid boss can remove stat boosts and abilities!")

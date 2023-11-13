@@ -478,7 +478,7 @@ export class RaidMove {
                             }
                             // handle moves that are affected by repeated use
                             if (this._user.lastMove && (this.moveData.name === this._user.lastMove.name)) {
-                                this._user.moveRepeated = (this._user.moveRepeated || 0) + 1;
+                                this._user.moveRepeated = (this._user.moveRepeated || 1) + 1;
                                  // calcMove.timesUsed = this._user.moveRepeated; // THIS CARRIES OUT THE MOVE MULTIPLE TIMES
                                  // TO DO: Implement boosts for Fury Cutter and Rollout
                             } else {

@@ -13,7 +13,7 @@
     "statChanges": [
         {
             "stat": "spd",
-            "change": null
+            "change": -2
         }
     ],
     "flinchChance": null,

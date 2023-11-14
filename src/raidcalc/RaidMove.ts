@@ -566,7 +566,10 @@ export class RaidMove {
     }
 
     private applyDrain() { // this also accounts for recoil
-        const drainPercent = this.moveData.drain;
+        let drainPercent = this.moveData.drain;
+        if ((this.moveData.drain || 0) < 0 && this._user.hasAbility("Rock Head", "Magic Guard")) {
+            drainPercent = 0;
+        }
         const damage = this._damage.reduce((a,b) => a + b, 0);
         if (drainPercent) {
             // scripted Matcha Gotcha could potentially drain from multiple raiders
@@ -721,11 +724,17 @@ export class RaidMove {
     }
 
     private applySelfDamage() {
+        if (this._user.hasAbility("Magic Guard")) { return; }
         const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0) / 100) / ((this._user.bossMultiplier || 100) / 100); 
+        const lifeOrbDamage = (this._user.item === "Life Orb" && this._damage.reduce((a,b) => a + b, 0) > 0) ? Math.floor(this._user.maxHP() * 0.1) : 0;
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;
-            this._flags[this.userID].push!(selfDamagePercent + "% self damage from " + this.moveData.name + ".")
+            this._flags[this.userID].push!(selfDamagePercent + "% self damage from " + this.moveData.name)
             this._raidState.applyDamage(this.userID, selfDamage);
+        }
+        if (lifeOrbDamage !== 0) {
+            this._flags[this.userID].push!("Life Orb damage")
+            this._raidState.applyDamage(this.userID, lifeOrbDamage);
         }
     }
 

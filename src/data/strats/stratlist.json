@@ -3,7 +3,6 @@
         "Big Wave": "h_typhlosion/main",
         "Soggy Sushi": "h_typhlosion/sushi",
         "T1 OHKO": "h_typhlosion/t1",
-        "Cinch, Clinch, & Pinch": "h_typhlosion/pinch",
         "Vafoureon": "h_typhlosion/vafoureon",
         "Puppies of Past & Present": "h_typhlosion/puppies",
         "Foie Gras": "h_typhlosion/foie_gras",
@@ -17,7 +16,8 @@
         "Cursed Salt": "h_typhlosion/cursed_salt",
         "Crit Hit Inteleon": "h_typhlosion/inteleon",
         "Hydro Cannon Mew": "h_typhlosion/mew",
-        "The Quag-kening": "h_typhlosion/quagkening"
+        "The Quag-kening": "h_typhlosion/quagkening",
+        "Cinch, Clinch, & Pinch": "h_typhlosion/pinch"
     },
     "Decidueye-Hisui": {
         "Seeing Red": "h_decidueye/main",

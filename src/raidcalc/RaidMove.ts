@@ -1116,21 +1116,21 @@ export class RaidMove {
                 }
                 break;
             case "Power Swap":
-                const tempUserAtkBoosts = this._user.boosts;
+                const tempUserAtkBoosts = {...this._user.boosts};
                 this._user.boosts.atk = target.boosts.atk;
                 this._user.boosts.spa = target.boosts.spa;
                 target.boosts.atk = tempUserAtkBoosts.atk;
                 target.boosts.spa = tempUserAtkBoosts.spa;
                 break;
             case "Guard Swap":
-                const tempUserDefBoosts = this._user.boosts;
+                const tempUserDefBoosts = {...this._user.boosts};
                 this._user.boosts.def = target.boosts.def;
                 this._user.boosts.spd = target.boosts.spd;
                 target.boosts.def = tempUserDefBoosts.def;
                 target.boosts.spd = tempUserDefBoosts.spd;
                 break;
             case "Heart Swap":
-                const tempUserBoosts = this._user.boosts;
+                const tempUserBoosts = {...this._user.boosts};
                 this._user.boosts = {...target.boosts};
                 target.boosts = {...tempUserBoosts};
                 break;

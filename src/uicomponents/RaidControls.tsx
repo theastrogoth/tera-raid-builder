@@ -421,7 +421,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const currentMoves = getCurrentMoves(results, displayedTurn, translationKey);
     const currentBossMove = currentMoves[0];
     const currentRaiderMove = currentMoves[1];
-    const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove, translationKey);
+    const raiderMovesFirst = getCurrentMoveOrder(results, displayedTurn);
+    const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove, raiderMovesFirst, translationKey);
 
     useEffect(() => { 
         if (snapToEnd || displayedTurn > results.turnResults.length) {
@@ -514,10 +515,13 @@ function getCurrentMoves(results: RaidBattleResults, displayedTurn: number, tran
     }
     else {
         try {
+            const raiderMovesFirst = results.turnResults[displayedTurn - 1].raiderMovesFirst;
             let currentMoves: any[] = []
-            const currentBossMove = results.turnResults[displayedTurn - 1].bossMoveUsed
+            const bossMoveNotExecuted = results.turnResults[displayedTurn - 1].results[raiderMovesFirst ? 1 : 0].desc.join("") === "";
+            const currentBossMove = bossMoveNotExecuted ? "(No Move)" : results.turnResults[displayedTurn - 1].bossMoveUsed
             currentMoves = [...currentMoves, currentBossMove === "(No Move)" ? undefined : getTranslation(currentBossMove, translationKey, "moves")]
-            const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
+            const raiderMoveNotExecuted = results.turnResults[displayedTurn - 1].results[raiderMovesFirst ? 0 : 1].desc.join("") === "";
+            const currentRaiderMove = raiderMoveNotExecuted ? "(No Move)" : results.turnResults[displayedTurn - 1].raiderMoveUsed
             currentMoves = [...currentMoves, currentRaiderMove === "(No Move)" ? undefined : getTranslation(currentRaiderMove, translationKey, "moves")]
             return currentMoves
         }
@@ -527,7 +531,21 @@ function getCurrentMoves(results: RaidBattleResults, displayedTurn: number, tran
     }
 }
 
-function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: String | undefined, raiderMove: String | undefined, translationKey: any) {
+function getCurrentMoveOrder(results: RaidBattleResults, displayedTurn: number) {
+    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+        return false;
+    }
+    else {
+        try {
+           return results.turnResults[displayedTurn - 1].raiderMovesFirst;
+        }
+        catch(e) {
+            return false;
+        }
+    }
+}
+
+function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: String | undefined, raiderMove: String | undefined, raiderMovesFirst: boolean, translationKey: any) {
     if (!bossMove && !raiderMove) {
         return getTranslation("No Moves Used", translationKey);
     }
@@ -537,6 +555,9 @@ function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: Stri
     }
     else if (!bossMove && raiderMove) {
         return `${raiderRole} ${usedTranslation} ${raiderMove}`;
+    }
+    else if (raiderMovesFirst) {
+        return `${raiderRole} ${usedTranslation} ${raiderMove} : ${bossRole} ${usedTranslation} ${bossMove}`;
     }
     else {
         return `${bossRole} ${usedTranslation} ${bossMove} : ${raiderRole} ${usedTranslation} ${raiderMove}`;

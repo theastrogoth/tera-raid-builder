@@ -434,13 +434,13 @@ const ExecutionMoveTeraIcon = styled("img")({
     width: "auto",
     maxHeight: "140px",
     maxWidth: "140px",
+    margin: "0px 20px"
 });
 
 const ExecutionMoveTeraIconWrapper = styled(Box)({
-    position: "absolute",
-    transform: "translate(1540px, -20px)",
     height: "140px",
     width: "140px",
+    margin: "0px 10px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
@@ -474,6 +474,17 @@ const ExecutionMoveAction = styled(Typography)({
     overflow: "hidden",
     whiteSpace: "nowrap",
     backgroundColor: "rgba(255, 255, 255, .35)",
+});
+
+const ExecutionMoveActionWrapper = styled(Box)({
+    height: "100px",
+    // width: "750px",
+    width: "650px",
+    backgroundColor: "rgba(255, 255, 255, .35)",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
 });
 
 const NotesSection = styled(Box)({
@@ -593,6 +604,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                     {raider.types.map((type, index) => (
                                                         <BuildTypeIcon key={index} src={getTypeIconURL(type)}/>
                                                     ))}
+                                                    {raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                                                 </BuildTypes>
                                                 <BuildRole>{raider.role}</BuildRole>
                                                 <BuildHeaderSeparator />
@@ -666,10 +678,15 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                             <ExecutionMove key={moveIndex - 0.5}>
                                                                 <ExecutionMovePokemonWrapperEmpty/>
                                                                 <ExecutionMoveTag>{""}</ExecutionMoveTag>
-                                                                <ExecutionMoveAction>{getTranslation("Terastallize", translationKey)}</ExecutionMoveAction>
-                                                                <ExecutionMoveTeraIconWrapper>
-                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
-                                                                </ExecutionMoveTeraIconWrapper>
+                                                                <ExecutionMoveActionWrapper>
+                                                                    <ExecutionMoveTeraIconWrapper>
+                                                                        <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                    </ExecutionMoveTeraIconWrapper>
+                                                                    <ExecutionMoveTag>{getTranslation("Terastallize", translationKey)}</ExecutionMoveTag>
+                                                                    <ExecutionMoveTeraIconWrapper>
+                                                                        <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                    </ExecutionMoveTeraIconWrapper>
+                                                                </ExecutionMoveActionWrapper>
                                                                 <ExecutionMoveTag>{""}</ExecutionMoveTag>
                                                                 <ExecutionMovePokemonWrapperEmpty />
                                                             </ExecutionMove>

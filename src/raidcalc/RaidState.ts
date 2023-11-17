@@ -159,7 +159,8 @@ export class RaidState implements State.RaidState{
                     }
                 }
             }
-            if (!unnerve && pokemon.item === "Chiban Berry" && moveType === "Normal") {
+            // Chilan Berry
+            if (!unnerve && pokemon.item === "Chilan Berry" && moveType === "Normal") {
                 this.loseItem(id);
             }
             /// abilities triggered by damage even if the target faints

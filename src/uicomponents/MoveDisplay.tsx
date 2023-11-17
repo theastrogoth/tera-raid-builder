@@ -24,7 +24,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
 
     let move: string = result ? result.raiderMoveUsed : "";
     if (move ==="(No Move)") {
-        move = "";
+        move = result.bossMoveUsed === "(No Move)" ? "Waits" : "";
     }
     let teraActivated = result && result.flags[turn.moveInfo.userID].includes("Tera activated");
 
@@ -66,7 +66,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
                     </Typography>
                 </Stack>
                 <Typography variant="body1">
-                    { getTranslation("uses", translationKey) }
+                    { move === "Waits" ? "" : getTranslation("uses", translationKey) }
                 </Typography>
                 <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
                     {teraActivated && 

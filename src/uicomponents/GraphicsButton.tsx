@@ -544,17 +544,18 @@ function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
         group.turns.map((t) => { 
             const turnResult = results.turnResults.find((r) => t.id === r.id)!;
             let move = turnResult.raiderMoveUsed;
-            const info = move === "(No Move)" ? turnResult.bossMoveInfo : turnResult.moveInfo;
+            const wait = move === "(No Move)" && turnResult.bossMoveUsed === "(No Move)";
+            const info = wait ? {...turnResult.moveInfo, moveData: {name: "Waits"}} as RaidMoveInfo : move === "(No Move)" ? turnResult.bossMoveInfo : turnResult.moveInfo;
             const isSpread = !!((move === "(No Move)") && (
                 turnResult.results[0].isSpread || turnResult.results[1].isSpread
             ))
-            move = move === "(No Move)" ? turnResult.bossMoveUsed : move;
+            move = wait ? "Waits" : move === "(No Move)" ? turnResult.bossMoveUsed : move;
             return {
                 move,
                 info,
                 isSpread,
                 repeats: group.repeats,
-                teraActivated: !!(turnResult!.moveInfo.options!.activateTera && 
+                teraActivated: !wait && !!(turnResult!.moveInfo.options!.activateTera && 
                                 turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
             } 
         })
@@ -670,9 +671,10 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                 <ExecutionMoveContainer>
                                                     {
                                                         moveGroup.map((move, moveIndex) => { 
-                                                            const showTarget = move.info.userID === 0 ?
+                                                            let showTarget = move.info.userID === 0 ?
                                                                 ( move.isSpread || move.move === "Remove Negative Effects" ) :
                                                                 !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.info.moveData.target!);
+                                                            showTarget = showTarget && (move.move !== "Waits");
                                                             return ([
                                                             move.teraActivated ? 
                                                             <ExecutionMove key={moveIndex - 0.5}>
@@ -707,7 +709,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                                 </ExecutionMovePokemonWrapper>
                                                                 }
                                                                 {move.teraActivated && <ExecutionMovePokemonWrapperEmpty/>}
-                                                                {move.teraActivated ?
+                                                                {(move.teraActivated || move.move === "Waits") ?
                                                                     <ExecutionMoveTag>{""}</ExecutionMoveTag> :
                                                                     <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
                                                                 }

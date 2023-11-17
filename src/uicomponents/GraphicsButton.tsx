@@ -492,6 +492,7 @@ const NotesContainer = styled(Box)({
 const Notes = styled(Typography)({
     fontSize: "4.2em",
     color: "white",
+    whiteSpace: "pre-wrap",
 });
 
 const InfoSection = styled(Box)({
@@ -511,7 +512,8 @@ const CreditsContainer = styled(Box)({
 
 const Credit = styled(Typography)({
     fontSize: "4.5em",
-    color: "white"
+    color: "white",
+    whiteSpace: "pre-wrap",
 });
 
 function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {

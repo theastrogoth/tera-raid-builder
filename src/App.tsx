@@ -436,7 +436,7 @@ function App() {
               <Stack sx={{ mx: 3, my: 3}}>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary", marginBottom: "10px"}}>
                   Created by <Link href="https://reddit.com/u/theAstroGoth" target="_blank">u/theAstroGoth</Link> and <Link href="https://reddit.com/u/Gimikyu_" target="_blank">u/Gimikyu_</Link>.
-                  This Projects is open source and hosted on <Link href="https://github.com/theastrogoth/tera-raid-builder/" target="_blank">Github</Link>.
+                  This Project is open source and hosted on <Link href="https://github.com/theastrogoth/tera-raid-builder/" target="_blank">Github</Link>.
                 </Typography>
                 <Typography variant="h6" sx={{color: "text.secondary"}}>
                   Acknowledgements

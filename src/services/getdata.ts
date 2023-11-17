@@ -4,6 +4,7 @@ import { MoveData } from '../raidcalc/interface';
 const assetsProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/data/"
 
 export function prepareFileName(name: string) {
+    if (name.includes("Arceus")) { return "arceus"; }
     return name.replaceAll(' ','-').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
 }
 

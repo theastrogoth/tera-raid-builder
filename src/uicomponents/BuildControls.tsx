@@ -42,6 +42,7 @@ import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
 import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 import { MenuItem } from "@mui/material";
+import { getItemBoostType } from "../calc/items";
 
 type SetOption = {
     name: string,
@@ -1043,6 +1044,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     const [importExportOpen, setImportExportOpen] = useState(false);
 
     useEffect(() => {
+        // Locked items/teratypes
         if (pokemon.name.includes("Ogerpon")) {
             if (pokemon.name === "Ogerpon") {
                 setTeraTypes(["Grass"]);
@@ -1066,12 +1068,39 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         } else if (pokemon.name === "Zamazenta-Crowned") {
             setItems(["Rusted Shield" as ItemName]);
             setPokemonProperties(["role","item"])(["Zamazenta", "Rusted Shield"]);
+        } 
+        // Arceus Plate Types
+        else if (pokemon.name.includes("Arceus")) {
+            if (pokemon.name.includes("-")) {
+                const plateType = pokemon.name.split("-")[1];
+                let plateItem = pokemon.item || "";
+                switch (plateType) {
+                    case "Dragon": plateItem = "Draco Plate"; break;
+                    case "Dark": plateItem = "Dread Plate"; break;
+                    case "Electric": plateItem = "Zap Plate"; break;
+                    case "Fairy": plateItem = "Pixie Plate"; break;
+                    case "Fighting": plateItem = "Fist Plate"; break;
+                    case "Fire": plateItem = "Flame Plate"; break;
+                    case "Flying": plateItem = "Sky Plate"; break;
+                    case "Ghost": plateItem = "Spooky Plate"; break;
+                    case "Grass": plateItem = "Meadow Plate"; break;
+                    case "Ground": plateItem = "Earth Plate"; break;
+                    case "Ice": plateItem = "Icicle Plate"; break;
+                    case "Poison": plateItem = "Toxic Plate"; break;
+                    case "Psychic": plateItem = "Mind Plate"; break;
+                    case "Rock": plateItem = "Stone Plate"; break;
+                    case "Steel": plateItem = "Iron Plate"; break;
+                    case "Water": plateItem = "Splash Plate"; break;                 
+                }
+                setItems([plateItem as ItemName]);
+                setPokemonProperties(["role", "item", "ability"])(["Arceus", plateItem, "Multitype"]);
+            } 
         } else {
             setTeraTypes(genTypes);
             setItems(genItems);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pokemon.name])
+    }, [pokemon.name, pokemon.item])
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {

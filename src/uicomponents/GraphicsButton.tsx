@@ -231,6 +231,17 @@ const BuildTypeIcon = styled("img")({
     filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.65))"
 });
 
+const BuildTeraIcon = styled("img")({
+    position: "absolute",
+    transform: "translate(20px, -160px)",
+    height: "180px",
+    width: "180px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.65))"
+});
+
 const BuildRole = styled(Typography)({
     height: "85px",
     color: "white",
@@ -556,6 +567,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                 <BuildArt src={getPokemonArtURL(raider.species.name, raider.shiny)}/>
                                                 {raider.item ? 
                                                     <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
+                                                {(raider.teraType || "???") !== "???" ?
+                                                    <BuildTeraIcon src={getTeraTypeIconURL(raider.teraType!)} /> : null}
                                                 <BuildTypes direction="row">
                                                     {raider.types.map((type, index) => (
                                                         <BuildTypeIcon key={index} src={getTypeIconURL(type)}/>

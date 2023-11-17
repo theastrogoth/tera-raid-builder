@@ -444,7 +444,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
                 <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]} translationKey={translationKey} />
-            ))};
+            ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>
                     {currentTurnText}

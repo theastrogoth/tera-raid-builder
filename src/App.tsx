@@ -237,75 +237,72 @@ function App() {
       teraType: "Normal",
       isTera: true,
       bossMultiplier: 5000,
-      nature: "Relaxed",
+      nature: "Hardy",
       ability: "Anticipation",
-      item: "Eviolite",
-      evs: {hp: 252, spa: 252},
-      moves: ["Hyper Voice", "Mud-Slap", "Shadow Ball", "Stored Power"],
-      shieldData: {hpTrigger: 100, timeTrigger: 100, shieldCancelDamage: 100, shieldDamageRate: 1, shieldDamageRateTera: 120, shieldDamageRateTeraChange: 70}
+      moves: ["Double-Edge","Hyper Voice", "Bite", "Charm"],
+      shieldData: {hpTrigger: 100, timeTrigger: 100, shieldCancelDamage: 100, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
     }), 
     [
-      {name: "Hyper Voice" as MoveName, category: "damage", target: "all-opponents", accuracy: 100},
-      {name: "Mud-Slap" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "acc", change: -1}], statChance: 100},
-      {name: "Shadow Ball" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "spd", change: -1}], statChance: 20},
-      {name: "Stored Power" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100},
-    ], 
-    ["Calm Mind", "Curse", "Fake Tears", "Charm"] as MoveName[], 
-    [
-      {name: "Calm Mind" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 1}, {stat: "spd", change: 1}], statChance: 100},
-      {name: "Curse" as MoveName, category: "unique", target: "user", statChanges: [{stat: "atk", change: 1}, {stat: "def", change: 1}, {stat: "spe", change: -1}], statChance: 100},
+      {name: "Double-Edge" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100, drain: -25},
+      {name: "Hyper Voice" as MoveName, category: "damage", target: "all-opponents", accuracy: 100, statChanges: [{stat: "acc", change: -1}], statChance: 100},
+      {name: "Bite" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100, flinchChance: 30},
       {name: "Charm" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "atk", change: -2}], statChance: 100},
-      {name: "Fake Tears" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "spd", change: -2}], statChance: 100},
+    ], 
+    ["Baby-Doll Eyes"] as MoveName[], 
+    [
+      {name: "Baby-Doll Eyes" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 100, priority: 1, statChanges: [{stat: "atk", change: -1}], statChance: 100},
     ])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Lurantis", false, new Field(), new Pokemon(gen, "Lurantis", {
+    new Raider(1, "Lucario", false, new Field(), new Pokemon(gen, "Lucario", {
       teraType: "Fighting",
-      nature: "Adamant",
-      ability: "Contrary",
-      moves: ["Superpower"],
-      item: "Choice Band",
-      evs: {hp: 252, atk: 252},
+      nature: "Modest",
+      ability: "(No Ability)",
+      moves: ["Aura Sphere", "Nasty Plot"],
+      item: "Chilan Berry",
+      evs: {hp: 252, spa: 252},
     }), 
     [
-      {name: "Superpower" as MoveName, category: "damage+raise", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "atk", change: -1}, {stat: "def", change: -1}], statChance: 100},
+      {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
+      {name: "Nasty Plot" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 2}], statChance: 100},
     ])
   );
   const [raider2, setRaider2] = useState(
     new Raider(2, "Oranguru", false, new Field(), new Pokemon(gen, "Oranguru", {
-      nature: "Calm",
+      nature: "Bold",
       ability: "(No Ability)",
       moves: ["Instruct"],
       item: "Sitrus Berry",
-      evs: {hp: 252, spd: 252},
+      evs: {hp: 252, def: 252},
     }), 
     [
       {name: "Instruct" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Medicham", false, new Field(), new Pokemon(gen, "Medicham", {
-      level: 100,
-      nature: "Calm",
-      moves: ["Skill Swap", "Helping Hand"],
+    new Raider(3, "Oranguru", false, new Field(), new Pokemon(gen, "Oranguru", {
+      nature: "Bold",
+      ability: "(No Ability)",
+      moves: ["Instruct"],
       item: "Sitrus Berry",
-      evs: {hp: 252, spd: 252},
+      evs: {hp: 252, def: 252},
     }), 
     [
-      {name: "Skill Swap" as MoveName, category: "unique", target: "selected-pokemon"},
-      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon"},
+      {name: "Instruct" as MoveName, category: "unique", target: "selected-pokemon"},
     ])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Stonjourner", false, new Field(), new Pokemon(gen, "Stonjourner", {
+    new Raider(4, "Muk", false, new Field(), new Pokemon(gen, "Muk", {
       level: 100,
-      nature: "Calm",
-      ability: "Power Spot",
-      moves: [],
-      item: "Focus Sash",
-      evs: {hp: 252, spd: 252},
+      nature: "Bold",
+      ability: "(No Ability)",
+      moves: ["Acid Spray", "Helping Hand"],
+      item: "Sitrus Berry",
+      evs: {hp: 252, def: 252},
     }), 
     [
+      {name: "Acid Spray" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "spd", change: -2}], statChance: 100},
+      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon", priority: 5},
     ])
   );
 

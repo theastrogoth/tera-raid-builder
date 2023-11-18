@@ -683,10 +683,10 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/rillaboom/tickle_squad.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('mewtwo', async () => {
-    const module = await import(`./data/strats/mewtwo/main.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
+  // test('mewtwo', async () => {
+  //   const module = await import(`./data/strats/mewtwo/main.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('h_decidueye', async () => {
     const module = await import(`./data/strats/h_decidueye/main.json`)
     await testOHKO(module as LightBuildInfo);

@@ -212,6 +212,8 @@ export class RaidTurn {
         if (!this._isBossAction) {
             // item effects
             this.applyEndOfTurnItemEffects();
+            // ability effects
+            this.applyEndOfTurnAbilityEffects();
             // Clear Endure (since side-attacks are not endured)
             this._raidState.raiders[this.raiderID].isEndure = false;
             this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
@@ -485,6 +487,18 @@ export class RaidTurn {
                         break;
                     default: break
                 }
+            }
+        }
+    }
+
+    private applyEndOfTurnAbilityEffects() {
+        for (let id of [0, this.raiderID]) {
+            const pokemon = this._raidState.raiders[id];
+            switch (pokemon.ability) {
+                case "Speed Boost":
+                    this._raidState.applyStatChange(id, {"spe": 1}, true, true, false);
+                    break;
+                default: break;
             }
         }
     }

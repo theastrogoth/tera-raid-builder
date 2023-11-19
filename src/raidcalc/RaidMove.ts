@@ -245,8 +245,10 @@ export class RaidMove {
             }
             // Terrain-based failure
             if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && this.move.priority > 0) {
-                this._doesNotAffect[id] = "blocked by Psychic Terrain";
-                continue;
+                if ((this._user.id === 0) || (this.targetID === 0)) {
+                    this._doesNotAffect[id] = "blocked by Psychic Terrain";
+                    continue;
+                }
             }
             // Ability-based immunities
             if (!(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))) {

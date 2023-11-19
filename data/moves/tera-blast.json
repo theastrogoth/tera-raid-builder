@@ -1,6 +1,6 @@
 {
     "name": "Tera Blast",
-    "category": "unique",
+    "category": "damage",
     "target": "selected-pokemon",
     "type": "Normal",
     "power": 80,

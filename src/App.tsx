@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 
 import Box from '@mui/material/Box';
@@ -45,6 +46,9 @@ function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [language, setLanguage] = useState<LanguageOption>('en');
   const [translationKey, setTranslationKey] = useState<any>(null);
+
+  const location = useLocation();
+  const hash = location.hash
   
   const [theme, setTheme] = useState(createTheme({
     palette: {
@@ -260,18 +264,20 @@ function App() {
   );
 
   useEffect(() => {
-    lightToFullBuildInfo(DEFAULT_STRAT as LightBuildInfo).then(
-      (buildInfo) => {
-        if (buildInfo) {
-          setRaidBoss(buildInfo.pokemon[0]);
-          setRaider1(buildInfo.pokemon[1]);
-          setRaider2(buildInfo.pokemon[2]);
-          setRaider3(buildInfo.pokemon[3]);
-          setRaider4(buildInfo.pokemon[4]);
+    if (hash === "") {
+      lightToFullBuildInfo(DEFAULT_STRAT as LightBuildInfo).then(
+        (buildInfo) => {
+          if (buildInfo) {
+            setRaidBoss(buildInfo.pokemon[0]);
+            setRaider1(buildInfo.pokemon[1]);
+            setRaider2(buildInfo.pokemon[2]);
+            setRaider3(buildInfo.pokemon[3]);
+            setRaider4(buildInfo.pokemon[4]);
+          }
+          setLoading(false);
         }
-        setLoading(false);
-      }
-    )
+      )
+    }
   }, []); // only triggered on mount
 
   const [title, setTitle] = useState<string>("");

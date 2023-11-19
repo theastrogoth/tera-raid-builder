@@ -17,7 +17,7 @@ import PokemonSummary from './uicomponents/PokemonSummary.tsx';
 import BossSummary from './uicomponents/BossSummary.tsx';
 import Navbar from './uicomponents/Navbar.tsx';
 import RaidControls from './uicomponents/RaidControls.tsx';
-import LinkButton from './uicomponents/LinkButton.tsx';
+import LinkButton, { lightToFullBuildInfo } from './uicomponents/LinkButton.tsx';
 import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
 
@@ -33,6 +33,8 @@ import StratLoadField from './uicomponents/StratLoadField.tsx';
 
 import PokedexService from "./services/getdata";
 import { getTranslation } from './utils.ts';
+import DEFAULT_STRAT from './data/strats/default.json';
+import { LightBuildInfo } from './raidcalc/hashData.ts';
 
 type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
 
@@ -40,7 +42,7 @@ function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [lightMode, setLightMode] = useState<('dark' | 'light')>(prefersDarkMode ? 'dark' : 'light');
   const [prettyMode, setPrettyMode] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [language, setLanguage] = useState<LanguageOption>('en');
   const [translationKey, setTranslationKey] = useState<any>(null);
   
@@ -233,78 +235,44 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Eevee", {
-      teraType: "Normal",
-      isTera: true,
-      bossMultiplier: 5000,
-      nature: "Hardy",
-      ability: "Anticipation",
-      moves: ["Double-Edge","Hyper Voice", "Bite", "Charm"],
-      shieldData: {hpTrigger: 100, timeTrigger: 100, shieldCancelDamage: 100, shieldDamageRate: 20, shieldDamageRateTera: 70, shieldDamageRateTeraChange: 30}
+    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Pikachu", {
+      shieldData: {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0}
     }), 
-    [
-      {name: "Double-Edge" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100, drain: -25},
-      {name: "Hyper Voice" as MoveName, category: "damage", target: "all-opponents", accuracy: 100, statChanges: [{stat: "acc", change: -1}], statChance: 100},
-      {name: "Bite" as MoveName, category: "damage", target: "selected-pokemon", accuracy: 100, flinchChance: 30},
-      {name: "Charm" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "atk", change: -2}], statChance: 100},
-    ], 
-    ["Baby-Doll Eyes"] as MoveName[], 
-    [
-      {name: "Baby-Doll Eyes" as MoveName, category: "net-good-stats", target: "selected-pokemon", accuracy: 100, priority: 1, statChanges: [{stat: "atk", change: -1}], statChance: 100},
-    ])
+    [], 
+    [], 
+    [])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Lucario", false, new Field(), new Pokemon(gen, "Lucario", {
-      teraType: "Fighting",
-      nature: "Modest",
-      ability: "(No Ability)",
-      moves: ["Aura Sphere", "Nasty Plot"],
-      item: "Chilan Berry",
-      evs: {hp: 252, spa: 252},
-    }), 
-    [
-      {name: "Aura Sphere" as MoveName, category: "damage", target: "selected-pokemon"},
-      {name: "Nasty Plot" as MoveName, category: "net-good-stats", target: "user", statChanges: [{stat: "spa", change: 2}], statChance: 100},
-    ])
+    new Raider(1, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    [])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Oranguru", false, new Field(), new Pokemon(gen, "Oranguru", {
-      nature: "Bold",
-      ability: "(No Ability)",
-      moves: ["Instruct"],
-      item: "Sitrus Berry",
-      evs: {hp: 252, def: 252},
-    }), 
-    [
-      {name: "Instruct" as MoveName, category: "unique", target: "selected-pokemon"},
-    ])
+    new Raider(2, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    [])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Oranguru", false, new Field(), new Pokemon(gen, "Oranguru", {
-      nature: "Bold",
-      ability: "(No Ability)",
-      moves: ["Instruct"],
-      item: "Sitrus Berry",
-      evs: {hp: 252, def: 252},
-    }), 
-    [
-      {name: "Instruct" as MoveName, category: "unique", target: "selected-pokemon"},
-    ])
+    new Raider(3, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    [])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Muk", false, new Field(), new Pokemon(gen, "Muk", {
-      level: 100,
-      nature: "Bold",
-      ability: "(No Ability)",
-      moves: ["Acid Spray", "Helping Hand"],
-      item: "Sitrus Berry",
-      evs: {hp: 252, def: 252},
-    }), 
-    [
-      {name: "Acid Spray" as MoveName, category: "damage+lower", target: "selected-pokemon", accuracy: 100, statChanges: [{stat: "spd", change: -2}], statChance: 100},
-      {name: "Helping Hand" as MoveName, category: "unique", target: "selected-pokemon", priority: 5},
-    ])
+    new Raider(4, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    [])
   );
+
+  useEffect(() => {
+    lightToFullBuildInfo(DEFAULT_STRAT as LightBuildInfo).then(
+      (buildInfo) => {
+        if (buildInfo) {
+          setRaidBoss(buildInfo.pokemon[0]);
+          setRaider1(buildInfo.pokemon[1]);
+          setRaider2(buildInfo.pokemon[2]);
+          setRaider3(buildInfo.pokemon[3]);
+          setRaider4(buildInfo.pokemon[4]);
+        }
+        setLoading(false);
+      }
+    )
+  }, []); // only triggered on mount
 
   const [title, setTitle] = useState<string>("");
   const [notes, setNotes] = useState<string>("");

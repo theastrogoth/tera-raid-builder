@@ -289,7 +289,6 @@ export class RaidState implements State.RaidState{
                 const statId = stat as StatIDExceptHP;
                 if ((boosts[statId] || 0) < 0) {
                     boosts[statId] = 0;
-                    this.loseItem(id);
                 }
             }
         }

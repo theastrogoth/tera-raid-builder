@@ -509,12 +509,10 @@ export class RaidState implements State.RaidState{
         }
         const oldAbility = pokemon.ability;
         pokemon.ability = ability as AbilityName;
-        if (pokemon.ability !== oldAbility) {
-            // lost field effects
-            this.removeAbilityFieldEffect(id, oldAbility);
-            // gained field effects
-            this.addAbilityFieldEffect(id, ability, false, restore);
-        }
+        // lost field effects
+        this.removeAbilityFieldEffect(id, oldAbility);
+        // gained field effects
+        this.addAbilityFieldEffect(id, ability, false, restore);
     }
 
     public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchIn: boolean = false, restore: boolean = false): string[][] {

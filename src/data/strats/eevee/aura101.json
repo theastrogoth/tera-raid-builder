@@ -1,6 +1,6 @@
 {
-    "name": "Giraffic Bark",
-    "notes": "Girafarig must wait to use Power Swap until Lucario has used Aura Sphere 4 times.\n\nIn case something goes wrong, Girafarig repeats all move, Muk spams Acid Spray, and Lucario spams Aura Sphere.",
+    "name": "Aura 101",
+    "notes": "Lucario can hold Leftovers with 252 Def EVs + 252 SpAtk EVs.\n\nAny Pokémon with Acid Spray + Helping Hand + survives 2 hits can replace Muk.",
     "credits": "the Poké Portal team",
     "pokemon": [
         {
@@ -53,7 +53,7 @@
             "name": "Lucario",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Metronome",
+            "item": "Chilan Berry",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -75,7 +75,7 @@
             "teraType": "Fighting",
             "moves": [
                 "Aura Sphere",
-                "(No Move)"
+                "Nasty Plot"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -90,11 +90,11 @@
         },
         {
             "id": 2,
-            "role": "Girafarig",
-            "name": "Girafarig",
+            "role": "Oranguru",
+            "name": "Oranguru",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Eviolite",
+            "item": "Sitrus Berry",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -114,8 +114,7 @@
             },
             "level": 100,
             "moves": [
-                "Nasty Plot",
-                "Power Swap"
+                "Instruct"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -130,7 +129,46 @@
         },
         {
             "id": 3,
-            "role": "Muk1",
+            "role": "Oranguru",
+            "name": "Oranguru",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "Instruct"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Muk",
             "name": "Muk",
             "shiny": false,
             "ability": "(No Ability)",
@@ -155,46 +193,7 @@
             "level": 100,
             "moves": [
                 "Acid Spray",
-                "(No Move)"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
-        },
-        {
-            "id": 4,
-            "role": "Muk2",
-            "name": "Muk",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "moves": [
-                "Acid Spray"
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -213,8 +212,8 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 3,
+                "name": "Aura Sphere",
+                "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -239,7 +238,7 @@
             "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Defense Cheer",
+                "name": "Attack Cheer",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -265,13 +264,13 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
-                "targetID": 0,
+                "name": "Instruct",
+                "userID": 2,
+                "targetID": 1,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": false,
-                    "roll": "max",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -291,61 +290,9 @@
             "id": 3,
             "group": 1,
             "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 2,
-            "moveInfo": {
-                "name": "Heal Cheer",
+                "name": "Instruct",
                 "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
                 "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 2,
-            "moveInfo": {
-                "name": "Heal Cheer",
-                "userID": 4,
-                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -369,14 +316,15 @@
             "id": 4,
             "group": 2,
             "moveInfo": {
-                "name": "Aura Sphere",
+                "name": "Nasty Plot",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": false,
-                    "roll": "max",
-                    "hits": 1
+                    "roll": "min",
+                    "hits": 1,
+                    "activateTera": true
                 }
             },
             "bossMoveInfo": {
@@ -395,9 +343,61 @@
             "id": 5,
             "group": 2,
             "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 2,
+                "name": "Acid Spray",
+                "userID": 4,
                 "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 3,
+            "moveInfo": {
+                "name": "Instruct",
+                "userID": 2,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 3,
+            "moveInfo": {
+                "name": "Instruct",
+                "userID": 3,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -419,11 +419,11 @@
         },
         {
             "id": 8,
-            "group": 3,
+            "group": 4,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 3,
-                "targetID": 0,
+                "name": "Helping Hand",
+                "userID": 4,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -445,11 +445,11 @@
         },
         {
             "id": 9,
-            "group": 3,
+            "group": 4,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
-                "targetID": 0,
+                "name": "Instruct",
+                "userID": 2,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -471,15 +471,15 @@
         },
         {
             "id": 10,
-            "group": 3,
+            "group": 4,
             "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
-                "targetID": 0,
+                "name": "Instruct",
+                "userID": 3,
+                "targetID": 1,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": false,
-                    "roll": "max",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -497,163 +497,7 @@
         },
         {
             "id": 11,
-            "group": 3,
-            "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 12,
-            "group": 4,
-            "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 13,
-            "group": 4,
-            "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 14,
-            "group": 4,
-            "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": false,
-                    "roll": "max",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 15,
-            "group": 4,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 16,
             "group": 5,
-            "moveInfo": {
-                "name": "Power Swap",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 17,
-            "group": 6,
             "moveInfo": {
                 "name": "Aura Sphere",
                 "userID": 1,
@@ -663,7 +507,7 @@
                     "secondaryEffects": false,
                     "roll": "min",
                     "hits": 1,
-                    "activateTera": true
+                    "activateTera": false
                 }
             },
             "bossMoveInfo": {
@@ -689,32 +533,23 @@
             3
         ],
         [
-            6,
-            7,
             4,
             5
         ],
         [
+            6,
+            7
+        ],
+        [
             8,
             9,
-            10,
+            10
+        ],
+        [
             11
-        ],
-        [
-            12,
-            13,
-            14,
-            15
-        ],
-        [
-            16
-        ],
-        [
-            17
         ]
     ],
     "repeats": [
-        1,
         1,
         1,
         1,
@@ -726,6 +561,91 @@
         [],
         [],
         [],
-        []
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Clodsire",
+                    "name": "Clodsire",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Acid Spray",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer",
+                    "Acid Spray",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Armarouge",
+                    "name": "Armarouge",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Acid Spray",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer",
+                    "Acid Spray",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    1
+                ]
+            }
+        ]
     ]
 }

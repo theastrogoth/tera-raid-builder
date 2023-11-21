@@ -1,7 +1,7 @@
 {
-    "name": "Giraffic Bark",
-    "notes": "Girafarig must wait to use Power Swap until Lucario has used Aura Sphere 4 times.\n\nIn case something goes wrong, Girafarig repeats all move, Muk spams Acid Spray, and Lucario spams Aura Sphere.",
-    "credits": "the Poké Portal team",
+    "name": "Temper Tantrum",
+    "notes": "Wait for Tera Charge steal before moving",
+    "credits": "u/Gimikyu_",
     "pokemon": [
         {
             "id": 0,
@@ -49,18 +49,18 @@
         },
         {
             "id": 1,
-            "role": "Lucario",
-            "name": "Lucario",
-            "shiny": false,
-            "ability": "(No Ability)",
+            "role": "Pistachio",
+            "name": "Mankey",
+            "shiny": true,
+            "ability": "Anger Point",
             "item": "Metronome",
-            "nature": "Modest",
+            "nature": "Careful",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -74,7 +74,7 @@
             "level": 100,
             "teraType": "Fighting",
             "moves": [
-                "Aura Sphere",
+                "Reversal",
                 "(No Move)"
             ],
             "bossMultiplier": 100,
@@ -90,18 +90,18 @@
         },
         {
             "id": 2,
-            "role": "Girafarig",
-            "name": "Girafarig",
-            "shiny": false,
-            "ability": "(No Ability)",
+            "role": "Macadamia",
+            "name": "Meditite",
+            "shiny": true,
+            "ability": "Pure Power",
             "item": "Eviolite",
-            "nature": "Bold",
+            "nature": "Impish",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -114,47 +114,8 @@
             },
             "level": 100,
             "moves": [
-                "Nasty Plot",
-                "Power Swap"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
-        },
-        {
-            "id": 3,
-            "role": "Muk1",
-            "name": "Muk",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "moves": [
-                "Acid Spray",
+                "Skill Swap",
+                "Helping Hand",
                 "(No Move)"
             ],
             "bossMultiplier": 100,
@@ -169,19 +130,19 @@
             }
         },
         {
-            "id": 4,
-            "role": "Muk2",
-            "name": "Muk",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "id": 3,
+            "role": "Peanut",
+            "name": "Oshawott",
+            "shiny": true,
+            "ability": "Shell Armor",
+            "item": "Scope Lens",
+            "nature": "Impish",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -194,7 +155,48 @@
             },
             "level": 100,
             "moves": [
-                "Acid Spray"
+                "Focus Energy",
+                "Swords Dance",
+                "False Swipe"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Chestnut",
+            "name": "Pawniard",
+            "shiny": true,
+            "ability": "Inner Focus",
+            "item": "Flame Orb",
+            "nature": "Careful",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 252,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "Fling"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -213,8 +215,8 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 3,
+                "name": "(No Move)",
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -224,7 +226,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Baby-Doll Eyes",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -236,10 +238,37 @@
             }
         },
         {
-            "id": 1,
+            "id": 3,
             "group": 0,
             "moveInfo": {
-                "name": "Defense Cheer",
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Remove Negative Effects",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "stealTeraCharge": true
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 1,
+            "moveInfo": {
+                "name": "Fling",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -263,15 +292,15 @@
         },
         {
             "id": 2,
-            "group": 1,
+            "group": 2,
             "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
+                "name": "Defense Cheer",
+                "userID": 2,
                 "targetID": 0,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": false,
-                    "roll": "max",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -288,11 +317,11 @@
             }
         },
         {
-            "id": 3,
-            "group": 1,
+            "id": 4,
+            "group": 3,
             "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 2,
+                "name": "Reversal",
+                "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -315,11 +344,11 @@
         },
         {
             "id": 6,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "Heal Cheer",
+                "name": "Swords Dance",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -341,11 +370,11 @@
         },
         {
             "id": 7,
-            "group": 2,
+            "group": 6,
             "moveInfo": {
                 "name": "Heal Cheer",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -366,63 +395,11 @@
             }
         },
         {
-            "id": 4,
-            "group": 2,
+            "id": 11,
+            "group": 8,
             "moveInfo": {
-                "name": "Aura Sphere",
+                "name": "Reversal",
                 "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": false,
-                    "roll": "max",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 2,
-            "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 8,
-            "group": 3,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 3,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -445,7 +422,163 @@
         },
         {
             "id": 9,
-            "group": 3,
+            "group": 8,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 8,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 7,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 17,
+            "group": 9,
+            "moveInfo": {
+                "name": "Reversal",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 9,
+            "moveInfo": {
+                "name": "Focus Energy",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 9,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 14,
+            "group": 10,
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 4,
@@ -470,166 +603,36 @@
             }
         },
         {
-            "id": 10,
-            "group": 3,
-            "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": false,
-                    "roll": "max",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 11,
-            "group": 3,
-            "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 12,
-            "group": 4,
-            "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 13,
-            "group": 4,
-            "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 14,
-            "group": 4,
-            "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": false,
-                    "roll": "max",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 15,
-            "group": 4,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 16,
             "group": 5,
             "moveInfo": {
-                "name": "Power Swap",
+                "name": "False Swipe",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 18,
+            "group": 11,
+            "moveInfo": {
+                "name": "Skill Swap",
                 "userID": 2,
                 "targetID": 1,
                 "options": {
@@ -652,10 +655,10 @@
             }
         },
         {
-            "id": 17,
-            "group": 6,
+            "id": 5,
+            "group": 4,
             "moveInfo": {
-                "name": "Aura Sphere",
+                "name": "Reversal",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -682,38 +685,53 @@
     "groups": [
         [
             0,
-            1
-        ],
-        [
-            2,
             3
         ],
         [
-            6,
-            7,
+            1
+        ],
+        [
+            2
+        ],
+        [
             4,
-            5
+            6
         ],
         [
-            8,
+            7
+        ],
+        [
+            11,
             9,
-            10,
-            11
+            10
         ],
         [
-            12,
+            12
+        ],
+        [
+            17,
             13,
-            14,
+            8
+        ],
+        [
+            14
+        ],
+        [
             15
         ],
         [
-            16
+            18
         ],
         [
-            17
+            5
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
         1,
         1,
         1,

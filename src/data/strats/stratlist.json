@@ -1,7 +1,13 @@
 {
     "Eevee": {
-        "Aura 101": "eevee/main",
-        "Giraffic Bark": "eevee/giraffic_bark"
+        "Giraffic Bark": "eevee/main",
+        "Aura 101": "eevee/aura101",
+        "Ostrich Carries Two": "eevee/espathra",
+        "Glimmana Duo": "eevee/glimmana",
+        "Eevee vs. Eevee": "eevee/eevee_vs_eevee",
+        "The Cat Coven": "eevee/cat_coven",
+        "Diamonds Are A Raider's Best Friend": "eevee/diamonds",
+        "Temper Tantrum": "eevee/temper_tantrum"
     },
     "Typhlosion-Hisui": {
         "Big Wave": "h_typhlosion/main",
@@ -21,6 +27,7 @@
         "Crit Hit Inteleon": "h_typhlosion/inteleon",
         "Hydro Cannon Mew": "h_typhlosion/mew",
         "The Quag-kening": "h_typhlosion/quagkening",
+        "Sinnoh Synergy": "h_typhlosion/sinnoh_synergy",
         "Cinch, Clinch, & Pinch": "h_typhlosion/pinch"
     },
     "Decidueye-Hisui": {

@@ -610,7 +610,7 @@ export class RaidMove {
     private applyFlinch() {
         const flinchChance = (this.moveData.flinchChance || 0) * (this._user.hasAbility("Serene Grace") ? 2 : 1);
         const ignoreAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze");
-        if (flinchChance && (this.options.secondaryEffects || flinchChance === 100)) {
+        if (flinchChance && (this.options.secondaryEffects || flinchChance >= 100)) {
             for (let id of this._affectedIDs) {
                 if (id === 0) { continue; }
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
@@ -634,7 +634,7 @@ export class RaidMove {
         // handle Curse
         if (this.move.name === "Curse" && this._raiders[this.userID].hasType("Ghost")) { return; } // no stat changes
         const chance = (this.moveData.statChance || 100) * (this._raiders[this.userID].hasAbility("Serene Grace") ? 2 : 1);
-        if (chance && (this.options.secondaryEffects || chance === 100 )) {
+        if (chance && (this.options.secondaryEffects || chance >= 100 )) {
             for (let id of affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
@@ -665,7 +665,7 @@ export class RaidMove {
     private applyAilment() {
         const ailment = this.moveData.ailment;
         const chance = (this.moveData.ailmentChance || 100) * (this._user.hasAbility("Serene Grace") ? 2 : 1);
-        if (ailment && (chance === 100 || this.options.secondaryEffects)) {
+        if (ailment && (chance >= 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);

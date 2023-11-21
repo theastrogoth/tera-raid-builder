@@ -448,6 +448,10 @@ export class RaidMove {
             moveUser.abilityOn = true;
             this._flags[this.userID].push("changed to the " + this.move.type + " type");
         }
+        // Spit Up / Stockpile check
+        if (this.moveData.name === "Spit Up" && !this._user.stockpile) {
+            this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this.targetID).name + " — " + this.move.name + " failed!";
+        }
         // calculate and apply damage
         let hasCausedDamage = false;
         for (let id of this._affectedIDs) {
@@ -1181,6 +1185,15 @@ export class RaidMove {
                 if (this._user.hasType("Ghost")) {
                     this._raidState.applyDamage(this.userID, this._user.maxHP() / 2, 0);
                     // (Ghost) Curse probably doesn't work in raids
+                }
+                break;
+            case "Stockpile":
+                this._user.stockpile = Math.min(3, this._user.stockpile + 1);
+                break;
+            case "Spit Up":
+                if (this._damage.reduce((a,b) => a + b, 0) > 0) {
+                    this._raidState.applyStatChange(this.userID, {def: -this._user.stockpile, spd: -this._user.stockpile}, false, true, false);
+                    this._user.stockpile = 0;
                 }
                 break;
             default: break;

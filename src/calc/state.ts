@@ -35,6 +35,7 @@ export namespace State {
     isPumped?: boolean;
     isMicle?: boolean;
     randomBoosts?: number;
+    stockpile?: number;
     originalCurHP?: number;
     status?: I.StatusName | '';
     volatileStatus?: string[];

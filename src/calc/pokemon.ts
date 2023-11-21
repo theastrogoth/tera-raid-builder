@@ -42,6 +42,7 @@ export class Pokemon implements State.Pokemon {
   isPumped: boolean;
   isMicle: boolean;
   randomBoosts: number;
+  stockpile: number;
   rawStats: I.StatsTable;
   stats: I.StatsTable;
 
@@ -101,6 +102,7 @@ export class Pokemon implements State.Pokemon {
     this.isPumped = !!options.isPumped;
     this.isMicle = !!options.isMicle;
     this.randomBoosts = options.randomBoosts || 0;
+    this.stockpile = options.stockpile || 0;
 
     // Gigantamax 'forms' inherit weight from their base species when not dynamaxed
     // TODO: clean this up with proper Gigantamax support
@@ -210,6 +212,7 @@ export class Pokemon implements State.Pokemon {
       isPumped: this.isPumped,
       isMicle: this.isMicle,
       randomBoosts: this.randomBoosts,
+      stockpile: this.stockpile,
       originalCurHP: this.originalCurHP,
       status: this.status,
       volatileStatus: this.volatileStatus,

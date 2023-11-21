@@ -10,7 +10,16 @@
     "healing": 0,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "change": 1
+        },
+        {
+            "stat": "spd",
+            "change": 1
+        }
+    ],
     "flinchChance": 0,
     "statChance": 0,
     "ailmentChance": 0,

@@ -236,7 +236,12 @@ export class RaidMove {
         const targetType = this.moveData.target
         const moveName = this.move.name;
         for (let id of this._affectedIDs) {
-            if (this.userID === id) { continue; }
+            if (this.userID === id) { 
+                if (moveName === "Stockpile" && this._user.stockpile === 3) {
+                    this._doesNotAffect[id] = "does not affect " + this.getPokemon(id).name;
+                }
+                continue; 
+            }
             const pokemon = this.getPokemon(id);
             const field = pokemon.field;
             // Status Moves blocked by Boss Shield
@@ -599,6 +604,12 @@ export class RaidMove {
                 this._healing[id] += roll === "min" ? Math.floor(maxHP * 0.2) : roll === "max" ? maxHP : Math.floor(maxHP * 0.6);
                 const pokemon = this.getPokemon(id);
                 pokemon.status = "";
+            } else if (this.move.name === "Swallow") {
+                // Swallow / Stockpile check
+                if (!target.stockpile) {
+                    this._desc[id] = target.name + " " + target.name + " — " + this.move.name + " failed!";
+                }
+                this._healing[id] += target.stockpile === 3 ? maxHP : Math.floor(maxHP * 0.25 * target.stockpile);
             } else {
                 const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100 / ((target.bossMultiplier || 100) / 100));
                 this._healing[id] += healAmount;
@@ -1192,6 +1203,12 @@ export class RaidMove {
                 break;
             case "Spit Up":
                 if (this._damage.reduce((a,b) => a + b, 0) > 0) {
+                    this._raidState.applyStatChange(this.userID, {def: -this._user.stockpile, spd: -this._user.stockpile}, false, true, false);
+                    this._user.stockpile = 0;
+                }
+                break;
+            case "Swallow":
+                if (this._healing.reduce((a,b) => a + b, 0) > 0) {
                     this._raidState.applyStatChange(this.userID, {def: -this._user.stockpile, spd: -this._user.stockpile}, false, true, false);
                     this._user.stockpile = 0;
                 }

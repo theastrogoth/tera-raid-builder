@@ -3,7 +3,7 @@ import { getEndOfTurn } from "../calc/desc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
-import { AbilityName, StatIDExceptHP } from "../calc/data/interface";
+import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
 import { isSuperEffective, pokemonIsGrounded, ailmentToStatus, hasNoStatus, getAccuracy } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
@@ -568,11 +568,67 @@ export class RaidMove {
         //         this._desc[this._affectedIDs[0]] = this._user.name + " used " + this.move.name + " on " + this.getPokemon(this._affectedIDs[0]).name + "!";
         //     }
         // }
-        // adjust tera charge and effects that are removed after attacking
-        if (this.moveData.category?.includes("damage")) {
+        if (this.moveData.category?.includes("damage") && hasCausedDamage) {
+            // adjust tera charge and effects that are removed after attacking
             this._fields[this.userID].attackerSide.isHelpingHand = false;
             if (this.move.type === "Electric") { this._fields[this.userID].attackerSide.isCharged = false; }
             if (hasCausedDamage) { this._user.teraCharge++; }
+            // contact checks
+            if (this.move.flags?.contact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
+                const target = this._raidState.raiders[this.targetID]; // All contact moves are single-target (?)
+                // abilities
+                const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
+                if (!attackerIgnoresAbility) {
+                    switch (this._raidState.raiders[this.targetID].ability) {
+                        case "Rough Skin":
+                        case "Iron Barbs":
+                            this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100)));
+                            break;
+                        case "Aftermath":
+                            if (target.originalCurHP === 0) {
+                                this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 4 / ((this._user.bossMultiplier || 100) / 100)));
+                            }
+                            break;
+                        case "Gooey":
+                        case "Tangling Hair":
+                            this._raidState.applyStatChange(this.userID, {spe: -1});
+                            break;
+                        case "Mummy":
+                            if (!persistentAbilities["unreplaceable"].includes(this._user.ability as AbilityName)) {
+                                this._user.ability = "Mummy" as AbilityName;
+                            }
+                            break;
+                        case "Wandering Spirit":
+                            if (!persistentAbilities["unreplaceable"].includes(this._user.ability as AbilityName)) {
+                                target.ability = this._user.ability;
+                                this._user.ability = "Wandering Spirit" as AbilityName;
+                            }
+                            break;
+                        case "Pickpocket":
+                            if (!target.item && this._user.item) {
+                                const item = this._user.item;
+                                this._raidState.loseItem(this.userID);
+                                this._raidState.recieveItem(this.targetID, item);
+                            }
+                            break;
+                        // TO DO: status-inflicting contact abilities. 
+                        default: break;
+                    }
+                }
+                // items
+                switch (target.item) {
+                    case "Rocky Helmet":
+                        this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 6 / ((this._user.bossMultiplier || 100) / 100)));
+                        break;
+                    case "Sticky Barb":
+                        if (!this._user.item) {
+                            this._raidState.loseItem(this.targetID);
+                            this._raidState.recieveItem(this.userID, "Sticky Barb" as ItemName);
+                        }
+                        break;
+                    default: break; 
+                }
+            }
         }
     }
 
@@ -625,7 +681,7 @@ export class RaidMove {
     private applyFlinch() {
         const flinchChance = (this.moveData.flinchChance || 0) * (this._user.hasAbility("Serene Grace") ? 2 : 1);
         const ignoreAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze");
-        if (flinchChance && (this.options.secondaryEffects || flinchChance === 100)) {
+        if (flinchChance && (this.options.secondaryEffects || flinchChance >= 100)) {
             for (let id of this._affectedIDs) {
                 if (id === 0) { continue; }
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
@@ -649,7 +705,7 @@ export class RaidMove {
         // handle Curse
         if (this.move.name === "Curse" && this._raiders[this.userID].hasType("Ghost")) { return; } // no stat changes
         const chance = (this.moveData.statChance || 100) * (this._raiders[this.userID].hasAbility("Serene Grace") ? 2 : 1);
-        if (chance && (this.options.secondaryEffects || chance === 100 )) {
+        if (chance && (this.options.secondaryEffects || chance >= 100 )) {
             for (let id of affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
@@ -680,7 +736,7 @@ export class RaidMove {
     private applyAilment() {
         const ailment = this.moveData.ailment;
         const chance = (this.moveData.ailmentChance || 100) * (this._user.hasAbility("Serene Grace") ? 2 : 1);
-        if (ailment && (chance === 100 || this.options.secondaryEffects)) {
+        if (ailment && (chance >= 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
@@ -1179,6 +1235,7 @@ export class RaidMove {
             case "Syrup Bomb":
                 if (!target.syrupBombDrops) {
                     target.syrupBombDrops = 3;
+                    target.syrupBombSource = this.userID;
                     this._flags[this.targetID].push("Covered in Sticky Syrup!");
                 }
                 break;

@@ -914,7 +914,7 @@ describe('OHKO tests, Alternative Strats', () => {
     await testOHKO(module as LightBuildInfo);
   })
   test('eevee/wigglytuff', async () => {
-    const module = await import(`./data/strats/eevee/wigglytuff.json`)
+    const module = await import(`./data/strats/eevee/tuff_pill_to_swallow.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('eevee/light_speed', async () => {

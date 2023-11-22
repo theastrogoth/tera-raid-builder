@@ -496,7 +496,9 @@ export class RaidTurn {
             const pokemon = this._raidState.raiders[id];
             switch (pokemon.ability) {
                 case "Speed Boost":
+                    const origSpe = pokemon.boosts.spe || 0;
                     this._raidState.applyStatChange(id, {"spe": 1}, true, true, false);
+                    this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
                     break;
                 default: break;
             }

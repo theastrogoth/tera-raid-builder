@@ -1220,6 +1220,7 @@ export class RaidMove {
             case "Syrup Bomb":
                 if (!target.syrupBombDrops) {
                     target.syrupBombDrops = 3;
+                    target.syrupBombSource = this.userID;
                     this._flags[this.targetID].push("Covered in Sticky Syrup!");
                 }
                 break;

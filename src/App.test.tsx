@@ -622,6 +622,27 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].results[1].desc[0].includes("Choice Specs")).toEqual(true);
     expect(result.turnResults[2].state.raiders[1].isCharging).toEqual(false);
   })
+  test('syrup-bomb', async() => {
+    const hash = "#H4sIAAAAAAAAA9VUTW8aMRD9K8inVPKBBdI23CBUhQOtFLit9mB2Zxc3XnvlDxoU8d874/1IWqVqekilCmsYj2ee3xt7/chKNmf5N2c048yzeZqOOdOiBpZxcmVBTsJZcGA3K0oStgIfXdN4abSjjAlnlTWhwWhtTrDRpUH3YJzb9tMWMLfS44qD3OhC2POnsoTcOwxZoxT+HaV3Xe6R4IS/R1tASVWNiLaIFoa0vZVVBZbYyRqeZu4oQRW3QuegVqIWFQzBdnon/EuhPVjxm/DtUegKuqZo44Go5xYKGUU05h7qtpnBaorEtkR90ICISS4cnJc+UHHbO9ROPGLj4776TNIPUklPnvRQx3VEpQw4EY6MVsEJqHEe2e3PDXRH4Pr+B+Vlo2RsCDx4K7bdai/PC5ZlnJ3Y/JHhDfjIGetGGgM3HJt8J2QxWiIeLqyCy5UhUaVQDji7+mJGi5bsO8Z1UIqztbAFUo8I7xFh+GWXPjhNfhm4lIzHLUDKFs4bLd0Re0TRNGvrPvwM1sPdcDyQlWxQKrV/8N6U4u5sQ4NtqQ+45WdrvvtXs8VT/2rxLgUb2HP3Rb5sJ70NbrQEa+k+LI0qBuKT6wmCt/ZvyG+0Q9Dcv5bx9L9jPONsG+j5iPbf8Vzk+LHsGisIcQ2qkboarYUu/kQ86z65WQxFF7v+/JYlffy609OpqumuJ0/isexqa5wfxecL90etY6zualEztIbV4gEr2+274hkmJgNOd6/femvUno7pXc3i4zqlecb7kWWXyw/ZWnjargYAAA==";
+    const result = await resultsFromHash(hash);
+    // T1: Dipplin uses Syrup Bomb, condition applied
+    expect(result.turnResults[0].results[0].state.raiders[0].syrupBombSource).toEqual(1);
+    expect(result.turnResults[0].results[0].state.raiders[0].syrupBombDrops).toEqual(3);
+    expect(result.turnResults[0].state.raiders[0].syrupBombDrops).toEqual(2);
+    expect(result.turnResults[0].state.raiders[0].boosts.spe).toEqual(-1);
+    // T2-3: Syrup Bomb drops are applied at the end of the turn
+    expect(result.turnResults[1].results[0].state.raiders[0].syrupBombSource).toEqual(1);
+    expect(result.turnResults[1].results[0].state.raiders[0].syrupBombDrops).toEqual(2);
+    expect(result.turnResults[1].state.raiders[0].syrupBombDrops).toEqual(1);
+    expect(result.turnResults[1].state.raiders[0].boosts.spe).toEqual(-2);
+    expect(result.turnResults[2].results[0].state.raiders[0].syrupBombSource).toEqual(1);
+    expect(result.turnResults[2].results[0].state.raiders[0].syrupBombDrops).toEqual(1);
+    expect(result.turnResults[2].state.raiders[0].syrupBombDrops).toEqual(0);
+    expect(result.turnResults[2].state.raiders[0].boosts.spe).toEqual(-3);
+    // T4: Syrup Bomb drops no longer occur
+    expect(result.turnResults[3].state.raiders[0].syrupBombDrops).toEqual(0);
+    expect(result.turnResults[3].state.raiders[0].boosts.spe).toEqual(-3);
+  })
 })
 
 

@@ -37,9 +37,16 @@
             "extraMoves": [
                 "Growth",
                 "Boomburst",
-                "Bulk Up",
-                "(No Move)"
-            ]
+                "Bulk Up"
+            ],
+            "shieldData": {
+                "hpTrigger": 85,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 30,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
         },
         {
             "id": 1,

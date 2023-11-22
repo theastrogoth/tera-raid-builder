@@ -32,13 +32,16 @@ function moveResultText(name: string, flags: string[]) {
 }
 
 function moveResultDisplay(state: RaidState, moveResult: RaidMoveResult) {
-    const desc = moveResult.desc.filter((s) => s !== "")[0];
+    const hasDesc = moveResult.desc.map((d) => d !== "" && d !== undefined);
     const texts = state.raiders.map((r,i) => moveResultText(state.raiders[i].role, moveResult.flags[i]));
     return (
         <Stack direction="column" spacing={0}>
-            {
-                desc === "" ? <></> :
-                <CopyTextButton text={desc}></CopyTextButton>
+            { hasDesc.map((hasd, idx) => {
+                const desc = moveResult.desc[idx];
+                return ( hasd ? 
+                    <CopyTextButton text={desc}></CopyTextButton>
+                    : <></>);
+                })
             }
             {
                 texts.map((text, idx) => (

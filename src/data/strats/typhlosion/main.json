@@ -1,5 +1,5 @@
 {
-    "name": "Official OHKO Typhlosion Strategy",
+    "name": "AP Krook",
     "notes": "",
     "credits": "r/PokemonScarletViolet Event Raid Support Team",
     "pokemon": [
@@ -36,8 +36,16 @@
         "bossMultiplier": 3000,
         "extraMoves": [
           "Sunny Day",
-          "Will-O-Wisp"
-        ]
+          "Eruption"
+        ],
+        "shieldData": {
+          "hpTrigger": 80,
+          "timeTrigger": 80,
+          "shieldCancelDamage": 30,
+          "shieldDamageRate": 20,
+          "shieldDamageRateTera": 70,
+          "shieldDamageRateTeraChange": 30
+        }
       },
       {
         "id": 1,

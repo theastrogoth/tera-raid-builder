@@ -1,9 +1,9 @@
 import { Move, Field, Pokemon, Generations } from "../calc";
-import { AilmentName, RaidTurnInfo } from "./interface";
+import { AilmentName, MoveData, RaidTurnInfo } from "./interface";
 import { Raider } from "./Raider";
 import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
-import { get } from "http";
+import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 
 const gen = Generations.get(9);
 
@@ -26,7 +26,7 @@ export function hasNoStatus(pokemon: Pokemon) {
 export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender: Pokemon) {
     if (!move.type) {return false; }
     const isGhostRevealed =
-    attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
+    attacker.hasAbility('Scrappy') || attacker.hasAbility("Mind's Eye") || field.defenderSide.isForesight;
     const isRingTarget =
       defender.hasItem('Ring Target') && !defender.hasAbility('Klutz');
     const type1Effectiveness = getMoveEffectiveness(
@@ -57,7 +57,7 @@ export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, de
         isRingTarget
       ) : 1;
       
-    let typeEffectiveness = type1Effectiveness * type2Effectiveness;
+    let typeEffectiveness = type1Effectiveness * type2Effectiveness * type3Effectiveness;
   
     if (defender.isTera && defender.teraType) {
       typeEffectiveness = getMoveEffectiveness(
@@ -96,6 +96,129 @@ export function getBoostCoefficient(pokemon: Pokemon) {
 
 export function safeStatStage(value: number) {
     return Math.max(-6, Math.min(6, value));
+}
+
+export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, number, string[]] {
+    // returns [accuracy (0-100), BP modifier]
+    
+    const movename = movedata.name;
+    // Toxic NEVER misses if used by a poison type
+    if (movename === "Toxic" && attacker.hasType("Poison")) {
+        return [100,1,[]];
+    }
+    // semi-invulnerable moves
+    if (defender.isCharging && defender.lastMove) {
+        if (["Bounce","Fly","Sky Drop"].includes(defender.lastMove.name)) {
+            if (["Gust", "Twister"].includes(movename)) {
+                return [100,2,[]];
+            } else if (["Hurricane", "Sky Uppercut", "Smack Down", "Thunder", "Thousand Arrows"].includes(movename)) {
+                return [100,1,[]];
+            } else {
+                return [0,1,[]];
+            }
+        } else if (defender.lastMove.name === "Dig") {
+            if (["Earthquake", "Magnitude"].includes(movename)) {
+                return [100,2,[]];
+            } else if (movename === "Fissure") {
+                return [100,1,[]];
+            } else {
+                return [0,1,[]];
+            }
+        } else if (defender.lastMove.name === "Dive") {
+            if (["Surf", "Whirlpool"].includes(movename)) {
+                return [100,2,[]];
+            } else {
+                return [0,1,[]];
+            }
+        }
+    }
+    // guaranteed hit moves
+    if (
+        !movedata.accuracy || 
+        (attacker.lastMove && attacker.lastMove.name === "Lock-On") ||
+        (attacker.field.hasWeather("Rain") && ["Thunder","Hurricane"].includes(movename)) ||
+        (attacker.field.hasWeather("Snow","Hail") && movename === "Blizzard") ||
+        guaranteedHitMoves.includes(movename)
+    ) {
+        return [100,1,[]];
+    }
+
+    let baseAccuracy = movedata.accuracy;
+
+    let weatherMod = false;
+    // weather modifiers
+    if (attacker.field.hasWeather("Sun") && ["Hurricane","Thunder"].includes(movename)) {
+        baseAccuracy = 50;
+        weatherMod = true;
+    }
+
+    const accStage = attacker.boosts.acc || 0;
+    const evaStage = defender.boosts.eva || 0;
+    const calcStage = Math.max(-6, Math.min(6, accStage - evaStage));
+
+    const accMod = calcStage >= 0 ? ((calcStage + 3)/3) : (3/(3 - calcStage)); 
+
+    let accuracy = baseAccuracy * accMod;
+    let effects: string[] = []
+    if (accStage) {
+        effects.push('Acc ' + (accStage > 0 ? '+' : '') + accStage);
+    }
+    if (evaStage) {
+        effects.push('Eva ' + (evaStage > 0 ? '+' : '') + evaStage);
+    }
+
+    // item modifiers
+    if (attacker.hasItem("Wide Lens")) {
+        accuracy *= 4505/4096;
+        effects.push("Wide Lens");
+    } else if (attacker.hasItem("Zoom Lens") && movesSecond && (attacker.id === 0 || defender.id === 0)) {
+        accuracy *= 4915/4096;
+        effects.push("Zoom Lens");
+    }
+    if (defender.hasItem("Bright Powder") || defender.hasItem("Lax Incense")) {
+        accuracy *= 3686/409;
+        effects.push(defender.item!);
+    }
+
+    // ability modifiers
+    if (attacker.hasAbility("Compound Eyes")) {
+        accuracy *= 5325/4096;
+        effects.push("Compound Eyes");
+    } else if (attacker.hasAbility("Hustle") && category === "Physical") {
+        accuracy *= 3277/4096;
+        effects.push("Hustle");
+    }
+    if (!attackerIgnoresAbility) {
+        if (defender.hasAbility("Tangled Feet") && defender.volatileStatus.includes("confusion")) {
+            accuracy *= 0.5;
+            effects.push("Tangled Feet");
+        }
+    }
+    // field modifiers
+    if (attacker.field.isGravity) {
+        accuracy *= 6840/4096;
+        effects.push("Gravity");
+    }
+    if (!attackerIgnoresAbility && defender.field.hasWeather("Sand") && !defender.field.isCloudNine && defender.hasAbility("Sand Veil")) {
+        accuracy *= 3277/4096;
+        effects.push("Sand Veil");
+    }
+    if (!attackerIgnoresAbility && defender.field.hasWeather("Hail", "Snow") && !defender.field.isCloudNine && defender.hasAbility("Snow Cloak")) {
+        accuracy *= 3277/4096;
+        effects.push("Snow Cloak");
+    }
+
+    // Micle Berry
+    if (attacker.isMicle) {
+        accuracy *= 4915/4096;
+        effects.push("Micle Berry");
+    }
+
+    if (weatherMod) {
+        effects.push("reduced accuracy in Sun")
+    }
+
+    return [accuracy, 1, effects];
 }
 
 // Speed modifiers

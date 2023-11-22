@@ -1,12 +1,13 @@
 {
-    "name": "BONK! A 2-Turn 7⭐ Delphox OHKO",
+    "name": "BONK!",
     "notes": "",
     "credits": "r/PokePortal Event Raid Support Team",
     "pokemon": [
         {
             "id": 0,
-            "role": "Event Delphox",
+            "role": "Delphox",
             "name": "Delphox",
+            "shiny": false,
             "ability": "Magician",
             "nature": "Timid",
             "evs": {
@@ -36,13 +37,23 @@
             "bossMultiplier": 3000,
             "extraMoves": [
                 "Dazzling Gleam",
-                "Magic Room"
-            ]
+                "Magic Room",
+                "Nasty Plot"
+            ],
+            "shieldData": {
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 35
+            }
         },
         {
             "id": 1,
-            "role": "Tink",
+            "role": "Tinkaton",
             "name": "Tinkaton",
+            "shiny": false,
             "ability": "(No Ability)",
             "item": "Life Orb",
             "nature": "Adamant",
@@ -68,12 +79,21 @@
                 "Gigaton Hammer"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 2,
-            "role": "Peli",
+            "role": "Pelipper",
             "name": "Pelipper",
+            "shiny": false,
             "ability": "Drizzle",
             "nature": "Calm",
             "evs": {
@@ -97,12 +117,21 @@
                 "Helping Hand"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 3,
-            "role": "Corv 1",
+            "role": "Screecher",
             "name": "Corviknight",
+            "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
             "nature": "Sassy",
@@ -127,12 +156,21 @@
                 "Screech"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 4,
-            "role": "Corv 2",
+            "role": "Screecher",
             "name": "Corviknight",
+            "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
             "nature": "Sassy",
@@ -157,12 +195,21 @@
                 "Screech"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
         {
-            "id": 8,
+            "id": 0,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -185,8 +232,8 @@
             }
         },
         {
-            "id": 0,
-            "group": 0,
+            "id": 1,
+            "group": 1,
             "moveInfo": {
                 "name": "Swords Dance",
                 "userID": 1,
@@ -196,7 +243,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Will-O-Wisp",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -205,8 +252,8 @@
             }
         },
         {
-            "id": 1,
-            "group": 0,
+            "id": 2,
+            "group": 1,
             "moveInfo": {
                 "name": "Helping Hand",
                 "userID": 2,
@@ -216,7 +263,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Will-O-Wisp",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 2,
                 "options": {
@@ -225,8 +272,8 @@
             }
         },
         {
-            "id": 2,
-            "group": 0,
+            "id": 3,
+            "group": 1,
             "moveInfo": {
                 "name": "Screech",
                 "userID": 3,
@@ -236,29 +283,9 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Will-O-Wisp",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 3,
-                "options": {
-                    "roll": "max"
-                }
-            }
-        },
-        {
-            "id": 3,
-            "group": 0,
-            "moveInfo": {
-                "name": "Screech",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "roll": "min"
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Will-O-Wisp",
-                "userID": 0,
-                "targetID": 4,
                 "options": {
                     "roll": "max"
                 }
@@ -268,6 +295,26 @@
             "id": 4,
             "group": 1,
             "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "roll": "min"
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 4,
+                "options": {
+                    "roll": "max"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 2,
+            "moveInfo": {
                 "name": "Heal Cheer",
                 "userID": 3,
                 "targetID": 3,
@@ -276,7 +323,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Psychic",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 3,
                 "options": {
@@ -286,8 +333,8 @@
             }
         },
         {
-            "id": 5,
-            "group": 1,
+            "id": 6,
+            "group": 2,
             "moveInfo": {
                 "name": "Heal Cheer",
                 "userID": 4,
@@ -297,7 +344,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Psychic",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 4,
                 "options": {
@@ -307,7 +354,8 @@
             }
         },
         {
-            "id": 6,
+            "id": 7,
+            "group": 4,
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 2,
@@ -317,7 +365,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Psychic",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 2,
                 "options": {
@@ -327,7 +375,8 @@
             }
         },
         {
-            "id": 7,
+            "id": 8,
+            "group": 5,
             "moveInfo": {
                 "name": "Gigaton Hammer",
                 "userID": 1,
@@ -337,7 +386,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 0
             }
@@ -345,14 +394,163 @@
     ],
     "groups": [
         [
-            0,
-            1,
-            2,
-            3
+            0
         ],
         [
-            4,
-            5
+            1,
+            2,
+            3,
+            4
+        ],
+        [
+            5,
+            6
+        ],
+        [
+            7
+        ],
+        [
+            8
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Zacian",
+                    "name": "Zacian-Crowned",
+                    "shiny": true,
+                    "ability": "Intrepid Sword",
+                    "item": "Rusted Sword",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Swords Dance",
+                        "Behemoth Blade"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Swords Dance",
+                    "Behemoth Blade"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        [],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Screecher",
+                    "name": "Muk-Alola",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 252,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Heal Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Screecher",
+                    "name": "Muk-Alola",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 252,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Heal Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            }
         ]
     ]
 }

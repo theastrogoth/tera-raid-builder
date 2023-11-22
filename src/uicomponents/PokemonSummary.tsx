@@ -11,8 +11,8 @@ import StatRadarPlot from "./StatRadarPlot";
 import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL } from "../utils";
-import { MoveSetItem } from "../raidcalc/interface";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getTranslation } from "../utils";
+import { MoveSetItem, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { MOVES } from "../calc/data/moves";
 import { Raider } from "../raidcalc/Raider";
 import { AbilityName, MoveName } from "../calc/data/interface";
@@ -20,25 +20,35 @@ import { AbilityName, MoveName } from "../calc/data/interface";
 const gen = Generations.get(9); // we will only use gen 9
 const allMoves = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.substring(0,3) !== "Max" && m.substring(0,5) !== "G-Max" && m !== "Dynamax Cannon");
 
-export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (r: Raider) => void}) {
+export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
     const [str, setStr] = useState(pokemon.role);
     const roleRef = useRef(pokemon.role);
-    const nameRef = useRef(pokemon.name);
+    const nameRef = useRef(pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
+    const [nameIsRaidBoss, setNameIsRaidBoss] = useState(pokemon.role === "Raid Boss");
+    
+    const speciesName = pokemon.species.baseSpecies || pokemon.name;
+    const translatedName = getTranslation(speciesName, translationKey, "pokemon");
 
     useEffect(() => {
         if (roleRef.current !== pokemon.role) {
             roleRef.current = pokemon.role;
+            setNameIsRaidBoss(false);
             if (pokemon.role !== str) {
                 setStr(pokemon.role);
             }
-        } else if (nameRef.current !== pokemon.name) {
-            nameRef.current = pokemon.name;
-            const name = pokemon.species.baseSpecies || pokemon.name; // some regional forms have long names
-            setRole(name);
-            setStr(name);
+            nameRef.current = translatedName;
+        } else if (nameIsRaidBoss) {
+            const rbTranslated = getTranslation("Raid Boss", translationKey);
+            setRole(rbTranslated);
+            setStr(rbTranslated);
+        } else if ((nameRef.current !== translatedName) && ((str === "") || (str === nameRef.current as string))) {
+            nameRef.current = translatedName;
+            roleRef.current = translatedName;
+            setRole(translatedName);
+            setStr(translatedName);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pokemon.role, pokemon.name])
+    }, [pokemon.role, pokemon.name, translationKey])
 
     const setRole = (r: string) => {
         const newPoke = pokemon.clone();
@@ -59,7 +69,10 @@ export function RoleField({pokemon, setPokemon}: {pokemon: Raider, setPokemon: (
     )
 }
 
-function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean}) {
+function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, setSubstitutes, prettyMode, translationKey}: 
+    {pokemon: Raider, setPokemon: (r: Raider) => void, groups: TurnGroupInfo[], setGroups: (g: TurnGroupInfo[]) => void, 
+     substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, prettyMode: boolean, translationKey: any}) {
+
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
   
@@ -75,7 +88,8 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
         const set = moves.map(md => {
             const move = gen.moves.get(toID(md.name));
             return {
-                name: md.name,
+                name: getTranslation(md.name, translationKey, "moves"),
+                engName: md.name,
                 method: md.learnMethod,
                 type: move ? (move.type || "Normal") : "Normal",
             }
@@ -91,9 +105,9 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
     return (
         <Box>
             <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
-                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "640px" : "800px"} sx={{ marginTop: 1 }} >
+                <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "666px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} width="90%">
-                        <RoleField pokemon={pokemon} setPokemon={setPokemon} />
+                        <RoleField pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />
                     </Box>
                     <Box width="100%" marginTop="10px" display="flex" justifyContent="center">
                         <Box width="50px" position="relative" display="flex" flexDirection="column" alignItems="center" marginRight="5px">
@@ -167,9 +181,20 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
                             </Box>
                         </Box>
                     </Box>
-                    <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode}/>
+                    <BuildControls 
+                        pokemon={pokemon} 
+                        abilities={abilities} 
+                        moveSet={moveSet} 
+                        setPokemon={setPokemon} 
+                        groups={groups} 
+                        setGroups={setGroups} 
+                        substitutes={substitutes} 
+                        setSubstitutes={setSubstitutes} 
+                        prettyMode={prettyMode}
+                        translationKey={translationKey}
+                    />
                     <Box flexGrow={1} />
-                    <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} />
+                    <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} translationKey={translationKey} />
                     {/* <Box flexGrow={1} /> */}
                 </Stack>
             </Paper>
@@ -180,5 +205,8 @@ function PokemonSummary({pokemon, setPokemon, prettyMode}: {pokemon: Raider, set
 export default React.memo(PokemonSummary, 
     (prevProps, nextProps) => (
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
-        prevProps.prettyMode === nextProps.prettyMode)
+        JSON.stringify(prevProps.substitutes) === JSON.stringify(nextProps.substitutes) &&
+        prevProps.prettyMode === nextProps.prettyMode &&
+        prevProps.translationKey === nextProps.translationKey
+    )
     );

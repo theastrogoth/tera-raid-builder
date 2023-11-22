@@ -1,0 +1,713 @@
+{
+    "name": "Seeing Red",
+    "notes": "Supporters should try to move quickly so that Tauros can attack before the stat clear.",
+    "credits": "the Poké Portal Team",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Raid Boss",
+            "name": "Decidueye-Hisui",
+            "shiny": false,
+            "ability": "Scrappy",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "teraType": "Grass",
+            "moves": [
+                "Triple Arrows",
+                "Brave Bird",
+                "Shadow Claw",
+                "Leaf Blade"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Bulk Up",
+                "Swords Dance",
+                "Grassy Terrain",
+                "Leaf Storm"
+            ],
+            "shieldData": {
+                "hpTrigger": 60,
+                "timeTrigger": 60,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Tauros",
+            "name": "Tauros-Paldea-Blaze",
+            "shiny": false,
+            "ability": "Anger Point",
+            "item": "Choice Band",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "Flare Blitz"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 2,
+            "role": "Honchkrow",
+            "name": "Honchkrow",
+            "shiny": false,
+            "ability": "Super Luck",
+            "item": "Scope Lens",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "Night Slash"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 3,
+            "role": "Torkoal",
+            "name": "Torkoal",
+            "shiny": false,
+            "ability": "Drought",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "moves": [
+                "Helping Hand"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 4,
+            "role": "Stonjourner",
+            "name": "Stonjourner",
+            "shiny": false,
+            "ability": "Power Spot",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "moves": [],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Night Slash",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "max",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Flare Blitz",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0,
+            2,
+            1
+        ],
+        [
+            3
+        ]
+    ],
+    "repeats": [
+        1,
+        1
+    ],
+    "substitutes": [
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Camerupt",
+                    "name": "Camerupt",
+                    "shiny": true,
+                    "ability": "Anger Point",
+                    "item": "Choice Band",
+                    "nature": "Impish",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 172,
+                        "def": 172,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 164
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Heat Crash"
+                    ]
+                },
+                "substituteMoves": [
+                    "Heat Crash"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Meowscarada",
+                    "name": "Meowscarada",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Focus Sash",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 50,
+                    "moves": [
+                        "Flower Trick"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flower Trick"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Samurott",
+                    "name": "Samurott",
+                    "shiny": true,
+                    "ability": "Shell Armor",
+                    "item": "Lansat Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 0
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Night Slash"
+                    ]
+                },
+                "substituteMoves": [
+                    "Night Slash"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Crawdaunt",
+                    "name": "Crawdaunt",
+                    "shiny": true,
+                    "ability": "Shell Armor",
+                    "item": "Lansat Berry",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Night Slash"
+                    ]
+                },
+                "substituteMoves": [
+                    "Night Slash"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "VictreeBel",
+                    "name": "VictreeBel",
+                    "shiny": true,
+                    "ability": "Gluttony",
+                    "item": "Lansat Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 0
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Razor Leaf"
+                    ]
+                },
+                "substituteMoves": [
+                    "Razor Leaf"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Vulpix",
+                    "name": "Vulpix",
+                    "shiny": true,
+                    "ability": "Drought",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "moves": [
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Ninetales",
+                    "name": "Ninetales",
+                    "shiny": true,
+                    "ability": "Drought",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "moves": [
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Scovillain",
+                    "name": "Scovillain",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Spicy Extract"
+                    ]
+                },
+                "substituteMoves": [
+                    "Spicy Extract"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Umbreon",
+                    "name": "Umbreon",
+                    "shiny": true,
+                    "ability": "Inner Focus",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Venonat",
+                    "name": "Venonat",
+                    "shiny": true,
+                    "ability": "Compound Eyes",
+                    "item": "Focus Sash",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 68
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Yanma",
+                    "name": "Yanma",
+                    "shiny": true,
+                    "ability": "Compound Eyes",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }           
+        ]
+    ]
+}

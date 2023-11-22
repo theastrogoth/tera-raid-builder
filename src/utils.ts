@@ -1,3 +1,4 @@
+import { string } from "yargs";
 import { StatsTable } from "./calc";
 
 const SPECIAL_NAMES = {
@@ -61,6 +62,7 @@ const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {
     if (name === "Flabébé") { return "flabebe"; } // ugh
+    if (name.includes("Arceus")) { return "arceus"; }
     return name.replaceAll(' ','_').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
 }
 
@@ -130,6 +132,18 @@ export function getLearnMethodReadableName(learnMethod: string) {
     )
 }
 
+export function getStatusReadableName(status: string) {
+    return (
+        status === "slp" ? "Asleep" :
+        status === "psn" ? "Poisoned" :
+        status === "brn" ? "Burned" :
+        status === "frz" ? "Frozen" : 
+        status === "par" ? "Paralyzed" : 
+        status === "tox" ? "Toxic" :
+        "???"
+    )
+}
+
 export function getStatReadableName(stat: string) {
     return (
         stat === "hp" ? "HP" :
@@ -138,8 +152,15 @@ export function getStatReadableName(stat: string) {
         stat === "spa" ? "SpAtk" :
         stat === "spd" ? "SpDef" :
         stat === "spe" ? "Speed" :
+        stat === "acc" ? "Acc" :
+        stat === "eva" ? "Eva" :
         "???"
     )
+}
+
+export function getStatOrder(stat: string) {
+    const order = ["hp", "atk", "def", "spa", "spd", "spe", "acc", "eva"];
+    return order.indexOf(stat);
 }
 
 export function getEVDescription(evs: StatsTable) {
@@ -148,8 +169,32 @@ export function getEVDescription(evs: StatsTable) {
 }
 
 export function getIVDescription(ivs: StatsTable) {
+    if (ivs.hp === 13) {
+        return "Untrained"
+    }
     const filteredPairs = Object.entries(ivs).filter(([key, value]) => value !== 31);
     return filteredPairs.length === 0 ? "All Hypertrained" : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
+}
+export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {
+    if (!translationKey) { return word; }
+    if (!translationKey[translationCategory]) { return word; }
+    return translationKey[translationCategory][word] || word;
+}
+
+export function getTranslationWithoutCategory(word: string, translationKey: any) {
+    if (!translationKey) { return word; }
+    for (const category in translationKey) {
+        if (translationKey[category][word]) {
+            return translationKey[category][word];
+        }
+    }
+    return word;
+}
+
+export function convertCamelCaseToWords(input: string): string {
+    const words = input.replace(/([a-z])([A-Z])/g, '$1 $2');  
+    const capitalizedWords = words.replace(/\b\w/g, (match) => match.toUpperCase());
+    return capitalizedWords;
 }
 
 export function arraysEqual(a: any[], b: any[]) {

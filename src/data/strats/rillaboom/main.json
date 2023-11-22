@@ -7,6 +7,7 @@
             "id": 0,
             "role": "Rilla Kong",
             "name": "Rillaboom",
+            "shiny": false,
             "ability": "Grassy Surge",
             "nature": "Jolly",
             "evs": {
@@ -38,12 +39,21 @@
                 "Growth",
                 "Boomburst",
                 "Bulk Up"
-            ]
+            ],
+            "shieldData": {
+                "hpTrigger": 85,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 30,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
         },
         {
             "id": 1,
             "role": "Korzilla",
             "name": "Koraidon",
+            "shiny": false,
             "ability": "Orichalcum Pulse",
             "item": "Life Orb",
             "nature": "Adamant",
@@ -69,12 +79,21 @@
                 "Collision Course"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 2,
-            "role": "Arcanine",
+            "role": "Atk Debuff",
             "name": "Arcanine",
+            "shiny": false,
             "ability": "Intimidate",
             "item": "Covert Cloak",
             "nature": "Jolly",
@@ -100,12 +119,21 @@
                 "Helping Hand"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 3,
-            "role": "Corviknight",
+            "role": "Screecher",
             "name": "Corviknight",
+            "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
             "nature": "Relaxed",
@@ -130,12 +158,21 @@
                 "Screech"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 4,
-            "role": "Umbreon",
+            "role": "Screecher",
             "name": "Umbreon",
+            "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
             "nature": "Relaxed",
@@ -160,12 +197,21 @@
                 "Screech"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
         {
             "id": 8,
+            "group": 2,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -189,6 +235,7 @@
         },
         {
             "id": 0,
+            "group": 3,
             "moveInfo": {
                 "name": "Charm",
                 "userID": 2,
@@ -198,7 +245,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Body Slam",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -219,7 +266,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Low Kick",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 2,
                 "options": {
@@ -240,7 +287,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Drum Beating",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 3,
                 "options": {
@@ -261,7 +308,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Acrobatics",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 4,
                 "options": {
@@ -282,7 +329,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Body Slam",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 3,
                 "options": {
@@ -303,7 +350,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Low Kick",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 4,
                 "options": {
@@ -324,7 +371,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Drum Beating",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 2,
                 "options": {
@@ -335,6 +382,7 @@
         },
         {
             "id": 7,
+            "group": 4,
             "moveInfo": {
                 "name": "Collision Course",
                 "userID": 1,
@@ -344,7 +392,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
@@ -355,6 +403,12 @@
     ],
     "groups": [
         [
+            8
+        ],
+        [
+            0
+        ],
+        [
             1,
             2,
             3
@@ -363,6 +417,261 @@
             4,
             5,
             6
+        ],
+        [
+            7
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Atk Debuff",
+                    "name": "Drifblim",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Flame Orb",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 212,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 44
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Fling",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Atk Debuff",
+                    "name": "Skeledirge",
+                    "shiny": true,
+                    "ability": "Unaware",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Screecher",
+                    "name": "Persian-Alola",
+                    "shiny": true,
+                    "ability": "Fur Coat",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 0
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    4
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Screecher",
+                    "name": "Umbreon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    4
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Screecher",
+                    "name": "Persian-Alola",
+                    "shiny": true,
+                    "ability": "Fur Coat",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Screecher",
+                    "name": "Corviknight",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    2
+                ]
+            }
         ]
     ]
 }

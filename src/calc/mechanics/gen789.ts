@@ -19,6 +19,7 @@ import {
   checkAirLock,
   checkDauntlessShield,
   checkDownload,
+  checkEmbody,
   checkForecast,
   checkInfiltrator,
   checkIntimidate,
@@ -65,6 +66,8 @@ export function calculateSMSSSV(
   checkSeedBoost(defender, field);
   checkDauntlessShield(attacker, gen);
   checkDauntlessShield(defender, gen);
+  checkEmbody(attacker, gen);
+  checkEmbody(defender, gen);
 
   computeFinalStats(gen, attacker, defender, field, 'def', 'spd', 'spe');
 
@@ -136,10 +139,11 @@ export function calculateSMSSSV(
     }
   }
 
+  const critStages = (move.highCritChance ? 1 : 0) + (attacker.isPumped ? 2 : 0) + (attacker.hasAbility("Super Luck") ? 1 : 0) + (attacker.hasItem("Scope Lens", "Razor Claw") ? 1 : 0);
   // Merciless does not ignore Shell Armor, damage dealt to a poisoned Pokemon with Shell Armor
   // will not be a critical hit (UltiMario)
   const isCritical = !defender.hasAbility('Battle Armor', 'Shell Armor') &&
-    (move.isCrit || (attacker.hasAbility('Merciless') && defender.hasStatus('psn', 'tox'))) &&
+    ((move.isCrit || critStages >= 3) || (attacker.hasAbility('Merciless') && defender.hasStatus('psn', 'tox'))) &&
     move.timesUsed === 1;
 
   let type = move.type;
@@ -190,6 +194,14 @@ export function calculateSMSSSV(
     } else if (attacker.named('Tauros-Paldea-Blaze')) {
       type = 'Fire';
     } else if (attacker.named('Tauros-Paldea-Aqua')) {
+      type = 'Water';
+    }
+  } else if (move.named('Ivy Cudgel')) {
+    if (attacker.name.includes('Ogerpon-Cornerstone')) {
+      type = 'Rock';
+    } else if (attacker.name.includes('Ogerpon-Hearthflame')) {
+      type = 'Fire';
+    } else if (attacker.name.includes('Ogerpon-Wellspring')) {
       type = 'Water';
     }
   }
@@ -251,7 +263,8 @@ export function calculateSMSSSV(
   }
 
   const isGhostRevealed =
-    attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
+    attacker.hasAbility('Scrappy') || attacker.hasAbility("Mind's Eye") ||
+      field.defenderSide.isForesight;
   const isRingTarget =
     defender.hasItem('Ring Target') && !defender.hasAbility('Klutz');
   const type1Effectiveness = getMoveEffectiveness(
@@ -468,10 +481,10 @@ export function calculateSMSSSV(
 
   let baseDamage = getBaseDamage(attacker.level, basePower, attack, defense);
 
-  const isSpread = field.gameType === 'Doubles' &&
-     ['allAdjacent', 'allAdjacentFoes'].includes(move.target);
+  const isSpread = move.isSpread && ['allAdjacent', 'allAdjacentFoes'].includes(move.target);
   if (isSpread) {
     baseDamage = pokeRound(OF32(baseDamage * 3072) / 4096);
+    desc.isSpread = true;
   }
 
   if (attacker.hasAbility('Parental Bond (Child)')) {
@@ -517,9 +530,9 @@ export function calculateSMSSSV(
   let stabMod = 4096;
   if (attacker.hasOriginalType(move.type)) {
     stabMod += 2048;
-  } else if (attacker.hasAbility('Protean', 'Libero') && !atkTeraType) {
-    stabMod += 2048;
-    desc.attackerAbility = attacker.ability;
+    if (attacker.hasAbility('Protean', 'Libero') && attacker.types[0] === move.type) {
+      desc.attackerAbility = attacker.ability;
+    }
   }
   const teraType = atkTeraType;
   if (teraType === move.type) {
@@ -720,6 +733,10 @@ export function calculateBasePowerSMSSSV(
     basePower = 20 + 20 * countBoosts(gen, attacker.boosts, attacker.randomBoosts);
     desc.moveBP = basePower;
     break;
+  case 'Spit Up':
+    basePower = 100 * attacker.stockpile;
+    desc.moveBP = basePower;
+    break;
   case 'Rage Fist':
     basePower = 50 + 50 * Math.min(6, attacker.hitsTaken);
     desc.moveBP = basePower;
@@ -902,8 +919,11 @@ export function calculateBPModsSMSSSV(
     (defender.name.includes('Silvally') && defender.item.includes('Memory')) ||
     defender.item.includes(' Z') ||
     (defender.named('Zacian') && defender.hasItem('Rusted Sword')) ||
-    (defender.named('Zamazenta') && defender.hasItem('Rusted Shield') ||
-    (defender.named('Venomicon-Epilogue') && defender.hasItem('Vile Vial')));
+    (defender.named('Zamazenta') && defender.hasItem('Rusted Shield')) ||
+    (defender.name.includes('Ogerpon-Cornerstone') && defender.hasItem('Cornerstone Mask')) ||
+    (defender.name.includes('Ogerpon-Hearthflame') && defender.hasItem('Hearthflame Mask')) ||
+    (defender.name.includes('Ogerpon-Wellspring') && defender.hasItem('Wellspring Mask')) ||
+    (defender.named('Venomicon-Epilogue') && defender.hasItem('Vile Vial'));
 
   // The last case only applies when the Pokemon has the Mega Stone that matches its species
   // (or when it's already a Mega-Evolution)
@@ -1071,6 +1091,13 @@ export function calculateBPModsSMSSSV(
     desc.isBattery = true;
   }
 
+  if (field.attackerSide.batteries > 0 && move.category === 'Special') {
+    for(var ii = 0; ii < field.attackerSide.batteries; ii++){
+        bpMods.push(5325);
+    }
+    desc.batteries = field.attackerSide.batteries;
+  }
+
   if (field.attackerSide.isPowerSpot) {
     bpMods.push(5325);
     desc.isPowerSpot = true;
@@ -1150,7 +1177,10 @@ export function calculateBPModsSMSSSV(
     (attacker.hasItem('Soul Dew') &&
      attacker.named('Latios', 'Latias', 'Latios-Mega', 'Latias-Mega') &&
      move.hasType('Psychic', 'Dragon')) ||
-     attacker.item && move.hasType(getItemBoostType(attacker.item))
+     attacker.item && move.hasType(getItemBoostType(attacker.item)) ||
+    (attacker.name.includes('Ogerpon-Cornerstone') && attacker.hasItem('Cornerstone Mask')) ||
+    (attacker.name.includes('Ogerpon-Hearthflame') && attacker.hasItem('Hearthflame Mask')) ||
+    (attacker.name.includes('Ogerpon-Wellspring') && attacker.hasItem('Wellspring Mask'))
   ) {
     bpMods.push(4915);
     desc.attackerItem = attacker.item;
@@ -1271,10 +1301,12 @@ export function calculateAtModsSMSSSV(
   } else if (
     (attacker.hasAbility('Steelworker') && move.hasType('Steel')) ||
     (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) ||
-    (attacker.hasAbility('Transistor') && move.hasType('Electric')) ||
     (attacker.hasAbility('Rocky Payload') && move.hasType('Rock'))
   ) {
     atMods.push(6144);
+    desc.attackerAbility = attacker.ability;
+  } else if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
+    atMods.push(gen.num >= 9 ? 5325 : 6144);
     desc.attackerAbility = attacker.ability;
   } else if (attacker.hasAbility('Stakeout') && attacker.abilityOn) {
     atMods.push(8192);

@@ -1,0 +1,220 @@
+{
+    "name": "",
+    "notes": "",
+    "credits": "",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Raid Boss",
+            "name": "Eevee",
+            "shiny": false,
+            "ability": "Anticipation",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "teraType": "Normal",
+            "moves": [
+                "Double-Edge",
+                "Hyper Voice",
+                "Bite",
+                "Charm"
+            ],
+            "bossMultiplier": 5000,
+            "extraMoves": [
+                "Baby-Doll Eyes"
+            ],
+            "shieldData": {
+                "hpTrigger": 100,
+                "timeTrigger": 100,
+                "shieldCancelDamage": 100,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Lucario",
+            "name": "Lucario",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Chilan Berry",
+            "nature": "Modest",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "teraType": "Fighting",
+            "moves": [
+                "Aura Sphere",
+                "Nasty Plot"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 2,
+            "role": "Oranguru",
+            "name": "Oranguru",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "Instruct"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 3,
+            "role": "Oranguru",
+            "name": "Oranguru",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "Instruct"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 4,
+            "role": "Muk",
+            "name": "Muk",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "Acid Spray",
+                "Helping Hand"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0
+        ]
+    ],
+    "repeats": [
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

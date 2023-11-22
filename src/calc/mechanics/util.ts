@@ -244,6 +244,24 @@ export function checkDauntlessShield(source: Pokemon, gen: Generation) {
   }
 }
 
+export function checkEmbody(source: Pokemon, gen: Generation) {
+  if (gen.num < 9) return;
+  switch (source.ability) {
+  case 'Embody Aspect (Cornerstone)':
+    source.boosts.def = Math.min(6, source.boosts.def + 1);
+    break;
+  case 'Embody Aspect (Hearthflame)':
+    source.boosts.atk = Math.min(6, source.boosts.atk + 1);
+    break;
+  case 'Embody Aspect (Teal)':
+    source.boosts.spe = Math.min(6, source.boosts.spe + 1);
+    break;
+  case 'Embody Aspect (Wellspring)':
+    source.boosts.spd = Math.min(6, source.boosts.spd + 1);
+    break;
+  }
+}
+
 export function checkInfiltrator(pokemon: Pokemon, affectedSide: Side) {
   if (pokemon.hasAbility('Infiltrator')) {
     affectedSide.isReflect = 0;
@@ -409,22 +427,23 @@ export function isQPActive(
   pokemon: Pokemon,
   field: Field
 ): boolean {
-  if (!pokemon.boostedStat) {
+  if (!(pokemon.boostedStat && pokemon.abilityOn)) {
     return false;
   }
+  return true;
 
-  const weather = field.weather || '';
-  const terrain = field.terrain;
-  if (
-    (pokemon.hasAbility('Protosynthesis') &&
-      (weather.includes('Sun') || pokemon.abilityOn)) ||
-    (pokemon.hasAbility('Quark Drive') &&
-      (terrain === 'Electric' || pokemon.abilityOn)) ||
-    (pokemon.boostedStat !== 'auto')
-  ) {
-    return true;
-  }
-  return false;
+  // const weather = field.weather || '';
+  // const terrain = field.terrain;
+  // if (
+  //   (pokemon.hasAbility('Protosynthesis') &&
+  //     (weather.includes('Sun') || pokemon.abilityOn)) ||
+  //   (pokemon.hasAbility('Quark Drive') &&
+  //     (terrain === 'Electric' || pokemon.abilityOn)) ||
+  //   (pokemon.boostedStat !== 'auto')
+  // ) {
+  //   return true;
+  // }
+  // return false;
 }
 
 export function getFinalDamage(
@@ -478,6 +497,7 @@ export function countBoosts(gen: Generation, boosts: StatsTable, randomBoosts: n
 
   const STATS: StatID[] = gen.num === 1
     ? ['atk', 'def', 'spa', 'spe']
+    : gen.num === 9 ? ['atk', 'def', 'spa', 'spd', 'spe', 'acc', 'eva']
     : ['atk', 'def', 'spa', 'spd', 'spe'];
 
   for (const stat of STATS) {

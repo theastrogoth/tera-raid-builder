@@ -6,6 +6,7 @@ import Plot from "react-plotly.js";
 
 import { StatsTable } from '../calc';
 import { Nature } from "../calc/data/interface";
+import { getTranslation } from '../utils';
 
 // These colors were hastily/lazily chosen to roughly match those used in Scarlet/Violet
 const plusColor     = "#ff594a"; // for boosted stat from nature
@@ -18,7 +19,7 @@ const badEVColor    = "#d44a4a"; // for wehn total EVs exceeding 510 (shouldn't 
 const tickorder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
 
 
-function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature | undefined, evs: StatsTable, stats: StatsTable, bossMultiplier?: number}) {
+function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}: {nature: Nature | undefined, evs: StatsTable, stats: StatsTable, translationKey: any, bossMultiplier?: number}) {
     const theme = useTheme()
     const isDark = theme.palette.mode === 'dark';
 
@@ -36,7 +37,7 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
 
 
     //@ts-ignore
-    const ticktexts = tickorder.map(stat => stat + ": " + stats[stat.toLowerCase()] + (evs[stat.toLowerCase()] === 252 ? '\u2728' : ''))
+    const ticktexts = tickorder.map(stat => getTranslation(stat, translationKey, "stats") + ": " + stats[stat.toLowerCase()] + (evs[stat.toLowerCase()] === 252 ? '\u2728' : ''))
     if (nature) {
         for (let i=0; i<tickorder.length; i++) {
             if (nature.plus === nature.minus) {
@@ -162,4 +163,4 @@ function StatRadarPlot({nature, evs, stats, bossMultiplier=100}: {nature: Nature
     )
 }
 
-export default React.memo(StatRadarPlot, (next, prev) => (next.evs === prev.evs && next.stats === prev.stats && next.nature === prev.nature));
+export default React.memo(StatRadarPlot, (next, prev) => (next.evs === prev.evs && next.stats === prev.stats && next.nature === prev.nature && next.translationKey === prev.translationKey));

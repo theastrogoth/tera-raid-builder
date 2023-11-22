@@ -32,6 +32,12 @@ export type LightTurnInfo = {
     bossMoveInfo: LightMoveInfo,
 }
 
+export type LightSubstituteBuildInfo = {
+    raider: LightPokemon,
+    substituteMoves: string[],
+    substituteTargets: number[],
+}
+
 export type LightBuildInfo = {
     name?: string,
     notes?: string,
@@ -40,5 +46,6 @@ export type LightBuildInfo = {
     turns: LightTurnInfo[],
     groups?: number[][],
     repeats?: number[],
+    substitutes?: LightSubstituteBuildInfo[][]
 }
 

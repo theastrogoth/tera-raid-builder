@@ -14,6 +14,7 @@ import { styled } from '@mui/material/styles';
 
 import { Generations, Pokemon } from "../calc";
 import { Raider } from "../raidcalc/Raider";
+import { getTranslation } from "../utils";
 
 const gen = Generations.get(9); // we will only use gen 9
 
@@ -121,7 +122,7 @@ function StatTableRow({name, base, evTotal, iv, setIV, ev, setEV}: {name: string
 
 
 
-function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r: Raider) => void}) {
+function StatsControls({ pokemon, setPokemon, translationKey}: { pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
     const setEV = (evName: string) => {
         return (value: number, prevValue: number, evTotal: number) => {
             let safeMax = 510 - evTotal + prevValue;
@@ -198,12 +199,12 @@ function StatsControls({ pokemon, setPokemon}: { pokemon: Raider, setPokemon: (r
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <StatTableRow name="HP"  base={pokemon.species.baseStats.hp} evTotal={evTotal} iv={pokemon.ivs.hp}  setIV={setIV('hp')}  ev={pokemon.evs.hp}  setEV={setEV('hp')} />
-                        <StatTableRow name="Atk" base={pokemon.species.baseStats.atk} evTotal={evTotal} iv={pokemon.ivs.atk} setIV={setIV('atk')} ev={pokemon.evs.atk} setEV={setEV('atk')} />
-                        <StatTableRow name="Def" base={pokemon.species.baseStats.def} evTotal={evTotal} iv={pokemon.ivs.def} setIV={setIV('def')} ev={pokemon.evs.def} setEV={setEV('def')} />
-                        <StatTableRow name="SpA" base={pokemon.species.baseStats.spa} evTotal={evTotal} iv={pokemon.ivs.spa} setIV={setIV('spa')} ev={pokemon.evs.spa} setEV={setEV('spa')} />
-                        <StatTableRow name="SpD" base={pokemon.species.baseStats.spd} evTotal={evTotal} iv={pokemon.ivs.spd} setIV={setIV('spd')} ev={pokemon.evs.spd} setEV={setEV('spd')} />
-                        <StatTableRow name="Spe" base={pokemon.species.baseStats.spe} evTotal={evTotal} iv={pokemon.ivs.spe} setIV={setIV('spe')} ev={pokemon.evs.spe} setEV={setEV('spe')} />
+                        <StatTableRow name={getTranslation("HP", translationKey, "stats")}  base={pokemon.species.baseStats.hp} evTotal={evTotal} iv={pokemon.ivs.hp}  setIV={setIV('hp')}  ev={pokemon.evs.hp}  setEV={setEV('hp')} />
+                        <StatTableRow name={getTranslation("Atk", translationKey, "stats")} base={pokemon.species.baseStats.atk} evTotal={evTotal} iv={pokemon.ivs.atk} setIV={setIV('atk')} ev={pokemon.evs.atk} setEV={setEV('atk')} />
+                        <StatTableRow name={getTranslation("Def", translationKey, "stats")} base={pokemon.species.baseStats.def} evTotal={evTotal} iv={pokemon.ivs.def} setIV={setIV('def')} ev={pokemon.evs.def} setEV={setEV('def')} />
+                        <StatTableRow name={getTranslation("SpA", translationKey, "stats")} base={pokemon.species.baseStats.spa} evTotal={evTotal} iv={pokemon.ivs.spa} setIV={setIV('spa')} ev={pokemon.evs.spa} setEV={setEV('spa')} />
+                        <StatTableRow name={getTranslation("SpD", translationKey, "stats")} base={pokemon.species.baseStats.spd} evTotal={evTotal} iv={pokemon.ivs.spd} setIV={setIV('spd')} ev={pokemon.evs.spd} setEV={setEV('spd')} />
+                        <StatTableRow name={getTranslation("Spe", translationKey, "stats")} base={pokemon.species.baseStats.spe} evTotal={evTotal} iv={pokemon.ivs.spe} setIV={setIV('spe')} ev={pokemon.evs.spe} setEV={setEV('spe')} />
                     </TableBody>
                 </Table>
             </TableContainer>

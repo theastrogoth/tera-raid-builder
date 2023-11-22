@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import { getTranslation } from "../utils";
 
 
-function StratHeader({title, setTitle, prettyMode}: {title: string, setTitle: (t: string) => void, prettyMode: boolean}) {
+function StratHeader({title, setTitle, prettyMode, translationKey}: {title: string, setTitle: (t: string) => void, prettyMode: boolean, translationKey: any}) {
     const [fieldTitle, setFieldTitle] = useState(title);
 
     useEffect(() => {
@@ -24,7 +25,7 @@ function StratHeader({title, setTitle, prettyMode}: {title: string, setTitle: (t
       {!prettyMode &&
         <TextField 
           variant="standard"
-          placeholder="Give your strategy a name!"
+          placeholder={getTranslation("Give your strategy a name!",translationKey)}
           value={fieldTitle}
           onChange={(e) => setFieldTitle(e.target.value)}
           onBlur={(e) => setTitle(e.target.value)}

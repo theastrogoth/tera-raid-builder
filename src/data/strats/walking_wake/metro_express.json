@@ -1,0 +1,360 @@
+{
+    "name": "Metro Express",
+    "notes": "",
+    "credits": "u/MetroBandit",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Walking Wake",
+            "name": "Walking Wake",
+            "shiny": false,
+            "ability": "Protosynthesis",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 75,
+            "teraType": "Water",
+            "moves": [
+                "Hydro Steam",
+                "Dragon Pulse",
+                "Noble Roar",
+                "Flamethrower"
+            ],
+            "bossMultiplier": 2000,
+            "extraMoves": [
+                "(No Move)",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
+            ],
+            "shieldData": {
+                "hpTrigger": 55,
+                "timeTrigger": 40,
+                "shieldCancelDamage": 25,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 80,
+                "shieldDamageRateTeraChange": 40
+            }
+        },
+        {
+            "id": 1,
+            "role": "Iron Hands",
+            "name": "Iron Hands",
+            "shiny": false,
+            "ability": "Quark Drive",
+            "item": "Booster Energy",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "Charge",
+                "Belly Drum",
+                "Wild Charge"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 2,
+            "role": "Pikachu",
+            "name": "Pikachu",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "moves": [],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 3,
+            "role": "Pikachu",
+            "name": "Pikachu",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "moves": [],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 4,
+            "role": "Pikachu",
+            "name": "Pikachu",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "moves": [],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        }
+    ],
+    "turns": [
+        {
+            "id": 3,
+            "group": 0,
+            "moveInfo": {
+                "name": "Charge",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 1,
+            "moveInfo": {
+                "name": "Belly Drum",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 2,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 2,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 3,
+            "moveInfo": {
+                "name": "Wild Charge",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            3
+        ],
+        [
+            0
+        ],
+        [
+            1,
+            4,
+            5
+        ],
+        [
+            2
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

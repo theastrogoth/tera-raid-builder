@@ -108,6 +108,7 @@ export class Side implements State.Side {
   friendGuards: number;
   isAuroraVeil: number;
   isBattery: boolean;
+  batteries: number;
   isPowerSpot: boolean;
   powerSpots: number;
   steelySpirits: number;
@@ -141,6 +142,7 @@ export class Side implements State.Side {
     this.friendGuards = side.friendGuards || 0;
     this.isAuroraVeil = side.isAuroraVeil || 0;
     this.isBattery = !!side.isBattery;
+    this.batteries = side.batteries || 0;
     this.isPowerSpot = !!side.isPowerSpot;
     this.powerSpots = side.powerSpots || 0;
     this.steelySpirits = side.steelySpirits || 0;

@@ -22,6 +22,7 @@ export namespace State {
     dynamaxLevel?: number;
     isSaltCure?: boolean;
     alliesFainted?: number;
+    proteanLiberoType?: I.TypeName;
     boostedStat?: I.StatIDExceptHP | 'auto';
     usedBoosterEnergy?: boolean;
     isIngrain?: boolean;
@@ -31,7 +32,10 @@ export namespace State {
     ivs?: Partial<I.StatsTable>;
     evs?: Partial<I.StatsTable>;
     boosts?: Partial<I.StatsTable>;
+    isPumped?: boolean;
+    isMicle?: boolean;
     randomBoosts?: number;
+    stockpile?: number;
     originalCurHP?: number;
     status?: I.StatusName | '';
     volatileStatus?: string[];
@@ -52,6 +56,8 @@ export namespace State {
     useZ?: boolean;
     useMax?: boolean;
     isCrit?: boolean;
+    highCritChance?: boolean;
+    isSpread?: boolean;
     hits?: number;
     timesUsed?: number;
     timesUsedWithMetronome?: number;
@@ -104,6 +110,7 @@ export namespace State {
     friendGuards?: number;
     isAuroraVeil?: number;      // # turns remaining
     isBattery?: boolean;
+    batteries?: number;
     isPowerSpot?: boolean;
     powerSpots?: number;
     steelySpirits?: number;

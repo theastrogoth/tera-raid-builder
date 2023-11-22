@@ -1,7 +1,7 @@
 {
   "homepage": "https://theastrogoth.github.io/tera-raid-builder",
   "name": "tera-raid-builder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -31,6 +31,7 @@
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
+    "watermarkjs": "^2.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

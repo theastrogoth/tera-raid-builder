@@ -1,7 +1,7 @@
 {
-    "name": "Giraffic Bark",
-    "notes": "Girafarig must wait to use Power Swap until Lucario has used Aura Sphere 4 times.\n\nIn case something goes wrong, Girafarig repeats all move, Muk spams Acid Spray, and Lucario spams Aura Sphere.",
-    "credits": "the Poké Portal team",
+    "name": "Tuff Pill To Swallow",
+    "notes": "Full credits to YETI. This is an approximate recreation of their strategy.\n\nWigglytuff is not guaranteed to survive in worst-case scenarios (multiple max-roll crits).",
+    "credits": "u/Reddit01011001 (YETI)",
     "pokemon": [
         {
             "id": 0,
@@ -49,16 +49,16 @@
         },
         {
             "id": 1,
-            "role": "Lucario",
-            "name": "Lucario",
-            "shiny": false,
+            "role": "Wigglytuff",
+            "name": "Wigglytuff",
+            "shiny": true,
             "ability": "(No Ability)",
-            "item": "Metronome",
+            "item": "Silk Scarf",
             "nature": "Modest",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 252,
                 "spd": 0,
                 "spe": 0
@@ -72,10 +72,11 @@
                 "spe": 31
             },
             "level": 100,
-            "teraType": "Fighting",
+            "teraType": "Normal",
             "moves": [
-                "Aura Sphere",
-                "(No Move)"
+                "Stockpile",
+                "Spit Up",
+                "Hyper Voice"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -130,8 +131,8 @@
         },
         {
             "id": 3,
-            "role": "Muk1",
-            "name": "Muk",
+            "role": "Oranguru",
+            "name": "Oranguru",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Sitrus Berry",
@@ -154,8 +155,7 @@
             },
             "level": 100,
             "moves": [
-                "Acid Spray",
-                "(No Move)"
+                "Instruct"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -170,7 +170,7 @@
         },
         {
             "id": 4,
-            "role": "Muk2",
+            "role": "Muk",
             "name": "Muk",
             "shiny": false,
             "ability": "(No Ability)",
@@ -210,32 +210,6 @@
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 0,
-            "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 1,
             "group": 0,
             "moveInfo": {
@@ -246,32 +220,6 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 1,
-            "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": false,
-                    "roll": "max",
                     "hits": 1
                 }
             },
@@ -314,12 +262,38 @@
             }
         },
         {
-            "id": 6,
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Stockpile",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": false,
+                    "roll": "max",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
             "group": 2,
             "moveInfo": {
-                "name": "Heal Cheer",
+                "name": "Instruct",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -340,8 +314,8 @@
             }
         },
         {
-            "id": 7,
-            "group": 2,
+            "id": 4,
+            "group": 3,
             "moveInfo": {
                 "name": "Heal Cheer",
                 "userID": 4,
@@ -366,34 +340,8 @@
             }
         },
         {
-            "id": 4,
-            "group": 2,
-            "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": false,
-                    "roll": "max",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 2,
+            "id": 6,
+            "group": 3,
             "moveInfo": {
                 "name": "Nasty Plot",
                 "userID": 2,
@@ -418,12 +366,12 @@
             }
         },
         {
-            "id": 8,
+            "id": 5,
             "group": 3,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Instruct",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -444,11 +392,11 @@
             }
         },
         {
-            "id": 9,
-            "group": 3,
+            "id": 7,
+            "group": 4,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
+                "name": "Hyper Voice",
+                "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -471,15 +419,15 @@
         },
         {
             "id": 10,
-            "group": 3,
+            "group": 5,
             "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
+                "name": "Attack Cheer",
+                "userID": 4,
                 "targetID": 0,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": false,
-                    "roll": "max",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -496,8 +444,8 @@
             }
         },
         {
-            "id": 11,
-            "group": 3,
+            "id": 8,
+            "group": 5,
             "moveInfo": {
                 "name": "Nasty Plot",
                 "userID": 2,
@@ -522,12 +470,12 @@
             }
         },
         {
-            "id": 12,
-            "group": 4,
+            "id": 9,
+            "group": 5,
             "moveInfo": {
-                "name": "Acid Spray",
+                "name": "Heal Cheer",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -548,8 +496,34 @@
             }
         },
         {
-            "id": 13,
-            "group": 4,
+            "id": 11,
+            "group": 5,
+            "moveInfo": {
+                "name": "Hyper Voice",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 6,
             "moveInfo": {
                 "name": "Acid Spray",
                 "userID": 4,
@@ -574,60 +548,8 @@
             }
         },
         {
-            "id": 14,
-            "group": 4,
-            "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": false,
-                    "roll": "max",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 15,
-            "group": 4,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 16,
-            "group": 5,
+            "id": 13,
+            "group": 6,
             "moveInfo": {
                 "name": "Power Swap",
                 "userID": 2,
@@ -652,10 +574,62 @@
             }
         },
         {
-            "id": 17,
+            "id": 16,
             "group": 6,
             "moveInfo": {
-                "name": "Aura Sphere",
+                "name": "Hyper Voice",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 14,
+            "group": 7,
+            "moveInfo": {
+                "name": "Instruct",
+                "userID": 3,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 15,
+            "group": 8,
+            "moveInfo": {
+                "name": "Spit Up",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -671,7 +645,7 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": true,
                     "roll": "max",
                     "hits": 10
@@ -681,39 +655,44 @@
     ],
     "groups": [
         [
-            0,
             1
         ],
         [
-            2,
-            3
+            3,
+            2
         ],
         [
-            6,
-            7,
+            0
+        ],
+        [
             4,
+            6,
             5
         ],
         [
+            7
+        ],
+        [
+            10,
             8,
             9,
-            10,
             11
         ],
         [
             12,
             13,
-            14,
-            15
-        ],
-        [
             16
         ],
         [
-            17
+            14
+        ],
+        [
+            15
         ]
     ],
     "repeats": [
+        1,
+        1,
         1,
         1,
         1,

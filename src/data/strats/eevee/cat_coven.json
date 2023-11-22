@@ -1,7 +1,7 @@
 {
-    "name": "Giraffic Bark",
-    "notes": "Girafarig must wait to use Power Swap until Lucario has used Aura Sphere 4 times.\n\nIn case something goes wrong, Girafarig repeats all move, Muk spams Acid Spray, and Lucario spams Aura Sphere.",
-    "credits": "the Poké Portal team",
+    "name": "The Cat Coven",
+    "notes": "Mewtwo may be used in place of Mew with the same nature, EVs, held item, and moveset.\n\nSneasler may hold a Sitrus Berry and be used in place of Sneasel with the same nature, EVs, and moveset.",
+    "credits": "u/Suicidal-Lysosome",
     "pokemon": [
         {
             "id": 0,
@@ -49,11 +49,11 @@
         },
         {
             "id": 1,
-            "role": "Lucario",
-            "name": "Lucario",
+            "role": "Coven Leader",
+            "name": "Espeon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Metronome",
+            "item": "Twisted Spoon",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -72,10 +72,11 @@
                 "spe": 31
             },
             "level": 100,
-            "teraType": "Fighting",
+            "teraType": "Psychic",
             "moves": [
-                "Aura Sphere",
-                "(No Move)"
+                "Psych Up",
+                "Trailblaze",
+                "Stored Power"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -90,11 +91,11 @@
         },
         {
             "id": 2,
-            "role": "Girafarig",
-            "name": "Girafarig",
+            "role": "Dreamweaver",
+            "name": "Mew",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Eviolite",
+            "item": "Weakness Policy",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -115,7 +116,8 @@
             "level": 100,
             "moves": [
                 "Nasty Plot",
-                "Power Swap"
+                "Life Dew",
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -130,51 +132,11 @@
         },
         {
             "id": 3,
-            "role": "Muk1",
-            "name": "Muk",
+            "role": "Poisoner",
+            "name": "Sneasel-Hisui",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "moves": [
-                "Acid Spray",
-                "(No Move)"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
-        },
-        {
-            "id": 4,
-            "role": "Muk2",
-            "name": "Muk",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
+            "item": "Eviolite",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -206,6 +168,47 @@
                 "shieldDamageRateTera": 0,
                 "shieldDamageRateTeraChange": 0
             }
+        },
+        {
+            "id": 4,
+            "role": "White Mage",
+            "name": "Meowscarada",
+            "shiny": false,
+            "ability": "Overgrow",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
+                "U-Turn",
+                "Pollen Puff",
+                "(No Move)"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
@@ -213,9 +216,61 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 3,
+                "name": "(No Move)",
+                "userID": 1,
                 "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Baby-Doll Eyes",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 5,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Remove Negative Effects",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 2,
+            "moveInfo": {
+                "name": "Nasty Plot",
+                "userID": 2,
+                "targetID": 2,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -237,36 +292,10 @@
         },
         {
             "id": 1,
-            "group": 0,
+            "group": 2,
             "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 1,
-            "moveInfo": {
-                "name": "Aura Sphere",
-                "userID": 1,
+                "name": "Acid Spray",
+                "userID": 3,
                 "targetID": 0,
                 "options": {
                     "crit": true,
@@ -289,67 +318,15 @@
         },
         {
             "id": 3,
-            "group": 1,
-            "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
             "group": 2,
             "moveInfo": {
-                "name": "Heal Cheer",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 2,
-            "moveInfo": {
-                "name": "Heal Cheer",
+                "name": "U-Turn",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 2,
                 "options": {
-                    "crit": false,
+                    "crit": true,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "max",
                     "hits": 1
                 }
             },
@@ -367,20 +344,20 @@
         },
         {
             "id": 4,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "Aura Sphere",
+                "name": "Psych Up",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 2,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": false,
-                    "roll": "max",
+                    "roll": "min",
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Charm",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -393,11 +370,11 @@
         },
         {
             "id": 5,
-            "group": 2,
+            "group": 1,
             "moveInfo": {
-                "name": "Nasty Plot",
+                "name": "Defense Cheer",
                 "userID": 2,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -419,41 +396,15 @@
         },
         {
             "id": 8,
-            "group": 3,
+            "group": 4,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Acid Spray",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
                     "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 9,
-            "group": 3,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "max",
                     "hits": 1
                 }
             },
@@ -471,9 +422,35 @@
         },
         {
             "id": 10,
-            "group": 3,
+            "group": 4,
             "moveInfo": {
-                "name": "Aura Sphere",
+                "name": "Pollen Puff",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 6,
+            "moveInfo": {
+                "name": "Trailblaze",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -497,11 +474,11 @@
         },
         {
             "id": 11,
-            "group": 3,
+            "group": 7,
             "moveInfo": {
-                "name": "Nasty Plot",
+                "name": "Life Dew",
                 "userID": 2,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -522,10 +499,88 @@
             }
         },
         {
-            "id": 12,
-            "group": 4,
+            "id": 9,
+            "group": 7,
             "moveInfo": {
                 "name": "Acid Spray",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": false,
+                    "roll": "max",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 7,
+            "moveInfo": {
+                "name": "Pollen Puff",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 17,
+            "group": 10,
+            "moveInfo": {
+                "name": "Trailblaze",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": false,
+                    "roll": "max",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 11,
+            "moveInfo": {
+                "name": "Attack Cheer",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
@@ -548,12 +603,12 @@
             }
         },
         {
-            "id": 13,
-            "group": 4,
+            "id": 16,
+            "group": 11,
             "moveInfo": {
-                "name": "Acid Spray",
+                "name": "Pollen Puff",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -574,10 +629,10 @@
             }
         },
         {
-            "id": 14,
-            "group": 4,
+            "id": 18,
+            "group": 8,
             "moveInfo": {
-                "name": "Aura Sphere",
+                "name": "Trailblaze",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -601,35 +656,9 @@
         },
         {
             "id": 15,
-            "group": 4,
+            "group": 12,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 16,
-            "group": 5,
-            "moveInfo": {
-                "name": "Power Swap",
+                "name": "Helping Hand",
                 "userID": 2,
                 "targetID": 1,
                 "options": {
@@ -652,10 +681,10 @@
             }
         },
         {
-            "id": 17,
-            "group": 6,
+            "id": 14,
+            "group": 9,
             "moveInfo": {
-                "name": "Aura Sphere",
+                "name": "Stored Power",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -681,39 +710,58 @@
     ],
     "groups": [
         [
-            0,
-            1
+            0
+        ],
+        [
+            6
         ],
         [
             2,
+            1,
             3
         ],
         [
-            6,
-            7,
-            4,
+            4
+        ],
+        [
             5
         ],
         [
             8,
+            10
+        ],
+        [
+            7
+        ],
+        [
+            11,
             9,
-            10,
-            11
-        ],
-        [
-            12,
-            13,
-            14,
-            15
-        ],
-        [
-            16
+            12
         ],
         [
             17
+        ],
+        [
+            13,
+            16
+        ],
+        [
+            18
+        ],
+        [
+            15
+        ],
+        [
+            14
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         1,
         1,
         1,
@@ -724,8 +772,98 @@
     ],
     "substitutes": [
         [],
-        [],
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Dreamweaver",
+                    "name": "Mewtwo",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Weakness Policy",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Nasty Plot",
+                        "Life Dew",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Nasty Plot",
+                    "Defense Cheer",
+                    "Life Dew",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    2,
+                    1,
+                    1,
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Poisoner",
+                    "name": "Sneasler",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Acid Spray"
+                    ]
+                },
+                "substituteMoves": [
+                    "Acid Spray",
+                    "Acid Spray",
+                    "Acid Spray",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
         []
     ]
 }

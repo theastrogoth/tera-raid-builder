@@ -622,6 +622,24 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].results[1].desc[0].includes("Choice Specs")).toEqual(true);
     expect(result.turnResults[2].state.raiders[1].isCharging).toEqual(false);
   })
+  test('stockpile-spitup-swallow', async() => {
+    const hash = "#H4sIAAAAAAAAA9VWS2/bMAz+K4ZOLaBDnm2T25q2Wwd0hybFDoEPik07WmTJkOS0QdH/PlK208c6IEGBZgMtRaJIfvwoWfEjy9iYJb+c0Ywzz8bzeYczLQpgMaehTGnQ5axyYK8vyEjYHHwYmtJLox1Z9DjLralK1BZmDdc6MzhcGOdu2mkdMLHS44qDxOhU2M1llkHiHaqsUQp/ltK7xnZJ4YRfYZ9CRl6lCH0aetiazazMc7CUnSzgeeaWElQ6EToBdSEKkcNWWU9vhX9PNQMr/qKeLIXOoSmKNh4o9cRCKgOJ0qygqItZWU2aUJbAD0oQwchVC+elr8i5rh1ypzxC4QOu3hD1hVTS00h6KMI6RiULWFMcGXoFa6DCecxutimh2QLX1r9SXpZKhoLAg7fipllt6XnB4pizNRs/MjwBZ5yx5pkHxYhjkW+FTKNzjIcL13muNosqwy3JhHLA2dEPE32psz1mXFdKcfZN2BRzDyFOMMRW4qdW2e++eXCp2+nUAebsSqwgmoGwBHpu0k00VaLAkpHNPK6jnL4O3QYfcdyfn5Iy9SHTV5N302aTpZEJRNMSEkJ8TaA37DUoYbQziak3yaqUYX+npfTRHZ3q6b1Qytzj6AIy0A6iSWXVrtTwxHwPbMqa2stJQ+3KStBp9LVCEmhxuZYGaVISE6GKj7LaMc/+f5Ln4B/PM27exAEfooRh/83JwePeqVeGTcpN4oXE26j7zBYdX75XHXRs3LytoO5YIR7QqcZu/AZ8hNKG2J7kPWCPbozzUbhOpc6P98LutDCE/fxGfRJ6tzU9CHoP5XDofZTDoZN86MzhDU//d/uhnqAcjvMZyha9/Z/4JOxTlM/GxtttPsRuRJ9z9GFF30TY+tgG2E6wnWE7jcNX1x9C/jFvnzh+evoNFAbwVdcKAAA=";
+    const result = await resultsFromHash(hash);
+    // T2: Spit-Up should not do any damage
+    expect(result.turnResults[1].state.raiders[1].stockpile).toEqual(0);
+    expect(result.turnResults[1].results[0].state.raiders[0].originalCurHP).toEqual(Math.floor(result.endState.raiders[0].maxHP()));
+    // T5: Expect 3 Stockpile stacks
+    expect(result.turnResults[4].state.raiders[1].stockpile).toEqual(3);
+    // T6: Still 3 Stockpile stacks expected after another use
+    expect(result.turnResults[5].state.raiders[1].stockpile).toEqual(3);
+    // T7: Igglybuff faints, Stockpile stacks reset
+    expect(result.turnResults[6].state.raiders[0].originalCurHP).toEqual(0);
+    expect(result.turnResults[6].state.raiders[1].stockpile).toEqual(0);
+    // T9: Swallow Heals
+    expect(result.turnResults[8].state.raiders[1].originalCurHP).toBeGreaterThan(result.turnResults[7].state.raiders[1].originalCurHP);
+    // T10: Swallow Fails
+    expect(result.turnResults[9].state.raiders[1].originalCurHP).toEqual(result.turnResults[8].state.raiders[1].originalCurHP);
+  })
   test('syrup-bomb', async() => {
     const hash = "#H4sIAAAAAAAAA9VUTW8aMRD9K8inVPKBBdI23CBUhQOtFLit9mB2Zxc3XnvlDxoU8d874/1IWqVqekilCmsYj2ee3xt7/chKNmf5N2c048yzeZqOOdOiBpZxcmVBTsJZcGA3K0oStgIfXdN4abSjjAlnlTWhwWhtTrDRpUH3YJzb9tMWMLfS44qD3OhC2POnsoTcOwxZoxT+HaV3Xe6R4IS/R1tASVWNiLaIFoa0vZVVBZbYyRqeZu4oQRW3QuegVqIWFQzBdnon/EuhPVjxm/DtUegKuqZo44Go5xYKGUU05h7qtpnBaorEtkR90ICISS4cnJc+UHHbO9ROPGLj4776TNIPUklPnvRQx3VEpQw4EY6MVsEJqHEe2e3PDXRH4Pr+B+Vlo2RsCDx4K7bdai/PC5ZlnJ3Y/JHhDfjIGetGGgM3HJt8J2QxWiIeLqyCy5UhUaVQDji7+mJGi5bsO8Z1UIqztbAFUo8I7xFh+GWXPjhNfhm4lIzHLUDKFs4bLd0Re0TRNGvrPvwM1sPdcDyQlWxQKrV/8N6U4u5sQ4NtqQ+45WdrvvtXs8VT/2rxLgUb2HP3Rb5sJ70NbrQEa+k+LI0qBuKT6wmCt/ZvyG+0Q9Dcv5bx9L9jPONsG+j5iPbf8Vzk+LHsGisIcQ2qkboarYUu/kQ86z65WQxFF7v+/JYlffy609OpqumuJ0/isexqa5wfxecL90etY6zualEztIbV4gEr2+274hkmJgNOd6/femvUno7pXc3i4zqlecb7kWWXyw/ZWnjargYAAA==";
     const result = await resultsFromHash(hash);
@@ -712,6 +730,22 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/h_decidueye/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('h_typhlosion', async () => {
+    const module = await import(`./data/strats/h_typhlosion/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/sushi', async () => {
+    const module = await import(`./data/strats/h_typhlosion/sushi.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee', async () => {
+    const module = await import(`./data/strats/eevee/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/aura101', async () => {
+    const module = await import(`./data/strats/eevee/aura101.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 describe('OHKO tests, Alternative Strats', () => {
@@ -793,6 +827,123 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('h_decidueye/owl_kabob', async () => {
     const module = await import(`./data/strats/h_decidueye/owl_kabob.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_decidueye/ready_the_cannon', async () => {
+    const module = await import(`./data/strats/h_decidueye/ready_the_cannon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_decidueye/tickle_squad_charizard', async () => {
+    const module = await import(`./data/strats/h_decidueye/tickle_squad_charizard.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_decidueye/thirtysixtales', async () => {
+    const module = await import(`./data/strats/h_decidueye/thirtysixtales.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_decidueye/hoo_let_the_kids_cook', async () => {
+    const module = await import(`./data/strats/h_decidueye/hoo_let_the_kids_cook.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+
+  test('h_typhlosion/t1', async () => {
+    const module = await import(`./data/strats/h_typhlosion/t1.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/vafoureon', async () => {
+    const module = await import(`./data/strats/h_typhlosion/vafoureon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/puppies', async () => {
+    const module = await import(`./data/strats/h_typhlosion/puppies.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  // test('h_typhlosion/foie_gras', async () => {
+  //   const module = await import(`./data/strats/h_typhlosion/foie_gras.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
+  test('h_typhlosion/eeveelution', async () => {
+    const module = await import(`./data/strats/h_typhlosion/eeveelution.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/whaley_good_time', async () => {
+    const module = await import(`./data/strats/h_typhlosion/whaley_good_time.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/gastrosire', async () => {
+    const module = await import(`./data/strats/h_typhlosion/gastrosire.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/garchomp', async () => {
+    const module = await import(`./data/strats/h_typhlosion/garchomp.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/sandy_shocks', async () => {
+    const module = await import(`./data/strats/h_typhlosion/sandy_shocks.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/otter_domination', async () => {
+    const module = await import(`./data/strats/h_typhlosion/otter_domination.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/fight_fire_with_fire', async () => {
+    const module = await import(`./data/strats/h_typhlosion/fight_fire_with_fire.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/cursed_salt', async () => {
+    const module = await import(`./data/strats/h_typhlosion/cursed_salt.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/inteleon', async () => {
+    const module = await import(`./data/strats/h_typhlosion/inteleon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/mew', async () => {
+    const module = await import(`./data/strats/h_typhlosion/mew.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/quagkening', async () => {
+    const module = await import(`./data/strats/h_typhlosion/quagkening.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/sinnoh_synergy', async () => {
+    const module = await import(`./data/strats/h_typhlosion/sinnoh_synergy.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/pinch', async () => {
+    const module = await import(`./data/strats/h_typhlosion/pinch.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/espathra', async () => {
+    const module = await import(`./data/strats/eevee/espathra.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/glimmana', async () => {
+    const module = await import(`./data/strats/eevee/glimmana.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/eevee_vs_eevee', async () => {
+    const module = await import(`./data/strats/eevee/eevee_vs_eevee.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/cat_coven', async () => {
+    const module = await import(`./data/strats/eevee/cat_coven.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/diamonds', async () => {
+    const module = await import(`./data/strats/eevee/diamonds.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/wigglytuff', async () => {
+    const module = await import(`./data/strats/eevee/tuff_pill_to_swallow.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/light_speed', async () => {
+    const module = await import(`./data/strats/eevee/light_speed.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('eevee/temper_tantrum', async () => {
+    const module = await import(`./data/strats/eevee/temper_tantrum.json`)
     await testOHKO(module as LightBuildInfo);
   })
 })

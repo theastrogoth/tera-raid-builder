@@ -733,6 +733,10 @@ export function calculateBasePowerSMSSSV(
     basePower = 20 + 20 * countBoosts(gen, attacker.boosts, attacker.randomBoosts);
     desc.moveBP = basePower;
     break;
+  case 'Spit Up':
+    basePower = 100 * attacker.stockpile;
+    desc.moveBP = basePower;
+    break;
   case 'Rage Fist':
     basePower = 50 + 50 * Math.min(6, attacker.hitsTaken);
     desc.moveBP = basePower;

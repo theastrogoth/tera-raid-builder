@@ -56,6 +56,7 @@ type Modifiers = {
     micleBerry?: boolean,
     pumped?: boolean,
     saltCure?: boolean,
+    stockpile?: number,
     taunt?: boolean,
     yawn?: boolean
 }
@@ -410,6 +411,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "micleBerry": raider.isMicle,
             "pumped": raider.isPumped,
             "saltCure": raider.isSaltCure,
+            "stockpile": raider.stockpile,
             "taunt": raider.isTaunt !== undefined && raider.isTaunt !== 0,
             "yawn": raider.isYawn !== undefined && raider.isYawn !== 0,
         }

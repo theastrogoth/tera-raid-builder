@@ -88,7 +88,7 @@ export class RaidTurn {
         this._endFlags = [];
 
         // switch-in if previously fainted
-        if (this._raidState.raiders[this.raiderID].curHP() === 0) {
+        if (this._raidState.raiders[this.raiderID].originalCurHP === 0) {
             this._flags[this.raiderID].push("Switched in");
             this._raidState.switchIn(this.raiderID);
             // use dummy move to activate conditional items/abilities

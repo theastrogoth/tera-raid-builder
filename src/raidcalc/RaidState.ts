@@ -718,6 +718,18 @@ export class RaidState implements State.RaidState{
         } else {
             // 
         }
+        // Plus-Minus check
+        if (ability === "Minus" || ability === "Plus") {
+            const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
+            for (id of allyIDs) {
+                const ally = this.getPokemon(id);
+                if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
+                    pokemon.abilityOn = true;
+                    ally.abilityOn = true;
+                    flags[id].push(ability + " activated");
+                }
+            }
+        }
         return flags;
     }
 
@@ -829,6 +841,17 @@ export class RaidState implements State.RaidState{
             ) {
                 for (let field of this.fields.slice(1)) {
                     field.attackerSide.isAromaVeil = false;
+                }
+            }
+        }
+        // Plus-Minus check
+        if (ability === "Minus" || ability === "Plus") {
+            const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
+            const plusMinusCount = allyIDs.reduce((p, c) => p + (this.getPokemon(c).ability === "Minus" || this.getPokemon(c).ability === "Plus" ? 1 : 0), 0);
+            for (id of allyIDs) {
+                const ally = this.getPokemon(id);
+                if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
+                    ally.abilityOn = plusMinusCount > 1;
                 }
             }
         }

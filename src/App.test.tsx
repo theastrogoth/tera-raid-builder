@@ -674,6 +674,13 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[0].state.raiders[1].boosts.spd).toEqual(-2);
     expect(result.turnResults[0].state.raiders[2].boosts.spd).toEqual(0);
   })
+  test('plus-entrainment-gooey', async() => {
+    const hash = "#H4sIAAAAAAAAA71V227bMAz9FUNPLaABza23tzbp1gJNNzTB9hD4QbFpW40sGZIcNBv67yNlO0mLFdiGLYghUxJFHh4eOT9Yxi5Z8uSMZpx5drlYnHCmRQks5mTKlIweZ7UDezchJ2Fz8ME0lZdGO/Loc5ZbU1e4Wpo13OnMoLk0zk27aRMwsdLjjoPE6FTYzU2WQeIdLlmjFL4K6V3rW1A44Vc4ppDRqUqEMQ0jbN3mVuY5WEInS9jNXCFBpWOhE1ATUYoctovN9FH4Xy3NwYp3lseF0Dm0pGjjgaAnFlIZiqjMCsqGzNpqWgm0hPqgAhGcXL10XvqaDjfcYe2EIxAf8uoNlb6USnqypIcy7GNU8oA1xZFhVLAGIs4juvmmgrYFruO/Vl5WSgZC4NlbMW13u/K8YHHM2Zpd/mCogHPOxoVJzK0oy010JHQaZVaCTt0xHmL7u4wvwpELjm14FDKNrjEjusxEWVvj/Ydb6WrJeCaUA1wuhK00kIuuleLsKkVyNQoihDnFMNtf/NItDnpvHtzqnWDGb9gTrGqBqb8bG80KCAp6kHnho5kSrsDZFHJRGEstmVipVPRYa2R9MMIIi7jJcfY6cZf6gmOPv8qVWBtFot2ZbT33sJa+kdC9zCD6bJeU0aTg3tbUH/V/r6pAzAJJpnuG0eZFrVOwS8obBw9ETU47lCigCaSgNflvLW9rhPhF1dSQjyapXTRrKLkVNt38BecdthuNKpK6BP0upAEPFTyJZZ2zV3ZL3bXw2DzS9s1aGpQ5Yb82Kt3iahhrefsD5o4eTEQSP34P25CzT8ak4Yp3RosKp0CYxnje+misjFj9K1xXCd6PWWXF5i2wuL1GQ04xgzmgRmagHUTjAkjlg25r1IJtIZcSpd3biRZPHk2N81H4bkmd4609wd61Z4MqGmmU4hlPBr13h4f8onNtO0ga7B0m9XAv9b7EkJXeIfKf7uXfaxbiOkj5I6xzm957kawO3PrzfQCHr/8M6+zi7H/0/rf88PYt+jjQh+EU3yN+juNZHP7iw488Yt49cfzy8hPZRTiPOAkAAA==";
+    const result = await resultsFromHash(hash);
+    // TODO: more detailed checks
+    // check for OHKO
+    expect(result.endState.raiders[0].originalCurHP).toEqual(0);
+  })
 })
 
 

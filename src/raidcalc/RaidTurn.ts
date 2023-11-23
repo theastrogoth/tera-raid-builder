@@ -226,7 +226,7 @@ export class RaidTurn {
                 const pokemon = this._raidState.getPokemon(i);
                 if (pokemon.syrupBombDrops && (i !== 0 || this.raiderID === pokemon.syrupBombSource)) {
                     const origSpe = pokemon.boosts.spe || 0;
-                    this._raidState.applyStatChange(i, {"spe": -1}, false, false, false);
+                    this._raidState.applyStatChange(i, {"spe": -1}, false, i, false);
                     this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
                     pokemon.syrupBombDrops--;
                 }
@@ -497,7 +497,7 @@ export class RaidTurn {
             switch (pokemon.ability) {
                 case "Speed Boost":
                     const origSpe = pokemon.boosts.spe || 0;
-                    this._raidState.applyStatChange(id, {"spe": 1}, true, true, false);
+                    this._raidState.applyStatChange(id, {"spe": 1}, true, id, false);
                     this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
                     break;
                 default: break;

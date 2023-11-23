@@ -690,7 +690,7 @@ export class RaidMove {
                 if (target.ability === "Inner Focus" && !(ignoreAbility && !target.hasItem("Ability Shield"))) { continue; }
                 this._causesFlinch[id] = true;
                 if (this._user.ability === "Steadfast") {
-                    this._raidState.applyStatChange(id, {spe: 1}, true, false);
+                    this._raidState.applyStatChange(id, {spe: 1}, true, this.userID, ignoreAbility);
                 }
             }
         }
@@ -728,7 +728,7 @@ export class RaidMove {
                     }
                     boost[stat] = change;
                 }
-                this._raidState.applyStatChange(id, boost, true, id === this.userID, this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))
+                this._raidState.applyStatChange(id, boost, true, this.userID, this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))
             }
         }
     }
@@ -1260,13 +1260,13 @@ export class RaidMove {
                 break;
             case "Spit Up":
                 if (this._damage.reduce((a,b) => a + b, 0) > 0) {
-                    this._raidState.applyStatChange(this.userID, {def: -this._user.stockpile, spd: -this._user.stockpile}, false, true, false);
+                    this._raidState.applyStatChange(this.userID, {def: -this._user.stockpile, spd: -this._user.stockpile}, false, this.userID, false);
                     this._user.stockpile = 0;
                 }
                 break;
             case "Swallow":
                 if (this._healing.reduce((a,b) => a + b, 0) > 0) {
-                    this._raidState.applyStatChange(this.userID, {def: -this._user.stockpile, spd: -this._user.stockpile}, false, true, false);
+                    this._raidState.applyStatChange(this.userID, {def: -this._user.stockpile, spd: -this._user.stockpile}, false, this.userID, false);
                     this._user.stockpile = 0;
                 }
                 break;

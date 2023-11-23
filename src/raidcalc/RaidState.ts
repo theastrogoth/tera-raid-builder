@@ -100,7 +100,7 @@ export class RaidState implements State.RaidState{
             // TO DO - abilities that let users use berries more than once
             if (damage > 0 && isSuperEffective) {
                 if (!fainted && pokemon.item === "Weakness Policy") { // weakness policy isn't consumed if the target faints (?)
-                    this.applyStatChange(id, {atk: 2, spa: 2}, true, true)
+                    this.applyStatChange(id, {atk: 2, spa: 2}, true, id)
                     this.loseItem(id);
                 } else if (!unnerve) {
                     switch (pokemon.item) {
@@ -174,42 +174,42 @@ export class RaidState implements State.RaidState{
             // Anger Point
             if (isCrit && pokemon.ability === "Anger Point") { 
                 const boost = {atk: 12};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             };
             // Steam Engine
             if ((moveType === "Fire" || moveType === "Water" ) && pokemon.ability === "Steam Engine") {
                 const boost = {spe: 6};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }
             // Water Compaction
             if (moveType === "Water" && pokemon.ability === "Water Compaction") {
                 const boost = {def: 2 * nHits};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }
             // Justified
             if (moveType === "Dark" && pokemon.ability === "Justified") {
                 const boost = {atk: nHits};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }    
             // Weak Armor
             if (pokemon.ability === "Weak Armor") {
                 const boost = {def: -1 * nHits, spe: 2 * nHits};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }
             // Stamina
             if (pokemon.ability === "Stamina") {
                 const boost = {def: nHits};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }
             // Anger Shell
             if (pokemon.ability === "Anger Shell" && originalHP > maxHP/2 && pokemon.originalCurHP <= maxHP/2) {
                 const boost = {atk: 1, spa: 1, spe: 1};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }
             // Berserk
             if (pokemon.ability === "Berserk" && originalHP > maxHP/2 && pokemon.originalCurHP <= maxHP/2) {
                 const boost = {spa: 1};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }
             // Electromorphosis
             if (pokemon.ability ===  "Electromorphosis") {
@@ -218,7 +218,7 @@ export class RaidState implements State.RaidState{
             // Rattled
             if (pokemon.ability === "Rattled" && ["Dark", "Ghost", "Bug"].includes(moveType || "")) {
                 const boost = {spe: 1};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }
             // Wind Power
             if (pokemon.ability === "Wind Power" && 
@@ -249,23 +249,23 @@ export class RaidState implements State.RaidState{
             if ((pokemon.originalCurHP <= maxHP / 4) || (pokemon.hasAbility("Gluttony") && (pokemon.originalCurHP <= maxHP / 2))) {
                 switch (pokemon.item) {
                     case "Liechi Berry":
-                        this.applyStatChange(id, {atk: 1}, true, true);
+                        this.applyStatChange(id, {atk: 1}, true, id);
                         this.loseItem(id);
                         break;
                     case "Ganlon Berry":
-                        this.applyStatChange(id, {def: 1}, true, true);
+                        this.applyStatChange(id, {def: 1}, true, id);
                         this.loseItem(id);
                         break;
                     case "Petaya Berry":
-                        this.applyStatChange(id, {spa: 1}, true, true);
+                        this.applyStatChange(id, {spa: 1}, true, id);
                         this.loseItem(id);
                         break;
                     case "Apicot Berry":
-                        this.applyStatChange(id, {spd: 1}, true, true);
+                        this.applyStatChange(id, {spd: 1}, true, id);
                         this.loseItem(id);
                         break;
                     case "Salac Berry":
-                        this.applyStatChange(id, {spe: 1}, true, true);
+                        this.applyStatChange(id, {spe: 1}, true, id);
                         this.loseItem(id);
                         break;
                     case "Lansat Berry":
@@ -281,8 +281,21 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, fromSelf: boolean = false, ignoreAbility: boolean = false): StatsTable {
+    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {
         const pokemon = this.getPokemon(id);
+        const fromSelf = id === sourceID;
+        // Mirror Armor
+        if (!fromMirrorArmor && !fromSelf && pokemon.ability === "Mirror Armor") {
+            for (const stat in boosts) {
+                const mirroredBoosts: Partial<StatsTable> = {};
+                const statId = stat as StatIDExceptHP;
+                if ((boosts[statId] || 0) < 0) {
+                    mirroredBoosts[statId] = boosts[statId]!;
+                    boosts[statId] = 0;
+                }
+                this.applyStatChange(sourceID, mirroredBoosts, false, id, false, true);
+            }
+        }
         // Clear Amulet, Clear Body, White Smoke, Full Metal Body
         if (!fromSelf && (pokemon.item === "Clear Amulet" || (!ignoreAbility && pokemon.hasAbility("Clear Body", "White Smoke", "Full Metal Body")))) {
             for (const stat in boosts) {
@@ -299,7 +312,7 @@ export class RaidState implements State.RaidState{
             const numNegativeBoosts = Object.values(diff).reduce((p, c) => p + (c < 0 ? 1 : 0), 0);
             if (numNegativeBoosts > 0) {
                 const boost = pokemon.ability === "Defiant" ? {atk: 2 * numNegativeBoosts} : {spa: 2 * numNegativeBoosts};
-                this.applyStatChange(id, boost, true, true);
+                this.applyStatChange(id, boost, true, id);
             }
         }
         // Mirror Herb and Opportunist
@@ -325,7 +338,7 @@ export class RaidState implements State.RaidState{
                         }
                     }
                     if (hasPositiveBoost) {
-                        this.applyStatChange(opponentId, positiveDiff, false, true);
+                        this.applyStatChange(opponentId, positiveDiff, false, id);
                         if (opponent.item === "Mirror Herb") { this.loseItem(opponentId); }
                     }
                 }
@@ -458,16 +471,16 @@ export class RaidState implements State.RaidState{
             }
             // Terrain Seeds
             if (pokemon.item === "Electric Seed" && pokemon.field.terrain === "Electric") {
-                this.applyStatChange(id, {def: 1}, true, true);
+                this.applyStatChange(id, {def: 1}, true, id);
                 this.loseItem(id);
             } else if (pokemon.item === "Grassy Seed" && pokemon.field.terrain === "Grassy") {
-                this.applyStatChange(id, {def: 1}, true, true);
+                this.applyStatChange(id, {def: 1}, true, id);
                 this.loseItem(id);
             } else if (pokemon.item === "Psychic Seed" && pokemon.field.terrain === "Psychic") {
-                this.applyStatChange(id, {spd: 1}, true, true);
+                this.applyStatChange(id, {spd: 1}, true, id);
                 this.loseItem(id);
             } else if (pokemon.item === "Misty Seed" && pokemon.field.terrain === "Misty") {
-                this.applyStatChange(id, {spd: 1}, true, true);
+                this.applyStatChange(id, {spd: 1}, true, id);
                 this.loseItem(id);
             }
         }
@@ -591,8 +604,8 @@ export class RaidState implements State.RaidState{
                 const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
                 for (let opponent of affectedPokemon) {
                     const origEva = opponent.boosts.eva || 0;
-                    this.applyStatChange(opponent.id, {eva: -1}, true, false);
-                    flags[opponent.id].push("Eva: " + origEva + "->" + opponent.boosts.eva + " (Supersweet Syrup)");
+                    this.applyStatChange(opponent.id, {eva: -1}, true, id);
+                    flags[opponent.id].push("Eva: " + origEva + " → " + opponent.boosts.eva + " (Supersweet Syrup)");
                 }
             // Hospitality 
             } else if (ability === "Hospitality") {
@@ -606,13 +619,13 @@ export class RaidState implements State.RaidState{
             // Intrepid Sword
             } else if (ability === "Intrepid Sword") {
                 const origAtk = pokemon.boosts.atk;
-                this.applyStatChange(id, {atk: 1}, true, true);
-                flags[id].push("Atk: " + origAtk + "->" + pokemon.boosts.atk + " (Intrepid Sword)");
+                this.applyStatChange(id, {atk: 1}, true, id);
+                flags[id].push("Atk: " + origAtk + " → " + pokemon.boosts.atk + " (Intrepid Sword)");
             // Dauntless Shield
             } else if (ability === "Dauntless Shield") {
                 const origDef = pokemon.boosts.def;
-                this.applyStatChange(id, {def: 1}, true, true);
-                flags[id].push("Def: " + origDef + "->" + pokemon.boosts.def + " (Dauntless Shield)");
+                this.applyStatChange(id, {def: 1}, true, id);
+                flags[id].push("Def: " + origDef + " → " + pokemon.boosts.def + " (Dauntless Shield)");
             // Protosynthesis and Quark Drive  (should be uncopyable / unsupressable)
             } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
                 if (pokemon.item === "Booster Energy" && !pokemon.abilityOn) {
@@ -625,15 +638,24 @@ export class RaidState implements State.RaidState{
         if (!restore && ability === "Intimidate") {
             const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
             for (let opponent of affectedPokemon) {
-                if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
+                if (opponent.hasAbility("Guard Dog")) {
                     const origAtk = opponent.boosts.atk ||  0;
-                    this.applyStatChange(opponent.id, {atk: -1}, true, false);
-                    flags[opponent.id].push("Atk: " + origAtk + "->" + opponent.boosts.atk + " (Intimidate)");
+                    this.applyStatChange(opponent.id, {atk: 1}, true, id);
+                    flags[opponent.id].push("Atk: " + origAtk + " → " + opponent.boosts.atk + " (Guard Dog)");
+                } else if (!["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
+                    const origAtk = opponent.boosts.atk ||  0;
+                    const origSourceAtk = pokemon.boosts.atk || 0;
+                    this.applyStatChange(opponent.id, {atk: -1}, true, id);
+                    if (opponent.hasAbility("Mirror Armor")) {
+                        flags[id].push("Atk: " + origSourceAtk + " → " + pokemon.boosts.atk + " (Mirror Armor)");
+                    } else {
+                        flags[opponent.id].push("Atk: " + origAtk + " → " + opponent.boosts.atk + " (Intimidate)");
+                    }
                 }
                 if (opponent.hasAbility("Rattled")) {
                     const origSpe = opponent.boosts.spe || 0;
-                    this.applyStatChange(opponent.id, {spe: 1}, true, true);
-                    flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + "->" + opponent.boosts.spe + " (Rattled)";
+                    this.applyStatChange(opponent.id, {spe: 1}, true, opponent.id);
+                    flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + " → " + opponent.boosts.spe + " (Rattled)";
                 }
             }
         }

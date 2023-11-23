@@ -661,6 +661,19 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[3].state.raiders[0].syrupBombDrops).toEqual(0);
     expect(result.turnResults[3].state.raiders[0].boosts.spe).toEqual(-3);
   })
+  test('mirror-armor-guard-dog', async() => {
+    const hash = "#H4sIAAAAAAAAA9VUS4vbMBD+K0anLeiQZLePzS1N+sghpSy5BR8Ue2xPI0tGksOGJf+9M7KczZYWeigLxUKet7759HgSlZiL4oe3RkgRxHy3m0hhVAsilyxiycJUit6DW684SLkaQhRtF9AazxEzKWpn+46srT3C2lSWxL31fjOqQ8HCYSCPh8KaUrnTp6qCIngyOas1/RoMPsU2XE6FA80lVJzVqTiXcYZL2NZhXYNjdNjCs+YbBF0ulSlAr1SrargYB/VBhd+ZtuDUH8zLRpkaEinGBmDohYMSYxOdPUA7kNk7w5ZIS+wPOlAxyPd7HzD0nDxwR70zjkh8XNecuPU9agwsYYA2+qkqR8CR62CcNRyBiQuEbnvqIG2BH/nvdcBOYyQEHoNTm+Qd2wtK5LkURzF/EnQCPkgh0thFw70kkh8UltlHqkeOhSuUQUMrVUp7kGJtiHcsI5mm11qKr8qVBDzmv6P8y5efR+Pt9JdBrulkMhTY5VGmX4x+/7LEWORe0iYsrTviwWDd8MF6oSV4G3TOumzhWuv+GUDxWR0g24JyvIl/BXb2P4G9JSiKD1DAiu/etZKgfukJV7ay9Wvv+p0U3/GgiqYXV1JCdfPNZovh5rx5LWB5uip30RRF4u+KdDqos8H+NuFMaFukx2L63Byl3WysD1l8dtDU1MOEslNucD0Mk2jVI2UOyzOA3STnV4mlXI4jz8/nn9CEEQ/lBQAA"
+    const result = await resultsFromHash(hash);
+    // T0: Intimidate is reflected by each Mirror Armor, Guard Dog is activated by Intimidate
+    expect(result.turnZeroState.raiders[0].boosts.atk).toEqual(-2);
+    expect(result.turnZeroState.raiders[1].boosts.atk).toEqual(0);
+    expect(result.turnZeroState.raiders[2].boosts.atk).toEqual(0);
+    expect(result.turnZeroState.raiders[3].boosts.atk).toEqual(1);
+    expect(result.turnZeroState.raiders[4].boosts.atk).toEqual(-1);
+    // T1: Mirror Armor reflects Fake Tears. Even though the user itself has Mirror Armor, the move is not reflected again
+    expect(result.turnResults[0].state.raiders[1].boosts.spd).toEqual(-2);
+    expect(result.turnResults[0].state.raiders[2].boosts.spd).toEqual(0);
+  })
 })
 
 

@@ -169,12 +169,16 @@ export function getEVDescription(evs: StatsTable) {
 }
 
 export function getIVDescription(ivs: StatsTable) {
-    if (ivs.hp === 13) {
-        return "Untrained"
-    }
+    const ivsWithZero = Object.entries(ivs).filter(([key, value]) => value === 0).map(([key, value]) => key);
+    const ivsWithMax = Object.entries(ivs).filter(([key, value]) => value === 31).map(([key, value]) => key);
+    const ivsWithSignificance = Object.entries(ivs).filter(([key, value]) => value !== 0 && value !== 31).map(([key, value]) => [key, value]);
     const filteredPairs = Object.entries(ivs).filter(([key, value]) => value !== 31);
-    return filteredPairs.length === 0 ? "All Hypertrained" : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
+
+    return ivsWithZero.length === 6 ? "Untrained" :
+        ivsWithMax.length === 6 ? "All Hypertrained" :
+        filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
 }
+
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {
     if (!translationKey) { return word; }
     if (!translationKey[translationCategory]) { return word; }

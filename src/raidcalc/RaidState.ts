@@ -285,7 +285,7 @@ export class RaidState implements State.RaidState{
         const pokemon = this.getPokemon(id);
         const fromSelf = id === sourceID;
         // Mirror Armor
-        if (!fromMirrorArmor && !fromSelf && pokemon.ability === "Mirror Armor") {
+        if (!fromSelf && !fromMirrorArmor && !ignoreAbility && pokemon.ability === "Mirror Armor") {
             for (const stat in boosts) {
                 const mirroredBoosts: Partial<StatsTable> = {};
                 const statId = stat as StatIDExceptHP;
@@ -306,9 +306,9 @@ export class RaidState implements State.RaidState{
             }
         }
         // Apply stat changes
-        const diff = pokemon.applyStatChange(boosts);
+        const diff = pokemon.applyStatChange(boosts, ignoreAbility);
         // Defiant and Competitive
-        if (!fromSelf && (pokemon.ability === "Defiant" || pokemon.ability === "Competitive")) {
+        if (!fromSelf && !ignoreAbility && (pokemon.ability === "Defiant" || pokemon.ability === "Competitive")) {
             const numNegativeBoosts = Object.values(diff).reduce((p, c) => p + (c < 0 ? 1 : 0), 0);
             if (numNegativeBoosts > 0) {
                 const boost = pokemon.ability === "Defiant" ? {atk: 2 * numNegativeBoosts} : {spa: 2 * numNegativeBoosts};

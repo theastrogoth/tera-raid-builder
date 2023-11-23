@@ -186,12 +186,12 @@ export class Raider extends Pokemon implements State.Raider {
         return this.originalCurHP;
     }
 
-    public applyStatChange(boosts: Partial<StatsTable>): StatsTable {
+    public applyStatChange(boosts: Partial<StatsTable>, ignoreAbility: boolean = false): StatsTable {
         const diff: StatsTable = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, acc: 0, eva: 0};
         for (let stat in boosts) {
             const statId = stat as StatIDExceptHP;
             const originalStat = this.boosts[statId] || 0;
-            this.boosts[statId] = safeStatStage(originalStat + (boosts[statId] || 0) * this.boostCoefficient)
+            this.boosts[statId] = safeStatStage(originalStat + (boosts[statId] || 0) * (ignoreAbility ? 1 : this.boostCoefficient))
             diff[statId] = (this.boosts[statId] || 0) - originalStat;
         }
         return diff;

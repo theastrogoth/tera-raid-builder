@@ -582,7 +582,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                             <BossTera src={getTeraTypeBannerURL(raidInputProps.pokemon[0].teraType || "blank")}></BossTera>
                         </BossWrapper>
                         <Title>{title ? title : "Untitled"}</Title>
-                        <Subtitle>{subtitle ? subtitle : `A Strategy For A ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle>
+                        <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidInputProps.pokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle>
                     </Header>
                     <BuildsSection>
                         <Separator>

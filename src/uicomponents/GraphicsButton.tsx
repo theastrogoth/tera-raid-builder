@@ -309,6 +309,14 @@ const MoveLabel = styled(Typography)({
     fontSize: "1.3em"
 });
 
+const OptionalMoveLabel = styled(Typography)({
+    color: "#dedede",
+    height: "100px",
+    lineHeight: "100px",
+    fontSize: "1.3em",
+    fontStyle: "italic"
+});
+
 const MoveLearnMethodIcon = styled("img")({
     height: "80px",
     position: "absolute",
@@ -563,7 +571,7 @@ function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
     return moveGroups;
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], moveGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, translationKey?: any) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], moveGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -635,13 +643,20 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                 <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
                                                 <MovesContainer>
                                                     {
-                                                        [...Array(4)].map((val, index) => (
-                                                            <MoveBox key={"move_box_" + index}>
-                                                                {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} /> : null}
-                                                                {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel> : null}
-                                                                {(raider.moves[index] && raider.moves[index] !== "(No Move)") ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} /> : null}
-                                                            </MoveBox>
-                                                        ))
+                                                        [...Array(4)].map((val, index) => {
+                                                            const noMove = (raider.moves[index] && raider.moves[index] !== "(No Move)");
+                                                            return (
+                                                                <MoveBox key={"move_box_" + index}>
+                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} /> : null}
+                                                                    {noMove ? (
+                                                                        optionalMove[raider.id][index] ? 
+                                                                            <OptionalMoveLabel>{ getTranslation(raider.moves[index] + "*", translationKey, "moves") }</OptionalMoveLabel> : 
+                                                                            <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel>
+                                                                    ) : null}
+                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} /> : null}
+                                                                </MoveBox>
+                                                            )
+                                                        })
                                                     }
                                                 </MovesContainer>
                                             </BuildMovesSection>
@@ -887,11 +902,16 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
                 )
             );
             const moveTypes = moves.map((ms) => ms.map((move) => move.type));
+            // identify moves that aren't used in the strat
+            const optionalMove = moves.map((ms,id) => ms.map(m => {
+                const move = results.turnResults.find((r) => r.moveInfo.moveData.name === m.name && r.moveInfo.userID === id);
+                return !move;
+            }))
             // sort moves into groups
             const moveGroups = getMoveGroups(raidInputProps.groups, results);
             const repeats = raidInputProps.groups.map((group) => group.repeats || 1);
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, isHiddenAbility, learnMethods, moveTypes, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits, translationKey);
+            const graphicTop = generateGraphic(theme, raidInputProps, isHiddenAbility, learnMethods, moveTypes, optionalMove, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);

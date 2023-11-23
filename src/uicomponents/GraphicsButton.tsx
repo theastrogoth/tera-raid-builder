@@ -527,6 +527,13 @@ const Credit = styled(Typography)({
     whiteSpace: "pre-wrap",
 });
 
+const PPTLogo = styled("img")({
+    height: "325px",
+    position: "absolute",
+    bottom: "-50px",
+    left: "900px"
+});
+
 function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
     switch (moveMethod) {
         case "egg":
@@ -581,7 +588,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                             <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name, raidInputProps.pokemon[0].shiny)} />
                             <BossTera src={getTeraTypeBannerURL(raidInputProps.pokemon[0].teraType || "blank")}></BossTera>
                         </BossWrapper>
-                        <Title>{title ? title : "Untitled"}</Title>
+                        <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
                         <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidInputProps.pokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle>
                     </Header>
                     <BuildsSection>
@@ -773,7 +780,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                     <InfoSection>
                         <CreditsContainer>
                             <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>
-                            <Credit>{getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</Credit>
+                            {title && title.endsWith("!PPT") && <PPTLogo src={getMiscImageURL("PPT_logo")}/>}
+                            <Credit>{ getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</Credit>
                         </CreditsContainer>
                     </InfoSection>
                 </GraphicsContainer> 
@@ -830,15 +838,15 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
             }
             wmark.image((target: HTMLCanvasElement) => target)
                 .then((img: HTMLImageElement) => {
-                    saveAs(img.src, title + '.png')
+                    title.endsWith("!PPT") ? void(0) : saveAs(img.src, title + '.png')
                     setLoading(false);
                 });
         } else {
-            saveAs(graphicUrl, title + '.png')
+            title.endsWith("!PPT") ? void(0) : saveAs(graphicUrl, title + '.png')
             setLoading(false);
         }
     });
-    graphicTop.remove(); // remove the element from the DOM
+    title.endsWith("!PPT") ? void(0) : graphicTop.remove(); // remove the element from the DOM
 }
 
 function GraphicsButton({title, notes, credits, raidInputProps, results, setLoading, translationKey}: 

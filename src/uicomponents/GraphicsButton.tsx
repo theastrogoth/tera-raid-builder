@@ -311,6 +311,7 @@ const MoveLabel = styled(Typography)({
 
 const OptionalMoveLabel = styled(Typography)({
     color: "#dedede",
+    opacity: "50%",
     height: "100px",
     lineHeight: "100px",
     fontSize: "1.3em",
@@ -647,13 +648,13 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                             const noMove = (raider.moves[index] && raider.moves[index] !== "(No Move)");
                                                             return (
                                                                 <MoveBox key={"move_box_" + index}>
-                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} /> : null}
+                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} sx={{opacity: `${optionalMove[raider.id][index] ? '50%' : '100%'}`}}/> : null}
                                                                     {noMove ? (
                                                                         optionalMove[raider.id][index] ? 
                                                                             <OptionalMoveLabel>{ getTranslation(raider.moves[index] + "*", translationKey, "moves") }</OptionalMoveLabel> : 
                                                                             <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel>
                                                                     ) : null}
-                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} /> : null}
+                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} sx={{opacity: `${optionalMove[raider.id][index] ? '50%' : '100%'}`}}/> : null}
                                                                 </MoveBox>
                                                             )
                                                         })

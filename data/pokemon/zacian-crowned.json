@@ -184,6 +184,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Steel Beam",
             "learnMethod": "level-up"
         },

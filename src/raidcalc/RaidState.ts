@@ -305,6 +305,17 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+        if (!fromSelf && (!ignoreAbility && pokemon.hasAbility("Big Pecks"))) {
+            boosts["def"] = 0;
+        }
+        if (!fromSelf && (pokemon.field.attackerSide.isFlowerVeil && pokemon.hasType("Grass"))) {
+            for (const stat in boosts) {
+                const statId = stat as StatIDExceptHP;
+                if ((boosts[statId] || 0) < 0) {
+                    boosts[statId] = 0;
+                }
+            }
+        }
         // Apply stat changes
         const diff = pokemon.applyStatChange(boosts, ignoreAbility);
         // Defiant and Competitive
@@ -715,6 +726,12 @@ export class RaidState implements State.RaidState{
                 }
             }
             flags[id].push("Friend Guard reduces allies' damage taken");
+        } else if (ability === "Flower Veil") {
+            if (id !== 0) {
+                for (let fid=1; fid<5; fid++) {
+                    this.fields[fid].attackerSide.isFlowerVeil = true;
+                }
+            }
         } else {
             // 
         }
@@ -829,6 +846,18 @@ export class RaidState implements State.RaidState{
             ) {
                 for (let field of this.fields.slice(1)) {
                     field.attackerSide.isAromaVeil = false;
+                }
+            }
+        } else if (ability === "Flower Veil") {
+            if (id === 0) {
+                this.fields[0].attackerSide.isFlowerVeil = false;
+            } else if (
+                !this.raiders.slice(1)
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Flower Veil" as AbilityName)
+            ) {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.isFlowerVeil = false;
                 }
             }
         }

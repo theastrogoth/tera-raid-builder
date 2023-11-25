@@ -117,6 +117,7 @@ export class Side implements State.Side {
   isMist: number;
   isSafeguard: number;
   isAromaVeil: boolean;
+  isFlowerVeil: boolean;
 
   constructor(side: State.Side = {}) {
     this.spikes = side.spikes || 0;
@@ -151,6 +152,7 @@ export class Side implements State.Side {
     this.isMist = side.isMist || 0;
     this.isSafeguard = side.isSafeguard || 0;
     this.isAromaVeil = !!side.isAromaVeil;
+    this.isFlowerVeil = !!side.isFlowerVeil;
   }
 
   clone() {

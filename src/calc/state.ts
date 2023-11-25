@@ -119,5 +119,6 @@ export namespace State {
     isMist?: number;            // # turns remaining
     isSafeguard?: number;       // # turns remaining
     isAromaVeil?: boolean;
+    isFlowerVeil?: boolean;
   }
 }

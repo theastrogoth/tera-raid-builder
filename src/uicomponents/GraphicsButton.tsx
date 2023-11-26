@@ -310,7 +310,7 @@ const MoveLabel = styled(Typography)({
 });
 
 const OptionalMoveLabel = styled(Typography)({
-    color: "#dedede",
+    color: "white",
     opacity: "50%",
     height: "100px",
     lineHeight: "100px",
@@ -322,6 +322,21 @@ const MoveLearnMethodIcon = styled("img")({
     height: "80px",
     position: "absolute",
     right: "20px"
+});
+
+const FootnoteContainer = styled(Box)({
+    width: "auto",
+    display: "flex",
+    justifyContent: "right",
+    padding: "0px 100px",
+    margin: "30px 0px"
+});
+
+const FootnoteText = styled(Typography)({
+    color: "white",
+    fontSize: "4em",
+    whiteSpace: "nowrap",
+    fontStyle: "italic"
 });
 
 const ExecutionSection = styled(Box)({
@@ -666,6 +681,13 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                 ))
                             }
                         </BuildsContainer>
+                        {(optionalMove.reduce((a,b) => a + b.reduce((c,d) => c + (d ? 1 : 0), 0), 0) > 0) &&
+                            <FootnoteContainer>
+                                <FootnoteText>
+                                    * {getTranslation("optional learned moves", translationKey)}
+                                </FootnoteText>
+                            </FootnoteContainer>
+                        }
                     </BuildsSection>
                     <ExecutionSection>
                         <Separator>
@@ -905,9 +927,11 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
             const moveTypes = moves.map((ms) => ms.map((move) => move.type));
             // identify moves that aren't used in the strat
             const optionalMove = moves.map((ms,id) => ms.map(m => {
+                if (id === 0) { return false; }
                 const move = results.turnResults.find((r) => r.moveInfo.moveData.name === m.name && r.moveInfo.userID === id);
-                return !move;
+                return !move && (m.name !== undefined) && (m.name !== "(No Move)");
             }))
+            console.log(optionalMove)
             // sort moves into groups
             const moveGroups = getMoveGroups(raidInputProps.groups, results);
             const repeats = raidInputProps.groups.map((group) => group.repeats || 1);

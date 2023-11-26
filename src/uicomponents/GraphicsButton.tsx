@@ -684,7 +684,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                         {(optionalMove.reduce((a,b) => a + b.reduce((c,d) => c + (d ? 1 : 0), 0), 0) > 0) &&
                             <FootnoteContainer>
                                 <FootnoteText>
-                                    * {getTranslation("optional learned moves", translationKey)}
+                                    * {getTranslation("Optional Moves", translationKey)}
                                 </FootnoteText>
                             </FootnoteContainer>
                         }

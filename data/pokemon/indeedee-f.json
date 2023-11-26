@@ -192,6 +192,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Zen Headbutt",
             "learnMethod": "machine"
         }

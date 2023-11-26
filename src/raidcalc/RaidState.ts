@@ -284,6 +284,7 @@ export class RaidState implements State.RaidState{
     public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {
         const pokemon = this.getPokemon(id);
         const fromSelf = id === sourceID;
+        const boostCoef = pokemon.boostCoefficient;
         // Mirror Armor
         if (!fromSelf && !fromMirrorArmor && !ignoreAbility && pokemon.ability === "Mirror Armor") {
             for (const stat in boosts) {
@@ -300,7 +301,18 @@ export class RaidState implements State.RaidState{
         if (!fromSelf && (pokemon.item === "Clear Amulet" || (!ignoreAbility && pokemon.hasAbility("Clear Body", "White Smoke", "Full Metal Body")))) {
             for (const stat in boosts) {
                 const statId = stat as StatIDExceptHP;
-                if ((boosts[statId] || 0) < 0) {
+                if (((boosts[statId] || 0) * boostCoef) < 0) {
+                    boosts[statId] = 0;
+                }
+            }
+        }
+        if (!fromSelf && (!ignoreAbility && pokemon.hasAbility("Big Pecks"))) {
+            boosts["def"] = Math.max(0, boosts["def"] || 0);
+        }
+        if (!fromSelf && (pokemon.field.attackerSide.isFlowerVeil && pokemon.hasType("Grass"))) {
+            for (const stat in boosts) {
+                const statId = stat as StatIDExceptHP;
+                if (((boosts[statId] || 0) * boostCoef) < 0) {
                     boosts[statId] = 0;
                 }
             }
@@ -715,6 +727,12 @@ export class RaidState implements State.RaidState{
                 }
             }
             flags[id].push("Friend Guard reduces allies' damage taken");
+        } else if (ability === "Flower Veil") {
+            if (id !== 0) {
+                for (let fid=1; fid<5; fid++) {
+                    this.fields[fid].attackerSide.isFlowerVeil = true;
+                }
+            }
         } else {
             // 
         }
@@ -841,6 +859,18 @@ export class RaidState implements State.RaidState{
             ) {
                 for (let field of this.fields.slice(1)) {
                     field.attackerSide.isAromaVeil = false;
+                }
+            }
+        } else if (ability === "Flower Veil") {
+            if (id === 0) {
+                this.fields[0].attackerSide.isFlowerVeil = false;
+            } else if (
+                !this.raiders.slice(1)
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Flower Veil" as AbilityName)
+            ) {
+                for (let field of this.fields.slice(1)) {
+                    field.attackerSide.isFlowerVeil = false;
                 }
             }
         }

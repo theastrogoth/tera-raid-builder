@@ -635,8 +635,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                 <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(raider.nature, translationKey, "natures")) }</BuildInfo>
                                                 {getEVDescription(raider.evs) ? 
                                                     <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(raider.evs)}</BuildInfo> : null}
-                                                {getIVDescription(raider.ivs) ? 
-                                                    <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs)}</BuildInfo> : null}
+                                                {getIVDescription(raider.ivs, translationKey) ? 
+                                                    <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
                                             </BuildInfoContainer>
                                             <BuildMovesSection>
                                                 <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>

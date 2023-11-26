@@ -1,5 +1,5 @@
 import { string } from "yargs";
-import { StatsTable } from "./calc";
+import { StatID, StatsTable } from "./calc";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
@@ -168,15 +168,33 @@ export function getEVDescription(evs: StatsTable) {
     return filteredPairs.length === 0 ? undefined : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
 }
 
-export function getIVDescription(ivs: StatsTable) {
+export function getIVDescription(ivs: StatsTable, translationKey: any) {
     const ivsWithZero = Object.entries(ivs).filter(([key, value]) => value === 0).map(([key, value]) => key);
     const ivsWithMax = Object.entries(ivs).filter(([key, value]) => value === 31).map(([key, value]) => key);
     const ivsWithSignificance = Object.entries(ivs).filter(([key, value]) => value !== 0 && value !== 31).map(([key, value]) => [key, value]);
-    const filteredPairs = Object.entries(ivs).filter(([key, value]) => value !== 31);
+    // const filteredPairs = Object.entries(ivs).filter(([key, value]) => value !== 31);
 
-    return ivsWithZero.length === 6 ? "Untrained" :
-        ivsWithMax.length === 6 ? "All Hypertrained" :
-        filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
+    if (ivsWithZero.length === 6) { return "Untrained"; }
+    if (ivsWithMax.length === 6) { return "All Hypertrained"; }
+
+    if (ivsWithSignificance.length === 0) {
+        let displayedStats: string[] = [];
+        for (let stat in ivs) {
+            const statid = stat as StatID;
+            if (ivs[statid] !== 0) {
+                displayedStats.push(getTranslation(getStatReadableName(stat), translationKey, "stats"));
+            }
+        }
+        return displayedStats.slice(0,-1).join(', ') + (displayedStats.length > 2 ? ", and " : " and ") + displayedStats.slice(-1) + " Hypertrained";
+    }
+    else {
+        let displayedIVs: string[] = [];
+        for (let stat in ivs) {
+            const statid = stat as StatID;
+            displayedIVs.push(`${ivs[statid]}`);
+        } 
+        return displayedIVs.join(' / ');
+    }
 }
 
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {

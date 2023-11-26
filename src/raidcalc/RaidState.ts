@@ -284,6 +284,7 @@ export class RaidState implements State.RaidState{
     public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {
         const pokemon = this.getPokemon(id);
         const fromSelf = id === sourceID;
+        const boostCoef = pokemon.boostCoefficient;
         // Mirror Armor
         if (!fromSelf && !fromMirrorArmor && !ignoreAbility && pokemon.ability === "Mirror Armor") {
             for (const stat in boosts) {
@@ -300,18 +301,18 @@ export class RaidState implements State.RaidState{
         if (!fromSelf && (pokemon.item === "Clear Amulet" || (!ignoreAbility && pokemon.hasAbility("Clear Body", "White Smoke", "Full Metal Body")))) {
             for (const stat in boosts) {
                 const statId = stat as StatIDExceptHP;
-                if ((boosts[statId] || 0) < 0) {
+                if (((boosts[statId] || 0) * boostCoef) < 0) {
                     boosts[statId] = 0;
                 }
             }
         }
         if (!fromSelf && (!ignoreAbility && pokemon.hasAbility("Big Pecks"))) {
-            boosts["def"] = 0;
+            boosts["def"] = Math.max(0, boosts["def"] || 0);
         }
         if (!fromSelf && (pokemon.field.attackerSide.isFlowerVeil && pokemon.hasType("Grass"))) {
             for (const stat in boosts) {
                 const statId = stat as StatIDExceptHP;
-                if ((boosts[statId] || 0) < 0) {
+                if (((boosts[statId] || 0) * boostCoef) < 0) {
                     boosts[statId] = 0;
                 }
             }

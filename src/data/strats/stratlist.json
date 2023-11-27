@@ -1,6 +1,19 @@
 {
     "Samurott-Hisui": {
-        "Micrydon": "h_samurott/main"
+        "Micrydon": "h_samurott/main",
+        "Team Eeveelution": "h_samurott/eeveelution",
+        "Stolen Sharpness": "h_samurott/stolen_sharpness",
+        "Hamurott on Ice": "h_samurott/hamurott_on_ice",
+        "A Light in the Dog Days": "h_samurott/dog_days",
+        "Belly Drum of War": "h_samurott/belly_drum_of_war",
+        "Skill Issue": "h_samurott/skill_issue",
+        "Morpeking Duck": "h_samurott/morpeking_duck",
+        "Tsujigiri": "h_samurott/tsujigiri",
+        "Tickle Squad Returns": "h_samurott/tickle_squad",
+        "Betrayal!": "h_samurott/betrayal",
+        "Samurott 2: Electric Bug-aloo": "h_samurott/bugaloo",
+        "Rocked & Shocked": "h_samurott/rocked&shocked",
+        "Magnem Opus": "h_samurott/magnem_opus"
     },
     "Eevee": {
         "Giraffic Bark": "eevee/main",

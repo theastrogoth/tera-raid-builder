@@ -18,8 +18,10 @@ import { encode, decode, getTranslation } from "../utils";
 
 import { db } from "../config/firestore";
 import { collection, doc, getCountFromServer, getDoc, setDoc } from "firebase/firestore";
+import STRAT_LIST from "../data/strats/stratlist.json";
 
 const gen = Generations.get(9);
+const JSON_HASHES = Object.entries(STRAT_LIST).map(([boss, strats]) => Object.entries(strats as Object).map(([name, h]) => h as string)).flat();
 
 async function getFullHashFromShortHash(hash: string): Promise<string> {
     let cleanHash = hash;
@@ -273,6 +275,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
     const hash = location.hash;
+    const [hashChanges, setHashChanges] = useState(0);
+    const hashChangesRef = useRef(0);
 
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const buttonTimer = useRef<NodeJS.Timeout | null>(null);
@@ -280,15 +284,22 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     useEffect(() => {
         try {
             if (hash !== "") {
-                setLoading(true);
+                if (!buildInfo) {
+                    setLoading(true);
+                }
                 let lcHash = hash.includes('/') ? hash.slice(1).toLowerCase() : hash.slice(1).toLowerCase() + "/main";
-                import(`../data/strats/${lcHash}.json`)
-                .then((module) => {
-                    setBuildInfo(module.default);
-                })
-                .catch((error) => {
-                    console.error('Error importing JSON file:', error);
-                });
+                if (JSON_HASHES.includes(lcHash)) {
+                    import(`../data/strats/${lcHash}.json`)
+                    .then((module) => {
+                        setBuildInfo(module.default);
+                    })
+                    .catch((error) => {
+                        console.error('Error importing JSON file:', error);
+                    });
+                } else if (buildInfo) {
+                    setLoading(true);
+                    setHashChanges(hashChanges + 1);
+                }
             }
         } catch (e) {
             console.log(e);
@@ -300,19 +311,24 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         async function loadInfo() {
             try {
                 let res: BuildInfo | null = null;
-                if (buildInfo) {
+                if (buildInfo && hashChangesRef.current === hashChanges) {
                     res = await lightToFullBuildInfo(buildInfo);
                 } else {
-                    if (hash.length < 50) { // This check should probably be more systematic
-                        const fullHash = await getFullHashFromShortHash(hash);
-                        if (fullHash) {
-                            res = await deserializeInfo(fullHash);
-                        } else {
+                    if (!JSON_HASHES.includes(hash.slice(1)) && !JSON_HASHES.includes(hash.slice(1) + "/main")) {
+                        if (hash === "" || hash === "#") {
                             const module = await import(`../data/strats/default.json`)
                             res = await lightToFullBuildInfo(module.default as LightBuildInfo);
+                        } else if (hash.length < 50) { // This check should probably be more systematic
+                            const fullHash = await getFullHashFromShortHash(hash);
+                            if (fullHash) {
+                                res = await deserializeInfo(fullHash);
+                            } else {
+                                const module = await import(`../data/strats/default.json`)
+                                res = await lightToFullBuildInfo(module.default as LightBuildInfo);
+                            }
+                        } else {
+                            res = await deserializeInfo(hash);
                         }
-                    } else {
-                        res = await deserializeInfo(hash);
                     }
                 }
                 if (res) {
@@ -331,8 +347,6 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     setSubstitutes[2](res.substitutes[2]);
                     setSubstitutes[3](res.substitutes[3]);
                     setHasLoadedInfo(true);
-                } else {
-                    setLoading(false);
                 }
             } catch (e) {
                 setLoading(false);
@@ -340,8 +354,9 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
             }
         }
         loadInfo().catch((e) => console.log(e));
+        hashChangesRef.current = hashChanges;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [buildInfo]);
+    }, [buildInfo, hashChanges]);
 
     useEffect(() => {
         if (hasLoadedInfo) {

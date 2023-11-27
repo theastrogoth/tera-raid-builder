@@ -251,6 +251,9 @@ export function encode(id: number) {
 }
 
 export function decode(str: string) {
+    if (str === "" || str === "#") {
+        return null;
+    }
     let i = 0;
     for (const c of str) {
         i = i * base + alphabet.indexOf(c);

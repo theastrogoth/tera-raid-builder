@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { serialize, deserialize } from "../utilities/shrinkstring";
 
@@ -14,10 +14,42 @@ import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
 import { MoveData, RaidTurnInfo, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
-import { getTranslation } from "../utils";
+import { encode, decode, getTranslation } from "../utils";
 
+import { db } from "../config/firestore";
+import { collection, doc, getCountFromServer, getDoc, setDoc } from "firebase/firestore";
 
 const gen = Generations.get(9);
+
+async function getFullHashFromShortHash(hash: string): Promise<string> {
+    let cleanHash = hash;
+    if (hash[0] === "#") {
+        cleanHash = hash.slice(1);
+    }
+    const hashID = decode(cleanHash);
+    const docRef = doc(db, "links", `${hashID}`);
+    const docSnap = await getDoc(docRef);
+    if (!docSnap.exists()) {
+      console.log("Invalid link");
+    }
+    const data = docSnap.data();
+    return data ? data.hash : null;
+}
+
+async function generateShortHash(): Promise<[number, string]> {
+    const coll = collection(db, "links");
+    const snapshot = await getCountFromServer(coll);
+    const dbLen = snapshot.data().count;
+    const shortHash = encode(dbLen);
+    return [dbLen, shortHash]
+}
+
+async function setLinkDocument(id: number, shortHash: string, fullHash: string): Promise<void> {
+    await setDoc(doc(db, "links", `${id}`), {
+        hash: fullHash,
+        path: shortHash
+    });
+}
 
 export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
     try {
@@ -240,7 +272,10 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     const [buildInfo, setBuildInfo] = useState(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
-    const hash = location.hash
+    const hash = location.hash;
+
+    const [buttonDisabled, setButtonDisabled] = useState(false);
+    const buttonTimer = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         try {
@@ -268,7 +303,17 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 if (buildInfo) {
                     res = await lightToFullBuildInfo(buildInfo);
                 } else {
-                    res = await deserializeInfo(hash);
+                    if (hash.length < 50) { // This check should probably be more systematic
+                        const fullHash = await getFullHashFromShortHash(hash);
+                        if (fullHash) {
+                            res = await deserializeInfo(fullHash);
+                        } else {
+                            const module = await import(`../data/strats/default.json`)
+                            res = await lightToFullBuildInfo(module.default as LightBuildInfo);
+                        }
+                    } else {
+                        res = await deserializeInfo(hash);
+                    }
                 }
                 if (res) {
                     const {name, notes, credits, pokemon, groups} = res;
@@ -286,6 +331,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     setSubstitutes[2](res.substitutes[2]);
                     setSubstitutes[3](res.substitutes[3]);
                     setHasLoadedInfo(true);
+                } else {
+                    setLoading(false);
                 }
             } catch (e) {
                 setLoading(false);
@@ -308,8 +355,19 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     return (
         <Button
             variant="outlined"
-            onClick={() => {
-                const link = window.location.href.split("#")[0] + "#" + serializeInfo(
+            onClick={async () => {
+                if (buttonDisabled) { return; }
+                setButtonDisabled(true);
+                if(buttonTimer.current === null) {
+                    buttonTimer.current = setTimeout(() => {
+                        setButtonDisabled(false);
+                        buttonTimer.current = null;
+                    }, 5000) // enforce 5 second delay between clicks
+                } else {
+                    return; // This should never happen
+                }
+                
+                const newHash = serializeInfo(
                     {
                         name: title,
                         notes: notes,
@@ -319,6 +377,9 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     },
                     substitutes,
                 );
+                const [linkID, shortHash] = await generateShortHash();
+                await setLinkDocument(linkID, shortHash, newHash);
+                const link = window.location.href.split("#")[0] + "#" + shortHash;
                 navigator.clipboard.writeText(link)
             }}
         >

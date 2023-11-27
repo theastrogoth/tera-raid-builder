@@ -355,6 +355,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     return (
         <Button
             variant="outlined"
+            // disabled={buttonDisabled} // Don't display when the button is disabled to avoid confusion
             onClick={async () => {
                 if (buttonDisabled) { return; }
                 setButtonDisabled(true);
@@ -362,7 +363,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     buttonTimer.current = setTimeout(() => {
                         setButtonDisabled(false);
                         buttonTimer.current = null;
-                    }, 5000) // enforce 5 second delay between clicks
+                    }, 5000) // enforce 5 second delay between clicks actually doing anything
                 } else {
                     return; // This should never happen
                 }

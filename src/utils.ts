@@ -1,4 +1,3 @@
-import { string } from "yargs";
 import { StatID, StatsTable } from "./calc";
 
 const SPECIAL_NAMES = {

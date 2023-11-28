@@ -271,7 +271,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
       setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
       setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, translationKey: any}) {
-    const [buildInfo, setBuildInfo] = useState(null);
+    const [buildInfo, setBuildInfo] = useState<LightBuildInfo | null>(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
     const hash = location.hash;
@@ -289,12 +289,15 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 }
                 let lcHash = hash.includes('/') ? hash.slice(1).toLowerCase() : hash.slice(1).toLowerCase() + "/main";
                 if (JSON_HASHES.includes(lcHash)) {
+                    setLoading(true);
+                    setPrettyMode(true);
                     import(`../data/strats/${lcHash}.json`)
                     .then((module) => {
                         setBuildInfo(module.default);
                     })
                     .catch((error) => {
                         console.error('Error importing JSON file:', error);
+                        setLoading(false);
                     });
                 } else if (buildInfo) {
                     setLoading(true);
@@ -317,18 +320,24 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     if (!JSON_HASHES.includes(hash.slice(1)) && !JSON_HASHES.includes(hash.slice(1) + "/main")) {
                         if (hash === "" || hash === "#") {
                             const module = await import(`../data/strats/default.json`)
-                            res = await lightToFullBuildInfo(module.default as LightBuildInfo);
+                            setBuildInfo(module.default as LightBuildInfo);
                         } else if (hash.length < 50) { // This check should probably be more systematic
                             const fullHash = await getFullHashFromShortHash(hash);
                             if (fullHash) {
-                                res = await deserializeInfo(fullHash);
+                                const bInfo = await deserialize(fullHash);
+                                setBuildInfo(bInfo);
+                                setPrettyMode(true);
                             } else {
                                 const module = await import(`../data/strats/default.json`)
-                                res = await lightToFullBuildInfo(module.default as LightBuildInfo);
+                                setBuildInfo(module.default as LightBuildInfo);
                             }
                         } else {
-                            res = await deserializeInfo(hash);
+                            const bInfo = await deserialize(hash);
+                            setBuildInfo(bInfo);
+                            setPrettyMode(true);
                         }
+                    } else {
+                        setPrettyMode(true);
                     }
                 }
                 if (res) {
@@ -360,7 +369,6 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
 
     useEffect(() => {
         if (hasLoadedInfo) {
-            setPrettyMode(true);
             setHasLoadedInfo(false);
             setLoading(false);
         }

@@ -56,12 +56,16 @@ async function generateShortHash(): Promise<string> {
     return shortHash;
 }
 
-async function setLinkDocument(fullHash: string, setButtonDisabled: (b: boolean) => void, setSnackSeverity: (s: "success" | "warning" | "error") => void) {
+async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fullHash: string, setButtonDisabled: (b: boolean) => void, setSnackSeverity: (s: "success" | "warning" | "error") => void) {
     const shortHash = await generateShortHash();
     const id = decode(shortHash);
     return setDoc(doc(db, "links", `${id}`), {
         hash: fullHash,
-        path: shortHash
+        path: shortHash,
+        date: Date.now(),
+        boss: raidInputProps.pokemon[0].name,
+        raiders: raidInputProps.pokemon.slice(1).map((p) => p.name),
+        title: title,
     })
     .then(() => {
         setSnackSeverity("success");
@@ -452,7 +456,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     // within a gesture event handler, so we need to pass a ClipboardItem
                     // This condition is also used for Chrome, or any other browser for which ClipboardItem is defined
                     const text = new ClipboardItem({
-                        "text/plain": setLinkDocument(newHash, setButtonDisabled, setSnackSeverity)
+                        "text/plain": setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity)
                         .then(shortHash => {
                             handleClick();
                             return new Blob([
@@ -463,7 +467,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     navigator.clipboard.write([text]);
                 } else {
                     // Firefox compatibility case (ClipboardItem is not defined)
-                    setLinkDocument(newHash, setButtonDisabled, setSnackSeverity)
+                    setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity)
                     .then(shortHash => {
                         handleClick();
                         navigator.clipboard.writeText(

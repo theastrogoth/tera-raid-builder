@@ -40,13 +40,12 @@ async function getFullHashFromShortHash(hash: string): Promise<string> {
     return data ? data.hash : null;
 }
 
-async function generateShortHash(): Promise<[number, string]> {
+async function generateShortHash(): Promise<string> {
     // randomly generate a short hash in the searchspace
     let linkID = Math.floor(Math.random() * (62**8));
     let shortHash = encode(linkID);
     let docRef = doc(db, "links", `${shortHash}`);
     let docSnap = await getDoc(docRef);
-    console.log(linkID)
     // handle collisions. This should be fast as long as the searchspace is mostly empty
     while (docSnap.exists()) {
         linkID = Math.floor(Math.random() * 62**8);
@@ -54,48 +53,26 @@ async function generateShortHash(): Promise<[number, string]> {
         docRef = doc(db, "links", `${shortHash}`);
         docSnap = await getDoc(docRef);
     }
-    console.log(linkID, shortHash)
-    return [linkID, shortHash]
-    // const coll = collection(db, "links");
-    // const snapshot = await getCountFromServer(coll);
-    // const dbLen = snapshot.data().count;
-    // const shortHash = encode(dbLen);
+    return shortHash;
 }
 
-async function setLinkDocument(id: number, shortHash: string, fullHash: string): Promise<boolean> {
-    const success = await setDoc(doc(db, "links", `${id}`), {
+async function setLinkDocument(fullHash: string, setButtonDisabled: (b: boolean) => void, setSnackSeverity: (s: "success" | "warning" | "error") => void) {
+    const shortHash = await generateShortHash();
+    const id = decode(shortHash);
+    return setDoc(doc(db, "links", `${id}`), {
         hash: fullHash,
         path: shortHash
     })
     .then(() => {
-        return true;
+        setSnackSeverity("success");
+        return shortHash;
     })
     .catch((error) => {
         console.log(error)
-        return false;
+        setButtonDisabled(false);
+        setSnackSeverity("warning");
+        return null
     });
-    return success;
-}
-
-function writeTextToClipboard(str: string) {
-    if(typeof ClipboardItem && navigator.clipboard.write) {
-        // NOTE: Safari locks down the clipboard API to only work when triggered
-        //   by a direct user interaction. You can't use it async in a promise.
-        //   But! You can wrap the promise in a ClipboardItem, and give that to
-        //   the clipboard API.
-        //   Found this on https://developer.apple.com/forums/thread/691873
-        const text = new ClipboardItem({
-          "text/plain": new Blob([str], { type: "text/plain" })
-        })
-        navigator.clipboard.write([text])
-      }
-      else {
-        // NOTE: Firefox has support for ClipboardItem and navigator.clipboard.write,
-        //   but those are behind `dom.events.asyncClipboard.clipboardItem` preference.
-        //   Good news is that other than Safari, Firefox does not care about
-        //   Clipboard API being used async in a Promise.
-        navigator.clipboard.writeText(str);
-      }
 }
 
 export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
@@ -447,7 +424,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         <Button
             variant="outlined"
             // disabled={buttonDisabled} // Don't display when the button is disabled to avoid confusion
-            onClick={async () => {
+            onClick={() => {
                 if (buttonDisabled) { return; }
                 setButtonDisabled(true);
                 if(buttonTimer.current === null) {
@@ -458,7 +435,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 } else {
                     return; // This should never happen
                 }
-                
+
                 const newHash = serializeInfo(
                     {
                         name: title,
@@ -469,20 +446,31 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     },
                     substitutes,
                 );
-                const [linkID, shortHash] = await generateShortHash();
-                const setSuccess = await setLinkDocument(linkID, shortHash, newHash);
-                let link = "";
-                if (!setSuccess) {
-                    setButtonDisabled(false);
-                    setSnackSeverity("warning");
-                    link = window.location.href.split("#")[0] + "#" + newHash;
+
+                if (typeof ClipboardItem && navigator.clipboard.write) {
+                    // iOS compatibility case. clipboard.write() is only supported when used synchronously
+                    // within a gesture event handler, so we need to pass a ClipboardItem
+                    // This condition is also used for Chrome, or any other browser for which ClipboardItem is defined
+                    const text = new ClipboardItem({
+                        "text/plain": setLinkDocument(newHash, setButtonDisabled, setSnackSeverity)
+                        .then(shortHash => {
+                            handleClick();
+                            return new Blob([
+                                window.location.href.split("#")[0] + "#" + (shortHash || newHash)
+                            ], { type: "text/plain" })
+                        })
+                    })
+                    navigator.clipboard.write([text]);
                 } else {
-                    setSnackSeverity("success");
-                    link = window.location.href.split("#")[0] + "#" + shortHash;
+                    // Firefox compatibility case (ClipboardItem is not defined)
+                    setLinkDocument(newHash, setButtonDisabled, setSnackSeverity)
+                    .then(shortHash => {
+                        handleClick();
+                        navigator.clipboard.writeText(
+                            window.location.href.split("#")[0] + "#" + (shortHash || newHash)
+                        )}
+                    );
                 }
-                setCopiedLink(link);
-                writeTextToClipboard(link);
-                handleClick();
             }}
         >
             {getTranslation("Create link for this strategy!", translationKey)}

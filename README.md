@@ -13,10 +13,10 @@ Feedback, suggestions, or contributions welcome!
 - Display of damage, status effects, and stat level changes across turns
 - Draggable and groupable raid moves
 - Shareable builds via the URL hash
+- Generate infographics for showcasing a strategy
 - "Pretty Mode" for showing build information in an easily-readable format
 - Loadable preset Raider and Boss builds
 - Raid boss actions (shield, stat clears, T0 spread moves)
 
 ### Planned Features
-- Allow alternate builds within a strategy
 - Handling of niche interactions like Transform

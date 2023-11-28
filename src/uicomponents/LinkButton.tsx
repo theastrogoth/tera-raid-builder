@@ -77,6 +77,27 @@ async function setLinkDocument(id: number, shortHash: string, fullHash: string):
     return success;
 }
 
+function writeTextToClipboard(str: string) {
+    if(typeof ClipboardItem && navigator.clipboard.write) {
+        // NOTE: Safari locks down the clipboard API to only work when triggered
+        //   by a direct user interaction. You can't use it async in a promise.
+        //   But! You can wrap the promise in a ClipboardItem, and give that to
+        //   the clipboard API.
+        //   Found this on https://developer.apple.com/forums/thread/691873
+        const text = new ClipboardItem({
+          "text/plain": new Blob([str], { type: "text/plain" })
+        })
+        navigator.clipboard.write([text])
+      }
+      else {
+        // NOTE: Firefox has support for ClipboardItem and navigator.clipboard.write,
+        //   but those are behind `dom.events.asyncClipboard.clipboardItem` preference.
+        //   Good news is that other than Safari, Firefox does not care about
+        //   Clipboard API being used async in a Promise.
+        navigator.clipboard.writeText(str);
+      }
+}
+
 export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
     try {
         const obj = deserialize(hash);
@@ -460,7 +481,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     link = window.location.href.split("#")[0] + "#" + shortHash;
                 }
                 setCopiedLink(link);
-                navigator.clipboard.writeText(link);
+                writeTextToClipboard(link);
                 handleClick();
             }}
         >
@@ -469,8 +490,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity={snackSeverity} sx={{ width: '100%' }}>
                 {
-                    (snackSeverity === "success") ? ("Link copied to clipboard!\n\n" + copiedLink) : 
-                    (snackSeverity === "warning") ? ("Link failed to save to database. A long link has been copied to your clipboard instead.\n\n" + copiedLink) : 
+                    (snackSeverity === "success") ? ("Link copied to clipboard!") : 
+                    (snackSeverity === "warning") ? ("Link failed to save to database. A long link has been copied to your clipboard instead.") : 
                     "Failed to copy link to clipboard. You can copy the link manually from here:\n\n " + copiedLink
                 }
             </Alert>

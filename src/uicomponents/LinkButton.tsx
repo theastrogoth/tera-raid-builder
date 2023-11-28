@@ -469,8 +469,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity={snackSeverity} sx={{ width: '100%' }}>
                 {
-                    (snackSeverity === "success") ? "Link copied to clipboard!" : 
-                    (snackSeverity === "warning") ? "Link failed to save to database. A long link has been copied to your clipboard instead." : 
+                    (snackSeverity === "success") ? ("Link copied to clipboard!\n\n" + copiedLink) : 
+                    (snackSeverity === "warning") ? ("Link failed to save to database. A long link has been copied to your clipboard instead.\n\n" + copiedLink) : 
                     "Failed to copy link to clipboard. You can copy the link manually from here:\n\n " + copiedLink
                 }
             </Alert>

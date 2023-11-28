@@ -162,9 +162,9 @@ export function getStatOrder(stat: string) {
     return order.indexOf(stat);
 }
 
-export function getEVDescription(evs: StatsTable) {
+export function getEVDescription(evs: StatsTable, translationKey: any) {
     const filteredPairs = Object.entries(evs).filter(([key, value]) => value !== 0);
-    return filteredPairs.length === 0 ? undefined : filteredPairs.map(([key, value]) => `${value} {getStatReadableName(key)}`).join(', ');
+    return filteredPairs.length === 0 ? undefined : filteredPairs.map(([key, value]) => `${value} ${getTranslation(getStatReadableName(key), translationKey, "stats")}`).join(', ');
 }
 
 export function getIVDescription(ivs: StatsTable, translationKey: any) {

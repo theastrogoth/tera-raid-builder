@@ -460,16 +460,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     link = window.location.href.split("#")[0] + "#" + shortHash;
                 }
                 setCopiedLink(link);
-                navigator.clipboard.writeText(link)
-                .then(() => {
-                    handleClick();
-                })
-                .catch((error) => {
-                    console.log(error);
-                    setSnackSeverity("error")
-                    handleClick();
-                });
-
+                navigator.clipboard.writeText(link);
+                handleClick();
             }}
         >
             {getTranslation("Create link for this strategy!", translationKey)}

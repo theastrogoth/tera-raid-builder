@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import { serialize, deserialize } from "../utilities/shrinkstring";
 
 import Button from "@mui/material/Button";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 import { Pokemon, Generations, Field } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
@@ -39,18 +41,40 @@ async function getFullHashFromShortHash(hash: string): Promise<string> {
 }
 
 async function generateShortHash(): Promise<[number, string]> {
-    const coll = collection(db, "links");
-    const snapshot = await getCountFromServer(coll);
-    const dbLen = snapshot.data().count;
-    const shortHash = encode(dbLen);
-    return [dbLen, shortHash]
+    // randomly generate a short hash in the searchspace
+    let linkID = Math.floor(Math.random() * (62**8));
+    let shortHash = encode(linkID);
+    let docRef = doc(db, "links", `${shortHash}`);
+    let docSnap = await getDoc(docRef);
+    console.log(linkID)
+    // handle collisions. This should be fast as long as the searchspace is mostly empty
+    while (docSnap.exists()) {
+        linkID = Math.floor(Math.random() * 62**8);
+        shortHash = encode(linkID);
+        docRef = doc(db, "links", `${shortHash}`);
+        docSnap = await getDoc(docRef);
+    }
+    console.log(linkID, shortHash)
+    return [linkID, shortHash]
+    // const coll = collection(db, "links");
+    // const snapshot = await getCountFromServer(coll);
+    // const dbLen = snapshot.data().count;
+    // const shortHash = encode(dbLen);
 }
 
-async function setLinkDocument(id: number, shortHash: string, fullHash: string): Promise<void> {
-    await setDoc(doc(db, "links", `${id}`), {
+async function setLinkDocument(id: number, shortHash: string, fullHash: string): Promise<boolean> {
+    const success = await setDoc(doc(db, "links", `${id}`), {
         hash: fullHash,
         path: shortHash
+    })
+    .then(() => {
+        return true;
+    })
+    .catch((error) => {
+        console.log(error)
+        return false;
     });
+    return success;
 }
 
 export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
@@ -267,6 +291,13 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
     return serialize(obj);
 }
 
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+    props,
+    ref,
+  ) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+  
 function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, translationKey}: 
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
       setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
@@ -280,6 +311,20 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
 
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const buttonTimer = useRef<NodeJS.Timeout | null>(null);
+
+    const [snackOpen, setSnackOpen] = React.useState(false);
+    const [linkSuccess, setLinkSuccess] = React.useState(true);
+
+    const handleClick = () => {
+      setSnackOpen(true);
+    };
+  
+    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+      setSnackOpen(false);
+    };
 
     useEffect(() => {
         try {
@@ -376,6 +421,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     }, [hasLoadedInfo]);
 
     return (
+        <>
         <Button
             variant="outlined"
             // disabled={buttonDisabled} // Don't display when the button is disabled to avoid confusion
@@ -402,13 +448,28 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     substitutes,
                 );
                 const [linkID, shortHash] = await generateShortHash();
-                await setLinkDocument(linkID, shortHash, newHash);
-                const link = window.location.href.split("#")[0] + "#" + shortHash;
-                navigator.clipboard.writeText(link)
+                const setSuccess = await setLinkDocument(linkID, shortHash, newHash);
+                if (!setSuccess) {
+                    setButtonDisabled(false);
+                    setLinkSuccess(false);
+                    const link = window.location.href.split("#")[0] + "#" + newHash;
+                    navigator.clipboard.writeText(link);
+                } else {
+                    setLinkSuccess(true);
+                    const link = window.location.href.split("#")[0] + "#" + shortHash;
+                    navigator.clipboard.writeText(link)
+                }
+                handleClick();
             }}
         >
-            {getTranslation("Copy link to this build!", translationKey)}
+            {getTranslation("Create link for this strategy!", translationKey)}
         </Button>
+        <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity={linkSuccess ? "success" : "warning"} sx={{ width: '100%' }}>
+                {linkSuccess ? "Link copied to clipboard!" : "Link failed to save to database. A long link has been copied to your clipboard instead."}
+            </Alert>
+        </Snackbar>
+        </>
     )
 }
 

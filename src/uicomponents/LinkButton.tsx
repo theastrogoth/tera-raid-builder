@@ -19,7 +19,7 @@ import { MoveData, RaidTurnInfo, SubstituteBuildInfo, TurnGroupInfo } from "../r
 import { encode, decode, getTranslation } from "../utils";
 
 import { db } from "../config/firestore";
-import { collection, doc, getCountFromServer, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import STRAT_LIST from "../data/strats/stratlist.json";
 
 const gen = Generations.get(9);
@@ -312,8 +312,9 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const buttonTimer = useRef<NodeJS.Timeout | null>(null);
 
-    const [snackOpen, setSnackOpen] = React.useState(false);
-    const [linkSuccess, setLinkSuccess] = React.useState(true);
+    const [copiedLink, setCopiedLink] = useState<string>("theastrogoth.github.io/tera-raid-builder")
+    const [snackOpen, setSnackOpen] = useState(false);
+    const [snackSeverity, setSnackSeverity] = useState<"success" | "warning" | "error">("success");
 
     const handleClick = () => {
       setSnackOpen(true);
@@ -449,24 +450,37 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 );
                 const [linkID, shortHash] = await generateShortHash();
                 const setSuccess = await setLinkDocument(linkID, shortHash, newHash);
+                let link = "";
                 if (!setSuccess) {
                     setButtonDisabled(false);
-                    setLinkSuccess(false);
-                    const link = window.location.href.split("#")[0] + "#" + newHash;
-                    navigator.clipboard.writeText(link);
+                    setSnackSeverity("warning");
+                    link = window.location.href.split("#")[0] + "#" + newHash;
                 } else {
-                    setLinkSuccess(true);
-                    const link = window.location.href.split("#")[0] + "#" + shortHash;
-                    navigator.clipboard.writeText(link)
+                    setSnackSeverity("success");
+                    link = window.location.href.split("#")[0] + "#" + shortHash;
                 }
-                handleClick();
+                setCopiedLink(link);
+                navigator.clipboard.writeText(link)
+                .then(() => {
+                    handleClick();
+                })
+                .catch((error) => {
+                    console.log(error);
+                    setSnackSeverity("error")
+                    handleClick();
+                });
+
             }}
         >
             {getTranslation("Create link for this strategy!", translationKey)}
         </Button>
         <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity={linkSuccess ? "success" : "warning"} sx={{ width: '100%' }}>
-                {linkSuccess ? "Link copied to clipboard!" : "Link failed to save to database. A long link has been copied to your clipboard instead."}
+            <Alert onClose={handleClose} severity={snackSeverity} sx={{ width: '100%' }}>
+                {
+                    (snackSeverity === "success") ? "Link copied to clipboard!" : 
+                    (snackSeverity === "warning") ? "Link failed to save to database. A long link has been copied to your clipboard instead." : 
+                    "Failed to copy link to clipboard. You can copy the link manually from here:\n\n " + copiedLink
+                }
             </Alert>
         </Snackbar>
         </>

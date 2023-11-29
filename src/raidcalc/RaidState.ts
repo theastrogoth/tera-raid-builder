@@ -411,9 +411,9 @@ export class RaidState implements State.RaidState{
 
     }
 
-    public loseItem(id: number) {
+    public loseItem(id: number, consumed: boolean = true) {
         const pokemon = this.getPokemon(id);
-        pokemon.loseItem();
+        pokemon.loseItem(consumed);
         // Symbiosis
         if (id > 0) {
             const symbiosisIds: number[] = []

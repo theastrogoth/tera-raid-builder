@@ -1,5 +1,5 @@
 import { Field, Pokemon, Generations } from "../calc";
-import { MoveName, StatsTable, StatIDExceptHP, AbilityName } from "../calc/data/interface";
+import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName } from "../calc/data/interface";
 import { extend } from '../calc/util';
 import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";
@@ -40,6 +40,8 @@ export class Raider extends Pokemon implements State.Raider {
     syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
     syrupBombSource?: number; // id of the pokemon that inflicted the user with Syrup Bomb
 
+    lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
+
     constructor(
         id: number, 
         role: string, 
@@ -67,6 +69,7 @@ export class Raider extends Pokemon implements State.Raider {
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
         syrupBombDrops: number | undefined = 0,
         syrupBombSource: number | undefined = undefined,
+        lastConsumedItem: ItemName | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -94,6 +97,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
         this.syrupBombDrops = syrupBombDrops;
         this.syrupBombSource = syrupBombSource;
+        this.lastConsumedItem = lastConsumedItem;
     }
 
     clone(): Raider {
@@ -159,6 +163,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.originalAbility,
             this.syrupBombDrops,
             this.syrupBombSource,
+            this.lastConsumedItem,
         )
     }
 
@@ -197,10 +202,13 @@ export class Raider extends Pokemon implements State.Raider {
         return diff;
     }
 
-    public loseItem() {
+    public loseItem(consumed: boolean = true) {
         // Unburden
         if (this.ability === "Unburden" && this.item !== undefined) {
             this.abilityOn = true;
+        }
+        if (consumed) {
+            this.lastConsumedItem = this.item;
         }
         this.item = undefined;
     }

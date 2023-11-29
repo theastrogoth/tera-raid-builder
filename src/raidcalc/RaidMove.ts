@@ -532,7 +532,7 @@ export class RaidMove {
                         // for Fling / Symbiosis interactions, the Flinger should lose their item before the target recieves damage
                         if (this.moveData.name === "Fling" && this._user.item) {
                             this._flingItem = moveUser.item;
-                            this._raidState.loseItem(this.userID);
+                            this._raidState.loseItem(this.userID, false);
                         }
                         if (totalDamage > 0) {
                             hasCausedDamage = true;
@@ -607,7 +607,7 @@ export class RaidMove {
                         case "Pickpocket":
                             if (!target.item && this._user.item) {
                                 const item = this._user.item;
-                                this._raidState.loseItem(this.userID);
+                                this._raidState.loseItem(this.userID, false);
                                 this._raidState.recieveItem(this.targetID, item);
                             }
                             break;
@@ -622,7 +622,7 @@ export class RaidMove {
                         break;
                     case "Sticky Barb":
                         if (!this._user.item) {
-                            this._raidState.loseItem(this.targetID);
+                            this._raidState.loseItem(this.targetID, false);
                             this._raidState.recieveItem(this.userID, "Sticky Barb" as ItemName);
                         }
                         break;
@@ -1058,7 +1058,7 @@ export class RaidMove {
                 break;
         /// Item-affecting moves
             case "Knock Off":
-                this._raidState.loseItem(this.targetID);
+                this._raidState.loseItem(this.targetID, false);
                 break;
             case "Switcheroo":
             case "Trick":
@@ -1086,54 +1086,103 @@ export class RaidMove {
                         case "White Herb":
                             for (let stat in target.boosts) {
                                 const statId = stat as StatIDExceptHP;
-                                if ((target.boosts[statId] || 0) < 0) { target.boosts[statId] = 0; }
+                                if ((target.boosts[statId] || 0) < 0) { 
+                                    target.boosts[statId] = 0; 
+                                    target.lastConsumedItem = this._flingItem as ItemName;
+                                }
                             }
                             break;
                         // Status-Curing Berries
                         case "Cheri Berry":
-                            if (target.status === "par") { target.status = ""; }
+                            if (target.status === "par") { 
+                                target.status = "";
+                                target.lastConsumedItem = this._flingItem as ItemName; 
+                            }
                             break;
                         case "Chesto Berry":
-                            if (target.status === "slp") { target.status = ""; }
+                            if (target.status === "slp") { 
+                                target.status = "";
+                                target.lastConsumedItem = this._flingItem as ItemName; 
+                            }
                             break;
                         case "Pecha Berry":
-                            if (target.status === "psn") { target.status = ""; }
+                            if (target.status === "psn") { 
+                                target.status = "";
+                                target.lastConsumedItem = this._flingItem as ItemName; 
+                            }
                             break;
                         case "Rawst Berry":
-                            if (target.status === "brn") { target.status = ""; }
+                            if (target.status === "brn") { 
+                                target.status = "";
+                                target.lastConsumedItem = this._flingItem as ItemName; 
+                            }
                             break;
                         case "Aspear Berry":
-                            if (target.status === "frz") { target.status = ""; }
+                            if (target.status === "frz") { 
+                                target.status = "";
+                                target.lastConsumedItem = this._flingItem as ItemName; 
+                            }
                             break;
                         case "Lum Berry":
-                            if (target.status !== "") { target.status = ""; }
-                            if (target.volatileStatus.includes("confusion")) { target.volatileStatus = target.volatileStatus.filter(status => status !== "confusion"); }
+                            if (target.status !== "") { 
+                                target.status = "";
+                                target.lastConsumedItem = this._flingItem as ItemName; 
+                            }
+                            if (target.volatileStatus.includes("confusion")) { 
+                                target.volatileStatus = target.volatileStatus.filter(status => status !== "confusion"); 
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
                             break;
                         // Stat-Boosting Berries
                         case "Liechi Berry":
-                            this._raidState.applyStatChange(this.targetID, {atk: 1});
+                            const atkDiff = this._raidState.applyStatChange(this.targetID, {atk: 1});
+                            if (atkDiff.atk){
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
                             break;
                         case "Ganlon Berry":
-                            this._raidState.applyStatChange(this.targetID, {def: 1});
+                            const defDiff = this._raidState.applyStatChange(this.targetID, {def: 1});
+                            if (defDiff.def){
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
                             break;
                         case "Petaya Berry":
-                            this._raidState.applyStatChange(this.targetID, {spa: 1});
+                            const spaDiff = this._raidState.applyStatChange(this.targetID, {spa: 1});
+                            if (spaDiff.spa){
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
                             break;
                         case "Apicot Berry":
-                            this._raidState.applyStatChange(this.targetID, {spd: 1});
+                            const spdDiff = this._raidState.applyStatChange(this.targetID, {spd: 1});
+                            if (spdDiff.spd){
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
                             break;
                         case "Salac Berry":
-                            this._raidState.applyStatChange(this.targetID, {spe: 1});
+                            const speDiff = this._raidState.applyStatChange(this.targetID, {spe: 1});
+                            if (speDiff.spe){
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
                             break;
                         case "Lansat Berry":
+                            if (!target.isPumped) {
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
                             target.isPumped = true;
                             break;
                         case "Micle Berry":
+                            if (!target.isMicle) {
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
                             target.isMicle = true;
                             break;
                         // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                         case "Sitrus Berry":
-                            this._healing[this.targetID] += Math.floor(target.maxHP() / 4);
+                            if (target.originalCurHP < target.maxHP()) {
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                                const maxhp = target.maxHP();
+                                target.originalCurHP = Math.min(maxhp, target.originalCurHP + Math.floor(maxhp / 4));
+                            }
                             break;
                         default: break;
                     }

@@ -500,6 +500,12 @@ export class RaidTurn {
                     this._raidState.applyStatChange(id, {"spe": 1}, true, id, false);
                     this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
                     break;
+                case "Harvest": 
+                    if (pokemon.field.hasWeather("Sun") && !pokemon.item && (pokemon.lastConsumedItem || "").includes("Berry")) {
+                        this._raidState.recieveItem(id, pokemon.lastConsumedItem!);
+                        this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
+                    }
+                    break;
                 default: break;
             }
         }

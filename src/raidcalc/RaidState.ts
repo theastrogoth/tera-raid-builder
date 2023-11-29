@@ -671,8 +671,27 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+        // Neutralizing Gas
+        if (ability === "Neutralizing Gas") {
+            for (let i = 0; i < 5; i++) {
+                if (i !== id ) {
+                    const target = this.raiders[i];
+                    const targetAbility = this.raiders[i].ability;
+                    if (
+                        target.hasItem("Ability Shield") ||
+                        persistentAbilities.unsuppressable.includes(targetAbility || "") || 
+                        (targetAbility === "Neutralizing Gas")
+                    ) { 
+                        continue; 
+                    }
+                    this.changeAbility(i, "(No Ability)");
+                    target.abilityNullified = -1;
+                    target.nullifyAbilityOn = target.abilityOn;
+                    flags[i].push("Ability suppressed by Neutralizing Gas");
+                }
+            }
         // Cloud Nine / Air Lock
-        if (ability === "Cloud Nine" || ability === "Air Lock") {
+        } else if (ability === "Cloud Nine" || ability === "Air Lock") {
             for (let field of this.fields) {
                 field.isCloudNine = true;
             }
@@ -708,6 +727,7 @@ export class RaidState implements State.RaidState{
                 }
             }
             flags[id].push("Power Spot boosts attack power");
+        // Battery
         } else if (ability === "Battery") {
             if (id === 0) {
                 this.fields[0].attackerSide.batteries += 1;
@@ -727,6 +747,7 @@ export class RaidState implements State.RaidState{
                 }
             }
             flags[id].push("Friend Guard reduces allies' damage taken");
+        // Flower Veil
         } else if (ability === "Flower Veil") {
             if (id !== 0) {
                 for (let fid=1; fid<5; fid++) {
@@ -753,7 +774,25 @@ export class RaidState implements State.RaidState{
 
     public removeAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined) {
         // on/off field-based abilties
-        if (ability === "Cloud Nine") {
+        if (ability === "Neutralizing Gas") {
+            if (
+                !this.raiders
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Neutralizing Gas" as AbilityName)
+            ) {
+                for (let i = 0; i < 5; i++) {
+                    if (i !== id ) {
+                        const target = this.raiders[i];
+                        if ((target.abilityNullified || 0) < 0 && target.originalAbility !== "(No Ability)") {
+                            this.changeAbility(i, target.originalAbility, true);
+                            target.abilityNullified = undefined;
+                            target.abilityOn = target.nullifyAbilityOn;
+                            target.nullifyAbilityOn = undefined;
+                        }
+                    }
+                }
+            }
+        } else if (ability === "Cloud Nine") {
             if (
                 !this.raiders
                 .filter(r => r.id !== id && r.originalCurHP !== 0)
@@ -928,6 +967,14 @@ export class RaidState implements State.RaidState{
         let ability = pokemon.ability;
         // reset HP
         pokemon.originalCurHP = pokemon.maxHP();
+        // check Neutralizing Gas
+        const neutralizingGas = this.raiders.reduce((p, c) => p || c.ability === "Neutralizing Gas", false);
+        if (neutralizingGas && !pokemon.hasItem("Ability Shield") && !persistentAbilities.unsuppressable.includes(ability || "") && ability !== "Neutralizing Gas") { 
+            ability = "(No Ability)" as AbilityName;
+            this.changeAbility(id, ability);
+            pokemon.abilityNullified = -1;
+            pokemon.nullifyAbilityOn = pokemon.abilityOn;
+        }
         // add abilites that Take Effect upon switch-in
         const flags = this.addAbilityFieldEffect(id, ability, true);
         // Mew stat boosts for Mewtwo event.

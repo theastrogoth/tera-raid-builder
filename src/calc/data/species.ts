@@ -2424,13 +2424,13 @@ const ADV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   abilities: {0: 'Wonder Guard'},
   //   gender: 'N',
   // },
-  // Shelgon: {
-  //   types: ['Dragon'],
-  //   bs: {hp: 65, at: 95, df: 100, sa: 60, sd: 50, sp: 50},
-  //   weightkg: 110.5,
-  //   nfe: true,
-  //   abilities: {0: 'Rock Head'},
-  // },
+  Shelgon: {
+    types: ['Dragon'],
+    bs: {hp: 65, at: 95, df: 100, sa: 60, sd: 50, sp: 50},
+    weightkg: 110.5,
+    nfe: true,
+    abilities: {0: 'Rock Head'},
+  },
   Shiftry: {
     types: ['Grass', 'Dark'],
     bs: {hp: 90, at: 100, df: 60, sa: 90, sd: 60, sp: 80},

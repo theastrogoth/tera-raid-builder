@@ -45,6 +45,7 @@ function StratFooter({notes, setNotes, credits, setCredits, prettyMode, translat
                             placeholder={getTranslation("Enter any notes you want to save with this strategy.",translationKey)}
                             inputProps={{
                                 spellCheck: 'false',
+                                maxLength: 500
                             }}
                             sx={{
                                 alignSelf: "center",
@@ -77,6 +78,7 @@ function StratFooter({notes, setNotes, credits, setCredits, prettyMode, translat
                             placeholder={getTranslation("Enter any credits you want to save with this strategy.",translationKey)}
                             inputProps={{
                                 spellCheck: 'false',
+                                maxLength: 1000
                             }}
                             sx={{
                                 alignSelf: "center",

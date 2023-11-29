@@ -1,4 +1,3 @@
-import { string } from "yargs";
 import { StatID, StatsTable } from "./calc";
 
 const SPECIAL_NAMES = {
@@ -163,9 +162,9 @@ export function getStatOrder(stat: string) {
     return order.indexOf(stat);
 }
 
-export function getEVDescription(evs: StatsTable) {
+export function getEVDescription(evs: StatsTable, translationKey: any) {
     const filteredPairs = Object.entries(evs).filter(([key, value]) => value !== 0);
-    return filteredPairs.length === 0 ? undefined : filteredPairs.map(([key, value]) => `${value} ${getStatReadableName(key)}`).join(', ');
+    return filteredPairs.length === 0 ? undefined : filteredPairs.map(([key, value]) => `${value} ${getTranslation(getStatReadableName(key), translationKey, "stats")}`).join(', ');
 }
 
 export function getIVDescription(ivs: StatsTable, translationKey: any) {
@@ -234,3 +233,29 @@ export function arraysEqual(a: any[], b: any[]) {
     }
     return true;
   }
+
+const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+const base = alphabet.length;
+export function encode(id: number) {
+    let i = id;
+    if (i === 0) {
+        return alphabet[0]
+    }
+    let s = ""
+  while (i > 0) {
+    s += alphabet[i % base]
+    i = parseInt(`${i / base}`, 10)
+  }
+  return s.split("").reverse().join("");
+}
+
+export function decode(str: string) {
+    if (str === "" || str === "#") {
+        return null;
+    }
+    let i = 0;
+    for (const c of str) {
+        i = i * base + alphabet.indexOf(c);
+    }
+    return i;
+}

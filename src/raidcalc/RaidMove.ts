@@ -447,7 +447,7 @@ export class RaidMove {
         // check for spread damage (boss actions only)
         this._isSpread = this.moveData.category?.includes("damage") && (this._affectedIDs.length > 1);
         // protean / libero check
-        if ((this.moveData.category || "").includes("damage") && (moveUser.ability === "Protean" || moveUser.ability === "Libero") && !moveUser.abilityOn && !moveUser.isTera) {
+        if (this.moveData.name !== "(No Move)" && this.moveData.type && (moveUser.ability === "Protean" || moveUser.ability === "Libero") && !moveUser.abilityOn && !moveUser.isTera) {
             moveUser.types = [this.move.type];
             moveUser.changedTypes = [this.move.type];
             moveUser.abilityOn = true;

@@ -34,6 +34,7 @@ export class RaidTurn {
     group?:     number;
 
     _isBossAction!:     boolean;
+    _isEmptyTurn!:      boolean;
 
     _raiderMovesFirst!: boolean;
     _raider!:           Raider;
@@ -74,6 +75,7 @@ export class RaidTurn {
     public result(): RaidTurnResult {
         // check if the turn should be considered a boss action
         this._isBossAction = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name !== "(No Move)";
+        this._isEmptyTurn = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name === "(No Move)";
         // set up moves
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
@@ -208,41 +210,43 @@ export class RaidTurn {
         this._result2 = this._raidMove2.output
         this._raidState = this._result2.state.clone();
 
-        this.removeProtection();
-        if (!this._isBossAction) {
-            // item effects
-            this.applyEndOfTurnItemEffects();
-            // ability effects
-            this.applyEndOfTurnAbilityEffects();
-            // Clear Endure (since side-attacks are not endured)
-            this._raidState.raiders[this.raiderID].isEndure = false;
-            this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
-            // remove protect / wide guard / quick guard effects
-            this.countDownFieldEffects();
-            this.countDownAbilityNullification();
+        if (!this._isEmptyTurn) {
+            this.removeProtection();
+            if (!this._isBossAction) {
+                // item effects
+                this.applyEndOfTurnItemEffects();
+                // ability effects
+                this.applyEndOfTurnAbilityEffects();
+                // Clear Endure (since side-attacks are not endured)
+                this._raidState.raiders[this.raiderID].isEndure = false;
+                this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
+                // remove protect / wide guard / quick guard effects
+                this.countDownFieldEffects();
+                this.countDownAbilityNullification();
 
-            // Syrup Bomb speed drops
-            for (let i of [0, this.raiderID]) {
-                const pokemon = this._raidState.getPokemon(i);
-                if (pokemon.syrupBombDrops && (i !== 0 || this.raiderID === pokemon.syrupBombSource)) {
-                    const origSpe = pokemon.boosts.spe || 0;
-                    this._raidState.applyStatChange(i, {"spe": -1}, false, i, false);
-                    this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
-                    pokemon.syrupBombDrops--;
+                // Syrup Bomb speed drops
+                for (let i of [0, this.raiderID]) {
+                    const pokemon = this._raidState.getPokemon(i);
+                    if (pokemon.syrupBombDrops && (i !== 0 || this.raiderID === pokemon.syrupBombSource)) {
+                        const origSpe = pokemon.boosts.spe || 0;
+                        this._raidState.applyStatChange(i, {"spe": -1}, false, i, false);
+                        this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
+                        pokemon.syrupBombDrops--;
+                    }
                 }
-            }
-            // yawn check
-            for (let i of [0, this.raiderID])  {
-                const pokemon = this._raidState.getPokemon(i);
-                if (pokemon.isYawn && ((i !== 0) || (this.raiderID === pokemon.yawnSource))) {
-                    pokemon.isYawn--;
-                    if (pokemon.isYawn === 0) {
-                        const sleepTurns = i === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
-                                                     (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
-                        pokemon.isSleep = sleepTurns;
-                        pokemon.status = "slp";
-                        pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
-                        this._endFlags.push(pokemon.name + " fell asleep!");
+                // yawn check
+                for (let i of [0, this.raiderID])  {
+                    const pokemon = this._raidState.getPokemon(i);
+                    if (pokemon.isYawn && ((i !== 0) || (this.raiderID === pokemon.yawnSource))) {
+                        pokemon.isYawn--;
+                        if (pokemon.isYawn === 0) {
+                            const sleepTurns = i === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
+                                                        (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
+                            pokemon.isSleep = sleepTurns;
+                            pokemon.status = "slp";
+                            pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
+                            this._endFlags.push(pokemon.name + " fell asleep!");
+                        }
                     }
                 }
             }

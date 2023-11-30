@@ -211,16 +211,24 @@ export function getTurnLabelsFromGroups(groups: TurnGroupInfo[]) {
                 bossAction = false;
             }
         }
+        const currentTurn = Math.max(...moveCounters);
         if (bossAction) {
             turns.push(0);
         } else {
-            turns.push(Math.max(...moveCounters));
+            turns.push(currentTurn);
         }
         if ((g.repeats || 1) > 1) {
             for (let i=0; i<4; i++) {
                 if (g.turns[i].moveInfo.moveData.name !== "(No Move)") {
                     moveCounters[i] += (g.repeats || 1) - 1;
                 }
+            }
+        }
+        for (let i=0; i<4; i++) {
+            // Attempt to handle weird situations where a raider falls behind in move count,
+            // then moves several times in a row. 
+            if (moveCounters[i] < currentTurn - 1) {
+                moveCounters[i] = currentTurn - 1;
             }
         }
     }

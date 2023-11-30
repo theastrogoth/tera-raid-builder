@@ -321,7 +321,7 @@ function App() {
     }
   );
 
-  console.log(getTurnLabelsFromGroups(raidInputProps.groups));
+  // console.log(getTurnLabelsFromGroups(raidInputProps.groups));
 
   return (
   <ThemeProvider theme={theme}> 

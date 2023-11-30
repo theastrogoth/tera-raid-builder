@@ -33,7 +33,7 @@ import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
 
 import PokedexService from "./services/getdata";
-import { getTranslation, getTurnLabelsFromGroups } from './utils.ts';
+import { getTranslation, getTurnNumbersFromGroups, sortGroupsIntoTurns } from './utils.ts';
 import DEFAULT_STRAT from './data/strats/default.json';
 import { LightBuildInfo } from './raidcalc/hashData.ts';
 
@@ -321,7 +321,8 @@ function App() {
     }
   );
 
-  // console.log(getTurnLabelsFromGroups(raidInputProps.groups));
+  // const turnNumbers = getTurnNumbersFromGroups(groups);
+  // console.log(turnNumbers, sortGroupsIntoTurns(turnNumbers, raidInputProps.groups));
 
   return (
   <ThemeProvider theme={theme}> 

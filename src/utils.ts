@@ -197,7 +197,7 @@ export function getIVDescription(ivs: StatsTable, translationKey: any) {
     }
 }
 
-export function getTurnLabelsFromGroups(groups: TurnGroupInfo[]) {
+export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
     const turns: number[] = [];
     const moveCounters = [0,0,0,0];
 
@@ -214,6 +214,9 @@ export function getTurnLabelsFromGroups(groups: TurnGroupInfo[]) {
         const currentTurn = Math.max(...moveCounters);
         if (bossAction) {
             turns.push(0);
+            for (let i=0; i<4; i++) {
+                moveCounters[i] = currentTurn; // advance to a new turn when a scripted boss action happens
+            }
         } else {
             turns.push(currentTurn);
         }
@@ -231,6 +234,24 @@ export function getTurnLabelsFromGroups(groups: TurnGroupInfo[]) {
                 moveCounters[i] = currentTurn - 1;
             }
         }
+    }
+    return turns;
+}
+
+export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo[]): TurnGroupInfo[][] {
+    const turns: TurnGroupInfo[][] = [];
+    let currentGroupIndex = 0;
+    let previousTurnNumber = -1;
+    for (let i=0; i<turnNumbers.length; i++) {
+        const tn = turnNumbers[i];
+        if (tn === 0 || tn !== previousTurnNumber) {
+            turns.push([]);
+            previousTurnNumber = tn;
+        }
+        while ((currentGroupIndex < groups.length) && (turnNumbers[currentGroupIndex] === tn)) {
+            turns[turns.length-1].push(groups[currentGroupIndex]);
+            currentGroupIndex += 1;
+        } 
     }
     return turns;
 }

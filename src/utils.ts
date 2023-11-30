@@ -1,4 +1,5 @@
 import { StatID, StatsTable } from "./calc";
+import { TurnGroupInfo } from "./raidcalc/interface";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
@@ -196,6 +197,36 @@ export function getIVDescription(ivs: StatsTable, translationKey: any) {
     }
 }
 
+export function getTurnLabelsFromGroups(groups: TurnGroupInfo[]) {
+    const turns: number[] = [];
+    const moveCounters = [0,0,0,0];
+
+    for (let g of groups) {
+        let bossAction = true;
+        for (let t of g.turns) {
+            const raiderID = t.moveInfo.userID;
+            const moveName = t.moveInfo.moveData.name;
+            if (moveName !== "(No Move)") {
+                moveCounters[raiderID-1] += 1;
+                bossAction = false;
+            }
+        }
+        if (bossAction) {
+            turns.push(0);
+        } else {
+            turns.push(Math.max(...moveCounters));
+        }
+        if ((g.repeats || 1) > 1) {
+            for (let i=0; i<4; i++) {
+                if (g.turns[i].moveInfo.moveData.name !== "(No Move)") {
+                    moveCounters[i] += (g.repeats || 1) - 1;
+                }
+            }
+        }
+    }
+    return turns;
+}
+
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {
     if (!translationKey) { return word; }
     if (!translationKey[translationCategory]) { return word; }
@@ -232,7 +263,7 @@ export function arraysEqual(a: any[], b: any[]) {
       if (a[i] !== b[i]) return false;
     }
     return true;
-  }
+}
 
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
 const base = alphabet.length;

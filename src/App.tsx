@@ -33,7 +33,7 @@ import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
 
 import PokedexService from "./services/getdata";
-import { getTranslation, getTurnNumbersFromGroups, sortGroupsIntoTurns } from './utils.ts';
+import { getTranslation } from './utils.ts';
 import DEFAULT_STRAT from './data/strats/default.json';
 import { LightBuildInfo } from './raidcalc/hashData.ts';
 
@@ -320,9 +320,6 @@ function App() {
       turnZeroState: new RaidState(raidInputProps.pokemon),
     }
   );
-
-  // const turnNumbers = getTurnNumbersFromGroups(groups);
-  // console.log(turnNumbers, sortGroupsIntoTurns(turnNumbers, raidInputProps.groups));
 
   return (
   <ThemeProvider theme={theme}> 

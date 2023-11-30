@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidTurnResult } from "../raidcalc/RaidTurn";
-import { getPokemonSpriteURL, getTeraTypeIconURL, getTranslation } from "../utils";
+import { getPokemonSpriteURL, getTeraTypeIconURL, getTranslation, getTurnNumbersFromGroups, sortGroupsIntoTurns } from "../utils";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
 function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], turn: RaidTurnInfo, result: RaidTurnResult, translationKey: any}) {
@@ -113,24 +113,18 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
 
 function MoveGroup({group, results, raiders, index, max, translationKey}: {group: TurnGroupInfo, results: RaidBattleResults, raiders: Raider[], index: number, max: number, translationKey: any}) {
     const turns = group.turns;
-    const color = "group" + group.id.toString().slice(-1) + ".main";
     return (
         <Stack direction="column">
-            <Stack direction="row" alignItems="center">
-                <Typography variant="h4" fontWeight="bold" margin="15px">
-                    {index+1}
-                </Typography>
-                <Paper sx={{width: "480px", backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
-                    <Stack direction="column" spacing={1}>
+            <Stack direction="row" alignItems="center" justifyContent="center">
+                <Stack direction="column" spacing={1}>
                     {
                         turns.map((t, i) => (
                             <MoveText key={i} raiders={raiders} turn={t} result={results.turnResults.find((r) => r.id === t.id)!} translationKey={translationKey} />
                         ))
                     }
-                    </Stack>                    
-                </Paper>
+                </Stack>                    
                 { (group.repeats && group.repeats > 1) && 
-                    <Typography variant="h4" fontWeight="bold" margin="15px">
+                    <Typography variant="h6" fontWeight="bold" margin="15px">
                         {"×"+group.repeats}
                     </Typography>
                 }
@@ -144,13 +138,40 @@ function MoveGroup({group, results, raiders, index, max, translationKey}: {group
     )
 }
 
-function MoveDisplay({groups, raiders, results, translationKey}: {groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults, translationKey: any}) { 
+function MoveTurn({turnNumber, groups, raiders, results, index, translationKey}: {turnNumber: number, groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults, index: number, translationKey: any}) {
+    const color = "group" + index.toString().slice(-1) + ".main";
     return (
-        <Stack direction="column" spacing={0} alignItems="left" justifyContent="center">
+        <Stack direction="column">
+            <Stack direction="row" alignItems="center">
+                <Box sx={{ width: "45px" }}>
+                    <Typography variant="h4" fontWeight="bold" margin="15px" style={{ whiteSpace: "pre-wrap" }}>
+                        {turnNumber || ""}
+                    </Typography>
+                </Box>
+                <Paper sx={{width: "520px", backgroundColor: color, paddingLeft: 4, paddingRight: 4, paddingTop: 2, paddingBottom: 2}}>
+                    <Stack direction="column" spacing={1}>
+                        {
+                            groups.map((group, index) => (
+                                <MoveGroup key={index} group={group} raiders={raiders} results={results} index={index} max={groups.length} translationKey={translationKey} />
+                            ))
+                        }
+                    </Stack>
+                </Paper>
+            </Stack>
+        </Stack>
+    )
+}
+
+function MoveDisplay({groups, raiders, results, translationKey}: {groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults, translationKey: any}) { 
+    const turnNumbers = getTurnNumbersFromGroups(groups);
+    const [turnGroups, turnLabels] = sortGroupsIntoTurns(turnNumbers, groups);
+    return (
+        <Stack direction="column" spacing={2} alignItems="left" justifyContent="center">
             {
-                groups.map((group, index) => (
+                turnGroups.map((tGroups, index) => (
                     <Box key={index}>
-                        <MoveGroup group={group} raiders={raiders} results={results} index={index} max={groups.length} translationKey={translationKey} />
+                        {/* <MoveGroup group={group} raiders={raiders} results={results} index={index} max={groups.length} translationKey={translationKey} /> */}
+                        <MoveTurn key={index} turnNumber={turnLabels[index]} groups={tGroups} raiders={raiders} results={results} index={index} translationKey={translationKey} />
                     </Box>
                 ))
 

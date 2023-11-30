@@ -230,7 +230,9 @@ export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
         for (let i=0; i<4; i++) {
             // Attempt to handle weird situations where a raider falls behind in move count,
             // then moves several times in a row. 
-            if (moveCounters[i] < currentTurn - 1) {
+            if (g.turns.find(t => (t.moveInfo.userID === i+1) && (t.moveInfo.moveData.name !== "(No Move)"))) {
+                moveCounters[i] = currentTurn;
+            } else if (moveCounters[i] < currentTurn - 1) {
                 moveCounters[i] = currentTurn - 1;
             }
         }
@@ -238,14 +240,16 @@ export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
     return turns;
 }
 
-export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo[]): TurnGroupInfo[][] {
+export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo[]): [TurnGroupInfo[][], number[]] {
     const turns: TurnGroupInfo[][] = [];
+    const labels: number[] = [];
     let currentGroupIndex = 0;
     let previousTurnNumber = -1;
     for (let i=0; i<turnNumbers.length; i++) {
         const tn = turnNumbers[i];
         if (tn === 0 || tn !== previousTurnNumber) {
             turns.push([]);
+            labels.push(tn);
             previousTurnNumber = tn;
         }
         while ((currentGroupIndex < groups.length) && (turnNumbers[currentGroupIndex] === tn)) {
@@ -253,7 +257,7 @@ export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo
             currentGroupIndex += 1;
         } 
     }
-    return turns;
+    return [turns, labels];
 }
 
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {

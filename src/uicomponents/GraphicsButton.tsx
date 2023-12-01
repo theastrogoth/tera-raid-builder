@@ -382,7 +382,7 @@ const ExecutionTurnLabelContainer = styled(Box)({
 
 const ExecutionTurnLabel = styled(Typography)({
     color: "white",
-    fontSize: "7em",
+    fontSize: "4em",
     margin: "0px",
     textAlign: "left",
     width: "100%"
@@ -721,15 +721,14 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                             <RightBar />
                         </Separator> 
                         { turnGroups.map((moveGroups, turnIndex) => (
-                            <>
-                            {(turnNumbers[turnIndex] !== 0) && (
-                                <ExecutionTurnLabelContainer>
-                                    <ExecutionTurnLabel>{getTranslation("Turn", translationKey) + " " + turnNumbers[turnIndex]}</ExecutionTurnLabel>
-                                </ExecutionTurnLabelContainer>
-                                )
-                            }
                             <ExecutionContainer direction="row">
                                 <ExecutionTable>
+                                    {(turnNumbers[turnIndex] !== 0) && (
+                                        <ExecutionTurnLabelContainer>
+                                            <ExecutionTurnLabel>{getTranslation("Turn", translationKey) + " " + turnNumbers[turnIndex]}</ExecutionTurnLabel>
+                                        </ExecutionTurnLabelContainer>
+                                        )
+                                    }
                                     {
                                         moveGroups.map((moveGroup, index) => (
                                             moveGroup.length > 0 ? (
@@ -830,7 +829,6 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                     }
                                 </ExecutionTable>
                             </ExecutionContainer>
-                            </>
                         ))}
                     </ExecutionSection>
                         {notes && 

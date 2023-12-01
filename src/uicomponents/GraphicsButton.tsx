@@ -376,15 +376,15 @@ const ExecutionGroup = styled(Box)({
 
 const ExecutionTurnLabelContainer = styled(Box)({
     width: "auto",
-    justifyContent: "left",
-    marginLeft: "100px",
+    justifyContent: "center",
+    // marginLeft: "100px",
 });
 
 const ExecutionTurnLabel = styled(Typography)({
     color: "white",
     fontSize: "4em",
     margin: "0px",
-    textAlign: "left",
+    textAlign: "center",
     width: "100%"
 });
 

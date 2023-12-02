@@ -1,5 +1,5 @@
 {
-    "name": "Samurott 2: Electric Bug-aloo",
+    "name": "Samurott 2: Electric Bugaloo",
     "notes": "Luxray has about a 1 in 2600 chance of fainting to double high-roll Razor Shell crits.",
     "credits": "u/ChrisReturns",
     "pokemon": [
@@ -478,7 +478,7 @@
             {
                 "raider": {
                     "id": 1,
-                    "role": "Paws",
+                    "role": "Gyarados",
                     "name": "Gyarados",
                     "shiny": false,
                     "ability": "Intimidate",

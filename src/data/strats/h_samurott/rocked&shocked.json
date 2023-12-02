@@ -1,6 +1,6 @@
 {
     "name": "Rocked & Shocked",
-    "notes": "Magnemite and Alolan-Geodude are interchangable",
+    "notes": "Note the HP IVs on Geodude and A-Geodude\nLevel 1 Magnemite with Screech is possible using Pokemon Sword/Shield",
     "credits": "u/Gimikyu_",
     "pokemon": [
         {
@@ -445,7 +445,48 @@
         1
     ],
     "substitutes": [
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Graveler",
+                    "name": "Graveler-Alola",
+                    "shiny": true,
+                    "ability": "Galvanize",
+                    "item": "Focus Sash",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Charge",
+                        "Flail"
+                    ]
+                },
+                "substituteMoves": [
+                    "Charge",
+                    "Flail"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ],
         [],
         [],
         [

@@ -1,4 +1,5 @@
 import { StatID, StatsTable } from "./calc";
+import { TurnGroupInfo } from "./raidcalc/interface";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
@@ -196,6 +197,69 @@ export function getIVDescription(ivs: StatsTable, translationKey: any) {
     }
 }
 
+export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
+    const turns: number[] = [];
+    const moveCounters = [0,0,0,0];
+
+    for (let g of groups) {
+        let bossAction = true;
+        for (let t of g.turns) {
+            const raiderID = t.moveInfo.userID;
+            const moveName = t.moveInfo.moveData.name;
+            if (moveName !== "(No Move)") {
+                moveCounters[raiderID-1] += 1;
+                bossAction = false;
+            }
+        }
+        const currentTurn = Math.max(...moveCounters);
+        if (bossAction) {
+            turns.push(0);
+            for (let i=0; i<4; i++) {
+                moveCounters[i] = currentTurn; // advance to a new turn when a scripted boss action happens
+            }
+        } else {
+            turns.push(currentTurn);
+        }
+        if ((g.repeats || 1) > 1) {
+            for (let i=0; i<4; i++) {
+                if (g.turns[i].moveInfo.moveData.name !== "(No Move)") {
+                    moveCounters[i] += (g.repeats || 1) - 1;
+                }
+            }
+        }
+        for (let i=0; i<4; i++) {
+            // Attempt to handle weird situations where a raider falls behind in move count,
+            // then moves several times in a row. 
+            if (g.turns.find(t => (t.moveInfo.userID === i+1) && (t.moveInfo.moveData.name !== "(No Move)"))) {
+                moveCounters[i] = currentTurn;
+            } else if (moveCounters[i] < currentTurn - 1) {
+                moveCounters[i] = currentTurn - 1;
+            }
+        }
+    }
+    return turns;
+}
+
+export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo[]): [TurnGroupInfo[][], number[]] {
+    const turns: TurnGroupInfo[][] = [];
+    const labels: number[] = [];
+    let currentGroupIndex = 0;
+    let previousTurnNumber = -1;
+    for (let i=0; i<turnNumbers.length; i++) {
+        const tn = turnNumbers[i];
+        if (tn === 0 || tn !== previousTurnNumber) {
+            turns.push([]);
+            labels.push(tn);
+            previousTurnNumber = tn;
+        }
+        while ((currentGroupIndex < groups.length) && (turnNumbers[currentGroupIndex] === tn)) {
+            turns[turns.length-1].push(groups[currentGroupIndex]);
+            currentGroupIndex += 1;
+        } 
+    }
+    return [turns, labels];
+}
+
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {
     if (!translationKey) { return word; }
     if (!translationKey[translationCategory]) { return word; }
@@ -232,7 +296,7 @@ export function arraysEqual(a: any[], b: any[]) {
       if (a[i] !== b[i]) return false;
     }
     return true;
-  }
+}
 
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
 const base = alphabet.length;

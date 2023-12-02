@@ -51,14 +51,14 @@
         },
         {
             "id": 1,
-            "role": "Bao",
+            "role": "Morpeko",
             "name": "Morpeko",
             "shiny": false,
             "ability": "Hunger Switch",
             "item": "Weakness Policy",
             "nature": "Adamant",
             "evs": {
-                "hp": 160,
+                "hp": 252,
                 "atk": 0,
                 "def": 252,
                 "spa": 0,
@@ -91,7 +91,7 @@
         },
         {
             "id": 2,
-            "role": "Wings",
+            "role": "Psyduck",
             "name": "Psyduck",
             "shiny": false,
             "ability": "(No Ability)",
@@ -131,7 +131,7 @@
         },
         {
             "id": 3,
-            "role": "Legs",
+            "role": "Golduck",
             "name": "Golduck",
             "shiny": false,
             "ability": "(No Ability)",
@@ -171,7 +171,7 @@
         },
         {
             "id": 4,
-            "role": "Scallions",
+            "role": "Leafeon",
             "name": "Leafeon",
             "shiny": false,
             "ability": "(No Ability)",

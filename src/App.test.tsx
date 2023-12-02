@@ -998,6 +998,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_samurott/morpeking_duck.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('h_samurott/surge_surf', async () => {
+    const module = await import(`./data/strats/h_samurott/surge_surf.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('h_samurott/tsujigiri', async () => {
     const module = await import(`./data/strats/h_samurott/tsujigiri.json`)
     await testOHKO(module as LightBuildInfo);

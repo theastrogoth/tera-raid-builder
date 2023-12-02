@@ -1,6 +1,6 @@
 {
     "name": "Magnem Opus",
-    "notes": "",
+    "notes": "Gooey is not necessary",
     "credits": "u/Gimikyu_",
     "pokemon": [
         {
@@ -56,7 +56,7 @@
             "shiny": true,
             "ability": "Sturdy",
             "item": "Weakness Policy",
-            "nature": "Modest",
+            "nature": "Timid",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -508,7 +508,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

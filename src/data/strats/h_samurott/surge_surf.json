@@ -1,6 +1,6 @@
 {
-    "name": "A Light in the Dog Days",
-    "notes": "Mabosstiff holds a Rocky Helmet to deal chip damage to Samurott on contact. This chip damage forces Samurott to use Bulldoze on the party, activating Jolteon's held Weakness Policy.\n\nA second Mabosstiff may be used in place of Maschiff -- in this scenario, players will need to coordinate which Mabosstiff is using Helping Hand.",
+    "name": "A Sunny Day for (Surge) Surfing",
+    "notes": "Marill holding Eviolite may be used in place of Azumarill.\n\nWith a Bold nature and 252 Def EVs, Drought Torkoal/Groudon holding a Passho Berry may be used in place of Koraidon.\n\nA number of other Electric-type Pokémon may be used in place of Raichu by setting up with Charge and attacking with Thunderbolt. Check the Tera Raid Builder link and click the \"Load Substitute\" button underneath Raichu for more details!",
     "credits": "u/SerenaSuka and u/Suicidal-Lysosome",
     "pokemon": [
         {
@@ -51,19 +51,19 @@
         },
         {
             "id": 1,
-            "role": "Sparky",
-            "name": "Jolteon",
+            "role": "Raichu",
+            "name": "Raichu-Alola",
             "shiny": true,
-            "ability": "(No Ability)",
-            "item": "Weakness Policy",
-            "nature": "Timid",
+            "ability": "Surge Surfer",
+            "item": "Focus Sash",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 252,
                 "spd": 0,
-                "spe": 0
+                "spe": 252
             },
             "ivs": {
                 "hp": 31,
@@ -75,8 +75,8 @@
             },
             "level": 100,
             "moves": [
-                "Charge",
-                "Thunderbolt"
+                "Nasty Plot",
+                "Electro Ball"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -91,16 +91,16 @@
         },
         {
             "id": 2,
-            "role": "Old Yeller",
-            "name": "Houndstone",
-            "shiny": true,
-            "ability": "Fluffy",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "role": "Charjabug",
+            "name": "Charjabug",
+            "shiny": false,
+            "ability": "Battery",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -115,7 +115,7 @@
             },
             "level": 100,
             "moves": [
-                "Will-O-Wisp"
+                "Electric Terrain"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -130,16 +130,15 @@
         },
         {
             "id": 3,
-            "role": "Al Capaws",
-            "name": "Mabosstiff",
-            "shiny": true,
-            "ability": "Intimidate",
-            "item": "Rocky Helmet",
-            "nature": "Impish",
+            "role": "Azumarill",
+            "name": "Azumarill",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -169,16 +168,16 @@
         },
         {
             "id": 4,
-            "role": "Bow Wow",
-            "name": "Maschiff",
-            "shiny": true,
-            "ability": "Intimidate",
-            "item": "Eviolite",
-            "nature": "Impish",
+            "role": "Koraidon",
+            "name": "Koraidon",
+            "shiny": false,
+            "ability": "Orichalcum Pulse",
+            "item": "Sitrus Berry",
+            "nature": "Hardy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -193,7 +192,6 @@
             },
             "level": 100,
             "moves": [
-                "Fake Tears",
                 "Helping Hand"
             ],
             "bossMultiplier": 100,
@@ -210,8 +208,8 @@
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 0,
+            "id": 1,
+            "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -236,37 +234,11 @@
             }
         },
         {
-            "id": 1,
-            "group": 1,
-            "moveInfo": {
-                "name": "Will-O-Wisp",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 3,
-            "group": 3,
+            "group": 4,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 3,
+                "name": "Defense Cheer",
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -289,111 +261,7 @@
         },
         {
             "id": 2,
-            "group": 3,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Bulldoze",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 3,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 3,
-            "moveInfo": {
-                "name": "Charge",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 5,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 5,
+            "group": 2,
             "moveInfo": {
                 "name": "Fake Tears",
                 "userID": 3,
@@ -418,8 +286,8 @@
             }
         },
         {
-            "id": 8,
-            "group": 5,
+            "id": 0,
+            "group": 2,
             "moveInfo": {
                 "name": "Helping Hand",
                 "userID": 4,
@@ -444,10 +312,114 @@
             }
         },
         {
-            "id": 9,
-            "group": 6,
+            "id": 4,
+            "group": 2,
             "moveInfo": {
-                "name": "Thunderbolt",
+                "name": "Nasty Plot",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 0,
+            "moveInfo": {
+                "name": "Electric Terrain",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 0,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 0,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 3,
+            "moveInfo": {
+                "name": "Electro Ball",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -472,24 +444,23 @@
     ],
     "groups": [
         [
-            0
-        ],
-        [
             1
         ],
         [
-            3,
+            3
+        ],
+        [
             2,
-            4,
-            5
+            0,
+            4
         ],
         [
-            6,
-            7,
-            8
+            8,
+            5,
+            6
         ],
         [
-            9
+            7
         ]
     ],
     "repeats": [
@@ -500,22 +471,147 @@
         1
     ],
     "substitutes": [
-        [],
         [
             {
                 "raider": {
                     "id": 1,
-                    "role": "Bad Doggy",
-                    "name": "Okidogi",
-                    "shiny": false,
-                    "ability": "Guard Dog",
-                    "item": "Flame Orb",
-                    "nature": "Jolly",
+                    "role": "Magnemite",
+                    "name": "Magnemite",
+                    "shiny": true,
+                    "ability": "Sturdy",
+                    "item": "Weakness Policy",
+                    "nature": "Timid",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
-                        "def": 252,
+                        "def": 0,
                         "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Charge",
+                        "Thunderbolt"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Charge",
+                    "Thunderbolt"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Magneton",
+                    "name": "Magneton",
+                    "shiny": true,
+                    "ability": "Sturdy",
+                    "item": "Magnet",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Charge",
+                        "Thunderbolt"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Charge",
+                    "Thunderbolt"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Magnezone",
+                    "name": "Magnezone",
+                    "shiny": true,
+                    "ability": "Sturdy",
+                    "item": "Magnet",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Charge",
+                        "Thunderbolt"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Charge",
+                    "Thunderbolt"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Sandy Shocks",
+                    "name": "Sandy Shocks",
+                    "shiny": true,
+                    "ability": "Protosynthesis",
+                    "item": "Focus Sash",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
                         "spd": 0,
                         "spe": 0
                     },
@@ -529,16 +625,61 @@
                     },
                     "level": 100,
                     "moves": [
-                        "Fling"
+                        "Charge",
+                        "Thunderbolt"
                     ]
                 },
                 "substituteMoves": [
-                    "Fling",
-                    "Attack Cheer"
+                    "(No Move)",
+                    "Charge",
+                    "Thunderbolt"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 5,
+                    "role": "Regieleki",
+                    "name": "Regieleki",
+                    "shiny": false,
+                    "ability": "Transistor",
+                    "item": "Focus Sash",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Charge",
+                        "Thunderbolt"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Charge",
+                    "Thunderbolt"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
                 ]
             }
         ],
@@ -547,12 +688,53 @@
             {
                 "raider": {
                     "id": 1,
-                    "role": "Ma Barker",
-                    "name": "Mabosstiff",
-                    "shiny": true,
-                    "ability": "Intimidate",
-                    "item": "Rocky Helmet",
-                    "nature": "Impish",
+                    "role": "Marill",
+                    "name": "Marill",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Eviolite",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Torkoal",
+                    "name": "Torkoal",
+                    "shiny": false,
+                    "ability": "Drought",
+                    "item": "Passho Berry",
+                    "nature": "Bold",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -571,16 +753,54 @@
                     },
                     "level": 100,
                     "moves": [
-                        "Fake Tears",
                         "Helping Hand"
                     ]
                 },
                 "substituteMoves": [
-                    "Fake Tears",
-                    "Helping Hand"
+                    "Helping Hand",
+                    "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    0,
+                    1,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Groudon",
+                    "name": "Groudon",
+                    "shiny": false,
+                    "ability": "Drought",
+                    "item": "Passho Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Helping Hand",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    1,
                     1
                 ]
             }

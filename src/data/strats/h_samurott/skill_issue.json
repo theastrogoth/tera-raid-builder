@@ -1,6 +1,6 @@
 {
     "name": "Skill Issue",
-    "notes": "",
+    "notes": "Any bulky Pokémon with Fake Tears can replace Corviknight.\nThere is some risk for Stantler: 2 crits in a row, one highest roll and one at minimum second highest roll (1/73 728 for Stantler to get KO'd).",
     "credits": "u/ChocoHammy",
     "pokemon": [
         {
@@ -29,22 +29,24 @@
             "level": 100,
             "teraType": "Water",
             "moves": [
+                "Ceaseless Edge",
                 "Razor Shell",
-                "Night Slash",
                 "X-Scissor",
                 "Sacred Sword"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Swords Dance"
+                "Swords Dance",
+                "Focus Energy",
+                "Bulldoze"
             ],
             "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
+                "hpTrigger": 80,
+                "timeTrigger": 87,
+                "shieldCancelDamage": 30,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
@@ -53,7 +55,7 @@
             "name": "Kilowattrel",
             "shiny": false,
             "ability": "Competitive",
-            "item": "Life Orb",
+            "item": "Magnet",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -208,7 +210,7 @@
     "turns": [
         {
             "id": 0,
-            "group": 4,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -233,8 +235,8 @@
             }
         },
         {
-            "id": 2,
-            "group": 0,
+            "id": 1,
+            "group": 1,
             "moveInfo": {
                 "name": "Skill Swap",
                 "userID": 3,
@@ -251,16 +253,16 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
+                    "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
+                    "roll": "avg",
                     "hits": 10
                 }
             }
         },
         {
-            "id": 1,
-            "group": 0,
+            "id": 5,
+            "group": 1,
             "moveInfo": {
                 "name": "Skill Swap",
                 "userID": 4,
@@ -277,16 +279,16 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
+                    "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
+                    "roll": "avg",
                     "hits": 10
                 }
             }
         },
         {
-            "id": 6,
-            "group": 1,
+            "id": 2,
+            "group": 2,
             "moveInfo": {
                 "name": "Charge",
                 "userID": 1,
@@ -311,60 +313,60 @@
             }
         },
         {
+            "id": 6,
+            "group": 2,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 3,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
             "id": 7,
-            "group": 1,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 2,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 9,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 3,
@@ -389,8 +391,8 @@
             }
         },
         {
-            "id": 10,
-            "group": 2,
+            "id": 8,
+            "group": 3,
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 4,
@@ -415,8 +417,8 @@
             }
         },
         {
-            "id": 8,
-            "group": 3,
+            "id": 4,
+            "group": 4,
             "moveInfo": {
                 "name": "Discharge",
                 "userID": 1,
@@ -446,20 +448,20 @@
             0
         ],
         [
+            1,
+            5
+        ],
+        [
             2,
-            1
+            6
         ],
         [
-            6,
-            7
-        ],
-        [
-            5,
-            9,
-            10
-        ],
-        [
+            3,
+            7,
             8
+        ],
+        [
+            4
         ]
     ],
     "repeats": [

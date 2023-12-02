@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import { Move } from "../calc";
 import { TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
 import { RaidMoveInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
@@ -346,7 +346,10 @@ const ExecutionSection = styled(Box)({
 const ExecutionContainer = styled(Stack)({
     width: "auto",
     justifyContent: "space-between",
-    margin: "100px",
+    marginLeft: "100px",
+    marginRight: "100px",
+    marginTop: "50px",
+    marginBottom: "50px",
     position: "relative",
     fontSize: "2.2em",
     color: "white"
@@ -371,11 +374,25 @@ const ExecutionGroup = styled(Box)({
     alignItems: "center",
 });
 
+const ExecutionTurnLabelContainer = styled(Box)({
+    width: "auto",
+    justifyContent: "center",
+    // marginLeft: "100px",
+});
+
+const ExecutionTurnLabel = styled(Typography)({
+    color: "white",
+    fontSize: "4em",
+    margin: "0px",
+    textAlign: "center",
+    width: "100%"
+});
+
 const ExecutionMoveNumber = styled(Typography)({
     height: "125px",
     width: "125px",
     lineHeight: "125px",
-    fontSize: "4.5em",
+    fontSize: "3em",
     textAlign: "center"
 });
 
@@ -570,8 +587,9 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
 }
 
 // TODO: move this to a more appropriate place (also used in MoveDisplay)
-function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
-    const moveGroups = groups.map((group, groupIndex) => 
+function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], number[]] {
+    const [turnGroups, turnNumbers] = sortGroupsIntoTurns(getTurnNumbersFromGroups(groups), groups);
+    const preparedTurnGroups = turnGroups.map(groups => groups.map((group, groupIndex) => 
         group.turns.map((t) => { 
             const turnResult = results.turnResults.find((r) => t.id === r.id)!;
             let move = turnResult.raiderMoveUsed;
@@ -585,16 +603,16 @@ function getMoveGroups(groups: TurnGroupInfo[], results: RaidBattleResults) {
                 move,
                 info,
                 isSpread,
-                repeats: group.repeats,
+                repeats: group.repeats || 1,
                 teraActivated: !wait && !!(turnResult!.moveInfo.options!.activateTera && 
                                 turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
             } 
         })
-    );
-    return moveGroups;
+    ));
+    return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], moveGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, teraActivated: boolean}[][], repeats: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, translationKey?: any) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], turnGroups: {move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -702,106 +720,116 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                             <SeparatorLabel>{!translationKey ? "Execution" : getTranslation("Moves", translationKey)}</SeparatorLabel>
                             <RightBar />
                         </Separator> 
-                        <ExecutionContainer direction="row">
-                            <ExecutionTable>
-                                {
-                                    moveGroups.map((moveGroup, index) => (
-                                        <ExecutionRow key={index}>
-                                            <ExecutionGroup sx={{
-                                                //@ts-ignore
-                                                background: graphicsTheme.palette["group"+(index.toString() % 12)].main,
-                                                height: (175*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
-                                            }}>
-                                                <ExecutionMoveNumber>{index + 1}</ExecutionMoveNumber>
-                                                <ExecutionMoveContainer>
-                                                    {
-                                                        moveGroup.map((move, moveIndex) => { 
-                                                            let showTarget = move.info.userID === 0 ?
-                                                                ( move.isSpread || move.move === "Remove Negative Effects" ) :
-                                                                !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.info.moveData.target!);
-                                                            showTarget = showTarget && (move.move !== "Waits");
-                                                            return ([
-                                                            move.teraActivated ? 
-                                                            <ExecutionMove key={moveIndex - 0.5}>
-                                                                <ExecutionMovePokemonWrapperEmpty/>
-                                                                <ExecutionMoveTag>{""}</ExecutionMoveTag>
-                                                                <ExecutionMoveActionWrapper>
-                                                                    <ExecutionMoveTeraIconWrapper>
-                                                                        <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
-                                                                    </ExecutionMoveTeraIconWrapper>
-                                                                    <ExecutionMoveTag>{getTranslation("Terastallize", translationKey)}</ExecutionMoveTag>
-                                                                    <ExecutionMoveTeraIconWrapper>
-                                                                        <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
-                                                                    </ExecutionMoveTeraIconWrapper>
-                                                                </ExecutionMoveActionWrapper>
-                                                                <ExecutionMoveTag>{""}</ExecutionMoveTag>
-                                                                <ExecutionMovePokemonWrapperEmpty />
-                                                            </ExecutionMove>
-                                                            : null,
-                                                            <ExecutionMove key={moveIndex}>
-                                                                {move.teraActivated ?
-                                                                <ExecutionMovePokemonWrapperShifted>
-                                                                    <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.userID].role}</ExecutionMovePokemonName>
-                                                                    <ExecutionMovePokemonIconWrapper>
-                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.userID].species.name)} />
-                                                                    </ExecutionMovePokemonIconWrapper>
-                                                                </ExecutionMovePokemonWrapperShifted> :
-                                                                <ExecutionMovePokemonWrapper>
-                                                                    <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.userID].role}</ExecutionMovePokemonName>
-                                                                    <ExecutionMovePokemonIconWrapper>
-                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.userID].species.name)} />
-                                                                    </ExecutionMovePokemonIconWrapper>
-                                                                </ExecutionMovePokemonWrapper>
-                                                                }
-                                                                {move.teraActivated && <ExecutionMovePokemonWrapperEmpty/>}
-                                                                {(move.teraActivated || move.move === "Waits") ?
-                                                                    <ExecutionMoveTag>{""}</ExecutionMoveTag> :
-                                                                    <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
-                                                                }
-                                                                {move.teraActivated ?
-                                                                    <ExecutionMoveTagShiftedContainer>
-                                                                        <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
-                                                                    </ExecutionMoveTagShiftedContainer> :
-                                                                    null
-                                                                }
-                                                                <ExecutionMoveAction>{getTranslation(move.move, translationKey, "moves")}</ExecutionMoveAction>
-                                                                <ExecutionMoveTag>{showTarget ? getTranslation("on", translationKey) : ""}</ExecutionMoveTag>
-                                                                {showTarget ?
-                                                                    <ExecutionMovePokemonWrapper>
-                                                                        <ExecutionMovePokemonName>
-                                                                            {
-                                                                                (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
-                                                                                move.move === "Remove Negative Effects" ? raidInputProps.pokemon[0].role :
-                                                                                raidInputProps.pokemon[move.info.targetID].role
-                                                                            }
-                                                                        </ExecutionMovePokemonName>
-                                                                        { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?
+                        { turnGroups.map((moveGroups, turnIndex) => (
+                            <ExecutionContainer direction="row">
+                                <ExecutionTable>
+                                    {(turnNumbers[turnIndex] !== 0) && (
+                                        <ExecutionTurnLabelContainer>
+                                            <ExecutionTurnLabel>{getTranslation("Turn", translationKey) + " " + turnNumbers[turnIndex]}</ExecutionTurnLabel>
+                                        </ExecutionTurnLabelContainer>
+                                        )
+                                    }
+                                    {
+                                        moveGroups.map((moveGroup, index) => (
+                                            moveGroup.length > 0 ? (
+                                                <ExecutionRow key={index}>
+                                                    <ExecutionGroup sx={{
+                                                        //@ts-ignore
+                                                        background: graphicsTheme.palette["group"+(((index + turnGroups.slice(0, turnIndex).reduce((a,b) => a + b.length, 0)).toString()) % 12)].main,
+                                                        height: (175*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
+                                                    }}>
+                                                        <ExecutionMoveNumber>{moveGroups.length > 1 ? (index + 1) : null}</ExecutionMoveNumber>
+                                                        <ExecutionMoveContainer>
+                                                            {
+                                                                moveGroup.map((move, moveIndex) => { 
+                                                                    let showTarget = move.info.userID === 0 ?
+                                                                        ( move.isSpread || move.move === "Remove Negative Effects" ) :
+                                                                        !["user", "user-and-allies", "all-pokemon", "all-other-pokemon", "entire-field"].includes(move.info.moveData.target!);
+                                                                    showTarget = showTarget && (move.move !== "Waits");
+                                                                    return ([
+                                                                    move.teraActivated ? 
+                                                                    <ExecutionMove key={moveIndex - 0.5}>
+                                                                        <ExecutionMovePokemonWrapperEmpty/>
+                                                                        <ExecutionMoveTag>{""}</ExecutionMoveTag>
+                                                                        <ExecutionMoveActionWrapper>
+                                                                            <ExecutionMoveTeraIconWrapper>
+                                                                                <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                            </ExecutionMoveTeraIconWrapper>
+                                                                            <ExecutionMoveTag>{getTranslation("Terastallize", translationKey)}</ExecutionMoveTag>
+                                                                            <ExecutionMoveTeraIconWrapper>
+                                                                                <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                            </ExecutionMoveTeraIconWrapper>
+                                                                        </ExecutionMoveActionWrapper>
+                                                                        <ExecutionMoveTag>{""}</ExecutionMoveTag>
+                                                                        <ExecutionMovePokemonWrapperEmpty />
+                                                                    </ExecutionMove>
+                                                                    : null,
+                                                                    <ExecutionMove key={moveIndex}>
+                                                                        {move.teraActivated ?
+                                                                        <ExecutionMovePokemonWrapperShifted>
+                                                                            <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.userID].role}</ExecutionMovePokemonName>
                                                                             <ExecutionMovePokemonIconWrapper>
-                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.move === "Remove Negative Effects" ? 0 : move.info.targetID].species.name)} />
-                                                                            </ExecutionMovePokemonIconWrapper> : 
-                                                                            <ExecutionMovePokemonIconWrapper direction="row" spacing="-50px">
-                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[1].species.name)} />
-                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[2].species.name)} />
-                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[3].species.name)} />
-                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[4].species.name)} />
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.userID].species.name)} />
                                                                             </ExecutionMovePokemonIconWrapper>
-
+                                                                        </ExecutionMovePokemonWrapperShifted> :
+                                                                        <ExecutionMovePokemonWrapper>
+                                                                            <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                            <ExecutionMovePokemonIconWrapper>
+                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.info.userID].species.name)} />
+                                                                            </ExecutionMovePokemonIconWrapper>
+                                                                        </ExecutionMovePokemonWrapper>
                                                                         }
-                                                                    </ExecutionMovePokemonWrapper>
-                                                                    :
-                                                                    <ExecutionMovePokemonWrapperEmpty />
-                                                                }
-                                                            </ExecutionMove>
-                                                        ])}).flat()
-                                                    }
-                                                </ExecutionMoveContainer>
-                                                <ExecutionRepeatNumber>{repeats[index] > 1 ? "×" + (repeats[index]) : ""}</ExecutionRepeatNumber>
-                                                </ExecutionGroup>
-                                        </ExecutionRow>
-                                    ))
-                                }
-                            </ExecutionTable>
-                        </ExecutionContainer>
+                                                                        {move.teraActivated && <ExecutionMovePokemonWrapperEmpty/>}
+                                                                        {(move.teraActivated || move.move === "Waits") ?
+                                                                            <ExecutionMoveTag>{""}</ExecutionMoveTag> :
+                                                                            <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
+                                                                        }
+                                                                        {move.teraActivated ?
+                                                                            <ExecutionMoveTagShiftedContainer>
+                                                                                <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
+                                                                            </ExecutionMoveTagShiftedContainer> :
+                                                                            null
+                                                                        }
+                                                                        <ExecutionMoveAction>{getTranslation(move.move, translationKey, "moves")}</ExecutionMoveAction>
+                                                                        <ExecutionMoveTag>{showTarget ? getTranslation("on", translationKey) : ""}</ExecutionMoveTag>
+                                                                        {showTarget ?
+                                                                            <ExecutionMovePokemonWrapper>
+                                                                                <ExecutionMovePokemonName>
+                                                                                    {
+                                                                                        (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
+                                                                                        move.move === "Remove Negative Effects" ? raidInputProps.pokemon[0].role :
+                                                                                        raidInputProps.pokemon[move.info.targetID].role
+                                                                                    }
+                                                                                </ExecutionMovePokemonName>
+                                                                                { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?
+                                                                                    <ExecutionMovePokemonIconWrapper>
+                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[move.move === "Remove Negative Effects" ? 0 : move.info.targetID].species.name)} />
+                                                                                    </ExecutionMovePokemonIconWrapper> : 
+                                                                                    <ExecutionMovePokemonIconWrapper direction="row" spacing="-50px">
+                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[1].species.name)} />
+                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[2].species.name)} />
+                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[3].species.name)} />
+                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(raidInputProps.pokemon[4].species.name)} />
+                                                                                    </ExecutionMovePokemonIconWrapper>
+
+                                                                                }
+                                                                            </ExecutionMovePokemonWrapper>
+                                                                            :
+                                                                            <ExecutionMovePokemonWrapperEmpty />
+                                                                        }
+                                                                    </ExecutionMove>
+                                                                ])}).flat()
+                                                            }
+                                                        </ExecutionMoveContainer>
+                                                        <ExecutionRepeatNumber>{moveGroup[0].repeats > 1 ? "×" + (moveGroup[0].repeats) : ""}</ExecutionRepeatNumber>
+                                                        </ExecutionGroup>
+                                                </ExecutionRow>
+                                            ) : null
+                                        ))
+                                    }
+                                </ExecutionTable>
+                            </ExecutionContainer>
+                        ))}
                     </ExecutionSection>
                         {notes && 
                             <NotesSection>
@@ -941,10 +969,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
             }))
             console.log(optionalMove)
             // sort moves into groups
-            const moveGroups = getMoveGroups(raidInputProps.groups, results);
-            const repeats = raidInputProps.groups.map((group) => group.repeats || 1);
+            const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, isHiddenAbility, learnMethods, moveTypes, optionalMove, moveGroups, repeats, loadedImageURLRef.current, title, subtitle, notes, credits, translationKey);
+            const graphicTop = generateGraphic(theme, raidInputProps, isHiddenAbility, learnMethods, moveTypes, optionalMove, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);

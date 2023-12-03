@@ -185,16 +185,16 @@ export function getIVDescription(ivs: StatsTable, translationKey: any) {
                 displayedStats.push(getTranslation(getStatReadableName(stat), translationKey, "stats"));
             }
         }
-        return displayedStats.slice(0,-1).join(', ') + (displayedStats.length > 2 ? ", and " : " and ") + displayedStats.slice(-1) + " Hypertrained";
+        if (displayedStats.length < 4) {
+            return displayedStats.slice(0,-1).join(', ') + (displayedStats.length > 2 ? ", and " : " and ") + displayedStats.slice(-1) + " Hypertrained";
+        }
     }
-    else {
-        let displayedIVs: string[] = [];
-        for (let stat in ivs) {
-            const statid = stat as StatID;
-            displayedIVs.push(`${ivs[statid]}`);
-        } 
-        return displayedIVs.join(' / ');
-    }
+    let displayedIVs: string[] = [];
+    for (let stat in ivs) {
+        const statid = stat as StatID;
+        displayedIVs.push(`${ivs[statid]}`);
+    } 
+    return displayedIVs.join(' / ');
 }
 
 export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {

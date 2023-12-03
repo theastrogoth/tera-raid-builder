@@ -38,51 +38,51 @@ const graphicsTheme = createTheme({
     palette: {
         //@ts-ignore
         group0: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #ff578980 0%, #ffa77a80 50%, #ffee8280 100%)"
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #ff578990 0%, #ffa77a90 50%, #ffee8290 100%)"
         },
         //@ts-ignore
         group1: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #d1e33280 0%, #5ce68180 50%, #30bce380 100%);"
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #d1e33290 0%, #5ce68190 50%, #30bce390 100%);"
         },
         //@ts-ignore
         group2: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #75baff80 0%, #ae82ff80 50%, #ff9cd280 100%);"
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #75baff90 0%, #ae82ff90 50%, #ff9cd290 100%);"
         },
         //@ts-ignore
         group3: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #e9d18d80 0%, #f6c5db80 50%, #8e578880 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #e9d18d90 0%, #f6c5db90 50%, #8e578890 100%);",
         },
         //@ts-ignore
         group4: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #5c5c5c80 0%, #94949480 50%, #e0e0e080 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #5c5c5c90 0%, #94949490 50%, #e0e0e090 100%);",
         },
         //@ts-ignore
         group5: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #ff559980 0%, #cd8ba780 50%, #6bdcd380 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #ff559990 0%, #cd8ba790 50%, #6bdcd390 100%);",
         },
         //@ts-ignore
         group6: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #c47efa80 0%, #96a8d280 50%, #c9998180 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #c47efa90 0%, #96a8d290 50%, #c9998190 100%);",
         },
         //@ts-ignore
         group7: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #44ebd480 0%, #73b4ff80 50%, #a88af280 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #44ebd490 0%, #73b4ff90 50%, #a88af290 100%);",
         },
         //@ts-ignore
         group8: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #ebdb7380 0%, #e6bbed80 50%, #06a3f080 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #ebdb7390 0%, #e6bbed90 50%, #06a3f090 100%);",
         },
         //@ts-ignore
         group9: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #ff8b6b80 0%, #fff78c80 50%, #96ff9480 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #ff8b6b90 0%, #fff78c90 50%, #96ff9490 100%);",
         },
         //@ts-ignore
         group10: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #dca1ff80 0%, #ffa8ba80 50%, #ff9b8080 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #dca1ff90 0%, #ffa8ba90 50%, #ff9b8090 100%);",
         },
         //@ts-ignore
         group11: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #1BB0BD80 0%, #42C6B980 50%, #b1dfc080 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #1BB0BD90 0%, #42C6B990 50%, #b1dfc090 100%);",
         },
     }
 });
@@ -736,7 +736,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                     <ExecutionGroup sx={{
                                                         //@ts-ignore
                                                         background: graphicsTheme.palette["group"+(((index + turnGroups.slice(0, turnIndex).reduce((a,b) => a + b.length, 0)).toString()) % 12)].main,
-                                                        height: (165*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
+                                                        height: (160*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
                                                     }}>
                                                         <ExecutionMoveNumber>{moveGroups.length > 1 ? (index + 1) : null}</ExecutionMoveNumber>
                                                         <ExecutionMoveContainer>

@@ -38,51 +38,51 @@ const graphicsTheme = createTheme({
     palette: {
         //@ts-ignore
         group0: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff5789aa 0%, #ffa77aaa 50%, #ffee82aa 100%)"
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #ff578980 0%, #ffa77a80 50%, #ffee8280 100%)"
         },
         //@ts-ignore
         group1: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #d1e332aa 0%, #5ce681aa 50%, #30bce3aa 100%);"
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #d1e33280 0%, #5ce68180 50%, #30bce380 100%);"
         },
         //@ts-ignore
         group2: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #75baffaa 0%, #ae82ffaa 50%, #ff9cd2aa 100%);"
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #75baff80 0%, #ae82ff80 50%, #ff9cd280 100%);"
         },
         //@ts-ignore
         group3: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #e9d18daa 0%, #f6c5dbaa 50%, #8e5788aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #e9d18d80 0%, #f6c5db80 50%, #8e578880 100%);",
         },
         //@ts-ignore
         group4: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #5c5c5caa 0%, #949494aa 50%, #e0e0e0aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #5c5c5c80 0%, #94949480 50%, #e0e0e080 100%);",
         },
         //@ts-ignore
         group5: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff5599aa 0%, #cd8ba7aa 50%, #6bdcd3aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #ff559980 0%, #cd8ba780 50%, #6bdcd380 100%);",
         },
         //@ts-ignore
         group6: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #c47efaaa 0%, #96a8d2aa 50%, #c99981aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #c47efa80 0%, #96a8d280 50%, #c9998180 100%);",
         },
         //@ts-ignore
         group7: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #44ebd4aa 0%, #73b4ffaa 50%, #a88af2aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #44ebd480 0%, #73b4ff80 50%, #a88af280 100%);",
         },
         //@ts-ignore
         group8: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ebdb73aa 0%, #e6bbedaa 50%, #06a3f0aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #ebdb7380 0%, #e6bbed80 50%, #06a3f080 100%);",
         },
         //@ts-ignore
         group9: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff8b6baa 0%, #fff78caa 50%, #96ff94aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #ff8b6b80 0%, #fff78c80 50%, #96ff9480 100%);",
         },
         //@ts-ignore
         group10: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #dca1ffaa 0%, #ffa8baaa 50%, #ff9b80aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #dca1ff80 0%, #ffa8ba80 50%, #ff9b8080 100%);",
         },
         //@ts-ignore
         group11: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #1BB0BDaa 0%, #42C6B9aa 50%, #b1dfc0aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(135deg, #1BB0BD80 0%, #42C6B980 50%, #b1dfc080 100%);",
         },
     }
 });

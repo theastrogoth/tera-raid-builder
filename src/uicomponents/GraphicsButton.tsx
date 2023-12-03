@@ -382,7 +382,7 @@ const ExecutionTurnLabelContainer = styled(Box)({
 
 const ExecutionTurnLabel = styled(Typography)({
     color: "white",
-    fontSize: "4em",
+    fontSize: "3em",
     margin: "0px",
     textAlign: "center",
     width: "100%"
@@ -414,7 +414,7 @@ const ExecutionMoveContainer = styled(Box)({
 });
 
 const ExecutionMove = styled(Box)({
-    height: "100px",
+    height: "90px",
     color: "black",
     display: "flex",
     flexDirection: "row",
@@ -422,7 +422,7 @@ const ExecutionMove = styled(Box)({
 });
 
 const ExecutionMovePokemonWrapper = styled(Box)({
-    height: "100px",
+    height: "90px",
     width: "750px",
     backgroundColor: "rgba(255, 255, 255, .35)",
     display: "flex",
@@ -431,7 +431,7 @@ const ExecutionMovePokemonWrapper = styled(Box)({
     alignItems: "center"
 });
 const ExecutionMovePokemonWrapperShifted = styled(Box)({
-    height: "100px",
+    height: "90px",
     width: "750px",
     backgroundColor: "rgba(255, 255, 255, .35)",
     position: "absolute",
@@ -488,7 +488,7 @@ const ExecutionMoveTeraIconWrapper = styled(Box)({
 });
 
 const ExecutionMoveTag = styled(Typography)({
-    height: "100px",
+    height: "90px",
     width: "300px",
     color: "white",
     fontSize: "1.7em",
@@ -506,7 +506,7 @@ const ExecutionMoveTagShiftedContainer = styled(Box)({
 });
 
 const ExecutionMoveAction = styled(Typography)({
-    height: "100px",
+    height: "90px",
     width: "650px",
     color: "white",
     fontSize: "1.7em",
@@ -518,7 +518,7 @@ const ExecutionMoveAction = styled(Typography)({
 });
 
 const ExecutionMoveActionWrapper = styled(Box)({
-    height: "100px",
+    height: "90px",
     // width: "750px",
     width: "650px",
     backgroundColor: "rgba(255, 255, 255, .35)",
@@ -736,7 +736,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                     <ExecutionGroup sx={{
                                                         //@ts-ignore
                                                         background: graphicsTheme.palette["group"+(((index + turnGroups.slice(0, turnIndex).reduce((a,b) => a + b.length, 0)).toString()) % 12)].main,
-                                                        height: (175*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
+                                                        height: (165*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
                                                     }}>
                                                         <ExecutionMoveNumber>{moveGroups.length > 1 ? (index + 1) : null}</ExecutionMoveNumber>
                                                         <ExecutionMoveContainer>

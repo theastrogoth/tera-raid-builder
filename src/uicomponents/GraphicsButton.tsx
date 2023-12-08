@@ -38,51 +38,51 @@ const graphicsTheme = createTheme({
     palette: {
         //@ts-ignore
         group0: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff5789aa 0%, #ffa77aaa 50%, #ffee82aa 100%)"
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #ff578990 0%, #ffa77a90 50%, #ffee8290 100%)"
         },
         //@ts-ignore
         group1: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #d1e332aa 0%, #5ce681aa 50%, #30bce3aa 100%);"
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #d1e33290 0%, #5ce68190 50%, #30bce390 100%);"
         },
         //@ts-ignore
         group2: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #75baffaa 0%, #ae82ffaa 50%, #ff9cd2aa 100%);"
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #75baff90 0%, #ae82ff90 50%, #ff9cd290 100%);"
         },
         //@ts-ignore
         group3: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #e9d18daa 0%, #f6c5dbaa 50%, #8e5788aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #e9d18d90 0%, #f6c5db90 50%, #8e578890 100%);",
         },
         //@ts-ignore
         group4: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #5c5c5caa 0%, #949494aa 50%, #e0e0e0aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #5c5c5c90 0%, #94949490 50%, #e0e0e090 100%);",
         },
         //@ts-ignore
         group5: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff5599aa 0%, #cd8ba7aa 50%, #6bdcd3aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #ff559990 0%, #cd8ba790 50%, #6bdcd390 100%);",
         },
         //@ts-ignore
         group6: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #c47efaaa 0%, #96a8d2aa 50%, #c99981aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #c47efa90 0%, #96a8d290 50%, #c9998190 100%);",
         },
         //@ts-ignore
         group7: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #44ebd4aa 0%, #73b4ffaa 50%, #a88af2aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #44ebd490 0%, #73b4ff90 50%, #a88af290 100%);",
         },
         //@ts-ignore
         group8: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ebdb73aa 0%, #e6bbedaa 50%, #06a3f0aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #ebdb7390 0%, #e6bbed90 50%, #06a3f090 100%);",
         },
         //@ts-ignore
         group9: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #ff8b6baa 0%, #fff78caa 50%, #96ff94aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #ff8b6b90 0%, #fff78c90 50%, #96ff9490 100%);",
         },
         //@ts-ignore
         group10: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #dca1ffaa 0%, #ffa8baaa 50%, #ff9b80aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #dca1ff90 0%, #ffa8ba90 50%, #ff9b8090 100%);",
         },
         //@ts-ignore
         group11: {
-            main: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(135deg, #1BB0BDaa 0%, #42C6B9aa 50%, #b1dfc0aa 100%);",
+            main: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(135deg, #1BB0BD90 0%, #42C6B990 50%, #b1dfc090 100%);",
         },
     }
 });
@@ -382,7 +382,7 @@ const ExecutionTurnLabelContainer = styled(Box)({
 
 const ExecutionTurnLabel = styled(Typography)({
     color: "white",
-    fontSize: "4em",
+    fontSize: "3em",
     margin: "0px",
     textAlign: "center",
     width: "100%"
@@ -414,7 +414,7 @@ const ExecutionMoveContainer = styled(Box)({
 });
 
 const ExecutionMove = styled(Box)({
-    height: "100px",
+    height: "90px",
     color: "black",
     display: "flex",
     flexDirection: "row",
@@ -422,7 +422,7 @@ const ExecutionMove = styled(Box)({
 });
 
 const ExecutionMovePokemonWrapper = styled(Box)({
-    height: "100px",
+    height: "90px",
     width: "750px",
     backgroundColor: "rgba(255, 255, 255, .35)",
     display: "flex",
@@ -431,7 +431,7 @@ const ExecutionMovePokemonWrapper = styled(Box)({
     alignItems: "center"
 });
 const ExecutionMovePokemonWrapperShifted = styled(Box)({
-    height: "100px",
+    height: "90px",
     width: "750px",
     backgroundColor: "rgba(255, 255, 255, .35)",
     position: "absolute",
@@ -488,7 +488,7 @@ const ExecutionMoveTeraIconWrapper = styled(Box)({
 });
 
 const ExecutionMoveTag = styled(Typography)({
-    height: "100px",
+    height: "90px",
     width: "300px",
     color: "white",
     fontSize: "1.7em",
@@ -506,7 +506,7 @@ const ExecutionMoveTagShiftedContainer = styled(Box)({
 });
 
 const ExecutionMoveAction = styled(Typography)({
-    height: "100px",
+    height: "90px",
     width: "650px",
     color: "white",
     fontSize: "1.7em",
@@ -518,7 +518,7 @@ const ExecutionMoveAction = styled(Typography)({
 });
 
 const ExecutionMoveActionWrapper = styled(Box)({
-    height: "100px",
+    height: "90px",
     // width: "750px",
     width: "650px",
     backgroundColor: "rgba(255, 255, 255, .35)",
@@ -736,7 +736,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, isHiddenAbi
                                                     <ExecutionGroup sx={{
                                                         //@ts-ignore
                                                         background: graphicsTheme.palette["group"+(((index + turnGroups.slice(0, turnIndex).reduce((a,b) => a + b.length, 0)).toString()) % 12)].main,
-                                                        height: (175*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
+                                                        height: (160*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
                                                     }}>
                                                         <ExecutionMoveNumber>{moveGroups.length > 1 ? (index + 1) : null}</ExecutionMoveNumber>
                                                         <ExecutionMoveContainer>

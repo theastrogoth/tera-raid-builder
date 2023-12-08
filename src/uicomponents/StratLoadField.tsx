@@ -145,7 +145,7 @@ function StratLoadField(
                     console.log(e)
                 }
             }}
-            componentsProps={{ popper: { style: { width: 'fit-content', minWidth: 250 } } }}
+            componentsProps={{ popper: { style: { width: 'fit-content', minWidth: 225 } } }}
             style={{ whiteSpace: "pre-wrap" }}
         />
     )

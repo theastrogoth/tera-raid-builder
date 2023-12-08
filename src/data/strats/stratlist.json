@@ -1,4 +1,10 @@
 {
+    "Dialga": {
+        "Template": "dialga/template"
+    },
+    "Palkia": {
+        "Template": "palkia/template"
+    },
     "Samurott-Hisui": {
         "Micrydon": "h_samurott/main",
         "Team Eeveelution": "h_samurott/eeveelution",

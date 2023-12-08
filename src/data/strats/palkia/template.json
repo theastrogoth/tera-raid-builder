@@ -6,10 +6,10 @@
         {
             "id": 0,
             "role": "Raid Boss",
-            "name": "Dialga",
+            "name": "Palkia",
             "shiny": false,
             "ability": "Telepathy",
-            "nature": "Quiet",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -30,15 +30,14 @@
             "teraType": "Dragon",
             "moves": [
                 "Draco Meteor",
-                "Earth Power",
+                "Thunder",
                 "Fire Blast",
-                "Steel Beam"
+                "Hydro Pump"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Trick Room",
-                "Stealth Rock",
-                "Iron Defense"
+                "Gravity",
+                "Rain Dance"
             ],
             "shieldData": {
                 "hpTrigger": 80,
@@ -75,15 +74,7 @@
             "level": 100,
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 2,
@@ -111,15 +102,7 @@
             "level": 100,
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 3,
@@ -147,15 +130,7 @@
             "level": 100,
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 4,
@@ -183,15 +158,7 @@
             "level": 100,
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         }
     ],
     "turns": [
@@ -210,7 +177,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Trick Room",
+                "name": "Gravity",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

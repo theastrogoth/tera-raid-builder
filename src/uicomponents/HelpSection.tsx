@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -16,6 +16,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import CloseIcon from "@mui/icons-material/Close";
 
+import PokedexService from "../services/getdata";
+
+type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
+
 function CollapseButton({open, setOpen, setClosed = () => {}}: {open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>, setClosed?: () => void }) {
     return (
         <IconButton
@@ -27,10 +31,26 @@ function CollapseButton({open, setOpen, setClosed = () => {}}: {open: boolean, s
     )
 }
 
-function HelpSection({setOpen}: {setOpen: (b: boolean) => void}) {
+function HelpSection({language, setOpen}: {language: LanguageOption, setOpen: (b: boolean) => void}) {
     const [buildHelpOpen, setBuildHelpOpen] = useState(false);
     const [prettyHelpOpen, setPrettyHelpOpen] = useState(false);
     const [uiHelpOpen, setUiHelpOpen] = useState(false);
+
+    const [helpTranslationKey, setHelpTranslationKey] = useState<any>(null);
+
+    useEffect(() => {
+        if (language !== 'en') {
+          PokedexService.getTranslationKey(language)
+            .then((response) => {
+              setHelpTranslationKey(response);
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        } else {
+          setHelpTranslationKey(null);
+        }
+    }, [language])
 
     return (
     <Stack spacing={0} sx={{ p: 2, minWidth: "575px" }}>

@@ -52,6 +52,16 @@ export namespace PokedexService {
             console.error(error);
         }
     }
+
+    export async function getHelpTranslation(lang: string) {
+        try {
+            let response = await fetch(assetsProlog + "translations/help/" + lang + ".json");
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
 }
 
 export default PokedexService

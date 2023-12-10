@@ -1,0 +1,122 @@
+{
+    "topLevel": {
+        "expandCollapse": "Klicke die Schaltfläche rechts neben der Abschnittsüberschrift, um den Abschnitt anzuzeigen oder zu schließen."
+    },
+    "buildSection": {
+        "title": "Pokémon für Raids trainieren",
+        "resources": "Hilfreiche Ressourcen",
+        "hammyGuide": "Pokémon-Trainingsanleitung von u/ChocoHammy",
+        "ivs": {
+            "title": "Individuelle Stärken (IVs)",
+            "body1": "IVs sind versteckte Statuswerte eines Pokémon, die nur durch Super-Spezialtraining verändert werden können. Für jeden Statuswert kann ein Pokémon IVs im Bereich von 0 bis 31 besitzen. Höhere IVs führen zu ebenfalls höheren Gesamt-Statuswerten.",
+            "body2": "Durch Super-Spezialtraining kannst du einzelne oder alle  IVs eines Pokémon auf den Wert 31 ändern. In Pokémon Karmesin & Purpur kannst du das Super-Spezialtraining auf ein Pokémon anwenden, sobald es Level 50 erreicht hat. Verwende dazu Silberkronkorken bei dem NPC in Frigomonta.",
+            "body3": "Du kannst zwar die IVs eines Pokémon nicht direkt im Spiel sehen, aber du kannst sie grob abschätzen, indem du die Richter Funktion verwendest, während du ein Pokémon in deiner Box ansiehst. Jede IV-Beschreibung gehört zu einem Bereich möglicher Werte:",
+            "body4": "Die meisten Tera-Raid-Builds profitieren davon, wenn alle IVs den Wert 31 besitzen (“Sensationell” oder “Maximiert”).",
+            "table": {
+                "description": "Beschreibung",
+                "ivRange": "IV-Wertebereich",
+                "best": "“Sensationell”, “Maximiert”",
+                "fantastic": "“Fantastisch”",
+                "veryGood": "“Sehr gut”",
+                "prettyGood": "“Gut”",
+                "decent": "“Nicht übel”",
+                "noGood": "“Schlecht”"
+            },
+            "caption": "Super-Spezialtraining NPC in Frigomonta"
+        },
+        "evs": {
+            "title": "Effort Values (EVs) : “Fleißpunkte (EVs)",
+            "body1": "EVs sind Statuspunkte, die direkten Einfluss auf die Gesamt-Statuswerte eines Pokémon haben. Man bekommt sie durch das Besiegen gegnerischer Pokémon im Kampf oder die Verwendung von Vitaminen und Federn. Pro 4 EVs steigt der entsprechende Statuswert eines Level 100 Pokémon um 1 Punkt. Ein Pokémon kann insgesamt 510 EVs besitzen, allerdings nur maximal 252 EVs pro Statuswert.",
+            "body2": "Falls du die EVs eines Pokémon ändern möchtest, kannst du das ganz einfach tun, indem du dein Pokémon bestimmte EV-senkende Beeren essen lässt. Innerhalb des Spiels kannst du eine Grafik der EVs deines Pokémon ansehen, wenn du den Bericht des Pokémon aufrufst und den L-Knopf drückst. Wenn ein Statuswert die maximalen EVs (252) besitzt, werden um ihn herum kleine funkelnde Sterne angezeigt. Außerdem ändert sich die Farbe der Grafik von gelb zu blau, wenn ein Pokémon insgesamt die vollen 510 EVs besitzt.",
+            "body3": "Viele Raid-Builds profitieren davon, wenn zwei Statuswerte maximale EVs besitzen.",
+            "caption": "EV-Grafik im Pokémon Bericht"
+        },
+        "nature": {
+            "title": "Wesen",
+            "body1": "Das Wesen eines Pokémon erhöht einen Statuswert um 10%, während es einen anderen Statuswert um 10% senkt. Es ist wichtig darauf zu achten, dass das Wesen deines Pokémon zu seiner Rolle innerhalb einer Raid-Strategie passt. Beispiel: Soll ein Pokémon ein physischer Angreifer sein, dann muss es ein Hartes Wesen besitzen, denn das erhöht seinen Angriff und senkt seinen Spezial-Angriff.",
+            "body2": "Du kannst das Wesen eines Pokémon verändern, indem du ihm eine Minze gibst. Minzen kannst du in jeder Chaneira-Apotheke kaufen."
+        },
+        "eggMove": {
+            "title": "Ei-Attacken",
+            "body1": "Ei-Attacken sind besondere Attacken, die ein Pokémon nur auf eine von zwei Arten lernen kann. Die erste Möglichkeit ist die Zucht eines weiblichen Pokémon mit einem anderen Pokémon aus einer kompatiblen Ei-Gruppe, welches die gewünschte Ei-Attacke beherrscht.",
+            "body2": "Es gibt aber noch eine zweite, viel einfachere Möglichkeit. Zunächst musst du sicherstellen, dass dein Pokémon einen leeren Attackenplatz hat. Lass es dazu einfach eine seiner vier Attacken vergessen. Gib ihm nun das Item Kopierkraut zu tragen und nimm ein anderes Pokémon, welches die gewünschte Ei-Attacke bereits beherrscht, mit in dein Team auf. Starte ein Picnic und nach nur wenigen Sekunden wird auch dein Pokémon die Ei-Attacke gelernt haben und du kannst das Picnic wieder beenden."
+        },
+        "abilities": {
+            "title": "Fähigkeiten",
+            "body1": "Die Fähigkeit eines Pokémon ist eine besondere Eigenschaft und kann viele verschiedene Auswirkungen auf den Kampf haben. Daher ist es wichtig, dass die Fähigkeit deines Pokémon zu seiner Rolle im Raid passt. Zum Beispiel benötigen manche Strategien Pokémon, die mit Fähigkeiten wie Niesel oder Dürre besonderes Wetter erzeugen.",
+            "body2": "Manchen Pokémon steht eine Auswahl von mehreren Fähigkeiten zur Verfügung. Allerdings kann immer nur eine davon aktiv sein. Mit einer Fähigkeiten-Kapsel kannst du die aktive Fähigkeit deines Pokémon ändern. Fähigkeiten-Kapseln gibt es in jeder Chaneira-Apotkeke zu kaufen.",
+            "body3": "Neben den normalen Fähigkeiten gibt es auch noch Versteckte Fähigkeiten. Diese sind sehr selten und in der Wildnis gefangene Pokémon können sie nicht besitzen. Allerdings kannst du mit einem Fähigkeiten-Pflaster die normale Fähigkeit deines Pokémon zu seiner Versteckten Fähigkeit ändern. Fähigkeiten-Pflaster kann man leider nicht kaufen, sondern nur mit einer geringen Wahrscheinlichkeit in 6 Sterne Tera-Raids als Belohnung bekommen. Außerdem haben Pokémon, die in 6 Sterne (oder höher) Tera-Raids gefangen wurden, die Chance, ihre Versteckte Fähigkeit zu besitzen."
+        }
+    },
+    "prettySection": {
+        "title": "Eine Strategie lesen und verstehen",
+        "body": "Strategien sind am einfachsten zu lesen, wenn der “Hübsche Modus” eingeschaltet ist. Um zwischen “Hübschem Modus” und “Edit-Modus” zu wechseln, klicke die entsprechende Schaltfläche rechts oben auf der Webseite.",
+        "raider": {
+            "title": "Raid-Pokémon-Builds",
+            "body1": "Raid-Pokémon-Builds sind im oberen Teil der Webseite zu sehen. Für jedes Pokémon sind Art, Fähigkeit, Wesen, Level, EVs, IVs und das getragene Item aufgelistet. Falls eine Angabe (z.B. Fähigkeit oder Item) fehlt, dann ist diese nicht wichtig für die Strategie.",
+            "body2": "Wenn neben der Fähigkeit eines Pokémon ein Fähigkeiten-Pflaster-Symbol abgebildet ist, dann bedeutet das, dass die Versteckte Fähigkeit des Pokémon für die Strategie unbedingt notwendig ist.",
+            "body3": "Die nötigen Attacken sind ebenso hier angegeben. Die Symbole neben den Attacken zeigen deren Lernmethode an. Ein Scheiben-Symbol bedeutet, es ist eine TM-Attacke und ein Ei-Symbol, dass es eine Ei-Attacke ist.",
+            "body4": "Zusätzliche Informationen wie z.B. Stärke oder Genauigkeit können eingeblendet werden, indem du den Mauszeiger auf die Attacke bewegst.",
+            "body5": "Im unteren Bereich eines jeden Pokémon-Builds ist ein Netzdiagramm mit dessen Statuswerten und EVs zu sehen."
+        },
+        "boss": {
+            "title": "Raid-Boss Builds",
+            "body1": "Details zum Raid-Boss sind unter dem Raid-Team abgebildet und enthalten ähnliche Informationen.",
+            "body2": "Zusätzlich zu den normalen Raid-Build-Informationen besitzen Raid-Bosse auch noch eine KP-Multiplikator Angabe (KP x), die ihre Gesamt-KP um einen bestimmten Prozentsatz erhöht.",
+            "body3": "Raid-Bosse können außerdem Extra-Attacken besitzen, zusätzlich zu den üblichen 4 Attacken. Diese werden von ihm häufig als Teil spezieller Boss-Aktionen während des Raids eingesetzt."
+        },
+        "move": {
+            "title": "Attackenreihenfolge",
+            "body1": "Die Attacken, die als Teil der Strategie eingesetzt werden sollen, sind der Reihenfolge nach im unteren Teil der Webseite aufgelistet. Sie sind häufig in Gruppen aufgeteilt und alle Attacken innerhalb einer Gruppe können in beliebiger Reihenfolge ausgeführt werden. Bevor man zur nächsten Gruppe übergehen kann, müssen erst alle Attacken innerhalb der Gruppe ausgeführt worden sein.",
+            "body2": "Für jede Attacke werden das ausführende Pokémon, der Name der Attacke selbst und das Ziel der Attacke angezeigt.",
+            "body3": "Falls Attacken, die auf das anwendende Pokémon selbst gerichtet sind, oder Rufe verwendet werden, dann wird kein Ziel angezeigt." 
+        },
+        "calc": {
+            "title": "Berechnungen",
+            "body1": "Der Bereich “Berechnungen” am unteren Ende der Webseite zeigt das Ergebnis der Schadensberechnungen anhand einer Simulation des Raids.",
+            "body2": "Zusätzlichen zu den möglichen Schadenswerten jeder Attacke werden auch Statuswertänderungen, die Aktivierung von Fähigkeiten und nach einer Attacke verbleibende KP angezeigt."
+        }
+    },
+    "uiSection": {
+        "title": "Eine Strategie erstellen",
+        "body": "Strategien können erstellt oder bearbeitet werden, wenn der “Edit-Modus” aktiviert ist. Wechsle zwischen “Hübschem Modus” und “Edit-Modus” mit Hilfe der entsprechenden Schaltfläche rechts oben auf der Webseite.",
+        "goals": {
+            "title": "Strategieziele",
+            "body1": "Der Tera Raid Builder eignet sich am besten dazu, kurze Strategien zu planen, die nur einige wenige Runden dauern. Ein häufiges Ziel einer Strategie ist es, den Raid-Boss in einer oder zwei Runden zu besiegen. Dazu kombiniert man Statuswerterhöhungen, Wettereffekte und starke Attacken, um den Raid-Boss mit nur einem einzigen Angriff zu bezwingen.",
+            "body2": "Dieser Ansatz hat den Vorteil, dass der Raid-Boss seinen Schild nicht aktivieren kann, was den Raid sonst länger andauern lassen würde.",
+            "body3": "Darüber hinaus wäre es eine gute Idee, auf weitere Dinge zu achten, die zu Problemen in deiner Strategie führen könnten, z.B. Attacken mit geringer Genauigkeit oder Attacken, die Statusveränderungen verursachen können.",
+            "body4": "Da du wahrscheinlich Strategien für die Verwendung zusammen mit anderen Spielern entwirfst, kann es hilfreich sein, deine Strategie für die anderen Spieler leicht zugänglich zu machen. Wenn du auf die Verwendung von Pokémon verzichten kannst, die versionsexklusiv sind, aus anderen Spielen übertragen werden müssen, oder Versteckte Fähigkeiten besitzen, dann machst du es anderen viel leichter Raid-Pokémon für deine Strategie zu bauen."
+        },
+        "raider": {
+            "title": "Raid-Pokémon-Builds",
+            "body1": "Art, Fähigkeit, Wesen, Level, getragenes Item und Attacken eines Pokémon können über die Eingabefelder jedes Raid-Pokémon ausgewählt werden. Pokémon-Typen, Attacken-Typen und deren Lernmethoden werden als Symbole in ihren jeweiligen Dropdown-Listen angezeigt.",
+            "body2": "Um die EVs oder IVs eines Pokémon zu bearbeiten, klicke oben in den Build-Steuerelementen des Pokémon auf die Schaltfläche “EVs/IVs bearbeiten“. EVs und IVs können über Texteingabefelder oder Schieberegler angepasst werden. Deine Änderungen werden in dem Netzdiagramm im unteren Bereich des Pokémon-Builds angezeigt. Die EVs werden automatisch auf insgesamt 510 begrenzt.",
+            "body3": "Raid-Pokémon-Builds können in einem mit PokePaste und dem Showdown Damage Calculator kompatiblen Format exportiert und importiert werden. Nutze hierzu die Schaltfläche “Import/Export”, die sich oben innerhalb der Steuerelemente des Raid-Pokémon-Builds befindet."
+        },
+        "sub": {
+            "title": "Alternative Builds",
+            "body1": "Alternative Builds können durch Klicken auf die Schaltfläche “Alternative hinzufügen“ oben in den Build-Steuerelementen erstellt werden. Für jeden der 4 Raid-Pokémon-Plätze können mehrere alternative Builds erstellt werden.",
+            "body2": "Wenn du auf die Schaltfläche “Alternative hinzufügen“ klickst, werden die Build-Informationen für das aktuelle Raid-Pokémon und die Reihenfolge der verwendeten Attacken gespeichert. Wenn Attacken hinzugefügt oder entfernt werden, müssen diese für jeden alternativen Raid-Build möglicherweise manuell geändert werden. Aus diesem Grund ist es ratsam, alternative Builds als letzten Schritt bei der Erstellung einer Strategie hinzuzufügen.",
+            "body3": "Alternative Builds können geladen werden, indem du den gewünschten Build aus dem Menü “Alternative laden“ auswählst. Wenn ein Ersatz geladen wird, werden die aktuellen Build-Informationen stattdessen als Alternative gespeichert."
+        },
+        "boss": {
+            "title": "Raid-Boss Builds",
+            "body1": "Die meisten Raid-Boss-Informationen können auf die gleiche Weise eingestellt werden wie die Raider-Informationen.",
+            "body2": "Voreingestellte Raid-Boss-Builds können über das Dropdown-Menü „Boss-Set laden“ ausgewählt werden. Es können Sets geladen werden für Raid-Bosse, die im Spiel entweder in normalen Raid-Kristallgrotten oder bei Event-Raids angetroffen werden können. Derzeit sind die zusätzlichen Attacken, die Raid-Bosse nutzen können, nicht in den voreingestellten Sets enthalten."
+        },
+        "move": {
+            "title": "Attackenreihenfolge",
+            "body1": "Im Bereich „Attackenreihenfolge“ werden alle Attacken in der Reihenfolge ihrer Ausführung von oben nach unten aufgelistet. Attacken können mit den Schaltflächen Attacke hinzufügen“ oder „X“ hinzugefügt oder entfernt werden.",
+            "body2": "Du kannst Attacken auch neu anordnen, indem du auf sie klickst und sie dann einfach an die gewünschte Position ziehst.",
+            "body3": "Darüber hinaus können Attacken in Gruppen organisiert werden, indem man eine Attacke direkt auf eine andere zieht. Gruppen werden durch gemeinsame Farben gekennzeichnet. Damit soll ausgedrückt werden, dass die Ausführungsreihenfolge der Attacken innerhalb einer Gruppe keine Rolle spielt.",
+            "body4": "Für jeden Spielzug können über Dropdown-Menüs das Pokémon ausgewählt werden, das die Attacke ausführen soll, der Name der Attacke selbst und das Ziel der Attacke. Weiterhin kann auch die Attacke des Raid-Boss für diese Runde ausgewählt werden. Dabei zielt die Attacke des Raid-Boss immer auf den Benutzer er oben genannten Attacke ab, sofern zutreffend.",
+            "body5": "Rechts neben jeder Attacke ist ein zusätzliches Menü mit weiteren Optionen für die Attacke verfügbar. Unter anderem kannst du wählen, ob die Attacke ein Volltreffer sein soll, ob die sekundären Effekte der Attacke aktiviert sein sollen, oder ob für die Schadensberechnung der maximale, minimale oder ein durchschnittlicher Schadenswert verwendet werden soll."
+        },
+        "calc": {
+            "title": "Berechnungen",
+            "body1": "Alle an der Attackenauswahl und Attackenreihenfolge vorgenommenen Änderungen werden direkt im Bereich „Berechnungen“ berücksichtigt und angezeigt. Es ist eine gute Idee, nach jedem Spielzug genau auf die verbleibenden KP aller Raid-Pokémon zu achten.",
+            "body2": "Schadensberechnungen können durch Klicken in die Zwischenablage kopiert werden.",
+            "body3": "Idealerweise sollte deine Strategie nach Abschluss die KP des Raid-Boss auf Null bringen."
+        }
+    }
+}

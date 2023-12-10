@@ -1,0 +1,122 @@
+{
+    "topLevel": {
+        "expandCollapse": null
+    },
+    "buildSection": {
+        "title": null,
+        "resources": null,
+        "hammyGuide": null,
+        "ivs": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null,
+            "body4": null,
+            "table": {
+                "description": null,
+                "ivRange": null,
+                "best": null,
+                "fantastic": null,
+                "veryGood": null,
+                "prettyGood": null,
+                "decent": null,
+                "noGood": null
+            },
+            "caption": null
+        },
+        "evs": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null,
+            "caption": null
+        },
+        "nature": {
+            "title": null,
+            "body1": null,
+            "body2": null
+        },
+        "eggMove": {
+            "title": null,
+            "body1": null,
+            "body2": null
+        },
+        "abilities": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null
+        }
+    },
+    "prettySection": {
+        "title": null,
+        "body": null,
+        "raider": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null,
+            "body4": null,
+            "body5": null
+        },
+        "boss": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null
+        },
+        "move": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null 
+        },
+        "calc": {
+            "title": null,
+            "body1": null,
+            "body2": null
+        }
+    },
+    "uiSection": {
+        "title": null,
+        "body": null,
+        "goals": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null,
+            "body4": null
+        },
+        "raider": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null
+        },
+        "sub": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null
+        },
+        "boss": {
+            "title": null,
+            "body1": null,
+            "body2": null
+        },
+        "move": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null,
+            "body4": null,
+            "body5": null
+        },
+        "calc": {
+            "title": null,
+            "body1": null,
+            "body2": null,
+            "body3": null
+        }
+    }
+}

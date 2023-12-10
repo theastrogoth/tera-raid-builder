@@ -3381,9 +3381,11 @@
         "All Hypertrained": "Alle maximiert",
         "Any": "Jedes",
         "Attack Cheer": "Angriffs-Ruf",
+        "Average Case": "Mittelwert Fall",
         "avg": "durchschnittlich",
         "Bar Size": "Balkengröße",
         "Battle Start": "Kampfbeginn",
+        "Best Case": "Besten Fall",
         "Boosted Stat": "Statuswert geboostet",
         "Calc Results": "Berechnungen",
         "Category": "Kategorie",
@@ -3474,6 +3476,7 @@
         "Untrained": "Untrainiert",
         "used": "benutzte", 
         "uses": "benutzt",
-        "Watermark text": "Text für Wasserzeichen"
+        "Watermark text": "Text für Wasserzeichen",
+        "Worst Case": "Schlimmsten Fall"
     }
 }

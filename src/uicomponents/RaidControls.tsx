@@ -10,6 +10,9 @@ import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Popover from '@mui/material/Popover';
+import Button from '@mui/material/Button';
+import Slider from '@mui/material/Slider';
+import Typography from '@mui/material/Typography'
 import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
@@ -19,11 +22,11 @@ import MoveDisplay from './MoveDisplay';
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon, Side, StatsTable } from '../calc';
-import { Slider, Typography } from '@mui/material';
 import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { RaidTurnResult } from '../raidcalc/RaidTurn';
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
+import { MoveData, RaidMoveOptions, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -568,6 +571,84 @@ function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: Stri
     }
 }
 
+function RollCaseButtons({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
+    return (
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ my: 1}}>
+            <RollCaseButton 
+                rollCase="min"
+                raidInputProps={raidInputProps}
+                translationKey={translationKey}
+            />
+            <RollCaseButton 
+                rollCase="avg"
+                raidInputProps={raidInputProps}
+                translationKey={translationKey}
+            />
+            <RollCaseButton 
+                rollCase="max"
+                raidInputProps={raidInputProps}
+                translationKey={translationKey}
+            />
+        </Stack>
+    )
+}
+
+function RollCaseButton({raidInputProps, rollCase, translationKey}: {raidInputProps: RaidInputProps, rollCase: "max" | "min" | "avg", translationKey: any}) {
+    const handleClick = () => {
+        const newGroups: TurnGroupInfo[] = raidInputProps.groups.map(g => {
+            const newTurns: RaidTurnInfo[] = g.turns.map(t => {
+                const [raiderOptions, bossOptions] = getMoveOptionsForRollCase(rollCase, t.moveInfo.targetID, t.moveInfo.moveData, t.bossMoveInfo.moveData);
+                const newRaiderMoveInfo = {...t.moveInfo};
+                newRaiderMoveInfo.options = {...newRaiderMoveInfo.options, ...raiderOptions}
+                const newBossMoveInfo = {...t.bossMoveInfo};
+                newBossMoveInfo.options = {...newBossMoveInfo.options, ...bossOptions}
+                const newTurn: RaidTurnInfo = {
+                    id: t.id,
+                    group: t.group,
+                    moveInfo: newRaiderMoveInfo,
+                    bossMoveInfo: newBossMoveInfo
+                }
+                return newTurn
+            })
+            return {
+                id: g.id,
+                repeats: g.repeats,
+                turns: newTurns
+            }
+        })
+        raidInputProps.setGroups(newGroups);
+    }
+    return (
+        <Button
+            variant="outlined" 
+            size="small" 
+            sx={{ width: "125px", textTransform: "none" }} 
+            onClick={handleClick}
+        >
+            {getTranslation((rollCase === "max" ? "Best Case" : (rollCase === "min" ? "Worst Case" : "Average Case")), translationKey)}
+        </Button>
+    )
+}
+
+function getMoveOptionsForRollCase(rollCase: "max" | "min" | "avg", targetID: number, moveData: MoveData, bossMoveData: MoveData) {
+    const bossRollCase = rollCase === "max" ? "min" : (rollCase === "min" ? "max" : "avg")
+    const raiderRollCase = (targetID !== 0 && moveData.category?.includes("damage")) ? bossRollCase : rollCase;
+    return [rollCaseToOptions(raiderRollCase, moveData), rollCaseToOptions(bossRollCase, bossMoveData)]
+}
+
+function rollCaseToOptions(rollCase: "max" | "min" | "avg", moveData: MoveData) {
+    return {
+        crit: rollCase === "max",
+        secondaryEffects: rollCase === "max",
+        hits: rollCase === "max" ? 10 : (
+            rollCase === "min" ? 1 : (
+                Math.floor(((moveData.minHits || 1) + (moveData.maxHits || 1)) / 2)
+            )
+        ),
+        roll: rollCase
+    }
+}
+
 function RaidControls({raidInputProps, results, setResults, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
     const groups = raidInputProps.groups;
@@ -621,6 +702,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
                         />
                     </Tabs>
                 </Box>
+                <RollCaseButtons raidInputProps={raidInputProps} translationKey={translationKey}/>
                 <Box hidden={value !== 1}>
                     <HpDisplay results={results} translationKey={translationKey}/>
                 </Box>

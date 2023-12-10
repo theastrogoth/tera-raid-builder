@@ -3381,11 +3381,11 @@
         "All Hypertrained": "Alle maximiert",
         "Any": "Jedes",
         "Attack Cheer": "Angriffs-Ruf",
-        "Average Case": "Mittelwert Fall",
+        "Average Case": "Mittelwert-Fall",
         "avg": "durchschnittlich",
         "Bar Size": "Balkengröße",
         "Battle Start": "Kampfbeginn",
-        "Best Case": "Besten Fall",
+        "Best Case": "Bester Fall",
         "Boosted Stat": "Statuswert geboostet",
         "Calc Results": "Berechnungen",
         "Category": "Kategorie",
@@ -3393,7 +3393,7 @@
         "Charged": "Aufgeladen",
         "Choose background": "Hintergrund wählen",
         "Clear Boosts / Abilities": "Boosts / Fähigkeiten entfernen",
-        "Create link for this strategy!": "Link zu diesem Build kopieren!",
+        "Create link for this strategy!": "Link zu dieser Strategie erstellen!",
         "Credits": "Credits",
         "Crit": "Volltreffer",
         "Damage Rate": "Schadensrate",
@@ -3477,6 +3477,6 @@
         "used": "benutzte", 
         "uses": "benutzt",
         "Watermark text": "Text für Wasserzeichen",
-        "Worst Case": "Schlimmsten Fall"
+        "Worst Case": "Schlechtester Fall"
     }
 }

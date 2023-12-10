@@ -454,7 +454,7 @@ function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem:
             disablePortal={false}
             sx={{ position: "relative", zIndex: 1000000 }}
         >
-            {(moveData && move) &&
+            {(moveData && move && moveData.name !== "(No Move)") &&
                 <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
                     <TableContainer>
                         <Table size="small" width="100%">

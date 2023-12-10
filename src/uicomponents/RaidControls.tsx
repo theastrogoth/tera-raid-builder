@@ -626,7 +626,7 @@ function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}:
         <Button
             variant="contained" 
             size="small" 
-            sx={{ width: "130px" }} 
+            sx={{ minWidth: "100px" }} 
             onClick={handleClick}
         >
             {getTranslation((rollCase === "max" ? "Best Case" : (rollCase === "min" ? "Worst Case" : "Average Case")), translationKey)}

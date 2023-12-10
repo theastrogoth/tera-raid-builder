@@ -190,7 +190,12 @@ export class RaidState implements State.RaidState{
             if (moveType === "Dark" && pokemon.ability === "Justified") {
                 const boost = {atk: nHits};
                 this.applyStatChange(id, boost, true, id);
-            }    
+            }
+            // Thermal Exchange
+            if (moveType === "Fire" && pokemon.ability === "Thermal Exchange") {
+                const boost = {atk: nHits};
+                this.applyStatChange(id, boost, true, id);
+            } 
             // Weak Armor
             if (pokemon.ability === "Weak Armor") {
                 const boost = {def: -1 * nHits, spe: 2 * nHits};

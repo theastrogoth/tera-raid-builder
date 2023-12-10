@@ -681,6 +681,19 @@ describe('Specific Test Cases', () => {
     // check for OHKO
     expect(result.endState.raiders[0].originalCurHP).toEqual(0);
   })
+  test('thermal-exchange', async() => {
+    const hash = "#H4sIAAAAAAAAA71VS2/bMAz+KwFPK6ACdl5de9vaDush61AE6CHwQbFpW6ssGZKcJSjy30fJdpwW7dAC3SBBokiR/Ejq8Qg5XED6y2oFDBxcrFYRA8UrhIR5UmSeiBk0Fs3Nld/ETYEukLp2Qivrd4wZFEY3NXErvcEblWsi19raRb9sDaZGOJJYTLXKuNld5zmmzhLLaClpKoWz3d7Sm+PugcYMc69V8zBmYcTDtqURRYHGoxMVDitbCpTZJVcpyite8QIPzHZ5x91LrCUa/gr7suSqwC4pSjv00FODmQhB1PoBqzaZjVGeE9IS4sMaedhkm7V1wjVeuc0dxe5xhMQHv2rnQ18LKZynhMMqyMmq34Ebb0eEUeIGfeIcoVvuauxKYPv8N9KJWoqQENw6wxedtA/PcUgSBhu4eAQ6AZ8ZQNdXgXHOKMkLUYmHXQNHVM6lRQaffujRlxbpCTDVSMngOzcZ4Q7qc1KPWDz+3I/JvhdM4medROdRa2MFPyXfje50U5TQevHAT16lEzaeRRHpvSYOTs/YPPJ9ErFxxM5mbDJL9j2ic0ZF/cq3KZdi3fiEHS+6eJclmorL0fU2bc8Cg2+SCje6NWt4KfSu/T3sOOrjTgK9OuB9YmJAOn57TT4WH1kTqoA3wpwwuNNO+9Mb5tN7bst3np33ArwXUp7ent4LWw8wvWyANaWkNPQGpf6ZOlD/FFUogiuN/k1X8RmspLtqUxbP2aw1SJm7whyVxdFlif76xtSCaNYh7fBWgh6ceMj65MkViQYtZxpsB6j4lnRCqXq1aQiot9BWmY7Z230utHWj8FyS6vs8H0IjO8flo/PzX/yPqQ2RHxWKTZ8D6Kx8jH8q/Cqe+3/M/yj+M0jC1xKaFyas70my3/8B2No/+rAHAAA="
+    const result = await resultsFromHash(hash);
+    // T1 : Flame Orb does not burn Baxcalibur when held
+    expect(result.turnResults[1].state.raiders[1].status).toEqual("");
+    // T2 : Flame Orb does not burn Baxcalibur when flung
+    expect(result.turnResults[1].state.raiders[1].status).toEqual("");
+    // T3 : Will-O-Wisp does not burn with Thermal Exchange
+    expect(result.turnResults[2].state.raiders[1].status).toEqual("");
+    // T4 : Flamethrower boosts Atk, secondary effect burn fails
+    expect(result.turnResults[3].state.raiders[1].status).toEqual("");
+    expect(result.turnResults[3].state.raiders[1].boosts.atk).toEqual(1);
+  })
 })
 
 

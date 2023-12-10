@@ -25,7 +25,7 @@
             "caption": "Super-Spezialtraining NPC in Frigomonta"
         },
         "evs": {
-            "title": "Effort Values (EVs) : “Fleißpunkte (EVs)",
+            "title": "Fleißpunkte (EVs)",
             "body1": "EVs sind Statuspunkte, die direkten Einfluss auf die Gesamt-Statuswerte eines Pokémon haben. Man bekommt sie durch das Besiegen gegnerischer Pokémon im Kampf oder die Verwendung von Vitaminen und Federn. Pro 4 EVs steigt der entsprechende Statuswert eines Level 100 Pokémon um 1 Punkt. Ein Pokémon kann insgesamt 510 EVs besitzen, allerdings nur maximal 252 EVs pro Statuswert.",
             "body2": "Falls du die EVs eines Pokémon ändern möchtest, kannst du das ganz einfach tun, indem du dein Pokémon bestimmte EV-senkende Beeren essen lässt. Innerhalb des Spiels kannst du eine Grafik der EVs deines Pokémon ansehen, wenn du den Bericht des Pokémon aufrufst und den L-Knopf drückst. Wenn ein Statuswert die maximalen EVs (252) besitzt, werden um ihn herum kleine funkelnde Sterne angezeigt. Außerdem ändert sich die Farbe der Grafik von gelb zu blau, wenn ein Pokémon insgesamt die vollen 510 EVs besitzt.",
             "body3": "Viele Raid-Builds profitieren davon, wenn zwei Statuswerte maximale EVs besitzen.",

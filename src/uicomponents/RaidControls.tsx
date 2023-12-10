@@ -573,7 +573,7 @@ function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: Stri
 
 function RollCaseButtons({raidInputProps, setRollCase, translationKey}: {raidInputProps: RaidInputProps, setRollCase: (c: "min" | "avg" | "max") => void, translationKey: any}) {
     return (
-        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ my: 1}}>
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2}}>
             <RollCaseButton 
                 rollCase="min"
                 raidInputProps={raidInputProps}
@@ -624,9 +624,9 @@ function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}:
     }
     return (
         <Button
-            variant="outlined" 
+            variant="contained" 
             size="small" 
-            sx={{ width: "120px", textTransform: "none" }} 
+            sx={{ width: "130px" }} 
             onClick={handleClick}
         >
             {getTranslation((rollCase === "max" ? "Best Case" : (rollCase === "min" ? "Worst Case" : "Average Case")), translationKey)}

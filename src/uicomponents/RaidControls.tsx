@@ -571,29 +571,32 @@ function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: Stri
     }
 }
 
-function RollCaseButtons({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
+function RollCaseButtons({raidInputProps, setRollCase, translationKey}: {raidInputProps: RaidInputProps, setRollCase: (c: "min" | "avg" | "max") => void, translationKey: any}) {
     return (
         <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ my: 1}}>
             <RollCaseButton 
                 rollCase="min"
                 raidInputProps={raidInputProps}
+                setRollCase={setRollCase}
                 translationKey={translationKey}
             />
             <RollCaseButton 
                 rollCase="avg"
                 raidInputProps={raidInputProps}
+                setRollCase={setRollCase}
                 translationKey={translationKey}
             />
             <RollCaseButton 
                 rollCase="max"
                 raidInputProps={raidInputProps}
+                setRollCase={setRollCase}
                 translationKey={translationKey}
             />
         </Stack>
     )
 }
 
-function RollCaseButton({raidInputProps, rollCase, translationKey}: {raidInputProps: RaidInputProps, rollCase: "max" | "min" | "avg", translationKey: any}) {
+function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}: {raidInputProps: RaidInputProps, rollCase: "max" | "min" | "avg", setRollCase: (c: "min" | "avg" | "max") => void, translationKey: any}) {
     const handleClick = () => {
         const newGroups: TurnGroupInfo[] = raidInputProps.groups.map(g => {
             const newTurns: RaidTurnInfo[] = g.turns.map(t => {
@@ -617,12 +620,13 @@ function RollCaseButton({raidInputProps, rollCase, translationKey}: {raidInputPr
             }
         })
         raidInputProps.setGroups(newGroups);
+        setRollCase(rollCase);
     }
     return (
         <Button
             variant="outlined" 
             size="small" 
-            sx={{ width: "125px", textTransform: "none" }} 
+            sx={{ width: "120px", textTransform: "none" }} 
             onClick={handleClick}
         >
             {getTranslation((rollCase === "max" ? "Best Case" : (rollCase === "min" ? "Worst Case" : "Average Case")), translationKey)}
@@ -651,6 +655,7 @@ function rollCaseToOptions(rollCase: "max" | "min" | "avg", moveData: MoveData) 
 
 function RaidControls({raidInputProps, results, setResults, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
+    const [rollCase, setRollCase] = useState<"min" | "avg" | "max">("avg");
     const groups = raidInputProps.groups;
     const boss = raidInputProps.pokemon[0];
     const pokemon1 = raidInputProps.pokemon[1];
@@ -702,14 +707,14 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
                         />
                     </Tabs>
                 </Box>
-                <RollCaseButtons raidInputProps={raidInputProps} translationKey={translationKey}/>
+                <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
                 <Box hidden={value !== 1}>
                     <HpDisplay results={results} translationKey={translationKey}/>
                 </Box>
                 <Box hidden={value !== 1}>
                     <Box sx={{ height: 560, overflowY: "auto" }}>
                         {!prettyMode &&
-                            <MoveSelection raidInputProps={raidInputProps} translationKey={translationKey}/>
+                            <MoveSelection raidInputProps={raidInputProps} rollCase={rollCase} translationKey={translationKey}/>
                         }
                         {prettyMode &&
                             <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results} translationKey={translationKey}/>

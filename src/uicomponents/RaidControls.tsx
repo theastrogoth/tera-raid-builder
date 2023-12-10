@@ -96,7 +96,7 @@ function StatChanges({statChanges, translationKey}: {statChanges: StatsTable, tr
             ))}
             {(sortedStatEntries.length === 0) &&
                 <Paper elevation={0} variant='outlined'>
-                    <Typography fontSize={10} m={.5}>No Stat Changes</Typography>
+                    <Typography fontSize={10} m={.5}>{getTranslation("No Stat Changes", translationKey)}</Typography>
                 </Paper>
                 
             }

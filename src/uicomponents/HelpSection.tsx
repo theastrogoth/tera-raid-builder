@@ -155,7 +155,7 @@ function BuildHelpSection({helpTranslations}: {helpTranslations: any}) {
                     <Grid container justifyContent="center" alignItems="center" sx={{ p: 2}}>   
                         <Grid item>                   
                         <TableContainer sx={{ paddingBottom: 2, mx: 1}}>
-                            <Table size="small" sx={{ width: "275px"}}>
+                            <Table size="small" sx={{ width: "320px"}}>
                                 <TableBody>
                                     <TableRow>
                                         <TableCell><Typography variant="body1" fontWeight="bold">

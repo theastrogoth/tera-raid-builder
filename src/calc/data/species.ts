@@ -4149,13 +4149,13 @@ const BW_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     nfe: true,
     abilities: {0: 'Effect Spore'},
   },
-  // Fraxure: {
-  //   types: ['Dragon'],
-  //   bs: {hp: 66, at: 117, df: 70, sa: 40, sd: 50, sp: 67},
-  //   weightkg: 36,
-  //   nfe: true,
-  //   abilities: {0: 'Rivalry'},
-  // },
+  Fraxure: {
+    types: ['Dragon'],
+    bs: {hp: 66, at: 117, df: 70, sa: 40, sd: 50, sp: 67},
+    weightkg: 36,
+    nfe: true,
+    abilities: {0: 'Rivalry'},
+  },
   // Frillish: {
   //   types: ['Water', 'Ghost'],
   //   bs: {hp: 55, at: 40, df: 50, sa: 65, sd: 85, sp: 40},

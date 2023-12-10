@@ -131,7 +131,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
             </AppBar>
             <Box>
                 <Collapse in={showHelp}>
-                    <HelpSection setOpen={setShowHelp} />
+                    <HelpSection language={language} setOpen={setShowHelp} />
                 </Collapse>
             </Box>
         </Box>

@@ -212,6 +212,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Swagger",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Swift",
             "learnMethod": "machine"
         },

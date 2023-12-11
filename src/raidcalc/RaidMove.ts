@@ -5,7 +5,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { isSuperEffective, pokemonIsGrounded, ailmentToStatus, hasNoStatus, getAccuracy } from "./util";
+import { isSuperEffective, pokemonIsGrounded, ailmentToStatus, hasNoStatus, getAccuracy, getBpModifier } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -41,6 +41,7 @@ export class RaidMove {
     hits: number;
     isBossAction?: boolean;
     flinch?: boolean;
+    damaged?: boolean;
 
     _raidState!: RaidState;
     _raiders!: Raider[];
@@ -63,7 +64,7 @@ export class RaidMove {
     _desc!: string[];
     _flags!: string[][];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean) {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
@@ -74,6 +75,7 @@ export class RaidMove {
         this.options = raidMoveOptions || {};
         this.isBossAction = isBossAction || false;
         this.flinch = flinch || false;
+        this.damaged = damaged || false;
         this.hits = this.move.category === "Status" ? 0 : Math.max(this.moveData.minHits || 1, Math.min(this.moveData.maxHits || 1, this.options.hits || 1));
         this.hits = this.raidState.raiders[this.userID].ability === "Skill Link" ? (this.moveData.maxHits || 1) : this.hits;
     }
@@ -474,7 +476,8 @@ export class RaidMove {
                 let totalDamage = 0;
 
                 const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
-                const [accuracy, bpModifier, accEffectsList] = getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
+                const [accuracy, accEffectsList] = getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
+                const bpModifier = getBpModifier(this.moveData, target, this.damaged);
                 if (accuracy > 0) {
                     try {
                         // calculate each hit from a multi-hit move

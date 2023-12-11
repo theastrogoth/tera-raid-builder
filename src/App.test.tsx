@@ -1019,20 +1019,76 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_samurott/nightmare.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('h_samurott/tickle_squad', async () => {
+    const module = await import(`./data/strats/h_samurott/tickle_squad.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/bugaloo', async () => {
+    const module = await import(`./data/strats/h_samurott/bugaloo.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/micrydon_duo', async () => {
+    const module = await import(`./data/strats/h_samurott/micrydon_duo.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/pawsitive_vibes', async () => {
+    const module = await import(`./data/strats/h_samurott/pawsitive_vibes.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/plus_plus_plus', async () => {
+    const module = await import(`./data/strats/h_samurott/plus_plus_plus.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/twentyeighttales', async () => {
+    const module = await import(`./data/strats/h_samurott/twentyeighttales.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('h_samurott/tsujigiri', async () => {
     const module = await import(`./data/strats/h_samurott/tsujigiri.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('h_samurott/tickle_squad', async () => {
-    const module = await import(`./data/strats/h_samurott/tickle_squad.json`)
+  test('h_samurott/birds', async () => {
+    const module = await import(`./data/strats/h_samurott/birds.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('h_samurott/betrayal', async () => {
     const module = await import(`./data/strats/h_samurott/betrayal.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('h_samurott/bugaloo', async () => {
-    const module = await import(`./data/strats/h_samurott/bugaloo.json`)
+  test('h_samurott/ability_be_gone', async () => {
+    const module = await import(`./data/strats/h_samurott/ability_be_gone.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/chloroblast', async () => {
+    const module = await import(`./data/strats/h_samurott/chloroblast.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/crack_the_whip', async () => {
+    const module = await import(`./data/strats/h_samurott/crack_the_whip.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/dragons_rage', async () => {
+    const module = await import(`./data/strats/h_samurott/dragons_rage.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/kungfu_fighting', async () => {
+    const module = await import(`./data/strats/h_samurott/kungfu_fighting.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/lizard', async () => {
+    const module = await import(`./data/strats/h_samurott/lizard.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/mostly_mice', async () => {
+    const module = await import(`./data/strats/h_samurott/mostly_mice.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/sun_dog', async () => {
+    const module = await import(`./data/strats/h_samurott/sun_dog.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_samurott/thunderstruck', async () => {
+    const module = await import(`./data/strats/h_samurott/thunderstruck.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('h_samurott/rocked&shocked', async () => {

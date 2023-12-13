@@ -59,6 +59,7 @@ export namespace State {
     highCritChance?: boolean;
     isSpread?: boolean;
     hits?: number;
+    bp?: number;
     timesUsed?: number;
     timesUsedWithMetronome?: number;
     overrides?: Partial<I.Move>;

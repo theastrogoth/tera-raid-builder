@@ -167,7 +167,7 @@ export class RaidTurn {
                 this._isBossAction
             );
             this._result1 = this._raidMove1.result();
-        this._raidState = this._result1.state;
+            this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
                 this._bossMoveData,
                 this._bossMove, 
@@ -178,7 +178,9 @@ export class RaidTurn {
                 !this._raiderMovesFirst,
                 this.bossOptions,
                 this._isBossAction,
-                this._result1.causesFlinch[0]);
+                this._result1.causesFlinch[0],
+                this._result1.damage[0] > 0
+            );
         } else {
             this._raidMove1 = new RaidMove(
                 this._bossMoveData, 
@@ -203,7 +205,8 @@ export class RaidTurn {
                 this._raiderMovesFirst,
                 this.raiderOptions,
                 this._isBossAction,
-                this._result1.causesFlinch[this.raiderID]
+                this._result1.causesFlinch[this.raiderID],
+                this._result1.damage[this.raiderID] > 0
             );
         }
         this._raidMove2.result();

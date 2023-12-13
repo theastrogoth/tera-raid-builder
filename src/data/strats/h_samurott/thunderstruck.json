@@ -1,7 +1,7 @@
 {
-    "name": "Morpeking Duck",
-    "notes": "Using Simple Beam on Morpeko allows it to stay in Full Belly Mode and maintain Aura Wheel's Electric typing.",
-    "credits": "u/ChrisReturns",
+    "name": "Thunderstruck",
+    "notes": "",
+    "credits": "u/Tacitus2389b4h5ii405",
     "pokemon": [
         {
             "id": 0,
@@ -51,17 +51,17 @@
         },
         {
             "id": 1,
-            "role": "Bao",
-            "name": "Morpeko",
+            "role": "Bellibolt",
+            "name": "Bellibolt",
             "shiny": false,
-            "ability": "Hunger Switch",
-            "item": "Weakness Policy",
-            "nature": "Adamant",
+            "ability": "(No Ability)",
+            "item": "Life Orb",
+            "nature": "Modest",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
-                "spa": 0,
+                "def": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -76,7 +76,7 @@
             "level": 100,
             "moves": [
                 "Charge",
-                "Aura Wheel"
+                "Zap Cannon"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -91,11 +91,11 @@
         },
         {
             "id": 2,
-            "role": "Wings",
-            "name": "Psyduck",
+            "role": "Golduck",
+            "name": "Golduck",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Eviolite",
+            "item": "Sitrus Berry",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -103,7 +103,7 @@
                 "def": 252,
                 "spa": 0,
                 "spd": 0,
-                "spe": 0
+                "spe": 6
             },
             "ivs": {
                 "hp": 31,
@@ -131,12 +131,12 @@
         },
         {
             "id": 3,
-            "role": "Legs",
-            "name": "Golduck",
+            "role": "Altaria",
+            "name": "Altaria",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "item": "Sitrus Berry",
+            "nature": "Timid",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -155,8 +155,8 @@
             },
             "level": 100,
             "moves": [
-                "Simple Beam",
-                "Screech"
+                "Feather Dance",
+                "Defog"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -171,16 +171,16 @@
         },
         {
             "id": 4,
-            "role": "Scallions",
-            "name": "Leafeon",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Tanga Berry",
-            "nature": "Hardy",
+            "ability": "Mirror Armor",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -195,7 +195,8 @@
             },
             "level": 100,
             "moves": [
-                "Charm"
+                "Fake Tears",
+                "Tailwind"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -237,11 +238,37 @@
             }
         },
         {
+            "id": 2,
+            "group": 2,
+            "moveInfo": {
+                "name": "Feather Dance",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "Charm",
-                "userID": 4,
+                "name": "Simple Beam",
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -264,36 +291,10 @@
         },
         {
             "id": 3,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "Simple Beam",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 2,
-            "moveInfo": {
-                "name": "Simple Beam",
-                "userID": 3,
+                "name": "Fake Tears",
+                "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -341,11 +342,11 @@
             }
         },
         {
-            "id": 5,
-            "group": 4,
+            "id": 6,
+            "group": 5,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
+                "name": "Defog",
+                "userID": 3,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -368,36 +369,10 @@
         },
         {
             "id": 7,
-            "group": 4,
+            "group": 5,
             "moveInfo": {
-                "name": "Helping Hand",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 4,
-            "moveInfo": {
-                "name": "Screech",
-                "userID": 3,
+                "name": "Fake Tears",
+                "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -422,7 +397,111 @@
             "id": 8,
             "group": 5,
             "moveInfo": {
-                "name": "Aura Wheel",
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 6,
+            "moveInfo": {
+                "name": "Tailwind",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 6,
+            "moveInfo": {
+                "name": "Defog",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 6,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 4,
+            "moveInfo": {
+                "name": "Zap Cannon",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -450,22 +529,27 @@
             0
         ],
         [
+            2
+        ],
+        [
             1
         ],
         [
             3,
-            2
-        ],
-        [
             4
         ],
         [
-            5,
+            6,
             7,
-            6
+            8
         ],
         [
-            8
+            9,
+            10,
+            11
+        ],
+        [
+            5
         ]
     ],
     "repeats": [
@@ -474,21 +558,104 @@
         1,
         1,
         1,
+        1,
         1
     ],
     "substitutes": [
-        [],
-        [],
-        [],
         [
             {
                 "raider": {
                     "id": 1,
-                    "role": "Manaphy",
-                    "name": "Manaphy",
+                    "role": "Thundurus",
+                    "name": "Thundurus-Therian",
+                    "shiny": false,
+                    "ability": "Volt Absorb",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Charge",
+                        "Wildbolt Storm"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Charge",
+                    "Wildbolt Storm"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Ampharos",
+                    "name": "Ampharos",
                     "shiny": false,
                     "ability": "(No Ability)",
-                    "nature": "Bold",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "moves": [
+                        "Charge",
+                        "Zap Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Charge",
+                    "Zap Cannon"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Zapdos",
+                    "name": "Zapdos",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Life Orb",
+                    "nature": "Modest",
                     "evs": {
                         "hp": 0,
                         "atk": 0,
@@ -507,32 +674,35 @@
                     },
                     "level": 100,
                     "moves": [
-                        "Charm"
+                        "Charge",
+                        "Zap Cannon"
                     ]
                 },
                 "substituteMoves": [
-                    "Charm",
-                    "Attack Cheer"
+                    "(No Move)",
+                    "Charge",
+                    "Zap Cannon"
                 ],
                 "substituteTargets": [
+                    0,
                     0,
                     0
                 ]
             },
             {
                 "raider": {
-                    "id": 2,
-                    "role": "Notaduck",
-                    "name": "Vaporeon",
+                    "id": 4,
+                    "role": "Regieleki",
+                    "name": "Regieleki",
                     "shiny": false,
-                    "ability": "Water Absorb",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
+                    "ability": "Transistor",
+                    "item": "Focus Sash",
+                    "nature": "Modest",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
-                        "def": 252,
-                        "spa": 0,
+                        "def": 0,
+                        "spa": 252,
                         "spd": 0,
                         "spe": 0
                     },
@@ -546,58 +716,24 @@
                     },
                     "level": 100,
                     "moves": [
-                        "Charm",
-                        "(No Move)"
+                        "Charge",
+                        "Zap Cannon"
                     ]
                 },
                 "substituteMoves": [
-                    "Charm",
-                    "Attack Cheer"
+                    "(No Move)",
+                    "Charge",
+                    "Zap Cannon"
                 ],
                 "substituteTargets": [
                     0,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Ninetales",
-                    "name": "Ninetales",
-                    "shiny": false,
-                    "ability": "Drought",
-                    "item": "Passho Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "moves": [
-                        "Charm"
-                    ]
-                },
-                "substituteMoves": [
-                    "Charm",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
                     0,
                     0
                 ]
             }
-        ]
+        ],
+        [],
+        [],
+        []
     ]
 }

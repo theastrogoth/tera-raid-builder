@@ -115,7 +115,8 @@ export class Move implements State.Move {
     this.overrides = options.overrides;
     this.species = options.species;
 
-    this.bp = data.basePower;
+
+    this.bp = options.bp ? options.bp : data.basePower;
     // These moves have a type, but the damage they deal is typeless so we override it
     const typelessDamage =
       (gen.num >= 2 && data.id === 'struggle') ||
@@ -182,6 +183,7 @@ export class Move implements State.Move {
       isCrit: this.isCrit,
       isSpread: this.isSpread,
       hits: this.hits,
+      bp: this.bp,
       timesUsed: this.timesUsed,
       timesUsedWithMetronome: this.timesUsedWithMetronome,
       overrides: this.overrides,

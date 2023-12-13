@@ -2,16 +2,8 @@
     "name": "Togedemaru-Totem",
     "abilities": [
         {
-            "name": "Iron Barbs",
-            "hidden": false
-        },
-        {
-            "name": "Lightning Rod",
-            "hidden": false
-        },
-        {
             "name": "Sturdy",
-            "hidden": true
+            "hidden": false
         }
     ],
     "types": [

@@ -61,7 +61,7 @@
         },
         {
             "name": "Dream Eater",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Earthquake",
@@ -156,12 +156,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -244,11 +244,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
-            "learnMethod": "level-up"
+            "name": "Trick",
+            "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "level-up"
         },
         {

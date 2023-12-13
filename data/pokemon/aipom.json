@@ -55,6 +55,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Chilling Water",
             "learnMethod": "machine"
         },
@@ -67,8 +71,16 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Double Hit",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -79,6 +91,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Fire Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fling",
             "learnMethod": "level-up"
         },
@@ -87,8 +103,28 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Foul Play",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fury Swipes",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gunk Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Punch",
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Tail",
@@ -104,6 +140,14 @@
         },
         {
             "name": "Low Kick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Low Sweep",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metronome",
             "learnMethod": "machine"
         },
         {
@@ -127,6 +171,14 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Rain Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sand Attack",
             "learnMethod": "level-up"
         },
@@ -139,15 +191,43 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Seed Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Shadow Claw",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Slam",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
         },
         {
             "name": "Smack Down",
             "learnMethod": "machine"
         },
         {
+            "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sunny Day",
             "learnMethod": "machine"
         },
         {
@@ -167,7 +247,31 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
@@ -176,6 +280,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

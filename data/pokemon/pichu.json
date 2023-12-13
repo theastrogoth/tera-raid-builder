@@ -24,7 +24,7 @@
     "moves": [
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Charge",
@@ -52,7 +52,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -76,7 +76,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -124,11 +124,11 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Surf",
@@ -140,7 +140,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tail Whip",
@@ -155,8 +155,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Shock",
@@ -164,15 +168,11 @@
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tickle",
@@ -185,6 +185,10 @@
         {
             "name": "Volt Switch",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Volt Tackle",
+            "learnMethod": "level-up"
         },
         {
             "name": "Wild Charge",

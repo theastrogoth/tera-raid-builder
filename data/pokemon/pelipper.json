@@ -33,7 +33,7 @@
         },
         {
             "name": "Aerial Ace",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Agility",
@@ -41,7 +41,7 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Air Slash",
@@ -73,7 +73,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -97,7 +97,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Gust",
@@ -125,15 +125,15 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mist",
@@ -161,11 +161,11 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -185,7 +185,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Supersonic",
@@ -201,7 +201,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tailwind",
@@ -221,10 +221,10 @@
         },
         {
             "name": "Twister",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

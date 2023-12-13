@@ -29,7 +29,7 @@
     "moves": [
         {
             "name": "Acid Spray",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Acupressure",
@@ -45,7 +45,7 @@
         },
         {
             "name": "Aqua Tail",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Astonish",
@@ -89,7 +89,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -129,7 +129,7 @@
         },
         {
             "name": "Hydro Pump",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -137,11 +137,11 @@
         },
         {
             "name": "Ice Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Lash Out",
@@ -149,7 +149,7 @@
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Minimize",
@@ -165,7 +165,7 @@
         },
         {
             "name": "Poison Jab",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Sting",
@@ -201,7 +201,7 @@
         },
         {
             "name": "Self-Destruct",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Shadow Ball",
@@ -209,7 +209,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -237,7 +237,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Supersonic",
@@ -249,11 +249,11 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tackle",
@@ -261,7 +261,7 @@
         },
         {
             "name": "Take Down",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Taunt",
@@ -272,7 +272,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Toxic",
             "learnMethod": "level-up"
         },
         {
@@ -280,20 +280,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Venoshock",
             "learnMethod": "machine"
         },
         {
-            "name": "Water Gun",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Water Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Waterfall",

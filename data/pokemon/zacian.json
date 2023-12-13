@@ -11,7 +11,7 @@
     ],
     "stats": {
         "hp": 92,
-        "atk": 130,
+        "atk": 120,
         "def": 115,
         "spa": 80,
         "spd": 115,
@@ -188,7 +188,7 @@
         },
         {
             "name": "Steel Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",

@@ -64,6 +64,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
@@ -188,6 +192,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Swift",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tackle",
             "learnMethod": "level-up"
         },
@@ -226,6 +234,10 @@
         {
             "name": "Wave Crash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Zen Headbutt",
+            "learnMethod": "machine"
         }
     ]
 }

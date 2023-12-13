@@ -175,6 +175,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Powder Snow",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -217,6 +221,10 @@
         {
             "name": "Tail Whip",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

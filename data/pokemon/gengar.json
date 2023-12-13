@@ -29,7 +29,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -65,7 +65,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dream Eater",
@@ -77,7 +77,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
@@ -89,7 +89,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -105,11 +105,11 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -137,11 +137,11 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -161,7 +161,7 @@
         },
         {
             "name": "Metronome",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Nasty Plot",
@@ -229,11 +229,11 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -241,7 +241,7 @@
         },
         {
             "name": "Smog",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Spite",
@@ -249,7 +249,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sucker Punch",
@@ -272,36 +272,36 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "name": "Toxic",
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "level-up"
+            "name": "Trick",
+            "learnMethod": "machine"
         },
         {
             "name": "Trick Room",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Trick",
-            "learnMethod": "level-up"
         },
         {
             "name": "Venoshock",
@@ -309,7 +309,7 @@
         },
         {
             "name": "Will-O-Wisp",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

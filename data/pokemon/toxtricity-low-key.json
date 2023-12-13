@@ -28,11 +28,11 @@
     },
     "moves": [
         {
-            "name": "Acid Spray",
+            "name": "Acid",
             "learnMethod": "level-up"
         },
         {
-            "name": "Acid",
+            "name": "Acid Spray",
             "learnMethod": "level-up"
         },
         {
@@ -48,12 +48,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Charge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Charm",
@@ -69,7 +69,7 @@
         },
         {
             "name": "Eerie Impulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Electric Terrain",
@@ -82,6 +82,10 @@
         {
             "name": "Encore",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -138,6 +142,10 @@
         {
             "name": "Magnetic Flux",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "egg"
         },
         {
             "name": "Metronome",
@@ -244,6 +252,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -260,15 +272,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunderbolt",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
@@ -276,7 +280,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Uproar",
             "learnMethod": "machine"
         },
         {

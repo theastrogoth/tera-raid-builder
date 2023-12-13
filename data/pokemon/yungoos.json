@@ -48,7 +48,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -72,7 +72,7 @@
         },
         {
             "name": "Last Resort",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Leer",
@@ -136,7 +136,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
@@ -183,7 +183,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

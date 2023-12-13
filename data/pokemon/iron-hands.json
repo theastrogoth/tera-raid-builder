@@ -65,7 +65,7 @@
         },
         {
             "name": "Electric Terrain",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Endure",
@@ -208,12 +208,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Thunder",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "level-up"
         },
         {
             "name": "Thunderbolt",

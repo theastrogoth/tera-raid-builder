@@ -105,7 +105,7 @@
         },
         {
             "name": "Facade",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Fake Out",
@@ -145,7 +145,7 @@
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Flare Blitz",
@@ -229,7 +229,7 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Overheat",
@@ -348,7 +348,7 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

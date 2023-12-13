@@ -6,7 +6,7 @@
             "hidden": false
         },
         {
-            "name": "Heat Proof",
+            "name": "Heatproof",
             "hidden": true
         }
     ],
@@ -49,7 +49,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Grassy Terrain",

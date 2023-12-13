@@ -44,7 +44,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bullet Seed",
@@ -68,7 +68,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -76,7 +76,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -88,7 +88,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Gunk Shot",
@@ -104,7 +104,7 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
@@ -112,7 +112,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Pain Split",
@@ -144,7 +144,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Ball",
@@ -152,14 +152,14 @@
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge",
             "learnMethod": "level-up"
         },
         {
             "name": "Sludge Bomb",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Sludge",
             "learnMethod": "level-up"
         },
         {
@@ -184,7 +184,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -212,14 +212,10 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
@@ -227,12 +223,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Venoshock",
             "learnMethod": "machine"
         },
         {
             "name": "Water Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Yawn",

@@ -28,12 +28,12 @@
     },
     "moves": [
         {
-            "name": "Acid Spray",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Acid",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Acid Spray",
+            "learnMethod": "machine"
         },
         {
             "name": "Amnesia",
@@ -44,8 +44,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Belch",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Belly Drum",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Blizzard",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Block",
+            "learnMethod": "egg"
         },
         {
             "name": "Body Press",
@@ -140,6 +152,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Haze",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Headbutt",
             "learnMethod": "level-up"
         },
@@ -224,12 +240,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -280,8 +296,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Snowscape",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Stomp",
+            "learnMethod": "egg"
         },
         {
             "name": "Stored Power",
@@ -320,11 +344,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {
             "name": "Trick",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

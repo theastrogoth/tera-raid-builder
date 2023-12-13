@@ -32,6 +32,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Acid Armor",
+            "learnMethod": "prior-evo"
+        },
+        {
             "name": "Acid Spray",
             "learnMethod": "level-up"
         },
@@ -128,6 +132,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "level-up"
         },
@@ -154,6 +162,14 @@
         {
             "name": "Iron Tail",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Life Dew",
@@ -248,11 +264,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
@@ -266,6 +282,10 @@
         {
             "name": "Water Pulse",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         }
     ]
 }

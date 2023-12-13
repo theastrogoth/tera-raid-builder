@@ -57,7 +57,7 @@
         },
         {
             "name": "Electric Terrain",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Encore",
@@ -172,7 +172,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

@@ -73,7 +73,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
@@ -109,7 +109,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -157,7 +157,7 @@
         },
         {
             "name": "Rage Powder",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Rain Dance",
@@ -173,7 +173,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Powder",
@@ -181,7 +181,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
@@ -201,7 +201,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -213,7 +213,7 @@
         },
         {
             "name": "Swords Dance",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Synthesis",
@@ -248,12 +248,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "level-up"
         },
         {
             "name": "Worry Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         }
     ]
 }

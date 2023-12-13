@@ -81,7 +81,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
@@ -145,7 +145,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Ball",
@@ -153,7 +153,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
@@ -169,7 +169,7 @@
         },
         {
             "name": "Synthesis",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Tackle",
@@ -197,7 +197,7 @@
         },
         {
             "name": "Worry Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Zen Headbutt",

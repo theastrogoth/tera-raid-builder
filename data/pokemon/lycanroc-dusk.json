@@ -27,6 +27,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -68,11 +72,15 @@
         },
         {
             "name": "Drill Run",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -100,23 +108,31 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Last Resort",
+            "learnMethod": "egg"
         },
         {
             "name": "Leer",
             "learnMethod": "level-up"
         },
         {
+            "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Outrage",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Play Rough",
@@ -192,7 +208,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -227,6 +243,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thrash",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -236,7 +256,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

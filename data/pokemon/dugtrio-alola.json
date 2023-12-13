@@ -29,7 +29,11 @@
     "moves": [
         {
             "name": "Agility",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ancient Power",
+            "learnMethod": "egg"
         },
         {
             "name": "Astonish",
@@ -68,6 +72,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Final Gambit",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Fissure",
             "learnMethod": "level-up"
         },
@@ -88,8 +96,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Headbutt",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Helping Hand",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Hone Claws",
+            "learnMethod": "egg"
         },
         {
             "name": "Hyper Beam",
@@ -97,15 +113,23 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
             "learnMethod": "level-up"
         },
         {
+            "name": "Memento",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Metal Claw",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "egg"
         },
         {
             "name": "Mud Shot",
@@ -177,15 +201,15 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Steel Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -218,6 +242,10 @@
         {
             "name": "Thief",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Thrash",
+            "learnMethod": "egg"
         },
         {
             "name": "Tri Attack",

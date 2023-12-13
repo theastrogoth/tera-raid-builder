@@ -33,7 +33,7 @@
         },
         {
             "name": "Ally Switch",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Amnesia",
@@ -57,7 +57,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bulldoze",
@@ -101,7 +101,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Future Sight",
@@ -153,7 +153,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -200,16 +200,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Psychic",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Psychic Fangs",
             "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
-            "learnMethod": "level-up"
         },
         {
             "name": "Psyshock",
@@ -237,11 +237,11 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomp",
@@ -249,7 +249,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -257,7 +257,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -265,7 +265,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tackle",
@@ -284,19 +284,23 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Thunder",
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
@@ -304,16 +308,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Twin Beam",
             "learnMethod": "level-up"
         },
         {
             "name": "Uproar",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Wish",
@@ -321,7 +321,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

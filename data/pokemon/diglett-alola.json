@@ -29,7 +29,7 @@
     "moves": [
         {
             "name": "Agility",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ancient Power",
@@ -93,7 +93,7 @@
         },
         {
             "name": "Headbutt",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Helping Hand",
@@ -105,7 +105,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
@@ -189,15 +189,15 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Steel Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",

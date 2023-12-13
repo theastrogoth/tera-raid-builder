@@ -152,6 +152,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Smart Strike",
             "learnMethod": "machine"
         },
@@ -188,11 +192,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Fang",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Fang",
             "learnMethod": "machine"
         },
         {

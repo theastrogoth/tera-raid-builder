@@ -4,10 +4,6 @@
         {
             "name": "Corrosion",
             "hidden": false
-        },
-        {
-            "name": "Oblivious",
-            "hidden": true
         }
     ],
     "types": [

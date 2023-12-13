@@ -65,7 +65,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Haze",
@@ -93,15 +93,15 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Infestation",
             "learnMethod": "machine"
         },
         {
+            "name": "Infestation",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
@@ -192,11 +192,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Toxic",
             "learnMethod": "level-up"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "level-up"
         },
         {
@@ -205,7 +205,7 @@
         },
         {
             "name": "Water Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Wide Guard",

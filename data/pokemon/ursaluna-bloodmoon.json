@@ -24,6 +24,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Belly Drum",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Blood Moon",
             "learnMethod": "level-up"
         },
@@ -48,12 +52,28 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Close Combat",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Counter",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Cross Chop",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "machine"
         },
         {
             "name": "Dig",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "egg"
         },
         {
             "name": "Earth Power",
@@ -72,6 +92,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Fake Tears",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Fire Punch",
             "learnMethod": "machine"
         },
@@ -86,6 +110,10 @@
         {
             "name": "Focus Punch",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Fury Cutter",
+            "learnMethod": "egg"
         },
         {
             "name": "Fury Swipes",
@@ -164,6 +192,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Night Slash",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Payback",
             "learnMethod": "level-up"
         },
@@ -206,6 +238,10 @@
         {
             "name": "Seed Bomb",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Seismic Toss",
+            "learnMethod": "egg"
         },
         {
             "name": "Shadow Claw",
@@ -286,6 +322,10 @@
         {
             "name": "Vacuum Wave",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Yawn",
+            "learnMethod": "egg"
         }
     ]
 }

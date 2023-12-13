@@ -44,15 +44,15 @@
         },
         {
             "name": "Confusion",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Curse",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dazzling Gleam",
@@ -68,7 +68,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
@@ -84,7 +84,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -112,11 +112,11 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -132,7 +132,7 @@
         },
         {
             "name": "Mean Look",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Memento",
@@ -152,15 +152,15 @@
         },
         {
             "name": "Pain Split",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Payback",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Perish Song",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Phantom Force",
@@ -216,11 +216,11 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -236,11 +236,11 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sucker Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Sunny Day",
@@ -248,7 +248,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Taunt",
@@ -263,24 +263,24 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
             "name": "Trick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick Room",
+            "learnMethod": "machine"
         },
         {
             "name": "Will-O-Wisp",
@@ -288,7 +288,7 @@
         },
         {
             "name": "Wonder Room",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         }
     ]
 }

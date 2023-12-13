@@ -120,6 +120,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gyro Ball",
             "learnMethod": "level-up"
         },
@@ -166,6 +170,10 @@
         {
             "name": "Magnetic Flux",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Misty Explosion",
+            "learnMethod": "machine"
         },
         {
             "name": "Misty Terrain",
@@ -237,7 +245,7 @@
         },
         {
             "name": "Steel Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -272,12 +280,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Trick",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Trick Room",
+            "learnMethod": "machine"
         },
         {
             "name": "Volt Switch",
@@ -289,7 +297,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

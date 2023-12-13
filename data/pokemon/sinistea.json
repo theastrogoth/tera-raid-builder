@@ -24,7 +24,7 @@
     "moves": [
         {
             "name": "Ally Switch",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Aromatic Mist",
@@ -108,7 +108,7 @@
         },
         {
             "name": "Protect",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Psybeam",
@@ -167,11 +167,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

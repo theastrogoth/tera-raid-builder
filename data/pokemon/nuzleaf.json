@@ -132,6 +132,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Headbutt",
+            "learnMethod": "prior-evo"
+        },
+        {
             "name": "Knock Off",
             "learnMethod": "machine"
         },

@@ -92,7 +92,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Leech Life",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Lunge",
@@ -144,7 +144,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sticky Web",

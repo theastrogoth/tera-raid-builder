@@ -64,12 +64,20 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
         {
             "name": "Flail",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -148,6 +156,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scary Face",
             "learnMethod": "level-up"
         },
@@ -168,11 +180,19 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Substitute",
             "learnMethod": "machine"
         },
         {
             "name": "Surf",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swift",
             "learnMethod": "machine"
         },
         {
@@ -214,6 +234,10 @@
         {
             "name": "Wave Crash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Zen Headbutt",
+            "learnMethod": "machine"
         }
     ]
 }

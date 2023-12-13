@@ -2,11 +2,11 @@
     "name": "Shiftry",
     "abilities": [
         {
-            "name": "Wind Rider",
+            "name": "Chlorophyll",
             "hidden": false
         },
         {
-            "name": "Early Bird",
+            "name": "Wind Rider",
             "hidden": false
         },
         {
@@ -154,6 +154,10 @@
         {
             "name": "Harden",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Headbutt",
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Heat Wave",

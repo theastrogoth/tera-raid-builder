@@ -45,7 +45,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Charm",
@@ -89,6 +89,10 @@
         },
         {
             "name": "Flash Cannon",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gyro Ball",
             "learnMethod": "machine"
         },
         {

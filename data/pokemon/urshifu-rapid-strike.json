@@ -156,6 +156,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Metal Claw",
+            "learnMethod": "prior-evo"
+        },
+        {
             "name": "Poison Jab",
             "learnMethod": "machine"
         },
@@ -236,7 +240,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

@@ -1,0 +1,23 @@
+{
+    "name": "Raticate-Alola-Totem",
+    "abilities": [
+        {
+            "name": "Thick Fat",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "dark",
+        "normal"
+    ],
+    "stats": {
+        "hp": 75,
+        "atk": 71,
+        "def": 70,
+        "spa": 40,
+        "spd": 80,
+        "spe": 77
+    },
+    "moves": [
+    ]
+}

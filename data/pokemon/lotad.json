@@ -32,6 +32,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Astonish",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Blizzard",
             "learnMethod": "machine"
         },
@@ -92,6 +96,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Growl",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Ice Beam",
             "learnMethod": "machine"
         },
@@ -114,6 +122,10 @@
         {
             "name": "Mist",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
         },
         {
             "name": "Rain Dance",
@@ -162,6 +174,10 @@
         {
             "name": "Synthesis",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Teeter Dance",

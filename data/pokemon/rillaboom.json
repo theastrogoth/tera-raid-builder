@@ -116,7 +116,7 @@
         },
         {
             "name": "Frenzy Plant",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Drain",
@@ -132,7 +132,7 @@
         },
         {
             "name": "Grass Pledge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grassy Glide",
@@ -291,7 +291,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

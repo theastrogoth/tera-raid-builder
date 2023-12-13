@@ -288,15 +288,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic",
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
             "learnMethod": "level-up"
         },
         {

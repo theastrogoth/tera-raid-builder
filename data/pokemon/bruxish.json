@@ -117,7 +117,7 @@
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Fang",
@@ -128,15 +128,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic Fangs",
             "learnMethod": "level-up"
         },
         {
             "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
             "learnMethod": "machine"
         },
         {
@@ -209,7 +209,7 @@
         },
         {
             "name": "Water Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Waterfall",

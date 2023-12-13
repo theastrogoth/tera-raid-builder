@@ -57,7 +57,7 @@
         },
         {
             "name": "Electric Terrain",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Ember",
@@ -204,15 +204,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic",
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

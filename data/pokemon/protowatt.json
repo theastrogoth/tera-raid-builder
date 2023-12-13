@@ -1,0 +1,71 @@
+{
+    "name": "Protowatt",
+    "abilities": [
+        {
+            "name": "Trace",
+            "hidden": false
+        },
+        {
+            "name": "Magic Guard",
+            "hidden": false
+        },
+        {
+            "name": "Minus",
+            "hidden": true
+        }
+    ],
+    "types": [
+        "electric",
+        "water"
+    ],
+    "stats": {
+        "hp": 51,
+        "atk": 44,
+        "def": 33,
+        "spa": 43,
+        "spd": 34,
+        "spe": 65
+    },
+    "moves": [
+        {
+            "name": "Charge",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Confuse Ray",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Counter",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Entrainment",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Follow Me",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Mirror Coat",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Sheer Cold",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Shock",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Water Gun",
+            "learnMethod": "level-up"
+        }
+    ]
+}

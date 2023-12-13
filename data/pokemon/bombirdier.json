@@ -160,6 +160,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Blast",
             "learnMethod": "machine"
         },
@@ -244,7 +248,7 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

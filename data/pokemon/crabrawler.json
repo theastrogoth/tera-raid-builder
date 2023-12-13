@@ -68,7 +68,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dynamic Punch",
@@ -80,7 +80,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Focus Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Gunk Shot",
@@ -112,7 +112,7 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Defense",
@@ -120,7 +120,7 @@
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -196,7 +196,7 @@
         },
         {
             "name": "Superpower",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Swift",
@@ -216,6 +216,10 @@
         },
         {
             "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vise Grip",
             "learnMethod": "level-up"
         },
         {
@@ -224,7 +228,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

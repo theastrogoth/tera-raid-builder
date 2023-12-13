@@ -1,0 +1,23 @@
+{
+    "name": "Aegislash",
+    "abilities": [
+        {
+            "name": "Stance Change",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "steel",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 140,
+        "spa": 50,
+        "spd": 140,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

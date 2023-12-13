@@ -28,7 +28,7 @@
     "moves": [
         {
             "name": "Agility",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ancient Power",
@@ -40,7 +40,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bulldoze",
@@ -64,7 +64,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -92,7 +92,7 @@
         },
         {
             "name": "Headbutt",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Helping Hand",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Hone Claws",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Hyper Beam",
@@ -140,7 +140,7 @@
         },
         {
             "name": "Rock Slide",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
@@ -159,6 +159,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scratch",
             "learnMethod": "level-up"
         },
@@ -172,7 +176,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -184,11 +188,11 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -196,7 +200,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sucker Punch",

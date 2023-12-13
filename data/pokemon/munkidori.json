@@ -133,7 +133,7 @@
         },
         {
             "name": "Poison Jab",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Poltergeist",
@@ -148,12 +148,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -228,7 +228,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

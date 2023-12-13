@@ -68,7 +68,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
@@ -112,7 +112,7 @@
         },
         {
             "name": "Milk Drink",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Mud Shot",
@@ -220,7 +220,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

@@ -139,6 +139,14 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Surf",
             "learnMethod": "machine"
         },

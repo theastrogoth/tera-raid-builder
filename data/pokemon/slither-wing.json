@@ -189,7 +189,7 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Superpower",
@@ -212,7 +212,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

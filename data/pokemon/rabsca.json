@@ -165,15 +165,15 @@
         },
         {
             "name": "Psych Up",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -209,7 +209,7 @@
         },
         {
             "name": "Safeguard",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Sand Attack",
@@ -272,11 +272,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

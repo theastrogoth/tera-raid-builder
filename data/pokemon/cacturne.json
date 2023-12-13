@@ -28,8 +28,20 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Acid",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Belch",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Block",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -48,8 +60,12 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Counter",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Destiny Bond",
@@ -60,8 +76,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Disable",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Encore",
@@ -69,7 +89,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
@@ -78,6 +98,10 @@
         {
             "name": "Facade",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Fell Stinger",
+            "learnMethod": "egg"
         },
         {
             "name": "Fling",
@@ -93,11 +117,11 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -153,7 +177,7 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Lunge",
@@ -213,7 +237,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Ball",
@@ -221,7 +245,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
@@ -241,11 +265,11 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sucker Punch",
@@ -260,8 +284,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Switcheroo",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Swords Dance",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -270,6 +298,10 @@
         {
             "name": "Taunt",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Teeter Dance",
+            "learnMethod": "egg"
         },
         {
             "name": "Tera Blast",
@@ -281,7 +313,7 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic Spikes",

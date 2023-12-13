@@ -24,7 +24,7 @@
         },
         {
             "name": "Air Slash",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Baton Pass",
@@ -92,7 +92,7 @@
         },
         {
             "name": "Leaf Storm",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Leech Seed",
@@ -113,6 +113,10 @@
         {
             "name": "Psychic",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Quick Attack",
+            "learnMethod": "level-up"
         },
         {
             "name": "Rest",

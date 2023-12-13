@@ -104,6 +104,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -114,6 +118,10 @@
         {
             "name": "Grass Knot",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Happy Hour",
+            "learnMethod": "event"
         },
         {
             "name": "Helping Hand",
@@ -177,6 +185,10 @@
         },
         {
             "name": "Phantom Force",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
             "learnMethod": "machine"
         },
         {
@@ -276,7 +288,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "level-up"
         },
         {

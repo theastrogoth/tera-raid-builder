@@ -32,7 +32,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Powder",
@@ -52,7 +52,7 @@
         },
         {
             "name": "String Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Struggle Bug",
@@ -60,11 +60,11 @@
         },
         {
             "name": "Stun Spore",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Tackle",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Tera Blast",

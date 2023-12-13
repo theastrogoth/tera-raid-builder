@@ -41,7 +41,7 @@
         },
         {
             "name": "Attract",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Baton Pass",
@@ -57,7 +57,7 @@
         },
         {
             "name": "Defog",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Dual Wingbeat",
@@ -97,7 +97,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Peck",
@@ -141,7 +141,7 @@
         },
         {
             "name": "Safeguard",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Sandstorm",
@@ -169,7 +169,7 @@
         },
         {
             "name": "Tailwind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -192,7 +192,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         }
     ]

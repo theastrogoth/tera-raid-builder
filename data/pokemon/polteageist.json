@@ -24,7 +24,7 @@
     "moves": [
         {
             "name": "Ally Switch",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Aromatic Mist",
@@ -195,11 +195,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

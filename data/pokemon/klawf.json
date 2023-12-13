@@ -31,6 +31,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Block",
+            "learnMethod": "event"
+        },
+        {
             "name": "Body Slam",
             "learnMethod": "machine"
         },
@@ -217,6 +221,10 @@
         {
             "name": "Trailblaze",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Vise Grip",
+            "learnMethod": "level-up"
         },
         {
             "name": "X-Scissor",

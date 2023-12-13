@@ -1,0 +1,22 @@
+{
+    "name": "Pichu-Spiky-eared",
+    "abilities": [
+        {
+            "name": "Static",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "electric"
+    ],
+    "stats": {
+        "hp": 20,
+        "atk": 40,
+        "def": 15,
+        "spa": 35,
+        "spd": 35,
+        "spe": 60
+    },
+    "moves": [
+    ]
+}

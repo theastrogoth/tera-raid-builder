@@ -115,11 +115,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
+            "name": "Charge",
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
+            "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
@@ -551,16 +551,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psychic",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Psychic Fangs",
             "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
-            "learnMethod": "level-up"
         },
         {
             "name": "Psyshock",
@@ -571,12 +571,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Reflect Type",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Reflect",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Reflect Type",
+            "learnMethod": "level-up"
         },
         {
             "name": "Rest",
@@ -747,6 +747,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -759,19 +763,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
@@ -783,15 +783,15 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Trick Room",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

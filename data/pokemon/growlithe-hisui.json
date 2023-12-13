@@ -188,6 +188,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Smart Strike",
             "learnMethod": "machine"
         },
@@ -221,6 +225,10 @@
         },
         {
             "name": "Thunder Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wild Charge",
             "learnMethod": "machine"
         },
         {

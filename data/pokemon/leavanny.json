@@ -45,7 +45,7 @@
         },
         {
             "name": "Bug Buzz",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Bullet Seed",
@@ -61,7 +61,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Energy Ball",
@@ -81,6 +81,10 @@
         },
         {
             "name": "Fell Stinger",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Flail",
             "learnMethod": "level-up"
         },
         {
@@ -157,7 +161,7 @@
         },
         {
             "name": "Protect",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Rain Dance",
@@ -202,6 +206,10 @@
         {
             "name": "Solar Beam",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Sticky Web",
+            "learnMethod": "level-up"
         },
         {
             "name": "String Shot",

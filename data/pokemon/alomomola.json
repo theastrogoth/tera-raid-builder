@@ -52,7 +52,7 @@
         },
         {
             "name": "Bounce",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Brine",
@@ -104,7 +104,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -112,7 +112,7 @@
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mirror Coat",
@@ -128,7 +128,7 @@
         },
         {
             "name": "Pain Split",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Play Nice",
@@ -180,7 +180,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",

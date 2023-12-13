@@ -17,18 +17,6 @@ const LEARNMETHOD_PREFRENCE = [
     "event",
 ]
 
-function filename_to_name(filename)
-    if haskey(SPECIAL_NAMES, filename)
-        return SPECIAL_NAMES[filename]
-    end
-    words = split(filename, '-')
-    for (i,word) in enumerate(words)
-        words[i] = uppercase(word[1]) * word[2:end]
-    end
-    name = join(words, "-")
-    return name
-end
-
 function name_to_filename(name)
     words = split(string(name), [' ','-'])
     filename = join(words, "-")
@@ -145,4 +133,65 @@ for (key, value) in showdown_dex
     end
 end
 sort!(learnsets)
+
+
+write_path = "data/pokemon"
+
+struct AbilityInfo
+    name::String
+    hidden::Bool
+end
+
+struct StatsTable
+    hp::Int64
+    atk::Int64
+    def::Int64
+    spa::Int64
+    spd::Int64
+    spe::Int64
+end
+
+struct MoveInfo
+    name::String
+    learnMethod::String
+end
+
+struct PokemonData
+    name::String
+    abilities::Vector{AbilityInfo}
+    types::Vector{String}
+    stats::StatsTable
+    moves::Vector{MoveInfo}
+end
+
+function write_pokemon_data(key, name, showdown_dex, learnsets)
+    abilities = AbilityInfo[]
+    for (ability_key, ability) in showdown_dex[key]["abilities"]
+        push!(abilities, AbilityInfo(ability, ability_key == :H))
+    end
+    types = [lowercase(t) for t in showdown_dex[key]["types"]]
+    stats = StatsTable(
+        showdown_dex[key]["baseStats"]["hp"],
+        showdown_dex[key]["baseStats"]["atk"],
+        showdown_dex[key]["baseStats"]["def"],
+        showdown_dex[key]["baseStats"]["spa"],
+        showdown_dex[key]["baseStats"]["spd"],
+        showdown_dex[key]["baseStats"]["spe"],
+    )
+    moves = MoveInfo[]
+    for (move, method) in learnsets[name]
+        push!(moves, MoveInfo(move, method))
+    end
+    data = PokemonData(name, abilities, types, stats, moves)
+    filename = name_to_filename(name)
+    open("$write_path/$filename.json", "w") do io
+        JSON3.pretty(io, data)
+    end
+end
+
+for (key, value) in showdown_dex
+    name = showdown_dex[key]["name"]
+    !haskey(learnsets, name) && continue
+    write_pokemon_data(key, name, showdown_dex, learnsets)
+end
 

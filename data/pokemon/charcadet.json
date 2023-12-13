@@ -107,6 +107,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },

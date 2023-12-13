@@ -28,7 +28,7 @@
         },
         {
             "name": "Agility",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Amnesia",

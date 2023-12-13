@@ -23,6 +23,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Ally Switch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Assurance",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Baton Pass",
             "learnMethod": "machine"
         },
@@ -67,6 +75,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Explosion",
             "learnMethod": "level-up"
         },
@@ -84,7 +96,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flamethrower",
@@ -108,7 +120,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -116,10 +128,14 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Iron Tail",
             "learnMethod": "level-up"
         },
         {
@@ -135,12 +151,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Magic Room",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Metronome",
             "learnMethod": "machine"
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mystical Power",
@@ -148,6 +168,10 @@
         },
         {
             "name": "Nasty Plot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Payback",
             "learnMethod": "level-up"
         },
         {
@@ -167,6 +191,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Psycho Cut",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Psyshock",
             "learnMethod": "machine"
         },
@@ -183,8 +211,20 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Round",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Safeguard",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Self-Destruct",
+            "learnMethod": "level-up"
         },
         {
             "name": "Shadow Ball",
@@ -192,15 +232,19 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Snore",
             "learnMethod": "level-up"
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -227,15 +271,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder Wave",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
@@ -243,15 +287,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Tri Attack",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Trick",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {
@@ -260,11 +308,15 @@
         },
         {
             "name": "Water Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Wonder Room",
             "learnMethod": "level-up"
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

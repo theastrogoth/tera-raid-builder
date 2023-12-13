@@ -73,7 +73,7 @@
         },
         {
             "name": "Electric Terrain",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Encore",
@@ -208,11 +208,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic Terrain",
+            "name": "Psychic",
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic",
+            "name": "Psychic Terrain",
             "learnMethod": "machine"
         },
         {
@@ -300,11 +300,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

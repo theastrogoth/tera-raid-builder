@@ -1,0 +1,23 @@
+{
+    "name": "Marowak-Alola-Totem",
+    "abilities": [
+        {
+            "name": "Rock Head",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "fire",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 60,
+        "atk": 80,
+        "def": 110,
+        "spa": 50,
+        "spd": 80,
+        "spe": 45
+    },
+    "moves": [
+    ]
+}

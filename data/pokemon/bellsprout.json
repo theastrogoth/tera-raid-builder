@@ -24,12 +24,12 @@
     },
     "moves": [
         {
-            "name": "Acid Spray",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Acid",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Acid Spray",
+            "learnMethod": "machine"
         },
         {
             "name": "Bullet Seed",

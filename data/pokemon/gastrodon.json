@@ -113,7 +113,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
@@ -181,15 +181,15 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Sludge Bomb",
             "learnMethod": "machine"
         },
         {
             "name": "Sludge",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Sludge Bomb",
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -213,7 +213,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",

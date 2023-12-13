@@ -37,7 +37,7 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Air Slash",
@@ -77,7 +77,7 @@
         },
         {
             "name": "Fire Spin",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flame Charge",
@@ -85,7 +85,7 @@
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flare Blitz",
@@ -122,10 +122,6 @@
         {
             "name": "Incinerate",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Lash Out",
-            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -169,19 +165,15 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Spite",
             "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -189,11 +181,11 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tailwind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -204,7 +196,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

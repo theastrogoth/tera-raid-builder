@@ -36,7 +36,7 @@
         },
         {
             "name": "Blast Burn",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bounce",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Fire Pledge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fire Punch",
@@ -267,7 +267,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

@@ -24,7 +24,7 @@
     "moves": [
         {
             "name": "After You",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Agility",
@@ -32,15 +32,15 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
             "name": "Charge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Confuse Ray",
@@ -80,11 +80,11 @@
         },
         {
             "name": "Electroweb",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -128,11 +128,11 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -151,6 +151,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Thunder Shock",
             "learnMethod": "level-up"
         },
@@ -160,11 +164,7 @@
         },
         {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

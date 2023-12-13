@@ -76,11 +76,15 @@
         },
         {
             "name": "Drill Run",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -92,10 +96,6 @@
         },
         {
             "name": "Fire Fang",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Focus Punch",
             "learnMethod": "machine"
         },
         {
@@ -112,23 +112,19 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Knock Off",
             "learnMethod": "machine"
         },
         {
-            "name": "Lash Out",
-            "learnMethod": "machine"
+            "name": "Last Resort",
+            "learnMethod": "egg"
         },
         {
             "name": "Leer",
@@ -208,7 +204,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -251,6 +247,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thrash",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -260,7 +260,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

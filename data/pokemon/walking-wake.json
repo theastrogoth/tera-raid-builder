@@ -72,15 +72,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dragon Tail",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
         {
             "name": "Facade",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Fake Out",
             "learnMethod": "machine"
         },
         {

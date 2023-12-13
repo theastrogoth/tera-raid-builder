@@ -200,15 +200,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "Trick Room",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "U-turn",
             "learnMethod": "machine"
         }
     ]

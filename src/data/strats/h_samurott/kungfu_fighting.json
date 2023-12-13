@@ -1,7 +1,7 @@
 {
-    "name": "Morpeking Duck",
-    "notes": "Using Simple Beam on Morpeko allows it to stay in Full Belly Mode and maintain Aura Wheel's Electric typing.",
-    "credits": "u/ChrisReturns",
+    "name": "Everybody was Kung-fu Fighting (Fast as Lighting)",
+    "notes": "",
+    "credits": "u/Tacitus2389b4h5ii405",
     "pokemon": [
         {
             "id": 0,
@@ -29,38 +29,39 @@
             "level": 100,
             "teraType": "Water",
             "moves": [
-                "Ceaseless Edge",
                 "Razor Shell",
+                "Ceaseless Edge",
                 "X-Scissor",
                 "Sacred Sword"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
                 "Swords Dance",
-                "Focus Energy",
-                "Bulldoze"
+                "Rain Dance",
+                "Screech",
+                "Focus Energy"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 87,
-                "shieldCancelDamage": 30,
-                "shieldDamageRate": 20,
-                "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
             }
         },
         {
             "id": 1,
-            "role": "Bao",
-            "name": "Morpeko",
+            "role": "Koraidon",
+            "name": "Koraidon",
             "shiny": false,
-            "ability": "Hunger Switch",
-            "item": "Weakness Policy",
+            "ability": "Orichalcum Pulse",
+            "item": "Life Orb",
             "nature": "Adamant",
             "evs": {
                 "hp": 252,
-                "atk": 0,
-                "def": 252,
+                "atk": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -75,8 +76,8 @@
             },
             "level": 100,
             "moves": [
-                "Charge",
-                "Aura Wheel"
+                "Wild Charge",
+                "Swords Dance"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -91,48 +92,8 @@
         },
         {
             "id": 2,
-            "role": "Wings",
-            "name": "Psyduck",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Eviolite",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "moves": [
-                "Simple Beam",
-                "Helping Hand"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
-        },
-        {
-            "id": 3,
-            "role": "Legs",
-            "name": "Golduck",
+            "role": "Kommo-o1",
+            "name": "Kommo-o",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
@@ -155,7 +116,46 @@
             },
             "level": 100,
             "moves": [
-                "Simple Beam",
+                "Screech",
+                "Helping Hand"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 3,
+            "role": "Kommo-o2",
+            "name": "Kommo-o",
+            "shiny": true,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "moves": [
                 "Screech"
             ],
             "bossMultiplier": 100,
@@ -171,16 +171,16 @@
         },
         {
             "id": 4,
-            "role": "Scallions",
-            "name": "Leafeon",
+            "role": "Kommo-o3",
+            "name": "Clefairy",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Tanga Berry",
-            "nature": "Hardy",
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -195,7 +195,8 @@
             },
             "level": 100,
             "moves": [
-                "Charm"
+                "Charm",
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -211,7 +212,7 @@
     ],
     "turns": [
         {
-            "id": 0,
+            "id": 3,
             "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
@@ -237,7 +238,7 @@
             }
         },
         {
-            "id": 1,
+            "id": 0,
             "group": 1,
             "moveInfo": {
                 "name": "Charm",
@@ -263,62 +264,10 @@
             }
         },
         {
-            "id": 3,
+            "id": 1,
             "group": 2,
             "moveInfo": {
-                "name": "Simple Beam",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 2,
-            "moveInfo": {
-                "name": "Simple Beam",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 3,
-            "moveInfo": {
-                "name": "Charge",
+                "name": "Swords Dance",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -341,11 +290,37 @@
             }
         },
         {
-            "id": 5,
-            "group": 4,
+            "id": 4,
+            "group": 2,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
+                "name": "Screech",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -369,6 +344,84 @@
         {
             "id": 7,
             "group": 4,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 4,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 4,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 5,
             "moveInfo": {
                 "name": "Helping Hand",
                 "userID": 2,
@@ -394,35 +447,9 @@
         },
         {
             "id": 6,
-            "group": 4,
+            "group": 3,
             "moveInfo": {
-                "name": "Screech",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 8,
-            "group": 5,
-            "moveInfo": {
-                "name": "Aura Wheel",
+                "name": "Wild Charge",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -447,25 +474,26 @@
     ],
     "groups": [
         [
+            3
+        ],
+        [
             0
         ],
         [
-            1
+            1,
+            4,
+            5
         ],
         [
-            3,
+            7,
+            8,
             2
         ],
         [
-            4
+            9
         ],
         [
-            5,
-            7,
             6
-        ],
-        [
-            8
         ]
     ],
     "repeats": [
@@ -480,124 +508,6 @@
         [],
         [],
         [],
-        [
-            {
-                "raider": {
-                    "id": 1,
-                    "role": "Manaphy",
-                    "name": "Manaphy",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "moves": [
-                        "Charm"
-                    ]
-                },
-                "substituteMoves": [
-                    "Charm",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 2,
-                    "role": "Notaduck",
-                    "name": "Vaporeon",
-                    "shiny": false,
-                    "ability": "Water Absorb",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "moves": [
-                        "Charm",
-                        "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "Charm",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Ninetales",
-                    "name": "Ninetales",
-                    "shiny": false,
-                    "ability": "Drought",
-                    "item": "Passho Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "moves": [
-                        "Charm"
-                    ]
-                },
-                "substituteMoves": [
-                    "Charm",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    0
-                ]
-            }
-        ]
+        []
     ]
 }

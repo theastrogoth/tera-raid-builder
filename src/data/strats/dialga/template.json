@@ -205,7 +205,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -214,10 +214,10 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }

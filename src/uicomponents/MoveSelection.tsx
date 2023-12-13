@@ -35,7 +35,7 @@ const RepeatsInput = styled(MuiInput)`
   width: 42px;
 `;
 
-const handleAddGroup = (groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, setTransitionIn: (n: number) => void) => (index: number) => () => {
+const handleAddGroup = (groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, rollCase: "min" | "avg" | "max", setTransitionIn: (n: number) => void) => (index: number) => () => {
     let uniqueGroupId = 0;
     const takenGroupIds = groups.map((group) => group.id);
     for (let i=0; i<takenGroupIds.length+1; i++) {
@@ -60,8 +60,28 @@ const handleAddGroup = (groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[])
             {
                 id: uniqueTurnId,
                 group: uniqueGroupId,
-                moveInfo: {userID: 1, targetID: 0, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1 }},
-                bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(Most Damaging)" as MoveName}, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10 }},
+                moveInfo: {
+                    userID: 1, 
+                    targetID: 0, 
+                    moveData: {name: "(No Move)" as MoveName}, 
+                    options: {
+                        crit: rollCase === "max", 
+                        secondaryEffects: rollCase === "max", 
+                        roll: rollCase, 
+                        hits: rollCase === "max" ? 10 : 1,
+                    }
+                },
+                bossMoveInfo: {
+                    userID: 0, 
+                    targetID: 1,
+                    moveData: {name: "(Most Damaging)" as MoveName}, 
+                    options: {
+                        crit: rollCase === "min", 
+                        secondaryEffects: rollCase === "min", 
+                        roll: rollCase === "max" ? "min" : (rollCase === "min" ? "max" : rollCase), 
+                        hits: rollCase === "min" ? 10 : 1, 
+                    }
+                },
             }
         ],
     };
@@ -70,7 +90,7 @@ const handleAddGroup = (groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[])
     setTransitionIn(uniqueTurnId);
 }
 
-const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, setTransitionIn: (n: number) => void) => (turnIndex: number) => () => {
+const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, rollCase: "min" | "avg" | "max", setTransitionIn: (n: number) => void) => (turnIndex: number) => () => {
     let uniqueId = 0;
     const takenIds = groups.map((group) => group.turns.map((turn) => turn.id)).flat();
     for (let i=0; i<=takenIds.length+1; i++) {
@@ -83,8 +103,28 @@ const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (
     const newTurn: RaidTurnInfo = {
         id: uniqueId,
         group: newGroups[groupIndex].id,
-        moveInfo: {userID: 1, targetID: 0, moveData: {name: "(No Move)" as MoveName}, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1 }},
-        bossMoveInfo: {userID: 0, targetID: 1, moveData: {name: "(Most Damaging)" as MoveName}, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10 }},
+        moveInfo: {
+            userID: 1, 
+            targetID: 0, 
+            moveData: {name: "(No Move)" as MoveName}, 
+            options: {
+                crit: rollCase === "max", 
+                secondaryEffects: rollCase === "max", 
+                roll: rollCase, 
+                hits: rollCase === "max" ? 10 : 1,
+            }
+        },
+        bossMoveInfo: {
+            userID: 0, 
+            targetID: 1,
+            moveData: {name: "(Most Damaging)" as MoveName}, 
+            options: {
+                crit: rollCase === "min", 
+                secondaryEffects: rollCase === "min", 
+                roll: rollCase === "max" ? "min" : (rollCase === "min" ? "max" : rollCase), 
+                hits: rollCase === "min" ? 10 : 1, 
+            }
+        },
     };
     newGroups[groupIndex].turns.splice(turnIndex, 0, newTurn);
     setGroups(newGroups);
@@ -689,8 +729,8 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     )
 });
 
-function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
-    {raidInputProps: RaidInputProps, groupIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) {
+function MoveGroupContainer({raidInputProps, groupIndex, rollCase, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
+    {raidInputProps: RaidInputProps, groupIndex: number, rollCase: "min" | "avg" | "max", buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) {
     
     const color = "group" + raidInputProps.groups[groupIndex].id.toString().slice(-1) + ".main";
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -746,7 +786,7 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                             <Box flexGrow={5} />
                             <AddButton 
                                 label={ getTranslation("Add Move", translationKey) }
-                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} 
+                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(groupIndex+1)} 
                                 visible={buttonsVisible}
                             />
                             <Box flexGrow={2} />
@@ -798,7 +838,7 @@ function MoveGroupContainer({raidInputProps, groupIndex, buttonsVisible, transit
                 <Box flexGrow={1} />
                 <AddButton 
                     label={ getTranslation("Add Group", translationKey) }
-                    onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(groupIndex+1)} 
+                    onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(groupIndex+1)} 
                     visible={buttonsVisible}
                 />
                 <Box flexGrow={1} />
@@ -867,7 +907,7 @@ const move = (source: TurnGroupInfo, destination: TurnGroupInfo, sourceIndex: nu
     return [sourceClone, destClone];
 };
 
-function MoveSelection({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
+function MoveSelection({raidInputProps, rollCase, translationKey}: {raidInputProps: RaidInputProps, rollCase: "min" | "avg" | "max",translationKey: any}) {
     const [buttonsVisible, setButtonsVisible] = useState(true);
     const [transitionIn, setTransitionIn] = useState(-1);
     const [transitionOut, setTransitionOut] = useState(-1);
@@ -957,7 +997,7 @@ function MoveSelection({raidInputProps, translationKey}: {raidInputProps: RaidIn
                                     <Box flexGrow={1} />
                                     <AddButton 
                                         label={ getTranslation("Add Group", translationKey) }
-                                        onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, setTransitionIn)(0)} 
+                                        onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(0)} 
                                         visible={buttonsVisible}
                                     />
                                     <Box flexGrow={1} />
@@ -983,6 +1023,7 @@ function MoveSelection({raidInputProps, translationKey}: {raidInputProps: RaidIn
                                                         key={index}
                                                         raidInputProps={raidInputProps} 
                                                         groupIndex={index} 
+                                                        rollCase={rollCase}
                                                         buttonsVisible={buttonsVisible}
                                                         transitionIn={transitionIn}
                                                         setTransitionIn={setTransitionIn}

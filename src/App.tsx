@@ -291,8 +291,8 @@ function App() {
         {
           id: 0,
           group: 0,
-          moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
-          bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
+          moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "avg", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
+          bossMoveInfo: {userID: 0, targetID: 1, options: {crit: false, secondaryEffects: false, roll: "avg", hits: 1}, moveData: {name: "(Most Damaging)" as MoveName}},
         }
       ]
     }

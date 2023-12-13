@@ -914,7 +914,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
             <Button
                 variant="outlined"
                 size="small"
-                sx={{ width: "125px", textTransform: "none" }} 
+                sx={{ textTransform: "none" }} 
                 onClick={(e) => handleClick(e)}
                 endIcon={<MenuIcon/>}
             >
@@ -1201,11 +1201,11 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             />
                         </Stack>
                     }
-                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: isBoss ? 2 : 0 }}>
+                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ maxWidth: "280px", marginTop: 1, marginBottom: isBoss ? 2 : 0 }}>
                         <Button 
                             variant="outlined" 
                             size="small" 
-                            sx={{ width: "125px", textTransform: "none" }} 
+                            sx={{ textTransform: "none" }} 
                             disabled={importExportOpen}
                             onClick={(e) => setEditStatsOpen(!editStatsOpen)}
                             startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
@@ -1215,7 +1215,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         <Button 
                             variant="outlined" 
                             size="small" 
-                            sx={{ width: "125px", textTransform: "none" }} 
+                            sx={{ textTransform: "none" }} 
                             onClick={(e) => setImportExportOpen(!importExportOpen)}
                             endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
                         >
@@ -1230,7 +1230,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         <Button
                             variant="outlined"
                             size="small"
-                            sx={{ width: "125px", textTransform: "none" }} 
+                            sx={{ textTransform: "none" }} 
                             onClick={(e) => handleAddSubstitute()}
                             startIcon={<AddIcon/>}
                         >

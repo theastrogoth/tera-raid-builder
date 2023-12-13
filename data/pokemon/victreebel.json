@@ -24,6 +24,10 @@
     },
     "moves": [
         {
+            "name": "Acid",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Acid Spray",
             "learnMethod": "machine"
         },
@@ -84,6 +88,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Growth",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
@@ -93,7 +101,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Leaf Blade",
@@ -117,7 +125,11 @@
         },
         {
             "name": "Poison Jab",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poison Powder",
+            "learnMethod": "level-up"
         },
         {
             "name": "Pounce",
@@ -152,6 +164,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Slam",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Sleep Powder",
             "learnMethod": "level-up"
         },
@@ -178,6 +194,10 @@
         {
             "name": "Strength Sap",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Stun Spore",
+            "learnMethod": "level-up"
         },
         {
             "name": "Substitute",
@@ -246,6 +266,10 @@
         {
             "name": "Worry Seed",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Wrap",
+            "learnMethod": "level-up"
         }
     ]
 }

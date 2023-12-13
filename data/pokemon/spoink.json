@@ -32,7 +32,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bounce",
@@ -68,7 +68,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Extrasensory",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -143,12 +143,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -176,11 +176,11 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snarl",
@@ -204,7 +204,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -212,7 +212,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -239,12 +239,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
+            "name": "Trick Room",
+            "learnMethod": "machine"
         },
         {
             "name": "Uproar",
@@ -256,7 +256,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

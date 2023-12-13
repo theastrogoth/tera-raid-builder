@@ -52,7 +52,7 @@
         },
         {
             "name": "Draco Meteor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Breath",
@@ -88,7 +88,7 @@
         },
         {
             "name": "Outrage",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",

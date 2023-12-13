@@ -117,7 +117,7 @@
         },
         {
             "name": "Gyro Ball",
-            "learnMethod": "machine"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Hammer Arm",

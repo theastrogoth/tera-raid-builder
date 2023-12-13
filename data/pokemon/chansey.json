@@ -32,7 +32,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -80,7 +80,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -108,11 +108,11 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -132,11 +132,11 @@
         },
         {
             "name": "Gravity",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Heal Bell",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Heal Pulse",
@@ -156,19 +156,19 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ice Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Last Resort",
@@ -184,7 +184,7 @@
         },
         {
             "name": "Metronome",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Pound",
@@ -236,18 +236,18 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
             "learnMethod": "machine"
         },
         {
-            "name": "Soft Boiled",
+            "name": "Soft-Boiled",
             "learnMethod": "level-up"
         },
         {
@@ -256,11 +256,11 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -268,7 +268,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -299,20 +299,20 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder Wave",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Thunder",
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",
@@ -320,7 +320,7 @@
         },
         {
             "name": "Water Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",
@@ -328,7 +328,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

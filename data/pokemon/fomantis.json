@@ -32,7 +32,7 @@
         },
         {
             "name": "Defog",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -60,7 +60,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
@@ -116,7 +116,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Slash",
@@ -137,6 +137,10 @@
         {
             "name": "Sunny Day",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Superpower",
+            "learnMethod": "egg"
         },
         {
             "name": "Sweet Scent",
@@ -168,7 +172,7 @@
         },
         {
             "name": "Worry Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "X-Scissor",

@@ -52,7 +52,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -76,7 +76,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
@@ -92,7 +92,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Storm",
@@ -140,7 +140,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
@@ -176,7 +176,7 @@
         },
         {
             "name": "Synthesis",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Take Down",
@@ -196,7 +196,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

@@ -61,7 +61,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
@@ -85,7 +85,7 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ice Shard",
@@ -133,7 +133,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Powder Snow",
@@ -157,7 +157,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sheer Cold",
@@ -165,7 +165,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -205,7 +205,7 @@
         },
         {
             "name": "Water Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Weather Ball",

@@ -2,7 +2,7 @@
     "name": "Calyrex-Ice",
     "abilities": [
         {
-            "name": "As One Glastrier",
+            "name": "As One (Glastrier)",
             "hidden": false
         }
     ],
@@ -22,10 +22,6 @@
         {
             "name": "Agility",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Aromatherapy",
-            "learnMethod": "level-up"
         },
         {
             "name": "Avalanche",
@@ -124,6 +120,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Growth",
             "learnMethod": "level-up"
         },
@@ -140,6 +140,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },
@@ -152,6 +156,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Icicle Spear",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Icy Wind",
             "learnMethod": "machine"
         },
@@ -162,6 +170,10 @@
         {
             "name": "Iron Defense",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Storm",
@@ -220,11 +232,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
+            "name": "Psychic",
+            "learnMethod": "level-up"
         },
         {
-            "name": "Psychic",
+            "name": "Psychic Terrain",
             "learnMethod": "level-up"
         },
         {
@@ -237,6 +249,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -270,6 +286,10 @@
         {
             "name": "Solar Beam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
         },
         {
             "name": "Stomp",
@@ -332,11 +352,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

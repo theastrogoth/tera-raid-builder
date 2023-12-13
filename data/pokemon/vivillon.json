@@ -69,7 +69,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -81,7 +81,7 @@
         },
         {
             "name": "Harden",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Hurricane",
@@ -93,7 +93,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -157,7 +157,7 @@
         },
         {
             "name": "String Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Struggle Bug",
@@ -185,11 +185,11 @@
         },
         {
             "name": "Tackle",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Tailwind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",
@@ -200,7 +200,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

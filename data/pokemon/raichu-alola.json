@@ -36,11 +36,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
-            "learnMethod": "machine"
+            "name": "Celebrate",
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
@@ -49,6 +53,10 @@
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Disarming Voice",
             "learnMethod": "machine"
         },
         {
@@ -77,7 +85,7 @@
         },
         {
             "name": "Encore",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -88,12 +96,28 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Fake Out",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Fake Tears",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Feint",
             "learnMethod": "level-up"
         },
         {
+            "name": "Flail",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Fling",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Fly",
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Focus Blast",
@@ -117,7 +141,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -152,16 +176,20 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Protect",
-            "learnMethod": "machine"
+            "name": "Present",
+            "learnMethod": "egg"
         },
         {
-            "name": "Psychic Terrain",
+            "name": "Protect",
             "learnMethod": "machine"
         },
         {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -236,8 +264,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Shock",
@@ -252,8 +284,8 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "level-up"
+            "name": "Tickle",
+            "learnMethod": "egg"
         },
         {
             "name": "Trailblaze",
@@ -264,8 +296,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Volt Tackle",
+            "learnMethod": "prior-evo"
+        },
+        {
             "name": "Wild Charge",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Wish",
+            "learnMethod": "egg"
         }
     ]
 }

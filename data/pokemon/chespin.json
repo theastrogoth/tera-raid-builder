@@ -60,7 +60,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -84,7 +84,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
@@ -92,7 +92,7 @@
         },
         {
             "name": "Grass Pledge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grassy Glide",
@@ -108,11 +108,11 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Storm",
@@ -124,7 +124,7 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Magical Leaf",
@@ -208,7 +208,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
@@ -220,7 +220,7 @@
         },
         {
             "name": "Super Fang",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swift",
@@ -228,7 +228,7 @@
         },
         {
             "name": "Synthesis",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Take Down",
@@ -240,7 +240,7 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",
@@ -260,7 +260,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

@@ -32,7 +32,7 @@
         },
         {
             "name": "Acid Armor",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Acid Spray",
@@ -76,7 +76,7 @@
         },
         {
             "name": "Draco Meteor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Breath",
@@ -116,7 +116,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flail",
@@ -139,10 +139,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Gyro Ball",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Hydro Pump",
             "learnMethod": "machine"
         },
@@ -159,10 +155,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Lash Out",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Life Dew",
             "learnMethod": "egg"
         },
@@ -176,7 +168,7 @@
         },
         {
             "name": "Outrage",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Tail",
@@ -216,7 +208,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
@@ -247,11 +239,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {

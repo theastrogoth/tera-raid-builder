@@ -2,12 +2,8 @@
     "name": "Pikachu-Belle",
     "abilities": [
         {
-            "name": "Static",
-            "hidden": false
-        },
-        {
             "name": "Lightning Rod",
-            "hidden": true
+            "hidden": false
         }
     ],
     "types": [

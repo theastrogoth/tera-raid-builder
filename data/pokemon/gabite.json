@@ -53,7 +53,7 @@
         },
         {
             "name": "Draco Meteor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Breath",
@@ -65,7 +65,7 @@
         },
         {
             "name": "Dragon Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Rush",
@@ -77,7 +77,7 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Metal Claw",
@@ -125,7 +125,7 @@
         },
         {
             "name": "Outrage",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Power Gem",
@@ -181,11 +181,11 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -201,7 +201,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",
@@ -229,7 +229,7 @@
         },
         {
             "name": "Twister",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         }
     ]
 }

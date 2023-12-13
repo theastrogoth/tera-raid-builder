@@ -23,6 +23,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Bullet Seed",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charm",
             "learnMethod": "machine"
         },
@@ -247,7 +251,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

@@ -37,7 +37,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -61,7 +61,7 @@
         },
         {
             "name": "Bullet Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Close Combat",
@@ -77,7 +77,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Earthquake",
@@ -97,7 +97,7 @@
         },
         {
             "name": "Feint",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Flail",
@@ -129,7 +129,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "High Horsepower",
@@ -145,7 +145,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -157,7 +157,7 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Lunge",
@@ -169,7 +169,7 @@
         },
         {
             "name": "Night Slash",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Pin Missile",
@@ -193,7 +193,7 @@
         },
         {
             "name": "Reversal",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Blast",
@@ -201,7 +201,7 @@
         },
         {
             "name": "Rock Slide",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
@@ -209,7 +209,7 @@
         },
         {
             "name": "Seismic Toss",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Shadow Claw",
@@ -217,7 +217,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smack Down",
@@ -241,7 +241,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -257,7 +257,7 @@
         },
         {
             "name": "Take Down",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

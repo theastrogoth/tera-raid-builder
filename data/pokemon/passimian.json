@@ -68,7 +68,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -116,7 +116,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Gyro Ball",
@@ -128,11 +128,11 @@
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -188,7 +188,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Seismic Toss",
@@ -243,7 +243,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

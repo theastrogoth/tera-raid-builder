@@ -36,7 +36,7 @@
         },
         {
             "name": "Amnesia",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Assurance",
@@ -48,6 +48,10 @@
         },
         {
             "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Burning Jealousy",
             "learnMethod": "machine"
         },
         {
@@ -63,8 +67,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Covet",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -91,8 +99,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Flail",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Flatter",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fury Swipes",
@@ -108,7 +124,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -120,11 +136,15 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hypnosis",
+            "learnMethod": "egg"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -145,6 +165,10 @@
         {
             "name": "Night Slash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Parting Shot",
+            "learnMethod": "egg"
         },
         {
             "name": "Pay Day",
@@ -188,7 +212,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Ball",
@@ -200,6 +224,10 @@
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {
@@ -220,7 +248,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Switcheroo",
@@ -243,11 +271,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
@@ -259,7 +287,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         }
     ]

@@ -45,7 +45,7 @@
         },
         {
             "name": "Breaking Swipe",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Brick Break",
@@ -169,7 +169,7 @@
         },
         {
             "name": "Jaw Lock",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Knock Off",
@@ -217,7 +217,7 @@
         },
         {
             "name": "Scale Shot",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Scary Face",
@@ -249,7 +249,7 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Tailwind",
@@ -276,7 +276,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

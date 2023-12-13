@@ -181,7 +181,7 @@
         },
         {
             "name": "Rain Dance",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Razor Leaf",

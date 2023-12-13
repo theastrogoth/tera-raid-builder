@@ -204,12 +204,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Toxic",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic Spikes",
+            "learnMethod": "level-up"
         },
         {
             "name": "Venoshock",

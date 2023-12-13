@@ -2,7 +2,7 @@
     "name": "Regidrago",
     "abilities": [
         {
-            "name": "Dragons Maw",
+            "name": "Dragon's Maw",
             "hidden": false
         }
     ],
@@ -36,7 +36,7 @@
         },
         {
             "name": "Draco Meteor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Breath",
@@ -160,6 +160,10 @@
         },
         {
             "name": "Twister",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Vise Grip",
             "learnMethod": "level-up"
         }
     ]

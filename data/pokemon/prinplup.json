@@ -52,7 +52,7 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Chilling Water",
@@ -137,6 +137,10 @@
         {
             "name": "Peck",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Pound",
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Power Trip",

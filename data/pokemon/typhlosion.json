@@ -28,11 +28,11 @@
         },
         {
             "name": "Blast Burn",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -48,11 +48,11 @@
         },
         {
             "name": "Covet",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Curse",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Defense Curl",
@@ -80,7 +80,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Eruption",
@@ -104,11 +104,11 @@
         },
         {
             "name": "Fire Pledge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fire Spin",
@@ -152,7 +152,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -184,7 +184,7 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Overheat",
@@ -216,7 +216,7 @@
         },
         {
             "name": "Rock Slide",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
@@ -236,7 +236,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smokescreen",
@@ -247,16 +247,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Spite",
+            "name": "Stomping Tantrum",
             "learnMethod": "machine"
         },
         {
-            "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -280,7 +276,7 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

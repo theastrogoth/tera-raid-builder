@@ -75,6 +75,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Headbutt",
+            "learnMethod": "event"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "machine"
         },

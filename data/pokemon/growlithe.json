@@ -36,7 +36,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Charm",
@@ -48,7 +48,7 @@
         },
         {
             "name": "Covet",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Crunch",
@@ -64,7 +64,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Ember",
@@ -72,7 +72,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -108,7 +108,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -128,7 +128,7 @@
         },
         {
             "name": "Outrage",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Overheat",
@@ -172,10 +172,6 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {
@@ -184,7 +180,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -192,7 +188,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",

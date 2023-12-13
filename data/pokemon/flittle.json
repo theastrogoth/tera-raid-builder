@@ -111,11 +111,11 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
+            "name": "Psychic",
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic",
+            "name": "Psychic Terrain",
             "learnMethod": "machine"
         },
         {
@@ -187,15 +187,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

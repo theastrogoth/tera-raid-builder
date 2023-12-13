@@ -196,15 +196,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic Fangs",
             "learnMethod": "level-up"
         },
         {
             "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
             "learnMethod": "machine"
         },
         {
@@ -269,7 +269,7 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Take Down",
@@ -277,6 +277,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
@@ -292,19 +296,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

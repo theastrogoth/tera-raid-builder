@@ -87,6 +87,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Entrainment",
+            "learnMethod": "prior-evo"
+        },
+        {
             "name": "Extrasensory",
             "learnMethod": "level-up"
         },
@@ -145,6 +149,10 @@
         {
             "name": "Knock Off",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Last Resort",
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Light Screen",
@@ -239,11 +247,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

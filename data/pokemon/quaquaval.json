@@ -81,7 +81,7 @@
         },
         {
             "name": "Counter",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Detect",
@@ -248,7 +248,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

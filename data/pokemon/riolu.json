@@ -88,7 +88,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -140,11 +140,11 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Low Sweep",
@@ -156,7 +156,7 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",
@@ -208,7 +208,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
@@ -220,7 +220,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",
@@ -236,7 +236,7 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",
@@ -252,7 +252,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

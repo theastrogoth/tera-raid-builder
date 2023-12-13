@@ -93,7 +93,7 @@
         },
         {
             "name": "Gravity",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Gyro Ball",
@@ -133,7 +133,7 @@
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -164,11 +164,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic Terrain",
+            "name": "Psychic",
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic",
+            "name": "Psychic Terrain",
             "learnMethod": "machine"
         },
         {
@@ -181,7 +181,7 @@
         },
         {
             "name": "Recycle",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Reflect",
@@ -217,11 +217,11 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
@@ -229,11 +229,11 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Steel Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
@@ -264,12 +264,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
+            "name": "Trick Room",
+            "learnMethod": "machine"
         },
         {
             "name": "Weather Ball",
@@ -277,7 +277,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

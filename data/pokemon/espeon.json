@@ -36,7 +36,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Calm Mind",
@@ -64,7 +64,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Dazzling Gleam",
@@ -72,7 +72,7 @@
         },
         {
             "name": "Detect",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Dig",
@@ -80,7 +80,7 @@
         },
         {
             "name": "Double Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Double-Edge",
@@ -92,7 +92,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -136,7 +136,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -160,7 +160,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Power Gem",
@@ -183,16 +183,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Psychic",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Psychic Fangs",
             "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
-            "learnMethod": "level-up"
         },
         {
             "name": "Psyshock",
@@ -228,11 +228,11 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -240,7 +240,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -279,12 +279,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
+            "name": "Trick Room",
+            "learnMethod": "machine"
         },
         {
             "name": "Weather Ball",
@@ -300,7 +300,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

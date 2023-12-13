@@ -1,17 +1,9 @@
 {
-    "name": "Kommo-O-Totem",
+    "name": "Kommo-o-Totem",
     "abilities": [
         {
-            "name": "Bulletproof",
-            "hidden": false
-        },
-        {
-            "name": "Soundproof",
-            "hidden": false
-        },
-        {
             "name": "Overcoat",
-            "hidden": true
+            "hidden": false
         }
     ],
     "types": [

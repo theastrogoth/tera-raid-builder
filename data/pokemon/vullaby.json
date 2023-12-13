@@ -29,7 +29,7 @@
     "moves": [
         {
             "name": "Air Cutter",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Air Slash",
@@ -53,19 +53,19 @@
         },
         {
             "name": "Dual Wingbeat",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fake Tears",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flatter",
@@ -73,11 +73,11 @@
         },
         {
             "name": "Fly",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Gust",
@@ -85,7 +85,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Defense",
@@ -97,7 +97,7 @@
         },
         {
             "name": "Lash Out",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -117,19 +117,19 @@
         },
         {
             "name": "Protect",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rain Dance",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rest",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Roost",
@@ -137,35 +137,35 @@
         },
         {
             "name": "Scary Face",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Ball",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snarl",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spite",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tailwind",
@@ -173,31 +173,31 @@
         },
         {
             "name": "Take Down",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Taunt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thief",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
-            "learnMethod": "level-up"
+            "name": "U-turn",
+            "learnMethod": "machine"
         },
         {
             "name": "Uproar",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Whirlwind",

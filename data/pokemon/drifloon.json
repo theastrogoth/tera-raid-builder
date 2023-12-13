@@ -37,11 +37,11 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Amnesia",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Astonish",
@@ -61,7 +61,7 @@
         },
         {
             "name": "Defog",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Destiny Bond",
@@ -117,7 +117,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -177,11 +177,11 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spit Up",
@@ -213,7 +213,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tailwind",
@@ -228,11 +228,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
@@ -240,12 +240,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
+            "name": "Trick Room",
+            "learnMethod": "machine"
         },
         {
             "name": "Weather Ball",

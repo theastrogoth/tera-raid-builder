@@ -27,11 +27,11 @@
     },
     "moves": [
         {
-            "name": "Acid Spray",
+            "name": "Acid",
             "learnMethod": "level-up"
         },
         {
-            "name": "Acid",
+            "name": "Acid Spray",
             "learnMethod": "level-up"
         },
         {
@@ -231,11 +231,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Toxic",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {

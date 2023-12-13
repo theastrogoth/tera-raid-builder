@@ -71,6 +71,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Head Smash",
             "learnMethod": "level-up"
         },
@@ -120,6 +124,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {

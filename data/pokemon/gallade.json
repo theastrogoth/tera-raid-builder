@@ -49,7 +49,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -109,7 +109,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Draining Kiss",
@@ -129,7 +129,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
@@ -149,7 +149,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -201,7 +201,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hypnosis",
@@ -209,11 +209,11 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -241,7 +241,7 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Low Sweep",
@@ -249,7 +249,7 @@
         },
         {
             "name": "Magical Leaf",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mean Look",
@@ -292,12 +292,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psycho Cut",
@@ -353,7 +353,7 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Slash",
@@ -361,7 +361,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Blade",
@@ -373,11 +373,11 @@
         },
         {
             "name": "Stored Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -385,7 +385,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",
@@ -413,23 +413,23 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
+            "name": "Trick Room",
+            "learnMethod": "machine"
         },
         {
             "name": "Vacuum Wave",
@@ -449,7 +449,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

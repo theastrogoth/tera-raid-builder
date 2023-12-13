@@ -32,7 +32,7 @@
         },
         {
             "name": "Baby-Doll Eyes",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Bite",
@@ -43,12 +43,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Charge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Confuse Ray",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Howl",
@@ -160,11 +160,11 @@
         },
         {
             "name": "Shock Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snarl",
@@ -188,7 +188,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tackle",
@@ -207,8 +207,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Fang",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Shock",
@@ -217,10 +221,6 @@
         {
             "name": "Thunder Wave",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder",
-            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",

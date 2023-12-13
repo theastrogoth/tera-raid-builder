@@ -33,7 +33,7 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Air Slash",
@@ -94,6 +94,10 @@
         {
             "name": "Hyper Beam",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Hypnosis",
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Leech Life",
@@ -200,7 +204,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "level-up"
         },
         {
@@ -210,6 +214,10 @@
         {
             "name": "Whirlwind",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Wing Attack",
+            "learnMethod": "prior-evo"
         }
     ]
 }

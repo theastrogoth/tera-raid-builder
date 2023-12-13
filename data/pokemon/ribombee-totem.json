@@ -2,16 +2,8 @@
     "name": "Ribombee-Totem",
     "abilities": [
         {
-            "name": "Honey Gather",
-            "hidden": false
-        },
-        {
-            "name": "Shield Dust",
-            "hidden": false
-        },
-        {
             "name": "Sweet Veil",
-            "hidden": true
+            "hidden": false
         }
     ],
     "types": [

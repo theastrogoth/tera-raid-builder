@@ -160,7 +160,7 @@
         },
         {
             "name": "Steel Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomp",

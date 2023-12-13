@@ -121,7 +121,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Giga Impact",
@@ -178,6 +178,10 @@
         {
             "name": "Leaf Storm",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Leech Seed",
+            "learnMethod": "level-up"
         },
         {
             "name": "Magical Leaf",

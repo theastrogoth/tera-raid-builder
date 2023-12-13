@@ -32,7 +32,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bullet Seed",
@@ -44,11 +44,11 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
@@ -92,7 +92,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leech Seed",
@@ -132,7 +132,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -152,7 +152,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -184,7 +184,7 @@
         },
         {
             "name": "Worry Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Zen Headbutt",

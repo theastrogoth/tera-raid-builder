@@ -36,11 +36,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
+            "name": "Charge",
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
+            "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
@@ -65,15 +65,15 @@
         },
         {
             "name": "Electroweb",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Explosion",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Facade",
@@ -109,11 +109,11 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -165,7 +165,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spark",
@@ -173,11 +173,11 @@
         },
         {
             "name": "Steel Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -189,7 +189,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tackle",
@@ -204,6 +204,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Shock",
             "learnMethod": "level-up"
         },
@@ -213,11 +217,7 @@
         },
         {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tri Attack",

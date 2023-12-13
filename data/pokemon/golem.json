@@ -196,6 +196,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Rollout",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Sandstorm",
             "learnMethod": "machine"
         },

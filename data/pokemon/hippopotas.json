@@ -60,7 +60,7 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -140,7 +140,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spit Up",
@@ -148,7 +148,7 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stockpile",
@@ -156,7 +156,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",

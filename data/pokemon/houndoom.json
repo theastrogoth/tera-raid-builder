@@ -37,7 +37,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Burning Jealousy",
@@ -49,7 +49,7 @@
         },
         {
             "name": "Counter",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Crunch",
@@ -57,7 +57,7 @@
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Destiny Bond",
@@ -69,7 +69,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -129,7 +129,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Incinerate",
@@ -153,7 +153,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Nasty Plot",
@@ -197,7 +197,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -217,15 +217,15 @@
         },
         {
             "name": "Spite",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sucker Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Sunny Day",

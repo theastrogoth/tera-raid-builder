@@ -40,7 +40,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Confuse Ray",
@@ -48,7 +48,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Dig",
@@ -64,7 +64,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -76,19 +76,19 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Gunk Shot",
@@ -112,14 +112,10 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Imprison",
             "learnMethod": "machine"
         },
         {
-            "name": "Knock Off",
+            "name": "Imprison",
             "learnMethod": "machine"
         },
         {
@@ -204,6 +200,10 @@
         },
         {
             "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge",
             "learnMethod": "level-up"
         },
         {
@@ -215,16 +215,8 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Sludge",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Spit Up",
             "learnMethod": "egg"
-        },
-        {
-            "name": "Spite",
-            "learnMethod": "machine"
         },
         {
             "name": "Stockpile",
@@ -232,7 +224,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -259,16 +251,16 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Thunder",
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic",

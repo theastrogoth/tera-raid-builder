@@ -36,7 +36,7 @@
         },
         {
             "name": "Aurora Veil",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Avalanche",
@@ -68,7 +68,7 @@
         },
         {
             "name": "Explosion",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Facade",
@@ -84,7 +84,7 @@
         },
         {
             "name": "Frost Breath",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Giga Impact",
@@ -120,7 +120,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -176,7 +176,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -200,7 +200,7 @@
         },
         {
             "name": "Water Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

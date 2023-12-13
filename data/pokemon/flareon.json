@@ -36,7 +36,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Burning Jealousy",
@@ -60,11 +60,11 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Detect",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Dig",
@@ -72,7 +72,7 @@
         },
         {
             "name": "Double Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Double-Edge",
@@ -84,7 +84,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Fire Blast",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fire Fang",
@@ -111,8 +111,12 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Flame Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Flamethrower",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flare Blitz",
@@ -128,7 +132,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -140,7 +144,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Last Resort",
@@ -152,7 +156,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Overheat",
@@ -192,7 +196,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smog",
@@ -204,7 +208,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",

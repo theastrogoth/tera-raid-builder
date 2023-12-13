@@ -77,7 +77,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Last Resort",
@@ -93,7 +93,7 @@
         },
         {
             "name": "Magnet Rise",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Metal Sound",
@@ -145,11 +145,11 @@
         },
         {
             "name": "Spikes",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Steel Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",

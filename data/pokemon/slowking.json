@@ -49,11 +49,11 @@
         },
         {
             "name": "Block",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -73,7 +73,7 @@
         },
         {
             "name": "Chilly Reception",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Confusion",
@@ -93,7 +93,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -101,7 +101,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -117,7 +117,7 @@
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -133,11 +133,11 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Future Sight",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Giga Impact",
@@ -173,15 +173,15 @@
         },
         {
             "name": "Ice Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -189,7 +189,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -228,12 +228,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -249,7 +249,7 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Slide",
@@ -269,7 +269,7 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Slack Off",
@@ -277,7 +277,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -293,7 +293,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -309,7 +309,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tackle",
@@ -329,19 +329,15 @@
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
             "name": "Trick Room",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Trick",
-            "learnMethod": "level-up"
         },
         {
             "name": "Water Gun",

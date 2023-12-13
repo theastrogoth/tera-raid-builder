@@ -32,7 +32,7 @@
         },
         {
             "name": "Aqua Tail",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Assurance",
@@ -76,7 +76,7 @@
         },
         {
             "name": "Draco Meteor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Claw",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -152,7 +152,7 @@
         },
         {
             "name": "Iron Tail",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Leer",
@@ -160,7 +160,7 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Low Sweep",
@@ -228,7 +228,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snarl",
@@ -236,7 +236,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",

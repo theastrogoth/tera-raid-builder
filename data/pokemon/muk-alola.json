@@ -10,7 +10,7 @@
             "hidden": false
         },
         {
-            "name": "Power Of Alchemy",
+            "name": "Power of Alchemy",
             "hidden": true
         }
     ],
@@ -36,6 +36,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Assurance",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Belch",
             "learnMethod": "level-up"
         },
@@ -52,8 +56,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Clear Smog",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "egg"
         },
         {
             "name": "Dark Pulse",
@@ -85,7 +97,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flamethrower",
@@ -93,7 +105,7 @@
         },
         {
             "name": "Fling",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Focus Blast",
@@ -105,7 +117,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -137,7 +149,7 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -150,6 +162,10 @@
         {
             "name": "Lash Out",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Mean Look",
+            "learnMethod": "egg"
         },
         {
             "name": "Memento",
@@ -196,6 +212,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Recycle",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Rest",
             "learnMethod": "machine"
         },
@@ -224,20 +244,32 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Shadow Sneak",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snarl",
             "learnMethod": "machine"
         },
         {
+            "name": "Spit Up",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Spite",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Stockpile",
+            "learnMethod": "egg"
         },
         {
             "name": "Stone Edge",
@@ -250,6 +282,10 @@
         {
             "name": "Sunny Day",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Swallow",
+            "learnMethod": "egg"
         },
         {
             "name": "Swift",
@@ -272,11 +308,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {

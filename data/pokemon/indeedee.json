@@ -136,11 +136,11 @@
             "learnMethod": "egg"
         },
         {
-            "name": "Psychic Terrain",
+            "name": "Psychic",
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic",
+            "name": "Psychic Terrain",
             "learnMethod": "level-up"
         },
         {
@@ -184,11 +184,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {

@@ -4,10 +4,6 @@
         {
             "name": "Water Bubble",
             "hidden": false
-        },
-        {
-            "name": "Water Absorb",
-            "hidden": true
         }
     ],
     "types": [

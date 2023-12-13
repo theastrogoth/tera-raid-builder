@@ -104,7 +104,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hydro Pump",
@@ -116,7 +116,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -160,7 +160,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -216,7 +216,7 @@
         },
         {
             "name": "Water Pledge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Water Pulse",

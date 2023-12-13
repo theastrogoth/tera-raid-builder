@@ -31,12 +31,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Charge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Chilling Water",
@@ -143,15 +143,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Shock",
             "learnMethod": "level-up"
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

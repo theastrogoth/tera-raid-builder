@@ -57,11 +57,11 @@
         },
         {
             "name": "Defog",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Double Team",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Dual Wingbeat",
@@ -89,7 +89,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
@@ -97,7 +97,7 @@
         },
         {
             "name": "Grass Pledge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grassy Glide",
@@ -177,11 +177,11 @@
         },
         {
             "name": "Roost",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Claw",

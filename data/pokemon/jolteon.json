@@ -40,7 +40,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Calm Mind",
@@ -64,11 +64,11 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Detect",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Dig",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -136,7 +136,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Last Resort",
@@ -148,7 +148,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Pin Missile",
@@ -184,7 +184,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -192,7 +192,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -219,6 +219,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Thunder Fang",
             "learnMethod": "level-up"
         },
@@ -232,11 +236,7 @@
         },
         {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tickle",

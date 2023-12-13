@@ -25,7 +25,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -41,7 +41,7 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Heavy Slam",
@@ -137,7 +137,7 @@
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mist",
@@ -217,7 +217,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",

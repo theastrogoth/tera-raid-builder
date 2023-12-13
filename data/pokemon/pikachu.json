@@ -28,18 +28,22 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
-            "learnMethod": "machine"
+            "name": "Celebrate",
+            "learnMethod": "event"
         },
         {
             "name": "Charge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {
@@ -84,7 +88,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -111,6 +115,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Fly",
+            "learnMethod": "event"
+        },
+        {
             "name": "Focus Punch",
             "learnMethod": "machine"
         },
@@ -124,7 +132,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Tail",
@@ -184,7 +192,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spark",
@@ -192,7 +200,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Surf",
@@ -204,7 +212,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tail Whip",
@@ -223,8 +231,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Shock",
@@ -236,10 +248,6 @@
         },
         {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder",
             "learnMethod": "level-up"
         },
         {
@@ -255,8 +263,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Volt Tackle",
+            "learnMethod": "prior-evo"
+        },
+        {
             "name": "Wild Charge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Wish",

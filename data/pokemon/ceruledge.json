@@ -149,7 +149,7 @@
         },
         {
             "name": "Night Slash",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Overheat",
@@ -177,7 +177,7 @@
         },
         {
             "name": "Quick Guard",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Reflect",
@@ -197,7 +197,7 @@
         },
         {
             "name": "Shadow Sneak",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Sleep Talk",
@@ -205,7 +205,7 @@
         },
         {
             "name": "Solar Blade",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Spite",

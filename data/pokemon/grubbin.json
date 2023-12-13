@@ -31,11 +31,11 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Charge Beam",
+            "name": "Charge",
             "learnMethod": "machine"
         },
         {
-            "name": "Charge",
+            "name": "Charge Beam",
             "learnMethod": "machine"
         },
         {

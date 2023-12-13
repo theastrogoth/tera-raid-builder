@@ -25,7 +25,7 @@
     "moves": [
         {
             "name": "Ally Switch",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Body Slam",
@@ -73,7 +73,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -97,7 +97,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -121,7 +121,7 @@
         },
         {
             "name": "Pain Split",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Payback",
@@ -181,7 +181,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smokescreen",
@@ -228,12 +228,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
+            "name": "Trick Room",
+            "learnMethod": "machine"
         },
         {
             "name": "Will-O-Wisp",

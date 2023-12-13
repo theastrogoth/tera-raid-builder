@@ -36,11 +36,11 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Charge Beam",
+            "name": "Charge",
             "learnMethod": "level-up"
         },
         {
-            "name": "Charge",
+            "name": "Charge Beam",
             "learnMethod": "level-up"
         },
         {
@@ -81,6 +81,10 @@
         },
         {
             "name": "Grass Knot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Grassy Glide",
             "learnMethod": "machine"
         },
         {
@@ -176,15 +180,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Shock",
             "learnMethod": "level-up"
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

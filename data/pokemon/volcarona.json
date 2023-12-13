@@ -25,7 +25,7 @@
     "moves": [
         {
             "name": "Absorb",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Acrobatics",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -197,7 +197,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
@@ -221,7 +221,7 @@
         },
         {
             "name": "Tailwind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -233,14 +233,14 @@
         },
         {
             "name": "Thrash",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Trailblaze",
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {
@@ -257,7 +257,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

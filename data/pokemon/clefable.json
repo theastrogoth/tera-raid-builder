@@ -343,15 +343,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Thunder",
             "learnMethod": "machine"
         },
         {

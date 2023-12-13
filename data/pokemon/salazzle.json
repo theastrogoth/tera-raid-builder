@@ -64,6 +64,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dragon Tail",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Ember",
             "learnMethod": "level-up"
         },
@@ -104,6 +108,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Flame Charge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Flamethrower",
             "learnMethod": "level-up"
         },
@@ -117,7 +125,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -125,15 +133,15 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -272,12 +280,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

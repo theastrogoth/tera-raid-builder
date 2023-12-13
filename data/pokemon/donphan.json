@@ -24,7 +24,7 @@
     "moves": [
         {
             "name": "Ancient Power",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Assurance",
@@ -36,7 +36,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bulldoze",
@@ -48,7 +48,7 @@
         },
         {
             "name": "Counter",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Defense Curl",
@@ -60,11 +60,11 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -76,7 +76,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Flail",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Focus Energy",
@@ -116,7 +116,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Gyro Ball",
@@ -148,7 +148,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ice Fang",
@@ -164,7 +164,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
@@ -176,7 +176,7 @@
         },
         {
             "name": "Last Resort",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Mud Shot",
@@ -184,7 +184,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Play Rough",
@@ -216,7 +216,7 @@
         },
         {
             "name": "Rock Slide",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
@@ -240,7 +240,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Slam",
@@ -248,7 +248,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smack Down",
@@ -260,11 +260,11 @@
         },
         {
             "name": "Snore",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
@@ -276,7 +276,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -284,7 +284,7 @@
         },
         {
             "name": "Tackle",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Take Down",

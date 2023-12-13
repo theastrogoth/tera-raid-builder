@@ -63,6 +63,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Ember",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Encore",
             "learnMethod": "machine"
         },
@@ -205,6 +209,10 @@
         {
             "name": "Tail Whip",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

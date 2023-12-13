@@ -27,6 +27,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Aqua Jet",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Aqua Ring",
             "learnMethod": "level-up"
         },
@@ -52,7 +56,11 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Entrainment",
+            "learnMethod": "egg"
         },
         {
             "name": "Facade",
@@ -76,11 +84,11 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -104,7 +112,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -115,8 +123,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Splash",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supersonic",
+            "learnMethod": "egg"
         },
         {
             "name": "Surf",

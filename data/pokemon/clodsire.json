@@ -33,7 +33,7 @@
         },
         {
             "name": "After You",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Amnesia",
@@ -41,19 +41,7 @@
         },
         {
             "name": "Ancient Power",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Aqua Tail",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Avalanche",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Blizzard",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Body Press",
@@ -61,7 +49,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bulldoze",
@@ -77,7 +65,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Dig",
@@ -89,19 +77,15 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
             "learnMethod": "level-up"
         },
         {
-            "name": "Encore",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -117,7 +101,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Heavy Slam",
@@ -140,14 +124,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Ice Beam",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Icy Wind",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Iron Head",
             "learnMethod": "machine"
         },
@@ -165,7 +141,7 @@
         },
         {
             "name": "Mist",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Mud Shot",
@@ -173,11 +149,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Muddy Water",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",
@@ -197,7 +169,7 @@
         },
         {
             "name": "Rain Dance",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Recover",
@@ -225,7 +197,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -234,10 +206,6 @@
         {
             "name": "Sludge Wave",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Snowscape",
-            "learnMethod": "machine"
         },
         {
             "name": "Spikes",
@@ -257,7 +225,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -265,7 +233,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Surf",
@@ -274,6 +242,10 @@
         {
             "name": "Swallow",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Tail Whip",
@@ -288,11 +260,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
+            "name": "Toxic",
             "learnMethod": "level-up"
         },
         {
-            "name": "Toxic",
+            "name": "Toxic Spikes",
             "learnMethod": "level-up"
         },
         {
@@ -304,12 +276,8 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Water Gun",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Water Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Waterfall",

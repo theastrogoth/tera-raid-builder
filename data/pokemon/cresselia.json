@@ -12,9 +12,9 @@
     "stats": {
         "hp": 120,
         "atk": 70,
-        "def": 120,
+        "def": 110,
         "spa": 75,
-        "spd": 130,
+        "spd": 120,
         "spe": 85
     },
     "moves": [
@@ -84,7 +84,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -124,7 +124,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Power Gem",
@@ -139,12 +139,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psycho Cut",
@@ -180,7 +180,7 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Slash",
@@ -188,7 +188,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
@@ -208,14 +208,10 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Tera Blast",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Tera Blast",
             "learnMethod": "machine"
         },
         {
@@ -223,7 +219,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
@@ -231,12 +235,8 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

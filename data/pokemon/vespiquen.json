@@ -53,7 +53,7 @@
         },
         {
             "name": "Bug Buzz",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Confuse Ray",
@@ -169,7 +169,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -205,7 +205,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -224,15 +224,15 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic",
             "learnMethod": "level-up"
         },
         {
-            "name": "U-Turn",
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

@@ -72,6 +72,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Defog",
+            "learnMethod": "prior-evo"
+        },
+        {
             "name": "Dream Eater",
             "learnMethod": "level-up"
         },

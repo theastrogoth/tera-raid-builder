@@ -36,6 +36,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Astonish",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Aura Sphere",
             "learnMethod": "machine"
         },
@@ -65,7 +69,7 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Defog",
@@ -168,6 +172,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Low Kick",
             "learnMethod": "machine"
         },
@@ -181,6 +189,10 @@
         },
         {
             "name": "Nasty Plot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Night Shade",
             "learnMethod": "machine"
         },
         {
@@ -300,7 +312,7 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "level-up"
         }
     ]

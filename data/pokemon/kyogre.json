@@ -68,7 +68,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -100,15 +100,15 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Muddy Water",
@@ -128,7 +128,7 @@
         },
         {
             "name": "Rest",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Roar",
@@ -136,7 +136,7 @@
         },
         {
             "name": "Rock Slide",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
@@ -152,11 +152,11 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Surf",
@@ -171,11 +171,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
-            "learnMethod": "level-up"
+            "name": "Thunder",
+            "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {

@@ -19,11 +19,11 @@
     },
     "moves": [
         {
-            "name": "Acid Spray",
+            "name": "Acid",
             "learnMethod": "level-up"
         },
         {
-            "name": "Acid",
+            "name": "Acid Spray",
             "learnMethod": "level-up"
         },
         {
@@ -39,12 +39,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Charge",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "level-up"
         },
         {
             "name": "Coil",
@@ -88,7 +88,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Headbutt",
@@ -124,7 +124,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spark",
@@ -140,7 +140,7 @@
         },
         {
             "name": "Tackle",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Take Down",
@@ -155,6 +155,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Fang",
             "learnMethod": "machine"
         },
@@ -163,15 +167,11 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Thunderbolt",
             "learnMethod": "level-up"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

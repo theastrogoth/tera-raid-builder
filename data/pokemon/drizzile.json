@@ -151,7 +151,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "level-up"
         },
         {
@@ -160,7 +160,7 @@
         },
         {
             "name": "Water Pledge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Water Pulse",

@@ -61,7 +61,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Drain",
@@ -125,11 +125,11 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -177,7 +177,7 @@
         },
         {
             "name": "Worry Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         }
     ]
 }

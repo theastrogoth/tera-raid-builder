@@ -29,7 +29,7 @@
     "moves": [
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Charm",
@@ -41,7 +41,7 @@
         },
         {
             "name": "Covet",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Dazzling Gleam",
@@ -73,7 +73,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -89,7 +89,7 @@
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -101,7 +101,7 @@
         },
         {
             "name": "Gravity",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Heal Pulse",
@@ -109,19 +109,19 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Last Resort",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Light Screen",
@@ -169,7 +169,7 @@
         },
         {
             "name": "Rollout",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Shadow Ball",
@@ -181,7 +181,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
@@ -189,7 +189,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -213,7 +213,7 @@
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

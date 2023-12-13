@@ -28,12 +28,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Amnesia",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Avalanche",
             "learnMethod": "machine"
         },
         {
             "name": "Blizzard",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -64,6 +72,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -74,6 +86,10 @@
         {
             "name": "Flail",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Flash Cannon",
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -100,8 +116,20 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Ice Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Ice Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Ice Shard",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Ice Spinner",
+            "learnMethod": "machine"
         },
         {
             "name": "Icicle Spear",
@@ -121,6 +149,10 @@
         },
         {
             "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leech Life",
             "learnMethod": "machine"
         },
         {
@@ -144,6 +176,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Poison Jab",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Powder Snow",
             "learnMethod": "level-up"
         },
@@ -154,6 +190,14 @@
         {
             "name": "Rapid Spin",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Slide",
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
@@ -168,12 +212,32 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Shadow Claw",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Slash",
             "learnMethod": "level-up"
         },
         {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Snowscape",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Stealth Rock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Steel Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
         },
         {
             "name": "Super Fang",
@@ -192,7 +256,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "X-Scissor",
             "learnMethod": "machine"
         }
     ]

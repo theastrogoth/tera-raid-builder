@@ -64,7 +64,7 @@
         },
         {
             "name": "Draco Meteor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Breath",
@@ -87,10 +87,6 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Gyro Ball",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Ice Beam",
             "learnMethod": "machine"
         },
@@ -108,7 +104,7 @@
         },
         {
             "name": "Outrage",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",

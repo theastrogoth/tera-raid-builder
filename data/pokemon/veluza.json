@@ -116,15 +116,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic Fangs",
             "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
-            "name": "Psychic",
             "learnMethod": "machine"
         },
         {

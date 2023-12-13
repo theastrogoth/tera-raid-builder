@@ -160,6 +160,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Liquidation",
             "learnMethod": "machine"
         },
@@ -222,6 +226,10 @@
         {
             "name": "Snowscape",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Soak",
+            "learnMethod": "level-up"
         },
         {
             "name": "Substitute",

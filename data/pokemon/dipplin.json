@@ -2,11 +2,11 @@
     "name": "Dipplin",
     "abilities": [
         {
-            "name": "Gluttony",
+            "name": "Supersweet Syrup",
             "hidden": false
         },
         {
-            "name": "Supersweet Syrup",
+            "name": "Gluttony",
             "hidden": false
         },
         {
@@ -172,7 +172,7 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Sucker PUnch",
+            "name": "Sucker Punch",
             "learnMethod": "egg"
         },
         {

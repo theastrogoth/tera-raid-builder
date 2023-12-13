@@ -72,7 +72,7 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",
@@ -108,11 +108,11 @@
         },
         {
             "name": "Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Low Kick",
@@ -148,7 +148,7 @@
         },
         {
             "name": "Rock Polish",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Rock Slide",
@@ -164,7 +164,7 @@
         },
         {
             "name": "Rollout",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Sand Tomb",
@@ -176,7 +176,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smack Down",
@@ -188,11 +188,11 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",

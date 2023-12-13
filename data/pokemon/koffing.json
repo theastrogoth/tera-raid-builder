@@ -135,11 +135,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Sludge Bomb",
+            "name": "Sludge",
             "learnMethod": "level-up"
         },
         {
-            "name": "Sludge",
+            "name": "Sludge Bomb",
             "learnMethod": "level-up"
         },
         {
@@ -203,12 +203,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
         },
         {
             "name": "Venoshock",

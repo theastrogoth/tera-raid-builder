@@ -24,7 +24,7 @@
     "moves": [
         {
             "name": "After You",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Agility",
@@ -32,19 +32,19 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Charge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Confuse Ray",
@@ -84,11 +84,11 @@
         },
         {
             "name": "Electroweb",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flatter",
@@ -156,11 +156,11 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -168,7 +168,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tackle",
@@ -183,8 +183,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Shock",
@@ -196,11 +200,7 @@
         },
         {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

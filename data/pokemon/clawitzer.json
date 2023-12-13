@@ -24,7 +24,7 @@
         },
         {
             "name": "Aqua Tail",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Aura Sphere",
@@ -44,7 +44,7 @@
         },
         {
             "name": "Bubble Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Chilling Water",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hone Claws",
@@ -120,11 +120,11 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
@@ -207,12 +207,16 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {
             "name": "Venoshock",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Vise Grip",
+            "learnMethod": "level-up"
         },
         {
             "name": "Water Gun",

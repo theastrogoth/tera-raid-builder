@@ -124,6 +124,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "High Horsepower",
+            "learnMethod": "prior-evo"
+        },
+        {
             "name": "Hyper Beam",
             "learnMethod": "machine"
         },

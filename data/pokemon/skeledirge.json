@@ -205,7 +205,7 @@
         },
         {
             "name": "Sing",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Slack Off",

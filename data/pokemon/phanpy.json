@@ -24,11 +24,11 @@
     "moves": [
         {
             "name": "Ancient Power",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bulldoze",
@@ -40,7 +40,7 @@
         },
         {
             "name": "Counter",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Defense Curl",
@@ -56,7 +56,7 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -68,7 +68,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Head Smash",
@@ -116,7 +116,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ice Shard",
@@ -140,7 +140,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Play Rough",
@@ -184,7 +184,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Slam",
@@ -192,7 +192,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smack Down",
@@ -200,11 +200,11 @@
         },
         {
             "name": "Snore",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
@@ -216,7 +216,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",

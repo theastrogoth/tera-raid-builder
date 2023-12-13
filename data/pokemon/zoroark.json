@@ -60,7 +60,7 @@
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Detect",
@@ -103,10 +103,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Focus Punch",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Foul Play",
             "learnMethod": "level-up"
         },
@@ -140,7 +136,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Imprison",
@@ -160,7 +156,7 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Low Sweep",
@@ -185,10 +181,6 @@
         {
             "name": "Night Slash",
             "learnMethod": "level-up"
-        },
-        {
-            "name": "Poltergeist",
-            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -228,7 +220,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -288,10 +280,10 @@
         },
         {
             "name": "Trick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "level-up"
         }
     ]

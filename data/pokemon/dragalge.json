@@ -28,16 +28,16 @@
     },
     "moves": [
         {
+            "name": "Acid",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Acid Armor",
             "learnMethod": "egg"
         },
         {
             "name": "Acid Spray",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Acid",
-            "learnMethod": "level-up"
         },
         {
             "name": "Aqua Tail",
@@ -53,7 +53,7 @@
         },
         {
             "name": "Draco Meteor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Pulse",
@@ -61,7 +61,7 @@
         },
         {
             "name": "Dragon Tail",
-            "learnMethod": "machine"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Endure",
@@ -85,7 +85,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Haze",
@@ -101,7 +101,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
@@ -212,12 +212,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
         },
         {
             "name": "Twister",

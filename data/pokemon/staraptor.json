@@ -37,7 +37,7 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Air Slash",
@@ -105,7 +105,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -141,7 +141,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Struggle Bug",
@@ -157,7 +157,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tackle",
@@ -165,7 +165,7 @@
         },
         {
             "name": "Tailwind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -180,12 +180,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {
             "name": "Uproar",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Whirlwind",

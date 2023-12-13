@@ -1,0 +1,23 @@
+{
+    "name": "MissingNo.",
+    "abilities": [
+        {
+            "name": "",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "bird",
+        "normal"
+    ],
+    "stats": {
+        "hp": 33,
+        "atk": 136,
+        "def": 0,
+        "spa": 6,
+        "spd": 6,
+        "spe": 29
+    },
+    "moves": [
+    ]
+}

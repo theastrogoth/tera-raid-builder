@@ -65,7 +65,7 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Encore",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -121,7 +121,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -165,7 +165,7 @@
         },
         {
             "name": "Reflect",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rest",
@@ -249,7 +249,7 @@
         },
         {
             "name": "Trick Room",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

@@ -36,7 +36,7 @@
         },
         {
             "name": "Baby-Doll Eyes",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Belly Drum",
@@ -44,7 +44,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -68,7 +68,7 @@
         },
         {
             "name": "Counter",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Covet",
@@ -88,7 +88,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Earthquake",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -108,7 +108,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -120,7 +120,7 @@
         },
         {
             "name": "Fury Cutter",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Fury Swipes",
@@ -132,7 +132,7 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hammer Arm",
@@ -152,11 +152,11 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -168,7 +168,7 @@
         },
         {
             "name": "Low Kick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Metal Claw",
@@ -176,7 +176,7 @@
         },
         {
             "name": "Metronome",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Night Slash",
@@ -208,7 +208,7 @@
         },
         {
             "name": "Rock Slide",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Tomb",
@@ -224,11 +224,11 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Seismic Toss",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Shadow Claw",
@@ -240,7 +240,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smack Down",
@@ -252,7 +252,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -260,7 +260,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",
@@ -272,11 +272,11 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -300,7 +300,7 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

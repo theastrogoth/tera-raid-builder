@@ -32,12 +32,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
+            "name": "Charge",
             "learnMethod": "level-up"
         },
         {
-            "name": "Charge",
-            "learnMethod": "level-up"
+            "name": "Charge Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Charm",
@@ -45,7 +45,7 @@
         },
         {
             "name": "Covet",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Dazzling Gleam",
@@ -101,7 +101,7 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Magnet Rise",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Misty Terrain",
@@ -196,8 +196,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Shock",
@@ -205,22 +209,18 @@
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Trailblaze",
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

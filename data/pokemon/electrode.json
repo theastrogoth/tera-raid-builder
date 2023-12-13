@@ -31,11 +31,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
+            "name": "Charge",
             "learnMethod": "level-up"
         },
         {
-            "name": "Charge",
+            "name": "Charge Beam",
             "learnMethod": "level-up"
         },
         {
@@ -56,7 +56,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Explosion",
@@ -68,14 +68,10 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Giga Impact",
             "learnMethod": "machine"
         },
         {
-            "name": "Grassy Glide",
+            "name": "Giga Impact",
             "learnMethod": "machine"
         },
         {
@@ -144,7 +140,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spark",
@@ -152,7 +148,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swift",
@@ -179,20 +175,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Shock",
             "learnMethod": "level-up"
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Volt Switch",

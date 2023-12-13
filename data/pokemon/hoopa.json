@@ -41,7 +41,7 @@
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Destiny Bond",
@@ -49,7 +49,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -65,7 +65,7 @@
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -81,7 +81,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -101,11 +101,15 @@
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Hyperspace Fury",
+            "learnMethod": "level-up"
         },
         {
             "name": "Hyperspace Hole",
@@ -113,11 +117,11 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Lash Out",
@@ -148,12 +152,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -225,7 +229,7 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
@@ -236,11 +240,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "level-up"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "level-up"
         },
         {

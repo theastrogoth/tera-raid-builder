@@ -89,7 +89,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -129,7 +129,7 @@
         },
         {
             "name": "Rock Smash",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Rock Tomb",
@@ -137,7 +137,7 @@
         },
         {
             "name": "Roost",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Scary Face",
@@ -153,7 +153,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
@@ -184,7 +184,7 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

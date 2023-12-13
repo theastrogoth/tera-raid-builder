@@ -1,0 +1,27 @@
+{
+    "name": "Zygarde",
+    "abilities": [
+        {
+            "name": "Aura Break",
+            "hidden": false
+        },
+        {
+            "name": "Power Construct",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "dragon",
+        "ground"
+    ],
+    "stats": {
+        "hp": 108,
+        "atk": 100,
+        "def": 121,
+        "spa": 81,
+        "spd": 95,
+        "spe": 95
+    },
+    "moves": [
+    ]
+}

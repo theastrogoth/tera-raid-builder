@@ -73,7 +73,7 @@
         },
         {
             "name": "Crabhammer",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Dig",
@@ -81,7 +81,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dynamic Punch",
@@ -93,7 +93,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Focus Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -149,7 +149,7 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Defense",
@@ -157,7 +157,7 @@
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -181,7 +181,7 @@
         },
         {
             "name": "Payback",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Protect",
@@ -241,7 +241,7 @@
         },
         {
             "name": "Superpower",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Swift",
@@ -261,7 +261,11 @@
         },
         {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Vise Grip",
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Wide Guard",
@@ -269,7 +273,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

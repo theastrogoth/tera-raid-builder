@@ -12,6 +12,10 @@
         {
             "name": "Steadfast",
             "hidden": true
+        },
+        {
+            "name": "Own Tempo",
+            "hidden": false
         }
     ],
     "types": [
@@ -56,11 +60,11 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Endure",
@@ -84,19 +88,19 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Last Resort",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Leer",
@@ -164,7 +168,7 @@
         },
         {
             "name": "Stomping Tantrum",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -173,6 +177,10 @@
         {
             "name": "Substitute",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Sucker Punch",
+            "learnMethod": "egg"
         },
         {
             "name": "Swords Dance",
@@ -208,7 +216,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

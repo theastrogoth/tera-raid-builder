@@ -32,8 +32,24 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bulldoze",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Charge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Counter",
@@ -46,6 +62,10 @@
         {
             "name": "Defense Curl",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Dig",
+            "learnMethod": "machine"
         },
         {
             "name": "Discharge",
@@ -65,14 +85,22 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Explosion",
             "learnMethod": "level-up"
         },
         {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fire Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fire Punch",
             "learnMethod": "machine"
         },
         {
@@ -81,6 +109,10 @@
         },
         {
             "name": "Flamethrower",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fling",
             "learnMethod": "machine"
         },
         {
@@ -100,6 +132,22 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Blast",
             "learnMethod": "level-up"
         },
@@ -108,12 +156,24 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Rock Slide",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rock Throw",
             "learnMethod": "level-up"
         },
         {
+            "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rollout",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sandstorm",
+            "learnMethod": "machine"
         },
         {
             "name": "Screech",
@@ -122,6 +182,10 @@
         {
             "name": "Self-Destruct",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
         },
         {
             "name": "Smack Down",
@@ -144,11 +208,23 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tackle",
             "learnMethod": "level-up"
         },
         {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
@@ -156,11 +232,15 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Volt Switch",
             "learnMethod": "machine"
         },
         {

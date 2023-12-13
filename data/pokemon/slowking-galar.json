@@ -28,12 +28,12 @@
     },
     "moves": [
         {
-            "name": "Acid Spray",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Acid",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Acid Spray",
+            "learnMethod": "machine"
         },
         {
             "name": "Amnesia",
@@ -44,8 +44,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Belch",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Belly Drum",
+            "learnMethod": "egg"
+        },
+        {
             "name": "Blizzard",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Block",
+            "learnMethod": "egg"
         },
         {
             "name": "Body Slam",
@@ -69,7 +81,7 @@
         },
         {
             "name": "Chilly Reception",
-            "learnMethod": "egg"
+            "learnMethod": "level-up"
         },
         {
             "name": "Confusion",
@@ -133,7 +145,7 @@
         },
         {
             "name": "Future Sight",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Giga Impact",
@@ -158,6 +170,10 @@
         {
             "name": "Heal Pulse",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
         },
         {
             "name": "Hex",
@@ -232,12 +248,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -278,6 +294,14 @@
         {
             "name": "Snarl",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Snowscape",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stomp",
+            "learnMethod": "egg"
         },
         {
             "name": "Stomping Tantrum",
@@ -332,19 +356,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Toxic",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Toxic Spikes",
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic",
-            "learnMethod": "egg"
-        },
-        {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
@@ -357,7 +381,7 @@
         },
         {
             "name": "Waterfall",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Weather Ball",

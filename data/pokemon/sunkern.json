@@ -36,7 +36,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "machine"
+            "learnMethod": "egg"
         },
         {
             "name": "Double-Edge",
@@ -44,7 +44,7 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Encore",
@@ -56,7 +56,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
@@ -84,11 +84,11 @@
         },
         {
             "name": "Helping Hand",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ingrain",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Leaf Storm",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Leech Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Light Screen",
@@ -136,7 +136,7 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Solar Beam",
@@ -144,7 +144,7 @@
         },
         {
             "name": "Substitute",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sunny Day",

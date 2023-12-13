@@ -61,7 +61,7 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "machine"
+            "learnMethod": "level-up"
         },
         {
             "name": "Close Combat",
@@ -260,8 +260,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Vacuum Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Victory Dance",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Worry Seed",

@@ -197,7 +197,7 @@
         },
         {
             "name": "Skill Swap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
@@ -217,7 +217,7 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stockpile",
@@ -245,7 +245,7 @@
         },
         {
             "name": "Trick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

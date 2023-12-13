@@ -1,0 +1,23 @@
+{
+    "name": "Necrozma-Dusk-Mane",
+    "abilities": [
+        {
+            "name": "Prism Armor",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "psychic",
+        "steel"
+    ],
+    "stats": {
+        "hp": 97,
+        "atk": 157,
+        "def": 127,
+        "spa": 113,
+        "spd": 109,
+        "spe": 77
+    },
+    "moves": [
+    ]
+}

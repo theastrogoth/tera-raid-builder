@@ -57,7 +57,7 @@
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -101,7 +101,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fury Swipes",
@@ -209,11 +209,11 @@
         },
         {
             "name": "Slash",
-            "learnMethod": "level-up"
+            "learnMethod": "egg"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
@@ -249,7 +249,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -268,12 +268,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Toxic Spikes",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Toxic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Toxic Spikes",
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

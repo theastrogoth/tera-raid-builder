@@ -80,6 +80,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "level-up"
         },
@@ -97,6 +101,10 @@
         },
         {
             "name": "Encore",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -196,6 +204,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rain Dance",
             "learnMethod": "machine"
         },
@@ -248,7 +260,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Triple Axel",
+            "learnMethod": "machine"
+        },
+        {
             "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {
@@ -266,6 +286,10 @@
         {
             "name": "Wave Crash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Whirlpool",
+            "learnMethod": "machine"
         },
         {
             "name": "Wing Attack",

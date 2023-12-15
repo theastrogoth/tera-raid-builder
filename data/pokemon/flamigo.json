@@ -84,11 +84,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
         {
             "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feather Dance",
             "learnMethod": "machine"
         },
         {
@@ -156,6 +164,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Quick Guard",
             "learnMethod": "egg"
         },
@@ -213,6 +225,10 @@
         },
         {
             "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

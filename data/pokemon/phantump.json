@@ -80,7 +80,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Forest's Curse",
+            "name": "Forest’s Curse",
             "learnMethod": "level-up"
         },
         {
@@ -140,6 +140,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Phantom Force",
             "learnMethod": "level-up"
         },
@@ -153,6 +157,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -189,6 +197,10 @@
         },
         {
             "name": "Skill Swap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

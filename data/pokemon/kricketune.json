@@ -40,11 +40,15 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bug Buzz",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -139,6 +143,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Slash",
             "learnMethod": "level-up"
         },
@@ -152,7 +160,7 @@
         },
         {
             "name": "Struggle Bug",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",
@@ -180,6 +188,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

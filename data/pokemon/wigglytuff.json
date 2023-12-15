@@ -28,6 +28,10 @@
     },
     "moves": [
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Amnesia",
             "learnMethod": "machine"
         },
@@ -116,11 +120,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
         {
             "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -240,6 +252,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Perish Song",
             "learnMethod": "egg"
         },
@@ -260,7 +276,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {

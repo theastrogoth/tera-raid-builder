@@ -67,6 +67,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Detect",
             "learnMethod": "level-up"
         },
@@ -155,6 +159,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Quick Guard",
             "learnMethod": "level-up"
         },
@@ -217,6 +225,10 @@
         {
             "name": "U-turn",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Upper Hand",
+            "learnMethod": "machine"
         }
     ]
 }

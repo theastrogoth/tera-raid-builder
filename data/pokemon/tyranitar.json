@@ -56,6 +56,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -69,7 +73,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dark Pulse",
@@ -77,6 +81,10 @@
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "machine"
         },
         {
@@ -152,6 +160,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Hard Press",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "machine"
         },
@@ -217,6 +229,10 @@
         },
         {
             "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Muddy Water",
             "learnMethod": "machine"
         },
         {

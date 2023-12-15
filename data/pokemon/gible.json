@@ -41,7 +41,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Draco Meteor",
@@ -50,6 +50,10 @@
         {
             "name": "Dragon Breath",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Claw",
@@ -157,6 +161,10 @@
         },
         {
             "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scorching Sands",
             "learnMethod": "machine"
         },
         {

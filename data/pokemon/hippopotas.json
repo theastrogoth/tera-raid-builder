@@ -48,7 +48,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -103,6 +103,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -133,6 +137,10 @@
         {
             "name": "Sandstorm",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
         },
         {
             "name": "Slack Off",

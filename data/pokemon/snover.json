@@ -44,8 +44,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",

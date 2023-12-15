@@ -24,6 +24,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Body Slam",
             "learnMethod": "machine"
         },
@@ -34,10 +38,6 @@
         {
             "name": "Calm Mind",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Celebrate",
-            "learnMethod": "prior-evo"
         },
         {
             "name": "Charge",
@@ -57,7 +57,7 @@
         },
         {
             "name": "Disarming Voice",
-            "learnMethod": "machine"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Discharge",
@@ -84,11 +84,23 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Encore",
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -114,10 +126,6 @@
         {
             "name": "Fling",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Fly",
-            "learnMethod": "prior-evo"
         },
         {
             "name": "Focus Blast",
@@ -186,6 +194,10 @@
         {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
@@ -292,12 +304,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Volt Switch",
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {
-            "name": "Volt Tackle",
-            "learnMethod": "prior-evo"
+            "name": "Volt Switch",
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

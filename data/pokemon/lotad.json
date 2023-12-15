@@ -64,6 +64,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -122,6 +126,10 @@
         {
             "name": "Mist",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -213,6 +221,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

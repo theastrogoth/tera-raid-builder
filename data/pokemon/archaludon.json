@@ -1,0 +1,267 @@
+{
+    "name": "Archaludon",
+    "abilities": [
+        {
+            "name": "Stamina",
+            "hidden": false
+        },
+        {
+            "name": "Sturdy",
+            "hidden": false
+        },
+        {
+            "name": "Stalwart",
+            "hidden": true
+        }
+    ],
+    "types": [
+        "steel",
+        "dragon"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 105,
+        "def": 130,
+        "spa": 125,
+        "spd": 65,
+        "spe": 85
+    },
+    "moves": [
+        {
+            "name": "Aura Sphere",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Body Press",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Breaking Swipe",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dark Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Draco Meteor",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Claw",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dragon Pulse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Tail",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electro Shot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Flash Cannon",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Focus Energy",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Foul Play",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Heavy Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hone Claws",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leer",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metal Burst",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Claw",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Mirror Coat",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Night Slash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Outrage",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Reflect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Slide",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rock Smash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rock Tomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Slash",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Snarl",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Solar Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stealth Rock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Steel Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stone Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunder Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Thunderbolt",
+            "learnMethod": "machine"
+        }
+    ]
+}

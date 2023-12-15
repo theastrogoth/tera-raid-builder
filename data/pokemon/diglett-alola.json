@@ -121,7 +121,7 @@
         },
         {
             "name": "Metal Sound",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
@@ -169,6 +169,10 @@
         },
         {
             "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scorching Sands",
             "learnMethod": "machine"
         },
         {

@@ -64,6 +64,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
@@ -125,6 +129,10 @@
         },
         {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {

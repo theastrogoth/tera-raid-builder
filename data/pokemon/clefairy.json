@@ -31,6 +31,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Amnesia",
             "learnMethod": "machine"
         },
@@ -91,6 +95,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drain Punch",
             "learnMethod": "machine"
         },
@@ -105,6 +113,10 @@
         {
             "name": "Encore",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -203,6 +215,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Meteor Mash",
             "learnMethod": "level-up"
         },
@@ -248,6 +264,10 @@
         },
         {
             "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

@@ -56,6 +56,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Destiny Bond",
             "learnMethod": "egg"
         },
@@ -172,6 +176,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psycho Cut",
             "learnMethod": "level-up"
         },
@@ -205,7 +213,7 @@
         },
         {
             "name": "Solar Blade",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spite",
@@ -237,6 +245,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

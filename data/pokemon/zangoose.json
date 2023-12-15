@@ -68,7 +68,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Detect",
@@ -89,6 +89,14 @@
         {
             "name": "Double Kick",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -319,6 +327,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder",
             "learnMethod": "machine"
         },
@@ -332,6 +344,10 @@
         },
         {
             "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

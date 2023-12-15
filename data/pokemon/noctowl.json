@@ -72,8 +72,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Defog",
-            "learnMethod": "prior-evo"
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Dream Eater",
@@ -101,10 +109,14 @@
         },
         {
             "name": "Feather Dance",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Fly",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
             "learnMethod": "machine"
         },
         {
@@ -168,7 +180,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {

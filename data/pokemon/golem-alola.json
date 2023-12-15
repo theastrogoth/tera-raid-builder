@@ -61,7 +61,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Defense Curl",
@@ -89,6 +89,10 @@
         },
         {
             "name": "Electric Terrain",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
             "learnMethod": "machine"
         },
         {
@@ -140,12 +144,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Hard Press",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "level-up"
         },
         {
             "name": "High Horsepower",
-            "learnMethod": "machine"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Hyper Beam",
@@ -157,6 +165,10 @@
         },
         {
             "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Meteor Beam",
             "learnMethod": "machine"
         },
         {
@@ -205,7 +217,7 @@
         },
         {
             "name": "Rollout",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Sandstorm",
@@ -253,6 +265,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

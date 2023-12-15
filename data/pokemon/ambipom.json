@@ -79,6 +79,14 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -267,6 +275,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder",
             "learnMethod": "machine"
         },
@@ -291,7 +303,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Triple Axel",
+            "learnMethod": "machine"
+        },
+        {
             "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

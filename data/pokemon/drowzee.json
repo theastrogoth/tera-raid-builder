@@ -43,12 +43,20 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dazzling Gleam",
             "learnMethod": "machine"
         },
         {
             "name": "Disable",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Drain Punch",
@@ -63,7 +71,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -185,6 +201,10 @@
         {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",

@@ -68,6 +68,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drain Punch",
             "learnMethod": "machine"
         },
@@ -180,6 +184,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Petal Blizzard",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Power Whip",
             "learnMethod": "level-up"
         },
@@ -278,6 +286,10 @@
         {
             "name": "Thrash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

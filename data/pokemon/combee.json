@@ -32,11 +32,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Gust",
             "learnMethod": "level-up"
         },
         {
             "name": "Lunge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

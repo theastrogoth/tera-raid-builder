@@ -59,6 +59,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dig",
             "learnMethod": "machine"
         },
@@ -96,6 +100,10 @@
         },
         {
             "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
             "learnMethod": "machine"
         },
         {
@@ -144,6 +152,10 @@
         },
         {
             "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -245,6 +257,10 @@
         {
             "name": "Thrash",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder",

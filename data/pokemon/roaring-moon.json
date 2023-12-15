@@ -45,7 +45,7 @@
         },
         {
             "name": "Breaking Swipe",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
@@ -74,6 +74,10 @@
         {
             "name": "Dragon Breath",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Claw",
@@ -217,7 +221,7 @@
         },
         {
             "name": "Scale Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Scary Face",
@@ -249,7 +253,7 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tailwind",

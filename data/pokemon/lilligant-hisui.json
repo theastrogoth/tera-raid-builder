@@ -61,10 +61,14 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Close Combat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Coaching",
             "learnMethod": "machine"
         },
         {
@@ -192,6 +196,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rain Dance",
             "learnMethod": "machine"
         },
@@ -257,6 +265,14 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

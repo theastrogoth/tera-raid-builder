@@ -28,6 +28,10 @@
     },
     "moves": [
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Amnesia",
             "learnMethod": "machine"
         },
@@ -204,6 +208,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Perish Song",
             "learnMethod": "egg"
         },
@@ -309,6 +317,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

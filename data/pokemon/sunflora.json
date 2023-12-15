@@ -36,7 +36,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dazzling Gleam",
@@ -56,7 +56,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "prior-evo"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -160,7 +160,7 @@
         },
         {
             "name": "Seed Bomb",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",

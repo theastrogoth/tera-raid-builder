@@ -52,6 +52,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -110,6 +114,10 @@
         {
             "name": "Metal Claw",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
         },
         {
             "name": "Metronome",

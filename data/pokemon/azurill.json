@@ -28,6 +28,10 @@
     },
     "moves": [
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Aqua Jet",
             "learnMethod": "egg"
         },

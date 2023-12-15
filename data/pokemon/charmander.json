@@ -39,6 +39,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -232,6 +236,10 @@
         },
         {
             "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

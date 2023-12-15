@@ -72,6 +72,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Crabhammer",
             "learnMethod": "prior-evo"
         },
@@ -93,7 +97,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -121,6 +125,10 @@
         },
         {
             "name": "Gunk Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hard Press",
             "learnMethod": "machine"
         },
         {
@@ -261,6 +269,10 @@
         },
         {
             "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

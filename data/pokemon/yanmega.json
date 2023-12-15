@@ -33,7 +33,7 @@
         },
         {
             "name": "Air Cutter",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Air Slash",
@@ -65,7 +65,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dual Wingbeat",
@@ -97,7 +97,7 @@
         },
         {
             "name": "Hypnosis",
-            "learnMethod": "prior-evo"
+            "learnMethod": "level-up"
         },
         {
             "name": "Leech Life",
@@ -120,7 +120,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {
@@ -145,6 +153,10 @@
         },
         {
             "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

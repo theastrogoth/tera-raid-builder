@@ -143,6 +143,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Slam",
             "learnMethod": "level-up"
         },

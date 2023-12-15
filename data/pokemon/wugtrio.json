@@ -111,6 +111,14 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -181,6 +189,10 @@
         {
             "name": "Water Pulse",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Whirlpool",
+            "learnMethod": "machine"
         },
         {
             "name": "Wrap",

@@ -61,7 +61,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -128,11 +128,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Night Shade",
             "learnMethod": "machine"
         },
         {
             "name": "Outrage",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
             "learnMethod": "machine"
         },
         {
@@ -234,6 +242,10 @@
         {
             "name": "Wave Crash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Whirlpool",
+            "learnMethod": "machine"
         },
         {
             "name": "Zen Headbutt",

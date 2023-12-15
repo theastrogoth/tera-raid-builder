@@ -76,8 +76,12 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -174,6 +178,10 @@
         {
             "name": "Water Pulse",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Whirlpool",
+            "learnMethod": "machine"
         },
         {
             "name": "Wing Attack",

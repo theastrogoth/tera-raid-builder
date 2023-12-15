@@ -56,6 +56,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Echoed Voice",
             "learnMethod": "level-up"
         },
@@ -201,6 +205,10 @@
         },
         {
             "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

@@ -40,7 +40,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -180,6 +180,10 @@
         },
         {
             "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

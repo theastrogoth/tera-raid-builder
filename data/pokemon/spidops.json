@@ -63,6 +63,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -125,6 +129,10 @@
         {
             "name": "Memento",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",
@@ -236,6 +244,10 @@
         },
         {
             "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

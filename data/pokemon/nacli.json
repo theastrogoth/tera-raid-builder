@@ -40,7 +40,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -92,6 +92,10 @@
         },
         {
             "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Meteor Beam",
             "learnMethod": "machine"
         },
         {

@@ -60,6 +60,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Defog",
             "learnMethod": "egg"
         },
@@ -137,6 +141,10 @@
         },
         {
             "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
             "learnMethod": "machine"
         },
         {
@@ -218,6 +226,10 @@
         {
             "name": "Tailwind",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

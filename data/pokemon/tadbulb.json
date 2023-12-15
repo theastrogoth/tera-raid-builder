@@ -63,6 +63,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -88,7 +92,7 @@
         },
         {
             "name": "Muddy Water",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Parabolic Charge",

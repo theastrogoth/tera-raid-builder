@@ -40,6 +40,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
             "learnMethod": "machine"
         },

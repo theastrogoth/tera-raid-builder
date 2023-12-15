@@ -64,6 +64,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -144,6 +148,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Screech",
             "learnMethod": "level-up"
         },
@@ -173,7 +181,11 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
         },
         {
             "name": "Supersonic",

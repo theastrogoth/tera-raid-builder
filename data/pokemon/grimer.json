@@ -48,7 +48,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -141,6 +141,10 @@
         {
             "name": "Mud-Slap",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Gas",

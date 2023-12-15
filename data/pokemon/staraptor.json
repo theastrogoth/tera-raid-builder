@@ -61,7 +61,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dual Wingbeat",
@@ -81,7 +81,7 @@
         },
         {
             "name": "Feather Dance",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Final Gambit",

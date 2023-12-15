@@ -83,7 +83,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Encore",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -113,6 +121,10 @@
         {
             "name": "Fury Swipes",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Future Sight",
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -183,6 +195,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Nasty Plot",
             "learnMethod": "machine"
         },
@@ -204,6 +220,10 @@
         },
         {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {
@@ -296,6 +316,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

@@ -64,6 +64,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dark Pulse",
             "learnMethod": "machine"
         },
@@ -85,6 +89,10 @@
         },
         {
             "name": "Encore",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -244,6 +252,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
@@ -309,6 +321,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

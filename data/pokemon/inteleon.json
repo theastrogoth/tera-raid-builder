@@ -59,6 +59,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Chilling Water",
             "learnMethod": "machine"
         },
@@ -151,11 +155,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Pound",
             "learnMethod": "level-up"
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -176,6 +188,10 @@
         },
         {
             "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {
@@ -260,6 +276,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

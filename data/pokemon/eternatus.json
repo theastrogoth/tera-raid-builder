@@ -108,6 +108,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Outrage",
             "learnMethod": "level-up"
         },
@@ -153,6 +157,10 @@
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {

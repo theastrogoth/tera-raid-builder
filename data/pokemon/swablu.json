@@ -68,6 +68,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Pulse",
             "learnMethod": "machine"
         },
@@ -80,6 +84,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -89,7 +97,7 @@
         },
         {
             "name": "Feather Dance",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Fly",

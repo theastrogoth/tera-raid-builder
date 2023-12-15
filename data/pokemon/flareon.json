@@ -23,6 +23,10 @@
     },
     "moves": [
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Baby-Doll Eyes",
             "learnMethod": "level-up"
         },
@@ -60,7 +64,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Detect",
@@ -81,6 +85,10 @@
         {
             "name": "Ember",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -191,6 +199,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Shadow Ball",
             "learnMethod": "machine"
         },
@@ -229,6 +241,10 @@
         {
             "name": "Take Down",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

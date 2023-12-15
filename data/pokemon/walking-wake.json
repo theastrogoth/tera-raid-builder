@@ -48,12 +48,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Draco Meteor",
             "learnMethod": "machine"
         },
         {
             "name": "Dragon Breath",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Claw",
@@ -185,7 +193,7 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Surf",
@@ -217,6 +225,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

@@ -28,6 +28,10 @@
     },
     "moves": [
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Body Slam",
             "learnMethod": "machine"
         },
@@ -85,6 +89,10 @@
         },
         {
             "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -180,12 +188,20 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
         {
             "name": "Psybeam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psych Up",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic",
@@ -277,6 +293,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

@@ -67,6 +67,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Double-Edge",
             "learnMethod": "level-up"
         },
@@ -101,6 +105,10 @@
         {
             "name": "Growl",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Heavy Slam",

@@ -76,6 +76,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Mud Shot",
             "learnMethod": "machine"
         },

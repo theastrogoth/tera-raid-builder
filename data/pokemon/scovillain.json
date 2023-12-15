@@ -44,6 +44,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -197,6 +201,10 @@
         },
         {
             "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

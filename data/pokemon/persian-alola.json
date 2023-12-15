@@ -71,11 +71,23 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dark Pulse",
             "learnMethod": "machine"
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -187,6 +199,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Quash",
             "learnMethod": "level-up"
         },
@@ -220,6 +236,10 @@
         },
         {
             "name": "Shadow Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {
@@ -268,6 +288,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

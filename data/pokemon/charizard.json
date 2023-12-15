@@ -60,6 +60,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -80,8 +84,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Breath",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Claw",
@@ -121,7 +133,7 @@
         },
         {
             "name": "False Swipe",
-            "learnMethod": "machine"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Fire Blast",
@@ -248,6 +260,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scratch",
             "learnMethod": "level-up"
         },
@@ -289,6 +305,10 @@
         },
         {
             "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

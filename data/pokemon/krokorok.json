@@ -44,6 +44,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -60,6 +64,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dark Pulse",
             "learnMethod": "machine"
         },
@@ -69,7 +77,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Claw",
@@ -86,6 +94,10 @@
         {
             "name": "Earthquake",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -196,7 +208,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Shadow Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

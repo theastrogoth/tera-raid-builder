@@ -56,6 +56,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dual Wingbeat",
             "learnMethod": "level-up"
         },
@@ -168,6 +176,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
@@ -189,7 +201,7 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Superpower",
@@ -197,6 +209,10 @@
         },
         {
             "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

@@ -40,6 +40,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Aqua Cutter",
             "learnMethod": "level-up"
         },
@@ -78,6 +82,10 @@
         {
             "name": "Close Combat",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Coaching",
+            "learnMethod": "machine"
         },
         {
             "name": "Confuse Ray",
@@ -133,6 +141,10 @@
         },
         {
             "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -280,6 +292,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Poison Jab",
             "learnMethod": "machine"
         },
@@ -290,6 +306,10 @@
         {
             "name": "Psybeam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psych Up",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic",
@@ -412,6 +432,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Punch",
             "learnMethod": "machine"
         },
@@ -429,6 +453,14 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

@@ -43,6 +43,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -59,6 +63,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dark Pulse",
             "learnMethod": "machine"
         },
@@ -67,7 +75,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -199,12 +215,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
         },
         {
             "name": "Snarl",
@@ -256,6 +280,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

@@ -48,7 +48,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -108,6 +116,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Misty Explosion",
             "learnMethod": "machine"
         },
@@ -125,6 +137,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

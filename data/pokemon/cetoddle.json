@@ -67,6 +67,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Double-Edge",
             "learnMethod": "level-up"
         },

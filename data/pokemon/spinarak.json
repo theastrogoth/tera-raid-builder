@@ -64,6 +64,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -156,11 +160,19 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {

@@ -48,6 +48,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dig",
             "learnMethod": "machine"
         },
@@ -112,6 +116,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Mud-Slap",
             "learnMethod": "machine"
         },
@@ -168,6 +176,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
@@ -205,6 +217,10 @@
         },
         {
             "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

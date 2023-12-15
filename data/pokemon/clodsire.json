@@ -65,7 +65,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -74,6 +74,10 @@
         {
             "name": "Double Kick",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -149,6 +153,10 @@
         },
         {
             "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Muddy Water",
             "learnMethod": "machine"
         },
         {

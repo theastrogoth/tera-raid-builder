@@ -52,6 +52,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -76,8 +80,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Draco Meteor",
@@ -86,6 +98,10 @@
         {
             "name": "Dragon Breath",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Claw",
@@ -109,6 +125,10 @@
         },
         {
             "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -189,6 +209,10 @@
         },
         {
             "name": "Metal Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metal Sound",
             "learnMethod": "machine"
         },
         {
@@ -292,7 +316,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Punch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

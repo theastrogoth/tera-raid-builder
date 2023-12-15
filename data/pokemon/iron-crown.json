@@ -1,0 +1,219 @@
+{
+    "name": "Iron Crown",
+    "abilities": [
+        {
+            "name": "Quark Drive",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "steel",
+        "psychic"
+    ],
+    "stats": {
+        "hp": 90,
+        "atk": 72,
+        "def": 100,
+        "spa": 122,
+        "spd": 108,
+        "spe": 98
+    },
+    "moves": [
+        {
+            "name": "Agility",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Air Slash",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Body Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bulldoze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Calm Mind",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Confusion",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electric Terrain",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Flash Cannon",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Focus Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Heavy Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hyper Beam",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Iron Defense",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Leer",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Burst",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Claw",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psycho Cut",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Psyshock",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Quick Guard",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sacred Sword",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Slash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smart Strike",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Solar Blade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Steel Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stored Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Swords Dance",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tachyon Cutter",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Take Down",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Volt Switch",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "X-Scissor",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Zen Headbutt",
+            "learnMethod": "machine"
+        }
+    ]
+}

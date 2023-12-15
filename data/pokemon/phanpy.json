@@ -43,6 +43,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Defense Curl",
             "learnMethod": "level-up"
         },
@@ -68,7 +72,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",

@@ -60,6 +60,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Eerie Impulse",
             "learnMethod": "machine"
         },
@@ -69,6 +73,14 @@
         },
         {
             "name": "Electro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {

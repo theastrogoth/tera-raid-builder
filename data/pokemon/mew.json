@@ -43,6 +43,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Amnesia",
             "learnMethod": "level-up"
         },
@@ -80,6 +84,10 @@
         },
         {
             "name": "Brave Bird",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Breaking Swipe",
             "learnMethod": "machine"
         },
         {
@@ -135,11 +143,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Confuse Ray",
             "learnMethod": "machine"
         },
         {
             "name": "Crunch",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Curse",
             "learnMethod": "machine"
         },
         {
@@ -159,7 +175,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Draco Meteor",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Cheer",
             "learnMethod": "machine"
         },
         {
@@ -215,7 +239,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Encore",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -224,6 +256,10 @@
         },
         {
             "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -236,6 +272,10 @@
         },
         {
             "name": "False Swipe",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feather Dance",
             "learnMethod": "machine"
         },
         {
@@ -303,6 +343,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Future Sight",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Drain",
             "learnMethod": "machine"
         },
@@ -336,6 +380,10 @@
         },
         {
             "name": "Gyro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hard Press",
             "learnMethod": "machine"
         },
         {
@@ -471,6 +519,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Metronome",
             "learnMethod": "level-up"
         },
@@ -491,6 +547,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Nasty Plot",
             "learnMethod": "level-up"
         },
@@ -504,6 +564,14 @@
         },
         {
             "name": "Overheat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Petal Blizzard",
             "learnMethod": "machine"
         },
         {
@@ -551,11 +619,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
             "learnMethod": "level-up"
         },
         {
             "name": "Psychic Fangs",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {
@@ -623,6 +699,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Seed Bomb",
             "learnMethod": "machine"
         },
@@ -639,11 +719,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {
@@ -715,6 +803,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Surf",
             "learnMethod": "machine"
         },
@@ -739,11 +831,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tera Blast",
             "learnMethod": "machine"
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {
@@ -791,7 +891,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Triple Axel",
+            "learnMethod": "machine"
+        },
+        {
             "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {
@@ -824,6 +932,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

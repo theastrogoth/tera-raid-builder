@@ -76,7 +76,7 @@
         },
         {
             "name": "Expanding Force",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Extrasensory",
@@ -171,6 +171,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Play Rough",
             "learnMethod": "machine"
         },
@@ -183,8 +187,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
         },
         {
             "name": "Psycho Cut",

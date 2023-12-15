@@ -67,6 +67,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Eerie Impulse",
             "learnMethod": "machine"
         },
@@ -76,6 +80,10 @@
         },
         {
             "name": "Electro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
             "learnMethod": "machine"
         },
         {
@@ -183,6 +191,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Swagger",
             "learnMethod": "level-up"
         },
@@ -204,6 +216,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

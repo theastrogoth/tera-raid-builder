@@ -44,6 +44,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -112,6 +116,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "machine"
         },
@@ -148,6 +156,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Outrage",
             "learnMethod": "machine"
         },
@@ -164,6 +176,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rain Dance",
             "learnMethod": "machine"
         },
@@ -172,7 +188,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Roar Of Time",
+            "name": "Roar",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar of Time",
             "learnMethod": "level-up"
         },
         {
@@ -185,6 +205,10 @@
         },
         {
             "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {
@@ -240,11 +264,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
@@ -252,11 +276,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         }
     ]

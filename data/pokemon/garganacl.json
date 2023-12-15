@@ -56,10 +56,14 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "machine"
         },
         {
@@ -115,6 +119,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Hard Press",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Harden",
             "learnMethod": "level-up"
         },
@@ -140,10 +148,14 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Meteor Beam",
             "learnMethod": "machine"
         },
         {
@@ -204,7 +216,7 @@
         },
         {
             "name": "Smack Down",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stealth Rock",

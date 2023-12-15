@@ -144,6 +144,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Payback",
             "learnMethod": "level-up"
         },
@@ -165,6 +169,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -204,11 +212,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {

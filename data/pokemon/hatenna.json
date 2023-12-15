@@ -71,7 +71,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
             "learnMethod": "machine"
         },
         {
@@ -137,6 +145,10 @@
         {
             "name": "Psybeam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psych Up",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic",

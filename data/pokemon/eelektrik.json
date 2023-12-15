@@ -71,6 +71,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -153,6 +157,10 @@
         {
             "name": "Thrash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder",

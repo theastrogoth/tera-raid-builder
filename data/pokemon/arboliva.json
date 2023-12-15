@@ -28,6 +28,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bullet Seed",
             "learnMethod": "machine"
         },
@@ -145,6 +149,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

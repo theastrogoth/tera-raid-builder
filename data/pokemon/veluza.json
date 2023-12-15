@@ -52,11 +52,23 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drill Run",
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -106,6 +118,10 @@
         {
             "name": "Night Slash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
         },
         {
             "name": "Pluck",

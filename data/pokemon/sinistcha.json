@@ -36,6 +36,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -49,7 +53,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Grassy Terrain",
@@ -104,6 +108,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Phantom Force",
             "learnMethod": "machine"
         },
@@ -113,6 +121,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

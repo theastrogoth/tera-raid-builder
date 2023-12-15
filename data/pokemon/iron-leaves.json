@@ -48,8 +48,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Electric Terrain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -126,6 +134,10 @@
         {
             "name": "Megahorn",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
         },
         {
             "name": "Night Slash",
@@ -213,6 +225,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

@@ -183,7 +183,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -204,7 +212,7 @@
         },
         {
             "name": "Scary Face",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Scratch",
@@ -216,6 +224,10 @@
         },
         {
             "name": "Shadow Claw",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {
@@ -268,6 +280,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

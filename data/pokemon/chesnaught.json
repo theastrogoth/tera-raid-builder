@@ -64,15 +64,23 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "machine"
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "machine"
         },
         {
@@ -85,6 +93,10 @@
         },
         {
             "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {

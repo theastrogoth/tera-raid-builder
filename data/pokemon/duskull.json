@@ -120,7 +120,7 @@
         },
         {
             "name": "Pain Split",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Payback",
@@ -136,6 +136,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -160,6 +164,10 @@
         },
         {
             "name": "Skill Swap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

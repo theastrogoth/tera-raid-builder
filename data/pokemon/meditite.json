@@ -84,6 +84,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
@@ -157,6 +161,10 @@
         },
         {
             "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
             "learnMethod": "machine"
         },
         {
@@ -289,6 +297,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

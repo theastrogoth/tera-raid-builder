@@ -72,10 +72,14 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "machine"
         },
         {
@@ -91,8 +95,12 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -132,7 +140,7 @@
         },
         {
             "name": "Focus Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fury Swipes",
@@ -149,6 +157,10 @@
         {
             "name": "Hammer Arm",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Headbutt",
@@ -232,7 +244,7 @@
         },
         {
             "name": "Play Rough",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",
@@ -256,7 +268,7 @@
         },
         {
             "name": "Reversal",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Roar",
@@ -296,7 +308,7 @@
         },
         {
             "name": "Slash",
-            "learnMethod": "egg"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Sleep Talk",
@@ -380,7 +392,7 @@
         },
         {
             "name": "Uproar",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

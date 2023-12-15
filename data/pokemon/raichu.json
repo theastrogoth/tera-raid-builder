@@ -27,16 +27,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Body Slam",
             "learnMethod": "machine"
         },
         {
             "name": "Brick Break",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Celebrate",
-            "learnMethod": "prior-evo"
         },
         {
             "name": "Charge",
@@ -83,7 +83,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Encore",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -113,10 +121,6 @@
         {
             "name": "Fling",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Fly",
-            "learnMethod": "prior-evo"
         },
         {
             "name": "Focus Blast",
@@ -271,12 +275,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Volt Switch",
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {
-            "name": "Volt Tackle",
-            "learnMethod": "prior-evo"
+            "name": "Volt Switch",
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

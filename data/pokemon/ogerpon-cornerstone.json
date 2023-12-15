@@ -1,5 +1,5 @@
 {
-    "name": "Ogerpon-Hearthflame",
+    "name": "Ogerpon-Cornerstone",
     "abilities": [
         {
             "name": "Sturdy",
@@ -21,6 +21,10 @@
     "moves": [
         {
             "name": "Brick Break",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Bullet Seed",
             "learnMethod": "machine"
         },
         {
@@ -248,7 +252,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

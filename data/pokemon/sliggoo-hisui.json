@@ -45,7 +45,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Charm",
@@ -156,11 +156,19 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {

@@ -108,6 +108,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Hard Press",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heat Crash",
             "learnMethod": "machine"
         },
@@ -194,6 +198,10 @@
         {
             "name": "Scary Face",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",

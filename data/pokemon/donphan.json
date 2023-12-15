@@ -44,11 +44,15 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Counter",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "machine"
         },
         {
             "name": "Defense Curl",
@@ -60,7 +64,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "prior-evo"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -76,11 +80,11 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -288,7 +292,7 @@
         },
         {
             "name": "Take Down",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",
@@ -296,6 +300,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

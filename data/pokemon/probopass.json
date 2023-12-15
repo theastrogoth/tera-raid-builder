@@ -44,6 +44,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dazzling Gleam",
             "learnMethod": "machine"
         },
@@ -53,7 +57,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -86,6 +90,10 @@
         {
             "name": "Gravity",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Harden",
@@ -134,6 +142,18 @@
         {
             "name": "Magnetic Flux",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
         },
         {
             "name": "Power Gem",
@@ -209,6 +229,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

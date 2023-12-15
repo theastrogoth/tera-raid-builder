@@ -63,6 +63,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -116,6 +120,10 @@
         },
         {
             "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
             "learnMethod": "machine"
         },
         {

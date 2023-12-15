@@ -8,10 +8,6 @@
         {
             "name": "Protean",
             "hidden": true
-        },
-        {
-            "name": "Battle Bond",
-            "hidden": false
         }
     ],
     "types": [
@@ -41,7 +37,7 @@
         },
         {
             "name": "Bounce",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Brick Break",
@@ -85,7 +81,7 @@
         },
         {
             "name": "Fling",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -201,7 +197,7 @@
         },
         {
             "name": "Round",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Shadow Sneak",
@@ -212,8 +208,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Smack Down",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Smokescreen",
@@ -273,6 +273,10 @@
         },
         {
             "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

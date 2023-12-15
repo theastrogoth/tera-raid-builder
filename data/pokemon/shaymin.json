@@ -24,7 +24,7 @@
         },
         {
             "name": "Air Slash",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Baton Pass",
@@ -43,7 +43,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -92,7 +100,7 @@
         },
         {
             "name": "Leaf Storm",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leech Seed",
@@ -103,6 +111,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Petal Blizzard",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Play Rough",
             "learnMethod": "level-up"
         },
@@ -111,12 +123,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Psychic",
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
-            "name": "Quick Attack",
-            "learnMethod": "level-up"
+            "name": "Psychic",
+            "learnMethod": "machine"
         },
         {
             "name": "Rest",

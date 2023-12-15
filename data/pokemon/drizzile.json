@@ -95,6 +95,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Pound",
             "learnMethod": "level-up"
         },
@@ -172,6 +176,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

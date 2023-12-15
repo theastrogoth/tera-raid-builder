@@ -43,6 +43,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dazzling Gleam",
             "learnMethod": "machine"
         },
@@ -52,7 +56,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -113,6 +117,14 @@
         {
             "name": "Lock-On",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
         },
         {
             "name": "Power Gem",

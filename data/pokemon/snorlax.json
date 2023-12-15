@@ -88,7 +88,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Defense Curl",
@@ -100,7 +100,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -161,6 +161,10 @@
         {
             "name": "Hammer Arm",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Heat Crash",
@@ -292,6 +296,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

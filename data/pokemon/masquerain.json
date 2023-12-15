@@ -33,7 +33,7 @@
         },
         {
             "name": "Agility",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Air Cutter",
@@ -49,7 +49,7 @@
         },
         {
             "name": "Baton Pass",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Blizzard",
@@ -109,7 +109,7 @@
         },
         {
             "name": "Haze",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Helping Hand",
@@ -176,6 +176,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Quick Attack",
             "learnMethod": "level-up"
         },
@@ -197,6 +201,10 @@
         },
         {
             "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

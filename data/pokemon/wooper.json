@@ -73,7 +73,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -82,6 +82,10 @@
         {
             "name": "Double Kick",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -184,6 +188,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Snowscape",
             "learnMethod": "machine"
         },
@@ -253,6 +261,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

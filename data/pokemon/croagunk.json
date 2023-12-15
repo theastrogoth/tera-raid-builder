@@ -68,6 +68,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "egg"
         },
@@ -236,6 +240,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Spite",
             "learnMethod": "machine"
         },
@@ -282,6 +290,10 @@
         {
             "name": "Toxic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Upper Hand",
+            "learnMethod": "machine"
         },
         {
             "name": "Vacuum Wave",

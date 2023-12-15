@@ -76,6 +76,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dark Pulse",
             "learnMethod": "machine"
         },
@@ -85,6 +89,14 @@
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -232,7 +244,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Petal Blizzard",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -352,6 +372,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Torment",
             "learnMethod": "level-up"
         },
@@ -361,6 +385,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

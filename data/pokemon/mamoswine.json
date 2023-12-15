@@ -65,7 +65,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
@@ -77,7 +77,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -86,6 +86,10 @@
         {
             "name": "Earthquake",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -109,6 +113,10 @@
         },
         {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hard Press",
             "learnMethod": "machine"
         },
         {
@@ -266,6 +274,10 @@
         {
             "name": "Thrash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Trailblaze",

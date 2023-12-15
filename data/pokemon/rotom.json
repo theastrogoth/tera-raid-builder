@@ -60,6 +60,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -93,6 +97,10 @@
         },
         {
             "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
             "learnMethod": "machine"
         },
         {

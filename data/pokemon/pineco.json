@@ -107,6 +107,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Payback",
             "learnMethod": "level-up"
         },

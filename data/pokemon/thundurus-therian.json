@@ -48,12 +48,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Charge Beam",
-            "learnMethod": "machine"
-        },
-        {
             "name": "Charge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Charge Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Crunch",
@@ -61,7 +61,7 @@
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Discharge",
@@ -77,6 +77,10 @@
         },
         {
             "name": "Electro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
             "learnMethod": "machine"
         },
         {
@@ -105,7 +109,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -124,12 +128,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Leer",
             "learnMethod": "level-up"
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -157,10 +169,18 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {
@@ -177,6 +197,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {
@@ -204,8 +228,12 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Thunder Punch",
+            "name": "Thunder",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Thunder Punch",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Shock",
@@ -220,11 +248,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
-            "learnMethod": "level-up"
-        },
-        {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {
@@ -234,6 +258,10 @@
         {
             "name": "Volt Switch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         },
         {
             "name": "Wild Charge",

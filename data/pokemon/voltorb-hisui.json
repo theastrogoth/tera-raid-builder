@@ -48,12 +48,20 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Electric Terrain",
             "learnMethod": "machine"
         },
         {
             "name": "Electro Ball",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Electroweb",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",

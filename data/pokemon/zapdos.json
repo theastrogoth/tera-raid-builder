@@ -124,6 +124,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Peck",
             "learnMethod": "level-up"
         },
@@ -161,6 +165,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

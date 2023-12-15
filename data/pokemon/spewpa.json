@@ -24,7 +24,7 @@
     "moves": [
         {
             "name": "Bug Bite",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Harden",

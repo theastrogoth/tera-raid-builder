@@ -203,6 +203,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tera Blast",
             "learnMethod": "machine"
         },

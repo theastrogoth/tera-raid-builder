@@ -40,6 +40,18 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -62,6 +74,10 @@
         {
             "name": "Gyro Ball",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Haze",
@@ -102,6 +118,10 @@
         {
             "name": "Magnet Rise",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
         },
         {
             "name": "Overheat",
@@ -164,6 +184,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Smog",
             "learnMethod": "level-up"
         },
@@ -194,6 +218,10 @@
         {
             "name": "Taunt",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

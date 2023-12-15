@@ -48,8 +48,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Discharge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Electric Terrain",
@@ -58,6 +66,10 @@
         {
             "name": "Electro Ball",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Electroweb",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -169,6 +181,10 @@
         },
         {
             "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

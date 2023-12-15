@@ -68,6 +68,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Destiny Bond",
             "learnMethod": "level-up"
         },
@@ -176,6 +180,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Poltergeist",
             "learnMethod": "machine"
         },
@@ -186,6 +194,10 @@
         {
             "name": "Protect",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psych Up",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic",
@@ -272,12 +284,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Triple Axel",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Water Pulse",
             "learnMethod": "machine"
         },
         {
             "name": "Weather Ball",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Will-O-Wisp",

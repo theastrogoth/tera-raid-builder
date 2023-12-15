@@ -1,0 +1,163 @@
+{
+    "name": "Pecharunt",
+    "abilities": [
+        {
+            "name": "Poison Puppeteer",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "poison",
+        "ghost"
+    ],
+    "stats": {
+        "hp": 88,
+        "atk": 88,
+        "def": 160,
+        "spa": 88,
+        "spd": 88,
+        "spe": 88
+    },
+    "moves": [
+        {
+            "name": "Acid Spray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Astonish",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Defense Curl",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Destiny Bond",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Fake Tears",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Foul Play",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gunk Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hex",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Imprison",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Malignant Chain",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Mean Look",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Memento",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Nasty Plot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Night Shade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Parting Shot",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Phantom Force",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poison Gas",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Poltergeist",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Recover",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Rollout",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Shadow Ball",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smog",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Toxic",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Venoshock",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Withdraw",
+            "learnMethod": "level-up"
+        }
+    ]
+}

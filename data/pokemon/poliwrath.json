@@ -76,12 +76,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dig",
             "learnMethod": "machine"
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Drain Punch",
@@ -93,7 +97,7 @@
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -105,7 +109,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -145,7 +149,7 @@
         },
         {
             "name": "Hydro Pump",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -193,7 +197,7 @@
         },
         {
             "name": "Mud Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud-Slap",
@@ -201,7 +205,7 @@
         },
         {
             "name": "Muddy Water",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",
@@ -216,12 +220,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
             "learnMethod": "machine"
         },
         {
             "name": "Rain Dance",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rest",
@@ -280,6 +288,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
@@ -297,6 +313,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

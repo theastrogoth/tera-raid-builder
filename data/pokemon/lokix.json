@@ -76,6 +76,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "level-up"
         },
@@ -157,7 +161,7 @@
         },
         {
             "name": "Skitter Smack",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",

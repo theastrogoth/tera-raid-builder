@@ -44,6 +44,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -152,6 +156,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Outrage",
             "learnMethod": "machine"
         },
@@ -165,6 +173,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

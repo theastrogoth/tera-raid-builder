@@ -60,6 +60,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
             "learnMethod": "machine"
         },
@@ -185,7 +189,7 @@
         },
         {
             "name": "Sunny Day",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Synthesis",

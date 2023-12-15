@@ -52,6 +52,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
             "learnMethod": "machine"
         },
@@ -216,6 +220,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Take Down",
             "learnMethod": "machine"
         },
@@ -224,7 +232,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

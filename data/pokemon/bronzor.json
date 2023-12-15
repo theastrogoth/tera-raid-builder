@@ -60,6 +60,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Extrasensory",
             "learnMethod": "level-up"
         },
@@ -137,6 +141,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

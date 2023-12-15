@@ -121,7 +121,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -245,7 +245,7 @@
         },
         {
             "name": "Spore",
-            "learnMethod": "prior-evo"
+            "learnMethod": "level-up"
         },
         {
             "name": "Stone Edge",

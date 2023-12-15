@@ -79,6 +79,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -172,6 +176,10 @@
         },
         {
             "name": "Mud-Slap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Muddy Water",
             "learnMethod": "machine"
         },
         {

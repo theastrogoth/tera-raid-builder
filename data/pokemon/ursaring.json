@@ -60,7 +60,7 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Close Combat",
@@ -88,7 +88,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -112,7 +112,7 @@
         },
         {
             "name": "Fling",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Focus Punch",
@@ -297,6 +297,10 @@
         {
             "name": "Thrash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Punch",

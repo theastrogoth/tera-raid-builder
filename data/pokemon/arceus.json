@@ -99,6 +99,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Draco Meteor",
             "learnMethod": "machine"
         },
@@ -271,6 +275,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Misty Terrain",
             "learnMethod": "machine"
         },
@@ -300,6 +308,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -348,6 +360,10 @@
         },
         {
             "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scorching Sands",
             "learnMethod": "machine"
         },
         {
@@ -404,6 +420,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

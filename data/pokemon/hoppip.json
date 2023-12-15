@@ -68,6 +68,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Encore",
             "learnMethod": "machine"
         },

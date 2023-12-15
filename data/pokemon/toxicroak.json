@@ -72,6 +72,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "egg"
         },
@@ -252,6 +256,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Spite",
             "learnMethod": "machine"
         },
@@ -300,12 +308,20 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Punch",
             "learnMethod": "machine"
         },
         {
             "name": "Toxic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Upper Hand",
+            "learnMethod": "machine"
         },
         {
             "name": "Vacuum Wave",

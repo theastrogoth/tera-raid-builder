@@ -80,6 +80,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Encore",
             "learnMethod": "machine"
         },
@@ -170,6 +174,10 @@
         {
             "name": "Magnetic Flux",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
         },
         {
             "name": "Misty Explosion",

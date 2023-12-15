@@ -53,7 +53,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dark Pulse",
@@ -74,6 +74,10 @@
         {
             "name": "Double Hit",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -141,7 +145,7 @@
         },
         {
             "name": "Pain Split",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Play Rough",
@@ -190,6 +194,10 @@
         {
             "name": "Sludge Bomb",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
         },
         {
             "name": "Smog",

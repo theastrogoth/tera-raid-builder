@@ -44,6 +44,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -73,7 +77,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dual Wingbeat",
@@ -173,7 +177,7 @@
         },
         {
             "name": "Poison Tail",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -217,7 +221,7 @@
         },
         {
             "name": "Scale Shot",
-            "learnMethod": "prior-evo"
+            "learnMethod": "machine"
         },
         {
             "name": "Scary Face",
@@ -226,6 +230,10 @@
         {
             "name": "Screech",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
         },
         {
             "name": "Slash",
@@ -289,6 +297,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

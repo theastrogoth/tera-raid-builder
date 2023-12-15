@@ -64,6 +64,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dual Wingbeat",
             "learnMethod": "machine"
         },
@@ -77,6 +81,10 @@
         },
         {
             "name": "Fake Tears",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feather Dance",
             "learnMethod": "machine"
         },
         {
@@ -141,6 +149,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -217,6 +229,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

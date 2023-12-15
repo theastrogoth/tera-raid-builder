@@ -80,8 +80,12 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -93,7 +97,7 @@
         },
         {
             "name": "Feather Dance",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Fly",
@@ -161,6 +165,10 @@
         },
         {
             "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

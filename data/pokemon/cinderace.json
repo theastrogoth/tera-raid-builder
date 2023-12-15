@@ -51,6 +51,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "level-up"
         },
@@ -207,6 +211,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Shadow Ball",
             "learnMethod": "machine"
         },
@@ -256,6 +264,10 @@
         },
         {
             "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

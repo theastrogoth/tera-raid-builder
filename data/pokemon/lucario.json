@@ -80,6 +80,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Copycat",
             "learnMethod": "level-up"
         },
@@ -121,7 +125,7 @@
         },
         {
             "name": "Endure",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Extreme Speed",
@@ -232,6 +236,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
             "learnMethod": "machine"
         },
@@ -329,6 +337,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

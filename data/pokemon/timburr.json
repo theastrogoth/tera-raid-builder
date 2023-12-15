@@ -39,8 +39,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "machine"
         },
         {
             "name": "Defog",
@@ -52,6 +60,10 @@
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "machine"
         },
         {

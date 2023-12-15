@@ -72,6 +72,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "machine"
         },
@@ -88,6 +92,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Eerie Impulse",
             "learnMethod": "machine"
         },
@@ -97,6 +105,10 @@
         },
         {
             "name": "Electro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
             "learnMethod": "machine"
         },
         {
@@ -248,6 +260,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sweet Kiss",
             "learnMethod": "egg"
         },
@@ -265,6 +281,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {
@@ -289,6 +309,10 @@
         },
         {
             "name": "Thunderbolt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

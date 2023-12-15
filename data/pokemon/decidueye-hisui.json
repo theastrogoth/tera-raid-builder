@@ -37,7 +37,7 @@
         },
         {
             "name": "Astonish",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Aura Sphere",
@@ -65,6 +65,10 @@
         },
         {
             "name": "Close Combat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Coaching",
             "learnMethod": "machine"
         },
         {
@@ -189,7 +193,7 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Night Shade",
@@ -314,6 +318,10 @@
         {
             "name": "U-turn",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Upper Hand",
+            "learnMethod": "machine"
         }
     ]
 }

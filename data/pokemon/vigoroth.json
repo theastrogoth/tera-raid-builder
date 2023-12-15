@@ -28,7 +28,7 @@
         },
         {
             "name": "Amnesia",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Blizzard",
@@ -68,10 +68,14 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dig",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "machine"
         },
         {
@@ -85,6 +89,10 @@
         {
             "name": "Encore",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -208,7 +216,7 @@
         },
         {
             "name": "Play Rough",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",

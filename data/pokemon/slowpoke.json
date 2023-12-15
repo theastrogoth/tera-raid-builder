@@ -92,6 +92,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
@@ -269,6 +273,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

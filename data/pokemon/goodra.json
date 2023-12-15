@@ -55,6 +55,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bulldoze",
             "learnMethod": "machine"
         },
@@ -83,12 +87,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Claw",
             "learnMethod": "machine"
         },
         {
             "name": "Dragon Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Tail",
@@ -199,11 +207,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {

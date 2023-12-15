@@ -52,12 +52,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Confuse Ray",
             "learnMethod": "machine"
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Disable",
@@ -77,6 +81,10 @@
         },
         {
             "name": "Draco Meteor",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Cheer",
             "learnMethod": "machine"
         },
         {

@@ -53,7 +53,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Destiny Bond",
@@ -132,6 +132,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Poltergeist",
             "learnMethod": "machine"
         },
@@ -173,6 +177,10 @@
         },
         {
             "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scorching Sands",
             "learnMethod": "machine"
         },
         {

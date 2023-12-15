@@ -229,7 +229,7 @@
         },
         {
             "name": "Soak",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Substitute",
@@ -276,6 +276,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
@@ -293,6 +301,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

@@ -27,6 +27,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Baby-Doll Eyes",
             "learnMethod": "level-up"
         },
@@ -76,6 +80,10 @@
         },
         {
             "name": "Draining Kiss",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -140,6 +148,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

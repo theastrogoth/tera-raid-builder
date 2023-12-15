@@ -83,6 +83,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Echoed Voice",
             "learnMethod": "level-up"
         },

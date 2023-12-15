@@ -193,6 +193,10 @@
         {
             "name": "Waterfall",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
+            "learnMethod": "machine"
         }
     ]
 }

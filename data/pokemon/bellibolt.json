@@ -63,6 +63,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -96,7 +100,7 @@
         },
         {
             "name": "Muddy Water",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Parabolic Charge",
@@ -141,6 +145,10 @@
         {
             "name": "Sucker Punch",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
         },
         {
             "name": "Swift",

@@ -39,6 +39,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Breath",
             "learnMethod": "egg"
         },
@@ -88,6 +92,10 @@
         },
         {
             "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Muddy Water",
             "learnMethod": "machine"
         },
         {
@@ -144,6 +152,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

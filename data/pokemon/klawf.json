@@ -31,10 +31,6 @@
             "learnMethod": "egg"
         },
         {
-            "name": "Block",
-            "learnMethod": "event"
-        },
-        {
             "name": "Body Slam",
             "learnMethod": "machine"
         },
@@ -60,7 +56,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -113,6 +109,10 @@
         {
             "name": "Metal Claw",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
@@ -175,6 +175,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
@@ -211,11 +215,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tera Blast",
             "learnMethod": "machine"
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

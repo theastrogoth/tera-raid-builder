@@ -18,5 +18,17 @@
         "spe": 37
     },
     "moves": [
+        {
+            "name": "Cosmic Power",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Splash",
+            "learnMethod": "prior-evo"
+        },
+        {
+            "name": "Teleport",
+            "learnMethod": "level-up"
+        }
     ]
 }

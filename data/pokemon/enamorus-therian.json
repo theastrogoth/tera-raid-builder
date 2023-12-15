@@ -24,6 +24,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Astonish",
             "learnMethod": "level-up"
         },
@@ -137,6 +141,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

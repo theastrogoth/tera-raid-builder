@@ -76,6 +76,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Feather Dance",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fly",
             "learnMethod": "machine"
         },
@@ -118,6 +122,10 @@
         {
             "name": "Mist",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",
@@ -201,6 +209,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

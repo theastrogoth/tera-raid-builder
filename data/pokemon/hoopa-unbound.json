@@ -49,7 +49,7 @@
         },
         {
             "name": "Drain Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -60,12 +60,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
         {
             "name": "Fire Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -76,8 +80,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Focus Punch",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -88,12 +100,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Guard Split",
             "learnMethod": "level-up"
         },
         {
             "name": "Gunk Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -105,11 +121,15 @@
         },
         {
             "name": "Ice Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -136,12 +156,20 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "Psychic Terrain",
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Terrain",
+            "learnMethod": "machine"
         },
         {
             "name": "Psyshock",
@@ -180,6 +208,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
@@ -212,8 +244,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Punch",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Wave",
@@ -224,11 +260,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "level-up"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "level-up"
         },
         {
@@ -237,7 +273,7 @@
         },
         {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

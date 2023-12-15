@@ -64,6 +64,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Tail",
             "learnMethod": "machine"
         },
@@ -140,7 +144,15 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Muddy Water",
             "learnMethod": "machine"
         },
         {
@@ -196,6 +208,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
@@ -244,6 +260,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Water Gun",
             "learnMethod": "level-up"
         },
@@ -253,6 +273,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

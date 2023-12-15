@@ -27,6 +27,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Baby-Doll Eyes",
             "learnMethod": "level-up"
         },
@@ -64,7 +68,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Detect",
@@ -96,6 +100,10 @@
         },
         {
             "name": "Electro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
             "learnMethod": "machine"
         },
         {
@@ -144,6 +152,10 @@
         },
         {
             "name": "Light Screen",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Metal Sound",
             "learnMethod": "machine"
         },
         {

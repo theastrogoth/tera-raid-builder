@@ -4186,6 +4186,12 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   Whirlwind: {isWind: true},
   'Wicked Blow': {bp: 75, zp: 140},
   'X-Scissor': {isSlicing: true},
+  'Alluring Voice': {
+    bp: 80,
+    type: 'Fairy',
+    category: 'Special',
+    secondaries: true,
+  },
   'Aqua Cutter': {
     bp: 70,
     type: 'Water',
@@ -4272,6 +4278,11 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     zp: 200,
     maxPower: 140,
   },
+  'Burning Bulwark': {
+    bp: 0,
+    type: 'Fire',
+    category: 'Status',
+  },
   'Ceaseless Edge': {
     bp: 65,
     type: 'Dark',
@@ -4350,6 +4361,11 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     secondaries: true,
     highCritChance: true,
   },
+  'Dragon Cheer': {
+    bp: 0,
+    type: 'Dragon',
+    category: 'Status',
+  },
   'Electro Drift': {
     bp: 100,
     type: 'Electric',
@@ -4357,6 +4373,11 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     zp: 180,
     maxPower: 130,
     makesContact: true, // deals 1.3x on super effective
+  },
+  'Electro Shot':  {
+    bp: 130,
+    type: 'Electric',
+    category: 'Special',
   },
   'Esper Wing': {
     bp: 80,
@@ -4366,6 +4387,11 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     maxPower: 130,
     secondaries: true,
     highCritChance: true,
+  },
+  'Fickle Beam': {
+    bp: 80,
+    type: 'Dragon',
+    category: 'Special',
   },
   'Fillet Away': {
     bp: 0,
@@ -4393,6 +4419,12 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     category: 'Physical',
     zp: 190,
     maxPower: 140,
+    makesContact: true,
+  },
+  'Hard Press': {
+    bp: 1,
+    type: 'Steel',
+    category: 'Physical',
     makesContact: true,
   },
   'Headlong Rush': {
@@ -4501,6 +4533,12 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     target: 'allAdjacentFoes',
     self: {boosts: {spa: -1}},
   },
+  'Malignant Chain': {
+    bp: 100,
+    type: 'Poison',
+    category: 'Special',
+    secondaries: true,
+  },
   'Matcha Gotcha': {
     bp: 80,
     type: 'Grass',
@@ -4510,6 +4548,12 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     maxPower: 130,
     secondaries: true,
     drain: [1, 2],
+  },
+  'Mighty Cleave': {
+    bp: 95,
+    type: 'Rock',
+    category: 'Physical',
+    makesContact: true,
   },
   'Mortal Spin': {
     bp: 30,
@@ -4586,6 +4630,12 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     maxPower: 130,
     makesContact: true,
     isSlicing: true,
+  },
+  'Psychic Noise': {
+    bp: 75,
+    type: 'Psychic',
+    category: 'Special',
+    secondaries: true,
   },
   'Psyshield Bash': {
     bp: 70,
@@ -4704,6 +4754,12 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     isSlicing: true,
     secondaries: true,
   },
+  'Supercell Slam': {
+    bp: 100,
+    type: 'Electric',
+    category: 'Physical',
+    makesContact: true,
+  },
   'Syrup Bomb': {
     bp: 60,
     type: 'Grass',
@@ -4713,10 +4769,21 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     isBullet: true,
     secondaries: true,
   },
+  'Tachyon Cutter': {
+    bp: 50,
+    type: 'Steel',
+    category: 'Special',
+  },
   'Take Heart': {
     bp: 0,
     type: 'Psychic',
     category: 'Status',
+  },
+  'Temper Flare': {
+    bp: 75,
+    type: 'Fire',
+    category: 'Physical',
+    makesContact: true,
   },
   'Tera Blast': {
     bp: 80,
@@ -4724,6 +4791,17 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     category: 'Special',
     zp: 160,
     maxPower: 130,
+  },
+  'Tera Starstorm': {
+    bp: 120,
+    type: 'Normal',
+    category: 'Special',
+  },
+  Thunderclap: {
+    bp: 70,
+    type: 'Electric',
+    category: 'Special',
+    priority: 1,
   },
   'Tidy Up': {
     bp: 0,
@@ -4773,6 +4851,13 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     zp: 100,
     maxPower: 90,
     multihit: 2,
+  },
+  'Upper Hand': {
+    bp: 65,
+    type: 'Fighting',
+    category: 'Physical',
+    priority: 12,
+    secondaries: true,
   },
   'Victory Dance': {
     bp: 0,

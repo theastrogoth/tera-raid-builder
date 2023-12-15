@@ -1,5 +1,5 @@
 {
-    "name": "Flabébé",
+    "name": "Flabébé",
     "abilities": [
         {
             "name": "Flower Veil",
@@ -22,6 +22,10 @@
         "spe": 42
     },
     "moves": [
+        {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
         {
             "name": "Baton Pass",
             "learnMethod": "machine"
@@ -56,7 +60,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",

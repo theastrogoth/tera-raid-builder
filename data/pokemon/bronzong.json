@@ -68,6 +68,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Extrasensory",
             "learnMethod": "level-up"
         },
@@ -98,6 +102,10 @@
         {
             "name": "Gyro Ball",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Heavy Slam",
@@ -144,6 +152,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Night Shade",
             "learnMethod": "machine"
         },
@@ -164,7 +176,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {

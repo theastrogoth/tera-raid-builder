@@ -25,7 +25,7 @@
     "moves": [
         {
             "name": "Acid",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Acid Spray",
@@ -89,7 +89,7 @@
         },
         {
             "name": "Growth",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Hyper Beam",
@@ -101,7 +101,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Blade",
@@ -125,11 +125,11 @@
         },
         {
             "name": "Poison Jab",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Powder",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Pounce",
@@ -165,7 +165,7 @@
         },
         {
             "name": "Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Sleep Powder",
@@ -177,6 +177,10 @@
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {
@@ -197,7 +201,7 @@
         },
         {
             "name": "Stun Spore",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Substitute",
@@ -269,7 +273,7 @@
         },
         {
             "name": "Wrap",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         }
     ]
 }

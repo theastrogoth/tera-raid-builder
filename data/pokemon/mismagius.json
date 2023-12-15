@@ -40,7 +40,7 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Confusion",
@@ -48,7 +48,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dark Pulse",
@@ -87,6 +87,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Future Sight",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -104,7 +108,7 @@
         },
         {
             "name": "Hex",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -152,7 +156,7 @@
         },
         {
             "name": "Pain Split",
-            "learnMethod": "prior-evo"
+            "learnMethod": "machine"
         },
         {
             "name": "Payback",
@@ -180,10 +184,18 @@
         },
         {
             "name": "Psybeam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {
@@ -208,7 +220,7 @@
         },
         {
             "name": "Shadow Ball",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Shadow Sneak",

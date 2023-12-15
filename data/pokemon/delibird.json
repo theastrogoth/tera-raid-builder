@@ -104,6 +104,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -114,6 +118,10 @@
         {
             "name": "Fake Out",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Feather Dance",
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -257,6 +265,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

@@ -65,7 +65,7 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Close Combat",
@@ -88,12 +88,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dig",
             "learnMethod": "machine"
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Drain Punch",
@@ -125,7 +129,7 @@
         },
         {
             "name": "Fling",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Focus Punch",
@@ -150,6 +154,10 @@
         {
             "name": "Hammer Arm",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Headlong Rush",
@@ -292,6 +300,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sweet Scent",
             "learnMethod": "level-up"
         },
@@ -322,6 +334,10 @@
         {
             "name": "Thrash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Punch",

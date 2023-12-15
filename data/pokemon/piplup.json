@@ -76,7 +76,7 @@
         },
         {
             "name": "Feather Dance",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -147,6 +147,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rain Dance",
             "learnMethod": "machine"
         },
@@ -196,6 +200,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

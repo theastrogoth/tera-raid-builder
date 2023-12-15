@@ -52,6 +52,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dig",
             "learnMethod": "machine"
         },
@@ -62,6 +66,10 @@
         {
             "name": "Double-Edge",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -144,6 +152,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Petal Blizzard",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Play Rough",
             "learnMethod": "machine"
         },
@@ -213,6 +225,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

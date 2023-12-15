@@ -61,7 +61,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -114,6 +114,10 @@
         {
             "name": "Growth",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Headlong Rush",
@@ -217,6 +221,10 @@
         },
         {
             "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scorching Sands",
             "learnMethod": "machine"
         },
         {

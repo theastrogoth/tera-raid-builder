@@ -28,6 +28,10 @@
     },
     "moves": [
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Baton Pass",
             "learnMethod": "level-up"
         },
@@ -133,7 +137,7 @@
         },
         {
             "name": "Psych Up",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic",

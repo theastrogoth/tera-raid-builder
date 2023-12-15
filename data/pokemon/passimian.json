@@ -59,8 +59,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Counter",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Curse",
+            "learnMethod": "machine"
         },
         {
             "name": "Double-Edge",
@@ -72,6 +80,10 @@
         },
         {
             "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
             "learnMethod": "machine"
         },
         {
@@ -144,6 +156,10 @@
         },
         {
             "name": "Low Sweep",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
             "learnMethod": "machine"
         },
         {
@@ -244,6 +260,10 @@
         },
         {
             "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

@@ -96,6 +96,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hammer Arm",
             "learnMethod": "level-up"
         },
@@ -113,7 +117,7 @@
         },
         {
             "name": "Mud Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud-Slap",
@@ -168,11 +172,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {
@@ -181,7 +193,7 @@
         },
         {
             "name": "Stealth Rock",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stomping Tantrum",
@@ -201,7 +213,7 @@
         },
         {
             "name": "Swords Dance",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -216,7 +228,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Weather Ball",
             "learnMethod": "machine"
         }
     ]

@@ -193,7 +193,7 @@
         },
         {
             "name": "Petal Blizzard",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Play Rough",
@@ -209,6 +209,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -288,6 +292,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Punch",
             "learnMethod": "machine"
         },
@@ -301,10 +309,14 @@
         },
         {
             "name": "Trick",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

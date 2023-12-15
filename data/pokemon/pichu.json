@@ -47,6 +47,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Electroweb",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Encore",
             "learnMethod": "machine"
         },
@@ -185,10 +189,6 @@
         {
             "name": "Volt Switch",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Volt Tackle",
-            "learnMethod": "level-up"
         },
         {
             "name": "Wild Charge",

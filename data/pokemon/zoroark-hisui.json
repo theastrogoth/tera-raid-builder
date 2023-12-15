@@ -120,10 +120,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Happy Hour",
-            "learnMethod": "event"
-        },
-        {
             "name": "Helping Hand",
             "learnMethod": "machine"
         },
@@ -184,6 +180,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Phantom Force",
             "learnMethod": "machine"
         },
@@ -193,6 +193,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -230,6 +234,10 @@
         {
             "name": "Shadow Sneak",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",
@@ -277,6 +285,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

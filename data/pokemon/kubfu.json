@@ -55,6 +55,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dynamic Punch",
             "learnMethod": "level-up"
         },

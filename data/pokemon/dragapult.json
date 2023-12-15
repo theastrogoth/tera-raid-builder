@@ -56,12 +56,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Confuse Ray",
             "learnMethod": "machine"
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Disable",
@@ -88,6 +92,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Claw",
             "learnMethod": "machine"
         },
@@ -101,7 +109,7 @@
         },
         {
             "name": "Dragon Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Rush",

@@ -55,6 +55,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drain Punch",
             "learnMethod": "machine"
         },
@@ -67,6 +71,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -76,7 +84,7 @@
         },
         {
             "name": "Expanding Force",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Explosion",
@@ -185,6 +193,10 @@
         {
             "name": "Psybeam",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psych Up",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic",

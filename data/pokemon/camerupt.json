@@ -65,7 +65,7 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "prior-evo"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -78,6 +78,10 @@
         {
             "name": "Ember",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -109,7 +113,7 @@
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flare Blitz",
@@ -228,6 +232,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
@@ -282,6 +290,10 @@
         {
             "name": "Take Down",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

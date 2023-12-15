@@ -164,6 +164,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Solar Beam",
             "learnMethod": "machine"
         },

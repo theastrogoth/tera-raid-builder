@@ -52,6 +52,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Eerie Impulse",
             "learnMethod": "machine"
         },
@@ -65,7 +69,7 @@
         },
         {
             "name": "Electroweb",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -94,6 +98,10 @@
         {
             "name": "Gyro Ball",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Heavy Slam",
@@ -181,6 +189,10 @@
         },
         {
             "name": "Sunny Day",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

@@ -56,6 +56,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drain Punch",
             "learnMethod": "machine"
         },
@@ -65,7 +69,7 @@
         },
         {
             "name": "Electric Terrain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -105,6 +109,10 @@
         },
         {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hard Press",
             "learnMethod": "machine"
         },
         {
@@ -189,6 +197,10 @@
         },
         {
             "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

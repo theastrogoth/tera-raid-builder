@@ -172,6 +172,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Slash",
             "learnMethod": "level-up"
         },

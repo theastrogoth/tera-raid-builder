@@ -24,7 +24,7 @@
         },
         {
             "name": "Acid Spray",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Acrobatics",
@@ -60,7 +60,7 @@
         },
         {
             "name": "Charge Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Close Combat",
@@ -112,6 +112,10 @@
         },
         {
             "name": "Electro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
             "learnMethod": "machine"
         },
         {
@@ -220,7 +224,7 @@
         },
         {
             "name": "Spark",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Stomping Tantrum",
@@ -236,6 +240,10 @@
         },
         {
             "name": "Super Fang",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {
@@ -259,6 +267,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder",
             "learnMethod": "machine"
         },
@@ -272,11 +284,11 @@
         },
         {
             "name": "Thunder Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Thunderbolt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "U-turn",

@@ -116,6 +116,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
@@ -145,7 +149,7 @@
         },
         {
             "name": "Future Sight",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -224,6 +228,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Nasty Plot",
             "learnMethod": "level-up"
         },
@@ -250,6 +258,10 @@
         {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
@@ -289,6 +301,10 @@
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {
@@ -357,7 +373,7 @@
         },
         {
             "name": "Toxic",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Toxic Spikes",
@@ -381,10 +397,14 @@
         },
         {
             "name": "Waterfall",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

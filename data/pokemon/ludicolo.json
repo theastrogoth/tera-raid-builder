@@ -72,6 +72,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drain Punch",
             "learnMethod": "machine"
         },
@@ -85,7 +89,7 @@
         },
         {
             "name": "Energy Ball",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -121,7 +125,7 @@
         },
         {
             "name": "Giga Drain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -145,7 +149,7 @@
         },
         {
             "name": "Hydro Pump",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hyper Beam",
@@ -173,7 +177,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Leaf Storm",
@@ -181,7 +185,7 @@
         },
         {
             "name": "Leech Seed",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Magical Leaf",
@@ -201,6 +205,10 @@
         },
         {
             "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Muddy Water",
             "learnMethod": "machine"
         },
         {
@@ -308,8 +316,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Whirlpool",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

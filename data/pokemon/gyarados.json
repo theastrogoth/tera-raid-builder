@@ -64,6 +64,14 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Dance",
             "learnMethod": "level-up"
         },
@@ -77,6 +85,10 @@
         },
         {
             "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -142,6 +154,10 @@
         {
             "name": "Leer",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
         },
         {
             "name": "Outrage",
@@ -217,6 +233,10 @@
         },
         {
             "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

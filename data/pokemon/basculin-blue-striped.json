@@ -60,7 +60,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -77,6 +77,10 @@
         {
             "name": "Flail",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Flip Turn",
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -108,14 +112,18 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Liquidation",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud Shot",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Muddy Water",
             "learnMethod": "machine"
         },
         {
@@ -139,12 +147,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Scale Shot",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scary Face",
             "learnMethod": "level-up"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Snowscape",
@@ -207,8 +219,12 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Whirlpool",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Zen Headbutt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         }
     ]
 }

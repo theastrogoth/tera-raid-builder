@@ -136,6 +136,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Quick Attack",
             "learnMethod": "level-up"
         },
@@ -149,6 +153,10 @@
         },
         {
             "name": "Shadow Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

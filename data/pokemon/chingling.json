@@ -48,7 +48,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dazzling Gleam",
@@ -57,6 +57,10 @@
         {
             "name": "Disable",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -72,6 +76,10 @@
         },
         {
             "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
             "learnMethod": "machine"
         },
         {
@@ -119,7 +127,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {

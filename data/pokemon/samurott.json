@@ -255,6 +255,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Upper Hand",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Vacuum Wave",
             "learnMethod": "machine"
         },
@@ -272,6 +276,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         },
         {

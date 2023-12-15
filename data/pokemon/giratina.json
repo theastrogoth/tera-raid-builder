@@ -36,6 +36,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bulldoze",
             "learnMethod": "machine"
         },
@@ -45,6 +49,10 @@
         },
         {
             "name": "Confuse Ray",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Curse",
             "learnMethod": "machine"
         },
         {
@@ -190,6 +198,10 @@
         {
             "name": "Shadow Sneak",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
         },
         {
             "name": "Slash",

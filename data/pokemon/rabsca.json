@@ -57,7 +57,7 @@
         },
         {
             "name": "Dig",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
@@ -76,6 +76,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Extrasensory",
             "learnMethod": "level-up"
         },
@@ -85,6 +89,10 @@
         },
         {
             "name": "Fling",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
             "learnMethod": "machine"
         },
         {
@@ -133,7 +141,7 @@
         },
         {
             "name": "Mud Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud-Slap",
@@ -165,11 +173,15 @@
         },
         {
             "name": "Psych Up",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
@@ -225,6 +237,10 @@
         },
         {
             "name": "Skill Swap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

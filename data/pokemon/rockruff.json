@@ -12,10 +12,6 @@
         {
             "name": "Steadfast",
             "hidden": true
-        },
-        {
-            "name": "Own Tempo",
-            "hidden": false
         }
     ],
     "types": [
@@ -59,12 +55,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
             "learnMethod": "machine"
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",

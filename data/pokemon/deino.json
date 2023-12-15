@@ -60,6 +60,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Pulse",
             "learnMethod": "level-up"
         },
@@ -117,6 +121,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

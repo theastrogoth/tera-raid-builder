@@ -60,6 +60,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -104,6 +108,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Hard Press",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "machine"
         },
@@ -126,6 +134,10 @@
         {
             "name": "Metal Claw",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
         },
         {
             "name": "Metronome",

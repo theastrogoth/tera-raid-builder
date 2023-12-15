@@ -41,7 +41,7 @@
         },
         {
             "name": "Blizzard",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Body Slam",
@@ -65,7 +65,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Defense Curl",
@@ -76,11 +76,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drill Run",
             "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -129,7 +137,7 @@
         },
         {
             "name": "Gyro Ball",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hone Claws",
@@ -169,11 +177,11 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Knock Off",
@@ -257,7 +265,7 @@
         },
         {
             "name": "Snowscape",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Spikes",
@@ -281,7 +289,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Swords Dance",
@@ -297,6 +305,14 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

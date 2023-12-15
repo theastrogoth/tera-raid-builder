@@ -32,6 +32,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Bulldoze",
             "learnMethod": "machine"
         },
@@ -44,8 +48,12 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Defog",
@@ -57,7 +65,7 @@
         },
         {
             "name": "Draco Meteor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Breath",
@@ -69,10 +77,14 @@
         },
         {
             "name": "Dragon Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Tail",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dual Wingbeat",
             "learnMethod": "machine"
         },
         {
@@ -104,6 +116,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Gravity",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Hex",
             "learnMethod": "level-up"
         },
@@ -113,19 +129,19 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Iron Head",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Outrage",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Pain Split",
@@ -133,6 +149,10 @@
         },
         {
             "name": "Phantom Force",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Poltergeist",
             "learnMethod": "machine"
         },
         {
@@ -149,6 +169,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -172,12 +196,20 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Slash",
             "learnMethod": "level-up"
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Spite",
+            "learnMethod": "machine"
         },
         {
             "name": "Stone Edge",
@@ -193,7 +225,7 @@
         },
         {
             "name": "Swift",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Take Down",
@@ -204,11 +236,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {

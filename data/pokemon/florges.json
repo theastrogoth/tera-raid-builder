@@ -23,6 +23,10 @@
     },
     "moves": [
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Baton Pass",
             "learnMethod": "machine"
         },
@@ -56,7 +60,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -72,7 +76,7 @@
         },
         {
             "name": "Fairy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Giga Drain",
@@ -143,12 +147,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rain Dance",
             "learnMethod": "machine"
         },
         {
             "name": "Razor Leaf",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Rest",
@@ -196,7 +204,7 @@
         },
         {
             "name": "Tackle",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Tearful Look",
@@ -216,7 +224,7 @@
         },
         {
             "name": "Vine Whip",
-            "learnMethod": "level-up"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Wish",

@@ -69,7 +69,7 @@
         },
         {
             "name": "Confuse Ray",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Dark Pulse",
@@ -89,6 +89,10 @@
         },
         {
             "name": "Disarming Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "machine"
         },
         {
@@ -153,7 +157,7 @@
         },
         {
             "name": "Ice Beam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ice Shard",
@@ -185,7 +189,11 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
         },
         {
             "name": "Play Rough",
@@ -197,6 +205,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -225,7 +237,7 @@
         },
         {
             "name": "Spite",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Stored Power",
@@ -249,6 +261,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

@@ -72,6 +72,14 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -136,6 +144,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Quiver Dance",
             "learnMethod": "level-up"
         },
@@ -156,6 +168,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Powder",
             "learnMethod": "level-up"
         },
@@ -165,6 +181,10 @@
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
             "learnMethod": "machine"
         },
         {

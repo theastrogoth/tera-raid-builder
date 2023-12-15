@@ -49,7 +49,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Defense Curl",
@@ -117,11 +117,15 @@
         },
         {
             "name": "Gyro Ball",
-            "learnMethod": "prior-evo"
+            "learnMethod": "machine"
         },
         {
             "name": "Hammer Arm",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Hard Press",
+            "learnMethod": "machine"
         },
         {
             "name": "Heavy Slam",
@@ -141,7 +145,7 @@
         },
         {
             "name": "Mega Punch",
-            "learnMethod": "egg"
+            "learnMethod": "prior-evo"
         },
         {
             "name": "Metronome",

@@ -52,7 +52,7 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Chilling Water",
@@ -60,6 +60,10 @@
         },
         {
             "name": "Disarming Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
             "learnMethod": "machine"
         },
         {
@@ -76,7 +80,7 @@
         },
         {
             "name": "Feather Dance",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Fling",
@@ -151,6 +155,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rain Dance",
             "learnMethod": "machine"
         },
@@ -212,6 +220,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

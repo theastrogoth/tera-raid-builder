@@ -64,6 +64,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Ember",
             "learnMethod": "level-up"
         },
@@ -156,6 +160,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -233,6 +241,10 @@
         },
         {
             "name": "Taunt",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Temper Flare",
             "learnMethod": "machine"
         },
         {

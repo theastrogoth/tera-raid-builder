@@ -96,6 +96,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
@@ -184,6 +188,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Poison Jab",
             "learnMethod": "machine"
         },
@@ -245,7 +253,7 @@
         },
         {
             "name": "Reversal",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Rock Slide",
@@ -313,6 +321,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

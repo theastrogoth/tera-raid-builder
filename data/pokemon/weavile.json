@@ -308,7 +308,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

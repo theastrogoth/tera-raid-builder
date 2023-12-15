@@ -23,6 +23,10 @@
     },
     "moves": [
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Baby-Doll Eyes",
             "learnMethod": "level-up"
         },
@@ -56,7 +60,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dazzling Gleam",

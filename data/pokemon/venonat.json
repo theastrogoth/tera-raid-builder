@@ -60,6 +60,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
@@ -116,6 +120,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rage Powder",
             "learnMethod": "egg"
         },
@@ -129,6 +137,10 @@
         },
         {
             "name": "Skill Swap",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

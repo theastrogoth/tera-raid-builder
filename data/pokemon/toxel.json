@@ -45,7 +45,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -65,7 +65,7 @@
         },
         {
             "name": "Metal Sound",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Nuzzle",

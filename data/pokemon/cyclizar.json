@@ -64,6 +64,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Claw",
             "learnMethod": "level-up"
         },
@@ -77,6 +81,10 @@
         },
         {
             "name": "Dragon Tail",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -188,6 +196,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tackle",
             "learnMethod": "level-up"
         },
@@ -198,6 +210,10 @@
         {
             "name": "Taunt",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

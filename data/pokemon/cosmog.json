@@ -18,5 +18,13 @@
         "spe": 37
     },
     "moves": [
+        {
+            "name": "Splash",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Teleport",
+            "learnMethod": "level-up"
+        }
     ]
 }

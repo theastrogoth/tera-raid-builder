@@ -41,7 +41,7 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bug Buzz",
@@ -65,7 +65,7 @@
         },
         {
             "name": "Dig",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Discharge",
@@ -81,6 +81,10 @@
         },
         {
             "name": "Electro Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Electroweb",
             "learnMethod": "machine"
         },
         {
@@ -121,7 +125,7 @@
         },
         {
             "name": "Iron Defense",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Light Screen",
@@ -137,7 +141,7 @@
         },
         {
             "name": "Mud-Slap",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Jab",
@@ -157,6 +161,10 @@
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {
@@ -185,6 +193,10 @@
         },
         {
             "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {
@@ -225,7 +237,7 @@
         },
         {
             "name": "X-Scissor",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Zap Cannon",

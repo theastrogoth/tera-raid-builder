@@ -68,6 +68,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Claw",
             "learnMethod": "machine"
         },
@@ -185,6 +189,10 @@
         },
         {
             "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Supercell Slam",
             "learnMethod": "machine"
         },
         {

@@ -29,7 +29,7 @@
     "moves": [
         {
             "name": "Acid Spray",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Astonish",
@@ -65,7 +65,11 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -220,6 +224,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Smog",
             "learnMethod": "egg"
         },
@@ -260,11 +268,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tera Blast",
             "learnMethod": "machine"
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

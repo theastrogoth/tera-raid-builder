@@ -68,11 +68,15 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Destiny Bond",
             "learnMethod": "egg"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -148,7 +152,7 @@
         },
         {
             "name": "Pain Split",
-            "learnMethod": "prior-evo"
+            "learnMethod": "machine"
         },
         {
             "name": "Poison Gas",
@@ -193,6 +197,10 @@
         {
             "name": "Sludge Bomb",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
         },
         {
             "name": "Smog",

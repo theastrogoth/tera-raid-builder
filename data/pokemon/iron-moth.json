@@ -57,7 +57,7 @@
         },
         {
             "name": "Electric Terrain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Ember",
@@ -138,6 +138,10 @@
         {
             "name": "Metal Sound",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
         },
         {
             "name": "Morning Sun",

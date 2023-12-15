@@ -76,6 +76,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Defog",
             "learnMethod": "egg"
         },
@@ -86,6 +90,10 @@
         {
             "name": "Double Team",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Dual Wingbeat",
@@ -125,6 +133,10 @@
         },
         {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Hard Press",
             "learnMethod": "machine"
         },
         {
@@ -201,6 +213,10 @@
         },
         {
             "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

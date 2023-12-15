@@ -175,6 +175,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Smack Down",
             "learnMethod": "level-up"
         },

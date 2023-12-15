@@ -80,7 +80,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -156,7 +156,7 @@
         },
         {
             "name": "Muddy Water",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Pound",
@@ -164,6 +164,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -224,6 +228,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

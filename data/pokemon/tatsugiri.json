@@ -40,6 +40,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dragon Dance",
             "learnMethod": "machine"
         },
@@ -158,6 +162,10 @@
         {
             "name": "Water Pulse",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Whirlpool",
+            "learnMethod": "machine"
         }
     ]
 }

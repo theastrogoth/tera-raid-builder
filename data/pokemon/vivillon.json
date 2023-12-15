@@ -41,7 +41,7 @@
         },
         {
             "name": "Bug Bite",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bug Buzz",
@@ -113,7 +113,7 @@
         },
         {
             "name": "Protect",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Psybeam",
@@ -142,6 +142,10 @@
         {
             "name": "Safeguard",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Powder",

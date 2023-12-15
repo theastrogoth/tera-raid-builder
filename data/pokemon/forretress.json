@@ -108,6 +108,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Hard Press",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Heavy Slam",
             "learnMethod": "level-up"
         },
@@ -142,6 +146,14 @@
         {
             "name": "Magnet Rise",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Metal Sound",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Pain Split",
+            "learnMethod": "machine"
         },
         {
             "name": "Payback",

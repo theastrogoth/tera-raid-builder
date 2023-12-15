@@ -43,6 +43,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Aqua Ring",
             "learnMethod": "level-up"
         },
@@ -140,6 +144,10 @@
         },
         {
             "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

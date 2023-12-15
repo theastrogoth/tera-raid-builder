@@ -127,6 +127,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Supercell Slam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Swift",
             "learnMethod": "machine"
         },

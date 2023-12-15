@@ -40,7 +40,7 @@
         },
         {
             "name": "Body Slam",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bounce",
@@ -68,11 +68,11 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earth Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Earthquake",
@@ -84,7 +84,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -128,7 +128,7 @@
         },
         {
             "name": "Hyper Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hypnosis",
@@ -168,7 +168,7 @@
         },
         {
             "name": "Mud Shot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Mud-Slap",
@@ -176,7 +176,7 @@
         },
         {
             "name": "Muddy Water",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Perish Song",
@@ -188,6 +188,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -252,6 +256,10 @@
         },
         {
             "name": "Weather Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

@@ -100,6 +100,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Muddy Water",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Outrage",
             "learnMethod": "machine"
         },
@@ -142,6 +146,10 @@
         {
             "name": "Sludge Bomb",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
         },
         {
             "name": "Smokescreen",
@@ -213,6 +221,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

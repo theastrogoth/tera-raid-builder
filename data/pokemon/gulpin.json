@@ -56,7 +56,7 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Destiny Bond",
@@ -161,6 +161,10 @@
         {
             "name": "Sludge Bomb",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
         },
         {
             "name": "Smog",

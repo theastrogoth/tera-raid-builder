@@ -96,6 +96,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Mortal Spin",
             "learnMethod": "level-up"
         },

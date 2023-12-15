@@ -71,6 +71,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drill Run",
             "learnMethod": "machine"
         },
@@ -80,7 +84,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -117,10 +121,6 @@
         {
             "name": "Iron Head",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Last Resort",
-            "learnMethod": "egg"
         },
         {
             "name": "Leer",
@@ -243,8 +243,8 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thrash",
-            "learnMethod": "egg"
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder Fang",

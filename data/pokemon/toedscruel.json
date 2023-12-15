@@ -136,6 +136,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Poison Powder",
             "learnMethod": "level-up"
         },
@@ -182,6 +186,10 @@
         {
             "name": "Seed Bomb",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
         },
         {
             "name": "Sleep Talk",

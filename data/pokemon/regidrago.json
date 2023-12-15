@@ -2,7 +2,7 @@
     "name": "Regidrago",
     "abilities": [
         {
-            "name": "Dragon's Maw",
+            "name": "Dragon’s Maw",
             "hidden": false
         }
     ],
@@ -31,6 +31,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "level-up"
         },
@@ -41,6 +45,10 @@
         {
             "name": "Dragon Breath",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Dragon Cheer",
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Claw",

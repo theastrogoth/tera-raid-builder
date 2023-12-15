@@ -24,6 +24,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Baton Pass",
             "learnMethod": "machine"
         },
@@ -42,6 +46,10 @@
         {
             "name": "Close Combat",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Coaching",
+            "learnMethod": "machine"
         },
         {
             "name": "Confusion",
@@ -160,6 +168,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
             "learnMethod": "level-up"
         },
@@ -265,6 +277,10 @@
         },
         {
             "name": "Trick Room",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

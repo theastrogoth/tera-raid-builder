@@ -76,11 +76,19 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drill Peck",
             "learnMethod": "egg"
         },
         {
             "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
             "learnMethod": "machine"
         },
         {
@@ -93,7 +101,7 @@
         },
         {
             "name": "Feather Dance",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Flatter",
@@ -161,7 +169,7 @@
         },
         {
             "name": "Night Shade",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Night Slash",
@@ -180,7 +188,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {
@@ -249,7 +265,7 @@
         },
         {
             "name": "Taunt",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Tera Blast",

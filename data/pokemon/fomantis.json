@@ -103,6 +103,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Petal Blizzard",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Protect",
             "learnMethod": "machine"
         },
@@ -116,6 +120,10 @@
         },
         {
             "name": "Seed Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

@@ -43,6 +43,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Crunch",
             "learnMethod": "level-up"
         },

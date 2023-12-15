@@ -45,7 +45,7 @@
         },
         {
             "name": "Air Slash",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Baton Pass",
@@ -82,6 +82,10 @@
         {
             "name": "Double Team",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Dual Wingbeat",
@@ -185,6 +189,10 @@
         },
         {
             "name": "Scary Face",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Skitter Smack",
             "learnMethod": "machine"
         },
         {

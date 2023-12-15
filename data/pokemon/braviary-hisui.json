@@ -53,7 +53,7 @@
         },
         {
             "name": "Brave Bird",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Bulk Up",
@@ -84,6 +84,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dual Wingbeat",
             "learnMethod": "machine"
         },
@@ -96,11 +100,23 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Facade",
             "learnMethod": "machine"
         },
         {
+            "name": "Feather Dance",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Fly",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Future Sight",
             "learnMethod": "machine"
         },
         {
@@ -160,7 +176,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psychic Noise",
             "learnMethod": "machine"
         },
         {

@@ -52,7 +52,7 @@
         },
         {
             "name": "Endeavor",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -109,6 +109,10 @@
         {
             "name": "Magical Leaf",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Petal Blizzard",
+            "learnMethod": "machine"
         },
         {
             "name": "Play Nice",
@@ -192,6 +196,10 @@
         },
         {
             "name": "Trailblaze",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Triple Axel",
             "learnMethod": "machine"
         },
         {

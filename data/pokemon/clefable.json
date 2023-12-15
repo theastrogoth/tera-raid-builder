@@ -31,6 +31,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Amnesia",
             "learnMethod": "machine"
         },
@@ -60,7 +64,7 @@
         },
         {
             "name": "Charm",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Chilling Water",
@@ -88,7 +92,11 @@
         },
         {
             "name": "Disarming Voice",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Drain Punch",
@@ -104,7 +112,11 @@
         },
         {
             "name": "Encore",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -147,6 +159,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Future Sight",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -156,7 +172,7 @@
         },
         {
             "name": "Gravity",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Growl",
@@ -215,6 +231,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Meteor Beam",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Meteor Mash",
             "learnMethod": "level-up"
         },
@@ -260,6 +280,10 @@
         },
         {
             "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -312,7 +336,7 @@
         },
         {
             "name": "Stored Power",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Substitute",

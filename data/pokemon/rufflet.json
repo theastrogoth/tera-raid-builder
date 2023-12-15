@@ -72,6 +72,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dual Wingbeat",
             "learnMethod": "machine"
         },
@@ -81,6 +85,10 @@
         },
         {
             "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feather Dance",
             "learnMethod": "machine"
         },
         {

@@ -60,6 +60,10 @@
             "learnMethod": "egg"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Drain Punch",
             "learnMethod": "machine"
         },
@@ -72,12 +76,16 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
             "learnMethod": "machine"
         },
         {
             "name": "Facade",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Fake Out",
@@ -117,7 +125,7 @@
         },
         {
             "name": "Flamethrower",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Flare Blitz",
@@ -193,7 +201,7 @@
         },
         {
             "name": "Nasty Plot",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Overheat",
@@ -205,6 +213,10 @@
         },
         {
             "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {
@@ -276,6 +288,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Temper Flare",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Tera Blast",
             "learnMethod": "machine"
         },
@@ -293,6 +309,10 @@
         },
         {
             "name": "U-turn",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Upper Hand",
             "learnMethod": "machine"
         },
         {

@@ -59,16 +59,12 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Covet",
-            "learnMethod": "egg"
-        },
-        {
             "name": "Crunch",
             "learnMethod": "machine"
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Dark Pulse",
@@ -80,7 +76,11 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -101,10 +101,6 @@
         {
             "name": "False Swipe",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Flail",
-            "learnMethod": "egg"
         },
         {
             "name": "Flash Cannon",
@@ -193,10 +189,6 @@
         {
             "name": "Nasty Plot",
             "learnMethod": "machine"
-        },
-        {
-            "name": "Night Slash",
-            "learnMethod": "egg"
         },
         {
             "name": "Pay Day",
@@ -293,6 +285,10 @@
         {
             "name": "Thrash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Thunder",

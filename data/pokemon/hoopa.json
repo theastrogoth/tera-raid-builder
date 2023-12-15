@@ -41,7 +41,7 @@
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Destiny Bond",
@@ -57,6 +57,10 @@
         },
         {
             "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -84,6 +88,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Future Sight",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Giga Impact",
             "learnMethod": "machine"
         },
@@ -108,10 +116,6 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Hyperspace Fury",
-            "learnMethod": "level-up"
-        },
-        {
             "name": "Hyperspace Hole",
             "learnMethod": "level-up"
         },
@@ -121,7 +125,7 @@
         },
         {
             "name": "Knock Off",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Lash Out",
@@ -152,8 +156,16 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Psychic Noise",
+            "learnMethod": "machine"
         },
         {
             "name": "Psychic Terrain",
@@ -196,6 +208,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Skitter Smack",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Sleep Talk",
             "learnMethod": "machine"
         },
@@ -225,6 +241,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

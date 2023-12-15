@@ -31,6 +31,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Alluring Voice",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Aqua Jet",
             "learnMethod": "level-up"
         },
@@ -128,7 +132,7 @@
         },
         {
             "name": "Pain Split",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Play Nice",

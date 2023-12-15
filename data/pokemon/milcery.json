@@ -22,5 +22,97 @@
         "spe": 34
     },
     "moves": [
+        {
+            "name": "Acid Armor",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Aromatic Mist",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Attract",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Baby-Doll Eyes",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Charm",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Dazzling Gleam",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Draining Kiss",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Entrainment",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Facade",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Helping Hand",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Last Resort",
+            "learnMethod": "egg"
+        },
+        {
+            "name": "Misty Terrain",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Protect",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Recover",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sleep Talk",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Stored Power",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Substitute",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sweet Kiss",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Sweet Scent",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tackle",
+            "learnMethod": "level-up"
+        },
+        {
+            "name": "Tera Blast",
+            "learnMethod": "machine"
+        }
     ]
 }

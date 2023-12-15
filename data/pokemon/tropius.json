@@ -61,7 +61,11 @@
         },
         {
             "name": "Curse",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Dragon Dance",
@@ -73,6 +77,10 @@
         },
         {
             "name": "Dragon Tail",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dual Wingbeat",
             "learnMethod": "machine"
         },
         {
@@ -158,6 +166,10 @@
         {
             "name": "Outrage",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Petal Blizzard",
+            "learnMethod": "machine"
         },
         {
             "name": "Protect",

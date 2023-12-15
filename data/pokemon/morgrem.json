@@ -188,6 +188,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Thunder Wave",
             "learnMethod": "machine"
         },

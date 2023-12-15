@@ -60,6 +60,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Breaking Swipe",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Brick Break",
             "learnMethod": "machine"
         },
@@ -96,6 +100,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Earth Power",
             "learnMethod": "level-up"
         },
@@ -129,6 +137,10 @@
         },
         {
             "name": "Giga Impact",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Gravity",
             "learnMethod": "machine"
         },
         {
@@ -172,11 +184,19 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Rain Dance",
             "learnMethod": "machine"
         },
         {
             "name": "Rest",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Roar",
             "learnMethod": "machine"
         },
         {
@@ -189,6 +209,10 @@
         },
         {
             "name": "Sandstorm",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Scale Shot",
             "learnMethod": "machine"
         },
         {
@@ -248,11 +272,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder Wave",
+            "name": "Thunder",
             "learnMethod": "machine"
         },
         {
-            "name": "Thunder",
+            "name": "Thunder Wave",
             "learnMethod": "machine"
         },
         {
@@ -260,11 +284,11 @@
             "learnMethod": "machine"
         },
         {
-            "name": "Trick Room",
+            "name": "Trick",
             "learnMethod": "machine"
         },
         {
-            "name": "Trick",
+            "name": "Trick Room",
             "learnMethod": "machine"
         },
         {
@@ -273,6 +297,10 @@
         },
         {
             "name": "Waterfall",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Whirlpool",
             "learnMethod": "machine"
         }
     ]

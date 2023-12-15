@@ -28,7 +28,7 @@
         },
         {
             "name": "Agility",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Amnesia",
@@ -55,12 +55,20 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Defense Curl",
             "learnMethod": "level-up"
         },
         {
             "name": "Dig",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
         },
         {
             "name": "Drill Run",
@@ -73,6 +81,10 @@
         {
             "name": "Earthquake",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -207,6 +219,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Scorching Sands",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Scratch",
             "learnMethod": "level-up"
         },
@@ -272,6 +288,10 @@
         },
         {
             "name": "Thief",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

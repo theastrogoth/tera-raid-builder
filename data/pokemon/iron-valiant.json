@@ -48,6 +48,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Coaching",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Confuse Ray",
             "learnMethod": "machine"
         },
@@ -73,7 +77,7 @@
         },
         {
             "name": "Electric Terrain",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Encore",
@@ -85,6 +89,10 @@
         },
         {
             "name": "Energy Ball",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -208,6 +216,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
             "learnMethod": "machine"
         },
@@ -285,6 +297,10 @@
         },
         {
             "name": "Tera Blast",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Throat Chop",
             "learnMethod": "machine"
         },
         {

@@ -68,7 +68,7 @@
         },
         {
             "name": "Dark Pulse",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -96,7 +96,7 @@
         },
         {
             "name": "Foul Play",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Giga Impact",
@@ -116,7 +116,7 @@
         },
         {
             "name": "Heat Wave",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Hurricane",
@@ -128,7 +128,15 @@
         },
         {
             "name": "Icy Wind",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Knock Off",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
+            "learnMethod": "machine"
         },
         {
             "name": "Leer",
@@ -172,10 +180,18 @@
         },
         {
             "name": "Sleep Talk",
-            "learnMethod": "level-up"
+            "learnMethod": "machine"
         },
         {
             "name": "Sludge Bomb",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Sludge Wave",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Smack Down",
             "learnMethod": "machine"
         },
         {
@@ -219,12 +235,16 @@
             "learnMethod": "level-up"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {
             "name": "Uproar",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Weather Ball",
+            "learnMethod": "machine"
         }
     ]
 }

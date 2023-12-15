@@ -67,7 +67,15 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Endeavor",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Endure",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Expanding Force",
             "learnMethod": "machine"
         },
         {
@@ -84,7 +92,7 @@
         },
         {
             "name": "Future Sight",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Grass Knot",

@@ -199,6 +199,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Triple Axel",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Water Pulse",
             "learnMethod": "machine"
         }

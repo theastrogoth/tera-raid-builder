@@ -43,6 +43,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Double-Edge",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Eerie Impulse",
             "learnMethod": "level-up"
         },
@@ -53,6 +57,10 @@
         {
             "name": "Electro Ball",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Electroweb",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -88,7 +96,7 @@
         },
         {
             "name": "Metal Sound",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
         },
         {
             "name": "Mirror Coat",

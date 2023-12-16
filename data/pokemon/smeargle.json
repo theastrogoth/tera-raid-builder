@@ -25,10 +25,5 @@
         "spd": 45,
         "spe": 75
     },
-    "moves": [
-        {
-            "name": "Sketch",
-            "learnMethod": "level-up"
-        }
-    ]
+    "moves": []
 }

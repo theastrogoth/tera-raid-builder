@@ -4856,7 +4856,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     bp: 65,
     type: 'Fighting',
     category: 'Physical',
-    priority: 12,
+    priority: 3,
     secondaries: true,
   },
   'Victory Dance': {

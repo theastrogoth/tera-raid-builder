@@ -32,7 +32,7 @@ export namespace State {
     ivs?: Partial<I.StatsTable>;
     evs?: Partial<I.StatsTable>;
     boosts?: Partial<I.StatsTable>;
-    isPumped?: boolean;
+    isPumped?: number;
     isMicle?: boolean;
     randomBoosts?: number;
     stockpile?: number;

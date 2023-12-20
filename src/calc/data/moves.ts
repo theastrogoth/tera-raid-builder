@@ -4157,6 +4157,7 @@ for (const m of LGPE_MOVES) {
 
 const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Aerial Ace': {isSlicing: true},
+  Aeroblast: {isWind: true},
   'Air Cutter': {isSlicing: true, isWind: true},
   'Air Slash': {isSlicing: true},
   'Behemoth Blade': {isSlicing: true},
@@ -4172,6 +4173,8 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   Hurricane: {isWind: true},
   'Icy Wind': {isWind: true},
   'Leaf Blade': {isSlicing: true},
+  'Luster Purge': {bp: 95, zp: 175, maxPower: 130},
+  'Mist Ball': {bp: 95, zp: 175, maxPower: 130},
   'Night Slash': {isSlicing: true},
   'Petal Blizzard': {isWind: true},
   'Psycho Cut': {isSlicing: true},
@@ -4191,6 +4194,8 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     type: 'Fairy',
     category: 'Special',
     secondaries: true,
+    isSound: true,
+    makesContact: true,
   },
   'Aqua Cutter': {
     bp: 70,
@@ -4282,6 +4287,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     bp: 0,
     type: 'Fire',
     category: 'Status',
+    priority: 4,
   },
   'Ceaseless Edge': {
     bp: 65,
@@ -4554,6 +4560,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     type: 'Rock',
     category: 'Physical',
     makesContact: true,
+    isSlicing: true,
   },
   'Mortal Spin': {
     bp: 30,
@@ -4636,6 +4643,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     type: 'Psychic',
     category: 'Special',
     secondaries: true,
+    isSound: true,
   },
   'Psyshield Bash': {
     bp: 70,
@@ -4759,6 +4767,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     type: 'Electric',
     category: 'Physical',
     makesContact: true,
+    hasCrashDamage: true,
   },
   'Syrup Bomb': {
     bp: 60,
@@ -4773,6 +4782,8 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     bp: 50,
     type: 'Steel',
     category: 'Special',
+    multihit: 2,
+    isSlicing: true,
   },
   'Take Heart': {
     bp: 0,
@@ -4858,6 +4869,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     category: 'Physical',
     priority: 3,
     secondaries: true,
+    makesContact: true,
   },
   'Victory Dance': {
     bp: 0,

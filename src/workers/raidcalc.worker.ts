@@ -25,7 +25,9 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[
     }), r.moveData, r.extraMoves, r.extraMoveData))
 
     raiders[0].isTera = true; // ensure the boss is Tera'd on T0
-    raiders[0].field.gameType = 'Doubles'; // affects Reflect/Light Screen/Aurora Veil 
+    for (let i = 0; i < raiders.length; i++) {
+        raiders[i].field.gameType = 'Doubles'; // affects Reflect/Light Screen/Aurora Veil 
+    }
 
     const state = new RaidState(raiders);
     const info: RaidBattleInfo = {

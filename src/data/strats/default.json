@@ -6,10 +6,10 @@
         {
             "id": 0,
             "role": "Raid Boss",
-            "name": "Dialga",
+            "name": "Iron Bundle",
             "shiny": false,
-            "ability": "Telepathy",
-            "nature": "Quiet",
+            "ability": "Quark Drive",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,40 +27,40 @@
                 "spe": 31
             },
             "level": 75,
-            "teraType": "Dragon",
+            "teraType": "Ice",
             "moves": [
-                "Draco Meteor",
-                "Earth Power",
-                "Fire Blast",
-                "Steel Beam"
+                "Blizzard",
+                "Hydro Pump",
+                "Air Cutter",
+                "Freeze-Dry"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Trick Room",
-                "Stealth Rock",
-                "Iron Defense"
+                "Snowscape",
+                "Electric Terrain"
             ],
             "shieldData": {
                 "hpTrigger": 80,
-                "timeTrigger": 75,
+                "timeTrigger": 80,
                 "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 80,
-                "shieldDamageRateTeraChange": 40
+                "shieldDamageRateTera": 75,
+                "shieldDamageRateTeraChange": 35
             }
         },
         {
             "id": 1,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Gholdengo",
+            "name": "Gholdengo",
             "shiny": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Good as Gold",
+            "item": "Choice Specs",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -73,7 +73,7 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": [],
+            "moves": ["Make It Rain"],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -87,17 +87,18 @@
         },
         {
             "id": 2,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Perrserker",
+            "name": "Perrserker",
             "shiny": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Steely Spirit",
+            "item": "Focus Sash",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -109,7 +110,7 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": [],
+            "moves": ["Fake Tears"],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -123,17 +124,18 @@
         },
         {
             "id": 3,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Perrserker",
+            "name": "Perrserker",
             "shiny": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Steely Spirit",
+            "item": "Focus Sash",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -145,7 +147,7 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": [],
+            "moves": ["Fake Tears"],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -159,17 +161,17 @@
         },
         {
             "id": 4,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Klefki",
+            "name": "Klefki",
             "shiny": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Prankster",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -181,7 +183,7 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": [],
+            "moves": ["Sunny Day"],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -210,7 +212,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Trick Room",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

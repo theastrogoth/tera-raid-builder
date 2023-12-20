@@ -25,6 +25,7 @@ export function hasNoStatus(pokemon: Pokemon) {
 // See ../calc/mechanics/util.ts for the original
 export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender: Pokemon) {
     if (!move.type) {return false; }
+    if (defender.hasAbility("Tera Shell") && defender.originalCurHP === defender.maxHP()) { return false; }
     const isGhostRevealed =
     attacker.hasAbility('Scrappy') || attacker.hasAbility("Mind's Eye") || field.defenderSide.isForesight;
     const isRingTarget =

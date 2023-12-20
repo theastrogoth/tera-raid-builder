@@ -248,13 +248,15 @@ export class RaidMove {
                 }
                 continue; 
             }
-            const pokemon = this.getPokemon(id);
+            let pokemon = this.getPokemon(id);
             const field = pokemon.field;
             // Magic Bounce
             if (magicBounceMoves.includes(moveName) && pokemon.hasAbility("Magic Bounce")) {
                 this._doesNotAffect[id] = "bounced back by Magic Bounce!";
                 this._affectedIDs[i] = this.userID;
+                this._targetID = this.userID;
                 id = this.userID
+                pokemon = this.getPokemon(id);
             }
             // Status Moves blocked by Boss Shield
             if (this.userID !== 0 && pokemon.shieldActive && category === "Status") {
@@ -423,7 +425,7 @@ export class RaidMove {
 
     private applyProtection() {
         const moveName = this.moveData.name;
-        if (["Protect", "Detect", "Spiky Shield", "Baneful Bunker"].includes(moveName)) {
+        if (["Protect", "Detect", "Spiky Shield", "Baneful Bunker", "Burning Bulwark"].includes(moveName)) {
             this._fields[this.userID].attackerSide.isProtected = true;
         } else if (moveName === "Wide Guard")  {
             if (this.userID === 0) {
@@ -475,12 +477,12 @@ export class RaidMove {
         }
         // calculate and apply damage
         let hasCausedDamage = false;
-        for (let id of this._affectedIDs) {
+        for (let id of [0,1,2,3,4]) {
             if (this._doesNotAffect[id]) {
                 this._desc[id] = this.move.name + " " + this._doesNotAffect[id] + "!";
             } else if (this._blockedBy[id] !== "")  {
                 this._desc[id] = this.move.name + " was blocked by " + this._blockedBy[id] + "!";
-            } else {
+            } else if (this._affectedIDs.includes(id)) {
                 const target = this.getPokemon(id);
                 const crit = this.options.crit || false;
                 const roll = this.options.roll || "avg";
@@ -632,14 +634,14 @@ export class RaidMove {
                             this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100)));
                             break;
                         case "Baneful Bunker":
-                            // TO DO: poison
+                            this._raidState.applyStatus(this.userID, "psn", target.id, false, this.options.roll);
                             break;
                         case "Burning Bulwark":
-                            // TO DO : burn
+                            this._raidState.applyStatus(this.userID, "brn", target.id, false, this.options.roll);
                             break;
                         case "Beak Blast":
                             if (target.isCharging) {
-                                // TO DO: burn
+                                this._raidState.applyStatus(this.userID, "brn", target.id, false, this.options.roll);
                             }
                             break;
                         case "King's Shield": 
@@ -786,54 +788,17 @@ export class RaidMove {
                 if (pokemon.originalCurHP === 0) { continue; }
                 const field = pokemon.field;
                 const status = ailmentToStatus(ailment);
-                const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield");
-                // Covert Cloak
-                if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
+                const isSecondaryEffect = this.moveData.category?.includes("damage");
                 // volatile status
                 if (status === "") {
-                    // Safeguard and Misty Terrain block confusion
-                    if (ailment === "confusion" && ((field.attackerSide.isSafeguard && this._user.ability !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { continue; }
-                    // Aroma Veil
-                    if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation", "yawn"].includes(ailment)) {
-                        continue;
-                    // Own Tempo
-                    } else if (!attackerIgnoresAbility && pokemon.ability === "Own Tempo" && ailment === "confusion") {
-                        continue;
-                    // Oblivious
-                    } else if (!attackerIgnoresAbility && pokemon.ability === "Oblivious" && (ailment === "taunt" || ailment === "infatuation")) {
-                        continue;
-                    // yawn immunity
-                    } else if (ailment === "yawn" && !attackerIgnoresAbility && (pokemon.hasAbility("Vital Spirit", "Insomnia") || (pokemon.hasAbility("Leaf Guard") && pokemon.field.hasWeather("Sun")))) {
-                        continue;
-                    } else if (!pokemon.volatileStatus.includes(ailment)) {
-                        this._raidState.applyVolatileStatus(id, ailment, this.movesFirst, this.userID);
-                    }
+                    this._raidState.applyVolatileStatus(id, ailment, this.userID, this.movesFirst);
                 // non-volatile status
                 } else {
-                    // existing status cannot be overwritten
-                    if (!hasNoStatus(pokemon)) { continue; }
-                    // Purifying Salt blocks all non-volatile statuses
-                    if (pokemon.hasAbility("Purifying Salt")) { continue; }
-                    // field-based immunities
-                    if (id !== this.userID && ((field.attackerSide.isSafeguard && this._user.ability !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { continue; }
-                    if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { continue; }
-                    // type-based and ability-based immunities
-                    if (status === "brn" && (pokemon.types.includes("Fire") || pokemon.hasAbility("Water Veil") || pokemon.hasAbility("Thermal Exchange"))) { continue; }
-                    if (status === "frz" && (pokemon.field.hasWeather("Sun") || pokemon.types.includes("Ice") || (!attackerIgnoresAbility && pokemon.ability === "Magma Armor"))) { continue; }
-                    if ((status === "psn" || status === "tox") && ((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { continue; }
-                    if ((status === "par" && (pokemon.types.includes("Electric") || (!attackerIgnoresAbility && pokemon.ability === "Limber")))) { continue; }
-                    if (status === "slp" && !attackerIgnoresAbility && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { continue; }
-                    if (pokemon.field.hasWeather("Sun") && !attackerIgnoresAbility && pokemon.ability === "Leaf Guard") { continue; }
-                    this._raidState.applyStatus(id, status);
-                    if (status === "slp") { // lasts 1-3 turns
-                        pokemon.isSleep = this.options.roll === "max" ? 3 : this.options.roll === "min" ? 1 : 2;
-                    }
+                    this._raidState.applyStatus(id, status, this.userID, isSecondaryEffect, this.options.roll);
                 }
                 // Toxic Chain
-                if (this._user.ability === "Toxic Chain" && this.options.secondaryEffects && hasNoStatus(pokemon)) {
-                    if (!((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (this._user.ability !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) {
-                        this._raidState.applyStatus(id, "tox");
-                    }
+                if (this._user.ability === "Toxic Chain" && isSecondaryEffect && this.options.secondaryEffects) {
+                    this._raidState.applyStatus(id, "tox", this.userID, true, this.options.roll);
                 }
             }
         }
@@ -1176,6 +1141,12 @@ export class RaidMove {
                                 target.lastConsumedItem = this._flingItem as ItemName;
                             }
                             break;
+                        case "Persim Berry": 
+                            if (target.volatileStatus.includes("confusion")) { 
+                                target.volatileStatus = target.volatileStatus.filter(status => status !== "confusion"); 
+                                target.lastConsumedItem = this._flingItem as ItemName;
+                            }
+                            break;
                         // Stat-Boosting Berries
                         case "Liechi Berry":
                             const atkDiff = this._raidState.applyStatChange(this._targetID, {atk: 1});
@@ -1320,7 +1291,7 @@ export class RaidMove {
                 ) {
                     this._user.originalCurHP = this._user.maxHP();
                     this._user.isSleep = this.options.roll === "max" ? 1 : this.options.roll === "min" ? 3 : 2;
-                    this._raidState.applyStatus(this.userID, "slp");
+                    this._raidState.applyStatus(this.userID, "slp", this.userID, false, this.options.roll);
                 }
                 break;
             case "Ingrain":

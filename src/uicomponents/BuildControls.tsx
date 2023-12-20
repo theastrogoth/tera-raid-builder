@@ -1068,7 +1068,10 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         } else if (pokemon.name === "Zamazenta-Crowned") {
             setItems(["Rusted Shield" as ItemName]);
             setPokemonProperties(["role","item"])(["Zamazenta", "Rusted Shield"]);
-        } 
+        } else if (pokemon.name.includes("Terapagos")) {
+            setTeraTypes(["Stellar"]);
+            setPokemonProperties(["teraType"])(["Stellar"]);
+        }
         // Arceus Plate Types
         else if (pokemon.name.includes("Arceus")) {
             if (pokemon.name.includes("-")) {

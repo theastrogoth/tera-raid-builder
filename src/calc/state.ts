@@ -83,6 +83,7 @@ export namespace State {
     isVesselOfRuin?: boolean;
     isTrickRoom?: number;       // # turns remaining
     isCloudNine?: boolean;
+    isTeraformZero?: boolean;
     attackerSide: Side;
     defenderSide: Side;
   }

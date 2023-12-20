@@ -478,12 +478,12 @@ export class RaidMove {
         // calculate and apply damage
         let hasCausedDamage = false;
         for (let id of [0,1,2,3,4]) {
+            const target = this.getPokemon(id);
             if (this._doesNotAffect[id]) {
                 this._desc[id] = this.move.name + " " + this._doesNotAffect[id] + "!";
             } else if (this._blockedBy[id] !== "")  {
                 this._desc[id] = this.move.name + " was blocked by " + this._blockedBy[id] + "!";
             } else if (this._affectedIDs.includes(id)) {
-                const target = this.getPokemon(id);
                 const crit = this.options.crit || false;
                 const roll = this.options.roll || "avg";
                 const superEffective = isSuperEffective(this.move, target.field, this._user, target);
@@ -627,7 +627,9 @@ export class RaidMove {
                 } else {
                     this._desc[id] = this._user.name + " used " + this.move.name + " but it missed!"; //  due to semi-invulnerable moves
                 }
-                // protection contact checks
+            }
+            // protection contact checks
+            if (this._affectedIDs.includes(id)) {
                 if (this.move.flags?.contact && this._blockedBy[id] && target.lastMove && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
                     switch (target.lastMove.name) {
                         case "Spiky Shield":

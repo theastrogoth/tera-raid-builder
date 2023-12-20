@@ -101,6 +101,10 @@ export class RaidMove {
         ) {
             this._user.isCharging = true;
             this._desc[this.userID] = this._user.name + " is charging its attack!";
+            // Electro Shot boost check
+            if (this.moveData.name === "Electro Shot") {
+                this._raidState.applyStatChange(this.userID, {spa: 1});
+            }
         } else if (this._user.isRecharging) {
             this._user.isRecharging = false;
             this._desc[this.userID] = this._user.name + " is recharging!";
@@ -113,7 +117,6 @@ export class RaidMove {
             ) {
                 this._raidState.loseItem(this.userID);
             }
-            this._user.isCharging = false;
             this.setDoesNotAffect();
             this.checkProtection();
             this.applyProtection();
@@ -126,6 +129,7 @@ export class RaidMove {
             this.applyAilment();
             this.applyFieldChanges();
             this.applyUniqueMoveEffects();
+            this._user.isCharging = false;
             if (rechargeMoves.includes(this.move.name)) {
                 this._user.isRecharging = true;
             }
@@ -467,7 +471,7 @@ export class RaidMove {
             moveUser.abilityOn = true;
             this._flags[this.userID].push("changed to the " + this.move.type + " type");
         }
-        // Electro Shot boost check
+        // Electro Shot boost check (with Power Herb or in Rain)
         if (this.moveData.name === "Electro Shot" && !moveUser.isCharging) {
             this._raidState.applyStatChange(this.userID, {spa: 1});
         }

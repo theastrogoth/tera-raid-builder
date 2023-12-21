@@ -607,6 +607,12 @@ export class RaidState implements State.RaidState{
     public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchIn: boolean = false, restore: boolean = false): string[][] {
         const pokemon = this.getPokemon(id);
         const flags: string[][] = [[],[],[],[],[]];
+        /// Imposter
+        if (ability === "Imposter") {
+            const target = id === 0 ? this.raiders[1] : this.raiders[0];
+            this.transform(id, target.id);
+            flags[id].push("Imposter transforms " + pokemon.name + " into " + target.name);
+        }
         /// Trace (handled separately so the traced ability can activate if applicable)
         if (ability === "Trace") {
             const opponentIds = id === 0 ? [1,2,3,4] : [0];
@@ -1109,10 +1115,15 @@ export class RaidState implements State.RaidState{
         return flags;
     }
 
-    public transform(id:number, target: number) {
+    public transform(id:number, target: number): boolean {
         const pokemon = this.getPokemon(id);
         const targetPokemon = this.getPokemon(target);
-        pokemon.transformInto(targetPokemon);
-        this.changeAbility(id, targetPokemon.ability || "(No Ability)");
+        if (!pokemon.isTransformed && !targetPokemon.isTransformed) {
+            pokemon.transformInto(targetPokemon);
+            this.changeAbility(id, targetPokemon.ability || "(No Ability)");
+            return true;
+        } else {
+            return false;
+        }
     }
 }

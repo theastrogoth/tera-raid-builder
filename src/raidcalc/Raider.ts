@@ -45,6 +45,7 @@ export class Raider extends Pokemon implements State.Raider {
     isTransformed?: boolean; // indicates that the pokemon has been transformed by Transform or Imposter
     originalSpecies?: SpeciesName; // stores the state of the pokemon before transformation
     originalMoves?: State.MoveData[]; // stores the moves of the pokemon before transformation or Mimic
+    originalFormAbility?: AbilityName | "(No Ability)"; // stores the ability of the pokemon before transformation
 
     constructor(
         id: number, 
@@ -77,6 +78,7 @@ export class Raider extends Pokemon implements State.Raider {
         isTransformed: boolean | undefined = undefined,
         originalSpecies: SpeciesName | undefined = undefined,
         originalMoves: State.MoveData[] | undefined = undefined,
+        originalFormAbility: AbilityName | "(No Ability)" | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -108,6 +110,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isTransformed = isTransformed;
         this.originalSpecies  = originalSpecies;
         this.originalMoves = originalMoves;
+        this.originalFormAbility = originalAbility || pokemon.ability || "(No Ability)";
     }
 
     clone(): Raider {
@@ -177,6 +180,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.isTransformed,
             this.originalSpecies,
             this.originalMoves,
+            this.originalFormAbility,
         )
     }
 
@@ -280,13 +284,14 @@ export class Raider extends Pokemon implements State.Raider {
         this.name = pokemon.name;
         this.species = pokemon.species;
         this.weightkg = pokemon.weightkg;
-        this.rawStats = {...pokemon.rawStats};
+        this.rawStats = {...pokemon.rawStats, hp: this.rawStats.hp}; // HP is retained
         this.types = pokemon.types.slice() as [TypeName] | [TypeName, TypeName];
         // copy stats and moves
         this.boosts = {...pokemon.boosts};
         this.moves = pokemon.moves.slice();
         this.moveData = pokemon.moveData.slice();
         this.stats = {...pokemon.stats, hp: this.stats.hp}; // HP is retained
+        this.originalAbility = pokemon.ability as AbilityName;
         // this.ability = pokemon.ability; // handle ability change in the RaidState
     }
 

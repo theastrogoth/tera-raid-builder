@@ -27,9 +27,10 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidMoveInfo, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import { getPokemonSpriteURL, arraysEqual, getTranslation, getModifiedRaidersForMoveSelection } from "../utils";
+import { getPokemonSpriteURL, arraysEqual, getTranslation } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
+import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
 const RepeatsInput = styled(MuiInput)`
   width: 42px;
@@ -729,8 +730,8 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     )
 });
 
-function MoveGroupContainer({raidInputProps, modifiedRaiders, groupIndex, firstMoveIndex, rollCase, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
-    {raidInputProps: RaidInputProps, modifiedRaiders: {raider: Raider, moveidx: number}[][], groupIndex: number, firstMoveIndex: number, rollCase: "min" | "avg" | "max", buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) {
+function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex, rollCase, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
+    {raidInputProps: RaidInputProps, results: RaidBattleResults, groupIndex: number, firstMoveIndex: number, rollCase: "min" | "avg" | "max", buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) {
     
     const color = "group" + raidInputProps.groups[groupIndex].id.toString().slice(-1) + ".main";
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -772,7 +773,7 @@ function MoveGroupContainer({raidInputProps, modifiedRaiders, groupIndex, firstM
                                     {...provided.droppableProps}
                                     // sx={{ minHeight: "60px" }} 
                                 >
-                                    <MoveGroupCard raidInputProps={raidInputProps} modifiedRaiders={modifiedRaiders} groupIndex={groupIndex} firstMoveIndex={firstMoveIndex} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} translationKey={translationKey} />
+                                    <MoveGroupCard raidInputProps={raidInputProps} results={results} groupIndex={groupIndex} firstMoveIndex={firstMoveIndex} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} translationKey={translationKey} />
                                     {provided.placeholder}
                                 </Box>
                             )}
@@ -852,15 +853,15 @@ function MoveGroupContainer({raidInputProps, modifiedRaiders, groupIndex, firstM
 }
    
    
-function MoveGroupCard({raidInputProps, modifiedRaiders, groupIndex, firstMoveIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
-    {raidInputProps: RaidInputProps, modifiedRaiders: {raider: Raider, moveidx: number}[][], groupIndex: number, firstMoveIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) 
+function MoveGroupCard({raidInputProps, results, groupIndex, firstMoveIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
+    {raidInputProps: RaidInputProps, results: RaidBattleResults, groupIndex: number, firstMoveIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) 
 {
     return  (
         <Stack direction="column" spacing={0.5} sx={{ minHeight: "1px" }}>
             {
                 raidInputProps.groups[groupIndex].turns.map((turn, turnIndex) => {
                     const moveIndex = firstMoveIndex + turnIndex;
-                    const raiders = modifiedRaiders.map((raiderMods) => (raiderMods.slice().reverse().find((r) => r.moveidx <= moveIndex) || raiderMods[raiderMods.length-1]).raider);
+                    const raiders = moveIndex > 0 ? results.turnResults[moveIndex-1].state.raiders : results.turnZeroState.raiders;
                     return (
                         <MoveSelectionContainer 
                             key={turn.id}
@@ -909,15 +910,10 @@ const move = (source: TurnGroupInfo, destination: TurnGroupInfo, sourceIndex: nu
     return [sourceClone, destClone];
 };
 
-function MoveSelection({raidInputProps, rollCase, translationKey}: {raidInputProps: RaidInputProps, rollCase: "min" | "avg" | "max",translationKey: any}) {
+function MoveSelection({raidInputProps, results, rollCase, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, rollCase: "min" | "avg" | "max",translationKey: any}) {
     const [buttonsVisible, setButtonsVisible] = useState(true);
     const [transitionIn, setTransitionIn] = useState(-1);
     const [transitionOut, setTransitionOut] = useState(-1);
-
-    const [modifiedRaiders, setModifiedRaiders] = useState<{raider: Raider, moveidx: number}[][]>(raidInputProps.pokemon.map((raider) => {return [{raider: raider, moveidx: 1}]}));
-    useEffect(() => {
-        setModifiedRaiders(getModifiedRaidersForMoveSelection(raidInputProps));
-    }, [raidInputProps])
 
     const onDragStart = () => {
         setButtonsVisible(false);
@@ -1029,9 +1025,9 @@ function MoveSelection({raidInputProps, rollCase, translationKey}: {raidInputPro
                                                     <MoveGroupContainer 
                                                         key={index}
                                                         raidInputProps={raidInputProps} 
-                                                        modifiedRaiders={modifiedRaiders}
+                                                        results={results}
                                                         groupIndex={index} 
-                                                        firstMoveIndex={raidInputProps.groups.slice(0, index).reduce((acc, g) => acc + g.turns.length, 0)}
+                                                        firstMoveIndex={raidInputProps.groups.slice(0, index).reduce((acc, g) => acc + (g.turns.length) * (g.repeats || 1), 0)}
                                                         rollCase={rollCase}
                                                         buttonsVisible={buttonsVisible}
                                                         transitionIn={transitionIn}

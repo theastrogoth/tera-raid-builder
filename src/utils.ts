@@ -1,4 +1,5 @@
 import { StatID, StatsTable } from "./calc";
+import { RaidBattleResults } from "./raidcalc/RaidBattle";
 import { Raider } from "./raidcalc/Raider";
 import { RaidInputProps } from "./raidcalc/inputs";
 import { MoveData, TurnGroupInfo } from "./raidcalc/interface";
@@ -262,51 +263,6 @@ export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo
         } 
     }
     return [turns, labels];
-}
-
-export function getModifiedRaidersForMoveSelection(raidInputProps: RaidInputProps): {raider: Raider, moveidx: number}[][] {
-    const modifiedRaiders = (raidInputProps.pokemon.map((raider) => {return [{raider: raider, moveidx: 0}]}))
-    // imposter check
-    for (let raider of raidInputProps.pokemon) {
-        if (raider.ability === "Imposter") {
-            const newRaider = raider.clone();
-            const target = raider.id === 0 ? raidInputProps.pokemon[1] : raidInputProps.pokemon[0];
-            newRaider.transformInto(target);
-            modifiedRaiders[raider.id][0] = {raider: newRaider, moveidx: 0};
-        }
-    }
-    // transform and mimic checks
-    let moveidx = 0;
-    const lastMovesUsed: (MoveData | undefined)[] = [];
-    for (let i=0; i<raidInputProps.groups.length; i++) {
-        const g = raidInputProps.groups[i]
-        for (let j=0; j<g.turns.length; j++) {
-            moveidx += 1; // modifications will only appear on the next move
-            const t = g.turns[j];
-            const raiderID = t.moveInfo.userID;
-            const targetID = t.moveInfo.targetID;
-            const moveName = t.moveInfo.moveData.name;
-            const moveData = t.moveInfo.moveData;
-            if (moveName === "Transform") {
-                const raider = modifiedRaiders[raiderID][modifiedRaiders[raiderID].length-1].raider;
-                const target = modifiedRaiders[targetID][modifiedRaiders[targetID].length-1].raider;
-                const newRaider = raider.clone();
-                newRaider.transformInto(target);
-                modifiedRaiders[raiderID].push({raider: newRaider, moveidx: moveidx});
-            } else if (moveName === "Mimic" || moveName === "Sketch") {
-                const raider = modifiedRaiders[raiderID][modifiedRaiders[raiderID].length-1].raider;
-                const newRaider = raider.clone();
-                const copiedMove = lastMovesUsed[targetID];
-                if (copiedMove && !["Attack Cheer", "Defense Cheer", "Heal Cheer", "(Most Damaging)", "(No Move)", "Remove Negative Effects", "Clear Boosts / Abilities"].includes(copiedMove.name)) {
-                    newRaider.mimicMove(copiedMove, targetID);
-                    console.log(copiedMove, newRaider.moves)
-                }
-                modifiedRaiders[raiderID].push({raider: newRaider, moveidx: moveidx});
-            }
-            lastMovesUsed[raiderID] = moveData;
-        }
-    }
-    return modifiedRaiders;
 }
 
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {

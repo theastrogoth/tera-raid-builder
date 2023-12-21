@@ -1042,6 +1042,8 @@ export class RaidState implements State.RaidState{
             pokemon.weightkg = originalSpecies.weightkg;
             pokemon.stats = originalSpecies.stats;
             pokemon.rawStats = originalSpecies.rawStats;
+            pokemon.isTransformed = false;
+            pokemon.originalAbility = pokemon.originalFormAbility as AbilityName;
         }
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;

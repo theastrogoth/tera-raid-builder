@@ -361,8 +361,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
 function HpDisplay({results, translationKey}: {results: RaidBattleResults, translationKey: any}) {
     const [displayedTurn, setDisplayedTurn] = useState<number>(0);
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
-    const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
-    
+
     const turnState = (
         (displayedTurn === 0) ? results.turnZeroState :
         (displayedTurn > results.turnResults.length) ? results.endState : 
@@ -373,6 +372,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
         (displayedTurn > results.turnResults.length) ? results.endState :
         results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 2].state
     );
+    const maxhps = turnState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, (raider.isTransformed && raider.originalSpecies) ? raider.originalSpecies  : raider.name, {...raider}).maxHP() : raider.maxHP()) );
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
     const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
@@ -714,7 +714,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
                 <Box hidden={value !== 1}>
                     <Box sx={{ height: 560, overflowY: "auto" }}>
                         {!prettyMode &&
-                            <MoveSelection raidInputProps={raidInputProps} rollCase={rollCase} translationKey={translationKey}/>
+                            <MoveSelection raidInputProps={raidInputProps} results={results} rollCase={rollCase} translationKey={translationKey}/>
                         }
                         {prettyMode &&
                             <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results} translationKey={translationKey}/>

@@ -84,9 +84,6 @@ export class RaidMove {
 
     public result(): RaidMoveResult {
         this.setOutputRaidState();
-        if (this.moveData.name === "Fake Tears") {
-            console.log(this.userID, this.moveData, this._raidState.getPokemon(this.userID).moveData)
-        }
         if (!this.checkIfMoves()) {
             const output = this.output;
             return output;

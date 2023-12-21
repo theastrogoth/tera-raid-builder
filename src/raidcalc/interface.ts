@@ -1,5 +1,5 @@
 import { Pokemon, Field, StatID } from "../calc";
-import { AbilityName, ItemName, MoveName, TypeName } from "../calc/data/interface";
+import { AbilityName, ItemName, MoveName, SpeciesName, TypeName } from "../calc/data/interface";
 
 export type MoveSetItem = {
     name: string,
@@ -121,6 +121,9 @@ export interface Raider extends Pokemon {
     syrupBombDrops?: number;
     syrupBombSource?: number;
     lastConsumedItem?: ItemName;
+    isTransformed?: boolean;
+    originalSpecies?: SpeciesName;
+    originalMoves?: MoveData[];
 }
 
 export interface RaidState {

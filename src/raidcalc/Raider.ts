@@ -1,5 +1,5 @@
 import { Field, Pokemon, Generations } from "../calc";
-import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName } from "../calc/data/interface";
+import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName, TypeName, SpeciesName } from "../calc/data/interface";
 import { extend } from '../calc/util';
 import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";
@@ -42,6 +42,10 @@ export class Raider extends Pokemon implements State.Raider {
 
     lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
 
+    isTransformed?: boolean; // indicates that the pokemon has been transformed by Transform or Imposter
+    originalSpecies?: SpeciesName; // stores the state of the pokemon before transformation
+    originalMoves?: State.MoveData[]; // stores the moves of the pokemon before transformation or Mimic
+
     constructor(
         id: number, 
         role: string, 
@@ -70,6 +74,9 @@ export class Raider extends Pokemon implements State.Raider {
         syrupBombDrops: number | undefined = 0,
         syrupBombSource: number | undefined = undefined,
         lastConsumedItem: ItemName | undefined = undefined,
+        isTransformed: boolean | undefined = undefined,
+        originalSpecies: SpeciesName | undefined = undefined,
+        originalMoves: State.MoveData[] | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -98,6 +105,9 @@ export class Raider extends Pokemon implements State.Raider {
         this.syrupBombDrops = syrupBombDrops;
         this.syrupBombSource = syrupBombSource;
         this.lastConsumedItem = lastConsumedItem;
+        this.isTransformed = isTransformed;
+        this.originalSpecies  = originalSpecies;
+        this.originalMoves = originalMoves;
     }
 
     clone(): Raider {
@@ -164,6 +174,9 @@ export class Raider extends Pokemon implements State.Raider {
             this.syrupBombDrops,
             this.syrupBombSource,
             this.lastConsumedItem,
+            this.isTransformed,
+            this.originalSpecies,
+            this.originalMoves,
         )
     }
 
@@ -258,4 +271,36 @@ export class Raider extends Pokemon implements State.Raider {
         }
     }
 
+    public transformInto(pokemon: Raider) {
+        // make the transformation revertable on fainting
+        this.isTransformed = true;
+        this.originalSpecies = this.name;
+        this.originalMoves = this.moveData.slice();
+        // copy species details
+        this.name = pokemon.name;
+        this.species = pokemon.species;
+        this.weightkg = pokemon.weightkg;
+        this.rawStats = {...pokemon.rawStats};
+        this.types = pokemon.types.slice() as [TypeName] | [TypeName, TypeName];
+        // copy stats and moves
+        this.boosts = {...pokemon.boosts};
+        this.moves = pokemon.moves.slice();
+        this.moveData = pokemon.moveData.slice();
+        this.stats = {...pokemon.stats, hp: this.stats.hp}; // HP is retained
+        // this.ability = pokemon.ability; // handle ability change in the RaidState
+    }
+
+    public mimicMove(move: State.MoveData, targetID: number) {
+        if (targetID === 0) { return; } // ???
+        if (!this.originalMoves) {
+            this.originalMoves = this.moveData.slice();
+        }
+        const mimicIndex = this.moves.findIndex(m => m === "Mimic");
+        if (mimicIndex === -1) { return; }
+        this.moves[mimicIndex] = move.name;
+        this.moveData[mimicIndex] = move;
+        this.lastMove = move;
+        this.lastTarget = targetID;
+        this.moveRepeated = 0;
+    }
 }

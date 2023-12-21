@@ -1355,6 +1355,16 @@ export class RaidMove {
                     this._user.stockpile = 0;
                 }
                 break;
+            case "Transform":
+                this._raidState.transform(this.userID, target.id);
+                this._desc[this.targetID] = this._user.name + " transformed into " + target.name + "!";
+                break;
+            case "Mimic":
+                const lastMove = target.lastMove;
+                if (lastMove) {
+                    this._user.mimicMove(lastMove, target.id)
+                }
+                break;
             default: break;
             }
     }

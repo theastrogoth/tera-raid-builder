@@ -303,9 +303,10 @@ export class Raider extends Pokemon implements State.Raider {
         const mimicIndex = this.moves.findIndex(m => m === "Mimic");
         if (mimicIndex === -1) { return; }
         this.moves[mimicIndex] = move.name;
-        this.moveData[mimicIndex] = move;
+        this.moveData[mimicIndex] = {...move};
         this.lastMove = move;
         this.lastTarget = targetID;
         this.moveRepeated = 0;
+        console.log(this.moveData)
     }
 }

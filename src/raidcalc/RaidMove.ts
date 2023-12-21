@@ -1366,6 +1366,13 @@ export class RaidMove {
                     this._desc[this.targetID] = this._user.name + " copied " + lastMove.name + " from " + target.name + "!";
                 }
                 break;
+            case "Sketch":
+                const lastMove2 = target.lastMove;
+                if (lastMove2) {
+                    this._user.sketchMove(lastMove2, target.id)
+                    this._desc[this.targetID] = this._user.name + " copied " + lastMove2.name + " from " + target.name + "!";
+                }
+                break;
             default: break;
             }
     }

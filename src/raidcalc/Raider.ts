@@ -296,7 +296,7 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public mimicMove(move: State.MoveData, targetID: number) {
-        if (targetID === 0) { return; } // ???
+        // if (targetID === 0) { return; } // ???
         if (!this.originalMoves) {
             this.originalMoves = this.moveData.slice();
         }
@@ -304,6 +304,17 @@ export class Raider extends Pokemon implements State.Raider {
         if (mimicIndex === -1) { return; }
         this.moves[mimicIndex] = move.name;
         this.moveData[mimicIndex] = {...move};
+        this.lastMove = move;
+        this.lastTarget = targetID;
+        this.moveRepeated = 0;
+    }
+
+    public sketchMove(move: State.MoveData, targetID: number) {
+        // if (targetID === 0) { return; } // ???
+        const sketchIndex = this.moves.findIndex(m => m === "Sketch");
+        if (sketchIndex === -1) { return; }
+        this.moves[sketchIndex] = move.name;
+        this.moveData[sketchIndex] = {...move};
         this.lastMove = move;
         this.lastTarget = targetID;
         this.moveRepeated = 0;

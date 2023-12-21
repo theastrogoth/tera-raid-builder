@@ -235,7 +235,7 @@
         "Bulky DPS": {
             "level":100,
             "item":"Life Orb",
-            "ability":"Good As Gold",
+            "ability":"Good as Gold",
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
             "moves":["Nasty Plot","Make It Rain","Shadow Ball","Steel Beam"]
@@ -243,7 +243,7 @@
         "Fast DPS": {
             "level":100,
             "item":"Life Orb",
-            "ability":"Good As Gold",
+            "ability":"Good as Gold",
             "nature":"Timid",
             "evs":{"sa":252,"sp":252},
             "moves":["Nasty Plot","Make It Rain","Shadow Ball","Steel Beam"]

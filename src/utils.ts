@@ -185,7 +185,9 @@ export function getIVDescription(ivs: StatsTable, translationKey: any) {
                 displayedStats.push(getTranslation(getStatReadableName(stat), translationKey, "stats"));
             }
         }
-        if (displayedStats.length < 4) {
+        if (displayedStats.length === 1) {
+            return displayedStats[0] + " Hypertrained";
+        } else if (displayedStats.length < 4) {
             return displayedStats.slice(0,-1).join(', ') + (displayedStats.length > 2 ? ", and " : " and ") + displayedStats.slice(-1) + " Hypertrained";
         }
     }

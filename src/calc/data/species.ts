@@ -9802,7 +9802,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     weightkg: 77,
     gender: 'M',
     abilities: {0: 'Teraform Zero'},
-    otherFormes: ['Terapagos', 'Terapagos-Terastal'],
+    baseSpecies: 'Terapagos',
   },
   'Terapagos-Terastal': {
   types: ['Normal'],
@@ -9810,7 +9810,7 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     weightkg: 16,
     gender: 'M',
     abilities: {0: 'Tera Shell'},
-    otherFormes: ['Terapagos', 'Terapagos-Stellar'],
+    baseSpecies: 'Terapagos',
   },
   'Ting-Lu': {
     types: ['Dark', 'Ground'],

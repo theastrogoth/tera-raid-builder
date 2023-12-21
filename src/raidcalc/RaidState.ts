@@ -4,6 +4,7 @@ import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
 import { AbilityName, ItemName, MoveName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
 import persistentAbilities from "../data/persistent_abilities.json"
+import { hasNoStatus, pokemonIsGrounded } from "./util";
 
 const gen = Generations.get(9);
 
@@ -274,8 +275,10 @@ export class RaidState implements State.RaidState{
                         this.loseItem(id);
                         break;
                     case "Lansat Berry":
-                        pokemon.isPumped = true;
-                        this.loseItem(id);
+                        if (!pokemon.isPumped) {
+                            pokemon.isPumped = 2;
+                            this.loseItem(id);
+                        }
                         break;
                     case "Micle Berry":
                         pokemon.isMicle = true;
@@ -377,11 +380,38 @@ export class RaidState implements State.RaidState{
         return diff;
     }
 
-    public applyStatus(id: number, status: StatusName) {
+    public applyStatus(id: number, status: StatusName, source: number, isSecondaryEffect: boolean = false, roll: "max" | "min" | "avg" | undefined = "avg") {
         const pokemon = this.getPokemon(id);
-        if (pokemon.status === "" || pokemon.status === undefined) {
-            pokemon.status = status;
+        const field = pokemon.field;
+        const sourceAbility = this.getPokemon(source).ability;
+        const attackerIgnoresAbility = ["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield");
+        const selfInflicted = id === source;
+
+        if (hasNoStatus(pokemon)) {
+            let success = true;
+            // Secondary effect blockers
+            if (!selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { success = false; }
+            // Purifying Salt blocks all non-volatile statuses
+            if (pokemon.hasAbility("Purifying Salt")) { success = false; }
+            // field-based immunities
+            if (!selfInflicted && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { success = false; }
+            if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { success = false; }
+            // type-based and ability-based immunities
+            if (status === "brn" && (pokemon.types.includes("Fire") || pokemon.hasAbility("Water Veil") || pokemon.hasAbility("Thermal Exchange"))) { success = false; }
+            if (status === "frz" && (pokemon.field.hasWeather("Sun") || pokemon.types.includes("Ice") || (!attackerIgnoresAbility && pokemon.ability === "Magma Armor"))) { success = false; }
+            if ((status === "psn" || status === "tox") && ((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (sourceAbility !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { success = false; }
+            if ((status === "par" && (pokemon.types.includes("Electric") || (!attackerIgnoresAbility && pokemon.ability === "Limber")))) { success = false; }
+            if (status === "slp" && !attackerIgnoresAbility && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { success = false; }
+            if (pokemon.field.hasWeather("Sun") && !attackerIgnoresAbility && pokemon.ability === "Leaf Guard") { success = false; }
+            
+            if (success) {
+                pokemon.status = status;
+                if (status === "slp") { // lasts 1-3 turns
+                    pokemon.isSleep = roll === "max" ? 3 : roll === "min" ? 1 : 2;
+                }
+            }
         }
+
         // Status curing berries
         if (pokemon.item === "Cheri Berry" && pokemon.status === "par") { pokemon.status = ""; this.loseItem(id); }
         if (pokemon.item === "Chesto Berry" && pokemon.status === "slp") { pokemon.status = ""; pokemon.isSleep = 0; this.loseItem(id); }
@@ -395,25 +425,55 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyVolatileStatus(id: number, ailment: string, firstMove?: boolean, source?: number) {
+    public applyVolatileStatus(id: number, ailment: string, source: number, firstMove?: boolean) {
         const pokemon = this.getPokemon(id);
-        if (ailment === "confusion" && pokemon.hasItem("Lum Berry", "Persim Berry")) {
-            this.loseItem(id);
-        } else if (["infatuation", "taunt", "encore", "disable", "torment", "heal-block"].includes(ailment) && pokemon.hasItem("Mental Herb")){
-            this.loseItem(id);
-        } else {
-            pokemon.volatileStatus.push!(ailment);
-            if (ailment === "taunt") {
-                pokemon.isTaunt = (firstMove ? 3 : 4) * (id === 0 ? 4 : 1);
-            } else if (ailment === "yawn") {
-                pokemon.isYawn = 2;
-                pokemon.yawnSource = source;
-            } else if (ailment === "ingrain") {
-                pokemon.isIngrain = true;
+        const field = pokemon.field;
+        const sourceAbility = this.getPokemon(source).ability;
+        const attackerIgnoresAbility = ["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield");
+        // const selfInflicted = id === source;
+
+        if (!pokemon.volatileStatus.includes(ailment)) {
+            let success = true;
+            // Safeguard and Misty Terrain block confusion
+            if (ailment === "confusion" && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { success = false; }
+            // Aroma Veil
+            if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation", "yawn"].includes(ailment)) {
+                success = false;
+            // Own Tempo
+            } else if (!attackerIgnoresAbility && pokemon.ability === "Own Tempo" && ailment === "confusion") {
+                success = false;
+            // Oblivious
+            } else if (!attackerIgnoresAbility && pokemon.ability === "Oblivious" && (ailment === "taunt" || ailment === "infatuation")) {
+                success = false;
+            // yawn immunity
+            } else if (ailment === "yawn" && !attackerIgnoresAbility && (pokemon.hasAbility("Vital Spirit", "Insomnia") || (pokemon.hasAbility("Leaf Guard") && pokemon.field.hasWeather("Sun")))) {
+                success = false;
+            } 
+
+            if (success) {
+                pokemon.volatileStatus.push!(ailment);
+                if (ailment === "taunt") {
+                    pokemon.isTaunt = (firstMove ? 3 : 4) * (id === 0 ? 4 : 1);
+                } else if (ailment === "yawn") {
+                    pokemon.isYawn = 2;
+                    pokemon.yawnSource = source;
+                } else if (ailment === "ingrain") {
+                    pokemon.isIngrain = true;
+                }
             }
         }
 
-
+        // Volatile Status curing berries
+        if (pokemon.hasItem("Persim Berry", "Lum Berry") && pokemon.volatileStatus.includes("confusion")) { 
+            pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
+            this.loseItem(id);
+        }
+        // Mental herb
+        if (pokemon.hasItem("Mental Herb")) {
+            const originalVolatileStatus = [...pokemon.volatileStatus];
+            pokemon.volatileStatus = pokemon.volatileStatus.filter(status => !["infatuation", "taunt", "encore", "disable", "torment", "heal-block"].includes(status));
+            if (originalVolatileStatus.length > pokemon.volatileStatus.length) { this.loseItem(id); }
+        } 
     }
 
     public loseItem(id: number, consumed: boolean = true) {
@@ -476,7 +536,7 @@ export class RaidState implements State.RaidState{
             pokemon.field.terrainTurnsRemaining = turns;
             // Quark Drive
             if (pokemon.ability === "Quark Drive" && !pokemon.usedBoosterEnergy) {
-                if (pokemon.field.terrain === "Electric" && !pokemon.abilityOn) {
+                if (pokemon.field.hasTerrain("Electric") && !pokemon.abilityOn) {
                     pokemon.abilityOn = true;
                     const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
                     pokemon.boostedStat = statId;
@@ -487,16 +547,16 @@ export class RaidState implements State.RaidState{
                 }
             }
             // Terrain Seeds
-            if (pokemon.item === "Electric Seed" && pokemon.field.terrain === "Electric") {
+            if (pokemon.item === "Electric Seed" && pokemon.field.hasTerrain("Electric")) {
                 this.applyStatChange(id, {def: 1}, true, id);
                 this.loseItem(id);
-            } else if (pokemon.item === "Grassy Seed" && pokemon.field.terrain === "Grassy") {
+            } else if (pokemon.item === "Grassy Seed" && pokemon.field.hasTerrain("Grassy")) {
                 this.applyStatChange(id, {def: 1}, true, id);
                 this.loseItem(id);
-            } else if (pokemon.item === "Psychic Seed" && pokemon.field.terrain === "Psychic") {
+            } else if (pokemon.item === "Psychic Seed" && pokemon.field.hasTerrain("Psychic")) {
                 this.applyStatChange(id, {spd: 1}, true, id);
                 this.loseItem(id);
-            } else if (pokemon.item === "Misty Seed" && pokemon.field.terrain === "Misty") {
+            } else if (pokemon.item === "Misty Seed" && pokemon.field.hasTerrain("Misty")) {
                 this.applyStatChange(id, {spd: 1}, true, id);
                 this.loseItem(id);
             }
@@ -700,7 +760,14 @@ export class RaidState implements State.RaidState{
             for (let field of this.fields) {
                 field.isCloudNine = true;
             }
-            flags[id].push("Cloud Nine negates the weather");
+            flags[id].push(ability + " negates the weather");
+        // Teraform Zero
+        } else if (ability === "Teraform Zero") {
+            for (let field of this.fields) {
+                field.isCloudNine = true;
+                field.isTeraformZero = true;
+            }
+            flags[id].push("Teraform Zero negates the weather and terrain");
         // Steely Spirit
         } else if (ability === "Steely Spirit") {
             if (id === 0) {
@@ -779,6 +846,7 @@ export class RaidState implements State.RaidState{
 
     public removeAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined) {
         // on/off field-based abilties
+        if (ability === undefined || ability === "(No Ability)") { return; }
         if (ability === "Neutralizing Gas") {
             if (
                 !this.raiders
@@ -797,16 +865,27 @@ export class RaidState implements State.RaidState{
                     }
                 }
             }
-        } else if (ability === "Cloud Nine") {
+        } else if (["Cloud Nine", "Air Lock", "Teraform Zero"].includes(ability)) {
             if (
                 !this.raiders
                 .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Cloud Nine" as AbilityName)
+                .map(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName)).includes(true)
             ) {
                 for (let field of this.fields) {
                     field.isCloudNine = false;
                 }
             }
+        } else if (ability === "Teraform Zero") {
+            if (
+                !this.raiders
+                .filter(r => r.id !== id && r.originalCurHP !== 0)
+                .map(r => r.ability).includes("Teraform Zero" as AbilityName)
+            ) {
+                for (let field of this.fields) {
+                    field.isTeraformZero = false;
+                }
+            }
+        
         } else if (ability === "Sword of Ruin") {
             if (
                 !this.raiders
@@ -948,7 +1027,7 @@ export class RaidState implements State.RaidState{
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;
         pokemon.boosts = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, eva: 0, acc: 0};
-        pokemon.isPumped = false;
+        pokemon.isPumped = 0;
         pokemon.isMicle = false;
         pokemon.randomBoosts = 0;
         pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;

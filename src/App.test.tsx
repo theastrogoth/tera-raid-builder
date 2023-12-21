@@ -419,11 +419,11 @@ describe('Specific Test Cases', () => {
     // T1: Honchkrow has a guaranteed crit (high chance move + Super Luck + Scope Lens)
     expect(result.turnResults[0].results[0].desc[0].includes("critical hit")).toEqual(true);
     // T2: Focus Energy boosts Annihilape's crit stages by 2
-    expect(result.turnResults[1].state.raiders[3].isPumped).toEqual(true);
+    expect(result.turnResults[1].state.raiders[3].isPumped).toEqual(2);
     // T3: Annihilape has a guaranteed crit (Razor Claw + Focus Energy)
     expect(result.turnResults[2].results[0].desc[0].includes("critical hit")).toEqual(true);
     // T4: Fling + Lansat Berry raises Inteleon's crit stages by 2
-    expect(result.turnResults[3].state.raiders[1].isPumped).toEqual(true);
+    expect(result.turnResults[3].state.raiders[1].isPumped).toEqual(2);
     // T5: Inteleon has a guaranteed crit (high chance move + Lansat Berry)
     expect(result.turnResults[4].results[0].desc[0].includes("critical hit")).toEqual(true);
   })

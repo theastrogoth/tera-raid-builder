@@ -39,7 +39,7 @@ export class Pokemon implements State.Pokemon {
   ivs: I.StatsTable;
   evs: I.StatsTable;
   boosts: I.StatsTable;
-  isPumped: boolean;
+  isPumped: number;
   isMicle: boolean;
   randomBoosts: number;
   stockpile: number;
@@ -99,7 +99,7 @@ export class Pokemon implements State.Pokemon {
     this.ivs = Pokemon.withDefault(gen, options.ivs, 31);
     this.evs = Pokemon.withDefault(gen, options.evs, gen.num >= 3 ? 0 : 252);
     this.boosts = Pokemon.withDefault(gen, options.boosts, 0, false);
-    this.isPumped = !!options.isPumped;
+    this.isPumped = options.isPumped || 0;
     this.isMicle = !!options.isMicle;
     this.randomBoosts = options.randomBoosts || 0;
     this.stockpile = options.stockpile || 0;

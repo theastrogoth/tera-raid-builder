@@ -307,6 +307,5 @@ export class Raider extends Pokemon implements State.Raider {
         this.lastMove = move;
         this.lastTarget = targetID;
         this.moveRepeated = 0;
-        console.log(this.moveData)
     }
 }

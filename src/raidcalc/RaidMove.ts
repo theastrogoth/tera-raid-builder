@@ -275,7 +275,7 @@ export class RaidMove {
             }
             // Ability-based immunities
             if (!(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))) {
-                if (pokemon.ability === "Good as Gold" && category === "Status" && targetType !== "user") { 
+                if ((pokemon.ability === "Good as Gold" || pokemon.ability === "Good As Gold") && category === "Status" && targetType !== "user") { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue; 
                 }

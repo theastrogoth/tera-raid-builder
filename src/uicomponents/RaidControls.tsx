@@ -58,7 +58,7 @@ type Modifiers = {
     endure?: boolean,
     ingrain?: boolean,
     micleBerry?: boolean,
-    pumped?: boolean,
+    pumped?: number,
     saltCure?: boolean,
     stockpile?: number,
     taunt?: boolean,
@@ -380,8 +380,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
         0));
     koCounts[0] = Math.min(koCounts[0], 1);
-    const roles = results.endState.raiders.map((raider) => raider.role);
-    const names = results.endState.raiders.map((raider) => raider.name);
+    const roles = turnState.raiders.map((raider) => raider.role);
+    const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
     const abilities = turnState.raiders.map((raider) => raider.ability);
 

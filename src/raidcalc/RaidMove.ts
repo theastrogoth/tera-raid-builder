@@ -1363,6 +1363,7 @@ export class RaidMove {
                 const lastMove = target.lastMove;
                 if (lastMove) {
                     this._user.mimicMove(lastMove, target.id)
+                    this._desc[this.targetID] = this._user.name + " copied " + lastMove.name + " from " + target.name + "!";
                 }
                 break;
             default: break;

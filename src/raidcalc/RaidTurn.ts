@@ -64,7 +64,13 @@ export class RaidTurn {
         this.raiderID = info.moveInfo.userID;
         this.targetID = info.moveInfo.targetID;
         this.raiderMoveData = info.moveInfo.moveData;
+        if (Object.keys(info.moveInfo.moveData).length === 1) { // Transform or Mimic can cause issues with loading full movedata from hashes
+            this.raiderMoveData = this.raidState.raiders[this.raiderID].moveData.find((move) => move.name === info.moveInfo.moveData.name) || {name: info.moveInfo.moveData.name} as MoveData;
+        }
         this.bossMoveData = info.bossMoveInfo.moveData;
+        if (Object.keys(info.bossMoveInfo.moveData).length === 1) {
+            this.bossMoveData = this.raidState.raiders[0].moveData.find((move) => move.name === info.bossMoveInfo.moveData.name) || {name: info.bossMoveInfo.moveData.name} as MoveData;
+        }
         this.id = info.id;
         this.group = info.group;
 

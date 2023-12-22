@@ -1355,6 +1355,24 @@ export class RaidMove {
                     this._user.stockpile = 0;
                 }
                 break;
+            case "Transform":
+                this._raidState.transform(this.userID, target.id);
+                this._desc[this.targetID] = this._user.name + " transformed into " + target.name + "!";
+                break;
+            case "Mimic":
+                const lastMove = target.lastMove;
+                if (lastMove) {
+                    this._user.mimicMove(lastMove, target.id)
+                    this._desc[this.targetID] = this._user.name + " copied " + lastMove.name + " from " + target.name + "!";
+                }
+                break;
+            case "Sketch":
+                const lastMove2 = target.lastMove;
+                if (lastMove2) {
+                    this._user.sketchMove(lastMove2, target.id)
+                    this._desc[this.targetID] = this._user.name + " copied " + lastMove2.name + " from " + target.name + "!";
+                }
+                break;
             default: break;
             }
     }

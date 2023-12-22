@@ -1,5 +1,8 @@
 import { StatID, StatsTable } from "./calc";
-import { TurnGroupInfo } from "./raidcalc/interface";
+import { RaidBattleResults } from "./raidcalc/RaidBattle";
+import { Raider } from "./raidcalc/Raider";
+import { RaidInputProps } from "./raidcalc/inputs";
+import { MoveData, TurnGroupInfo } from "./raidcalc/interface";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names

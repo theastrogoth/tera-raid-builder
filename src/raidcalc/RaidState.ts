@@ -607,6 +607,12 @@ export class RaidState implements State.RaidState{
     public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchIn: boolean = false, restore: boolean = false): string[][] {
         const pokemon = this.getPokemon(id);
         const flags: string[][] = [[],[],[],[],[]];
+        /// Imposter
+        if (ability === "Imposter") {
+            const target = id === 0 ? this.raiders[1] : this.raiders[0];
+            this.transform(id, target.id);
+            flags[id].push("Imposter transforms " + pokemon.name + " into " + target.name);
+        }
         /// Trace (handled separately so the traced ability can activate if applicable)
         if (ability === "Trace") {
             const opponentIds = id === 0 ? [1,2,3,4] : [0];
@@ -1024,6 +1030,21 @@ export class RaidState implements State.RaidState{
             }
         }
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
+        if (pokemon.isTransformed && pokemon.originalSpecies && pokemon.originalMoves) {
+            const originalSpecies = new Pokemon(9, pokemon.originalSpecies, {
+                ivs: pokemon.ivs,
+                evs: pokemon.evs,
+                nature: pokemon.nature,
+                statMultipliers: pokemon.statMultipliers,
+            });
+            pokemon.name = originalSpecies.name;
+            pokemon.species = originalSpecies.species;
+            pokemon.weightkg = originalSpecies.weightkg;
+            pokemon.stats = originalSpecies.stats;
+            pokemon.rawStats = originalSpecies.rawStats;
+            pokemon.isTransformed = false;
+            pokemon.originalAbility = pokemon.originalFormAbility as AbilityName;
+        }
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;
         pokemon.boosts = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, eva: 0, acc: 0};
@@ -1041,6 +1062,8 @@ export class RaidState implements State.RaidState{
         pokemon.moveRepeated = undefined;
         pokemon.changedTypes = undefined;
         pokemon.types = new Pokemon(9, pokemon.name).types;
+        pokemon.moveData = pokemon.originalMoves || pokemon.moveData;
+        pokemon.moves = pokemon.moveData.map(m => m.name);
         
         // remove ability effects that are removed upon fainting
         this.removeAbilityFieldEffect(id, ability);
@@ -1092,5 +1115,17 @@ export class RaidState implements State.RaidState{
             flags[id].push(pokemon.name + " is going to go all out against this formidable opponent!")
         }
         return flags;
+    }
+
+    public transform(id:number, target: number): boolean {
+        const pokemon = this.getPokemon(id);
+        const targetPokemon = this.getPokemon(target);
+        if (!pokemon.isTransformed && !targetPokemon.isTransformed) {
+            pokemon.transformInto(targetPokemon);
+            this.changeAbility(id, targetPokemon.ability || "(No Ability)");
+            return true;
+        } else {
+            return false;
+        }
     }
 }

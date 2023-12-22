@@ -58,7 +58,7 @@ type Modifiers = {
     endure?: boolean,
     ingrain?: boolean,
     micleBerry?: boolean,
-    pumped?: boolean,
+    pumped?: number,
     saltCure?: boolean,
     stockpile?: number,
     taunt?: boolean,
@@ -361,8 +361,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
 function HpDisplay({results, translationKey}: {results: RaidBattleResults, translationKey: any}) {
     const [displayedTurn, setDisplayedTurn] = useState<number>(0);
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
-    const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
-    
+
     const turnState = (
         (displayedTurn === 0) ? results.turnZeroState :
         (displayedTurn > results.turnResults.length) ? results.endState : 
@@ -373,6 +372,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
         (displayedTurn > results.turnResults.length) ? results.endState :
         results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 2].state
     );
+    const maxhps = turnState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, (raider.isTransformed && raider.originalSpecies) ? raider.originalSpecies  : raider.name, {...raider}).maxHP() : raider.maxHP()) );
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
     const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
@@ -380,8 +380,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
         0));
     koCounts[0] = Math.min(koCounts[0], 1);
-    const roles = results.endState.raiders.map((raider) => raider.role);
-    const names = results.endState.raiders.map((raider) => raider.name);
+    const roles = turnState.raiders.map((raider) => raider.role);
+    const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
     const abilities = turnState.raiders.map((raider) => raider.ability);
 
@@ -714,7 +714,7 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
                 <Box hidden={value !== 1}>
                     <Box sx={{ height: 560, overflowY: "auto" }}>
                         {!prettyMode &&
-                            <MoveSelection raidInputProps={raidInputProps} rollCase={rollCase} translationKey={translationKey}/>
+                            <MoveSelection raidInputProps={raidInputProps} results={results} rollCase={rollCase} translationKey={translationKey}/>
                         }
                         {prettyMode &&
                             <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results} translationKey={translationKey}/>

@@ -1252,21 +1252,24 @@ export class RaidMove {
                 }
                 break;
             case "Court Change": 
-                const tempUserSide = {...this._fields[this.userID]};
+                const tempUserSide = {...(this._fields[this.userID].attackerSide)};
+                const sameSides = this.userID === 0 ? [this._fields[0]] : this._fields.slice(1);
                 const targetSides = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];
-                this._fields[this.userID].attackerSide.isLightScreen = targetSides[0].attackerSide.isLightScreen;
-                this._fields[this.userID].attackerSide.isReflect = targetSides[0].attackerSide.isReflect;
-                this._fields[this.userID].attackerSide.isSafeguard = targetSides[0].attackerSide.isSafeguard;
-                this._fields[this.userID].attackerSide.isMist = targetSides[0].attackerSide.isMist;
-                this._fields[this.userID].attackerSide.isAuroraVeil = targetSides[0].attackerSide.isAuroraVeil;
-                this._fields[this.userID].attackerSide.isTailwind = targetSides[0].attackerSide.isTailwind;
+                for (let side of sameSides) {
+                    side.attackerSide.isLightScreen = targetSides[0].attackerSide.isLightScreen;
+                    side.attackerSide.isReflect = targetSides[0].attackerSide.isReflect;
+                    side.attackerSide.isSafeguard = targetSides[0].attackerSide.isSafeguard;
+                    side.attackerSide.isMist = targetSides[0].attackerSide.isMist;
+                    side.attackerSide.isAuroraVeil = targetSides[0].attackerSide.isAuroraVeil;
+                    side.attackerSide.isTailwind = targetSides[0].attackerSide.isTailwind;
+                }
                 for (let side of targetSides) {
-                    side.attackerSide.isLightScreen = tempUserSide.attackerSide.isLightScreen;
-                    side.attackerSide.isReflect = tempUserSide.attackerSide.isReflect;
-                    side.attackerSide.isSafeguard = tempUserSide.attackerSide.isSafeguard;
-                    side.attackerSide.isMist = tempUserSide.attackerSide.isMist;
-                    side.attackerSide.isAuroraVeil = tempUserSide.attackerSide.isAuroraVeil;
-                    side.attackerSide.isTailwind = tempUserSide.attackerSide.isTailwind;
+                    side.attackerSide.isLightScreen = tempUserSide.isLightScreen;
+                    side.attackerSide.isReflect = tempUserSide.isReflect;
+                    side.attackerSide.isSafeguard = tempUserSide.isSafeguard;
+                    side.attackerSide.isMist = tempUserSide.isMist;
+                    side.attackerSide.isAuroraVeil = tempUserSide.isAuroraVeil;
+                    side.attackerSide.isTailwind = tempUserSide.isTailwind;
                 }
                 break;
             case "Clear Smog":

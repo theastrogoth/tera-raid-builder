@@ -1251,6 +1251,24 @@ export class RaidMove {
                     field.attackerSide.isAuroraVeil = 0;
                 }
                 break;
+            case "Court Change": 
+                const tempUserSide = {...this._fields[this.userID]};
+                const targetSides = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];
+                this._fields[this.userID].attackerSide.isLightScreen = targetSides[0].attackerSide.isLightScreen;
+                this._fields[this.userID].attackerSide.isReflect = targetSides[0].attackerSide.isReflect;
+                this._fields[this.userID].attackerSide.isSafeguard = targetSides[0].attackerSide.isSafeguard;
+                this._fields[this.userID].attackerSide.isMist = targetSides[0].attackerSide.isMist;
+                this._fields[this.userID].attackerSide.isAuroraVeil = targetSides[0].attackerSide.isAuroraVeil;
+                this._fields[this.userID].attackerSide.isTailwind = targetSides[0].attackerSide.isTailwind;
+                for (let side of targetSides) {
+                    side.attackerSide.isLightScreen = tempUserSide.attackerSide.isLightScreen;
+                    side.attackerSide.isReflect = tempUserSide.attackerSide.isReflect;
+                    side.attackerSide.isSafeguard = tempUserSide.attackerSide.isSafeguard;
+                    side.attackerSide.isMist = tempUserSide.attackerSide.isMist;
+                    side.attackerSide.isAuroraVeil = tempUserSide.attackerSide.isAuroraVeil;
+                    side.attackerSide.isTailwind = tempUserSide.attackerSide.isTailwind;
+                }
+                break;
             case "Clear Smog":
                 for (let stat in target.boosts) {
                     const statId = stat as StatIDExceptHP;

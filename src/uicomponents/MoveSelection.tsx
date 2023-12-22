@@ -861,7 +861,12 @@ function MoveGroupCard({raidInputProps, results, groupIndex, firstMoveIndex, but
             {
                 raidInputProps.groups[groupIndex].turns.map((turn, turnIndex) => {
                     const moveIndex = firstMoveIndex + turnIndex;
-                    const raiders = moveIndex > 0 ? results.turnResults[moveIndex-1].state.raiders : results.turnZeroState.raiders;
+                    let raiders = raidInputProps.pokemon;
+                    try {
+                        raiders = moveIndex > 0 ? results.turnResults[moveIndex-1].state.raiders : results.turnZeroState.raiders;
+                    } catch (e) {
+                        // Hiccup when loading from strat json ?
+                    }
                     return (
                         <MoveSelectionContainer 
                             key={turn.id}

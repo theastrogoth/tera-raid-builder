@@ -1,4 +1,7 @@
 {
+    "Iron Bundle":  {
+        "Ghost of Christmas Past": "iron_bundle/main"
+    },
     "Dialga": {
         "Template": "dialga/template"
     },

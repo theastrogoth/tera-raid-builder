@@ -106,6 +106,7 @@ export interface Raider extends Pokemon {
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
+    isFrozen?: number;      // store number of turns that a Pokemon is frozen
     isCharging?: boolean;   // indicates that a Pokemon is charging a move (e.g. Solar Beam)
     isRecharging?: boolean; // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
     yawnSource?: number;    // id of the pokemon that inflicted the user with Yawn

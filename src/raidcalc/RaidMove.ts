@@ -908,10 +908,15 @@ export class RaidMove {
             case "Psychic Fangs":
             case "Raging Bull":
                 const targetFields = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];
+                let hadScreens = false
                 for (let field of targetFields) {
+                    hadScreens = !!(field.attackerSide.isReflect || field.attackerSide.isLightScreen || field.attackerSide.isAuroraVeil) || hadScreens;
                     field.attackerSide.isReflect = 0;
                     field.attackerSide.isLightScreen = 0;
-                    field.attackerSide.isSafeguard = 0;
+                    field.attackerSide.isAuroraVeil = 0;
+                }
+                if (hadScreens) {
+                    this._flags[this.userID].push(this.move.name + " broke the oppenent's screens!")
                 }
                 break;
             default: break;

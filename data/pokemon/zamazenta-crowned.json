@@ -24,6 +24,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Behemoth Blade",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Bite",
             "learnMethod": "level-up"
         },

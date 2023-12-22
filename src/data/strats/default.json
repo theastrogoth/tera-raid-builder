@@ -29,23 +29,24 @@
             "level": 100,
             "teraType": "Ice",
             "moves": [
-                "Blizzard",
+                "Freeze-Dry",
                 "Hydro Pump",
-                "Air Cutter",
-                "Freeze-Dry"
+                "Blizzard",
+                "Chilling Water"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
                 "Snowscape",
+                "Aurora Veil",
                 "Electric Terrain"
             ],
             "shieldData": {
-                "hpTrigger": 80,
+                "hpTrigger": 75,
                 "timeTrigger": 80,
                 "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 75,
-                "shieldDamageRateTeraChange": 35
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
@@ -54,7 +55,7 @@
             "name": "Gholdengo",
             "shiny": false,
             "ability": "Good as Gold",
-            "item": "Choice Specs",
+            "item": "Metal Coat",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -73,7 +74,7 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": ["Make It Rain"],
+            "moves": ["Nasty Plot", "Make It Rain"],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -87,11 +88,11 @@
         },
         {
             "id": 2,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Focus Sash",
+            "ability": "Synchronize",
+            "item": "Covert Cloak",
             "nature": "Calm",
             "evs": {
                 "hp": 252,
@@ -124,11 +125,11 @@
         },
         {
             "id": 3,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Focus Sash",
+            "ability": "Synchronize",
+            "item": "Covert Cloak",
             "nature": "Calm",
             "evs": {
                 "hp": 252,
@@ -161,10 +162,11 @@
         },
         {
             "id": 4,
-            "role": "Klefki",
-            "name": "Klefki",
+            "role": "Golduck",
+            "name": "Golduck",
             "shiny": false,
-            "ability": "Prankster",
+            "ability": "Cloud Nine",
+            "item": "Assault Vest",
             "nature": "Calm",
             "evs": {
                 "hp": 252,
@@ -183,7 +185,7 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": ["Sunny Day"],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {

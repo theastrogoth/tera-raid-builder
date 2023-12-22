@@ -21,6 +21,7 @@ export class Raider extends Pokemon implements State.Raider {
     isSleep?: number;           // store number of turns that a Pokemon is asleep
     isYawn?: number;            // turn countdown until yawn takes effect
     yawnSource?: number;        // id of the pokemon that inflicted the user with Yawn
+    isFrozen?: number;          // store number of turns that a Pokemon is frozen
 
     isCharging?: boolean;       // indicates that a Pokemon is charging a move (e.g. Solar Beam)
     isRecharging?: boolean;     // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
@@ -61,6 +62,7 @@ export class Raider extends Pokemon implements State.Raider {
         isSleep: number = 0,
         isYawn: number = 0,
         yawnSource: number | undefined = undefined,
+        isFrozen: number = 0,
         isCharging: boolean = false,
         isRecharging: boolean = false,
         lastMove: State.MoveData | undefined = undefined, 
@@ -93,6 +95,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isSleep = isSleep;
         this.isYawn = isYawn;
         this.yawnSource = yawnSource;
+        this.isFrozen = isFrozen;
         this.isCharging = isCharging;
         this.isRecharging = isRecharging;
         this.lastMove = lastMove;
@@ -163,6 +166,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.isSleep,
             this.isYawn,
             this.yawnSource,
+            this.isFrozen,
             this.isCharging,
             this.isRecharging,
             this.lastMove,

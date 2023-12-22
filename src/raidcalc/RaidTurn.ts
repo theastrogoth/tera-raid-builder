@@ -258,6 +258,15 @@ export class RaidTurn {
                         }
                     }
                 }
+                // Freeze thawing checks
+                if (this._raider.isFrozen === 0 && this._raider.hasStatus("frz")) {
+                    this._raider.status = "";
+                    this._endFlags.push(this._raider.role + " thawed!");
+                }
+                if (this._boss.isFrozen === 0 && this._boss.hasStatus("frz")) {
+                    this._boss.status = "";
+                    this._endFlags.push(this._boss.role + " thawed!");
+                }
             }
         }
 

@@ -408,6 +408,8 @@ export class RaidState implements State.RaidState{
                 pokemon.status = status;
                 if (status === "slp") { // lasts 1-3 turns
                     pokemon.isSleep = roll === "max" ? 3 : roll === "min" ? 1 : 2;
+                } else if (status === "frz") { // lasts indefinitely, average of 3 turns
+                    pokemon.isFrozen = roll === "max" ? 10 : roll === "min" ? 1 : 3;
                 }
             }
         }

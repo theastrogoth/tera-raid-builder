@@ -206,6 +206,10 @@ export class RaidMove {
                 this._desc[this.userID] = this._user.name + " is fast asleep.";
                 this._user.isSleep--; // decrement sleep counter
                 return false;
+            } else if (this._user.isFrozen) {
+                this._desc[this.userID] = this._user.name + " is frozen solid.";
+                this._user.isFrozen--; // decrement frozen counter;
+                return false;
             } else if (
                 this._user.isTaunt && 
                 this.move.category === "Status" && 

@@ -105,6 +105,9 @@ export class RaidMove {
             if (this.moveData.name === "Electro Shot") {
                 this._raidState.applyStatChange(this.userID, {spa: 1});
             }
+            if (this.moveData.name === "Meteor Beam") {
+                this._raidState.applyStatChange(this.userID, {spa: 1});
+            }
         } else if (this._user.isRecharging) {
             this._user.isRecharging = false;
             this._desc[this.userID] = this._user.name + " is recharging!";

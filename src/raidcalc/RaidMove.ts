@@ -120,6 +120,7 @@ export class RaidMove {
             this.setDoesNotAffect();
             this.checkProtection();
             this.applyProtection();
+            this.applyPreDamageEffects();
             this.applyDamage();
             this.applyDrain();
             this.applyHealing();
@@ -858,7 +859,7 @@ export class RaidMove {
         // Light Screen
         let lightscreen = this.move.name === "Light Screen";
         // Aurora Veil
-        let auroraveil = this.move.name === "Aurora Veil";
+        let auroraveil = this.move.name === "Aurora Veil" && this._user.field.hasWeather("Hail", "Snow");
         // Mist
         let mist = this.move.name === "Mist";
         // Safeguard
@@ -891,6 +892,29 @@ export class RaidMove {
             } else {
                 this._fields[this._targetID].attackerSide.isHelpingHand = true;
             }
+        }
+    }
+
+    private applyPreDamageEffects()  {
+        const target = this.getPokemon(this._targetID);
+
+        const user_ability = this._user.ability as AbilityName;
+        const target_ability = target.ability as AbilityName;
+
+        if (this._doesNotAffect[this._targetID]) { return; }
+
+        switch (this.move.name) {
+            case "Brick Break":
+            case "Psychic Fangs":
+            case "Raging Bull":
+                const targetFields = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];
+                for (let field of targetFields) {
+                    field.attackerSide.isReflect = 0;
+                    field.attackerSide.isLightScreen = 0;
+                    field.attackerSide.isSafeguard = 0;
+                }
+                break;
+            default: break;
         }
     }
 

@@ -17,6 +17,9 @@ Object.assign(global, { TextDecoder, TextEncoder });
 async function resultsFromLightBuild(strategy: LightBuildInfo) {
   const info = await lightToFullBuildInfo(strategy);
   expect(info).not.toBeNull(); // check that the strategy has been loaded successfully
+  for (let raider of info!.pokemon) {
+    raider.field.gameType = "Doubles";
+  }
   const buildInfo = info as BuildInfo;
   const startingState = new RaidState(buildInfo.pokemon);
   const battleInfo: RaidBattleInfo = {
@@ -1131,14 +1134,14 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/iron_bundle/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  // test('iron_bundle/steel_cats', async () => {
-  //   const module = await import(`./data/strats/iron_bundle/steel_cats.json`)
-  //   await testOHKO(module as LightBuildInfo);
-  // })
-  // test('iron_bundle/turtle', async () => {
-  //   const module = await import(`./data/strats/iron_bundle/turtle.json`)
-  //   await testOHKO(module as LightBuildInfo);
-  // })
+  test('iron_bundle/steel_cats', async () => {
+    const module = await import(`./data/strats/iron_bundle/steel_cats.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/turtle', async () => {
+    const module = await import(`./data/strats/iron_bundle/turtle.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('iron_bundle/eeveelution', async () => {
     const module = await import(`./data/strats/iron_bundle/eeveelution.json`)
     await testOHKO(module as LightBuildInfo);

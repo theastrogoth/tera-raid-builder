@@ -1099,6 +1099,54 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_samurott/magnem_opus.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('dialga/main', async () => {
+    const module = await import(`./data/strats/dialga/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/main', async () => {
+    const module = await import(`./data/strats/palkia/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  // test('palkia/teatime', async () => {
+  //   const module = await import(`./data/strats/palkia/teatime.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
+  test('palkia/sword', async () => {
+    const module = await import(`./data/strats/palkia/sword.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/lion_of_love', async () => {
+    const module = await import(`./data/strats/palkia/lion_of_love.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/polar_express', async () => {
+    const module = await import(`./data/strats/palkia/polar_express.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/piplup', async () => {
+    const module = await import(`./data/strats/palkia/piplup.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/main', async () => {
+    const module = await import(`./data/strats/iron_bundle/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  // test('iron_bundle/steel_cats', async () => {
+  //   const module = await import(`./data/strats/iron_bundle/steel_cats.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
+  // test('iron_bundle/turtle', async () => {
+  //   const module = await import(`./data/strats/iron_bundle/turtle.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
+  test('iron_bundle/eeveelution', async () => {
+    const module = await import(`./data/strats/iron_bundle/eeveelution.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/wishing_star', async () => {
+    const module = await import(`./data/strats/iron_bundle/wishing_star.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

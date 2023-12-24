@@ -1,12 +1,21 @@
 {
     "Iron Bundle":  {
-        "Ghost of Christmas Future": "iron_bundle/main"
+        "Ghost of Christmas Future": "iron_bundle/main",
+        "Steel Cat Strat": "iron_bundle/steel_cats",
+        "The Turtle and the Mariachi Trio": "iron_bundle/turtle",
+        "Team Eeveelution: Christmas Style": "iron_bundle/eeveelution",
+        "Wish Upon a Star!": "iron_bundle/wishing_star"
     },
     "Dialga": {
-        "Template": "dialga/template"
+        "OHKO Framework": "dialga/main"
     },
     "Palkia": {
-        "Template": "palkia/template"
+        "OHKO Framework": "palkia/main",
+        "Family Tea Time": "palkia/teatime",
+        "The Sword and the Screech": "palkia/sword",
+        "Lion of Love": "palkia/lion_of_love",
+        "The Polar Express": "palkia/polar_express",
+        "PiplupvsGod": "palkia/piplup"
     },
     "Samurott-Hisui": {
         "Micrydon": "h_samurott/main",

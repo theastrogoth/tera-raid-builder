@@ -398,7 +398,7 @@ export class RaidState implements State.RaidState{
             if (!selfInflicted && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { success = false; }
             if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { success = false; }
             // type-based and ability-based immunities
-            if (status === "brn" && (pokemon.types.includes("Fire") || pokemon.hasAbility("Water Veil") || pokemon.hasAbility("Thermal Exchange"))) { success = false; }
+            if (status === "brn" && (pokemon.types.includes("Fire") || pokemon.hasAbility("Water Veil") || pokemon.hasAbility("Thermal Exchange") || pokemon.hasAbility("Water Bubble"))) { success = false; }
             if (status === "frz" && (pokemon.field.hasWeather("Sun") || pokemon.types.includes("Ice") || (!attackerIgnoresAbility && pokemon.ability === "Magma Armor"))) { success = false; }
             if ((status === "psn" || status === "tox") && ((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (sourceAbility !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { success = false; }
             if ((status === "par" && (pokemon.types.includes("Electric") || (!attackerIgnoresAbility && pokemon.ability === "Limber")))) { success = false; }

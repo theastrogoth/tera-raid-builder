@@ -490,7 +490,7 @@ export class RaidTurn {
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Flame Orb":
-                        if (!pokemon.types.includes("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange")) { 
+                        if (!pokemon.types.includes("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange") && !pokemon.hasAbility("Water Bubble")) { 
                             pokemon.status = "brn";  
                             this._result2.flags[id].push("brn inflicted");
                         }

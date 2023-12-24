@@ -1,7 +1,7 @@
 {
     "name": "Dragon Cheer",
     "category": "unique",
-    "target": "selected-pokemon",
+    "target": "all-allies",
     "type": "Dragon",
     "power": null,
     "accuracy": null,

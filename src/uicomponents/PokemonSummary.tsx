@@ -16,6 +16,7 @@ import { MoveSetItem, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/int
 import { MOVES } from "../calc/data/moves";
 import { Raider } from "../raidcalc/Raider";
 import { AbilityName, MoveName } from "../calc/data/interface";
+import unsketchable from "../data/unsketchable.json";
 
 const gen = Generations.get(9); // we will only use gen 9
 const allMoves = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.substring(0,3) !== "Max" && m.substring(0,5) !== "G-Max" && m !== "Dynamax Cannon");
@@ -83,7 +84,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
 
         let moves = pokemonData.moves;
         if (moves.length < 1) {
-            moves = allMoves.map(m => ({name: m as MoveName, learnMethod: "level-up"}))
+            moves = allMoves.filter(m => !unsketchable.includes(m)).map(m => ({name: m as MoveName, learnMethod: "level-up"}))
         }
         const set = moves.map(md => {
             const move = gen.moves.get(toID(md.name));

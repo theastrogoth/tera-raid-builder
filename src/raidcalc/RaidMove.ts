@@ -1368,10 +1368,14 @@ export class RaidMove {
                 }
                 break;
             case "Dragon Cheer": 
-                if (!this._user.isPumped) {
-                    this._user.isPumped = 1;
-                } else {
-                    this._desc[this._targetID] = this._user.name + " - " + this.move.name + " failed!"
+                const allyIDs = this.userID !== 0 ? [1,2,3,4].filter((id) => id !== this.userID) : [];
+                for (let allyID of allyIDs) {
+                    const ally = this._raidState.getPokemon(allyID);
+                    if (!ally.isPumped) {
+                        ally.isPumped = ally.hasType("Dragon") ? 2: 1;
+                    } else {
+                        this._desc[allyID] = ally.name + " - " + this.move.name + " failed!"
+                    }
                 }
                 break;
             case "Syrup Bomb":
@@ -1490,7 +1494,7 @@ export class RaidMove {
             const pokemon = this._raiders[i];
             const origPokemon = this.raidState.raiders[i];
             if (pokemon.isPumped !== origPokemon.isPumped) {
-                this._flags[i].push(`is getting pumped (+${origPokemon.isPumped})`);
+                this._flags[i].push(`is getting pumped (+${pokemon.isPumped})`);
             }
         }
         // check for charged status

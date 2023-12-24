@@ -146,7 +146,7 @@
             "role": "Stonjourner",
             "name": "Stonjourner",
             "shiny": false,
-            "ability": "(No Ability)",
+            "ability": "Power Spot",
             "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {

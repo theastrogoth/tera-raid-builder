@@ -1110,10 +1110,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/palkia/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  // test('palkia/teatime', async () => {
-  //   const module = await import(`./data/strats/palkia/teatime.json`)
-  //   await testOHKO(module as LightBuildInfo);
-  // })
+  test('palkia/teatime', async () => {
+    const module = await import(`./data/strats/palkia/teatime.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('palkia/sword', async () => {
     const module = await import(`./data/strats/palkia/sword.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1144,6 +1144,14 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('iron_bundle/eeveelution', async () => {
     const module = await import(`./data/strats/iron_bundle/eeveelution.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/emperor', async () => {
+    const module = await import(`./data/strats/iron_bundle/emperor.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/melted_veil', async () => {
+    const module = await import(`./data/strats/iron_bundle/melted_veil.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('iron_bundle/wishing_star', async () => {

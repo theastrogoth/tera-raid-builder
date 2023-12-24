@@ -603,10 +603,10 @@ export class RaidState implements State.RaidState{
         // lost field effects
         this.removeAbilityFieldEffect(id, oldAbility);
         // gained field effects
-        this.addAbilityFieldEffect(id, ability, false, restore);
+        this.addAbilityFieldEffect(id, ability, true, restore);
     }
 
-    public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchIn: boolean = false, restore: boolean = false): string[][] {
+    public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchInOrChange: boolean = false, restore: boolean = false): string[][] {
         const pokemon = this.getPokemon(id);
         const flags: string[][] = [[],[],[],[],[]];
         /// Imposter
@@ -629,39 +629,59 @@ export class RaidState implements State.RaidState{
             } 
         }
         //// Abilities only activated upon switch-in
-        if (switchIn) {
+        if (switchInOrChange) {
             /// Weather Abilities
             if (ability === "Drought") {
-                this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
-                flags[id].push("Drought summons the Sun");
+                if (this.fields[0].weather !== "Sun") {
+                    this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
+                    flags[id].push("Drought summons the Sun");
+                }
             } else if (ability === "Drizzle") {
-                this.applyWeather("Rain", pokemon.item === "Damp Rock" ? 32 : 20);
-                flags[id].push("Drizzle summons the Rain");
+                if (this.fields[0].weather !== "Rain") {
+                    this.applyWeather("Rain", pokemon.item === "Damp Rock" ? 32 : 20);
+                    flags[id].push("Drizzle summons the Rain");
+                }
             } else if (ability === "Sand Stream") {
-                this.applyWeather("Sand", pokemon.item === "Smooth Rock" ? 32 : 20);
-                flags[id].push("Sand Stream summons a Sandstorm");
+                if (this.fields[0].weather !== "Sand") {
+                    this.applyWeather("Sand", pokemon.item === "Smooth Rock" ? 32 : 20);
+                    flags[id].push("Sand Stream summons a Sandstorm");
+                }
             } else if (ability === "Snow Warning") {
-                this.applyWeather("Snow", pokemon.item === "Icy Rock" ? 32 : 20);
-                flags[id].push("Snow Warning summons a Snowstorm");
+                if (this.fields[0].weather !== "Snow") {
+                    this.applyWeather("Snow", pokemon.item === "Icy Rock" ? 32 : 20);
+                    flags[id].push("Snow Warning summons a Snowstorm");
+                }
             } else if (ability === "Orichalcum Pulse") {
-                this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
-                flags[id].push("Orichalcum Pulse summons the Sun");
+                if (this.fields[0].weather !== "Sun") {
+                    this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
+                    flags[id].push("Orichalcum Pulse summons the Sun");
+                }
             /// Terrain Abilities
             } else if (ability === "Grassy Surge") {
-                this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 32 : 20);
-                flags[id].push("Grassy Surge summons Grassy Terrain");
+                if (this.fields[0].terrain !== "Grassy") {
+                    this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    flags[id].push("Grassy Surge summons Grassy Terrain");
+                }
             } else if (ability === "Electric Surge") {
-                this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
-                flags[id].push("Electric Surge summons Electric Terrain");
+                if (this.fields[0].terrain !== "Electric") {
+                    this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    flags[id].push("Electric Surge summons Electric Terrain");
+                }
             } else if (ability === "Misty Surge") {
-                this.applyTerrain("Misty", pokemon.item === "Terrain Extender" ? 32 : 20);
-                flags[id].push("Misty Surge summons Misty Terrain");
+                if (this.fields[0].terrain !== "Misty") {
+                    this.applyTerrain("Misty", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    flags[id].push("Misty Surge summons Misty Terrain");
+                }
             } else if (ability === "Psychic Surge") {
-                this.applyTerrain("Psychic", pokemon.item === "Terrain Extender" ? 32 : 20);
-                flags[id].push("Psychic Surge summons Psychic Terrain");
+                if (this.fields[0].terrain !== "Psychic") {
+                    this.applyTerrain("Psychic", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    flags[id].push("Psychic Surge summons Psychic Terrain");
+                }
             } else if (ability === "Hadron Engine") {
-                this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
-                flags[id].push("Hadron Engine summons Electric Terrain");
+                if (this.fields[0].terrain !== "Electric") {
+                    this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    flags[id].push("Hadron Engine summons Electric Terrain");
+                }
             /// Ruin Abilities (should be uncopyable / unsupressable)
             } else if (ability === "Sword of Ruin") {
                 for (let field of this.fields) {
@@ -1015,6 +1035,13 @@ export class RaidState implements State.RaidState{
                     ally.abilityOn = plusMinusCount > 1;
                 }
             }
+        }
+        // Individuual changes
+        const pokemon = this.getPokemon(id);
+        if (["Protosynthesis", "Quark Drive", "Orichalcum Pulse", "Hadron Engine"].includes(ability)) {
+            pokemon.boostedStat = undefined;
+            pokemon.isQP = false;
+            pokemon.usedBoosterEnergy = false;
         }
     }
 

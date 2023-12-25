@@ -325,10 +325,14 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
         const newDisableTarget = (
             moveInfo.moveData.name === "(No Move)" ||
             moveInfo.moveData.target === undefined ||
-            moveInfo.moveData.target === "user-and-allies" ||
-            moveInfo.moveData.target === "all-other-pokemon" ||
             moveInfo.moveData.target === "user" ||
-            moveInfo.moveData.target === "all-pokemon" ||
+            moveInfo.moveData.target === "user-and-allies" ||
+            moveInfo.moveData.target === "all-allies" ||
+            // moveInfo.moveData.target === "all-opponents" ||
+            // moveInfo.moveData.target === "all-other-pokemon" ||
+            // moveInfo.moveData.target === "all-pokemon" ||
+            moveInfo.moveData.target === "users-field" ||
+            moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
         );
         const newValidTargets = newDisableTarget ? [moveInfo.userID] : [0,1,2,3,4].filter((id) => id !== moveInfo.userID);
@@ -709,6 +713,8 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         pTurn.moveInfo.targetID === nTurn.moveInfo.targetID &&
         pTurn.moveInfo.moveData.name === nTurn.moveInfo.moveData.name &&
         pTurn.bossMoveInfo.moveData.name === nTurn.bossMoveInfo.moveData.name &&
+        pTurn.moveInfo.moveData.target === nTurn.moveInfo.moveData.target &&
+        pTurn.bossMoveInfo.moveData.target === nTurn.bossMoveInfo.moveData.target &&
         pTurn.moveInfo.moveData.maxHits === nTurn.moveInfo.moveData.maxHits &&
         pTurn.bossMoveInfo.moveData.maxHits === nTurn.bossMoveInfo.moveData.maxHits &&
         pTurn.moveInfo.options?.crit === nTurn.moveInfo.options?.crit &&

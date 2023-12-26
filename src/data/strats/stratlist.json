@@ -1,4 +1,14 @@
 {
+    "Walking Wake": {
+        "Drifting Wake": "walking_wake/main",
+        "Charging Wake": "walking_wake/charging_wake",
+        "Shocking Wake": "walking_wake/shocking_wake",
+        "Metro Express": "walking_wake/metro_express"
+    },
+    "Iron Leaves": {
+        "Kingambit": "iron_leaves/main",
+        "AP Krook": "iron_leaves/krook"
+    },
     "Iron Bundle":  {
         "Ghost of Christmas Future": "iron_bundle/main",
         "Steel Cat Strat": "iron_bundle/steel_cats",
@@ -134,14 +144,6 @@
     "Decidueye": {
         "Miraidon": "decidueye/main",
         "Rotom-tisserie Owl": "decidueye/rotom"
-    },
-    "Walking Wake": {
-        "Shocking Wake": "walking_wake/main",
-        "Metro Express": "walking_wake/metro_express"
-    },
-    "Iron Leaves": {
-        "Kingambit": "iron_leaves/main",
-        "AP Krook": "iron_leaves/krook"
     },
     "Pikachu": {
         "Contrary Lurantis": "pikachu/main"

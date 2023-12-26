@@ -714,6 +714,14 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/walking_wake/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('walking_wake/charging_wake', async () => {
+    const module = await import(`./data/strats/walking_wake/charging_wake.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('walking_wake/shocking_wake', async () => {
+    const module = await import(`./data/strats/walking_wake/shocking_wake.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('iron_leaves', async () => {
     const module = await import(`./data/strats/iron_leaves/main.json`)
     await testOHKO(module as LightBuildInfo);

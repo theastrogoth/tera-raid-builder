@@ -1035,7 +1035,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, prettyMode: boolean, translationKey?: any, isBoss?: boolean}) 
     {
-    const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Eiscue-Noice", "Terapagos-Stellar"].includes(n)).sort());
+    const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar"].includes(n)).sort());
     const [teratypes, setTeraTypes] = useState(genTypes);
     const [genNatures, ] = useState([...gen.natures].sort());
     const [items, setItems] = useState(genItems);

@@ -8239,15 +8239,15 @@ const SS_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 58, at: 95, df: 58, sa: 70, sd: 58, sp: 97},
     weightkg: 3,
     abilities: {0: 'Hunger Switch'},
-    // otherFormes: ['Morpeko-Hangry'],
+    otherFormes: ['Morpeko-Hangry'],
   },
-  // 'Morpeko-Hangry': {
-  //   types: ['Electric', 'Dark'],
-  //   bs: {hp: 58, at: 95, df: 58, sa: 70, sd: 58, sp: 97},
-  //   weightkg: 3,
-  //   abilities: {0: 'Hunger Switch'},
-  //   baseSpecies: 'Morpeko',
-  // },
+  'Morpeko-Hangry': {
+    types: ['Electric', 'Dark'],
+    bs: {hp: 58, at: 95, df: 58, sa: 70, sd: 58, sp: 97},
+    weightkg: 3,
+    abilities: {0: 'Hunger Switch'},
+    baseSpecies: 'Morpeko',
+  },
   // 'Mr. Mime-Galar': {
   //   types: ['Ice', 'Psychic'],
   //   bs: {hp: 50, at: 65, df: 65, sa: 90, sd: 90, sp: 100},

@@ -60,7 +60,7 @@ function App() {
         main: lightMode === 'dark' ? "#faa5a0" : "#ed382d"
       },
       secondary: {
-        main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+        main: lightMode === 'dark' ? "#91433f" : "#940f07"
       },
       //@ts-ignore
       subdued: {
@@ -140,7 +140,7 @@ function App() {
             main: lightMode === 'dark' ? "#faa5a0" : "#db3227",
           },
           secondary: {
-            main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+            main: lightMode === 'dark' ? "#91433f" : "#940f07"
           },
           //@ts-ignore
           subdued: {

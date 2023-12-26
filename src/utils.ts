@@ -227,9 +227,7 @@ export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
         }
         if ((g.repeats || 1) > 1) {
             for (let i=0; i<4; i++) {
-                if (g.turns[i].moveInfo.moveData.name !== "(No Move)") {
-                    moveCounters[i] += (g.repeats || 1) - 1;
-                }
+                moveCounters[i] += (g.repeats || 1) - 1;
             }
         }
         for (let i=0; i<4; i++) {

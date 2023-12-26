@@ -235,6 +235,7 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public activateTera(): boolean {
+        console.log(this.name)
         if (!this.isTera && this.teraCharge >= 3) {
             this.isTera = true;
             if (this.name.includes("Ogerpon")) {
@@ -252,6 +253,21 @@ export class Raider extends Pokemon implements State.Raider {
                     this.ability = "Embody Aspect (Cornerstone)" as AbilityName;
                 }
                 this.abilityOn = true;
+            } else if (this.name.includes("Terapagos")) {
+                console.log("here")
+                const stellarForm = new Pokemon(gen, "Terapagos-Stellar", {
+                    level: this.level, 
+                    ivs: this.ivs,
+                    evs: this.evs,
+                    nature: this.nature,
+                    statMultipliers: this.statMultipliers,
+                });
+                this.name = stellarForm.name;
+                this.species = stellarForm.species;
+                this.rawStats = stellarForm.rawStats;
+                this.stats = stellarForm.stats;
+                // this.ability = "Teraform Zero" as AbilityName; // Needs to be handled in the RaidState
+                this.teraType = "Stellar";
             }
             return true;
         }

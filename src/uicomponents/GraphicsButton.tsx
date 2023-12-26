@@ -572,7 +572,7 @@ const PPTLogo = styled("img")({
     height: "325px",
     position: "absolute",
     bottom: "-50px",
-    left: "900px"
+    left: "950px"
 });
 
 function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {

@@ -1,15 +1,15 @@
 {
-    "name": "Drifting Wake",
-    "notes": "1 Miraidon + 1 Umbreon (T2):\nCharge -> Fake Tears -> Fake Tears -> Electro Drift",
+    "name": "OHKO Framework",
+    "notes": "We provided a loose framework rather than a rigid strategy. This entry documents what the most common setup was.",
     "credits": "The r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
-            "role": "Walking Wake",
-            "name": "Walking Wake",
+            "role": "Raid Boss",
+            "name": "Dialga",
             "shiny": false,
-            "ability": "Protosynthesis",
-            "nature": "Hardy",
+            "ability": "Telepathy",
+            "nature": "Quiet",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,24 +27,23 @@
                 "spe": 31
             },
             "level": 75,
-            "teraType": "Water",
+            "teraType": "Dragon",
             "moves": [
-                "Hydro Steam",
-                "Dragon Pulse",
-                "Noble Roar",
-                "Flamethrower"
+                "Draco Meteor",
+                "Earth Power",
+                "Fire Blast",
+                "Steel Beam"
             ],
-            "bossMultiplier": 2000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "(No Move)",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Trick Room",
+                "Stealth Rock",
+                "Iron Defense"
             ],
             "shieldData": {
-                "hpTrigger": 55,
-                "timeTrigger": 40,
-                "shieldCancelDamage": 25,
+                "hpTrigger": 80,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 80,
                 "shieldDamageRateTeraChange": 40
@@ -52,11 +51,12 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Sylveon",
+            "name": "Sylveon",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "nature": "Modest",
+            "ability": "Pixilate",
+            "item": "Life Orb",
+            "nature": "Quiet",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -75,9 +75,10 @@
             },
             "level": 100,
             "moves": [
-                "Electro Drift",
-                "Charge",
-                "Parabolic Charge"
+                "Calm Mind",
+                "Hyper Beam",
+                "Hyper Voice",
+                "Draining Kiss"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
@@ -88,8 +89,8 @@
             "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -114,15 +115,7 @@
                 "Snarl"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 3,
@@ -130,8 +123,8 @@
             "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -164,8 +157,8 @@
             "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -195,8 +188,60 @@
     ],
     "turns": [
         {
-            "id": 5,
-            "group": 2,
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Trick Room",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 1,
+            "moveInfo": {
+                "name": "Calm Mind",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
             "moveInfo": {
                 "name": "Fake Tears",
                 "userID": 2,
@@ -204,7 +249,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -213,16 +258,16 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
-            "id": 0,
-            "group": 2,
+            "id": 3,
+            "group": 1,
             "moveInfo": {
                 "name": "Fake Tears",
                 "userID": 3,
@@ -230,7 +275,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -239,24 +284,50 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
-            "id": 1,
+            "id": 4,
             "group": 2,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 4,
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 2,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -265,24 +336,24 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
-            "id": 2,
-            "group": 0,
+            "id": 6,
+            "group": 3,
             "moveInfo": {
-                "name": "Electro Drift",
+                "name": "Hyper Beam",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -291,25 +362,34 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }
     ],
     "groups": [
         [
-            5,
-            0,
-            1
+            0
         ],
         [
-            2
+            1,
+            2,
+            3
+        ],
+        [
+            4,
+            5
+        ],
+        [
+            6
         ]
     ],
     "repeats": [
+        1,
+        1,
         1,
         1
     ],

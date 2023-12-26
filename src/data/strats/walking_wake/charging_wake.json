@@ -1,7 +1,7 @@
 {
-    "name": "",
-    "notes": "",
-    "credits": "",
+    "name": "Charging Wake",
+    "notes": "1 Iron Hands + 1 Umbreon (T2):\nBelly Drum -> Screech -> Screech -> Wild Charge",
+    "credits": "The r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
@@ -36,6 +36,10 @@
             ],
             "bossMultiplier": 2000,
             "extraMoves": [
+                "(No Move)",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ],
             "shieldData": {
                 "hpTrigger": 55,
@@ -48,16 +52,17 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Iron Hands",
+            "name": "Iron Hands",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "nature": "Modest",
+            "ability": "Quark Drive",
+            "item": "Sitrus Berry",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -71,9 +76,10 @@
             },
             "level": 100,
             "moves": [
-                "Electro Drift",
-                "Charge",
-                "Parabolic Charge"
+                "Belly Drum",
+                "Wild Charge",
+                "Thunder Punch",
+                "Charge"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
@@ -191,16 +197,16 @@
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 0,
+            "id": 3,
+            "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Belly Drum",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -209,20 +215,134 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Wild Charge",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "avg",
+                    "hits": 10
                 }
             }
         }
     ],
     "groups": [
         [
-            0
+            3
+        ],
+        [
+            5,
+            0,
+            1
+        ],
+        [
+            2
         ]
     ],
     "repeats": [
+        1,
+        1,
         1
     ],
     "substitutes": [

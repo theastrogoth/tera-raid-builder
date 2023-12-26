@@ -105,6 +105,9 @@ export class RaidMove {
             if (this.moveData.name === "Electro Shot") {
                 this._raidState.applyStatChange(this.userID, {spa: 1});
             }
+            if (this.moveData.name === "Meteor Beam") {
+                this._raidState.applyStatChange(this.userID, {spa: 1});
+            }
         } else if (this._user.isRecharging) {
             this._user.isRecharging = false;
             this._desc[this.userID] = this._user.name + " is recharging!";
@@ -120,6 +123,7 @@ export class RaidMove {
             this.setDoesNotAffect();
             this.checkProtection();
             this.applyProtection();
+            this.applyPreDamageEffects();
             this.applyDamage();
             this.applyDrain();
             this.applyHealing();
@@ -204,6 +208,10 @@ export class RaidMove {
             if (this._user.isSleep) {
                 this._desc[this.userID] = this._user.name + " is fast asleep.";
                 this._user.isSleep--; // decrement sleep counter
+                return false;
+            } else if (this._user.isFrozen) {
+                this._desc[this.userID] = this._user.name + " is frozen solid.";
+                this._user.isFrozen--; // decrement frozen counter;
                 return false;
             } else if (
                 this._user.isTaunt && 
@@ -858,7 +866,7 @@ export class RaidMove {
         // Light Screen
         let lightscreen = this.move.name === "Light Screen";
         // Aurora Veil
-        let auroraveil = this.move.name === "Aurora Veil";
+        let auroraveil = this.move.name === "Aurora Veil" && this._user.field.hasWeather("Hail", "Snow");
         // Mist
         let mist = this.move.name === "Mist";
         // Safeguard
@@ -891,6 +899,34 @@ export class RaidMove {
             } else {
                 this._fields[this._targetID].attackerSide.isHelpingHand = true;
             }
+        }
+    }
+
+    private applyPreDamageEffects()  {
+        const target = this.getPokemon(this._targetID);
+
+        const user_ability = this._user.ability as AbilityName;
+        const target_ability = target.ability as AbilityName;
+
+        if (this._doesNotAffect[this._targetID]) { return; }
+
+        switch (this.move.name) {
+            case "Brick Break":
+            case "Psychic Fangs":
+            case "Raging Bull":
+                const targetFields = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];
+                let hadScreens = false
+                for (let field of targetFields) {
+                    hadScreens = !!(field.attackerSide.isReflect || field.attackerSide.isLightScreen || field.attackerSide.isAuroraVeil) || hadScreens;
+                    field.attackerSide.isReflect = 0;
+                    field.attackerSide.isLightScreen = 0;
+                    field.attackerSide.isAuroraVeil = 0;
+                }
+                if (hadScreens) {
+                    this._flags[this.userID].push(this.move.name + " broke the oppenent's screens!")
+                }
+                break;
+            default: break;
         }
     }
 
@@ -1089,7 +1125,7 @@ export class RaidMove {
                             if (!target.hasType("Electric") && hasNoStatus(target) && !target.hasAbility("Limber")) { target.status = "par"; }
                             break;
                         case "Flame Orb":
-                            if (!target.types.includes("Fire") && hasNoStatus(target) && !target.hasAbility("Water Veil") && !target.hasAbility("Thermal Exchange")) { target.status = "brn"; }
+                            if (!target.types.includes("Fire") && hasNoStatus(target) && !target.hasAbility("Water Veil") && !target.hasAbility("Thermal Exchange") && !target.hasAbility("Water Bubble")) { target.status = "brn"; }
                             break;
                         case "Toxic Orb":
                             if (!target.hasType("Poison", "Steel") && hasNoStatus(target) && !target.hasAbility("Immunity")) { target.status = "tox"; }
@@ -1222,6 +1258,27 @@ export class RaidMove {
                     field.attackerSide.isAuroraVeil = 0;
                 }
                 break;
+            case "Court Change": 
+                const tempUserSide = {...(this._fields[this.userID].attackerSide)};
+                const sameSides = this.userID === 0 ? [this._fields[0]] : this._fields.slice(1);
+                const targetSides = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];
+                for (let side of sameSides) {
+                    side.attackerSide.isLightScreen = targetSides[0].attackerSide.isLightScreen;
+                    side.attackerSide.isReflect = targetSides[0].attackerSide.isReflect;
+                    side.attackerSide.isSafeguard = targetSides[0].attackerSide.isSafeguard;
+                    side.attackerSide.isMist = targetSides[0].attackerSide.isMist;
+                    side.attackerSide.isAuroraVeil = targetSides[0].attackerSide.isAuroraVeil;
+                    side.attackerSide.isTailwind = targetSides[0].attackerSide.isTailwind;
+                }
+                for (let side of targetSides) {
+                    side.attackerSide.isLightScreen = tempUserSide.isLightScreen;
+                    side.attackerSide.isReflect = tempUserSide.isReflect;
+                    side.attackerSide.isSafeguard = tempUserSide.isSafeguard;
+                    side.attackerSide.isMist = tempUserSide.isMist;
+                    side.attackerSide.isAuroraVeil = tempUserSide.isAuroraVeil;
+                    side.attackerSide.isTailwind = tempUserSide.isTailwind;
+                }
+                break;
             case "Clear Smog":
                 for (let stat in target.boosts) {
                     const statId = stat as StatIDExceptHP;
@@ -1311,10 +1368,14 @@ export class RaidMove {
                 }
                 break;
             case "Dragon Cheer": 
-                if (!this._user.isPumped) {
-                    this._user.isPumped = 1;
-                } else {
-                    this._desc[this._targetID] = this._user.name + " - " + this.move.name + " failed!"
+                const allyIDs = this.userID !== 0 ? [1,2,3,4].filter((id) => id !== this.userID) : [];
+                for (let allyID of allyIDs) {
+                    const ally = this._raidState.getPokemon(allyID);
+                    if (!ally.isPumped) {
+                        ally.isPumped = ally.hasType("Dragon") ? 2: 1;
+                    } else {
+                        this._desc[allyID] = ally.name + " - " + this.move.name + " failed!"
+                    }
                 }
                 break;
             case "Syrup Bomb":
@@ -1433,7 +1494,7 @@ export class RaidMove {
             const pokemon = this._raiders[i];
             const origPokemon = this.raidState.raiders[i];
             if (pokemon.isPumped !== origPokemon.isPumped) {
-                this._flags[i].push(`is getting pumped (+${origPokemon.isPumped})`);
+                this._flags[i].push(`is getting pumped (+${pokemon.isPumped})`);
             }
         }
         // check for charged status

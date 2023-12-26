@@ -17,6 +17,9 @@ Object.assign(global, { TextDecoder, TextEncoder });
 async function resultsFromLightBuild(strategy: LightBuildInfo) {
   const info = await lightToFullBuildInfo(strategy);
   expect(info).not.toBeNull(); // check that the strategy has been loaded successfully
+  for (let raider of info!.pokemon) {
+    raider.field.gameType = "Doubles";
+  }
   const buildInfo = info as BuildInfo;
   const startingState = new RaidState(buildInfo.pokemon);
   const battleInfo: RaidBattleInfo = {
@@ -711,6 +714,14 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/walking_wake/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('walking_wake/charging_wake', async () => {
+    const module = await import(`./data/strats/walking_wake/charging_wake.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('walking_wake/shocking_wake', async () => {
+    const module = await import(`./data/strats/walking_wake/shocking_wake.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('iron_leaves', async () => {
     const module = await import(`./data/strats/iron_leaves/main.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1097,6 +1108,62 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('h_samurott/magnem_opus', async () => {
     const module = await import(`./data/strats/h_samurott/magnem_opus.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dialga/main', async () => {
+    const module = await import(`./data/strats/dialga/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/main', async () => {
+    const module = await import(`./data/strats/palkia/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/teatime', async () => {
+    const module = await import(`./data/strats/palkia/teatime.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/sword', async () => {
+    const module = await import(`./data/strats/palkia/sword.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/lion_of_love', async () => {
+    const module = await import(`./data/strats/palkia/lion_of_love.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/polar_express', async () => {
+    const module = await import(`./data/strats/palkia/polar_express.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/piplup', async () => {
+    const module = await import(`./data/strats/palkia/piplup.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/main', async () => {
+    const module = await import(`./data/strats/iron_bundle/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/steel_cats', async () => {
+    const module = await import(`./data/strats/iron_bundle/steel_cats.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/turtle', async () => {
+    const module = await import(`./data/strats/iron_bundle/turtle.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/eeveelution', async () => {
+    const module = await import(`./data/strats/iron_bundle/eeveelution.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/emperor', async () => {
+    const module = await import(`./data/strats/iron_bundle/emperor.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/melted_veil', async () => {
+    const module = await import(`./data/strats/iron_bundle/melted_veil.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/wishing_star', async () => {
+    const module = await import(`./data/strats/iron_bundle/wishing_star.json`)
     await testOHKO(module as LightBuildInfo);
   })
 })

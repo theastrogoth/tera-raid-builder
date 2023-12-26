@@ -258,6 +258,15 @@ export class RaidTurn {
                         }
                     }
                 }
+                // Freeze thawing checks
+                if (this._raider.isFrozen === 0 && this._raider.hasStatus("frz")) {
+                    this._raider.status = "";
+                    this._endFlags.push(this._raider.role + " thawed!");
+                }
+                if (this._boss.isFrozen === 0 && this._boss.hasStatus("frz")) {
+                    this._boss.status = "";
+                    this._endFlags.push(this._boss.role + " thawed!");
+                }
             }
         }
 
@@ -481,7 +490,7 @@ export class RaidTurn {
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Flame Orb":
-                        if (!pokemon.types.includes("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange")) { 
+                        if (!pokemon.types.includes("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange") && !pokemon.hasAbility("Water Bubble")) { 
                             pokemon.status = "brn";  
                             this._result2.flags[id].push("brn inflicted");
                         }

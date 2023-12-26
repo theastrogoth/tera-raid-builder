@@ -3,7 +3,7 @@ import { getEndOfTurn } from "../calc/desc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
-import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
+import { AbilityName, ItemName, SpeciesName, StatIDExceptHP } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
 import { isSuperEffective, pokemonIsGrounded, ailmentToStatus, hasNoStatus, getAccuracy, getBpModifier } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
@@ -1419,6 +1419,15 @@ export class RaidMove {
             case "Transform":
                 this._raidState.transform(this.userID, target.id);
                 this._desc[this.targetID] = this._user.name + " transformed into " + target.name + "!";
+                break;
+            case "Relic Song":
+                if (this._user.name.includes("Meloetta") && !this._user.hasAbility("Sheer Force")) {
+                    if (this._user.name === "Meloetta") {
+                        this._user.changeForm("Meloetta-Pirouette" as SpeciesName);
+                    } else {
+                        this._user.changeForm("Meloetta" as SpeciesName);
+                    }
+                }
                 break;
             case "Mimic":
                 const lastMove = target.lastMove;

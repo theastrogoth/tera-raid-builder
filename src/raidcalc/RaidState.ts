@@ -664,6 +664,23 @@ export class RaidState implements State.RaidState{
             this.transform(id, target.id);
             flags[id].push("Imposter transforms " + pokemon.name + " into " + target.name);
         }
+        /// Tera Shift
+        if (ability === "Tera Shift" && pokemon.name === "Terapagos") {
+            const terastalForm = new Pokemon(gen, "Terapagos-Terastal", {
+                ivs: pokemon.ivs,
+                evs: pokemon.evs,
+                nature: pokemon.nature,
+                statMultipliers: pokemon.statMultipliers,
+                ability: "Tera Shell"            
+            })
+            pokemon.name = terastalForm.name;
+            pokemon.species = terastalForm.species;
+            pokemon.rawStats = terastalForm.rawStats;
+            pokemon.stats = terastalForm.stats;
+            pokemon.ability = terastalForm.ability;
+            pokemon.originalCurHP = pokemon.maxHP(); // this should only happen at the beginning of a battle
+            flags[id].push("Tera Shift transforms Terapagos into Terapagos-Terastal");
+        }
         /// Trace (handled separately so the traced ability can activate if applicable)
         if (ability === "Trace") {
             const opponentIds = id === 0 ? [1,2,3,4] : [0];

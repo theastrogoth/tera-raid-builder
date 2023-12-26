@@ -235,7 +235,6 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public activateTera(): boolean {
-        console.log(this.name)
         if (!this.isTera && this.teraCharge >= 3) {
             this.isTera = true;
             if (this.name.includes("Ogerpon")) {
@@ -254,7 +253,6 @@ export class Raider extends Pokemon implements State.Raider {
                 }
                 this.abilityOn = true;
             } else if (this.name.includes("Terapagos")) {
-                console.log("here")
                 const stellarForm = new Pokemon(gen, "Terapagos-Stellar", {
                     level: this.level, 
                     ivs: this.ivs,

@@ -868,7 +868,7 @@ function MoveGroupCard({raidInputProps, results, groupIndex, firstMoveIndex, but
                 raidInputProps.groups[groupIndex].turns.map((turn, turnIndex) => {
                     const moveIndex = firstMoveIndex + turnIndex;
                     let raiders = raidInputProps.pokemon;
-                    if (arraysEqual(raidInputProps.pokemon.map(p => p.name), results.turnZeroState.raiders.map(r => r.name))) {
+                    if (arraysEqual(raidInputProps.pokemon.map(p => p.role), results.turnZeroState.raiders.map(r => r.role))) {
                         try {
                             raiders = moveIndex > 0 ? results.turnResults[moveIndex-1].state.raiders : results.turnZeroState.raiders;
                         } catch (e) {

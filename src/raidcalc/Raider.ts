@@ -44,6 +44,7 @@ export class Raider extends Pokemon implements State.Raider {
     lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
 
     isTransformed?: boolean; // indicates that the pokemon has been transformed by Transform or Imposter
+    isChangedForm?: boolean; // indicates that the pokemon has been changed form (e.g. Eiscue, Terapagos, Minior)
     originalSpecies?: SpeciesName; // stores the state of the pokemon before transformation
     originalMoves?: State.MoveData[]; // stores the moves of the pokemon before transformation or Mimic
     originalFormAbility?: AbilityName | "(No Ability)"; // stores the ability of the pokemon before transformation
@@ -78,6 +79,7 @@ export class Raider extends Pokemon implements State.Raider {
         syrupBombSource: number | undefined = undefined,
         lastConsumedItem: ItemName | undefined = undefined,
         isTransformed: boolean | undefined = undefined,
+        isChangedForm: boolean | undefined = undefined,
         originalSpecies: SpeciesName | undefined = undefined,
         originalMoves: State.MoveData[] | undefined = undefined,
         originalFormAbility: AbilityName | "(No Ability)" | undefined = undefined,
@@ -111,6 +113,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.syrupBombSource = syrupBombSource;
         this.lastConsumedItem = lastConsumedItem;
         this.isTransformed = isTransformed;
+        this.isChangedForm = isChangedForm;
         this.originalSpecies  = originalSpecies;
         this.originalMoves = originalMoves;
         this.originalFormAbility = originalAbility || pokemon.ability || "(No Ability)";
@@ -182,6 +185,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.syrupBombSource,
             this.lastConsumedItem,
             this.isTransformed,
+            this.isChangedForm,
             this.originalSpecies,
             this.originalMoves,
             this.originalFormAbility,
@@ -253,17 +257,7 @@ export class Raider extends Pokemon implements State.Raider {
                 }
                 this.abilityOn = true;
             } else if (this.name.includes("Terapagos")) {
-                const stellarForm = new Pokemon(gen, "Terapagos-Stellar", {
-                    level: this.level, 
-                    ivs: this.ivs,
-                    evs: this.evs,
-                    nature: this.nature,
-                    statMultipliers: this.statMultipliers,
-                });
-                this.name = stellarForm.name;
-                this.species = stellarForm.species;
-                this.rawStats = stellarForm.rawStats;
-                this.stats = stellarForm.stats;
+                this.changeForm("Terapagos-Stellar" as SpeciesName);
                 // this.ability = "Teraform Zero" as AbilityName; // Needs to be handled in the RaidState
                 this.teraType = "Stellar";
             }
@@ -311,6 +305,22 @@ export class Raider extends Pokemon implements State.Raider {
         this.stats = {...pokemon.stats, hp: this.stats.hp}; // HP is retained
         this.originalAbility = pokemon.ability as AbilityName;
         // this.ability = pokemon.ability; // handle ability change in the RaidState
+    }
+
+    public changeForm(formName: SpeciesName) {
+        const newForm = new Pokemon(gen, formName, {...this.clone()});
+        // make the form change revertable on fainting
+        this.isChangedForm = true;
+        this.originalSpecies = this.name;
+        this.originalMoves = this.moveData.slice();
+        // copy species details
+        this.name = formName;
+        this.species = newForm.species;
+        this.weightkg = newForm.weightkg;
+        this.rawStats = {...newForm.rawStats, hp: this.rawStats.hp}; // HP is retained
+        this.types = newForm.types.slice() as [TypeName] | [TypeName, TypeName];
+        // copy stats
+        this.stats = {...newForm.stats, hp: this.stats.hp}; // HP is retained
     }
 
     public mimicMove(move: State.MoveData, targetID: number) {

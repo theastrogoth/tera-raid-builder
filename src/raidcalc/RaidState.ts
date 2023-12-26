@@ -78,7 +78,7 @@ export class RaidState implements State.RaidState{
             }
             // Ice Face
             if (pokemon.ability === "Ice Face" && !pokemon.abilityOn && pokemon.name.includes("Eiscue") && moveCategory === "Physical") {
-                pokemon.name = "Eiscue-Noice" as SpeciesName;
+                pokemon.changeForm("Eiscue-Noice" as SpeciesName);
                 pokemon.abilityOn = true;
                 pokemon.originalCurHP = originalHP; // no damage is done
                 fainted = false;
@@ -236,29 +236,10 @@ export class RaidState implements State.RaidState{
         /// Abilities activated by HP %
         // Shields Down
         if (pokemon.ability === "Shields Down" && pokemon.name.includes("Minior")) {
-            console.log(pokemon.originalCurHP, maxHP/2, pokemon.name)
-            if (pokemon.originalCurHP < maxHP/2 && pokemon.name === "Minior-Meteor") {
-                const coreForm = new Pokemon(gen, "Minior", {
-                    ivs: pokemon.ivs,
-                    evs: pokemon.evs,
-                    nature: pokemon.nature,
-                    statMultipliers: pokemon.statMultipliers,                   
-                })
-                pokemon.name = coreForm.name;
-                pokemon.species = coreForm.species;
-                pokemon.rawStats = coreForm.rawStats;
-                pokemon.stats = coreForm.stats;
-            } else if (pokemon.originalCurHP >= maxHP/2 && pokemon.name === "Minior") {
-                const meteorForm = new Pokemon(gen, "Minior-Meteor", {
-                    ivs: pokemon.ivs,
-                    evs: pokemon.evs,
-                    nature: pokemon.nature,
-                    statMultipliers: pokemon.statMultipliers,                   
-                })
-                pokemon.name = meteorForm.name;
-                pokemon.species = meteorForm.species;
-                pokemon.rawStats = meteorForm.rawStats;
-                pokemon.stats = meteorForm.stats;
+            if (pokemon.originalCurHP < maxHP/2 && pokemon.species.name === "Minior-Meteor") {
+                pokemon.changeForm("Minior" as SpeciesName);
+            } else if (pokemon.originalCurHP >= maxHP/2 && pokemon.species.name === "Minior") {
+                pokemon.changeForm("Minior-Meteor" as SpeciesName);
             }
         }
         /// Berry Consumption triggered by damage
@@ -624,7 +605,7 @@ export class RaidState implements State.RaidState{
             }
             // Ice Face
             if ((weather === "Snow" || weather === "Hail") && pokemon.ability === "Ice Face" && pokemon.name.includes("Eiscue") && pokemon.abilityOn) {
-                pokemon.name = "Eiscue" as SpeciesName;
+                pokemon.changeForm("Eiscue" as SpeciesName);
                 pokemon.abilityOn = false;
             }
             
@@ -665,19 +646,8 @@ export class RaidState implements State.RaidState{
             flags[id].push("Imposter transforms " + pokemon.name + " into " + target.name);
         }
         /// Tera Shift
-        if (ability === "Tera Shift" && pokemon.name === "Terapagos") {
-            const terastalForm = new Pokemon(gen, "Terapagos-Terastal", {
-                ivs: pokemon.ivs,
-                evs: pokemon.evs,
-                nature: pokemon.nature,
-                statMultipliers: pokemon.statMultipliers,
-                ability: "Tera Shell"            
-            })
-            pokemon.name = terastalForm.name;
-            pokemon.species = terastalForm.species;
-            pokemon.rawStats = terastalForm.rawStats;
-            pokemon.stats = terastalForm.stats;
-            pokemon.ability = terastalForm.ability;
+        if (ability === "Tera Shift" && pokemon.species.name === "Terapagos") {
+            pokemon.changeForm("Terapagos-Terastal" as SpeciesName);
             pokemon.originalCurHP = pokemon.maxHP(); // this should only happen at the beginning of a battle
             flags[id].push("Tera Shift transforms Terapagos into Terapagos-Terastal");
         }
@@ -1133,7 +1103,7 @@ export class RaidState implements State.RaidState{
             }
         }
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
-        if (pokemon.isTransformed && pokemon.originalSpecies && pokemon.originalMoves) {
+        if ((pokemon.isTransformed || pokemon.isChangedForm) && pokemon.originalSpecies) {
             const originalSpecies = new Pokemon(9, pokemon.originalSpecies, {
                 ivs: pokemon.ivs,
                 evs: pokemon.evs,
@@ -1146,7 +1116,12 @@ export class RaidState implements State.RaidState{
             pokemon.stats = originalSpecies.stats;
             pokemon.rawStats = originalSpecies.rawStats;
             pokemon.isTransformed = false;
+            pokemon.isChangedForm = false;
             pokemon.originalAbility = pokemon.originalFormAbility as AbilityName;
+            if (pokemon.originalMoves) {
+                pokemon.moveData = pokemon.originalMoves;
+                pokemon.moves = pokemon.originalMoves.map(m => m.name);
+            }
         }
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;

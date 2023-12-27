@@ -116,7 +116,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isChangedForm = isChangedForm;
         this.originalSpecies  = originalSpecies;
         this.originalMoves = originalMoves;
-        this.originalFormAbility = originalAbility || pokemon.ability || "(No Ability)";
+        this.originalFormAbility = originalFormAbility || pokemon.ability || "(No Ability)";
     }
 
     clone(): Raider {

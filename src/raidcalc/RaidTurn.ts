@@ -4,7 +4,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json"
-import { MoveName } from "../calc/data/interface";
+import { MoveName, SpeciesName } from "../calc/data/interface";
 
 const gen = Generations.get(9);
 
@@ -232,7 +232,14 @@ export class RaidTurn {
                 // remove protect / wide guard / quick guard effects
                 this.countDownFieldEffects();
                 this.countDownAbilityNullification();
-
+                // Ability effects that trigger at the end of the turn
+                if (this._raidState.raiders[this.raiderID].hasAbility("Hunger Switch") && this._raidState.raiders[this.raiderID].name.includes("Morpeko")) {
+                    if (this._raidState.raiders[this.raiderID].species.name === "Morpeko") {
+                        this._raidState.raiders[this.raiderID].changeForm("Morpeko-Hangry" as SpeciesName);
+                    } else {
+                        this._raidState.raiders[this.raiderID].changeForm("Morpeko" as SpeciesName);
+                    }
+                }
                 // Syrup Bomb speed drops
                 for (let i of [0, this.raiderID]) {
                     const pokemon = this._raidState.getPokemon(i);

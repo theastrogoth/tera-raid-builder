@@ -597,6 +597,7 @@ function RollCaseButtons({raidInputProps, setRollCase, translationKey}: {raidInp
 }
 
 function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}: {raidInputProps: RaidInputProps, rollCase: "max" | "min" | "avg", setRollCase: (c: "min" | "avg" | "max") => void, translationKey: any}) {
+    const caseIsMatched = rollCaseCheck(rollCase, raidInputProps.groups);
     const handleClick = () => {
         const newGroups: TurnGroupInfo[] = raidInputProps.groups.map(g => {
             const newTurns: RaidTurnInfo[] = g.turns.map(t => {
@@ -626,7 +627,9 @@ function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}:
         <Button
             variant="contained" 
             size="small" 
-            sx={{ minWidth: "100px" }} 
+            //@ts-ignore
+            color={caseIsMatched ? "tertiary" : "secondary"}
+            sx={{ minWidth: "100px", height: caseIsMatched ? "30px" : "25px", fontWeight: caseIsMatched ? "bold" : "normal",}} 
             onClick={handleClick}
         >
             {getTranslation((rollCase === "max" ? "Best Case" : (rollCase === "min" ? "Worst Case" : "Average Case")), translationKey)}
@@ -651,6 +654,30 @@ function rollCaseToOptions(rollCase: "max" | "min" | "avg", moveData: MoveData) 
         ),
         roll: rollCase
     }
+}
+
+function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[]) {
+    let matchesCase = true;
+    for (let group of groups) {
+        for (let turn of group.turns) {
+            const [raiderShouldMatch, bossShouldMatch] = getMoveOptionsForRollCase(rollCase, turn.moveInfo.targetID, turn.moveInfo.moveData, turn.bossMoveInfo.moveData);
+            const raiderMatches = !!turn.moveInfo.options &&
+                turn.moveInfo.options.crit === raiderShouldMatch.crit &&
+                turn.moveInfo.options.secondaryEffects === raiderShouldMatch.secondaryEffects &&
+                ((turn.moveInfo.moveData.maxHits || 1) > 1 ? turn.moveInfo.options.hits === raiderShouldMatch.hits : true) &&
+                turn.moveInfo.options.roll === raiderShouldMatch.roll;
+            const bossMatches = !!turn.bossMoveInfo.options &&
+                turn.bossMoveInfo.options.crit === bossShouldMatch.crit &&
+                turn.bossMoveInfo.options.secondaryEffects === bossShouldMatch.secondaryEffects &&
+                ((turn.bossMoveInfo.moveData.maxHits || 1) > 1 ? turn.bossMoveInfo.options.hits === bossShouldMatch.hits : true) &&
+                turn.bossMoveInfo.options.roll === bossShouldMatch.roll;
+            matchesCase = matchesCase && raiderMatches && bossMatches;
+            if (!matchesCase) {
+                return false;
+            }
+        }
+    }
+    return matchesCase;
 }
 
 function RaidControls({raidInputProps, results, setResults, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean, translationKey: any}) {

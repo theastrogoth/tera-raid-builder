@@ -36,6 +36,7 @@ type Modifiers = {
     defenseCheer?: boolean,
     helpingHand?: boolean,
     tera ?: string,
+    formChanged ?: string,
     // teraCharge ?: number,
     shield ?: boolean,
     battery?: number,
@@ -162,6 +163,9 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
             }
             else if (modifier === "tera") {
                 return value !== "" && <ModifierTypeTag modifier={modifier} value={value} translationKey={translationKey}/>
+            }
+            else if (modifier === "formChanged") {
+                return value !== "" && <ModifierGenericTag text={value}/>
             }
             else if (modifier === "boostedStat") {
                 return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
@@ -392,6 +396,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "defenseCheer": raider.field.attackerSide.isDefCheered > 0,
             "helpingHand": raider.field.attackerSide.isHelpingHand,
             "tera": raider.isTera ? raider.teraType : "",
+            "formChanged": raider.isChangedForm ? raider.name : "",
             // "teraCharge": raider.teraCharge,
             "shield": raider.shieldActive,
             "battery": raider.field.attackerSide.batteries,

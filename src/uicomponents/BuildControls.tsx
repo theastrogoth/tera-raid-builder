@@ -1165,7 +1165,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             pokemon.field, 
             new Pokemon(gen, val, {
                 nature: "Hardy", 
-                ability: "(No Ability)",
+                // ability: "(No Ability)",
                 shieldData: !isBoss ? undefined : {
                     hpTrigger: 0,
                     timeTrigger: 0,

@@ -3,8 +3,9 @@ import { MoveData, RaidMoveOptions, RaidTurnInfo, RaidMoveInfo } from "./interfa
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
-import pranksterMoves from "../data/prankster_moves.json"
-import { MoveName, SpeciesName } from "../calc/data/interface";
+import pranksterMoves from "../data/prankster_moves.json";
+import triageMoves from "../data/triage_moves.json";
+import { MoveName } from "../calc/data/interface";
 
 const gen = Generations.get(9);
 
@@ -484,6 +485,9 @@ export class RaidTurn {
                 }
                 break;
             case "Triage": // Comfey's signature ability
+                if (moveData.priority !== undefined && triageMoves.includes(moveData.name)) {
+                    moveData.priority += 3;
+                }
                 break;
             default:
                 break;

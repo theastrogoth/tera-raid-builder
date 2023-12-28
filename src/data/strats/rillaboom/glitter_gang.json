@@ -54,7 +54,7 @@
             "role": "TheGodfather",
             "name": "Gholdengo",
             "shiny": true,
-            "ability": "Good As Gold",
+            "ability": "Good as Gold",
             "item": "Weakness Policy",
             "nature": "Modest",
             "evs": {
@@ -94,7 +94,7 @@
             "role": "The Mafioso",
             "name": "Gholdengo",
             "shiny": false,
-            "ability": "Good As Gold",
+            "ability": "Good as Gold",
             "item": "Petaya Berry",
             "nature": "Modest",
             "evs": {

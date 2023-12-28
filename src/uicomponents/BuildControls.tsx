@@ -914,7 +914,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
             <Button
                 variant="outlined"
                 size="small"
-                sx={{ width: "125px", textTransform: "none" }} 
+                sx={{ textTransform: "none" }} 
                 onClick={(e) => handleClick(e)}
                 endIcon={<MenuIcon/>}
             >
@@ -1035,7 +1035,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, prettyMode: boolean, translationKey?: any, isBoss?: boolean}) 
     {
-    const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).sort());
+    const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n)).sort());
     const [teratypes, setTeraTypes] = useState(genTypes);
     const [genNatures, ] = useState([...gen.natures].sort());
     const [items, setItems] = useState(genItems);
@@ -1068,7 +1068,10 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         } else if (pokemon.name === "Zamazenta-Crowned") {
             setItems(["Rusted Shield" as ItemName]);
             setPokemonProperties(["role","item"])(["Zamazenta", "Rusted Shield"]);
-        } 
+        } else if (pokemon.name.includes("Terapagos")) {
+            setTeraTypes(["Stellar"]);
+            setPokemonProperties(["teraType"])(["Stellar"]);
+        }
         // Arceus Plate Types
         else if (pokemon.name.includes("Arceus")) {
             if (pokemon.name.includes("-")) {
@@ -1201,11 +1204,11 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             />
                         </Stack>
                     }
-                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: isBoss ? 2 : 0 }}>
+                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ maxWidth: "280px", marginTop: 1, marginBottom: isBoss ? 2 : 0 }}>
                         <Button 
                             variant="outlined" 
                             size="small" 
-                            sx={{ width: "125px", textTransform: "none" }} 
+                            sx={{ textTransform: "none" }} 
                             disabled={importExportOpen}
                             onClick={(e) => setEditStatsOpen(!editStatsOpen)}
                             startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
@@ -1215,7 +1218,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         <Button 
                             variant="outlined" 
                             size="small" 
-                            sx={{ width: "125px", textTransform: "none" }} 
+                            sx={{ textTransform: "none" }} 
                             onClick={(e) => setImportExportOpen(!importExportOpen)}
                             endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
                         >
@@ -1230,7 +1233,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         <Button
                             variant="outlined"
                             size="small"
-                            sx={{ width: "125px", textTransform: "none" }} 
+                            sx={{ textTransform: "none" }} 
                             onClick={(e) => handleAddSubstitute()}
                             startIcon={<AddIcon/>}
                         >

@@ -65,7 +65,13 @@ export class RaidTurn {
         this.raiderID = info.moveInfo.userID;
         this.targetID = info.moveInfo.targetID;
         this.raiderMoveData = info.moveInfo.moveData;
+        if (Object.keys(info.moveInfo.moveData).length === 1) { // Transform or Mimic can cause issues with loading full movedata from hashes
+            this.raiderMoveData = this.raidState.raiders[this.raiderID].moveData.find((move) => move.name === info.moveInfo.moveData.name) || {name: info.moveInfo.moveData.name} as MoveData;
+        }
         this.bossMoveData = info.bossMoveInfo.moveData;
+        if (Object.keys(info.bossMoveInfo.moveData).length === 1) {
+            this.bossMoveData = this.raidState.raiders[0].moveData.find((move) => move.name === info.bossMoveInfo.moveData.name) || {name: info.bossMoveInfo.moveData.name} as MoveData;
+        }
         this.id = info.id;
         this.group = info.group;
 
@@ -168,7 +174,7 @@ export class RaidTurn {
                 this._isBossAction
             );
             this._result1 = this._raidMove1.result();
-        this._raidState = this._result1.state;
+            this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
                 this._bossMoveData,
                 this._bossMove, 
@@ -179,7 +185,9 @@ export class RaidTurn {
                 !this._raiderMovesFirst,
                 this.bossOptions,
                 this._isBossAction,
-                this._result1.causesFlinch[0]);
+                this._result1.causesFlinch[0],
+                this._result1.damage[0] > 0
+            );
         } else {
             this._raidMove1 = new RaidMove(
                 this._bossMoveData, 
@@ -204,7 +212,8 @@ export class RaidTurn {
                 this._raiderMovesFirst,
                 this.raiderOptions,
                 this._isBossAction,
-                this._result1.causesFlinch[this.raiderID]
+                this._result1.causesFlinch[this.raiderID],
+                this._result1.damage[this.raiderID] > 0
             );
         }
         this._raidMove2.result();
@@ -224,7 +233,14 @@ export class RaidTurn {
                 // remove protect / wide guard / quick guard effects
                 this.countDownFieldEffects();
                 this.countDownAbilityNullification();
-
+                // Ability effects that trigger at the end of the turn
+                if (this._raidState.raiders[this.raiderID].hasAbility("Hunger Switch") && this._raidState.raiders[this.raiderID].name.includes("Morpeko")) {
+                    if (this._raidState.raiders[this.raiderID].species.name === "Morpeko") {
+                        this._raidState.raiders[this.raiderID].changeForm("Morpeko-Hangry" as SpeciesName);
+                    } else {
+                        this._raidState.raiders[this.raiderID].changeForm("Morpeko" as SpeciesName);
+                    }
+                }
                 // Syrup Bomb speed drops
                 for (let i of [0, this.raiderID]) {
                     const pokemon = this._raidState.getPokemon(i);
@@ -249,6 +265,15 @@ export class RaidTurn {
                             this._endFlags.push(pokemon.name + " fell asleep!");
                         }
                     }
+                }
+                // Freeze thawing checks
+                if (this._raider.isFrozen === 0 && this._raider.hasStatus("frz")) {
+                    this._raider.status = "";
+                    this._endFlags.push(this._raider.role + " thawed!");
+                }
+                if (this._boss.isFrozen === 0 && this._boss.hasStatus("frz")) {
+                    this._boss.status = "";
+                    this._endFlags.push(this._boss.role + " thawed!");
                 }
             }
         }
@@ -476,7 +501,7 @@ export class RaidTurn {
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Flame Orb":
-                        if (!pokemon.types.includes("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange")) { 
+                        if (!pokemon.types.includes("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange") && !pokemon.hasAbility("Water Bubble")) { 
                             pokemon.status = "brn";  
                             this._result2.flags[id].push("brn inflicted");
                         }

@@ -1,5 +1,8 @@
 import { StatID, StatsTable } from "./calc";
-import { TurnGroupInfo } from "./raidcalc/interface";
+import { RaidBattleResults } from "./raidcalc/RaidBattle";
+import { Raider } from "./raidcalc/Raider";
+import { RaidInputProps } from "./raidcalc/inputs";
+import { MoveData, TurnGroupInfo } from "./raidcalc/interface";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
@@ -185,7 +188,9 @@ export function getIVDescription(ivs: StatsTable, translationKey: any) {
                 displayedStats.push(getTranslation(getStatReadableName(stat), translationKey, "stats"));
             }
         }
-        if (displayedStats.length < 4) {
+        if (displayedStats.length === 1) {
+            return displayedStats[0] + " Hypertrained";
+        } else if (displayedStats.length < 4) {
             return displayedStats.slice(0,-1).join(', ') + (displayedStats.length > 2 ? ", and " : " and ") + displayedStats.slice(-1) + " Hypertrained";
         }
     }
@@ -222,9 +227,7 @@ export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
         }
         if ((g.repeats || 1) > 1) {
             for (let i=0; i<4; i++) {
-                if (g.turns[i].moveInfo.moveData.name !== "(No Move)") {
-                    moveCounters[i] += (g.repeats || 1) - 1;
-                }
+                moveCounters[i] += (g.repeats || 1) - 1;
             }
         }
         for (let i=0; i<4; i++) {

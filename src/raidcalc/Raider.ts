@@ -1,5 +1,5 @@
 import { Field, Pokemon, Generations } from "../calc";
-import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName } from "../calc/data/interface";
+import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName, TypeName, SpeciesName } from "../calc/data/interface";
 import { extend } from '../calc/util';
 import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";
@@ -21,6 +21,7 @@ export class Raider extends Pokemon implements State.Raider {
     isSleep?: number;           // store number of turns that a Pokemon is asleep
     isYawn?: number;            // turn countdown until yawn takes effect
     yawnSource?: number;        // id of the pokemon that inflicted the user with Yawn
+    isFrozen?: number;          // store number of turns that a Pokemon is frozen
 
     isCharging?: boolean;       // indicates that a Pokemon is charging a move (e.g. Solar Beam)
     isRecharging?: boolean;     // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
@@ -42,6 +43,12 @@ export class Raider extends Pokemon implements State.Raider {
 
     lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
 
+    isTransformed?: boolean; // indicates that the pokemon has been transformed by Transform or Imposter
+    isChangedForm?: boolean; // indicates that the pokemon has been changed form (e.g. Eiscue, Terapagos, Minior)
+    originalSpecies?: SpeciesName; // stores the state of the pokemon before transformation
+    originalMoves?: State.MoveData[]; // stores the moves of the pokemon before transformation or Mimic
+    originalFormAbility?: AbilityName | "(No Ability)"; // stores the ability of the pokemon before transformation
+
     constructor(
         id: number, 
         role: string, 
@@ -56,6 +63,7 @@ export class Raider extends Pokemon implements State.Raider {
         isSleep: number = 0,
         isYawn: number = 0,
         yawnSource: number | undefined = undefined,
+        isFrozen: number = 0,
         isCharging: boolean = false,
         isRecharging: boolean = false,
         lastMove: State.MoveData | undefined = undefined, 
@@ -70,6 +78,11 @@ export class Raider extends Pokemon implements State.Raider {
         syrupBombDrops: number | undefined = 0,
         syrupBombSource: number | undefined = undefined,
         lastConsumedItem: ItemName | undefined = undefined,
+        isTransformed: boolean | undefined = undefined,
+        isChangedForm: boolean | undefined = undefined,
+        originalSpecies: SpeciesName | undefined = undefined,
+        originalMoves: State.MoveData[] | undefined = undefined,
+        originalFormAbility: AbilityName | "(No Ability)" | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -84,6 +97,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isSleep = isSleep;
         this.isYawn = isYawn;
         this.yawnSource = yawnSource;
+        this.isFrozen = isFrozen;
         this.isCharging = isCharging;
         this.isRecharging = isRecharging;
         this.lastMove = lastMove;
@@ -98,6 +112,11 @@ export class Raider extends Pokemon implements State.Raider {
         this.syrupBombDrops = syrupBombDrops;
         this.syrupBombSource = syrupBombSource;
         this.lastConsumedItem = lastConsumedItem;
+        this.isTransformed = isTransformed;
+        this.isChangedForm = isChangedForm;
+        this.originalSpecies  = originalSpecies;
+        this.originalMoves = originalMoves;
+        this.originalFormAbility = originalFormAbility || pokemon.ability || "(No Ability)";
     }
 
     clone(): Raider {
@@ -150,6 +169,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.isSleep,
             this.isYawn,
             this.yawnSource,
+            this.isFrozen,
             this.isCharging,
             this.isRecharging,
             this.lastMove,
@@ -164,6 +184,11 @@ export class Raider extends Pokemon implements State.Raider {
             this.syrupBombDrops,
             this.syrupBombSource,
             this.lastConsumedItem,
+            this.isTransformed,
+            this.isChangedForm,
+            this.originalSpecies,
+            this.originalMoves,
+            this.originalFormAbility,
         )
     }
 
@@ -231,6 +256,10 @@ export class Raider extends Pokemon implements State.Raider {
                     this.ability = "Embody Aspect (Cornerstone)" as AbilityName;
                 }
                 this.abilityOn = true;
+            } else if (this.name.includes("Terapagos")) {
+                this.changeForm("Terapagos-Stellar" as SpeciesName);
+                // this.ability = "Teraform Zero" as AbilityName; // Needs to be handled in the RaidState
+                this.teraType = "Stellar";
             }
             return true;
         }
@@ -258,4 +287,64 @@ export class Raider extends Pokemon implements State.Raider {
         }
     }
 
+    public transformInto(pokemon: Raider) {
+        // make the transformation revertable on fainting
+        this.isTransformed = true;
+        this.originalSpecies = this.name;
+        this.originalMoves = this.moveData.slice();
+        // copy species details
+        this.name = pokemon.name;
+        this.species = pokemon.species;
+        this.weightkg = pokemon.weightkg;
+        this.rawStats = {...pokemon.rawStats, hp: this.rawStats.hp}; // HP is retained
+        this.types = pokemon.types.slice() as [TypeName] | [TypeName, TypeName];
+        // copy stats and moves
+        this.boosts = {...pokemon.boosts};
+        this.moves = pokemon.moves.slice();
+        this.moveData = pokemon.moveData.slice();
+        this.stats = {...pokemon.stats, hp: this.stats.hp}; // HP is retained
+        this.originalAbility = pokemon.ability as AbilityName;
+        // this.ability = pokemon.ability; // handle ability change in the RaidState
+    }
+
+    public changeForm(formName: SpeciesName) {
+        const newForm = new Pokemon(gen, formName, {...this.clone()});
+        // make the form change revertable on fainting
+        this.isChangedForm = true;
+        this.originalSpecies = this.name;
+        this.originalMoves = this.moveData.slice();
+        // copy species details
+        this.name = formName;
+        this.species = newForm.species;
+        this.weightkg = newForm.weightkg;
+        this.rawStats = {...newForm.rawStats, hp: this.rawStats.hp}; // HP is retained
+        this.types = newForm.types.slice() as [TypeName] | [TypeName, TypeName];
+        // copy stats
+        this.stats = {...newForm.stats, hp: this.stats.hp}; // HP is retained
+    }
+
+    public mimicMove(move: State.MoveData, targetID: number) {
+        // if (targetID === 0) { return; } // ???
+        if (!this.originalMoves) {
+            this.originalMoves = this.moveData.slice();
+        }
+        const mimicIndex = this.moves.findIndex(m => m === "Mimic");
+        if (mimicIndex === -1) { return; }
+        this.moves[mimicIndex] = move.name;
+        this.moveData[mimicIndex] = {...move};
+        this.lastMove = move;
+        this.lastTarget = targetID;
+        this.moveRepeated = 0;
+    }
+
+    public sketchMove(move: State.MoveData, targetID: number) {
+        // if (targetID === 0) { return; } // ???
+        const sketchIndex = this.moves.findIndex(m => m === "Sketch");
+        if (sketchIndex === -1) { return; }
+        this.moves[sketchIndex] = move.name;
+        this.moveData[sketchIndex] = {...move};
+        this.lastMove = move;
+        this.lastTarget = targetID;
+        this.moveRepeated = 0;
+    }
 }

@@ -25,6 +25,7 @@ export function hasNoStatus(pokemon: Pokemon) {
 // See ../calc/mechanics/util.ts for the original
 export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender: Pokemon) {
     if (!move.type) {return false; }
+    if (defender.hasAbility("Tera Shell") && defender.originalCurHP === defender.maxHP()) { return false; }
     const isGhostRevealed =
     attacker.hasAbility('Scrappy') || attacker.hasAbility("Mind's Eye") || field.defenderSide.isForesight;
     const isRingTarget =
@@ -98,37 +99,37 @@ export function safeStatStage(value: number) {
     return Math.max(-6, Math.min(6, value));
 }
 
-export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, number, string[]] {
-    // returns [accuracy (0-100), BP modifier]
+export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, string[]] {
+    // returns [accuracy (0-100)]
     
     const movename = movedata.name;
     // Toxic NEVER misses if used by a poison type
     if (movename === "Toxic" && attacker.hasType("Poison")) {
-        return [100,1,[]];
+        return [100,[]];
     }
     // semi-invulnerable moves
     if (defender.isCharging && defender.lastMove) {
         if (["Bounce","Fly","Sky Drop"].includes(defender.lastMove.name)) {
             if (["Gust", "Twister"].includes(movename)) {
-                return [100,2,[]];
+                return [100,[]];
             } else if (["Hurricane", "Sky Uppercut", "Smack Down", "Thunder", "Thousand Arrows"].includes(movename)) {
-                return [100,1,[]];
+                return [100,[]];
             } else {
-                return [0,1,[]];
+                return [0,[]];
             }
         } else if (defender.lastMove.name === "Dig") {
             if (["Earthquake", "Magnitude"].includes(movename)) {
-                return [100,2,[]];
+                return [100,[]];
             } else if (movename === "Fissure") {
-                return [100,1,[]];
+                return [100,[]];
             } else {
-                return [0,1,[]];
+                return [0,[]];
             }
         } else if (defender.lastMove.name === "Dive") {
             if (["Surf", "Whirlpool"].includes(movename)) {
-                return [100,2,[]];
+                return [100,[]];
             } else {
-                return [0,1,[]];
+                return [0,[]];
             }
         }
     }
@@ -140,7 +141,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
         (attacker.field.hasWeather("Snow","Hail") && movename === "Blizzard") ||
         guaranteedHitMoves.includes(movename)
     ) {
-        return [100,1,[]];
+        return [100,[]];
     }
 
     let baseAccuracy = movedata.accuracy;
@@ -218,7 +219,27 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
         effects.push("reduced accuracy in Sun")
     }
 
-    return [accuracy, 1, effects];
+    return [accuracy, effects];
+}
+
+export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boolean = false): number {
+    const movename = movedata.name;
+
+    if (defender.isCharging && defender.lastMove) {
+        if (["Bounce","Fly","Sky Drop"].includes(defender.lastMove.name) && ["Gust", "Twister"].includes(movename)) {
+            return 2;
+        } else if (defender.lastMove.name === "Dig" && ["Earthquake", "Magnitude"].includes(movename)) {
+            return 2;
+        } else if (defender.lastMove.name === "Dive" && ["Surf", "Whirlpool"].includes(movename)) {
+            return 2;
+        }
+    }
+    if (damaged) {
+        if (["Avalanche", "Revenge"].includes(movename)) {
+            return 2;
+        }
+    }
+    return 1;
 }
 
 // Speed modifiers

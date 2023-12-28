@@ -10,6 +10,9 @@ import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Popover from '@mui/material/Popover';
+import Button from '@mui/material/Button';
+import Slider from '@mui/material/Slider';
+import Typography from '@mui/material/Typography'
 import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
@@ -19,11 +22,11 @@ import MoveDisplay from './MoveDisplay';
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon, Side, StatsTable } from '../calc';
-import { Slider, Typography } from '@mui/material';
 import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { RaidTurnResult } from '../raidcalc/RaidTurn';
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
+import { MoveData, RaidMoveOptions, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -33,6 +36,7 @@ type Modifiers = {
     defenseCheer?: boolean,
     helpingHand?: boolean,
     tera ?: string,
+    formChanged ?: string,
     // teraCharge ?: number,
     shield ?: boolean,
     battery?: number,
@@ -55,7 +59,7 @@ type Modifiers = {
     endure?: boolean,
     ingrain?: boolean,
     micleBerry?: boolean,
-    pumped?: boolean,
+    pumped?: number,
     saltCure?: boolean,
     stockpile?: number,
     taunt?: boolean,
@@ -96,7 +100,7 @@ function StatChanges({statChanges, translationKey}: {statChanges: StatsTable, tr
             ))}
             {(sortedStatEntries.length === 0) &&
                 <Paper elevation={0} variant='outlined'>
-                    <Typography fontSize={10} m={.5}>No Stat Changes</Typography>
+                    <Typography fontSize={10} m={.5}>{getTranslation("No Stat Changes", translationKey)}</Typography>
                 </Paper>
                 
             }
@@ -159,6 +163,9 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
             }
             else if (modifier === "tera") {
                 return value !== "" && <ModifierTypeTag modifier={modifier} value={value} translationKey={translationKey}/>
+            }
+            else if (modifier === "formChanged") {
+                return value !== "" && <ModifierGenericTag text={value}/>
             }
             else if (modifier === "boostedStat") {
                 return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
@@ -358,8 +365,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
 function HpDisplay({results, translationKey}: {results: RaidBattleResults, translationKey: any}) {
     const [displayedTurn, setDisplayedTurn] = useState<number>(0);
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
-    const maxhps = results.endState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, raider.name, {...raider}).maxHP() : raider.maxHP()) );
-    
+
     const turnState = (
         (displayedTurn === 0) ? results.turnZeroState :
         (displayedTurn > results.turnResults.length) ? results.endState : 
@@ -370,6 +376,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
         (displayedTurn > results.turnResults.length) ? results.endState :
         results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 2].state
     );
+    const maxhps = turnState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, (raider.isTransformed && raider.originalSpecies) ? raider.originalSpecies  : raider.name, {...raider}).maxHP() : raider.maxHP()) );
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
     const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
@@ -377,8 +384,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
         0));
     koCounts[0] = Math.min(koCounts[0], 1);
-    const roles = results.endState.raiders.map((raider) => raider.role);
-    const names = results.endState.raiders.map((raider) => raider.name);
+    const roles = turnState.raiders.map((raider) => raider.role);
+    const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
     const abilities = turnState.raiders.map((raider) => raider.ability);
 
@@ -389,6 +396,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "defenseCheer": raider.field.attackerSide.isDefCheered > 0,
             "helpingHand": raider.field.attackerSide.isHelpingHand,
             "tera": raider.isTera ? raider.teraType : "",
+            "formChanged": raider.isChangedForm ? raider.name : "",
             // "teraCharge": raider.teraCharge,
             "shield": raider.shieldActive,
             "battery": raider.field.attackerSide.batteries,
@@ -568,8 +576,118 @@ function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: Stri
     }
 }
 
+function RollCaseButtons({raidInputProps, setRollCase, translationKey}: {raidInputProps: RaidInputProps, setRollCase: (c: "min" | "avg" | "max") => void, translationKey: any}) {
+    return (
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2}}>
+            <RollCaseButton 
+                rollCase="min"
+                raidInputProps={raidInputProps}
+                setRollCase={setRollCase}
+                translationKey={translationKey}
+            />
+            <RollCaseButton 
+                rollCase="avg"
+                raidInputProps={raidInputProps}
+                setRollCase={setRollCase}
+                translationKey={translationKey}
+            />
+            <RollCaseButton 
+                rollCase="max"
+                raidInputProps={raidInputProps}
+                setRollCase={setRollCase}
+                translationKey={translationKey}
+            />
+        </Stack>
+    )
+}
+
+function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}: {raidInputProps: RaidInputProps, rollCase: "max" | "min" | "avg", setRollCase: (c: "min" | "avg" | "max") => void, translationKey: any}) {
+    const caseIsMatched = rollCaseCheck(rollCase, raidInputProps.groups);
+    const handleClick = () => {
+        const newGroups: TurnGroupInfo[] = raidInputProps.groups.map(g => {
+            const newTurns: RaidTurnInfo[] = g.turns.map(t => {
+                const [raiderOptions, bossOptions] = getMoveOptionsForRollCase(rollCase, t.moveInfo.targetID, t.moveInfo.moveData, t.bossMoveInfo.moveData);
+                const newRaiderMoveInfo = {...t.moveInfo};
+                newRaiderMoveInfo.options = {...newRaiderMoveInfo.options, ...raiderOptions}
+                const newBossMoveInfo = {...t.bossMoveInfo};
+                newBossMoveInfo.options = {...newBossMoveInfo.options, ...bossOptions}
+                const newTurn: RaidTurnInfo = {
+                    id: t.id,
+                    group: t.group,
+                    moveInfo: newRaiderMoveInfo,
+                    bossMoveInfo: newBossMoveInfo
+                }
+                return newTurn
+            })
+            return {
+                id: g.id,
+                repeats: g.repeats,
+                turns: newTurns
+            }
+        })
+        raidInputProps.setGroups(newGroups);
+        setRollCase(rollCase);
+    }
+    return (
+        <Button
+            variant="contained" 
+            size="small" 
+            //@ts-ignore
+            color={caseIsMatched ? "tertiary" : "secondary"}
+            sx={{ minWidth: "100px", height: caseIsMatched ? "30px" : "25px", fontWeight: caseIsMatched ? "bold" : "normal",}} 
+            onClick={handleClick}
+        >
+            {getTranslation((rollCase === "max" ? "Best Case" : (rollCase === "min" ? "Worst Case" : "Average Case")), translationKey)}
+        </Button>
+    )
+}
+
+function getMoveOptionsForRollCase(rollCase: "max" | "min" | "avg", targetID: number, moveData: MoveData, bossMoveData: MoveData) {
+    const bossRollCase = rollCase === "max" ? "min" : (rollCase === "min" ? "max" : "avg")
+    const raiderRollCase = (targetID !== 0 && moveData.category?.includes("damage")) ? bossRollCase : rollCase;
+    return [rollCaseToOptions(raiderRollCase, moveData), rollCaseToOptions(bossRollCase, bossMoveData)]
+}
+
+function rollCaseToOptions(rollCase: "max" | "min" | "avg", moveData: MoveData) {
+    return {
+        crit: rollCase === "max",
+        secondaryEffects: rollCase === "max",
+        hits: rollCase === "max" ? 10 : (
+            rollCase === "min" ? 1 : (
+                Math.floor(((moveData.minHits || 1) + (moveData.maxHits || 1)) / 2)
+            )
+        ),
+        roll: rollCase
+    }
+}
+
+function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[]) {
+    let matchesCase = true;
+    for (let group of groups) {
+        for (let turn of group.turns) {
+            const [raiderShouldMatch, bossShouldMatch] = getMoveOptionsForRollCase(rollCase, turn.moveInfo.targetID, turn.moveInfo.moveData, turn.bossMoveInfo.moveData);
+            const raiderMatches = !!turn.moveInfo.options &&
+                turn.moveInfo.options.crit === raiderShouldMatch.crit &&
+                turn.moveInfo.options.secondaryEffects === raiderShouldMatch.secondaryEffects &&
+                ((turn.moveInfo.moveData.maxHits || 1) > 1 ? turn.moveInfo.options.hits === raiderShouldMatch.hits : true) &&
+                turn.moveInfo.options.roll === raiderShouldMatch.roll;
+            const bossMatches = !!turn.bossMoveInfo.options &&
+                turn.bossMoveInfo.options.crit === bossShouldMatch.crit &&
+                turn.bossMoveInfo.options.secondaryEffects === bossShouldMatch.secondaryEffects &&
+                ((turn.bossMoveInfo.moveData.maxHits || 1) > 1 ? turn.bossMoveInfo.options.hits === bossShouldMatch.hits : true) &&
+                turn.bossMoveInfo.options.roll === bossShouldMatch.roll;
+            matchesCase = matchesCase && raiderMatches && bossMatches;
+            if (!matchesCase) {
+                return false;
+            }
+        }
+    }
+    return matchesCase;
+}
+
 function RaidControls({raidInputProps, results, setResults, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
+    const [rollCase, setRollCase] = useState<"min" | "avg" | "max">("avg");
     const groups = raidInputProps.groups;
     const boss = raidInputProps.pokemon[0];
     const pokemon1 = raidInputProps.pokemon[1];
@@ -621,13 +739,14 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
                         />
                     </Tabs>
                 </Box>
+                <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
                 <Box hidden={value !== 1}>
                     <HpDisplay results={results} translationKey={translationKey}/>
                 </Box>
                 <Box hidden={value !== 1}>
                     <Box sx={{ height: 560, overflowY: "auto" }}>
                         {!prettyMode &&
-                            <MoveSelection raidInputProps={raidInputProps} translationKey={translationKey}/>
+                            <MoveSelection raidInputProps={raidInputProps} results={results} rollCase={rollCase} translationKey={translationKey}/>
                         }
                         {prettyMode &&
                             <MoveDisplay groups={raidInputProps.groups} raiders={raidInputProps.pokemon} results={results} translationKey={translationKey}/>

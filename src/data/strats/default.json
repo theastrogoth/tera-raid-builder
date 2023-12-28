@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Raid Boss",
-            "name": "Dialga",
+            "role": "Walking Wake",
+            "name": "Walking Wake",
             "shiny": false,
-            "ability": "Telepathy",
-            "nature": "Quiet",
+            "ability": "Protosynthesis",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,23 +27,20 @@
                 "spe": 31
             },
             "level": 75,
-            "teraType": "Dragon",
+            "teraType": "Water",
             "moves": [
-                "Draco Meteor",
-                "Earth Power",
-                "Fire Blast",
-                "Steel Beam"
+                "Hydro Steam",
+                "Dragon Pulse",
+                "Noble Roar",
+                "Flamethrower"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 2000,
             "extraMoves": [
-                "Trick Room",
-                "Stealth Rock",
-                "Iron Defense"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 30,
+                "hpTrigger": 55,
+                "timeTrigger": 40,
+                "shieldCancelDamage": 25,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 80,
                 "shieldDamageRateTeraChange": 40
@@ -51,16 +48,16 @@
         },
         {
             "id": 1,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Hadron Engine",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -73,31 +70,28 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": [],
+            "moves": [
+                "Electro Drift",
+                "Charge",
+                "Parabolic Charge"
+            ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 2,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -109,7 +103,12 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": [],
+            "moves": [
+                "Fake Tears",
+                "Screech",
+                "Helping Hand",
+                "Snarl"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -123,17 +122,18 @@
         },
         {
             "id": 3,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -145,31 +145,29 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": [],
+            "moves": [
+                "Fake Tears",
+                "Screech",
+                "Helping Hand",
+                "Snarl"
+            ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 4,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -181,17 +179,14 @@
                 "spe": 31
             },
             "level": 100,
-            "moves": [],
+            "moves": [
+                "Fake Tears",
+                "Screech",
+                "Helping Hand",
+                "Snarl"
+            ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         }
     ],
     "turns": [
@@ -205,19 +200,19 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "Trick Room",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }

@@ -90,8 +90,8 @@ export function computeFinalStats(
 }
 
 export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, side: Side) {
-  const weather = field.weather || '';
-  const terrain = field.terrain;
+  const weather = field.isCloudNine ? '' : field.weather || '';
+  const terrain = field.isTeraformZero ? '' : field.terrain;
   let speed = getModifiedStat(pokemon.rawStats.spe, pokemon.boosts.spe, gen);
   const speedMods = [];
 
@@ -159,6 +159,13 @@ export function getMoveEffectiveness(
 export function checkAirLock(pokemon: Pokemon, field: Field) {
   if (pokemon.hasAbility('Air Lock', 'Cloud Nine')) {
     field.weather = undefined;
+  }
+}
+
+export function checkTeraformZero(pokemon: Pokemon, field: Field) {
+  if (pokemon.hasAbility('Teraform Zero') && pokemon.abilityOn) {
+    field.weather = undefined;
+    field.terrain = undefined;
   }
 }
 

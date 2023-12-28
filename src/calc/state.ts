@@ -32,7 +32,7 @@ export namespace State {
     ivs?: Partial<I.StatsTable>;
     evs?: Partial<I.StatsTable>;
     boosts?: Partial<I.StatsTable>;
-    isPumped?: boolean;
+    isPumped?: number;
     isMicle?: boolean;
     randomBoosts?: number;
     stockpile?: number;
@@ -59,6 +59,7 @@ export namespace State {
     highCritChance?: boolean;
     isSpread?: boolean;
     hits?: number;
+    bp?: number;
     timesUsed?: number;
     timesUsedWithMetronome?: number;
     overrides?: Partial<I.Move>;
@@ -82,6 +83,7 @@ export namespace State {
     isVesselOfRuin?: boolean;
     isTrickRoom?: number;       // # turns remaining
     isCloudNine?: boolean;
+    isTeraformZero?: boolean;
     attackerSide: Side;
     defenderSide: Side;
   }

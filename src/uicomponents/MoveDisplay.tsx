@@ -118,9 +118,13 @@ function MoveGroup({group, results, raiders, index, max, translationKey}: {group
             <Stack direction="row" alignItems="center" justifyContent="center">
                 <Stack direction="column" spacing={1}>
                     {
-                        turns.map((t, i) => (
-                            <MoveText key={i} raiders={raiders} turn={t} result={results.turnResults.find((r) => r.id === t.id)!} translationKey={translationKey} />
-                        ))
+                        turns.map((t, i) => { 
+                            const turnIndex = results.turnResults.findIndex((r) => r.id === t.id)!;
+                            const turnRaiders = turnIndex > 0 ? results.turnResults[turnIndex-1].state.raiders : results.turnZeroState.raiders;
+                            return (
+                                <MoveText key={i} raiders={turnRaiders} turn={t} result={results.turnResults[turnIndex]} translationKey={translationKey} />
+                            )
+                        })
                     }
                 </Stack>                    
                 { (group.repeats && group.repeats > 1) && 

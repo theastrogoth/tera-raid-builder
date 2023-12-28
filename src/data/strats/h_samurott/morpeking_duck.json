@@ -51,7 +51,7 @@
         },
         {
             "id": 1,
-            "role": "Morpeko",
+            "role": "Bao",
             "name": "Morpeko",
             "shiny": false,
             "ability": "Hunger Switch",
@@ -91,7 +91,7 @@
         },
         {
             "id": 2,
-            "role": "Psyduck",
+            "role": "Wings",
             "name": "Psyduck",
             "shiny": false,
             "ability": "(No Ability)",
@@ -131,7 +131,7 @@
         },
         {
             "id": 3,
-            "role": "Golduck",
+            "role": "Legs",
             "name": "Golduck",
             "shiny": false,
             "ability": "(No Ability)",
@@ -171,7 +171,7 @@
         },
         {
             "id": 4,
-            "role": "Leafeon",
+            "role": "Scallions",
             "name": "Leafeon",
             "shiny": false,
             "ability": "(No Ability)",

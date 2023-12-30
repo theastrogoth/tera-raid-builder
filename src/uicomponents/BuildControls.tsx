@@ -1617,7 +1617,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
             level: set.level || 100,
             bossMultiplier: set.bossMultiplier || 100,
             teraType: set.teraType || undefined,
-            ability: set.ability || "(No Ability)" as AbilityName,
+            ability: set.ability, // || "(No Ability)" as AbilityName,
             item: set.item || undefined,
             nature: (set.nature || "Hardy"),
             moves: (set.moves || ["(No Move)", "(No Move)", "(No Move)", "(No Move)"] as MoveName[]),

@@ -21,6 +21,9 @@
         "spd": 20,
         "spe": 80
     },
+    "weightkg": 10,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Flail",

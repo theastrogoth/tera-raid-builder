@@ -26,6 +26,9 @@
         "spd": 80,
         "spe": 42
     },
+    "weightkg": 7.3,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Baton Pass",

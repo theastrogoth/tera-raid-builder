@@ -26,6 +26,9 @@
         "spd": 100,
         "spe": 70
     },
+    "weightkg": 45.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acid",

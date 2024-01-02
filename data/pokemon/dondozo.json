@@ -25,6 +25,9 @@
         "spd": 65,
         "spe": 35
     },
+    "weightkg": 220,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aqua Tail",

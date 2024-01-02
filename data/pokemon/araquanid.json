@@ -22,6 +22,9 @@
         "spd": 132,
         "spe": 42
     },
+    "weightkg": 82,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aqua Ring",

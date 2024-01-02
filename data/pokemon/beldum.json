@@ -22,6 +22,9 @@
         "spd": 60,
         "spe": 30
     },
+    "weightkg": 95.2,
+    "nfe": true,
+    "gender": "N",
     "moves": [
         {
             "name": "Iron Defense",

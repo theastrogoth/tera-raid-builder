@@ -25,6 +25,9 @@
         "spd": 85,
         "spe": 55
     },
+    "weightkg": 18,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Calm Mind",

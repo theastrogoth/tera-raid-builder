@@ -25,6 +25,9 @@
         "spd": 80,
         "spe": 150
     },
+    "weightkg": 66.6,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Agility",

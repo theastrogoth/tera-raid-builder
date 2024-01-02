@@ -25,6 +25,9 @@
         "spd": 90,
         "spe": 60
     },
+    "weightkg": 40,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "After You",

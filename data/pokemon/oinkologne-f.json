@@ -25,6 +25,9 @@
         "spd": 90,
         "spe": 65
     },
+    "weightkg": 120,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Belch",

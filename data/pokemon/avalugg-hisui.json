@@ -26,6 +26,9 @@
         "spd": 36,
         "spe": 38
     },
+    "weightkg": 262.4,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aurora Veil",

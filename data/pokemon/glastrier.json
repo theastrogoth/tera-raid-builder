@@ -17,6 +17,9 @@
         "spd": 110,
         "spe": 30
     },
+    "weightkg": 800,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Avalanche",

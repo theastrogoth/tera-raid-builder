@@ -21,6 +21,9 @@
         "spd": 57,
         "spe": 52
     },
+    "weightkg": 31,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Body Slam",

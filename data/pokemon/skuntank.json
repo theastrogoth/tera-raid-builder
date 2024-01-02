@@ -26,6 +26,9 @@
         "spd": 61,
         "spe": 84
     },
+    "weightkg": 38,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

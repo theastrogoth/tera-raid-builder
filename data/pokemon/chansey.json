@@ -25,6 +25,9 @@
         "spd": 105,
         "spe": 50
     },
+    "weightkg": 34.6,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Blizzard",

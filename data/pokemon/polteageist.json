@@ -21,6 +21,9 @@
         "spd": 114,
         "spe": 70
     },
+    "weightkg": 0.4,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Ally Switch",

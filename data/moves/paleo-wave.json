@@ -1,0 +1,39 @@
+{
+    "name": "Paleo Wave",
+    "moveCateogry": "Special",
+    "category": "damage+lower",
+    "target": "selected-pokemon",
+    "type": "Rock",
+    "power": 85,
+    "accuracy": 100,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": -1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 20,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null,
+    "pp": 15,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
+}

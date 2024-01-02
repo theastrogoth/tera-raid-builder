@@ -1,24 +1,34 @@
 {
     "name": "Rapid Spin",
-    "category": "damage+raise",
+    "moveCateogry": "Physical",
+    "category": "damage",
     "target": "selected-pokemon",
     "type": "Normal",
     "power": 50,
     "accuracy": 100,
     "priority": 0,
-    "drain": 0,
-    "healing": 0,
+    "drain": null,
+    "healing": null,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": [
-        {
-            "stat": "spe",
-            "change": 1
-        }
-    ],
-    "flinchChance": 0,
-    "statChance": 100,
-    "ailmentChance": 0,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 40,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

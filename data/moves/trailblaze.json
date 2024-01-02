@@ -1,6 +1,7 @@
 {
     "name": "Trailblaze",
-    "category": "damage+raise",
+    "moveCateogry": "Physical",
+    "category": "damage",
     "target": "selected-pokemon",
     "type": "Grass",
     "power": 50,
@@ -10,15 +11,24 @@
     "healing": null,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": [
-        {
-            "stat": "spe",
-            "change": 1
-        }
-    ],
+    "statChanges": null,
     "flinchChance": null,
-    "statChance": 100,
+    "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 20,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

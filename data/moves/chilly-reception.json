@@ -1,9 +1,10 @@
 {
     "name": "Chilly Reception",
+    "moveCateogry": "Status",
     "category": "unique",
     "target": "entire-field",
     "type": "Ice",
-    "power": 0,
+    "power": null,
     "accuracy": null,
     "priority": 0,
     "drain": null,
@@ -15,5 +16,19 @@
     "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

@@ -1,6 +1,7 @@
 {
     "name": "Esper Wing",
-    "category": "damage+raise",
+    "moveCateogry": "Special",
+    "category": "damage",
     "target": "selected-pokemon",
     "type": "Psychic",
     "power": 80,
@@ -10,15 +11,24 @@
     "healing": null,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": [
-        {
-            "stat": "spe",
-            "change": null
-        }
-    ],
+    "statChanges": null,
     "flinchChance": null,
-    "statChance": 100,
+    "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": true,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

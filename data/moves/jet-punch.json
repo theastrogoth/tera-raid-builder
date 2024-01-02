@@ -1,5 +1,6 @@
 {
     "name": "Jet Punch",
+    "moveCateogry": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Water",
@@ -15,5 +16,19 @@
     "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 15,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": true,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

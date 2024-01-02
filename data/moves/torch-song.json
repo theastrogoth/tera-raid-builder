@@ -1,6 +1,7 @@
 {
     "name": "Torch Song",
-    "category": "damage+raise",
+    "moveCateogry": "Special",
+    "category": "damage",
     "target": "selected-pokemon",
     "type": "Fire",
     "power": 80,
@@ -10,15 +11,24 @@
     "healing": null,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": [
-        {
-            "stat": "spa",
-            "change": 1
-        }
-    ],
+    "statChanges": null,
     "flinchChance": null,
-    "statChance": 100,
+    "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": true,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": true,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

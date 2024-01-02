@@ -38,8 +38,25 @@ const TARGET_TRANSLATIONS = Dict(
     "foeSide" => "opponents-field",
 )
 
+const VOLATILE_STATUS_TRANSLATIONS = Dict(
+    "confusion" => "confusion",
+    "torment" => "torment",                 
+    "healblock" => "heal-block",
+    "nightmare" => "nightmare",
+    "disable" => "disable",
+    "yawn" => "yawn",
+    "leechseed" => "leech-seed",
+    "ingrain" => "ingrain",
+    "tarshot" => "tar-shot",
+    "embargo" => "embargo",
+    "attract" => "infatuation",
+    "encore" => "encore",
+    "taunt" => "taunt",
+)
+
 struct MoveData
     name::String
+    moveCateogry::String
     category::String
     target::String
     type::String
@@ -50,8 +67,7 @@ struct MoveData
     healing::Union{Int,Nothing}
     selfDamage::Union{Int,Nothing}
     ailment::Union{String,Nothing}
-    statChanges::Union{Dict{String, Any},Nothing}
-    ailment::Union{String,Nothing}
+    statChanges::Union{Vector{OrderedDict{String, Any}},Nothing}
     flinchChance::Union{Int,Nothing}
     statChance::Union{Int,Nothing}
     ailmentChance::Union{Int,Nothing}
@@ -82,10 +98,10 @@ function showdown_data_to_movedata(s_data, old_data)
     priority = s_data["priority"]
     drain = get_drain(s_data)
     healing = get_healing(s_data)
-    selfDamage = haskey(old_data, :selfDamage) ? old_data[:selfDamage] : nothing # not directly stored in showdown data
+    selfDamage = !isnothing(old_data) ? haskey(old_data, :selfDamage) ? old_data[:selfDamage] : nothing : nothing # not directly stored in showdown data
     ailment, ailmentChance = get_ailment(s_data)
     statChanges, statChance = get_stat_changes(s_data)
-    flinchChance = haskey(s_data, "secondary") ? haskey(s_data["secondary"], "volatileStatus") ? s_data["secondary"]["volatileStatus"] == "flinch" ? s_data["secondary"]["chance"] : nothing : nothing : nothing
+    flinchChance = haskey(s_data, "secondary") ? !isnothing(s_data["secondary"]) ? haskey(s_data["secondary"], "volatileStatus") ? s_data["secondary"]["volatileStatus"] == "flinch" ? s_data["secondary"]["chance"] : nothing : nothing : nothing : nothing
     minHits, maxHits = get_multihit(s_data)
     pp = s_data["pp"]
     ignoreDefensive = haskey(s_data, "ignoreDefensive") ? true : false
@@ -103,6 +119,7 @@ function showdown_data_to_movedata(s_data, old_data)
     isWind = haskey(s_data, "flags") ? haskey(s_data["flags"], "wind") ? true : false : false
     return MoveData(
         s_data["name"],
+        s_data["category"],
         category,
         target,
         type,
@@ -114,7 +131,6 @@ function showdown_data_to_movedata(s_data, old_data)
         selfDamage,
         ailment,
         statChanges,
-        ailment,
         flinchChance,
         statChance,
         ailmentChance,
@@ -142,7 +158,8 @@ function get_category(s_data, old_data)
         if old_data[:category] == "unique"
             return old_data[:category]
         end
-    elseif s_data["category"] == "Status"
+    end
+    if s_data["category"] == "Status"
         if s_data["name"] ∈ ["Swagger","Flatter","Tar Shot","Toxic Thread"]
             return "swagger"
         elseif haskey(s_data, "heal")
@@ -159,15 +176,21 @@ function get_category(s_data, old_data)
     else
         if (haskey(s_data, "drain"))
             return "damage+heal"
-        elseif haskey(s_data, "self")
-            if haskey(s_data["self"], "boosts")
-                return "damage+raise"
+        end
+        if haskey(s_data, "self")
+            if !isnothing(s_data["self"])
+                if haskey(s_data["self"], "boosts")
+                    return "damage+raise"
+                end
             end
-        elseif haskey(s_data, "secondary")
-            if haskey(s_data["secondary"], "boosts")
-                return "damage+lower"
-            elseif (haskey(s_data["secondary"], "status") || haskey(s_data["secondary"], "volatileStatus"))
-                return "damage+ailment"
+        end
+        if haskey(s_data, "secondary")
+            if !isnothing(s_data["secondary"])
+                if haskey(s_data["secondary"], "boosts")
+                    return "damage+lower"
+                elseif (haskey(s_data["secondary"], "status") || haskey(s_data["secondary"], "volatileStatus"))
+                    return "damage+ailment"
+                end
             end
         end
         return "damage"
@@ -182,7 +205,12 @@ function get_drain(s_data)
     if haskey(s_data, "drain")
         return get_percent(s_data, "drain")
     elseif haskey(s_data, "recoil")
-        return get_percent(s_data, "recoil")
+        recoil = get_percent(s_data, "recoil")
+        if !isnothing(recoil)
+            return -recoil
+        else 
+            return recoil
+        end
     end
     return nothing
 end
@@ -202,34 +230,50 @@ function get_ailment(s_data)
     if haskey(s_data, "status")
         return (s_data["status"], 100)
     elseif haskey(s_data, "volatileStatus")
-        return (s_data["volatileStatus"], 100)
+        if haskey(VOLATILE_STATUS_TRANSLATIONS, s_data["volatileStatus"])
+            return (VOLATILE_STATUS_TRANSLATIONS[s_data["volatileStatus"]], 100)
+        else 
+            return (s_data["volatileStatus"], 100)
+        end
     elseif haskey(s_data, "secondary")
-        if haskey(s_data["secondary"], "status")
+        if isnothing(s_data["secondary"])
+            return nothing, nothing
+        elseif haskey(s_data["secondary"], "status")
             chance = haskey(s_data["secondary"], "chance") ? s_data["secondary"]["chance"] : nothing
             return (s_data["secondary"]["status"], chance)
         elseif haskey(s_data["secondary"], "volatileStatus")
             chance = haskey(s_data["secondary"], "chance") ? s_data["secondary"]["chance"] : nothing
-            return (s_data["secondary"]["volatileStatus"], chance)
+            if haskey(VOLATILE_STATUS_TRANSLATIONS, s_data["secondary"]["volatileStatus"])
+                return (VOLATILE_STATUS_TRANSLATIONS[s_data["secondary"]["volatileStatus"]], chance)
+            else 
+                return (s_data["secondary"]["volatileStatus"], chance)
+            end
         end
     end
-    return nothing
+    return nothing, nothing
 end
 
 function get_stat_changes(s_data)
     if haskey(s_data, "boosts")
         return (translate_boosts(s_data["boosts"]), 100)
-    elseif haskey(s_data, "self")
-        if haskey(s_data["self"], "boosts")
-            chance = haskey(s_data["self"], "chance") ? s_data["self"]["chance"] : nothing
-            return (translate_boosts(s_data["self"]["boosts"]), chance)
-        end
-    elseif haskey(s_data, "secondary")
-        if haskey(s_data["secondary"], "boosts")
-            chance = haskey(s_data["secondary"], "chance") ? s_data["secondary"]["chance"] : nothing
-            return (translate_boosts(s_data["secondary"]["boosts"]), chance)
+    end
+    if haskey(s_data, "self")
+        if !isnothing(s_data["self"])
+            if haskey(s_data["self"], "boosts")
+                chance = haskey(s_data["self"], "chance") ? s_data["self"]["chance"] : nothing
+                return (translate_boosts(s_data["self"]["boosts"]), chance)
+            end
         end
     end
-    return nothing
+    if haskey(s_data, "secondary")
+        if !isnothing(s_data["secondary"])
+            if haskey(s_data["secondary"], "boosts")
+                chance = haskey(s_data["secondary"], "chance") ? s_data["secondary"]["chance"] : nothing
+                return (translate_boosts(s_data["secondary"]["boosts"]), chance)
+            end
+        end
+    end
+    return nothing, nothing
 end
 
 function translate_boosts(boosts)
@@ -242,19 +286,26 @@ end
 
 function get_multihit(s_data)
     if haskey(s_data, "multihit")
-        return (s_data["multihit"][1], s_data["multihit"][2])
+        if length(s_data["multihit"]) == 1
+            return (s_data["multihit"][1], s_data["multihit"][1])
+        else
+            return (s_data["multihit"][1], s_data["multihit"][2])
+        end
     end
     return (nothing, nothing)
 end
 
 showdown_path = "data/showdown_moves.json"
 read_path = "data/moves"
-write_path = "data/newmoves"
+write_path = "data/moves"
 
 files = readdir(read_path)
 old_moves_data = Dict{String, Dict}()
 for file in files
     if occursin(".json", file)
+        if occursin("_allmoves", file)
+            continue
+        end
         data = JSON3.read("$read_path/$file")
         push!(old_moves_data, data.name => data)
     end
@@ -285,4 +336,23 @@ showdown_data = JSON3.read(showdown_path)
 # temp_target_translations = unique(temp_target_translations)
 
 ## update moves with showdown data
-new_moves_data = Dict{String, MoveData}()
+new_moves_data = OrderedDict{String, MoveData}()
+for (showdownkey,move) in showdown_data
+    key = move.name
+
+    old_data = haskey(old_moves_data, key) ? old_moves_data[key] : nothing
+    new_moves_data[key] = showdown_data_to_movedata(move, old_data)
+end
+sort!(new_moves_data)
+
+## write all movedata to a single file (for searching)
+open("$write_path/_allmoves.json", "w") do io
+    JSON3.pretty(io, new_moves_data)
+end
+
+## write each movedata to a separate file (for fetching individual moves as needed)
+for (key, movedata) in new_moves_data
+    open("$write_path/$(name_to_filename(key)).json", "w") do io
+        JSON3.pretty(io, movedata)
+    end
+end

@@ -1,13 +1,14 @@
 {
     "name": "Metal Sound",
+    "moveCateogry": "Status",
     "category": "net-good-stats",
     "target": "selected-pokemon",
     "type": "Steel",
     "power": null,
     "accuracy": 85,
     "priority": 0,
-    "drain": 0,
-    "healing": 0,
+    "drain": null,
+    "healing": null,
     "selfDamage": null,
     "ailment": null,
     "statChanges": [
@@ -16,9 +17,23 @@
             "change": -2
         }
     ],
-    "flinchChance": 0,
-    "statChance": 0,
-    "ailmentChance": 0,
+    "flinchChance": null,
+    "statChance": 100,
+    "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 40,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": true,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": true,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

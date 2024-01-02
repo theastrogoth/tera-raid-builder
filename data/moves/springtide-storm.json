@@ -1,5 +1,6 @@
 {
     "name": "Springtide Storm",
+    "moveCateogry": "Special",
     "category": "damage+lower",
     "target": "all-opponents",
     "type": "Fairy",
@@ -20,5 +21,19 @@
     "statChance": 30,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 5,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": true
 }

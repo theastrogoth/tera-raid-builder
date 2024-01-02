@@ -1,40 +1,34 @@
 {
     "name": "Clangorous Soulblaze",
-    "category": "damage+raise",
+    "moveCateogry": "Special",
+    "category": "damage",
     "target": "all-opponents",
     "type": "Dragon",
     "power": 185,
     "accuracy": null,
     "priority": 0,
-    "drain": 0,
-    "healing": 0,
+    "drain": null,
+    "healing": null,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": [
-        {
-            "stat": "atk",
-            "change": 1
-        },
-        {
-            "stat": "def",
-            "change": 1
-        },
-        {
-            "stat": "spa",
-            "change": 1
-        },
-        {
-            "stat": "spd",
-            "change": 1
-        },
-        {
-            "stat": "spe",
-            "change": 1
-        }
-    ],
-    "flinchChance": 0,
-    "statChance": 100,
-    "ailmentChance": 0,
+    "statChanges": null,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 1,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": true,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": true,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

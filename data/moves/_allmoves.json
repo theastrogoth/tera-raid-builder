@@ -5473,8 +5473,8 @@
     "Curse": {
         "name": "Curse",
         "moveCateogry": "Status",
-        "category": "ailment",
-        "target": "selected-pokemon",
+        "category": "net-good-stats",
+        "target": "user",
         "type": "Ghost",
         "power": null,
         "accuracy": null,
@@ -28414,11 +28414,20 @@
         "drain": null,
         "healing": null,
         "selfDamage": null,
-        "ailment": "stockpile",
-        "statChanges": null,
+        "ailment": null,
+        "statChanges": [
+            {
+                "stat": "def",
+                "change": 1
+            },
+            {
+                "stat": "spd",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
-        "ailmentChance": 100,
+        "statChance": 100,
+        "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
         "pp": 20,

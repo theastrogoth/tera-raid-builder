@@ -3322,7 +3322,7 @@
             },
             "chance": 100
         },
-        "target": "normal",
+        "target": "self",
         "type": "Ghost",
         "zMove": {
             "effect": "curse"
@@ -17500,7 +17500,10 @@
         "flags": {
             "snatch": 1
         },
-        "volatileStatus": "stockpile",
+        "boosts": {
+            "def": 1,
+            "spd": 1
+        },
         "condition": {
             "noCopy": true
         },

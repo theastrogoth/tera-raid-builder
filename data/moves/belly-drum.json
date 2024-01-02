@@ -11,7 +11,12 @@
     "healing": null,
     "selfDamage": 50,
     "ailment": null,
-    "statChanges": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 12
+        }
+    ],
     "flinchChance": null,
     "statChance": null,
     "ailmentChance": null,

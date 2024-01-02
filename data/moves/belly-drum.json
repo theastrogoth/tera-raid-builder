@@ -18,7 +18,7 @@
         }
     ],
     "flinchChance": null,
-    "statChance": null,
+    "statChance": 100,
     "ailmentChance": null,
     "minHits": null,
     "maxHits": null,

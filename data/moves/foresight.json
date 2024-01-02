@@ -10,7 +10,7 @@
     "drain": null,
     "healing": null,
     "selfDamage": null,
-    "ailment": "foresight",
+    "ailment": "no-type-immunity",
     "statChanges": null,
     "flinchChance": null,
     "statChance": null,

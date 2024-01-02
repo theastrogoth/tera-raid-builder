@@ -20,6 +20,8 @@ function name_to_showdown_key(name)
     return key
 end
 
+# TO DO: change from PokeAPI terms over to Showdown ones for "target" and "volatileStatus
+
 const TARGET_TRANSLATIONS = Dict(
     "normal" => "selected-pokemon",
     "allAdjacentFoes" => "all-opponents",
@@ -52,6 +54,9 @@ const VOLATILE_STATUS_TRANSLATIONS = Dict(
     "attract" => "infatuation",
     "encore" => "encore",
     "taunt" => "taunt",
+    "foresight" => "no-type-immunity",
+    "miracleye" => "no-type-immunity",
+    "odorsleuth" => "no-type-immunity",
 )
 
 struct MoveData

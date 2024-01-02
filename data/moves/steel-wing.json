@@ -1,7 +1,7 @@
 {
     "name": "Steel Wing",
     "moveCateogry": "Physical",
-    "category": "damage",
+    "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Steel",
     "power": 70,
@@ -11,9 +11,14 @@
     "healing": null,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "change": 1
+        }
+    ],
     "flinchChance": null,
-    "statChance": null,
+    "statChance": 10,
     "ailmentChance": null,
     "minHits": null,
     "maxHits": null,

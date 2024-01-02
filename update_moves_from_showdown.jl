@@ -191,6 +191,13 @@ function get_category(s_data, old_data)
         end
         if haskey(s_data, "secondary")
             if !isnothing(s_data["secondary"])
+                if haskey(s_data["secondary"], "self")
+                    if !isnothing(s_data["secondary"]["self"])
+                        if haskey(s_data["secondary"]["self"], "boosts")
+                            return "damage+raise"
+                        end
+                    end
+                end
                 if haskey(s_data["secondary"], "boosts")
                     return "damage+lower"
                 elseif (haskey(s_data["secondary"], "status") || haskey(s_data["secondary"], "volatileStatus"))
@@ -272,6 +279,14 @@ function get_stat_changes(s_data)
     end
     if haskey(s_data, "secondary")
         if !isnothing(s_data["secondary"])
+            if haskey(s_data["secondary"], "self")
+                if !isnothing(s_data["secondary"]["self"])
+                    if haskey(s_data["secondary"]["self"], "boosts")
+                        chance = haskey(s_data["secondary"], "chance") ? s_data["secondary"]["chance"] : nothing
+                        return (translate_boosts(s_data["secondary"]["self"]["boosts"]), chance)
+                    end
+                end
+            end
             if haskey(s_data["secondary"], "boosts")
                 chance = haskey(s_data["secondary"], "chance") ? s_data["secondary"]["chance"] : nothing
                 return (translate_boosts(s_data["secondary"]["boosts"]), chance)

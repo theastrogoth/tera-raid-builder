@@ -1195,6 +1195,12 @@
             "snatch": 1
         },
         "secondary": null,
+        "self": {
+            "boosts": {
+                "atk": 12
+            },
+            "chance": 100
+        },
         "target": "self",
         "type": "Normal",
         "zMove": {
@@ -1368,9 +1374,6 @@
             "recharge": 1,
             "protect": 1,
             "mirror": 1
-        },
-        "self": {
-            "volatileStatus": "mustrecharge"
         },
         "secondary": null,
         "target": "normal",
@@ -4943,9 +4946,6 @@
             "protect": 1,
             "mirror": 1
         },
-        "self": {
-            "volatileStatus": "mustrecharge"
-        },
         "secondary": null,
         "target": "normal",
         "type": "Dragon"
@@ -6269,9 +6269,6 @@
             "mirror": 1,
             "nonsky": 1
         },
-        "self": {
-            "volatileStatus": "mustrecharge"
-        },
         "secondary": null,
         "target": "normal",
         "type": "Grass",
@@ -6605,9 +6602,6 @@
             "recharge": 1,
             "protect": 1,
             "mirror": 1
-        },
-        "self": {
-            "volatileStatus": "mustrecharge"
         },
         "secondary": null,
         "target": "normal",
@@ -8807,9 +8801,6 @@
             "protect": 1,
             "mirror": 1
         },
-        "self": {
-            "volatileStatus": "mustrecharge"
-        },
         "secondary": null,
         "target": "normal",
         "type": "Water",
@@ -8878,9 +8869,6 @@
             "recharge": 1,
             "protect": 1,
             "mirror": 1
-        },
-        "self": {
-            "volatileStatus": "mustrecharge"
         },
         "secondary": null,
         "target": "normal",
@@ -11354,9 +11342,6 @@
             "mirror": 1,
             "failinstruct": 1
         },
-        "self": {
-            "volatileStatus": "mustrecharge"
-        },
         "secondary": null,
         "target": "normal",
         "type": "Fighting"
@@ -13672,9 +13657,6 @@
             "protect": 1,
             "mirror": 1
         },
-        "self": {
-            "volatileStatus": "mustrecharge"
-        },
         "secondary": null,
         "target": "normal",
         "type": "Psychic",
@@ -14758,9 +14740,6 @@
             "protect": 1,
             "mirror": 1
         },
-        "self": {
-            "volatileStatus": "mustrecharge"
-        },
         "secondary": null,
         "target": "normal",
         "type": "Dragon",
@@ -14933,9 +14912,6 @@
             "recharge": 1,
             "protect": 1,
             "mirror": 1
-        },
-        "self": {
-            "volatileStatus": "mustrecharge"
         },
         "secondary": null,
         "target": "normal",

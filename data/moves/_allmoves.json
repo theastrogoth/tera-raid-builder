@@ -707,7 +707,7 @@
     "Ancient Power": {
         "name": "Ancient Power",
         "moveCateogry": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Rock",
         "power": 60,
@@ -717,9 +717,30 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "atk",
+                "change": 1
+            },
+            {
+                "stat": "def",
+                "change": 1
+            },
+            {
+                "stat": "spa",
+                "change": 1
+            },
+            {
+                "stat": "spd",
+                "change": 1
+            },
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 10,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -882,7 +903,7 @@
     "Aqua Step": {
         "name": "Aqua Step",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Water",
         "power": 80,
@@ -892,9 +913,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -1338,7 +1364,7 @@
     "Aura Wheel": {
         "name": "Aura Wheel",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Electric",
         "power": 110,
@@ -1348,9 +1374,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -1980,9 +2011,14 @@
         "healing": null,
         "selfDamage": 50,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "atk",
+                "change": 12
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -3835,7 +3871,7 @@
     "Charge Beam": {
         "name": "Charge Beam",
         "moveCateogry": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Electric",
         "power": 50,
@@ -3845,9 +3881,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spa",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 70,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -7995,7 +8036,7 @@
     "Esper Wing": {
         "name": "Esper Wing",
         "moveCateogry": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Psychic",
         "power": 80,
@@ -8005,9 +8046,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -8672,7 +8718,7 @@
     "Fiery Dance": {
         "name": "Fiery Dance",
         "moveCateogry": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Fire",
         "power": 80,
@@ -8682,9 +8728,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spa",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 50,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -9200,7 +9251,7 @@
     "Flame Charge": {
         "name": "Flame Charge",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Fire",
         "power": 50,
@@ -9210,9 +9261,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -18564,7 +18620,7 @@
     "Metal Claw": {
         "name": "Metal Claw",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Steel",
         "power": 50,
@@ -18574,9 +18630,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "atk",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 10,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -18705,7 +18766,7 @@
     "Meteor Mash": {
         "name": "Meteor Mash",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Steel",
         "power": 90,
@@ -18715,9 +18776,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "atk",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 20,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -19736,7 +19802,7 @@
     "Mystical Power": {
         "name": "Mystical Power",
         "moveCateogry": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Psychic",
         "power": 70,
@@ -19746,9 +19812,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spa",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -20495,7 +20566,7 @@
     "Ominous Wind": {
         "name": "Ominous Wind",
         "moveCateogry": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Ghost",
         "power": 60,
@@ -20505,9 +20576,30 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "atk",
+                "change": 1
+            },
+            {
+                "stat": "def",
+                "change": 1
+            },
+            {
+                "stat": "spa",
+                "change": 1
+            },
+            {
+                "stat": "spd",
+                "change": 1
+            },
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 10,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -22016,7 +22108,7 @@
     "Power-Up Punch": {
         "name": "Power-Up Punch",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Fighting",
         "power": 40,
@@ -22026,9 +22118,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "atk",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -22536,7 +22633,7 @@
     "Psyshield Bash": {
         "name": "Psyshield Bash",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Psychic",
         "power": 70,
@@ -22546,9 +22643,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "def",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -23195,7 +23297,7 @@
     "Rapid Spin": {
         "name": "Rapid Spin",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Normal",
         "power": 50,
@@ -23205,9 +23307,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -25976,7 +26083,7 @@
     "Silver Wind": {
         "name": "Silver Wind",
         "moveCateogry": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Bug",
         "power": 60,
@@ -25986,9 +26093,30 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "atk",
+                "change": 1
+            },
+            {
+                "stat": "def",
+                "change": 1
+            },
+            {
+                "stat": "spa",
+                "change": 1
+            },
+            {
+                "stat": "spd",
+                "change": 1
+            },
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 10,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -28191,7 +28319,7 @@
     "Steel Wing": {
         "name": "Steel Wing",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Steel",
         "power": 70,
@@ -28201,9 +28329,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "def",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 10,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -30949,7 +31082,7 @@
     "Torch Song": {
         "name": "Torch Song",
         "moveCateogry": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Fire",
         "power": 80,
@@ -30959,9 +31092,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spa",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -31124,7 +31262,7 @@
     "Trailblaze": {
         "name": "Trailblaze",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Grass",
         "power": 50,
@@ -31134,9 +31272,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,
@@ -33277,7 +33420,7 @@
     "Zippy Zap": {
         "name": "Zippy Zap",
         "moveCateogry": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Electric",
         "power": 80,
@@ -33287,9 +33430,14 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "evasion",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,

@@ -1,7 +1,7 @@
 {
     "name": "Ancient Power",
     "moveCateogry": "Special",
-    "category": "damage",
+    "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Rock",
     "power": 60,
@@ -11,9 +11,30 @@
     "healing": null,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 1
+        },
+        {
+            "stat": "def",
+            "change": 1
+        },
+        {
+            "stat": "spa",
+            "change": 1
+        },
+        {
+            "stat": "spd",
+            "change": 1
+        },
+        {
+            "stat": "spe",
+            "change": 1
+        }
+    ],
     "flinchChance": null,
-    "statChance": null,
+    "statChance": 10,
     "ailmentChance": null,
     "minHits": null,
     "maxHits": null,

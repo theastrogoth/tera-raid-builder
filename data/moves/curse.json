@@ -2,7 +2,7 @@
     "name": "Curse",
     "moveCateogry": "Status",
     "category": "net-good-stats",
-    "target": "selected-pokemon",
+    "target": "user",
     "type": "Ghost",
     "power": null,
     "accuracy": null,

@@ -3313,16 +3313,16 @@
         "name": "Curse",
         "pp": 10,
         "priority": 0,
-        "flags": {
-            "bypasssub": 1
-        },
-        "volatileStatus": "curse",
-        "condition": {
-            "onResidualOrder": 12
-        },
         "secondary": null,
+        "self": {
+            "boosts": {
+                "atk": 1,
+                "def": 1,
+                "spe": -1
+            },
+            "chance": 100
+        },
         "target": "normal",
-        "nonGhostTarget": "self",
         "type": "Ghost",
         "zMove": {
             "effect": "curse"

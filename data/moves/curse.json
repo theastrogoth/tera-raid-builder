@@ -10,17 +10,30 @@
     "drain": null,
     "healing": null,
     "selfDamage": null,
-    "ailment": "curse",
-    "statChanges": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "atk",
+            "change": 1
+        },
+        {
+            "stat": "def",
+            "change": 1
+        },
+        {
+            "stat": "spe",
+            "change": -1
+        }
+    ],
     "flinchChance": null,
-    "statChance": null,
-    "ailmentChance": 100,
+    "statChance": 100,
+    "ailmentChance": null,
     "minHits": null,
     "maxHits": null,
     "pp": 10,
     "ignoreDefensive": false,
     "breaksProtect": false,
-    "bypassSub": true,
+    "bypassSub": false,
     "makesContact": false,
     "willCrit": false,
     "highCritChance": false,

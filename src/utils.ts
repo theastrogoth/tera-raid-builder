@@ -52,15 +52,15 @@ const SPECIAL_NAMES = {
     "well-baked-body":          "Well-Baked Body"
 }
 
-const miscImagesProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/misc/"
-const pokemonArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/arts/";
-const shinyArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/shiny_arts/";
-const pokemonSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/box_sprites/";
-const itemSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/items/";
-const typeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/type_icons/";
-const teraTypeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/tera_type_icons/";
-const teraTypeBannerProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/tera_banners/";
-const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/update-movedata/images/move_methods/";
+const miscImagesProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/misc/"
+const pokemonArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/arts/";
+const shinyArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/shiny_arts/";
+const pokemonSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/box_sprites/";
+const itemSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/items/";
+const typeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/type_icons/";
+const teraTypeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/tera_type_icons/";
+const teraTypeBannerProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/tera_banners/";
+const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/move_methods/";
 
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {

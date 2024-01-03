@@ -3,9 +3,9 @@ import { getEndOfTurn } from "../calc/desc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
-import { AbilityName, ItemName, SpeciesName, StatIDExceptHP } from "../calc/data/interface";
+import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { isSuperEffective, pokemonIsGrounded, ailmentToStatus, hasNoStatus, getAccuracy, getBpModifier } from "./util";
+import { isSuperEffective, pokemonIsGrounded, isStatus, hasNoStatus, getAccuracy, getBpModifier } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -800,15 +800,15 @@ export class RaidMove {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
                 if (pokemon.originalCurHP === 0) { continue; }
-                const field = pokemon.field;
-                const status = ailmentToStatus(ailment);
+                const ailmentIsStatus = isStatus(ailment);
                 const isSecondaryEffect = this.moveData.category?.includes("damage");
-                // volatile status
-                if (status === "") {
+                // non-volatile status
+                if (ailmentIsStatus) {
+                    this._raidState.applyStatus(id, ailment as StatusName, this.userID, isSecondaryEffect, this.options.roll);
                     this._raidState.applyVolatileStatus(id, ailment, this.userID, this.movesFirst);
                 // non-volatile status
                 } else {
-                    this._raidState.applyStatus(id, status, this.userID, isSecondaryEffect, this.options.roll);
+                    this._raidState.applyVolatileStatus(id, ailment, this.userID, this.movesFirst);
                 }
                 // Toxic Chain
                 if (this._user.ability === "Toxic Chain" && isSecondaryEffect && this.options.secondaryEffects) {

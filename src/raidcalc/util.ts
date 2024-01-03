@@ -8,14 +8,15 @@ import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 const gen = Generations.get(9);
 
 // next time I prepare the move data, I should eliminate the need for translation
-export function ailmentToStatus(ailment: AilmentName): StatusName | "" {
-    if (ailment === "par") { return "par"; }
-    if (ailment === "psn") { return "psn"; }
-    if (ailment === "brn") { return "brn"; }
-    if (ailment === "frz") { return "frz"; }
-    if (ailment === "slp") { return "slp"; }
-    if (ailment === "tox") { return "tox"; }
-    return ""
+export function isStatus(ailment: AilmentName): Boolean {
+    return (
+        ailment === "par" ||
+        ailment === "psn" ||
+        ailment === "brn" ||
+        ailment === "frz" ||
+        ailment === "slp" ||
+        ailment === "tox"
+    ); 
 }
 
 export function hasNoStatus(pokemon: Pokemon) {

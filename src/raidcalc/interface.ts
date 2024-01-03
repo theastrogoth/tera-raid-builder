@@ -42,11 +42,11 @@ export type MoveTarget = "all-opponents" |              // Target
 
 export type AilmentName =   "confusion" |               // many of these are not implemented by smogon/calcs
                             "torment" |                 
-                            "poison" |
-                            "freeze" |
-                            "burn" |
-                            "paralysis" |
-                            "sleep" |
+                            "psn" |
+                            "frz" |
+                            "brn" |
+                            "par" |
+                            "slp" |
                             "unknown" |
                             "heal-block" |
                             "trap" |
@@ -61,7 +61,7 @@ export type AilmentName =   "confusion" |               // many of these are not
                             "tar-shot" |
                             "embargo" |
                             "infatuation" |
-                            "toxic" |
+                            "tox" |
                             "encore" |
                             "taunt";
 

@@ -805,8 +805,7 @@ export class RaidMove {
                 // non-volatile status
                 if (ailmentIsStatus) {
                     this._raidState.applyStatus(id, ailment as StatusName, this.userID, isSecondaryEffect, this.options.roll);
-                    this._raidState.applyVolatileStatus(id, ailment, this.userID, this.movesFirst);
-                // non-volatile status
+                // volatile status
                 } else {
                     this._raidState.applyVolatileStatus(id, ailment, this.userID, this.movesFirst);
                 }

@@ -26,6 +26,9 @@
         "spd": 50,
         "spe": 85
     },
+    "weightkg": 40,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Body Press",

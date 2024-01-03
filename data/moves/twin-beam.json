@@ -1,5 +1,6 @@
 {
     "name": "Twin Beam",
+    "moveCateogry": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Psychic",
@@ -15,5 +16,19 @@
     "statChance": null,
     "ailmentChance": null,
     "minHits": 2,
-    "maxHits": 2
+    "maxHits": 2,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

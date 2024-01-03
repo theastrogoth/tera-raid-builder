@@ -26,6 +26,9 @@
         "spd": 75,
         "spe": 105
     },
+    "weightkg": 19.2,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

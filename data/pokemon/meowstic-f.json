@@ -25,6 +25,9 @@
         "spd": 81,
         "spe": 104
     },
+    "weightkg": 8.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
     ]
 }

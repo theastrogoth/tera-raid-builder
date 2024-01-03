@@ -1,5 +1,6 @@
 {
     "name": "Psyblade",
+    "moveCateogry": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Psychic",
@@ -15,5 +16,19 @@
     "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 15,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": true,
+    "isWind": false
 }

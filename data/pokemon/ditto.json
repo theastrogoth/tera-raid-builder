@@ -21,6 +21,9 @@
         "spd": 48,
         "spe": 48
     },
+    "weightkg": 4,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Transform",

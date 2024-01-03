@@ -18,6 +18,9 @@
         "spd": 71,
         "spe": 132
     },
+    "weightkg": 40,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",
@@ -236,7 +239,7 @@
             "learnMethod": "machine"
         },
         {
-            "name": "U-Turn",
+            "name": "U-turn",
             "learnMethod": "machine"
         },
         {

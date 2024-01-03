@@ -25,6 +25,9 @@
         "spd": 70,
         "spe": 20
     },
+    "weightkg": 80.4,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Amnesia",

@@ -17,6 +17,9 @@
         "spd": 55,
         "spe": 90
     },
+    "weightkg": 46.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

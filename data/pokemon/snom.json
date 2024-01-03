@@ -22,6 +22,9 @@
         "spd": 30,
         "spe": 20
     },
+    "weightkg": 3.8,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Bug Bite",

@@ -25,6 +25,9 @@
         "spd": 49,
         "spe": 60
     },
+    "weightkg": 30.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Baby-Doll Eyes",

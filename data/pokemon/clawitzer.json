@@ -17,6 +17,9 @@
         "spd": 89,
         "spe": 59
     },
+    "weightkg": 35.3,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aqua Jet",

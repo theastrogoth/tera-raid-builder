@@ -1,13 +1,14 @@
 {
     "name": "Mist Ball",
+    "moveCateogry": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Psychic",
-    "power": 70,
+    "power": 95,
     "accuracy": 100,
     "priority": 0,
-    "drain": 0,
-    "healing": 0,
+    "drain": null,
+    "healing": null,
     "selfDamage": null,
     "ailment": null,
     "statChanges": [
@@ -16,9 +17,23 @@
             "change": -1
         }
     ],
-    "flinchChance": 0,
+    "flinchChance": null,
     "statChance": 50,
-    "ailmentChance": 0,
+    "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 5,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": true,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

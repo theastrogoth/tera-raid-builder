@@ -21,6 +21,9 @@
         "spd": 50,
         "spe": 136
     },
+    "weightkg": 30,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acupressure",

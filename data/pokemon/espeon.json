@@ -21,6 +21,9 @@
         "spd": 95,
         "spe": 110
     },
+    "weightkg": 26.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Alluring Voice",

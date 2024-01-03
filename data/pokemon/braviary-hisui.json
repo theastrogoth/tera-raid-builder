@@ -26,6 +26,9 @@
         "spd": 70,
         "spe": 65
     },
+    "weightkg": 43.4,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

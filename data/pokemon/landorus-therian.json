@@ -18,6 +18,9 @@
         "spd": 80,
         "spe": 91
     },
+    "weightkg": 68,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Block",

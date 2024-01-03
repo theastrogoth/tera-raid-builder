@@ -1,24 +1,39 @@
 {
     "name": "Leaf Tornado",
+    "moveCateogry": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Grass",
     "power": 65,
     "accuracy": 90,
     "priority": 0,
-    "drain": 0,
-    "healing": 0,
+    "drain": null,
+    "healing": null,
     "selfDamage": null,
     "ailment": null,
     "statChanges": [
         {
-            "stat": "acc",
+            "stat": "accuracy",
             "change": -1
         }
     ],
-    "flinchChance": 0,
+    "flinchChance": null,
     "statChance": 50,
-    "ailmentChance": 0,
+    "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

@@ -1,16 +1,21 @@
 {
-    "name": "V-Create",
+    "name": "V-create",
+    "moveCateogry": "Physical",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Fire",
     "power": 180,
     "accuracy": 95,
     "priority": 0,
-    "drain": 0,
-    "healing": 0,
+    "drain": null,
+    "healing": null,
     "selfDamage": null,
     "ailment": null,
     "statChanges": [
+        {
+            "stat": "spe",
+            "change": -1
+        },
         {
             "stat": "def",
             "change": -1
@@ -18,15 +23,25 @@
         {
             "stat": "spd",
             "change": -1
-        },
-        {
-            "stat": "spe",
-            "change": -1
         }
     ],
-    "flinchChance": 0,
-    "statChance": 100,
-    "ailmentChance": 0,
+    "flinchChance": null,
+    "statChance": null,
+    "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 5,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

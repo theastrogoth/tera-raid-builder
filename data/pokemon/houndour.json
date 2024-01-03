@@ -26,6 +26,9 @@
         "spd": 50,
         "spe": 65
     },
+    "weightkg": 10.8,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Beat Up",

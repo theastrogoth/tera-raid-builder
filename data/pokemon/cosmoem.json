@@ -17,6 +17,9 @@
         "spd": 131,
         "spe": 37
     },
+    "weightkg": 999.9,
+    "nfe": true,
+    "gender": "N",
     "moves": [
         {
             "name": "Cosmic Power",

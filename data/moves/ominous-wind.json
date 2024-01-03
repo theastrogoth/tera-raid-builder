@@ -1,13 +1,14 @@
 {
     "name": "Ominous Wind",
+    "moveCateogry": "Special",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Ghost",
     "power": 60,
     "accuracy": 100,
     "priority": 0,
-    "drain": 0,
-    "healing": 0,
+    "drain": null,
+    "healing": null,
     "selfDamage": null,
     "ailment": null,
     "statChanges": [
@@ -32,9 +33,23 @@
             "change": 1
         }
     ],
-    "flinchChance": 0,
+    "flinchChance": null,
     "statChance": 10,
-    "ailmentChance": 10,
+    "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 5,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

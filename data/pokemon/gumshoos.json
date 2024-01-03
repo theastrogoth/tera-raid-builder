@@ -25,6 +25,9 @@
         "spd": 60,
         "spe": 45
     },
+    "weightkg": 14.2,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Bite",

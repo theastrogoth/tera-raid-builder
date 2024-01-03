@@ -25,6 +25,9 @@
         "spd": 65,
         "spe": 112
     },
+    "weightkg": 25,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Accelerock",

@@ -18,6 +18,9 @@
         "spd": 115,
         "spe": 148
     },
+    "weightkg": 355,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Agility",
@@ -29,7 +32,7 @@
         },
         {
             "name": "Behemoth Blade",
-            "learnMethod": "level-up" 
+            "learnMethod": "level-up"
         },
         {
             "name": "Bite",

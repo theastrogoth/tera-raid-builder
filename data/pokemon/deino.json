@@ -18,6 +18,9 @@
         "spd": 50,
         "spe": 38
     },
+    "weightkg": 17.3,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Assurance",

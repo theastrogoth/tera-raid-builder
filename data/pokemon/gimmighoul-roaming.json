@@ -17,6 +17,9 @@
         "spd": 45,
         "spe": 80
     },
+    "weightkg": 0.1,
+    "nfe": true,
+    "gender": "N",
     "moves": [
         {
             "name": "Astonish",

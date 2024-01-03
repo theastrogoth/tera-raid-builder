@@ -18,6 +18,9 @@
         "spd": 68,
         "spe": 50
     },
+    "weightkg": 380.7,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Arm Thrust",

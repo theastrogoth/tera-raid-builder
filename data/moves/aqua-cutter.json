@@ -1,5 +1,6 @@
 {
     "name": "Aqua Cutter",
+    "moveCateogry": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Water",
@@ -15,5 +16,19 @@
     "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 20,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": true,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": true,
+    "isWind": false
 }

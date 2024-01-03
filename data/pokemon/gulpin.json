@@ -25,6 +25,9 @@
         "spd": 53,
         "spe": 40
     },
+    "weightkg": 10.3,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Armor",

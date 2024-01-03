@@ -21,6 +21,9 @@
         "spd": 30,
         "spe": 58
     },
+    "weightkg": 31.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Ancient Power",

@@ -248,7 +248,7 @@ function PokemonLookup({pokemon, setPokemon, allSpecies, allMoves, setAllSpecies
                 const filtered = createFilterOptions<SearchOption>({stringify: (option: SearchOption) => {
                     switch (option.type) {
                         case "Pokémon":
-                            return getTranslation(option.name, translationKey, "species");
+                            return getTranslation(option.name, translationKey, "pokemon");
                         case "Type":
                             return getTranslation(option.name, translationKey, "types");
                         case "Ability":
@@ -319,7 +319,7 @@ function PokemonLookup({pokemon, setPokemon, allSpecies, allMoves, setAllSpecies
                         )
                 }
             }}
-            groupBy={(option: SearchOption) => inputValue.length === 0 ? "" : option.type}
+            groupBy={(option: SearchOption) => inputValue.length === 0 ? "" : getTranslation(option.type, translationKey)}
             renderGroup={(params) => {
                 return  (
                     inputValue.length > 0 ? 

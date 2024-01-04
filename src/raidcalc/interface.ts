@@ -4,7 +4,7 @@ import { AbilityName, ItemName, MoveName, SpeciesName, TypeName } from "../calc/
 export type MoveSetItem = {
     name: string,
     engName: MoveName,
-    method: string,
+    method?: string,
     type: TypeName,
 }
 

@@ -23,8 +23,8 @@ import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
 
 import { Generations, Pokemon, Field } from './calc/index.ts';
-import { MoveName } from './calc/data/interface.ts';
-import { SubstituteBuildInfo, TurnGroupInfo } from './raidcalc/interface.ts';
+import { MoveName, SpeciesName } from './calc/data/interface.ts';
+import { MoveData, SubstituteBuildInfo, TurnGroupInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
 import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
@@ -32,7 +32,7 @@ import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
 
-import PokedexService from "./services/getdata";
+import PokedexService, { PokemonData } from "./services/getdata";
 import { getTranslation } from './utils.ts';
 import DEFAULT_STRAT from './data/strats/default.json';
 import { LightBuildInfo } from './raidcalc/hashData.ts';
@@ -46,6 +46,9 @@ function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [language, setLanguage] = useState<LanguageOption>('en');
   const [translationKey, setTranslationKey] = useState<any>(null);
+
+  const [allSpecies, setAllSpecies] = useState<Map<SpeciesName,PokemonData> | null>(null);
+  const [allMoves, setAllMoves] = useState<Map<MoveName,MoveData> | null>(null);
 
   const location = useLocation();
   const hash = location.hash
@@ -372,18 +375,18 @@ function App() {
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} substitutes={substitutes1} setSubstitutes={setSubstitutes1} prettyMode={prettyMode} translationKey={translationKey} />
-              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} substitutes={substitutes2} setSubstitutes={setSubstitutes2} prettyMode={prettyMode} translationKey={translationKey}/>
+              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} substitutes={substitutes1} setSubstitutes={setSubstitutes1} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} substitutes={substitutes2} setSubstitutes={setSubstitutes2} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey}/>
             </Stack>
           </Grid>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} substitutes={substitutes3} setSubstitutes={setSubstitutes3} prettyMode={prettyMode} translationKey={translationKey} />
-              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} substitutes={substitutes4} setSubstitutes={setSubstitutes4} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} substitutes={substitutes3} setSubstitutes={setSubstitutes3} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} substitutes={substitutes4} setSubstitutes={setSubstitutes4} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
             </Stack>
           </Grid>
           <Grid item>
-            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} prettyMode={prettyMode} translationKey={translationKey} />
+            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
           <Grid item>
             <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} prettyMode={prettyMode} translationKey={translationKey} />
@@ -412,6 +415,7 @@ function App() {
                   <GraphicsButton
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps} results={results}
+                    allSpecies={allSpecies} 
                     setLoading={setLoading}
                     translationKey={translationKey}
                   />

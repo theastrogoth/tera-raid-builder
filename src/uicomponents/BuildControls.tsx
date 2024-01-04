@@ -35,14 +35,14 @@ import ImportExportArea from "./ImportExportArea";
 
 import { MoveData, MoveSetItem, ShieldData, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
-import PokedexService from "../services/getdata";
+import PokedexService, { PokemonData } from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation } from "../utils";
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
 import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 import { MenuItem } from "@mui/material";
-import { getItemBoostType } from "../calc/items";
+import PokemonLookup from "./PokemonLookup";
 
 type SetOption = {
     name: string,
@@ -65,6 +65,8 @@ type SetOption = {
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).sort();
 const genItems = ["(No Item)", ...[...gen.items].map(item => item.name).sort()];
+const genNatures = [...gen.natures].sort();
+// const genSpecies = [...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n)).sort();
 
 function setdexStats(input: any): Partial<StatsTable> | undefined {
     if (!input) return undefined;
@@ -131,7 +133,7 @@ function setdexToOptions(dex: Object): SetOption[] {
 const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
 const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 
-function findOptionFromPokemonName(name: string, translationKey: any): string {
+export function findOptionFromPokemonName(name: string, translationKey: any): string {
     // let option = getTranslation(name, translationKey, "pokemon");
     let option = translationKey ? translationKey["pokemon"][name] || undefined : name;
     if (!option) {
@@ -141,7 +143,7 @@ function findOptionFromPokemonName(name: string, translationKey: any): string {
     return option;
 }
 
-function findOptionFromTeraTypeName(name: string | undefined, translationKey: any): string {
+export function findOptionFromTeraTypeName(name: string | undefined, translationKey: any): string {
     if (name === undefined || name === "???") {
         return translationKey ? translationKey["types"]["???"] || "???" : "Inactive";
     } else if (!translationKey) {
@@ -151,7 +153,7 @@ function findOptionFromTeraTypeName(name: string | undefined, translationKey: an
     }
 }
 
-function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], translationKey: any): MoveSetItem {
+export function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], translationKey: any): MoveSetItem {
     const option = moveSet.find((move) => move.name === name);
     if (!option) {
         const translatedName = getTranslation("(No Move)", translationKey, "moves");
@@ -163,7 +165,7 @@ function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], translatio
     }
 }
 
-function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[], translationKey: any): {name: AbilityName, hidden: boolean} {
+export function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[], translationKey: any): {name: AbilityName, hidden: boolean} {
     const option = abilities.find((ability) => ability.name === name);
     if (!option) {
         const translatedName = getTranslation("(No Ability)", translationKey, "abilities");
@@ -318,7 +320,7 @@ const RightCell = styled(TableCell)(({ theme }) => ({
     borderBottom: 0,
 })); 
   
-function SummaryRow({name, value, setValue, options, prettyMode, optionFinder = (option: any) => option, translationKey, translationCategory}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean, optionFinder?: Function, translationKey: any, translationCategory: string}) {
+export function SummaryRow({name, value, setValue, options, prettyMode, optionFinder = (option: any) => option, translationKey, translationCategory}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean, optionFinder?: Function, translationKey: any, translationCategory: string}) {
 return (
     <>
     {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
@@ -386,13 +388,26 @@ function ModalRow({name, value, getString = (val: any) => val, show = true, icon
     )   
 }
 
-function PokemonPopper({name, showPopper, anchorEl, translationKey}: {name: string, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
+export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translationKey}: {name: string, showPopper: boolean, anchorEl: HTMLElement | null, allSpecies: Map<SpeciesName,PokemonData> | null, translationKey: any}) {
     
-    const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+    const [pokemon, setPokemon] = useState<PokemonData | null>(null);
 
     useEffect(() => {
         if (showPopper && (pokemon === null || pokemon.name !== name)) {
-            setPokemon(new Pokemon(gen, name));
+            if (allSpecies) {
+                const newData = allSpecies.get(name as SpeciesName);
+                if (newData) {
+                    setPokemon(newData);
+                }
+            } else {
+                async function fetchPokemonData() {
+                    const newData = await PokedexService.getPokemonByName(name);
+                    if (newData) {
+                        setPokemon(newData);
+                    }
+                }
+                fetchPokemonData().catch((e) => console.log(e));
+            }
         }
     }, [name, pokemon, showPopper])
     
@@ -408,15 +423,32 @@ function PokemonPopper({name, showPopper, anchorEl, translationKey}: {name: stri
                 <TableContainer>
                     <Table size="small" width="100%">
                         <TableBody>
-                            {/* <ModalRow name={(pokemon && pokemon.types.length > 1) ? "Types" : "Type"} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} /> */}
                             <ModalRow name={getTranslation("Type", translationKey, "ui")} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
+                            <p style={{margin: "5px"}}></p>
+                            { pokemon && pokemon.abilities.length > 0 &&
+                                <ModalRow name={getTranslation("Ability", translationKey, "ui") + ":"} value={getTranslation(pokemon.abilities[0].name, translationKey, "abilities")} />
+                            }
+                            { pokemon && pokemon.abilities.slice(1).map((ability, index) => (
+                                <ModalRow key={index} name={""} value={getTranslation(ability.name, translationKey, "abilities")} />
+                            ))}
+                            <p style={{margin: "5px"}}></p>
+                            { pokemon && pokemon.weightkg &&
+                                <ModalRow name={getTranslation("Weight", translationKey, "ui") + ":"} value={pokemon.weightkg + (" kg")} />
+                            }
+                            {/* { pokemon && pokemon.gender &&
+                                <ModalRow name={getTranslation("Gender", translationKey) + ":"} value={getTranslation(pokemon.gender, translationKey)} />
+                            } */}
+                            <p style={{margin: "5px"}}></p>
                             <ModalRow name={getTranslation("Stats", translationKey, "ui") + ":"} value="" />
-                            <ModalRow name={getTranslation("HP", translationKey, "stats")}  value={pokemon ? pokemon.species.baseStats.hp  : ""} />
-                            <ModalRow name={getTranslation("Atk", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.atk : ""} />
-                            <ModalRow name={getTranslation("Def", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.def : ""} />
-                            <ModalRow name={getTranslation("SpA", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.spa : ""} />
-                            <ModalRow name={getTranslation("SpD", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.spd : ""} />
-                            <ModalRow name={getTranslation("Spe", translationKey, "stats")} value={pokemon ? pokemon.species.baseStats.spe : ""} />
+                            <ModalRow name={getTranslation("HP", translationKey, "stats")}  value={pokemon ? pokemon.stats.hp  : ""} />
+                            <ModalRow name={getTranslation("Atk", translationKey, "stats")} value={pokemon ? pokemon.stats.atk : ""} />
+                            <ModalRow name={getTranslation("Def", translationKey, "stats")} value={pokemon ? pokemon.stats.def : ""} />
+                            <ModalRow name={getTranslation("SpA", translationKey, "stats")} value={pokemon ? pokemon.stats.spa : ""} />
+                            <ModalRow name={getTranslation("SpD", translationKey, "stats")} value={pokemon ? pokemon.stats.spd : ""} />
+                            <ModalRow name={getTranslation("Spe", translationKey, "stats")} value={pokemon ? pokemon.stats.spe : ""} />
+                            <p style={{margin: "5px"}}></p>
+                            <ModalRow name={getTranslation("BST", translationKey, "stats")} value={pokemon ? Object.entries(pokemon.stats).reduce((acc, [id,val]) => acc + val, 0)  : ""} />
+
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -425,19 +457,27 @@ function PokemonPopper({name, showPopper, anchorEl, translationKey}: {name: stri
     )
 }
 
-function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem: MoveSetItem, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
+function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: {moveItem: MoveSetItem, showPopper: boolean, anchorEl: HTMLElement | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
     const [moveData, setMoveData] = useState<MoveData | null>(null);
     const [move, setMove] = useState<Move | null>(null);
     useEffect(() => {
         if (showPopper && (moveData === null || moveData.name !== moveItem.engName)) {
-            async function fetchMoveData() {
-                const newData = await PokedexService.getMoveByName(moveItem.engName);
+            if (!allMoves) {
+                async function fetchMoveData() {
+                    const newData = await PokedexService.getMoveByName(moveItem.engName);
+                    if (newData) {
+                        setMoveData(newData);
+                        setMove(new Move(gen, moveItem.engName));
+                    }
+                }
+                fetchMoveData().catch((e) => console.log(e));
+            } else {
+                const newData = allMoves.get(moveItem.engName);
                 if (newData) {
                     setMoveData(newData);
                     setMove(new Move(gen, moveItem.engName));
                 }
             }
-            fetchMoveData().catch((e) => console.log(e));
         }
     }, [moveItem, moveData, showPopper])
 
@@ -533,13 +573,14 @@ function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem:
                                     getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
                                     show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
                                 />
-                                <ModalRow
-                                    name={getTranslation("Learn Method", translationKey)}
-                                    value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
-                                    show={moveItem.method !== undefined}
-                                    iconURLs={spriteURL}
-                                />
-                                    
+                                { moveItem.method && 
+                                    <ModalRow
+                                        name={getTranslation("Learn Method", translationKey)}
+                                        value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
+                                        show={moveItem.method !== undefined}
+                                        iconURLs={spriteURL}
+                                    />
+                                }                                    
                             </TableBody>
                         </Table>
                     </TableContainer>
@@ -549,7 +590,7 @@ function MovePopper({moveItem, showPopper, anchorEl, translationKey}: {moveItem:
     )
 }
 
-function MoveWithIcon({move, prettyMode, translationKey}: {move: MoveSetItem, prettyMode: boolean, translationKey: any}) {
+export function MoveWithIcon({move, allMoves, prettyMode, translationKey}: {move: MoveSetItem, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) {
     const [showPopper, setShowPopper] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -586,12 +627,12 @@ function MoveWithIcon({move, prettyMode, translationKey}: {move: MoveSetItem, pr
                         <img src={getMoveMethodIconURL(move.type)} height="20px" alt="" />
                     }
             </Stack>
-            <MovePopper moveItem={move} showPopper={showPopper} anchorEl={anchorEl} translationKey={translationKey}/>
+            <MovePopper moveItem={move} showPopper={showPopper} anchorEl={anchorEl} allMoves={allMoves} translationKey={translationKey}/>
         </Box>
     )
 }
 
-function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], prettyMode: boolean, translationKey: any}) {
+function MoveSummaryRow({name, value, setValue, options, moveSet, allMoves, prettyMode, translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) {
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -599,7 +640,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, tr
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell>
                     {prettyMode &&
-                        <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} prettyMode={prettyMode} translationKey={translationKey} />
+                        <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} />
                     }
                     {!prettyMode &&
                         <Autocomplete
@@ -615,7 +656,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, prettyMode, tr
                                 })
                             }
                             renderOption={(props, option) => 
-                                <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} prettyMode={prettyMode} translationKey={translationKey} /></li>
+                                <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
                             }
                             renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
                             onChange={(event: any, newValue: string) => {
@@ -686,7 +727,7 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
     )
 }
 
-function GenericWithIcon({name, engName, spriteFetcher, prettyMode, ModalComponent = null, modalProps = null}: {name: string, engName: string, spriteFetcher: Function, prettyMode: boolean, ModalComponent?: ((p: any) => JSX.Element) | null, modalProps?: any}) {
+export function GenericWithIcon({name, engName, spriteFetcher, prettyMode, ModalComponent = null, modalProps = null}: {name: string, engName: string, spriteFetcher: Function, prettyMode: boolean, ModalComponent?: ((p: any) => JSX.Element) | null, modalProps?: any}) {
     const [showPopper, setShowPopper] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -781,7 +822,38 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
     )
 }
 
-const GroupHeader = styled('div')(({ theme }) => ({
+function PokemonSummaryRow({pokemon, setPokemon, allSpecies,  allMoves, setAllMoves, setAllSpecies, prettyMode, translationKey}: 
+    {pokemon: Raider, setPokemon: (n: string) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
+) {
+    const name = pokemon.name;
+    return (
+        <>
+        {((prettyMode && !checkSetValueIsDefault(pokemon.name)) || !prettyMode) &&
+            <TableRow>
+                <LeftCell>{ getTranslation("Pokémon", translationKey) }</LeftCell>
+                <RightCell>
+                    {prettyMode &&
+                        <GenericWithIcon name={findOptionFromPokemonName(name, translationKey)} engName={name} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} />
+                    }
+                    {!prettyMode &&
+                        <PokemonLookup 
+                            pokemon={name}
+                            setPokemon={setPokemon}
+                            allSpecies={allSpecies}
+                            allMoves={allMoves}
+                            setAllSpecies={setAllSpecies}
+                            setAllMoves={setAllMoves}
+                            translationKey={translationKey}
+                        />
+                    }
+                </RightCell>
+            </TableRow>
+        }
+        </>
+    )
+}
+
+export const GroupHeader = styled('div')(({ theme }) => ({
     top: '-8px',
     padding: '4px 10px',
     backgroundColor:
@@ -1031,13 +1103,12 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
     )
 }
 
-function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, prettyMode, translationKey, isBoss = false}: 
+function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
-        substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, prettyMode: boolean, translationKey?: any, isBoss?: boolean}) 
-    {
-    const [genSpecies, ] = useState([...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n)).sort());
-    const [teratypes, setTeraTypes] = useState(genTypes);
-    const [genNatures, ] = useState([...gen.natures].sort());
+         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
+         setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey?: any, isBoss?: boolean}
+    ) {
+    const [teraTypes, setTeraTypes] = useState(genTypes);
     const [items, setItems] = useState(genItems);
     
     const [editStatsOpen, setEditStatsOpen] = useState(false);
@@ -1126,14 +1197,16 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     }
 
     const loadSet = async (set: SetOption) => { 
-        const moveData = await Promise.all(
+        const moveData = allMoves ? 
             (set.moves || []).map(
-                async (move) => await PokedexService.getMoveByName(move)
-            ).map(
-                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
-            )
-        ) as MoveData[];
-    
+                (move) => allMoves.get(move) || {name: move, target: "user"} as MoveData
+            ) :
+            await Promise.all(
+                (set.moves || []).map(
+                    async (move) => await PokedexService.getMoveByName(move) || {name: move, target: "user"} as MoveData
+                )
+            ) as MoveData[];
+
         const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
             bossMultiplier: undefined,
@@ -1254,7 +1327,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 </Stack>
             }
             {(!prettyMode && importExportOpen) &&
-                <ImportExportArea pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />
+                <ImportExportArea pokemon={pokemon} setPokemon={setPokemon} allMoves={allMoves} translationKey={translationKey} />
             }
             {(!prettyMode && editStatsOpen && !importExportOpen) &&
                 <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 0 }}>
@@ -1266,8 +1339,8 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} modalProps={{translationKey: translationKey}} translationKey={translationKey} translationCategory="pokemon"/>
-                                <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teratypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
+                                <PokemonSummaryRow pokemon={pokemon} setPokemon={handleChangeSpecies} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey}/>
+                                <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teraTypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
                                 <AbilitySummaryRow 
                                             name="Ability"
                                             value={pokemon.ability || "(No Move)"} 
@@ -1338,11 +1411,14 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                                 const newMoves = [...pokemon.moves as string[]];
                                                 newMoves[index] = moveOption;
                                                 const newMoveData = [...pokemon.moveData];
-                                                newMoveData[index] = (await PokedexService.getMoveByName(moveOption)) || {name: "(No Move)" as MoveName, target: "user"};
+                                                newMoveData[index] = (
+                                                    allMoves ?  allMoves.get(moveOption as MoveName) : (await PokedexService.getMoveByName(moveOption)) 
+                                                ) || {name: "(No Move)" as MoveName, target: "user"};
                                                 setPokemonProperties(["moves", "moveData"])([newMoves, newMoveData]);
                                             }}
                                             options={createMoveOptions(moveSet)}
                                             moveSet={moveSet}
+                                            allMoves={allMoves}
                                             prettyMode={prettyMode}
                                             translationKey={translationKey}
                                         /> 
@@ -1565,8 +1641,8 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
     )
 }
 
-function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translationKey}: 
-    {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, prettyMode: boolean, translationKey: any}) 
+function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, translationKey}: 
+    {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) 
 {
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
@@ -1591,27 +1667,31 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
         newExtraMoves[index] = move;
         newPoke.extraMoves = newExtraMoves;
         const newExtraMoveData = [...pokemon.extraMoveData!];
-        newExtraMoveData[index] = (await PokedexService.getMoveByName(move)) || {name: "(No Move)" as MoveName, target: "user"};
+        newExtraMoveData[index] = ( allMoves ? allMoves.get(move) : await PokedexService.getMoveByName(move) ) || {name: "(No Move)" as MoveName, target: "user"};
         newPoke.extraMoveData = newExtraMoveData;
         setPokemon(newPoke);
     }
 
     const loadSet = async (set: SetOption) => { 
-        const moveData = await Promise.all(
+        const moveData = allMoves ? 
             (set.moves || []).map(
-                async (move) => await PokedexService.getMoveByName(move)
-            ).map(
-                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
-            )
-        ) as MoveData[];
+                (move) => allMoves.get(move) || {name: move, target: "user"} as MoveData
+            ) :
+            await Promise.all(
+                (set.moves || []).map(
+                    async (move) => await PokedexService.getMoveByName(move) || {name: move, target: "user"} as MoveData
+                )
+            ) as MoveData[];
 
-        const extraMoveData = await Promise.all(
+        const extraMoveData = allMoves ? 
             (set.extraMoves || []).map(
-                async (move) => await PokedexService.getMoveByName(move)
-            ).map(
-                (md, index) => md || {name: set.moves![index] as MoveName, target: "user"} as MoveData
-            )
-        ) as MoveData[];
+                (move) => allMoves.get(move) || {name: move, target: "user"} as MoveData
+            ) :
+            await Promise.all(
+                (set.extraMoves || []).map(
+                    async (move) => await PokedexService.getMoveByName(move) || {name: move, target: "user"} as MoveData
+                )
+            ) as MoveData[];
 
         const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
@@ -1714,6 +1794,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
                                         setValue={setBMove(index)}
                                         options={createMoveOptions(moveSet)}
                                         moveSet={moveSet}
+                                        allMoves={allMoves}
                                         prettyMode={prettyMode}
                                         translationKey={translationKey}
                                     /> 
@@ -1729,6 +1810,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, prettyMode, translatio
 export const BossBuildControlsMemo = React.memo(BossBuildControls, 
     (prevProps, nextProps) => 
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        (!!prevProps.allMoves === !!nextProps.allMoves) &&
         arraysEqual(prevProps.pokemon.extraMoves!, nextProps.pokemon.extraMoves!) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         prevProps.prettyMode === nextProps.prettyMode &&
@@ -1740,5 +1822,7 @@ export default React.memo(BuildControls,
         JSON.stringify(prevProps.substitutes) === JSON.stringify(nextProps.substitutes) &&
         arraysEqual(prevProps.abilities, nextProps.abilities) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
+        (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
+        (!!prevProps.allMoves === !!nextProps.allMoves) &&
         prevProps.prettyMode === nextProps.prettyMode &&
         prevProps.translationKey === nextProps.translationKey);

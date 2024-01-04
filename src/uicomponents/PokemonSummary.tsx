@@ -12,14 +12,14 @@ import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getTranslation } from "../utils";
-import { MoveSetItem, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
+import { MoveData, MoveSetItem, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { MOVES } from "../calc/data/moves";
 import { Raider } from "../raidcalc/Raider";
-import { AbilityName, MoveName } from "../calc/data/interface";
+import { AbilityName, MoveName, SpeciesName } from "../calc/data/interface";
 import unsketchable from "../data/unsketchable.json";
 
 const gen = Generations.get(9); // we will only use gen 9
-const allMoves = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.substring(0,3) !== "Max" && m.substring(0,5) !== "G-Max" && m !== "Dynamax Cannon");
+const allMoveNames = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.substring(0,3) !== "Max" && m.substring(0,5) !== "G-Max" && m !== "Dynamax Cannon") as MoveName[];
 
 export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
     const [str, setStr] = useState(pokemon.role);
@@ -70,34 +70,59 @@ export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raide
     )
 }
 
-function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, setSubstitutes, prettyMode, translationKey}: 
+function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, setSubstitutes, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
     {pokemon: Raider, setPokemon: (r: Raider) => void, groups: TurnGroupInfo[], setGroups: (g: TurnGroupInfo[]) => void, 
-     substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, prettyMode: boolean, translationKey: any}) {
-
+     substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
+     setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
+) {
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
   
     useEffect(() => {
-      async function fetchData() {
-        let pokemonData = await PokedexService.getPokemonByName(pokemon.name) as PokemonData;     
-        setAbilities(pokemonData.abilities);
+        if (!allSpecies) {
+            async function fetchData() {
+                let pokemonData = await PokedexService.getPokemonByName(pokemon.name) as PokemonData;     
+                setAbilities(pokemonData.abilities);
 
-        let moves = pokemonData.moves;
-        if (moves.length < 1) {
-            moves = allMoves.filter(m => !unsketchable.includes(m)).map(m => ({name: m as MoveName, learnMethod: "level-up"}))
-        }
-        const set = moves.map(md => {
-            const move = gen.moves.get(toID(md.name));
-            return {
-                name: getTranslation(md.name, translationKey, "moves"),
-                engName: md.name,
-                method: md.learnMethod,
-                type: move ? (move.type || "Normal") : "Normal",
+                let moves = pokemonData.moves;
+                if (moves.length < 1) {
+                    moves = allMoveNames.filter(m => !unsketchable.includes(m)).map(m => ({name: m, learnMethod: "level-up"}))
+                }
+                const set = moves.map(md => {
+                    const move = gen.moves.get(toID(md.name));
+                    return {
+                        name: getTranslation(md.name, translationKey, "moves"),
+                        engName: md.name,
+                        method: md.learnMethod,
+                        type: move ? (move.type || "Normal") : "Normal",
+                    }
+                })
+                setMoveSet(set);
             }
-        })
-        setMoveSet(set);
-      }
-      fetchData().catch((e) => console.log(e));
+            fetchData().catch((e) => console.log(e));
+        } else {
+            const pokemonData = allSpecies.get(pokemon.name);
+            if (pokemonData) {
+                setAbilities(pokemonData.abilities);
+
+                let moves = pokemonData.moves;
+                if (moves.length < 1) {
+                    moves = allMoveNames.filter(m => !unsketchable.includes(m)).map(m => ({name: m, learnMethod: "level-up"}))
+                }
+                const set = moves.map(md => {
+                    const move = gen.moves.get(toID(md.name));
+                    return {
+                        name: getTranslation(md.name, translationKey, "moves"),
+                        engName: md.name,
+                        method: md.learnMethod,
+                        type: move ? (move.type || "Normal") : "Normal",
+                    }
+                })
+                setMoveSet(set);
+            } else {
+                console.log("No pokemon data for " + pokemon.name);
+            }
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.name])
 
@@ -191,6 +216,10 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
                         setGroups={setGroups} 
                         substitutes={substitutes} 
                         setSubstitutes={setSubstitutes} 
+                        allSpecies={allSpecies}
+                        allMoves={allMoves}
+                        setAllSpecies={setAllSpecies}
+                        setAllMoves={setAllMoves}
                         prettyMode={prettyMode}
                         translationKey={translationKey}
                     />
@@ -207,6 +236,8 @@ export default React.memo(PokemonSummary,
     (prevProps, nextProps) => (
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
         JSON.stringify(prevProps.substitutes) === JSON.stringify(nextProps.substitutes) &&
+        (!!prevProps.allMoves === !!nextProps.allMoves) &&
+        (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
         prevProps.prettyMode === nextProps.prettyMode &&
         prevProps.translationKey === nextProps.translationKey
     )

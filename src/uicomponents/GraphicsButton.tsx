@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import Box from '@mui/material/Box';
 
 import { Move } from "../calc";
-import { TypeName } from "../calc/data/interface";
+import { SpeciesName, TypeName } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
 import { RaidMoveInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
@@ -918,8 +918,8 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
     title.endsWith("!PPT") ? void(0) : graphicTop.remove(); // remove the element from the DOM
 }
 
-function GraphicsButton({title, notes, credits, raidInputProps, results, setLoading, translationKey}: 
-    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, results: RaidBattleResults, setLoading: (l: boolean) => void, translationKey: any}) {
+function GraphicsButton({title, notes, credits, raidInputProps, results, allSpecies, setLoading, translationKey}: 
+    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, results: RaidBattleResults, allSpecies: Map<SpeciesName, PokemonData> | null, setLoading: (l: boolean) => void, translationKey: any}) {
 
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
@@ -944,10 +944,12 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, setLoad
     const handleDownload = async () => {
         setLoading(true);
         try {
-            // get learn method + types for moves (maybe we should be storing these somewhere instead of fetching them in several places)
-            const pokemonData = (await Promise.all(
-                raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
-            )).filter((data) => data !== undefined) as PokemonData[];
+            // get learn method + types for moves
+            const pokemonData = allSpecies ? 
+                raidInputProps.pokemon.map((poke) => allSpecies.get(poke.species.name)) as PokemonData[] : 
+                (await Promise.all(
+                    raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name)))
+                ) as PokemonData[];
             const isHiddenAbility: boolean[] = pokemonData.slice(1).map((data, id) => {
                 const ability = raidInputProps.pokemon[id+1].ability;
                 if (!ability || ability === "(No Ability)") { return false; }

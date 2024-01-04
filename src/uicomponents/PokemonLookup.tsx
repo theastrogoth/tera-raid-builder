@@ -273,7 +273,7 @@ function PokemonLookup({pokemon, setPokemon, allSpecies, allMoves, setAllSpecies
                 <TextField
                   {...params}
                   variant="standard"
-                  placeholder={(typeFilters.length + abilityFilters.length + moveFilters.length + customFilters.length) === 0 ? pokemon : ""}
+                  placeholder={(typeFilters.length + abilityFilters.length + moveFilters.length + customFilters.length) === 0 ? getTranslation(pokemon, translationKey, pokemon) : ""}
                 />
             )}
             renderOption={(props, option, state) => {

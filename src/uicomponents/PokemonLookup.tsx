@@ -30,8 +30,8 @@ import { getPokemonSpriteURL, getTranslation, getTypeIconURL } from "../utils";
 
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).filter((t) => t !== "Stellar" && t !== "???").sort();
-const genAbilities = ABILITIES[gen.num].sort();
-const genMoves = [...gen.moves].map(move => move.name).sort();
+const genAbilities = ABILITIES[gen.num].filter((a) => a !== "(No Ability)").sort();
+const genMoves = [...gen.moves].map(move => move.name).filter((m) => m !== "(No Move)").sort();
 const genSpecies = [...gen.species].map(specie => specie.name)
     .filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n))
     .sort();
@@ -258,6 +258,9 @@ const CompactRightCell = styled(CompactTableCell)(({ theme }) => ({
 
 function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translationKey}: {pokemon: SpeciesName, allSpecies: Map<SpeciesName,PokemonData>, handleSetPokemon: (n: SpeciesName) => void, translationKey: any}) {
     const [open, setOpen] = useState(false);
+    if (pokemon.includes("Flab")) { // Something odd might be happening with the unicode representaiton of é somewhere
+        pokemon = "Flabebe" as SpeciesName;
+    }
     const data = allSpecies.get(pokemon)!;
     if (!data) {
         console.log(pokemon, allSpecies)
@@ -395,6 +398,9 @@ function AbilitySearchResult({ability, handleAddFilter, translationKey}: {abilit
 
 function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {move: MoveName, allMoves: Map<MoveName,MoveData>, handleAddFilter: (f: SearchOption) => void,translationKey: any}) {
     const data = allMoves.get(move)!;
+    if (!data) {
+        console.log(move, allMoves)
+    }
     return (
         <ButtonRow onClick={() => handleAddFilter({name: data.name, type: "Moves"})}>
             <CompactLeftCell></CompactLeftCell>
@@ -415,9 +421,7 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
             </CompactTableCell>
             <CompactTableCell>
                 <Typography fontSize={10} m={.5}>
-                    {/* TODO fix assets data */}
-                    {/* @ts-ignore */}
-                    {getTranslation(data.moveCateogry!, translationKey)}
+                    {getTranslation(data.moveCategory!, translationKey)}
                 </Typography>
             </CompactTableCell>
             <CompactTableCell>
@@ -648,16 +652,13 @@ function PokemonLookup({setPokemon, allSpecies, allMoves, setAllSpecies, setAllM
                     if (species) {
                         newAllSpecies = new Map<SpeciesName,PokemonData>();
                         for (let [specie, data] of Object.entries(species)) {
-                            newAllSpecies.set(specie as SpeciesName, data as PokemonData);
-                        }
-                        // manual fixes
-                        const arceusData = newAllSpecies.get("Arceus" as SpeciesName)!;
-                        for (let type of genTypes) {
-                            if (type === "???" || type === "Stellar") {
-                                continue;
+                            if (specie.includes("Flab")) {
+                                const flab_species = "Flabebe";
+                                const flab_data = {...data as PokemonData, name: "Flabébé" as SpeciesName};
+                                newAllSpecies.set(flab_species as SpeciesName, flab_data as PokemonData);
+                            } else {
+                                newAllSpecies.set(specie as SpeciesName, data as PokemonData);
                             }
-
-                            newAllSpecies.set("Arceus-" + type as SpeciesName, {...arceusData, types: [type]});
                         }
                     }
                 }

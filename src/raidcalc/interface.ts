@@ -67,6 +67,7 @@ export type AilmentName =   "confusion" |               // many of these are not
 
 export type MoveData = {
     name:           MoveName
+    moveCategory?: "Physical" | "Special" | "Status",
     category?:      MoveCategory,
     target?:        MoveTarget,
     type?:          TypeName,

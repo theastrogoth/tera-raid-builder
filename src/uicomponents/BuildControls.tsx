@@ -21,6 +21,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Popper from "@mui/material/Popper";
 import Switch from "@mui/material/Switch";
 import Menu from "@mui/material/Menu";
+import { MenuItem } from "@mui/material";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
@@ -41,7 +42,7 @@ import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTyp
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
 import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
-import { MenuItem } from "@mui/material";
+
 import PokemonLookup from "./PokemonLookup";
 
 type SetOption = {
@@ -66,7 +67,7 @@ const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).sort();
 const genItems = ["(No Item)", ...[...gen.items].map(item => item.name).sort()];
 const genNatures = [...gen.natures].sort();
-// const genSpecies = [...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n)).sort();
+const genSpecies = [...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n)).sort();
 
 function setdexStats(input: any): Partial<StatsTable> | undefined {
     if (!input) return undefined;
@@ -822,36 +823,36 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
     )
 }
 
-function PokemonSummaryRow({pokemon, setPokemon, allSpecies,  allMoves, setAllMoves, setAllSpecies, prettyMode, translationKey}: 
-    {pokemon: Raider, setPokemon: (n: string) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
-) {
-    const name = pokemon.name;
-    return (
-        <>
-        {((prettyMode && !checkSetValueIsDefault(pokemon.name)) || !prettyMode) &&
-            <TableRow>
-                <LeftCell>{ getTranslation("Pokémon", translationKey) }</LeftCell>
-                <RightCell>
-                    {prettyMode &&
-                        <GenericWithIcon name={findOptionFromPokemonName(name, translationKey)} engName={name} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} />
-                    }
-                    {!prettyMode &&
-                        <PokemonLookup 
-                            pokemon={name}
-                            setPokemon={setPokemon}
-                            allSpecies={allSpecies}
-                            allMoves={allMoves}
-                            setAllSpecies={setAllSpecies}
-                            setAllMoves={setAllMoves}
-                            translationKey={translationKey}
-                        />
-                    }
-                </RightCell>
-            </TableRow>
-        }
-        </>
-    )
-}
+// function PokemonSummaryRow({pokemon, setPokemon, allSpecies,  allMoves, setAllMoves, setAllSpecies, prettyMode, translationKey}: 
+//     {pokemon: Raider, setPokemon: (n: string) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
+// ) {
+//     const name = pokemon.name;
+//     return (
+//         <>
+//         {((prettyMode && !checkSetValueIsDefault(pokemon.name)) || !prettyMode) &&
+//             <TableRow>
+//                 <LeftCell>{ getTranslation("Pokémon", translationKey) }</LeftCell>
+//                 <RightCell>
+//                     {prettyMode &&
+//                         <GenericWithIcon name={findOptionFromPokemonName(name, translationKey)} engName={name} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} />
+//                     }
+//                     {!prettyMode &&
+//                         <PokemonLookup 
+//                             pokemon={name}
+//                             setPokemon={setPokemon}
+//                             allSpecies={allSpecies}
+//                             allMoves={allMoves}
+//                             setAllSpecies={setAllSpecies}
+//                             setAllMoves={setAllMoves}
+//                             translationKey={translationKey}
+//                         />
+//                     }
+//                 </RightCell>
+//             </TableRow>
+//         }
+//         </>
+//     )
+// }
 
 export const GroupHeader = styled('div')(({ theme }) => ({
     top: '-8px',
@@ -956,7 +957,7 @@ function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 1
 
 function ShinySwitch({pokemon, setShiny, translationKey}: {pokemon: Raider, setShiny: ((sh: boolean) => void), translationKey: any }) {
     return (
-        <Box>
+        <Box alignItems="center" justifyContent="center" sx={{ width: "42px" }}>
             <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
                 <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >
                     { getTranslation("Shiny", translationKey) }
@@ -1260,21 +1261,24 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     return (
         <Box justifyContent="center" alignItems="top" width="260px" sx={{ zIndex: 2 }}>
             {!prettyMode &&
-                <Stack direction="column" alignItems="center">
+                <Stack direction="column" alignItems="center" sx={{ width: "100%" }}>
                     {!isBoss &&
-                        <Stack direction="row" spacing={1.25} justifyContent="center" alignItems="center">
+                        <Stack direction="row" spacing={1.25} justifyContent="left" alignItems="center" sx={{ paddingLeft: "32px", width: "100%" }}>
                             <ShinySwitch 
                                 pokemon={pokemon}
                                 setShiny={setPokemonProperty("shiny")}
                                 translationKey={translationKey}
                             />
-                            <SetLoadField
+                            <Box flexGrow={2}/>
+                            <PokemonLookup setPokemon={handleChangeSpecies} allMoves={allMoves} allSpecies={allSpecies} setAllMoves={setAllMoves} setAllSpecies={setAllSpecies} translationKey={translationKey}/>
+                            <Box flexGrow={3}/>
+                            {/* <SetLoadField
                                 setOptions={raiderSetOptions}
                                 loadSet={loadSet}
                                 placeholder={getTranslation("Load Build", translationKey)}
                                 sx={{ width: 140 }}
                                 translationKey={translationKey}
-                            />
+                            /> */}
                         </Stack>
                     }
                     <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ maxWidth: "280px", marginTop: 1, marginBottom: isBoss ? 2 : 0 }}>
@@ -1339,7 +1343,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     <TableContainer>
                         <Table size="small" width="100%">
                             <TableBody>
-                                <PokemonSummaryRow pokemon={pokemon} setPokemon={handleChangeSpecies} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey}/>
+                                <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} modalProps={{translationKey: translationKey}} translationKey={translationKey} translationCategory="pokemon"/>
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teraTypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
                                 <AbilitySummaryRow 
                                             name="Ability"

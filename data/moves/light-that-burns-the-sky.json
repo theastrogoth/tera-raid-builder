@@ -1,6 +1,6 @@
 {
     "name": "Light That Burns the Sky",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Psychic",

@@ -1,6 +1,6 @@
 {
     "name": "Stealth Rock",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "field-effect",
     "target": "opponents-field",
     "type": "Rock",

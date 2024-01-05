@@ -1,6 +1,6 @@
 {
     "name": "Electroweb",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "all-opponents",
     "type": "Electric",

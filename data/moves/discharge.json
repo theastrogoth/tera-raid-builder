@@ -1,6 +1,6 @@
 {
     "name": "Discharge",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "all-other-pokemon",
     "type": "Electric",

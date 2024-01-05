@@ -1,6 +1,6 @@
 {
     "name": "Matcha Gotcha",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+heal",
     "target": "all-opponents",
     "type": "Grass",

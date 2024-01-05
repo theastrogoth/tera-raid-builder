@@ -1,6 +1,6 @@
 {
     "name": "Core Enforcer",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-opponents",
     "type": "Dragon",

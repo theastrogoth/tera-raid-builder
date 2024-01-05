@@ -1,6 +1,6 @@
 {
     "name": "Relic Song",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "all-opponents",
     "type": "Normal",

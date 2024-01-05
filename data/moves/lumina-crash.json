@@ -1,6 +1,6 @@
 {
     "name": "Lumina Crash",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Psychic",

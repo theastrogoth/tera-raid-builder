@@ -1,6 +1,6 @@
 {
     "name": "Baby-Doll Eyes",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "selected-pokemon",
     "type": "Fairy",

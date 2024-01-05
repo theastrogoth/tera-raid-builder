@@ -1,6 +1,6 @@
 {
     "name": "King's Shield",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Steel",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "flying"
+        "Psychic",
+        "Flying"
     ],
     "stats": {
         "hp": 110,

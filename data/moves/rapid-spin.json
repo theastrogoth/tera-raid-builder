@@ -1,6 +1,6 @@
 {
     "name": "Rapid Spin",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Normal",

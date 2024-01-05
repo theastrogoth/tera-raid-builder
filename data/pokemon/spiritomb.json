@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "ghost",
-        "dark"
+        "Ghost",
+        "Dark"
     ],
     "stats": {
         "hp": 50,

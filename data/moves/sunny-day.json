@@ -1,6 +1,6 @@
 {
     "name": "Sunny Day",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "whole-field-effect",
     "target": "entire-field",
     "type": "Fire",

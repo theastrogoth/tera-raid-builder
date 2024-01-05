@@ -1,6 +1,6 @@
 {
     "name": "Supercell Slam",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Electric",

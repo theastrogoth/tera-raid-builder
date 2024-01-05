@@ -1,6 +1,6 @@
 {
     "name": "Toxic",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Poison",

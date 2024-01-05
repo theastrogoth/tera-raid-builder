@@ -1,6 +1,6 @@
 {
     "name": "Splintered Stormshards",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Rock",

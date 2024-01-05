@@ -1,6 +1,6 @@
 {
     "name": "Hex",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ghost",

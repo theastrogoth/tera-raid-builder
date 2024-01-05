@@ -1,6 +1,6 @@
 {
     "name": "Bulldoze",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+lower",
     "target": "all-other-pokemon",
     "type": "Ground",

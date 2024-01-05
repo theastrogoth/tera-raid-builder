@@ -1,6 +1,6 @@
 {
     "name": "Bonemerang",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ground",

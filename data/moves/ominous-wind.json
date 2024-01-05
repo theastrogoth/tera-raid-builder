@@ -1,6 +1,6 @@
 {
     "name": "Ominous Wind",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Ghost",

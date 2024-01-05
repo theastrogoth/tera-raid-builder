@@ -1,6 +1,6 @@
 {
     "name": "Shadow Punch",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ghost",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "grass",
-        "dragon"
+        "Grass",
+        "Dragon"
     ],
     "stats": {
         "hp": 40,

@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "flying"
+        "Fire",
+        "Flying"
     ],
     "stats": {
         "hp": 90,

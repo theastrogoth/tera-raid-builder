@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "water",
-        "dark"
+        "Water",
+        "Dark"
     ],
     "stats": {
         "hp": 72,

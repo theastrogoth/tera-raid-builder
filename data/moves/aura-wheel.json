@@ -1,6 +1,6 @@
 {
     "name": "Aura Wheel",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Electric",

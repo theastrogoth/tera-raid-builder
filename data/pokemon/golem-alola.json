@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "rock",
-        "electric"
+        "Rock",
+        "Electric"
     ],
     "stats": {
         "hp": 80,

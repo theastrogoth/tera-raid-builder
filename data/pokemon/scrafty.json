@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "fighting"
+        "Dark",
+        "Fighting"
     ],
     "stats": {
         "hp": 65,

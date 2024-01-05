@@ -1,6 +1,6 @@
 {
     "name": "Snarl",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "all-opponents",
     "type": "Dark",

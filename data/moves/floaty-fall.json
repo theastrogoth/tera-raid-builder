@@ -1,6 +1,6 @@
 {
     "name": "Floaty Fall",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Flying",

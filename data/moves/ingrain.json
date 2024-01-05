@@ -1,6 +1,6 @@
 {
     "name": "Ingrain",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "user",
     "type": "Grass",

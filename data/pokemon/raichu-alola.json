@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "electric",
-        "psychic"
+        "Electric",
+        "Psychic"
     ],
     "stats": {
         "hp": 60,

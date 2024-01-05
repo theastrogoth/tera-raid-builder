@@ -1,6 +1,6 @@
 {
     "name": "Boomburst",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-other-pokemon",
     "type": "Normal",

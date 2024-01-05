@@ -1,6 +1,6 @@
 {
     "name": "Sinister Arrow Raid",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ghost",

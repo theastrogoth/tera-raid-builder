@@ -1,6 +1,6 @@
 {
     "name": "Bouncy Bubble",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+heal",
     "target": "selected-pokemon",
     "type": "Water",

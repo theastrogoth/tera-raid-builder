@@ -1,6 +1,6 @@
 {
     "name": "Poison Gas",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "all-opponents",
     "type": "Poison",

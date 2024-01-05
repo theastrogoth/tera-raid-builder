@@ -1,6 +1,6 @@
 {
     "name": "Acupressure",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user-or-ally",
     "type": "Normal",

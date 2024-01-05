@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "bug",
-        "water"
+        "Bug",
+        "Water"
     ],
     "stats": {
         "hp": 40,

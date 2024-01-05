@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "grass",
-        "water"
+        "Grass",
+        "Water"
     ],
     "stats": {
         "hp": 80,

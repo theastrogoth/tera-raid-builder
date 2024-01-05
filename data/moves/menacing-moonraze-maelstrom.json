@@ -1,6 +1,6 @@
 {
     "name": "Menacing Moonraze Maelstrom",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ghost",

@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "flying"
+        "Dragon",
+        "Flying"
     ],
     "stats": {
         "hp": 105,

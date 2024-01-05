@@ -1,6 +1,6 @@
 {
     "name": "Defog",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Flying",

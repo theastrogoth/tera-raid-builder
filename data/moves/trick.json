@@ -1,6 +1,6 @@
 {
     "name": "Trick",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Psychic",

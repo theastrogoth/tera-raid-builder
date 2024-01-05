@@ -1,6 +1,6 @@
 {
     "name": "Hidden Power Dark",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Dark",

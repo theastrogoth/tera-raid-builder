@@ -1,6 +1,6 @@
 {
     "name": "Heal Pulse",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "selected-pokemon",
     "type": "Psychic",

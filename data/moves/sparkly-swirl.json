@@ -1,6 +1,6 @@
 {
     "name": "Sparkly Swirl",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fairy",

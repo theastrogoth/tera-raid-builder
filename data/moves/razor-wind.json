@@ -1,6 +1,6 @@
 {
     "name": "Razor Wind",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-opponents",
     "type": "Normal",

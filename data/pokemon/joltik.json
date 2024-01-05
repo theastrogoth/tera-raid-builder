@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "electric"
+        "Bug",
+        "Electric"
     ],
     "stats": {
         "hp": 50,

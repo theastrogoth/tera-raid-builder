@@ -1,6 +1,6 @@
 {
     "name": "Diamond Storm",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+raise",
     "target": "all-opponents",
     "type": "Rock",

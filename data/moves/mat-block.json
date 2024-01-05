@@ -1,6 +1,6 @@
 {
     "name": "Mat Block",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "field-effect",
     "target": "users-field",
     "type": "Fighting",

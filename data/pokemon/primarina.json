@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "fairy"
+        "Water",
+        "Fairy"
     ],
     "stats": {
         "hp": 80,

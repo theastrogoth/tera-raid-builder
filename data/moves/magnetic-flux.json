@@ -1,6 +1,6 @@
 {
     "name": "Magnetic Flux",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "field-effect",
     "target": "users-field",
     "type": "Electric",

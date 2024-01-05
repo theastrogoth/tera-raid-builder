@@ -1,6 +1,6 @@
 {
     "name": "Raging Bull",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Normal",

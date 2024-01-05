@@ -1,6 +1,6 @@
 {
     "name": "Aqua Ring",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Water",

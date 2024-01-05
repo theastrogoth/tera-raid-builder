@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "poison"
+        "Poison"
     ],
     "stats": {
         "hp": 80,

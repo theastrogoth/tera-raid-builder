@@ -1,6 +1,6 @@
 {
     "name": "Metal Sound",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "selected-pokemon",
     "type": "Steel",

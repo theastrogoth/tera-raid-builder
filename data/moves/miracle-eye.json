@@ -1,6 +1,6 @@
 {
     "name": "Miracle Eye",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Psychic",

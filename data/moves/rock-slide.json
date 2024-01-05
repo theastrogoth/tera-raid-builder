@@ -1,6 +1,6 @@
 {
     "name": "Rock Slide",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "all-opponents",
     "type": "Rock",

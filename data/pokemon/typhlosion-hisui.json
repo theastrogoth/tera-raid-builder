@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "ghost"
+        "Fire",
+        "Ghost"
     ],
     "stats": {
         "hp": 73,

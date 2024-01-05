@@ -1,6 +1,6 @@
 {
     "name": "Razor Leaf",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "all-opponents",
     "type": "Grass",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ground",
-        "rock"
+        "Ground",
+        "Rock"
     ],
     "stats": {
         "hp": 115,

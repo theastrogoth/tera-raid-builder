@@ -1,6 +1,6 @@
 {
     "name": "Petal Blizzard",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "all-other-pokemon",
     "type": "Grass",

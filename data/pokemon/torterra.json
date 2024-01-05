@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "ground"
+        "Grass",
+        "Ground"
     ],
     "stats": {
         "hp": 95,

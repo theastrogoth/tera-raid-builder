@@ -1,6 +1,6 @@
 {
     "name": "Fire Spin",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fire",

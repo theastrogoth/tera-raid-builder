@@ -1,6 +1,6 @@
 {
     "name": "Thunder Cage",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Electric",

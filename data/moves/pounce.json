@@ -1,6 +1,6 @@
 {
     "name": "Pounce",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Bug",

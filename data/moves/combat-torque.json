@@ -1,6 +1,6 @@
 {
     "name": "Combat Torque",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Fighting",

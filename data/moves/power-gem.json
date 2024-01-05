@@ -1,6 +1,6 @@
 {
     "name": "Power Gem",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Rock",

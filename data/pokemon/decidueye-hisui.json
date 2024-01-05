@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "fighting"
+        "Grass",
+        "Fighting"
     ],
     "stats": {
         "hp": 88,

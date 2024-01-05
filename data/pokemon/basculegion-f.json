@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "ghost"
+        "Water",
+        "Ghost"
     ],
     "stats": {
         "hp": 120,

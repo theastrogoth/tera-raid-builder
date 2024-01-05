@@ -1,6 +1,6 @@
 {
     "name": "Bullet Seed",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Grass",

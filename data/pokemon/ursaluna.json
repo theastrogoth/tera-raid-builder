@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ground",
-        "normal"
+        "Ground",
+        "Normal"
     ],
     "stats": {
         "hp": 130,

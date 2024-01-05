@@ -1,6 +1,6 @@
 {
     "name": "Sweet Kiss",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Fairy",

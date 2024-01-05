@@ -1,6 +1,6 @@
 {
     "name": "Eruption",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-opponents",
     "type": "Fire",

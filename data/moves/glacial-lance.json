@@ -1,6 +1,6 @@
 {
     "name": "Glacial Lance",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "all-opponents",
     "type": "Ice",

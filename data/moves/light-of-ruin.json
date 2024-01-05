@@ -1,6 +1,6 @@
 {
     "name": "Light of Ruin",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fairy",

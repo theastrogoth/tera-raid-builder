@@ -1,6 +1,6 @@
 {
     "name": "Withdraw",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "user",
     "type": "Water",

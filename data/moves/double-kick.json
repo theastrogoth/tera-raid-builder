@@ -1,6 +1,6 @@
 {
     "name": "Double Kick",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fighting",

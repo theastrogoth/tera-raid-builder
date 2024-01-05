@@ -1,6 +1,6 @@
 {
     "name": "Twin Beam",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Psychic",

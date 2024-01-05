@@ -1,6 +1,6 @@
 {
     "name": "Roost",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "user",
     "type": "Flying",

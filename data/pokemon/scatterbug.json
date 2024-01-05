@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "bug"
+        "Bug"
     ],
     "stats": {
         "hp": 38,

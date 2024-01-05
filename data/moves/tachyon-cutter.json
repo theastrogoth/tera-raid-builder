@@ -1,6 +1,6 @@
 {
     "name": "Tachyon Cutter",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Steel",

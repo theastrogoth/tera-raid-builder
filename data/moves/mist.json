@@ -1,6 +1,6 @@
 {
     "name": "Mist",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "field-effect",
     "target": "users-field",
     "type": "Ice",

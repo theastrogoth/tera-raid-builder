@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "electric",
-        "fairy"
+        "Electric",
+        "Fairy"
     ],
     "stats": {
         "hp": 67,

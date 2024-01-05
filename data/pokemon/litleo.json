@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fire",
-        "normal"
+        "Fire",
+        "Normal"
     ],
     "stats": {
         "hp": 62,

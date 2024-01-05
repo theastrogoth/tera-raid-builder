@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ground",
-        "ghost"
+        "Ground",
+        "Ghost"
     ],
     "stats": {
         "hp": 59,

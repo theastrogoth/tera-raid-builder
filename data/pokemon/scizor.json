@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "steel"
+        "Bug",
+        "Steel"
     ],
     "stats": {
         "hp": 70,

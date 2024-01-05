@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "steel",
-        "flying"
+        "Steel",
+        "Flying"
     ],
     "stats": {
         "hp": 65,

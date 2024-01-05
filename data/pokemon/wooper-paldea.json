@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "poison",
-        "ground"
+        "Poison",
+        "Ground"
     ],
     "stats": {
         "hp": 55,

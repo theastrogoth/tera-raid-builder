@@ -1,6 +1,6 @@
 {
     "name": "10,000,000 Volt Thunderbolt",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Electric",

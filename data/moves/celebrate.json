@@ -1,6 +1,6 @@
 {
     "name": "Celebrate",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Normal",

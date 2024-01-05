@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "electric",
-        "grass"
+        "Electric",
+        "Grass"
     ],
     "stats": {
         "hp": 50,

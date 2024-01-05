@@ -1,6 +1,6 @@
 {
     "name": "Psycho Shift",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Psychic",

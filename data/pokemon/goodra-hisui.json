@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "steel",
-        "dragon"
+        "Steel",
+        "Dragon"
     ],
     "stats": {
         "hp": 80,

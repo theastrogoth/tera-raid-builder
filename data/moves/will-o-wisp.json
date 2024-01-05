@@ -1,6 +1,6 @@
 {
     "name": "Will-O-Wisp",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Fire",

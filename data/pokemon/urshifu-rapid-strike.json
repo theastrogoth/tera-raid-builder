@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "water"
+        "Fighting",
+        "Water"
     ],
     "stats": {
         "hp": 100,

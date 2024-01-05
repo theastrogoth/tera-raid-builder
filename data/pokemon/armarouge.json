@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "psychic"
+        "Fire",
+        "Psychic"
     ],
     "stats": {
         "hp": 85,

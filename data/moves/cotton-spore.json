@@ -1,6 +1,6 @@
 {
     "name": "Cotton Spore",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "all-opponents",
     "type": "Grass",

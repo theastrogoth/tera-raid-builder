@@ -1,6 +1,6 @@
 {
     "name": "Rest",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Psychic",

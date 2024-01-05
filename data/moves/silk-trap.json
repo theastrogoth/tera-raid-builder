@@ -1,6 +1,6 @@
 {
     "name": "Silk Trap",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Bug",

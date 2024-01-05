@@ -1,6 +1,6 @@
 {
     "name": "Flower Trick",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Grass",

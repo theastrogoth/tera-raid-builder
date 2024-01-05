@@ -1,6 +1,6 @@
 {
     "name": "Life Dew",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "user-and-allies",
     "type": "Water",

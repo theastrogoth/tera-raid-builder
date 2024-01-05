@@ -1,6 +1,6 @@
 {
     "name": "Telekinesis",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Psychic",

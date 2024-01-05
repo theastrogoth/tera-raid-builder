@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "psychic"
+        "Fighting",
+        "Psychic"
     ],
     "stats": {
         "hp": 30,

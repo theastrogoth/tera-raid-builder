@@ -1,6 +1,6 @@
 {
     "name": "Hidden Power Rock",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Rock",

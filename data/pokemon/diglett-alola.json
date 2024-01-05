@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ground",
-        "steel"
+        "Ground",
+        "Steel"
     ],
     "stats": {
         "hp": 10,

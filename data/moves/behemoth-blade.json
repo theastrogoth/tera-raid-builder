@@ -1,6 +1,6 @@
 {
     "name": "Behemoth Blade",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Steel",

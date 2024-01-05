@@ -1,6 +1,6 @@
 {
     "name": "Leaf Storm",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Grass",

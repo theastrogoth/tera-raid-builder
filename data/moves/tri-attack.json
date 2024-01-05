@@ -1,6 +1,6 @@
 {
     "name": "Tri Attack",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Normal",

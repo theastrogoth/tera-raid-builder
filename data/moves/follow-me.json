@@ -1,6 +1,6 @@
 {
     "name": "Follow Me",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Normal",

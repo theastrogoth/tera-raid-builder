@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "ground"
+        "Water",
+        "Ground"
     ],
     "stats": {
         "hp": 110,

@@ -1,6 +1,6 @@
 {
     "name": "Clangorous Soulblaze",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-opponents",
     "type": "Dragon",

@@ -1,6 +1,6 @@
 {
     "name": "Soft-Boiled",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "user",
     "type": "Normal",

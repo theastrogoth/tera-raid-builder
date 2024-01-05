@@ -1,6 +1,6 @@
 {
     "name": "Chilly Reception",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "entire-field",
     "type": "Ice",

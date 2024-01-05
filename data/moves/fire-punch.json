@@ -1,6 +1,6 @@
 {
     "name": "Fire Punch",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Fire",

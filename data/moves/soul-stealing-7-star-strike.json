@@ -1,6 +1,6 @@
 {
     "name": "Soul-Stealing 7-Star Strike",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ghost",

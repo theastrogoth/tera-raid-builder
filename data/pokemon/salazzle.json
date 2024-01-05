@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "poison",
-        "fire"
+        "Poison",
+        "Fire"
     ],
     "stats": {
         "hp": 68,

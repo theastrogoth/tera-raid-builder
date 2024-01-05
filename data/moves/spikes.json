@@ -1,6 +1,6 @@
 {
     "name": "Spikes",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "field-effect",
     "target": "opponents-field",
     "type": "Ground",

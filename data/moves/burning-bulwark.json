@@ -1,6 +1,6 @@
 {
     "name": "Burning Bulwark",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Fire",

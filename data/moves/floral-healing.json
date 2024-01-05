@@ -1,6 +1,6 @@
 {
     "name": "Floral Healing",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "selected-pokemon",
     "type": "Fairy",

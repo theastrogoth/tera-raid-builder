@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fairy",
-        "flying"
+        "Fairy",
+        "Flying"
     ],
     "stats": {
         "hp": 74,

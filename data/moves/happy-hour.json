@@ -1,6 +1,6 @@
 {
     "name": "Happy Hour",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "users-field",
     "type": "Normal",

@@ -1,6 +1,6 @@
 {
     "name": "Bide",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "user",
     "type": "Normal",

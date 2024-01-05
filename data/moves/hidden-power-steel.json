@@ -1,6 +1,6 @@
 {
     "name": "Hidden Power Steel",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Steel",

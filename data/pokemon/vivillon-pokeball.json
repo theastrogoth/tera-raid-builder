@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "flying"
+        "Bug",
+        "Flying"
     ],
     "stats": {
         "hp": 80,

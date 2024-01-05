@@ -1,6 +1,6 @@
 {
     "name": "Baddy Bad",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Dark",

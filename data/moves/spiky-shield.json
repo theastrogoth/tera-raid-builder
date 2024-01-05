@@ -1,6 +1,6 @@
 {
     "name": "Spiky Shield",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Grass",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "ice"
+        "Fighting",
+        "Ice"
     ],
     "stats": {
         "hp": 97,

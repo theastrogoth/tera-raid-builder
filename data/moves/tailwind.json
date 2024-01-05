@@ -1,6 +1,6 @@
 {
     "name": "Tailwind",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "field-effect",
     "target": "users-field",
     "type": "Flying",

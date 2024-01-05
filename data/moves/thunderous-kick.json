@@ -1,6 +1,6 @@
 {
     "name": "Thunderous Kick",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Fighting",

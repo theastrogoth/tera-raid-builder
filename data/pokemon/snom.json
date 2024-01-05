@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "ice",
-        "bug"
+        "Ice",
+        "Bug"
     ],
     "stats": {
         "hp": 30,

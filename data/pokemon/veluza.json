@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "psychic"
+        "Water",
+        "Psychic"
     ],
     "stats": {
         "hp": 90,

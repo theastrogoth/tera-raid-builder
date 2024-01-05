@@ -1,6 +1,6 @@
 {
     "name": "Heal Bell",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user-and-allies",
     "type": "Normal",

@@ -1,6 +1,6 @@
 {
     "name": "Me First",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Normal",

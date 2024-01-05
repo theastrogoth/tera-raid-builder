@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "bug",
-        "fire"
+        "Bug",
+        "Fire"
     ],
     "stats": {
         "hp": 55,

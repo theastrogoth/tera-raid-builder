@@ -1,6 +1,6 @@
 {
     "name": "G-Max Chi Strike",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fighting",

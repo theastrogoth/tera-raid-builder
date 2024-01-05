@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "ice"
+        "Psychic",
+        "Ice"
     ],
     "stats": {
         "hp": 100,

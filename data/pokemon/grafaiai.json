@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "poison",
-        "normal"
+        "Poison",
+        "Normal"
     ],
     "stats": {
         "hp": 63,

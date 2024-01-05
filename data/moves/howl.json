@@ -1,6 +1,6 @@
 {
     "name": "Howl",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "user-and-allies",
     "type": "Normal",

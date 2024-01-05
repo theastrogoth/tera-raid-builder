@@ -1,6 +1,6 @@
 {
     "name": "Synchronoise",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-other-pokemon",
     "type": "Psychic",

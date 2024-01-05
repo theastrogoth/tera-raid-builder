@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "grass"
+        "Bug",
+        "Grass"
     ],
     "stats": {
         "hp": 45,

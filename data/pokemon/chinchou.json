@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "electric"
+        "Water",
+        "Electric"
     ],
     "stats": {
         "hp": 75,

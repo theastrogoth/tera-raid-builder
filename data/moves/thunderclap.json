@@ -1,6 +1,6 @@
 {
     "name": "Thunderclap",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Electric",

@@ -1,6 +1,6 @@
 {
     "name": "Sing",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Normal",

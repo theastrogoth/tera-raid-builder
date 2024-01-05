@@ -1,6 +1,6 @@
 {
     "name": "Fire Pledge",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fire",

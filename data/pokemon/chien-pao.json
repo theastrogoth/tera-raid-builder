@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dark",
-        "ice"
+        "Dark",
+        "Ice"
     ],
     "stats": {
         "hp": 80,

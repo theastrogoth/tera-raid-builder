@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "flying",
-        "water"
+        "Flying",
+        "Water"
     ],
     "stats": {
         "hp": 70,

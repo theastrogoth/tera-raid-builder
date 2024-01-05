@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "poison",
-        "dragon"
+        "Poison",
+        "Dragon"
     ],
     "stats": {
         "hp": 140,

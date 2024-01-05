@@ -1,6 +1,6 @@
 {
     "name": "Breaking Swipe",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+lower",
     "target": "all-opponents",
     "type": "Dragon",

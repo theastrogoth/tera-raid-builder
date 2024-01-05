@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "rock",
-        "poison"
+        "Rock",
+        "Poison"
     ],
     "stats": {
         "hp": 83,

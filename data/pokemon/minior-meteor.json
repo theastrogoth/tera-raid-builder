@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "rock",
-        "flying"
+        "Rock",
+        "Flying"
     ],
     "stats": {
         "hp": 60,

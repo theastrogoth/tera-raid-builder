@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "steel",
-        "ghost"
+        "Steel",
+        "Ghost"
     ],
     "stats": {
         "hp": 87,

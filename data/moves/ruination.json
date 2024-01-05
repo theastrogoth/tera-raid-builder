@@ -1,6 +1,6 @@
 {
     "name": "Ruination",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Dark",

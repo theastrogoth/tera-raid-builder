@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "ground",
-        "dragon"
+        "Ground",
+        "Dragon"
     ],
     "stats": {
         "hp": 50,

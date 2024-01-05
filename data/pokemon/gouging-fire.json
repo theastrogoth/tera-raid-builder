@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fire",
-        "dragon"
+        "Fire",
+        "Dragon"
     ],
     "stats": {
         "hp": 105,

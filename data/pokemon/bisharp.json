@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "steel"
+        "Dark",
+        "Steel"
     ],
     "stats": {
         "hp": 65,

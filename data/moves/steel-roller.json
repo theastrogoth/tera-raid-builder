@@ -1,6 +1,6 @@
 {
     "name": "Steel Roller",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Steel",

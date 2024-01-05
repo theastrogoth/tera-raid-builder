@@ -1,6 +1,6 @@
 {
     "name": "Max Flutterby",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Bug",

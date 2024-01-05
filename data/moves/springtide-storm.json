@@ -1,6 +1,6 @@
 {
     "name": "Springtide Storm",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "all-opponents",
     "type": "Fairy",

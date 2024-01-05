@@ -1,6 +1,6 @@
 {
     "name": "Dragon Cheer",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "all-allies",
     "type": "Dragon",

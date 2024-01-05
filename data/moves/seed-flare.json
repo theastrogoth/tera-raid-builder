@@ -1,6 +1,6 @@
 {
     "name": "Seed Flare",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Grass",

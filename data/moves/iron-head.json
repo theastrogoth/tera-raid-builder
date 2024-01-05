@@ -1,6 +1,6 @@
 {
     "name": "Iron Head",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Steel",

@@ -1,6 +1,6 @@
 {
     "name": "Shock Wave",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Electric",

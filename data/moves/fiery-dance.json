@@ -1,6 +1,6 @@
 {
     "name": "Fiery Dance",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Fire",

@@ -1,6 +1,6 @@
 {
     "name": "Aromatherapy",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user-and-allies",
     "type": "Grass",

@@ -1,6 +1,6 @@
 {
     "name": "Moonlight",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "user",
     "type": "Fairy",

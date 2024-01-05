@@ -1,6 +1,6 @@
 {
     "name": "Oblivion Wing",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+heal",
     "target": "selected-pokemon",
     "type": "Flying",

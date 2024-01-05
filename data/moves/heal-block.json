@@ -1,6 +1,6 @@
 {
     "name": "Heal Block",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "all-opponents",
     "type": "Psychic",

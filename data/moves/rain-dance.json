@@ -1,6 +1,6 @@
 {
     "name": "Rain Dance",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "whole-field-effect",
     "target": "entire-field",
     "type": "Water",

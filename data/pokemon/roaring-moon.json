@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "dark"
+        "Dragon",
+        "Dark"
     ],
     "stats": {
         "hp": 105,

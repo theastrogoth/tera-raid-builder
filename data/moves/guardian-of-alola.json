@@ -1,6 +1,6 @@
 {
     "name": "Guardian of Alola",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fairy",

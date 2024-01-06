@@ -1,6 +1,6 @@
 {
     "name": "Collision Course",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fighting",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "poison"
+        "Dark",
+        "Poison"
     ],
     "stats": {
         "hp": 85,

@@ -1,6 +1,6 @@
 {
     "name": "Thousand Waves",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "all-opponents",
     "type": "Ground",

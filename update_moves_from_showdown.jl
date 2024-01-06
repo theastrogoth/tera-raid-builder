@@ -61,7 +61,7 @@ const VOLATILE_STATUS_TRANSLATIONS = Dict(
 
 struct MoveData
     name::String
-    moveCateogry::String
+    moveCategory::String
     category::String
     target::String
     type::String

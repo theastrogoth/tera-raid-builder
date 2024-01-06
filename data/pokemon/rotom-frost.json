@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "electric",
-        "ice"
+        "Electric",
+        "Ice"
     ],
     "stats": {
         "hp": 50,

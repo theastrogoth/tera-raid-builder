@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "ghost"
+        "Fighting",
+        "Ghost"
     ],
     "stats": {
         "hp": 110,

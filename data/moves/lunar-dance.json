@@ -1,6 +1,6 @@
 {
     "name": "Lunar Dance",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Psychic",

@@ -1,6 +1,6 @@
 {
     "name": "Ceaseless Edge",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Dark",

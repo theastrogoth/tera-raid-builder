@@ -1,6 +1,6 @@
 {
     "name": "Draco Meteor",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Dragon",

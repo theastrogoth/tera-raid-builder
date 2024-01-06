@@ -1,6 +1,6 @@
 {
     "name": "Teeter Dance",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "all-other-pokemon",
     "type": "Normal",

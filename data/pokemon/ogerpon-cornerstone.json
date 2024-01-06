@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "grass",
-        "rock"
+        "Grass",
+        "Rock"
     ],
     "stats": {
         "hp": 80,

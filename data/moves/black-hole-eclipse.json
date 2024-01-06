@@ -1,6 +1,6 @@
 {
     "name": "Black Hole Eclipse",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Dark",

@@ -1,6 +1,6 @@
 {
     "name": "Tar Shot",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "swagger",
     "target": "selected-pokemon",
     "type": "Rock",

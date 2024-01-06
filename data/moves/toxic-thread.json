@@ -1,6 +1,6 @@
 {
     "name": "Toxic Thread",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "swagger",
     "target": "selected-pokemon",
     "type": "Poison",

@@ -1,6 +1,6 @@
 {
     "name": "Baneful Bunker",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Poison",

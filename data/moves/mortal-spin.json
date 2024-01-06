@@ -1,6 +1,6 @@
 {
     "name": "Mortal Spin",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "unique",
     "target": "all-opponents",
     "type": "Poison",

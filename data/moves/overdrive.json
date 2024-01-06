@@ -1,6 +1,6 @@
 {
     "name": "Overdrive",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-opponents",
     "type": "Electric",

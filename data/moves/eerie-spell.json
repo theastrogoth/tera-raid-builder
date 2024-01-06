@@ -1,6 +1,6 @@
 {
     "name": "Eerie Spell",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Psychic",

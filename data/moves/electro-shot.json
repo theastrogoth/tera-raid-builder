@@ -1,6 +1,6 @@
 {
     "name": "Electro Shot",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Electric",

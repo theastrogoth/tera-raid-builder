@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "rock",
-        "fairy"
+        "Rock",
+        "Fairy"
     ],
     "stats": {
         "hp": 50,

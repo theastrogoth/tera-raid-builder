@@ -1,6 +1,6 @@
 {
     "name": "Water Pledge",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Water",

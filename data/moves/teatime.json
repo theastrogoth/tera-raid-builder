@@ -1,6 +1,6 @@
 {
     "name": "Teatime",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "entire-field",
     "type": "Normal",

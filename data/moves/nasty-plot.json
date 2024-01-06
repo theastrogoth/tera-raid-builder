@@ -1,6 +1,6 @@
 {
     "name": "Nasty Plot",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "user",
     "type": "Dark",

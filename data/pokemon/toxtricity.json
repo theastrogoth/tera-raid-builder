@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "electric",
-        "poison"
+        "Electric",
+        "Poison"
     ],
     "stats": {
         "hp": 75,

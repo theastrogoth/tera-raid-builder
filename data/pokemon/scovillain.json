@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "grass",
-        "fire"
+        "Grass",
+        "Fire"
     ],
     "stats": {
         "hp": 65,

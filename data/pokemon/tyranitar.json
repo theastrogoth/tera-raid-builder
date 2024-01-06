@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "rock",
-        "dark"
+        "Rock",
+        "Dark"
     ],
     "stats": {
         "hp": 100,

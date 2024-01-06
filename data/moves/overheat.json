@@ -1,6 +1,6 @@
 {
     "name": "Overheat",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Fire",

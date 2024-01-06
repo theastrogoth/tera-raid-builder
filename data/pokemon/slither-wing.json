@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "bug",
-        "fighting"
+        "Bug",
+        "Fighting"
     ],
     "stats": {
         "hp": 85,

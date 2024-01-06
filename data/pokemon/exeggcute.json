@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "psychic"
+        "Grass",
+        "Psychic"
     ],
     "stats": {
         "hp": 60,

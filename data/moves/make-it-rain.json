@@ -1,6 +1,6 @@
 {
     "name": "Make It Rain",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+raise",
     "target": "all-opponents",
     "type": "Steel",

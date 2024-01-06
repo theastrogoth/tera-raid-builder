@@ -1,6 +1,6 @@
 {
     "name": "G-Max Sweetness",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Grass",

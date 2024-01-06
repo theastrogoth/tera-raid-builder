@@ -1,6 +1,6 @@
 {
     "name": "Magnitude",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "all-other-pokemon",
     "type": "Ground",

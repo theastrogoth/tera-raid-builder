@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "dragon"
+        "Fighting",
+        "Dragon"
     ],
     "stats": {
         "hp": 100,

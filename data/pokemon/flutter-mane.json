@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "ghost",
-        "fairy"
+        "Ghost",
+        "Fairy"
     ],
     "stats": {
         "hp": 55,

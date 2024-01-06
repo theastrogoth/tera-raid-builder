@@ -1,6 +1,6 @@
 {
     "name": "Barb Barrage",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Poison",

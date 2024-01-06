@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "ice"
+        "Water",
+        "Ice"
     ],
     "stats": {
         "hp": 90,

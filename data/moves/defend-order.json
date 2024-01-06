@@ -1,6 +1,6 @@
 {
     "name": "Defend Order",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "user",
     "type": "Bug",

@@ -1,6 +1,6 @@
 {
     "name": "Misty Explosion",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-other-pokemon",
     "type": "Fairy",

@@ -1,6 +1,6 @@
 {
     "name": "Self-Destruct",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "all-other-pokemon",
     "type": "Normal",

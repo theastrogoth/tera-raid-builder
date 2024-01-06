@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "fairy"
+        "Bug",
+        "Fairy"
     ],
     "stats": {
         "hp": 40,

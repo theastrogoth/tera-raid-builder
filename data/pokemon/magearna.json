@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "steel",
-        "fairy"
+        "Steel",
+        "Fairy"
     ],
     "stats": {
         "hp": 80,

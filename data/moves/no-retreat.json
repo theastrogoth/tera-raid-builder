@@ -1,6 +1,6 @@
 {
     "name": "No Retreat",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "user",
     "type": "Fighting",

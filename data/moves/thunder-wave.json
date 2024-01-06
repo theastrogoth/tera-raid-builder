@@ -1,6 +1,6 @@
 {
     "name": "Thunder Wave",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Electric",

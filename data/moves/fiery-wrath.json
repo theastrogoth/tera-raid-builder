@@ -1,6 +1,6 @@
 {
     "name": "Fiery Wrath",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "all-opponents",
     "type": "Dark",

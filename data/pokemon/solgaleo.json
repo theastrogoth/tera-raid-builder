@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "steel"
+        "Psychic",
+        "Steel"
     ],
     "stats": {
         "hp": 137,

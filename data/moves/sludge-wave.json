@@ -1,6 +1,6 @@
 {
     "name": "Sludge Wave",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "all-other-pokemon",
     "type": "Poison",

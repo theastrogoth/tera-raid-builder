@@ -1,6 +1,6 @@
 {
     "name": "Play Rough",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Fairy",

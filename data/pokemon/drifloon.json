@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ghost",
-        "flying"
+        "Ghost",
+        "Flying"
     ],
     "stats": {
         "hp": 90,

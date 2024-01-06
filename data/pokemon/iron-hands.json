@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "electric"
+        "Fighting",
+        "Electric"
     ],
     "stats": {
         "hp": 154,

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "fire"
+        "Dark",
+        "Fire"
     ],
     "stats": {
         "hp": 75,

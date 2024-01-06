@@ -1,6 +1,6 @@
 {
     "name": "Dragon Dance",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "user",
     "type": "Dragon",

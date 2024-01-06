@@ -1,6 +1,6 @@
 {
     "name": "Feather Dance",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "selected-pokemon",
     "type": "Flying",

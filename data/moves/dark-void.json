@@ -1,6 +1,6 @@
 {
     "name": "Dark Void",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "all-opponents",
     "type": "Dark",

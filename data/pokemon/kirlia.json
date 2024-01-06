@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "fairy"
+        "Psychic",
+        "Fairy"
     ],
     "stats": {
         "hp": 38,

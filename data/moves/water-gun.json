@@ -1,6 +1,6 @@
 {
     "name": "Water Gun",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Water",

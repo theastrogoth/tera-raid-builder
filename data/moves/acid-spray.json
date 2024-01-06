@@ -1,6 +1,6 @@
 {
     "name": "Acid Spray",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Poison",

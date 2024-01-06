@@ -1,6 +1,6 @@
 {
     "name": "Foresight",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Normal",

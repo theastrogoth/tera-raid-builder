@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "ghost"
+        "Grass",
+        "Ghost"
     ],
     "stats": {
         "hp": 71,

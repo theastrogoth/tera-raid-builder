@@ -1,6 +1,6 @@
 {
     "name": "Future Sight",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Psychic",

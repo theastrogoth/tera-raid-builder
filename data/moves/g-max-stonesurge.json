@@ -1,6 +1,6 @@
 {
     "name": "G-Max Stonesurge",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Water",

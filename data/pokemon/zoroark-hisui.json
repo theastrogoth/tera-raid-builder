@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "normal",
-        "ghost"
+        "Normal",
+        "Ghost"
     ],
     "stats": {
         "hp": 55,

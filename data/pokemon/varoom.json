@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "steel",
-        "poison"
+        "Steel",
+        "Poison"
     ],
     "stats": {
         "hp": 45,

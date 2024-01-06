@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fire",
-        "rock"
+        "Fire",
+        "Rock"
     ],
     "stats": {
         "hp": 95,

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "poison",
-        "fighting"
+        "Poison",
+        "Fighting"
     ],
     "stats": {
         "hp": 83,

@@ -1,6 +1,6 @@
 {
     "name": "Magnet Bomb",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Steel",

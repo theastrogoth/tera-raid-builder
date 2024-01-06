@@ -1,6 +1,6 @@
 {
     "name": "Zing Zap",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Electric",

@@ -1,6 +1,6 @@
 {
     "name": "Savage Spin-Out",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Bug",

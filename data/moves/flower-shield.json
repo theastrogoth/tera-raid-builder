@@ -1,6 +1,6 @@
 {
     "name": "Flower Shield",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "entire-field",
     "type": "Fairy",

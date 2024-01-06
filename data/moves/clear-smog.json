@@ -1,6 +1,6 @@
 {
     "name": "Clear Smog",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Poison",

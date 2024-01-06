@@ -1,6 +1,6 @@
 {
     "name": "Volt Tackle",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Electric",

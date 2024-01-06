@@ -1,6 +1,6 @@
 {
     "name": "Detect",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Fighting",

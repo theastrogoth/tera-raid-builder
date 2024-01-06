@@ -1,6 +1,6 @@
 {
     "name": "Leech Life",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+heal",
     "target": "selected-pokemon",
     "type": "Bug",

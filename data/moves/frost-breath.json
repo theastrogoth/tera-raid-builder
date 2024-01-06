@@ -1,6 +1,6 @@
 {
     "name": "Frost Breath",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ice",

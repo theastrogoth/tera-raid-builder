@@ -1,6 +1,6 @@
 {
     "name": "Mega Drain",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+heal",
     "target": "selected-pokemon",
     "type": "Grass",

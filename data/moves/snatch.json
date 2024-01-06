@@ -1,6 +1,6 @@
 {
     "name": "Snatch",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Dark",

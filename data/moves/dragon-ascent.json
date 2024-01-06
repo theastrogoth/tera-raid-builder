@@ -1,6 +1,6 @@
 {
     "name": "Dragon Ascent",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Flying",

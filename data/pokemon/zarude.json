@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dark",
-        "grass"
+        "Dark",
+        "Grass"
     ],
     "stats": {
         "hp": 105,

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "poison",
-        "water"
+        "Poison",
+        "Water"
     ],
     "stats": {
         "hp": 50,

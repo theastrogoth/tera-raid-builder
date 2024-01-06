@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "poison",
-        "fairy"
+        "Poison",
+        "Fairy"
     ],
     "stats": {
         "hp": 88,

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "electric",
-        "steel"
+        "Electric",
+        "Steel"
     ],
     "stats": {
         "hp": 25,

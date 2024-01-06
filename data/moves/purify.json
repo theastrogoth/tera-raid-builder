@@ -1,6 +1,6 @@
 {
     "name": "Purify",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Poison",

@@ -1,6 +1,6 @@
 {
     "name": "Dark Pulse",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Dark",

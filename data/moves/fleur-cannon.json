@@ -1,6 +1,6 @@
 {
     "name": "Fleur Cannon",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Fairy",

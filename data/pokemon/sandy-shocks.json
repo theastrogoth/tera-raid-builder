@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "electric",
-        "ground"
+        "Electric",
+        "Ground"
     ],
     "stats": {
         "hp": 85,

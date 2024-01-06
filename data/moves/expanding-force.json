@@ -1,6 +1,6 @@
 {
     "name": "Expanding Force",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Psychic",

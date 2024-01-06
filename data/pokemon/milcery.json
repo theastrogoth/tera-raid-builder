@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "fairy"
+        "Fairy"
     ],
     "stats": {
         "hp": 45,

@@ -1,6 +1,6 @@
 {
     "name": "Sheer Cold",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ice",

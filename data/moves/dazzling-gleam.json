@@ -1,6 +1,6 @@
 {
     "name": "Dazzling Gleam",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-opponents",
     "type": "Fairy",

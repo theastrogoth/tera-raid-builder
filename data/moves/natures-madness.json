@@ -1,6 +1,6 @@
 {
     "name": "Nature's Madness",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fairy",

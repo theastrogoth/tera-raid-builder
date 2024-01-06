@@ -1,6 +1,6 @@
 {
     "name": "Focus Blast",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Fighting",

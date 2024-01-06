@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "steel"
+        "Fire",
+        "Steel"
     ],
     "stats": {
         "hp": 91,

@@ -1,6 +1,6 @@
 {
     "name": "Wonder Room",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "whole-field-effect",
     "target": "entire-field",
     "type": "Psychic",

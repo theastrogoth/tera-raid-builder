@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "poison",
-        "psychic"
+        "Poison",
+        "Psychic"
     ],
     "stats": {
         "hp": 88,

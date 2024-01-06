@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "rock",
-        "steel"
+        "Rock",
+        "Steel"
     ],
     "stats": {
         "hp": 30,

@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dark",
-        "ground"
+        "Dark",
+        "Ground"
     ],
     "stats": {
         "hp": 155,

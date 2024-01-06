@@ -1,6 +1,6 @@
 {
     "name": "Snipe Shot",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Water",

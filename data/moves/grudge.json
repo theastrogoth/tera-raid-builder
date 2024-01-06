@@ -1,6 +1,6 @@
 {
     "name": "Grudge",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user",
     "type": "Ghost",

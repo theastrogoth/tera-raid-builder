@@ -1,6 +1,6 @@
 {
     "name": "Astral Barrage",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-opponents",
     "type": "Ghost",

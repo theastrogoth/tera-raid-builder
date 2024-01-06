@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "ice"
+        "Grass",
+        "Ice"
     ],
     "stats": {
         "hp": 60,

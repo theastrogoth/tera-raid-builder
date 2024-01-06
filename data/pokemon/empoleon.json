@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "steel"
+        "Water",
+        "Steel"
     ],
     "stats": {
         "hp": 84,

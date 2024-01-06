@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "fairy"
+        "Dark",
+        "Fairy"
     ],
     "stats": {
         "hp": 95,

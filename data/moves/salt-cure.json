@@ -1,6 +1,6 @@
 {
     "name": "Salt Cure",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "unique",
     "target": "selected-pokemon",
     "type": "Rock",

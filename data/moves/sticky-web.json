@@ -1,6 +1,6 @@
 {
     "name": "Sticky Web",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "field-effect",
     "target": "opponents-field",
     "type": "Bug",

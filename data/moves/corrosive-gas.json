@@ -1,6 +1,6 @@
 {
     "name": "Corrosive Gas",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "all-other-pokemon",
     "type": "Poison",

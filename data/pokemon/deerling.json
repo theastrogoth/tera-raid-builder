@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "normal",
-        "grass"
+        "Normal",
+        "Grass"
     ],
     "stats": {
         "hp": 60,

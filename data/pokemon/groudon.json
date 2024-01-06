@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "ground"
+        "Ground"
     ],
     "stats": {
         "hp": 100,

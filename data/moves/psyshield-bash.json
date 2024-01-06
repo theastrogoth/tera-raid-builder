@@ -1,6 +1,6 @@
 {
     "name": "Psyshield Bash",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Psychic",

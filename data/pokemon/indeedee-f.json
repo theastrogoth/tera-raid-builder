@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "normal"
+        "Psychic",
+        "Normal"
     ],
     "stats": {
         "hp": 70,

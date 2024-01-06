@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "fighting"
+        "Fire",
+        "Fighting"
     ],
     "stats": {
         "hp": 64,

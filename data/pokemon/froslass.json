@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "ice",
-        "ghost"
+        "Ice",
+        "Ghost"
     ],
     "stats": {
         "hp": 70,

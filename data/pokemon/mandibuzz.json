@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "flying"
+        "Dark",
+        "Flying"
     ],
     "stats": {
         "hp": 110,

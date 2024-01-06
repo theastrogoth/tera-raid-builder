@@ -1,6 +1,6 @@
 {
     "name": "Grass Whistle",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Grass",

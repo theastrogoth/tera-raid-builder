@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "electric",
-        "fire"
+        "Electric",
+        "Fire"
     ],
     "stats": {
         "hp": 50,

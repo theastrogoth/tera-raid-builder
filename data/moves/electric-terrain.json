@@ -1,6 +1,6 @@
 {
     "name": "Electric Terrain",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "whole-field-effect",
     "target": "entire-field",
     "type": "Electric",

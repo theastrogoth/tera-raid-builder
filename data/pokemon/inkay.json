@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "psychic"
+        "Dark",
+        "Psychic"
     ],
     "stats": {
         "hp": 53,

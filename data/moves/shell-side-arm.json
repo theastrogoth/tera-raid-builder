@@ -1,6 +1,6 @@
 {
     "name": "Shell Side Arm",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Poison",

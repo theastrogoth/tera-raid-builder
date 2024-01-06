@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "electric",
-        "flying"
+        "Electric",
+        "Flying"
     ],
     "stats": {
         "hp": 79,

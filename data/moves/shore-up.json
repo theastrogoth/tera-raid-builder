@@ -1,6 +1,6 @@
 {
     "name": "Shore Up",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "user",
     "type": "Ground",

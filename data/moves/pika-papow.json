@@ -1,6 +1,6 @@
 {
     "name": "Pika Papow",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Electric",

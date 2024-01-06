@@ -1,6 +1,6 @@
 {
     "name": "Hold Hands",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "ally",
     "type": "Normal",

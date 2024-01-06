@@ -1,6 +1,6 @@
 {
     "name": "Luster Purge",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Psychic",

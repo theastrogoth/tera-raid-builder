@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ice",
-        "ground"
+        "Ice",
+        "Ground"
     ],
     "stats": {
         "hp": 110,

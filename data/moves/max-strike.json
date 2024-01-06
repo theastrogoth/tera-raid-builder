@@ -1,6 +1,6 @@
 {
     "name": "Max Strike",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Normal",

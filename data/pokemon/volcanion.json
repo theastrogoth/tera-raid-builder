@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fire",
-        "water"
+        "Fire",
+        "Water"
     ],
     "stats": {
         "hp": 80,

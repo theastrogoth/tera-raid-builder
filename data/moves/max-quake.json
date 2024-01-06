@@ -1,6 +1,6 @@
 {
     "name": "Max Quake",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ground",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ice",
-        "flying"
+        "Ice",
+        "Flying"
     ],
     "stats": {
         "hp": 45,

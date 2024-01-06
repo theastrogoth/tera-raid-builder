@@ -1,6 +1,6 @@
 {
     "name": "Parting Shot",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "selected-pokemon",
     "type": "Dark",

@@ -1,6 +1,6 @@
 {
     "name": "Hidden Power Ghost",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Ghost",

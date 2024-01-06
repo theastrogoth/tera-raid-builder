@@ -1,6 +1,6 @@
 {
     "name": "Tail Whip",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "all-opponents",
     "type": "Normal",

@@ -1,6 +1,6 @@
 {
     "name": "Roar of Time",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Dragon",

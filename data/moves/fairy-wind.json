@@ -1,6 +1,6 @@
 {
     "name": "Fairy Wind",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fairy",

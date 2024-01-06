@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "ice",
-        "steel"
+        "Ice",
+        "Steel"
     ],
     "stats": {
         "hp": 50,

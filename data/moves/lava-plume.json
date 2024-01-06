@@ -1,6 +1,6 @@
 {
     "name": "Lava Plume",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "all-other-pokemon",
     "type": "Fire",

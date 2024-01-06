@@ -1,6 +1,6 @@
 {
     "name": "Recover",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "user",
     "type": "Normal",

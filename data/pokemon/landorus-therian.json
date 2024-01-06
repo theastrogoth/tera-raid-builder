@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "ground",
-        "flying"
+        "Ground",
+        "Flying"
     ],
     "stats": {
         "hp": 89,

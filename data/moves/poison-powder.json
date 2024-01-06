@@ -1,6 +1,6 @@
 {
     "name": "Poison Powder",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "ailment",
     "target": "selected-pokemon",
     "type": "Poison",

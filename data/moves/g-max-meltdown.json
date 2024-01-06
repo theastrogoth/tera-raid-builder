@@ -1,6 +1,6 @@
 {
     "name": "G-Max Meltdown",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Steel",

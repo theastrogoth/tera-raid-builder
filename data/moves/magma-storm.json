@@ -1,6 +1,6 @@
 {
     "name": "Magma Storm",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fire",

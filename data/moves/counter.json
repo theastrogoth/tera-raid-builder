@@ -1,6 +1,6 @@
 {
     "name": "Counter",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "specific-move",
     "type": "Fighting",

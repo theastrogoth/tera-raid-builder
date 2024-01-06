@@ -1,6 +1,6 @@
 {
     "name": "Esper Wing",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Psychic",

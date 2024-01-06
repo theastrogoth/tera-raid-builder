@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "poison",
-        "ghost"
+        "Poison",
+        "Ghost"
     ],
     "stats": {
         "hp": 88,

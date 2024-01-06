@@ -1,6 +1,6 @@
 {
     "name": "Whirlwind",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "force-switch",
     "target": "selected-pokemon",
     "type": "Normal",

@@ -1,6 +1,6 @@
 {
     "name": "Flatter",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "swagger",
     "target": "selected-pokemon",
     "type": "Dark",

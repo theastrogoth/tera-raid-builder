@@ -1,6 +1,6 @@
 {
     "name": "Mind Blown",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "all-other-pokemon",
     "type": "Fire",

@@ -1,6 +1,6 @@
 {
     "name": "Aromatic Mist",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "ally",
     "type": "Fairy",

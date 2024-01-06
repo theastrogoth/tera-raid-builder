@@ -1,6 +1,6 @@
 {
     "name": "Lunar Blessing",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "unique",
     "target": "user-and-allies",
     "type": "Psychic",

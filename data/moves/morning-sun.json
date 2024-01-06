@@ -1,6 +1,6 @@
 {
     "name": "Morning Sun",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "heal",
     "target": "user",
     "type": "Normal",

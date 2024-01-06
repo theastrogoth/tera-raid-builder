@@ -1,6 +1,6 @@
 {
     "name": "Dragon Breath",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Dragon",

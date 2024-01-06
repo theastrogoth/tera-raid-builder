@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "flying",
-        "fighting"
+        "Flying",
+        "Fighting"
     ],
     "stats": {
         "hp": 82,

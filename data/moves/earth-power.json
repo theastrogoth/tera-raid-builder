@@ -1,6 +1,6 @@
 {
     "name": "Earth Power",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Ground",

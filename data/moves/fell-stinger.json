@@ -1,6 +1,6 @@
 {
     "name": "Fell Stinger",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Bug",

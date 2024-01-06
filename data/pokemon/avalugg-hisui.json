@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ice",
-        "rock"
+        "Ice",
+        "Rock"
     ],
     "stats": {
         "hp": 95,

@@ -1,6 +1,6 @@
 {
     "name": "Petal Dance",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Grass",

@@ -1,6 +1,6 @@
 {
     "name": "Feint Attack",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Dark",

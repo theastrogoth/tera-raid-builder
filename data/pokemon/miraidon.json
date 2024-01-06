@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "electric",
-        "dragon"
+        "Electric",
+        "Dragon"
     ],
     "stats": {
         "hp": 100,

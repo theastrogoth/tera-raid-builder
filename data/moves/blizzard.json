@@ -1,6 +1,6 @@
 {
     "name": "Blizzard",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+ailment",
     "target": "all-opponents",
     "type": "Ice",

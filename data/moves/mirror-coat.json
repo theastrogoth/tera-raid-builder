@@ -1,6 +1,6 @@
 {
     "name": "Mirror Coat",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "specific-move",
     "type": "Psychic",

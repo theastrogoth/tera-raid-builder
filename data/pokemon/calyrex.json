@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "grass"
+        "Psychic",
+        "Grass"
     ],
     "stats": {
         "hp": 100,

@@ -1,6 +1,6 @@
 {
     "name": "Vacuum Wave",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fighting",

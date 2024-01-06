@@ -1,6 +1,6 @@
 {
     "name": "Parabolic Charge",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+heal",
     "target": "all-other-pokemon",
     "type": "Electric",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fire",
-        "ground"
+        "Fire",
+        "Ground"
     ],
     "stats": {
         "hp": 60,

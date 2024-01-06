@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "dragon"
+        "Water",
+        "Dragon"
     ],
     "stats": {
         "hp": 90,

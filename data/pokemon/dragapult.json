@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "ghost"
+        "Dragon",
+        "Ghost"
     ],
     "stats": {
         "hp": 88,

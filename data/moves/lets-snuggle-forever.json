@@ -1,6 +1,6 @@
 {
     "name": "Let's Snuggle Forever",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Fairy",

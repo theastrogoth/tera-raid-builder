@@ -1,6 +1,6 @@
 {
     "name": "Psychic",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Psychic",

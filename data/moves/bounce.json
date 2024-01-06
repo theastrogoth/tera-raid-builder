@@ -1,6 +1,6 @@
 {
     "name": "Bounce",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Flying",

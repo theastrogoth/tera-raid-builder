@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "grass",
-        "fairy"
+        "Grass",
+        "Fairy"
     ],
     "stats": {
         "hp": 40,

@@ -1,6 +1,6 @@
 {
     "name": "Charge",
-    "moveCateogry": "Status",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "user",
     "type": "Electric",

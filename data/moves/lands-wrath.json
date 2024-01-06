@@ -1,6 +1,6 @@
 {
     "name": "Land's Wrath",
-    "moveCateogry": "Physical",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "all-opponents",
     "type": "Ground",

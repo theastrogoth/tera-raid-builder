@@ -1,6 +1,6 @@
 {
     "name": "Chilling Water",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage+lower",
     "target": "selected-pokemon",
     "type": "Water",

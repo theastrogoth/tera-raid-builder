@@ -1,6 +1,6 @@
 {
     "name": "Dragon Pulse",
-    "moveCateogry": "Special",
+    "moveCategory": "Special",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Dragon",

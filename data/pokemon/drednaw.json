@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "rock"
+        "Water",
+        "Rock"
     ],
     "stats": {
         "hp": 90,

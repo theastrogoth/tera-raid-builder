@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "ice"
+        "Dragon",
+        "Ice"
     ],
     "stats": {
         "hp": 125,

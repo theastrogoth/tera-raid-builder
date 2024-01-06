@@ -128,11 +128,51 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 }
             break;
             case "Custom":
-                const filterComponents = filter.name.toLowerCase().split(/(?<=\sand\s|\sor\s|&&|\|\||&|\||,)|(?=\sand\s|\sor\s|&&|\|\||&|\||,)/i).map((s) => s.trim());
+                // const operatorPrecedence = {
+                //     "&&": 1,
+                //     "||": 0
+                // };
+                const andOperators = ["and", "&&", "&", ","];
+                const orOperators = ["or", "||", "|"];
+                const validOperators = andOperators.concat(orOperators);
+
+                const filterComponents = 
+                    filter.name.toLowerCase().split(/(?<=\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))|(?=\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))/i).map((s) => s.trim())
+                    .map((item) => 
+                        andOperators.includes(item) ? "&&" : item
+                    )
+                    .map((item) => 
+                        orOperators.includes(item) ? "||" : item
+                    );
+                // const termStack: string[] = [];
+                // const operatorStack: string[] = [];
+                
+                // for (let component of filterComponents) {
+                //     const lastComponent = operatorStack.slice(-1)[0];
+                //     if (component === "&&") {
+                //         while (operatorStack.length > 0 && validOperators.includes(lastComponent) && (operatorPrecedence[component] <= operatorPrecedence[lastComponent as keyof typeof operatorPrecedence] || lastComponent === "(")) {
+                //             // @ts-ignore
+                //             termStack.push(operatorStack.pop());
+                //         }
+                //         operatorStack.push(component);
+                //     } else if (component === "||") {
+                //         operatorStack.push("or")
+                //     } else if (component === "(") {
+                //         operatorStack.push(component);
+                //     } else if (component === ")") {
+                //         while (operatorStack.length > 0 && lastComponent !== '(') {
+                //             // @ts-ignore
+                //             termStack.push(operatorStack.pop());
+                //         }
+                //         operatorStack.pop();
+                //     } else {
+                //         termStack.push(component);
+                //     }
+                // }
                 const filterTerms = [];
                 const filterOperators = [];
                 for (let component of filterComponents) {
-                    if (component === "and" || component === "or" || component === "&&" || component === "||" || component === "&" || component === "|" || component === ",") {
+                    if (component === "and" || component === "or" || component === "&&" || component === "||" || component === "&" || component === "|" || component === "," || component === "(" || component === ")") {
                         filterOperators.push(component);
                     } else {
                         filterTerms.push(component);

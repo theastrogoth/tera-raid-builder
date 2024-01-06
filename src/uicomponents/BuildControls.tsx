@@ -1067,6 +1067,15 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         } else if (pokemon.name.includes("Terapagos")) {
             setTeraTypes(["Stellar"]);
             setPokemonProperties(["teraType"])(["Stellar"]);
+        } else if (pokemon.name.includes("Dialga-Origin")) {
+            setItems(["Adamant Crystal"]);
+            setPokemonProperties(["role","item"])(["Dialga", "Adamant Crystal"]);
+        } else if (pokemon.name.includes("Palkia-Origin")) {
+            setItems(["Lustrous Globe"]);
+            setPokemonProperties(["role","item"])(["Palkia", "Lustrous Globe"]);
+        } else if (pokemon.name.includes("Giratina-Origin")) {
+            setItems(["Griseous Orb", "Griseous Core"]);
+            // setPokemonProperties(["role","item"])(["Giratina", "Griseous Core"]);
         }
         // Arceus Plate Types
         else if (pokemon.name.includes("Arceus")) {

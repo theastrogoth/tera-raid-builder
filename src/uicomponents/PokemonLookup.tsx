@@ -21,7 +21,7 @@ import TableCell from '@mui/material/TableCell';
 
 import { styled, lighten, darken } from '@mui/material/styles';
 
-import { AbilityName, MoveName, SpeciesName, TypeName } from "../calc/data/interface";
+import { AbilityName, MoveName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 import PokedexService, { PokemonData } from "../services/getdata";
 import { MoveData, MoveSetItem, SetOption } from "../raidcalc/interface";
 import { ABILITIES, Generations, Move, toID } from "../calc";
@@ -287,6 +287,10 @@ const ButtonRow = styled(RoundedRow)(({ theme }) => ({
     }
 }));
 
+const SortingButton = styled(Button)(({ theme }) => ({
+    minWidth: 0
+}));
+
 const CompactTableCell = styled(TableCell)(({ theme }) => ({
     padding: 0,
     paddingLeft: 1,
@@ -543,6 +547,8 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
 }
 
 function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon, handleAddFilter, allSpecies, allMoves, translationKey}: {inputValue: string, inputFilteredOptions: SearchOption[], handleSetPokemon: (s: SetOption) => void, handleAddFilter: (f: SearchOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
+    const [sortMethod, setSortMethod] = useState<string>("species");
+    const [sortDirection, setSortDirection] = useState<string>("desc");
     const [speciesOptions, setSpeciesOptions] = useState<SpeciesName[]>([]);
     const [typeOptions, setTypeOptions] = useState<TypeName[]>([]);
     const [abilityOptions, setAbilityOptions] = useState<AbilityName[]>([]);
@@ -574,6 +580,47 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         setMoveOptions(newMoveOptions);
     }, [inputFilteredOptions]);
 
+    const handleButtonClick = (label: string) => {
+        if (label === sortMethod) {
+            if (sortDirection === 'asc') {
+                setSortMethod('species');
+                setSortDirection('desc');
+            } else {
+                setSortDirection('asc');
+            }
+        } else {
+            setSortMethod(label);
+            setSortDirection('desc');
+        }
+    };
+
+    useEffect(() => {
+        let sortedSpeciesOptions: SpeciesName[] = [];
+        if (sortMethod === "species") {
+            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+                if (sortDirection === 'desc') {
+                    return a.localeCompare(b);
+                } else if (sortDirection === 'asc') {
+                    return b.localeCompare(a);
+                }
+                return 0;
+            });
+        } else {
+            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+                const key = sortMethod as keyof StatsTable;
+                const aStat = (allSpecies?.get(a)?.stats[key] || 0) + 1;
+                const bStat = (allSpecies?.get(b)?.stats[key] || 0) + 1;
+                if (sortDirection === 'asc') {
+                    return aStat - bStat;
+                } else if (sortDirection === 'desc') {
+                    return bStat - aStat;
+                }
+                return 0;
+            });
+        }
+        setSpeciesOptions(sortedSpeciesOptions);
+    }, [sortMethod, sortDirection]);
+
     return (
         <Box justifyContent="center" alignItems="center">
             { (!allSpecies || !allMoves) &&
@@ -601,15 +648,43 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <ButtonRow>
                                 <HeaderCell></HeaderCell>
                                 <HeaderCell></HeaderCell>
-                                <HeaderCell>{getTranslation("Pokémon", translationKey)}</HeaderCell>
+                                <HeaderCell>
+                                    <SortingButton onClick={() => handleButtonClick('species')}>
+                                        {getTranslation("Pokémon", translationKey)}
+                                    </SortingButton>
+                                </HeaderCell>
                                 <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
                                 <HeaderCell align="center">{getTranslation("Abilities", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("HP", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("Atk", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("Def", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("SpA", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("SpD", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("Spe", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">
+                                    <SortingButton onClick={() => handleButtonClick('hp')}>
+                                        {getTranslation("HP", translationKey)}
+                                    </SortingButton>
+                                </HeaderCell>
+                                <HeaderCell align="center">
+                                    <SortingButton onClick={() => handleButtonClick('atk')}>
+                                        {getTranslation("Atk", translationKey)}
+                                    </SortingButton>
+                                </HeaderCell>
+                                <HeaderCell align="center">
+                                    <SortingButton onClick={() => handleButtonClick('def')}>
+                                        {getTranslation("Def", translationKey)}
+                                    </SortingButton>
+                                </HeaderCell>
+                                <HeaderCell align="center">
+                                    <SortingButton onClick={() => handleButtonClick('spa')}>
+                                        {getTranslation("SpA", translationKey)}
+                                    </SortingButton>
+                                </HeaderCell>
+                                <HeaderCell align="center">
+                                    <SortingButton onClick={() => handleButtonClick('spd')}>
+                                        {getTranslation("SpD", translationKey)}
+                                    </SortingButton>
+                                </HeaderCell>
+                                <HeaderCell align="center">
+                                    <SortingButton onClick={() => handleButtonClick('spe')}>
+                                        {getTranslation("Spe", translationKey)}
+                                    </SortingButton>
+                                </HeaderCell>
                                 <HeaderCell align="center">{getTranslation("BST", translationKey)}</HeaderCell>
                             </ButtonRow>
                         </TableHead>

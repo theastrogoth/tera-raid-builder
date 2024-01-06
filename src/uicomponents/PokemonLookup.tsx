@@ -605,6 +605,17 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                 }
                 return 0;
             });
+        } else if (sortMethod === "bst") {
+            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+                const aTotal = ["hp","atk","def","spa","spd","spe"].map((stat) => (allSpecies?.get(a)?.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0)
+                const bTotal = ["hp","atk","def","spa","spd","spe"].map((stat) => (allSpecies?.get(b)?.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0)
+                if (sortDirection === 'asc') {
+                    return aTotal - bTotal;
+                } else if (sortDirection === 'desc') {
+                    return bTotal - aTotal;
+                }
+                return 0;
+            });
         } else {
             sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
                 const key = sortMethod as keyof StatsTable;
@@ -685,7 +696,11 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                         {getTranslation("Spe", translationKey)}
                                     </SortingButton>
                                 </HeaderCell>
-                                <HeaderCell align="center">{getTranslation("BST", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">
+                                    <SortingButton onClick={() => handleButtonClick('bst')}>
+                                        {getTranslation("BST", translationKey)}
+                                    </SortingButton>
+                                </HeaderCell>
                             </ButtonRow>
                         </TableHead>
                         <TableBody>

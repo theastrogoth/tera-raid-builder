@@ -257,6 +257,15 @@ const ButtonTable = styled(Table)(({ theme }) => ({
     paddingRight: 20,
 }));
 
+const HeaderCell = styled(TableCell)(({ theme }) => ({
+    fontWeight: 600,
+    fontSize: 12,
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+}));
+
 const RoundedRow = styled(TableRow)(({ theme }) => ({
     marginTop: 10,
     marginBottom: 10,
@@ -455,7 +464,10 @@ function TypeSearchResult({type, handleAddFilter, translationKey}: {type: TypeNa
                     {getTranslation(type, translationKey, "types")}
                 </Typography>
             </CompactTableCell>
-            <CompactRightCell>
+            <CompactTableCell></CompactTableCell>
+            <CompactTableCell></CompactTableCell>
+            <CompactTableCell></CompactTableCell>
+            <CompactRightCell colSpan={6} align="center">
                 <Typography fontSize={10} m={.5} fontStyle="italic">
                     {`(${getTranslation("Filter", translationKey)})`}
                 </Typography>
@@ -469,12 +481,16 @@ function AbilitySearchResult({ability, handleAddFilter, translationKey}: {abilit
         <ButtonRow onClick={() => handleAddFilter({name: ability, type: "Ability"})}>
         
             <CompactLeftCell></CompactLeftCell>
+            <CompactTableCell></CompactTableCell>
             <CompactTableCell>
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(ability, translationKey, "abilities")}
                 </Typography>
             </CompactTableCell>
-            <CompactRightCell>
+            <CompactTableCell></CompactTableCell>
+            <CompactTableCell></CompactTableCell>
+            <CompactTableCell></CompactTableCell>
+            <CompactRightCell colSpan={6} align="center">
                 <Typography fontSize={10} m={.5} fontStyle="italic">
                     {`(${getTranslation("Filter", translationKey)})`}
                 </Typography>
@@ -491,6 +507,7 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
     return (
         <ButtonRow onClick={() => handleAddFilter({name: data.name, type: "Moves"})}>
             <CompactLeftCell></CompactLeftCell>
+            <CompactTableCell></CompactTableCell>
             <CompactTableCell>
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(data.name, translationKey, "moves")}
@@ -506,17 +523,17 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
                     }}
                 />
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(data.moveCategory!, translationKey)}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.power || ''}
                 </Typography>
             </CompactTableCell>
-            <CompactRightCell>
+            <CompactRightCell colSpan={6} align="center">
                 <Typography fontSize={10} m={.5} fontStyle="italic">
                     {`(${getTranslation("Filter", translationKey)})`}
                 </Typography>
@@ -558,7 +575,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
     }, [inputFilteredOptions]);
 
     return (
-        <Box justifyContent="center" alignItems="center" sx={{ width: '100%', maxHeight: '60vh', overflowY: 'scroll' }}>
+        <Box justifyContent="center" alignItems="center">
             { (!allSpecies || !allMoves) &&
                 <Typography fontSize={10} m={.5}>
                     {"Loading..."}
@@ -574,121 +591,126 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                     {"No results found"}
                 </Typography>
             }
+            <TableContainer sx={{ width: '100%', maxHeight: '60vh', overflowY: 'scroll' }}>
+                <ButtonTable stickyHeader>
             { (allSpecies && allMoves) &&
-                <Stack>
-                    {speciesOptions.length > 0 &&
-                        <Typography variant="h6">
-                            {getTranslation("Pokémon", translationKey)}
-                        </Typography>
-                    }
+                <>
                     {speciesOptions.length > 0 && 
-                        <TableContainer>
-                            <ButtonTable>
-                                <TableHead>
-                                    <TableRow>
-                                        <CompactTableCell></CompactTableCell>
-                                        <CompactTableCell></CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Name", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Type", translationKey)}</CompactTableCell>
-                                        <CompactTableCell align="center">{getTranslation("Abilities", translationKey)}</CompactTableCell>
-                                        <CompactTableCell align="center">{getTranslation("HP", translationKey)}</CompactTableCell>
-                                        <CompactTableCell align="center">{getTranslation("Atk", translationKey)}</CompactTableCell>
-                                        <CompactTableCell align="center">{getTranslation("Def", translationKey)}</CompactTableCell>
-                                        <CompactTableCell align="center">{getTranslation("SpA", translationKey)}</CompactTableCell>
-                                        <CompactTableCell align="center">{getTranslation("SpD", translationKey)}</CompactTableCell>
-                                        <CompactTableCell align="center">{getTranslation("Spe", translationKey)}</CompactTableCell>
-                                        <CompactRightCell align="center">{getTranslation("BST", translationKey)}</CompactRightCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {speciesOptions.map((pokemon) => (
-                                        <SpeciesSearchResult pokemon={pokemon} handleSetPokemon={handleSetPokemon} allSpecies={allSpecies} translationKey={translationKey}/>
-                                    ))}
-                                </TableBody>
-                            </ButtonTable>
-                        </TableContainer>
-                    }
-                    {typeOptions.length > 0 &&
-                        <Typography variant="h6">
-                            {getTranslation("Types", translationKey)}
-                        </Typography>
+                    <>
+                        <TableHead>
+                            <ButtonRow>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell>{getTranslation("Pokémon", translationKey)}</HeaderCell>
+                                <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("Abilities", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("HP", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("Atk", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("Def", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("SpA", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("SpD", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("Spe", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("BST", translationKey)}</HeaderCell>
+                            </ButtonRow>
+                        </TableHead>
+                        <TableBody>
+                            {speciesOptions.map((pokemon) => (
+                                <SpeciesSearchResult pokemon={pokemon} handleSetPokemon={handleSetPokemon} allSpecies={allSpecies} translationKey={translationKey}/>
+                            ))}
+                        </TableBody>
+                    </>
                     }
                     {typeOptions.length > 0 && 
-                        <TableContainer>
-                            <ButtonTable>
-                                <TableBody>
-                                    {typeOptions.map((type) => (
-                                        <TypeSearchResult type={type} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
-                                    ))}
-                                </TableBody>
-                            </ButtonTable>
-                        </TableContainer>
-                    }
-                    {abilityOptions.length > 0 &&
-                        <Typography variant="h6">
-                            {getTranslation("Abilities", translationKey)}
-                        </Typography>
+                    <>
+                        <TableHead>
+                            <ButtonRow>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
+                                <HeaderCell colSpan={8}></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                            </ButtonRow>
+                        </TableHead>
+                        
+                        <TableBody>
+                            {typeOptions.map((type) => (
+                                <TypeSearchResult type={type} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
+                            ))}
+                        </TableBody>
+                    </>
                     }
                     {abilityOptions.length > 0 && 
-                        <TableContainer>
-                            <ButtonTable>
-                                <TableBody>
-                                    {abilityOptions.map((ability) => (
-                                        <AbilitySearchResult ability={ability} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
-                                    ))}
-                                </TableBody>
-                            </ButtonTable>
-                        </TableContainer>
-                    }
-                    {moveOptions.length > 0 &&
-                        <Typography variant="h6">
-                            {getTranslation("Moves", translationKey)}
-                        </Typography>
+                    <>
+                        <TableHead>
+                            <ButtonRow>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell>{getTranslation("Ability", translationKey)}</HeaderCell>
+                                <HeaderCell colSpan={8}></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                            </ButtonRow>
+                        </TableHead>
+                        <TableBody>
+                            {abilityOptions.map((ability) => (
+                                <AbilitySearchResult ability={ability} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
+                            ))}
+                        </TableBody>
+                    </>
                     }
                     {moveOptions.length > 0 && 
-                        <TableContainer>
-                            <ButtonTable>
-                                <TableHead>
-                                    <TableRow>
-                                        <CompactTableCell></CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Name", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Type", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Category", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Power", translationKey)}</CompactTableCell>
-                                        <CompactTableCell></CompactTableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {moveOptions.map((move) => (
-                                        <MoveSearchResult move={move} handleAddFilter={handleAddFilter} allMoves={allMoves} translationKey={translationKey}/>
-                                    ))}
-                                </TableBody>
-                            </ButtonTable>
-                        </TableContainer>
+                    <>
+                        <TableHead>
+                            <ButtonRow>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell>{getTranslation("Move", translationKey)}</HeaderCell>
+                                <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("Category", translationKey)}</HeaderCell>
+                                <HeaderCell align="center">{getTranslation("BP", translationKey)}</HeaderCell>
+                                <HeaderCell colSpan={5}></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                            </ButtonRow>
+                        </TableHead>
+                        <TableBody>
+                            {moveOptions.map((move) => (
+                                <MoveSearchResult move={move} handleAddFilter={handleAddFilter} allMoves={allMoves} translationKey={translationKey}/>
+                            ))}
+                        </TableBody>
+                    </>
                     }
                     { inputValue.length > 0 &&
-                        <TableContainer>
-                            <ButtonTable>
-                                <TableBody>
-                                    <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
-                                        <CompactLeftCell></CompactLeftCell>
-                                        <CompactTableCell>
-                                            <Typography fontSize={10} m={.5}>
-                                                {`${getTranslation("Add", translationKey)} "${inputValue}"`}
-                                            </Typography>
-                                        </CompactTableCell>
-                                        <CompactRightCell>
-                                            <Typography fontSize={10} m={.5} fontStyle="italic">
-                                                {`(${getTranslation("Filter", translationKey)})`}
-                                            </Typography>
-                                        </CompactRightCell>
-                                    </ButtonRow>
-                                </TableBody>
-                            </ButtonTable>
-                        </TableContainer>
+                    <>
+                        <TableHead>
+                            <ButtonRow>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                                <HeaderCell colSpan={4}>{getTranslation("Custom Filter", translationKey)}</HeaderCell>
+                                <HeaderCell colSpan={5}></HeaderCell>
+                                <HeaderCell></HeaderCell>
+                            </ButtonRow>
+                        </TableHead>
+                        <TableBody>
+                            <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
+                                <CompactLeftCell></CompactLeftCell>
+                                <CompactTableCell></CompactTableCell>
+                                <CompactTableCell colSpan={4}>
+                                    <Typography fontSize={10} m={.5}>
+                                        {`${getTranslation("Add", translationKey)} "${inputValue}"`}
+                                    </Typography>
+                                </CompactTableCell>
+                                <CompactRightCell colSpan={6} align="center">
+                                    <Typography fontSize={10} m={.5} fontStyle="italic">
+                                        {`(${getTranslation("Filter", translationKey)})`}
+                                    </Typography>
+                                </CompactRightCell>
+                            </ButtonRow>
+                        </TableBody>
+                    </>
                     }
-                </Stack>
+                </>
             }
+            </ButtonTable>
+                </TableContainer>
         </Box>
     )
 }

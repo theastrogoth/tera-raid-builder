@@ -23,10 +23,14 @@ import { styled, lighten, darken } from '@mui/material/styles';
 
 import { AbilityName, MoveName, SpeciesName, TypeName } from "../calc/data/interface";
 import PokedexService, { PokemonData } from "../services/getdata";
-import { MoveData, MoveSetItem } from "../raidcalc/interface";
+import { MoveData, MoveSetItem, SetOption } from "../raidcalc/interface";
 import { ABILITIES, Generations, Move } from "../calc";
+import { setdexToOptions } from "../utils";
+
 // import { GenericWithIcon, GroupHeader, MoveWithIcon, PokemonPopper, findOptionFromPokemonName, findOptionFromTeraTypeName } from "./BuildControls";
 import { getPokemonSpriteURL, getTranslation, getTypeIconURL } from "../utils";
+
+import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).filter((t) => t !== "Stellar" && t !== "???").sort();
@@ -35,6 +39,29 @@ const genMoves = [...gen.moves].map(move => move.name).filter((m) => m !== "(No 
 const genSpecies = [...gen.species].map(specie => specie.name)
     .filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n))
     .sort();
+
+const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
+const raiderSetMap = new Map<SpeciesName, SetOption[]>();
+for (let set of raiderSetOptions) {
+    const specie = set.pokemon;
+    if (raiderSetMap.has(specie)) {
+        const sets = raiderSetMap.get(specie)!;
+        sets.push(set);
+        raiderSetMap.set(specie, sets);
+    } else {
+        raiderSetMap.set(specie, [set]);
+    }
+}
+for (let [specie, sets] of raiderSetMap) {
+    raiderSetMap.set(specie, [...sets, {
+        name: "Blank Set",
+        pokemon: specie,
+        level: 100,
+        nature: "Hardy",
+    }])
+}
+
+
 
 type SearchOption = {
     name: string,
@@ -256,7 +283,7 @@ const CompactRightCell = styled(CompactTableCell)(({ theme }) => ({
     paddingRight: 10,
 }));
 
-function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translationKey}: {pokemon: SpeciesName, allSpecies: Map<SpeciesName,PokemonData>, handleSetPokemon: (n: SpeciesName) => void, translationKey: any}) {
+function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translationKey}: {pokemon: SpeciesName, allSpecies: Map<SpeciesName,PokemonData>, handleSetPokemon: (s: SetOption) => void, translationKey: any}) {
     const [open, setOpen] = useState(false);
     if (pokemon.includes("Flab")) { // Something odd might be happening with the unicode representaiton of é somewhere
         pokemon = "Flabebe" as SpeciesName;
@@ -265,8 +292,19 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
     if (!data) {
         console.log(pokemon, allSpecies)
     }
+
+    const sets = raiderSetMap.get(pokemon) || 
+    [{
+        name: "Blank Set",
+        pokemon: pokemon,
+        level: 100,
+        nature: "Hardy",
+        ability: data.abilities[0].name,
+    }];
+
     return (
-        <ButtonRow onClick={() => handleSetPokemon(data.name)}>
+        <>
+        <TableRow>
             <CompactLeftCell>
                 <IconButton size="small" onClick={() => setOpen(!open)}>
                     {open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
@@ -345,6 +383,44 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
                     {Object.entries(data.stats).reduce((acc, [key, value]) => acc + value, 0)}
                 </Typography>
             </CompactRightCell>
+        </TableRow>
+        { open &&
+            <TableRow>
+                <TableCell colSpan={12}>
+                    <TableContainer>
+                        <ButtonTable>
+                            { sets.map((set,idx) => (
+                                <RaiderSetRow key={idx} set={set} handleSetPokemon={handleSetPokemon} translationKey={translationKey}/>
+                            ))}
+                        </ButtonTable>
+                    </TableContainer>
+                </TableCell>
+            </TableRow>
+        }
+        </>
+    )
+}
+
+function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, handleSetPokemon: (s: SetOption) => void, translationKey: any}) {
+    return (
+        <ButtonRow onClick={() => handleSetPokemon(set)}>
+            <CompactLeftCell></CompactLeftCell>
+            <CompactTableCell>
+                <Typography fontSize={10} m={.5}>
+                    {set.name}
+                </Typography>
+            </CompactTableCell>
+            <CompactTableCell>
+                <Typography fontSize={10} m={.5}>
+                    {getTranslation(set.nature || "Hardy", translationKey, "natures")}
+                </Typography>
+            </CompactTableCell>
+            <CompactTableCell>
+                <Typography fontSize={10} m={.5}>
+                    {getTranslation(set.ability || "(No Ability)", translationKey, "abilities")}
+                </Typography>
+            </CompactTableCell>
+            {/* TO DO fill in IVs, EVs, ? */}
         </ButtonRow>
     )
 }
@@ -438,7 +514,7 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
     )
 }
 
-function SearchResultsTable({inputFilteredOptions, handleSetPokemon, handleAddFilter, allSpecies, allMoves, translationKey}: {inputFilteredOptions: SearchOption[], handleSetPokemon: (n: SpeciesName) => void, handleAddFilter: (f: SearchOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
+function SearchResultsTable({inputFilteredOptions, handleSetPokemon, handleAddFilter, allSpecies, allMoves, translationKey}: {inputFilteredOptions: SearchOption[], handleSetPokemon: (s: SetOption) => void, handleAddFilter: (f: SearchOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
     const [speciesOptions, setSpeciesOptions] = useState<SpeciesName[]>([]);
     const [typeOptions, setTypeOptions] = useState<TypeName[]>([]);
     const [abilityOptions, setAbilityOptions] = useState<AbilityName[]>([]);
@@ -477,7 +553,7 @@ function SearchResultsTable({inputFilteredOptions, handleSetPokemon, handleAddFi
                     {"Loading..."}
                 </Typography>
             }
-            { inputFilteredOptions.length === 0 &&
+            { ((allSpecies && allMoves) && inputFilteredOptions.length === 0) &&
                 <Typography fontSize={10} m={.5}>
                     {"Enter text to add a search filter or select a Pokémon"}
                 </Typography>
@@ -596,8 +672,8 @@ const modalStyle = {
     overflowY: 'hidden',
   };
 
-function PokemonLookup({setPokemon, allSpecies, allMoves, setAllSpecies, setAllMoves, translationKey}: 
-    {setPokemon: (n: string) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (s: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, translationKey: any}) {
+function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMoves, translationKey}: 
+    {loadSet: (n: SetOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (s: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, translationKey: any}) {
 
     // const [moveFilters, setMoveFilters] = useState<MoveName[]>([]);
     // const [abilityFilters, setAbilityFilters] = useState<AbilityName[]>([]);
@@ -626,8 +702,8 @@ function PokemonLookup({setPokemon, allSpecies, allMoves, setAllSpecies, setAllM
         setFilters(newFilters);
     }
 
-    const handleSetPokemon = (pokemon: SpeciesName) => {
-        setPokemon(pokemon);
+    const handleSetPokemon = (set: SetOption) => {
+        loadSet(set);
         setFilters([]);
         setInputValue("");
         setOpen(false);

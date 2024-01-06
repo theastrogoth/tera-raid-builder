@@ -28,8 +28,10 @@ import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import { alpha, darken, lighten, styled, SxProps, Theme } from '@mui/material/styles';
 
 import { Move, Pokemon, StatsTable, Generations, Field } from '../calc';
-import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName, NatureName, TypeName } from "../calc/data/interface";
+import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName } from "../calc/data/interface";
 import { toID } from '../calc/util';
+import { SetOption } from "../raidcalc/interface";
+
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
@@ -37,7 +39,7 @@ import ImportExportArea from "./ImportExportArea";
 import { MoveData, MoveSetItem, ShieldData, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService, { PokemonData } from "../services/getdata";
-import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation, setdexToOptions } from "../utils";
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
@@ -45,22 +47,6 @@ import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 
 import PokemonLookup from "./PokemonLookup";
 
-type SetOption = {
-    name: string,
-    pokemon: SpeciesName,
-    shiny?: boolean,
-    level?: number,
-    item?: ItemName,
-    ability?: AbilityName,
-    nature?: NatureName,
-    ivs?: Partial<StatsTable>,
-    evs?: Partial<StatsTable>,
-    moves?: MoveName[],
-    extraMoves?: MoveName[],
-    bossMultiplier?: number,
-    teraType?: TypeName,
-    shieldData?: ShieldData,
-}
 
 // we will always use Gen 9
 const gen = Generations.get(9);
@@ -68,68 +54,6 @@ const genTypes = [...gen.types].map(type => type.name).sort();
 const genItems = ["(No Item)", ...[...gen.items].map(item => item.name).sort()];
 const genNatures = [...gen.natures].sort();
 const genSpecies = [...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n)).sort();
-
-function setdexStats(input: any): Partial<StatsTable> | undefined {
-    if (!input) return undefined;
-    const stats: Partial<StatsTable> = {};
-    for (let id of Object.keys(input)) {
-        let val = input[id];
-        if (typeof(val) === "string") { val = parseInt(val) };
-        switch (id) {
-            case "hp":
-                stats.hp = val;
-                break;
-            case "at":
-                stats.atk = val;
-                break;
-            case "df":
-                stats.def = val;
-                break;
-            case "sa":
-                stats.spa = val;
-                break;
-            case "sd":
-                stats.spd = val;
-                break;
-            case "sp":
-                stats.spe = val;
-                break;
-        }
-    }
-    return stats;
-}
-function setdexToOptions(dex: Object): SetOption[] {
-    const options: SetOption[] = [];
-    for (let pokemon of (Object.keys(dex) as SpeciesName[])) {
-        // @ts-ignore
-        for (let setname of (Object.keys(dex[pokemon]))) {
-            // @ts-ignore
-            const set = dex[pokemon][setname];
-            let level = set.level || 100;
-            if (typeof(level) === "string") { level = parseInt(level)};
-            let bossMultiplier = set.bossMultiplier || 100;
-            if (typeof(bossMultiplier) === "string") { bossMultiplier = parseInt(bossMultiplier)};
-            const option: SetOption = {
-                name: setname,
-                pokemon: pokemon,
-                shiny: !!set.shiny,
-                level: level,
-                item: set.item,
-                ability: set.ability,
-                nature: set.nature,
-                ivs: setdexStats(set.ivs),
-                evs: setdexStats(set.evs),
-                moves: set.moves,
-                extraMoves: set.extraMoves,
-                bossMultiplier: bossMultiplier,
-                teraType: set.teraType,
-                shieldData: set.shieldData,
-            }
-            options.push(option);
-        }
-    }
-    return options.sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
-}
 
 const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
 const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
@@ -1270,7 +1194,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                 translationKey={translationKey}
                             />
                             <Box flexGrow={2}/>
-                            <PokemonLookup setPokemon={handleChangeSpecies} allMoves={allMoves} allSpecies={allSpecies} setAllMoves={setAllMoves} setAllSpecies={setAllSpecies} translationKey={translationKey}/>
+                            <PokemonLookup loadSet={loadSet} allMoves={allMoves} allSpecies={allSpecies} setAllMoves={setAllMoves} setAllSpecies={setAllSpecies} translationKey={translationKey}/>
                             <Box flexGrow={3}/>
                             {/* <SetLoadField
                                 setOptions={raiderSetOptions}

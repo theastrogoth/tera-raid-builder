@@ -182,7 +182,13 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
 }
 
 function checkOptionAgainstInput(option: SearchOption, inputValue: string, translationKey: any) {
-    const translatedOptionName = getTranslation(option.name, translationKey, option.type);
+    const translationCategory = 
+        option.type === "Pokémon" ? "pokemon" : 
+        option.type === "Moves" ? "moves" : 
+        option.type === "Ability" ? "abilities" : 
+        option.type === "Type" ? "types" : 
+        undefined;
+    const translatedOptionName = getTranslation(option.name, translationKey, translationCategory);
     const normalizedOptionName = translatedOptionName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     const normalizedInputValue = inputValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
     return normalizedOptionName.includes(normalizedInputValue);

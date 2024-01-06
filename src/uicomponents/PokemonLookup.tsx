@@ -24,7 +24,7 @@ import { styled, lighten, darken } from '@mui/material/styles';
 import { AbilityName, MoveName, SpeciesName, TypeName } from "../calc/data/interface";
 import PokedexService, { PokemonData } from "../services/getdata";
 import { MoveData, MoveSetItem, SetOption } from "../raidcalc/interface";
-import { ABILITIES, Generations, Move } from "../calc";
+import { ABILITIES, Generations, Move, toID } from "../calc";
 import { setdexToOptions } from "../utils";
 
 // import { GenericWithIcon, GroupHeader, MoveWithIcon, PokemonPopper, findOptionFromPokemonName, findOptionFromTeraTypeName } from "./BuildControls";
@@ -53,11 +53,13 @@ for (let set of raiderSetOptions) {
     }
 }
 for (let [specie, sets] of raiderSetMap) {
+    const pokeData = gen.species.get(toID(specie));
     raiderSetMap.set(specie, [...sets, {
         name: "Blank Set",
         pokemon: specie,
         level: 100,
         nature: "Hardy",
+        ability: (pokeData && pokeData.abilities)? (pokeData.abilities[0] === "" ? undefined : pokeData.abilities[0]) : undefined,
     }])
 }
 
@@ -249,7 +251,7 @@ const ButtonTable = styled(Table)(({ theme }) => ({
     paddingRight: 20,
 }));
 
-const ButtonRow = styled(TableRow)(({ theme }) => ({
+const RoundedRow = styled(TableRow)(({ theme }) => ({
     marginTop: 10,
     marginBottom: 10,
     paddingTop: 10,
@@ -259,6 +261,9 @@ const ButtonRow = styled(TableRow)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'light'
       ? lighten(theme.palette.background.paper, 0.6)
       : darken(theme.palette.background.paper, 0.2),
+}));
+
+const ButtonRow = styled(RoundedRow)(({ theme }) => ({
     '&:hover': {
         backgroundColor: theme.palette.action.hover,
     },
@@ -304,7 +309,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
 
     return (
         <>
-        <TableRow>
+        <RoundedRow>
             <CompactLeftCell>
                 <IconButton size="small" onClick={() => setOpen(!open)}>
                     {open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
@@ -383,14 +388,14 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
                     {Object.entries(data.stats).reduce((acc, [key, value]) => acc + value, 0)}
                 </Typography>
             </CompactRightCell>
-        </TableRow>
+        </RoundedRow>
         { open &&
             <TableRow>
-                <TableCell colSpan={12}>
-                    <TableContainer>
-                        <ButtonTable>
+                <TableCell colSpan={12} sx={{ paddingY: 0, paddingLeft: "50px", paddingRight: "0px"}}>
+                    <TableContainer >
+                        <ButtonTable sx={{ borderSpacing: '0px 5px', paddingRight: "0px" }}>
                             { sets.map((set,idx) => (
-                                <RaiderSetRow key={idx} set={set} handleSetPokemon={handleSetPokemon} translationKey={translationKey}/>
+                                <RaiderSetRow key={idx} set={set} handleSetPokemon={handleSetPokemon} translationKey={translationKey} />
                             ))}
                         </ButtonTable>
                     </TableContainer>
@@ -403,7 +408,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
 
 function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, handleSetPokemon: (s: SetOption) => void, translationKey: any}) {
     return (
-        <ButtonRow onClick={() => handleSetPokemon(set)}>
+        <ButtonRow onClick={() => handleSetPokemon(set)} sx={{paddingY: 0, marginY: 0}}>
             <CompactLeftCell></CompactLeftCell>
             <CompactTableCell>
                 <Typography fontSize={10} m={.5}>
@@ -415,11 +420,11 @@ function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, 
                     {getTranslation(set.nature || "Hardy", translationKey, "natures")}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactRightCell>
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(set.ability || "(No Ability)", translationKey, "abilities")}
                 </Typography>
-            </CompactTableCell>
+            </CompactRightCell>
             {/* TO DO fill in IVs, EVs, ? */}
         </ButtonRow>
     )
@@ -514,7 +519,7 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
     )
 }
 
-function SearchResultsTable({inputFilteredOptions, handleSetPokemon, handleAddFilter, allSpecies, allMoves, translationKey}: {inputFilteredOptions: SearchOption[], handleSetPokemon: (s: SetOption) => void, handleAddFilter: (f: SearchOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
+function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon, handleAddFilter, allSpecies, allMoves, translationKey}: {inputValue: string, inputFilteredOptions: SearchOption[], handleSetPokemon: (s: SetOption) => void, handleAddFilter: (f: SearchOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
     const [speciesOptions, setSpeciesOptions] = useState<SpeciesName[]>([]);
     const [typeOptions, setTypeOptions] = useState<TypeName[]>([]);
     const [abilityOptions, setAbilityOptions] = useState<AbilityName[]>([]);
@@ -553,9 +558,14 @@ function SearchResultsTable({inputFilteredOptions, handleSetPokemon, handleAddFi
                     {"Loading..."}
                 </Typography>
             }
-            { ((allSpecies && allMoves) && inputFilteredOptions.length === 0) &&
+            { ((allSpecies && allMoves) && inputValue.length === 0) &&
                 <Typography fontSize={10} m={.5}>
                     {"Enter text to add a search filter or select a Pokémon"}
+                </Typography>
+            }
+            {((allSpecies && allMoves) && inputValue.length > 0 && inputFilteredOptions.length === 0) &&
+                <Typography fontSize={10} m={.5}>
+                    {"No results found"}
                 </Typography>
             }
             { (allSpecies && allMoves) &&
@@ -650,6 +660,27 @@ function SearchResultsTable({inputFilteredOptions, handleSetPokemon, handleAddFi
                             </ButtonTable>
                         </TableContainer>
                     }
+                    { inputValue.length > 0 &&
+                        <TableContainer>
+                            <ButtonTable>
+                                <TableBody>
+                                    <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
+                                        <CompactLeftCell></CompactLeftCell>
+                                        <CompactTableCell>
+                                            <Typography fontSize={10} m={.5}>
+                                                {`${getTranslation("Add", translationKey)} "${inputValue}"`}
+                                            </Typography>
+                                        </CompactTableCell>
+                                        <CompactRightCell>
+                                            <Typography fontSize={10} m={.5} fontStyle="italic">
+                                                {`(${getTranslation("Filter", translationKey)})`}
+                                            </Typography>
+                                        </CompactRightCell>
+                                    </ButtonRow>
+                                </TableBody>
+                            </ButtonTable>
+                        </TableContainer>
+                    }
                 </Stack>
             }
         </Box>
@@ -686,6 +717,8 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
 
     const [open, setOpen] = React.useState(false);
     const [inputValue, setInputValue] = useState("");
+
+    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
     const handleOpen = () => {setOpen(true); getOptionsData().catch((e) => console.log(e));}
     const handleClose = () => setOpen(false);
@@ -795,6 +828,9 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
     }, [filters]);
 
     useEffect(() => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
         const newInputFilteredOptions: SearchOption[] = [];
         if (inputValue.length === 0 && filteredOptions.length === allOptions.length) {
             setInputFilteredOptions([]);
@@ -805,11 +841,13 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                 newInputFilteredOptions.push(option);
             }
         }
-        const timeout = setTimeout(() => {
+        timeoutRef.current = setTimeout(() => {
             setInputFilteredOptions(newInputFilteredOptions);
         }, 300);
         return () => {
-            clearTimeout(timeout);
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
         };
     }, [inputValue, filteredOptions, translationKey]);
 
@@ -838,187 +876,12 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                               }}
                         />
                         <FilterTags filters={filters} handleDeleteFilter={handleDeleteFilter} translationKey={translationKey}/>
-                        <SearchResultsTable inputFilteredOptions={inputFilteredOptions} handleSetPokemon={handleSetPokemon} handleAddFilter={handleAddFilter} allSpecies={allSpecies} allMoves={allMoves} translationKey={translationKey}/>
+                        <SearchResultsTable inputValue={inputValue} inputFilteredOptions={inputFilteredOptions} handleSetPokemon={handleSetPokemon} handleAddFilter={handleAddFilter} allSpecies={allSpecies} allMoves={allMoves} translationKey={translationKey}/>
                     </Stack>
                 </Box>
             </Modal>
         </div>
     )
-
-//     return (
-//         <Autocomplete
-//             multiple
-//             freeSolo
-//             disableClearable
-//             disableCloseOnSelect
-//             clearOnBlur={false}
-//             autoHighlight   
-//             noOptionsText={(filteredOptions.length === 0 && ((typeFilters.length + abilityFilters.length + moveFilters.length) === 0))? "Loading..." : "No Options"}
-//             size="small"
-//             open={open}
-//             value={val}
-//             inputValue={inputValue}
-//             options={filteredOptions}
-//             getOptionLabel={(option: SearchOption | string) => (
-//                 option.hasOwnProperty("name") ? (option as SearchOption).name : (option as string)
-//             )}
-//             filterOptions={(options, params) => {
-//                 const filtered = createFilterOptions<SearchOption>({stringify: (option: SearchOption) => {
-//                     switch (option.type) {
-//                         case "Pokémon":
-//                             return getTranslation(option.name, translationKey, "pokemon");
-//                         case "Type":
-//                             return getTranslation(option.name, translationKey, "types");
-//                         case "Ability":
-//                             return getTranslation(option.name, translationKey, "abilities");
-//                         case "Moves":
-//                             return getTranslation(option.name, translationKey, "moves");
-//                         case "Custom":
-//                             return (option.name)
-//                     }
-//                     return (option.name)
-//                 }})(options, params);
-//                 const isExisting = options.some((option) => inputValue === option.name);
-//                 if (inputValue !== '' && !isExisting) {
-//                     filtered.push({
-//                         name: inputValue,
-//                         type: "Custom",
-//                     });
-//                 }
-//                 return filtered;
-//             }}
-//             renderInput={(params) => (
-//                 <TextField
-//                   {...params}
-//                   variant="standard"
-//                   placeholder={(typeFilters.length + abilityFilters.length + moveFilters.length + customFilters.length) === 0 ? getTranslation(pokemon, translationKey, "pokemon") : ""}
-//                 />
-//             )}
-//             renderOption={(props, option, state) => {
-//                 const optiontype = option.type;
-//                 switch (optiontype) {
-//                     case "Type":
-//                         if (state.inputValue.length === 0) {
-//                             return null;
-//                         }
-//                         return (
-//                             <li {...props}><GenericWithIcon name={findOptionFromTeraTypeName(option.name, translationKey)} engName={findOptionFromTeraTypeName(option.name, null)} spriteFetcher={getTypeIconURL} prettyMode={false} ModalComponent={null} modalProps={{}} /></li>
-//                         )
-//                     case "Ability":
-//                         if (state.inputValue.length === 0) {
-//                             return null;
-//                         }
-//                         const ability = option.name as AbilityName;
-//                         const translatedAbility = getTranslation(ability, translationKey, "abilities");
-//                         return (
-//                             <li {...props}><Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{translatedAbility}</Typography></li>
-//                         )
-//                     case "Moves":
-//                         if (state.inputValue.length === 0) {
-//                             return null;
-//                         }
-//                         const move = option.name as MoveName;
-//                         const translatedMove = getTranslation(move, translationKey, "moves");
-//                         const movesetopt: MoveSetItem = {
-//                             name: translatedMove,
-//                             engName: move,
-//                             type: allMoves ? allMoves.get(move)?.type || "Normal" : (new Move(gen, move).type || "Normal"),
-//                         }
-//                         return (
-//                             <li {...props}><MoveWithIcon move={movesetopt} allMoves={allMoves} prettyMode={false} translationKey={translationKey} /></li>
-//                         )
-//                     case "Pokémon":
-//                         return (
-//                             <li {...props}><GenericWithIcon name={findOptionFromPokemonName(option.name, translationKey)} engName={findOptionFromPokemonName(option.name, null)} spriteFetcher={getPokemonSpriteURL} prettyMode={false} ModalComponent={PokemonPopper} modalProps={{name: option.name, allSpecies: allSpecies, translationKey: translationKey}} /></li>
-//                         )
-//                     case "Custom":
-//                         return (
-//                             <li {...props}><Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{getTranslation("Add", translationKey) + " \"" + option.name + "\""}</Typography></li>
-//                         )
-//                 }
-//             }}
-//             groupBy={(option: SearchOption) => inputValue.length === 0 ? "" : getTranslation(option.type, translationKey)}
-//             renderGroup={(params) => {
-//                 return  (
-//                     inputValue.length > 0 ? 
-//                     <li>
-//                         <GroupHeader>
-//                             <Typography variant={"body1"} sx={{ fontWeight: "Bold", paddingLeft: 0.5, paddingRight: 0.5 }}>
-//                                 {params.group}
-//                             </Typography>
-//                         </GroupHeader>
-//                         {params.children}
-//                     </li> :
-//                     <li>
-//                         {params.children}
-//                     </li>
-//                 );
-//             }}
-//             onChange={(event: any, newValues) => {
-//                 for (let val of newValues) {
-//                     if (val.hasOwnProperty("type") && (val as SearchOption).type === "Pokémon") {
-//                         setPokemon((val as SearchOption).name);
-//                         setAbilityFilters([]);
-//                         setMoveFilters([]);
-//                         setTypeFilters([]);
-//                         setCustomFilters([]);
-//                         setOpen(false);
-//                         return;
-//                     }
-//                 }
-//                 const newMoveFilters: MoveName[] = [];
-//                 const newAbilityFilters: AbilityName[] = [];
-//                 const newTypeFilters: TypeName[] = [];
-//                 const newCustomFilters: string[] = [];
-//                 for (let val of newValues) {
-//                     if (!val.hasOwnProperty("type")) {
-//                         //@ts-ignore
-//                         newCustomFilters.push(val as string)
-//                     } else {
-//                         val = val as SearchOption;
-//                         switch (val.type) {
-//                             case "Type":
-//                                 newTypeFilters.push(val.name as TypeName);
-//                                 break;
-//                             case "Ability":
-//                                 newAbilityFilters.push(val.name as AbilityName);
-//                                 break;
-//                             case "Moves":
-//                                 newMoveFilters.push(val.name as MoveName);
-//                                 break;
-//                             case "Custom": 
-//                                 newCustomFilters.push(val.name as string);
-//                                 break;
-//                         }
-//                     }
-
-//                 }
-//                 setMoveFilters(newMoveFilters);
-//                 setAbilityFilters(newAbilityFilters);
-//                 setTypeFilters(newTypeFilters);
-//                 setCustomFilters(newCustomFilters);
-//                 setOpen(true);
-//             }}
-//             onInputChange={
-//                 (event, newInputValue) => {
-//                     setInputValue(newInputValue);
-//                     if (newInputValue.length > 0) {
-//                       setOpen(true);
-//                     }
-//                 }
-//             }
-//             onFocus={() => {
-//                 setOpen(true);
-//                 getOptionsData().catch((e) => console.log(e));
-//             }}
-//             onBlur={() => {
-//                 setOpen(false);
-//             }}
-//             componentsProps={{ popper: { style: { minWidth: "200px", width: 'fit-content' } } }}
-//             sx = {{width: '85%'}}
-//         />
-//     )
-
 }
 
 export default React.memo(PokemonLookup);

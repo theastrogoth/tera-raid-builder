@@ -348,37 +348,37 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
                     ))}
                 </Stack>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.hp}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.atk}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.def}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.spa}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.spd}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.spe}
                 </Typography>
             </CompactTableCell>
-            <CompactRightCell>
+            <CompactRightCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {Object.entries(data.stats).reduce((acc, [key, value]) => acc + value, 0)}
                 </Typography>
@@ -574,14 +574,14 @@ function SearchResultsTable({inputFilteredOptions, handleSetPokemon, handleAddFi
                                         <CompactTableCell></CompactTableCell>
                                         <CompactTableCell>{getTranslation("Name", translationKey)}</CompactTableCell>
                                         <CompactTableCell>{getTranslation("Type", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Abilities", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("HP", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Atk", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Def", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("SpA", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("SpD", translationKey)}</CompactTableCell>
-                                        <CompactTableCell>{getTranslation("Spe", translationKey)}</CompactTableCell>
-                                        <CompactRightCell>{getTranslation("BST", translationKey)}</CompactRightCell>
+                                        <CompactTableCell align="center">{getTranslation("Abilities", translationKey)}</CompactTableCell>
+                                        <CompactTableCell align="center">{getTranslation("HP", translationKey)}</CompactTableCell>
+                                        <CompactTableCell align="center">{getTranslation("Atk", translationKey)}</CompactTableCell>
+                                        <CompactTableCell align="center">{getTranslation("Def", translationKey)}</CompactTableCell>
+                                        <CompactTableCell align="center">{getTranslation("SpA", translationKey)}</CompactTableCell>
+                                        <CompactTableCell align="center">{getTranslation("SpD", translationKey)}</CompactTableCell>
+                                        <CompactTableCell align="center">{getTranslation("Spe", translationKey)}</CompactTableCell>
+                                        <CompactRightCell align="center">{getTranslation("BST", translationKey)}</CompactRightCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>

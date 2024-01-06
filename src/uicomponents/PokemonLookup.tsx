@@ -805,7 +805,12 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                 newInputFilteredOptions.push(option);
             }
         }
-        setInputFilteredOptions(newInputFilteredOptions);
+        const timeout = setTimeout(() => {
+            setInputFilteredOptions(newInputFilteredOptions);
+        }, 300);
+        return () => {
+            clearTimeout(timeout);
+        };
     }, [inputValue, filteredOptions, translationKey]);
 
     return (

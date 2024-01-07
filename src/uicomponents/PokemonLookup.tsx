@@ -1043,10 +1043,10 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
             clearTimeout(timeoutRef.current);
         }
         const newInputFilteredOptions: SearchOption[] = [];
-        if (inputValue.length === 0 && filteredOptions.length === allOptions.length) {
-            setInputFilteredOptions([]);
-            return;
-        }
+        // if (inputValue.length === 0 && filteredOptions.length === allOptions.length) {
+        //     setInputFilteredOptions([]);
+        //     return;
+        // }
         for (let option of filteredOptions) {
             if (checkOptionAgainstInput(option, inputValue, translationKey) && (inputValue.length > 0 || option.type === "Pokémon")) {
                 newInputFilteredOptions.push(option);

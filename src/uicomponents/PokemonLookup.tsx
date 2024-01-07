@@ -218,7 +218,9 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 if (evaluatorStack.length !== 1) {
                     return false;
                 }
-                return evaluatorStack[0];
+                if (evaluatorStack[0] === false) {
+                    return false;
+                } 
         }
     }
     return true;

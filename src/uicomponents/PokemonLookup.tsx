@@ -371,7 +371,7 @@ function SortingButton({label, method, sortMethod, sortDirection, handleButtonCl
             sx={{ textTransform: 'none', minWidth: 0 }}
         >
             <Typography fontSize={10} fontWeight={method === sortMethod ? 800 : 600}>
-                {`${getTranslation(label, translationKey)}`}
+                {`${getTranslation(label, translationKey,"stats")}`}
             </Typography>
             { sortIcon }
         </HeaderButton>
@@ -396,9 +396,9 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
 
     return (
         <React.Fragment>
-        <RoundedRow >
+        <ButtonRow onClick={() => setOpen(!open)}>
             <CompactLeftCell width="40px">
-                <IconButton size="small" onClick={() => setOpen(!open)}>
+                <IconButton size="small" disabled={true}>
                     {open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
                 </IconButton>
             </CompactLeftCell>
@@ -475,10 +475,10 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
                     {Object.entries(data.stats).reduce((acc, [key, value]) => acc + value, 0)}
                 </Typography>
             </CompactRightCell>
-        </RoundedRow>
+        </ButtonRow>
         { open &&
             <TableRow>
-                <TableCell colSpan={12} sx={{ paddingY: 0, paddingLeft: "50px", paddingRight: "0px"}}>
+                <TableCell colSpan={12} sx={{ paddingY: 0, paddingLeft: "20px", paddingRight: "0px"}}>
                     <TableContainer >
                         <ButtonTable sx={{ borderSpacing: '0px 5px', paddingRight: "0px" }}>
                             { sets.map((set,idx) => (
@@ -494,15 +494,21 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
 }
 
 function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, handleSetPokemon: (s: SetOption) => void, translationKey: any}) {
+    const setEVs = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, ...set.evs};
+    const setMoves = [...(set.moves || ["", "", "", ""])];
+    while (setMoves.length < 4) {
+        setMoves.push("");
+    }
+
     return (
         <ButtonRow onClick={() => handleSetPokemon(set)} sx={{paddingY: 0, marginY: 0, height: 35}}>
-            <CompactLeftCell></CompactLeftCell>
-            <CompactTableCell>
+            <CompactLeftCell width="40px"></CompactLeftCell>
+            <CompactTableCell width="80px" align="center">
                 <Typography fontSize={10} m={.5}>
-                    {set.name}
+                    {getTranslation(set.name, translationKey)}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="100px" align="center">
                 <Stack direction="row" justifyContent="center">
                     {set.item && <Box
                         sx={{
@@ -517,17 +523,41 @@ function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, 
                     </Typography> 
                 </Stack>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="90px" align="center">
+                <Typography fontSize={10} m={.5}>
+                    {getTranslation(set.ability || "(No Ability)", translationKey, "abilities")}
+                </Typography>
+            </CompactTableCell>
+            <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(set.nature || "Hardy", translationKey, "natures")}
                 </Typography>
             </CompactTableCell>
-            <CompactRightCell align="center">
+            <CompactTableCell width="100px" align="center">
                 <Typography fontSize={10} m={.5}>
-                    {getTranslation(set.ability || "(No Ability)", translationKey, "abilities")}
+                    {getEVDescription(setEVs, translationKey)}
                 </Typography>
+            </CompactTableCell>
+            <CompactTableCell width="90px" align="center">
+                <Stack>
+                    <Typography fontSize={10} m={.5}>
+                        {getTranslation(setMoves[0], translationKey, "moves")}
+                    </Typography>
+                    <Typography fontSize={10} m={.5}>
+                        {getTranslation(setMoves[1], translationKey, "moves")}
+                    </Typography>
+                </Stack>
+            </CompactTableCell>
+            <CompactRightCell width="90px" align="center">
+                <Stack>
+                    <Typography fontSize={10} m={.5}>
+                        {getTranslation(setMoves[2], translationKey, "moves")}
+                    </Typography>
+                    <Typography fontSize={10} m={.5}>
+                        {getTranslation(setMoves[3], translationKey, "moves")}
+                    </Typography>
+                </Stack>
             </CompactRightCell>
-            {/* TO DO fill in IVs, EVs, ? */}
         </ButtonRow>
     )
 }
@@ -759,7 +789,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                     <SortingButton label="Pokémon" method="species" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('species')} translationKey={translationKey}/>
                                 </HeaderCell>
                                 <HeaderCell width="60px">{getTranslation("Type", translationKey)}</HeaderCell>
-                                <HeaderCell width="100px" align="center">{getTranslation("Abilities", translationKey)}</HeaderCell>
+                                <HeaderCell width="100px" align="center">{getTranslation("Ability", translationKey)}</HeaderCell>
                                 <HeaderCell width="50px" align="center">
                                     <SortingButton label="HP" method="hp" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('hp')} translationKey={translationKey}/>
                                 </HeaderCell>

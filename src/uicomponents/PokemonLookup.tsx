@@ -903,8 +903,7 @@ const modalStyle = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '700px',
-    width: '90vw',
+    width: '780px',
     minHeght: '500px', // doesn't work?
     height: '90vh',
     bgcolor: 'background.paper',

@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "water"
+        "Water"
     ],
     "stats": {
         "hp": 79,
@@ -21,6 +21,9 @@
         "spd": 105,
         "spe": 78
     },
+    "weightkg": 85.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aqua Jet",

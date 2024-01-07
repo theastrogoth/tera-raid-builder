@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "flying"
+        "Psychic",
+        "Flying"
     ],
     "stats": {
         "hp": 90,
@@ -18,6 +18,9 @@
         "spd": 100,
         "spe": 95
     },
+    "weightkg": 50.9,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Agility",

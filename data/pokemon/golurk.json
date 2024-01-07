@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ground",
-        "ghost"
+        "Ground",
+        "Ghost"
     ],
     "stats": {
         "hp": 89,
@@ -26,6 +26,9 @@
         "spd": 80,
         "spe": 55
     },
+    "weightkg": 330,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Astonish",

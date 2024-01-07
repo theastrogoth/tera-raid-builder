@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fairy",
-        "flying"
+        "Fairy",
+        "Flying"
     ],
     "stats": {
         "hp": 74,
@@ -22,6 +22,9 @@
         "spd": 80,
         "spe": 106
     },
+    "weightkg": 48,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

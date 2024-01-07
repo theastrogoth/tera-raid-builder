@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "ice",
-        "fairy"
+        "Ice",
+        "Fairy"
     ],
     "stats": {
         "hp": 73,
@@ -22,6 +22,9 @@
         "spd": 100,
         "spe": 109
     },
+    "weightkg": 19.9,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

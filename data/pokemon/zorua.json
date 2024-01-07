@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "dark"
+        "Dark"
     ],
     "stats": {
         "hp": 40,
@@ -17,6 +17,9 @@
         "spd": 40,
         "spe": 65
     },
+    "weightkg": 12.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "electric",
-        "poison"
+        "Electric",
+        "Poison"
     ],
     "stats": {
         "hp": 75,
@@ -26,6 +26,9 @@
         "spd": 70,
         "spe": 75
     },
+    "weightkg": 40,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid",

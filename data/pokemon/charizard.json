@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "flying"
+        "Fire",
+        "Flying"
     ],
     "stats": {
         "hp": 78,
@@ -22,6 +22,9 @@
         "spd": 85,
         "spe": 100
     },
+    "weightkg": 90.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

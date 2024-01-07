@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "ice"
+        "Dragon",
+        "Ice"
     ],
     "stats": {
         "hp": 115,
@@ -22,6 +22,9 @@
         "spd": 86,
         "spe": 87
     },
+    "weightkg": 210,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

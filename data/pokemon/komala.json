@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "normal"
+        "Normal"
     ],
     "stats": {
         "hp": 65,
@@ -17,6 +17,9 @@
         "spd": 95,
         "spe": 65
     },
+    "weightkg": 19.9,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

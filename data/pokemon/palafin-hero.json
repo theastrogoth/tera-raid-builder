@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "water"
+        "Water"
     ],
     "stats": {
         "hp": 100,
@@ -17,6 +17,9 @@
         "spd": 87,
         "spe": 100
     },
+    "weightkg": 97.4,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

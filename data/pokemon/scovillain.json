@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "grass",
-        "fire"
+        "Grass",
+        "Fire"
     ],
     "stats": {
         "hp": 65,
@@ -26,6 +26,9 @@
         "spd": 65,
         "spe": 75
     },
+    "weightkg": 15,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Bite",

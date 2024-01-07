@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "fairy"
+        "Dark",
+        "Fairy"
     ],
     "stats": {
         "hp": 65,
@@ -26,6 +26,9 @@
         "spd": 55,
         "spe": 70
     },
+    "weightkg": 12.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Assurance",

@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "poison"
+        "Grass",
+        "Poison"
     ],
     "stats": {
         "hp": 60,
@@ -22,6 +22,9 @@
         "spd": 75,
         "spe": 40
     },
+    "weightkg": 8.6,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

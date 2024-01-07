@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "electric"
+        "Dragon",
+        "Electric"
     ],
     "stats": {
         "hp": 100,
@@ -18,6 +18,9 @@
         "spd": 100,
         "spe": 90
     },
+    "weightkg": 345,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Ancient Power",

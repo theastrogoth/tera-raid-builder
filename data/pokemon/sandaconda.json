@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "ground"
+        "Ground"
     ],
     "stats": {
         "hp": 72,
@@ -25,6 +25,9 @@
         "spd": 70,
         "spe": 71
     },
+    "weightkg": 65.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Belch",

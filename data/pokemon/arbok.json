@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "poison"
+        "Poison"
     ],
     "stats": {
         "hp": 60,
@@ -25,6 +25,9 @@
         "spd": 79,
         "spe": 80
     },
+    "weightkg": 65,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid",

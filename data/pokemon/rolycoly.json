@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "rock"
+        "Rock"
     ],
     "stats": {
         "hp": 30,
@@ -25,6 +25,9 @@
         "spd": 50,
         "spe": 30
     },
+    "weightkg": 12,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Ancient Power",

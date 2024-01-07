@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "grass",
-        "psychic"
+        "Grass",
+        "Psychic"
     ],
     "stats": {
         "hp": 90,
@@ -18,6 +18,9 @@
         "spd": 108,
         "spe": 104
     },
+    "weightkg": 125,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Aerial Ace",

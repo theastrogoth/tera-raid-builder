@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "ice",
-        "flying"
+        "Ice",
+        "Flying"
     ],
     "stats": {
         "hp": 90,
@@ -22,6 +22,9 @@
         "spd": 125,
         "spe": 85
     },
+    "weightkg": 55.4,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Aerial Ace",

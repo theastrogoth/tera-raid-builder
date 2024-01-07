@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "flying"
+        "Flying"
     ],
     "stats": {
         "hp": 79,
@@ -17,6 +17,9 @@
         "spd": 90,
         "spe": 121
     },
+    "weightkg": 63,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

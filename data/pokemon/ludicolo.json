@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "grass"
+        "Water",
+        "Grass"
     ],
     "stats": {
         "hp": 80,
@@ -26,6 +26,9 @@
         "spd": 100,
         "spe": 70
     },
+    "weightkg": 55,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

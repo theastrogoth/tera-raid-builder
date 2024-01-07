@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "fighting"
+        "Fighting"
     ],
     "stats": {
         "hp": 75,
@@ -25,6 +25,9 @@
         "spd": 35,
         "spe": 35
     },
+    "weightkg": 12.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Brick Break",

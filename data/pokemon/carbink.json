@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "rock",
-        "fairy"
+        "Rock",
+        "Fairy"
     ],
     "stats": {
         "hp": 50,
@@ -22,6 +22,9 @@
         "spd": 150,
         "spe": 50
     },
+    "weightkg": 5.7,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Ancient Power",

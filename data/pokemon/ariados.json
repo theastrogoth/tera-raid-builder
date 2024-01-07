@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "poison"
+        "Bug",
+        "Poison"
     ],
     "stats": {
         "hp": 70,
@@ -26,6 +26,9 @@
         "spd": 70,
         "spe": 40
     },
+    "weightkg": 33.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

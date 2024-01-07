@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "grass"
+        "Grass"
     ],
     "stats": {
         "hp": 100,
@@ -21,6 +21,9 @@
         "spd": 70,
         "spe": 85
     },
+    "weightkg": 90,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

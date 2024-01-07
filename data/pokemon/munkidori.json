@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "poison",
-        "psychic"
+        "Poison",
+        "Psychic"
     ],
     "stats": {
         "hp": 88,
@@ -22,6 +22,9 @@
         "spd": 90,
         "spe": 106
     },
+    "weightkg": 12.2,
+    "nfe": false,
+    "gender": "M",
     "moves": [
         {
             "name": "Acid Spray",

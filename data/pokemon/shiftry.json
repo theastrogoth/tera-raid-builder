@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "grass",
-        "dark"
+        "Grass",
+        "Dark"
     ],
     "stats": {
         "hp": 90,
@@ -26,6 +26,9 @@
         "spd": 60,
         "spe": 80
     },
+    "weightkg": 59.6,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

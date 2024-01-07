@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fairy",
-        "steel"
+        "Fairy",
+        "Steel"
     ],
     "stats": {
         "hp": 85,
@@ -26,6 +26,9 @@
         "spd": 105,
         "spe": 94
     },
+    "weightkg": 112.8,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Astonish",

@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "ice"
+        "Grass",
+        "Ice"
     ],
     "stats": {
         "hp": 60,
@@ -22,6 +22,9 @@
         "spd": 60,
         "spe": 40
     },
+    "weightkg": 50.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Avalanche",

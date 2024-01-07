@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "poison",
-        "fighting"
+        "Poison",
+        "Fighting"
     ],
     "stats": {
         "hp": 48,
@@ -26,6 +26,9 @@
         "spd": 40,
         "spe": 50
     },
+    "weightkg": 23,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

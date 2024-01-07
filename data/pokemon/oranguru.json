@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "normal",
-        "psychic"
+        "Normal",
+        "Psychic"
     ],
     "stats": {
         "hp": 90,
@@ -26,6 +26,9 @@
         "spd": 110,
         "spe": 60
     },
+    "weightkg": 76,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "After You",

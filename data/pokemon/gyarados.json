@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "flying"
+        "Water",
+        "Flying"
     ],
     "stats": {
         "hp": 95,
@@ -22,6 +22,9 @@
         "spd": 100,
         "spe": 81
     },
+    "weightkg": 235,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aqua Tail",

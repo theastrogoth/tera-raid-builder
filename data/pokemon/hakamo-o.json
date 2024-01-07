@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "fighting"
+        "Dragon",
+        "Fighting"
     ],
     "stats": {
         "hp": 55,
@@ -26,6 +26,9 @@
         "spd": 70,
         "spe": 65
     },
+    "weightkg": 47,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

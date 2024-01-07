@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "fighting"
+        "Fighting"
     ],
     "stats": {
         "hp": 47,
@@ -25,6 +25,9 @@
         "spd": 47,
         "spe": 63
     },
+    "weightkg": 7,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Amnesia",

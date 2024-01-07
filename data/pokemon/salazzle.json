@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "poison",
-        "fire"
+        "Poison",
+        "Fire"
     ],
     "stats": {
         "hp": 68,
@@ -22,6 +22,9 @@
         "spd": 60,
         "spe": 117
     },
+    "weightkg": 22.2,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

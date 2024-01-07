@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "grass",
-        "flying"
+        "Grass",
+        "Flying"
     ],
     "stats": {
         "hp": 100,
@@ -18,6 +18,9 @@
         "spd": 75,
         "spe": 127
     },
+    "weightkg": 5.2,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Air Cutter",

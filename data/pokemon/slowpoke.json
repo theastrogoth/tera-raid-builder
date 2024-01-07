@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "psychic"
+        "Water",
+        "Psychic"
     ],
     "stats": {
         "hp": 90,
@@ -26,6 +26,9 @@
         "spd": 40,
         "spe": 15
     },
+    "weightkg": 36,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Amnesia",

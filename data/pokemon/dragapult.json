@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "ghost"
+        "Dragon",
+        "Ghost"
     ],
     "stats": {
         "hp": 88,
@@ -26,6 +26,9 @@
         "spd": 75,
         "spe": 142
     },
+    "weightkg": 50,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

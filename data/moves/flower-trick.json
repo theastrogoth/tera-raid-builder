@@ -1,5 +1,6 @@
 {
     "name": "Flower Trick",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Grass",
@@ -15,5 +16,19 @@
     "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": false,
+    "willCrit": true,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

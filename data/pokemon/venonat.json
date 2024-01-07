@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "poison"
+        "Bug",
+        "Poison"
     ],
     "stats": {
         "hp": 60,
@@ -26,6 +26,9 @@
         "spd": 55,
         "spe": 45
     },
+    "weightkg": 30,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

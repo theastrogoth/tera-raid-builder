@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "water"
+        "Water"
     ],
     "stats": {
         "hp": 85,
@@ -21,6 +21,9 @@
         "spd": 50,
         "spe": 115
     },
+    "weightkg": 33.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

@@ -1,5 +1,6 @@
 {
     "name": "Population Bomb",
+    "moveCategory": "Physical",
     "category": "damage",
     "target": "selected-pokemon",
     "type": "Normal",
@@ -14,6 +15,20 @@
     "flinchChance": null,
     "statChance": null,
     "ailmentChance": null,
-    "minHits": 1,
-    "maxHits": 10
+    "minHits": 10,
+    "maxHits": 10,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": true,
+    "isWind": false
 }

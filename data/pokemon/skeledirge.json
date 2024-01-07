@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "ghost"
+        "Fire",
+        "Ghost"
     ],
     "stats": {
         "hp": 104,
@@ -22,6 +22,9 @@
         "spd": 75,
         "spe": 66
     },
+    "weightkg": 326.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Alluring Voice",

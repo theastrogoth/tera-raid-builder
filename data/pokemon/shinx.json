@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "electric"
+        "Electric"
     ],
     "stats": {
         "hp": 45,
@@ -25,6 +25,9 @@
         "spd": 34,
         "spe": 45
     },
+    "weightkg": 9.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Baby-Doll Eyes",

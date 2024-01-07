@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "rock",
-        "dark"
+        "Rock",
+        "Dark"
     ],
     "stats": {
         "hp": 100,
@@ -22,6 +22,9 @@
         "spd": 100,
         "spe": 61
     },
+    "weightkg": 202,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "dragon"
+        "Fighting",
+        "Dragon"
     ],
     "stats": {
         "hp": 100,
@@ -18,6 +18,9 @@
         "spd": 100,
         "spe": 135
     },
+    "weightkg": 303,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Acrobatics",

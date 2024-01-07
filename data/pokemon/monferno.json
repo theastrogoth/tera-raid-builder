@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "fighting"
+        "Fire",
+        "Fighting"
     ],
     "stats": {
         "hp": 64,
@@ -22,6 +22,9 @@
         "spd": 52,
         "spe": 81
     },
+    "weightkg": 22,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "grass"
+        "Bug",
+        "Grass"
     ],
     "stats": {
         "hp": 75,
@@ -26,6 +26,9 @@
         "spd": 80,
         "spe": 92
     },
+    "weightkg": 20.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

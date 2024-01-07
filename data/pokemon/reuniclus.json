@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "psychic"
+        "Psychic"
     ],
     "stats": {
         "hp": 110,
@@ -25,6 +25,9 @@
         "spd": 85,
         "spe": 30
     },
+    "weightkg": 20.1,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Armor",

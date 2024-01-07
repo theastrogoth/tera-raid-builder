@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "grass",
-        "flying"
+        "Grass",
+        "Flying"
     ],
     "stats": {
         "hp": 35,
@@ -26,6 +26,9 @@
         "spd": 55,
         "spe": 50
     },
+    "weightkg": 0.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

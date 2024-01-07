@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "electric"
+        "Electric"
     ],
     "stats": {
         "hp": 109,
@@ -25,6 +25,9 @@
         "spd": 83,
         "spe": 45
     },
+    "weightkg": 113,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

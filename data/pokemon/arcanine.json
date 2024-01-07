@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "fire"
+        "Fire"
     ],
     "stats": {
         "hp": 90,
@@ -25,6 +25,9 @@
         "spd": 80,
         "spe": 95
     },
+    "weightkg": 155,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

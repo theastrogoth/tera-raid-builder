@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "fighting"
+        "Dark",
+        "Fighting"
     ],
     "stats": {
         "hp": 50,
@@ -26,6 +26,9 @@
         "spd": 70,
         "spe": 48
     },
+    "weightkg": 11.8,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

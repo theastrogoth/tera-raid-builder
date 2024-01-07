@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "flying"
+        "Dragon",
+        "Flying"
     ],
     "stats": {
         "hp": 75,
@@ -22,6 +22,9 @@
         "spd": 105,
         "spe": 80
     },
+    "weightkg": 20.6,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "fairy"
+        "Water",
+        "Fairy"
     ],
     "stats": {
         "hp": 80,
@@ -22,6 +22,9 @@
         "spd": 116,
         "spe": 60
     },
+    "weightkg": 44,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

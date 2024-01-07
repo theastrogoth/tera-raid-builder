@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "ghost",
-        "ground"
+        "Ghost",
+        "Ground"
     ],
     "stats": {
         "hp": 85,
@@ -22,6 +22,9 @@
         "spd": 75,
         "spe": 35
     },
+    "weightkg": 250,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

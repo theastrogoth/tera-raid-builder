@@ -1,6 +1,7 @@
 {
     "name": "Bitter Blade",
-    "category": "damage",
+    "moveCategory": "Physical",
+    "category": "damage+heal",
     "target": "selected-pokemon",
     "type": "Fire",
     "power": 90,
@@ -15,5 +16,19 @@
     "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": true,
+    "isWind": false
 }

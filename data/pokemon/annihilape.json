@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "ghost"
+        "Fighting",
+        "Ghost"
     ],
     "stats": {
         "hp": 110,
@@ -26,6 +26,9 @@
         "spd": 90,
         "spe": 90
     },
+    "weightkg": 56,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

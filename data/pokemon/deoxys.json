@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "psychic"
+        "Psychic"
     ],
     "stats": {
         "hp": 50,
@@ -17,6 +17,9 @@
         "spd": 50,
         "spe": 150
     },
+    "weightkg": 60.8,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Aerial Ace",

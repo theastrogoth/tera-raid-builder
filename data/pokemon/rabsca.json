@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "bug",
-        "psychic"
+        "Bug",
+        "Psychic"
     ],
     "stats": {
         "hp": 75,
@@ -22,6 +22,9 @@
         "spd": 100,
         "spe": 45
     },
+    "weightkg": 3.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Bug Bite",

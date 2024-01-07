@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "water"
+        "Water"
     ],
     "stats": {
         "hp": 130,
@@ -21,6 +21,9 @@
         "spd": 95,
         "spe": 65
     },
+    "weightkg": 29,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Armor",

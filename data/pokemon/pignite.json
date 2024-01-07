@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "fighting"
+        "Fire",
+        "Fighting"
     ],
     "stats": {
         "hp": 90,
@@ -22,6 +22,9 @@
         "spd": 55,
         "spe": 55
     },
+    "weightkg": 55.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Arm Thrust",

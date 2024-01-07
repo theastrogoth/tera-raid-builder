@@ -1,13 +1,14 @@
 {
     "name": "Noble Roar",
+    "moveCategory": "Status",
     "category": "net-good-stats",
     "target": "selected-pokemon",
     "type": "Normal",
     "power": null,
     "accuracy": 100,
     "priority": 0,
-    "drain": 0,
-    "healing": 0,
+    "drain": null,
+    "healing": null,
     "selfDamage": null,
     "ailment": null,
     "statChanges": [
@@ -20,9 +21,23 @@
             "change": -1
         }
     ],
-    "flinchChance": 0,
+    "flinchChance": null,
     "statChance": 100,
-    "ailmentChance": 0,
+    "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 30,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": true,
+    "makesContact": false,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": true,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

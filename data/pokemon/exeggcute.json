@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "psychic"
+        "Grass",
+        "Psychic"
     ],
     "stats": {
         "hp": 60,
@@ -22,6 +22,9 @@
         "spd": 45,
         "spe": 40
     },
+    "weightkg": 2.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "ground"
+        "Ground"
     ],
     "stats": {
         "hp": 35,
@@ -25,6 +25,9 @@
         "spd": 70,
         "spe": 120
     },
+    "weightkg": 33.3,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

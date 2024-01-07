@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fire",
-        "rock"
+        "Fire",
+        "Rock"
     ],
     "stats": {
         "hp": 60,
@@ -26,6 +26,9 @@
         "spd": 50,
         "spe": 55
     },
+    "weightkg": 22.7,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

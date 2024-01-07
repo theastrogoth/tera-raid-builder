@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "psychic"
+        "Fire",
+        "Psychic"
     ],
     "stats": {
         "hp": 85,
@@ -22,6 +22,9 @@
         "spd": 80,
         "spe": 75
     },
+    "weightkg": 85,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

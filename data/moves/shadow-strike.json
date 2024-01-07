@@ -1,0 +1,39 @@
+{
+    "name": "Shadow Strike",
+    "moveCategory": "Physical",
+    "category": "damage+lower",
+    "target": "selected-pokemon",
+    "type": "Ghost",
+    "power": 80,
+    "accuracy": 95,
+    "priority": 0,
+    "drain": null,
+    "healing": null,
+    "selfDamage": null,
+    "ailment": null,
+    "statChanges": [
+        {
+            "stat": "def",
+            "change": -1
+        }
+    ],
+    "flinchChance": null,
+    "statChance": 50,
+    "ailmentChance": null,
+    "minHits": null,
+    "maxHits": null,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
+}

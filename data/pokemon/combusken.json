@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "fighting"
+        "Fire",
+        "Fighting"
     ],
     "stats": {
         "hp": 60,
@@ -22,6 +22,9 @@
         "spd": 60,
         "spe": 55
     },
+    "weightkg": 19.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "ground",
-        "dragon"
+        "Ground",
+        "Dragon"
     ],
     "stats": {
         "hp": 80,
@@ -18,6 +18,9 @@
         "spd": 80,
         "spe": 100
     },
+    "weightkg": 82,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

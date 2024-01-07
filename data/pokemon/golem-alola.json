@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "rock",
-        "electric"
+        "Rock",
+        "Electric"
     ],
     "stats": {
         "hp": 80,
@@ -26,6 +26,9 @@
         "spd": 65,
         "spe": 45
     },
+    "weightkg": 316,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Block",

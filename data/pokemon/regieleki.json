@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "electric"
+        "Electric"
     ],
     "stats": {
         "hp": 80,
@@ -17,6 +17,9 @@
         "spd": 50,
         "spe": 200
     },
+    "weightkg": 145,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Acrobatics",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "steel",
-        "psychic"
+        "Steel",
+        "Psychic"
     ],
     "stats": {
         "hp": 57,
@@ -26,6 +26,9 @@
         "spd": 86,
         "spe": 23
     },
+    "weightkg": 60.5,
+    "nfe": true,
+    "gender": "N",
     "moves": [
         {
             "name": "Body Slam",

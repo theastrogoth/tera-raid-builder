@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "bug",
-        "fire"
+        "Bug",
+        "Fire"
     ],
     "stats": {
         "hp": 55,
@@ -22,6 +22,9 @@
         "spd": 55,
         "spe": 60
     },
+    "weightkg": 28.8,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "dragon"
+        "Water",
+        "Dragon"
     ],
     "stats": {
         "hp": 90,
@@ -22,6 +22,9 @@
         "spd": 120,
         "spe": 120
     },
+    "weightkg": 660,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Aerial Ace",

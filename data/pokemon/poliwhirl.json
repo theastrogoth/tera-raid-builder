@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "water"
+        "Water"
     ],
     "stats": {
         "hp": 65,
@@ -25,6 +25,9 @@
         "spd": 50,
         "spe": 90
     },
+    "weightkg": 20,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Amnesia",

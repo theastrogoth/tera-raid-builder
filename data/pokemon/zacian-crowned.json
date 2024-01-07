@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fairy",
-        "steel"
+        "Fairy",
+        "Steel"
     ],
     "stats": {
         "hp": 92,
@@ -18,6 +18,9 @@
         "spd": 115,
         "spe": 148
     },
+    "weightkg": 355,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Agility",
@@ -26,6 +29,10 @@
         {
             "name": "Air Slash",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Behemoth Blade",
+            "learnMethod": "level-up"
         },
         {
             "name": "Bite",

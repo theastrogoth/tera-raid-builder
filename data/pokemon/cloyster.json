@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "ice"
+        "Water",
+        "Ice"
     ],
     "stats": {
         "hp": 50,
@@ -26,6 +26,9 @@
         "spd": 45,
         "spe": 70
     },
+    "weightkg": 132.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aqua Ring",

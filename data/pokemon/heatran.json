@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "steel"
+        "Fire",
+        "Steel"
     ],
     "stats": {
         "hp": 91,
@@ -22,6 +22,9 @@
         "spd": 106,
         "spe": 77
     },
+    "weightkg": 430,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Ancient Power",

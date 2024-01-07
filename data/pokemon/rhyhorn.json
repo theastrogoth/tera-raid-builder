@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ground",
-        "rock"
+        "Ground",
+        "Rock"
     ],
     "stats": {
         "hp": 80,
@@ -26,6 +26,9 @@
         "spd": 30,
         "spe": 25
     },
+    "weightkg": 115,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Blizzard",

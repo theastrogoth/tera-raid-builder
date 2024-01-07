@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "normal",
-        "fairy"
+        "Normal",
+        "Fairy"
     ],
     "stats": {
         "hp": 90,
@@ -26,6 +26,9 @@
         "spd": 20,
         "spe": 15
     },
+    "weightkg": 1,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Alluring Voice",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "normal",
-        "grass"
+        "Normal",
+        "Grass"
     ],
     "stats": {
         "hp": 60,
@@ -26,6 +26,9 @@
         "spd": 50,
         "spe": 75
     },
+    "weightkg": 19.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "ground"
+        "Ground"
     ],
     "stats": {
         "hp": 100,
@@ -25,6 +25,9 @@
         "spd": 85,
         "spe": 35
     },
+    "weightkg": 920,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Body Press",

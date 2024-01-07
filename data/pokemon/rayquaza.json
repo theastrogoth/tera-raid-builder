@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "flying"
+        "Dragon",
+        "Flying"
     ],
     "stats": {
         "hp": 105,
@@ -18,6 +18,9 @@
         "spd": 90,
         "spe": 95
     },
+    "weightkg": 206.5,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Aerial Ace",

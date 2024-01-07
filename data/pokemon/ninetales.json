@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "fire"
+        "Fire"
     ],
     "stats": {
         "hp": 73,
@@ -21,6 +21,9 @@
         "spd": 100,
         "spe": 100
     },
+    "weightkg": 19.9,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

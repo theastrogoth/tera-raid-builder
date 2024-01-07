@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "electric"
+        "Electric"
     ],
     "stats": {
         "hp": 85,
@@ -17,6 +17,9 @@
         "spd": 80,
         "spe": 50
     },
+    "weightkg": 80.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid",

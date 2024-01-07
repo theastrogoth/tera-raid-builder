@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "normal"
+        "Normal"
     ],
     "stats": {
         "hp": 120,
@@ -17,6 +17,9 @@
         "spd": 120,
         "spe": 120
     },
+    "weightkg": 320,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Acid Spray",

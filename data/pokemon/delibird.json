@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ice",
-        "flying"
+        "Ice",
+        "Flying"
     ],
     "stats": {
         "hp": 45,
@@ -26,6 +26,9 @@
         "spd": 45,
         "spe": 75
     },
+    "weightkg": 16,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

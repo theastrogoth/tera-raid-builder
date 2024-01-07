@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "water"
+        "Water"
     ],
     "stats": {
         "hp": 50,
@@ -25,6 +25,9 @@
         "spd": 38,
         "spe": 44
     },
+    "weightkg": 8.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Bite",

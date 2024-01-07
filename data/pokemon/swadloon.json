@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "grass"
+        "Bug",
+        "Grass"
     ],
     "stats": {
         "hp": 55,
@@ -26,6 +26,9 @@
         "spd": 80,
         "spe": 42
     },
+    "weightkg": 7.3,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Baton Pass",

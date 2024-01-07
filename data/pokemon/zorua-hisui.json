@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "normal",
-        "ghost"
+        "Normal",
+        "Ghost"
     ],
     "stats": {
         "hp": 35,
@@ -18,6 +18,9 @@
         "spd": 40,
         "spe": 70
     },
+    "weightkg": 12.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

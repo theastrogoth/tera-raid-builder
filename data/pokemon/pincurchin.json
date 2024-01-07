@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "electric"
+        "Electric"
     ],
     "stats": {
         "hp": 48,
@@ -21,6 +21,9 @@
         "spd": 85,
         "spe": 15
     },
+    "weightkg": 1,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acupressure",

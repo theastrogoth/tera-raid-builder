@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "ghost"
+        "Ghost"
     ],
     "stats": {
         "hp": 40,
@@ -21,6 +21,9 @@
         "spd": 54,
         "spe": 50
     },
+    "weightkg": 0.2,
+    "nfe": true,
+    "gender": "N",
     "moves": [
         {
             "name": "Ally Switch",

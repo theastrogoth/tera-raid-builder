@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "electric",
-        "steel"
+        "Electric",
+        "Steel"
     ],
     "stats": {
         "hp": 25,
@@ -26,6 +26,9 @@
         "spd": 55,
         "spe": 45
     },
+    "weightkg": 6,
+    "nfe": true,
+    "gender": "N",
     "moves": [
         {
             "name": "Charge",

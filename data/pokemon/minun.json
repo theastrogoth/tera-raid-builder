@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "electric"
+        "Electric"
     ],
     "stats": {
         "hp": 60,
@@ -21,6 +21,9 @@
         "spd": 85,
         "spe": 95
     },
+    "weightkg": 4.2,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

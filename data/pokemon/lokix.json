@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "bug",
-        "dark"
+        "Bug",
+        "Dark"
     ],
     "stats": {
         "hp": 71,
@@ -22,6 +22,9 @@
         "spd": 55,
         "spe": 92
     },
+    "weightkg": 17.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

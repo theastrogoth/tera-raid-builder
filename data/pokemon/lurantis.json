@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "grass"
+        "Grass"
     ],
     "stats": {
         "hp": 70,
@@ -21,6 +21,9 @@
         "spd": 90,
         "spe": 45
     },
+    "weightkg": 18.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Brick Break",

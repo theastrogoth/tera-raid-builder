@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ghost",
-        "flying"
+        "Ghost",
+        "Flying"
     ],
     "stats": {
         "hp": 150,
@@ -26,6 +26,9 @@
         "spd": 54,
         "spe": 80
     },
+    "weightkg": 15,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

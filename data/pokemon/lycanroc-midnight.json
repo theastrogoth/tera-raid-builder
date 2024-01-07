@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "rock"
+        "Rock"
     ],
     "stats": {
         "hp": 85,
@@ -25,6 +25,9 @@
         "spd": 75,
         "spe": 82
     },
+    "weightkg": 25,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Bite",

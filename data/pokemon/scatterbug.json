@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "bug"
+        "Bug"
     ],
     "stats": {
         "hp": 38,
@@ -25,6 +25,9 @@
         "spd": 25,
         "spe": 35
     },
+    "weightkg": 2.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Bug Bite",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ground",
-        "rock"
+        "Ground",
+        "Rock"
     ],
     "stats": {
         "hp": 105,
@@ -26,6 +26,9 @@
         "spd": 45,
         "spe": 40
     },
+    "weightkg": 120,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Avalanche",

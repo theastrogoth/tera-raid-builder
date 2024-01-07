@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "normal"
+        "Normal"
     ],
     "stats": {
         "hp": 75,
@@ -25,6 +25,9 @@
         "spd": 70,
         "spe": 110
     },
+    "weightkg": 88.4,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Assurance",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "flying"
+        "Bug",
+        "Flying"
     ],
     "stats": {
         "hp": 86,
@@ -26,6 +26,9 @@
         "spd": 56,
         "spe": 95
     },
+    "weightkg": 51.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

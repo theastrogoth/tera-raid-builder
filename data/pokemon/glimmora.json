@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "rock",
-        "poison"
+        "Rock",
+        "Poison"
     ],
     "stats": {
         "hp": 83,
@@ -22,6 +22,9 @@
         "spd": 81,
         "spe": 86
     },
+    "weightkg": 45,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Armor",

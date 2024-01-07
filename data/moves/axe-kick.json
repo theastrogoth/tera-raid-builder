@@ -1,5 +1,6 @@
 {
     "name": "Axe Kick",
+    "moveCategory": "Physical",
     "category": "damage+ailment",
     "target": "selected-pokemon",
     "type": "Fighting",
@@ -15,5 +16,19 @@
     "statChance": null,
     "ailmentChance": 30,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 10,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": false,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

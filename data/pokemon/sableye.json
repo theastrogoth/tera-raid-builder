@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "ghost"
+        "Dark",
+        "Ghost"
     ],
     "stats": {
         "hp": 50,
@@ -26,6 +26,9 @@
         "spd": 65,
         "spe": 50
     },
+    "weightkg": 11,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

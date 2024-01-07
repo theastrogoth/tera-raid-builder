@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "psychic"
+        "Fighting",
+        "Psychic"
     ],
     "stats": {
         "hp": 30,
@@ -22,6 +22,9 @@
         "spd": 55,
         "spe": 60
     },
+    "weightkg": 11.2,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acupressure",

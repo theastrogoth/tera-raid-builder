@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fairy",
-        "psychic"
+        "Fairy",
+        "Psychic"
     ],
     "stats": {
         "hp": 115,
@@ -18,6 +18,9 @@
         "spd": 115,
         "spe": 111
     },
+    "weightkg": 8,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Amnesia",

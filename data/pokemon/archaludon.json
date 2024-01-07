@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "steel",
-        "dragon"
+        "Steel",
+        "Dragon"
     ],
     "stats": {
         "hp": 90,
@@ -26,6 +26,9 @@
         "spd": 65,
         "spe": 85
     },
+    "weightkg": 60,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aura Sphere",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "flying"
+        "Dark",
+        "Flying"
     ],
     "stats": {
         "hp": 70,
@@ -26,6 +26,9 @@
         "spd": 65,
         "spe": 60
     },
+    "weightkg": 9,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Air Cutter",

@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "psychic"
+        "Psychic"
     ],
     "stats": {
         "hp": 30,
@@ -25,6 +25,9 @@
         "spd": 30,
         "spe": 75
     },
+    "weightkg": 1.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "fighting"
+        "Fighting"
     ],
     "stats": {
         "hp": 50,
@@ -25,6 +25,9 @@
         "spd": 110,
         "spe": 87
     },
+    "weightkg": 49.8,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aura Sphere",

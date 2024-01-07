@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "steel",
-        "psychic"
+        "Steel",
+        "Psychic"
     ],
     "stats": {
         "hp": 67,
@@ -26,6 +26,9 @@
         "spd": 116,
         "spe": 33
     },
+    "weightkg": 187,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Block",

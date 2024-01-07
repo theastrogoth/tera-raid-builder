@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "ghost"
+        "Fire",
+        "Ghost"
     ],
     "stats": {
         "hp": 75,
@@ -22,6 +22,9 @@
         "spd": 100,
         "spe": 85
     },
+    "weightkg": 62,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Ally Switch",

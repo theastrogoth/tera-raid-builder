@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "bug"
+        "Bug"
     ],
     "stats": {
         "hp": 77,
@@ -21,6 +21,9 @@
         "spd": 51,
         "spe": 65
     },
+    "weightkg": 25.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

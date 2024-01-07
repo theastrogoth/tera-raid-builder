@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "ice"
+        "Water",
+        "Ice"
     ],
     "stats": {
         "hp": 130,
@@ -26,6 +26,9 @@
         "spd": 95,
         "spe": 60
     },
+    "weightkg": 220,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Alluring Voice",

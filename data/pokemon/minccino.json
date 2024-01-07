@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "normal"
+        "Normal"
     ],
     "stats": {
         "hp": 55,
@@ -25,6 +25,9 @@
         "spd": 40,
         "spe": 75
     },
+    "weightkg": 5.8,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "After You",

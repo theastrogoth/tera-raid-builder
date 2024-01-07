@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "ground",
-        "grass"
+        "Ground",
+        "Grass"
     ],
     "stats": {
         "hp": 40,
@@ -18,6 +18,9 @@
         "spd": 100,
         "spe": 70
     },
+    "weightkg": 33,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

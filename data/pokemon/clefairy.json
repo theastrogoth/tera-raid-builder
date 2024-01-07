@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "fairy"
+        "Fairy"
     ],
     "stats": {
         "hp": 70,
@@ -25,6 +25,9 @@
         "spd": 65,
         "spe": 35
     },
+    "weightkg": 7.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "After You",

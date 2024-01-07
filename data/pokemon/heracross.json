@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "fighting"
+        "Bug",
+        "Fighting"
     ],
     "stats": {
         "hp": 80,
@@ -26,6 +26,9 @@
         "spd": 95,
         "spe": 85
     },
+    "weightkg": 54,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

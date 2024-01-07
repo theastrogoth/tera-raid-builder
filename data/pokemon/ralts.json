@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "fairy"
+        "Psychic",
+        "Fairy"
     ],
     "stats": {
         "hp": 28,
@@ -26,6 +26,9 @@
         "spd": 35,
         "spe": 40
     },
+    "weightkg": 6.6,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Alluring Voice",

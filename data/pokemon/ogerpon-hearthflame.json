@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "grass",
-        "fire"
+        "Grass",
+        "Fire"
     ],
     "stats": {
         "hp": 80,
@@ -18,6 +18,9 @@
         "spd": 96,
         "spe": 110
     },
+    "weightkg": 39.8,
+    "nfe": false,
+    "gender": "F",
     "moves": [
         {
             "name": "Brick Break",

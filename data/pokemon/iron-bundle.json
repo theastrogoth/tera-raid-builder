@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "ice",
-        "water"
+        "Ice",
+        "Water"
     ],
     "stats": {
         "hp": 56,
@@ -18,6 +18,9 @@
         "spd": 60,
         "spe": 136
     },
+    "weightkg": 11,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Acrobatics",

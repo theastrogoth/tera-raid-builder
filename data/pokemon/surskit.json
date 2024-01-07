@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "bug",
-        "water"
+        "Bug",
+        "Water"
     ],
     "stats": {
         "hp": 40,
@@ -22,6 +22,9 @@
         "spd": 52,
         "spe": 65
     },
+    "weightkg": 1.7,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

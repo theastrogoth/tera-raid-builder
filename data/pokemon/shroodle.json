@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "poison",
-        "normal"
+        "Poison",
+        "Normal"
     ],
     "stats": {
         "hp": 40,
@@ -26,6 +26,9 @@
         "spd": 35,
         "spe": 75
     },
+    "weightkg": 0.7,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

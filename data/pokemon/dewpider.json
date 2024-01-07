@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "bug"
+        "Water",
+        "Bug"
     ],
     "stats": {
         "hp": 38,
@@ -22,6 +22,9 @@
         "spd": 72,
         "spe": 27
     },
+    "weightkg": 4,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Aqua Ring",

@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "fire",
-        "psychic"
+        "Fire",
+        "Psychic"
     ],
     "stats": {
         "hp": 75,
@@ -22,6 +22,9 @@
         "spd": 100,
         "spe": 104
     },
+    "weightkg": 39,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

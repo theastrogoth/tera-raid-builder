@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "flying",
-        "dragon"
+        "Flying",
+        "Dragon"
     ],
     "stats": {
         "hp": 40,
@@ -26,6 +26,9 @@
         "spd": 40,
         "spe": 55
     },
+    "weightkg": 8,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

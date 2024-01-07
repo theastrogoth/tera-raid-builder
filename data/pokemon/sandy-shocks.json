@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "electric",
-        "ground"
+        "Electric",
+        "Ground"
     ],
     "stats": {
         "hp": 85,
@@ -18,6 +18,9 @@
         "spd": 85,
         "spe": 101
     },
+    "weightkg": 60,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Body Press",

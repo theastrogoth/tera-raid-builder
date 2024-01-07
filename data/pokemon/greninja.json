@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "dark"
+        "Water",
+        "Dark"
     ],
     "stats": {
         "hp": 72,
@@ -22,6 +22,9 @@
         "spd": 71,
         "spe": 122
     },
+    "weightkg": 40,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

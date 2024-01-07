@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "normal"
+        "Normal"
     ],
     "stats": {
         "hp": 65,
@@ -25,6 +25,9 @@
         "spd": 75,
         "spe": 40
     },
+    "weightkg": 36.5,
+    "nfe": true,
+    "gender": "N",
     "moves": [
         {
             "name": "Agility",

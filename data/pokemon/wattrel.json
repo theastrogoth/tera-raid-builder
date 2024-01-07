@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "electric",
-        "flying"
+        "Electric",
+        "Flying"
     ],
     "stats": {
         "hp": 40,
@@ -26,6 +26,9 @@
         "spd": 40,
         "spe": 70
     },
+    "weightkg": 3.6,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

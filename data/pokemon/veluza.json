@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "water",
-        "psychic"
+        "Water",
+        "Psychic"
     ],
     "stats": {
         "hp": 90,
@@ -22,6 +22,9 @@
         "spd": 65,
         "spe": 70
     },
+    "weightkg": 90,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

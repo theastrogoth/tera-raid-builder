@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "poison",
-        "dark"
+        "Poison",
+        "Dark"
     ],
     "stats": {
         "hp": 105,
@@ -26,6 +26,9 @@
         "spd": 100,
         "spe": 50
     },
+    "weightkg": 52,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Armor",

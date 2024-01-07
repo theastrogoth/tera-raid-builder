@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ground",
-        "dark"
+        "Ground",
+        "Dark"
     ],
     "stats": {
         "hp": 50,
@@ -26,6 +26,9 @@
         "spd": 35,
         "spe": 65
     },
+    "weightkg": 15.2,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Aqua Tail",

@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "normal"
+        "Normal"
     ],
     "stats": {
         "hp": 110,
@@ -25,6 +25,9 @@
         "spd": 80,
         "spe": 65
     },
+    "weightkg": 120,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Belch",

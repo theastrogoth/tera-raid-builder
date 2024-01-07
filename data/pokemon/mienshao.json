@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "fighting"
+        "Fighting"
     ],
     "stats": {
         "hp": 65,
@@ -25,6 +25,9 @@
         "spd": 60,
         "spe": 105
     },
+    "weightkg": 35.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "fire"
+        "Fighting",
+        "Fire"
     ],
     "stats": {
         "hp": 75,
@@ -26,6 +26,9 @@
         "spd": 70,
         "spe": 100
     },
+    "weightkg": 85,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Body Press",

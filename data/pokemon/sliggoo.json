@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "dragon"
+        "Dragon"
     ],
     "stats": {
         "hp": 68,
@@ -25,6 +25,9 @@
         "spd": 113,
         "spe": 60
     },
+    "weightkg": 17.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

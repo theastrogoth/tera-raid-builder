@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "dragon",
-        "dark"
+        "Dragon",
+        "Dark"
     ],
     "stats": {
         "hp": 105,
@@ -18,6 +18,9 @@
         "spd": 101,
         "spe": 119
     },
+    "weightkg": 380,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Acrobatics",

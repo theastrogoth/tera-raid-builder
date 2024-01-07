@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "psychic",
-        "ghost"
+        "Psychic",
+        "Ghost"
     ],
     "stats": {
         "hp": 100,
@@ -18,6 +18,9 @@
         "spd": 100,
         "spe": 150
     },
+    "weightkg": 53.6,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Agility",

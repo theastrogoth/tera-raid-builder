@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "grass",
-        "dragon"
+        "Grass",
+        "Dragon"
     ],
     "stats": {
         "hp": 40,
@@ -26,6 +26,9 @@
         "spd": 40,
         "spe": 20
     },
+    "weightkg": 0.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Astonish",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "rock"
+        "Water",
+        "Rock"
     ],
     "stats": {
         "hp": 90,
@@ -26,6 +26,9 @@
         "spd": 68,
         "spe": 74
     },
+    "weightkg": 115.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Bite",

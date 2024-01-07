@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "normal"
+        "Normal"
     ],
     "stats": {
         "hp": 55,
@@ -25,5 +25,9 @@
         "spd": 45,
         "spe": 75
     },
-    "moves": []
+    "weightkg": 58,
+    "nfe": false,
+    "gender": null,
+    "moves": [
+    ]
 }

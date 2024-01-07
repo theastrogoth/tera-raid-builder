@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "ghost",
-        "fairy"
+        "Ghost",
+        "Fairy"
     ],
     "stats": {
         "hp": 55,
@@ -18,6 +18,9 @@
         "spd": 105,
         "spe": 96
     },
+    "weightkg": 0.7,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Astonish",

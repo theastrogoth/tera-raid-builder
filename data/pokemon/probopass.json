@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "rock",
-        "steel"
+        "Rock",
+        "Steel"
     ],
     "stats": {
         "hp": 60,
@@ -26,6 +26,9 @@
         "spd": 150,
         "spe": 40
     },
+    "weightkg": 340,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Block",

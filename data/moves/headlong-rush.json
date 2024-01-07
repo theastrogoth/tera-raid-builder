@@ -1,5 +1,6 @@
 {
     "name": "Headlong Rush",
+    "moveCategory": "Physical",
     "category": "damage+raise",
     "target": "selected-pokemon",
     "type": "Ground",
@@ -21,8 +22,22 @@
         }
     ],
     "flinchChance": null,
-    "statChance": 100,
+    "statChance": null,
     "ailmentChance": null,
     "minHits": null,
-    "maxHits": null
+    "maxHits": null,
+    "pp": 5,
+    "ignoreDefensive": false,
+    "breaksProtect": false,
+    "bypassSub": false,
+    "makesContact": true,
+    "willCrit": false,
+    "highCritChance": false,
+    "isPunch": true,
+    "isBite": false,
+    "isBullet": false,
+    "isSound": false,
+    "isPulse": false,
+    "isSlicing": false,
+    "isWind": false
 }

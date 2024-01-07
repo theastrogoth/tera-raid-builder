@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "fighting"
+        "Fighting"
     ],
     "stats": {
         "hp": 35,
@@ -25,6 +25,9 @@
         "spd": 35,
         "spe": 35
     },
+    "weightkg": 21,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Body Slam",

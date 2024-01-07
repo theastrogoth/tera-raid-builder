@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "poison"
+        "Dark",
+        "Poison"
     ],
     "stats": {
         "hp": 85,
@@ -26,6 +26,9 @@
         "spd": 65,
         "spe": 85
     },
+    "weightkg": 60.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ice",
-        "ground"
+        "Ice",
+        "Ground"
     ],
     "stats": {
         "hp": 100,
@@ -26,6 +26,9 @@
         "spd": 60,
         "spe": 50
     },
+    "weightkg": 55.8,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Amnesia",

@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "ice"
+        "Ice"
     ],
     "stats": {
         "hp": 80,
@@ -21,6 +21,9 @@
         "spd": 200,
         "spe": 50
     },
+    "weightkg": 175,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Amnesia",

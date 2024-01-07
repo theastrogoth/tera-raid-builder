@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "steel",
-        "psychic"
+        "Steel",
+        "Psychic"
     ],
     "stats": {
         "hp": 80,
@@ -22,6 +22,9 @@
         "spd": 90,
         "spe": 70
     },
+    "weightkg": 550,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Aerial Ace",

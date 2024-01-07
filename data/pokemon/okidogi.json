@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "poison",
-        "fighting"
+        "Poison",
+        "Fighting"
     ],
     "stats": {
         "hp": 88,
@@ -22,6 +22,9 @@
         "spd": 86,
         "spe": 80
     },
+    "weightkg": 92,
+    "nfe": false,
+    "gender": "M",
     "moves": [
         {
             "name": "Bite",

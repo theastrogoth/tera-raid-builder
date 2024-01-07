@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "dark"
+        "Dark"
     ],
     "stats": {
         "hp": 80,
@@ -25,6 +25,9 @@
         "spd": 70,
         "spe": 85
     },
+    "weightkg": 61,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Bite",

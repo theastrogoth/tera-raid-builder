@@ -15,7 +15,7 @@
         }
     ],
     "types": [
-        "bug"
+        "Bug"
     ],
     "stats": {
         "hp": 65,
@@ -25,6 +25,9 @@
         "spd": 85,
         "spe": 85
     },
+    "weightkg": 17.7,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

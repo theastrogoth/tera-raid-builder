@@ -361,7 +361,7 @@ pokemon_dict_final = deepcopy(pokemon_dict_temp)
 add_all_prevo_moves!(pokemon_dict_final, pokemon_dict_temp)
 
 
-write_path = "data/pokemon"
-for (name, pd) in pokemon_dict_final
-    write_pokemon_data(pd)
-end
+# write_path = "data/pokemon"
+# for (name, pd) in pokemon_dict_final
+#     write_pokemon_data(pd)
+# end

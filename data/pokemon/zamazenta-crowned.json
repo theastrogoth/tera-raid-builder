@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "fighting",
-        "steel"
+        "Fighting",
+        "Steel"
     ],
     "stats": {
         "hp": 92,
@@ -18,10 +18,17 @@
         "spd": 140,
         "spe": 128
     },
+    "weightkg": 785,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Agility",
             "learnMethod": "machine"
+        },
+        {
+            "name": "Behemoth Blade",
+            "learnMethod": "level-up"
         },
         {
             "name": "Bite",

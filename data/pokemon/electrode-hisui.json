@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "electric",
-        "grass"
+        "Electric",
+        "Grass"
     ],
     "stats": {
         "hp": 60,
@@ -26,6 +26,9 @@
         "spd": 80,
         "spe": 150
     },
+    "weightkg": 71,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Agility",

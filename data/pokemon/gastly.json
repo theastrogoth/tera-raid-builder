@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "ghost",
-        "poison"
+        "Ghost",
+        "Poison"
     ],
     "stats": {
         "hp": 30,
@@ -18,6 +18,9 @@
         "spd": 35,
         "spe": 80
     },
+    "weightkg": 0.1,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

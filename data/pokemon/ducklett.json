@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "flying"
+        "Water",
+        "Flying"
     ],
     "stats": {
         "hp": 62,
@@ -26,6 +26,9 @@
         "spd": 50,
         "spe": 55
     },
+    "weightkg": 5.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

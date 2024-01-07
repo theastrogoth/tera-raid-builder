@@ -7,8 +7,8 @@
         }
     ],
     "types": [
-        "rock",
-        "electric"
+        "Rock",
+        "Electric"
     ],
     "stats": {
         "hp": 100,
@@ -18,6 +18,9 @@
         "spd": 84,
         "spe": 72
     },
+    "weightkg": 303,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Bite",

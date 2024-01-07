@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "grass",
-        "flying"
+        "Grass",
+        "Flying"
     ],
     "stats": {
         "hp": 99,
@@ -26,6 +26,9 @@
         "spd": 87,
         "spe": 51
     },
+    "weightkg": 100,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",

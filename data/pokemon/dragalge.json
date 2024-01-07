@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "poison",
-        "dragon"
+        "Poison",
+        "Dragon"
     ],
     "stats": {
         "hp": 65,
@@ -26,6 +26,9 @@
         "spd": 123,
         "spe": 44
     },
+    "weightkg": 81.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid",

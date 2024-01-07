@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "psychic"
+        "Psychic"
     ],
     "stats": {
         "hp": 43,
@@ -17,6 +17,9 @@
         "spd": 31,
         "spe": 37
     },
+    "weightkg": 0.1,
+    "nfe": true,
+    "gender": "N",
     "moves": [
         {
             "name": "Splash",

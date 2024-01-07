@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "poison"
+        "Water",
+        "Poison"
     ],
     "stats": {
         "hp": 65,
@@ -26,6 +26,9 @@
         "spd": 55,
         "spe": 85
     },
+    "weightkg": 3.9,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acid Spray",

@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "grass"
+        "Grass"
     ],
     "stats": {
         "hp": 45,
@@ -21,6 +21,9 @@
         "spd": 65,
         "spe": 45
     },
+    "weightkg": 6.4,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Ancient Power",

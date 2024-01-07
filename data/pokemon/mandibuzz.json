@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "dark",
-        "flying"
+        "Dark",
+        "Flying"
     ],
     "stats": {
         "hp": 110,
@@ -26,6 +26,9 @@
         "spd": 95,
         "spe": 80
     },
+    "weightkg": 39.5,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "dragon"
+        "Dragon"
     ],
     "stats": {
         "hp": 61,
@@ -21,6 +21,9 @@
         "spd": 70,
         "spe": 70
     },
+    "weightkg": 16.5,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

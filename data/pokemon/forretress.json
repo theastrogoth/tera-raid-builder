@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "bug",
-        "steel"
+        "Bug",
+        "Steel"
     ],
     "stats": {
         "hp": 75,
@@ -22,6 +22,9 @@
         "spd": 60,
         "spe": 40
     },
+    "weightkg": 125.8,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Body Press",

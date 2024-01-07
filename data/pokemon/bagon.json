@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "dragon"
+        "Dragon"
     ],
     "stats": {
         "hp": 45,
@@ -21,6 +21,9 @@
         "spd": 30,
         "spe": 50
     },
+    "weightkg": 42.1,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Bite",

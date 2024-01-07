@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "electric"
+        "Bug",
+        "Electric"
     ],
     "stats": {
         "hp": 70,
@@ -26,6 +26,9 @@
         "spd": 60,
         "spe": 108
     },
+    "weightkg": 14.3,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Absorb",

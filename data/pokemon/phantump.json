@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "ghost",
-        "grass"
+        "Ghost",
+        "Grass"
     ],
     "stats": {
         "hp": 43,
@@ -26,6 +26,9 @@
         "spd": 60,
         "spe": 38
     },
+    "weightkg": 7,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Ally Switch",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "bug",
-        "flying"
+        "Bug",
+        "Flying"
     ],
     "stats": {
         "hp": 80,
@@ -26,6 +26,9 @@
         "spd": 50,
         "spe": 89
     },
+    "weightkg": 17,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Acrobatics",

@@ -15,8 +15,8 @@
         }
     ],
     "types": [
-        "water",
-        "dragon"
+        "Water",
+        "Dragon"
     ],
     "stats": {
         "hp": 75,
@@ -26,6 +26,9 @@
         "spd": 95,
         "spe": 85
     },
+    "weightkg": 152,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Agility",

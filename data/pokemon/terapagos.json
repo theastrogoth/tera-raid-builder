@@ -7,7 +7,7 @@
         }
     ],
     "types": [
-        "normal"
+        "Normal"
     ],
     "stats": {
         "hp": 90,
@@ -17,6 +17,9 @@
         "spd": 85,
         "spe": 60
     },
+    "weightkg": 6.5,
+    "nfe": false,
+    "gender": "M",
     "moves": [
         {
             "name": "Ancient Power",

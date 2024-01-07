@@ -11,8 +11,8 @@
         }
     ],
     "types": [
-        "grass",
-        "poison"
+        "Grass",
+        "Poison"
     ],
     "stats": {
         "hp": 65,
@@ -22,6 +22,9 @@
         "spd": 45,
         "spe": 55
     },
+    "weightkg": 6.4,
+    "nfe": true,
+    "gender": null,
     "moves": [
         {
             "name": "Acid",

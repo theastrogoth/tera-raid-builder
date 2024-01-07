@@ -11,7 +11,7 @@
         }
     ],
     "types": [
-        "steel"
+        "Steel"
     ],
     "stats": {
         "hp": 80,
@@ -21,6 +21,9 @@
         "spd": 150,
         "spe": 50
     },
+    "weightkg": 205,
+    "nfe": false,
+    "gender": "N",
     "moves": [
         {
             "name": "Amnesia",

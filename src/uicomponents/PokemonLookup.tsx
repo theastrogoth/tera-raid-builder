@@ -153,15 +153,19 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                     "&&": 1,
                     "||": 0
                 };
-                const andOperators = ["and", "&&", "&", ","];
-                const orOperators = ["or", "||", "|"];
+                const andTranslation = getTranslation("and", translationKey);
+                const orTranslation = getTranslation("or", translationKey);
+                const andOperators = ["and", "&&", "&", ",", andTranslation];
+                const orOperators = ["or", "||", "|", orTranslation];
                 const validOperators = andOperators.concat(orOperators);
 
                 const validComparators = ["<", ">", "<=", ">=", "=", "==", "===", "!=", "!=="];
                 const validStats = ["hp", "atk", "def", "spa", "spd", "spe", "bst"];
 
+                const regexp = new RegExp(`/(\s${andTranslation}\s|\s${orTranslation}\s|\sand\s|\s\s|\sor\s|&&|\|\||&|\||,|\(|\))/i`);
+
                 const filterComponents = 
-                    filter.name.toLowerCase().replace(/["]+/g, '').split(/(\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))/i).map((token) => token.trim()).filter(Boolean)
+                    filter.name.toLowerCase().replace(/["]+/g, '').split(regexp).map((token) => token.trim()).filter(Boolean)
                     .map((item) => 
                         andOperators.includes(item) ? "&&" : item
                     )
@@ -1182,7 +1186,10 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                         <Stack direction="row" sx={{ width: "100%"}}>
                             <TextField
                                 variant="standard"
-                                placeholder={getTranslation("Search (Example: \"Fake Tears or Acid Spray\")", translationKey)}
+                                // placeholder={getTranslation("Search (Example: \"Fake Tears or Acid Spray\")", translationKey)}
+                                placeholder={
+                                    `${getTranslation("Search", translationKey)} (${getTranslation("Example", translationKey)}: "${getTranslation("Fake Tears", translationKey, "moves")} ${getTranslation("or", translationKey)} ${getTranslation("Acid Spray", translationKey, "moves")}")`
+                                }
                                 value={inputValue}
                                 onChange={(event) => {
                                     setInputValue(event.target.value);

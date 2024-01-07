@@ -717,7 +717,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         setSpeciesOptions(sortedSpeciesOptions);
     }, [sortMethod, sortDirection]);
 
-    const groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions].map((o) => o.length);
+    const groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions, [1]].map((o) => o.length);
     const cumulativeCounts: number[] = [0]
     let acc = 0;
     for (let c of groupCounts.slice(0, -1)) {
@@ -818,6 +818,18 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <HeaderCell width="300px" align="center"></HeaderCell>
                         </HeaderRow> : null
                         }
+                        { g === 4 && inputValue.length > 0 ?
+                        <HeaderRow>
+                            <HeaderCell width="40px"></HeaderCell>
+                            <HeaderCell width="30px"></HeaderCell>
+                            <HeaderCell width="100px">
+                                <Typography>{getTranslation("Custom", translationKey)}</Typography>
+                            </HeaderCell>
+                            <HeaderCell width="60px"></HeaderCell>
+                            <HeaderCell width="100px" align="center"></HeaderCell>
+                            <HeaderCell width="350px" align="center"></HeaderCell>
+                        </HeaderRow> : null
+                        }
                         </>)
                     }
                     itemContent={(i, g) => (
@@ -856,41 +868,27 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        </>
-
-                    )}
-                />
-                {/* <Virtuoso 
-                    style={{height: "300px", width: "720px" }}
-                    data={[,...typeOptions]}
-                    topItemCount={1}
-                    itemContent={(i, t) => (
-                        <>
-                        {i === 0 &&
-                            <ButtonRow>
-                                <HeaderCell width="40px"></HeaderCell>
-                                <HeaderCell width="30px"></HeaderCell>
-                                <HeaderCell width="100px">
-                                    <Typography>{getTranslation("Type", translationKey)}</Typography>
-                                </HeaderCell>
-                                <HeaderCell width="60px"></HeaderCell>
-                                <HeaderCell width="100px" align="center"></HeaderCell>
-                                <HeaderCell width="350px" align="center"></HeaderCell>
+                        { g === 4 && inputValue.length > 0 &&
+                            <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
+                                <CompactLeftCell width="40px"></CompactLeftCell>
+                                <CompactTableCell width="30px"></CompactTableCell>
+                                <CompactTableCell width="100px">
+                                    <Typography fontSize={10} m={.5}>
+                                        {`${getTranslation("Add", translationKey)} "${inputValue}"`}
+                                    </Typography>
+                                </CompactTableCell>
+                                <CompactTableCell width="60px"></CompactTableCell>
+                                <CompactTableCell width="100px" align="center"></CompactTableCell>
+                                <CompactRightCell width="300px" colSpan={6} align="center">
+                                    <Typography fontSize={10} m={.5} fontStyle="italic">
+                                        {`(${getTranslation("Filter", translationKey)})`}
+                                    </Typography>
+                                </CompactRightCell>
                             </ButtonRow>
                         }
-                        { i !== 0 &&
-                            <TypeSearchResult 
-                                key={i}
-                                type={t as TypeName} 
-                                handleAddFilter={handleAddFilter} 
-                                translationKey={translationKey}
-                            />
-                        }
                         </>
-
                     )}
                 />
-                 */}
             </Stack>
             }
         </Box>

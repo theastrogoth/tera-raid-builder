@@ -30,10 +30,10 @@ import { AbilityName, MoveName, SpeciesName, StatsTable, TypeName } from "../cal
 import PokedexService, { PokemonData } from "../services/getdata";
 import { MoveData, MoveSetItem, SetOption } from "../raidcalc/interface";
 import { ABILITIES, Generations, Move, toID } from "../calc";
-import { setdexToOptions } from "../utils";
+import { getEVDescription, setdexToOptions } from "../utils";
 
 // import { GenericWithIcon, GroupHeader, MoveWithIcon, PokemonPopper, findOptionFromPokemonName, findOptionFromTeraTypeName } from "./BuildControls";
-import { getPokemonSpriteURL, getTranslation, getTypeIconURL } from "../utils";
+import { getPokemonSpriteURL, getTranslation, getTypeIconURL, getItemSpriteURL } from "../utils";
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 
@@ -77,7 +77,7 @@ type SearchOption = {
 
 const allOptions: SearchOption[] = [];
 for (let specie of genSpecies) {
-    allOptions.push({name: specie, type: "Pokémon"});
+    allOptions.push({name: specie.includes("Flab") ? "Flabebe" : specie, type: "Pokémon"});
 }
 for (let type of genTypes) {
     allOptions.push({name: type, type: "Type"});
@@ -493,19 +493,34 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
 
 function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, handleSetPokemon: (s: SetOption) => void, translationKey: any}) {
     return (
-        <ButtonRow onClick={() => handleSetPokemon(set)} sx={{paddingY: 0, marginY: 0}}>
+        <ButtonRow onClick={() => handleSetPokemon(set)} sx={{paddingY: 0, marginY: 0, height: 35}}>
             <CompactLeftCell></CompactLeftCell>
             <CompactTableCell>
                 <Typography fontSize={10} m={.5}>
                     {set.name}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell align="center">
+                <Stack direction="row" justifyContent="center">
+                    {set.item && <Box
+                        sx={{
+                            width: "20px",
+                            height: "20px",
+                            overflow: 'hidden',
+                            background: `url(${getItemSpriteURL(set.item as string)}) no-repeat center center / contain`,
+                        }}
+                    />}
+                    <Typography fontSize={10} m={.5}>
+                        {set.item ? set.item : "No Item"}
+                    </Typography> 
+                </Stack>
+            </CompactTableCell>
+            <CompactTableCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(set.nature || "Hardy", translationKey, "natures")}
                 </Typography>
             </CompactTableCell>
-            <CompactRightCell>
+            <CompactRightCell align="center">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(set.ability || "(No Ability)", translationKey, "abilities")}
                 </Typography>
@@ -1057,7 +1072,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                     <Stack spacing={1}>
                         <TextField
                             variant="standard"
-                            placeholder={getTranslation("Search", translationKey)}
+                            placeholder={getTranslation("Search (Example: Fake Tears or Acid Spray)", translationKey)}
                             value={inputValue}
                             onChange={(event) => {
                                 setInputValue(event.target.value);

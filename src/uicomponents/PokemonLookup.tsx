@@ -131,10 +131,10 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 }
             break;
             case "Custom":
-                // const operatorPrecedence = {
-                //     "&&": 1,
-                //     "||": 0
-                // };
+                const operatorPrecedence = {
+                    "&&": 1,
+                    "||": 0
+                };
                 const andOperators = ["and", "&&", "&", ","];
                 const orOperators = ["or", "||", "|"];
                 const validOperators = andOperators.concat(orOperators);
@@ -147,78 +147,76 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                     .map((item) => 
                         orOperators.includes(item) ? "||" : item
                     );
-                // const termStack: string[] = [];
-                // const operatorStack: string[] = [];
+                const termStack: string[] = [];
+                const operatorStack: string[] = [];
                 
-                // for (let component of filterComponents) {
-                //     const lastComponent = operatorStack.slice(-1)[0];
-                //     if (component === "&&") {
-                //         while (operatorStack.length > 0 && validOperators.includes(lastComponent) && (operatorPrecedence[component] <= operatorPrecedence[lastComponent as keyof typeof operatorPrecedence] || lastComponent === "(")) {
-                //             // @ts-ignore
-                //             termStack.push(operatorStack.pop());
-                //         }
-                //         operatorStack.push(component);
-                //     } else if (component === "||") {
-                //         operatorStack.push("or")
-                //     } else if (component === "(") {
-                //         operatorStack.push(component);
-                //     } else if (component === ")") {
-                //         while (operatorStack.length > 0 && lastComponent !== '(') {
-                //             // @ts-ignore
-                //             termStack.push(operatorStack.pop());
-                //         }
-                //         operatorStack.pop();
-                //     } else {
-                //         termStack.push(component);
-                //     }
-                // }
-                const filterTerms = [];
-                const filterOperators = [];
                 for (let component of filterComponents) {
-                    if (component === "and" || component === "or" || component === "&&" || component === "||" || component === "&" || component === "|" || component === "," || component === "(" || component === ")") {
-                        filterOperators.push(component);
+                    let lastOperator = operatorStack.slice(-1)[0];
+                    if (validOperators.includes(component)) {
+                        while (operatorStack.length > 0 && validOperators.includes(lastOperator) && (operatorPrecedence[component as keyof typeof operatorPrecedence] <= operatorPrecedence[lastOperator as keyof typeof operatorPrecedence] || lastOperator === "(")) {
+                            // @ts-ignore
+                            termStack.push(operatorStack.pop());
+                            lastOperator = operatorStack.slice(-1)[0];
+                        }
+                        operatorStack.push(component);
+                    } else if (component === "(") {
+                        operatorStack.push(component);
+                    } else if (component === ")") {
+                        while (operatorStack.length > 0 && lastOperator !== '(') {
+                            // @ts-ignore
+                            termStack.push(operatorStack.pop())
+                            lastOperator = operatorStack.slice(-1)[0];
+                        }
+                        operatorStack.pop();
                     } else {
-                        filterTerms.push(component);
-                    }
-                }   
-                const termsMatched = filterTerms.map((term) => {
-                    let termMatched = false;
-                    for (let move of species.moves) {
-                        if (term.toLowerCase() === getTranslation(move.name, translationKey, "moves").toLowerCase()) {
-                            termMatched = true;
-                            break;
-                        }
-                    }
-                    for (let ability of species.abilities) {
-                        if (term.toLowerCase() === getTranslation(ability.name, translationKey, "abilities").toLowerCase()) {
-                            termMatched = true;
-                            break;
-                        }
-                    }
-                    for (let type of species.types) {
-                        const uppercaseType = type[0].toUpperCase() + type.slice(1) as TypeName; // data in the assets branch needs to be fixed
-                        if (term.toLowerCase() === getTranslation(uppercaseType, translationKey, "types").toLowerCase()) {
-                            termMatched = true;
-                            break;
-                        }
-                    }
-                    return termMatched;
-                });
-                let result = termsMatched[0];
-                for (let i = 0; i < filterOperators.length; i++) {
-                    if (i >= termsMatched.length) {
-                        break;
-                    }
-                    if (filterOperators[i] === "and" || filterOperators[i] === "&&" || filterOperators[i] === "&" || filterOperators[i] === ",") {
-                        result = result && termsMatched[i+1];
-                    } else {
-                        result = result || termsMatched[i+1];
+                        termStack.push(component);
                     }
                 }
-                if (!result) {
+                while(operatorStack.length > 0) {
+                    // @ts-ignore
+                    termStack.push(operatorStack.pop());
+                }
+                
+                const evaluatorStack: (string | boolean)[] = [];
+                termStack.forEach((token) => {
+                    if (validOperators.includes(token)) {
+                        const operand2 = evaluatorStack.pop();
+                        const operand1 = evaluatorStack.pop();
+
+                        if (token == "&&") {
+                            evaluatorStack.push(!!operand2 && !!operand1);
+                        } else if (token == "||") {
+                            evaluatorStack.push(!!operand2 || !!operand1);
+                        }
+                    }
+                    else {
+                        let termMatched = false;
+                        for (let move of species.moves) {
+                            if (token.toLowerCase() === getTranslation(move.name, translationKey, "moves").toLowerCase()) {
+                                termMatched = true;
+                                break;
+                            }
+                        }
+                        for (let ability of species.abilities) {
+                            if (token.toLowerCase() === getTranslation(ability.name, translationKey, "abilities").toLowerCase()) {
+                                termMatched = true;
+                                break;
+                            }
+                        }
+                        for (let type of species.types) {
+                            const uppercaseType = type[0].toUpperCase() + type.slice(1) as TypeName; // data in the assets branch needs to be fixed
+                            if (token.toLowerCase() === getTranslation(uppercaseType, translationKey, "types").toLowerCase()) {
+                                termMatched = true;
+                                break;
+                            }
+                        }
+                        evaluatorStack.push(termMatched);
+                    }
+                });
+                if (evaluatorStack.length !== 1) {
                     return false;
                 }
-            break;
+                return evaluatorStack[0];
         }
     }
     return true;

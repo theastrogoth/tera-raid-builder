@@ -75,7 +75,7 @@ type SearchOption = {
 
 const allOptions: SearchOption[] = [];
 for (let specie of genSpecies) {
-    allOptions.push({name: specie, type: "Pokémon"});
+    allOptions.push({name: specie.includes("Flab") ? "Flabebe" : specie, type: "Pokémon"});
 }
 for (let type of genTypes) {
     allOptions.push({name: type, type: "Type"});
@@ -481,7 +481,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
 
 function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, handleSetPokemon: (s: SetOption) => void, translationKey: any}) {
     return (
-        <ButtonRow onClick={() => handleSetPokemon(set)} sx={{paddingY: 0, marginY: 0}}>
+        <ButtonRow onClick={() => handleSetPokemon(set)} sx={{paddingY: 0, marginY: 0, height: 35}}>
             <CompactLeftCell></CompactLeftCell>
             <CompactTableCell>
                 <Typography fontSize={10} m={.5}>
@@ -1022,7 +1022,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                     <Stack spacing={1}>
                         <TextField
                             variant="standard"
-                            placeholder={getTranslation("Search", translationKey)}
+                            placeholder={getTranslation("Search (Example: Fake Tears or Acid Spray)", translationKey)}
                             value={inputValue}
                             onChange={(event) => {
                                 setInputValue(event.target.value);

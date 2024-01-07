@@ -142,7 +142,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 const validOperators = andOperators.concat(orOperators);
 
                 const filterComponents = 
-                    filter.name.toLowerCase().split(/(\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))/i).map((token) => token.trim()).filter(Boolean)
+                    filter.name.toLowerCase().replace(/["]+/g, '').split(/(\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))/i).map((token) => token.trim()).filter(Boolean)
                     .map((item) => 
                         andOperators.includes(item) ? "&&" : item
                     )
@@ -308,7 +308,7 @@ const HeaderCell = styled(TableCell)(({ theme }) => ({
     paddingBottom: 0,
     paddingLeft: 0,
     paddingRight: 0,
-    borderBottom: 'solid 1px',
+    borderBottom: 'solid #aaaaaa 2px',
 }));
 
 const RoundedRow = styled(TableRow)(({ theme }) => ({
@@ -396,7 +396,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
 
     return (
         <React.Fragment>
-        <RoundedRow>
+        <RoundedRow >
             <CompactLeftCell width="40px">
                 <IconButton size="small" onClick={() => setOpen(!open)}>
                     {open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
@@ -434,7 +434,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
             <CompactTableCell width="100px">
                 <Stack direction="column" alignItems="center" >
                     { data.abilities.map((ability) => (
-                        <Typography fontSize={10} m={.05}>
+                        <Typography fontSize={10}>
                             {getTranslation(ability.name, translationKey, "abilities")}
                         </Typography>
                     ))}
@@ -632,7 +632,7 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
 function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon, handleAddFilter, allSpecies, allMoves, translationKey}: {inputValue: string, inputFilteredOptions: SearchOption[], handleSetPokemon: (s: SetOption) => void, handleAddFilter: (f: SearchOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
     const [sortMethod, setSortMethod] = useState<string>("species");
     const [sortDirection, setSortDirection] = useState<string>("desc");
-    const [speciesOptions, setSpeciesOptions] = useState<SearchOption[]>([]);
+    const [speciesOptions, setSpeciesOptions] = useState<SearchOption[]>(inputFilteredOptions);
     const [typeOptions, setTypeOptions] = useState<SearchOption[]>([]);
     const [abilityOptions, setAbilityOptions] = useState<SearchOption[]>([]);
     const [moveOptions, setMoveOptions] = useState<SearchOption[]>([]);
@@ -907,7 +907,7 @@ const modalStyle = {
     minHeght: '500px', // doesn't work?
     height: '90vh',
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    borderRadius: '8px',
     boxShadow: 24,
     p: 4,
     overflowY: 'hidden',
@@ -1062,8 +1062,8 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
     }, [inputValue, filteredOptions, translationKey]);
 
     return (
-        <div>
-            <Button onClick={handleOpen} variant="outlined" endIcon={<SearchIcon/>}>{getTranslation("Search", translationKey)}</Button>
+        <Box width="100%">
+            <Button onClick={handleOpen} variant="outlined" endIcon={<SearchIcon/>} sx={{"width": "100%"}}>{getTranslation("Search", translationKey)}</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -1072,7 +1072,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                     <Stack spacing={1}>
                         <TextField
                             variant="standard"
-                            placeholder={getTranslation("Search (Example: Fake Tears or Acid Spray)", translationKey)}
+                            placeholder={getTranslation("Search (Example: \"Fake Tears or Acid Spray\")", translationKey)}
                             value={inputValue}
                             onChange={(event) => {
                                 setInputValue(event.target.value);
@@ -1090,7 +1090,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                     </Stack>
                 </Box>
             </Modal>
-        </div>
+        </Box>
     )
 }
 

@@ -1196,15 +1196,15 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             {!prettyMode &&
                 <Stack direction="column" alignItems="center" sx={{ width: "100%" }}>
                     {!isBoss &&
-                        <Stack direction="row" spacing={1.25} justifyContent="left" alignItems="center" sx={{ paddingLeft: "32px", width: "100%" }}>
+                        <Stack direction="row" spacing={1.25} justifyContent="left" alignItems="center" sx={{ paddingLeft: "32px", paddingRight: "18px", width: "100%" }}>
                             <ShinySwitch 
                                 pokemon={pokemon}
                                 setShiny={setPokemonProperty("shiny")}
                                 translationKey={translationKey}
                             />
-                            <Box flexGrow={2}/>
+                            {/* <Box flexGrow={1}/> */}
                             <PokemonLookup loadSet={loadSet} allMoves={allMoves} allSpecies={allSpecies} setAllMoves={setAllMoves} setAllSpecies={setAllSpecies} translationKey={translationKey}/>
-                            <Box flexGrow={3}/>
+                            {/* <Box flexGrow={6}/> */}
                             {/* <SetLoadField
                                 setOptions={raiderSetOptions}
                                 loadSet={loadSet}

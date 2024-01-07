@@ -24,6 +24,8 @@ import TableCell from '@mui/material/TableCell';
 
 import { styled, lighten, darken } from '@mui/material/styles';
 
+import { Virtuoso } from 'react-virtuoso';
+
 import { AbilityName, MoveName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 import PokedexService, { PokemonData } from "../services/getdata";
 import { MoveData, MoveSetItem, SetOption } from "../raidcalc/interface";
@@ -297,12 +299,11 @@ const ButtonTable = styled(Table)(({ theme }) => ({
     size: "small",
     borderCollapse: 'separate',
     borderSpacing: '0px 10px',
-    paddingRight: 20,
 }));
 
 const HeaderCell = styled(TableCell)(({ theme }) => ({
     fontWeight: 600,
-    fontSize: 12,
+    fontSize: 10,
     paddingTop: 0,
     paddingBottom: 0,
     paddingLeft: 0,
@@ -357,8 +358,14 @@ function SortingButton({label, method, sortMethod, sortDirection, handleButtonCl
                         <KeyboardArrowUpIcon sx={{ m: 0}}/>;
 
     return (
-        <HeaderButton size="small" variant="text" onClick={() => handleButtonClick(sortMethod)} sx={{ textTransform: 'none', minWidth: 0 }}>
-            <Typography fontWeight={method === sortMethod ? 800 : 600}>
+        <HeaderButton 
+            size="small" 
+            variant="text" 
+            onClick={() => handleButtonClick(sortMethod)} 
+            style={{ backgroundColor: 'transparent' }}
+            sx={{ textTransform: 'none', minWidth: 0 }}
+        >
+            <Typography fontSize={10} fontWeight={method === sortMethod ? 800 : 600}>
                 {`${getTranslation(label, translationKey)}`}
             </Typography>
             { sortIcon }
@@ -383,14 +390,14 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
     }];
 
     return (
-        <>
+        <React.Fragment>
         <RoundedRow>
-            <CompactLeftCell>
+            <CompactLeftCell width="40px">
                 <IconButton size="small" onClick={() => setOpen(!open)}>
                     {open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
                 </IconButton>
             </CompactLeftCell>
-            <CompactTableCell>
+            <CompactTableCell width="30px">
                 <Box
                     sx={{
                         width: "25px",
@@ -400,12 +407,12 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
                     }}
                 />
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell width="100px">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(data.name, translationKey, "pokemon")}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell width="60px">
                 <Stack direction="row" spacing={0.5} alignItems="center" >
                     { data.types.map((type) => (
                         <Box
@@ -419,7 +426,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
                     ))}
                 </Stack>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell width="100px">
                 <Stack direction="column" alignItems="center" >
                     { data.abilities.map((ability) => (
                         <Typography fontSize={10} m={.05}>
@@ -428,37 +435,37 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
                     ))}
                 </Stack>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.hp}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.atk}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.def}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.spa}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.spd}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.stats.spe}
                 </Typography>
             </CompactTableCell>
-            <CompactRightCell align="center">
+            <CompactRightCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {Object.entries(data.stats).reduce((acc, [key, value]) => acc + value, 0)}
                 </Typography>
@@ -477,7 +484,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
                 </TableCell>
             </TableRow>
         }
-        </>
+        </React.Fragment>
     )
 }
 
@@ -602,6 +609,21 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
     )
 }
 
+
+// const SpeciesTableComponents: TableComponents<SpeciesName> = {
+//     Scroller: React.forwardRef<HTMLDivElement>((props, ref) => (
+//       <TableContainer component={Paper} {...props} ref={ref} />
+//     )),
+//     Table: (props) => (
+//       <ButtonTable {...props} sx={{ borderCollapse: 'separate', tableLayout: 'fixed' }} />
+//     ),
+//     TableHead,
+//     TableRow: ({ item: _item, ...props }) => <RoundedRow {...props} />,
+//     TableBody: React.forwardRef<HTMLTableSectionElement>((props, ref) => (
+//       <TableBody {...props} ref={ref} />
+//     )),
+// };
+
 function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon, handleAddFilter, allSpecies, allMoves, translationKey}: {inputValue: string, inputFilteredOptions: SearchOption[], handleSetPokemon: (s: SetOption) => void, handleAddFilter: (f: SearchOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
     const [sortMethod, setSortMethod] = useState<string>("species");
     const [sortDirection, setSortDirection] = useState<string>("desc");
@@ -709,142 +731,189 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                     {"No results found"}
                 </Typography>
             }
-            <TableContainer sx={{ width: '100%', maxHeight: '60vh', overflowY: 'scroll' }}>
-                <ButtonTable stickyHeader>
             { (allSpecies && allMoves) &&
-                <>
-                    {speciesOptions.length > 0 && 
-                    <>
-                        <TableHead>
+                <Virtuoso 
+                    style={{height: "300px", width: "720px" }}
+                    data={["",...speciesOptions]}
+                    topItemCount={1}
+                    itemContent={(i, s) => (
+                        <>
+                        {i === 0 &&
                             <ButtonRow>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell>
+                                <HeaderCell width="40px"></HeaderCell>
+                                <HeaderCell width="30px"></HeaderCell>
+                                <HeaderCell width="100px">
                                     <SortingButton label="Pokémon" method="species" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('species')} translationKey={translationKey}/>
                                 </HeaderCell>
-                                <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("Abilities", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">
+                                <HeaderCell width="60px">{getTranslation("Type", translationKey)}</HeaderCell>
+                                <HeaderCell width="100px" align="center">{getTranslation("Abilities", translationKey)}</HeaderCell>
+                                <HeaderCell width="50px" align="center">
                                     <SortingButton label="HP" method="hp" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('hp')} translationKey={translationKey}/>
                                 </HeaderCell>
-                                <HeaderCell align="center">
+                                <HeaderCell width="50px" align="center">
                                     <SortingButton label="Atk" method="atk" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('atk')} translationKey={translationKey}/>
                                 </HeaderCell>
-                                <HeaderCell align="center">
+                                <HeaderCell width="50px" align="center">
                                     <SortingButton label="Def" method="def" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('def')} translationKey={translationKey}/>
                                 </HeaderCell>
-                                <HeaderCell align="center">
+                                <HeaderCell width="50px" align="center">
                                     <SortingButton label="SpA" method="spa" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spa')} translationKey={translationKey}/>
                                 </HeaderCell>
-                                <HeaderCell align="center">
+                                <HeaderCell width="50px" align="center">
                                     <SortingButton label="SpD" method="spd" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spd')} translationKey={translationKey}/>
                                 </HeaderCell>
-                                <HeaderCell align="center">
+                                <HeaderCell width="50px" align="center">
                                     <SortingButton label="Spe" method="spe" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spe')} translationKey={translationKey}/>
                                 </HeaderCell>
-                                <HeaderCell align="center">
+                                <HeaderCell width="50px" align="center" sx={{ paddingRight: "10px" }}>
                                     <SortingButton label="BST" method="bst" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('bst')} translationKey={translationKey}/>
                                 </HeaderCell>
                             </ButtonRow>
-                        </TableHead>
-                        <TableBody>
-                            {speciesOptions.map((pokemon) => (
-                                <SpeciesSearchResult pokemon={pokemon} handleSetPokemon={handleSetPokemon} allSpecies={allSpecies} translationKey={translationKey}/>
-                            ))}
-                        </TableBody>
-                    </>
-                    }
-                    {typeOptions.length > 0 && 
-                    <>
-                        <TableHead>
-                            <ButtonRow>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
-                                <HeaderCell colSpan={8}></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                            </ButtonRow>
-                        </TableHead>
+                        }
+                        { i !== 0 &&
+                            <SpeciesSearchResult 
+                                key={i}
+                                pokemon={s as SpeciesName} 
+                                handleSetPokemon={handleSetPokemon} 
+                                allSpecies={allSpecies}
+                                translationKey={translationKey}
+                            />
+                        }
+                        </>
+
+                    )}
+                />
+                // <>
+                //     {speciesOptions.length > 0 && 
+                //     <>
+                //         <TableHead>
+                //             <ButtonRow>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell>
+                //                     <SortingButton label="Pokémon" method="species" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('species')} translationKey={translationKey}/>
+                //                 </HeaderCell>
+                //                 <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
+                //                 <HeaderCell align="center">{getTranslation("Abilities", translationKey)}</HeaderCell>
+                //                 <HeaderCell align="center">
+                //                     <SortingButton label="HP" method="hp" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('hp')} translationKey={translationKey}/>
+                //                 </HeaderCell>
+                //                 <HeaderCell align="center">
+                //                     <SortingButton label="Atk" method="atk" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('atk')} translationKey={translationKey}/>
+                //                 </HeaderCell>
+                //                 <HeaderCell align="center">
+                //                     <SortingButton label="Def" method="def" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('def')} translationKey={translationKey}/>
+                //                 </HeaderCell>
+                //                 <HeaderCell align="center">
+                //                     <SortingButton label="SpA" method="spa" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spa')} translationKey={translationKey}/>
+                //                 </HeaderCell>
+                //                 <HeaderCell align="center">
+                //                     <SortingButton label="SpD" method="spd" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spd')} translationKey={translationKey}/>
+                //                 </HeaderCell>
+                //                 <HeaderCell align="center">
+                //                     <SortingButton label="Spe" method="spe" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spe')} translationKey={translationKey}/>
+                //                 </HeaderCell>
+                //                 <HeaderCell align="center">
+                //                     <SortingButton label="BST" method="bst" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('bst')} translationKey={translationKey}/>
+                //                 </HeaderCell>
+                //             </ButtonRow>
+                //         </TableHead>
+                //         <TableBody>
+                //             {speciesOptions.map((pokemon) => (
+                //                 <SpeciesSearchResult pokemon={pokemon} handleSetPokemon={handleSetPokemon} allSpecies={allSpecies} translationKey={translationKey}/>
+                //             ))}
+                //         </TableBody>
+                //     </>
+                //     }
+                //     {typeOptions.length > 0 && 
+                //     <>
+                //         <TableHead>
+                //             <ButtonRow>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
+                //                 <HeaderCell colSpan={8}></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //             </ButtonRow>
+                //         </TableHead>
                         
-                        <TableBody>
-                            {typeOptions.map((type) => (
-                                <TypeSearchResult type={type} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
-                            ))}
-                        </TableBody>
-                    </>
-                    }
-                    {abilityOptions.length > 0 && 
-                    <>
-                        <TableHead>
-                            <ButtonRow>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell>{getTranslation("Ability", translationKey)}</HeaderCell>
-                                <HeaderCell colSpan={8}></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                            </ButtonRow>
-                        </TableHead>
-                        <TableBody>
-                            {abilityOptions.map((ability) => (
-                                <AbilitySearchResult ability={ability} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
-                            ))}
-                        </TableBody>
-                    </>
-                    }
-                    {moveOptions.length > 0 && 
-                    <>
-                        <TableHead>
-                            <ButtonRow>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell>{getTranslation("Move", translationKey)}</HeaderCell>
-                                <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("Category", translationKey)}</HeaderCell>
-                                <HeaderCell align="center">{getTranslation("BP", translationKey)}</HeaderCell>
-                                <HeaderCell colSpan={5}></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                            </ButtonRow>
-                        </TableHead>
-                        <TableBody>
-                            {moveOptions.map((move) => (
-                                <MoveSearchResult move={move} handleAddFilter={handleAddFilter} allMoves={allMoves} translationKey={translationKey}/>
-                            ))}
-                        </TableBody>
-                    </>
-                    }
-                    { inputValue.length > 0 &&
-                    <>
-                        <TableHead>
-                            <ButtonRow>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                                <HeaderCell colSpan={4}>{getTranslation("Custom Filter", translationKey)}</HeaderCell>
-                                <HeaderCell colSpan={5}></HeaderCell>
-                                <HeaderCell></HeaderCell>
-                            </ButtonRow>
-                        </TableHead>
-                        <TableBody>
-                            <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
-                                <CompactLeftCell></CompactLeftCell>
-                                <CompactTableCell></CompactTableCell>
-                                <CompactTableCell colSpan={4}>
-                                    <Typography fontSize={10} m={.5}>
-                                        {`${getTranslation("Add", translationKey)} "${inputValue}"`}
-                                    </Typography>
-                                </CompactTableCell>
-                                <CompactRightCell colSpan={6} align="center">
-                                    <Typography fontSize={10} m={.5} fontStyle="italic">
-                                        {`(${getTranslation("Filter", translationKey)})`}
-                                    </Typography>
-                                </CompactRightCell>
-                            </ButtonRow>
-                        </TableBody>
-                    </>
-                    }
-                </>
+                //         <TableBody>
+                //             {typeOptions.map((type) => (
+                //                 <TypeSearchResult type={type} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
+                //             ))}
+                //         </TableBody>
+                //     </>
+                //     }
+                //     {abilityOptions.length > 0 && 
+                //     <>
+                //         <TableHead>
+                //             <ButtonRow>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell>{getTranslation("Ability", translationKey)}</HeaderCell>
+                //                 <HeaderCell colSpan={8}></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //             </ButtonRow>
+                //         </TableHead>
+                //         <TableBody>
+                //             {abilityOptions.map((ability) => (
+                //                 <AbilitySearchResult ability={ability} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
+                //             ))}
+                //         </TableBody>
+                //     </>
+                //     }
+                //     {moveOptions.length > 0 && 
+                //     <>
+                //         <TableHead>
+                //             <ButtonRow>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell>{getTranslation("Move", translationKey)}</HeaderCell>
+                //                 <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
+                //                 <HeaderCell align="center">{getTranslation("Category", translationKey)}</HeaderCell>
+                //                 <HeaderCell align="center">{getTranslation("BP", translationKey)}</HeaderCell>
+                //                 <HeaderCell colSpan={5}></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //             </ButtonRow>
+                //         </TableHead>
+                //         <TableBody>
+                //             {moveOptions.map((move) => (
+                //                 <MoveSearchResult move={move} handleAddFilter={handleAddFilter} allMoves={allMoves} translationKey={translationKey}/>
+                //             ))}
+                //         </TableBody>
+                //     </>
+                //     }
+                //     { inputValue.length > 0 &&
+                //     <>
+                //         <TableHead>
+                //             <ButtonRow>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //                 <HeaderCell colSpan={4}>{getTranslation("Custom Filter", translationKey)}</HeaderCell>
+                //                 <HeaderCell colSpan={5}></HeaderCell>
+                //                 <HeaderCell></HeaderCell>
+                //             </ButtonRow>
+                //         </TableHead>
+                //         <TableBody>
+                //             <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
+                //                 <CompactLeftCell></CompactLeftCell>
+                //                 <CompactTableCell></CompactTableCell>
+                //                 <CompactTableCell colSpan={4}>
+                //                     <Typography fontSize={10} m={.5}>
+                //                         {`${getTranslation("Add", translationKey)} "${inputValue}"`}
+                //                     </Typography>
+                //                 </CompactTableCell>
+                //                 <CompactRightCell colSpan={6} align="center">
+                //                     <Typography fontSize={10} m={.5} fontStyle="italic">
+                //                         {`(${getTranslation("Filter", translationKey)})`}
+                //                     </Typography>
+                //                 </CompactRightCell>
+                //             </ButtonRow>
+                //         </TableBody>
+                //     </>
+                //     }
+                // </>
             }
-            </ButtonTable>
-                </TableContainer>
         </Box>
     )
 }
@@ -854,8 +923,8 @@ const modalStyle = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '600px',
-    width: '80vw',
+    minWidth: '700px',
+    width: '90vw',
     minHeght: '500px', // doesn't work?
     height: '80vh',
     bgcolor: 'background.paper',

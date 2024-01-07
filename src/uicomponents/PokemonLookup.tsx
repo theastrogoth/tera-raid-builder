@@ -24,7 +24,7 @@ import TableCell from '@mui/material/TableCell';
 
 import { styled, lighten, darken } from '@mui/material/styles';
 
-import { Virtuoso } from 'react-virtuoso';
+import { GroupedVirtuoso } from 'react-virtuoso';
 
 import { AbilityName, MoveName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 import PokedexService, { PokemonData } from "../services/getdata";
@@ -302,10 +302,11 @@ const ButtonTable = styled(Table)(({ theme }) => ({
 const HeaderCell = styled(TableCell)(({ theme }) => ({
     fontWeight: 600,
     fontSize: 10,
-    paddingTop: 0,
+    paddingTop: 10,
     paddingBottom: 0,
     paddingLeft: 0,
     paddingRight: 0,
+    borderBottom: 'solid 1px',
 }));
 
 const RoundedRow = styled(TableRow)(({ theme }) => ({
@@ -327,6 +328,10 @@ const ButtonRow = styled(RoundedRow)(({ theme }) => ({
     '&:click': {
         backgrtoundColor: theme.palette.action.selected,
     }
+}));
+
+const HeaderRow = styled(RoundedRow)(({ theme }) => ({
+    backgroundColor: theme.palette.background.paper,
 }));
 
 const HeaderButton = styled(Button)(({ theme }) => ({
@@ -513,8 +518,8 @@ function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, 
 function TypeSearchResult({type, handleAddFilter, translationKey}: {type: TypeName, handleAddFilter: (f: SearchOption) => void, translationKey: any}) {
     return (
         <ButtonRow onClick={() => handleAddFilter({name: type, type: "Type"})} >
-            <CompactLeftCell></CompactLeftCell>
-            <CompactTableCell>
+            <CompactLeftCell width="40px"></CompactLeftCell>
+            <CompactTableCell width="30px">
                 <Box
                     sx={{
                         width: "25px",
@@ -524,15 +529,15 @@ function TypeSearchResult({type, handleAddFilter, translationKey}: {type: TypeNa
                     }}
                 />
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell width="100px">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(type, translationKey, "types")}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell></CompactTableCell>
-            <CompactTableCell></CompactTableCell>
-            <CompactTableCell></CompactTableCell>
-            <CompactRightCell colSpan={6} align="center">
+            <CompactTableCell width="60px"></CompactTableCell>
+            <CompactTableCell width="100px"></CompactTableCell>
+            <CompactTableCell width="50px"></CompactTableCell>
+            <CompactRightCell width="300px" colSpan={6} align="center">
                 <Typography fontSize={10} m={.5} fontStyle="italic">
                     {`(${getTranslation("Filter", translationKey)})`}
                 </Typography>
@@ -545,17 +550,17 @@ function AbilitySearchResult({ability, handleAddFilter, translationKey}: {abilit
     return (
         <ButtonRow onClick={() => handleAddFilter({name: ability, type: "Ability"})}>
         
-            <CompactLeftCell></CompactLeftCell>
-            <CompactTableCell></CompactTableCell>
-            <CompactTableCell>
+            <CompactLeftCell width="40px"></CompactLeftCell>
+            <CompactTableCell width="30px"></CompactTableCell>
+            <CompactTableCell width="100px">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(ability, translationKey, "abilities")}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell></CompactTableCell>
-            <CompactTableCell></CompactTableCell>
-            <CompactTableCell></CompactTableCell>
-            <CompactRightCell colSpan={6} align="center">
+            <CompactTableCell width="60px"></CompactTableCell>
+            <CompactTableCell width="100px"></CompactTableCell>
+            <CompactTableCell width="50px"></CompactTableCell>
+            <CompactRightCell width="300px" colSpan={6} align="center">
                 <Typography fontSize={10} m={.5} fontStyle="italic">
                     {`(${getTranslation("Filter", translationKey)})`}
                 </Typography>
@@ -571,14 +576,14 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
     }
     return (
         <ButtonRow onClick={() => handleAddFilter({name: data.name, type: "Moves"})}>
-            <CompactLeftCell></CompactLeftCell>
-            <CompactTableCell></CompactTableCell>
-            <CompactTableCell>
+            <CompactLeftCell width="40px"></CompactLeftCell>
+            <CompactTableCell width="30px"></CompactTableCell>
+            <CompactTableCell width="100px">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(data.name, translationKey, "moves")}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell>
+            <CompactTableCell width="60px">
                 <Box
                     sx={{
                         width: "25px",
@@ -588,17 +593,17 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
                     }}
                 />
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="100px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {getTranslation(data.moveCategory!, translationKey)}
                 </Typography>
             </CompactTableCell>
-            <CompactTableCell align="center">
+            <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
                     {data.power || ''}
                 </Typography>
             </CompactTableCell>
-            <CompactRightCell colSpan={6} align="center">
+            <CompactRightCell width="300px" colSpan={6} align="center">
                 <Typography fontSize={10} m={.5} fontStyle="italic">
                     {`(${getTranslation("Filter", translationKey)})`}
                 </Typography>
@@ -607,46 +612,31 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
     )
 }
 
-
-// const SpeciesTableComponents: TableComponents<SpeciesName> = {
-//     Scroller: React.forwardRef<HTMLDivElement>((props, ref) => (
-//       <TableContainer component={Paper} {...props} ref={ref} />
-//     )),
-//     Table: (props) => (
-//       <ButtonTable {...props} sx={{ borderCollapse: 'separate', tableLayout: 'fixed' }} />
-//     ),
-//     TableHead,
-//     TableRow: ({ item: _item, ...props }) => <RoundedRow {...props} />,
-//     TableBody: React.forwardRef<HTMLTableSectionElement>((props, ref) => (
-//       <TableBody {...props} ref={ref} />
-//     )),
-// };
-
 function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon, handleAddFilter, allSpecies, allMoves, translationKey}: {inputValue: string, inputFilteredOptions: SearchOption[], handleSetPokemon: (s: SetOption) => void, handleAddFilter: (f: SearchOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
     const [sortMethod, setSortMethod] = useState<string>("species");
     const [sortDirection, setSortDirection] = useState<string>("desc");
-    const [speciesOptions, setSpeciesOptions] = useState<SpeciesName[]>([]);
-    const [typeOptions, setTypeOptions] = useState<TypeName[]>([]);
-    const [abilityOptions, setAbilityOptions] = useState<AbilityName[]>([]);
-    const [moveOptions, setMoveOptions] = useState<MoveName[]>([]);
+    const [speciesOptions, setSpeciesOptions] = useState<SearchOption[]>([]);
+    const [typeOptions, setTypeOptions] = useState<SearchOption[]>([]);
+    const [abilityOptions, setAbilityOptions] = useState<SearchOption[]>([]);
+    const [moveOptions, setMoveOptions] = useState<SearchOption[]>([]);
     useEffect(() => {
-        const newSpeciesOptions: SpeciesName[] = [];
-        const newTypeOptions: TypeName[] = [];
-        const newAbilityOptions: AbilityName[] = [];
-        const newMoveOptions: MoveName[] = [];
+        const newSpeciesOptions: SearchOption[] = [];
+        const newTypeOptions: SearchOption[] = [];
+        const newAbilityOptions: SearchOption[] = [];
+        const newMoveOptions: SearchOption[] = [];
         for (let option of inputFilteredOptions) {
             switch (option.type) {
                 case "Pokémon":
-                    newSpeciesOptions.push(option.name as SpeciesName);
+                    newSpeciesOptions.push(option);
                 break;
                 case "Type":
-                    newTypeOptions.push(option.name as TypeName);
+                    newTypeOptions.push(option);
                 break;
                 case "Ability":
-                    newAbilityOptions.push(option.name as AbilityName);
+                    newAbilityOptions.push(option);
                 break;
                 case "Moves":
-                    newMoveOptions.push(option.name as MoveName);
+                    newMoveOptions.push(option);
                 break;
             }
         }
@@ -671,20 +661,20 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
     };
 
     useEffect(() => {
-        let sortedSpeciesOptions: SpeciesName[] = [];
+        let sortedSpeciesOptions: SearchOption[] = [];
         if (sortMethod === "species") {
             sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
                 if (sortDirection === 'desc') {
-                    return a.localeCompare(b);
+                    return (a.name).localeCompare(b.name);
                 } else if (sortDirection === 'asc') {
-                    return b.localeCompare(a);
+                    return (b.name).localeCompare(a.name);
                 }
                 return 0;
             });
         } else if (sortMethod === "bst") {
             sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
-                const aData = allSpecies?.get(a) || allSpecies?.get('Flabebe' as SpeciesName); 
-                const bData = allSpecies?.get(b) || allSpecies?.get('Flabebe' as SpeciesName); 
+                const aData = allSpecies?.get(a.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
+                const bData = allSpecies?.get(b.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const aTotal = ["hp","atk","def","spa","spd","spe"].map((stat) => (aData?.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0)
                 const bTotal = ["hp","atk","def","spa","spd","spe"].map((stat) => (bData?.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0)
                 if (sortDirection === 'asc') {
@@ -696,8 +686,8 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
             });
         } else {
             sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
-                const aData = allSpecies?.get(a) || allSpecies?.get('Flabebe' as SpeciesName); 
-                const bData = allSpecies?.get(b) || allSpecies?.get('Flabebe' as SpeciesName); 
+                const aData = allSpecies?.get(a.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
+                const bData = allSpecies?.get(b.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const key = sortMethod as keyof StatsTable;
                 const aStat = (aData?.stats[key] || 0) + 1;
                 const bStat = (bData?.stats[key] || 0) + 1;
@@ -712,6 +702,14 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         setSpeciesOptions(sortedSpeciesOptions);
     }, [sortMethod, sortDirection]);
 
+    const groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions].map((o) => o.length);
+    const cumulativeCounts: number[] = [0]
+    let acc = 0;
+    for (let c of groupCounts.slice(0, -1)) {
+        acc += c;
+        cumulativeCounts.push(acc);
+    }
+
     return (
         <Box justifyContent="center" alignItems="center">
             { (!allSpecies || !allMoves) &&
@@ -719,25 +717,25 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                     {"Loading..."}
                 </Typography>
             }
-            { ((allSpecies && allMoves) && inputValue.length === 0) &&
+            {/* { ((allSpecies && allMoves) && inputValue.length === 0) &&
                 <Typography fontSize={10} m={.5}>
                     {"Enter text to add a search filter or select a Pokémon"}
                 </Typography>
-            }
+            } */}
             {((allSpecies && allMoves) && inputValue.length > 0 && inputFilteredOptions.length === 0) &&
                 <Typography fontSize={10} m={.5}>
                     {"No results found"}
                 </Typography>
             }
             { (allSpecies && allMoves) &&
-                <Virtuoso 
-                    style={{height: "300px", width: "720px" }}
-                    data={["",...speciesOptions]}
-                    topItemCount={1}
-                    itemContent={(i, s) => (
+            <Stack>
+                <GroupedVirtuoso 
+                    style={{ height: "70vh", width: "720px" }}
+                    groupCounts={groupCounts}
+                    groupContent={ (g) => (
                         <>
-                        {i === 0 &&
-                            <ButtonRow>
+                        {g === 0 && speciesOptions.length > 0 ?
+                            <HeaderRow>
                                 <HeaderCell width="40px"></HeaderCell>
                                 <HeaderCell width="30px"></HeaderCell>
                                 <HeaderCell width="100px">
@@ -766,14 +764,80 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 <HeaderCell width="50px" align="center" sx={{ paddingRight: "10px" }}>
                                     <SortingButton label="BST" method="bst" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('bst')} translationKey={translationKey}/>
                                 </HeaderCell>
-                            </ButtonRow>
+                            </HeaderRow> : null
                         }
-                        { i !== 0 &&
+                        {g === 1 && typeOptions.length > 0 ?
+                        <HeaderRow>
+                            <HeaderCell width="40px"></HeaderCell>
+                            <HeaderCell width="30px"></HeaderCell>
+                            <HeaderCell width="100px">
+                                <Typography>{getTranslation("Type", translationKey)}</Typography>
+                            </HeaderCell>
+                            <HeaderCell width="60px"></HeaderCell>
+                            <HeaderCell width="100px" align="center"></HeaderCell>
+                            <HeaderCell width="350px" align="center"></HeaderCell>
+                        </HeaderRow> : null
+                        }
+                        { g === 2 && abilityOptions.length > 0 ?
+                        <HeaderRow>
+                            <HeaderCell width="40px"></HeaderCell>
+                            <HeaderCell width="30px"></HeaderCell>
+                            <HeaderCell width="100px">
+                                <Typography>{getTranslation("Ability", translationKey)}</Typography>
+                            </HeaderCell>
+                            <HeaderCell width="60px"></HeaderCell>
+                            <HeaderCell width="100px" align="center"></HeaderCell>
+                            <HeaderCell width="350px" align="center"></HeaderCell>    
+                        </HeaderRow> : null
+                        }
+                        { g === 3 && moveOptions.length > 0 ?
+                        <HeaderRow>
+                            <HeaderCell width="40px"></HeaderCell>
+                            <HeaderCell width="30px"></HeaderCell>
+                            <HeaderCell width="100px">
+                                <Typography>{getTranslation("Move", translationKey)}</Typography>
+                            </HeaderCell>
+                            <HeaderCell width="60px">{getTranslation("Type", translationKey)}</HeaderCell>
+                            <HeaderCell width="100px" align="center">{getTranslation("Category", translationKey)}</HeaderCell>
+                            <HeaderCell width="50px" align="center">{getTranslation("Power", translationKey)}</HeaderCell>
+                            <HeaderCell width="300px" align="center"></HeaderCell>
+                        </HeaderRow> : null
+                        }
+                        </>)
+                    }
+                    itemContent={(i, g) => (
+                        <>
+                        { g === 0 && speciesOptions.length > 0 &&
                             <SpeciesSearchResult 
-                                key={i}
-                                pokemon={s as SpeciesName} 
+                                key={`${i}${g}`}
+                                pokemon={speciesOptions[i].name as SpeciesName} 
                                 handleSetPokemon={handleSetPokemon} 
                                 allSpecies={allSpecies}
+                                translationKey={translationKey}
+                            />
+                        }
+                        { g === 1 && typeOptions.length > 0 &&
+                            <TypeSearchResult
+                                key={`${i}${g}`}
+                                type={typeOptions[i - cumulativeCounts[g]].name as TypeName} 
+                                handleAddFilter={handleAddFilter} 
+                                translationKey={translationKey}
+                            />
+                        }
+                        { g === 2 && abilityOptions.length > 0 &&
+                            <AbilitySearchResult
+                                key={`${i}${g}`}
+                                ability={abilityOptions[i - cumulativeCounts[g]].name as AbilityName} 
+                                handleAddFilter={handleAddFilter} 
+                                translationKey={translationKey}
+                            />
+                        }
+                        { g === 3 && moveOptions.length > 0 &&
+                            <MoveSearchResult
+                                key={`${i}${g}`}
+                                move={moveOptions[i - cumulativeCounts[g]].name as MoveName} 
+                                handleAddFilter={handleAddFilter} 
+                                allMoves={allMoves}
                                 translationKey={translationKey}
                             />
                         }
@@ -781,136 +845,38 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
 
                     )}
                 />
-                // <>
-                //     {speciesOptions.length > 0 && 
-                //     <>
-                //         <TableHead>
-                //             <ButtonRow>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell>
-                //                     <SortingButton label="Pokémon" method="species" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('species')} translationKey={translationKey}/>
-                //                 </HeaderCell>
-                //                 <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
-                //                 <HeaderCell align="center">{getTranslation("Abilities", translationKey)}</HeaderCell>
-                //                 <HeaderCell align="center">
-                //                     <SortingButton label="HP" method="hp" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('hp')} translationKey={translationKey}/>
-                //                 </HeaderCell>
-                //                 <HeaderCell align="center">
-                //                     <SortingButton label="Atk" method="atk" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('atk')} translationKey={translationKey}/>
-                //                 </HeaderCell>
-                //                 <HeaderCell align="center">
-                //                     <SortingButton label="Def" method="def" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('def')} translationKey={translationKey}/>
-                //                 </HeaderCell>
-                //                 <HeaderCell align="center">
-                //                     <SortingButton label="SpA" method="spa" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spa')} translationKey={translationKey}/>
-                //                 </HeaderCell>
-                //                 <HeaderCell align="center">
-                //                     <SortingButton label="SpD" method="spd" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spd')} translationKey={translationKey}/>
-                //                 </HeaderCell>
-                //                 <HeaderCell align="center">
-                //                     <SortingButton label="Spe" method="spe" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('spe')} translationKey={translationKey}/>
-                //                 </HeaderCell>
-                //                 <HeaderCell align="center">
-                //                     <SortingButton label="BST" method="bst" sortMethod={sortMethod} sortDirection={sortDirection} handleButtonClick={() => handleButtonClick('bst')} translationKey={translationKey}/>
-                //                 </HeaderCell>
-                //             </ButtonRow>
-                //         </TableHead>
-                //         <TableBody>
-                //             {speciesOptions.map((pokemon) => (
-                //                 <SpeciesSearchResult pokemon={pokemon} handleSetPokemon={handleSetPokemon} allSpecies={allSpecies} translationKey={translationKey}/>
-                //             ))}
-                //         </TableBody>
-                //     </>
-                //     }
-                //     {typeOptions.length > 0 && 
-                //     <>
-                //         <TableHead>
-                //             <ButtonRow>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
-                //                 <HeaderCell colSpan={8}></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //             </ButtonRow>
-                //         </TableHead>
-                        
-                //         <TableBody>
-                //             {typeOptions.map((type) => (
-                //                 <TypeSearchResult type={type} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
-                //             ))}
-                //         </TableBody>
-                //     </>
-                //     }
-                //     {abilityOptions.length > 0 && 
-                //     <>
-                //         <TableHead>
-                //             <ButtonRow>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell>{getTranslation("Ability", translationKey)}</HeaderCell>
-                //                 <HeaderCell colSpan={8}></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //             </ButtonRow>
-                //         </TableHead>
-                //         <TableBody>
-                //             {abilityOptions.map((ability) => (
-                //                 <AbilitySearchResult ability={ability} handleAddFilter={handleAddFilter} translationKey={translationKey}/>
-                //             ))}
-                //         </TableBody>
-                //     </>
-                //     }
-                //     {moveOptions.length > 0 && 
-                //     <>
-                //         <TableHead>
-                //             <ButtonRow>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell>{getTranslation("Move", translationKey)}</HeaderCell>
-                //                 <HeaderCell>{getTranslation("Type", translationKey)}</HeaderCell>
-                //                 <HeaderCell align="center">{getTranslation("Category", translationKey)}</HeaderCell>
-                //                 <HeaderCell align="center">{getTranslation("BP", translationKey)}</HeaderCell>
-                //                 <HeaderCell colSpan={5}></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //             </ButtonRow>
-                //         </TableHead>
-                //         <TableBody>
-                //             {moveOptions.map((move) => (
-                //                 <MoveSearchResult move={move} handleAddFilter={handleAddFilter} allMoves={allMoves} translationKey={translationKey}/>
-                //             ))}
-                //         </TableBody>
-                //     </>
-                //     }
-                //     { inputValue.length > 0 &&
-                //     <>
-                //         <TableHead>
-                //             <ButtonRow>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //                 <HeaderCell colSpan={4}>{getTranslation("Custom Filter", translationKey)}</HeaderCell>
-                //                 <HeaderCell colSpan={5}></HeaderCell>
-                //                 <HeaderCell></HeaderCell>
-                //             </ButtonRow>
-                //         </TableHead>
-                //         <TableBody>
-                //             <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
-                //                 <CompactLeftCell></CompactLeftCell>
-                //                 <CompactTableCell></CompactTableCell>
-                //                 <CompactTableCell colSpan={4}>
-                //                     <Typography fontSize={10} m={.5}>
-                //                         {`${getTranslation("Add", translationKey)} "${inputValue}"`}
-                //                     </Typography>
-                //                 </CompactTableCell>
-                //                 <CompactRightCell colSpan={6} align="center">
-                //                     <Typography fontSize={10} m={.5} fontStyle="italic">
-                //                         {`(${getTranslation("Filter", translationKey)})`}
-                //                     </Typography>
-                //                 </CompactRightCell>
-                //             </ButtonRow>
-                //         </TableBody>
-                //     </>
-                //     }
-                // </>
+                {/* <Virtuoso 
+                    style={{height: "300px", width: "720px" }}
+                    data={[,...typeOptions]}
+                    topItemCount={1}
+                    itemContent={(i, t) => (
+                        <>
+                        {i === 0 &&
+                            <ButtonRow>
+                                <HeaderCell width="40px"></HeaderCell>
+                                <HeaderCell width="30px"></HeaderCell>
+                                <HeaderCell width="100px">
+                                    <Typography>{getTranslation("Type", translationKey)}</Typography>
+                                </HeaderCell>
+                                <HeaderCell width="60px"></HeaderCell>
+                                <HeaderCell width="100px" align="center"></HeaderCell>
+                                <HeaderCell width="350px" align="center"></HeaderCell>
+                            </ButtonRow>
+                        }
+                        { i !== 0 &&
+                            <TypeSearchResult 
+                                key={i}
+                                type={t as TypeName} 
+                                handleAddFilter={handleAddFilter} 
+                                translationKey={translationKey}
+                            />
+                        }
+                        </>
+
+                    )}
+                />
+                 */}
+            </Stack>
             }
         </Box>
     )
@@ -924,7 +890,7 @@ const modalStyle = {
     minWidth: '700px',
     width: '90vw',
     minHeght: '500px', // doesn't work?
-    height: '80vh',
+    height: '90vh',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,

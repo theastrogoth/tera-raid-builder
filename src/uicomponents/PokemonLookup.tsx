@@ -235,9 +235,17 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                             }
                         } else if (tokenComponents.length === 3) {
                             const tokenStatID = tokenComponents[0].toLowerCase();
-                            const statID = inputToStatID(tokenStatID, reverseStatsTranslations);
-                            if (!validStats.includes(statID)) {
+                            let value1 = parseInt(tokenComponents[0]);
+                            const statID1 = inputToStatID(tokenStatID, reverseStatsTranslations);
+                            if (isNaN(value1) && !validStats.includes(statID1)) {
                                 return false;
+                            }
+                            if (isNaN(value1)) {
+                                if (statID1 === "bst") {
+                                    ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0);
+                                } else {
+                                    value1 = species.stats[statID1 as keyof StatsTable]!;
+                                }   
                             }
 
                             const comparator = tokenComponents[1];
@@ -246,44 +254,40 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                             }
 
 
-                            let value = parseInt(tokenComponents[2]);
+                            let value2 = parseInt(tokenComponents[2]);
                             const statID2 = inputToStatID(tokenComponents[2].toLowerCase(), reverseStatsTranslations);
-                            if (isNaN(value) && !validStats.includes(statID2)) {
+                            if (isNaN(value2) && !validStats.includes(statID2)) {
                                 return false;
                             }
-                            if (isNaN(value)) {
+                            if (isNaN(value2)) {
                                 if (statID2 === "bst") {
                                     ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0);
                                 } else {
-                                    value = species.stats[statID2 as keyof StatsTable]!;
+                                    value2 = species.stats[statID2 as keyof StatsTable]!;
                                 }   
                             }
 
-                            const statValue = statID === "bst" ? 
-                                ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0) :
-                                species.stats[statID as keyof StatsTable]!;
-
                             switch (comparator) {
                                 case "<":
-                                    termMatched = statValue < value;
+                                    termMatched = value1 < value2;
                                 break;
                                 case ">":
-                                    termMatched = statValue > value;
+                                    termMatched = value1 > value2;
                                 break;
                                 case "<=":
-                                    termMatched = statValue <= value;
+                                    termMatched = value1 <= value2;
                                 break;
                                 case ">=":
-                                    termMatched = statValue >= value;
+                                    termMatched = value1 >= value2;
                                 break;
                                 case "=":
                                 case "==":
                                 case "===":
-                                    termMatched = statValue === value;
+                                    termMatched = value1 === value2;
                                 break;
                                 case "!=":
                                 case "!==":
-                                    termMatched = statValue !== value;
+                                    termMatched = value1 !== value2;
                                 break; 
                             }
 

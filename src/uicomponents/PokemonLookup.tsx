@@ -89,7 +89,23 @@ for (let move of genMoves) {
     allOptions.push({name: move, type: "Moves"});
 }
 
-function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], translationKey: any) {
+function inputToStatID(input: string, reverseStatsTranslations: any) {
+    let statID = reverseStatsTranslations ? reverseStatsTranslations[input] || input : input;
+    if (statID === "attack") {
+        statID = "atk";
+    } else if (statID === "defense") {
+        statID = "def";
+    } else if (statID === "spatk" || statID === "special-attack") {
+        statID = "spa";
+    } else if (statID === "spdef" || statID === "special-defense") {
+        statID = "spd";
+    } else if (statID === "speed") {
+        statID = "spe";
+    }
+    return statID;
+}
+
+function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], translationKey: any, reverseStatsTranslations: any) {
     for (let filter of filters) {
         switch (filter.type) {
             case "Moves":
@@ -140,6 +156,9 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 const andOperators = ["and", "&&", "&", ","];
                 const orOperators = ["or", "||", "|"];
                 const validOperators = andOperators.concat(orOperators);
+
+                const validComparators = ["<", ">", "<=", ">=", "=", "==", "===", "!=", "!=="];
+                const validStats = ["hp", "atk", "def", "spa", "spd", "spe", "bst"];
 
                 const filterComponents = 
                     filter.name.toLowerCase().replace(/["]+/g, '').split(/(\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))/i).map((token) => token.trim()).filter(Boolean)
@@ -193,24 +212,81 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                     }
                     else {
                         let termMatched = false;
-                        for (let move of species.moves) {
-                            if (token.toLowerCase() === getTranslation(move.name, translationKey, "moves").toLowerCase()) {
-                                termMatched = true;
-                                break;
+                        const tokenComponents = token.split(/(\s<\s|\s>\s|\s<=\s|\s>=\s|\s=\s|\s==\s|\s===\s|\s!=\s|\s!==\s)/i).map((item) => item.trim()).filter(Boolean);
+                        if (tokenComponents.length === 1) {
+                            for (let move of species.moves) {
+                                if (token.toLowerCase() === getTranslation(move.name, translationKey, "moves").toLowerCase()) {
+                                    termMatched = true;
+                                    break;
+                                }
                             }
-                        }
-                        for (let ability of species.abilities) {
-                            if (token.toLowerCase() === getTranslation(ability.name, translationKey, "abilities").toLowerCase()) {
-                                termMatched = true;
-                                break;
+                            for (let ability of species.abilities) {
+                                if (token.toLowerCase() === getTranslation(ability.name, translationKey, "abilities").toLowerCase()) {
+                                    termMatched = true;
+                                    break;
+                                }
                             }
-                        }
-                        for (let type of species.types) {
-                            const uppercaseType = type[0].toUpperCase() + type.slice(1) as TypeName; // data in the assets branch needs to be fixed
-                            if (token.toLowerCase() === getTranslation(uppercaseType, translationKey, "types").toLowerCase()) {
-                                termMatched = true;
-                                break;
+                            for (let type of species.types) {
+                                const uppercaseType = type[0].toUpperCase() + type.slice(1) as TypeName; // data in the assets branch needs to be fixed
+                                if (token.toLowerCase() === getTranslation(uppercaseType, translationKey, "types").toLowerCase()) {
+                                    termMatched = true;
+                                    break;
+                                }
                             }
+                        } else if (tokenComponents.length === 3) {
+                            const tokenStatID = tokenComponents[0].toLowerCase();
+                            const statID = inputToStatID(tokenStatID, reverseStatsTranslations);
+                            if (!validStats.includes(statID)) {
+                                return false;
+                            }
+
+                            const comparator = tokenComponents[1];
+                            if (!validComparators.includes(comparator)) {
+                                return false;
+                            }
+
+
+                            let value = parseInt(tokenComponents[2]);
+                            const statID2 = inputToStatID(tokenComponents[2].toLowerCase(), reverseStatsTranslations);
+                            if (isNaN(value) && !validStats.includes(statID2)) {
+                                return false;
+                            }
+                            if (isNaN(value)) {
+                                if (statID2 === "bst") {
+                                    ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0);
+                                } else {
+                                    value = species.stats[statID2 as keyof StatsTable]!;
+                                }
+                            }
+
+                            const statValue = statID === "bst" ? 
+                                ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0) :
+                                species.stats[statID as keyof StatsTable]!;
+
+                            switch (comparator) {
+                                case "<":
+                                    termMatched = statValue < value;
+                                break;
+                                case ">":
+                                    termMatched = statValue > value;
+                                break;
+                                case "<=":
+                                    termMatched = statValue <= value;
+                                break;
+                                case ">=":
+                                    termMatched = statValue >= value;
+                                break;
+                                case "=":
+                                case "==":
+                                case "===":
+                                    termMatched = statValue === value;
+                                break;
+                                case "!=":
+                                case "!==":
+                                    termMatched = statValue !== value;
+                                break; 
+                            }
+
                         }
                         evaluatorStack.push(termMatched);
                     }
@@ -618,9 +694,6 @@ function AbilitySearchResult({ability, handleAddFilter, translationKey}: {abilit
 
 function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {move: MoveName, allMoves: Map<MoveName,MoveData>, handleAddFilter: (f: SearchOption) => void,translationKey: any}) {
     const data = allMoves.get(move)!;
-    if (!data) {
-        console.log(move, allMoves)
-    }
     return (
         <ButtonRow onClick={() => handleAddFilter({name: data.name, type: "Moves"})}>
             <CompactLeftCell width="40px"></CompactLeftCell>
@@ -1022,6 +1095,8 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
 
     useEffect(() => {
         if (filters.length > 0) {
+            const statsTranslations = translationKey ? Object.fromEntries(Object.entries(translationKey["stats"]).map(([key, value]) => [key.toLowerCase(), (value as string || key).toLowerCase()])) : null;
+            const reverseStatsTranslations = statsTranslations ? Object.fromEntries(Object.entries(statsTranslations).map(([key, value]) => [value, key])) : null;
             const typeFilters = filters.filter((f) => f.type === "Type").map((f) => f.name as TypeName);
             const abilityFilters = filters.filter((f) => f.type === "Ability").map((f) => f.name as AbilityName);
             const moveFilters = filters.filter((f) => f.type === "Moves").map((f) => f.name as MoveName);
@@ -1032,7 +1107,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                         if (allSpecies) {
                             const pokemonData = allSpecies?.get(option.name as SpeciesName);
                             if (pokemonData) {
-                                const matchesFilters = checkSpeciesForFilters(pokemonData, filters, translationKey);
+                                const matchesFilters = checkSpeciesForFilters(pokemonData, filters, translationKey, reverseStatsTranslations);
                                 if (matchesFilters) {
                                     newFilteredOptions.push(option);
                                 }

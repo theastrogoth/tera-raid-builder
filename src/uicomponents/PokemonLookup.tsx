@@ -256,7 +256,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                                     ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0);
                                 } else {
                                     value = species.stats[statID2 as keyof StatsTable]!;
-                                }
+                                }   
                             }
 
                             const statValue = statID === "bst" ? 
@@ -1175,21 +1175,29 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
             >
                 <Box sx={modalStyle}>
                     <Stack spacing={1}>
-                        <TextField
-                            variant="standard"
-                            placeholder={getTranslation("Search (Example: \"Fake Tears or Acid Spray\")", translationKey)}
-                            value={inputValue}
-                            onChange={(event) => {
-                                setInputValue(event.target.value);
-                            }}
-                            InputProps={{
-                                startAdornment: (
-                                  <InputAdornment position="start">
-                                    <SearchIcon />
-                                  </InputAdornment>
-                                ),
-                              }}
-                        />
+                        <Stack direction="row" sx={{ width: "100%"}}>
+                            <TextField
+                                variant="standard"
+                                placeholder={getTranslation("Search (Example: \"Fake Tears or Acid Spray\")", translationKey)}
+                                value={inputValue}
+                                onChange={(event) => {
+                                    setInputValue(event.target.value);
+                                }}
+                                InputProps={{
+                                    startAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchIcon />
+                                    </InputAdornment>
+                                    ),
+                                }}
+                                sx={{ width: "100%", paddingRight: "10px"}}
+                            />
+                            <Box sx={{ transform: "translate(20px, -20px)"}}>
+                                <IconButton size="large" onClick={() => setOpen(false)}>
+                                    <CloseIcon/>
+                                </IconButton>
+                            </Box>
+                        </Stack>
                         <FilterTags filters={filters} handleDeleteFilter={handleDeleteFilter} translationKey={translationKey}/>
                         <SearchResultsTable inputValue={inputValue} inputFilteredOptions={inputFilteredOptions} handleSetPokemon={handleSetPokemon} handleAddFilter={handleAddFilter} allSpecies={allSpecies} allMoves={allMoves} translationKey={translationKey}/>
                     </Stack>

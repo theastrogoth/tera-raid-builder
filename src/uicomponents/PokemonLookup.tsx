@@ -142,7 +142,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 const validOperators = andOperators.concat(orOperators);
 
                 const filterComponents = 
-                    filter.name.toLowerCase().split(/(?<=\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))|(?=\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))/i).map((s) => s.trim())
+                    filter.name.toLowerCase().split(/(\sand\s|\sor\s|&&|\|\||&|\||,|\(|\))/i).map((token) => token.trim()).filter(Boolean)
                     .map((item) => 
                         andOperators.includes(item) ? "&&" : item
                     )

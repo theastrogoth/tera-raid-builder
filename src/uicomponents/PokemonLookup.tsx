@@ -879,6 +879,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 </CompactTableCell>
                                 <CompactTableCell width="60px"></CompactTableCell>
                                 <CompactTableCell width="100px" align="center"></CompactTableCell>
+                                <CompactTableCell width="50px"></CompactTableCell>
                                 <CompactRightCell width="300px" colSpan={6} align="center">
                                     <Typography fontSize={10} m={.5} fontStyle="italic">
                                         {`(${getTranslation("Filter", translationKey)})`}

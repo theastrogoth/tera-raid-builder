@@ -90,7 +90,8 @@ for (let move of genMoves) {
 }
 
 function inputToStatID(input: string, reverseStatsTranslations: any) {
-    let statID = reverseStatsTranslations ? reverseStatsTranslations[input] || input : input;
+    const normalizedInput = normalizeText(input);
+    let statID = reverseStatsTranslations ? reverseStatsTranslations[normalizedInput] || normalizedInput : normalizedInput;
     if (statID === "attack") {
         statID = "atk";
     } else if (statID === "defense") {
@@ -153,19 +154,22 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                     "&&": 1,
                     "||": 0
                 };
-                const andTranslation = getTranslation("and", translationKey);
-                const orTranslation = getTranslation("or", translationKey);
+                const andTranslation = normalizeText(getTranslation("and", translationKey));
+                const orTranslation = normalizeText(getTranslation("or", translationKey));
                 const andOperators = ["and", "&&", "&", ",", andTranslation];
                 const orOperators = ["or", "||", "|", orTranslation];
+
+
+
+                const operatorRegExp = new RegExp(`(\\s${andTranslation}\\s|\\s${orTranslation}\\s|\\sand\\s|\\s\\s|\\sor\\s|&&|\\|\\||&|\\||,|\\(|\\))`, "i");
+
                 const validOperators = andOperators.concat(orOperators);
 
                 const validComparators = ["<", ">", "<=", ">=", "=", "==", "===", "!=", "!=="];
                 const validStats = ["hp", "atk", "def", "spa", "spd", "spe", "bst"];
 
-                const regexp = new RegExp(`/(\s${andTranslation}\s|\s${orTranslation}\s|\sand\s|\s\s|\sor\s|&&|\|\||&|\||,|\(|\))/i`);
-
                 const filterComponents = 
-                    filter.name.toLowerCase().replace(/["]+/g, '').split(regexp).map((token) => token.trim()).filter(Boolean)
+                    normalizeText(filter.name).replace(/["]+/g, '').split(operatorRegExp).map((token) => token.trim()).filter(Boolean)
                     .map((item) => 
                         andOperators.includes(item) ? "&&" : item
                     )
@@ -219,26 +223,26 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                         const tokenComponents = token.split(/(\s<\s|\s>\s|\s<=\s|\s>=\s|\s=\s|\s==\s|\s===\s|\s!=\s|\s!==\s)/i).map((item) => item.trim()).filter(Boolean);
                         if (tokenComponents.length === 1) {
                             for (let move of species.moves) {
-                                if (token.toLowerCase() === getTranslation(move.name, translationKey, "moves").toLowerCase()) {
+                                if (normalizeText(token) === normalizeText(getTranslation(move.name, translationKey, "moves"))) {
                                     termMatched = true;
                                     break;
                                 }
                             }
                             for (let ability of species.abilities) {
-                                if (token.toLowerCase() === getTranslation(ability.name, translationKey, "abilities").toLowerCase()) {
+                                if (normalizeText(token) === normalizeText(getTranslation(ability.name, translationKey, "abilities"))) {
                                     termMatched = true;
                                     break;
                                 }
                             }
                             for (let type of species.types) {
                                 const uppercaseType = type[0].toUpperCase() + type.slice(1) as TypeName; // data in the assets branch needs to be fixed
-                                if (token.toLowerCase() === getTranslation(uppercaseType, translationKey, "types").toLowerCase()) {
+                                if (normalizeText(token) === normalizeText(getTranslation(uppercaseType, translationKey, "types"))) {
                                     termMatched = true;
                                     break;
                                 }
                             }
                         } else if (tokenComponents.length === 3) {
-                            const tokenStatID = tokenComponents[0].toLowerCase();
+                            const tokenStatID = normalizeText(tokenComponents[0]);
                             let value1 = parseInt(tokenComponents[0]);
                             const statID1 = inputToStatID(tokenStatID, reverseStatsTranslations);
                             if (isNaN(value1) && !validStats.includes(statID1)) {
@@ -259,7 +263,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
 
 
                             let value2 = parseInt(tokenComponents[2]);
-                            const statID2 = inputToStatID(tokenComponents[2].toLowerCase(), reverseStatsTranslations);
+                            const statID2 = inputToStatID(tokenComponents[2], reverseStatsTranslations);
                             if (isNaN(value2) && !validStats.includes(statID2)) {
                                 return false;
                             }
@@ -310,6 +314,10 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
     return true;
 }
 
+function normalizeText(input: string) {
+    return input.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
+
 function checkOptionAgainstInput(option: SearchOption, inputValue: string, translationKey: any) {
     const translationCategory = 
         option.type === "Pokémon" ? "pokemon" : 
@@ -318,8 +326,8 @@ function checkOptionAgainstInput(option: SearchOption, inputValue: string, trans
         option.type === "Type" ? "types" : 
         undefined;
     const translatedOptionName = getTranslation(option.name, translationKey, translationCategory);
-    const normalizedOptionName = translatedOptionName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    const normalizedInputValue = inputValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+    const normalizedOptionName = normalizeText(translatedOptionName);
+    const normalizedInputValue = normalizeText(inputValue);
     return normalizedOptionName.includes(normalizedInputValue);
 }
 
@@ -361,9 +369,11 @@ function FilterTagDispatcher({filter, handleDelete, translationKey}: {filter: Se
         case "Type":
             return <FilterTypeTag text={getTranslation(filter.name, translationKey, "types")} handleDelete={handleDelete}/>
         case "Moves":
+            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "moves")} handleDelete={handleDelete}/>
         case "Ability":
+            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "abilities")} handleDelete={handleDelete}/>
         case "Custom":
-            return <FilterGenericTag text={getTranslation(filter.name, translationKey, "types")} handleDelete={handleDelete}/>
+            return <FilterGenericTag text={getTranslation(filter.name, translationKey, "ui")} handleDelete={handleDelete}/>
         default:
             return undefined;
     }
@@ -1103,7 +1113,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
 
     useEffect(() => {
         if (filters.length > 0) {
-            const statsTranslations = translationKey ? Object.fromEntries(Object.entries(translationKey["stats"]).map(([key, value]) => [key.toLowerCase(), (value as string || key).toLowerCase()])) : null;
+            const statsTranslations = translationKey ? Object.fromEntries(Object.entries(translationKey["stats"]).map(([key, value]) => [normalizeText(key), normalizeText(value as string || key)])) : null;
             const reverseStatsTranslations = statsTranslations ? Object.fromEntries(Object.entries(statsTranslations).map(([key, value]) => [value, key])) : null;
             const typeFilters = filters.filter((f) => f.type === "Type").map((f) => f.name as TypeName);
             const abilityFilters = filters.filter((f) => f.type === "Ability").map((f) => f.name as AbilityName);
@@ -1186,9 +1196,8 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                         <Stack direction="row" sx={{ width: "100%"}}>
                             <TextField
                                 variant="standard"
-                                // placeholder={getTranslation("Search (Example: \"Fake Tears or Acid Spray\")", translationKey)}
                                 placeholder={
-                                    `${getTranslation("Search", translationKey)} (${getTranslation("Example", translationKey)}: "${getTranslation("Fake Tears", translationKey, "moves")} ${getTranslation("or", translationKey)} ${getTranslation("Acid Spray", translationKey, "moves")}")`
+                                    `${getTranslation("Search", translationKey)}   ( ${getTranslation("Examples", translationKey)}: "${getTranslation("Fake Tears", translationKey, "moves")} ${getTranslation("or", translationKey)} ${getTranslation("Acid Spray", translationKey, "moves")}", "(${getTranslation("Attack", translationKey, "stats")} > 100) ${getTranslation("and", translationKey)} (${getTranslation("Speed", translationKey, "stats")} < 50)" )`
                                 }
                                 value={inputValue}
                                 onChange={(event) => {

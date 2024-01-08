@@ -1053,7 +1053,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
     const handleOpen = () => {setOpen(true); getOptionsData().catch((e) => console.log(e));}
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {setInputValue(""); setOpen(false)};
 
     const handleAddFilter = (filter: SearchOption) => {
         const newFilters = [...filters];
@@ -1221,7 +1221,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                                 sx={{ width: "100%", paddingRight: "10px"}}
                             />
                             <Box sx={{ transform: "translate(20px, -20px)"}}>
-                                <IconButton size="large" onClick={() => setOpen(false)}>
+                                <IconButton size="large" onClick={handleClose}>
                                     <CloseIcon/>
                                 </IconButton>
                             </Box>

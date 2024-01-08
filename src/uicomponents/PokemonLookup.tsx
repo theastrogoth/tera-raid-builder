@@ -595,7 +595,7 @@ function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, 
     }
 
     return (
-        <ButtonRow onClick={() => handleSetPokemon(set)} sx={{paddingY: 0, marginY: 0, height: 35}}>
+        <ButtonRow onClick={() => handleSetPokemon(set)} sx={{paddingY: 0, marginY: 0, height: 40}}>
             <CompactLeftCell width="40px"></CompactLeftCell>
             <CompactTableCell width="80px" align="center">
                 <Typography fontSize={10} m={.5}>
@@ -634,20 +634,20 @@ function RaiderSetRow({set, handleSetPokemon, translationKey}: {set: SetOption, 
             </CompactTableCell>
             <CompactTableCell width="90px" align="center">
                 <Stack>
-                    <Typography fontSize={10} m={.5}>
+                    <Typography fontSize={10}>
                         {getTranslation(setMoves[0], translationKey, "moves")}
                     </Typography>
-                    <Typography fontSize={10} m={.5}>
+                    <Typography fontSize={10}>
                         {getTranslation(setMoves[1], translationKey, "moves")}
                     </Typography>
                 </Stack>
             </CompactTableCell>
             <CompactRightCell width="90px" align="center">
                 <Stack>
-                    <Typography fontSize={10} m={.5}>
+                    <Typography fontSize={10}>
                         {getTranslation(setMoves[2], translationKey, "moves")}
                     </Typography>
-                    <Typography fontSize={10} m={.5}>
+                    <Typography fontSize={10}>
                         {getTranslation(setMoves[3], translationKey, "moves")}
                     </Typography>
                 </Stack>
@@ -1074,6 +1074,12 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
         setOpen(false);
     }
 
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+            handleAddFilter({"name": inputValue, "type": "Custom"}); // currently treating everything as custom
+        }
+    };
+
     const getOptionsData = async () => {
         if (!allMoves || !allSpecies) {
             async function fetchData() {
@@ -1198,12 +1204,13 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                             <TextField
                                 variant="standard"
                                 placeholder={
-                                    `${getTranslation("Search", translationKey)}   ( ${getTranslation("Examples", translationKey)}: "${getTranslation("Fake Tears", translationKey, "moves")} ${getTranslation("or", translationKey)} ${getTranslation("Acid Spray", translationKey, "moves")}", "(${getTranslation("Attack", translationKey, "stats")} > 100) ${getTranslation("and", translationKey)} (${getTranslation("Speed", translationKey, "stats")} < 50)" )`
+                                    `${getTranslation("Search", translationKey)}   ( ${getTranslation("Examples", translationKey)}: "${getTranslation("Fake Tears", translationKey, "moves")} ${getTranslation("or", translationKey)} ${getTranslation("Acid Spray", translationKey, "moves")}", "${getTranslation("Screech", translationKey, "moves")} ${getTranslation("and", translationKey)} ${getTranslation("Speed", translationKey, "stats")} < 50" )`
                                 }
                                 value={inputValue}
                                 onChange={(event) => {
                                     setInputValue(event.target.value);
                                 }}
+                                onKeyDown={handleKeyPress}
                                 InputProps={{
                                     startAdornment: (
                                     <InputAdornment position="start">

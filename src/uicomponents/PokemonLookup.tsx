@@ -738,7 +738,12 @@ function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {mo
             </CompactTableCell>
             <CompactTableCell width="50px" align="center">
                 <Typography fontSize={10} m={.5}>
-                    {data.power || ''}
+                    {data.power || '-'}
+                </Typography>
+            </CompactTableCell>
+            <CompactTableCell width="50px" align="center">
+                <Typography fontSize={10} m={.5}>
+                    {data.accuracy || '-'}
                 </Typography>
             </CompactTableCell>
             <CompactRightCell width="300px" colSpan={6} align="center">
@@ -938,7 +943,8 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <HeaderCell width="60px">{getTranslation("Type", translationKey)}</HeaderCell>
                             <HeaderCell width="100px" align="center">{getTranslation("Category", translationKey)}</HeaderCell>
                             <HeaderCell width="50px" align="center">{getTranslation("Power", translationKey)}</HeaderCell>
-                            <HeaderCell width="300px" align="center"></HeaderCell>
+                            <HeaderCell width="50px" align="center">{getTranslation("Accuracy", translationKey)}</HeaderCell>
+                            <HeaderCell width="250px" align="center"></HeaderCell>
                         </HeaderRow> : null
                         }
                         { g === 4 && inputValue.length > 0 ?

@@ -1,4 +1,50 @@
 {
+    "Abomasnow": {
+        "Snow Support": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Snow Warning",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Aurora Veil","Snowscape","Mud-Slap"]
+        }
+    },
+    "Alcremie": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Aroma Veil",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Decorate","Fake Tears","Helping Hand","Misty Terrain"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Aroma Veil",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Decorate","Fake Tears","Helping Hand","Light Screen"]
+        }
+    },
+    "Altaria": {
+        "Cloud Nine (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Cloud Nine",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Tailwind","Cotton Guard","Defog"]
+        },
+        "Cloud Nine (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Cloud Nine",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Tailwind","Defog","Dragon Cheer"]
+        }
+    },
     "Annihilape": {
         "Bulky DPS": {
             "level":100,
@@ -25,6 +71,220 @@
             "moves":["Screech","Helping Hand","Coaching","Taunt"]
         }
     },
+    "Appletun": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Thick Fat",
+            "nature":"Gold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Apple Acid","Helping Hand","Sweet Scent","Reflect"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Thick Fat",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Apple Acid","Helping Hand","Sweet Scent","Light Screen"]
+        }
+    },
+    "Araquanid": {
+        "Water Bubble Entrainer (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Water Bubble",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Entrainment","Soak","Rain Dance","Lunge"]
+        },
+        "Water Bubble Entrainer (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Water Bubble",
+            "nature":"Careful",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Entrainment","Soak","Rain Dance","Skitter Smack"]
+        }
+    },
+    "Arbok": {
+        "Intimidate & Screech": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Intimidate",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Gastro Acid","Mud-Slap","Glare"]
+        },
+        "Intimidate & Acid Spray": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Intimidate",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Snarl","Gastro Acid","Glare"]
+        }
+    },
+    "Arboliva": {
+        "Growth DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Seed Sower",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Growth","Solar Beam","Giga Drain","Terrain Pulse"]
+        },
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Seed Sower",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Solar Beam","Pollen Puff","Reflect"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Seed Sower",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Solar Beam","Pollen Puff","Light Screen"]
+        }
+    },
+    "Arcanine": {
+        "Flash Fire DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Flash Fire",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Howl","Flare Blitz","Sunny Day","Temper Flare"]
+        },
+        "Intimidate Support": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Intimidate",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Howl","Charm","Will-O-Wisp"]
+        }
+    },
+    "Arcanine-Hisui": {
+        "Head Smash DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Rock Head",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Howl","Head Smash","Sunny Day","Flare Blitz"]
+        },
+        "Intimidate Support": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Intimidate",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Howl","Charm","Will-O-Wisp"]
+        }
+    },
+    "Archaludon": {
+        "Steel Beam DPS": {
+            "level":100,
+            "item":"Choice Specs",
+            "ability":"Stamina",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Steel Beam", "Metal Sound"]
+        },
+        "Physical Steel DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Stamina",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Heavy Slam","Hard Press","Focus Energy"]
+        },
+        "Electo Shot DPS": {
+            "level":100,
+            "item":"Choice Specs",
+            "ability":"Stamina",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Electro Shot", "Metal Sound"]
+        }
+    },
+    "Armarouge": {
+        "Stored Power DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Flash Fire",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Stored Power","Expanding Force","Calm Mind", "Acid Spray"]
+        },
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Flash Fire",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Helping Hand","Taunt","Clear Smog"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Flash Fire",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Helping Hand","Taunt","Clear Smog"]
+        }
+    },
+    "Articuno": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Bright Powder",
+            "ability":"Snow Cloak",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Tailwind","Helping Hand","Snowscape","Haze"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Snow Cloak",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Tailwind","Helping Hand","Ice Spinner","Haze"]
+        }
+    },
+    "Articuno-Galar": {
+        "Stored Power DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Competitive",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Stored Power","Calm Mind","Agility","Skill Swap"]
+        }
+    },
+    "Azumarill": {
+        "Belly Drum DPS":{
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Huge Power",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Belly Drum","Play Rough","Liquidation","Ice Spinner"]
+        },
+        "Support":{
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Sap Sipper",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Fake Tears","Soak","Chilling Water"]
+        }
+    },
     "Bellibolt": {
         "DPS": {
             "level":100,
@@ -49,24 +309,6 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Acid Spray","Chilling Water","Mud-Slap","Light Screen"]
-        }
-    },
-    "Azumarill": {
-        "Belly Drum DPS":{
-            "level":100,
-            "item":"Life Orb",
-            "ability":"Huge Power",
-            "nature":"Adamant",
-            "evs":{"hp":252,"at":252},
-            "moves":["Belly Drum","Play Rough","Liquidation","Ice Spinner"]
-        },
-        "Support":{
-            "level":100,
-            "item":"Eviolite",
-            "ability":"Sap Sipper",
-            "nature":"Bold",
-            "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand","Fake Tears","Soak","Chilling Water"]
         }
     },
     "Charjabug": {
@@ -498,6 +740,24 @@
             "nature":"Calm",
             "evs":{"hp":252,"df":252},
             "moves":["Fake Tears","Helping Hand","Gravity","Light Screen"]
+        }
+    },
+    "Joltik": {
+        "Screech Support": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Compound Eyes",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Lunge","Gastro Acid"]
+        },
+        "Screech (Carry)": {
+            "level":100,
+            "item":"Focus Sash",
+            "ability":"Compound Eyes",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "moves":["Screech"]
         }
     },
     "Kommo-o": {
@@ -1037,6 +1297,16 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Spicy Extract","Fake Tears","Helping Hand","Worry Seed"]
+        }
+    },
+    "Shieldon": {
+        "Oran": {
+            "level":1,
+            "item":"Oran Berry",
+            "ability":"Sturdy",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "moves":["Screech","Taunt","Smack Down","Scary Face"]
         }
     },
     "Slowbro":  {

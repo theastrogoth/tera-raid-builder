@@ -64,6 +64,7 @@ export class RaidBattle {
     }
 
     private calculateTurns(){
+        let turnCounter = 0;
         this._turnResults = [];
         for (let i = 0; i < this.groups.length; i++) {
             const turns = this.groups[i].turns;
@@ -71,9 +72,10 @@ export class RaidBattle {
             for (let j = 0; j < repeats; j++) {
                 for (let k = 0; k < turns.length; k++) {
                     const turn = turns[k];
-                    const result = new RaidTurn(this._state, turn).result();
+                    const result = new RaidTurn(this._state, turn, turnCounter).result();
                     this._turnResults.push(result);
                     this._state = result.state;
+                    turnCounter++;
                 }
             }
         }

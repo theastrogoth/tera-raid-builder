@@ -5,7 +5,7 @@ import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json";
 import triageMoves from "../data/triage_moves.json";
-import { MoveName } from "../calc/data/interface";
+import { MoveName, SpeciesName } from "../calc/data/interface";
 
 const gen = Generations.get(9);
 
@@ -33,6 +33,7 @@ export class RaidTurn {
     bossOptions:    RaidMoveOptions;
     id:        number;
     group?:     number;
+    turnNumber: number;
 
     _isBossAction!:     boolean;
     _isEmptyTurn!:      boolean;
@@ -60,7 +61,7 @@ export class RaidTurn {
     _endFlags!:       string[];
 
 
-    constructor(raidState: RaidState, info: RaidTurnInfo) {
+    constructor(raidState: RaidState, info: RaidTurnInfo, turnNumber: number) {
         this.raidState = raidState;
         this.raiderID = info.moveInfo.userID;
         this.targetID = info.moveInfo.targetID;
@@ -74,6 +75,7 @@ export class RaidTurn {
         }
         this.id = info.id;
         this.group = info.group;
+        this.turnNumber = turnNumber;
 
         this.raiderOptions = info.moveInfo.options || {};
         this.bossOptions = info.bossMoveInfo.options || {};
@@ -529,9 +531,11 @@ export class RaidTurn {
             const pokemon = this._raidState.raiders[id];
             switch (pokemon.ability) {
                 case "Speed Boost":
-                    const origSpe = pokemon.boosts.spe || 0;
-                    this._raidState.applyStatChange(id, {"spe": 1}, true, id, false);
-                    this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
+                    if ((pokemon.originalCurHP > 0) && ((id !== 0) || ((this.turnNumber % 4) === 3))) {
+                        const origSpe = pokemon.boosts.spe || 0;
+                        this._raidState.applyStatChange(id, {"spe": 1}, true, id, false);
+                        this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
+                    }
                     break;
                 case "Harvest": 
                     if (pokemon.field.hasWeather("Sun") && !pokemon.item && (pokemon.lastConsumedItem || "").includes("Berry")) {

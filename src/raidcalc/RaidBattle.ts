@@ -75,7 +75,9 @@ export class RaidBattle {
                     const result = new RaidTurn(this._state, turn, turnCounter).result();
                     this._turnResults.push(result);
                     this._state = result.state;
-                    turnCounter++;
+                    if(turn.moveInfo.moveData.name !== "(No Move)") {
+                        turnCounter++;
+                    }
                 }
             }
         }

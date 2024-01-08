@@ -22,7 +22,7 @@ Feedback, suggestions, or contributions welcome!
 - Correct interactions for (most) items, abilities, moves, statuses, immunities, and field conditions
 #### Sharing
 - Save notes and credits with strategies
-- Save and share strategies via the URL hash, with strategy information stored in a [https://firebase.google.com/docs/firestore](Cloud Firestore) database
+- Save and share strategies via the URL hash, with strategy information stored in a [Cloud Firestore](https://firebase.google.com/docs/firestore/) database
 - Generate infographics for showcasing a strategy
 - Load strategies in "Pretty Mode" to see view information in an easily-readable format
 

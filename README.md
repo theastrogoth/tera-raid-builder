@@ -14,6 +14,7 @@ Feedback, suggestions, or contributions welcome!
 - Filter moves and abilities by those that are available to a particular Pokémon species
 - Display when moves are learned via TM or are egg moves
 - Translate Pokémon, moves, items, abilities, natures, and stats into any of 9 officially supported languages
+- Search for Pokémon by types, abilities, moves, stats, or a combination of filters
 #### Raid Simulation
 - Damage calculations via [@smogon/calc](https://github.com/smogon/damage-calc/tree/master/calc), with some modifications for Tera raids
 - Incorporation of stat boosts, ailments, and field effects from moves and items
@@ -26,5 +27,4 @@ Feedback, suggestions, or contributions welcome!
 - Load strategies in "Pretty Mode" to see view information in an easily-readable format
 
 ### Planned Features
-- Handling of niche interactions like Transform
 - More-complete support for Spanish, Italian, French, Korean, Japanese, and Chinese translations.

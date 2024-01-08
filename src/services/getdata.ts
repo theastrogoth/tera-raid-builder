@@ -13,6 +13,9 @@ export type PokemonData = {
     types:  TypeName[],
     abilities: {name: AbilityName, hidden: boolean}[],
     stats:  StatsTable,
+    weightkg?: number,
+    nfe?: boolean,
+    gender?: 'M' | 'F' | 'N',
     moves:  {name: MoveName, learnMethod: string}[],
 }
 
@@ -38,6 +41,29 @@ export namespace PokedexService {
             let response = await fetch(assetsProlog + "pokemon/" + preppedName + ".json");
             let responseJson = await response.json();
             return responseJson as PokemonData;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
+    
+    export async function getAllMoves() {
+        console.log("Fetching data for all moves (large file)");
+        try {
+            let response = await fetch(assetsProlog + "moves/_allmoves.json");
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
+    export async function getAllSpecies() {
+        console.log("Fetching data for all species (large file)")
+        try {
+            let response = await fetch(assetsProlog + "pokemon/_allspecies.json");
+            let responseJson = await response.json();
+            return responseJson;
         } catch(error) {
             console.error(error);
         }

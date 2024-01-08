@@ -1,8 +1,9 @@
 import { StatID, StatsTable } from "./calc";
+import { SpeciesName } from "./calc/data/interface";
 import { RaidBattleResults } from "./raidcalc/RaidBattle";
 import { Raider } from "./raidcalc/Raider";
 import { RaidInputProps } from "./raidcalc/inputs";
-import { MoveData, TurnGroupInfo } from "./raidcalc/interface";
+import { MoveData, SetOption, TurnGroupInfo } from "./raidcalc/interface";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
@@ -261,6 +262,69 @@ export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo
         } 
     }
     return [turns, labels];
+}
+
+function setdexStats(input: any): Partial<StatsTable> | undefined {
+    if (!input) return undefined;
+    const stats: Partial<StatsTable> = {};
+    for (let id of Object.keys(input)) {
+        let val = input[id];
+        if (typeof(val) === "string") { val = parseInt(val) };
+        switch (id) {
+            case "hp":
+                stats.hp = val;
+                break;
+            case "at":
+                stats.atk = val;
+                break;
+            case "df":
+                stats.def = val;
+                break;
+            case "sa":
+                stats.spa = val;
+                break;
+            case "sd":
+                stats.spd = val;
+                break;
+            case "sp":
+                stats.spe = val;
+                break;
+        }
+    }
+    return stats;
+}
+
+export function setdexToOptions(dex: Object): SetOption[] {
+    const options: SetOption[] = [];
+    for (let pokemon of (Object.keys(dex) as SpeciesName[])) {
+        // @ts-ignore
+        for (let setname of (Object.keys(dex[pokemon]))) {
+            // @ts-ignore
+            const set = dex[pokemon][setname];
+            let level = set.level || 100;
+            if (typeof(level) === "string") { level = parseInt(level)};
+            let bossMultiplier = set.bossMultiplier || 100;
+            if (typeof(bossMultiplier) === "string") { bossMultiplier = parseInt(bossMultiplier)};
+            const option: SetOption = {
+                name: setname,
+                pokemon: pokemon,
+                shiny: !!set.shiny,
+                level: level,
+                item: set.item,
+                ability: set.ability,
+                nature: set.nature,
+                ivs: setdexStats(set.ivs),
+                evs: setdexStats(set.evs),
+                moves: set.moves,
+                extraMoves: set.extraMoves,
+                bossMultiplier: bossMultiplier,
+                teraType: set.teraType,
+                shieldData: set.shieldData,
+            }
+            options.push(option);
+        }
+    }
+    return options.sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 }
 
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {

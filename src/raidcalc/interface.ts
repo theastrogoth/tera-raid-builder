@@ -1,10 +1,10 @@
 import { Pokemon, Field, StatID } from "../calc";
-import { AbilityName, ItemName, MoveName, SpeciesName, TypeName } from "../calc/data/interface";
+import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 
 export type MoveSetItem = {
     name: string,
     engName: MoveName,
-    method: string,
+    method?: string,
     type: TypeName,
 }
 
@@ -67,6 +67,7 @@ export type AilmentName =   "confusion" |               // many of these are not
 
 export type MoveData = {
     name:           MoveName
+    moveCategory?: "Physical" | "Special" | "Status",
     category?:      MoveCategory,
     target?:        MoveTarget,
     type?:          TypeName,
@@ -164,4 +165,21 @@ export type SubstituteBuildInfo = {
     raider: Raider,
     substituteMoves: MoveName[],
     substituteTargets: number[],
+}
+
+export type SetOption = {
+    name: string,
+    pokemon: SpeciesName,
+    shiny?: boolean,
+    level?: number,
+    item?: ItemName,
+    ability?: AbilityName,
+    nature?: NatureName,
+    ivs?: Partial<StatsTable>,
+    evs?: Partial<StatsTable>,
+    moves?: MoveName[],
+    extraMoves?: MoveName[],
+    bossMultiplier?: number,
+    teraType?: TypeName,
+    shieldData?: ShieldData,
 }

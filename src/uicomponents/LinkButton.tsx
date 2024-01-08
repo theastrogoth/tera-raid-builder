@@ -88,7 +88,7 @@ export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
     }
 }
 
-export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildInfo | null> {
+export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<MoveName,MoveData> | null): Promise<BuildInfo | null> {
     try {
         const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => new Raider(i, r.role, r.shiny, new Field(), 
             new Pokemon(gen, r.name, {
@@ -104,9 +104,17 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                 moves: r.moves || undefined,
                 shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
             }), 
-            (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+            (r.moves ? (
+                allMoves ? 
+                (r.moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
+                (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
+            ) as MoveData[] : []),
             (r.extraMoves || undefined) as (MoveName[] | undefined),
-            (r.extraMoves ? (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+            (r.extraMoves ? (
+                allMoves ? 
+                (r.extraMoves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
+                (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
+            ) as MoveData[] : []),
         )));
         const groups: TurnGroupInfo[] = [];
         const groupIds: number[] = [];
@@ -206,7 +214,11 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                                 moves: r.moves || undefined,
                                 shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
                             }), 
-                            (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+                            (r.moves ? (
+                                allMoves ? 
+                                (r.moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
+                                (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
+                            ) as MoveData[] : []),
                         );
                         return {
                             raider: subPoke,

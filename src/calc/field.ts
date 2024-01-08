@@ -19,6 +19,7 @@ export class Field implements State.Field {
   isVesselOfRuin?: boolean;
   isTrickRoom: number;
   isCloudNine?: boolean;
+  isTeraformZero?: boolean;
   attackerSide: Side;
   defenderSide: Side;
 
@@ -40,6 +41,7 @@ export class Field implements State.Field {
     this.isVesselOfRuin = field.isVesselOfRuin || false;
     this.isTrickRoom = field.isTrickRoom || 0;
     this.isCloudNine = field.isCloudNine || false;
+    this.isTeraformZero = field.isTeraformZero || false;
 
     this.attackerSide = new Side(field.attackerSide || {});
     this.defenderSide = new Side(field.defenderSide || {});
@@ -51,6 +53,7 @@ export class Field implements State.Field {
   }
 
   hasTerrain(...terrains: Terrain[]) {
+    if (this.isTeraformZero) { return false };
     return !!(this.terrain && terrains.includes(this.terrain));
   }
 
@@ -80,6 +83,7 @@ export class Field implements State.Field {
       isVesselOfRuin: this.isVesselOfRuin,
       isTrickRoom: this.isTrickRoom,
       isCloudNine: this.isCloudNine,
+      isTeraformZero: this.isTeraformZero,
     });
   }
 }
@@ -117,6 +121,7 @@ export class Side implements State.Side {
   isMist: number;
   isSafeguard: number;
   isAromaVeil: boolean;
+  isFlowerVeil: boolean;
 
   constructor(side: State.Side = {}) {
     this.spikes = side.spikes || 0;
@@ -151,6 +156,7 @@ export class Side implements State.Side {
     this.isMist = side.isMist || 0;
     this.isSafeguard = side.isSafeguard || 0;
     this.isAromaVeil = !!side.isAromaVeil;
+    this.isFlowerVeil = !!side.isFlowerVeil;
   }
 
   clone() {

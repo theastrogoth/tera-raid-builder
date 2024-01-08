@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { serialize, deserialize } from "../utilities/shrinkstring";
 
 import Button from "@mui/material/Button";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 import { Pokemon, Generations, Field } from "../calc";
 import { MoveName, TypeName } from "../calc/data/interface";
@@ -14,10 +16,68 @@ import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
 import { MoveData, RaidTurnInfo, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
-import { getTranslation } from "../utils";
+import { encode, decode, getTranslation } from "../utils";
 
+import { db } from "../config/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import STRAT_LIST from "../data/strats/stratlist.json";
 
 const gen = Generations.get(9);
+const JSON_HASHES = Object.entries(STRAT_LIST).map(([boss, strats]) => Object.entries(strats as Object).map(([name, h]) => h as string)).flat();
+
+async function getFullHashFromShortHash(hash: string): Promise<string> {
+    let cleanHash = hash;
+    if (hash[0] === "#") {
+        cleanHash = hash.slice(1);
+    }
+    const hashID = decode(cleanHash);
+    const docRef = doc(db, "links", `${hashID}`);
+    const docSnap = await getDoc(docRef);
+    if (!docSnap.exists()) {
+      console.log("Invalid link");
+    }
+    const data = docSnap.data();
+    return data ? data.hash : null;
+}
+
+async function generateShortHash(): Promise<string> {
+    // randomly generate a short hash in the searchspace
+    let linkID = Math.floor(Math.random() * (62**8));
+    let shortHash = encode(linkID);
+    let docRef = doc(db, "links", `${shortHash}`);
+    let docSnap = await getDoc(docRef);
+    // handle collisions. This should be fast as long as the searchspace is mostly empty
+    while (docSnap.exists()) {
+        linkID = Math.floor(Math.random() * 62**8);
+        shortHash = encode(linkID);
+        docRef = doc(db, "links", `${shortHash}`);
+        docSnap = await getDoc(docRef);
+    }
+    return shortHash;
+}
+
+async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fullHash: string, setButtonDisabled: (b: boolean) => void, setSnackSeverity: (s: "success" | "warning" | "error") => void) {
+    const shortHash = await generateShortHash();
+    const id = decode(shortHash);
+    return setDoc(doc(db, "links", `${id}`), {
+        hash: fullHash,
+        path: shortHash,
+        date: Date.now(),
+        boss: raidInputProps.pokemon[0].name,
+        raiders: raidInputProps.pokemon.slice(1).map((p) => p.name),
+        title: title,
+    })
+    .then(() => {
+        setSnackSeverity("success");
+        return shortHash;
+    })
+    .catch((error) => {
+        console.log(error)
+        setButtonDisabled(false);
+        setSnackSeverity("warning");
+        return null
+    });
+}
 
 export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
     try {
@@ -28,7 +88,7 @@ export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
     }
 }
 
-export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildInfo | null> {
+export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<MoveName,MoveData> | null): Promise<BuildInfo | null> {
     try {
         const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => new Raider(i, r.role, r.shiny, new Field(), 
             new Pokemon(gen, r.name, {
@@ -44,9 +104,17 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                 moves: r.moves || undefined,
                 shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
             }), 
-            (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+            (r.moves ? (
+                allMoves ? 
+                (r.moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
+                (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
+            ) as MoveData[] : []),
             (r.extraMoves || undefined) as (MoveName[] | undefined),
-            (r.extraMoves ? (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+            (r.extraMoves ? (
+                allMoves ? 
+                (r.extraMoves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
+                (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
+            ) as MoveData[] : []),
         )));
         const groups: TurnGroupInfo[] = [];
         const groupIds: number[] = [];
@@ -146,7 +214,11 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo): Promise<BuildIn
                                 moves: r.moves || undefined,
                                 shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
                             }), 
-                            (r.moves ? (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m)))).map((md, index) => md || {name: r.moves![index] as MoveName, target: "user"} ) : []),
+                            (r.moves ? (
+                                allMoves ? 
+                                (r.moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
+                                (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
+                            ) as MoveData[] : []),
                         );
                         return {
                             raider: subPoke,
@@ -233,27 +305,64 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
     return serialize(obj);
 }
 
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+    props,
+    ref,
+  ) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+  
 function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, translationKey}: 
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
       setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
       setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, translationKey: any}) {
-    const [buildInfo, setBuildInfo] = useState(null);
+    const [buildInfo, setBuildInfo] = useState<LightBuildInfo | null>(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
     const location = useLocation();
-    const hash = location.hash
+    const hash = location.hash;
+    const [hashChanges, setHashChanges] = useState(0);
+    const hashChangesRef = useRef(0);
+
+    const [buttonDisabled, setButtonDisabled] = useState(false);
+    const buttonTimer = useRef<NodeJS.Timeout | null>(null);
+
+    const [copiedLink, setCopiedLink] = useState<string>("theastrogoth.github.io/tera-raid-builder")
+    const [snackOpen, setSnackOpen] = useState(false);
+    const [snackSeverity, setSnackSeverity] = useState<"success" | "warning" | "error">("success");
+
+    const handleClick = () => {
+      setSnackOpen(true);
+    };
+  
+    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+      setSnackOpen(false);
+    };
 
     useEffect(() => {
         try {
             if (hash !== "") {
-                setLoading(true);
+                if (!buildInfo) {
+                    setLoading(true);
+                }
                 let lcHash = hash.includes('/') ? hash.slice(1).toLowerCase() : hash.slice(1).toLowerCase() + "/main";
-                import(`../data/strats/${lcHash}.json`)
-                .then((module) => {
-                    setBuildInfo(module.default);
-                })
-                .catch((error) => {
-                    console.error('Error importing JSON file:', error);
-                });
+                if (JSON_HASHES.includes(lcHash)) {
+                    setLoading(true);
+                    setPrettyMode(true);
+                    import(`../data/strats/${lcHash}.json`)
+                    .then((module) => {
+                        setBuildInfo(module.default);
+                    })
+                    .catch((error) => {
+                        console.error('Error importing JSON file:', error);
+                        setLoading(false);
+                    });
+                } else if (buildInfo) {
+                    setLoading(true);
+                    setHashChanges(hashChanges + 1);
+                }
             }
         } catch (e) {
             console.log(e);
@@ -265,10 +374,31 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         async function loadInfo() {
             try {
                 let res: BuildInfo | null = null;
-                if (buildInfo) {
+                if (buildInfo && hashChangesRef.current === hashChanges) {
                     res = await lightToFullBuildInfo(buildInfo);
                 } else {
-                    res = await deserializeInfo(hash);
+                    if (!JSON_HASHES.includes(hash.slice(1)) && !JSON_HASHES.includes(hash.slice(1) + "/main")) {
+                        if (hash === "" || hash === "#") {
+                            const module = await import(`../data/strats/default.json`)
+                            setBuildInfo(module.default as LightBuildInfo);
+                        } else if (hash.length < 50) { // This check should probably be more systematic
+                            const fullHash = await getFullHashFromShortHash(hash);
+                            if (fullHash) {
+                                const bInfo = await deserialize(fullHash);
+                                setBuildInfo(bInfo);
+                                setPrettyMode(true);
+                            } else {
+                                const module = await import(`../data/strats/default.json`)
+                                setBuildInfo(module.default as LightBuildInfo);
+                            }
+                        } else {
+                            const bInfo = await deserialize(hash);
+                            setBuildInfo(bInfo);
+                            setPrettyMode(true);
+                        }
+                    } else {
+                        setPrettyMode(true);
+                    }
                 }
                 if (res) {
                     const {name, notes, credits, pokemon, groups} = res;
@@ -293,12 +423,12 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
             }
         }
         loadInfo().catch((e) => console.log(e));
+        hashChangesRef.current = hashChanges;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [buildInfo]);
+    }, [buildInfo, hashChanges]);
 
     useEffect(() => {
         if (hasLoadedInfo) {
-            setPrettyMode(true);
             setHasLoadedInfo(false);
             setLoading(false);
         }
@@ -306,10 +436,23 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     }, [hasLoadedInfo]);
 
     return (
+        <>
         <Button
             variant="outlined"
+            // disabled={buttonDisabled} // Don't display when the button is disabled to avoid confusion
             onClick={() => {
-                const link = window.location.href.split("#")[0] + "#" + serializeInfo(
+                if (buttonDisabled) { return; }
+                setButtonDisabled(true);
+                if(buttonTimer.current === null) {
+                    buttonTimer.current = setTimeout(() => {
+                        setButtonDisabled(false);
+                        buttonTimer.current = null;
+                    }, 5000) // enforce 5 second delay between clicks actually doing anything
+                } else {
+                    return; // This should never happen
+                }
+
+                const newHash = serializeInfo(
                     {
                         name: title,
                         notes: notes,
@@ -319,11 +462,45 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     },
                     substitutes,
                 );
-                navigator.clipboard.writeText(link)
+
+                if (typeof ClipboardItem && navigator.clipboard.write) {
+                    // iOS compatibility case. clipboard.write() is only supported when used synchronously
+                    // within a gesture event handler, so we need to pass a ClipboardItem
+                    // This condition is also used for Chrome, or any other browser for which ClipboardItem is defined
+                    const text = new ClipboardItem({
+                        "text/plain": setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity)
+                        .then(shortHash => {
+                            handleClick();
+                            return new Blob([
+                                window.location.href.split("#")[0] + "#" + (shortHash || newHash)
+                            ], { type: "text/plain" })
+                        })
+                    })
+                    navigator.clipboard.write([text]);
+                } else {
+                    // Firefox compatibility case (ClipboardItem is not defined)
+                    setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity)
+                    .then(shortHash => {
+                        handleClick();
+                        navigator.clipboard.writeText(
+                            window.location.href.split("#")[0] + "#" + (shortHash || newHash)
+                        )}
+                    );
+                }
             }}
         >
-            {getTranslation("Copy link to this build!", translationKey)}
+            {getTranslation("Create link for this strategy!", translationKey)}
         </Button>
+        <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity={snackSeverity} sx={{ width: '100%' }}>
+                {
+                    (snackSeverity === "success") ? ("Link copied to clipboard!") : 
+                    (snackSeverity === "warning") ? ("Link failed to save to database. A long link has been copied to your clipboard instead.") : 
+                    "Failed to copy link to clipboard. You can copy the link manually from here:\n\n " + copiedLink
+                }
+            </Alert>
+        </Snackbar>
+        </>
     )
 }
 

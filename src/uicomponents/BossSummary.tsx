@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 
 import { Generations } from '../calc';
-import { AbilityName } from "../calc/data/interface";
+import { AbilityName, MoveName, SpeciesName } from "../calc/data/interface";
 import { toID } from '../calc/util';
 
 import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
@@ -13,33 +13,57 @@ import { RoleField } from "./PokemonSummary";
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual, getTranslation } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
-import { MoveSetItem } from "../raidcalc/interface";
+import { MoveData, MoveSetItem } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 
 const gen = Generations.get(9); // we only use gen 9
 
-function BossSummary({pokemon, setPokemon, prettyMode, translationKey}: {pokemon: Raider, setPokemon: (r: Raider) => void, prettyMode: boolean, translationKey: any}) {
+function BossSummary({pokemon, setPokemon, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
+    {pokemon: Raider, setPokemon: (r: Raider) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any
+    setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void}
+) {
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
   
     useEffect(() => {
-      async function fetchData() {
-        let pokemonData = await PokedexService.getPokemonByName(pokemon.name) as PokemonData;     
-        setAbilities(pokemonData.abilities);
+        if (!allSpecies) {
+            async function fetchData() {
+                let pokemonData = await PokedexService.getPokemonByName(pokemon.name) as PokemonData;     
+                setAbilities(pokemonData.abilities);
 
-        const moves = pokemonData.moves;
-        const set = moves.map(md => {
-            const move = gen.moves.get(toID(md.name));
-            return {
-                name: getTranslation(md.name, translationKey, "moves"),
-                engName: md.name,
-                method: md.learnMethod,
-                type: move ? (move.type || "Normal") : "Normal",
+                const moves = pokemonData.moves;
+                const set = moves.map(md => {
+                    const move = gen.moves.get(toID(md.name));
+                    return {
+                        name: getTranslation(md.name, translationKey, "moves"),
+                        engName: md.name,
+                        method: md.learnMethod,
+                        type: move ? (move.type || "Normal") : "Normal",
+                    }
+                })
+                setMoveSet(set);
             }
-        })
-        setMoveSet(set);
-      }
-      fetchData().catch((e) => console.log(e));
+            fetchData().catch((e) => console.log(e));
+        } else {
+            const pokemonData = allSpecies.get(pokemon.name);
+            if (pokemonData) {
+                setAbilities(pokemonData.abilities);
+
+                const moves = pokemonData.moves;
+                const set = moves.map(md => {
+                    const move = gen.moves.get(toID(md.name));
+                    return {
+                        name: getTranslation(md.name, translationKey, "moves"),
+                        engName: md.name,
+                        method: md.learnMethod,
+                        type: move ? (move.type || "Normal") : "Normal",
+                    }
+                })
+                setMoveSet(set);
+            } else {
+                console.log("No pokemon data for " + pokemon.name);
+            }
+        }
     }, [pokemon.name])
 
     // const spriteURL = imgProlog + pokemon.name.toLocaleLowerCase() + imgExt;
@@ -122,10 +146,11 @@ function BossSummary({pokemon, setPokemon, prettyMode, translationKey}: {pokemon
                         </Box>
                     </Box>
                     <Stack direction="row" spacing={-2} >
-                        <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} prettyMode={prettyMode} isBoss translationKey={translationKey} />
+                        {/* @ts-ignore */}
+                        <BuildControls pokemon={pokemon} abilities={abilities} moveSet={moveSet} setPokemon={setPokemon} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} isBoss translationKey={translationKey} />
                         <Box flexGrow={1} />
                         <Stack direction="column" spacing={0} justifyContent="center" alignItems="center" sx={{ width: "300px", minHeight:( prettyMode ? undefined : "375px") }}>
-                            <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} prettyMode={prettyMode} translationKey={translationKey}/>
+                            <BossBuildControlsMemo moveSet={moveSet} pokemon={pokemon} setPokemon={setPokemon} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey}/>
                             <Box flexGrow={1} />
                             <StatRadarPlot nature={nature} evs={pokemon.evs} stats={pokemon.stats} bossMultiplier={pokemon.bossMultiplier} translationKey={translationKey} />
                         </Stack>
@@ -140,6 +165,8 @@ export default React.memo(BossSummary,
     (prevProps, nextProps) => (
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
         arraysEqual(prevProps.pokemon.extraMoves || [], nextProps.pokemon.extraMoves || []) &&
+        !!prevProps.allMoves === !!nextProps.allMoves &&
+        !!prevProps.allSpecies === !!nextProps.allSpecies &&
         prevProps.prettyMode === nextProps.prettyMode &&
         prevProps.translationKey === nextProps.translationKey)
     );

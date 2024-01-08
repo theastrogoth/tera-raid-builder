@@ -23,8 +23,8 @@ import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
 
 import { Generations, Pokemon, Field } from './calc/index.ts';
-import { MoveName } from './calc/data/interface.ts';
-import { SubstituteBuildInfo, TurnGroupInfo } from './raidcalc/interface.ts';
+import { MoveName, SpeciesName } from './calc/data/interface.ts';
+import { MoveData, SubstituteBuildInfo, TurnGroupInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
 import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
@@ -32,7 +32,7 @@ import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
 
-import PokedexService from "./services/getdata";
+import PokedexService, { PokemonData } from "./services/getdata";
 import { getTranslation } from './utils.ts';
 import DEFAULT_STRAT from './data/strats/default.json';
 import { LightBuildInfo } from './raidcalc/hashData.ts';
@@ -47,6 +47,9 @@ function App() {
   const [language, setLanguage] = useState<LanguageOption>('en');
   const [translationKey, setTranslationKey] = useState<any>(null);
 
+  const [allSpecies, setAllSpecies] = useState<Map<SpeciesName,PokemonData> | null>(null);
+  const [allMoves, setAllMoves] = useState<Map<MoveName,MoveData> | null>(null);
+
   const location = useLocation();
   const hash = location.hash
   
@@ -54,61 +57,66 @@ function App() {
     palette: {
       mode: lightMode,
       background: {
-        paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6'
+        paper: lightMode === 'dark' ? '#4b4b4b' : '#e6e6e6',
       },
       primary: {
-        main: lightMode === 'dark' ? "#faa5a0" : "#ed382d"
+        main: lightMode === 'dark' ? "#faa5a0" : "#ed382d",
       },
       secondary: {
-        main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+        main: lightMode === 'dark' ? "#91433f" : "#940f07",
+      },
+      //@ts-ignore
+      tertiary: {
+        main: lightMode === 'dark' ? "#b37572" : "#db3227",
+        contrastText: "#fff",
       },
       //@ts-ignore
       subdued: {
-        main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe"
+        main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe",
       },
       //@ts-ignore
       modal: {
-        main: lightMode === 'dark' ? "#666666" : "#dedede"
+        main: lightMode === 'dark' ? "#666666" : "#dedede",
       },
       //@ts-ignore
       group0: {
-        main: lightMode === "dark" ? "#571b20" : "#f7b5ba"
+        main: lightMode === "dark" ? "#571b20" : "#f7b5ba",
       },
       //@ts-ignore
       group1: {
-        main: lightMode === "dark" ? "#144e52" : "#c5e6e8"
+        main: lightMode === "dark" ? "#144e52" : "#c5e6e8",
       },
       //@ts-ignore
       group2: {
-        main: lightMode === "dark" ? "#205220" : "#b0f5b0"
+        main: lightMode === "dark" ? "#205220" : "#b0f5b0",
       },
       //@ts-ignore
       group3: {
-        main: lightMode === "dark" ? "#443769" : "#ccbff5"
+        main: lightMode === "dark" ? "#443769" : "#ccbff5",
       },
       //@ts-ignore
       group4: {
-        main: lightMode === "dark" ? "#c79240" : "#ffe0b0"
+        main: lightMode === "dark" ? "#c79240" : "#ffe0b0",
       },
       //@ts-ignore
       group5: {
-        main: lightMode === "dark" ? "#5fa116" : "#d7faaf"
+        main: lightMode === "dark" ? "#5fa116" : "#d7faaf",
       },
       //@ts-ignore
       group6: {
-        main: lightMode === "dark" ? "#993f64" : "#fccce1"
+        main: lightMode === "dark" ? "#993f64" : "#fccce1",
       },
       //@ts-ignore
       group7: {
-        main: lightMode === "dark" ? "#4f4215": "#d4caa7"
+        main: lightMode === "dark" ? "#4f4215": "#d4caa7",
       },
       //@ts-ignore
       group8: {
-        main: lightMode === "dark" ? "#520438": "#c4b1be"
+        main: lightMode === "dark" ? "#520438": "#c4b1be",
       },
       //@ts-ignore
       group9: {
-        main: lightMode === "dark" ? "#363336": "#b3b3b3"
+        main: lightMode === "dark" ? "#363336": "#b3b3b3",
       },
     },
     typography: {
@@ -140,15 +148,20 @@ function App() {
             main: lightMode === 'dark' ? "#faa5a0" : "#db3227",
           },
           secondary: {
-            main: lightMode === 'dark' ? "#faa5a0" : "#940f07"
+            main: lightMode === 'dark' ? "#91433f" : "#940f07",
+          },
+          //@ts-ignore
+          tertiary: {
+            main: lightMode === 'dark' ? "#b37572" : "#db3227",
+            contrastText: "#fff",
           },
           //@ts-ignore
           subdued: {
-            main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe"
+            main: lightMode === 'dark' ? "#7e7e7e" : "#bebebe",
           },
           //@ts-ignore
           modal: {
-            main: lightMode === 'dark' ? "#666666" : "#dedede"
+            main: lightMode === 'dark' ? "#666666" : "#dedede",
           },
           //@ts-ignore
           group0: {
@@ -156,11 +169,11 @@ function App() {
           },
           //@ts-ignore
           group1: {
-            main: lightMode === "dark" ? "#144e52" : "#c5e6e8"
+            main: lightMode === "dark" ? "#144e52" : "#c5e6e8",
           },
           //@ts-ignore
           group2: {
-            main: lightMode === "dark" ? "#205220" : "#b0f5b0"
+            main: lightMode === "dark" ? "#205220" : "#b0f5b0",
           },
           //@ts-ignore
           group3: {
@@ -168,39 +181,39 @@ function App() {
           },
           //@ts-ignore
           group4: {
-            main: lightMode === "dark" ? "#c79240" : "#ffe0b0"
+            main: lightMode === "dark" ? "#c79240" : "#ffe0b0",
           },
           //@ts-ignore
           group5: {
-            main: lightMode === "dark" ? "#5fa116" : "#d7faaf"
+            main: lightMode === "dark" ? "#5fa116" : "#d7faaf",
           },
           //@ts-ignore
           group6: {
-            main: lightMode === "dark" ? "#993f64" : "#fccce1"
+            main: lightMode === "dark" ? "#993f64" : "#fccce1",
           },
           //@ts-ignore
           group7: {
-            main: lightMode === "dark" ? "#4f4215": "#d4caa7"
+            main: lightMode === "dark" ? "#4f4215": "#d4caa7",
           },
           //@ts-ignore
           group8: {
-            main: lightMode === "dark" ? "#520438": "#c4b1be"
+            main: lightMode === "dark" ? "#520438": "#c4b1be",
           },
           //@ts-ignore
           group9: {
-            main: lightMode === "dark" ? "#363336": "#b3b3b3"
+            main: lightMode === "dark" ? "#363336": "#b3b3b3",
           },
           //@ts-ignore
           greenHP: {
-            main: "#30B72D"
+            main: "#30B72D",
           },
           //@ts-ignore
           yellowHP: {
-            main: "#F1C44F"
+            main: "#F1C44F",
           },
           //@ts-ignore
           redHP: {
-            main: "#EC5132"
+            main: "#EC5132",
           },
         },
         typography: {
@@ -291,8 +304,8 @@ function App() {
         {
           id: 0,
           group: 0,
-          moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "min", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
-          bossMoveInfo: {userID: 0, targetID: 1, options: {crit: true, secondaryEffects: true, roll: "max", hits: 10}, moveData: {name: "(Most Damaging)" as MoveName}},
+          moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "avg", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
+          bossMoveInfo: {userID: 0, targetID: 1, options: {crit: false, secondaryEffects: false, roll: "avg", hits: 1}, moveData: {name: "(Most Damaging)" as MoveName}},
         }
       ]
     }
@@ -362,18 +375,18 @@ function App() {
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} substitutes={substitutes1} setSubstitutes={setSubstitutes1} prettyMode={prettyMode} translationKey={translationKey} />
-              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} substitutes={substitutes2} setSubstitutes={setSubstitutes2} prettyMode={prettyMode} translationKey={translationKey}/>
+              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} substitutes={substitutes1} setSubstitutes={setSubstitutes1} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} substitutes={substitutes2} setSubstitutes={setSubstitutes2} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey}/>
             </Stack>
           </Grid>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} substitutes={substitutes3} setSubstitutes={setSubstitutes3} prettyMode={prettyMode} translationKey={translationKey} />
-              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} substitutes={substitutes4} setSubstitutes={setSubstitutes4} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} substitutes={substitutes3} setSubstitutes={setSubstitutes3} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} substitutes={substitutes4} setSubstitutes={setSubstitutes4} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
             </Stack>
           </Grid>
           <Grid item>
-            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} prettyMode={prettyMode} translationKey={translationKey} />
+            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
           <Grid item>
             <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} prettyMode={prettyMode} translationKey={translationKey} />
@@ -402,6 +415,7 @@ function App() {
                   <GraphicsButton
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps} results={results}
+                    allSpecies={allSpecies} 
                     setLoading={setLoading}
                     translationKey={translationKey}
                   />

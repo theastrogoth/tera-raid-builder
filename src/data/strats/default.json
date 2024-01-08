@@ -5,10 +5,10 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Raid Boss",
-            "name": "Eevee",
+            "role": "Walking Wake",
+            "name": "Walking Wake",
             "shiny": false,
-            "ability": "Anticipation",
+            "ability": "Protosynthesis",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -26,34 +26,32 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 100,
-            "teraType": "Normal",
+            "level": 75,
+            "teraType": "Water",
             "moves": [
-                "Double-Edge",
-                "Hyper Voice",
-                "Bite",
-                "Charm"
+                "Hydro Steam",
+                "Dragon Pulse",
+                "Noble Roar",
+                "Flamethrower"
             ],
-            "bossMultiplier": 5000,
+            "bossMultiplier": 2000,
             "extraMoves": [
-                "Baby-Doll Eyes"
             ],
             "shieldData": {
-                "hpTrigger": 100,
-                "timeTrigger": 100,
-                "shieldCancelDamage": 100,
+                "hpTrigger": 55,
+                "timeTrigger": 40,
+                "shieldCancelDamage": 25,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "shieldDamageRateTera": 80,
+                "shieldDamageRateTeraChange": 40
             }
         },
         {
             "id": 1,
-            "role": "Lucario",
-            "name": "Lucario",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Chilan Berry",
+            "ability": "Hadron Engine",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -72,28 +70,28 @@
                 "spe": 31
             },
             "level": 100,
-            "teraType": "Fighting",
             "moves": [
-                "Aura Sphere",
-                "Nasty Plot"
+                "Electro Drift",
+                "Charge",
+                "Parabolic Charge"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
         },
         {
             "id": 2,
-            "role": "Oranguru",
-            "name": "Oranguru",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -106,25 +104,36 @@
             },
             "level": 100,
             "moves": [
-                "Instruct"
+                "Fake Tears",
+                "Screech",
+                "Helping Hand",
+                "Snarl"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 3,
-            "role": "Oranguru",
-            "name": "Oranguru",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -137,25 +146,28 @@
             },
             "level": 100,
             "moves": [
-                "Instruct"
+                "Fake Tears",
+                "Screech",
+                "Helping Hand",
+                "Snarl"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
         },
         {
             "id": 4,
-            "role": "Muk",
-            "name": "Muk",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -168,8 +180,10 @@
             },
             "level": 100,
             "moves": [
-                "Acid Spray",
-                "Helping Hand"
+                "Fake Tears",
+                "Screech",
+                "Helping Hand",
+                "Snarl"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
@@ -186,7 +200,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -195,10 +209,10 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }

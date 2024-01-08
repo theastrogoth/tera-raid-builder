@@ -3,8 +3,9 @@ import { MoveData, RaidMoveOptions, RaidTurnInfo, RaidMoveInfo } from "./interfa
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
-import pranksterMoves from "../data/prankster_moves.json"
-import { MoveName } from "../calc/data/interface";
+import pranksterMoves from "../data/prankster_moves.json";
+import triageMoves from "../data/triage_moves.json";
+import { MoveName, SpeciesName } from "../calc/data/interface";
 
 const gen = Generations.get(9);
 
@@ -32,8 +33,10 @@ export class RaidTurn {
     bossOptions:    RaidMoveOptions;
     id:        number;
     group?:     number;
+    turnNumber: number;
 
     _isBossAction!:     boolean;
+    _isEmptyTurn!:      boolean;
 
     _raiderMovesFirst!: boolean;
     _raider!:           Raider;
@@ -58,14 +61,21 @@ export class RaidTurn {
     _endFlags!:       string[];
 
 
-    constructor(raidState: RaidState, info: RaidTurnInfo) {
+    constructor(raidState: RaidState, info: RaidTurnInfo, turnNumber: number) {
         this.raidState = raidState;
         this.raiderID = info.moveInfo.userID;
         this.targetID = info.moveInfo.targetID;
         this.raiderMoveData = info.moveInfo.moveData;
+        if (Object.keys(info.moveInfo.moveData).length === 1) { // Transform or Mimic can cause issues with loading full movedata from hashes
+            this.raiderMoveData = this.raidState.raiders[this.raiderID].moveData.find((move) => move.name === info.moveInfo.moveData.name) || {name: info.moveInfo.moveData.name} as MoveData;
+        }
         this.bossMoveData = info.bossMoveInfo.moveData;
+        if (Object.keys(info.bossMoveInfo.moveData).length === 1) {
+            this.bossMoveData = this.raidState.raiders[0].moveData.find((move) => move.name === info.bossMoveInfo.moveData.name) || {name: info.bossMoveInfo.moveData.name} as MoveData;
+        }
         this.id = info.id;
         this.group = info.group;
+        this.turnNumber = turnNumber;
 
         this.raiderOptions = info.moveInfo.options || {};
         this.bossOptions = info.bossMoveInfo.options || {};
@@ -74,6 +84,7 @@ export class RaidTurn {
     public result(): RaidTurnResult {
         // check if the turn should be considered a boss action
         this._isBossAction = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name !== "(No Move)";
+        this._isEmptyTurn = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name === "(No Move)";
         // set up moves
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
@@ -88,7 +99,7 @@ export class RaidTurn {
         this._endFlags = [];
 
         // switch-in if previously fainted
-        if (this._raidState.raiders[this.raiderID].curHP() === 0) {
+        if (this._raidState.raiders[this.raiderID].originalCurHP === 0) {
             this._flags[this.raiderID].push("Switched in");
             this._raidState.switchIn(this.raiderID);
             // use dummy move to activate conditional items/abilities
@@ -165,7 +176,7 @@ export class RaidTurn {
                 this._isBossAction
             );
             this._result1 = this._raidMove1.result();
-        this._raidState = this._result1.state;
+            this._raidState = this._result1.state;
             this._raidMove2 = new RaidMove(
                 this._bossMoveData,
                 this._bossMove, 
@@ -176,7 +187,9 @@ export class RaidTurn {
                 !this._raiderMovesFirst,
                 this.bossOptions,
                 this._isBossAction,
-                this._result1.causesFlinch[0]);
+                this._result1.causesFlinch[0],
+                this._result1.damage[0] > 0
+            );
         } else {
             this._raidMove1 = new RaidMove(
                 this._bossMoveData, 
@@ -201,49 +214,68 @@ export class RaidTurn {
                 this._raiderMovesFirst,
                 this.raiderOptions,
                 this._isBossAction,
-                this._result1.causesFlinch[this.raiderID]
+                this._result1.causesFlinch[this.raiderID],
+                this._result1.damage[this.raiderID] > 0
             );
         }
         this._raidMove2.result();
         this._result2 = this._raidMove2.output
         this._raidState = this._result2.state.clone();
 
-        this.removeProtection();
-        if (!this._isBossAction) {
-            // item effects
-            this.applyEndOfTurnItemEffects();
-            // ability effects
-            this.applyEndOfTurnAbilityEffects();
-            // Clear Endure (since side-attacks are not endured)
-            this._raidState.raiders[this.raiderID].isEndure = false;
-            this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
-            // remove protect / wide guard / quick guard effects
-            this.countDownFieldEffects();
-            this.countDownAbilityNullification();
-
-            // Syrup Bomb speed drops
-            for (let i of [0, this.raiderID]) {
-                const pokemon = this._raidState.getPokemon(i);
-                if (pokemon.syrupBombDrops && (i !== 0 || this.raiderID === pokemon.syrupBombSource)) {
-                    const origSpe = pokemon.boosts.spe || 0;
-                    this._raidState.applyStatChange(i, {"spe": -1}, false, false, false);
-                    this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
-                    pokemon.syrupBombDrops--;
-                }
-            }
-            // yawn check
-            for (let i of [0, this.raiderID])  {
-                const pokemon = this._raidState.getPokemon(i);
-                if (pokemon.isYawn && ((i !== 0) || (this.raiderID === pokemon.yawnSource))) {
-                    pokemon.isYawn--;
-                    if (pokemon.isYawn === 0) {
-                        const sleepTurns = i === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
-                                                     (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
-                        pokemon.isSleep = sleepTurns;
-                        pokemon.status = "slp";
-                        pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
-                        this._endFlags.push(pokemon.name + " fell asleep!");
+        if (!this._isEmptyTurn) {
+            this.removeProtection();
+            if (!this._isBossAction) {
+                // item effects
+                this.applyEndOfTurnItemEffects();
+                // ability effects
+                this.applyEndOfTurnAbilityEffects();
+                // Clear Endure (since side-attacks are not endured)
+                this._raidState.raiders[this.raiderID].isEndure = false;
+                this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
+                // remove protect / wide guard / quick guard effects
+                this.countDownFieldEffects();
+                this.countDownAbilityNullification();
+                // Ability effects that trigger at the end of the turn
+                if (this._raidState.raiders[this.raiderID].hasAbility("Hunger Switch") && this._raidState.raiders[this.raiderID].name.includes("Morpeko")) {
+                    if (this._raidState.raiders[this.raiderID].species.name === "Morpeko") {
+                        this._raidState.raiders[this.raiderID].changeForm("Morpeko-Hangry" as SpeciesName);
+                    } else {
+                        this._raidState.raiders[this.raiderID].changeForm("Morpeko" as SpeciesName);
                     }
+                }
+                // Syrup Bomb speed drops
+                for (let i of [0, this.raiderID]) {
+                    const pokemon = this._raidState.getPokemon(i);
+                    if (pokemon.syrupBombDrops && (i !== 0 || this.raiderID === pokemon.syrupBombSource)) {
+                        const origSpe = pokemon.boosts.spe || 0;
+                        this._raidState.applyStatChange(i, {"spe": -1}, false, i, false);
+                        this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
+                        pokemon.syrupBombDrops--;
+                    }
+                }
+                // yawn check
+                for (let i of [0, this.raiderID])  {
+                    const pokemon = this._raidState.getPokemon(i);
+                    if (pokemon.isYawn && ((i !== 0) || (this.raiderID === pokemon.yawnSource))) {
+                        pokemon.isYawn--;
+                        if (pokemon.isYawn === 0) {
+                            const sleepTurns = i === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
+                                                        (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
+                            pokemon.isSleep = sleepTurns;
+                            pokemon.status = "slp";
+                            pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
+                            this._endFlags.push(pokemon.name + " fell asleep!");
+                        }
+                    }
+                }
+                // Freeze thawing checks
+                if (this._raider.isFrozen === 0 && this._raider.hasStatus("frz")) {
+                    this._raider.status = "";
+                    this._endFlags.push(this._raider.role + " thawed!");
+                }
+                if (this._boss.isFrozen === 0 && this._boss.hasStatus("frz")) {
+                    this._boss.status = "";
+                    this._endFlags.push(this._boss.role + " thawed!");
                 }
             }
         }
@@ -455,6 +487,9 @@ export class RaidTurn {
                 }
                 break;
             case "Triage": // Comfey's signature ability
+                if (moveData.priority !== undefined && triageMoves.includes(moveData.name)) {
+                    moveData.priority += 3;
+                }
                 break;
             default:
                 break;
@@ -468,7 +503,7 @@ export class RaidTurn {
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Flame Orb":
-                        if (!pokemon.types.includes("Fire")) { 
+                        if (!pokemon.types.includes("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange") && !pokemon.hasAbility("Water Bubble")) { 
                             pokemon.status = "brn";  
                             this._result2.flags[id].push("brn inflicted");
                         }
@@ -496,9 +531,17 @@ export class RaidTurn {
             const pokemon = this._raidState.raiders[id];
             switch (pokemon.ability) {
                 case "Speed Boost":
-                    const origSpe = pokemon.boosts.spe || 0;
-                    this._raidState.applyStatChange(id, {"spe": 1}, true, true, false);
-                    this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
+                    if ((pokemon.originalCurHP > 0) && ((id !== 0) || ((this.turnNumber % 4) === 3))) {
+                        const origSpe = pokemon.boosts.spe || 0;
+                        this._raidState.applyStatChange(id, {"spe": 1}, true, id, false);
+                        this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
+                    }
+                    break;
+                case "Harvest": 
+                    if (pokemon.field.hasWeather("Sun") && !pokemon.item && (pokemon.lastConsumedItem || "").includes("Berry")) {
+                        this._raidState.recieveItem(id, pokemon.lastConsumedItem!);
+                        this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
+                    }
                     break;
                 default: break;
             }

@@ -289,7 +289,7 @@ function checkImportExceptions(poke: string) {
 // }
 		
 
-function ImportExportArea({pokemon, setPokemon, translationKey}: { pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
+function ImportExportArea({pokemon, setPokemon, allMoves, translationKey}: { pokemon: Raider, setPokemon: (r: Raider) => void, allMoves: Map<MoveName,MoveData> | null, translationKey: any}) {
 	const [textValue, setTextValue] = useState('');
 	return (
 		<Box>
@@ -315,7 +315,7 @@ function ImportExportArea({pokemon, setPokemon, translationKey}: { pokemon: Raid
 						startIcon={<InputIcon/>}
 						onClick={async () => {
 							const newPoke = addSet(textValue)
-							const newMoveData = await Promise.all(newPoke.moves.map(async (move) => PokedexService.getMoveByName(move))) as MoveData[];
+							const newMoveData = ( allMoves ? newPoke.moves.map((move) => allMoves.get(move)) : await Promise.all(newPoke.moves.map(async (move) => PokedexService.getMoveByName(move))) ) as MoveData[];
 							if (newPoke) {
 								const newRaider = new Raider(pokemon.id, pokemon.role, false, pokemon.field, newPoke, newMoveData, [], [])
 								setPokemon(newRaider)

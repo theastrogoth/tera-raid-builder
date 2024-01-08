@@ -53,7 +53,7 @@
             "id": 1,
             "role": "Spoink",
             "name": "Spoink",
-            "shiny": false,
+            "shiny": true,
             "ability": "Thick Fat",
             "item": "Weakness Policy",
             "nature": "Modest",

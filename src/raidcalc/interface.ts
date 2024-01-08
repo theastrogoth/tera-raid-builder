@@ -1,10 +1,10 @@
 import { Pokemon, Field, StatID } from "../calc";
-import { AbilityName, MoveName, TypeName } from "../calc/data/interface";
+import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 
 export type MoveSetItem = {
     name: string,
     engName: MoveName,
-    method: string,
+    method?: string,
     type: TypeName,
 }
 
@@ -42,11 +42,11 @@ export type MoveTarget = "all-opponents" |              // Target
 
 export type AilmentName =   "confusion" |               // many of these are not implemented by smogon/calcs
                             "torment" |                 
-                            "poison" |
-                            "freeze" |
-                            "burn" |
-                            "paralysis" |
-                            "sleep" |
+                            "psn" |
+                            "frz" |
+                            "brn" |
+                            "par" |
+                            "slp" |
                             "unknown" |
                             "heal-block" |
                             "trap" |
@@ -61,12 +61,13 @@ export type AilmentName =   "confusion" |               // many of these are not
                             "tar-shot" |
                             "embargo" |
                             "infatuation" |
-                            "toxic" |
+                            "tox" |
                             "encore" |
                             "taunt";
 
 export type MoveData = {
     name:           MoveName
+    moveCategory?: "Physical" | "Special" | "Status",
     category?:      MoveCategory,
     target?:        MoveTarget,
     type?:          TypeName,
@@ -106,6 +107,7 @@ export interface Raider extends Pokemon {
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
+    isFrozen?: number;      // store number of turns that a Pokemon is frozen
     isCharging?: boolean;   // indicates that a Pokemon is charging a move (e.g. Solar Beam)
     isRecharging?: boolean; // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
     yawnSource?: number;    // id of the pokemon that inflicted the user with Yawn
@@ -120,6 +122,10 @@ export interface Raider extends Pokemon {
     originalAbility?: AbilityName | "(No Ability)"; // stores ability when nullified
     syrupBombDrops?: number;
     syrupBombSource?: number;
+    lastConsumedItem?: ItemName;
+    isTransformed?: boolean;
+    originalSpecies?: SpeciesName;
+    originalMoves?: MoveData[];
 }
 
 export interface RaidState {
@@ -159,4 +165,21 @@ export type SubstituteBuildInfo = {
     raider: Raider,
     substituteMoves: MoveName[],
     substituteTargets: number[],
+}
+
+export type SetOption = {
+    name: string,
+    pokemon: SpeciesName,
+    shiny?: boolean,
+    level?: number,
+    item?: ItemName,
+    ability?: AbilityName,
+    nature?: NatureName,
+    ivs?: Partial<StatsTable>,
+    evs?: Partial<StatsTable>,
+    moves?: MoveName[],
+    extraMoves?: MoveName[],
+    bossMultiplier?: number,
+    teraType?: TypeName,
+    shieldData?: ShieldData,
 }

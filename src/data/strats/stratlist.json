@@ -1,4 +1,66 @@
 {
+    "Walking Wake": {
+        "Drifting Wake": "walking_wake/main",
+        "Charging Wake": "walking_wake/charging_wake",
+        "Shocking Wake": "walking_wake/shocking_wake",
+        "Metro Express": "walking_wake/metro_express"
+    },
+    "Iron Leaves": {
+        "Kingambit": "iron_leaves/main",
+        "AP Krook": "iron_leaves/krook"
+    },
+    "Iron Bundle":  {
+        "Ghost of Christmas Future": "iron_bundle/main",
+        "Steel Cat Strat": "iron_bundle/steel_cats",
+        "The Turtle and the Mariachi Trio": "iron_bundle/turtle",
+        "Team Eeveelution: Christmas Style": "iron_bundle/eeveelution",
+        "Emperor Beam": "iron_bundle/emperor",
+        "Melted Veil": "iron_bundle/melted_veil",
+        "Wish Upon a Star!": "iron_bundle/wishing_star"
+    },
+    "Dialga": {
+        "OHKO Framework": "dialga/main"
+    },
+    "Palkia": {
+        "OHKO Framework": "palkia/main",
+        "Family Tea Time": "palkia/teatime",
+        "The Sword and the Screech": "palkia/sword",
+        "Lion of Love": "palkia/lion_of_love",
+        "The Polar Express": "palkia/polar_express",
+        "PiplupvsGod": "palkia/piplup"
+    },
+    "Samurott-Hisui": {
+        "Micrydon": "h_samurott/main",
+        "Team Eeveelution": "h_samurott/eeveelution",
+        "Stolen Sharpness": "h_samurott/stolen_sharpness",
+        "Hamurott on Ice": "h_samurott/hamurott_on_ice",
+        "A Light in the Dog Days": "h_samurott/dog_days",
+        "Belly Drum of War": "h_samurott/belly_drum_of_war",
+        "Skill Issue": "h_samurott/skill_issue",
+        "Morpeking Duck": "h_samurott/morpeking_duck",
+        "A Sunny Day for Surge Surfing": "h_samurott/surge_surf",
+        "Samurott's Nightmare": "h_samurott/nightmare",
+        "Tickle Squad Returns": "h_samurott/tickle_squad",
+        "Samurott 2: Electric Bug-aloo": "h_samurott/bugaloo",
+        "Micrydon (T3 Duo)": "h_samurott/micrydon_duo",
+        "Pawsitive Vibes": "h_samurott/pawsitive_vibes",
+        "Plus + Plus": "h_samurott/plus_plus_plus",
+        "TwentyEightTales": "h_samurott/twentyeighttales",
+        "Tsujigiri": "h_samurott/tsujigiri",
+        "Birds of a Feather ...Raid Together": "h_samurott/birds",
+        "Betrayal!": "h_samurott/betrayal",
+        "Ability-Be-Gone": "h_samurott/ability_be_gone",
+        "Chloroblast From the Past": "h_samurott/chloroblast",
+        "Crack the Whip": "h_samurott/crack_the_whip",
+        "Dragon's Rage": "h_samurott/dragons_rage",
+        "Everybody was Kung-Fu Fighting": "h_samurott/kungfu_fighting",
+        "Lizard in the Sun": "h_samurott/lizard",
+        "Mostly Mice": "h_samurott/mostly_mice",
+        "Sun Dog": "h_samurott/sun_dog",
+        "Thunderstruck": "h_samurott/thunderstruck",
+        "Rocked & Shocked": "h_samurott/rocked&shocked",
+        "Magnem Opus": "h_samurott/magnem_opus"
+    },
     "Eevee": {
         "Giraffic Bark": "eevee/main",
         "Aura 101": "eevee/aura101",
@@ -82,14 +144,6 @@
     "Decidueye": {
         "Miraidon": "decidueye/main",
         "Rotom-tisserie Owl": "decidueye/rotom"
-    },
-    "Walking Wake": {
-        "Shocking Wake": "walking_wake/main",
-        "Metro Express": "walking_wake/metro_express"
-    },
-    "Iron Leaves": {
-        "Kingambit": "iron_leaves/main",
-        "AP Krook": "iron_leaves/krook"
     },
     "Pikachu": {
         "Contrary Lurantis": "pikachu/main"

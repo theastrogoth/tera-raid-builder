@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Walking Wake",
-            "name": "Walking Wake",
+            "role": "Blaziken",
+            "name": "Blaziken",
             "shiny": false,
-            "ability": "Protosynthesis",
-            "nature": "Hardy",
+            "ability": "Speed Boost",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -26,24 +26,27 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 75,
-            "teraType": "Water",
+            "level": 100,
+            "teraType": "Flying",
             "moves": [
-                "Hydro Steam",
-                "Dragon Pulse",
-                "Noble Roar",
-                "Flamethrower"
+                "Blaze Kick",
+                "Low Kick",
+                "Acrobatics",
+                "Earthquake"
             ],
-            "bossMultiplier": 2000,
+            "bossMultiplier": 3500,
             "extraMoves": [
+                "Swords Dance",
+                "Focus Energy",
+                "Feather Dance"
             ],
             "shieldData": {
-                "hpTrigger": 55,
-                "timeTrigger": 40,
-                "shieldCancelDamage": 25,
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 80,
-                "shieldDamageRateTeraChange": 40
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
@@ -52,6 +55,7 @@
             "name": "Miraidon",
             "shiny": false,
             "ability": "Hadron Engine",
+            "item": "Life Orb",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -71,27 +75,28 @@
             },
             "level": 100,
             "moves": [
-                "Electro Drift",
                 "Charge",
-                "Parabolic Charge"
+                "Electro Drift",
+                "Parabolic Charge",
+                "Metal Sound"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Stonjourner",
+            "name": "Stonjourner",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "Power Spot",
+            "item": "Focus Sash",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -102,13 +107,8 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 100,
-            "moves": [
-                "Fake Tears",
-                "Screech",
-                "Helping Hand",
-                "Snarl"
-            ],
+            "level": 1,
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -122,18 +122,18 @@
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Qwilfish",
+            "name": "Qwilfish",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "Intimidate",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -146,28 +146,28 @@
             },
             "level": 100,
             "moves": [
-                "Fake Tears",
-                "Screech",
-                "Helping Hand",
-                "Snarl"
+                "Acid Spray",
+                "Chilling Water",
+                "Taunt",
+                "Acupressure"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Qwilfish",
+            "name": "Qwilfish",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "Intimidate",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -180,10 +180,10 @@
             },
             "level": 100,
             "moves": [
-                "Fake Tears",
-                "Screech",
-                "Helping Hand",
-                "Snarl"
+                "Acid Spray",
+                "Chilling Water",
+                "Taunt",
+                "Acupressure"
             ],
             "bossMultiplier": 100,
             "extraMoves": []

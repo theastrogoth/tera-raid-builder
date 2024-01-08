@@ -220,7 +220,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                     }
                     else {
                         let termMatched = false;
-                        const tokenComponents = token.split(/(\s<\s|\s>\s|\s<=\s|\s>=\s|\s=\s|\s==\s|\s===\s|\s!=\s|\s!==\s)/i).map((item) => item.trim()).filter(Boolean);
+                        const tokenComponents = token.split(/(<|>|<=|>=|=|==|===|!=|!==)/i).map((item) => item.trim()).filter(Boolean);
                         if (tokenComponents.length === 1) {
                             for (let move of species.moves) {
                                 if (normalizeText(token) === normalizeText(getTranslation(move.name, translationKey, "moves"))) {

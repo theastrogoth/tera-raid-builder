@@ -2218,5 +2218,194 @@
             "evs":{"hp":252,"at":252},
             "moves":["Swords Dance","Behemoth Blade","Sacred Sword","Play Rough"]
         }
+    },
+    "Zamazenta-Crowned": {
+        "Body Press DPS": {
+            "level":100,
+            "item":"Rusted Shield",
+            "ability":"Dauntless Shield",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Iron Defense","Body Press","Behemoth Bash","Brick Break"]
+        }
+    },
+    "Zangoose": {
+        "Toxic Boost DPS": {
+            "level":100,
+            "item":"Toxic Orb",
+            "ability":"Toxic Boost",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Facade", "Belly Drum", "Leer"]
+        }
+    },
+    "Zapdos": {
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Pressure",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Charge","Thunder","Hurricane","Rain Dance"]
+        }
+    },
+    "Zapdos-Galar": {
+        "Pysical DPS": {
+            "level":100,
+            "item":"Metronome",
+            "ability":"Defiant",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Bulk Up","Thunderous Kick","Drill Peck","Focus Energy"]
+        }
+    },
+    "Zarude": {
+        "Physical DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Leaf Guard",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Power Whip","Crunch","Grassy Terrain"]
+        },
+        "Jungle Healing Support (Def)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Leaf Guard",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Jungle Healing","Helping Hand","Taunt","Grassy Terrain"]
+        },
+        "Jungle Healing Support (SpD)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Leaf Guard",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Jungle Healing","Helping Hand","Snarl","Grassy Terrain"]
+        }
+    },
+    "Zebstrika": {
+        "Physical DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Sap Sipper",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Charge","Wild Charge","Supercell Slam","Electric Terrain"]
+        },
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sap Sipper",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Electroweb","Taunt"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sap Sipper",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Eerie Impulse","Light Screen"]
+        }
+    },
+    "Zekrom": {
+        "Physical DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Teravolt",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Dragon Dance","Charge","Fusion Bolt","Outrage"]
+        }
+    },
+    "Zoroark": {
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Illusion",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Nasty Plot","Dark Pulse","Night Daze","Fake Tears"]
+        },
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Illusion",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Taunt","Scary Face"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Illusion",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Skitter Smack","Taunt"]
+        }
+    },
+    "Zoroark-Hisui": {
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Illusion",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Nasty Plot","Shadow Ball","Hyper Voice","Hyper Beam"]
+        },
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Illusion",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Bitter Malice","Will-O-Wisp","Helping Hand"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Illusion",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Snarl","Taunt","Helping Hand"]
+        },
+    "Zorua": {
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Illusion",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Taunt","Scary Face"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Illusion",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Skitter Smack","Taunt"]
+        }
+    },
+    "Zorua-Hisui": {
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Illusion",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Bitter Malice","Will-O-Wisp","Taunt"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Illusion",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Snarl","Taunt","Icy Wind"]
+        }
     }
 }

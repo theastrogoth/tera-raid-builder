@@ -10,7 +10,7 @@
         }
     },
     "Alcremie": {
-        "Support (Def)": {
+        "Decorate Support (Def)": {
             "level":100,
             "item":"Sitrus Berry",
             "ability":"Aroma Veil",
@@ -18,7 +18,7 @@
             "evs":{"hp":252,"df":252},
             "moves":["Decorate","Fake Tears","Helping Hand","Misty Terrain"]
         },
-        "Support (SpD)": {
+        "Decorate Support (SpD)": {
             "level":100,
             "item":"Sitrus Berry",
             "ability":"Aroma Veil",
@@ -295,6 +295,80 @@
             "moves":["Helping Hand","Fake Tears","Soak","Chilling Water"]
         }
     },
+    "Banette": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Insomnia",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Taunt","Trick Room"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Insomnia",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Taunt","Trick Room"]
+        }
+    },
+    "Basculegion": {
+        "Adaptability DPS": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Adaptability",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Wave Crash","Liquidation","Last Respects","Rain Dance"]
+        },
+        "Swift Swim DPS": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Swift Swim",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Wave Crash","Liquidation","Last Respects","Rain Dance"]
+        }
+    },
+    "Bastiodon": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Taunt","Wide Guard","Smack Down"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Taunt","Wide Guard","Smack Down"]
+        }
+    },
+    "Baxcalibur": {
+        "DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Thermal Exchange",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Glaive Rush","Avalanche","Swords Dance","Dragon Dance"]
+        }
+    },
+    "Beartic": {
+        "Fast Crit (Def)": {
+            "level": 100,
+            "item":"Wide Lens",
+            "ability":"Slush Rush",
+            "nature":"Jolly",
+            "evs":{"hp":4,"df":252,"sp":252},
+            "moves":["Frost Breath","Taunt","Snowscape","Icy Wind"]
+        }
+    },
     "Bellibolt": {
         "Special DPS": {
             "level":100,
@@ -319,6 +393,171 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Acid Spray","Chilling Water","Mud-Slap","Light Screen"]
+        }
+    },
+    "Bellossom": {
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Chlorophyll",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Helping Hand","Sweet Scent","Grassy Terrain"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Chlorophyll",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Helping Hand","Sweet Scent","Grassy Terrain"]
+        }
+    },
+    "Blaziken": {
+        "DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Speed Boost",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Flare Blitz","Close Combat","Temper Flare"]
+        }
+    },
+    "Blissey": {
+        "Support": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Healer",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Gravity","Light Screen","Life Dew"]
+        }
+    },
+    "Bombirdier": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Big Pecks",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Tailwind","Taunt","Feather Dance","Icy Wind"]
+        }
+    },
+    "Bonsly": {
+        "Crybaby Carry": {
+            "level":1,
+            "ability":"Sturdy",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "moves":["Fake Tears","Helping Hand","Tearful Look"]
+        }
+    },
+    "Brambleghast": {
+        "DPS": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Wind Rider",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Power Whip","Phantom Force"]
+        }
+    },
+    "Breloom": {
+        "DPS": {
+            "level":100,
+            "item":"Loaded Dice",
+            "ability":"Technician",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Bullet Seed","Close Combat","Growth"]
+        },
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Effect Spore",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Spore","Grassy Terrain"]
+        }
+    },
+    "Bronzong": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Levitate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Trick Room","Helping Hand","Gravity","Psychic Terrain"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Heatproof",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Trick Room","Helping Hand","Gravity","Psychic Terrain"]
+        }
+    },
+    "Bronzor": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Levitate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Trick Room","Helping Hand","Gravity","Psychic Terrain"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Heatproof",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Trick Room","Helping Hand","Gravity","Psychic Terrain"]
+        }
+    },
+    "Brute Bonnet": {
+        "DPS": {
+            "level":100,
+            "item":"Loaded Dice",
+            "ability":"Protosynthesis",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Growth","Bullet Seed","Seed Bomb","Crunch"]
+        },
+        "Support (Def)": {
+            "level":100,
+            "item":"Booster Energy",
+            "ability":"Protosynthesis",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Spore","Taunt","Clear Smog","Grassy Terrain"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Booster Energy",
+            "ability":"Protosynthesis",
+            "nature":"Careful",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Spore","Taunt","Clear Smog","Grassy Terrain"]
+        }
+    },
+    "Bruxish": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Wonder Skin",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Taunt","Trick Room","Rain Dance"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Wonder Skin",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Taunt","Trick Room","Rain Dance"]
         }
     },
     "Chandelure": {

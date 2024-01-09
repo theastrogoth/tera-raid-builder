@@ -153,6 +153,7 @@ export class RaidMove {
                 "Clear Boosts / Abilities",
             ].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
+            this._raidState.lastMovedID = this.userID;
             // remove Micle boost
             this._user.isMicle = false;
             if (this.userID !== 0) {

@@ -27,15 +27,18 @@ const WIND_MOVES = [
 ];
 
 export class RaidState implements State.RaidState{
-    raiders: Raider[]; // raiders[0] is the boss, while raiders 1-5 are the players
+    raiders: Raider[];      // raiders[0] is the boss, while raiders 1-5 are the players
+    lastMovedID?: number;   // id of the last Pokemon to move
 
-    constructor(raiders: Raider[]) {
+    constructor(raiders: Raider[], lastMovedID?: number) {
         this.raiders = raiders;
+        this.lastMovedID = lastMovedID;
     }
 
     clone(): RaidState {
         return new RaidState(
-            this.raiders.map(raider => raider.clone()) 
+            this.raiders.map(raider => raider.clone()),
+            this.lastMovedID,
         )
     }
 

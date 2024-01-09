@@ -2121,14 +2121,66 @@
             "moves":["Belly Drum","Facade","Headlong Rush","Drain Punch"]
         }
     },
+    "Vaporeon": {
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Hydration",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Calm Mind","Surf","Hydro Pump","Fake Tears"]
+        },
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Hydration",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Chilling Water","Rain Dance"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Hydration",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Rain Dance","Mud-Slap"]
+        }
+    },
+    "Varoom": {
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Overcoat",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Taunt","Toxic","Scary Face"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Overcoat",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Taunt","Toxic","Scary Face"]
+        }
+    },
     "Venonat": {
-        "Screech Support": {
+        "General Support (Def)": {
             "level":100,
             "item":"Eviolite",
             "ability":"Compound Eyes",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Screech","Skill Swap"]
+            "moves":["Screech","Acid Spray","Skill Swap","Lunge"]
+        },
+        "General Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Compound Eyes",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Acid Spray","Skill Swap","Struggle Bug"]
         },
         "Screech (Carry)": {
             "level":100,
@@ -2137,6 +2189,152 @@
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Screech"]
+        }
+    },
+    "Venomoth": {
+        "General Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Compound Eyes",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Acid Spray","Stun Spore","Lunge"]
+        },
+        "General Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Compound Eyes",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Acid Spray","Stun Spore","Struggle Bug"]
+        }
+    },
+    "Victreebel": {
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Gluttony",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Clear Smog","Gastro Acid","Lunge"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Gluttony",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Clear Smog","Gastro Acid","Sweet Scent"]
+        }
+    },
+    "Vikavolt": {
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Levitate",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Charge","Thunderbolt","Thunder","Rain Dance"]
+        }
+    },
+    "Vileplume":{
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Effect Spore",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Pollen Puff","Helping Hand","Strength Sap"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Effect Spore",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Pollen Puff","Helping Hand","Sweet Scent"]
+        }
+    },
+    "Virizion":{
+        "Physical DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Justified",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Leaf Blade","Sacred Sword","Synthesis"]
+        }
+    },
+    "Vullaby":{
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Big Pecks",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Defog","Feather Dance","Taunt"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Big Pecks",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Defog","Taunt","Tailwind"]
+        }
+    },
+    "Vulpix": {
+        "Sun Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Drought",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Charm","Helping Hand","Will-O-Wisp","Sunny Day"]
+        },
+        "Sun Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Drought",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Snarl","Helping Hand","Safeguard","Sunny Day"]
+        }
+    },
+    "Vulpix-Alola": {
+        "Snow Support (Def)":  {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Snow Warning",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Aurora Veil","Snowscape"]
+        },
+        "Snow Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Snow Warning",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Aurora Veil","Snowscape"]
+        }
+    },
+    "Weepinbell": {
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Chlorophyll",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Clear Smog","Gastro Acid","Lunge"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Chlorophyll",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Clear Smog","Gastro Acid","Sweet Scent"]
         }
     },
     "Weezing": {
@@ -2191,8 +2389,140 @@
             "moves":["Acid Spray","Taunt","Clear Smog","Misty Terrain"]
         }
     },
+    "Whimsicott": {
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Prankster",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Charm","Worry Seed"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Prankster",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Taunt","Worry Seed"]
+        },
+        "Tickle Support": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Prankster",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Tickle","Helping Hand","Charm","Worry Seed"]
+        }
+    },
+    "Wigglytuff": {
+        "Spit Up DPS": {
+            "level":100,
+            "item":"Silk Scarf",
+            "ability":"Competitive",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Stockpile","Spit Up","Hyper Voice","Fake Tears"]
+        },
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Cute Charm",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Reflect","Taunt"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Cute Charm",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Light Screen","Taunt"]
+        }
+    },
+    "Wo-Chien": {
+        "Tickle Support": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Tablets of Ruin",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Tickle","Pollen Puff","Taunt","Stun Spore"]
+        }
+    },
+    "Wooper": {
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Unaware",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Helping Hand","Chilling Water","Mud-Slap"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Unaware",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Helping Hand","Mud-Slap","Haze"]
+        }
+    } ,
+    "Wooper-Paldea": {
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Unaware",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Helping Hand","Chilling Water","Mud-Slap"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Unaware",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Helping Hand","Mud-Slap","Haze"]
+        }
+    } ,
+    "Wyrdeer": {
+        "Physical DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Sap Sipper",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Curse","Psyshield Bash","Body Slam","Double-Edge"]
+        },
+        "Special DPS": {
+            "level": 100,
+            "item": "Life Orb",
+            "ability": "Intimidate",
+            "nature": "Modest",
+            "evs": {"hp": 252, "sa": 252},
+            "moves": ["Calm Mind", "Psychic", "Psyshock", "Hyper Beam"]
+        },
+        "Skill Swap Support (Def)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Intimidate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Skill Swap","Helping Hand","Gravity","Lunge"]
+        },
+        "Skill Swap Support (SpD)": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Intimidate",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Skill Swap","Helping Hand","Gravity","Light Screen"]
+        }
+    },
     "Yanma": {
-        "Screech Support": {
+        "Screech Support (Def)": {
             "level":100,
             "item":"Eviolite",
             "ability":"Compound Eyes",
@@ -2207,6 +2537,16 @@
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Screech"]
+        }
+    },
+    "Yanmega":{
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Wide Lens",
+            "ability":"Tinted Lens",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Tailwind","Sunny Day","Lunge"]
         }
     },
     "Zacian-Crowned":{

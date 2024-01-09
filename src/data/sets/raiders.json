@@ -2371,7 +2371,8 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Fake Tears","Snarl","Taunt","Helping Hand"]
-        },
+        }
+    },
     "Zorua": {
         "Fake Tears Support (Def)": {
             "level":100,

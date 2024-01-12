@@ -30,15 +30,16 @@
             "teraType": "Flying",
             "moves": [
                 "Blaze Kick",
-                "Low Kick",
-                "Acrobatics",
-                "Earthquake"
+                "Brave Bird",
+                "Earthquake",
+                "Low Kick"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
+                "Overheat",
+                "Rock Slide",
                 "Swords Dance",
-                "Focus Energy",
-                "Feather Dance"
+                "Bulk Up"
             ],
             "shieldData": {
                 "hpTrigger": 80,

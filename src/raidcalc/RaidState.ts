@@ -512,7 +512,9 @@ export class RaidState implements State.RaidState{
                     const poke = this.getPokemon(symbiosisIds[i]);
                     const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
                     const field = poke.field;
-                    if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
+                    // Apparently, Trick Room isn't considered for this check
+                    // if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
+                    if ( speed > fastestSymbSpeed ) {
                         fastestSymbId = symbiosisIds[i];
                         fastestSymbPoke = poke;
                         fastestSymbSpeed = speed;

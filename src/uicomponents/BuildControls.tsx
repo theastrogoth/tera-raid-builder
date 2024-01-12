@@ -975,7 +975,7 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
                     if (subMoveIdx < nSubMoves) {
                         const moveName = removedSubstitute.substituteMoves[subMoveIdx];
                         if (["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(moveName)) {
-                            t.moveInfo.moveData = {name: moveName, target: "users-field"} as MoveData;
+                            t.moveInfo.moveData = {name: moveName, priority: 10, target: "users-field"} as MoveData;
                         } else if (moveName === "(Most Damaging)") {
                             t.moveInfo.moveData = {name: "(Most Damaging)", target: "selected-pokemon"} as MoveData;
                         } else if (moveName === "(No Move)") {

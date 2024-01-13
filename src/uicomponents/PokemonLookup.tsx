@@ -7,6 +7,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Modal from '@mui/material/Modal';
+import Popover from '@mui/material/Popover';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
@@ -15,6 +16,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -36,6 +38,8 @@ import { getEVDescription, setdexToOptions } from "../utils";
 import { getPokemonSpriteURL, getTranslation, getTypeIconURL, getItemSpriteURL } from "../utils";
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
+import { Chip, Divider } from "@mui/material";
+import { textAlign } from "html2canvas/dist/types/css/property-descriptors/text-align";
 
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).filter((t) => t !== "Stellar" && t !== "???").sort();
@@ -1061,6 +1065,18 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
     const handleOpen = () => {setOpen(true); getOptionsData().catch((e) => console.log(e));}
     const handleClose = () => {setInputValue(""); setOpen(false)};
 
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handlePopoverClose = () => {
+        setAnchorEl(null);
+    };
+
+    const popoverOpen = Boolean(anchorEl);
+
     const handleAddFilter = (filter: SearchOption) => {
         const newFilters = [...filters];
         newFilters.push(filter);
@@ -1210,7 +1226,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                             <TextField
                                 variant="standard"
                                 placeholder={
-                                    `${getTranslation("Search", translationKey)}   ( ${getTranslation("Examples", translationKey)}: "${getTranslation("Fake Tears", translationKey, "moves")} ${getTranslation("or", translationKey)} ${getTranslation("Acid Spray", translationKey, "moves")}", "${getTranslation("Screech", translationKey, "moves")} ${getTranslation("and", translationKey)} ${getTranslation("Speed", translationKey, "stats")} < 50" )`
+                                    `${getTranslation("Search", translationKey)}`
                                 }
                                 value={inputValue}
                                 onChange={(event) => {
@@ -1226,6 +1242,91 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                                 }}
                                 sx={{ width: "100%", paddingRight: "10px"}}
                             />
+                            <Box>
+                                <IconButton aria-describedby={popoverOpen ? "simple-popover" : undefined} onClick={handlePopoverOpen}>
+                                    <InfoOutlinedIcon color="info" sx={{ transform: "scale(1.3)"}}/>
+                                </IconButton>
+                                <Popover
+                                    id={popoverOpen ? "simple-popover" : undefined}
+                                    open={popoverOpen}
+                                    anchorEl={anchorEl}
+                                    onClose={handlePopoverClose}
+                                    anchorOrigin={{
+                                      vertical: 'bottom',
+                                      horizontal: 'left',
+                                    }}
+                                >
+                                    <Paper sx={{ p: 2, backgroundColor: "modal.main" }}>
+                                        <Stack direction="column">
+                                            <Box>
+                                                <Typography variant="h6">
+                                                    Search Info
+                                                </Typography>
+                                            </Box>
+                                            <Divider/>
+                                            <Box padding="10px 0px">
+                                                <Typography fontWeight="bold">
+                                                    Simple Filters:
+                                                </Typography>
+                                                <Stack direction="column">
+                                                    <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
+                                                        <Typography>By Type:</Typography>
+                                                        <Chip label="Fairy" variant="outlined" size="small" sx={{"marginLeft": "10px"}}/>
+                                                    </Stack>
+                                                    <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
+                                                        <Typography>By Ability:</Typography>
+                                                        <Chip label="Friend Guard" variant="outlined" size="small" sx={{"marginLeft": "10px"}}/>
+                                                    </Stack>
+                                                    <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
+                                                        <Typography>By Move:</Typography>
+                                                        <Chip label="Helping Hand" variant="outlined" size="small" sx={{"marginLeft": "10px"}}/>
+                                                    </Stack>
+                                                    <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
+                                                        <Typography>By Stat:</Typography>
+                                                        <Chip label="Speed > 95" variant="outlined" size="small" sx={{"marginLeft": "10px"}}/>
+                                                    </Stack>
+                                                </Stack>
+                                            </Box>
+                                            <Box padding="10px 0px">
+                                                <Typography fontWeight="bold">
+                                                    Custom Filters:
+                                                </Typography>
+                                                <Stack direction="column">
+                                                    <Stack direction="column" paddingLeft="20px" margin="5px 0px">
+                                                        <Typography>And Operator:</Typography>
+                                                        <Chip label="Intimidate and Fire" variant="outlined" size="small" sx={{"width": "fit-content"}}/>
+                                                    </Stack>
+                                                </Stack>
+                                                <Stack direction="column" paddingLeft="20px" margin="5px 0px">
+                                                    <Typography>Or Operator:</Typography>
+                                                    <Chip label="Fake Tears or Acid Spray" variant="outlined" size="small" sx={{"width": "fit-content"}}/>
+                                                </Stack>
+                                            </Box>
+                                            <Box padding="10px 0px">
+                                                <Typography fontWeight="bold">
+                                                    Complex Filters:
+                                                </Typography>
+                                                <Stack direction="column">
+                                                    <Stack direction="column" paddingLeft="20px" margin="5px 0px">
+                                                        <Typography>Queries:</Typography>
+                                                        <Chip 
+                                                            label={
+                                                                <Typography style={{"whiteSpace":"normal", "fontSize":"0.6384rem", "textAlign":"center"}}>
+                                                                     Flying and Screech and <br/>(Speed {'<'} 80 or Compound Eyes)
+                                                                </Typography>
+                                                            }
+                                                            variant="outlined" size="small" 
+                                                            sx={{
+                                                                "width": "170px",
+                                                                "height": "48px"
+                                                            }}/>
+                                                    </Stack>
+                                                </Stack>
+                                            </Box>
+                                        </Stack>
+                                    </Paper>
+                                </Popover>
+                            </Box>
                             <Box sx={{ transform: "translate(20px, -20px)"}}>
                                 <IconButton size="large" onClick={handleClose}>
                                     <CloseIcon/>

@@ -3499,13 +3499,13 @@ const DPP_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   gender: 'N',
   //   abilities: {0: 'Levitate'},
   // },
-  // Regigigas: {
-  //   types: ['Normal'],
-  //   bs: {hp: 110, at: 160, df: 110, sa: 80, sd: 110, sp: 100},
-  //   weightkg: 420,
-  //   abilities: {0: 'Slow Start'},
-  //   gender: 'N',
-  // },
+  Regigigas: {
+    types: ['Normal'],
+    bs: {hp: 110, at: 160, df: 110, sa: 80, sd: 110, sp: 100},
+    weightkg: 420,
+    abilities: {0: 'Slow Start'},
+    gender: 'N',
+  },
   // Revenankh: {
   //   types: ['Ghost', 'Fighting'],
   //   bs: {hp: 90, at: 105, df: 90, sa: 65, sd: 110, sp: 65},

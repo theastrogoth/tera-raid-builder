@@ -126,6 +126,7 @@ export interface Raider extends Pokemon {
     isTransformed?: boolean;
     originalSpecies?: SpeciesName;
     originalMoves?: MoveData[];
+    slowStartCounter?: number;
 }
 
 export interface RaidState {

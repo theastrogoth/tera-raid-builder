@@ -635,6 +635,7 @@ export class RaidState implements State.RaidState{
         }
         const oldAbility = pokemon.ability;
         pokemon.ability = ability as AbilityName;
+        pokemon.abilityOn = false;
         // lost field effects
         this.removeAbilityFieldEffect(id, oldAbility);
         // gained field effects
@@ -777,6 +778,10 @@ export class RaidState implements State.RaidState{
                 if (pokemon.item === "Booster Energy" && !pokemon.abilityOn) {
                     this.recieveItem(id, "Booster Energy" as ItemName); // consume Booster Energy
                 }
+            // Slow Start
+            } else if (ability === "Slow Start") {
+                pokemon.slowStartCounter = 5;
+                pokemon.abilityOn = true;
             }
         }
         /// Other Field-Related Abilities

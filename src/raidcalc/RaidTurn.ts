@@ -545,6 +545,15 @@ export class RaidTurn {
                         this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
                     }
                     break;
+                case "Slow Start": 
+                    if (pokemon.slowStartCounter) {
+                        pokemon.slowStartCounter--;
+                        if (pokemon.slowStartCounter === 0) {
+                            pokemon.abilityOn = false;
+                            this._endFlags.push(pokemon.role + " — Slow Start ended");
+                        }
+                    }
+                break
                 default: break;
             }
         }

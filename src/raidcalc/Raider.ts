@@ -49,6 +49,8 @@ export class Raider extends Pokemon implements State.Raider {
     originalMoves?: State.MoveData[]; // stores the moves of the pokemon before transformation or Mimic
     originalFormAbility?: AbilityName | "(No Ability)"; // stores the ability of the pokemon before transformation
 
+    slowStartCounter?: number; // stores the number of turns left for Slow Start
+
     constructor(
         id: number, 
         role: string, 
@@ -83,6 +85,7 @@ export class Raider extends Pokemon implements State.Raider {
         originalSpecies: SpeciesName | undefined = undefined,
         originalMoves: State.MoveData[] | undefined = undefined,
         originalFormAbility: AbilityName | "(No Ability)" | undefined = undefined,
+        slowStartCounter: number | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -117,6 +120,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.originalSpecies  = originalSpecies;
         this.originalMoves = originalMoves;
         this.originalFormAbility = originalFormAbility || pokemon.ability || "(No Ability)";
+        this.slowStartCounter = slowStartCounter;
     }
 
     clone(): Raider {
@@ -189,6 +193,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.originalSpecies,
             this.originalMoves,
             this.originalFormAbility,
+            this.slowStartCounter,
         )
     }
 

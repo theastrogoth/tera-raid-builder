@@ -129,7 +129,8 @@ export interface Raider extends Pokemon {
 }
 
 export interface RaidState {
-    raiders: Raider[]; // raiders[0] is the boss, while raiders 1-4 are the players
+    raiders: Raider[];      // raiders[0] is the boss, while raiders 1-4 are the players
+    lastMovedID?: number;   // id of the last Pokemon to move
 }
 
 export type RaidMoveOptions = {

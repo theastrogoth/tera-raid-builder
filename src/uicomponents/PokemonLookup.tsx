@@ -39,7 +39,7 @@ import { getPokemonSpriteURL, getTranslation, getTypeIconURL, getItemSpriteURL }
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import { Chip, Divider } from "@mui/material";
-import { textAlign } from "html2canvas/dist/types/css/property-descriptors/text-align";
+import { findOptionFromPokemonName } from "./BuildControls";
 
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).filter((t) => t !== "Stellar" && t !== "???").sort();
@@ -329,7 +329,7 @@ function checkOptionAgainstInput(option: SearchOption, inputValue: string, trans
         option.type === "Ability" ? "abilities" : 
         option.type === "Type" ? "types" : 
         undefined;
-    const translatedOptionName = getTranslation(option.name, translationKey, translationCategory);
+    const translatedOptionName = translationCategory === "pokemon" ? findOptionFromPokemonName(option.name, translationKey) : getTranslation(option.name, translationKey, translationCategory);
     const normalizedOptionName = normalizeText(translatedOptionName);
     const normalizedInputValue = normalizeText(inputValue);
     return normalizedOptionName.includes(normalizedInputValue);
@@ -512,7 +512,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
             </CompactTableCell>
             <CompactTableCell width="100px">
                 <Typography fontSize={10} m={.5}>
-                    {getTranslation(data.name, translationKey, "pokemon")}
+                    {findOptionFromPokemonName(data.name, translationKey)}
                 </Typography>
             </CompactTableCell>
             <CompactTableCell width="60px">
@@ -787,6 +787,16 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                 break;
             }
         }
+        newSpeciesOptions.sort((a, b) => { // Necessary for maintaining alphabetical sorting for non-English languages. Too lazy to keep things DRY
+            const aName = findOptionFromPokemonName(a.name, translationKey);
+            const bName = findOptionFromPokemonName(b.name, translationKey);
+            if (sortDirection === 'desc') {
+                return (aName).localeCompare(bName);
+            } else if (sortDirection === 'asc') {
+                return (bName).localeCompare(aName);
+            }
+            return 0;
+        });
         setSpeciesOptions(newSpeciesOptions);
         setTypeOptions(newTypeOptions);
         setAbilityOptions(newAbilityOptions);
@@ -811,10 +821,12 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         let sortedSpeciesOptions: SearchOption[] = [];
         if (sortMethod === "species") {
             sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+                const aName = findOptionFromPokemonName(a.name, translationKey);
+                const bName = findOptionFromPokemonName(b.name, translationKey);
                 if (sortDirection === 'desc') {
-                    return (a.name).localeCompare(b.name);
+                    return (aName).localeCompare(bName);
                 } else if (sortDirection === 'asc') {
-                    return (b.name).localeCompare(a.name);
+                    return (bName).localeCompare(aName);
                 }
                 return 0;
             });
@@ -849,7 +861,9 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         setSpeciesOptions(sortedSpeciesOptions);
     }, [sortMethod, sortDirection]);
 
-    const groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions, [1]].map((o) => o.length);
+    let groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions, (inputValue.length > 0 ? [1] : [])].map((o) => o.length);
+    const groupIndexes = [0, 1, 2, 3, 4].filter((i, idx) => groupCounts[idx] > 0);
+    groupCounts = groupCounts.filter((c) => c > 0);
     const cumulativeCounts: number[] = [0]
     let acc = 0;
     for (let c of groupCounts.slice(0, -1)) {
@@ -875,13 +889,12 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                 </Typography>
             }
             { (allSpecies && allMoves) &&
-            <Stack>
                 <GroupedVirtuoso 
                     style={{ height: "70vh", width: "720px" }}
                     groupCounts={groupCounts}
                     groupContent={ (g) => (
                         <>
-                        {g === 0 && speciesOptions.length > 0 ?
+                        { groupIndexes[g] === 0 && speciesOptions.length > 0 ?
                             <HeaderRow>
                                 <HeaderCell width="40px"></HeaderCell>
                                 <HeaderCell width="30px"></HeaderCell>
@@ -913,7 +926,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 </HeaderCell>
                             </HeaderRow> : null
                         }
-                        {g === 1 && typeOptions.length > 0 ?
+                        { groupIndexes[g] === 1 && typeOptions.length > 0 ?
                         <HeaderRow>
                             <HeaderCell width="40px"></HeaderCell>
                             <HeaderCell width="30px"></HeaderCell>
@@ -925,7 +938,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <HeaderCell width="350px" align="center"></HeaderCell>
                         </HeaderRow> : null
                         }
-                        { g === 2 && abilityOptions.length > 0 ?
+                        { groupIndexes[g] === 2 && abilityOptions.length > 0 ?
                         <HeaderRow>
                             <HeaderCell width="40px"></HeaderCell>
                             <HeaderCell width="30px"></HeaderCell>
@@ -937,7 +950,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <HeaderCell width="350px" align="center"></HeaderCell>    
                         </HeaderRow> : null
                         }
-                        { g === 3 && moveOptions.length > 0 ?
+                        { groupIndexes[g] === 3 && moveOptions.length > 0 ?
                         <HeaderRow>
                             <HeaderCell width="40px"></HeaderCell>
                             <HeaderCell width="30px"></HeaderCell>
@@ -951,7 +964,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <HeaderCell width="250px" align="center"></HeaderCell>
                         </HeaderRow> : null
                         }
-                        { g === 4 && inputValue.length > 0 ?
+                        { groupIndexes[g] === 4 && inputValue.length > 0 ?
                         <HeaderRow>
                             <HeaderCell width="40px"></HeaderCell>
                             <HeaderCell width="30px"></HeaderCell>
@@ -967,7 +980,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                     }
                     itemContent={(i, g) => (
                         <>
-                        { g === 0 && speciesOptions.length > 0 &&
+                        { groupIndexes[g] === 0 && speciesOptions.length > 0 &&
                             <SpeciesSearchResult 
                                 key={`${i}${g}`}
                                 pokemon={speciesOptions[i].name as SpeciesName} 
@@ -976,7 +989,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        { g === 1 && typeOptions.length > 0 &&
+                        { groupIndexes[g] === 1 && typeOptions.length > 0 &&
                             <TypeSearchResult
                                 key={`${i}${g}`}
                                 type={typeOptions[i - cumulativeCounts[g]].name as TypeName} 
@@ -984,7 +997,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        { g === 2 && abilityOptions.length > 0 &&
+                        { groupIndexes[g] === 2 && abilityOptions.length > 0 &&
                             <AbilitySearchResult
                                 key={`${i}${g}`}
                                 ability={abilityOptions[i - cumulativeCounts[g]].name as AbilityName} 
@@ -992,7 +1005,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        { g === 3 && moveOptions.length > 0 &&
+                        { groupIndexes[g] === 3 && moveOptions.length > 0 &&
                             <MoveSearchResult
                                 key={`${i}${g}`}
                                 move={moveOptions[i - cumulativeCounts[g]].name as MoveName} 
@@ -1001,7 +1014,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        { g === 4 && inputValue.length > 0 &&
+                        { groupIndexes[g] === 4 && inputValue.length > 0 &&
                             <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
                                 <CompactLeftCell width="40px"></CompactLeftCell>
                                 <CompactTableCell width="30px"></CompactTableCell>
@@ -1023,7 +1036,6 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                         </>
                     )}
                 />
-            </Stack>
             }
         </Box>
     )

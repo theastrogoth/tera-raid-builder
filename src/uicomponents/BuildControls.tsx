@@ -41,9 +41,10 @@ import { Raider } from "../raidcalc/Raider";
 import PokedexService, { PokemonData } from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation, setdexToOptions } from "../utils";
 
-import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
+// import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
 import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
+import BOSS_SETDEX_ID from "../data/sets/id_raid_bosses.json";
 
 import PokemonLookup from "./PokemonLookup";
 
@@ -55,8 +56,8 @@ const genItems = ["(No Item)", ...[...gen.items].map(item => item.name).sort()];
 const genNatures = [...gen.natures].sort();
 const genSpecies = [...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n)).sort();
 
-const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
-const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
+// const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
+const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM), ...setdexToOptions(BOSS_SETDEX_ID)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 
 export function findOptionFromPokemonName(name: string, translationKey: any): string {
     // let option = getTranslation(name, translationKey, "pokemon");
@@ -974,7 +975,7 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
                     if (subMoveIdx < nSubMoves) {
                         const moveName = removedSubstitute.substituteMoves[subMoveIdx];
                         if (["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(moveName)) {
-                            t.moveInfo.moveData = {name: moveName, target: "users-field"} as MoveData;
+                            t.moveInfo.moveData = {name: moveName, priority: 10, target: "users-field"} as MoveData;
                         } else if (moveName === "(Most Damaging)") {
                             t.moveInfo.moveData = {name: "(Most Damaging)", target: "selected-pokemon"} as MoveData;
                         } else if (moveName === "(No Move)") {

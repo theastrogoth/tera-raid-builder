@@ -432,12 +432,14 @@ export class RaidTurn {
             }
         // Copycat
         } else if (this.raiderMoveData.name === "Copycat") {
-            this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;
-            if (this._raiderMoveTarget === this.targetID) { this._raiderMoveTarget = this._raiderMoveID; }
-            this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
-            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
-            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
-            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+            if (this._raidState.lastMovedID !== undefined) {
+                const lastMoveUser = this.raidState.getPokemon(this._raidState.lastMovedID);
+                this._raiderMoveTarget = 0; // always target the boss, when applicable?
+                this._raiderMoveData = lastMoveUser.lastMove!;
+                this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+                if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+                if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+            }
         // Since we don't have access to choice lock in the UI, we'll just force the move to be the last move used
         } else if (this._raider.isChoiceLocked && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
             this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;

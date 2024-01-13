@@ -153,6 +153,7 @@ export class RaidMove {
                 "Clear Boosts / Abilities",
             ].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
+            this._raidState.lastMovedID = this.userID;
             // remove Micle boost
             this._user.isMicle = false;
             if (this.userID !== 0) {
@@ -239,7 +240,7 @@ export class RaidMove {
         else if (targetType === "user") { this._affectedIDs = [this.userID]; }
         else if (this.isBossAction && (targetType === "all-other-pokemon" || targetType === "all-opponents")) { this._affectedIDs = [1,2,3,4]; }
         else if (targetType === "selected-pokemon" || targetType === "all-opponents" || targetType === "all-other-pokemon") { this._affectedIDs = [this._targetID]; }
-        else if (targetType === "all-allies") { this._affectedIDs = this.userID === 0 ? [] : [1,2,3,4].splice(this.userID, 1); }
+        else if (targetType === "all-allies") { this._affectedIDs = this.userID === 0 ? [] : [1,2,3,4].filter((i) => i !== this.userID); }
         else if (targetType === "user-and-allies") { this._affectedIDs = this.userID === 0 ? [0] : [1,2,3,4]; }
         else if (["users-field", "allies-field", "entire-field"].includes(targetType || "")) { this._affectedIDs = [this.userID]; } // make user the target for the purposes of generating the desc
         else { this._affectedIDs = [this._targetID]; }

@@ -408,10 +408,10 @@ export class RaidState implements State.RaidState{
             if (!selfInflicted && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { success = false; }
             if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { success = false; }
             // type-based and ability-based immunities
-            if (status === "brn" && (pokemon.types.includes("Fire") || pokemon.hasAbility("Water Veil") || pokemon.hasAbility("Thermal Exchange") || pokemon.hasAbility("Water Bubble"))) { success = false; }
-            if (status === "frz" && (pokemon.field.hasWeather("Sun") || pokemon.types.includes("Ice") || (!attackerIgnoresAbility && pokemon.ability === "Magma Armor"))) { success = false; }
-            if ((status === "psn" || status === "tox") && ((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (sourceAbility !== "Corrosion" && (pokemon.types.includes("Poison") || pokemon.types.includes("Steel"))))) { success = false; }
-            if ((status === "par" && (pokemon.types.includes("Electric") || (!attackerIgnoresAbility && pokemon.ability === "Limber")))) { success = false; }
+            if (status === "brn" && ((!pokemon.isTera && pokemon.types.includes("Fire")) || (pokemon.isTera && pokemon.teraType === "Fire") || pokemon.hasAbility("Water Veil") || pokemon.hasAbility("Thermal Exchange") || pokemon.hasAbility("Water Bubble"))) { success = false; }
+            if (status === "frz" && (pokemon.field.hasWeather("Sun") || (!pokemon.isTera && pokemon.types.includes("Ice")) || (pokemon.isTera && pokemon.teraType === "Ice") || (!attackerIgnoresAbility && pokemon.ability === "Magma Armor"))) { success = false; }
+            if ((status === "psn" || status === "tox") && ((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (sourceAbility !== "Corrosion" && (!pokemon.isTera && pokemon.types.includes("Poison")) || (pokemon.isTera && pokemon.teraType === "Poison") || (!pokemon.isTera && pokemon.types.includes("Steel")) || (pokemon.isTera && pokemon.teraType === "Steel")))) { success = false; }
+            if ((status === "par" && ((!pokemon.isTera && pokemon.types.includes("Electric")) || (pokemon.isTera && pokemon.teraType === "Electric") || (!attackerIgnoresAbility && pokemon.ability === "Limber")))) { success = false; }
             if (status === "slp" && !attackerIgnoresAbility && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { success = false; }
             if (pokemon.field.hasWeather("Sun") && !attackerIgnoresAbility && pokemon.ability === "Leaf Guard") { success = false; }
             

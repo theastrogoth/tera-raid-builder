@@ -622,7 +622,8 @@ describe('Specific Test Cases', () => {
     // T3: Sunflora consumes Power Herb (and gets Specs from Symbiosis) to use Solar Beam without Charging
     expect(result.turnResults[1].state.raiders[1].field.hasWeather("Rain")).toEqual(true);
     expect(result.turnResults[2].results[1].desc[0].includes("Solar Beam")).toEqual(true);
-    expect(result.turnResults[2].results[1].desc[0].includes("Choice Specs")).toEqual(true);
+    expect(result.turnResults[2].results[1].desc[0].includes("Choice Specs")).toEqual(false); // Specs are passed after the move is carried out
+    expect(result.turnResults[2].state.raiders[1].item).toEqual("Choice Specs");              // But Sunflora still has the specs after moving
     expect(result.turnResults[2].state.raiders[1].isCharging).toEqual(false);
   })
   test('stockpile-spitup-swallow', async() => {

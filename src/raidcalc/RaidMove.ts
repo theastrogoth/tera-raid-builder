@@ -56,6 +56,7 @@ export class RaidMove {
     _blockedBy!: string[];
 
     _flingItem?: string;
+    _powerHerbUsed?: boolean;
 
     _isSpread?: boolean;
     _damage!: number[];
@@ -118,7 +119,8 @@ export class RaidMove {
                 !(this._user.field.hasWeather("Rain") && this.move.name === "Electro Shot") &&
                 this._user.hasItem("Power Herb")
             ) {
-                this._raidState.loseItem(this.userID);
+                this._powerHerbUsed = true;
+                // this._raidState.loseItem(this.userID); // Power Herb is consumed after the move is used for the purposes of Symbiosis
             }
             this.setDoesNotAffect();
             this.checkProtection();
@@ -136,6 +138,9 @@ export class RaidMove {
             this._user.isCharging = false;
             if (rechargeMoves.includes(this.move.name)) {
                 this._user.isRecharging = true;
+            }
+            if (this._powerHerbUsed && this._user.hasItem("Power Herb")) {
+                this._raidState.loseItem(this.userID);
             }
         }
         this.applyEndOfMoveEffects();       

@@ -505,19 +505,19 @@ export class RaidTurn {
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Flame Orb":
-                        if (!(!pokemon.isTera && pokemon.types.includes("Fire")) && !(pokemon.isTera && pokemon.teraType === "Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange") && !pokemon.hasAbility("Water Bubble")) { 
+                        if (!pokemon.hasType("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange") && !pokemon.hasAbility("Water Bubble")) { 
                             pokemon.status = "brn";  
                             this._result2.flags[id].push("brn inflicted");
                         }
                         break;
                     case "Toxic Orb":
-                        if (!(!pokemon.isTera && pokemon.types.includes("Poison")) && !(pokemon.isTera && pokemon.teraType === "Poison") && (!pokemon.isTera && pokemon.types.includes("Steel")) || (pokemon.isTera && pokemon.teraType === "Steel")) { 
+                        if (!pokemon.hasType("Poison","Steel")) { 
                             pokemon.status = "tox"; 
                             this._result2.flags[id].push("tox inflicted");
                         }
                         break;
                     case "Poison Barb":
-                        if (!(!pokemon.isTera && pokemon.types.includes("Poison")) && !(pokemon.isTera && pokemon.teraType === "Poison") && (!pokemon.isTera && pokemon.types.includes("Steel")) || (pokemon.isTera && pokemon.teraType === "Steel")) { 
+                        if (!pokemon.hasType("Poison","Steel")) { 
                             pokemon.status = "psn"; 
                             this._result2.flags[id].push("psn inflicted");
                         }

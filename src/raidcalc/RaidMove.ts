@@ -1130,7 +1130,7 @@ export class RaidMove {
                             if (!target.hasType("Electric") && hasNoStatus(target) && !target.hasAbility("Limber")) { target.status = "par"; }
                             break;
                         case "Flame Orb":
-                            if (!target.types.includes("Fire") && hasNoStatus(target) && !target.hasAbility("Water Veil") && !target.hasAbility("Thermal Exchange") && !target.hasAbility("Water Bubble")) { target.status = "brn"; }
+                            if (!target.hasType("Fire") && hasNoStatus(target) && !target.hasAbility("Water Veil") && !target.hasAbility("Thermal Exchange") && !target.hasAbility("Water Bubble")) { target.status = "brn"; }
                             break;
                         case "Toxic Orb":
                             if (!target.hasType("Poison", "Steel") && hasNoStatus(target) && !target.hasAbility("Immunity")) { target.status = "tox"; }

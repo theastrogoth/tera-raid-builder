@@ -286,6 +286,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Volt Tackle",
+            "learnMethod": "special"
+        },
+        {
             "name": "Wild Charge",
             "learnMethod": "machine"
         },

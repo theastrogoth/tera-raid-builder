@@ -1,4 +1,7 @@
 {
+    "Blaziken": {
+        "Mifrydon": "blaziken/main"
+    },
     "Walking Wake": {
         "Drifting Wake": "walking_wake/main",
         "Charging Wake": "walking_wake/charging_wake",

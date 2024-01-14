@@ -1167,6 +1167,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/iron_bundle/wishing_star.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('blaziken/main', async () => {
+    const module = await import(`./data/strats/blaziken/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

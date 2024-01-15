@@ -21,7 +21,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import Popper from "@mui/material/Popper";
 import Switch from "@mui/material/Switch";
 import Menu from "@mui/material/Menu";
-import { MenuItem } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
@@ -252,7 +253,7 @@ return (
     {((prettyMode && value !== "???" && value !== "(No Move)" && value !== "(No Item)" && value !== "(No Ability)") || !prettyMode) &&
         <TableRow>
             <LeftCell>{ getTranslation(name, translationKey, "ui") }</LeftCell>
-            <RightCell>
+            <RightCell colSpan={3}>
                 {prettyMode &&
                     <Typography variant="body1">{ getTranslation(value, translationKey, translationCategory) }</Typography>
                 }
@@ -564,7 +565,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, allMoves, pret
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
-                <RightCell>
+                <RightCell colSpan={3}>
                     {prettyMode &&
                         <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} />
                     }
@@ -618,7 +619,7 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
-                <RightCell>
+                <RightCell colSpan={3}>
                     {prettyMode &&
                         <AbilityWithIcon ability={findOptionFromAbilityName(value, abilities, translationKey)} prettyMode={prettyMode} />
                     }
@@ -706,7 +707,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
             <TableRow>
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
-                <RightCell>
+                <RightCell colSpan={3}>
                     {prettyMode &&
                         <GenericWithIcon name={optionFinder(value, translationKey)} engName={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} />
                     }
@@ -1291,7 +1292,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                 <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={setPokemonProperty("nature")} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures, translationKey), translationKey)} prettyMode={prettyMode} translationKey={translationKey} translationCategory="natures"/>
                                 <TableRow>
                                     <LeftCell>{ getTranslation("Level", translationKey) }</LeftCell>
-                                    <RightCell>
+                                    <RightCell sx={{ width: "60px" }}>
                                         {prettyMode &&
                                             <Typography variant="body1">
                                                 {pokemon.level}
@@ -1316,18 +1317,38 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                                     if (lvl > 100) lvl = 100;
                                                     setPokemonProperty("level")(lvl)
                                                 }}
-                                                sx = {{ width: '30%'}}
+                                                sx = {{ width: '80%'}}
                                             />
                                         }
+                                    </RightCell>
+                                    <LeftCell sx={{ width: 20 }}>{ getTranslation("Gender", translationKey) }</LeftCell>
+                                    <RightCell>
+                                        <Select
+                                            size="small"
+                                            variant="standard"
+                                            value={pokemon.gender || "N"}
+                                            renderValue={(v) => v === "N" ? "--" : v === "M" ? "♂" : "♀"}
+                                            onChange={(o) => setPokemonProperty("gender")(o.target.value)}
+                                            sx={{ width: "56%" }}
+                                        >
+                                            { [...(pokemon.species.gender ? [pokemon.species.gender] : ["N","F","M"])].map((g) => 
+                                                <MenuItem 
+                                                    key={g} 
+                                                    value={g}
+                                                >
+                                                    {g === "N" ? "--" : g === "M" ? "♂" : "♀"}
+                                                </MenuItem>
+                                            )}
+                                        </Select>
                                     </RightCell>
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell>{getTranslation("IVs", translationKey)}</LeftCell>
-                                    <RightCell>{ivsToString(pokemon.ivs)}</RightCell>
+                                    <RightCell colSpan={3}>{ivsToString(pokemon.ivs)}</RightCell>
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell>{getTranslation("EVs", translationKey)}</LeftCell>
-                                    <RightCell>{evsToString(pokemon, translationKey)}</RightCell>
+                                    <RightCell colSpan={3}>{evsToString(pokemon, translationKey)}</RightCell>
                                 </TableRow>
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '5px'}} />

@@ -7,7 +7,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 import { Pokemon, Generations, Field } from "../calc";
-import { MoveName, TypeName } from "../calc/data/interface";
+import { GenderName, MoveName, TypeName } from "../calc/data/interface";
 import { RaidInputProps, BuildInfo } from "../raidcalc/inputs";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
 import { Raider } from "../raidcalc/Raider";
@@ -98,6 +98,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                 evs: r.evs || undefined,
                 ivs: r.ivs || undefined,
                 level: r.level || undefined,
+                gender: r.gender as GenderName || undefined,
                 teraType: (r.teraType || undefined) as (TypeName | undefined),
                 isTera: i === 0,
                 bossMultiplier: r.bossMultiplier || undefined,
@@ -208,6 +209,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                                 evs: r.evs || undefined,
                                 ivs: r.ivs || undefined,
                                 level: r.level || undefined,
+                                gender: r.gender as GenderName || undefined,
                                 teraType: (r.teraType || undefined) as (TypeName | undefined),
                                 isTera: i === 0,
                                 bossMultiplier: r.bossMultiplier || undefined,
@@ -252,6 +254,7 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
                 evs: r.evs,
                 ivs: r.ivs,
                 level: r.level,
+                gender: r.gender,
                 teraType: r.teraType,
                 moves: r.moves,
                 bossMultiplier: r.bossMultiplier,
@@ -293,6 +296,7 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
                     evs: r.evs,
                     ivs: r.ivs,
                     level: r.level,
+                    gender: r.gender,
                     teraType: r.teraType,
                     moves: r.moves,
                 },

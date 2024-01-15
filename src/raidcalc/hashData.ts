@@ -2,7 +2,7 @@ import { RaidMoveOptions, ShieldData } from "./interface"
 
 export type LightPokemon = {
     id: number,
-    role: string
+    role: string,
     name: string,
     shiny?: boolean,
     ability?: string,
@@ -11,6 +11,7 @@ export type LightPokemon = {
     evs?: {[k: string]: number},
     ivs?: {[k: string]: number},
     level?: number,
+    gender?: string,
     teraType?: string,
     bossMultiplier?: number,
     moves?: string[],

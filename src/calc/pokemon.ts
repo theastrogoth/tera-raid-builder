@@ -78,7 +78,7 @@ export class Pokemon implements State.Pokemon {
     this.bossMultiplier = options.bossMultiplier || 100;
     this.statMultipliers = Pokemon.withDefault(gen, options.statMultipliers, 1);
 
-    this.gender = options.gender || this.species.gender || 'M';
+    this.gender = options.gender || this.species.gender || 'N';
     this.ability = options.ability || this.species.abilities?.[0] || undefined;
     this.abilityOn = !!options.abilityOn;
 

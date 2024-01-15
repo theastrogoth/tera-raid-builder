@@ -1,5 +1,5 @@
 import { Pokemon, Field, StatID } from "../calc";
-import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
+import { AbilityName, GenderName, ItemName, MoveName, NatureName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 
 export type MoveSetItem = {
     name: string,
@@ -174,6 +174,7 @@ export type SetOption = {
     pokemon: SpeciesName,
     shiny?: boolean,
     level?: number,
+    gender?: GenderName,
     item?: ItemName,
     ability?: AbilityName,
     nature?: NatureName,

@@ -162,6 +162,15 @@ export function getStatReadableName(stat: string) {
     )
 }
 
+export function getReadableGender(gender: string) {
+    return (
+        gender === "N" ? "None" :
+        gender === "M" ? "Male" :
+        gender === "F" ? "Female" :
+        "???"
+    )
+}
+
 export function getStatOrder(stat: string) {
     const order = ["hp", "atk", "def", "spa", "spd", "spe", "acc", "eva"];
     return order.indexOf(stat);

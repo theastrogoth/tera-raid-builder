@@ -24,12 +24,13 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { createFilterOptions } from "@mui/material/Autocomplete";
+import { useTheme } from '@mui/material/styles';
 
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import { alpha, darken, lighten, styled, SxProps, Theme } from '@mui/material/styles';
 
 import { Move, Pokemon, StatsTable, Generations, Field } from '../calc';
-import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName } from "../calc/data/interface";
+import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName, GenderName } from "../calc/data/interface";
 import { toID } from '../calc/util';
 import { SetOption } from "../raidcalc/interface";
 
@@ -1030,6 +1031,18 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
     )
 }
 
+function GenderSymbol({g}: {g: GenderName | undefined}) {
+    const theme = useTheme();
+    const maleColor = theme.palette.mode === "dark" ? "#61B1F2" : "#0085F2";
+    const femaleColor = theme.palette.mode === "dark" ? "#F56349" : "#F52500";
+    const color = g === "M" ? maleColor : g === "F" ? femaleColor : theme.palette.text.primary;
+    return (
+        <Typography variant="body1" color={color}>
+            {g === "M" ? "♂" : g === "F" ? "♀" : "--"}
+        </Typography>
+    )
+}
+
 function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
          substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
@@ -1040,6 +1053,8 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     
     const [editStatsOpen, setEditStatsOpen] = useState(false);
     const [importExportOpen, setImportExportOpen] = useState(false);
+
+
 
     useEffect(() => {
         // Locked items/teratypes
@@ -1294,9 +1309,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                     <TableRow>
                                         <LeftCell>{ getTranslation("Gender", translationKey) }</LeftCell>
                                         <RightCell>
-                                            <Typography variant="body1">
-                                                {pokemon.gender === undefined ? "--" : pokemon.gender === "M" ? "♂" : "♀"}
-                                            </Typography>
+                                            <GenderSymbol g={pokemon.gender}/>
                                         </RightCell>
                                     </TableRow>
                                 }
@@ -1338,16 +1351,19 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                                 size="small"
                                                 variant="standard"
                                                 value={pokemon.gender || "N"}
-                                                renderValue={(v) => v === "N" ? "--" : v === "M" ? "♂" : "♀"}
+                                                renderValue={(v) => (<GenderSymbol g={v}/>)}
                                                 onChange={(o) => setPokemonProperty("gender")(o.target.value)}
                                                 sx={{ width: "32px" }}
                                             >
-                                                { [...(pokemon.species.gender ? [pokemon.species.gender] : ["N","F","M"])].map((g) => 
+                                                { [...(pokemon.species.gender ? [pokemon.species.gender] : ["N","F","M"] as GenderName[])].map((g) => 
                                                     <MenuItem 
                                                         key={g} 
                                                         value={g}
                                                     >
-                                                        {g === "N" ? "--" : g === "M" ? "♂" : "♀"}
+                                                        <GenderSymbol g={g} />
+                                                        <Typography variant="body1" style={{ whiteSpace: 'pre-wrap' }}>
+                                                            {g === "N" ? "" : g === "M" ? ` (${getTranslation("Male", translationKey)})` : ` (${getTranslation("Female", translationKey)})`}
+                                                        </Typography>
                                                     </MenuItem>
                                                 )}
                                             </Select>

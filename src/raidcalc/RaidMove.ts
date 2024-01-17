@@ -521,6 +521,7 @@ export class RaidMove {
                             calcMove.isCrit = crit;
                             calcMove.isSpread = !!this._isSpread;
                             calcMove.bp = calcMove.bp * bpModifier; // from interactions like Dig + Earthquake
+                            calcMove.bp = ((calcMove.name === "Triple Axel" || calcMove.name === "Triple Kick") ? i+1 : 1) * calcMove.bp;
                             if (calcMove.name === "Pollen Puff" && this.userID !== 0 && this._targetID !== 0) {
                                 break;
                             }

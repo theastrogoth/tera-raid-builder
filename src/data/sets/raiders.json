@@ -2779,7 +2779,14 @@
 
     },
     "Snubbull": {
-
+        "Fake Tears Support": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Intimidate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Charm","Mud-Slap"]
+        }
     },
     "Spoink": {
 

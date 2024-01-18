@@ -467,6 +467,13 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     substitutes,
                 );
 
+                if (window.location.href.split("#")[0].includes("localhost")) { // prevent making firebase link for local testing
+                    console.log("Long hash link copied to clipboard.")
+                    const link = window.location.href.split("#")[0] + "#" + newHash;
+                    navigator.clipboard.writeText(link);
+                    return;
+                }
+
                 if (typeof ClipboardItem && navigator.clipboard.write) {
                     // iOS compatibility case. clipboard.write() is only supported when used synchronously
                     // within a gesture event handler, so we need to pass a ClipboardItem

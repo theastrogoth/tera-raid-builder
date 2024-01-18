@@ -1479,10 +1479,8 @@ export class RaidMove {
             const boss = this._raiders[0];
             const raider_eot = getEndOfTurn(gen, boss, raider, dummyMove, this.getMoveField(0, this.raiderID));
             const boss_eot = getEndOfTurn(gen, raider, boss, dummyMove, this.getMoveField(this.raiderID, 0));
-            const original_boss_eot_damage = boss_eot.damage;
             raider_eot.damage = raider_eot.damage / ((raider.bossMultiplier || 100) / 100);
             boss_eot.damage = absoluteFloor(boss_eot.damage / ((boss.bossMultiplier || 100) / 100));
-            console.log(boss_eot.damage, original_boss_eot_damage, original_boss_eot_damage /((boss.bossMultiplier || 100) / 100), raider.name)
             this._eot[this.raiderID] = raider_eot;
             this._eot[0] = boss_eot;
         }

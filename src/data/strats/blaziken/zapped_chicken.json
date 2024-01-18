@@ -94,8 +94,8 @@
         },
         {
             "id": 2,
-            "role": "Politoed",
-            "name": "Politoed",
+            "role": "Pelipper",
+            "name": "Pelipper",
             "shiny": false,
             "ability": "Drizzle",
             "nature": "Hardy",
@@ -420,18 +420,105 @@
         1
     ],
     "substitutes": [
-        [],
         [
             {
                 "raider": {
                     "id": 1,
-                    "role": "Kyogre",
-                    "name": "Kyogre",
+                    "role": "Thundurus",
+                    "name": "Thundurus",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Charge",
+                        "Thunder"
+                    ]
+                },
+                "substituteMoves": [
+                    "Charge",
+                    "(No Move)",
+                    "Thunder"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Thundurus",
+                    "name": "Thundurus-Therian",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Life Orb",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Charge",
+                        "Thunder"
+                    ]
+                },
+                "substituteMoves": [
+                    "Charge",
+                    "(No Move)",
+                    "Thunder"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Politoed",
+                    "name": "Politoed",
                     "shiny": false,
                     "ability": "Drizzle",
                     "nature": "Hardy",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -464,13 +551,13 @@
             {
                 "raider": {
                     "id": 2,
-                    "role": "Pelipper",
-                    "name": "Pelipper",
+                    "role": "Kyogre",
+                    "name": "Kyogre",
                     "shiny": false,
                     "ability": "Drizzle",
                     "nature": "Hardy",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,

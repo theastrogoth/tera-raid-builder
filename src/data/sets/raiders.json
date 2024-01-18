@@ -9,6 +9,24 @@
             "moves":["Helping Hand","Aurora Veil","Snowscape","Mud-Slap"]
         }
     },
+    "Aipom": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Tickle","Fury Swipes"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Careful",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Tickle","Fury Swipes"]
+        }
+    },
     "Alcremie": {
         "Decorate Support (Def)": {
             "level":100,
@@ -16,7 +34,7 @@
             "ability":"Aroma Veil",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Decorate","Fake Tears","Helping Hand","Misty Terrain"]
+            "moves":["Decorate","Fake Tears","Helping Hand","Sweet Scent"]
         },
         "Decorate Support (SpD)": {
             "level":100,
@@ -24,7 +42,17 @@
             "ability":"Aroma Veil",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Decorate","Fake Tears","Helping Hand","Light Screen"]
+            "moves":["Decorate","Fake Tears","Helping Hand","Sweet Scent"]
+        }
+    },
+    "Alomomola": {
+        "Rain Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Hydration",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Skill Swap","Soak","Rain Dance"]
         }
     },
     "Altaria": {
@@ -43,6 +71,42 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Helping Hand","Tailwind","Defog","Dragon Cheer"]
+        }
+    },
+    "Ambipom": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Skill Link",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Tickle","Fury Swipes"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Skill Link",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Tickle","Fury Swipes"]
+        }
+    },
+    "Amoonguss": {
+        "Spore Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Effect Spore",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Spore","Clear Smog","Sweet Scent","Worry Seed"]
+        },
+        "Spore Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Effect Spore",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Spore","Clear Smog","Sweet Scent","Worry Seed"]
         }
     },
     "Ampharos": {
@@ -197,6 +261,37 @@
             "moves":["Helping Hand","Howl","Charm","Will-O-Wisp"]
         }
     },
+    "Arceus": {
+        "Judgment DPS": {
+            "level":100,
+            "ability":"Multitype",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Judgement","Calm Mind","Acid Spray","Psych Up"]
+        },
+        "Stored Power DPS": {
+            "level":100,
+            "item": "Mind Plate",
+            "ability":"Multitype",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Stored Power","Calm Mind","Psych Up","Psychic Terrain"]
+        },
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "ability":"Multitype",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Gravity","Trick Room","Tailwind"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "ability":"Multitype",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Gravity","Trick Room","Tailwind"]
+        }
+    },
     "Archaludon": {
         "Steel Beam DPS": {
             "level":100,
@@ -231,6 +326,22 @@
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
             "moves":["Swords Dance","Cross Poison","Leech Life","X-Scissor"]
+        },
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Insomnia",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Toxic Thread","Pounce","Lunge"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Insomnia",
+            "nature":"Careful",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Toxic Thread","Pounce","Struggle Bug"]
         }
     },
     "Armarouge": {
@@ -295,8 +406,28 @@
             "moves":["Stored Power","Calm Mind","Agility","Skill Swap"]
         }
     },
+    "Avalugg": {
+        "DPS": {
+            "level":100,
+            "item":"Weakness Policy",
+            "ability":"Own Tempo",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Avalanche","Body Press","Heavy Slam","Curse"]
+        }
+    },
+    "Avalugg-Hisui": {
+        "DPS": {
+            "level":100,
+            "item":"Weakness Policy",
+            "ability":"Own Tempo",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Avalanche","Body Press","Heavy Slam","Curse"]
+        }
+    },
     "Azumarill": {
-        "Belly Drum DPS":{
+        "Belly Drum DPS": {
             "level":100,
             "item":"Life Orb",
             "ability":"Huge Power",
@@ -304,13 +435,21 @@
             "evs":{"hp":252,"at":252},
             "moves":["Belly Drum","Play Rough","Liquidation","Ice Spinner"]
         },
-        "Support":{
+        "Fake Tears Support (Def)": {
             "level":100,
-            "item":"Eviolite",
+            "item":"Sitrus Berry",
             "ability":"Sap Sipper",
-            "nature":"Bold",
+            "nature":"Impish",
             "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand","Fake Tears","Soak","Chilling Water"]
+            "moves":["Fake Tears","Helping Hand","Soak","Tickle"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Sap Sipper",
+            "nature":"Careful",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Soak","Tickle"]
         }
     },
     "Banette": {
@@ -329,6 +468,16 @@
             "nature":"Sassy",
             "evs":{"hp":252,"sd":252},
             "moves":["Screech","Helping Hand","Taunt","Trick Room"]
+        }
+    },
+    "Barraskewda": {
+        "DPS": {
+            "level":100,
+            "item":"Weakness Policy",
+            "ability":"Swift Swim",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Liquidation","Focus Energy","Endure","Rain Dance"]
         }
     },
     "Basculegion": {
@@ -375,6 +524,24 @@
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
             "moves":["Glaive Rush","Avalanche","Swords Dance","Dragon Dance"]
+        }
+    },
+    "Bayleef": {
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Leaf Guard",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Sweet Scent","Sunny Day"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Leaf Guard",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Sweet Scent","Sunny Day"]
         }
     },
     "Beartic": {
@@ -431,6 +598,24 @@
             "moves":["Acid Spray","Helping Hand","Sweet Scent","Grassy Terrain"]
         }
     },
+    "Blastoise": {
+        "Special DPS": {
+            "level":100,
+            "item": "Life Orb",
+            "ability":"Torrent",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Shell Smash","Hydro Cannon","Water Spout","Weather Ball"]
+        },
+        "Physical DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Torrent",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Shell Smash","Wave Crash","Liquidation","Aqua Tail"]
+        }
+    },
     "Blaziken": {
         "DPS": {
             "level":100,
@@ -451,6 +636,24 @@
             "moves":["Helping Hand","Gravity","Light Screen","Life Dew"]
         }
     },
+    "Blitzle": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Sap Sipper",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Thunder Wave","Electroweb"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Sap Sipper",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Thunder Wave","Electroweb"]
+        }
+    },
     "Bombirdier": {
         "Support (Def)": {
             "level":100,
@@ -468,6 +671,24 @@
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Fake Tears","Helping Hand","Tearful Look"]
+        }
+    },
+    "Braixen": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Blaze",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Howl","Helping Hand","Skill Swap","Trick Room"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Howl","Helping Hand","Skill Swap","Trick Room"]
         }
     },
     "Brambleghast": {
@@ -495,6 +716,14 @@
             "ability":"Effect Spore",
             "nature":"Impish",
             "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Spore","Grassy Terrain"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Effect Spore",
+            "nature":"Careful",
+            "evs":{"hp":252,"sd":252},
             "moves":["Fake Tears","Helping Hand","Spore","Grassy Terrain"]
         }
     },
@@ -736,6 +965,24 @@
             "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"] 
         }
     },
+    "Cetoddle": {
+        "Sheer Force Entrainment (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Sheer Force",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"] 
+        },
+        "Sheer Force Entrainment (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Sheer Force",
+            "nature":"Careful",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"] 
+        }
+    },
     "Chandelure": {
         "Special DPS": {
             "level":100,
@@ -747,7 +994,7 @@
         }
     },
     "Chansey": {
-        "Support": {
+        "Support (SpD)": {
             "level":100,
             "item":"Eviolite",
             "ability":"Healer",
@@ -789,7 +1036,7 @@
             "ability":"Battery",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Light Screen","Thunder Wave","Lunge","Mud-Slap"]
+            "moves":["Electric Terrain","Thunder Wave","Lunge","Rain Dance"]
         },
         "Battery (SpD)": {
             "level":100,
@@ -797,7 +1044,7 @@
             "ability":"Battery",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Light Screen","Thunder Wave","Struggle Bug","Mud-Slap"]
+            "moves":["Electric Terrain","Thunder Wave","Struggle Bug","Rain Dance"]
         }
     },
     "Chesnaught": {
@@ -868,7 +1115,7 @@
             "moves":["Stored Power","Calm Mind","Fake Tears","Psyshock"]
         }
     },
-    "Cincinno": {
+    "Cinccino": {
         "Skill Link Support (Def)": {
             "level":100,
             "item":"Sitrus Berry",
@@ -1208,6 +1455,24 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Trick Room","Helping Hand","Gravity","Skill Swap"]
+        }
+    },
+    "Croconaw": {
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Torrent",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Flatter","Chilling Water","Rain Dance"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Torrent",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Flatter","Icy Wind","Rain Dance"]
         }
     },
     "Cryogonal": {
@@ -3634,7 +3899,7 @@
         }
     },
     "Zapdos-Galar": {
-        "Pysical DPS": {
+        "Physical DPS": {
             "level":100,
             "item":"Metronome",
             "ability":"Defiant",

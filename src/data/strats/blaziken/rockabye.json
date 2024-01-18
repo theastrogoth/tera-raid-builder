@@ -1,7 +1,7 @@
 {
-    "name": "Mifrydon",
-    "notes": "The Fake Tears or Acid Spray users must be able to survive at least one attack plus burn damage.",
-    "credits": "The r/PokePortal Team",
+    "name": "Rock-a-Bye Baby",
+    "notes": "",
+    "credits": "u/Gimikyu_",
     "pokemon": [
         {
             "id": 0,
@@ -53,19 +53,19 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
-            "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "role": "Geodude",
+            "name": "Geodude-Alola",
+            "shiny": true,
+            "ability": "Galvanize",
+            "item": "Focus Sash",
+            "nature": "Adamant",
             "evs": {
-                "hp": 252,
-                "atk": 0,
+                "hp": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
-                "spe": 0
+                "spe": 252
             },
             "ivs": {
                 "hp": 31,
@@ -78,19 +78,27 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Electro Drift",
-                "Parabolic Charge"
+                "Charge",
+                "Flail"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 2,
-            "role": "Bonsly",
-            "name": "Bonsly",
-            "shiny": false,
+            "role": "Geodude",
+            "name": "Geodude",
+            "shiny": true,
             "ability": "Sturdy",
-            "item": "Covert Cloak",
+            "item": "Oran Berry",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -102,59 +110,35 @@
             },
             "ivs": {
                 "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
             "level": 1,
             "gender": "N",
             "moves": [
-                "Fake Tears"
+                "Scary Face"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 3,
-            "role": "Salandit",
-            "name": "Salandit",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Focus Sash",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "level": 1,
-            "gender": "N",
-            "moves": [
-                "Acid Spray"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
-        },
-        {
-            "id": 4,
-            "role": "Chi-Yu",
-            "name": "Chi-Yu",
-            "shiny": false,
-            "ability": "Beads of Ruin",
-            "item": "Focus Sash",
+            "role": "Nosepass",
+            "name": "Nosepass",
+            "shiny": true,
+            "ability": "Sturdy",
+            "item": "Oran Berry",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -172,19 +156,96 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 60,
+            "level": 1,
             "gender": "N",
-            "moves": [],
+            "moves": [
+                "Helping Hand",
+                "Gravity"
+            ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Shieldon",
+            "name": "Shieldon",
+            "shiny": true,
+            "ability": "Sturdy",
+            "item": "Oran Berry",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [
+                "Screech"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
         {
-            "id": 0,
+            "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Charge",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Scary Face",
                 "userID": 2,
                 "targetID": 0,
                 "options": {
@@ -207,10 +268,10 @@
             }
         },
         {
-            "id": 1,
+            "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Acid Spray",
+                "name": "Gravity",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
@@ -233,10 +294,10 @@
             }
         },
         {
-            "id": 2,
-            "group": 0,
+            "id": 3,
+            "group": 1,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Screech",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -247,7 +308,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Blaze Kick",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -259,10 +320,88 @@
             }
         },
         {
-            "id": 3,
-            "group": 1,
+            "id": 4,
+            "group": 2,
             "moveInfo": {
-                "name": "Electro Drift",
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 2,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 3,
+            "moveInfo": {
+                "name": "Flail",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -287,15 +426,25 @@
     ],
     "groups": [
         [
-            0,
             1,
-            2
+            2,
+            0
         ],
         [
             3
+        ],
+        [
+            4,
+            5,
+            6
+        ],
+        [
+            7
         ]
     ],
     "repeats": [
+        1,
+        1,
         1,
         1
     ],
@@ -304,209 +453,17 @@
         [
             {
                 "raider": {
-                    "id": 2,
-                    "role": "Sudowoodo",
-                    "name": "Sudowoodo",
-                    "shiny": false,
+                    "id": 1,
+                    "role": "Shieldon",
+                    "name": "Shieldon",
+                    "shiny": true,
                     "ability": "Sturdy",
-                    "item": "Covert Cloak",
+                    "item": "Oran Berry",
                     "nature": "Hardy",
                     "evs": {
                         "hp": 0,
                         "atk": 0,
                         "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 17,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            }
-        ],
-        [
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Armarouge",
-                    "name": "Armarouge",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Iron Moth",
-                    "name": "Iron Moth",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 52,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Magby",
-                    "name": "Magby",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            }
-        ],
-        [
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Stonjourner",
-                    "name": "Stonjourner",
-                    "shiny": false,
-                    "ability": "Power Spot",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 60,
-                    "gender": "N",
-                    "moves": []
-                },
-                "substituteMoves": [
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Charjabug",
-                    "name": "Charjabug",
-                    "shiny": false,
-                    "ability": "Battery",
-                    "item": "Eviolite",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
                         "spa": 0,
                         "spd": 0,
                         "spe": 0
@@ -519,14 +476,101 @@
                         "spd": 31,
                         "spe": 31
                     },
-                    "level": 100,
+                    "level": 1,
                     "gender": "N",
-                    "moves": []
+                    "moves": [
+                        "Scary Face"
+                    ]
                 },
                 "substituteMoves": [
+                    "Scary Face",
                     "Attack Cheer"
                 ],
                 "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Geodude",
+                    "name": "Geodude-Alola",
+                    "shiny": true,
+                    "ability": "Sturdy",
+                    "item": "Oran Berry",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Magnemite",
+                    "name": "Magnemite",
+                    "shiny": true,
+                    "ability": "Sturdy",
+                    "item": "Oran Berry",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
                     0
                 ]
             }

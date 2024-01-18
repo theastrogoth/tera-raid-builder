@@ -1,6 +1,17 @@
 {
     "Blaziken": {
-        "Mifrydon": "blaziken/main"
+        "Mifrydon": "blaziken/main",
+        "Eeveelutions Celebrate the New Year": "blaziken/eevee_new_year",
+        "Eeveelutions: Every Eevee Edition": "blaziken/every_eevee",
+        "Spooky Puppies": "blaziken/spooky_puppies",
+        "Double Paradox": "blaziken/double_paradox",
+        "Pikachicken": "blaziken/pikachicken",
+        "Iceberg": "blaziken/iceberg",
+        "Birds of a Feather": "blaziken/birds",
+        "Frozen Chicken": "blaziken/frozen_chicken",
+        "Zapped Chicken": "blaziken/zapped_chicken",
+        "Cat and Maus": "blaziken/cat_and_maus",
+        "Rock-a-Bye Baby": "blaziken/rockabye"
     },
     "Walking Wake": {
         "Drifting Wake": "walking_wake/main",

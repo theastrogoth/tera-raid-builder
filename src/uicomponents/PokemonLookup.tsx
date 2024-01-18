@@ -175,6 +175,9 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 }
             break;
             case "Custom":
+                if(normalizeText(getTranslation(species.name, translationKey, "pokemon")).includes(normalizeText(filter.name))) {
+                    break;
+                }
                 const operatorPrecedence = {
                     "&&": 1,
                     "||": 0
@@ -183,8 +186,6 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 const orTranslation = normalizeText(getTranslation("or", translationKey));
                 const andOperators = ["and", "&&", "&", ",", andTranslation];
                 const orOperators = ["or", "||", "|", orTranslation];
-
-
 
                 const operatorRegExp = new RegExp(`(\\s${andTranslation}\\s|\\s${orTranslation}\\s|\\sand\\s|\\s\\s|\\sor\\s|&&|\\|\\||&|\\||,|\\(|\\))`, "i");
 

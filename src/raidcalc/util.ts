@@ -7,6 +7,10 @@ import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 
 const gen = Generations.get(9);
 
+export function absoluteFloor(num: number) {
+    return num < 0 ? Math.ceil(num) : Math.floor(num);
+}
+
 // next time I prepare the move data, I should eliminate the need for translation
 export function isStatus(ailment: AilmentName): Boolean {
     return (

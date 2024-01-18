@@ -5,7 +5,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { isSuperEffective, pokemonIsGrounded, isStatus, hasNoStatus, getAccuracy, getBpModifier } from "./util";
+import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, hasNoStatus, getAccuracy, getBpModifier } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -707,7 +707,7 @@ export class RaidMove {
         if (drainPercent) {
             // scripted Matcha Gotcha could potentially drain from multiple raiders
             if (damage > 0) {
-                this._drain[this.userID] = Math.floor(this._damage[this._targetID] * drainPercent/100);
+                this._drain[this.userID] = absoluteFloor(this._damage[this._targetID] * drainPercent/100);
             }
             if (this._drain[this.userID] && this._user.originalCurHP > 0) {
                 this._raidState.applyDamage(this.userID, -this._drain[this.userID])
@@ -1479,8 +1479,10 @@ export class RaidMove {
             const boss = this._raiders[0];
             const raider_eot = getEndOfTurn(gen, boss, raider, dummyMove, this.getMoveField(0, this.raiderID));
             const boss_eot = getEndOfTurn(gen, raider, boss, dummyMove, this.getMoveField(this.raiderID, 0));
-            raider_eot.damage = Math.floor(raider_eot.damage / ((raider.bossMultiplier || 100) / 100));
-            boss_eot.damage = Math.floor(boss_eot.damage / ((boss.bossMultiplier || 100) / 100));
+            const original_boss_eot_damage = boss_eot.damage;
+            raider_eot.damage = raider_eot.damage / ((raider.bossMultiplier || 100) / 100);
+            boss_eot.damage = absoluteFloor(boss_eot.damage / ((boss.bossMultiplier || 100) / 100));
+            console.log(boss_eot.damage, original_boss_eot_damage, original_boss_eot_damage /((boss.bossMultiplier || 100) / 100), raider.name)
             this._eot[this.raiderID] = raider_eot;
             this._eot[0] = boss_eot;
         }

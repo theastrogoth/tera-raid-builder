@@ -15,7 +15,7 @@ import watermark from "watermarkjs";
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { TextField } from "@mui/material";
+import { Checkbox, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -954,6 +954,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
     const [subtitle, setSubtitle] = useState<string>("");
     const [watermarkText, setWatermarkText] = useState<string>("");
+    const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -1004,7 +1005,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
             // generate radar plots
-            const statPlots = await Promise.all(
+            const statPlots = !plotsEnabled ? undefined : await Promise.all(
                 raidInputProps.pokemon.slice(1).map((poke) => {
                     const nature = gen.natures.get(toID(poke.nature));
                     return getStatRadarPlotPNG(poke.id, nature, poke.evs, poke.stats, translationKey, 20);
@@ -1040,49 +1041,82 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                     horizontal: 'center',
                   }}
             >
-                <MenuItem>
-                    <input
-                        accept="image/*"
-                        style={{ display: 'none' }}
-                        id="graphic-button-file"
-                        type="file"
-                        onChange={handleFileInputChange}
-                    />
-                    <label htmlFor="graphic-button-file">
-                        <Button
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <input
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            id="graphic-button-file"
+                            type="file"
+                            onChange={handleFileInputChange}
+                        />
+                        <Stack direction="row">
+                            <Box flexGrow={1} />
+                            <label htmlFor="graphic-button-file">
+                                <Button
+                                    variant="outlined"
+                                    component="span"
+                                >
+                                    { getTranslation("Choose background", translationKey) }
+                                </Button>
+                            </label>
+                            <Box flexGrow={1} />
+                        </Stack>
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <TextField 
                             variant="outlined"
-                            component="span"
-                        >
-                            { getTranslation("Choose background", translationKey) }
-                        </Button>
-                    </label>
-                </MenuItem>
-                <MenuItem>
-                    <TextField 
-                        variant="outlined"
-                        placeholder={getTranslation("Subtitle", translationKey)}
-                        value={subtitle}
-                        onChange={(e) => setSubtitle(e.target.value)}
-                    />
-                </MenuItem>
-                <MenuItem>
-                    <TextField 
-                        variant="outlined"
-                        placeholder={getTranslation("Watermark text", translationKey)}
-                        value={watermarkText}
-                        inputProps={{ maxLength: 50 }}
-                        onChange={(e) => setWatermarkText(e.target.value)}
-                    />
-                </MenuItem>
-                <MenuItem>
-                  <Button
-                    variant="outlined"
-                    onClick={() => { handleDownload(); handleClose(); }}
-                    endIcon={<DownloadIcon />}
-                  >
-                    { getTranslation("Download", translationKey) }
-                  </Button>
-                </MenuItem>
+                            placeholder={getTranslation("Subtitle", translationKey)}
+                            value={subtitle}
+                            onChange={(e) => setSubtitle(e.target.value)}
+                        />
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <TextField 
+                            variant="outlined"
+                            placeholder={getTranslation("Watermark text", translationKey)}
+                            value={watermarkText}
+                            inputProps={{ maxLength: 50 }}
+                            onChange={(e) => setWatermarkText(e.target.value)}
+                        />
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <Stack direction="row" alignItems="center" justifyContent="center">
+                            <Box flexGrow={1} />
+                            <Typography>
+                                { getTranslation("Enable Stat Plots", translationKey) + ":" }
+                            </Typography>
+                            <Box flexGrow={2} />
+                            <Checkbox
+                                checked={plotsEnabled}
+                                onChange={(e) => setPlotsEnable(!plotsEnabled)}
+                            />
+                            <Box flexGrow={1} />
+                        </Stack>
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <Stack direction="row">
+                            <Box flexGrow={1} />
+                            <Button
+                                variant="outlined"
+                                component="span"
+                                onClick={() => { handleDownload(); handleClose(); }}
+                                endIcon={<DownloadIcon />}
+                            >
+                                { getTranslation("Download", translationKey) }
+                            </Button>
+                            <Box flexGrow={1} />
+                        </Stack>
+                    </Box>
+                </li>
             </Menu>
         </Box>
 

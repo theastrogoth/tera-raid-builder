@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 import Box from '@mui/material/Box';
 
-import { Move } from "../calc";
+import { Generations, Move, toID } from "../calc";
 import { SpeciesName, TypeName } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
 import { RaidMoveInfo, TurnGroupInfo } from "../raidcalc/interface";
@@ -30,6 +30,9 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import DownloadIcon from '@mui/icons-material/Download';
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
+import { getStatRadarPlotPNG } from "./StatRadarPlot";
+
+const gen = Generations.get(9); // we only use gen 9
 
 const graphicsTheme = createTheme({
     typography: {
@@ -270,6 +273,23 @@ const AbilityPatchIcon = styled("img")({
     height: "55px",
     margin: "0px 0px 0px 20px",
     filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.65))"
+});
+
+const StatPlotContainer = styled(Box)({
+    width: "auto",
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "0px 0px"
+});
+
+const StatPlot = styled("img")({
+    height: "auto",
+    width: "auto",
+    maxHeight: "475px",
+    maxWidth: "775px",
+
 });
 
 const BuildMovesSection = styled(Box)({
@@ -613,7 +633,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: RaidBattleResults, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, translationKey?: any) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: RaidBattleResults, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: string[], translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -684,6 +704,12 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                 {getIVDescription(raider.ivs, translationKey) ? 
                                                     <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
                                             </BuildInfoContainer>
+                                            { statplots && statplots[index] && 
+                                                <StatPlotContainer>
+                                                    <StatPlot src={statplots[index]} />
+                                                </StatPlotContainer>
+                                            }
+       
                                             <BuildMovesSection>
                                                 <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
                                                 <MovesContainer>
@@ -977,8 +1003,15 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
             }))
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
+            // generate radar plots
+            const statPlots = await Promise.all(
+                raidInputProps.pokemon.slice(1).map((poke) => {
+                    const nature = gen.natures.get(toID(poke.nature));
+                    return getStatRadarPlotPNG(poke.id, nature, poke.evs, poke.stats, translationKey, 20);
+                })
+            );
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, results, isHiddenAbility, learnMethods, moveTypes, optionalMove, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, translationKey);
+            const graphicTop = generateGraphic(theme, raidInputProps, results, isHiddenAbility, learnMethods, moveTypes, optionalMove, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);

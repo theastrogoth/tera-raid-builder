@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { useTheme } from "@mui/material/styles";
 
 import Plot from "react-plotly.js";
+//@ts-ignore
+import Plotly from "plotly.js/dist/plotly";
 
 import { StatsTable } from '../calc';
 import { Nature } from "../calc/data/interface";
@@ -23,17 +25,17 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
     const theme = useTheme()
     const isDark = theme.palette.mode === 'dark';
 
-    const [, setRotation] = useState(90);
-    const [revision, setRevision] = useState(1);
+    // const [, setRotation] = useState(90);
+    // const [revision, setRevision] = useState(1);
     
-    // Add a callback that we will use whenever the layout is updated.
-    // @ts-ignore
-    const onLayoutCallbacks = data => {
-        if (data['polar.angularaxis.rotation']) {
-            setRotation(90);
-            setRevision(revision + 1);
-        }
-    };
+    // // Add a callback that we will use whenever the layout is updated.
+    // // @ts-ignore
+    // const onLayoutCallbacks = data => {
+    //     if (data['polar.angularaxis.rotation']) {
+    //         setRotation(90);
+    //         setRevision(revision + 1);
+    //     }
+    // };
 
 
     //@ts-ignore
@@ -62,9 +64,9 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
     return (
         <Box>
             <Plot
-                onRelayout={onLayoutCallbacks}
-                //@ts-ignore
-                onRelayouting={onLayoutCallbacks}
+                // onRelayout={onLayoutCallbacks}
+                // //@ts-ignore
+                // onRelayouting={onLayoutCallbacks}
                 data={[
                     {
                         type: "scatterpolar", // Hack to get hexagonal axis
@@ -161,6 +163,137 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
             <Box height="10px"/>
         </Box>
     )
+}
+
+export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined, evs: StatsTable, stats: StatsTable, translationKey: any, scale: number = 10, bossMultiplier: number = 100) {
+    
+    //@ts-ignore
+    const ticktexts = tickorder.map(stat => getTranslation(stat, translationKey, "stats") + ": " + stats[stat.toLowerCase()] + (evs[stat.toLowerCase()] === 252 ? '\u2728' : ''))
+    if (nature) {
+        for (let i=0; i<tickorder.length; i++) {
+            if (nature.plus === nature.minus) {
+                ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
+            }
+            else if (nature.plus === tickorder[i].toLowerCase()) {
+                ticktexts[i] = '<span style="color:' + "#fdbab4" + '"><b>' + ticktexts[i] + '</b></span>';
+            } else if (nature.minus === tickorder[i].toLowerCase()) {
+                ticktexts[i] = '<span style="color:' + "#b3dbff" + '"><b>' + ticktexts[i] + '</b></span>';
+            }
+            else {
+                ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
+            }
+        }
+    }
+
+    const evTotal = Object.values(evs).reduce((a,b) => a + b, 0)
+    const evColor = evTotal > 510 ? badEVColor : (
+                    evTotal < 510 ? lowEVColor : maxedEVColor);
+
+    const hpPlotVal = ((stats.hp*100/bossMultiplier)+100)/500
+
+    const data = [
+        {
+            type: "scatterpolar", // Hack to get hexagonal axis
+            mode: "lines",
+            line: {
+                width: 1.5 * scale,
+                color: "#cccccc",
+            },
+            name: "axis",
+            r: [.99, .99, .99, .99, .99, .99, .99],
+            theta: ticktexts,
+            fill: "toself",
+            fillcolor: "rgba(0, 0, 0, .1)",
+        },
+        {
+            type: "scatterpolar", // Hack to get hexagonal axis
+            mode: "lines",
+            line: {
+                width: scale,
+                color: "#888888",
+            },
+            name: "axis",
+            r: [0.0, .99, 0.0, .99, 0.0, .99, 0.0, .99, 0.0, .99, 0.0, .99, 0.0, .99],
+            theta: ticktexts.map((t) => [t,t]).flat(),
+            fill: "toself",
+            fillcolor: "rgba(0, 0, 0, .1)",
+        },
+        {
+            type: "scatterpolar",
+            mode: "lines",
+            line: {
+                width: scale,
+                color: statsColor,
+            },
+            marker: {
+                width: scale,
+                color: statsColor,
+            },
+            name: "stats",
+            r: [hpPlotVal, ...[stats.spa, stats.spd, stats.spe, stats.def, stats.atk].map(stat => (stat+50)/350), hpPlotVal],
+            theta: ticktexts,
+            fill: "toself",
+        },
+        {
+            type: "scatterpolar",
+            mode: "lines",
+            line: {
+                width: 0,
+                color: evColor,
+            },
+            marker: {
+                size: 0,
+                color: evColor,
+            },
+            name: "evs",
+            r: [evs.hp, evs.spa, evs.spd, evs.spe, evs.def, evs.atk, evs.hp].map(stat => (stat + 23)/275),
+            theta: ticktexts,
+            fill: "toself",
+        },
+    ];
+
+    const layout = {
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        margin: {
+            r: 10 * scale,
+            l: 10 * scale,
+            t: 25 * scale,
+            b: 25 * scale,
+        },
+        showlegend: false,
+        font: {
+            family: "Roboto",
+        },
+        dragmode: false,
+        polar: {
+            bgcolor: 'rgba(0,0,0,0)',
+            angularaxis: {
+                tickfont: {
+                    size: 14 * scale,
+                    color: "#ffffff",
+                },
+                linewidth: 0, // 0 Makes circular axis invisible 
+                rotation: 90,
+                direction: "counterclockwise",
+                fixedrange: true,
+            },
+            radialaxis: {
+                visible: false,
+                range: [0, 1],
+                fixedrange: true,
+            }
+        }
+    };
+
+    const config = { staticPlot: false };
+
+    //@ts-ignore
+    const image = await Plotly.newPlot("statplot"+id, data, layout, config).then(async (gd) => {
+        return await Plotly.toImage(gd, {format: "png", width: 325*scale, height: 200*scale})
+    });
+    
+    return image as string;
 }
 
 export default React.memo(StatRadarPlot, (next, prev) => (next.evs === prev.evs && next.stats === prev.stats && next.nature === prev.nature && next.translationKey === prev.translationKey));

@@ -456,6 +456,11 @@ function App() {
         </Grid>
       </Stack>
     </Stack>
+    {/* For graphic generation */}
+    <Box id={"statplot1"} display="none" />
+    <Box id={"statplot2"} display="none" />
+    <Box id={"statplot3"} display="none" />
+    <Box id={"statplot4"} display="none" />
   </ThemeProvider>
   );
 }

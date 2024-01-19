@@ -196,12 +196,12 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
             type: "scatterpolar", // Hack to get hexagonal axis
             mode: "lines",
             line: {
-                width: 1.5 * scale,
-                color: "#cccccc",
+                width: 2.5 * scale,
+                color: "#888888",
             },
             name: "axis",
-            r: [.99, .99, .99, .99, .99, .99, .99],
-            theta: ticktexts,
+            r: [0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0],
+            theta: ticktexts.map((t) => [t,t]).flat(),
             fill: "toself",
             fillcolor: "rgba(0, 0, 0, .1)",
         },
@@ -209,12 +209,12 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
             type: "scatterpolar", // Hack to get hexagonal axis
             mode: "lines",
             line: {
-                width: scale,
-                color: "#888888",
+                width: 4 * scale,
+                color: "#cccccc",
             },
             name: "axis",
-            r: [0.0, .99, 0.0, .99, 0.0, .99, 0.0, .99, 0.0, .99, 0.0, .99, 0.0, .99],
-            theta: ticktexts.map((t) => [t,t]).flat(),
+            r: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            theta: ticktexts,
             fill: "toself",
             fillcolor: "rgba(0, 0, 0, .1)",
         },
@@ -222,11 +222,11 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
             type: "scatterpolar",
             mode: "lines",
             line: {
-                width: scale,
+                width: 2.5 * scale,
                 color: statsColor,
             },
             marker: {
-                width: scale,
+                width: 2.5 * scale,
                 color: statsColor,
             },
             name: "stats",
@@ -270,7 +270,7 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
             bgcolor: 'rgba(0,0,0,0)',
             angularaxis: {
                 tickfont: {
-                    size: 14 * scale,
+                    size: 17 * scale,
                     color: "#ffffff",
                 },
                 linewidth: 0, // 0 Makes circular axis invisible 
@@ -280,7 +280,7 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
             },
             radialaxis: {
                 visible: false,
-                range: [0, 1],
+                range: [0, 1.05],
                 fixedrange: true,
             }
         }

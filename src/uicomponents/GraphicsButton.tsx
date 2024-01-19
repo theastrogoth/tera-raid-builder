@@ -287,8 +287,8 @@ const StatPlotContainer = styled(Box)({
 const StatPlot = styled("img")({
     height: "auto",
     width: "auto",
-    maxHeight: "475px",
-    maxWidth: "775px",
+    maxHeight: "460px",
+    maxWidth: "750px",
 
 });
 

@@ -285,11 +285,8 @@ const StatPlotContainer = styled(Box)({
 });
 
 const StatPlot = styled("img")({
-    height: "auto",
-    width: "auto",
-    maxHeight: "460px",
-    maxWidth: "750px",
-
+    height: "460px",
+    width: "750px",
 });
 
 const BuildMovesSection = styled(Box)({
@@ -704,12 +701,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                 {getIVDescription(raider.ivs, translationKey) ? 
                                                     <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
                                             </BuildInfoContainer>
-                                            { statplots && statplots[index] && 
+                                            { statplots && 
                                                 <StatPlotContainer>
                                                     <StatPlot src={statplots[index]} />
                                                 </StatPlotContainer>
                                             }
-       
                                             <BuildMovesSection>
                                                 <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
                                                 <MovesContainer>
@@ -1005,13 +1001,14 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
             // generate radar plots
-            const statPlots = await Promise.all(
+            let statPlots: undefined | (string | undefined)[] = await Promise.all(
                 raidInputProps.pokemon.slice(1).map((poke, i) => {
                     if (!plotsEnabled[i]) { return undefined; }
                     const nature = gen.natures.get(toID(poke.nature));
                     return getStatRadarPlotPNG(poke.id, nature, poke.evs, poke.stats, translationKey, 20);
                 })
             );
+            if (statPlots.every((plot) => plot === undefined)) { statPlots = undefined; }
             // generate graphic
             const graphicTop = generateGraphic(theme, raidInputProps, results, isHiddenAbility, learnMethods, moveTypes, optionalMove, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);

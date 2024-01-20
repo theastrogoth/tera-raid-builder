@@ -60,7 +60,10 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
     const evColor = evTotal > 510 ? badEVColor : (
                     evTotal < 510 ? lowEVColor : maxedEVColor);
 
-    const hpPlotVal = ((stats.hp*100/bossMultiplier)+100)/500
+    const sigmoid = (stat: number) => {
+        return 1.75 / (1 + Math.exp(stat / -125)) - .75;
+    };
+    
     return (
         <Box>
             <Plot
@@ -93,7 +96,7 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
                             color: statsColor,
                         },
                         name: "stats",
-                        r: [hpPlotVal, ...[stats.spa, stats.spd, stats.spe, stats.def, stats.atk].map(stat => (stat+50)/350), hpPlotVal],
+                        r: [stats.hp, stats.spa, stats.spd, stats.spe, stats.def, stats.atk, stats.hp].map(stat => sigmoid(stat)),
                         theta: ticktexts,
                         fill: "toself",
                     },

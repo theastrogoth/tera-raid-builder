@@ -192,7 +192,9 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
     const evColor = evTotal > 510 ? badEVColor : (
                     evTotal < 510 ? lowEVColor : maxedEVColor);
 
-    const hpPlotVal = ((stats.hp*100/bossMultiplier)+100)/500
+    const sigmoid = (stat: number) => {
+        return 1.75 / (1 + Math.exp(stat / -125)) - .75;
+    };
 
     const data = [
         {
@@ -233,7 +235,7 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
                 color: statsColor,
             },
             name: "stats",
-            r: [hpPlotVal, ...[stats.spa, stats.spd, stats.spe, stats.def, stats.atk].map(stat => (stat+50)/350), hpPlotVal],
+            r: [stats.hp, stats.spa, stats.spd, stats.spe, stats.def, stats.atk, stats.hp].map(stat => sigmoid(stat)),
             theta: ticktexts,
             fill: "toself",
         },
@@ -266,7 +268,7 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
         },
         showlegend: false,
         font: {
-            family: "Roboto",
+            family: "Poppins, sans-serif"
         },
         dragmode: false,
         polar: {

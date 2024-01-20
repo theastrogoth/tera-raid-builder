@@ -633,7 +633,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: RaidBattleResults, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: string[], translationKey?: any) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: RaidBattleResults, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -954,7 +954,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
     const [subtitle, setSubtitle] = useState<string>("");
     const [watermarkText, setWatermarkText] = useState<string>("");
-    const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
+    const [plotsEnabled, setPlotsEnable] = useState<boolean[]>([false, false, false, false]);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -1005,8 +1005,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
             // generate radar plots
-            const statPlots = !plotsEnabled ? undefined : await Promise.all(
-                raidInputProps.pokemon.slice(1).map((poke) => {
+            const statPlots = await Promise.all(
+                raidInputProps.pokemon.slice(1).map((poke, i) => {
+                    if (!plotsEnabled[i]) { return undefined; }
                     const nature = gen.natures.get(toID(poke.nature));
                     return getStatRadarPlotPNG(poke.id, nature, poke.evs, poke.stats, translationKey, 20);
                 })
@@ -1087,18 +1088,33 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                 </li>
                 <li>
                     <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
-                        <Stack direction="row" alignItems="center" justifyContent="center">
-                            <Box flexGrow={1} />
-                            <Typography>
-                                { getTranslation("Enable Stat Plots", translationKey) + ":" }
+                        <Stack>
+                            <Typography variant="body1" fontWeight={600}>
+                                {getTranslation("Enable Stat Plots", translationKey) + ":"}
                             </Typography>
-                            <Box flexGrow={2} />
-                            <Checkbox
-                                checked={plotsEnabled}
-                                onChange={(e) => setPlotsEnable(!plotsEnabled)}
-                            />
-                            <Box flexGrow={1} />
-                        </Stack>
+                            {[0,1,2,3].map((i) => (
+                        
+                            <Stack key={i} direction="row" alignItems="center" justifyContent="center">
+                                <Box flexGrow={1} />
+                                <Typography>
+                                    { `${getTranslation("Raider", translationKey)} ${i+1}` }
+                                </Typography>
+                                <Box flexGrow={2} />
+                                <Checkbox
+                                    checked={plotsEnabled[i]}
+                                    onChange={(e) => {
+                                        const newPlotsEnabled = plotsEnabled.slice();
+                                        newPlotsEnabled[i] = !newPlotsEnabled[i];
+                                        setPlotsEnable(newPlotsEnabled);
+                                    }}
+                                />
+                                <Box flexGrow={1} />
+                            </Stack>
+                        ))
+                            
+                        }
+
+                    </Stack>
                     </Box>
                 </li>
                 <li>

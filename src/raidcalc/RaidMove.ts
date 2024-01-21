@@ -560,6 +560,12 @@ export class RaidMove {
                             }
                             this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this.move.type, this.move.category);
                             totalDamage += hitDamage;
+                            // remove buffs to user after damage
+                            if (totalDamage > 0) {
+                                hasCausedDamage = true;
+                                moveUser.field.attackerSide.isHelpingHand = false;
+                                if (this.move.type === "Electric") { moveUser.field.attackerSide.isCharged = false; }
+                            }
                             // contact checks
                             if (this.move.flags?.contact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
                                 const target = this._raidState.raiders[this._targetID]; // All contact moves are single-target (?)
@@ -628,9 +634,6 @@ export class RaidMove {
                             this._flingItem = moveUser.item;
                             this._raidState.loseItem(this.userID, false);
                         }
-                        if (totalDamage > 0) {
-                            hasCausedDamage = true;
-                        }
                     } 
                     catch {
                         this._desc[id] = this._user.name + " used " + this.move.name + " on " + this.getPokemon(id).name + "!";
@@ -691,9 +694,7 @@ export class RaidMove {
         //     }
         // }
         if (this.moveData.category?.includes("damage") && hasCausedDamage) {
-            // adjust tera charge and effects that are removed after attacking
-            this._fields[this.userID].attackerSide.isHelpingHand = false;
-            if (this.move.type === "Electric") { this._fields[this.userID].attackerSide.isCharged = false; }
+            // adjust tera charge
             if (hasCausedDamage) { this._user.teraCharge++; }
         } 
     }

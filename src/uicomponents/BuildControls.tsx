@@ -1346,16 +1346,14 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                                 onChange={(e) => {
                                                     if (e.target.value === "") {
                                                         setLevel(0);
-                                                        setPokemonProperty("level")(1);
-                                                        setPokemonProperty("isAnyLevel")(true);
+                                                        setPokemonProperties(["level", "isAnyLevel"])([1, true]);
                                                         return;
                                                     }
                                                     let lvl = parseInt(e.target.value);
                                                     if (lvl < 0) lvl = 0;
                                                     if (lvl > 100) lvl = 100;
                                                     setLevel(lvl);
-                                                    setPokemonProperty("level")(lvl || 1);
-                                                    if (lvl !== 0){ setPokemonProperty("isAnyLevel")(false); }
+                                                    setPokemonProperties(["level", "isAnyLevel"])([lvl || 1, lvl === 0]);
                                                 }}
                                             />
                                         }

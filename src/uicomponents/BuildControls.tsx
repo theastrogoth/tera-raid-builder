@@ -1129,10 +1129,15 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     }, [pokemon.name, pokemon.item])
 
     useEffect(() => {
-        if ((pokemon.level !== level) && !(level === 0 && pokemon.level === 1)) {
+        if (pokemon.isAnyLevel) {
+            setLevel(0);
+            if (pokemon.level !== 1) {
+                setPokemonProperty("level")(1);
+            }
+        } else if ((pokemon.level !== level) && !(level === 0 && pokemon.level === 1)) {
             setLevel(pokemon.level);
         }
-    }, [pokemon.level])
+    }, [pokemon.level, pokemon.isAnyLevel])
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
@@ -1337,20 +1342,23 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                                 type="number"
                                                 InputProps={{
                                                     inputProps: { 
-                                                        max: 100, min: 0 
+                                                        max: 100, min: isBoss ? 1 : 0 
                                                     }
                                                 }}
                                                 fullWidth={false}
                                                 value={level || ""}
                                                 placeholder={getTranslation("Any", translationKey)}
                                                 onChange={(e) => {
+                                                    const min = isBoss ? 1 : 0;
                                                     if (e.target.value === "") {
-                                                        setLevel(0);
-                                                        setPokemonProperties(["level", "isAnyLevel"])([1, true]);
+                                                        console.log("set to min", min)
+                                                        setLevel(min);
+                                                        setPokemonProperties(["level", "isAnyLevel"])([1, min === 0]);
                                                         return;
                                                     }
                                                     let lvl = parseInt(e.target.value);
-                                                    if (lvl < 0) lvl = 0;
+                                                    if (isNaN(lvl)) lvl = min;
+                                                    if (lvl < min) lvl = min;
                                                     if (lvl > 100) lvl = 100;
                                                     setLevel(lvl);
                                                     setPokemonProperties(["level", "isAnyLevel"])([lvl || 1, lvl === 0]);

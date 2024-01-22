@@ -248,6 +248,7 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
                 role: r.role,
                 name: r.name,
                 shiny: r.shiny,
+                isAnyLevel: r.isAnyLevel,
                 ability: r.ability,
                 item: r.item,
                 nature: r.nature,

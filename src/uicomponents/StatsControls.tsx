@@ -135,6 +135,7 @@ function StatsControls({ pokemon, setPokemon, translationKey}: { pokemon: Raider
             setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.isAnyLevel, pokemon.field,
                 new Pokemon(gen, pokemon.name, {
                     level: pokemon.level,
+                    gender: pokemon.gender,
                     ability: pokemon.ability,
                     nature: pokemon.nature,
                     item: pokemon.item,
@@ -163,6 +164,7 @@ function StatsControls({ pokemon, setPokemon, translationKey}: { pokemon: Raider
             setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.isAnyLevel, pokemon.field,
                 new Pokemon(gen, pokemon.name, {
                     level: pokemon.level,
+                    gender: pokemon.gender,
                     ability: pokemon.ability,
                     nature: pokemon.nature,
                     item: pokemon.item,

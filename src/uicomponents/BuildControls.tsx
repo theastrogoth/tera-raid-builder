@@ -1167,6 +1167,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
 
         const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
+            gender: set.gender,
             bossMultiplier: undefined,
             teraType: undefined,
             ability: set.ability || "(No Ability)" as AbilityName,
@@ -1699,6 +1700,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
 
         const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
+            gender: set.gender,
             bossMultiplier: set.bossMultiplier || 100,
             teraType: set.teraType || undefined,
             ability: set.ability, // || "(No Ability)" as AbilityName,

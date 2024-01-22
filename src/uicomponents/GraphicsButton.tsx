@@ -260,7 +260,7 @@ const BuildHeaderSeparator = styled("hr")({
 });
 
 const BuildInfoContainer = styled(Stack)({
-    minHeight: "430px",
+    
 });
 
 const BuildInfo = styled(Typography)({

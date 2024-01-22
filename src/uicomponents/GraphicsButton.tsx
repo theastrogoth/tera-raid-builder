@@ -199,9 +199,11 @@ const BuildWrapper = styled(Box)({
     color: "white"
 });
 
-const Build = styled(Box)({
+const Build = styled(Stack)({
     width: "675px",
-    margin: "50px"
+    margin: "50px",
+    paddingBottom: "100px",
+    height: "100%"
 });
 
 const BuildHeader = styled(Box)({
@@ -258,7 +260,7 @@ const BuildHeaderSeparator = styled("hr")({
 });
 
 const BuildInfoContainer = styled(Stack)({
-    height: "430px",
+    minHeight: "430px",
 });
 
 const BuildInfo = styled(Typography)({
@@ -285,7 +287,7 @@ const StatPlotContainer = styled(Box)({
 });
 
 const StatPlot = styled("img")({
-    height: "460px",
+    height: "625px",
     width: "750px",
 });
 
@@ -701,6 +703,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                 {getIVDescription(raider.ivs, translationKey) ? 
                                                     <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
                                             </BuildInfoContainer>
+                                            <Box flexGrow={1}/>
                                             { statplots && 
                                                 <StatPlotContainer>
                                                     <StatPlot src={statplots[index]} />

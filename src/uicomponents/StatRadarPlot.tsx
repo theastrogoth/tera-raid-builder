@@ -248,10 +248,10 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
         margin: {
-            r: 10 * scale,
-            l: 10 * scale,
-            t: 25 * scale,
-            b: 25 * scale,
+            r: 50 * scale,
+            l: 50 * scale,
+            t: 50 * scale,
+            b: 50 * scale,
         },
         showlegend: false,
         font: {
@@ -282,7 +282,7 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
 
     //@ts-ignore
     const image = await Plotly.newPlot("statplot"+id, data, layout, config).then(async (gd) => {
-        return await Plotly.toImage(gd, {format: "png", width: 325*scale, height: 200*scale})
+        return await Plotly.toImage(gd, {format: "png", width: 300*scale, height: 250*scale})
     });
     
     return image as string;

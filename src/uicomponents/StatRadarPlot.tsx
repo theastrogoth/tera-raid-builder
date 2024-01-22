@@ -18,16 +18,22 @@ const lowEVColor    = "#fcca00"; // for non-maxed EVs
 const maxedEVColor  = "#00c8c8"; // for when total EVs are 510
 const badEVColor    = "#d44a4a"; // for wehn total EVs exceeding 510 (shouldn't happen unless something goes wrong)
 
-const tickorder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
-const rightAligned = ["SpA", "SpD"];
+const tickOrder = ["HP", "Sp. Atk", "Sp. Def", "Speed", "Defense", "Attack", "HP"];
+const shortTickOrder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
+const statOrder = ["hp", "spa", "spd", "spe", "def", "atk", "hp"];
+const rightAligned = ["spa", "spd"];
 
-const ticktext = (tickOrder: string[], index: number, stats: StatsTable, nature: Nature | undefined, evs: StatsTable, translationKey: any, pluscolor: string = plusColor, minuscolor: string = minusColor) => {
+const ticktext = (index: number, stats: StatsTable, nature: Nature | undefined, evs: StatsTable, translationKey: any, shorten: boolean = false, pluscolor: string = plusColor, minuscolor: string = minusColor) => {
     const stat = tickOrder[index];
-    const lcStat = stat.toLowerCase() as keyof StatsTable;
+    const lcStat = statOrder[index] as keyof StatsTable;
     const isPlus = nature ? nature.plus !== nature.minus && nature.plus === lcStat : false;
     const isMinus = nature ? nature.plus !== nature.minus && nature.minus === lcStat : false;
     const isMaxedEV = evs[lcStat] === 252;
-    let text = '<b>' + getTranslation(stat, translationKey, "stats") + '</b>';
+    let statTranslation = getTranslation(stat, translationKey, "stats");
+    if (shorten && !(index === 0 || index === 3 || index === 6) && statTranslation.length > 8) { // hack for avoiding overflow, mostly for the German translation of "Defense"
+        statTranslation = getTranslation(shortTickOrder[index], translationKey, "stats");
+    }
+    let text = '<b>' + statTranslation + '</b>';
     if (isPlus) {
         text = '<span style="color:' + pluscolor + '"><b>' + text + '</b></span>';    } else if (isMinus) {
     } 
@@ -35,7 +41,7 @@ const ticktext = (tickOrder: string[], index: number, stats: StatsTable, nature:
         text = '<span style="color:' + minuscolor + '"><b>' + text + '</b></span>';
     }
     if (isMaxedEV) {
-        if (rightAligned.includes(stat)) {
+        if (rightAligned.includes(lcStat)) {
             text = "\u2728"+text;
         } else {
             text += "\u2728";
@@ -66,7 +72,7 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
     // };
 
 
-    const ticktexts = tickorder.map((s,i) => ticktext(tickorder, i, stats, nature, evs, translationKey));
+    const ticktexts = tickOrder.map((s,i) => ticktext(i, stats, nature, evs, translationKey));
     const evTotal = Object.values(evs).reduce((a,b) => a + b, 0)
     const evColor = evTotal > 510 ? badEVColor : (
                     evTotal < 510 ? lowEVColor : maxedEVColor);
@@ -159,15 +165,15 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
                     }
                 }}
                 config={{ 
-                    staticPlot: false,
-                    modeBarButtonsToRemove: ['zoom2d'],  
-                    toImageButtonOptions: {
-                        format: "svg",
-                        filename: "statplot",
-                        // height: 800,
-                        // width: 600,
-                        // scale: 2,
-                    }
+                    staticPlot: true,
+                    // modeBarButtonsToRemove: ['zoom2d'],  
+                    // toImageButtonOptions: {
+                    //     format: "svg",
+                    //     filename: "statplot",
+                    //     // height: 800,
+                    //     // width: 600,
+                    //     // scale: 2,
+                    // }
                 }}
             />
             <Box height="10px"/>
@@ -177,7 +183,7 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
 
 export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined, evs: StatsTable, stats: StatsTable, translationKey: any, scale: number = 10, bossMultiplier: number = 100) {
     
-    const ticktexts = tickorder.map((s,i) => ticktext(tickorder, i, stats, nature, evs, translationKey, "#fdbab4", "#b3dbff"));
+    const ticktexts = tickOrder.map((s,i) => ticktext(i, stats, nature, evs, translationKey, true, "#fdbab4", "#b3dbff"));
     const evTotal = Object.values(evs).reduce((a,b) => a + b, 0)
     const evColor = evTotal > 510 ? badEVColor : (
                     evTotal < 510 ? lowEVColor : maxedEVColor);

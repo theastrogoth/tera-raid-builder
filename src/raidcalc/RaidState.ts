@@ -1178,6 +1178,7 @@ export class RaidState implements State.RaidState{
                 id,
                 pokemon.role,
                 pokemon.shiny,
+                false,
                 pokemon.field.clone(),
                 new Pokemon(
                     gen,

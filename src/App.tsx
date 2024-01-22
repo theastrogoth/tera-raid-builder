@@ -252,7 +252,7 @@ function App() {
   const gen = Generations.get(9); 
 
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Pikachu", {
+    new Raider(0, "Raid Boss", false, false, new Field(), new Pokemon(gen, "Pikachu", {
       shieldData: {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0}
     }), 
     [], 
@@ -260,19 +260,19 @@ function App() {
     [])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(1, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
     [])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(2, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
     [])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(3, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
     [])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(4, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
     [])
   );
 

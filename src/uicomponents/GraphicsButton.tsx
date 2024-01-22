@@ -648,7 +648,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
 
-    const ignoreStats = raidInputProps.pokemon.slice(1).map((raider) => (raider.level === 13) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
+    const ignoreStats = raidInputProps.pokemon.slice(1).map((raider) => (raider.isAnyLevel) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
     console.log(ignoreStats)
     flushSync(() => {
         root.render(
@@ -693,7 +693,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                 <BuildHeaderSeparator />
                                             </BuildHeader>
                                             <BuildInfoContainer>
-                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (raider.level === 13 ? getTranslation("Any",translationKey) : raider.level) }</BuildInfo>
+                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (raider.isAnyLevel ? getTranslation("Any",translationKey) : raider.level) }</BuildInfo>
                                                 {(raider.teraType || "???") !== "???" &&
                                                     <BuildInfo>{ getTranslation("Tera Type", translationKey) + ": " + getTranslation(raider.teraType!, translationKey, "types") }</BuildInfo>
                                                 }

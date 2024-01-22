@@ -19,7 +19,36 @@ const maxedEVColor  = "#00c8c8"; // for when total EVs are 510
 const badEVColor    = "#d44a4a"; // for wehn total EVs exceeding 510 (shouldn't happen unless something goes wrong)
 
 const tickorder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
+const rightAligned = ["SpA", "SpD"];
 
+const ticktext = (tickOrder: string[], index: number, stats: StatsTable, nature: Nature | undefined, evs: StatsTable, translationKey: any, pluscolor: string = plusColor, minuscolor: string = minusColor) => {
+    const stat = tickOrder[index];
+    const lcStat = stat.toLowerCase() as keyof StatsTable;
+    const isPlus = nature ? nature.plus !== nature.minus && nature.plus === lcStat : false;
+    const isMinus = nature ? nature.plus !== nature.minus && nature.minus === lcStat : false;
+    const isMaxedEV = evs[lcStat] === 252;
+    let text = '<b>' + getTranslation(stat, translationKey, "stats") + '</b>';
+    console.log(nature?.name, nature?.plus, nature?.minus, lcStat, isPlus, isMinus)
+    if (isPlus) {
+        text = '<span style="color:' + pluscolor + '"><b>' + text + '</b></span>';    } else if (isMinus) {
+    } 
+    if (isMinus) {
+        text = '<span style="color:' + minuscolor + '"><b>' + text + '</b></span>';
+    }
+    if (isMaxedEV) {
+        if (rightAligned.includes(stat)) {
+            text = "\u2728"+text;
+        } else {
+            text += "\u2728";
+        }
+    }
+    text = text + "<br><b>" + stats[lcStat] +"</b>";
+    return text;
+}
+
+const sigmoid = (stat: number) => {
+    return 1.75 / (1 + Math.exp(stat / -125)) - .75;
+};
 
 function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}: {nature: Nature | undefined, evs: StatsTable, stats: StatsTable, translationKey: any, bossMultiplier?: number}) {
     const theme = useTheme()
@@ -38,31 +67,10 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
     // };
 
 
-    //@ts-ignore
-    const ticktexts = tickorder.map(stat => getTranslation(stat, translationKey, "stats") + ": " + stats[stat.toLowerCase()] + (evs[stat.toLowerCase()] === 252 ? '\u2728' : ''))
-    if (nature) {
-        for (let i=0; i<tickorder.length; i++) {
-            if (nature.plus === nature.minus) {
-                ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
-            }
-            else if (nature.plus === tickorder[i].toLowerCase()) {
-                ticktexts[i] = '<span style="color:' + plusColor + '"><b>' + ticktexts[i] + '</b></span>';
-            } else if (nature.minus === tickorder[i].toLowerCase()) {
-                ticktexts[i] = '<span style="color:' + minusColor + '"><b>' + ticktexts[i] + '</b></span>';
-            }
-            else {
-                ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
-            }
-        }
-    }
-
+    const ticktexts = tickorder.map((s,i) => ticktext(tickorder, i, stats, nature, evs, translationKey));
     const evTotal = Object.values(evs).reduce((a,b) => a + b, 0)
     const evColor = evTotal > 510 ? badEVColor : (
                     evTotal < 510 ? lowEVColor : maxedEVColor);
-
-    const sigmoid = (stat: number) => {
-        return 1.75 / (1 + Math.exp(stat / -125)) - .75;
-    };
     
     return (
         <Box>
@@ -96,7 +104,7 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
                             color: statsColor,
                         },
                         name: "stats",
-                        r: [stats.hp, stats.spa, stats.spd, stats.spe, stats.def, stats.atk, stats.hp].map(stat => sigmoid(stat)),
+                        r: [stats.hp, stats.spa, stats.spd, stats.spe, stats.def, stats.atk, stats.hp].map((stat, index) => sigmoid(stat / ((index === 0 || index === 6) ? bossMultiplier / 100 : 1))),
                         theta: ticktexts,
                         fill: "toself",
                     },
@@ -170,31 +178,10 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
 
 export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined, evs: StatsTable, stats: StatsTable, translationKey: any, scale: number = 10, bossMultiplier: number = 100) {
     
-    //@ts-ignore
-    const ticktexts = tickorder.map(stat => getTranslation(stat, translationKey, "stats") + ": " + stats[stat.toLowerCase()] + (evs[stat.toLowerCase()] === 252 ? '\u2728' : ''))
-    if (nature) {
-        for (let i=0; i<tickorder.length; i++) {
-            if (nature.plus === nature.minus) {
-                ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
-            }
-            else if (nature.plus === tickorder[i].toLowerCase()) {
-                ticktexts[i] = '<span style="color:' + "#fdbab4" + '"><b>' + ticktexts[i] + '</b></span>';
-            } else if (nature.minus === tickorder[i].toLowerCase()) {
-                ticktexts[i] = '<span style="color:' + "#b3dbff" + '"><b>' + ticktexts[i] + '</b></span>';
-            }
-            else {
-                ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
-            }
-        }
-    }
-
+    const ticktexts = tickorder.map((s,i) => ticktext(tickorder, i, stats, nature, evs, translationKey, "#fdbab4", "#b3dbff"));
     const evTotal = Object.values(evs).reduce((a,b) => a + b, 0)
     const evColor = evTotal > 510 ? badEVColor : (
                     evTotal < 510 ? lowEVColor : maxedEVColor);
-
-    const sigmoid = (stat: number) => {
-        return 1.75 / (1 + Math.exp(stat / -125)) - .75;
-    };
 
     const data = [
         {
@@ -235,7 +222,7 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
                 color: statsColor,
             },
             name: "stats",
-            r: [stats.hp, stats.spa, stats.spd, stats.spe, stats.def, stats.atk, stats.hp].map(stat => sigmoid(stat)),
+            r: [stats.hp, stats.spa, stats.spd, stats.spe, stats.def, stats.atk, stats.hp].map((stat, index) => sigmoid(stat / (index === 0 ? bossMultiplier / 100 : 1))),
             theta: ticktexts,
             fill: "toself",
         },

@@ -260,7 +260,7 @@ const BuildHeaderSeparator = styled("hr")({
 });
 
 const BuildInfoContainer = styled(Stack)({
-    
+
 });
 
 const BuildInfo = styled(Typography)({
@@ -289,6 +289,17 @@ const StatPlotContainer = styled(Box)({
 const StatPlot = styled("img")({
     height: "625px",
     width: "750px",
+});
+
+const AnyStatsMessageContainer = styled(Box)({
+    width: "100%%",
+    height: "auto"
+});
+
+const AnyStatsMessage = styled(Typography)({
+    fontSize: "1.8em",
+    lineHeight: "55px",
+    textAlign: "center"
 });
 
 const BuildMovesSection = styled(Box)({
@@ -636,7 +647,9 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
-    
+
+    const ignoreStats = raidInputProps.pokemon.slice(1).map((raider) => (raider.level === 13) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
+    console.log(ignoreStats)
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
@@ -704,10 +717,18 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                     <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
                                             </BuildInfoContainer>
                                             <Box flexGrow={1}/>
-                                            { statplots && 
+                                            { statplots && !ignoreStats[index] &&
                                                 <StatPlotContainer>
                                                     <StatPlot src={statplots[index]} />
                                                 </StatPlotContainer>
+                                            }
+                                            { statplots && ignoreStats[index] &&
+                                                <>
+                                                    <AnyStatsMessageContainer>
+                                                        <AnyStatsMessage>{ getTranslation("Any stats", translationKey) }</AnyStatsMessage>
+                                                    </AnyStatsMessageContainer>
+                                                    <Box flexGrow={1}/>
+                                                </>
                                             }
                                             <BuildMovesSection>
                                                 <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
@@ -953,7 +974,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
     const [subtitle, setSubtitle] = useState<string>("");
     const [watermarkText, setWatermarkText] = useState<string>("");
-    const [plotsEnabled, setPlotsEnable] = useState<boolean[]>([false, false, false, false]);
+    // const [plotsEnabled, setPlotsEnable] = useState<boolean[]>([false, false, false, false]);
+    const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -1004,14 +1026,12 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
             // generate radar plots
-            let statPlots: undefined | (string | undefined)[] = await Promise.all(
-                raidInputProps.pokemon.slice(1).map((poke, i) => {
-                    if (!plotsEnabled[i]) { return undefined; }
+            let statPlots: undefined | string[] = !plotsEnabled ? undefined : await Promise.all(
+                raidInputProps.pokemon.slice(1).map((poke) => {
                     const nature = gen.natures.get(toID(poke.nature));
                     return getStatRadarPlotPNG(poke.id, nature, poke.evs, poke.stats, translationKey, 20);
                 })
             );
-            if (statPlots.every((plot) => plot === undefined)) { statPlots = undefined; }
             // generate graphic
             const graphicTop = generateGraphic(theme, raidInputProps, results, isHiddenAbility, learnMethods, moveTypes, optionalMove, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
@@ -1088,11 +1108,18 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                 </li>
                 <li>
                     <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
-                        <Stack>
+                        <Stack direction="row" alignItems="center" justifyContent="center">
+                            <Box flexGrow={1} />
                             <Typography variant="body1" fontWeight={600}>
                                 {getTranslation("Enable Stat Plots", translationKey) + ":"}
                             </Typography>
-                            {[0,1,2,3].map((i) => (
+                            <Box flexGrow={2} />
+                            <Checkbox
+                                    checked={plotsEnabled}
+                                    onChange={(e) => { setPlotsEnable(!plotsEnabled); }}
+                                />
+                            <Box flexGrow={1} />
+                            {/* {[0,1,2,3].map((i) => (
                         
                             <Stack key={i} direction="row" alignItems="center" justifyContent="center">
                                 <Box flexGrow={1} />
@@ -1110,11 +1137,10 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                                 />
                                 <Box flexGrow={1} />
                             </Stack>
-                        ))
-                            
-                        }
-
-                    </Stack>
+                            ))
+                                
+                            } */}
+                        </Stack>
                     </Box>
                 </li>
                 <li>

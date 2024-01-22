@@ -28,7 +28,6 @@ const ticktext = (tickOrder: string[], index: number, stats: StatsTable, nature:
     const isMinus = nature ? nature.plus !== nature.minus && nature.minus === lcStat : false;
     const isMaxedEV = evs[lcStat] === 252;
     let text = '<b>' + getTranslation(stat, translationKey, "stats") + '</b>';
-    console.log(nature?.name, nature?.plus, nature?.minus, lcStat, isPlus, isMinus)
     if (isPlus) {
         text = '<span style="color:' + pluscolor + '"><b>' + text + '</b></span>';    } else if (isMinus) {
     } 

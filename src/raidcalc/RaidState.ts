@@ -8,24 +8,6 @@ import { hasNoStatus, pokemonIsGrounded } from "./util";
 
 const gen = Generations.get(9);
 
-const WIND_MOVES = [
-    "Air Cutter",
-    "Bleakwind Storm",
-    "Blizzard",
-    "Fairy Wind",
-    "Gust",
-    "Heat Wave",
-    "Hurricane",
-    "Icy Wind",
-    "Petal Blizzard",
-    "Sandsear Storm",
-    "Springtide Storm",
-    "Tailwind",
-    "Twister",
-    "Whirlwind",
-    "Wildbolt Storm",
-];
-
 export class RaidState implements State.RaidState{
     raiders: Raider[];      // raiders[0] is the boss, while raiders 1-5 are the players
     lastMovedID?: number;   // id of the last Pokemon to move
@@ -50,7 +32,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined) {
+    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
@@ -231,8 +213,7 @@ export class RaidState implements State.RaidState{
                 this.applyStatChange(id, boost, true, id);
             }
             // Wind Power
-            if (pokemon.ability === "Wind Power" && 
-                WIND_MOVES.includes(moveName as MoveName)) {
+            if (pokemon.ability === "Wind Power" && isWind){
                 pokemon.field.attackerSide.isCharged = true;
             }
         }

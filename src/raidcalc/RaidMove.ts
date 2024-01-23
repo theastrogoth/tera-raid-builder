@@ -134,6 +134,7 @@ export class RaidMove {
             this.applyStatChanges();
             this.applyAilment();
             this.applyFieldChanges();
+            this.applyOtherMoveEffects();
             this.applyUniqueMoveEffects();
             this._user.isCharging = false;
             if (rechargeMoves.includes(this.move.name)) {
@@ -281,7 +282,7 @@ export class RaidMove {
                 this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s shield!";
             }
             // Terrain-based failure
-            if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && this.move.priority > 0) {
+            if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && (this.moveData.priority || 0) > 0) {
                 if ((this.userID === 0) || (this._targetID === 0)) {
                     this._doesNotAffect[id] = "blocked by Psychic Terrain";
                     continue;
@@ -343,37 +344,14 @@ export class RaidMove {
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
-                if (pokemon.ability === "Bulletproof" && 
-                    [   "Acid Spray",
-                        "Aura Sphere",
-                        "Barrage",
-                        "Beak Blast",
-                        "Bullet Seed",
-                        "Egg Bomb",
-                        "Electro Ball",
-                        "Energy Ball",
-                        "Focus Blast",
-                        "Gyro Ball",
-                        "Ice Ball",
-                        "Magnet Bomb",
-                        "Mist Ball",
-                        "Mud Bomb",
-                        "Octazooka",
-                        "Pollen Puff",
-                        "Pyro Ball",
-                        "Rock Blast",
-                        "Rock Wrecker",
-                        "Searing Shot",
-                        "Seed Bomb",
-                        "Shadow Ball",
-                        "Sludge Bomb",
-                        "Syrup Bomb",
-                        "Weather Ball",
-                        "Zap Cannon"
-                    ].includes(moveName)) 
-                {
+                if (pokemon.ability === "Bulletproof" && this.moveData.isBullet) {
                     this._doesNotAffect[id] = "blocked by Bulletproof";
                     continue;
+                }
+                if (pokemon.ability === "Wind Rider" && this.moveData.isWind) {
+                    this._doesNotAffect[id] = "blocked by Wind Rider";
+                    const boost = {atk: 1};
+                    this._raidState.applyStatChange(id, boost);
                 }
                 if (pokemon.ability === "Levitate" && !pokemonIsGrounded(pokemon, field) && moveType === "Ground") { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
@@ -558,7 +536,7 @@ export class RaidMove {
                             if (calcMove.name === "False Swipe") {
                                 hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
                             }
-                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this.move.type, this.move.category);
+                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this.move.type, this.move.category, this.moveData.isWind);
                             totalDamage += hitDamage;
                             // remove buffs to user after damage
                             if (totalDamage > 0) {
@@ -567,7 +545,7 @@ export class RaidMove {
                                 if (this.move.type === "Electric") { moveUser.field.attackerSide.isCharged = false; }
                             }
                             // contact checks
-                            if (this.move.flags?.contact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
+                            if (this.moveData.makesContact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
                                 const target = this._raidState.raiders[this._targetID]; // All contact moves are single-target (?)
                                 // abilities
                                 const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
@@ -652,7 +630,7 @@ export class RaidMove {
             }
             // protection contact checks
             if (this._affectedIDs.includes(id)) {
-                if (this.move.flags?.contact && this._blockedBy[id] && target.lastMove && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
+                if (this.moveData.makesContact && this._blockedBy[id] && target.lastMove && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
                     switch (target.lastMove.name) {
                         case "Spiky Shield":
                             this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100)));
@@ -934,6 +912,14 @@ export class RaidMove {
                 }
                 break;
             default: break;
+        }
+    }
+
+    private applyOtherMoveEffects() {
+        // Throat Spray
+        if (this.moveData.isSound && this._user.hasItem("Throat Spray")) {
+            this._raidState.applyStatChange(this.userID, {spa: 1});
+            this._raidState.loseItem(this.userID, true);
         }
     }
 
@@ -1399,6 +1385,8 @@ export class RaidMove {
                     const ally = this.getPokemon(id);
                     if (ally.hasAbility("Wind Power")) {
                         this._fields[id].attackerSide.isCharged = true;
+                    } else if (ally.hasAbility("Wind Rider")) {
+                        this._raidState.applyStatChange(id, {atk: 1});
                     }
                 }
                 break;

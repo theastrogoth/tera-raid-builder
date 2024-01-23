@@ -84,6 +84,19 @@ export type MoveData = {
     ailmentChance?: number,
     minHits?:       number,
     maxHits?:       number,
+    ignoreDefensive?: boolean,
+    breaksProtect?:  boolean,
+    bypassSub?:     boolean,
+    makesContact?:  boolean,
+    willCrit?:      boolean,
+    highCritChance?: boolean,
+    isPunch?:       boolean,
+    isBite?:        boolean,
+    isBullet?:      boolean,
+    isSound?:       boolean,
+    isPulse?:       boolean,
+    isSlicing?:     boolean,
+    isWind?:        boolean,
 }
 
 export type ShieldData  = {

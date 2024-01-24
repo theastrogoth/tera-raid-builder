@@ -132,9 +132,10 @@ function StatsControls({ pokemon, setPokemon, translationKey}: { pokemon: Raider
             const newEVs = {...pokemon.evs};
             //@ts-ignore
             newEVs[evName] = safeValue;
-            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field,
+            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.isAnyLevel, pokemon.field,
                 new Pokemon(gen, pokemon.name, {
                     level: pokemon.level,
+                    gender: pokemon.gender,
                     ability: pokemon.ability,
                     nature: pokemon.nature,
                     item: pokemon.item,
@@ -160,9 +161,10 @@ function StatsControls({ pokemon, setPokemon, translationKey}: { pokemon: Raider
             const newIVs = {...pokemon.ivs};
             //@ts-ignore
             newIVs[ivName] = safeValue;
-            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.field,
+            setPokemon(new Raider(pokemon.id, pokemon.role, pokemon.shiny, pokemon.isAnyLevel, pokemon.field,
                 new Pokemon(gen, pokemon.name, {
                     level: pokemon.level,
+                    gender: pokemon.gender,
                     ability: pokemon.ability,
                     nature: pokemon.nature,
                     item: pokemon.item,

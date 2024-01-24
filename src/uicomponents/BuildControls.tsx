@@ -961,6 +961,7 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
             pokemon.id, 
             pokemonInfo.role, 
             pokemonInfo.shiny, 
+            pokemonInfo.isAnyLevel,
             new Field(), 
             new Pokemon(
                 gen, 
@@ -1054,7 +1055,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     const [editStatsOpen, setEditStatsOpen] = useState(false);
     const [importExportOpen, setImportExportOpen] = useState(false);
 
-
+    const [level, setLevel] = useState(pokemon.level);
 
     useEffect(() => {
         // Locked items/teratypes
@@ -1127,6 +1128,17 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.name, pokemon.item])
 
+    useEffect(() => {
+        if (pokemon.isAnyLevel) {
+            setLevel(0);
+            if (pokemon.level !== 1) {
+                setPokemonProperty("level")(1);
+            }
+        } else if ((pokemon.level !== level) && !(level === 0 && pokemon.level === 1)) {
+            setLevel(pokemon.level);
+        }
+    }, [pokemon.level, pokemon.isAnyLevel])
+
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
             const newPokemon = pokemon.clone();
@@ -1160,6 +1172,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
 
         const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
+            gender: set.gender,
             bossMultiplier: undefined,
             teraType: undefined,
             ability: set.ability || "(No Ability)" as AbilityName,
@@ -1178,7 +1191,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             },
         });
 
-        setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, new Field(), poke, moveData));
+        setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, set.isAnyLevel, new Field(), poke, moveData));
     }
 
     const handleChangeSpecies = (val: string) => {
@@ -1186,6 +1199,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             pokemon.id, 
             pokemon.role, 
             pokemon.shiny, 
+            false,
             pokemon.field, 
             new Pokemon(gen, val, {
                 nature: "Hardy", 
@@ -1200,7 +1214,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 },
             }), 
             [],
-        ))
+        ));
     }
 
     const handleAddSubstitute = () => {
@@ -1318,7 +1332,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                     <RightCell sx={{ width: prettyMode ? "fit-content" : "51px" }}>
                                         {prettyMode &&
                                             <Typography variant="body1">
-                                                {pokemon.level}
+                                                {level || getTranslation("Any", translationKey)}
                                             </Typography>
                                         }
                                         {!prettyMode &&
@@ -1328,17 +1342,26 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                                 type="number"
                                                 InputProps={{
                                                     inputProps: { 
-                                                        max: 100, min: 1 
+                                                        max: 100, min: isBoss ? 1 : 0 
                                                     }
                                                 }}
                                                 fullWidth={false}
-                                                value={pokemon.level}
+                                                value={level || ""}
+                                                placeholder={getTranslation("Any", translationKey)}
                                                 onChange={(e) => {
-                                                    if (e.target.value === "") return setPokemonProperty("level")(1);
+                                                    const min = isBoss ? 1 : 0;
+                                                    if (e.target.value === "") {
+                                                        console.log("set to min", min)
+                                                        setLevel(min);
+                                                        setPokemonProperties(["level", "isAnyLevel"])([1, min === 0]);
+                                                        return;
+                                                    }
                                                     let lvl = parseInt(e.target.value);
-                                                    if (lvl < 1) lvl = 1;
+                                                    if (isNaN(lvl)) lvl = min;
+                                                    if (lvl < min) lvl = min;
                                                     if (lvl > 100) lvl = 100;
-                                                    setPokemonProperty("level")(lvl)
+                                                    setLevel(lvl);
+                                                    setPokemonProperties(["level", "isAnyLevel"])([lvl || 1, lvl === 0]);
                                                 }}
                                             />
                                         }
@@ -1683,6 +1706,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
 
         const poke = new Pokemon(gen, set.pokemon, {
             level: set.level || 100,
+            gender: set.gender,
             bossMultiplier: set.bossMultiplier || 100,
             teraType: set.teraType || undefined,
             ability: set.ability, // || "(No Ability)" as AbilityName,
@@ -1698,6 +1722,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
             pokemon.id, 
             poke.species.baseSpecies || poke.name, 
             set.shiny, 
+            set.isAnyLevel,
             new Field(), 
             poke, 
             moveData,

@@ -11,6 +11,7 @@ export class Raider extends Pokemon implements State.Raider {
     id: number;
     role: string;
     shiny: boolean;
+    isAnyLevel: boolean;        // keeps track of whether or not the Raider should be displayed as having "Any" level for display/graphic purposes
     field: Field;               // each pokemon gets its own field to deal with things like Helping Hand and Protect
     moveData: State.MoveData[];   
     extraMoves?: MoveName[];    // for special boss actions
@@ -54,7 +55,8 @@ export class Raider extends Pokemon implements State.Raider {
     constructor(
         id: number, 
         role: string, 
-        shiny: boolean | undefined, 
+        shiny: boolean | undefined,
+        isAnyLevel: boolean | undefined,
         field: Field, 
         pokemon: Pokemon, 
         moveData: State.MoveData[], 
@@ -91,6 +93,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.id = id;
         this.role = role;
         this.shiny = !!shiny;
+        this.isAnyLevel = !!isAnyLevel;
         this.field = field;
         this.moveData = moveData;
         this.extraMoves = extraMoves;
@@ -128,6 +131,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.id, 
             this.role, 
             this.shiny,
+            this.isAnyLevel,
             this.field.clone(),
             new Pokemon(this.gen, this.name, {
                 level: this.level,

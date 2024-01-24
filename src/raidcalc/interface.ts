@@ -112,6 +112,7 @@ export interface Raider extends Pokemon {
     id: number;
     role: string;
     shiny?: boolean;
+    isAnyLevel?: boolean;
     field: Field;
     moveData: MoveData[];
     extraMoves?: MoveName[];// for special boss actions
@@ -186,6 +187,7 @@ export type SetOption = {
     name: string,
     pokemon: SpeciesName,
     shiny?: boolean,
+    isAnyLevel?: boolean,
     level?: number,
     gender?: GenderName,
     item?: ItemName,

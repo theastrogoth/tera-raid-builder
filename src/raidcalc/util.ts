@@ -294,11 +294,11 @@ export function modifyPokemonSpeedByQP(speed: number, field: Field, ability?: Ab
 
 export function modifyPokemonSpeedByField(speed: number, field: Field, ability?: AbilityName) {
     if (
-        ability === "Chlorophyll" && field.weather?.includes("Sun") ||
-        ability === "Sand Rush" && field.weather?.includes("Sand") ||
-        ability === "Slush Rush" && field.weather?.includes("Snow") ||
-        ability === "Swift Swim" && field.weather?.includes("Rain") ||
-        ability === "Surge Surfer" && field.terrain?.includes("Electric")
+        ability === "Chlorophyll" && field.hasWeather("Sun") ||
+        ability === "Sand Rush" && field.hasWeather("Sand") ||
+        ability === "Slush Rush" && field.hasWeather("Snow") ||
+        ability === "Swift Swim" && field.hasWeather("Rain") ||
+        ability === "Surge Surfer" && field.hasTerrain("Electric")
     ) {
         speed *= 2;
     }

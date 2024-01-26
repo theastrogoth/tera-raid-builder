@@ -213,7 +213,7 @@ export class Raider extends Pokemon implements State.Raider {
         speed = modifyPokemonSpeedByItem(speed, this.item);
         speed = modifyPokemonSpeedByAbility(speed, this.ability, this.abilityOn, this.status);
         speed = modifyPokemonSpeedByQP(speed, this.field, this.ability, this.item, this.boostedStat as StatIDExceptHP);
-        speed = modifyPokemonSpeedByField(speed, this.field);
+        speed = modifyPokemonSpeedByField(speed, this.field, this.ability);
         return speed;
     }
 

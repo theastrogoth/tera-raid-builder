@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Blaziken",
-            "name": "Blaziken",
+            "role": "Empoleon",
+            "name": "Empoleon",
             "shiny": false,
-            "ability": "Speed Boost",
-            "nature": "Adamant",
+            "ability": "Competitive",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,19 +27,19 @@
                 "spe": 31
             },
             "level": 100,
-            "teraType": "Flying",
+            "teraType": "Ice",
             "moves": [
-                "Blaze Kick",
-                "Brave Bird",
-                "Earthquake",
-                "Low Kick"
+                "Blizzard",
+                "Hydro Pump",
+                "Steel Beam",
+                "Air Slash"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Overheat",
-                "Rock Slide",
+                "Snowscape",
+                "Mist",
                 "Swords Dance",
-                "Bulk Up"
+                "Metal Sound"
             ],
             "shieldData": {
                 "hpTrigger": 80,
@@ -52,11 +52,11 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Gholdengo",
+            "name": "Gholdengo",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Choice Specs",
+            "ability": "Good as Gold",
+            "item": "Life Orb",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -76,8 +76,8 @@
             },
             "level": 100,
             "moves": [
-                "Electro Drift",
-                "Parabolic Charge"
+                "Nasty Plot",
+                "Make It Rain"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -92,18 +92,18 @@
         },
         {
             "id": 2,
-            "role": "Bonsly",
-            "name": "Bonsly",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Sturdy",
-            "item": "Covert Cloak",
-            "nature": "Hardy",
+            "ability": "Synchronize",
+            "item": "Sitrus Berry",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -114,9 +114,9 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "moves": [
-                "Fake Tears"
+                "Skill Swap"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -131,18 +131,18 @@
         },
         {
             "id": 3,
-            "role": "Salandit",
-            "name": "Salandit",
+            "role": "Perrserker",
+            "name": "Perrserker",
             "shiny": false,
-            "ability": "Corrosion",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "Steely Spirit",
+            "item": "Sitrus Berry",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -153,9 +153,10 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "moves": [
-                "Acid Spray"
+                "Sunny Day",
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -170,18 +171,18 @@
         },
         {
             "id": 4,
-            "role": "Chi-Yu",
-            "name": "Chi-Yu",
+            "role": "Perrserker",
+            "name": "Perrserker",
             "shiny": false,
-            "ability": "Beads of Ruin",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "Steely Spirit",
+            "item": "Sitrus Berry",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -192,8 +193,11 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 60,
-            "moves": [],
+            "level": 100,
+            "moves": [
+                "Sunny Day",
+                "Fake Tears"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -209,9 +213,9 @@
     "turns": [
         {
             "id": 0,
-            "group": 1,
+            "group": 0,
             "moveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(No Move)",
                 "userID": 1,
                 "targetID": 0,
                 "options": {

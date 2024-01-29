@@ -858,7 +858,7 @@ export class RaidMove {
 
     private applySelfDamage() {
         if (this._user.hasAbility("Magic Guard")) { return; }
-        const selfDamage = Math.floor(this._user.maxHP() * (this.moveData.selfDamage || 0) / 100) / ((this._user.bossMultiplier || 100) / 100); 
+        const selfDamage = Math.floor((this._user.maxHP() * (this.moveData.selfDamage || 0) / 100) / ((this._user.bossMultiplier || 100) / 100)); 
         const lifeOrbDamage = (this._user.item === "Life Orb" && this._damage.reduce((a,b) => a + b, 0) > 0) ? Math.floor(this._user.maxHP() * 0.1) : 0;
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;

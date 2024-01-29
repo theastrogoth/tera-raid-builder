@@ -147,6 +147,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Moongeist Beam",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Moonlight",
             "learnMethod": "level-up"
         },

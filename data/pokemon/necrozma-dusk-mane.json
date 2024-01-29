@@ -263,6 +263,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Sunsteel Strike",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Swift",
             "learnMethod": "machine"
         },

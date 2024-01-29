@@ -3,7 +3,7 @@ import { getEndOfTurn } from "../calc/desc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
-import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName } from "../calc/data/interface";
+import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
 import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, hasNoStatus, getAccuracy, getBpModifier } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
@@ -58,6 +58,7 @@ export class RaidMove {
     _flingItem?: string;
     _powerHerbUsed?: boolean;
 
+    _moveType?: TypeName;
     _isSpread?: boolean;
     _damage!: number[];
     _healing!: number[];
@@ -122,6 +123,7 @@ export class RaidMove {
                 this._powerHerbUsed = true;
                 // this._raidState.loseItem(this.userID); // Power Herb is consumed after the move is used for the purposes of Symbiosis
             }
+            this.setMoveType();
             this.setDoesNotAffect();
             this.checkProtection();
             this.applyProtection();
@@ -196,6 +198,7 @@ export class RaidMove {
         // initialize arrays
         this._doesNotAffect = [undefined, undefined, undefined, undefined, undefined];
         this._causesFlinch = [false, false, false, false, false];
+        this._moveType = this.move.type;
         this._damage = [0,0,0,0,0];
         this._drain = [0,0,0,0,0];
         this._healing = [0,0,0,0,0];
@@ -252,10 +255,60 @@ export class RaidMove {
         else { this._affectedIDs = [this._targetID]; }
     }
 
+    private setMoveType() {
+        switch (this.move.name) {
+            case "Weather Ball":
+                const wbField = this._raidState.fields[this.userID];
+                this._moveType =
+                    wbField.hasWeather('Sun', 'Harsh Sunshine') && !this._user.hasItem("Utility Umbrella") ? 'Fire'
+                    : wbField.hasWeather('Rain', 'Heavy Rain') && !this._user.hasItem("Utility Umbrella") ? 'Water'
+                    : wbField.hasWeather('Sand') ? 'Rock'
+                    : wbField.hasWeather('Hail', 'Snow') ? 'Ice'
+                    : 'Normal';
+                break;
+            case "Judgment":
+                if (this._user.name.includes("Arceus")) {
+                    this._moveType = this._user.types[0];
+                }
+                break;
+            case "Revelation Dance": 
+                this._moveType = this._user.types[0];
+                break;
+            case "Aura Wheel":
+                this._moveType = this._user.named("Morpeko-Hangry") ? "Dark" : "Electric";
+                break;
+            case "Raging Bull":
+                this._moveType =  this._user.named("Tauros-Paldea-Combat") ? "Fighting" :
+                            this._user.named("Tauros-Paldea-Blaze") ? "Fire" :
+                            this._user.named("Tauros-Paldea-Aqua") ? "Water" :
+                            "Normal";
+                break;
+            case "Terrain Pulse":
+                const tpField = this._raidState.fields[this.userID];
+                this._moveType =  tpField.hasTerrain("Electric") ? "Electric" :
+                            tpField.hasTerrain("Grassy") ? "Grass" :
+                            tpField.hasTerrain("Psychic") ? "Psychic" :
+                            tpField.hasTerrain("Misty") ? "Fairy" :
+                            "Normal";
+                break;
+            case "Tera Blast":
+                this._moveType = (this._user.isTera && this._user.teraType) ? this._user.teraType : "Normal";
+                break;
+            case "Ivy Cudgel":
+                this._moveType =  this._user.named("Ogerpon-Wellspring") ? "Water" : 
+                            this._user.named("Ogerpon-Hearthflame") ? "Fire" :
+                            this._user.named("Ogerpon-Cornerstone") ? "Rock" :
+                            "Grass";
+                break;
+            case "Tera Starstorm":
+                this._moveType = this._user.named("Terapagos-Stellar") ? "Stellar" : "Normal";
+                break;
+        }
+    }
+
     private setDoesNotAffect() {
         this._blockedBy= ["", "", "", "", ""];
         if (["Attack Cheer", "Heal Cheer", "Defense Cheer", "Clear Boosts / Abilities", "Remove Negative Effects"].includes(this.moveData.name)) { return; }
-        const moveType = this.move.type;
         const category = this.move.category;
         const targetType = this.moveData.target
         const moveName = this.move.name;
@@ -294,51 +347,51 @@ export class RaidMove {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue; 
                 }
-                if (["Dry Skin", "Water Absorb"].includes(pokemon.ability || "") && moveType === "Water") { 
+                if (["Dry Skin", "Water Absorb"].includes(pokemon.ability || "") && this._moveType === "Water") { 
                     this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
                     this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
                     continue;
                 }
-                if (pokemon.ability === "Volt Absorb" && moveType === "Electric") { 
+                if (pokemon.ability === "Volt Absorb" && this._moveType === "Electric") { 
                     this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
                     this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
                     continue;
                 }
-                if (pokemon.ability === "Earth Eater" && moveType === "Ground") {
+                if (pokemon.ability === "Earth Eater" && this._moveType === "Ground") {
                     this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
                     this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
                     continue;
                 }
-                if (pokemon.ability === "Flash Fire" && moveType === "Fire") { 
+                if (pokemon.ability === "Flash Fire" && this._moveType === "Fire") { 
                     this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     this._raidState.getPokemon(id).abilityOn = true;
                     continue;
                 }
-                if (pokemon.ability === "Well-Baked Body" && moveType === "Fire") {
+                if (pokemon.ability === "Well-Baked Body" && this._moveType === "Fire") {
                     this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {def: 2};
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
-                if (pokemon.ability === "Sap Sipper" && moveType === "Grass") {
+                if (pokemon.ability === "Sap Sipper" && this._moveType === "Grass") {
                     this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {atk: 1};
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
-                if (pokemon.ability === "Motor Drive" && moveType === "Electric") {
+                if (pokemon.ability === "Motor Drive" && this._moveType === "Electric") {
                     this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {spe: 1};
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
-                if (pokemon.ability === "Storm Drain" && moveType === "Water") {
+                if (pokemon.ability === "Storm Drain" && this._moveType === "Water") {
                     this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {spa: 1};
                     this._raidState.applyStatChange(id, boost);
                     continue;
                 }
-                if (pokemon.ability === "Lightning Rod" && moveType === "Electric") {
+                if (pokemon.ability === "Lightning Rod" && this._moveType === "Electric") {
                     this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                     const boost = {spa: 1};
                     this._raidState.applyStatChange(id, boost);
@@ -353,7 +406,7 @@ export class RaidMove {
                     const boost = {atk: 1};
                     this._raidState.applyStatChange(id, boost);
                 }
-                if (pokemon.ability === "Levitate" && !pokemonIsGrounded(pokemon, field) && moveType === "Ground") { 
+                if (pokemon.ability === "Levitate" && !pokemonIsGrounded(pokemon, field) && this._moveType === "Ground") { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue;
                 }
@@ -361,27 +414,27 @@ export class RaidMove {
             // Type-based immunities
             const targetTypes = (pokemon.isTera && pokemon.teraType) ? [pokemon.teraType] : pokemon.types;
             if (category !== "Status" && pokemon.item !== "Ring Target") {
-                if (moveType === "Ground" && !pokemonIsGrounded(pokemon, field)) { 
+                if (this._moveType === "Ground" && !pokemonIsGrounded(pokemon, field)) { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
-                if (moveType === "Electric" && targetTypes.includes("Ground")) { 
+                if (this._moveType === "Electric" && targetTypes.includes("Ground")) { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name; 
                     continue;
                 }
-                if (["Normal", "Fighting"].includes(moveType || "") && targetTypes.includes("Ghost") && !(["Scrappy", "Mind's Eye"] as (AbilityName | undefined)[]).includes(this._user.ability)) {
+                if (["Normal", "Fighting"].includes(this._moveType || "") && targetTypes.includes("Ghost") && !(["Scrappy", "Mind's Eye"] as (AbilityName | undefined)[]).includes(this._user.ability)) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
-                if (moveType === "Ghost" && targetTypes.includes("Normal")) {
+                if (this._moveType === "Ghost" && targetTypes.includes("Normal")) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
-                if (moveType === "Dragon" && targetTypes.includes("Fairy")) {
+                if (this._moveType === "Dragon" && targetTypes.includes("Fairy")) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
-                if (moveType === "Psychic" && targetTypes.includes("Dark")) {
+                if (this._moveType === "Psychic" && targetTypes.includes("Dark")) {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
@@ -536,7 +589,7 @@ export class RaidMove {
                             if (calcMove.name === "False Swipe") {
                                 hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
                             }
-                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this.move.type, this.move.category, this.moveData.isWind);
+                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind);
                             totalDamage += hitDamage;
                             // remove buffs to user after damage
                             if (totalDamage > 0) {

@@ -1,6 +1,7 @@
 {
     "Blaziken": {
         "Mifrydon": "blaziken/main",
+        "Bellibolt T1": "blaziken/bellibolt",
         "Eeveelutions Celebrate the New Year": "blaziken/eevee_new_year",
         "Eeveelutions: Every Eevee Edition": "blaziken/every_eevee",
         "Spooky Puppies": "blaziken/spooky_puppies",
@@ -12,6 +13,13 @@
         "Zapped Chicken": "blaziken/zapped_chicken",
         "Cat and Maus": "blaziken/cat_and_maus",
         "Rotom-tisserie Chicken": "blaziken/rotom",
+        "Cream of Chicken": "blaziken/cream_of_chicken",
+        "Kleavor T3": "blaziken/kleavor",
+        "Mochi Mochi!": "blaziken/mochi",
+        "More Morpeking Duck": "blaziken/morpeking_duck",
+        "Skill Issue 2: Electric Boogaloo": "blaziken/skill_issue",
+        "Tackling The Problem Head On": "blaziken/head_on",
+        "Maybe Babies?": "blaziken/maybe_babies",
         "Rock-a-Bye Baby": "blaziken/rockabye"
     },
     "Walking Wake": {

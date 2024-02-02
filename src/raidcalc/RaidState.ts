@@ -1122,6 +1122,10 @@ export class RaidState implements State.RaidState{
         pokemon.randomBoosts = 0;
         pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
         pokemon.status = "";
+        pokemon.isSleep = 0;
+        pokemon.isFrozen = 0;
+        pokemon.isYawn = 0;
+        pokemon.syrupBombDrops = 0;
         pokemon.volatileStatus = [];
         pokemon.originalCurHP = 0;
         pokemon.isEndure = false;

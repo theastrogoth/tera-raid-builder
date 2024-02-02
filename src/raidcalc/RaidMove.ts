@@ -758,6 +758,10 @@ export class RaidMove {
                 this._healing[id] += roll === "min" ? Math.floor(maxHP * 0.2) : roll === "max" ? maxHP : Math.floor(maxHP * 0.6);
                 const pokemon = this.getPokemon(id);
                 pokemon.status = "";
+                pokemon.isFrozen = 0;
+                pokemon.isSleep = 0;
+                pokemon.isYawn = 0;
+                pokemon.syrupBombDrops = 0;
             } else if (this.move.name === "Swallow") {
                 // Swallow / Stockpile check
                 if (!target.stockpile) {

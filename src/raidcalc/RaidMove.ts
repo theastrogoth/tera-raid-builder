@@ -11,6 +11,7 @@ import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
 import rechargeMoves from "../data/recharge_moves.json";
 import magicBounceMoves from "../data/magicbounce_moves.json";
+import thawUserMoves from "../data/thaw_user_moves.json";
 
 export type RaidMoveResult= {
     state: RaidState;
@@ -219,7 +220,7 @@ export class RaidMove {
                 this._desc[this.userID] = this._user.name + " is fast asleep.";
                 this._user.isSleep--; // decrement sleep counter
                 return false;
-            } else if (this._user.isFrozen) {
+            } else if (this._user.isFrozen && !thawUserMoves.includes(this.move.name)) {
                 this._desc[this.userID] = this._user.name + " is frozen solid.";
                 this._user.isFrozen--; // decrement frozen counter;
                 return false;
@@ -945,13 +946,13 @@ export class RaidMove {
     }
 
     private applyPreDamageEffects()  {
-        const target = this.getPokemon(this._targetID);
-
-        const user_ability = this._user.ability as AbilityName;
-        const target_ability = target.ability as AbilityName;
+        if ((this._user.isFrozen || this._user.hasStatus("frz")) && thawUserMoves.includes(this.move.name)) {
+            this._user.status = "";
+            this._user.isFrozen = 0;
+        }
 
         if (this._doesNotAffect[this._targetID]) { return; }
-
+        
         switch (this.move.name) {
             case "Brick Break":
             case "Psychic Fangs":

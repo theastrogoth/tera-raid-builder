@@ -29,17 +29,16 @@
             "level": 100,
             "teraType": "Ice",
             "moves": [
-                "Blizzard",
-                "Hydro Pump",
-                "Steel Beam",
-                "Air Slash"
+                "Surf",
+                "Flash Cannon",
+                "Ice Beam",
+                "Grass Knot"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
                 "Snowscape",
-                "Mist",
-                "Swords Dance",
-                "Metal Sound"
+                "Blizzard",
+                "Iron Defense"
             ],
             "shieldData": {
                 "hpTrigger": 80,

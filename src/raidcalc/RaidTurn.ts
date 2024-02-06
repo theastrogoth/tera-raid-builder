@@ -11,7 +11,7 @@ const gen = Generations.get(9);
 
 export type RaidTurnResult = {
     state: RaidState;
-    results: [RaidMoveResult, RaidMoveResult];
+    results: RaidMoveResult[];
     raiderMovesFirst: boolean;
     raiderMoveUsed: string;
     bossMoveUsed: string;
@@ -55,6 +55,7 @@ export class RaidTurn {
 
     _result1!:        RaidMoveResult;
     _result2!:        RaidMoveResult;
+    _delayedResults!: RaidMoveResult[];
     _raidState!:      RaidState; // This tracks changes during this turn
 
     _flags!:          string[][]; 
@@ -95,6 +96,7 @@ export class RaidTurn {
 
         // copy the raid state
         this._raidState = this.raidState.clone();
+        this._delayedResults = [];
         this._flags = [[], [], [], [], []];
         this._endFlags = [];
 
@@ -225,6 +227,8 @@ export class RaidTurn {
         if (!this._isEmptyTurn) {
             this.removeProtection();
             if (!this._isBossAction) {
+                // delayed moves (Protect doesn't apply)
+                this.countdownDelayedMoves();
                 // item effects
                 this.applyEndOfTurnItemEffects();
                 // ability effects
@@ -282,7 +286,7 @@ export class RaidTurn {
 
         return {
             state: this._raidState,
-            results: [this._result1, this._result2],
+            results: [this._result1, this._result2, ...this._delayedResults],
             raiderMovesFirst: this._raiderMovesFirst,
             raiderMoveUsed: this._raiderMoveUsed + (this._raidState.raiders[this.raiderID].isCharging ? " (Charging)" : ""),
             bossMoveUsed: this._bossMoveUsed + (this._raidState.raiders[0].isCharging ? " (Charging)" : ""),
@@ -523,6 +527,39 @@ export class RaidTurn {
                         }
                         break;
                     default: break
+                }
+            }
+        }
+    }
+
+    private countdownDelayedMoves() {
+        for (let id of [0, this.raiderID]) { // Not worrying about speed order for now
+            const pokemon = this._raidState.raiders[id];
+            if (pokemon.delayedMoveCounter) {
+                pokemon.delayedMoveCounter--;
+                if (pokemon.delayedMoveCounter === 0) {
+                    if (pokemon.originalCurHP > 0) {
+                        const delayedMove = new RaidMove(
+                            pokemon.delayedMove!,
+                            new Move(gen, pokemon.delayedMove!.name),
+                            this._raidState,
+                            pokemon.delayedMoveSource!,
+                            pokemon.id,
+                            pokemon.delayedMoveSource!,
+                            true,
+                            pokemon.delayedMoveOptions!,
+                            false,
+                            false,
+                            false,
+                            true,
+                        );
+                        const delayedMoveResult = delayedMove.result();
+                        this._raidState = delayedMoveResult.state;
+                        this._delayedResults.push(delayedMoveResult);
+                    }
+                    pokemon.delayedMove = undefined;
+                    pokemon.delayedMoveSource = undefined;
+                    pokemon.delayedMoveCounter = undefined;
                 }
             }
         }

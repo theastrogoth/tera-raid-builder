@@ -52,6 +52,11 @@ export class Raider extends Pokemon implements State.Raider {
 
     slowStartCounter?: number; // stores the number of turns left for Slow Start
 
+    delayedMoveCounter?: number;
+    delayedMoveSource?: number;
+    delayedMoveOptions?: State.RaidMoveOptions;
+    delayedMove?: State.MoveData;
+
     constructor(
         id: number, 
         role: string, 
@@ -88,6 +93,10 @@ export class Raider extends Pokemon implements State.Raider {
         originalMoves: State.MoveData[] | undefined = undefined,
         originalFormAbility: AbilityName | "(No Ability)" | undefined = undefined,
         slowStartCounter: number | undefined = undefined,
+        delayedMoveCounter: number | undefined = undefined,
+        delayedMoveSource: number | undefined = undefined,
+        delayedMoveOptions: State.RaidMoveOptions | undefined = undefined,
+        delayedMove: State.MoveData | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -124,6 +133,10 @@ export class Raider extends Pokemon implements State.Raider {
         this.originalMoves = originalMoves;
         this.originalFormAbility = originalFormAbility || pokemon.ability || "(No Ability)";
         this.slowStartCounter = slowStartCounter;
+        this.delayedMoveCounter = delayedMoveCounter;
+        this.delayedMoveSource = delayedMoveSource;
+        this.delayedMoveOptions = delayedMoveOptions;
+        this.delayedMove = delayedMove;
     }
 
     clone(): Raider {
@@ -198,6 +211,10 @@ export class Raider extends Pokemon implements State.Raider {
             this.originalMoves,
             this.originalFormAbility,
             this.slowStartCounter,
+            this.delayedMoveCounter,
+            this.delayedMoveSource,
+            this.delayedMoveOptions,
+            this.delayedMove,
         )
     }
 

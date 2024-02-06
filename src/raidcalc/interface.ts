@@ -141,6 +141,10 @@ export interface Raider extends Pokemon {
     originalSpecies?: SpeciesName;
     originalMoves?: MoveData[];
     slowStartCounter?: number;
+    delayedMoveCounter?: number;
+    delayedMoveSource?: number;
+    delayedMoveOptions?: RaidMoveOptions;
+    delayedMove?: MoveData;
 }
 
 export interface RaidState {

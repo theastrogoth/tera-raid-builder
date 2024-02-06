@@ -1138,6 +1138,10 @@ export class RaidState implements State.RaidState{
         pokemon.moveData = pokemon.originalMoves || pokemon.moveData;
         pokemon.moves = pokemon.moveData.map(m => m.name);
         
+        pokemon.delayedMoveCounter = undefined;
+        pokemon.delayedMoveSource = undefined;
+        pokemon.delayedMove = undefined;
+        
         // remove ability effects that are removed upon fainting
         this.removeAbilityFieldEffect(id, ability);
     }

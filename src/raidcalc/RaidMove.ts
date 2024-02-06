@@ -44,6 +44,7 @@ export class RaidMove {
     isBossAction?: boolean;
     flinch?: boolean;
     damaged?: boolean;
+    delayed?: boolean;
 
     _raidState!: RaidState;
     _raiders!: Raider[];
@@ -69,7 +70,7 @@ export class RaidMove {
     _desc!: string[];
     _flags!: string[][];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean) {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean, delayed?: boolean) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
@@ -81,6 +82,7 @@ export class RaidMove {
         this.isBossAction = isBossAction || false;
         this.flinch = flinch || false;
         this.damaged = damaged || false;
+        this.delayed = delayed || false;
         this.hits = this.move.category === "Status" ? 0 : Math.max(this.moveData.minHits || 1, Math.min(this.moveData.maxHits || 1, this.options.hits || 1));
         this.hits = this.raidState.raiders[this.userID].ability === "Skill Link" ? (this.moveData.maxHits || 1) : this.hits;
     }
@@ -114,6 +116,20 @@ export class RaidMove {
         } else if (this._user.isRecharging) {
             this._user.isRecharging = false;
             this._desc[this.userID] = this._user.name + " is recharging!";
+        } else if (!this.delayed && (this.move.name === "Future Sight" || this.move.name === "Doom Desire")) { // Delayed move check
+            const target = this.getPokemon(this._targetID);
+            if (target.delayedMoveCounter) {
+                this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
+            } else {
+                target.delayedMoveCounter = 3;
+                target.delayedMoveSource = this.userID;
+                target.delayedMove = this.moveData;
+                if (this.moveData.name === "Future Sight") {
+                    this._desc[this.userID] = this._user.name + " forsaw an attack!";
+                } else {
+                    this._desc[this.userID] = this._user.name + " chose Doom Desire as its destiny!";
+                }
+            }
         } else {
             if (!this._user.isCharging && 
                 chargeMoves.includes(this.move.name) && 

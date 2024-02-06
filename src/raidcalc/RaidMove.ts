@@ -1121,6 +1121,25 @@ export class RaidMove {
                     this._desc[this._targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
+            case "Doodle":
+                if (!this._user.hasItem("Ability Shield") &&
+                    !persistentAbilities["uncopyable"].includes(target_ability) &&
+                    !persistentAbilities["unreplaceable"].includes(user_ability)) 
+                {           
+                    this._raidState.changeAbility(this.userID, target_ability);
+                    if (this.userID !== 0) {
+                        for (let i=1; i<5; i++) {
+                            const pokemon = this.getPokemon(i);
+                            if (i !== this.userID &&
+                                !pokemon.hasItem("Ability Shield") &&
+                                !persistentAbilities["unreplaceable"].includes(pokemon.ability || ""))
+                            {
+                                this._raidState.changeAbility(i, target_ability);
+                            }
+                        }
+                    }
+                }
+                break;
         /// Type-affecting moves
             case "Soak":
                 if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Water")) {

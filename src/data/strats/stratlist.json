@@ -1,4 +1,11 @@
 {
+    "Empoleon":  {
+        "Death and Taxes": "empoleon/main",
+        "Eeveelutions Dethrone the Emperor": "empoleon/eeveelutions",
+        "Psyching Up and Striking Down": "empoleon/psych_strike",
+        "Simple Spice Steel": "empoleon/simple_spice_steel",
+        "Armarouge Army": "empoleon/armarouge_army"
+    },
     "Blaziken": {
         "Mifrydon": "blaziken/main",
         "Bellibolt T1": "blaziken/bellibolt",

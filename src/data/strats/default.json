@@ -8,6 +8,7 @@
             "role": "Empoleon",
             "name": "Empoleon",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Competitive",
             "nature": "Modest",
             "evs": {
@@ -27,18 +28,20 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "teraType": "Ice",
             "moves": [
+                "Ice Beam",
                 "Surf",
                 "Flash Cannon",
-                "Ice Beam",
                 "Grass Knot"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
                 "Snowscape",
                 "Blizzard",
-                "Iron Defense"
+                "Iron Defense",
+                "(No Move)"
             ],
             "shieldData": {
                 "hpTrigger": 80,
@@ -54,11 +57,12 @@
             "role": "Gholdengo",
             "name": "Gholdengo",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Good as Gold",
             "item": "Life Orb",
             "nature": "Modest",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
@@ -74,6 +78,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
                 "Nasty Plot",
                 "Make It Rain"
@@ -91,18 +96,19 @@
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Chansey",
+            "name": "Chansey",
             "shiny": false,
-            "ability": "Synchronize",
-            "item": "Sitrus Berry",
-            "nature": "Calm",
+            "isAnyLevel": false,
+            "ability": "Natural Cure",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -114,6 +120,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "F",
             "moves": [
                 "Skill Swap"
             ],
@@ -133,6 +140,7 @@
             "role": "Perrserker",
             "name": "Perrserker",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Steely Spirit",
             "item": "Sitrus Berry",
             "nature": "Calm",
@@ -153,9 +161,10 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Sunny Day",
-                "Fake Tears"
+                "Fake Tears",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -173,6 +182,7 @@
             "role": "Perrserker",
             "name": "Perrserker",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Steely Spirit",
             "item": "Sitrus Berry",
             "nature": "Calm",
@@ -193,9 +203,10 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Sunny Day",
-                "Fake Tears"
+                "Fake Tears",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],

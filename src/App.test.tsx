@@ -1251,6 +1251,26 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blaziken/rockabye.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('empoleon/main', async () => {
+    const module = await import(`./data/strats/empoleon/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('empoleon/eeveelutions', async () => {
+    const module = await import(`./data/strats/empoleon/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('empoleon/psych_strike', async () => {
+    const module = await import(`./data/strats/empoleon/psych_strike.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('empoleon/simple_spice_steel', async () => {
+    const module = await import(`./data/strats/empoleon/simple_spice_steel.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('empoleon/armarouge_army', async () => {
+    const module = await import(`./data/strats/empoleon/armarouge_army.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

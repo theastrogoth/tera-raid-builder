@@ -131,6 +131,7 @@ export interface Raider extends Pokemon {
     teraCharge?: number;    // stored for Tera activation check
     shieldActivateHP?: number;
     shieldBroken?: boolean;
+    substitute?: number; // store substitute's HP
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
     nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
     originalAbility?: AbilityName | "(No Ability)"; // stores ability when nullified

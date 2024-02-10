@@ -4,6 +4,7 @@ import { extend } from '../calc/util';
 import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";
 import { getModifiedStat } from "../calc/mechanics/util";
+import { DarkMode } from "@mui/icons-material";
 
 const gen = Generations.get(9);
 
@@ -34,6 +35,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     shieldActivateHP?: number;
     shieldBroken?: boolean;
+    substitute?: number;
 
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
     nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
@@ -81,6 +83,7 @@ export class Raider extends Pokemon implements State.Raider {
         teraCharge: number | undefined = 0, 
         shieldActivateHP: number | undefined = undefined, 
         shieldBroken: boolean | undefined = undefined, 
+        substitute: number | undefined = undefined,
         abilityNullified: number | undefined = 0, 
         nullifyAbilityOn: boolean | undefined = undefined,
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
@@ -121,6 +124,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.teraCharge = teraCharge;
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
+        this.substitute = substitute;
         this.abilityNullified = abilityNullified;
         this.nullifyAbilityOn = nullifyAbilityOn;
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
@@ -199,6 +203,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.teraCharge,
             this.shieldActivateHP,
             this.shieldBroken,
+            this.substitute,
             this.abilityNullified,
             this.nullifyAbilityOn,
             this.originalAbility,
@@ -235,9 +240,13 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public applyDamage(damage: number): number { 
-        this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
-        if (this.isEndure && this.originalCurHP === 0) {
-            this.originalCurHP = 1;
+        if (this.substitute) {
+            this.substitute = Math.max(0, this.substitute - damage) === 0 ? undefined : Math.max(0, this.substitute - damage)
+        } else {
+            this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
+            if (this.isEndure && this.originalCurHP === 0) {
+                this.originalCurHP = 1;
+            }
         }
         return this.originalCurHP;
     }

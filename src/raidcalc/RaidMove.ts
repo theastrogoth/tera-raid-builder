@@ -1394,6 +1394,13 @@ export class RaidMove {
             case "Endure":
                 this._user.isEndure = true;
                 break;
+            case "Substitute":
+                const substituteHP = Math.floor(this._user.maxHP() / 4);
+                if (this._user.originalCurHP > substituteHP && this._user.substitute == undefined) {
+                    this._user.originalCurHP -= substituteHP;
+                    this._user.substitute = substituteHP
+                }
+                break;
             case "Psych Up":
                 for (let stat in target.boosts) {
                     const statId = stat as StatIDExceptHP;

@@ -820,7 +820,7 @@ export class RaidMove {
         const affectedIDs = category === "damage+raise" ? [this.userID] : this._affectedIDs;
         let statChanges = this.moveData.statChanges;
         // handle Growth
-        if (this.move.name === "Growth" && this._fields[this.userID].weather?.includes("Sun")) { statChanges = [{stat: "atk", change: 2}, {stat: "spa", change: 2}]; }
+        if (this.move.name === "Growth" && this._fields[this.userID].weather?.includes("Sun") && !this._fields[this.userID].isCloudNine) { statChanges = [{stat: "atk", change: 2}, {stat: "spa", change: 2}]; }
         // handle Curse
         if (this.move.name === "Curse" && this._raiders[this.userID].hasType("Ghost")) { return; } // no stat changes
         const chance = (this.moveData.statChance || 100) * (this._raiders[this.userID].hasAbility("Serene Grace") ? 2 : 1);

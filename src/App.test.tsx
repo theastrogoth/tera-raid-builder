@@ -1271,6 +1271,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/empoleon/armarouge_army.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('venusaur/main', async () => {
+    const module = await import(`./data/strats/venusaur/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

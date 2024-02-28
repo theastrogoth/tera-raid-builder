@@ -1,7 +1,7 @@
 {
-    "name": "",
+    "name": "Cloud Nine, Hammer Time!",
     "notes": "",
-    "credits": "",
+    "credits": "The r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
@@ -239,7 +239,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -248,10 +248,10 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -265,7 +265,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -274,10 +274,10 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -291,7 +291,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -300,10 +300,218 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 2,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 2,
+            "moveInfo": {
+                "name": "Belly Drum",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Sludge Bomb",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 4,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 4,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 4,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 4,
+            "moveInfo": {
+                "name": "Wood Hammer",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
@@ -313,9 +521,23 @@
             5,
             0,
             2
+        ],
+        [
+            9,
+            7,
+            8,
+            6
+        ],
+        [
+            1,
+            3,
+            4,
+            10
         ]
     ],
     "repeats": [
+        1,
+        1,
         1
     ],
     "substitutes": [

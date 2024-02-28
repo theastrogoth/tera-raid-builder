@@ -1,5 +1,8 @@
 {
-    "Empoleon":  {
+    "Venusaur": {
+        "Cloud Nine, Hammer Time": "venusaur/main"
+    },
+    "Empoleon": {
         "Death and Taxes": "empoleon/main",
         "Eeveelutions Dethrone the Emperor": "empoleon/eeveelutions",
         "Psyching Up and Striking Down": "empoleon/psych_strike",

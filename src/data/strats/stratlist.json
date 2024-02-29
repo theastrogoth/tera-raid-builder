@@ -4,10 +4,19 @@
     },
     "Empoleon": {
         "Death and Taxes": "empoleon/main",
+        "Crabominable T1.5": "empoleon/crab",
         "Eeveelutions Dethrone the Emperor": "empoleon/eeveelutions",
         "Psyching Up and Striking Down": "empoleon/psych_strike",
+        "Weezing and the Cats": "empoleon/weezing",
         "Simple Spice Steel": "empoleon/simple_spice_steel",
-        "Armarouge Army": "empoleon/armarouge_army"
+        "Doodling in Spirit": "empoleon/doodling",
+        "Mythicals": "empoleon/mythicals",
+        "Mythical Mayhem": "empoleon/mythical_mayhem",
+        "Fire and Water": "empoleon/fire_and_water",
+        "Hisuian Hijinks": "empoleon/hisui_hijinks",
+        "Armarouge Army": "empoleon/armarouge_army",
+        "Year of the Dragon": "empoleon/dragon",
+        "Creepy Crawlies": "empoleon/creepy_crawlies"
     },
     "Blaziken": {
         "Mifrydon": "blaziken/main",

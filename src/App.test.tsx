@@ -1253,23 +1253,59 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('empoleon/main', async () => {
     const module = await import(`./data/strats/empoleon/main.json`)
-    await testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empoleon/crab', async () => {
+    const module = await import(`./data/strats/empoleon/crab.json`)
+    await testOHKO(module as LightBuildInfo); 
   })
   test('empoleon/eeveelutions', async () => {
     const module = await import(`./data/strats/empoleon/eeveelutions.json`)
-    await testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo); 
   })
   test('empoleon/psych_strike', async () => {
     const module = await import(`./data/strats/empoleon/psych_strike.json`)
-    await testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empoleon/weezing', async () => {
+    const module = await import(`./data/strats/empoleon/weezing.json`)
+    await testOHKO(module as LightBuildInfo); 
   })
   test('empoleon/simple_spice_steel', async () => {
     const module = await import(`./data/strats/empoleon/simple_spice_steel.json`)
-    await testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empoleon/doodling', async () => {
+    const module = await import(`./data/strats/empoleon/doodling.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empoleon/mythicals', async () => {
+    const module = await import(`./data/strats/empoleon/mythicals.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empleon/mythical_mayhem', async () => {
+    const module = await import(`./data/strats/empoleon/mythical_mayhem.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empoleon/fire_and_water', async () => {
+    const module = await import(`./data/strats/empoleon/fire_and_water.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empleon/hisui_hijinks', async () => {
+    const module = await import(`./data/strats/empoleon/hisui_hijinks.json`)
+    await testOHKO(module as LightBuildInfo); 
   })
   test('empoleon/armarouge_army', async () => {
     const module = await import(`./data/strats/empoleon/armarouge_army.json`)
-    await testOHKO(module as LightBuildInfo);
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empoleon/dragon', async () => {
+    const module = await import(`./data/strats/empoleon/dragon.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('empleon/creepy_crawlies', async () => {
+    const module = await import(`./data/strats/empoleon/creepy_crawlies.json`)
+    await testOHKO(module as LightBuildInfo); 
   })
   test('venusaur/main', async () => {
     const module = await import(`./data/strats/venusaur/main.json`)

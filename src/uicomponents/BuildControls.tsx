@@ -206,10 +206,6 @@ function ivsToString(ivs: StatsTable) {
             ivs.spe.toString();
 }
 
-const filterSetOptions = createFilterOptions({
-    stringify: (option: SetOption) => option.pokemon + " " + option.name
-});
-
 function makeSubstituteInfo(pokemon: Raider, groups: TurnGroupInfo[]) {
     const newRaider = pokemon.clone();
     const newSubstituteMoves: MoveName[] = [];
@@ -837,6 +833,9 @@ export function SetLoadGroupHeader({pokemon, translationKey}: {pokemon: SpeciesN
 }
 
 function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 150}, translationKey}: {setOptions: SetOption[], loadSet: (opt: SetOption) => Promise<void>, placeholder?: string, sx?: SxProps<Theme>, translationKey: any}) {
+    const filterSetOptions = createFilterOptions({
+        stringify: (option: SetOption) => getTranslation(option.pokemon, translationKey, "pokemon") + " " + option.name
+    });
     return (
         <Autocomplete 
             disablePortal
@@ -1731,6 +1730,11 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
         ));
     }
 
+    const [sortedBossOptions, setSortedBossOptions] = useState(bossSetOptions);
+    useEffect(() => {
+        setSortedBossOptions(bossSetOptions.sort((a,b) => (getTranslation(a.pokemon, translationKey, "pokemon") + a.name) < (getTranslation(b.pokemon, translationKey, "pokemon") + b.name) ? -1 : 1));
+    }, [translationKey])
+
     return (
         <Box justifyContent="center" alignItems="top" width="300px">
             <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 1 }}>
@@ -1751,7 +1755,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                                 </LeftCell>
                                 <RightCell sx={{ paddingBottom: 2 }}>
                                     <SetLoadField
-                                        setOptions={bossSetOptions}
+                                        setOptions={sortedBossOptions}
                                         loadSet={loadSet}
                                         placeholder={getTranslation("Load Boss Set", translationKey)}
                                         translationKey={translationKey}

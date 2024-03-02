@@ -281,6 +281,8 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+        // Final Check for fainting
+        if (fainted) { this.faint(id); }
     }
 
     public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {

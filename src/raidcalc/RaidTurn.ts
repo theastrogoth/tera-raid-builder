@@ -424,6 +424,9 @@ export class RaidTurn {
         }
         // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
         // Instruct
+        if (this.raiderMoveData.name === "Instruct") {
+            console.log("Instruct Details -- ", this.targetID, this.raidState.raiders[this.targetID].lastMove, this.raidState.raiders[this.targetID].lastTarget);
+        }
         if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
             if (!this.raidState.raiders[this.targetID].isCharging && !this.raidState.raiders[this.targetID].isRecharging) {
                 this._raiderMoveID = this.targetID;

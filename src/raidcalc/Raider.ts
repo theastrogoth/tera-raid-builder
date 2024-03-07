@@ -35,6 +35,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     shieldActivateHP?: number;
     shieldBroken?: boolean;
+    shieldBreakStun?: boolean[];
     substitute?: number;
 
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
@@ -83,6 +84,7 @@ export class Raider extends Pokemon implements State.Raider {
         teraCharge: number | undefined = 0, 
         shieldActivateHP: number | undefined = undefined, 
         shieldBroken: boolean | undefined = undefined, 
+        shieldBreakStun: boolean[] | undefined = undefined,
         substitute: number | undefined = undefined,
         abilityNullified: number | undefined = 0, 
         nullifyAbilityOn: boolean | undefined = undefined,
@@ -124,6 +126,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.teraCharge = teraCharge;
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
+        this.shieldBreakStun = shieldBreakStun;
         this.substitute = substitute;
         this.abilityNullified = abilityNullified;
         this.nullifyAbilityOn = nullifyAbilityOn;
@@ -203,6 +206,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.teraCharge,
             this.shieldActivateHP,
             this.shieldBroken,
+            this.shieldBreakStun,
             this.substitute,
             this.abilityNullified,
             this.nullifyAbilityOn,
@@ -317,7 +321,7 @@ export class Raider extends Pokemon implements State.Raider {
             if (this.originalCurHP < breakHP) {
                 this.shieldActive = false;
                 this.shieldBroken = true;
-                // TODO: adjust damage overflow from breaking shield?
+                this.shieldBreakStun = [true, true, true, true];
             }
         }
     }

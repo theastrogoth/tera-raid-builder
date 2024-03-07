@@ -97,6 +97,13 @@ export class RaidMove {
         this.setAffectedPokemon();
         if (this.flinch) { // prevent moving upon flinch
             this._desc[this.userID] = this._user.name + " flinched!";
+        } else if ( // prevent the boss from moving if it's shield has just been broken
+            this.userID === 0 && 
+            this._user.shieldBreakStun &&
+            this._user.shieldBreakStun![this._targetID-1]
+        ) {
+            this._desc[this.userID] = this._user.name + " is stunned after having its shield broken!";         
+            this._user.shieldBreakStun![this._targetID-1] = false;           
         } else if ( // don't move yet for charge moves
             !this._user.isCharging &&
             chargeMoves.includes(this.move.name) &&

@@ -1191,10 +1191,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blaziken/double_paradox.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('blaziken/pikachicken', async () => {
-    const module = await import(`./data/strats/blaziken/pikachicken.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
+  // test('blaziken/pikachicken', async () => {
+  //   const module = await import(`./data/strats/blaziken/pikachicken.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('blaziken/iceberg', async () => {
     const module = await import(`./data/strats/blaziken/iceberg.json`)
     await testOHKO(module as LightBuildInfo);

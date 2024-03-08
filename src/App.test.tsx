@@ -1395,6 +1395,14 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blastoise/armada.json`)
     await testOHKO(module as LightBuildInfo); 
   })
+  test('blastoise/fiery_entertainment', async () => {
+    const module = await import(`./data/strats/blastoise/fiery_entertainment.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/all_aquatic_showdown', async () => {
+    const module = await import(`./data/strats/blastoise/all_aquatic_showdown.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
 })
 
 

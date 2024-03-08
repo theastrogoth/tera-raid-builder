@@ -1311,6 +1311,90 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/venusaur/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('venusaur/eeveelutions', async () => {
+    const module = await import(`./data/strats/venusaur/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/giraffic_bark', async () => {
+    const module = await import(`./data/strats/venusaur/giraffic_bark.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/winter_migration', async () => {
+    const module = await import(`./data/strats/venusaur/winter_migration.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/faceplant', async () => {
+    const module = await import(`./data/strats/venusaur/faceplant.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/godilla_vs_biollante', async () => {
+    const module = await import(`./data/strats/venusaur/godzilla_vs_biollante.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/mirrored', async () => {
+    const module = await import(`./data/strats/venusaur/mirrored.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/sir_clod', async () => {
+    const module = await import(`./data/strats/venusaur/sir_clod.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/tumbleweed_whipping', async () => {
+    const module = await import(`./data/strats/venusaur/tumbleweed_whipping.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/virizion_wireless', async () => {
+    const module = await import(`./data/strats/venusaur/virizion_wireless.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/woodland_magic_show', async () => {
+    const module = await import(`./data/strats/venusaur/woodland_magic_show.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/mimikyu_bonks_the_venu', async () => {
+    const module = await import(`./data/strats/venusaur/mimikyu_bonks_the_venu.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/dozing_off_to_venus', async () => {
+    const module = await import(`./data/strats/venusaur/dozing_off_to_venus.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/giving_zen_their_flowers', async () => {
+    const module = await import(`./data/strats/venusaur/giving_zen_their_flowers.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/froggy_forest', async () => {
+    const module = await import(`./data/strats/venusaur/froggy_forest.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/main', async () => {
+    const module = await import(`./data/strats/blastoise/main.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/gastroporeon', async () => {
+    const module = await import(`./data/strats/blastoise/gastroporeon.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/soak_up_the_sun', async () => {
+    const module = await import(`./data/strats/blastoise/soak_up_the_sun.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/topsy_turvying_up_the_heat', async () => {
+    const module = await import(`./data/strats/blastoise/topsy_turvying_up_the_heat.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/edgelord', async () => {
+    const module = await import(`./data/strats/blastoise/edgelord.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/gallades_sacred_slash', async () => {
+    const module = await import(`./data/strats/blastoise/gallades_sacred_slash.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/armada', async () => {
+    const module = await import(`./data/strats/blastoise/armada.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
 })
 
 

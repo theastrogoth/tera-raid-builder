@@ -1,9 +1,29 @@
 {
     "Blastoise": {
-        "Firefox Forecast": "blastoise/main"
+        "Firefox Forecast": "blastoise/main",
+        "Gastroporeon": "blastoise/gastroporeon",
+        "Soak Up the Sun": "blastoise/soak_up_the_sun",
+        "Topsy-Turvying Up the Heat": "blastoise/topsy_turvying_up_the_heat",
+        "Edgelord T3": "blastoise/edgelord",
+        "Gallade's Sacred Slash!": "blastoise/gallades_sacred_slash",
+        "Armada!": "blastoise/armada"
     },
     "Venusaur": {
-        "Cloud Nine, Hammer Time": "venusaur/main"
+        "Cloud Nine, Hammer Time": "venusaur/main",
+        "Team Eeveelutions Dance in the Sun": "venusaur/eeveelutions",
+        "Giraffic Bark": "venusaur/giraffic_bark",
+        "Winter Migration": "venusaur/winter_migration",
+        "Faceplant": "venusaur/faceplant",
+        "Godzilla vs. Biollante": "venusaur/godzilla_vs_biollante",
+        "Mirrored": "venusaur/mirrored",
+        "Sir Clod Joins a Fight Club": "venusaur/sir_clod",
+        "Tumbleweed Whipping": "venusaur/tumbleweed_whipping",
+        "Virizion Wireless": "venusaur/virizion_wireless",
+        "Woodland Magic Show": "venusaur/woodland_magic_show",
+        "Mimikyu Bonks the Venu!": "venusaur/mimikyu_bonks_the_venu",
+        "Dozing off to Venus...": "venusaur/dozing_off_to_venus",
+        "Giving Zen and PSY Their Flowers": "venusaur/giving_zen_their_flowers",
+        "Lost in a Froggy Forest": "venusaur/froggy_forest"
     },
     "Empoleon": {
         "Death and Taxes": "empoleon/main",

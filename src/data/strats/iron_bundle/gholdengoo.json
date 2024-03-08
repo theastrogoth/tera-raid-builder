@@ -1,15 +1,16 @@
 {
-    "name": "Pikachicken",
-    "notes": "Charjabug has an extremely low chance of fainting to double high-roll crits + T1 burn.",
-    "credits": "u/ChrisReturns",
+    "name": "Gholdengoo (T4 Duo)",
+    "notes": "- Goodra should host so that the NPC Defense Cheer is active before Gholdengo moves.\n- In the worst case, Gholdengo is safe as long as Iron Bundle doesn't crit 3+ times.\n- Sliggoo can sub for Goodra and just needs to avoid getting frozen on Turn 1.",
+    "credits": "u/Allons-yAl0nso and u/ChrisReturns",
     "pokemon": [
         {
             "id": 0,
-            "role": "Blaziken",
-            "name": "Blaziken",
+            "role": "Raid Boss",
+            "name": "Iron Bundle",
             "shiny": false,
-            "ability": "Speed Boost",
-            "nature": "Adamant",
+            "isAnyLevel": false,
+            "ability": "Quark Drive",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,44 +29,44 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Flying",
+            "teraType": "Ice",
             "moves": [
-                "Blaze Kick",
-                "Brave Bird",
-                "Earthquake",
-                "Low Kick"
+                "Freeze-Dry",
+                "Hydro Pump",
+                "Blizzard",
+                "Chilling Water"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Overheat",
-                "Rock Slide",
-                "Swords Dance",
-                "Bulk Up"
+                "Snowscape",
+                "Aurora Veil",
+                "Electric Terrain"
             ],
             "shieldData": {
                 "hpTrigger": 80,
                 "timeTrigger": 80,
                 "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "shieldDamageRateTera": 75,
+                "shieldDamageRateTeraChange": 35
             }
         },
         {
             "id": 1,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Ghogurt",
+            "name": "Gholdengo",
             "shiny": false,
-            "ability": "Lightning Rod",
-            "item": "Focus Sash",
-            "nature": "Timid",
+            "isAnyLevel": false,
+            "ability": "Good as Gold",
+            "item": "Life Orb",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -78,8 +79,8 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Charge",
-                "Thunderbolt"
+                "Nasty Plot",
+                "Make It Rain"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -94,18 +95,19 @@
         },
         {
             "id": 2,
-            "role": "Charjabug",
-            "name": "Charjabug",
+            "role": "Googurt",
+            "name": "Goodra-Hisui",
             "shiny": false,
-            "ability": "Battery",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "isAnyLevel": false,
+            "ability": "Shell Armor",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -119,7 +121,8 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Spark"
+                "Sunny Day",
+                "Acid Spray"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -134,16 +137,16 @@
         },
         {
             "id": 3,
-            "role": "Oranguru",
-            "name": "Oranguru",
+            "role": "NPC",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Symbiosis",
-            "item": "Light Ball",
-            "nature": "Bold",
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -172,13 +175,14 @@
         },
         {
             "id": 4,
-            "role": "Umbreon",
+            "role": "NPC",
             "name": "Umbreon",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -195,9 +199,7 @@
             },
             "level": 100,
             "gender": "N",
-            "moves": [
-                "Fake Tears"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -212,7 +214,85 @@
     ],
     "turns": [
         {
+            "id": 10,
+            "group": 0,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Snowscape",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 0,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Aurora Veil",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
             "id": 0,
+            "group": 1,
+            "moveInfo": {
+                "name": "Sunny Day",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 6,
             "group": 1,
             "moveInfo": {
                 "name": "Defense Cheer",
@@ -221,7 +301,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -230,25 +310,25 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
             "id": 1,
-            "group": 0,
+            "group": 2,
             "moveInfo": {
-                "name": "Spark",
-                "userID": 2,
-                "targetID": 1,
+                "name": "Nasty Plot",
+                "userID": 1,
+                "targetID": 0,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -256,24 +336,24 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
             "id": 2,
-            "group": 0,
+            "group": 3,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 4,
+                "name": "Acid Spray",
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -282,24 +362,24 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
             "id": 3,
-            "group": 0,
+            "group": 3,
             "moveInfo": {
-                "name": "Charge",
+                "name": "Nasty Plot",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -308,76 +388,24 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
             "id": 4,
-            "group": 2,
+            "group": 4,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 2,
-            "moveInfo": {
-                "name": "Spark",
+                "name": "Acid Spray",
                 "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 2,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -386,24 +414,24 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
-            "id": 7,
-            "group": 3,
+            "id": 8,
+            "group": 4,
             "moveInfo": {
-                "name": "Thunderbolt",
+                "name": "Heal Cheer",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -412,33 +440,97 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 5,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 6,
+            "moveInfo": {
+                "name": "Make It Rain",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }
     ],
     "groups": [
         [
-            0
+            10,
+            9
         ],
         [
-            1,
+            0,
+            6
+        ],
+        [
+            1
+        ],
+        [
             2,
             3
         ],
         [
             4,
-            6,
-            5
+            8
         ],
         [
             7
+        ],
+        [
+            5
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
         1,
         1,
         1,
@@ -446,7 +538,53 @@
     ],
     "substitutes": [
         [],
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Googurt",
+                    "name": "Sliggoo-Hisui",
+                    "shiny": false,
+                    "ability": "Shell Armor",
+                    "item": "Eviolite",
+                    "nature": "Calm",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 252,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Sunny Day",
+                        "Acid Spray"
+                    ]
+                },
+                "substituteMoves": [
+                    "Sunny Day",
+                    "Acid Spray",
+                    "Acid Spray",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
         [],
         []
     ]

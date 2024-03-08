@@ -1151,6 +1151,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/iron_bundle/turtle.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('iron_bundle/gholdengoo', async () => {
+    const module = await import(`./data/strats/iron_bundle/gholdengoo.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('iron_bundle/eeveelution', async () => {
     const module = await import(`./data/strats/iron_bundle/eeveelution.json`)
     await testOHKO(module as LightBuildInfo);

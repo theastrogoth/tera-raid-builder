@@ -6,6 +6,7 @@ import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json";
 import triageMoves from "../data/triage_moves.json";
 import { MoveName, SpeciesName } from "../calc/data/interface";
+import { isRegularMove } from "./util";
 
 const gen = Generations.get(9);
 
@@ -354,9 +355,11 @@ export class RaidTurn {
             const testMove = new Move(9, this.bossMoveData.name, this.bossOptions);
             if (testMove.category === "Status" && !["Clear Boosts / Abilities", "Remove Negative Effects"].includes(testMove.name)) {
                 if (this._isBossAction) {
-                    this._bossMoveData = {name: "(No Move)" as MoveName, target: "selected-pokemon", category: "damage"}
-                    this._bossMove = new Move(9, "(No Move)", this.bossOptions);
-                    this._bossMoveUsed = "(No Move)";
+                    if (isRegularMove(this._bossMoveData.name)) {
+                        this._bossMoveData = {name: "(No Move)" as MoveName, target: "selected-pokemon", category: "damage"}
+                        this._bossMove = new Move(9, "(No Move)", this.bossOptions);
+                        this._bossMoveUsed = "(No Move)";
+                    }
                 } else {
                     this._bossMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
                 }

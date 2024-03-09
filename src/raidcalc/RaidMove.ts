@@ -245,6 +245,7 @@ export class RaidMove {
                 this.move.category === "Status" && 
                 !isRaidAction(this.moveData.name)
             ) {
+                console.log(this.moveData.name, this.move.category)
                 this._desc[this.userID] = this._user.name + " can't use status moves due to taunt!";
                 this._user.isTaunt--; // decrement taunt counter
                 return false;

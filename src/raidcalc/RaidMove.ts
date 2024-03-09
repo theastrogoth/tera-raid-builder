@@ -225,7 +225,6 @@ export class RaidMove {
     }
 
     private checkIfMoves(): boolean {
-        console.log(this.move.name, this.moveData.name)
         if (this._user.originalCurHP === 0) {
             return false;
         } else if (this.isBossAction && this.userID !== 0) {

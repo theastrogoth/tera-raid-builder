@@ -176,7 +176,7 @@ export class RaidMove {
         this._raidState.raiders[0].checkShield(); // check for shield breaking 
         this.setFlags();
         // store move data and target
-        if (!isRegularMove(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
+        if (isRegularMove(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
             this._user.lastTarget = this.moveData.target === "user" ? this.userID : this._targetID;
             this._raidState.lastMovedID = this.userID;

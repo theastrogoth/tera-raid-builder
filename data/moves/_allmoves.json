@@ -8812,7 +8812,7 @@
         "priority": 0,
         "drain": null,
         "healing": null,
-        "selfDamage": null,
+        "selfDamage": 50,
         "ailment": null,
         "statChanges": [
             {

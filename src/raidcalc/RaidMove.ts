@@ -736,9 +736,9 @@ export class RaidMove {
         //         this._desc[this._affectedIDs[0]] = this._user.name + " used " + this.move.name + " on " + this.getPokemon(this._affectedIDs[0]).name + "!";
         //     }
         // }
-        if (this.moveData.category?.includes("damage") && hasCausedDamage) {
-            // adjust tera charge
-            if (hasCausedDamage) { this._user.teraCharge++; }
+        // adjust tera charge
+        if ((this.moveData.category?.includes("damage") || (this.moveData.category === "unique" && this.moveData.power)) && hasCausedDamage) {
+            this._user.teraCharge++;
         } 
     }
 

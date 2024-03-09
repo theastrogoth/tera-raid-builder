@@ -759,7 +759,7 @@ export class RaidMove {
     }
 
     private applyHealing() {
-        const healingPercent = this.moveData.healing;
+        let healingPercent = this.moveData.healing;
         for (let id of this._affectedIDs) {
             if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
             const target = this.getPokemon(id);
@@ -780,6 +780,12 @@ export class RaidMove {
                 }
                 this._healing[id] += target.stockpile === 3 ? maxHP : Math.floor(maxHP * 0.25 * target.stockpile);
             } else {
+                if (this._user.hasAbility("Mega Launcher") && this.moveData.isPulse) {
+                    healingPercent = (healingPercent || 0) * 1.5;
+                }
+                if (this.moveData.name === "Floral Healing" && this._user.field.hasTerrain("Grassy")) {
+                    healingPercent = 66.66; // Bulbapedia says 2/3, not sure what should be used here for perfect accuracy 
+                }
                 const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100 / ((target.bossMultiplier || 100) / 100));
                 this._healing[id] += healAmount;
             }

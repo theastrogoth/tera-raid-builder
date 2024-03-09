@@ -225,6 +225,7 @@ export class RaidMove {
     }
 
     private checkIfMoves(): boolean {
+        console.log(this.move.name, this.moveData.name)
         if (this._user.originalCurHP === 0) {
             return false;
         } else if (this.isBossAction && this.userID !== 0) {
@@ -243,7 +244,7 @@ export class RaidMove {
             } else if (
                 this._user.isTaunt && 
                 this.move.category === "Status" && 
-                isRegularMove(this.moveData.name)
+                !isRaidAction(this.moveData.name)
             ) {
                 this._desc[this.userID] = this._user.name + " can't use status moves due to taunt!";
                 this._user.isTaunt--; // decrement taunt counter

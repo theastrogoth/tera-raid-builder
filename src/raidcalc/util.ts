@@ -347,5 +347,5 @@ export function isRaidAction(movename: string) {
 }
 
 export function isRegularMove(movename: string) {
-    return !isRaidAction(movename) && movename !== "(No Move)";
+    return !isRaidAction(movename) && movename !== "(No Move)" && movename !== "(Most Damaging)";
 }

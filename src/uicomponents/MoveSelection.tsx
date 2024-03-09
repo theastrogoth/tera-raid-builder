@@ -31,6 +31,7 @@ import { getPokemonSpriteURL, arraysEqual, getTranslation } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
+import { isRegularMove } from "../raidcalc/util";
 
 const RepeatsInput = styled(MuiInput)`
   width: 42px;
@@ -264,10 +265,10 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translation
                                         </TableCell>
                                     </TableRow>
                                 }
-                                {isBoss &&
+                                {/* {isBoss &&
                                     <TableRow>
                                         <TableCell sx={{ borderBottom: 0 }}>
-                                            {getTranslation("Steal Charge", translationKey)}
+                                            {getTranslation("Steal Tera Charge", translationKey)}
                                         </TableCell>
                                         <TableCell sx={{ borderBottom: 0 }}>
                                             <Switch 
@@ -282,7 +283,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translation
                                             />
                                         </TableCell>
                                     </TableRow>
-                                }
+                                } */}
                             </TableBody>
                         </Table>
                     </TableContainer>
@@ -494,7 +495,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
     {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, translationKey: any}) 
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
-    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Clear Boosts / Abilities"];
+    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
     const [updateCount, setUpdateCount] = useState<number>(0); // just used to trigger rerender
@@ -546,7 +547,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                     onChange={(e) => {
                         const name = e.target.value as MoveName;
                         let mData: MoveData = {name: name};
-                        if (!["(No Move)", "(Most Damaging)", "Remove Negative Effects", "Clear Boosts / Abilities"].includes(name)) {
+                        if (isRegularMove(name)) {
                             mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === name) as MoveData;
                         }
                         setMoveInfo({...moveInfo, moveData: mData})}

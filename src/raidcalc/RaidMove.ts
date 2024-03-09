@@ -5,7 +5,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, hasNoStatus, getAccuracy, getBpModifier } from "./util";
+import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, hasNoStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -176,14 +176,7 @@ export class RaidMove {
         this._raidState.raiders[0].checkShield(); // check for shield breaking 
         this.setFlags();
         // store move data and target
-        if (![
-                "(No Move)", 
-                "Attack Cheer",
-                "Defense Cheer", 
-                "Heal Cheer", 
-                "Remove Negative Effects", 
-                "Clear Boosts / Abilities",
-            ].includes(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
+        if (!isRegularMove(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
             this._user.lastMove = this.moveData;
             this._user.lastTarget = this.moveData.target === "user" ? this.userID : this._targetID;
             this._raidState.lastMovedID = this.userID;
@@ -236,7 +229,7 @@ export class RaidMove {
             return false;
         } else if (this.isBossAction && this.userID !== 0) {
             return false;
-        } else if (["Attack Cheer", "Defense Cheer", "Heal Cheer", "Remove Negative Effects", "Clear Boosts / Abilities"].includes(this.moveData.name)) {
+        } else if (isRaidAction(this.moveData.name)) {
             return true;
         } else {
             if (this._user.isSleep) {
@@ -250,13 +243,7 @@ export class RaidMove {
             } else if (
                 this._user.isTaunt && 
                 this.move.category === "Status" && 
-                ![
-                    "Clear Boosts / Abilities", 
-                    "Remove Negative Effects",
-                    "Attack Cheer",
-                    "Defense Cheer",
-                    "Heal Cheer",
-                ].includes(this.moveData.name)
+                isRegularMove(this.moveData.name)
             ) {
                 this._desc[this.userID] = this._user.name + " can't use status moves due to taunt!";
                 this._user.isTaunt--; // decrement taunt counter
@@ -332,7 +319,7 @@ export class RaidMove {
 
     private setDoesNotAffect() {
         this._blockedBy= ["", "", "", "", ""];
-        if (["Attack Cheer", "Heal Cheer", "Defense Cheer", "Clear Boosts / Abilities", "Remove Negative Effects"].includes(this.moveData.name)) { return; }
+        if (isRaidAction(this.moveData.name)) { return; }
         const category = this.move.category;
         const targetType = this.moveData.target
         const moveName = this.move.name;
@@ -1057,6 +1044,28 @@ export class RaidMove {
                 boss.syrupBombSource = 0;
                 for (let stat in boss.boosts) {
                     boss.boosts[stat as StatIDExceptHP] = Math.max(0, boss.boosts[stat as StatIDExceptHP] || 0);
+                }
+                break;
+            case "Steal Tera Charge":
+                if (this.userID !== 0) {
+                    throw new Error("Only the Raid boss can steal tera charges!")
+                }
+                this._desc[0] = "The Raid Boss stole a Tera charge from its oppenents!";
+                for (let i=1; i<5; i++) {
+                    const pokemon = this._raidState.getPokemon(i);
+                    pokemon.teraCharge = Math.max(0, (pokemon.teraCharge || 0) - 1);
+                }
+                break;
+            case "Activate Shield":
+                if (this.userID !== 0) {
+                    throw new Error("Only the Raid boss can activate its shield!")
+                }
+                if (!this._user.shieldBroken && !this._user.shieldActive && this._user.shieldData?.shieldCancelDamage) {
+                    this._desc[this._targetID] = "The Raid Boss activated its shield!";
+                    this._user.shieldActive = true;
+                    this._user.shieldActivateHP = this._user.originalCurHP;
+                } else {
+                    this._desc[this._targetID] = "The Boss Shield is already active. You might need to change the shield's HP activation threshold.";
                 }
                 break;
             case "Skill Swap": 

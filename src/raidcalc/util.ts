@@ -331,3 +331,21 @@ export function getGroupedTurns(turns: RaidTurnInfo[]) {
     const groupedTurns = groupedTurnIDs.map(indicesArray => indicesArray.map(index => turns[index]));
     return groupedTurns;
 }
+
+const RAID_ACTIONS = [
+    "Attack Cheer",
+    "Defense Cheer", 
+    "Heal Cheer", 
+    "Remove Negative Effects", 
+    "Clear Boosts / Abilities",
+    "Steal Tera Charge",
+    "Activate Shield"
+]
+
+export function isRaidAction(movename: string) {
+    return RAID_ACTIONS.includes(movename);
+}
+
+export function isRegularMove(movename: string) {
+    return !isRaidAction(movename) && movename !== "(No Move)";
+}

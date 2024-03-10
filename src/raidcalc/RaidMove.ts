@@ -169,8 +169,9 @@ export class RaidMove {
             if (this._powerHerbUsed && this._user.hasItem("Power Herb")) {
                 this._raidState.loseItem(this.userID);
             }
+            this.applyPostMoveEffects();
         }
-        this.applyEndOfMoveEffects();       
+        this.applyEndOfTurnEffects();       
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
         this._raidState.raiders[0].checkShield(); // check for shield breaking 
@@ -1567,12 +1568,16 @@ export class RaidMove {
             }
     }
 
-    public applyEndOfMoveEffects() {
-        /// Item-related effects that occur at the end of a move
+    public applyPostMoveEffects() {
+        /// Item-related effects that occur at the end of a successful move
         // Choice-locking items
-        if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
+        if (this.raidState.getPokemon(this.userID).hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
             this._user.isChoiceLocked = true;
         }
+    }
+
+    public applyEndOfTurnEffects() {
+        /// Ability-related effects that occur
         // Hydration
         if (!this.movesFirst && this._raiders[0].field.hasWeather("Rain")) {
             if (this._user.hasAbility("Hydration")) {

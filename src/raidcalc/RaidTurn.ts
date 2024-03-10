@@ -456,7 +456,7 @@ export class RaidTurn {
                 if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
             }
         // Force the move to be the last move used for Choice Lock / Encore
-        } else if ((this._raider.isChoiceLocked || this._raider.isEncore) && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
+        } else if (isRegularMove(this._raiderMove.name) && (this._raider.isChoiceLocked || this._raider.isEncore) && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
             this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
             this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
             if (this.raiderOptions.crit) this._raiderMove.isCrit = true;

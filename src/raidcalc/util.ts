@@ -356,7 +356,7 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
             console.log(pokemon.name, pokemon.isChoiceLocked, pokemon.isEncore, pokemon.lastMove)
             selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
         }
-        if (pokemon.isTorment && pokemon.lastMove) {
+        if (pokemon.lastMove && (pokemon.isTorment || (pokemon.lastMove.name === "Gigaton Hammer" || pokemon.lastMove.name === "Blood Moon"))) {
             selectableMoves = selectableMoves.filter(m => m.name !== pokemon.lastMove!.name);
         }
         if (pokemon.isDisable && pokemon.disabledMove) {
@@ -364,10 +364,6 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
         }
         if (pokemon.isTaunt) {
             selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
-        }
-        // Moves that can't be selected twice in a row
-        if (pokemon.lastMove && (pokemon.lastMove.name === "Gigaton Hammer" || pokemon.lastMove.name === "Blood Moon")) {
-            selectableMoves = selectableMoves.filter(m => m.name !== pokemon.lastMove!.name);
         }
     }
     return selectableMoves.map(m => m.name);

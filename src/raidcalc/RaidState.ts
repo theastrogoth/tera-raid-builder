@@ -453,6 +453,13 @@ export class RaidState implements State.RaidState{
                 pokemon.volatileStatus.push!(ailment);
                 if (ailment === "taunt") {
                     pokemon.isTaunt = (firstMove ? 3 : 4) * (id === 0 ? 4 : 1);
+                } else if (ailment === "encore") {
+                    pokemon.isEncore = 3;
+                } else if (ailment === "torment") {
+                    pokemon.isTorment = true;
+                } else if (ailment === "disable" && pokemon.lastMove) {
+                    pokemon.isDisable = 4;
+                    pokemon.disabledMove = pokemon.lastMove!.name;
                 } else if (ailment === "yawn") {
                     pokemon.isYawn = 2;
                     pokemon.yawnSource = source;
@@ -1140,7 +1147,7 @@ export class RaidState implements State.RaidState{
         pokemon.moveRepeated = undefined;
         pokemon.isChoiceLocked = false;
         pokemon.isEncore = 0;
-        pokemon.isTorment = 0;
+        pokemon.isTorment = false;
         pokemon.isDisable = 0;
         pokemon.disabledMove = undefined;
         pokemon.changedTypes = undefined;

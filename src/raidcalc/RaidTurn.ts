@@ -287,11 +287,9 @@ export class RaidTurn {
                 if (this._raider.isDisable) { this._raider.isDisable--; }
                 if (!this._raider.isDisable && this._raider.disabledMove) { this._raider.disabledMove = undefined; }
                 if (this._raider.isEncore) { this._raider.isEncore--; }
-                if (this._raider.isTorment) { this._raider.isTorment--; }
                 if (this._boss.isDisable) { this._boss.isDisable--; }
                 if (!this._boss.isDisable && this._boss.disabledMove) { this._boss.disabledMove = undefined; }
                 if (this._boss.isEncore) { this._boss.isEncore--; }
-                if (this._boss.isTorment) { this._boss.isTorment--; }
             }
         }
 

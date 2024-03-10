@@ -34,7 +34,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     isChoiceLocked?: boolean;   // indicates that a Pokemon is locked into a move
     isEncore?: number;          // store number of turns that a Pokemon is encored
-    isTorment?: number;         // store number of turns that a Pokemon is tormented
+    isTorment?: boolean;        
     isDisable?: number;         // store number of turns that a Pokemon is disabled
     disabledMove?: MoveName;    // store the move that is disabled
 
@@ -89,7 +89,7 @@ export class Raider extends Pokemon implements State.Raider {
         teraCharge: number | undefined = 0, 
         choiceLocked: boolean = false,
         isEncore: number | undefined = 0,
-        isTorment: number | undefined = 0,
+        isTorment: boolean | undefined = false,
         isDisable: number | undefined = 0,
         disabledMove: MoveName | undefined = undefined,
         shieldActivateHP: number | undefined = undefined, 

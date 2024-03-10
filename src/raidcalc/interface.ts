@@ -131,7 +131,7 @@ export interface Raider extends Pokemon {
     teraCharge?: number;    // stored for Tera activation check
     isChoiceLocked?: boolean; 
     isEncore?: number;      // store number of turns that a Pokemon is encored    
-    isTorment?: number;     // store number of turns that a Pokemon is tormented
+    isTorment?: boolean;
     isDisable?: number;     // store number of turns that a Pokemon is disabled
     disabledMove?: MoveName;// store the move that is disabled
     shieldActivateHP?: number;

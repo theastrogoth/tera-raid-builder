@@ -1387,6 +1387,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blastoise/topsy_turvying_up_the_heat.json`)
     await testOHKO(module as LightBuildInfo); 
   })
+  test('blastoise/mechamothra', async () => {
+    const module = await import(`./data/strats/blastoise/mechamothra.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
   test('blastoise/edgelord', async () => {
     const module = await import(`./data/strats/blastoise/edgelord.json`)
     await testOHKO(module as LightBuildInfo); 
@@ -1405,6 +1409,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('blastoise/all_aquatic_showdown', async () => {
     const module = await import(`./data/strats/blastoise/all_aquatic_showdown.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('blastoise/hocus_pokids', async () => {
+    const module = await import(`./data/strats/blastoise/hocus_pokids.json`)
     await testOHKO(module as LightBuildInfo); 
   })
 })

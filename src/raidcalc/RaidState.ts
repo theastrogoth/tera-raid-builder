@@ -494,8 +494,8 @@ export class RaidState implements State.RaidState{
                 for (let i=1; i<symbiosisIds.length; i++) {
                     const poke = this.getPokemon(symbiosisIds[i]);
                     const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
-                    const field = poke.field;
                     // Apparently, Trick Room isn't considered for this check
+                    // const field = poke.field;
                     // if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
                     if ( speed > fastestSymbSpeed ) {
                         fastestSymbId = symbiosisIds[i];
@@ -1133,10 +1133,16 @@ export class RaidState implements State.RaidState{
         pokemon.volatileStatus = [];
         pokemon.originalCurHP = 0;
         pokemon.isEndure = false;
+        pokemon.isTaunt = 0;
         pokemon.isCharging = false;
         pokemon.isRecharging = false;
         pokemon.abilityNullified = 0;
         pokemon.moveRepeated = undefined;
+        pokemon.isChoiceLocked = false;
+        pokemon.isEncore = 0;
+        pokemon.isTorment = 0;
+        pokemon.isDisable = 0;
+        pokemon.disabledMove = undefined;
         pokemon.changedTypes = undefined;
         pokemon.substitute = undefined;
         pokemon.types = new Pokemon(9, pokemon.name).types;

@@ -1,7 +1,6 @@
 import { Move, Field, Pokemon, Generations } from "../calc";
-import { AilmentName, MoveData, RaidTurnInfo } from "./interface";
-import { Raider } from "./Raider";
-import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
+import { AilmentName, MoveData, Raider, RaidTurnInfo } from "./interface";
+import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
 import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 
@@ -348,4 +347,28 @@ export function isRaidAction(movename: string) {
 
 export function isRegularMove(movename: string) {
     return !isRaidAction(movename) && movename !== "(No Move)" && movename !== "(Most Damaging)";
+}
+
+export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = false) {
+    let selectableMoves: MoveData[] = [...pokemon.moveData, ...(pokemon.extraMoveData || [])].filter(m => m.name !== "(No Move)");
+    if (!isBossAction) {
+        if ((pokemon.isChoiceLocked || pokemon.isEncore) && pokemon.lastMove) {
+            console.log(pokemon.name, pokemon.isChoiceLocked, pokemon.isEncore, pokemon.lastMove)
+            selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
+        }
+        if (pokemon.isTorment && pokemon.lastMove) {
+            selectableMoves = selectableMoves.filter(m => m.name !== pokemon.lastMove!.name);
+        }
+        if (pokemon.isDisable && pokemon.disabledMove) {
+            selectableMoves = selectableMoves.filter(m => m.name !== pokemon.disabledMove);
+        }
+        if (pokemon.isTaunt) {
+            selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
+        }
+        // Moves that can't be selected twice in a row
+        if (pokemon.lastMove && (pokemon.lastMove.name === "Gigaton Hammer" || pokemon.lastMove.name === "Blood Moon")) {
+            selectableMoves = selectableMoves.filter(m => m.name !== pokemon.lastMove!.name);
+        }
+    }
+    return selectableMoves.map(m => m.name);
 }

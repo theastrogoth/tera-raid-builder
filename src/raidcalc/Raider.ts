@@ -4,7 +4,6 @@ import { extend } from '../calc/util';
 import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
 import * as State from "./interface";
 import { getModifiedStat } from "../calc/mechanics/util";
-import { DarkMode } from "@mui/icons-material";
 
 const gen = Generations.get(9);
 
@@ -32,6 +31,12 @@ export class Raider extends Pokemon implements State.Raider {
     lastTarget?: number;        // stored for Instruct and Copycat
     moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
     teraCharge: number;         // stored for Tera activation
+
+    isChoiceLocked?: boolean;   // indicates that a Pokemon is locked into a move
+    isEncore?: number;          // store number of turns that a Pokemon is encored
+    isTorment?: number;         // store number of turns that a Pokemon is tormented
+    isDisable?: number;         // store number of turns that a Pokemon is disabled
+    disabledMove?: MoveName;    // store the move that is disabled
 
     shieldActivateHP?: number;
     shieldBroken?: boolean;
@@ -82,6 +87,11 @@ export class Raider extends Pokemon implements State.Raider {
         lastTarget: number | undefined = undefined, 
         moveRepeated: number | undefined = undefined,
         teraCharge: number | undefined = 0, 
+        choiceLocked: boolean = false,
+        isEncore: number | undefined = 0,
+        isTorment: number | undefined = 0,
+        isDisable: number | undefined = 0,
+        disabledMove: MoveName | undefined = undefined,
         shieldActivateHP: number | undefined = undefined, 
         shieldBroken: boolean | undefined = undefined, 
         shieldBreakStun: boolean[] | undefined = undefined,
@@ -124,6 +134,11 @@ export class Raider extends Pokemon implements State.Raider {
         this.lastTarget = lastTarget;
         this.moveRepeated = moveRepeated;
         this.teraCharge = teraCharge;
+        this.isChoiceLocked = choiceLocked;
+        this.isEncore = isEncore;
+        this.isTorment = isTorment;
+        this.isDisable = isDisable;
+        this.disabledMove = disabledMove;
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
         this.shieldBreakStun = shieldBreakStun;
@@ -204,6 +219,11 @@ export class Raider extends Pokemon implements State.Raider {
             this.lastTarget,
             this.moveRepeated,
             this.teraCharge,
+            this.isChoiceLocked,
+            this.isEncore,
+            this.isTorment,
+            this.isDisable,
+            this.disabledMove,
             this.shieldActivateHP,
             this.shieldBroken,
             this.shieldBreakStun,
@@ -273,6 +293,9 @@ export class Raider extends Pokemon implements State.Raider {
         }
         if (consumed) {
             this.lastConsumedItem = this.item;
+        }
+        if (this.hasItem("Choice Band", "Choice Specs", "Choice Scarf")) {
+            this.isChoiceLocked = false;
         }
         this.item = undefined;
     }

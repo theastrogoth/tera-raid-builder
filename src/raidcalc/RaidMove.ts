@@ -245,9 +245,11 @@ export class RaidMove {
                 this.move.category === "Status" && 
                 !isRaidAction(this.moveData.name)
             ) {
-                console.log(this.moveData.name, this.move.category)
                 this._desc[this.userID] = this._user.name + " can't use status moves due to taunt!";
                 this._user.isTaunt--; // decrement taunt counter
+                return false;
+            } else if (this._user.isDisable && this.move.name === this._user.disabledMove) {
+                this._desc[this.userID] = this.move.name + " is disabled!";
                 return false;
             } else {
                 return true;
@@ -1419,7 +1421,7 @@ export class RaidMove {
                 break;
             case "Substitute":
                 const substituteHP = Math.floor(this._user.maxHP() / 4);
-                if (this._user.originalCurHP > substituteHP && this._user.substitute == undefined) {
+                if (this._user.originalCurHP > substituteHP && this._user.substitute === undefined) {
                     this._user.originalCurHP -= substituteHP;
                     this._user.substitute = substituteHP
                 }
@@ -1568,7 +1570,7 @@ export class RaidMove {
     public applyEndOfMoveEffects() {
         /// Item-related effects that occur at the end of a move
         // Choice-locking items
-        if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
+        if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
             this._user.isChoiceLocked = true;
         }
         // Hydration

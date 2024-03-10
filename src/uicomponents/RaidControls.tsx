@@ -138,6 +138,12 @@ function ModifierStatTag({modifier, value, translationKey}: {modifier: string, v
     );
 }
 
+function ModifierChoiceLockTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
+    return (
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(value,translationKey,"moves")}`} />
+    );
+}
+
 function ModifierBooleanTag({modifier, translationKey}: {modifier: string, translationKey: any}) {
     return (
         <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} />
@@ -170,6 +176,8 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
             }
             else if (modifier === "boostedStat") {
                 return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
+            } else if (modifier === "choiceLocked" || modifier === "encore" || modifier === "disable") {
+                return value !== "" && <ModifierChoiceLockTag modifier={modifier} value={value} translationKey={translationKey}/>
             }
             break;
         case "boolean":

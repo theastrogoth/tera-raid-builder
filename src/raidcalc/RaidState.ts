@@ -513,6 +513,7 @@ export class RaidState implements State.RaidState{
                 // symbiosis item transfer
                 const passedItem = fastestSymbPoke.item!;
                 fastestSymbPoke.item = undefined; // don't call loseItem because it will trigger symbiosis again
+                fastestSymbPoke.isChoiceLocked = false;
                 // NOTE: it is important to clear the item from the Symbiosis passer FIRST to avoid an infinite loop in case the item is immediately consumed after passing
                 this.recieveItem(id, passedItem);
             }

@@ -1350,7 +1350,6 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                                 onChange={(e) => {
                                                     const min = isBoss ? 1 : 0;
                                                     if (e.target.value === "") {
-                                                        console.log("set to min", min)
                                                         setLevel(min);
                                                         setPokemonProperties(["level", "isAnyLevel"])([1, min === 0]);
                                                         return;

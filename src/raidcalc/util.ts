@@ -353,7 +353,6 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
     let selectableMoves: MoveData[] = [...pokemon.moveData, ...(pokemon.extraMoveData || [])].filter(m => m.name !== "(No Move)");
     if (!isBossAction) {
         if ((pokemon.isChoiceLocked || pokemon.isEncore) && pokemon.lastMove) {
-            console.log(pokemon.name, pokemon.isChoiceLocked, pokemon.isEncore, pokemon.lastMove)
             selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
         }
         if (pokemon.lastMove && (pokemon.isTorment || (pokemon.lastMove.name === "Gigaton Hammer" || pokemon.lastMove.name === "Blood Moon"))) {

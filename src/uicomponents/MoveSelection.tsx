@@ -551,7 +551,6 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                         if (isRegularMove(name)) {
                             mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === name) as MoveData;
                         }
-                        console.log(moveInfo, mData)
                         setMoveInfo({...moveInfo, moveData: mData})}
                     }
                     sx={{ maxWidth : "150px"}}

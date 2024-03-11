@@ -455,6 +455,13 @@ export class RaidState implements State.RaidState{
                 pokemon.volatileStatus.push!(ailment);
                 if (ailment === "taunt") {
                     pokemon.isTaunt = (firstMove ? 3 : 4) * (id === 0 ? 4 : 1);
+                } else if (ailment === "encore") {
+                    pokemon.isEncore = 3;
+                } else if (ailment === "torment") {
+                    pokemon.isTorment = true;
+                } else if (ailment === "disable" && pokemon.lastMove) {
+                    pokemon.isDisable = 4;
+                    pokemon.disabledMove = pokemon.lastMove!.name;
                 } else if (ailment === "yawn") {
                     pokemon.isYawn = 2;
                     pokemon.yawnSource = source;
@@ -496,8 +503,8 @@ export class RaidState implements State.RaidState{
                 for (let i=1; i<symbiosisIds.length; i++) {
                     const poke = this.getPokemon(symbiosisIds[i]);
                     const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
-                    const field = poke.field;
                     // Apparently, Trick Room isn't considered for this check
+                    // const field = poke.field;
                     // if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
                     if ( speed > fastestSymbSpeed ) {
                         fastestSymbId = symbiosisIds[i];
@@ -508,6 +515,7 @@ export class RaidState implements State.RaidState{
                 // symbiosis item transfer
                 const passedItem = fastestSymbPoke.item!;
                 fastestSymbPoke.item = undefined; // don't call loseItem because it will trigger symbiosis again
+                fastestSymbPoke.isChoiceLocked = false;
                 // NOTE: it is important to clear the item from the Symbiosis passer FIRST to avoid an infinite loop in case the item is immediately consumed after passing
                 this.recieveItem(id, passedItem);
             }
@@ -1135,10 +1143,16 @@ export class RaidState implements State.RaidState{
         pokemon.volatileStatus = [];
         pokemon.originalCurHP = 0;
         pokemon.isEndure = false;
+        pokemon.isTaunt = 0;
         pokemon.isCharging = false;
         pokemon.isRecharging = false;
         pokemon.abilityNullified = 0;
         pokemon.moveRepeated = undefined;
+        pokemon.isChoiceLocked = false;
+        pokemon.isEncore = 0;
+        pokemon.isTorment = false;
+        pokemon.isDisable = 0;
+        pokemon.disabledMove = undefined;
         pokemon.changedTypes = undefined;
         pokemon.substitute = undefined;
         pokemon.types = new Pokemon(9, pokemon.name).types;

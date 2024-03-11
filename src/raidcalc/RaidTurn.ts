@@ -283,6 +283,13 @@ export class RaidTurn {
                     this._boss.status = "";
                     this._endFlags.push(this._boss.role + " thawed!");
                 }
+                // Move-selection-related countdowns
+                if (this._raider.isDisable) { this._raider.isDisable--; }
+                if (!this._raider.isDisable && this._raider.disabledMove) { this._raider.disabledMove = undefined; }
+                if (this._raider.isEncore) { this._raider.isEncore--; }
+                if (this._boss.isDisable) { this._boss.isDisable--; }
+                if (!this._boss.isDisable && this._boss.disabledMove) { this._boss.disabledMove = undefined; }
+                if (this._boss.isEncore) { this._boss.isEncore--; }
             }
         }
 
@@ -448,8 +455,8 @@ export class RaidTurn {
                 if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
                 if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
             }
-        // Since we don't have access to choice lock in the UI, we'll just force the move to be the last move used
-        } else if (this._raider.isChoiceLocked && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
+        // Force the move to be the last move used for Choice Lock / Encore
+        } else if (isRegularMove(this._raiderMove.name) && (this._raider.isChoiceLocked || this._raider.isEncore) && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
             this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
             this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
             if (this.raiderOptions.crit) this._raiderMove.isCrit = true;

@@ -31,7 +31,7 @@ import { getPokemonSpriteURL, arraysEqual, getTranslation } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { isRegularMove } from "../raidcalc/util";
+import { getSelectableMoves, isRegularMove } from "../raidcalc/util";
 
 const RepeatsInput = styled(MuiInput)`
   width: 42px;
@@ -300,7 +300,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
     const moveInfo = groups[groupIndex].turns[turnIndex].moveInfo;
     const moveName = moveInfo.moveData.name;
 
-    const moves = raiders[moveInfo.userID].moves;
+    const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
     const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(
@@ -495,7 +495,8 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
     {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, translationKey: any}) 
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
-    const moveSet = ["(No Move)", "(Most Damaging)", ...boss.moves, ...(boss.extraMoves) || [], "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
+    const isBossAction = groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)";
+    const moveSet = ["(No Move)", "(Most Damaging)", ...getSelectableMoves(boss, isBossAction), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
 
     const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
     const [updateCount, setUpdateCount] = useState<number>(0); // just used to trigger rerender
@@ -550,7 +551,6 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                         if (isRegularMove(name)) {
                             mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === name) as MoveData;
                         }
-                        console.log(moveInfo, mData)
                         setMoveInfo({...moveInfo, moveData: mData})}
                     }
                     sx={{ maxWidth : "150px"}}
@@ -729,6 +729,12 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         pTurn.bossMoveInfo.options?.hits === nTurn.bossMoveInfo.options?.hits &&
         arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
         arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
+        arraysEqual(prevProps.raiders.map((r) => r.isChoiceLocked), nextProps.raiders.map((r) => r.isChoiceLocked)) &&
+        arraysEqual(prevProps.raiders.map((r) => r.isEncore), nextProps.raiders.map((r) => r.isEncore)) &&
+        arraysEqual(prevProps.raiders.map((r) => r.isTorment), nextProps.raiders.map((r) => r.isTorment)) &&
+        arraysEqual(prevProps.raiders.map((r) => r.isTaunt), nextProps.raiders.map((r) => r.isTaunt)) &&
+        arraysEqual(prevProps.raiders.map((r) => r.isDisable), nextProps.raiders.map((r) => r.isDisable)) &&
+        arraysEqual(prevProps.raiders.map((r) => r.disabledMove), nextProps.raiders.map((r) => r.disabledMove)) &&
         arraysEqual(prevProps.raiders[pTurn.moveInfo.userID].moves, nextProps.raiders[nTurn.moveInfo.userID].moves) &&
         arraysEqual(prevProps.raiders[0].moves, nextProps.raiders[0].moves) &&  
         arraysEqual(prevProps.raiders[0].extraMoves!, nextProps.raiders[0].extraMoves!) &&

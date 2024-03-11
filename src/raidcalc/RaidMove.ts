@@ -169,8 +169,9 @@ export class RaidMove {
             if (this._powerHerbUsed && this._user.hasItem("Power Herb")) {
                 this._raidState.loseItem(this.userID);
             }
+            this.applyPostMoveEffects();
         }
-        this.applyEndOfMoveEffects();       
+        this.applyEndOfTurnEffects();       
         this.setEndOfTurnDamage();
         this.applyEndOfTurnDamage();
         this._raidState.raiders[0].checkShield(); // check for shield breaking 
@@ -245,9 +246,11 @@ export class RaidMove {
                 this.move.category === "Status" && 
                 !isRaidAction(this.moveData.name)
             ) {
-                console.log(this.moveData.name, this.move.category)
                 this._desc[this.userID] = this._user.name + " can't use status moves due to taunt!";
                 this._user.isTaunt--; // decrement taunt counter
+                return false;
+            } else if (this._user.isDisable && this.move.name === this._user.disabledMove) {
+                this._desc[this.userID] = this.move.name + " is disabled!";
                 return false;
             } else {
                 return true;
@@ -1419,7 +1422,7 @@ export class RaidMove {
                 break;
             case "Substitute":
                 const substituteHP = Math.floor(this._user.maxHP() / 4);
-                if (this._user.originalCurHP > substituteHP && this._user.substitute == undefined) {
+                if (this._user.originalCurHP > substituteHP && this._user.substitute === undefined) {
                     this._user.originalCurHP -= substituteHP;
                     this._user.substitute = substituteHP
                 }
@@ -1565,12 +1568,16 @@ export class RaidMove {
             }
     }
 
-    public applyEndOfMoveEffects() {
-        /// Item-related effects that occur at the end of a move
+    public applyPostMoveEffects() {
+        /// Item-related effects that occur at the end of a successful move
         // Choice-locking items
-        if (this._user.item === "Choice Specs" || this._user.item === "Choice Band" || this._user.item === "Choice Scarf") {
+        if (this.raidState.getPokemon(this.userID).hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
             this._user.isChoiceLocked = true;
         }
+    }
+
+    public applyEndOfTurnEffects() {
+        /// Ability-related effects that occur
         // Hydration
         if (!this.movesFirst && this._raiders[0].field.hasWeather("Rain")) {
             if (this._user.hasAbility("Hydration")) {

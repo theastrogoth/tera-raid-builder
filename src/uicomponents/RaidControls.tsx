@@ -7,7 +7,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
-import Chip from '@mui/material/Chip';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
@@ -21,12 +20,11 @@ import MoveDisplay from './MoveDisplay';
 
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { Pokemon, Side, StatsTable } from '../calc';
-import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
-import { RaidTurnResult } from '../raidcalc/RaidTurn';
+import { Pokemon, StatsTable } from '../calc';
+import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
-import { MoveData, RaidMoveOptions, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
+import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -55,7 +53,10 @@ type Modifiers = {
     status?: string,
     abilityNullified?: boolean,
     charging?: boolean,
-    choiceLocked?: boolean,
+    choiceLocked?: string,
+    encore?: string,
+    torment?: boolean,
+    disable?: string,
     endure?: boolean,
     ingrain?: boolean,
     micleBerry?: boolean,
@@ -137,6 +138,12 @@ function ModifierStatTag({modifier, value, translationKey}: {modifier: string, v
     );
 }
 
+function ModifierChoiceLockTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
+    return (
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(value,translationKey,"moves")}`} />
+    );
+}
+
 function ModifierBooleanTag({modifier, translationKey}: {modifier: string, translationKey: any}) {
     return (
         <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} />
@@ -169,6 +176,8 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
             }
             else if (modifier === "boostedStat") {
                 return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
+            } else if (modifier === "choiceLocked" || modifier === "encore" || modifier === "disable") {
+                return value !== "" && <ModifierChoiceLockTag modifier={modifier} value={value} translationKey={translationKey}/>
             }
             break;
         case "boolean":
@@ -415,7 +424,9 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "status": raider.status,
             "abilityNullified": raider.abilityNullified !== undefined && raider.abilityNullified !== 0,
             "charging": raider.isCharging,
-            "choiceLocked": raider.isChoiceLocked,
+            "choiceLocked": raider.isChoiceLocked && raider.lastMove ? raider.lastMove.name : "",
+            "encore": raider.isEncore && raider.lastMove ? raider.lastMove.name : "",
+            "disable": raider.isDisable && raider.disabledMove ? raider.disabledMove : "",
             "endure": raider.isEndure,
             "ingrain": raider.isIngrain,
             "micleBerry": raider.isMicle,
@@ -501,25 +512,25 @@ function getCurrentRaiderRole(results: RaidBattleResults, displayedTurn: number,
     }
 }
 
-function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
-    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
-        return undefined;
-    }
-    else {
-        try {
-            const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
-            if (currentRaiderMove === "(No Move)") {
-                return undefined
-            }
-            else {
-                return getTranslation(currentRaiderMove, translationKey, "moves");
-            }
-        }
-        catch(e) {
-            return undefined;
-        }
-    }
-}
+// function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
+//     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+//         return undefined;
+//     }
+//     else {
+//         try {
+//             const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
+//             if (currentRaiderMove === "(No Move)") {
+//                 return undefined
+//             }
+//             else {
+//                 return getTranslation(currentRaiderMove, translationKey, "moves");
+//             }
+//         }
+//         catch(e) {
+//             return undefined;
+//         }
+//     }
+// }
 
 function getCurrentMoves(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {

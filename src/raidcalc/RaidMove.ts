@@ -868,7 +868,7 @@ export class RaidMove {
                     this._raidState.applyStatus(id, ailment as StatusName, this.userID, isSecondaryEffect, this.options.roll);
                 // volatile status
                 } else {
-                    this._raidState.applyVolatileStatus(id, ailment, this.userID, this.movesFirst);
+                    this._raidState.applyVolatileStatus(id, ailment, isSecondaryEffect, this.userID, this.movesFirst);
                 }
                 // Toxic Chain
                 if (this._user.ability === "Toxic Chain" && isSecondaryEffect && this.options.secondaryEffects) {

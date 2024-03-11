@@ -424,17 +424,19 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyVolatileStatus(id: number, ailment: string, source: number, firstMove?: boolean) {
+    public applyVolatileStatus(id: number, ailment: string, isSecondaryEffect: boolean = false, source: number, firstMove?: boolean) {
         const pokemon = this.getPokemon(id);
         const field = pokemon.field;
         const sourceAbility = this.getPokemon(source).ability;
         const attackerIgnoresAbility = ["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield");
-        // const selfInflicted = id === source;
+        const selfInflicted = id === source;
 
         if (!pokemon.volatileStatus.includes(ailment)) {
             let success = true;
             // Safeguard and Misty Terrain block confusion
             if (ailment === "confusion" && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { success = false; }
+            // Covert Cloak
+            if (ailment === "confusion" && !selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { success = false; }
             // Aroma Veil
             if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation", "yawn"].includes(ailment)) {
                 success = false;

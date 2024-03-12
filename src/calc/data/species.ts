@@ -5072,7 +5072,7 @@ const XY_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   // Exploud: {bs: {sd: 73}},
   // Gallade: {otherFormes: ['Gallade-Mega']},
   // Garchomp: {otherFormes: ['Garchomp-Mega']},
-  // Gardevoir: {types: ['Psychic', 'Fairy'], otherFormes: ['Gardevoir-Mega']},
+  Gardevoir: {types: ['Psychic', 'Fairy']}, // otherFormes: ['Gardevoir-Mega']},
   // Gengar: {otherFormes: ['Gengar-Mega']},
   // Gigalith: {bs: {sd: 80}},
   // Glalie: {otherFormes: ['Glalie-Mega']},

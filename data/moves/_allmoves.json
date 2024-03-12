@@ -4455,7 +4455,7 @@
                 "change": 1
             },
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": 1
             }
         ],
@@ -6478,7 +6478,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "evasion",
+                "stat": "eva",
                 "change": 1
             }
         ],
@@ -9417,7 +9417,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -14262,7 +14262,7 @@
                 "change": 1
             },
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": 1
             }
         ],
@@ -15895,7 +15895,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -16313,7 +16313,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -19034,7 +19034,7 @@
         "ailment": "minimize",
         "statChanges": [
             {
-                "stat": "evasion",
+                "stat": "eva",
                 "change": 2
             }
         ],
@@ -19175,7 +19175,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -19564,7 +19564,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -19676,7 +19676,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -19715,7 +19715,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -20075,7 +20075,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -20484,7 +20484,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -24673,7 +24673,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -26950,7 +26950,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -29538,7 +29538,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "evasion",
+                "stat": "eva",
                 "change": -2
             }
         ],
@@ -33454,7 +33454,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "evasion",
+                "stat": "eva",
                 "change": 1
             }
         ],

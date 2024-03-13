@@ -54,13 +54,13 @@
         },
         {
             "id": 1,
-            "role": "Slowbro",
-            "name": "Slowbro",
+            "role": "Espeon",
+            "name": "Espeon",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Own Tempo",
+            "ability": "(No Ability)",
             "item": "Life Orb",
-            "nature": "Calm",
+            "nature": "Modest",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -81,10 +81,18 @@
             "gender": "N",
             "moves": [
                 "Stored Power",
-                "Trick Room"
+                "Protect"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 2,
@@ -270,7 +278,7 @@
             "id": 5,
             "group": 2,
             "moveInfo": {
-                "name": "Trick Room",
+                "name": "Protect",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -506,12 +514,12 @@
             {
                 "raider": {
                     "id": 1,
-                    "role": "Armarouge",
-                    "name": "Armarouge",
+                    "role": "Slowbro",
+                    "name": "Slowbro",
                     "shiny": false,
-                    "ability": "Flash Fire",
+                    "ability": "Own Tempo",
                     "item": "Life Orb",
-                    "nature": "Modest",
+                    "nature": "Calm",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -532,13 +540,13 @@
                     "gender": "N",
                     "moves": [
                         "Stored Power",
-                        "Protect"
+                        "Trick Room"
                     ]
                 },
                 "substituteMoves": [
                     "(No Move)",
                     "(No Move)",
-                    "Protect",
+                    "Trick Room",
                     "Stored Power"
                 ],
                 "substituteTargets": [
@@ -643,19 +651,19 @@
             {
                 "raider": {
                     "id": 1,
-                    "role": "Espeon",
-                    "name": "Espeon",
+                    "role": "Armarouge",
+                    "name": "Armarouge",
                     "shiny": false,
-                    "ability": "(No Ability)",
+                    "ability": "Flash Fire",
                     "item": "Life Orb",
                     "nature": "Modest",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
                         "spa": 252,
                         "spd": 0,
-                        "spe": 0
+                        "spe": 252
                     },
                     "ivs": {
                         "hp": 31,

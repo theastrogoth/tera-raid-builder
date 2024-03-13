@@ -167,8 +167,8 @@
             "level": 100,
             "gender": "F",
             "moves": [
-                "Fake Tears",
                 "Decorate",
+                "Fake Tears",
                 "Helping Hand",
                 "Light Screen"
             ],
@@ -211,8 +211,8 @@
             "level": 100,
             "gender": "F",
             "moves": [
-                "Fake Tears",
                 "Decorate",
+                "Fake Tears",
                 "Helping Hand",
                 "Light Screen"
             ],
@@ -493,9 +493,9 @@
             "id": 10,
             "group": 2,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Decorate",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -519,9 +519,9 @@
             "id": 11,
             "group": 2,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Decorate",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -571,9 +571,9 @@
             "id": 13,
             "group": 3,
             "moveInfo": {
-                "name": "Decorate",
+                "name": "Fake Tears",
                 "userID": 3,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -597,9 +597,9 @@
             "id": 14,
             "group": 3,
             "moveInfo": {
-                "name": "Decorate",
+                "name": "Fake Tears",
                 "userID": 4,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -731,7 +731,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 2,
                     "role": "Miraidon",
                     "name": "Miraidon",
                     "shiny": false,
@@ -778,7 +778,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 3,
                     "role": "Primarina",
                     "name": "Primarina",
                     "shiny": false,
@@ -827,7 +827,7 @@
         [
             {
                 "raider": {
-                    "id": 2,
+                    "id": 1,
                     "role": "Politoed",
                     "name": "Politoed",
                     "shiny": false,

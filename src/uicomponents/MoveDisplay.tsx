@@ -14,7 +14,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
     let user = raiders[turn.moveInfo.userID].role;
 
     let target = raiders[turn.moveInfo.targetID].role;
-    if (target === user) { 
+    if (turn.moveInfo.userID === turn.moveInfo.targetID) { 
         target = ""
     }
     if ([undefined, "user", "user-and-allies", "all-allies", "users-field", "opponents-field", "entire-field", ].includes(turn.moveInfo.moveData.target)) {
@@ -31,14 +31,14 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
     if (move === "") {
         name = raiders[0].name;
         user = raiders[0].role;
-        target = raiders[turn.bossMoveInfo.targetID].role;
-        if (target === user) { 
+        target = raiders[turn.moveInfo.userID].role;
+        if (turn.bossMoveInfo.targetID === turn.bossMoveInfo.userID) { 
             target = ""
         }
-        if ([undefined, "user", "user-and-allies", "all-allies"].includes(turn.moveInfo.moveData.target)) {
+        if ([undefined, "user", "user-and-allies", "all-allies", "users-field", "opponents-field", "entire-field", "all-opponents", "all-pokemon", "all-other-pokemon"].includes(turn.bossMoveInfo.moveData.target)) {
             target = "";
         }
-        targetName = raiders[turn.bossMoveInfo.targetID].name;
+        targetName = raiders[turn.moveInfo.userID].name;
         move = result ? result.bossMoveUsed : "";
         if (move ==="(No Move)") {
             move = "";

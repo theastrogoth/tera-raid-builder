@@ -80,8 +80,8 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Stored Power",
-                "Protect"
+                "Protect",
+                "Stored Power"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -122,8 +122,8 @@
             "level": 100,
             "gender": "F",
             "moves": [
-                "Fake Tears",
-                "Decorate"
+                "Decorate",
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -164,8 +164,8 @@
             "level": 100,
             "gender": "F",
             "moves": [
-                "Fake Tears",
-                "Decorate"
+                "Decorate",
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -206,8 +206,8 @@
             "level": 100,
             "gender": "F",
             "moves": [
-                "Fake Tears",
-                "Decorate"
+                "Decorate",
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -232,7 +232,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -241,10 +241,10 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -258,7 +258,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -267,10 +267,10 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -514,12 +514,57 @@
             {
                 "raider": {
                     "id": 1,
-                    "role": "Slowbro",
-                    "name": "Slowbro",
+                    "role": "Calyrex",
+                    "name": "Calyrex-Shadow",
                     "shiny": false,
-                    "ability": "Own Tempo",
+                    "ability": "As One (Spectrier)",
                     "item": "Life Orb",
-                    "nature": "Calm",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Protect",
+                        "Stored Power"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Protect",
+                    "Stored Power"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Delphox",
+                    "name": "Delphox",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Life Orb",
+                    "nature": "Modest",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -539,14 +584,14 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Stored Power",
-                        "Trick Room"
+                        "Protect",
+                        "Stored Power"
                     ]
                 },
                 "substituteMoves": [
                     "(No Move)",
                     "(No Move)",
-                    "Trick Room",
+                    "Protect",
                     "Stored Power"
                 ],
                 "substituteTargets": [
@@ -558,7 +603,142 @@
             },
             {
                 "raider": {
-                    "id": 2,
+                    "id": 1,
+                    "role": "Munkidori",
+                    "name": "Munkidori",
+                    "shiny": false,
+                    "ability": "Toxic Chain",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Protect",
+                        "Stored Power"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Protect",
+                    "Stored Power"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Latios",
+                    "name": "Latios",
+                    "shiny": false,
+                    "ability": "Levitate",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Protect",
+                        "Stored Power"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Protect",
+                    "Stored Power"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Latias",
+                    "name": "Latias",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "F",
+                    "moves": [
+                        "Protect",
+                        "Stored Power"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Protect",
+                    "Stored Power"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
                     "role": "Mewtwo",
                     "name": "Mewtwo",
                     "shiny": false,
@@ -584,8 +764,8 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Stored Power",
                         "Protect",
+                        "Stored Power",
                         "(No Move)",
                         "(No Move)"
                     ]
@@ -605,11 +785,11 @@
             },
             {
                 "raider": {
-                    "id": 3,
-                    "role": "Miraidon",
-                    "name": "Miraidon",
+                    "id": 1,
+                    "role": "Slowking",
+                    "name": "Slowking",
                     "shiny": false,
-                    "ability": "Hadron Engine",
+                    "ability": "Own Tempo",
                     "item": "Life Orb",
                     "nature": "Modest",
                     "evs": {
@@ -631,15 +811,15 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Dragon Pulse",
-                        "Protect"
+                        "Trick Room",
+                        "Stored Power"
                     ]
                 },
                 "substituteMoves": [
                     "(No Move)",
                     "(No Move)",
-                    "Protect",
-                    "Dragon Pulse"
+                    "Trick Room",
+                    "Stored Power"
                 ],
                 "substituteTargets": [
                     0,
@@ -676,8 +856,10 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
+                        "Protect",
                         "Stored Power",
-                        "Protect"
+                        "(No Move)",
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [

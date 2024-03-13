@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tera-raid-builder/static/css/main.e6c13ad2.css",
-    "main.js": "/tera-raid-builder/static/js/main.7b7d886a.js",
+    "main.js": "/tera-raid-builder/static/js/main.a4731387.js",
     "static/js/4271.2a38f0f8.chunk.js": "/tera-raid-builder/static/js/4271.2a38f0f8.chunk.js",
     "static/js/4893.4339af94.chunk.js": "/tera-raid-builder/static/js/4893.4339af94.chunk.js",
     "static/js/2562.becdc54b.chunk.js": "/tera-raid-builder/static/js/2562.becdc54b.chunk.js",
@@ -36,6 +36,8 @@
     "static/js/4986.5b05113a.chunk.js": "/tera-raid-builder/static/js/4986.5b05113a.chunk.js",
     "static/js/1069.eef00368.chunk.js": "/tera-raid-builder/static/js/1069.eef00368.chunk.js",
     "static/js/7363.c1a38202.chunk.js": "/tera-raid-builder/static/js/7363.c1a38202.chunk.js",
+    "static/js/8794.fcd31571.chunk.js": "/tera-raid-builder/static/js/8794.fcd31571.chunk.js",
+    "static/js/2021.cdb50c3c.chunk.js": "/tera-raid-builder/static/js/2021.cdb50c3c.chunk.js",
     "static/js/5248.9e64dd69.chunk.js": "/tera-raid-builder/static/js/5248.9e64dd69.chunk.js",
     "static/js/7078.57315c68.chunk.js": "/tera-raid-builder/static/js/7078.57315c68.chunk.js",
     "static/js/7818.9df737d0.chunk.js": "/tera-raid-builder/static/js/7818.9df737d0.chunk.js",
@@ -185,13 +187,13 @@
     "static/js/8064.34574994.chunk.js": "/tera-raid-builder/static/js/8064.34574994.chunk.js",
     "index.html": "/tera-raid-builder/index.html",
     "main.e6c13ad2.css.map": "/tera-raid-builder/static/css/main.e6c13ad2.css.map",
-    "main.7b7d886a.js.map": "/tera-raid-builder/static/js/main.7b7d886a.js.map",
+    "main.a4731387.js.map": "/tera-raid-builder/static/js/main.a4731387.js.map",
     "4271.2a38f0f8.chunk.js.map": "/tera-raid-builder/static/js/4271.2a38f0f8.chunk.js.map",
     "787.f2f3d9e4.chunk.js.map": "/tera-raid-builder/static/js/787.f2f3d9e4.chunk.js.map",
     "8064.34574994.chunk.js.map": "/tera-raid-builder/static/js/8064.34574994.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.7b7d886a.js"
+    "static/js/main.a4731387.js"
   ]
 }

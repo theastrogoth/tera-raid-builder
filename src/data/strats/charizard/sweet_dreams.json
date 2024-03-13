@@ -54,13 +54,13 @@
         },
         {
             "id": 1,
-            "role": "Espeon",
-            "name": "Espeon",
+            "role": "Slowbro",
+            "name": "Slowbro",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
+            "ability": "Own Tempo",
             "item": "Life Orb",
-            "nature": "Modest",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -81,18 +81,10 @@
             "gender": "N",
             "moves": [
                 "Stored Power",
-                "Protect"
+                "Trick Room"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 2,
@@ -278,7 +270,7 @@
             "id": 5,
             "group": 2,
             "moveInfo": {
-                "name": "Protect",
+                "name": "Trick Room",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -558,7 +550,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 2,
                     "role": "Mewtwo",
                     "name": "Mewtwo",
                     "shiny": false,
@@ -605,7 +597,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 3,
                     "role": "Miraidon",
                     "name": "Miraidon",
                     "shiny": false,
@@ -640,6 +632,51 @@
                     "(No Move)",
                     "Protect",
                     "Dragon Pulse"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Espeon",
+                    "name": "Espeon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Stored Power",
+                        "Protect"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Protect",
+                    "Stored Power"
                 ],
                 "substituteTargets": [
                     0,

@@ -5,12 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Blastoise",
-            "name": "Blastoise",
+            "role": "Charizard",
+            "name": "Charizard",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Rain Dish",
-            "nature": "Naive",
+            "ability": "Solar Power",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -29,23 +29,24 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Steel",
+            "teraType": "Dragon",
             "moves": [
-                "Hydro Pump",
-                "Flash Cannon",
-                "Aura Sphere",
-                "Iron Defense"
+                "Dragon Pulse",
+                "Fire Blast",
+                "Hurricane",
+                "Focus Blast"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 2500,
             "extraMoves": [
-                "Withdraw",
-                "Shell Smash",
-                "Rain Dance"
+                "Overheat",
+                "Tera Blast",
+                "Sunny Day",
+                "Inferno"
             ],
             "shieldData": {
-                "hpTrigger": 100,
-                "timeTrigger": 100,
-                "shieldCancelDamage": 25,
+                "hpTrigger": 65,
+                "timeTrigger": 65,
+                "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -53,12 +54,12 @@
         },
         {
             "id": 1,
-            "role": "Ninetales",
-            "name": "Ninetales",
+            "role": "Sylveon",
+            "name": "Sylveon",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Drought",
-            "item": "Passho Berry",
+            "ability": "Pixilate",
+            "item": "Covert Cloak",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -78,32 +79,20 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Fire",
             "moves": [
-                "Nasty Plot",
-                "Shadow Ball",
-                "Weather Ball",
-                "Flamethrower"
+                "Hyper Voice"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 2,
-            "role": "Espathra",
-            "name": "Espathra",
+            "role": "Pelipper",
+            "name": "Pelipper",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Frisk",
-            "item": "Covert Cloak",
+            "ability": "Drizzle",
+            "item": "Sitrus Berry",
             "nature": "Calm",
             "evs": {
                 "hp": 252,
@@ -124,29 +113,18 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Lumina Crash",
-                "Sunny Day",
-                "Light Screen",
                 "Helping Hand"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 3,
-            "role": "Oranguru",
-            "name": "Oranguru",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Inner Focus",
+            "ability": "(No Ability)",
             "item": "Covert Cloak",
             "nature": "Calm",
             "evs": {
@@ -166,31 +144,21 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Instruct",
-                "Sunny Day",
-                "Light Screen",
-                "Taunt"
+                "Fake Tears",
+                "Decorate"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 4,
-            "role": "Oranguru",
-            "name": "Oranguru",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Inner Focus",
+            "ability": "(No Ability)",
             "item": "Covert Cloak",
             "nature": "Calm",
             "evs": {
@@ -210,23 +178,13 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Instruct",
-                "Sunny Day",
-                "Light Screen",
-                "Taunt"
+                "Fake Tears",
+                "Decorate"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         }
     ],
     "turns": [
@@ -245,7 +203,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Withdraw",
+                "name": "Overheat",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

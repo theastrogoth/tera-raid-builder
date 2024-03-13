@@ -1,4 +1,8 @@
 {
+    "Charizard": {
+        "Whipping Up a Storm": "charizard/main",
+        "Sweet Dreams": "charizard/sweet_dreams"
+    },
     "Blastoise": {
         "Firefox Forecast": "blastoise/main",
         "Gastroporeon": "blastoise/gastroporeon",

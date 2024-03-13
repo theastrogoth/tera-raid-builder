@@ -517,19 +517,19 @@
             {
                 "raider": {
                     "id": 1,
-                    "role": "Mew",
-                    "name": "Mew",
+                    "role": "Armarouge",
+                    "name": "Armarouge",
                     "shiny": false,
-                    "ability": "Synchronize",
+                    "ability": "Flash Fire",
                     "item": "Life Orb",
                     "nature": "Modest",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
                         "def": 0,
                         "spa": 252,
                         "spd": 0,
-                        "spe": 4
+                        "spe": 0
                     },
                     "ivs": {
                         "hp": 31,
@@ -561,7 +561,7 @@
             },
             {
                 "raider": {
-                    "id": 2,
+                    "id": 1,
                     "role": "Mewtwo",
                     "name": "Mewtwo",
                     "shiny": false,

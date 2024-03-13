@@ -289,7 +289,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Overheat",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -517,6 +517,51 @@
             {
                 "raider": {
                     "id": 1,
+                    "role": "Mew",
+                    "name": "Mew",
+                    "shiny": false,
+                    "ability": "Synchronize",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 4
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Stored Power",
+                        "Protect"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Protect",
+                    "Stored Power"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
                     "role": "Mewtwo",
                     "name": "Mewtwo",
                     "shiny": false,
@@ -546,51 +591,6 @@
                         "Protect",
                         "(No Move)",
                         "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
-                    "Protect",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    0,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 1,
-                    "role": "Mew",
-                    "name": "Mew",
-                    "shiny": false,
-                    "ability": "Synchronize",
-                    "item": "Life Orb",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 4
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Stored Power",
-                        "Protect"
                     ]
                 },
                 "substituteMoves": [

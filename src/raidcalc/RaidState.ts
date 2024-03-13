@@ -1107,6 +1107,14 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+        // check Soul-Heart
+        for (let i=0; i<5; i++) {
+            if (i === id) { continue; }
+            const poke = this.getPokemon(i);
+            if (poke.ability === "Soul-Heart" && poke.originalCurHP !== 0) {
+                this.applyStatChange(i, {spa: 1}, true, i);
+            }
+        }
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
         if ((pokemon.isTransformed || pokemon.isChangedForm) && pokemon.originalSpecies) {
             const originalSpecies = new Pokemon(9, pokemon.originalSpecies, {

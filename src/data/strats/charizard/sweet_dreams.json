@@ -558,7 +558,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 2,
                     "role": "Delphox",
                     "name": "Delphox",
                     "shiny": false,
@@ -603,7 +603,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 3,
                     "role": "Munkidori",
                     "name": "Munkidori",
                     "shiny": false,
@@ -648,7 +648,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 4,
                     "role": "Latios",
                     "name": "Latios",
                     "shiny": false,
@@ -693,7 +693,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 5,
                     "role": "Latias",
                     "name": "Latias",
                     "shiny": false,
@@ -738,7 +738,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 6,
                     "role": "Mewtwo",
                     "name": "Mewtwo",
                     "shiny": false,
@@ -785,7 +785,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 7,
                     "role": "Slowking",
                     "name": "Slowking",
                     "shiny": false,
@@ -830,7 +830,7 @@
             },
             {
                 "raider": {
-                    "id": 1,
+                    "id": 8,
                     "role": "Armarouge",
                     "name": "Armarouge",
                     "shiny": false,
@@ -867,6 +867,51 @@
                     "(No Move)",
                     "Protect",
                     "Stored Power"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Miraidon",
+                    "name": "Miraidon",
+                    "shiny": false,
+                    "ability": "Hadron Engine",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Protect",
+                        "Dragon Pulse"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Protect",
+                    "Dragon Pulse"
                 ],
                 "substituteTargets": [
                     0,

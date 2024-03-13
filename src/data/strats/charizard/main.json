@@ -80,7 +80,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Hyper Voice"
+                "Hyper Voice",
+                "Calm Mind",
+                "Draining Kiss",
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -121,7 +124,9 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Helping Hand"
+                "Helping Hand",
+                "Rain Dance",
+                "Tailwind"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -163,7 +168,9 @@
             "gender": "F",
             "moves": [
                 "Fake Tears",
-                "Decorate"
+                "Decorate",
+                "Helping Hand",
+                "Light Screen"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -205,7 +212,9 @@
             "gender": "F",
             "moves": [
                 "Fake Tears",
-                "Decorate"
+                "Decorate",
+                "Helping Hand",
+                "Light Screen"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -677,6 +686,52 @@
             {
                 "raider": {
                     "id": 1,
+                    "role": "Flutter Mane",
+                    "name": "Flutter Mane",
+                    "shiny": false,
+                    "ability": "Protosynthesis",
+                    "item": "Covert Cloak",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Moonblast",
+                        "Calm Mind",
+                        "Draining Kiss"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Defense Cheer",
+                    "Moonblast"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
                     "role": "Miraidon",
                     "name": "Miraidon",
                     "shiny": false,
@@ -703,8 +758,8 @@
                     "gender": "N",
                     "moves": [
                         "Dragon Pulse",
-                        "(No Move)",
-                        "(No Move)",
+                        "Electric Terrain",
+                        "Calm Mind",
                         "(No Move)"
                     ]
                 },
@@ -723,7 +778,7 @@
             },
             {
                 "raider": {
-                    "id": 2,
+                    "id": 1,
                     "role": "Primarina",
                     "name": "Primarina",
                     "shiny": false,
@@ -750,53 +805,9 @@
                     "gender": "N",
                     "moves": [
                         "Moonblast",
-                        "(No Move)",
-                        "(No Move)",
-                        "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
-                    "Defense Cheer",
-                    "Moonblast"
-                ],
-                "substituteTargets": [
-                    0,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Flutter Mane",
-                    "name": "Flutter Mane",
-                    "shiny": false,
-                    "ability": "Protosynthesis",
-                    "item": "Covert Cloak",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Moonblast"
+                        "Calm Mind",
+                        "Draining Kiss",
+                        "Icy Wind"
                     ]
                 },
                 "substituteMoves": [
@@ -816,7 +827,7 @@
         [
             {
                 "raider": {
-                    "id": 1,
+                    "id": 2,
                     "role": "Politoed",
                     "name": "Politoed",
                     "shiny": false,
@@ -842,13 +853,60 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Helping Hand"
+                        "Helping Hand",
+                        "Rain Dance",
+                        "Mud-Slap"
                     ]
                 },
                 "substituteMoves": [
                     "(No Move)",
                     "(No Move)",
                     "Helping Hand",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    1,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Kyogre",
+                    "name": "Kyogre",
+                    "shiny": false,
+                    "ability": "Drizzle",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Helping Hand",
+                        "Rain Dance"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "(No Move)",
                     "Attack Cheer"
                 ],
                 "substituteTargets": [

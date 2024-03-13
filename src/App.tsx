@@ -348,9 +348,9 @@ function App() {
     </Box>
     <Stack direction="row">
       <Stack direction="column" justifyContent="center">
-      <Grid container justifyContent="center" alignItems="center" sx={{ marginTop: 1 }}>
-          <Grid item sx={{ mx: 1 }}>
-            <Box width="575px">
+      <Grid container justifyContent="space-between" alignItems="center" sx={{ marginTop: 1, minWidth: "800px" }}>
+          <Grid item sx={{ marginLeft: 4 }}>
+            <Box>
               <StratLoadField
                 raidInputProps={raidInputProps}
                 setTitle={setTitle} 
@@ -363,8 +363,12 @@ function App() {
               />
             </Box>
           </Grid>
-          <Grid item sx={{ mx: 1 }}>
-            <Box width="575px" />
+          <Grid item sx={{ marginRight: 4 }}>
+            <Box>
+              <Link href="https://www.reddit.com/r/PokePortal/" target="_blank">
+                <img src={process.env.PUBLIC_URL + "/pokeportal.png"} alt="PokePortal" width="300px" height="60px" />
+              </Link>
+            </Box>
           </Grid>
         </Grid>
         <Grid container justifyContent="center" sx={{ my: 1 }}>

@@ -23,6 +23,10 @@
     "gender": "N",
     "moves": [
         {
+            "name": "Air Slash",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Astonish",
             "learnMethod": "level-up"
         },

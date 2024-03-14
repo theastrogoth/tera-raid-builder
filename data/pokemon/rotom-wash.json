@@ -87,6 +87,10 @@
             "learnMethod": "level-up"
         },
         {
+            "name": "Hydro Pump",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Hyper Voice",
             "learnMethod": "machine"
         },

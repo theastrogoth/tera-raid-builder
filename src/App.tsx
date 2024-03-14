@@ -415,7 +415,7 @@ function App() {
         </Grid>
         <Grid container justifyContent="left" sx={{ my: 1 }}>
           <Grid item xs={12}>
-            <Stack >
+            <Stack>
               <Stack direction="row" sx={{ p: 2 }}>
                 <Box flexGrow={1} />
                   <LinkButton 
@@ -437,6 +437,13 @@ function App() {
                     setLoading={setLoading}
                     translationKey={translationKey}
                   />
+                <Box flexGrow={1} />
+              </Stack>
+              <Stack direction="row" sx={{ p: 2 }}>
+                <Box flexGrow={1} />
+                <Typography variant="body1">
+                  Looking for raid buddies? Want to share your raid strategies? Check out the <Link href="https://www.reddit.com/r/PokePortal/comments/1955sk1/rpokeportal_full_directory/" target="_blank">r/PokePortal</Link> subreddit!
+                </Typography>
                 <Box flexGrow={1} />
               </Stack>
               <Stack sx={{ mx: 3, my: 3}}>

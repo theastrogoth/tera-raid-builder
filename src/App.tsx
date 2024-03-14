@@ -54,6 +54,15 @@ function App() {
   const hash = location.hash
   
   const [theme, setTheme] = useState(createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1075,
+        xl: 1536,
+      },
+    },
     palette: {
       mode: lightMode,
       background: {
@@ -139,6 +148,15 @@ function App() {
   useEffect(() => {
     setTheme(createTheme(
       {
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 600,
+            md: 900,
+            lg: 1075,
+            xl: 1536,
+          },
+        },
         palette: {
           mode: lightMode,
           background: {
@@ -348,9 +366,9 @@ function App() {
     </Box>
     <Stack direction="row">
       <Stack direction="column" justifyContent="center">
-      <Grid container justifyContent="space-between" alignItems="center" sx={{ marginTop: 1, minWidth: "800px" }}>
-          <Grid item sx={{ marginLeft: 4 }}>
-            <Box>
+      <Grid container justifyContent="center" alignItems="center" sx={{ marginTop: 1 }}>
+          <Grid item sx={{ mx: 1 }}>
+            <Box width="575px">
               <StratLoadField
                 raidInputProps={raidInputProps}
                 setTitle={setTitle} 
@@ -363,12 +381,8 @@ function App() {
               />
             </Box>
           </Grid>
-          <Grid item sx={{ marginRight: 4 }}>
-            <Box>
-              <Link href="https://www.reddit.com/r/PokePortal/" target="_blank">
-                <img src={process.env.PUBLIC_URL + "/pokeportal.png"} alt="PokePortal" width="300px" height="60px" />
-              </Link>
-            </Box>
+          <Grid item sx={{ mx: 1 }}>
+            <Box width="575px" />
           </Grid>
         </Grid>
         <Grid container justifyContent="center" sx={{ my: 1 }}>

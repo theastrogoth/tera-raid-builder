@@ -81,7 +81,9 @@
             "gender": "N",
             "moves": [
                 "Protect",
-                "Stored Power"
+                "Stored Power",
+                "Calm Mind",
+                "Psychic Terrain"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -123,7 +125,9 @@
             "gender": "F",
             "moves": [
                 "Decorate",
-                "Fake Tears"
+                "Fake Tears",
+                "Helping Hand",
+                "Light Screen"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -165,7 +169,9 @@
             "gender": "F",
             "moves": [
                 "Decorate",
-                "Fake Tears"
+                "Fake Tears",
+                "Helping Hand",
+                "Light Screen"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -207,7 +213,9 @@
             "gender": "F",
             "moves": [
                 "Decorate",
-                "Fake Tears"
+                "Fake Tears",
+                "Helping Hand",
+                "Light Screen"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -514,6 +522,53 @@
             {
                 "raider": {
                     "id": 1,
+                    "role": "Miraidon",
+                    "name": "Miraidon",
+                    "shiny": false,
+                    "ability": "Hadron Engine",
+                    "item": "Life Orb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Protect",
+                        "Dragon Pulse",
+                        "Electric Terrain",
+                        "Calm Mind"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)",
+                    "Protect",
+                    "Dragon Pulse"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
                     "role": "Calyrex",
                     "name": "Calyrex-Shadow",
                     "shiny": false,
@@ -540,7 +595,9 @@
                     "gender": "N",
                     "moves": [
                         "Protect",
-                        "Stored Power"
+                        "Stored Power",
+                        "Calm Mind",
+                        "Psychic Terrain"
                     ]
                 },
                 "substituteMoves": [
@@ -558,7 +615,7 @@
             },
             {
                 "raider": {
-                    "id": 2,
+                    "id": 1,
                     "role": "Delphox",
                     "name": "Delphox",
                     "shiny": false,
@@ -585,7 +642,9 @@
                     "gender": "N",
                     "moves": [
                         "Protect",
-                        "Stored Power"
+                        "Stored Power",
+                        "Calm Mind",
+                        "Psychic Terrain"
                     ]
                 },
                 "substituteMoves": [
@@ -603,7 +662,7 @@
             },
             {
                 "raider": {
-                    "id": 3,
+                    "id": 1,
                     "role": "Munkidori",
                     "name": "Munkidori",
                     "shiny": false,
@@ -630,7 +689,9 @@
                     "gender": "M",
                     "moves": [
                         "Protect",
-                        "Stored Power"
+                        "Stored Power",
+                        "Acid Spray",
+                        "Psychic Terrain"
                     ]
                 },
                 "substituteMoves": [
@@ -648,7 +709,7 @@
             },
             {
                 "raider": {
-                    "id": 4,
+                    "id": 1,
                     "role": "Latios",
                     "name": "Latios",
                     "shiny": false,
@@ -675,7 +736,9 @@
                     "gender": "M",
                     "moves": [
                         "Protect",
-                        "Stored Power"
+                        "Stored Power",
+                        "Calm Mind",
+                        "Dragon Pulse"
                     ]
                 },
                 "substituteMoves": [
@@ -693,7 +756,7 @@
             },
             {
                 "raider": {
-                    "id": 5,
+                    "id": 1,
                     "role": "Latias",
                     "name": "Latias",
                     "shiny": false,
@@ -720,7 +783,9 @@
                     "gender": "F",
                     "moves": [
                         "Protect",
-                        "Stored Power"
+                        "Stored Power",
+                        "Calm Mind",
+                        "Dragon Pulse"
                     ]
                 },
                 "substituteMoves": [
@@ -738,7 +803,7 @@
             },
             {
                 "raider": {
-                    "id": 6,
+                    "id": 1,
                     "role": "Mewtwo",
                     "name": "Mewtwo",
                     "shiny": false,
@@ -766,8 +831,8 @@
                     "moves": [
                         "Protect",
                         "Stored Power",
-                        "(No Move)",
-                        "(No Move)"
+                        "Calm Mind",
+                        "Psychic Terrain"
                     ]
                 },
                 "substituteMoves": [
@@ -785,52 +850,7 @@
             },
             {
                 "raider": {
-                    "id": 7,
-                    "role": "Slowking",
-                    "name": "Slowking",
-                    "shiny": false,
-                    "ability": "Own Tempo",
-                    "item": "Life Orb",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Trick Room",
-                        "Stored Power"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
-                    "Trick Room",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    0,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 8,
+                    "id": 1,
                     "role": "Armarouge",
                     "name": "Armarouge",
                     "shiny": false,
@@ -858,8 +878,8 @@
                     "moves": [
                         "Protect",
                         "Stored Power",
-                        "(No Move)",
-                        "(No Move)"
+                        "Acid Spray",
+                        "Psychic Terrain"
                     ]
                 },
                 "substituteMoves": [
@@ -878,10 +898,10 @@
             {
                 "raider": {
                     "id": 1,
-                    "role": "Miraidon",
-                    "name": "Miraidon",
+                    "role": "Slowking",
+                    "name": "Slowking",
                     "shiny": false,
-                    "ability": "Hadron Engine",
+                    "ability": "Own Tempo",
                     "item": "Life Orb",
                     "nature": "Modest",
                     "evs": {
@@ -903,15 +923,17 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Protect",
-                        "Dragon Pulse"
+                        "Trick Room",
+                        "Stored Power",
+                        "Calm Mind",
+                        "Psychic Terrain"
                     ]
                 },
                 "substituteMoves": [
                     "(No Move)",
                     "(No Move)",
-                    "Protect",
-                    "Dragon Pulse"
+                    "Trick Room",
+                    "Stored Power"
                 ],
                 "substituteTargets": [
                     0,

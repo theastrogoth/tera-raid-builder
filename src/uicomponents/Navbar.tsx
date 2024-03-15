@@ -170,7 +170,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                             // }}
                         >
                             <Stack direction="column" spacing={1} justifyContent="center" alignItems="center">
-                                <Box component="div">
+                                <Box component="div" sx={{ display: {xs: 'flex', sm: 'none'} }}>
                                     <LanguageMenuButton language={language} setLanguage={setLanguage} anchorEl={langAnchorEl} handleClick={handleLangClick} handleClose={handleLangClose} />
                                 </Box>
                                 <Button 

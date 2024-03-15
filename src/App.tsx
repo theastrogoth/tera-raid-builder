@@ -442,7 +442,7 @@ function App() {
               <Stack direction="row" sx={{ paddingTop: 2 }}>
                 <Box flexGrow={1} />
                 <Typography variant="body1">
-                  Looking for raid buddies? Want to share your raid strategies? Check out the <Link href="https://www.reddit.com/r/PokePortal/comments/1955sk1/rpokeportal_full_directory/" target="_blank">r/PokePortal</Link> subreddit!
+                  Looking for raid buddies? Want to share your raid strategies? Check out the <Link href="https://www.reddit.com/r/PokePortal/comments/1955sk1/rpokeportal_full_directory/" target="_blank">r/PokePortal</Link> community on Reddit!
                 </Typography>
                 <Box flexGrow={1} />
               </Stack>

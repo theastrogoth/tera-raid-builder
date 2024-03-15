@@ -474,7 +474,7 @@ function App() {
                   German translations for the user interface were kindly provided by <Link href="https://reddit.com/u/AzuriteLeopard" target="_blank">u/AzuriteLeopard</Link>.
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Raid Team for their help with design and testing!
                 </Typography>
                 <Typography variant="h6" sx={{color: "text.secondary", marginTop: "10px"}}>
                   Contact

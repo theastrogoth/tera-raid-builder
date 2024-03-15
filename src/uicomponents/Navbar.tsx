@@ -103,7 +103,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
     const [showHelp, setShowHelp] = useState(false);
     return (
         <Box>
-            <AppBar position="static" color="secondary" sx={{ minWidth: "750px"}}>
+            <AppBar position="static" color="secondary" sx={{ minWidth: "628px"}}>
                 <Toolbar>
                     <Box paddingRight={2} sx={{ transform: "translate(0px, 2px)"}}>
                         <img src={process.env.PUBLIC_URL + "/logo192.png"} height={60} alt="" />
@@ -134,17 +134,13 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                         </Typography>
                     </Box>
                     <Box component="div" sx={{ flexGrow: 1 }} />
-                    <Link href="https://www.reddit.com/r/PokePortal/comments/1955sk1/rpokeportal_full_directory/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
-                        <img src={process.env.PUBLIC_URL + "/pokeportal.png"} alt="PokePortal" width="250px" height="50px" />
-                    </Link>
-                    <Box component="div" sx={{ width: "20px" }} />
-                    <Box component="div" sx={{ display: { xs: 'none', lg: 'flex' } }}>
-                            <PrettyEditModeButton prettyMode={prettyMode} setPrettyMode={setPrettyMode} translationKey={translationKey} />
+                    <Box component="div">
+                        <PrettyEditModeButton prettyMode={prettyMode} setPrettyMode={setPrettyMode} translationKey={translationKey} />
                     </Box>
-                    <Box component="div" sx={{ display: { xs: 'none', lg: 'flex' } }}>
+                    <Box component="div" sx={{ display: {xs: "none", sm: "flex"} }}>
                         <LanguageMenuButton language={language} setLanguage={setLanguage} anchorEl={langAnchorEl} handleClick={handleLangClick} handleClose={handleLangClose} />
                     </Box>
-                    <Box component="div" sx={{ display: { xs: 'none', lg: 'flex' } }}>
+                    <Box component="div" sx={{ display: {xs: "none", md: "flex"} }}>
                         <Button 
                             color="inherit"
                             onClick={() => setShowHelp(!showHelp)}
@@ -153,11 +149,11 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                             { getTranslation("Help", translationKey) }
                         </Button>
                     </Box>
-                    <Box component="div" sx={{ display: { xs: 'none', lg: 'flex' } }}>
+                    <Box component="div" sx={{ display: {xs: "none", md: "flex"} }}>
                         <DarkLightModeSwitch lightMode={lightMode} setLightMode={setLightMode} />
                     </Box>
-                    <Box component="div" sx={{ display: { xs: 'flex', lg: 'none' } }}>
-                        <IconButton onClick={handleMenuClick} size="large">
+                    <Box component="div" sx={{ display: { xs: 'flex', md: 'none' } }}>
+                        <IconButton onClick={handleMenuClick} size="large" color="inherit">
                             <MenuIcon />
                         </IconButton>
                         <Menu
@@ -174,8 +170,9 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                             // }}
                         >
                             <Stack direction="column" spacing={1} justifyContent="center" alignItems="center">
-                                <PrettyEditModeButton prettyMode={prettyMode} setPrettyMode={setPrettyMode} translationKey={translationKey} />
-                                <LanguageMenuButton language={language} setLanguage={setLanguage} anchorEl={langAnchorEl} handleClick={handleLangClick} handleClose={handleLangClose} />
+                                <Box component="div">
+                                    <LanguageMenuButton language={language} setLanguage={setLanguage} anchorEl={langAnchorEl} handleClick={handleLangClick} handleClose={handleLangClose} />
+                                </Box>
                                 <Button 
                                     color="inherit"
                                     onClick={() => setShowHelp(!showHelp)}
@@ -186,6 +183,12 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                                 <DarkLightModeSwitch lightMode={lightMode} setLightMode={setLightMode} />
                             </Stack>
                         </Menu>
+                    </Box>
+                    <Box component="div" sx={{ width: "20px", display: {xs: "none", lg: "flex"} }} />
+                    <Box component="div" sx={{ display: {xs: "none", lg: "flex"} }}>
+                        <Link href="https://www.reddit.com/r/PokePortal/comments/1955sk1/rpokeportal_full_directory/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                            <img src={process.env.PUBLIC_URL + "/pp_icon.png"} alt="PokePortal" width="50px" height="50px" />
+                        </Link>
                     </Box>
                 </Toolbar>
             </AppBar>

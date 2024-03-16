@@ -186,7 +186,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                     </Box>
                     <Box component="div" sx={{ width: "20px", display: {xs: "none", lg: "flex"} }} />
                     <Box component="div" sx={{ display: {xs: "none", lg: "flex"} }}>
-                        <Link href="https://www.reddit.com/r/PokePortal/comments/1955sk1/rpokeportal_full_directory/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                        <Link href="https://www.reddit.com/r/PokePortal/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
                             <img src={process.env.PUBLIC_URL + "/pp_icon.png"} alt="PokePortal" width="50px" height="50px" />
                         </Link>
                     </Box>

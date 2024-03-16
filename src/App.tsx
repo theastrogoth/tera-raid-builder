@@ -442,13 +442,13 @@ function App() {
               <Stack direction="row" sx={{ paddingTop: 2 }}>
                 <Box flexGrow={1} />
                 <Typography variant="body1">
-                  Looking for raid buddies? Want to share your raid strategies? Check out the <Link href="https://www.reddit.com/r/PokePortal/comments/1955sk1/rpokeportal_full_directory/" target="_blank">r/PokePortal</Link> community on Reddit!
+                  Looking for raid buddies? Want to share your raid strategies? Check out the <Link href="https://www.reddit.com/r/PokePortal/" target="_blank">r/PokePortal</Link> community on Reddit!
                 </Typography>
                 <Box flexGrow={1} />
               </Stack>
               <Stack direction="row" sx={{ p: 1 }}>
                 <Box flexGrow={1} />
-                <Link href="https://www.reddit.com/r/PokePortal/comments/1955sk1/rpokeportal_full_directory/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                <Link href="https://www.reddit.com/r/PokePortal/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
                   <img src={process.env.PUBLIC_URL + "/pokeportal.png"} alt="PokePortal" width="400px" height="80px" />
                 </Link>
                 <Box flexGrow={1} />

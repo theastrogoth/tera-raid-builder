@@ -1,7 +1,12 @@
 {
     "Charizard": {
         "Whipping Up a Storm": "charizard/main",
-        "Sweet Dreams": "charizard/sweet_dreams"
+        "Sweet Dreams": "charizard/sweet_dreams",
+        "Team Eeveelutions Takes Down a Mighty Dragon": "charizard/eeveelutions",
+        "Blubber Bubble": "charizard/blubber_bubble",
+        "Blizzard Warning": "charizard/blizzard_warning",
+        "Godzilla vs. Rodan": "charizard/godzilla_vs_rodan",
+        "Nukebro vs. Charizard": "charizard/nukebro"
     },
     "Blastoise": {
         "Firefox Forecast": "blastoise/main",
@@ -15,6 +20,7 @@
         "Armada!": "blastoise/armada",
         "Fiery Entertainment": "blastoise/fiery_entertainment",
         "An All Aquatic Showdown": "blastoise/all_aquatic_showdown",
+        "Nukebro vs. Blastoise": "blastoise/nukebro",
         "The Hocus-Pokids": "blastoise/hocus_pokids"
     },
     "Venusaur": {
@@ -32,6 +38,7 @@
         "Mimikyu Bonks the Venu!": "venusaur/mimikyu_bonks_the_venu",
         "Dozing off to Venus...": "venusaur/dozing_off_to_venus",
         "Giving Zen and PSY Their Flowers": "venusaur/giving_zen_their_flowers",
+        "Nukebro vs. Venusaur": "venusaur/nukebro",
         "Lost in a Froggy Forest": "venusaur/froggy_forest"
     },
     "Empoleon": {
@@ -48,6 +55,7 @@
         "Hisuian Hijinks": "empoleon/hisui_hijinks",
         "Armarouge Army": "empoleon/armarouge_army",
         "Year of the Dragon": "empoleon/dragon",
+        "Nukebro vs. Empoleon": "empoleon/nukebro",
         "Creepy Crawlies": "empoleon/creepy_crawlies"
     },
     "Blaziken": {
@@ -70,6 +78,7 @@
         "More Morpeking Duck": "blaziken/morpeking_duck",
         "Skill Issue 2: Electric Boogaloo": "blaziken/skill_issue",
         "Tackling The Problem Head On": "blaziken/head_on",
+        "Nukebro vs. Blaziken": "blaziken/nukebro",
         "Maybe Babies?": "blaziken/maybe_babies",
         "Rock-a-Bye Baby": "blaziken/rockabye"
     },
@@ -133,6 +142,7 @@
         "Mostly Mice": "h_samurott/mostly_mice",
         "Sun Dog": "h_samurott/sun_dog",
         "Thunderstruck": "h_samurott/thunderstruck",
+        "Nukebro vs. Hamurott": "h_samurott/nukebro",
         "Rocked & Shocked": "h_samurott/rocked&shocked",
         "Magnem Opus": "h_samurott/magnem_opus"
     },

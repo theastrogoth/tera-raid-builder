@@ -1103,6 +1103,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_samurott/thunderstruck.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('h_samurrot/nukebro', async () => {
+    const module = await import(`./data/strats/h_samurott/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('h_samurott/rocked&shocked', async () => {
     const module = await import(`./data/strats/h_samurott/rocked&shocked.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1195,10 +1199,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blaziken/double_paradox.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  // test('blaziken/pikachicken', async () => {
-  //   const module = await import(`./data/strats/blaziken/pikachicken.json`)
-  //   await testOHKO(module as LightBuildInfo);
-  // })
+  test('blaziken/barbechu_chicken', async () => {
+    const module = await import(`./data/strats/blaziken/barbechu_chicken.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('blaziken/iceberg', async () => {
     const module = await import(`./data/strats/blaziken/iceberg.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1245,6 +1249,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('blaziken/head_on', async () => {
     const module = await import(`./data/strats/blaziken/head_on.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('blaziken/nukebro', async () => {
+    const module = await import(`./data/strats/blaziken/nukebro.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('blaziken/maybe_babies', async () => {
@@ -1307,6 +1315,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/empoleon/dragon.json`)
     await testOHKO(module as LightBuildInfo); 
   })
+  test('empoleon/nukebro', async () => {
+    const module = await import(`./data/strats/empoleon/nukebro.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
   test('empleon/creepy_crawlies', async () => {
     const module = await import(`./data/strats/empoleon/creepy_crawlies.json`)
     await testOHKO(module as LightBuildInfo); 
@@ -1367,6 +1379,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/venusaur/giving_zen_their_flowers.json`)
     await testOHKO(module as LightBuildInfo); 
   })
+  test('venusaur/nukebro', async () => {
+    const module = await import(`./data/strats/venusaur/nukebro.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
   test('venusaur/froggy_forest', async () => {
     const module = await import(`./data/strats/venusaur/froggy_forest.json`)
     await testOHKO(module as LightBuildInfo); 
@@ -1411,8 +1427,40 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blastoise/all_aquatic_showdown.json`)
     await testOHKO(module as LightBuildInfo); 
   })
+  test('blastiose/nukebro', async () => {
+    const module = await import(`./data/strats/blastoise/nukebro.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
   test('blastoise/hocus_pokids', async () => {
     const module = await import(`./data/strats/blastoise/hocus_pokids.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/main', async () => {
+    const module = await import(`./data/strats/charizard/main.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/sweet_dreams', async () => {
+    const module = await import(`./data/strats/charizard/sweet_dreams.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/eeveelutions', async () => {
+    const module = await import(`./data/strats/charizard/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/blubber_bubble', async () => {
+    const module = await import(`./data/strats/charizard/blubber_bubble.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/blizzard_warning', async () => {
+    const module = await import(`./data/strats/charizard/blizzard_warning.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/godzilla_vs_rodan', async () => {
+    const module = await import(`./data/strats/charizard/godzilla_vs_rodan.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/nukebro', async () => {
+    const module = await import(`./data/strats/charizard/nukebro.json`)
     await testOHKO(module as LightBuildInfo); 
   })
 })

@@ -54,6 +54,15 @@ function App() {
   const hash = location.hash
   
   const [theme, setTheme] = useState(createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 720,
+        md: 820,
+        lg: 900,
+        xl: 1536,
+      },
+    },
     palette: {
       mode: lightMode,
       background: {
@@ -139,6 +148,15 @@ function App() {
   useEffect(() => {
     setTheme(createTheme(
       {
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 720,
+            md: 820,
+            lg: 900,
+            xl: 1536,
+          },
+        },
         palette: {
           mode: lightMode,
           background: {
@@ -397,7 +415,7 @@ function App() {
         </Grid>
         <Grid container justifyContent="left" sx={{ my: 1 }}>
           <Grid item xs={12}>
-            <Stack >
+            <Stack>
               <Stack direction="row" sx={{ p: 2 }}>
                 <Box flexGrow={1} />
                   <LinkButton 
@@ -421,6 +439,20 @@ function App() {
                   />
                 <Box flexGrow={1} />
               </Stack>
+              <Stack direction="row" sx={{ paddingTop: 2 }}>
+                <Box flexGrow={1} />
+                <Typography variant="body1">
+                  Looking for raid buddies? Want to share your raid strategies? Check out the <Link href="https://www.reddit.com/r/PokePortal/" target="_blank">r/PokePortal</Link> community on Reddit!
+                </Typography>
+                <Box flexGrow={1} />
+              </Stack>
+              <Stack direction="row" sx={{ p: 1 }}>
+                <Box flexGrow={1} />
+                <Link href="https://www.reddit.com/r/PokePortal/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                  <img src={process.env.PUBLIC_URL + "/pokeportal.png"} alt="PokePortal" width="400px" height="80px" />
+                </Link>
+                <Box flexGrow={1} />
+              </Stack>
               <Stack sx={{ mx: 3, my: 3}}>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary", marginBottom: "10px"}}>
                   Created by <Link href="https://reddit.com/u/theAstroGoth" target="_blank">u/theAstroGoth</Link> and <Link href="https://reddit.com/u/Gimikyu_" target="_blank">u/Gimikyu_</Link>.
@@ -442,7 +474,7 @@ function App() {
                   German translations for the user interface were kindly provided by <Link href="https://reddit.com/u/AzuriteLeopard" target="_blank">u/AzuriteLeopard</Link>.
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Raid Team for their help with design and testing!
                 </Typography>
                 <Typography variant="h6" sx={{color: "text.secondary", marginTop: "10px"}}>
                   Contact

@@ -46,8 +46,11 @@ export namespace State {
     shieldActive?: boolean;
     toxicCounter?: number;
     hitsTaken?: number;
+    timesFainted?: number;
     changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
     moves?: I.MoveName[];
+    permanentAtkCheers?: number;
+    permanentDefCheers?: number,
     overrides?: Partial<I.Specie>;
   }
 

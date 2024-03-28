@@ -768,6 +768,10 @@ export function calculateBasePowerSMSSSV(
     basePower = 50 + 50 * Math.min(6, attacker.hitsTaken);
     desc.moveBP = basePower;
     break;
+  case 'Last Respects':
+    basePower = 50 + 50 * Math.min(6, attacker.timesFainted);
+    desc.moveBP = basePower;
+    break;
   case 'Acrobatics':
     basePower = move.bp * (attacker.hasItem('Flying Gem') || !attacker.item ? 2 : 1);
     desc.moveBP = basePower;
@@ -1416,19 +1420,23 @@ export function calculateAtModsSMSSSV(
     desc.attackerItem = attacker.item;
   }
 
-  if (field.attackerSide.isAtkCheered && !move.named('Body Press') && !move.named('Foul Play')) {
-    atMods.push(6144);
-    desc.isAtkCheered = true;
+  const attackerAtkCheerStack = (field.attackerSide.isAtkCheered ? 1 : 0) + attacker.permanentAtkCheers;
+  const attackerDefCheerStack = (field.attackerSide.isDefCheered ? 1 : 0) + attacker.permanentDefCheers;
+  const defenderAtkCheerStack = (field.defenderSide.isAtkCheered ? 1 : 0) + defender.permanentAtkCheers;
+
+  if (attackerAtkCheerStack && !move.named('Body Press') && !move.named('Foul Play')) {
+    atMods.push(4096 * (1 + attackerAtkCheerStack/2));
+    desc.isAtkCheered = attackerAtkCheerStack;
   }
 
-  if (move.named('Foul Play') && field.defenderSide.isAtkCheered) {
-    atMods.push(6144);
-    desc.isAtkCheered = true;
+  if (move.named('Foul Play') && defenderAtkCheerStack) {
+    atMods.push(4096 * (1 + defenderAtkCheerStack/2));
+    desc.isAtkCheered = defenderAtkCheerStack;
   }
 
-  if (move.named('Body Press') && field.attackerSide.isDefCheered) {
-    atMods.push(6144);
-    desc.isDefCheeredBodyPress = true;
+  if (move.named('Body Press') && attackerDefCheerStack) {
+    atMods.push(4096 * (1 + attackerDefCheerStack/2));
+    desc.isDefCheeredBodyPress = attackerDefCheerStack;
   }
 
   return atMods;
@@ -1565,9 +1573,10 @@ export function calculateDfModsSMSSSV(
     desc.defenderItem = defender.item;
   }
 
-  if (field.defenderSide.isDefCheered){
-    dfMods.push(6144);
-    desc.isDefCheered = true;
+  const defenderDefCheerStack = (field.defenderSide.isDefCheered ? 1 : 0) + defender.permanentDefCheers;
+  if (defenderDefCheerStack){
+    dfMods.push(4096 * (1 + defenderDefCheerStack/2));
+    desc.isDefCheered = defenderDefCheerStack;
   }
 
   return dfMods;

@@ -6439,13 +6439,13 @@ const SM_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     nfe: true,
     abilities: {0: 'Sand Veil'},
   },
-  // 'Dugtrio-Alola': {
-  //   types: ['Ground', 'Steel'],
-  //   bs: {hp: 35, at: 100, df: 60, sa: 50, sd: 70, sp: 110},
-  //   weightkg: 66.6,
-  //   baseSpecies: 'Dugtrio',
-  //   abilities: {0: 'Sand Veil'},
-  // },
+  'Dugtrio-Alola': {
+    types: ['Ground', 'Steel'],
+    bs: {hp: 35, at: 100, df: 60, sa: 50, sd: 70, sp: 110},
+    weightkg: 66.6,
+    baseSpecies: 'Dugtrio',
+    abilities: {0: 'Sand Veil'},
+  },
   // 'Eevee-Starter': {
   //   types: ['Normal'],
   //   bs: {hp: 65, at: 75, df: 70, sa: 65, sd: 85, sp: 75},

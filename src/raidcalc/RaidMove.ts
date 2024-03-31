@@ -1571,7 +1571,8 @@ export class RaidMove {
     public applyPostMoveEffects() {
         /// Item-related effects that occur at the end of a successful move
         // Choice-locking items
-        if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
+        if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
+            this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
             this._user.isChoiceLocked = true;
         }
     }

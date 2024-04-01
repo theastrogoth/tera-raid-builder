@@ -5825,9 +5825,11 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": {
+            "eva": -1
+        },
         "flinchChance": null,
-        "statChance": null,
+        "statChance": 100,
         "ailmentChance": null,
         "minHits": null,
         "maxHits": null,

@@ -11,9 +11,12 @@
     "healing": null,
     "selfDamage": null,
     "ailment": null,
-    "statChanges": {
-        "eva": -1
-    },
+    "statChanges": [
+        {
+            "stat": "eva",
+            "change": -1
+        }
+    ],
     "flinchChance": null,
     "statChance": 100,
     "ailmentChance": null,

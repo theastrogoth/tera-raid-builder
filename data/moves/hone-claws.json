@@ -17,7 +17,7 @@
             "change": 1
         },
         {
-            "stat": "accuracy",
+            "stat": "acc",
             "change": 1
         }
     ],

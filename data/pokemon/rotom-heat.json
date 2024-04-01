@@ -103,6 +103,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Overheat",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Pain Split",
             "learnMethod": "machine"
         },

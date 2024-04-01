@@ -4455,7 +4455,7 @@
                 "change": 1
             },
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": 1
             }
         ],
@@ -6480,7 +6480,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "evasion",
+                "stat": "eva",
                 "change": 1
             }
         ],
@@ -8814,7 +8814,7 @@
         "priority": 0,
         "drain": null,
         "healing": null,
-        "selfDamage": null,
+        "selfDamage": 50,
         "ailment": null,
         "statChanges": [
             {
@@ -9419,7 +9419,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -9672,7 +9672,7 @@
         "accuracy": null,
         "priority": 0,
         "drain": null,
-        "healing": null,
+        "healing": 50,
         "selfDamage": null,
         "ailment": null,
         "statChanges": null,
@@ -13235,7 +13235,7 @@
         "accuracy": null,
         "priority": 0,
         "drain": null,
-        "healing": null,
+        "healing": 50,
         "selfDamage": null,
         "ailment": null,
         "statChanges": null,
@@ -14264,7 +14264,7 @@
                 "change": 1
             },
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": 1
             }
         ],
@@ -15824,7 +15824,7 @@
         "accuracy": null,
         "priority": 0,
         "drain": null,
-        "healing": null,
+        "healing": 25,
         "selfDamage": null,
         "ailment": null,
         "statChanges": null,
@@ -15897,7 +15897,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -16315,7 +16315,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -19036,7 +19036,7 @@
         "ailment": "minimize",
         "statChanges": [
             {
-                "stat": "evasion",
+                "stat": "eva",
                 "change": 2
             }
         ],
@@ -19177,7 +19177,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -19566,7 +19566,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -19678,7 +19678,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -19717,7 +19717,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -20077,7 +20077,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -20486,7 +20486,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -24675,7 +24675,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -26952,7 +26952,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "accuracy",
+                "stat": "acc",
                 "change": -1
             }
         ],
@@ -29540,7 +29540,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "evasion",
+                "stat": "eva",
                 "change": -2
             }
         ],
@@ -33456,7 +33456,7 @@
         "ailment": null,
         "statChanges": [
             {
-                "stat": "evasion",
+                "stat": "eva",
                 "change": 1
             }
         ],

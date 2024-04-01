@@ -13,7 +13,7 @@
     "ailment": null,
     "statChanges": [
         {
-            "stat": "evasion",
+            "stat": "eva",
             "change": 1
         }
     ],

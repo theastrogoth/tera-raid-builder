@@ -91,6 +91,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Leaf Storm",
+            "learnMethod": "level-up"
+        },
+        {
             "name": "Light Screen",
             "learnMethod": "machine"
         },

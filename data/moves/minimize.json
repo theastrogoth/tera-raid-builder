@@ -13,7 +13,7 @@
     "ailment": "minimize",
     "statChanges": [
         {
-            "stat": "evasion",
+            "stat": "eva",
             "change": 2
         }
     ],

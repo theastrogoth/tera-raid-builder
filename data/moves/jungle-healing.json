@@ -8,7 +8,7 @@
     "accuracy": null,
     "priority": 0,
     "drain": null,
-    "healing": null,
+    "healing": 25,
     "selfDamage": null,
     "ailment": null,
     "statChanges": null,

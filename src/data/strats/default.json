@@ -1,16 +1,195 @@
 {
-    "name": "",
-    "notes": "",
-    "credits": "",
+    "name": "Angry Krok vs. Happy Dino",
+    "notes": "Honchkrow must have Speed EVs to outspeed Meganium!",
+    "credits": "The r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
-            "role": "Charizard",
-            "name": "Charizard",
+            "role": "Meganium",
+            "name": "Meganium",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Solar Power",
-            "nature": "Modest",
+            "ability": "Leaf Guard",
+            "nature": "Impish",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "F",
+            "teraType": "Psychic",
+            "moves": [
+                "Seed Bomb",
+                "Zen Headbutt",
+                "Body Press",
+                "Curse"
+            ],
+            "bossMultiplier": 3500,
+            "extraMoves": [
+                "Reflect",
+                "Light Screen",
+                "Bulldoze"
+            ],
+            "shieldData": {
+                "hpTrigger": 85,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Krookodile",
+            "name": "Krookodile",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Anger Point",
+            "item": "Choice Band",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Power Trip",
+                "Crunch"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 2,
+            "role": "Honchkrow",
+            "name": "Honchkrow",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Super Luck",
+            "item": "Scope Lens",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Taunt",
+                "Night Slash",
+                "Helping Hand",
+                "Chilling Water"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 3,
+            "role": "Umbreon",
+            "name": "Umbreon",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Helping Hand",
+                "Screech",
+                "Reflect",
+                "Mud-Slap"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Corviknight",
+            "name": "Corviknight",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -29,168 +208,28 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Dragon",
             "moves": [
-                "Dragon Pulse",
-                "Fire Blast",
-                "Hurricane",
-                "Focus Blast"
+                "Screech",
+                "Defog",
+                "Reflect",
+                "Rock Smash"
             ],
-            "bossMultiplier": 2500,
-            "extraMoves": [
-                "Overheat",
-                "Tera Blast",
-                "Sunny Day",
-                "Inferno"
-            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
             "shieldData": {
-                "hpTrigger": 65,
-                "timeTrigger": 65,
-                "shieldCancelDamage": 40,
-                "shieldDamageRate": 20,
-                "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
             }
-        },
-        {
-            "id": 1,
-            "role": "Sylveon",
-            "name": "Sylveon",
-            "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Pixilate",
-            "item": "Covert Cloak",
-            "nature": "Modest",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Hyper Voice"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
-        },
-        {
-            "id": 2,
-            "role": "Pelipper",
-            "name": "Pelipper",
-            "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Drizzle",
-            "item": "Sitrus Berry",
-            "nature": "Calm",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 252,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Helping Hand"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
-        },
-        {
-            "id": 3,
-            "role": "Alcremie",
-            "name": "Alcremie",
-            "shiny": false,
-            "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Calm",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 252,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "F",
-            "moves": [
-                "Fake Tears",
-                "Decorate"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
-        },
-        {
-            "id": 4,
-            "role": "Alcremie",
-            "name": "Alcremie",
-            "shiny": false,
-            "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Calm",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 252,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "F",
-            "moves": [
-                "Fake Tears",
-                "Decorate"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
         }
     ],
     "turns": [
         {
-            "id": 5,
-            "group": 1,
+            "id": 0,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -198,26 +237,26 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "Overheat",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }
     ],
     "groups": [
         [
-            5
+            0
         ]
     ],
     "repeats": [

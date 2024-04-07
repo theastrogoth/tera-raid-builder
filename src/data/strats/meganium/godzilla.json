@@ -1,7 +1,7 @@
 {
-    "name": "Angry Krok vs. Happy Dino",
-    "notes": "Honchkrow must have Speed EVs to outspeed Meganium!\nUmbreon with Screech + Zoom Lens can fill Muk's role\nRaiders need to wait for Honchkrow to Taunt first",
-    "credits": "The r/PokePortal Team & u/htung00",
+    "name": "Godzilla Raids Again!",
+    "notes": "I couldn't find a cool name for Meganium since I already used Biollante :(",
+    "credits": "u/Tacitus2389b4h5ii405 aka Vikram",
     "pokemon": [
         {
             "id": 0,
@@ -45,7 +45,7 @@
             "shieldData": {
                 "hpTrigger": 85,
                 "timeTrigger": 80,
-                "shieldCancelDamage": 35,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -53,12 +53,12 @@
         },
         {
             "id": 1,
-            "role": "Krookodile",
-            "name": "Krookodile",
-            "shiny": false,
+            "role": "Baxcalibur",
+            "name": "Baxcalibur",
+            "shiny": true,
             "isAnyLevel": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
+            "ability": "Thermal Exchange",
+            "item": "Life Orb",
             "nature": "Adamant",
             "evs": {
                 "hp": 252,
@@ -79,8 +79,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Power Trip",
-                "Crunch"
+                "Glaive Rush",
+                "Swords Dance",
+                "(No Move)",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -95,12 +97,12 @@
         },
         {
             "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
+            "role": "Grumpig",
+            "name": "Grumpig",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
+            "ability": "Thick Fat",
+            "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -108,7 +110,7 @@
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -121,10 +123,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Taunt",
-                "Night Slash",
+                "Simple Beam",
                 "Helping Hand",
-                "Chilling Water"
+                "(No Move)",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -149,50 +151,6 @@
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Helping Hand",
-                "Reflect",
-                "Mud-Slap",
-                "Screech"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
-        },
-        {
-            "id": 4,
-            "role": "Alolan Muk",
-            "name": "Muk-Alola",
-            "shiny": false,
-            "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
@@ -210,9 +168,53 @@
             "gender": "N",
             "moves": [
                 "Screech",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Medicham",
+            "name": "Medicham",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Pure Power",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 6
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Skill Swap",
+                "Taunt",
                 "Brick Break",
-                "Helping Hand",
-                "Mud-Slap"
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -229,62 +231,10 @@
     "turns": [
         {
             "id": 0,
-            "group": 1,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Reflect",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 1,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Light Screen",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Taunt",
-                "userID": 2,
+                "name": "(No Move)",
+                "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -294,7 +244,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Reflect",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -306,12 +256,12 @@
             }
         },
         {
-            "id": 4,
-            "group": 2,
+            "id": 1,
+            "group": 0,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 3,
-                "targetID": 1,
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -320,7 +270,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Light Screen",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -333,9 +283,9 @@
         },
         {
             "id": 2,
-            "group": 2,
+            "group": 1,
             "moveInfo": {
-                "name": "Screech",
+                "name": "Taunt",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -358,8 +308,8 @@
             }
         },
         {
-            "id": 3,
-            "group": 2,
+            "id": 13,
+            "group": 8,
             "moveInfo": {
                 "name": "Defense Cheer",
                 "userID": 1,
@@ -384,17 +334,43 @@
             }
         },
         {
-            "id": 6,
-            "group": 5,
+            "id": 3,
+            "group": 2,
             "moveInfo": {
-                "name": "Night Slash",
+                "name": "Simple Beam",
                 "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
                 "targetID": 1,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
                     "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -414,7 +390,7 @@
             "group": 5,
             "moveInfo": {
                 "name": "Helping Hand",
-                "userID": 3,
+                "userID": 2,
                 "targetID": 1,
                 "options": {
                     "crit": false,
@@ -439,7 +415,7 @@
             "id": 8,
             "group": 5,
             "moveInfo": {
-                "name": "Screech",
+                "name": "Brick Break",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -462,10 +438,140 @@
             }
         },
         {
-            "id": 9,
-            "group": 6,
+            "id": 5,
+            "group": 5,
             "moveInfo": {
-                "name": "Power Trip",
+                "name": "Swords Dance",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 5,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 7,
+            "moveInfo": {
+                "name": "Skill Swap",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 7,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 7,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 4,
+            "moveInfo": {
+                "name": "Glaive Rush",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -491,26 +597,36 @@
     "groups": [
         [
             0,
-            5
-        ],
-        [
             1
         ],
         [
-            4,
-            2,
-            3
+            2
         ],
         [
-            6,
+            13
+        ],
+        [
+            3,
+            4
+        ],
+        [
             7,
-            8
+            8,
+            5,
+            9
         ],
         [
-            9
+            10,
+            11,
+            12
+        ],
+        [
+            6
         ]
     ],
     "repeats": [
+        1,
+        1,
         1,
         1,
         1,

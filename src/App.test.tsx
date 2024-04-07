@@ -1463,6 +1463,30 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/charizard/nukebro.json`)
     await testOHKO(module as LightBuildInfo); 
   })
+  test('charizard/toddzilla_vs_rodan', async () => {
+    const module = await import(`./data/strats/charizard/toddzilla_vs_rodan.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('meganium/main', async () => {
+    const module = await import(`./data/strats/meganium/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/godzilla', async () => {
+    const module = await import(`./data/strats/meganium/godzilla.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/nukebro', async () => {
+    const module = await import(`./data/strats/meganium/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/not_enough_buff', async () => {
+    const module = await import(`./data/strats/meganium/not_enough_buff.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/not_enough_fluff', async () => {
+    const module = await import(`./data/strats/meganium/not_enough_fluff.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

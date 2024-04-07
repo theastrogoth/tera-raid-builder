@@ -45,7 +45,7 @@
             "shieldData": {
                 "hpTrigger": 85,
                 "timeTrigger": 80,
-                "shieldCancelDamage": 30,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -166,9 +166,9 @@
             "gender": "N",
             "moves": [
                 "Helping Hand",
-                "Screech",
                 "Reflect",
-                "Mud-Slap"
+                "Mud-Slap",
+                "Screech"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -183,8 +183,8 @@
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Alolan Muk",
+            "name": "Muk-Alola",
             "shiny": false,
             "isAnyLevel": false,
             "ability": "(No Ability)",
@@ -210,9 +210,9 @@
             "gender": "N",
             "moves": [
                 "Screech",
-                "Defog",
-                "Reflect",
-                "Rock Smash"
+                "Brick Break",
+                "Helping Hand",
+                "Mud-Slap"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -229,7 +229,7 @@
     "turns": [
         {
             "id": 0,
-            "group": 0,
+            "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -242,7 +242,33 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Reflect",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 1,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Light Screen",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -256,7 +282,8 @@
     ],
     "groups": [
         [
-            0
+            0,
+            5
         ]
     ],
     "repeats": [

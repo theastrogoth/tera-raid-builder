@@ -1,6 +1,10 @@
 {
     "Meganium": {
-        "Angry Krok vs. Happy Dino": "meganium/main"
+        "Angry Krok vs. Happy Dino": "meganium/main",
+        "Godzilla Raids Again!": "meganium/godzilla",
+        "Nukebro vs. Meganium": "meganium/nukebro",
+        "Not Enough Buff": "meganium/not_enough_buff",
+        "Not Enough Fluff": "meganium/not_enough_fluff"
     },
     "Charizard": {
         "Whipping Up a Storm": "charizard/main",
@@ -9,7 +13,8 @@
         "Blubber Bubble": "charizard/blubber_bubble",
         "Blizzard Warning": "charizard/blizzard_warning",
         "Godzilla vs. Rodan": "charizard/godzilla_vs_rodan",
-        "Nukebro vs. Charizard": "charizard/nukebro"
+        "Nukebro vs. Charizard": "charizard/nukebro",
+        "Toddzilla vs. Rodan": "charizard/toddzilla_vs_rodan"
     },
     "Blastoise": {
         "Firefox Forecast": "blastoise/main",

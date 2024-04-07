@@ -1,7 +1,7 @@
 {
-    "name": "Angry Krok vs. Happy Dino",
-    "notes": "Honchkrow must have Speed EVs to outspeed Meganium!\nUmbreon with Screech + Zoom Lens can fill Muk's role\nRaiders need to wait for Honchkrow to Taunt first",
-    "credits": "The r/PokePortal Team & u/htung00",
+    "name": "Not Enough Fluff",
+    "notes": "",
+    "credits": "u/Gimikyu_",
     "pokemon": [
         {
             "id": 0,
@@ -28,7 +28,7 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "teraType": "Psychic",
             "moves": [
                 "Seed Bomb",
@@ -53,20 +53,20 @@
         },
         {
             "id": 1,
-            "role": "Krookodile",
-            "name": "Krookodile",
-            "shiny": false,
+            "role": "Bluff",
+            "name": "Zorua-Hisui",
+            "shiny": true,
             "isAnyLevel": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
-            "nature": "Adamant",
+            "ability": "Illusion",
+            "item": "Eviolite",
+            "nature": "Modest",
             "evs": {
-                "hp": 252,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
+                "hp": 0,
+                "atk": 0,
+                "def": 252,
+                "spa": 172,
                 "spd": 0,
-                "spe": 0
+                "spe": 84
             },
             "ivs": {
                 "hp": 31,
@@ -79,8 +79,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Power Trip",
-                "Crunch"
+                "Nasty Plot",
+                "Hex",
+                "(No Move)",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -95,57 +97,13 @@
         },
         {
             "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
-            "shiny": false,
+            "role": "Puff",
+            "name": "Cottonee",
+            "shiny": true,
             "isAnyLevel": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
+            "ability": "Prankster",
+            "item": "Sitrus Berry",
             "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Taunt",
-                "Night Slash",
-                "Helping Hand",
-                "Chilling Water"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
-        },
-        {
-            "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
-            "shiny": false,
-            "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -165,10 +123,9 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Helping Hand",
-                "Reflect",
-                "Mud-Slap",
-                "Screech"
+                "Taunt",
+                "Fake Tears",
+                "Cotton Guard"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -182,18 +139,18 @@
             }
         },
         {
-            "id": 4,
-            "role": "Alolan Muk",
-            "name": "Muk-Alola",
-            "shiny": false,
+            "id": 3,
+            "role": "Huff",
+            "name": "Swablu",
+            "shiny": true,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "ability": "Cloud Nine",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -209,10 +166,51 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Brick Break",
+                "Defog",
                 "Helping Hand",
-                "Mud-Slap"
+                "Cotton Guard"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Fluff",
+            "name": "Mareep",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "Static",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Thunder Wave",
+                "Cotton Guard"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -228,32 +226,6 @@
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 1,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Reflect",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            }
-        },
-        {
             "id": 5,
             "group": 1,
             "moveInfo": {
@@ -263,7 +235,33 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Reflect",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 1,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -272,10 +270,10 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -306,37 +304,11 @@
             }
         },
         {
-            "id": 4,
-            "group": 2,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 3,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 2,
             "group": 2,
             "moveInfo": {
-                "name": "Screech",
-                "userID": 4,
+                "name": "Defog",
+                "userID": 3,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -362,6 +334,32 @@
             "group": 2,
             "moveInfo": {
                 "name": "Defense Cheer",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 3,
+            "moveInfo": {
+                "name": "Nasty Plot",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -385,16 +383,16 @@
         },
         {
             "id": 6,
-            "group": 5,
+            "group": 4,
             "moveInfo": {
-                "name": "Night Slash",
-                "userID": 2,
-                "targetID": 1,
+                "name": "Nasty Plot",
+                "userID": 1,
+                "targetID": 0,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -411,7 +409,33 @@
         },
         {
             "id": 7,
-            "group": 5,
+            "group": 4,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 4,
             "moveInfo": {
                 "name": "Helping Hand",
                 "userID": 3,
@@ -436,10 +460,10 @@
             }
         },
         {
-            "id": 8,
-            "group": 5,
+            "id": 9,
+            "group": 4,
             "moveInfo": {
-                "name": "Screech",
+                "name": "Heal Cheer",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
@@ -462,10 +486,140 @@
             }
         },
         {
-            "id": 9,
+            "id": 10,
+            "group": 5,
+            "moveInfo": {
+                "name": "Nasty Plot",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 5,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 5,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 5,
+            "moveInfo": {
+                "name": "Thunder Wave",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 14,
             "group": 6,
             "moveInfo": {
-                "name": "Power Trip",
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 17,
+            "group": 7,
+            "moveInfo": {
+                "name": "Hex",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -490,27 +644,42 @@
     ],
     "groups": [
         [
-            0,
-            5
+            5,
+            0
         ],
         [
             1
         ],
         [
-            4,
             2,
             3
         ],
         [
-            6,
-            7,
-            8
+            4
         ],
         [
+            6,
+            7,
+            8,
             9
+        ],
+        [
+            10,
+            11,
+            12,
+            13
+        ],
+        [
+            14
+        ],
+        [
+            17
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
         1,
         1,
         1,

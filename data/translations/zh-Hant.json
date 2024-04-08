@@ -1,6 +1,6 @@
 {
     "abilities": {
-        "(No Ability)": "(沒有任何)",
+        "(No Ability)": "(任意)",
         "Adaptability": "適應力",
         "Aerilate": "飛行皮膚",
         "Aftermath": "引爆",
@@ -1934,7 +1934,7 @@
         "Floaty Fall": "飄飄墜落",
         "Floral Healing": "花療",
         "Flower Shield": "鮮花防守",
-        "Flower Trick": "千变万花",
+        "Flower Trick": "千變萬花",
         "Fly": "飛翔",
         "Flying Press": "飛身重壓",
         "Focus Blast": "真氣彈",
@@ -3671,7 +3671,7 @@
         "Add Substitute": null,
         "All Hypertrained": null,
         "Any": null,
-        "Attack Cheer": null,
+        "Attack Cheer": 衝衝猛攻,
         "avg": null,
         "Bar Size": null,
         "Battle Start": null,

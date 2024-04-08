@@ -230,8 +230,8 @@
     ],
     "turns": [
         {
-            "id": 5,
-            "group": 1,
+            "id": 0,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -256,8 +256,8 @@
             }
         },
         {
-            "id": 0,
-            "group": 1,
+            "id": 1,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -283,7 +283,7 @@
         },
         {
             "id": 2,
-            "group": 1,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -308,8 +308,8 @@
             }
         },
         {
-            "id": 9,
-            "group": 2,
+            "id": 3,
+            "group": 1,
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 2,
@@ -334,8 +334,8 @@
             }
         },
         {
-            "id": 7,
-            "group": 2,
+            "id": 4,
+            "group": 1,
             "moveInfo": {
                 "name": "Screech",
                 "userID": 3,
@@ -360,8 +360,8 @@
             }
         },
         {
-            "id": 8,
-            "group": 2,
+            "id": 5,
+            "group": 1,
             "moveInfo": {
                 "name": "Screech",
                 "userID": 4,
@@ -387,7 +387,7 @@
         },
         {
             "id": 6,
-            "group": 2,
+            "group": 1,
             "moveInfo": {
                 "name": "Belly Drum",
                 "userID": 1,
@@ -412,8 +412,8 @@
             }
         },
         {
-            "id": 1,
-            "group": 4,
+            "id": 7,
+            "group": 2,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 2,
@@ -438,8 +438,8 @@
             }
         },
         {
-            "id": 3,
-            "group": 4,
+            "id": 8,
+            "group": 2,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 3,
@@ -464,8 +464,8 @@
             }
         },
         {
-            "id": 4,
-            "group": 4,
+            "id": 9,
+            "group": 2,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 4,
@@ -491,7 +491,7 @@
         },
         {
             "id": 10,
-            "group": 4,
+            "group": 2,
             "moveInfo": {
                 "name": "Wood Hammer",
                 "userID": 1,
@@ -518,20 +518,20 @@
     ],
     "groups": [
         [
-            5,
             0,
+            1,
             2
         ],
         [
-            9,
-            7,
-            8,
+            3,
+            4,
+            5,
             6
         ],
         [
-            1,
-            3,
-            4,
+            7,
+            8,
+            9,
             10
         ]
     ],

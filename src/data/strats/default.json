@@ -229,7 +229,7 @@
     "turns": [
         {
             "id": 0,
-            "group": 1,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -254,8 +254,8 @@
             }
         },
         {
-            "id": 5,
-            "group": 1,
+            "id": 1,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -283,7 +283,7 @@
     "groups": [
         [
             0,
-            5
+            1
         ]
     ],
     "repeats": [

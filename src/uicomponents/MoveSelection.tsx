@@ -498,21 +498,21 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
     const isBossAction = groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)";
     const moveSet = ["(No Move)", "(Most Damaging)", ...getSelectableMoves(boss, isBossAction), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
 
-    const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
+    const moveName = moveInfo.moveData.name;
     const [updateCount, setUpdateCount] = useState<number>(0); // just used to trigger rerender
 
     const setMoveInfo = (newMoveInfo: RaidMoveInfo) => {
         let newGroups = [...groups];
         newGroups[groupIndex].turns[turnIndex].bossMoveInfo = newMoveInfo;
         setGroups(newGroups);
-        setMoveName(newMoveInfo.moveData.name);
         setUpdateCount(updateCount+1);
+        console.log("setMoveInfo", groupIndex, turnIndex, newMoveInfo.moveData.name)
     }
 
     useEffect(() => {
         if (!moveSet.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
-        }
+        } 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveSet])
 

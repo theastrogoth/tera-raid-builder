@@ -133,7 +133,7 @@ const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (
     setTransitionIn(uniqueId);
 }
 
-function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translationKey}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, isBoss?: boolean, translationKey: any}) {
+function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, translationKey}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, raider: Raider, isBoss?: boolean, translationKey: any}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -175,7 +175,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translation
                     <TableContainer>
                         <Table size="small">
                             <TableBody>
-                                { !isBoss &&
+                                { (!isBoss && raider.teraType && !raider.isTera && ((raider.teraCharge || 0) >= 3)) &&
                                     <TableRow>
                                         <TableCell>
                                             {getTranslation("Tera",translationKey)}
@@ -486,7 +486,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
                 </Box>
                 <Box flexGrow={4} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} translationKey={translationKey}/>
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} raider={raiders[moveInfo.userID]} translationKey={translationKey}/>
         </Stack>
     )
 }
@@ -569,7 +569,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                 </Select>
                 <Box flexGrow={6} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} isBoss translationKey={translationKey} />
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} raider={boss} isBoss translationKey={translationKey} />
         </Stack>
     )
 }
@@ -704,6 +704,8 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     const nGroup = nextProps.groups[nextProps.groupIndex];
     const pTurn = pGroup.turns[prevProps.turnIndex];
     const nTurn = nGroup.turns[nextProps.turnIndex];
+    const pRaider = prevProps.raiders[pTurn.moveInfo.userID];
+    const nRaider = nextProps.raiders[nTurn.moveInfo.userID];
     return (
         prevProps.groupIndex === nextProps.groupIndex &&
         prevProps.turnIndex === nextProps.turnIndex && 
@@ -726,6 +728,8 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         pTurn.bossMoveInfo.options?.secondaryEffects === nTurn.bossMoveInfo.options?.secondaryEffects &&
         pTurn.bossMoveInfo.options?.roll === nTurn.bossMoveInfo.options?.roll &&
         pTurn.bossMoveInfo.options?.hits === nTurn.bossMoveInfo.options?.hits &&
+        pRaider.teraCharge === nRaider.teraCharge &&
+        pRaider.teraType === nRaider.teraType &&
         arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
         arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
         arraysEqual(prevProps.raiders.map((r) => r.isChoiceLocked), nextProps.raiders.map((r) => r.isChoiceLocked)) &&

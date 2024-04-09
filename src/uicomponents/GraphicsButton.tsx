@@ -635,7 +635,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
                 info,
                 isSpread,
                 repeats: group.repeats || 1,
-                teraActivated: !wait && !!(turnResult!.moveInfo.options!.activateTera && 
+                teraActivated: !wait && !!(turnResult!.moveInfo.options!.activateTera && (results.turnZeroState.raiders[t.moveInfo.userID].teraType || "???")!== "???" &&
                                 turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
             } 
         })

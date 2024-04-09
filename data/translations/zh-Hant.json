@@ -1666,6 +1666,11 @@
     "moves": {
         "(Most Damaging)": "(最好的)",
         "(No Move)": "(沒有任何)",
+        "Clear Boosts / Abilities": null,
+        "Remove Negative Effects": null,
+        "Attack Cheer": "衝衝猛攻",
+        "Defense Cheer": null,
+        "Heal Cheer": null,
         "10,000,000 Volt Thunderbolt": "千萬伏特",
         "Absorb": "吸取",
         "Accelerock": "衝岩",

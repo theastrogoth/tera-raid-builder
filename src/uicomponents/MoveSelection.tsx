@@ -506,7 +506,6 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
         newGroups[groupIndex].turns[turnIndex].bossMoveInfo = newMoveInfo;
         setGroups(newGroups);
         setUpdateCount(updateCount+1);
-        console.log("setMoveInfo", groupIndex, turnIndex, newMoveInfo.moveData.name)
     }
 
     useEffect(() => {

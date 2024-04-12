@@ -1115,6 +1115,15 @@ export class RaidState implements State.RaidState{
                 this.applyStatChange(i, {spa: 1}, true, i);
             }
         }
+        // handle permanent cheer stacking
+        if (pokemon.field.attackerSide.isAtkCheered) {
+            pokemon.permanentAtkCheers += 1;
+        }
+        if (pokemon.field.attackerSide.isDefCheered) {
+            pokemon.permanentDefCheers += 1;
+        }
+        pokemon.field.attackerSide.isAtkCheered = 0;
+        pokemon.field.attackerSide.isDefCheered = 0;
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
         if ((pokemon.isTransformed || pokemon.isChangedForm) && pokemon.originalSpecies) {
             const originalSpecies = new Pokemon(9, pokemon.originalSpecies, {
@@ -1169,7 +1178,10 @@ export class RaidState implements State.RaidState{
         
         pokemon.delayedMoveCounter = undefined;
         pokemon.delayedMoveSource = undefined;
-        pokemon.delayedMove = undefined;
+        pokemon.delayedMove = undefined;        
+
+        // increment fainted count
+        pokemon.timesFainted += 1;
         
         // remove ability effects that are removed upon fainting
         this.removeAbilityFieldEffect(id, ability);

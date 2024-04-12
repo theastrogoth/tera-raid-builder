@@ -30,8 +30,8 @@ import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
 
 type Modifiers = {
-    attackCheer?: boolean,
-    defenseCheer?: boolean,
+    attackCheer?: number,
+    defenseCheer?: number,
     helpingHand?: boolean,
     tera ?: string,
     formChanged ?: string,
@@ -389,10 +389,11 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
     const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
-    const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
-            kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
-        0));
-    koCounts[0] = Math.min(koCounts[0], 1);
+    // const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
+    //         kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
+    //     0));
+    // koCounts[0] = Math.min(koCounts[0], 1);
+    const koCounts = turnState.raiders.map((raider) => raider.timesFainted);
     const roles = turnState.raiders.map((raider) => raider.role);
     const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
@@ -401,8 +402,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
     const getModifiers = (raider: Raider): Modifiers => {
         return {
-            "attackCheer": raider.field.attackerSide.isAtkCheered > 0,
-            "defenseCheer": raider.field.attackerSide.isDefCheered > 0,
+            "attackCheer": (raider.field.attackerSide.isAtkCheered ? 1 : 0) + raider.permanentAtkCheers,
+            "defenseCheer":(raider.field.attackerSide.isDefCheered ? 1 : 0) + raider.permanentDefCheers,
             "helpingHand": raider.field.attackerSide.isHelpingHand,
             "tera": raider.isTera ? raider.teraType : "",
             "formChanged": raider.isChangedForm ? raider.name : "",

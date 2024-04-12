@@ -1,4 +1,17 @@
 {
+    "Meganium": {
+        "Angry Krok vs. Happy Dino": "meganium/main",
+        "Kritikal Krook": "meganium/kritikal_krook",
+        "Team Eeveelutions Shocks a Dinosaur!": "meganium/eeveelutions",
+        "Godzilla Raids Again!": "meganium/godzilla",
+        "Decorate a Dragon!": "meganium/decorate_a_dragon",
+        "Good Buzz": "meganium/good_buzz",
+        "Not the Bees!": "meganium/bees",
+        "Smashing Success": "meganium/smashing_success",
+        "Nukebro vs. Meganium": "meganium/nukebro",
+        "Not Enough Buff": "meganium/not_enough_buff",
+        "Not Enough Fluff": "meganium/not_enough_fluff"
+    },
     "Charizard": {
         "Whipping Up a Storm": "charizard/main",
         "Sweet Dreams": "charizard/sweet_dreams",
@@ -6,7 +19,8 @@
         "Blubber Bubble": "charizard/blubber_bubble",
         "Blizzard Warning": "charizard/blizzard_warning",
         "Godzilla vs. Rodan": "charizard/godzilla_vs_rodan",
-        "Nukebro vs. Charizard": "charizard/nukebro"
+        "Nukebro vs. Charizard": "charizard/nukebro",
+        "Toddzilla vs. Rodan": "charizard/toddzilla_vs_rodan"
     },
     "Blastoise": {
         "Firefox Forecast": "blastoise/main",

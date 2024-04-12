@@ -531,12 +531,6 @@ export class RaidTurn {
                             this._result2.flags[id].push("tox inflicted");
                         }
                         break;
-                    case "Poison Barb":
-                        if (!pokemon.hasType("Poison","Steel")) { 
-                            pokemon.status = "psn"; 
-                            this._result2.flags[id].push("psn inflicted");
-                        }
-                        break;
                     default: break
                 }
             }

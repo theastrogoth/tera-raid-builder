@@ -1,16 +1,16 @@
 {
-    "name": "Cloud Nine, Hammer Time!",
-    "notes": "",
-    "credits": "The r/PokePortal Team",
+    "name": "Not the Bees!",
+    "notes": "EVs for Alcremie & Medicham are the minimum required so that they outspeed to avoid any possible flinches from Zen Headbutt.",
+    "credits": "u/iriomote14",
     "pokemon": [
         {
             "id": 0,
-            "role": "Venusaur",
-            "name": "Venusaur",
+            "role": "Meganium",
+            "name": "Meganium",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Chlorophyll",
-            "nature": "Modest",
+            "ability": "Leaf Guard",
+            "nature": "Impish",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,24 +28,24 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Ground",
+            "gender": "F",
+            "teraType": "Psychic",
             "moves": [
-                "Earth Power",
-                "Giga Drain",
-                "Sludge Bomb",
-                "Amnesia"
+                "Seed Bomb",
+                "Zen Headbutt",
+                "Body Press",
+                "Curse"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Sunny Day",
-                "Growth",
-                "Petal Blizzard"
+                "Reflect",
+                "Light Screen",
+                "Bulldoze"
             ],
             "shieldData": {
                 "hpTrigger": 85,
                 "timeTrigger": 80,
-                "shieldCancelDamage": 35,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -53,20 +53,20 @@
         },
         {
             "id": 1,
-            "role": "Chesnaught",
-            "name": "Chesnaught",
+            "role": "Vespiquen",
+            "name": "Vespiquen",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Bulletproof",
+            "ability": "Pressure",
             "item": "Life Orb",
             "nature": "Adamant",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 252,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -77,12 +77,9 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Belly Drum",
-                "Wood Hammer",
-                "Swords Dance",
-                "Seed Bomb"
+                "Attack Order"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -97,19 +94,19 @@
         },
         {
             "id": 2,
-            "role": "Altaria",
-            "name": "Altaria",
+            "role": "Honchkrow",
+            "name": "Honchkrow",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Cloud Nine",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -123,10 +120,8 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Dragon Cheer",
-                "Helping Hand",
-                "Mist",
-                "Dragon Breath"
+                "Screech",
+                "Scary Face"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -141,20 +136,20 @@
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
             "isAnyLevel": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "item": "Lansat Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
-                "spe": 0
+                "spe": 132
             },
             "ivs": {
                 "hp": 31,
@@ -165,12 +160,10 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Screech",
-                "Light Screen",
-                "Rock Smash",
-                "Body Slam"
+                "Fling",
+                "Decorate"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -185,20 +178,20 @@
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Medicham",
+            "name": "Medicham",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "Pure Power",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
-                "spe": 0
+                "spe": 6
             },
             "ivs": {
                 "hp": 31,
@@ -211,10 +204,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Light Screen",
-                "Rock Smash",
-                "Body Slam"
+                "Taunt",
+                "Helping Hand",
+                "Skill Swap",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -244,7 +237,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Sunny Day",
+                "name": "Reflect",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -270,7 +263,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Growth",
+                "name": "Light Screen",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -282,38 +275,12 @@
             }
         },
         {
-            "id": 2,
-            "group": 0,
+            "id": 4,
+            "group": 2,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
+                "name": "Taunt",
+                "userID": 4,
                 "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Petal Blizzard",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 3,
-            "group": 1,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 2,
-                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -334,17 +301,43 @@
             }
         },
         {
-            "id": 4,
+            "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Screech",
-                "userID": 3,
+                "name": "Defense Cheer",
+                "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Fling",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -364,7 +357,7 @@
             "group": 1,
             "moveInfo": {
                 "name": "Screech",
-                "userID": 4,
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -387,9 +380,9 @@
         },
         {
             "id": 6,
-            "group": 1,
+            "group": 3,
             "moveInfo": {
-                "name": "Belly Drum",
+                "name": "Heal Cheer",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -400,7 +393,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Sludge Bomb",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -413,9 +406,9 @@
         },
         {
             "id": 7,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Screech",
                 "userID": 2,
                 "targetID": 0,
                 "options": {
@@ -426,7 +419,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -439,11 +432,11 @@
         },
         {
             "id": 8,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Decorate",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -452,7 +445,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -465,11 +458,11 @@
         },
         {
             "id": 9,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Helping Hand",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -478,7 +471,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -491,9 +484,87 @@
         },
         {
             "id": 10,
-            "group": 2,
+            "group": 4,
             "moveInfo": {
-                "name": "Wood Hammer",
+                "name": "Scary Face",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 4,
+            "moveInfo": {
+                "name": "Decorate",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 4,
+            "moveInfo": {
+                "name": "Skill Swap",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 5,
+            "moveInfo": {
+                "name": "Attack Order",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -519,30 +590,129 @@
     "groups": [
         [
             0,
-            1,
-            2
+            1
         ],
         [
+            4
+        ],
+        [
+            2,
             3,
-            4,
-            5,
-            6
+            5
         ],
         [
+            6,
             7,
             8,
-            9,
-            10
+            9
+        ],
+        [
+            10,
+            13,
+            11
+        ],
+        [
+            12
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
         1,
         1,
         1
     ],
     "substitutes": [
         [],
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Umbreon",
+                    "name": "Umbreon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Scary Face"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech",
+                    "Scary Face"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Muk",
+                    "name": "Muk-Alola",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Scary Face"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech",
+                    "Scary Face"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
         [],
         []
     ]

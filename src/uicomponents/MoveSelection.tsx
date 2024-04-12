@@ -133,7 +133,7 @@ const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (
     setTransitionIn(uniqueId);
 }
 
-function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translationKey}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, isBoss?: boolean, translationKey: any}) {
+function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, translationKey}: {moveInfo: RaidMoveInfo, setMoveInfo: (m: RaidMoveInfo) => void, raider: Raider, isBoss?: boolean, translationKey: any}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -175,7 +175,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, isBoss = false, translation
                     <TableContainer>
                         <Table size="small">
                             <TableBody>
-                                { !isBoss &&
+                                { (!isBoss && raider.teraType && !raider.isTera && ((raider.teraCharge || 0) >= 3)) &&
                                     <TableRow>
                                         <TableCell>
                                             {getTranslation("Tera",translationKey)}
@@ -486,7 +486,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, transl
                 </Box>
                 <Box flexGrow={4} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} translationKey={translationKey}/>
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} raider={raiders[moveInfo.userID]} translationKey={translationKey}/>
         </Stack>
     )
 }
@@ -498,21 +498,20 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
     const isBossAction = groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)";
     const moveSet = ["(No Move)", "(Most Damaging)", ...getSelectableMoves(boss, isBossAction), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
 
-    const [moveName, setMoveName] = useState<MoveName>(moveInfo.moveData.name);
+    const moveName = moveInfo.moveData.name;
     const [updateCount, setUpdateCount] = useState<number>(0); // just used to trigger rerender
 
     const setMoveInfo = (newMoveInfo: RaidMoveInfo) => {
         let newGroups = [...groups];
         newGroups[groupIndex].turns[turnIndex].bossMoveInfo = newMoveInfo;
         setGroups(newGroups);
-        setMoveName(newMoveInfo.moveData.name);
         setUpdateCount(updateCount+1);
     }
 
     useEffect(() => {
         if (!moveSet.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
-        }
+        } 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveSet])
 
@@ -570,7 +569,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
                 </Select>
                 <Box flexGrow={6} />
             </Stack>
-            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} isBoss translationKey={translationKey} />
+            <MoveOptionsControls moveInfo={moveInfo} setMoveInfo={setMoveInfo} raider={boss} isBoss translationKey={translationKey} />
         </Stack>
     )
 }
@@ -659,7 +658,7 @@ function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, b
     const handleRemoveTurn = () => {
         setTransitionOut(groups[groupIndex].turns[turnIndex].id);
         timer.current = setTimeout(() => {
-            let newGroups = [...groups];
+            const newGroups: TurnGroupInfo[] = [...groups];
             newGroups[groupIndex].turns.splice(turnIndex, 1);
             setGroups(newGroups);
             setTransitionOut(-1);
@@ -705,11 +704,14 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     const nGroup = nextProps.groups[nextProps.groupIndex];
     const pTurn = pGroup.turns[prevProps.turnIndex];
     const nTurn = nGroup.turns[nextProps.turnIndex];
+    const pRaider = pTurn ? prevProps.raiders[pTurn.moveInfo.userID] : undefined;
+    const nRaider = nTurn ? nextProps.raiders[nTurn.moveInfo.userID] : undefined;
     return (
         prevProps.groupIndex === nextProps.groupIndex &&
         prevProps.turnIndex === nextProps.turnIndex && 
         pGroup.id === nGroup.id &&
         pGroup.repeats === nGroup.repeats &&
+        (!!pTurn && !!nTurn) &&
         pTurn.id === nTurn.id &&
         pTurn.moveInfo.userID === nTurn.moveInfo.userID &&
         pTurn.moveInfo.targetID === nTurn.moveInfo.targetID &&
@@ -727,6 +729,9 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         pTurn.bossMoveInfo.options?.secondaryEffects === nTurn.bossMoveInfo.options?.secondaryEffects &&
         pTurn.bossMoveInfo.options?.roll === nTurn.bossMoveInfo.options?.roll &&
         pTurn.bossMoveInfo.options?.hits === nTurn.bossMoveInfo.options?.hits &&
+        (!!pRaider && !!nRaider) &&
+        pRaider.teraCharge === nRaider.teraCharge &&
+        pRaider.teraType === nRaider.teraType &&
         arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
         arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
         arraysEqual(prevProps.raiders.map((r) => r.isChoiceLocked), nextProps.raiders.map((r) => r.isChoiceLocked)) &&
@@ -801,7 +806,7 @@ function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex
                             <Box flexGrow={5} />
                             <AddButton 
                                 label={ getTranslation("Add Move", translationKey) }
-                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(groupIndex+1)} 
+                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(raidInputProps.groups[groupIndex].turns.length)} 
                                 visible={buttonsVisible}
                             />
                             <Box flexGrow={2} />

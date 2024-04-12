@@ -697,7 +697,7 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
     return matchesCase;
 }
 
-function RaidControls({raidInputProps, results, setResults, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean, translationKey: any}) {
+function RaidControls({raidInputProps, results, setResults, setLoading, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, setLoading: (b: boolean) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
     const [rollCase, setRollCase] = useState<"min" | "avg" | "max">("avg");
     const groups = raidInputProps.groups;
@@ -706,6 +706,8 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
     const pokemon2 = raidInputProps.pokemon[2];
     const pokemon3 = raidInputProps.pokemon[3];
     const pokemon4 = raidInputProps.pokemon[4];
+
+    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
     
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -715,11 +717,21 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
         raidcalcWorker.onmessage = (event: MessageEvent<RaidBattleResults>) => {
             if (event && event.data) {
                 setResults(event.data);
+                if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                }
+                setLoading(false);
             }
         }
     }, [setResults]);
 
     useEffect(() => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+        timeoutRef.current = setTimeout(() => {
+            setLoading(true);
+        }, 1000);
         const info = {
             raiders: raidInputProps.pokemon,
             groups: raidInputProps.groups,

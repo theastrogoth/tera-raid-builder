@@ -72,7 +72,6 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[
         if (selectableMoves.length < 4) {
             selectableMoves.push({name: "(Most Damaging)" as MoveName})
         }
-        console.log(selectableMoves)
         const combos = getCombinations(Array.from(Array(selectableMoves.length).keys()), numBranches);
 
         const results: RaidBattleResults[] = [];
@@ -120,7 +119,6 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[
             resultScores.push(score);
         }
         const bestIndex = resultScores.indexOf(Math.max(...resultScores));
-        console.log("finished")
         self.postMessage(results[bestIndex]);    
     } else {
         const state = new RaidState(raiders);

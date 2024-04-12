@@ -658,7 +658,7 @@ function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, b
     const handleRemoveTurn = () => {
         setTransitionOut(groups[groupIndex].turns[turnIndex].id);
         timer.current = setTimeout(() => {
-            let newGroups = [...groups];
+            const newGroups: TurnGroupInfo[] = [...groups];
             newGroups[groupIndex].turns.splice(turnIndex, 1);
             setGroups(newGroups);
             setTransitionOut(-1);
@@ -704,13 +704,14 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     const nGroup = nextProps.groups[nextProps.groupIndex];
     const pTurn = pGroup.turns[prevProps.turnIndex];
     const nTurn = nGroup.turns[nextProps.turnIndex];
-    const pRaider = prevProps.raiders[pTurn.moveInfo.userID];
-    const nRaider = nextProps.raiders[nTurn.moveInfo.userID];
+    const pRaider = pTurn ? prevProps.raiders[pTurn.moveInfo.userID] : undefined;
+    const nRaider = nTurn ? nextProps.raiders[nTurn.moveInfo.userID] : undefined;
     return (
         prevProps.groupIndex === nextProps.groupIndex &&
         prevProps.turnIndex === nextProps.turnIndex && 
         pGroup.id === nGroup.id &&
         pGroup.repeats === nGroup.repeats &&
+        (!!pTurn && !!nTurn) &&
         pTurn.id === nTurn.id &&
         pTurn.moveInfo.userID === nTurn.moveInfo.userID &&
         pTurn.moveInfo.targetID === nTurn.moveInfo.targetID &&
@@ -728,6 +729,7 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         pTurn.bossMoveInfo.options?.secondaryEffects === nTurn.bossMoveInfo.options?.secondaryEffects &&
         pTurn.bossMoveInfo.options?.roll === nTurn.bossMoveInfo.options?.roll &&
         pTurn.bossMoveInfo.options?.hits === nTurn.bossMoveInfo.options?.hits &&
+        (!!pRaider && !!nRaider) &&
         pRaider.teraCharge === nRaider.teraCharge &&
         pRaider.teraType === nRaider.teraType &&
         arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&

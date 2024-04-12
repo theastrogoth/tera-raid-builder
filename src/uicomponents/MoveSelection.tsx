@@ -806,7 +806,7 @@ function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex
                             <Box flexGrow={5} />
                             <AddButton 
                                 label={ getTranslation("Add Move", translationKey) }
-                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(groupIndex+1)} 
+                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(raidInputProps.groups[groupIndex].turns.length)} 
                                 visible={buttonsVisible}
                             />
                             <Box flexGrow={2} />

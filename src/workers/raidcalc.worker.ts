@@ -108,7 +108,17 @@ function nonHPChanges(caseA: Raider, caseB: Raider): boolean {
         caseA.isEncore !== caseB.isEncore ||
         caseA.isTorment !== caseB.isTorment ||
         caseA.isDisable !== caseB.isDisable ||
-        caseA.abilityNullified !== caseB.abilityNullified
+        caseA.isIngrain !== caseB.isIngrain ||
+        caseA.abilityNullified !== caseB.abilityNullified ||
+        caseA.field.terrain !== caseB.field.terrain ||
+        caseA.field.weather !== caseB.field.weather ||
+        caseA.field.attackerSide.isAuroraVeil !== caseB.field.attackerSide.isAuroraVeil ||
+        caseA.field.attackerSide.isReflect !== caseB.field.attackerSide.isReflect ||
+        caseA.field.attackerSide.isLightScreen !== caseB.field.attackerSide.isLightScreen ||
+        caseA.field.attackerSide.isSafeguard !== caseB.field.attackerSide.isSafeguard ||
+        caseA.field.attackerSide.isMist !== caseB.field.attackerSide.isMist ||
+        caseA.field.attackerSide.isTailwind !== caseB.field.attackerSide.isTailwind ||
+        caseA.field.attackerSide.isSeeded !== caseB.field.attackerSide.isSeeded
     );
 }
 

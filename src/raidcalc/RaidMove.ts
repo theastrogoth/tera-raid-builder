@@ -986,7 +986,7 @@ export class RaidMove {
                     field.attackerSide.isAuroraVeil = 0;
                 }
                 if (hadScreens) {
-                    this._flags[this.userID].push(this.move.name + " broke the oppenent's screens!")
+                    this._flags[this.userID].push(this.move.name + " broke the opponent's screens!")
                 }
                 break;
             default: break;
@@ -1060,7 +1060,7 @@ export class RaidMove {
                 if (this.userID !== 0) {
                     throw new Error("Only the Raid boss can steal tera charges!")
                 }
-                this._desc[0] = "The Raid Boss stole a Tera charge from its oppenents!";
+                this._desc[0] = "The Raid Boss stole a Tera charge from its opponents!";
                 for (let i=1; i<5; i++) {
                     const pokemon = this._raidState.getPokemon(i);
                     pokemon.teraCharge = Math.max(0, (pokemon.teraCharge || 0) - 1);

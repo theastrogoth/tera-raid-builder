@@ -165,6 +165,9 @@ function pickInterestingMoves(state: RaidState, turn: RaidTurnInfo, turnNumber: 
     if (mostDamagingMoveIdx >= 0 && !interestingMoveResults.some((r) => r.bossMoveInfo.moveData.name === moveData[mostDamagingMoveIdx].name)) {
         interestingMoveResults.push(turnResults[mostDamagingMoveIdx]);
     }
+    if (interestingMoveResults.length === 0) { // This probably only happens when the boss faints unavoidably before moving
+        interestingMoveResults.push(turnResults[0]);
+    }
     return interestingMoveResults;
 }
 
@@ -186,7 +189,6 @@ function splitBranch(info: RaidBattleInfo, prevResults: RaidBattleResults, moveD
         info.groups.reduce((acc, g) => acc + g.turns.length, 0), 
         moveData
     );
-
     const branchResults = branchTurnResults.map((t) => {
         const res: RaidBattleResults = {
             endState: t.state,

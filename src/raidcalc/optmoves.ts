@@ -174,14 +174,14 @@ function pickInterestingMoves(state: RaidState, turn: RaidTurnInfo, turnNumber: 
 // from a result up to a certain point, split the battle into multiple branches based on different choices for the boss's move
 function splitBranch(info: RaidBattleInfo, prevResults: RaidBattleResults, moveData: MoveData[]): RaidBattleResults[] {
     let penultimateResult = prevResults;
-    if (info.groups.reduce((acc, g) => acc + g.turns.length, 0) > 1) {
-        const pGroups = info.groups.slice(0,-1);
-        const lastGroup = {...pGroups[pGroups.length-1]};
-        lastGroup.turns = lastGroup.turns.slice(0,-1);
-        penultimateResult = new RaidBattle({...info, groups: info.groups.slice(0,-1)}, prevResults).result();
+    if (info.groups.length > 1) {
+        penultimateResult = new RaidBattle({...info, groups: info.groups.slice(0,-1)}, penultimateResult).result();
+    }
+    const lastGroup = info.groups[info.groups.length-1];
+    if (lastGroup.turns.length > 1) {
+        penultimateResult = new RaidBattle({...info, groups: [{...lastGroup, turns: lastGroup.turns.slice(0,-1)}]}, prevResults).result();
     }
 
-    const lastGroup = info.groups[info.groups.length-1];
     const lastMove = lastGroup.turns[lastGroup.turns.length-1];
     const branchTurnResults = pickInterestingMoves(
         penultimateResult.endState, 

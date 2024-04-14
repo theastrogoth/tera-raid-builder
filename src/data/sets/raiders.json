@@ -1409,6 +1409,14 @@
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Close Combat","Ice Hammer","Endure","Reversal"]
+        },
+        "Balanced Anger Point": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Anger Point",
+            "nature":"Adamant",
+            "evs":{"hp":184,"at":252,"sd":72},
+            "moves":["Avalanche","Ice Hammer","Reversal","Gunk Shot"]
         }
     },
     "Cramorant": {
@@ -1732,6 +1740,15 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
+        },
+        "Balanced Simple Beam": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Cloud Nine",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":96,"sd":160},
+            "ivs":{"at":0, "sp": 0},
+            "moves":["Simple Beam","Wonder Room","Helping Hand","Screech"]
         }
     },
     "Golem-Alola": {
@@ -1794,6 +1811,15 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
+        },
+        "Balanced Simple Beam": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Thick Fat",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252,"sd":4},
+            "ivs":{"at":0},
+            "moves":["Simple Beam","Psychic Terrain","Helping Hand","Snarl"]
         }
     },
     "Honchkrow": {
@@ -1812,6 +1838,15 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Night Slash","Helping Hand","Screech","Snarl"]
+        },
+        "Balanced Crit": {
+            "level":100,
+            "item":"Scope Lens",
+            "ability":"Super Luck",
+            "nature":"Timid",
+            "evs":{"df":128,"sd":128,"sp":252},
+            "ivs":{"at":0},
+            "moves":["Night Slash","Taunt","Helping Hand","Tailwind"]
         }
     },
     "Illumise": {
@@ -2003,7 +2038,7 @@
             "ability":"Anger Point",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
-            "moves":["Power Trip","Earthquake","Stomping Tantrum","Lash Out"]
+            "moves":["Power Trip","Earthquake","Stomping Tantrum","Crunch"]
         },
         "Fast Anger Point": {
             "level":100,
@@ -2011,7 +2046,15 @@
             "ability":"Anger Point",
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
-            "moves":["Power Trip","Earthquake","Stomping Tantrum","Lash Out"]
+            "moves":["Power Trip","Earthquake","Outrage","Crunch"]
+        },
+        "Speedy Anger Point": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Anger Point",
+            "nature":"Adamant",
+            "evs":{"at":252,"sd":4, "sp":252},
+            "moves":["Earthquake","Power Trip","Outrage","Crunch"]
         }
     },
     "Kyogre": {
@@ -2030,6 +2073,16 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Helping Hand","Rain Dance","Calm Mind","Thunder Wave"]
+        }
+    },
+    "Latios": {
+        "Balanced Simple Beam": {
+            "level":100,
+            "item":"Covert Cloak",
+            "ability":"Levitate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":200,"sd":56},
+            "moves":["Simple Beam","Tailwind","Helping Hand","Heal Pulse"]
         }
     },
     "Leavanny": {
@@ -2345,6 +2398,17 @@
             "moves":["Charge","Electro Drift","Metal Sound","Calm Mind"]
         }
     },
+    "Muk": {
+        "Balanced General Use": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sticky Hold",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":184,"sd":72},
+            "ivs":{"at":0, "sp":0},
+            "moves":["Screech","Acid Spray","Helping Hand","Mud-Slap"]
+        }
+    }, 
     "Munkidori": {
         "Special DPS": {
             "level":100,
@@ -2441,6 +2505,15 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Instruct","Taunt","Light Screen"]
+        },
+        "Balanced Symbiosis": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Symbiosis",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":200,"sd":58},
+            "ivs":{"at":0},
+            "moves":["Instruct","Gravity","Trick Room","Psychic Terrain"]
         }
     },
     "Pelipper": {
@@ -2493,6 +2566,15 @@
             "nature":"Sassy",
             "evs":{"hp":252,"sd":252},
             "moves":["Screech","Helping Hand","Swagger","Snarl"]
+        },
+        "Balanced General Use": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Steely Spirit",
+            "nature":"Sassy",
+            "evs":{"hp":252,"df":4,"sd":252},
+            "ivs":{"at":0, "sp":0},
+            "moves":["Screech","Fake Tears","Helping Hand","Chilling Water"]
         }
     },
     "Pincurchin": {
@@ -2559,6 +2641,41 @@
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Close Combat","Rage Fist"]
+        },
+        "Balanced Anger Point": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Anger Point",
+            "nature":"Adamant",
+            "evs":{"hp":220,"at":252,"df":38},
+            "moves":["Rage Fist","Seed Bomb","Shadow Claw","U-Turn"]
+        }
+    },
+    "Psyduck": {
+        "Simple Beam (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Cloud Nine",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Simple Beam","Helping Hand","Chilling Water","Taunt"]
+        },
+        "Simple Beam (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Cloud Nine",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
+        },
+        "Balanced Simple Beam": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Cloud Nine",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":108,"sd":148},
+            "ivs":{"at":0},
+            "moves":["Simple Beam","Wonder Room","Helping Hand","Skill Swap"]
         }
     },
     "Qwilfish":{
@@ -2789,7 +2906,31 @@
         }
     },
     "Spoink": {
-
+        "Simple Beam (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Thick Fat",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Simple Beam","Helping Hand","Reflect","Taunt"]
+        },
+        "Simple Beam (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Thick Fat",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
+        },
+        "Balanced Simple Beam": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Thick Fat",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252,"sd":4},
+            "ivs":{"at":0},
+            "moves":["Simple Beam","Psychic Terrain","Helping Hand","Snarl"]
+        }
     },
     "Stantler": {
 
@@ -2935,6 +3076,14 @@
             "evs":{"at":252,"sp":252},
             "moves":["Double-Edge"]
         },
+        "Speedy Anger Point": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Anger Point",
+            "nature":"Adamant",
+            "evs":{"at":252,"sd":4, "sp":252},
+            "moves":["Giga Impact","Close Combat","Facade","Stone Edge"]
+        },
         "Green Vomit": {
             "level":100,
             "item":"Leftovers",
@@ -2961,6 +3110,14 @@
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Wave Crash","Close Combat","Raging Bull"]
+        },
+        "Speedy Anger Point": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Anger Point",
+            "nature":"Adamant",
+            "evs":{"at":252,"sd":4, "sp":252},
+            "moves":["Wave Crash","Close Combat","Wild Charge","Raging Bull"]
         }
     },
     "Tauros-Paldea-Blaze": {
@@ -2979,6 +3136,14 @@
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Flare Blitz","Close Combat","Raging Bull","Temper Flare"]
+        },
+        "Speedy Anger Point": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Anger Point",
+            "nature":"Adamant",
+            "evs":{"at":252,"sd":4, "sp":252},
+            "moves":["Flare Blitz","Close Combat","Wild Charge","Raging Bull"]
         }
     },
     "Tauros-Paldea-Combat": {
@@ -2997,6 +3162,14 @@
             "nature":"Jolly",
             "evs":{"at":252,"sp":252},
             "moves":["Close Combat","Raging Bull"]
+        },
+        "Speedy Anger Point": {
+            "level":100,
+            "item":"Choice Band",
+            "ability":"Anger Point",
+            "nature":"Adamant",
+            "evs":{"at":252,"sd":4, "sp":252},
+            "moves":["Zen Headbutt","Close Combat","Outrage","Iron Head"]
         }
     },
     "Tentacool": {
@@ -3369,6 +3542,15 @@
             "nature":"Sassy",
             "evs":{"hp":252,"sd":252},
             "moves":["Screech","Helping Hand","Snarl","Taunt"]
+        },
+        "General Use": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Synchronize",
+            "nature":"Sassy",
+            "evs":{"hp":252,"df":252,"sd":4},
+            "ivs":{"at":0, "sp":0},
+            "moves":["Screech","Fake Tears","Helping Hand","Mud-Slap"]
         }
     },
     "Ursaluna": {
@@ -3703,6 +3885,15 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Acid Spray","Taunt","Clear Smog","Misty Terrain"]
+        },
+        "Balanced Misty Surge": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Misty Surge",
+            "nature":"Calm",
+            "evs":{"hp":252,"df":4,"sd":252},
+            "ivs":{"at":0},
+            "moves":["Acid Spray","Misty Terrain","Defog","Sunny Day"]
         }
     },
     "Whimsicott": {

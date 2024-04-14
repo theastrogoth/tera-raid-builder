@@ -1,11 +1,14 @@
 import { Move, Field, Pokemon, Generations } from "../calc";
-import { AilmentName, MoveData, RaidTurnInfo } from "./interface";
-import { Raider } from "./Raider";
-import { StatusName, AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
+import { AilmentName, MoveData, Raider, RaidTurnInfo } from "./interface";
+import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
 import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 
 const gen = Generations.get(9);
+
+export function absoluteFloor(num: number) {
+    return num < 0 ? Math.ceil(num) : Math.floor(num);
+}
 
 // next time I prepare the move data, I should eliminate the need for translation
 export function isStatus(ailment: AilmentName): Boolean {
@@ -290,11 +293,11 @@ export function modifyPokemonSpeedByQP(speed: number, field: Field, ability?: Ab
 
 export function modifyPokemonSpeedByField(speed: number, field: Field, ability?: AbilityName) {
     if (
-        ability === "Chlorophyll" && field.weather?.includes("Sun") ||
-        ability === "Sand Rush" && field.weather?.includes("Sand") ||
-        ability === "Slush Rush" && field.weather?.includes("Snow") ||
-        ability === "Swift Swim" && field.weather?.includes("Rain") ||
-        ability === "Surge Surfer" && field.terrain?.includes("Electric")
+        ability === "Chlorophyll" && field.hasWeather("Sun") ||
+        ability === "Sand Rush" && field.hasWeather("Sand") ||
+        ability === "Slush Rush" && field.hasWeather("Snow") ||
+        ability === "Swift Swim" && field.hasWeather("Rain") ||
+        ability === "Surge Surfer" && field.hasTerrain("Electric")
     ) {
         speed *= 2;
     }
@@ -326,4 +329,41 @@ export function getGroupedTurns(turns: RaidTurnInfo[]) {
     const groupedTurnIDs = getGroupedTurnIDs(turns);
     const groupedTurns = groupedTurnIDs.map(indicesArray => indicesArray.map(index => turns[index]));
     return groupedTurns;
+}
+
+const RAID_ACTIONS = [
+    "Attack Cheer",
+    "Defense Cheer", 
+    "Heal Cheer", 
+    "Remove Negative Effects", 
+    "Clear Boosts / Abilities",
+    "Steal Tera Charge",
+    "Activate Shield"
+]
+
+export function isRaidAction(movename: string) {
+    return RAID_ACTIONS.includes(movename);
+}
+
+export function isRegularMove(movename: string) {
+    return !isRaidAction(movename) && movename !== "(No Move)" && movename !== "(Most Damaging)" && movename !== "(Optimal Move)";
+}
+
+export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = false) {
+    let selectableMoves: MoveData[] = [...pokemon.moveData, ...(pokemon.extraMoveData || [])].filter(m => m.name !== "(No Move)");
+    if (!isBossAction) {
+        if ((pokemon.isChoiceLocked || pokemon.isEncore) && pokemon.lastMove) {
+            selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
+        }
+        if (pokemon.lastMove && (pokemon.isTorment || (pokemon.lastMove.name === "Gigaton Hammer" || pokemon.lastMove.name === "Blood Moon"))) {
+            selectableMoves = selectableMoves.filter(m => m.name !== pokemon.lastMove!.name);
+        }
+        if (pokemon.isDisable && pokemon.disabledMove) {
+            selectableMoves = selectableMoves.filter(m => m.name !== pokemon.disabledMove);
+        }
+        if (pokemon.isTaunt) {
+            selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
+        }
+    }
+    return selectableMoves.map(m => m.name);
 }

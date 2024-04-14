@@ -8,24 +8,6 @@ import { hasNoStatus, pokemonIsGrounded } from "./util";
 
 const gen = Generations.get(9);
 
-const WIND_MOVES = [
-    "Air Cutter",
-    "Bleakwind Storm",
-    "Blizzard",
-    "Fairy Wind",
-    "Gust",
-    "Heat Wave",
-    "Hurricane",
-    "Icy Wind",
-    "Petal Blizzard",
-    "Sandsear Storm",
-    "Springtide Storm",
-    "Tailwind",
-    "Twister",
-    "Whirlwind",
-    "Wildbolt Storm",
-];
-
 export class RaidState implements State.RaidState{
     raiders: Raider[];      // raiders[0] is the boss, while raiders 1-5 are the players
     lastMovedID?: number;   // id of the last Pokemon to move
@@ -50,7 +32,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined) {
+    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
@@ -231,8 +213,7 @@ export class RaidState implements State.RaidState{
                 this.applyStatChange(id, boost, true, id);
             }
             // Wind Power
-            if (pokemon.ability === "Wind Power" && 
-                WIND_MOVES.includes(moveName as MoveName)) {
+            if (pokemon.ability === "Wind Power" && isWind){
                 pokemon.field.attackerSide.isCharged = true;
             }
         }
@@ -300,6 +281,8 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+        // Final Check for fainting
+        if (fainted) { this.faint(id); }
     }
 
     public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {
@@ -441,17 +424,19 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyVolatileStatus(id: number, ailment: string, source: number, firstMove?: boolean) {
+    public applyVolatileStatus(id: number, ailment: string, isSecondaryEffect: boolean = false, source: number, firstMove?: boolean) {
         const pokemon = this.getPokemon(id);
         const field = pokemon.field;
         const sourceAbility = this.getPokemon(source).ability;
         const attackerIgnoresAbility = ["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield");
-        // const selfInflicted = id === source;
+        const selfInflicted = id === source;
 
         if (!pokemon.volatileStatus.includes(ailment)) {
             let success = true;
             // Safeguard and Misty Terrain block confusion
             if (ailment === "confusion" && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { success = false; }
+            // Covert Cloak
+            if (ailment === "confusion" && !selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { success = false; }
             // Aroma Veil
             if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation", "yawn"].includes(ailment)) {
                 success = false;
@@ -470,6 +455,13 @@ export class RaidState implements State.RaidState{
                 pokemon.volatileStatus.push!(ailment);
                 if (ailment === "taunt") {
                     pokemon.isTaunt = (firstMove ? 3 : 4) * (id === 0 ? 4 : 1);
+                } else if (ailment === "encore") {
+                    pokemon.isEncore = 3;
+                } else if (ailment === "torment") {
+                    pokemon.isTorment = true;
+                } else if (ailment === "disable" && pokemon.lastMove) {
+                    pokemon.isDisable = 4;
+                    pokemon.disabledMove = pokemon.lastMove!.name;
                 } else if (ailment === "yawn") {
                     pokemon.isYawn = 2;
                     pokemon.yawnSource = source;
@@ -511,8 +503,8 @@ export class RaidState implements State.RaidState{
                 for (let i=1; i<symbiosisIds.length; i++) {
                     const poke = this.getPokemon(symbiosisIds[i]);
                     const speed = getModifiedStat(poke.stats.spe, poke.boosts.spe, gen);
-                    const field = poke.field;
                     // Apparently, Trick Room isn't considered for this check
+                    // const field = poke.field;
                     // if ( (!field.isTrickRoom && speed > fastestSymbSpeed) || (field.isTrickRoom && speed < fastestSymbSpeed) ) {
                     if ( speed > fastestSymbSpeed ) {
                         fastestSymbId = symbiosisIds[i];
@@ -521,8 +513,11 @@ export class RaidState implements State.RaidState{
                     } 
                 }
                 // symbiosis item transfer
-                this.recieveItem(id, fastestSymbPoke.item!);
+                const passedItem = fastestSymbPoke.item!;
                 fastestSymbPoke.item = undefined; // don't call loseItem because it will trigger symbiosis again
+                fastestSymbPoke.isChoiceLocked = false;
+                // NOTE: it is important to clear the item from the Symbiosis passer FIRST to avoid an infinite loop in case the item is immediately consumed after passing
+                this.recieveItem(id, passedItem);
             }
         }
     }
@@ -1112,6 +1107,23 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
+        // check Soul-Heart
+        for (let i=0; i<5; i++) {
+            if (i === id) { continue; }
+            const poke = this.getPokemon(i);
+            if (poke.ability === "Soul-Heart" && poke.originalCurHP !== 0) {
+                this.applyStatChange(i, {spa: 1}, true, i);
+            }
+        }
+        // handle permanent cheer stacking
+        if (pokemon.field.attackerSide.isAtkCheered) {
+            pokemon.permanentAtkCheers += 1;
+        }
+        if (pokemon.field.attackerSide.isDefCheered) {
+            pokemon.permanentDefCheers += 1;
+        }
+        pokemon.field.attackerSide.isAtkCheered = 0;
+        pokemon.field.attackerSide.isDefCheered = 0;
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
         if ((pokemon.isTransformed || pokemon.isChangedForm) && pokemon.originalSpecies) {
             const originalSpecies = new Pokemon(9, pokemon.originalSpecies, {
@@ -1141,17 +1153,35 @@ export class RaidState implements State.RaidState{
         pokemon.randomBoosts = 0;
         pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
         pokemon.status = "";
+        pokemon.isSleep = 0;
+        pokemon.isFrozen = 0;
+        pokemon.isYawn = 0;
+        pokemon.syrupBombDrops = 0;
         pokemon.volatileStatus = [];
         pokemon.originalCurHP = 0;
         pokemon.isEndure = false;
+        pokemon.isTaunt = 0;
         pokemon.isCharging = false;
         pokemon.isRecharging = false;
         pokemon.abilityNullified = 0;
         pokemon.moveRepeated = undefined;
+        pokemon.isChoiceLocked = false;
+        pokemon.isEncore = 0;
+        pokemon.isTorment = false;
+        pokemon.isDisable = 0;
+        pokemon.disabledMove = undefined;
         pokemon.changedTypes = undefined;
+        pokemon.substitute = undefined;
         pokemon.types = new Pokemon(9, pokemon.name).types;
         pokemon.moveData = pokemon.originalMoves || pokemon.moveData;
         pokemon.moves = pokemon.moveData.map(m => m.name);
+        
+        pokemon.delayedMoveCounter = undefined;
+        pokemon.delayedMoveSource = undefined;
+        pokemon.delayedMove = undefined;        
+
+        // increment fainted count
+        pokemon.timesFainted += 1;
         
         // remove ability effects that are removed upon fainting
         this.removeAbilityFieldEffect(id, ability);
@@ -1178,6 +1208,7 @@ export class RaidState implements State.RaidState{
                 id,
                 pokemon.role,
                 pokemon.shiny,
+                false,
                 pokemon.field.clone(),
                 new Pokemon(
                     gen,

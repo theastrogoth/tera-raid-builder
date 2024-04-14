@@ -11,6 +11,7 @@ export class Raider extends Pokemon implements State.Raider {
     id: number;
     role: string;
     shiny: boolean;
+    isAnyLevel: boolean;        // keeps track of whether or not the Raider should be displayed as having "Any" level for display/graphic purposes
     field: Field;               // each pokemon gets its own field to deal with things like Helping Hand and Protect
     moveData: State.MoveData[];   
     extraMoves?: MoveName[];    // for special boss actions
@@ -31,8 +32,16 @@ export class Raider extends Pokemon implements State.Raider {
     moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
     teraCharge: number;         // stored for Tera activation
 
+    isChoiceLocked?: boolean;   // indicates that a Pokemon is locked into a move
+    isEncore?: number;          // store number of turns that a Pokemon is encored
+    isTorment?: boolean;        
+    isDisable?: number;         // store number of turns that a Pokemon is disabled
+    disabledMove?: MoveName;    // store the move that is disabled
+
     shieldActivateHP?: number;
     shieldBroken?: boolean;
+    shieldBreakStun?: boolean[];
+    substitute?: number;
 
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
     nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
@@ -51,10 +60,16 @@ export class Raider extends Pokemon implements State.Raider {
 
     slowStartCounter?: number; // stores the number of turns left for Slow Start
 
+    delayedMoveCounter?: number;
+    delayedMoveSource?: number;
+    delayedMoveOptions?: State.RaidMoveOptions;
+    delayedMove?: State.MoveData;
+
     constructor(
         id: number, 
         role: string, 
-        shiny: boolean | undefined, 
+        shiny: boolean | undefined,
+        isAnyLevel: boolean | undefined,
         field: Field, 
         pokemon: Pokemon, 
         moveData: State.MoveData[], 
@@ -72,8 +87,15 @@ export class Raider extends Pokemon implements State.Raider {
         lastTarget: number | undefined = undefined, 
         moveRepeated: number | undefined = undefined,
         teraCharge: number | undefined = 0, 
+        choiceLocked: boolean = false,
+        isEncore: number | undefined = 0,
+        isTorment: boolean | undefined = false,
+        isDisable: number | undefined = 0,
+        disabledMove: MoveName | undefined = undefined,
         shieldActivateHP: number | undefined = undefined, 
         shieldBroken: boolean | undefined = undefined, 
+        shieldBreakStun: boolean[] | undefined = undefined,
+        substitute: number | undefined = undefined,
         abilityNullified: number | undefined = 0, 
         nullifyAbilityOn: boolean | undefined = undefined,
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
@@ -86,11 +108,16 @@ export class Raider extends Pokemon implements State.Raider {
         originalMoves: State.MoveData[] | undefined = undefined,
         originalFormAbility: AbilityName | "(No Ability)" | undefined = undefined,
         slowStartCounter: number | undefined = undefined,
+        delayedMoveCounter: number | undefined = undefined,
+        delayedMoveSource: number | undefined = undefined,
+        delayedMoveOptions: State.RaidMoveOptions | undefined = undefined,
+        delayedMove: State.MoveData | undefined = undefined,
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
         this.role = role;
         this.shiny = !!shiny;
+        this.isAnyLevel = !!isAnyLevel;
         this.field = field;
         this.moveData = moveData;
         this.extraMoves = extraMoves;
@@ -107,8 +134,15 @@ export class Raider extends Pokemon implements State.Raider {
         this.lastTarget = lastTarget;
         this.moveRepeated = moveRepeated;
         this.teraCharge = teraCharge;
+        this.isChoiceLocked = choiceLocked;
+        this.isEncore = isEncore;
+        this.isTorment = isTorment;
+        this.isDisable = isDisable;
+        this.disabledMove = disabledMove;
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
+        this.shieldBreakStun = shieldBreakStun;
+        this.substitute = substitute;
         this.abilityNullified = abilityNullified;
         this.nullifyAbilityOn = nullifyAbilityOn;
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
@@ -121,6 +155,10 @@ export class Raider extends Pokemon implements State.Raider {
         this.originalMoves = originalMoves;
         this.originalFormAbility = originalFormAbility || pokemon.ability || "(No Ability)";
         this.slowStartCounter = slowStartCounter;
+        this.delayedMoveCounter = delayedMoveCounter;
+        this.delayedMoveSource = delayedMoveSource;
+        this.delayedMoveOptions = delayedMoveOptions;
+        this.delayedMove = delayedMove;
     }
 
     clone(): Raider {
@@ -128,6 +166,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.id, 
             this.role, 
             this.shiny,
+            this.isAnyLevel,
             this.field.clone(),
             new Pokemon(this.gen, this.name, {
                 level: this.level,
@@ -161,8 +200,11 @@ export class Raider extends Pokemon implements State.Raider {
                 shieldActive: this.shieldActive,
                 toxicCounter: this.toxicCounter,
                 hitsTaken: this.hitsTaken,
+                timesFainted: this.timesFainted,
                 changedTypes: this.changedTypes ? [...this.changedTypes] : undefined,
                 moves: this.moves.slice(),
+                permanentAtkCheers: this.permanentAtkCheers,
+                permanentDefCheers: this.permanentDefCheers,
                 overrides: this.species,
             }),
             this.moveData,
@@ -180,8 +222,15 @@ export class Raider extends Pokemon implements State.Raider {
             this.lastTarget,
             this.moveRepeated,
             this.teraCharge,
+            this.isChoiceLocked,
+            this.isEncore,
+            this.isTorment,
+            this.isDisable,
+            this.disabledMove,
             this.shieldActivateHP,
             this.shieldBroken,
+            this.shieldBreakStun,
+            this.substitute,
             this.abilityNullified,
             this.nullifyAbilityOn,
             this.originalAbility,
@@ -194,6 +243,10 @@ export class Raider extends Pokemon implements State.Raider {
             this.originalMoves,
             this.originalFormAbility,
             this.slowStartCounter,
+            this.delayedMoveCounter,
+            this.delayedMoveSource,
+            this.delayedMoveOptions,
+            this.delayedMove,
         )
     }
 
@@ -209,14 +262,18 @@ export class Raider extends Pokemon implements State.Raider {
         speed = modifyPokemonSpeedByItem(speed, this.item);
         speed = modifyPokemonSpeedByAbility(speed, this.ability, this.abilityOn, this.status);
         speed = modifyPokemonSpeedByQP(speed, this.field, this.ability, this.item, this.boostedStat as StatIDExceptHP);
-        speed = modifyPokemonSpeedByField(speed, this.field);
+        speed = modifyPokemonSpeedByField(speed, this.field, this.ability);
         return speed;
     }
 
     public applyDamage(damage: number): number { 
-        this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
-        if (this.isEndure && this.originalCurHP === 0) {
-            this.originalCurHP = 1;
+        if (this.substitute) {
+            this.substitute = Math.max(0, this.substitute - damage) === 0 ? undefined : Math.max(0, this.substitute - damage)
+        } else {
+            this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
+            if (this.isEndure && this.originalCurHP === 0) {
+                this.originalCurHP = 1;
+            }
         }
         return this.originalCurHP;
     }
@@ -239,6 +296,9 @@ export class Raider extends Pokemon implements State.Raider {
         }
         if (consumed) {
             this.lastConsumedItem = this.item;
+        }
+        if (this.hasItem("Choice Band", "Choice Specs", "Choice Scarf")) {
+            this.isChoiceLocked = false;
         }
         this.item = undefined;
     }
@@ -287,7 +347,7 @@ export class Raider extends Pokemon implements State.Raider {
             if (this.originalCurHP < breakHP) {
                 this.shieldActive = false;
                 this.shieldBroken = true;
-                // TODO: adjust damage overflow from breaking shield?
+                this.shieldBreakStun = [true, true, true, true];
             }
         }
     }

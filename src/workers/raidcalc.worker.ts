@@ -3,6 +3,7 @@ import { TurnGroupInfo } from "../raidcalc/interface";
 import { RaidState } from "../raidcalc/RaidState";
 import { Raider } from "../raidcalc/Raider";
 import { Field, Pokemon, Generations } from "../calc";
+import { optimizeBossMoves } from "../raidcalc/optmoves";
 
 declare var self: DedicatedWorkerGlobalScope;
 export {};
@@ -11,7 +12,7 @@ const gen = Generations.get(9);
 
 self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[]}>) => {
     const raidersMessage = event.data.raiders;
-    const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, r.shiny, new Field(), new Pokemon(gen, r.name, {
+    const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, r.shiny, false, new Field(), new Pokemon(gen, r.name, {
         level: r.level,
         gender: r.gender,
         bossMultiplier: r.bossMultiplier,
@@ -30,13 +31,19 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[
         raiders[i].field.gameType = 'Doubles'; // affects Reflect/Light Screen/Aurora Veil 
     }
 
-    const state = new RaidState(raiders);
-    const info: RaidBattleInfo = {
-        startingState: state,
-        groups: event.data.groups,
-    }
+    const numBranches = (event.data.groups.map((g) => g.turns.map((t) => t.bossMoveInfo.moveData.name === "(Optimal Move)" ? 1 : 0)).flat() as number[]).reduce((acc, v) => acc + v, 0);
 
-    const battle = new RaidBattle(info);
-    const result = battle.result();
-    self.postMessage(result);    
+    if (numBranches > 0) {
+        self.postMessage(optimizeBossMoves(raiders, event.data.groups));
+    } else {
+        const state = new RaidState(raiders);
+            const info: RaidBattleInfo = {
+                startingState: state,
+                groups: event.data.groups,
+            }
+        
+            const battle = new RaidBattle(info);
+            const result = battle.result();
+            self.postMessage(result);
+    }
 }

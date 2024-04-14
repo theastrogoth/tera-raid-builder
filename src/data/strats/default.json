@@ -5,11 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Blaziken",
-            "name": "Blaziken",
+            "role": "Meganium",
+            "name": "Meganium",
             "shiny": false,
-            "ability": "Speed Boost",
-            "nature": "Adamant",
+            "isAnyLevel": false,
+            "ability": "Leaf Guard",
+            "nature": "Impish",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,24 +28,24 @@
                 "spe": 31
             },
             "level": 100,
-            "teraType": "Flying",
+            "gender": "F",
+            "teraType": "Psychic",
             "moves": [
-                "Blaze Kick",
-                "Brave Bird",
-                "Earthquake",
-                "Low Kick"
+                "Seed Bomb",
+                "Zen Headbutt",
+                "Body Press",
+                "Curse"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Overheat",
-                "Rock Slide",
-                "Swords Dance",
-                "Bulk Up"
+                "Reflect",
+                "Light Screen",
+                "Bulldoze"
             ],
             "shieldData": {
-                "hpTrigger": 80,
+                "hpTrigger": 85,
                 "timeTrigger": 80,
-                "shieldCancelDamage": 30,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -52,17 +53,18 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Krookodile",
+            "name": "Krookodile",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "isAnyLevel": false,
+            "ability": "Anger Point",
+            "item": "Choice Band",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -75,9 +77,10 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Electro Drift",
-                "Parabolic Charge"
+                "Power Trip",
+                "Crunch"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -92,19 +95,20 @@
         },
         {
             "id": 2,
-            "role": "Bonsly",
-            "name": "Bonsly",
+            "role": "Honchkrow",
+            "name": "Honchkrow",
             "shiny": false,
-            "ability": "Sturdy",
-            "item": "Covert Cloak",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "Super Luck",
+            "item": "Scope Lens",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
-                "spe": 0
+                "spe": 252
             },
             "ivs": {
                 "hp": 31,
@@ -114,9 +118,13 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 1,
+            "level": 100,
+            "gender": "N",
             "moves": [
-                "Fake Tears"
+                "Taunt",
+                "Night Slash",
+                "Helping Hand",
+                "Chilling Water"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -131,16 +139,17 @@
         },
         {
             "id": 3,
-            "role": "Salandit",
-            "name": "Salandit",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Corrosion",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -153,9 +162,13 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 1,
+            "level": 100,
+            "gender": "N",
             "moves": [
-                "Acid Spray"
+                "Helping Hand",
+                "Reflect",
+                "Mud-Slap",
+                "Screech"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -170,12 +183,13 @@
         },
         {
             "id": 4,
-            "role": "Chi-Yu",
-            "name": "Chi-Yu",
+            "role": "Alolan Muk",
+            "name": "Muk-Alola",
             "shiny": false,
-            "ability": "Beads of Ruin",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -192,8 +206,14 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 60,
-            "moves": [],
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech",
+                "Brick Break",
+                "Helping Hand",
+                "Mud-Slap"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -209,9 +229,9 @@
     "turns": [
         {
             "id": 0,
-            "group": 1,
+            "group": 0,
             "moveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(No Move)",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -222,7 +242,33 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Reflect",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Light Screen",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -236,7 +282,8 @@
     ],
     "groups": [
         [
-            0
+            0,
+            1
         ]
     ],
     "repeats": [

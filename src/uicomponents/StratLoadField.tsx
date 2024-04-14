@@ -11,6 +11,7 @@ import { LightBuildInfo } from "../raidcalc/hashData";
 import { RaidInputProps, BuildInfo } from "../raidcalc/inputs";
 import { SubstituteBuildInfo } from "../raidcalc/interface";
 
+import { getTranslation } from "../utils";
 import STRAT_LIST from "../data/strats/stratlist.json";
 
 type StratOption = {
@@ -39,15 +40,14 @@ function stratdexToOptions(dex: Object): StratOption[] {
 
 const stratOptions = stratdexToOptions(STRAT_LIST);
 
-const filterStratOptions = createFilterOptions({
-    stringify: (option: StratOption) => option.boss + " " + option.name
-});
-
 function StratLoadField(
     {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, placeholder="Load Strategy", sx={ width: 260 }, translationKey}: 
     {raidInputProps: RaidInputProps, setTitle: (t: string) => void, setCredits: (c: string) => void, 
      setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, placeholder?: string, sx?: SxProps<Theme>, translationKey: any}) 
 {
+    const filterStratOptions = createFilterOptions({
+        stringify: (option: StratOption) => getTranslation(option.boss, translationKey, "pokemon") + " " + option.name
+    });
     const [stratPath, setStratPath] = useState<null | string>(null);
     const [buildInfo, setBuildInfo] = useState<null | LightBuildInfo>(null);
 

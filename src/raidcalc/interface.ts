@@ -84,6 +84,19 @@ export type MoveData = {
     ailmentChance?: number,
     minHits?:       number,
     maxHits?:       number,
+    ignoreDefensive?: boolean,
+    breaksProtect?:  boolean,
+    bypassSub?:     boolean,
+    makesContact?:  boolean,
+    willCrit?:      boolean,
+    highCritChance?: boolean,
+    isPunch?:       boolean,
+    isBite?:        boolean,
+    isBullet?:      boolean,
+    isSound?:       boolean,
+    isPulse?:       boolean,
+    isSlicing?:     boolean,
+    isWind?:        boolean,
 }
 
 export type ShieldData  = {
@@ -99,6 +112,7 @@ export interface Raider extends Pokemon {
     id: number;
     role: string;
     shiny?: boolean;
+    isAnyLevel?: boolean;
     field: Field;
     moveData: MoveData[];
     extraMoves?: MoveName[];// for special boss actions
@@ -115,8 +129,15 @@ export interface Raider extends Pokemon {
     lastTarget?: number;    // stored for Instruct and Copycat
     moveRepeated?: number;  // stored for boost from Metronome, Fury Cutter, etc
     teraCharge?: number;    // stored for Tera activation check
+    isChoiceLocked?: boolean; 
+    isEncore?: number;      // store number of turns that a Pokemon is encored    
+    isTorment?: boolean;
+    isDisable?: number;     // store number of turns that a Pokemon is disabled
+    disabledMove?: MoveName;// store the move that is disabled
     shieldActivateHP?: number;
     shieldBroken?: boolean;
+    shieldBreakStun?: boolean[];
+    substitute?: number; // store substitute's HP
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
     nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
     originalAbility?: AbilityName | "(No Ability)"; // stores ability when nullified
@@ -127,6 +148,10 @@ export interface Raider extends Pokemon {
     originalSpecies?: SpeciesName;
     originalMoves?: MoveData[];
     slowStartCounter?: number;
+    delayedMoveCounter?: number;
+    delayedMoveSource?: number;
+    delayedMoveOptions?: RaidMoveOptions;
+    delayedMove?: MoveData;
 }
 
 export interface RaidState {
@@ -173,6 +198,7 @@ export type SetOption = {
     name: string,
     pokemon: SpeciesName,
     shiny?: boolean,
+    isAnyLevel?: boolean,
     level?: number,
     gender?: GenderName,
     item?: ItemName,

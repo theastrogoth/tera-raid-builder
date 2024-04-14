@@ -842,6 +842,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         setTypeOptions(newTypeOptions);
         setAbilityOptions(newAbilityOptions);
         setMoveOptions(newMoveOptions);
+        sortSpecies(newSpeciesOptions);
     }, [inputFilteredOptions]);
 
     const handleButtonClick = (label: string) => {
@@ -858,10 +859,10 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         }
     };
 
-    useEffect(() => {
+    const sortSpecies = (sortSpeciesOptions: SearchOption[]) => {
         let sortedSpeciesOptions: SearchOption[] = [];
         if (sortMethod === "species") {
-            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+            sortedSpeciesOptions = [...sortSpeciesOptions].sort((a, b) => {
                 const aName = findOptionFromPokemonName(a.name, translationKey);
                 const bName = findOptionFromPokemonName(b.name, translationKey);
                 if (sortDirection === 'desc') {
@@ -872,7 +873,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                 return 0;
             });
         } else if (sortMethod === "bst") {
-            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+            sortedSpeciesOptions = [...sortSpeciesOptions].sort((a, b) => {
                 const aData = allSpecies?.get(a.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const bData = allSpecies?.get(b.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const aTotal = ["hp","atk","def","spa","spd","spe"].map((stat) => (aData?.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0)
@@ -885,7 +886,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                 return 0;
             });
         } else {
-            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+            sortedSpeciesOptions = [...sortSpeciesOptions].sort((a, b) => {
                 const aData = allSpecies?.get(a.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const bData = allSpecies?.get(b.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const key = sortMethod as keyof StatsTable;
@@ -900,6 +901,10 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
             });
         }
         setSpeciesOptions(sortedSpeciesOptions);
+    }
+
+    useEffect(() => {
+        sortSpecies(speciesOptions);
     }, [sortMethod, sortDirection]);
 
     let groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions, (inputValue.length > 0 ? [1] : [])].map((o) => o.length);

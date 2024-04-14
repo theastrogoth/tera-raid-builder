@@ -7,7 +7,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
-import Chip from '@mui/material/Chip';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
@@ -21,19 +20,18 @@ import MoveDisplay from './MoveDisplay';
 
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { Pokemon, Side, StatsTable } from '../calc';
-import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
-import { RaidTurnResult } from '../raidcalc/RaidTurn';
+import { Pokemon, StatsTable } from '../calc';
+import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
-import { MoveData, RaidMoveOptions, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
+import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
 
 type Modifiers = {
-    attackCheer?: boolean,
-    defenseCheer?: boolean,
+    attackCheer?: number,
+    defenseCheer?: number,
     helpingHand?: boolean,
     tera ?: string,
     formChanged ?: string,
@@ -55,7 +53,10 @@ type Modifiers = {
     status?: string,
     abilityNullified?: boolean,
     charging?: boolean,
-    choiceLocked?: boolean,
+    choiceLocked?: string,
+    encore?: string,
+    torment?: boolean,
+    disable?: string,
     endure?: boolean,
     ingrain?: boolean,
     micleBerry?: boolean,
@@ -137,6 +138,12 @@ function ModifierStatTag({modifier, value, translationKey}: {modifier: string, v
     );
 }
 
+function ModifierChoiceLockTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
+    return (
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(value,translationKey,"moves")}`} />
+    );
+}
+
 function ModifierBooleanTag({modifier, translationKey}: {modifier: string, translationKey: any}) {
     return (
         <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} />
@@ -169,6 +176,8 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
             }
             else if (modifier === "boostedStat") {
                 return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
+            } else if (modifier === "choiceLocked" || modifier === "encore" || modifier === "disable") {
+                return value !== "" && <ModifierChoiceLockTag modifier={modifier} value={value} translationKey={translationKey}/>
             }
             break;
         case "boolean":
@@ -380,10 +389,11 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
     const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
-    const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
-            kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
-        0));
-    koCounts[0] = Math.min(koCounts[0], 1);
+    // const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
+    //         kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
+    //     0));
+    // koCounts[0] = Math.min(koCounts[0], 1);
+    const koCounts = turnState.raiders.map((raider) => raider.timesFainted);
     const roles = turnState.raiders.map((raider) => raider.role);
     const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
@@ -392,8 +402,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
     const getModifiers = (raider: Raider): Modifiers => {
         return {
-            "attackCheer": raider.field.attackerSide.isAtkCheered > 0,
-            "defenseCheer": raider.field.attackerSide.isDefCheered > 0,
+            "attackCheer": (raider.field.attackerSide.isAtkCheered ? 1 : 0) + raider.permanentAtkCheers,
+            "defenseCheer":(raider.field.attackerSide.isDefCheered ? 1 : 0) + raider.permanentDefCheers,
             "helpingHand": raider.field.attackerSide.isHelpingHand,
             "tera": raider.isTera ? raider.teraType : "",
             "formChanged": raider.isChangedForm ? raider.name : "",
@@ -415,7 +425,9 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "status": raider.status,
             "abilityNullified": raider.abilityNullified !== undefined && raider.abilityNullified !== 0,
             "charging": raider.isCharging,
-            "choiceLocked": raider.isChoiceLocked,
+            "choiceLocked": raider.isChoiceLocked && raider.lastMove ? raider.lastMove.name : "",
+            "encore": raider.isEncore && raider.lastMove ? raider.lastMove.name : "",
+            "disable": raider.isDisable && raider.disabledMove ? raider.disabledMove : "",
             "endure": raider.isEndure,
             "ingrain": raider.isIngrain,
             "micleBerry": raider.isMicle,
@@ -501,25 +513,25 @@ function getCurrentRaiderRole(results: RaidBattleResults, displayedTurn: number,
     }
 }
 
-function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
-    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
-        return undefined;
-    }
-    else {
-        try {
-            const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
-            if (currentRaiderMove === "(No Move)") {
-                return undefined
-            }
-            else {
-                return getTranslation(currentRaiderMove, translationKey, "moves");
-            }
-        }
-        catch(e) {
-            return undefined;
-        }
-    }
-}
+// function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
+//     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+//         return undefined;
+//     }
+//     else {
+//         try {
+//             const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
+//             if (currentRaiderMove === "(No Move)") {
+//                 return undefined
+//             }
+//             else {
+//                 return getTranslation(currentRaiderMove, translationKey, "moves");
+//             }
+//         }
+//         catch(e) {
+//             return undefined;
+//         }
+//     }
+// }
 
 function getCurrentMoves(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
@@ -685,7 +697,7 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
     return matchesCase;
 }
 
-function RaidControls({raidInputProps, results, setResults, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean, translationKey: any}) {
+function RaidControls({raidInputProps, results, setResults, setLoading, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, setLoading: (b: boolean) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
     const [rollCase, setRollCase] = useState<"min" | "avg" | "max">("avg");
     const groups = raidInputProps.groups;
@@ -694,6 +706,8 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
     const pokemon2 = raidInputProps.pokemon[2];
     const pokemon3 = raidInputProps.pokemon[3];
     const pokemon4 = raidInputProps.pokemon[4];
+
+    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
     
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -703,11 +717,21 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
         raidcalcWorker.onmessage = (event: MessageEvent<RaidBattleResults>) => {
             if (event && event.data) {
                 setResults(event.data);
+                if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                }
+                setLoading(false);
             }
         }
     }, [setResults]);
 
     useEffect(() => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+        timeoutRef.current = setTimeout(() => {
+            setLoading(true);
+        }, 1000);
         const info = {
             raiders: raidInputProps.pokemon,
             groups: raidInputProps.groups,

@@ -6,12 +6,13 @@ import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json";
 import triageMoves from "../data/triage_moves.json";
 import { MoveName, SpeciesName } from "../calc/data/interface";
+import { isRegularMove } from "./util";
 
 const gen = Generations.get(9);
 
 export type RaidTurnResult = {
     state: RaidState;
-    results: [RaidMoveResult, RaidMoveResult];
+    results: RaidMoveResult[];
     raiderMovesFirst: boolean;
     raiderMoveUsed: string;
     bossMoveUsed: string;
@@ -55,6 +56,7 @@ export class RaidTurn {
 
     _result1!:        RaidMoveResult;
     _result2!:        RaidMoveResult;
+    _delayedResults!: RaidMoveResult[];
     _raidState!:      RaidState; // This tracks changes during this turn
 
     _flags!:          string[][]; 
@@ -95,6 +97,7 @@ export class RaidTurn {
 
         // copy the raid state
         this._raidState = this.raidState.clone();
+        this._delayedResults = [];
         this._flags = [[], [], [], [], []];
         this._endFlags = [];
 
@@ -136,7 +139,8 @@ export class RaidTurn {
 
         this.applyChangedMove();
         
-        // steal tera charge
+        // steal tera charge 
+        // deprecated, kept for compaitiblity of old links
         if (this.bossOptions.stealTeraCharge) {
             this._flags[0].push("The Raid Boss stole a Tera charge!");
             for (let i=1; i<5; i++) {
@@ -225,6 +229,8 @@ export class RaidTurn {
         if (!this._isEmptyTurn) {
             this.removeProtection();
             if (!this._isBossAction) {
+                // delayed moves (Protect doesn't apply)
+                this.countdownDelayedMoves();
                 // item effects
                 this.applyEndOfTurnItemEffects();
                 // ability effects
@@ -277,12 +283,19 @@ export class RaidTurn {
                     this._boss.status = "";
                     this._endFlags.push(this._boss.role + " thawed!");
                 }
+                // Move-selection-related countdowns
+                if (this._raider.isDisable) { this._raider.isDisable--; }
+                if (!this._raider.isDisable && this._raider.disabledMove) { this._raider.disabledMove = undefined; }
+                if (this._raider.isEncore) { this._raider.isEncore--; }
+                if (this._boss.isDisable) { this._boss.isDisable--; }
+                if (!this._boss.isDisable && this._boss.disabledMove) { this._boss.disabledMove = undefined; }
+                if (this._boss.isEncore) { this._boss.isEncore--; }
             }
         }
 
         return {
             state: this._raidState,
-            results: [this._result1, this._result2],
+            results: [this._result1, this._result2, ...this._delayedResults],
             raiderMovesFirst: this._raiderMovesFirst,
             raiderMoveUsed: this._raiderMoveUsed + (this._raidState.raiders[this.raiderID].isCharging ? " (Charging)" : ""),
             bossMoveUsed: this._bossMoveUsed + (this._raidState.raiders[0].isCharging ? " (Charging)" : ""),
@@ -349,9 +362,11 @@ export class RaidTurn {
             const testMove = new Move(9, this.bossMoveData.name, this.bossOptions);
             if (testMove.category === "Status" && !["Clear Boosts / Abilities", "Remove Negative Effects"].includes(testMove.name)) {
                 if (this._isBossAction) {
-                    this._bossMoveData = {name: "(No Move)" as MoveName, target: "selected-pokemon", category: "damage"}
-                    this._bossMove = new Move(9, "(No Move)", this.bossOptions);
-                    this._bossMoveUsed = "(No Move)";
+                    if (isRegularMove(this._bossMoveData.name)) {
+                        this._bossMoveData = {name: "(No Move)" as MoveName, target: "selected-pokemon", category: "damage"}
+                        this._bossMove = new Move(9, "(No Move)", this.bossOptions);
+                        this._bossMoveUsed = "(No Move)";
+                    }
                 } else {
                     this._bossMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
                 }
@@ -440,8 +455,8 @@ export class RaidTurn {
                 if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
                 if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
             }
-        // Since we don't have access to choice lock in the UI, we'll just force the move to be the last move used
-        } else if (this._raider.isChoiceLocked && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
+        // Force the move to be the last move used for Choice Lock / Encore
+        } else if (isRegularMove(this._raiderMove.name) && (this._raider.isChoiceLocked || this._raider.isEncore) && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
             this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
             this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
             if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
@@ -516,13 +531,40 @@ export class RaidTurn {
                             this._result2.flags[id].push("tox inflicted");
                         }
                         break;
-                    case "Poison Barb":
-                        if (!pokemon.hasType("Poison","Steel")) { 
-                            pokemon.status = "psn"; 
-                            this._result2.flags[id].push("psn inflicted");
-                        }
-                        break;
                     default: break
+                }
+            }
+        }
+    }
+
+    private countdownDelayedMoves() {
+        for (let id of [0, this.raiderID]) { // Not worrying about speed order for now
+            const pokemon = this._raidState.raiders[id];
+            if (pokemon.delayedMoveCounter) {
+                pokemon.delayedMoveCounter--;
+                if (pokemon.delayedMoveCounter === 0) {
+                    if (pokemon.originalCurHP > 0) {
+                        const delayedMove = new RaidMove(
+                            pokemon.delayedMove!,
+                            new Move(gen, pokemon.delayedMove!.name),
+                            this._raidState,
+                            pokemon.delayedMoveSource!,
+                            pokemon.id,
+                            pokemon.delayedMoveSource!,
+                            true,
+                            pokemon.delayedMoveOptions!,
+                            false,
+                            false,
+                            false,
+                            true,
+                        );
+                        const delayedMoveResult = delayedMove.result();
+                        this._raidState = delayedMoveResult.state;
+                        this._delayedResults.push(delayedMoveResult);
+                    }
+                    pokemon.delayedMove = undefined;
+                    pokemon.delayedMoveSource = undefined;
+                    pokemon.delayedMoveCounter = undefined;
                 }
             }
         }

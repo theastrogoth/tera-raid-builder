@@ -49,12 +49,15 @@ export class Pokemon implements State.Pokemon {
   originalCurHP: number;
   status: I.StatusName | '';
   volatileStatus: string[];
-  isChoiceLocked: boolean;
   toxicCounter: number;
   hitsTaken: number;
+  timesFainted: number;
   changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
 
   moves: I.MoveName[];
+
+  permanentAtkCheers: number;
+  permanentDefCheers: number;
 
   constructor(
     gen: I.Generation,
@@ -133,11 +136,13 @@ export class Pokemon implements State.Pokemon {
     this.originalCurHP = curHP && curHP <= this.rawStats.hp ? curHP : curHP === 0 ? 0 : this.rawStats.hp;
     this.status = options.status || '';
     this.volatileStatus = options.volatileStatus || [];
-    this.isChoiceLocked = options.isChoiceLocked || false;
     this.toxicCounter = options.toxicCounter || 0;
     this.hitsTaken = options.hitsTaken || 0;
+    this.timesFainted = options.timesFainted || 0;
     this.changedTypes = options.changedTypes;
     this.moves = options.moves || [];
+    this.permanentAtkCheers = options.permanentAtkCheers || 0;
+    this.permanentDefCheers = options.permanentDefCheers || 0;
   }
 
   maxHP(original = false) {
@@ -216,15 +221,17 @@ export class Pokemon implements State.Pokemon {
       originalCurHP: this.originalCurHP,
       status: this.status,
       volatileStatus: this.volatileStatus,
-      isChoiceLocked: this.isChoiceLocked,
       teraType: this.teraType,
       isTera: this.isTera,
       shieldData: this.shieldData,
       shieldActive: this.shieldActive,
       toxicCounter: this.toxicCounter,
       hitsTaken: this.hitsTaken,
+      timesFainted: this.timesFainted,
       changedTypes: this.changedTypes,
       moves: this.moves.slice(),
+      permanentAtkCheers: this.permanentAtkCheers,
+      permanentDefCheers: this.permanentDefCheers,
       overrides: this.species,
     });
   }

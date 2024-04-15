@@ -346,7 +346,7 @@ export function isRaidAction(movename: string) {
 }
 
 export function isRegularMove(movename: string) {
-    return !isRaidAction(movename) && movename !== "(No Move)" && movename !== "(Most Damaging)";
+    return !isRaidAction(movename) && movename !== "(No Move)" && movename !== "(Most Damaging)" && movename !== "(Optimal Move)";
 }
 
 export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = false) {

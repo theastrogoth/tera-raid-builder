@@ -27,21 +27,35 @@ export class RaidBattle {
     startingState: RaidState;
     groups: TurnGroupInfo[];
 
+    _continuing!: boolean
+
     _state!: RaidState;
     _turnResults!: RaidTurnResult[];
 
     _turnZeroFlags!: string[][];
     _turnZeroOrder!: number[];
 
-    constructor(info: RaidBattleInfo) {
-        this.startingState = info.startingState;
-        this.groups = info.groups;
+    constructor(info: RaidBattleInfo, result: RaidBattleResults | null = null) {
+        if (result) {
+            this.startingState = result.endState;
+            this.groups = info.groups;
+            this._turnZeroFlags = result.turnZeroFlags;
+            this._turnZeroOrder = result.turnZeroOrder;
+            this._turnResults = result.turnResults;
+            this._continuing = true;
+        } else {
+            this.startingState = info.startingState;
+            this.groups = info.groups;
+            this._continuing = false;
+        }
     }
 
     public result(): RaidBattleResults {
         try {
             this._state = this.startingState.clone();
-            this.calculateTurnZero();
+            if (!this._continuing) {
+                this.calculateTurnZero();
+            }
             const t0 = this._state.clone();
             this.calculateTurns();
             return {
@@ -65,7 +79,9 @@ export class RaidBattle {
 
     private calculateTurns(){
         let turnCounter = 0;
-        this._turnResults = [];
+        if (!this._continuing) {
+            this._turnResults = [];
+        }
         for (let i = 0; i < this.groups.length; i++) {
             const turns = this.groups[i].turns;
             const repeats = this.groups[i].repeats || 1;

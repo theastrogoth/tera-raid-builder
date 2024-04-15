@@ -496,7 +496,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, trans
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
     const isBossAction = groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)";
-    const moveSet = ["(No Move)", "(Most Damaging)", ...getSelectableMoves(boss, isBossAction), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
+    const moveSet = ["(No Move)", "(Most Damaging)", "(Optimal Move)", ...getSelectableMoves(boss, isBossAction), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
 
     const moveName = moveInfo.moveData.name;
     const [updateCount, setUpdateCount] = useState<number>(0); // just used to trigger rerender

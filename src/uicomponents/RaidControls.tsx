@@ -25,6 +25,7 @@ import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadab
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
 import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
+import { MoveName } from '../calc/data/interface';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -590,7 +591,7 @@ function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: Stri
 
 function RollCaseButtons({raidInputProps, setRollCase, translationKey}: {raidInputProps: RaidInputProps, setRollCase: (c: "min" | "avg" | "max") => void, translationKey: any}) {
     return (
-        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2}}>
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2, paddingTop: "5px", paddingBottom: "5px"}}>
             <RollCaseButton 
                 rollCase="min"
                 raidInputProps={raidInputProps}
@@ -697,6 +698,52 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
     return matchesCase;
 }
 
+function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
+    
+    const alreadyOptimized = (gs: TurnGroupInfo[]) => {
+        return !gs.some((g) => g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Most Damaging)"));
+    }
+
+    const handleClick = () => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = g.turns.map(t => { return {
+                ...t,
+                bossMoveInfo: {
+                    ...t.bossMoveInfo,
+                    moveData: {
+                        ...t.bossMoveInfo.moveData,
+                        name: t.bossMoveInfo.moveData.name === "(Most Damaging)" ? "(Optimal Move)" as MoveName : t.bossMoveInfo.moveData.name,
+                    }
+                }
+            }});
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+    }
+
+    return (
+        <Stack spacing={1} alignItems="center" justifyContent="center" sx={{ paddingTop: "5px", paddingBottom: "5px"}}>
+            <Button 
+                variant="contained" 
+                size="small" 
+                color="secondary"
+                sx={{ minWidth: "100px", height: "25px", fontWeight: "normal",}} 
+                disabled={alreadyOptimized(raidInputProps.groups)}
+                onClick={handleClick}
+            >
+                {getTranslation("Optimize Boss Moves", translationKey)}
+            </Button>
+            <Typography variant="body2">
+                ⚠️ {getTranslation("This can take a long time!", translationKey)} ⚠️
+            </Typography>
+        </Stack>
+    )
+}
+
 function RaidControls({raidInputProps, results, setResults, setLoading, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, setLoading: (b: boolean) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
     const [rollCase, setRollCase] = useState<"min" | "avg" | "max">("avg");
@@ -763,7 +810,13 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                         />
                     </Tabs>
                 </Box>
-                <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
+                <Stack direction="row" spacing={3} alignItems="start" justifyContent="center" >
+                    <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
+                    
+                    {!prettyMode &&
+                        <OptimizeBossMovesButton raidInputProps={raidInputProps} translationKey={translationKey}/>
+                    }
+                </Stack>
                 <Box hidden={value !== 1}>
                     <HpDisplay results={results} translationKey={translationKey}/>
                 </Box>
@@ -777,6 +830,11 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                         }
                     </Box>
                 </Box>
+                {/* <Box hidden={value !== 1}>
+                    {!prettyMode &&
+                        <OptimizeBossMovesButton raidInputProps={raidInputProps} translationKey={translationKey}/>
+                    }
+                </Box> */}
                 <Box hidden={value !== 2} sx={{ height: 560, overflowY: "auto" }}>
                     <RaidResults results={results} />
                 </Box>

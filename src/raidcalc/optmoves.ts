@@ -28,7 +28,6 @@ function splitGroups(groups: TurnGroupInfo[]): TurnGroupInfo[][] {
     for (let i = 0; i < groups.length; i++) {
         let g = groups[i];
         if (
-            i !== groups.length-1 &&
             g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Optimal Move)")
         ) {
             let partialGroup: TurnGroupInfo = {
@@ -52,6 +51,7 @@ function splitGroups(groups: TurnGroupInfo[]): TurnGroupInfo[][] {
                     currentChunk = [];
                 } else if (j === g.turns.length-1) {
                     currentChunk.push(partialGroup);
+                    groupsChunks.push(currentChunk);
                 }
             }
         } else {

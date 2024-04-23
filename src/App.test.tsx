@@ -1487,6 +1487,86 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/meganium/not_enough_fluff.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('meganium/beauty_and_grace', async () => {
+    const module = await import(`./data/strats/meganium/beauty_and_grace.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/canines', async () => {
+    const module = await import(`./data/strats/meganium/canines.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/curse_all_you_want', async () => {
+    const module = await import(`./data/strats/meganium/curse_all_you_want.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/dark_thoughts', async () => {
+    const module = await import(`./data/strats/meganium/dark_thoughts.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/corv', async () => {
+    const module = await import(`./data/strats/meganium/corv.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/furious_ape', async () => {
+    const module = await import(`./data/strats/meganium/furious_ape.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/garden_party', async () => {
+    const module = await import(`./data/strats/meganium/garden_party.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/chandelier', async () => {
+    const module = await import(`./data/strats/meganium/chandelier.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/infernal_sweets', async () => {
+    const module = await import(`./data/strats/meganium/infernal_sweets.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/ghidorah', async () => {
+    const module = await import(`./data/strats/meganium/ghidorah.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/kleavor', async () => {
+    const module = await import(`./data/strats/meganium/kleavor.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/kung_fu_jungle', async () => {
+    const module = await import(`./data/strats/meganium/kung_fu_jungle.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/heads_together', async () => {
+    const module = await import(`./data/strats/meganium/heads_together.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/unleashed', async () => {
+    const module = await import(`./data/strats/meganium/unleashed.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/warrior', async () => {
+    const module = await import(`./data/strats/meganium/warrior.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/mega_rage', async () => {
+    const module = await import(`./data/strats/meganium/mega_rage.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/mega_ball', async () => {
+    const module = await import(`./data/strats/meganium/mega_ball.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/dawn_wings', async () => {
+    const module = await import(`./data/strats/meganium/dawn_wings.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/ancient_assault', async () => {
+    const module = await import(`./data/strats/meganium/ancient_assault.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('meganium/bugs', async () => {
+    const module = await import(`./data/strats/meganium/bugs.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

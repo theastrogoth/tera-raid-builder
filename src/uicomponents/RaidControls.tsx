@@ -830,11 +830,6 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                         }
                     </Box>
                 </Box>
-                {/* <Box hidden={value !== 1}>
-                    {!prettyMode &&
-                        <OptimizeBossMovesButton raidInputProps={raidInputProps} translationKey={translationKey}/>
-                    }
-                </Box> */}
                 <Box hidden={value !== 2} sx={{ height: 560, overflowY: "auto" }}>
                     <RaidResults results={results} />
                 </Box>

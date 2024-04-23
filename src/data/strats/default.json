@@ -5,12 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Meganium",
-            "name": "Meganium",
+            "role": "Walking Wake",
+            "name": "Walking Wake",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Leaf Guard",
-            "nature": "Impish",
+            "ability": "Protosynthesis",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,44 +26,42 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 100,
-            "gender": "F",
-            "teraType": "Psychic",
+            "level": 75,
+            "teraType": "Water",
             "moves": [
-                "Seed Bomb",
-                "Zen Headbutt",
-                "Body Press",
-                "Curse"
+                "Hydro Steam",
+                "Dragon Pulse",
+                "Noble Roar",
+                "Flamethrower"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 2000,
             "extraMoves": [
-                "Reflect",
-                "Light Screen",
-                "Bulldoze"
+                "Sunny Day",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ],
             "shieldData": {
-                "hpTrigger": 85,
-                "timeTrigger": 80,
-                "shieldCancelDamage": 35,
+                "hpTrigger": 55,
+                "timeTrigger": 40,
+                "shieldCancelDamage": 25,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "shieldDamageRateTera": 80,
+                "shieldDamageRateTeraChange": 40
             }
         },
         {
             "id": 1,
-            "role": "Krookodile",
-            "name": "Krookodile",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
-            "nature": "Adamant",
+            "ability": "Hadron Engine",
+            "nature": "Modest",
             "evs": {
                 "hp": 252,
-                "atk": 252,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,38 +74,29 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
             "moves": [
-                "Power Trip",
-                "Crunch"
+                "Electro Drift",
+                "Charge",
+                "Parabolic Charge"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
-                "spe": 252
+                "spd": 252,
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -119,12 +107,11 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
             "moves": [
-                "Taunt",
-                "Night Slash",
+                "Fake Tears",
+                "Screech",
                 "Helping Hand",
-                "Chilling Water"
+                "Snarl"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -142,16 +129,15 @@
             "role": "Umbreon",
             "name": "Umbreon",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -163,39 +149,29 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
             "moves": [
+                "Fake Tears",
+                "Screech",
                 "Helping Hand",
-                "Reflect",
-                "Mud-Slap",
-                "Screech"
+                "Snarl"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 4,
-            "role": "Alolan Muk",
-            "name": "Muk-Alola",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "nature": "Sassy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -207,23 +183,14 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
             "moves": [
+                "Fake Tears",
                 "Screech",
-                "Brick Break",
                 "Helping Hand",
-                "Mud-Slap"
+                "Snarl"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         }
     ],
     "turns": [
@@ -237,25 +204,25 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "Reflect",
+                "name": "Sunny Day",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
         {
-            "id": 1,
-            "group": 0,
+            "id": 0,
+            "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -263,30 +230,33 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "Light Screen",
+                "name": "(No Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
     ],
     "groups": [
         [
-            0,
+            0
+        ],
+        [
             1
         ]
     ],
     "repeats": [
+        1,
         1
     ],
     "substitutes": [

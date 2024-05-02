@@ -189,7 +189,7 @@ function evsToString(pokemon: Pokemon, translationKey: any) {
             empty = false;
             let statAbbr = getTranslation(prettyStatName(keyval[0]), translationKey, "stats");
             const nature = gen.natures.get(toID(pokemon.nature));
-            const natureEffect = nature ? (keyval[0] === nature.minus ? '-' : (keyval[0] === nature.plus ? '+' : '')) : '';
+            const natureEffect = (nature && (nature.plus !== nature.minus)) ? (keyval[0] === nature.minus ? '-' : (keyval[0] === nature.plus ? '+' : '')) : '';
             str = str + statAbbr + ' ' + keyval[1] + natureEffect;
         }
     } 

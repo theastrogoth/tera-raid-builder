@@ -177,9 +177,8 @@ export class Pokemon implements State.Pokemon {
 
   hasType(...types: I.TypeName[]) {
     for (const type of types) {
-      if (!((this.teraType && this.isTera) ? this.teraType === type : this.types.includes(type))) return false;
-    }
-    return true;
+      if ((this.isTera && this.teraType) ? this.teraType === type : this.types.includes(type)) return true;    }
+    return false;
   }
 
   /** Ignores Tera type */

@@ -32,8 +32,7 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[
     }
 
     const numBranches = (event.data.groups.map((g) => g.turns.map((t) => t.bossMoveInfo.moveData.name === "(Optimal Move)" ? 1 : 0)).flat() as number[]).reduce((acc, v) => acc + v, 0);
-
-    if (numBranches > 0) {
+    if (numBranches > 0 && raiders[0].moveData.filter(m => m.name !== "(No Move)").length > 1) {
         self.postMessage(optimizeBossMoves(raiders, event.data.groups));
     } else {
         const state = new RaidState(raiders);

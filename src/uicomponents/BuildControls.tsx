@@ -556,7 +556,7 @@ export function MoveWithIcon({move, allMoves, prettyMode, translationKey}: {move
     )
 }
 
-function MoveSummaryRow({name, value, setValue, options, moveSet, allMoves, prettyMode, translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) {
+function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, allMoves, disabled, prettyMode,translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], currentMoves: MoveName[], allMoves: Map<MoveName,MoveData> | null, disabled: boolean, prettyMode: boolean, translationKey: any}) {
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -570,6 +570,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, allMoves, pret
                         <Autocomplete
                             disablePortal
                             disableClearable
+                            disabled={disabled}
                             autoHighlight={true}    
                             size="small"
                             value={value ? getTranslation(value, translationKey, "moves") : undefined}
@@ -582,6 +583,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, allMoves, pret
                             renderOption={(props, option) => 
                                 <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
                             }
+                            getOptionDisabled={(option) => option !== "(No Move)" && currentMoves.includes(option as MoveName)}
                             renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
                             onChange={(event: any, newValue: string) => {
                                 setValue(newValue);
@@ -1427,7 +1429,9 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                             }}
                                             options={createMoveOptions(moveSet)}
                                             moveSet={moveSet}
+                                            currentMoves={pokemon.moves}
                                             allMoves={allMoves}
+                                            disabled={pokemon.moves.length < index}
                                             prettyMode={prettyMode}
                                             translationKey={translationKey}
                                         /> 
@@ -1810,7 +1814,9 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                                         setValue={setBMove(index)}
                                         options={createMoveOptions(moveSet)}
                                         moveSet={moveSet}
+                                        currentMoves={pokemon.extraMoves || []}
                                         allMoves={allMoves}
+                                        disabled={(pokemon.extraMoves || []).length < index}
                                         prettyMode={prettyMode}
                                         translationKey={translationKey}
                                     /> 

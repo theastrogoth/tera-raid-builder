@@ -1234,16 +1234,16 @@ export class RaidMove {
                 if (this._flingItem) {
                     switch (this._flingItem) {
                         case "Light Ball":
-                            if (!target.hasType("Electric") && hasNoStatus(target) && !target.hasAbility("Limber")) { target.status = "par"; }
+                            this._raidState.applyStatus(target.id, "par", this.userID, true, this.options.roll);
                             break;
                         case "Flame Orb":
-                            if (!target.hasType("Fire") && hasNoStatus(target) && !target.hasAbility("Water Veil") && !target.hasAbility("Thermal Exchange") && !target.hasAbility("Water Bubble")) { target.status = "brn"; }
+                            this._raidState.applyStatus(target.id, "brn", this.userID, true, this.options.roll);
                             break;
                         case "Toxic Orb":
-                            if (!target.hasType("Poison", "Steel") && hasNoStatus(target) && !target.hasAbility("Immunity")) { target.status = "tox"; }
+                            this._raidState.applyStatus(target.id, "tox", this.userID, true, this.options.roll);
                             break
                         case "Poison Barb":
-                            if (!target.hasType("Poison", "Steel") && hasNoStatus(target) && !target.hasAbility("Immunity")) { target.status = "psn"; }
+                            this._raidState.applyStatus(target.id, "psn", this.userID, true, this.options.roll);
                             break;
                         case "White Herb":
                             for (let stat in target.boosts) {

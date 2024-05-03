@@ -92,7 +92,7 @@ export class RaidState implements State.RaidState{
                 } else if (!unnerve) {
                     switch (pokemon.item) {
                         case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
-                            if (moveType ) { this.loseItem(id); }
+                            if (moveType === "Fire") { this.loseItem(id); }
                             break;
                         case "Passho Berry":
                             if (moveType === "Water") { this.loseItem(id); }

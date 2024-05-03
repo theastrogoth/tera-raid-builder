@@ -5,7 +5,7 @@ import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json";
 import triageMoves from "../data/triage_moves.json";
-import { MoveName, SpeciesName } from "../calc/data/interface";
+import { MoveName, SpeciesName, StatusName } from "../calc/data/interface";
 import { isRegularMove } from "./util";
 
 const gen = Generations.get(9);
@@ -520,14 +520,14 @@ export class RaidTurn {
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Flame Orb":
-                        if (!pokemon.hasType("Fire") && !pokemon.hasAbility("Water Veil") && !pokemon.hasAbility("Thermal Exchange") && !pokemon.hasAbility("Water Bubble")) { 
-                            pokemon.status = "brn";  
+                        this._raidState.applyStatus(id, "brn", id, false);
+                        if (pokemon.status as StatusName === "brn") {
                             this._result2.flags[id].push("brn inflicted");
                         }
                         break;
                     case "Toxic Orb":
-                        if (!pokemon.hasType("Poison","Steel")) { 
-                            pokemon.status = "tox"; 
+                        this._raidState.applyStatus(id, "tox", id, false);
+                        if (pokemon.status as StatusName === "tox") {
                             this._result2.flags[id].push("tox inflicted");
                         }
                         break;

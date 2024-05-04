@@ -51,7 +51,6 @@ function splitGroups(groups: TurnGroupInfo[]): TurnGroupInfo[][] {
                     currentChunk = [];
                 } else if (j === g.turns.length-1) {
                     currentChunk.push(partialGroup);
-                    groupsChunks.push(currentChunk);
                 }
             }
         } else {

@@ -2549,7 +2549,7 @@
             "ability":"Steely Spirit",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Fake Tears","Helping Hand","Snarl","Taunt"]
+            "moves":["Fake Tears","Helping Hand","Taunt","Amnesia"]
         },
         "Steely Spirit Screech Support (Def)": {
             "level":100,
@@ -2565,7 +2565,7 @@
             "ability":"Steely Spirit",
             "nature":"Sassy",
             "evs":{"hp":252,"sd":252},
-            "moves":["Screech","Helping Hand","Swagger","Snarl"]
+            "moves":["Screech","Helping Hand","Swagger","Taunt"]
         },
         "Balanced General Use": {
             "level":100,

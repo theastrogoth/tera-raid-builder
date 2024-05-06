@@ -398,7 +398,10 @@ export class RaidState implements State.RaidState{
             if (status === "frz" && (pokemon.field.hasWeather("Sun") || pokemon.hasType("Ice") || (!attackerIgnoresAbility && pokemon.ability === "Magma Armor"))) { success = false; }
             if ((status === "psn" || status === "tox") && ((!attackerIgnoresAbility && pokemon.ability === "Immunity") || (sourceAbility !== "Corrosion" && pokemon.hasType("Poison", "Steel")))) { success = false; }
             if ((status === "par" && (pokemon.hasType("Electric") || (!attackerIgnoresAbility && pokemon.ability === "Limber")))) { success = false; }
-            if (status === "slp" && !attackerIgnoresAbility && ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string)) { success = false; }
+            if (status === "slp" && !attackerIgnoresAbility && (
+                ["Insomnia", "Vital Spirit"].includes(pokemon.ability as string) || 
+                (id === 0 ? [0] : [1,2,3,4]).map(i => this.getPokemon(i)).some(poke => poke.hasAbility("Sweet Veil"))
+            )) { success = false; }
             if (pokemon.field.hasWeather("Sun") && !attackerIgnoresAbility && pokemon.ability === "Leaf Guard") { success = false; }
             
             if (success) {

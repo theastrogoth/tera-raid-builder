@@ -267,10 +267,12 @@ export class RaidTurn {
                         if (pokemon.isYawn === 0) {
                             const sleepTurns = i === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
                                                         (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
-                            pokemon.isSleep = sleepTurns;
-                            pokemon.status = "slp";
+                            this._raidState.applyStatus(i, "slp", i, false);
+                            if (pokemon.status === "slp") {
+                                pokemon.isSleep = sleepTurns;
+                                this._endFlags.push(pokemon.name + " fell asleep!");
+                            }
                             pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
-                            this._endFlags.push(pokemon.name + " fell asleep!");
                         }
                     }
                 }

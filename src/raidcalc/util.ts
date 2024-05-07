@@ -1,6 +1,6 @@
 import { Move, Field, Pokemon, Generations } from "../calc";
 import { AilmentName, MoveData, Raider, RaidTurnInfo } from "./interface";
-import { AbilityName, ItemName, StatIDExceptHP } from "../calc/data/interface";
+import { AbilityName, ItemName, StatIDExceptHP, TypeName } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
 import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 
@@ -27,8 +27,10 @@ export function hasNoStatus(pokemon: Pokemon) {
 }
 
 // See ../calc/mechanics/util.ts for the original
-export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, defender: Pokemon) {
-    if (!move.type) {return false; }
+export function isSuperEffective(move: Move, moveType: TypeName, field: Field, attacker: Pokemon, defender: Pokemon) {
+    const testmove = new Move(9, move.name);
+    testmove.type = moveType;
+    if (!testmove.type) {return false; }
     if (defender.hasAbility("Tera Shell") && defender.originalCurHP === defender.maxHP()) { return false; }
     const isGhostRevealed =
     attacker.hasAbility('Scrappy') || attacker.hasAbility("Mind's Eye") || field.defenderSide.isForesight;
@@ -36,7 +38,7 @@ export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, de
       defender.hasItem('Ring Target') && !defender.hasAbility('Klutz');
     const type1Effectiveness = getMoveEffectiveness(
       gen,
-      move,
+      testmove,
       defender.types[0],
       isGhostRevealed,
       field.isGravity,
@@ -45,7 +47,7 @@ export function isSuperEffective(move: Move, field: Field, attacker: Pokemon, de
     const type2Effectiveness = defender.types[1]
       ? getMoveEffectiveness(
         gen,
-        move,
+        testmove,
         defender.types[1],
         isGhostRevealed,
         field.isGravity,

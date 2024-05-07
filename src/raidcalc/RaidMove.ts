@@ -60,7 +60,7 @@ export class RaidMove {
     _flingItem?: string;
     _powerHerbUsed?: boolean;
 
-    _moveType?: TypeName;
+    _moveType!: TypeName;
     _isSpread?: boolean;
     _damage!: number[];
     _healing!: number[];
@@ -280,24 +280,24 @@ export class RaidMove {
                     : wbField.hasWeather('Sand') ? 'Rock'
                     : wbField.hasWeather('Hail', 'Snow') ? 'Ice'
                     : 'Normal';
-                break;
+                return;
             case "Judgment":
                 if (this._user.name.includes("Arceus")) {
                     this._moveType = this._user.types[0];
                 }
-                break;
+                return;
             case "Revelation Dance": 
                 this._moveType = this._user.types[0];
-                break;
+                return;
             case "Aura Wheel":
                 this._moveType = this._user.named("Morpeko-Hangry") ? "Dark" : "Electric";
-                break;
+                return;
             case "Raging Bull":
                 this._moveType =  this._user.named("Tauros-Paldea-Combat") ? "Fighting" :
                             this._user.named("Tauros-Paldea-Blaze") ? "Fire" :
                             this._user.named("Tauros-Paldea-Aqua") ? "Water" :
                             "Normal";
-                break;
+                return;
             case "Terrain Pulse":
                 const tpField = this._raidState.fields[this.userID];
                 this._moveType =  tpField.hasTerrain("Electric") ? "Electric" :
@@ -305,18 +305,39 @@ export class RaidMove {
                             tpField.hasTerrain("Psychic") ? "Psychic" :
                             tpField.hasTerrain("Misty") ? "Fairy" :
                             "Normal";
-                break;
+                return;
             case "Tera Blast":
                 this._moveType = (this._user.isTera && this._user.teraType) ? this._user.teraType : "Normal";
-                break;
+                return;
             case "Ivy Cudgel":
                 this._moveType =  this._user.named("Ogerpon-Wellspring") ? "Water" : 
                             this._user.named("Ogerpon-Hearthflame") ? "Fire" :
                             this._user.named("Ogerpon-Cornerstone") ? "Rock" :
                             "Grass";
-                break;
+                return;
             case "Tera Starstorm":
                 this._moveType = this._user.named("Terapagos-Stellar") ? "Stellar" : "Normal";
+                return;
+        }
+        const normal = this._moveType === "Normal"
+        switch (this._user.ability) {
+            case "Aerilate":
+                this._moveType = normal ? "Flying" : this._moveType;
+                break;
+            case "Galvanize":
+                this._moveType = normal ? "Electric" : this._moveType;
+                break;
+            case "Liquid Voice":
+                this._moveType = this.move.flags.sound ? "Water" : this._moveType;
+                break;
+            case "Pixilate":
+                this._moveType = normal ? "Fairy" : this._moveType;
+                break;
+            case "Refrigerate":
+                this._moveType = normal ? "Ice" : this._moveType;
+                break;
+            case "Normalize":
+                this._moveType = "Normal";
                 break;
         }
     }
@@ -526,10 +547,10 @@ export class RaidMove {
         this._isSpread = this.moveData.category?.includes("damage") && (this._affectedIDs.length > 1);
         // protean / libero check
         if (this.moveData.name !== "(No Move)" && this.moveData.type && (moveUser.ability === "Protean" || moveUser.ability === "Libero") && !moveUser.abilityOn && !moveUser.isTera) {
-            moveUser.types = [this.move.type];
-            moveUser.changedTypes = [this.move.type];
+            moveUser.types = [this._moveType];
+            moveUser.changedTypes = [this._moveType];
             moveUser.abilityOn = true;
-            this._flags[this.userID].push("changed to the " + this.move.type + " type");
+            this._flags[this.userID].push("changed to the " + this._moveType + " type");
         }
         // Electro Shot boost check (with Power Herb or in Rain)
         if (this.moveData.name === "Electro Shot" && !moveUser.isCharging) {
@@ -550,7 +571,7 @@ export class RaidMove {
             } else if (this._affectedIDs.includes(id)) {
                 const crit = this.options.crit || false;
                 const roll = this.options.roll || "avg";
-                const superEffective = isSuperEffective(this.move, target.field, this._user, target);
+                const superEffective = isSuperEffective(this.move, this._moveType, target.field, this._user, target);
                 let results = [];
                 let damageResult: number | number[] | undefined = undefined;
                 let totalDamage = 0;
@@ -610,7 +631,7 @@ export class RaidMove {
                             if (totalDamage > 0) {
                                 hasCausedDamage = true;
                                 moveUser.field.attackerSide.isHelpingHand = false;
-                                if (this.move.type === "Electric") { moveUser.field.attackerSide.isCharged = false; }
+                                if (this._moveType === "Electric") { moveUser.field.attackerSide.isCharged = false; }
                             }
                             // contact checks
                             if (this.moveData.makesContact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
@@ -1203,13 +1224,13 @@ export class RaidMove {
                 } 
                 break;
             case "Conversion":
-                this._user.types = [this.move.type];
-                this._user.changedTypes = [this.move.type];
-                this._desc[this.userID] = this._user.name + " Conversion vs. " + target.name + " — " + this._user.name + " transformed into the " + this.move.type.toUpperCase() + " type!";
+                this._user.types = [...this._raidState.getPokemon(this._targetID).types];
+                this._user.changedTypes = [...this._user.types];
+                this._desc[this.userID] = this._user.name + " Conversion vs. " + target.name + " — " + this._user.name + " transformed into the " + this._moveType.toUpperCase() + " type!";
                 break;
             case "Reflect Type":
                 if (!target.isTera || (target.teraType !== undefined || target.teraType !== "???")) {
-                    this._user.types = target.types;
+                    this._user.types = [...target.types];
                     this._user.changedTypes = [...target.types];
                     this._desc[this.userID] = this._user.name + " Reflect Type vs. " + target.name + " — " + this._user.name + "'s types changed to match " + target.name + "'s!";
                 } else {

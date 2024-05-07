@@ -5,10 +5,10 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Walking Wake",
-            "name": "Walking Wake",
+            "role": "Primarina",
+            "name": "Primarina",
             "shiny": false,
-            "ability": "Protosynthesis",
+            "ability": "Liquid Voice",
             "nature": "Modest",
             "evs": {
                 "hp": 0,
@@ -26,42 +26,42 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 75,
-            "teraType": "Water",
+            "level": 100,
+            "teraType": "Fairy",
             "moves": [
-                "Hydro Steam",
-                "Dragon Pulse",
-                "Noble Roar",
-                "Flamethrower"
+                "Hyper Voice",
+                "Moonblast",
+                "Ice Beam",
+                "Shadow Ball"
             ],
-            "bossMultiplier": 2000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Sunny Day",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Sing",
+                "Charm",
+                "Encore"
             ],
             "shieldData": {
-                "hpTrigger": 55,
-                "timeTrigger": 40,
-                "shieldCancelDamage": 25,
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 80,
-                "shieldDamageRateTeraChange": 40
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Copperajah",
+            "name": "Copperajah",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "nature": "Modest",
+            "ability": "Sheer Force",
+            "item": "Choice Band",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -75,21 +75,19 @@
             },
             "level": 100,
             "moves": [
-                "Electro Drift",
-                "Charge",
-                "Parabolic Charge"
+                "Heavy Slam"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
-            "ability": "(No Ability)",
+            "ability": "Sweet Veil",
             "item": "Zoom Lens",
-            "nature": "Sassy",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -108,10 +106,7 @@
             },
             "level": 100,
             "moves": [
-                "Fake Tears",
-                "Screech",
-                "Helping Hand",
-                "Snarl"
+                "Decorate"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -126,10 +121,10 @@
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Perrserker",
+            "name": "Perrserker",
             "shiny": false,
-            "ability": "(No Ability)",
+            "ability": "Steely Spirit",
             "item": "Zoom Lens",
             "nature": "Sassy",
             "evs": {
@@ -150,20 +145,17 @@
             },
             "level": 100,
             "moves": [
-                "Fake Tears",
-                "Screech",
-                "Helping Hand",
-                "Snarl"
+                "Screech"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Perrserker",
+            "name": "Perrserker",
             "shiny": false,
-            "ability": "(No Ability)",
+            "ability": "Steely Spirit",
             "item": "Zoom Lens",
             "nature": "Sassy",
             "evs": {
@@ -184,10 +176,7 @@
             },
             "level": 100,
             "moves": [
-                "Fake Tears",
-                "Screech",
-                "Helping Hand",
-                "Snarl"
+                "Screech"
             ],
             "bossMultiplier": 100,
             "extraMoves": []
@@ -197,32 +186,6 @@
         {
             "id": 0,
             "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Sunny Day",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -250,9 +213,6 @@
     "groups": [
         [
             0
-        ],
-        [
-            1
         ]
     ],
     "repeats": [

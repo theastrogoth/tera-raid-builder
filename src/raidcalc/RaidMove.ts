@@ -1224,9 +1224,12 @@ export class RaidMove {
                 } 
                 break;
             case "Conversion":
-                this._user.types = [...this._raidState.getPokemon(this._targetID).types];
-                this._user.changedTypes = [...this._user.types];
-                this._desc[this.userID] = this._user.name + " Conversion vs. " + target.name + " — " + this._user.name + " transformed into the " + this._moveType.toUpperCase() + " type!";
+                const firstMoveType = this._user.moveData[0].type;
+                if (firstMoveType) {
+                    this._user.types = [firstMoveType];
+                    this._user.changedTypes = [firstMoveType];
+                    this._desc[this.userID] = this._user.name + " Conversion — " + this._user.name + " transformed into the " + firstMoveType.toUpperCase() + " type!";
+                }
                 break;
             case "Reflect Type":
                 if (!target.isTera || (target.teraType !== undefined || target.teraType !== "???")) {

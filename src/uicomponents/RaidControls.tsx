@@ -5,12 +5,16 @@ import Stack from  '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
 import Slider from '@mui/material/Slider';
+import IconButton from '@mui/material/IconButton';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography'
 import styled from '@mui/material/styles/styled';
 
@@ -744,6 +748,251 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
     )
 }
 
+function HelpMenu({translationKey}: {translationKey: any}) {
+    const [value, setValue] = useState<number>(1);
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue);
+    };  
+
+    return (
+        <Paper sx={{ p: 2, backgroundColor: "modal.main", height: "500px"}}>
+            <Stack direction={"row"} paddingBottom={1} justifyContent={"center"}>
+                <Tabs value={value} orientation="vertical" onChange={handleChange} centered variant="scrollable" scrollButtons allowScrollButtonsMobile>
+                    <Tab 
+                        label={getTranslation("Move Groups", translationKey)} 
+                        value={1} 
+                    />
+                    <Tab 
+                        label={getTranslation("Test Cases", translationKey)}
+                        value={2} 
+                    />
+                    <Tab 
+                        label={getTranslation("Move Options", translationKey)}
+                        value={3} 
+                    />
+                    <Tab 
+                        label={getTranslation("Extra Options", translationKey)}
+                        value={4} 
+                    />
+                </Tabs>
+                <Box width={"600px"} sx={{ overflowY: "auto", maxHeight: "475px", padding: "10px"}}>
+                    {/* Move Groups Section */}
+                    <Box hidden={value !== 1}>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Move", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <img 
+                                    src={process.env.PUBLIC_URL + "/help-assets/move.png"} 
+                                    alt=""
+                                />
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        A move is defined by:<br/>
+                                        - One action done by the raider<br/>
+                                        - One action done by the raid boss onto the raider
+                                    </Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Group", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <img 
+                                    src={process.env.PUBLIC_URL + "/help-assets/group.png"} 
+                                    alt=""
+                                />
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        A group is defined by:<br/>
+                                        - A container of one or more moves in which order does not matter
+                                    </Typography>
+                                    <Typography>Multiple groups are used to indicate sequencing in a Strategy</Typography>
+                                    <Typography>Groups can be sequentially repeated by increasing "# Executions"</Typography>
+                                    <Typography>Groups are not necessarily equivalent to turns</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Turn", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <img 
+                                    src={process.env.PUBLIC_URL + "/help-assets/turn.png"} 
+                                    alt=""
+                                />
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        A turn is defined by:<br/>
+                                        - 1-4 moves rougly matching a raid's actionable turn cadence
+                                    </Typography>
+                                    <Typography>Turn count estimates the length of your strategy</Typography>
+                                    <Typography>Multiple groups can be ordered in a single turn</Typography>
+                                    <Typography>Turns are automatically compiled by the tool in graphics</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                    </Box>
+                    {/* Test Cases Section */}
+                    <Box hidden={value !== 2}>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Worst Case", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        All actions defined by these rules:<br/>
+                                        - Raid boss deals high-roll critical hits<br/>
+                                        - Raid boss applies secondary effects if applicable<br/>
+                                        - Raiders deal low-roll non-critical hits<br/>
+                                        - Raiders do not apply secondary effects<br/>
+                                        - Heal Cheers heal for 20%
+                                    </Typography>
+                                    <Typography>Use this setting when designing main strategies that are intended to be heavily used by a community</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Average Case", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        All actions defined by these rules:<br/>
+                                        - Raid boss deals average-roll non-critical hits<br/>
+                                        - Raid boss does not apply secondary effects<br/>
+                                        - Raiders deal average-roll non-critical hits<br/>
+                                        - Raiders apply secondary effects if applicable<br/>
+                                        - Heal Cheers heal for 100%
+                                    </Typography>
+                                    <Typography>Niche use cases</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Best Case", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        All actions defined by these rules:<br/>
+                                        - Raid boss deals low-roll non-critical hits<br/>
+                                        - Raid boss does not apply secondary effects<br/>
+                                        - Raiders deal high-roll critical hits<br/>
+                                        - Raiders do not apply secondary effects<br/>
+                                        - Heal Cheers heal for 60%
+                                    </Typography>
+                                    <Typography>Use this setting when designing strategies for fun and thematics</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Optimize Boss Moves", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>The true worst case scenario!</Typography>
+                                    <Typography>This implements an AI for the raid boss to find the optimal move selection to keep itself alive</Typography>
+                                    <Typography>Use this with Worst Case to stress test your strategy</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                    </Box>
+                    {/* Move Options Section */}
+                    <Box hidden={value !== 3}>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Attacks", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>Moves from the moveset and extra moveset</Typography>
+                                    <Typography>Moves can target self, allies, and/or the raid boss</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Cheers", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>Attack Cheer increases raiders' Atk and SpAtk by 1.5x</Typography>
+                                    <Typography>Defense Cheer increases raiders' Def and SpDef by 1.5x</Typography>
+                                    <Typography>Heal Cheer heals between 20%-100% depending on test case</Typography>
+                                    <Typography>Cheers are implemented as lasting 12 moves and cannot stack</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Most Damaging", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>Automatically selects the move that deals the most damage</Typography>
+                                </Stack>
+                                <br/>
+                                <Chip label={<Typography variant="h6">{getTranslation("Most Optimal", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>Automatically selects the raid boss move that is most optimal for its survival</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Remove Negative Effects", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>The raid boss clears any stat drops and removes volatile and non-volatile status effects on itself</Typography>
+                                </Stack>
+                                <br/>
+                                <Chip label={<Typography variant="h6">{getTranslation("Clear Boosts / Abilities", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>For all raiders, the boss clears all stat boosts and nullifies abilities for one turn if applicable</Typography>
+                                </Stack>
+                                <br/>
+                                <Chip label={<Typography variant="h6">{getTranslation("Steal Tera Charge", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>The raid boss removes one tera charge stack from all raiders if applicable</Typography>
+                                </Stack>
+                                <br/>
+                                <Chip label={<Typography variant="h6">{getTranslation("Activate Shield", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>The raid boss activates their shield</Typography>
+                                    <Typography>This is used to simulate the timer based trigger</Typography>
+                                </Stack>
+                                <br/>
+                            </Stack>
+                        </Paper>
+                    </Box>
+                    {/* Extra Options */}
+                    <Box hidden={value !== 4}>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Typography>Extra options are found under the  <MenuIcon sx={{transform: "translateY(5px)"}}/>  icon</Typography>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>Tera switch is available if 3 tera charges are built up</Typography>
+                                    <Typography>Crit enables/disables critical hits</Typography>
+                                    <Typography>Effect enables/disables the application of secondary effects</Typography>
+                                    <Typography>Roll provides options for damage rolls</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                    </Box>
+                </Box>
+            </Stack>
+        </Paper>
+    )
+}
+
 function RaidControls({raidInputProps, results, setResults, setLoading, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, setLoading: (b: boolean) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
     const [rollCase, setRollCase] = useState<"min" | "avg" | "max">("avg");
@@ -753,6 +1002,16 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
     const pokemon2 = raidInputProps.pokemon[2];
     const pokemon3 = raidInputProps.pokemon[3];
     const pokemon4 = raidInputProps.pokemon[4];
+
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+    const popoverOpen = Boolean(anchorEl);
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handlePopoverClose = () => {
+        setAnchorEl(null);
+    };
 
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
     
@@ -798,10 +1057,41 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
     return (
         <Box width={610} sx={{ mx: 1}}>
             <Stack>
-                <Box paddingBottom={1}>
+                <Stack direction={"row"} paddingBottom={1} justifyContent={"center"}>
                     <Tabs value={value} onChange={handleChange} centered>
                         <Tab 
-                            label={getTranslation("Move Order", translationKey)} 
+                            label={
+                                <Stack direction={"row"}>
+                                    <Box alignContent={"center"}>
+                                        {getTranslation("Move Order", translationKey)}
+                                    </Box>
+                                    <Box>
+                                        <IconButton aria-describedby={popoverOpen ? "simple-popover" : undefined} onClick={handlePopoverOpen} sx={{"paddingTop": 0, "paddingBottom": 0}}>
+                                            <InfoOutlinedIcon color="info" sx={{ transform: "translateY(-1px)"}}/>
+                                        </IconButton>
+                                        <Popover
+                                            id={popoverOpen ? "simple-popover" : undefined}
+                                            open={popoverOpen}
+                                            anchorEl={anchorEl}
+                                            onClose={handlePopoverClose}
+                                            anchorOrigin={{
+                                                vertical: 'bottom',
+                                                horizontal: 'left',
+                                            }}
+                                            transformOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'center',
+                                            }}
+                                            sx={{
+                                                width: "600px",
+                                                maxWidth: "100%",
+                                            }}
+                                        >
+                                            <HelpMenu translationKey={translationKey}/>
+                                        </Popover>
+                                    </Box>
+                                </Stack>
+                            } 
                             value={1} 
                         />
                         <Tab 
@@ -809,7 +1099,7 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                             value={2} 
                         />
                     </Tabs>
-                </Box>
+                </Stack>
                 <Stack direction="row" spacing={3} alignItems="start" justifyContent="center" >
                     <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
                     

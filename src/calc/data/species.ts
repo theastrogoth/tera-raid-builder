@@ -6302,13 +6302,14 @@ const SM_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   abilities: {0: 'Beast Boost'},
   //   gender: 'N',
   // },
-  // Bounsweet: {
-  //   types: ['Grass'],
-  //   bs: {hp: 42, at: 30, df: 38, sa: 30, sd: 38, sp: 32},
-  //   weightkg: 3.2,
-  //   nfe: true,
-  //   abilities: {0: 'Leaf Guard'},
-  // },
+  Bounsweet: {
+    types: ['Grass'],
+    bs: {hp: 42, at: 30, df: 38, sa: 30, sd: 38, sp: 32},
+    weightkg: 3.2,
+    nfe: true,
+    abilities: {0: 'Leaf Guard'},
+    gender: 'F',
+  },
   Brionne: {
     types: ['Water'],
     bs: {hp: 60, at: 69, df: 69, sa: 91, sd: 81, sp: 50},
@@ -7325,13 +7326,14 @@ const SM_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   //   abilities: {0: 'Beast Boost'},
   //   gender: 'N',
   // },
-  // Steenee: {
-  //   types: ['Grass'],
-  //   bs: {hp: 52, at: 40, df: 48, sa: 40, sd: 48, sp: 62},
-  //   weightkg: 8.2,
-  //   nfe: true,
-  //   abilities: {0: 'Leaf Guard'},
-  // },
+  Steenee: {
+    types: ['Grass'],
+    bs: {hp: 52, at: 40, df: 48, sa: 40, sd: 48, sp: 62},
+    weightkg: 8.2,
+    nfe: true,
+    abilities: {0: 'Leaf Guard'},
+    gender: 'F',
+  },
   // Stufful: {
   //   types: ['Normal', 'Fighting'],
   //   bs: {hp: 70, at: 75, df: 50, sa: 45, sd: 50, sp: 50},
@@ -7419,6 +7421,7 @@ const SM_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 72, at: 120, df: 98, sa: 50, sd: 98, sp: 72},
     weightkg: 21.4,
     abilities: {0: 'Leaf Guard'},
+    gender: 'F',
   },
   // Turtonator: {
   //   types: ['Fire', 'Dragon'],

@@ -1134,7 +1134,7 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                             value={2} 
                         />
                     </Tabs>
-                </Box>
+                </Stack>
                 <Stack direction="row" spacing={4} alignItems="center" justifyContent="center" marginBottom={"5px"}>
                     <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
                     

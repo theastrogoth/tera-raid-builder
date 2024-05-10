@@ -161,7 +161,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech"
+                "Screech",
+                "Helping Hand",
+                "Throat Chop",
+                "Iron Head"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -202,7 +205,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech"
+                "Screech",
+                "Helping Hand",
+                "Throat Chop",
+                "Iron Head"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -223,7 +229,7 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

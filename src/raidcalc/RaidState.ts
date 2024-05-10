@@ -838,12 +838,11 @@ export class RaidState implements State.RaidState{
             flags[id].push("Teraform Zero negates the weather and terrain");
         // Steely Spirit
         } else if (ability === "Steely Spirit") {
-            if (id === 0) {
-                this.fields[0].attackerSide.steelySpirits += 1;
-            }
-            else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.steelySpirits += 1;
+            if (id !== 0) {
+                for (let [index, field] of this.fields.entries()) {
+                    if (index !== 0 && index !== id) {
+                        field.attackerSide.steelySpirits += 1;
+                    }
                 }
             }
             flags[id].push("Steely Spirit boosts Allies' Steel-type attacks");
@@ -859,21 +858,21 @@ export class RaidState implements State.RaidState{
             flags[id].push("Aroma Veil protects allies");
         // Power Spot
         } else if (ability === "Power Spot") {
-            if (id === 0) {
-                this.fields[0].attackerSide.powerSpots += 1;
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.powerSpots += 1;
+            if (id !== 0) {
+                for (let [index,field] of this.fields.entries()) {
+                    if (index !== 0 && index !== id) {
+                        field.attackerSide.powerSpots += 1;
+                    }
                 }
             }
             flags[id].push("Power Spot boosts attack power");
         // Battery
         } else if (ability === "Battery") {
-            if (id === 0) {
-                this.fields[0].attackerSide.batteries += 1;
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.batteries += 1;
+            if (id !==0 ) {
+                for (let [index,field] of this.fields.entries()) {
+                    if (index !== 0 && index !== id) {
+                        field.attackerSide.batteries += 1;
+                    }
                 }
             }
             flags[id].push("Battery boosts special attack power");
@@ -1008,36 +1007,29 @@ export class RaidState implements State.RaidState{
             }
         // stackable abilities
         } else if (ability === "Steely Spirit") {
-            if (id === 0) {
-                this.fields[0].attackerSide.steelySpirits -= 1;
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.steelySpirits -= 1;
+            if (id !== 0) {
+                for (let [index,field] of this.fields.entries()) {
+                    if (index !== 0 && index !== id) {
+                        field.attackerSide.steelySpirits -= 1;
+                    }
                 }
             }
         } else if (ability === "Power Spot") {
-            if (id === 0) {
-                this.fields[0].attackerSide.powerSpots -= 1;
-                if (this.fields[0].attackerSide.powerSpots === 0) {
-                }
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.powerSpots -= 1;
-                    if (field.attackerSide.powerSpots === 0) {
+            if (id !== 0) {
+                for (let [index,field] of this.fields.entries()) {
+                    if (index !== 0 && index !== id) {
+                        field.attackerSide.powerSpots -= 1;
                     }
                 }
             }
         } else if (ability === "Battery") {
-            if (id === 0) {
-                this.fields[0].attackerSide.batteries -= 1;
-                if (this.fields[0].attackerSide.batteries === 0) {
-                    this.fields[0].attackerSide.isBattery = false;
-                }
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.batteries -= 1;
-                    if (field.attackerSide.batteries === 0) {
-                        field.attackerSide.isBattery = false;
+            if (id !==0) {
+                for (let [index,field] of this.fields.entries()) {
+                    if (index !== 0 && index !== id) {
+                        field.attackerSide.batteries -= 1;
+                        if (field.attackerSide.batteries === 0) {
+                            field.attackerSide.isBattery = false;
+                        }
                     }
                 }
             }

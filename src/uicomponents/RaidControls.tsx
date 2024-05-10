@@ -16,6 +16,11 @@ import IconButton from '@mui/material/IconButton';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography'
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
@@ -703,12 +708,21 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
 }
 
 function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
-    
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const alreadyOptimized = (gs: TurnGroupInfo[]) => {
         return !gs.some((g) => g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Most Damaging)"));
     }
 
-    const handleClick = () => {
+    const handleConfirm = () => {
         const groups: TurnGroupInfo[] = [];
         for (let g of raidInputProps.groups) {
             const newTurns = g.turns.map(t => { return {
@@ -727,23 +741,43 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
             });
         }
         raidInputProps.setGroups(groups);
+        setOpen(false);
     }
 
     return (
-        <Stack spacing={1} alignItems="center" justifyContent="center" sx={{ paddingTop: "5px", paddingBottom: "5px"}}>
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2, paddingTop: "5px", paddingBottom: "5px"}}>
             <Button 
                 variant="contained" 
                 size="small" 
                 color="secondary"
                 sx={{ minWidth: "100px", height: "25px", fontWeight: "normal",}} 
                 disabled={alreadyOptimized(raidInputProps.groups)}
-                onClick={handleClick}
+                onClick={handleOpen}
             >
                 {getTranslation("Optimize Boss Moves", translationKey)}
             </Button>
-            <Typography variant="body2">
-                ⚠️ {getTranslation("This can take a long time!", translationKey)} ⚠️
-            </Typography>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">{getTranslation("Optimize Boss Moves", translationKey)}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        {getTranslation("This can take a long time!", translationKey)}<br/>
+                        {getTranslation("Do you wish to continue?", translationKey)}
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        {getTranslation("Cancel", translationKey)}
+                    </Button>
+                    <Button onClick={handleConfirm} color="primary" autoFocus>
+                        {getTranslation("Confirm", translationKey)}
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Stack>
     )
 }
@@ -1100,8 +1134,8 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                             value={2} 
                         />
                     </Tabs>
-                </Stack>
-                <Stack direction="row" spacing={3} alignItems="start" justifyContent="center" >
+                </Box>
+                <Stack direction="row" spacing={4} alignItems="center" justifyContent="center" marginBottom={"5px"}>
                     <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
                     
                     {!prettyMode &&

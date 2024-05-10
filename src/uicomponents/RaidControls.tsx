@@ -790,9 +790,11 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
                                     <Typography>
-                                        A move is defined by:<br/>
+                                        A <Box component="span" fontWeight='fontWeightBold'>move</Box> is defined by:<br/>
                                         - One action done by the raider<br/>
-                                        - One action done by the raid boss onto the raider
+                                        - One action done by the raid boss onto the raider<br/><br/>
+                                        For scripted boss actions, the "(No Move)" option should be selected for the raider.<br/>
+                                        In these cases, scripted boss moves will hit all raiders and apply spread damage when appropriate.
                                     </Typography>
                                 </Stack>
                             </Stack>
@@ -808,12 +810,11 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
                                     <Typography>
-                                        A group is defined by:<br/>
-                                        - A container of one or more moves in which order does not matter
+                                        A <Box component="span" fontWeight='fontWeightBold'>group</Box> is defined by a container of one or more moves in which order does not matter.<br/>
                                     </Typography>
-                                    <Typography>Multiple groups are used to indicate sequencing in a Strategy</Typography>
-                                    <Typography>Groups can be sequentially repeated by increasing "# Executions"</Typography>
-                                    <Typography>Groups are not necessarily equivalent to turns</Typography>
+                                    <Typography>Multiple groups are used to indicate sequencing in a Strategy.</Typography>
+                                    <Typography>Groups can be sequentially repeated by increasing "# Executions".</Typography>
+                                    <Typography>Groups are not necessarily equivalent to turns!</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -828,12 +829,12 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
                                     <Typography>
-                                        A turn is defined by:<br/>
-                                        - 1-4 moves rougly matching a raid's actionable turn cadence
+                                        A <Box component="span" fontWeight='fontWeightBold'>turn</Box> is defined by 1-4 moves roughly matching a raid's actionable turn cadence.
+                                        That is, each raider can move once within a single turn.
                                     </Typography>
-                                    <Typography>Turn count estimates the length of your strategy</Typography>
-                                    <Typography>Multiple groups can be ordered in a single turn</Typography>
-                                    <Typography>Turns are automatically compiled by the tool in graphics</Typography>
+                                    <Typography>Turn count estimates the length of your strategy.</Typography>
+                                    <Typography>Multiple groups can be ordered in a single turn.</Typography>
+                                    <Typography>Turns are automatically compiled by the tool for display in graphics and in "Pretty Mode".</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -853,7 +854,7 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         - Raiders do not apply secondary effects<br/>
                                         - Heal Cheers heal for 20%
                                     </Typography>
-                                    <Typography>Use this setting when designing main strategies that are intended to be heavily used by a community</Typography>
+                                    <Typography>Use this setting when designing main strategies that are intended to be heavily used by a community.</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -867,10 +868,10 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         - Raid boss deals average-roll non-critical hits<br/>
                                         - Raid boss does not apply secondary effects<br/>
                                         - Raiders deal average-roll non-critical hits<br/>
-                                        - Raiders apply secondary effects if applicable<br/>
-                                        - Heal Cheers heal for 100%
+                                        - Raiders do not apply secondary effects<br/>
+                                        - Heal Cheers heal for 60%
                                     </Typography>
-                                    <Typography>Niche use cases</Typography>
+                                    <Typography>This option is most appropriate for longer strategies or when 100% reliability is not a requirement.</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -884,10 +885,10 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         - Raid boss deals low-roll non-critical hits<br/>
                                         - Raid boss does not apply secondary effects<br/>
                                         - Raiders deal high-roll critical hits<br/>
-                                        - Raiders do not apply secondary effects<br/>
-                                        - Heal Cheers heal for 60%
+                                        - Raiders apply secondary effects if applicable<br/>
+                                        - Heal Cheers heal for 100%
                                     </Typography>
-                                    <Typography>Use this setting when designing strategies for fun and thematics</Typography>
+                                    <Typography>This setting can be used to check if items and/or abilities activate in edge cases for a given strategy.</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -897,8 +898,8 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
                                     <Typography>The true worst case scenario!</Typography>
-                                    <Typography>This implements an AI for the raid boss to find the optimal move selection to keep itself alive</Typography>
-                                    <Typography>Use this with Worst Case to stress test your strategy</Typography>
+                                    <Typography>This implements an AI for the raid boss to find the optimal move selection to keep itself alive.</Typography>
+                                    <Typography>Use this with Worst Case to stress test your strategy.</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -910,8 +911,8 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                 <Chip label={<Typography variant="h6">{getTranslation("Attacks", translationKey)}</Typography>} color={"secondary"}/>
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
-                                    <Typography>Moves from the moveset and extra moveset</Typography>
-                                    <Typography>Moves can target self, allies, and/or the raid boss</Typography>
+                                    <Typography>Moves from the moveset and, for bosses, extra moveset for scripted moves</Typography>
+                                    <Typography>Moves can target self, allies, and/or the raid boss. Some moves are limited to certain types of targets.</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -920,10 +921,10 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                 <Chip label={<Typography variant="h6">{getTranslation("Cheers", translationKey)}</Typography>} color={"secondary"}/>
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
-                                    <Typography>Attack Cheer increases raiders' Atk and SpAtk by 1.5x</Typography>
-                                    <Typography>Defense Cheer increases raiders' Def and SpDef by 1.5x</Typography>
-                                    <Typography>Heal Cheer heals between 20%-100% depending on test case</Typography>
-                                    <Typography>Cheers are implemented as lasting 12 moves and cannot stack</Typography>
+                                    <Typography><Box component="span" fontWeight='fontWeightBold'>Attack Cheer</Box> increases raiders' Atk and SpAtk by 1.5x.</Typography>
+                                    <Typography><Box component="span" fontWeight='fontWeightBold'>Defense Cheer</Box> increases raiders' Def and SpDef by 1.5x.</Typography>
+                                    <Typography><Box component="span" fontWeight='fontWeightBold'>Heal Cheer</Box> heals between 20%-100% depending on test case.</Typography>
+                                    <Typography>Cheers are implemented as lasting 12 moves and cannot stack except by making use of an exploit that involves fainting while a cheer is active.</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -938,7 +939,7 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                 <Chip label={<Typography variant="h6">{getTranslation("Most Optimal", translationKey)}</Typography>} color={"secondary"}/>
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
-                                    <Typography>Automatically selects the raid boss move that is most optimal for its survival</Typography>
+                                    <Typography>Automatically selects the raid boss move that is most optimal for its survival.</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>
@@ -947,26 +948,26 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                 <Chip label={<Typography variant="h6">{getTranslation("Remove Negative Effects", translationKey)}</Typography>} color={"secondary"}/>
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
-                                    <Typography>The raid boss clears any stat drops and removes volatile and non-volatile status effects on itself</Typography>
+                                    <Typography>The raid boss clears any stat drops and removes volatile and non-volatile status effects on itself.</Typography>
                                 </Stack>
                                 <br/>
                                 <Chip label={<Typography variant="h6">{getTranslation("Clear Boosts / Abilities", translationKey)}</Typography>} color={"secondary"}/>
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
-                                    <Typography>For all raiders, the boss clears all stat boosts and nullifies abilities for one turn if applicable</Typography>
+                                    <Typography>For all raiders, the boss clears all stat boosts and cheers, and raider abilities are nullified for one turn when applicable.</Typography>
                                 </Stack>
                                 <br/>
                                 <Chip label={<Typography variant="h6">{getTranslation("Steal Tera Charge", translationKey)}</Typography>} color={"secondary"}/>
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
-                                    <Typography>The raid boss removes one tera charge stack from all raiders if applicable</Typography>
+                                    <Typography>The raid boss removes one tera charge stack from all raiders when applicable.</Typography>
                                 </Stack>
                                 <br/>
                                 <Chip label={<Typography variant="h6">{getTranslation("Activate Shield", translationKey)}</Typography>} color={"secondary"}/>
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
-                                    <Typography>The raid boss activates their shield</Typography>
-                                    <Typography>This is used to simulate the timer based trigger</Typography>
+                                    <Typography>The raid boss activates their shield.</Typography>
+                                    <Typography>This is used to simulate the timer based trigger.</Typography>
                                 </Stack>
                                 <br/>
                             </Stack>
@@ -976,13 +977,13 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                     <Box hidden={value !== 4}>
                         <Paper sx={{padding: "20px", margin: "10px"}}>
                             <Stack direction={"column"}>
-                                <Typography>Extra options are found under the  <MenuIcon sx={{transform: "translateY(5px)"}}/>  icon</Typography>
+                                <Typography>Extra options are found under the  <MenuIcon sx={{transform: "translateY(5px)"}}/>  icon.</Typography>
                                 <br/>
                                 <Stack direction={"column"} spacing={1}>
-                                    <Typography>Tera switch is available if 3 tera charges are built up</Typography>
-                                    <Typography>Crit enables/disables critical hits</Typography>
-                                    <Typography>Effect enables/disables the application of secondary effects</Typography>
-                                    <Typography>Roll provides options for damage rolls</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Tera</Box> switch is available if 3 tera charges are built up</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Crit</Box> enables/disables critical hits</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Effect</Box> enables/disables the application of secondary effects</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Roll</Box> provides options for damage rolls</Typography>
                                 </Stack>
                             </Stack>
                         </Paper>

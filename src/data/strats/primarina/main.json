@@ -1,7 +1,7 @@
 {
-    "name": "",
+    "name": "Steel the Show",
     "notes": "",
-    "credits": "",
+    "credits": "The r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
@@ -161,7 +161,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech"
+                "Screech",
+                "Helping Hand",
+                "Sunny Day",
+                "Iron Head"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -202,7 +205,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech"
+                "Screech",
+                "Helping Hand",
+                "Sunny Day",
+                "Iron Head"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -221,13 +227,13 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
+                "name": "Decorate",
+                "userID": 2,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -236,24 +242,147 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
+                    "roll": "min",
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Heavy Slam",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
     ],
     "groups": [
         [
-            0
+            0,
+            1,
+            2
+        ],
+        [
+            3
         ]
     ],
     "repeats": [
+        1,
         1
     ],
     "substitutes": [
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Metagross",
+                    "name": "Metagross",
+                    "shiny": false,
+                    "ability": "Clear Body",
+                    "item": "Choice Band",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Heavy Slam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Heavy Slam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ],
         [],
         [],
         []

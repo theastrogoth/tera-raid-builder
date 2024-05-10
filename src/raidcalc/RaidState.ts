@@ -842,8 +842,10 @@ export class RaidState implements State.RaidState{
                 this.fields[0].attackerSide.steelySpirits += 1;
             }
             else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.steelySpirits += 1;
+                for (const [index, field] of this.fields.entries()) {
+                    if (index !== 0 && index !== id) {
+                        field.attackerSide.steelySpirits += 1;
+                    }
                 }
             }
             flags[id].push("Steely Spirit boosts Allies' Steel-type attacks");

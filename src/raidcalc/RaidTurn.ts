@@ -6,7 +6,7 @@ import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json";
 import triageMoves from "../data/triage_moves.json";
 import { MoveName, SpeciesName, StatusName } from "../calc/data/interface";
-import { isRegularMove } from "./util";
+import { getSelectableMoves, isRegularMove } from "./util";
 
 const gen = Generations.get(9);
 
@@ -292,6 +292,8 @@ export class RaidTurn {
                 if (this._boss.isDisable) { this._boss.isDisable--; }
                 if (!this._boss.isDisable && this._boss.disabledMove) { this._boss.disabledMove = undefined; }
                 if (this._boss.isEncore) { this._boss.isEncore--; }
+                if (this._raider.isThroatChop) { this._raider.isThroatChop--; }
+                if (this._boss.isThroatChop) { this._boss.isThroatChop--; }
             }
         }
 
@@ -382,7 +384,7 @@ export class RaidTurn {
         }
         // For this option, pick the most damaging move based on the current field.
         if (!this.raidState.raiders[0].isCharging && this._bossMoveData.name === "(Most Damaging)") {
-            const moveOptions = this._raidState.raiders[0].moves;
+            const moveOptions = getSelectableMoves(this._raidState.raiders[0], this._isBossAction);
             let bestMove = "(No Move)";
             let bestDamage = 0;
             for (const move of moveOptions) {

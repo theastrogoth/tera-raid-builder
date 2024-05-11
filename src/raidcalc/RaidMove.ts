@@ -246,11 +246,14 @@ export class RaidMove {
                 this.move.category === "Status" && 
                 !isRaidAction(this.moveData.name)
             ) {
-                this._desc[this.userID] = this._user.name + " can't use status moves due to taunt!";
+                this._desc[this.userID] = this._user.name + " can't use status moves due to Taunt!";
                 this._user.isTaunt--; // decrement taunt counter
                 return false;
             } else if (this._user.isDisable && this.move.name === this._user.disabledMove) {
                 this._desc[this.userID] = this.move.name + " is disabled!";
+                return false;
+            } else if (this._user.isThroatChop && this.moveData.isSound) {
+                this._desc[this.userID] = this._user.name + " can't use sound-based moves due to Throat Chop!";
                 return false;
             } else {
                 return true;
@@ -444,6 +447,10 @@ export class RaidMove {
                 }
                 if (pokemon.ability === "Levitate" && !pokemonIsGrounded(pokemon, field) && this._moveType === "Ground") { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
+                    continue;
+                }
+                if (pokemon.ability === "Soundproof" && this.moveData.isSound) {
+                    this._doesNotAffect[id] = "blocked by Soundproof";
                     continue;
                 }
             }
@@ -1431,11 +1438,11 @@ export class RaidMove {
                 }
                 break;
             case "Heal Bell":
-                const selfAndAllies = this.userID === 0 ? [0] : [1,2,3,4];
-                for (let id of selfAndAllies) {
-                    const pokemon = this.getPokemon(id);
-                    if (pokemon.hasAbility("Soundproof") && pokemon.id !== this.userID) { continue; }
-                    pokemon.status = "";
+                for (let id of this._affectedIDs) {
+                    if (!this._doesNotAffect[id]) {
+                        const pokemon = this._raidState.getPokemon(id);
+                        pokemon.status = "";
+                    }
                 }
                 break;
             case "Charge":
@@ -1587,6 +1594,9 @@ export class RaidMove {
                     this._user.sketchMove(lastMove2, target.id)
                     this._desc[this.targetID] = this._user.name + " copied " + lastMove2.name + " from " + target.name + "!";
                 }
+                break;
+            case "Throat Chop":
+                target.isThroatChop = target.id === 0 ? 8 : 2;
                 break;
             default: break;
             }

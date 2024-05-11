@@ -37,6 +37,7 @@ export class Raider extends Pokemon implements State.Raider {
     isTorment?: boolean;        
     isDisable?: number;         // store number of turns that a Pokemon is disabled
     disabledMove?: MoveName;    // store the move that is disabled
+    isThroatChop?: number;     
 
     shieldActivateHP?: number;
     shieldBroken?: boolean;
@@ -92,6 +93,7 @@ export class Raider extends Pokemon implements State.Raider {
         isTorment: boolean | undefined = false,
         isDisable: number | undefined = 0,
         disabledMove: MoveName | undefined = undefined,
+        isThroatChop: number | undefined = 0,
         shieldActivateHP: number | undefined = undefined, 
         shieldBroken: boolean | undefined = undefined, 
         shieldBreakStun: boolean[] | undefined = undefined,
@@ -139,6 +141,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isTorment = isTorment;
         this.isDisable = isDisable;
         this.disabledMove = disabledMove;
+        this.isThroatChop = isThroatChop;
         this.shieldActivateHP = shieldActivateHP;
         this.shieldBroken = shieldBroken;
         this.shieldBreakStun = shieldBreakStun;
@@ -227,6 +230,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.isTorment,
             this.isDisable,
             this.disabledMove,
+            this.isThroatChop,
             this.shieldActivateHP,
             this.shieldBroken,
             this.shieldBreakStun,

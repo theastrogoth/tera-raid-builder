@@ -352,7 +352,7 @@ export function isRegularMove(movename: string) {
 }
 
 export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = false) {
-    let selectableMoves: MoveData[] = [...pokemon.moveData, ...(pokemon.extraMoveData || [])].filter(m => m.name !== "(No Move)");
+    let selectableMoves: MoveData[] = [...pokemon.moveData, ...(isBossAction ? pokemon.extraMoveData || [] : [])].filter(m => m.name !== "(No Move)");
     if (!isBossAction) {
         if ((pokemon.isChoiceLocked || pokemon.isEncore) && pokemon.lastMove) {
             selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
@@ -365,6 +365,9 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
         }
         if (pokemon.isTaunt) {
             selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
+        }
+        if (pokemon.isThroatChop) {
+            selectableMoves = selectableMoves.filter(m => !(m.isSound))
         }
     }
     return selectableMoves.map(m => m.name);

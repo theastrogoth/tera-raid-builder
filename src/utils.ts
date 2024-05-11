@@ -374,6 +374,13 @@ export function arraysEqual(a: any[], b: any[]) {
     return true;
 }
 
+export function shallowEqual(a: any, b: any) {
+    return a === b || (
+        Object.keys(a).length === Object.keys(b).length &&
+        Object.keys(a).every(key => a[key] === b[key])
+    );
+}
+
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
 const base = alphabet.length;
 export function encode(id: number) {

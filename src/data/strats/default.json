@@ -229,7 +229,7 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

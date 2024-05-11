@@ -74,7 +74,8 @@ type Modifiers = {
     saltCure?: boolean,
     stockpile?: number,
     taunt?: boolean,
-    yawn?: boolean
+    yawn?: boolean,
+    throatChop?: boolean,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -446,6 +447,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "stockpile": raider.stockpile,
             "taunt": raider.isTaunt !== undefined && raider.isTaunt !== 0,
             "yawn": raider.isYawn !== undefined && raider.isYawn !== 0,
+            "throatChop": raider.isThroatChop !== undefined && raider.isThroatChop !== 0,
         }
     }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));

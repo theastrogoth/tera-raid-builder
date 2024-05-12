@@ -150,7 +150,6 @@ export class RaidTurn {
                 pokemon.teraCharge = Math.max(0, (pokemon.teraCharge || 0) - 1);
             }
         }
-        
         if (!this._isCheer && !this._isBossAction && !this._isEmptyTurn) {
             // sleep wake-up check
             const moveUser = this._raidState.getPokemon(this._raiderMoveID);
@@ -228,6 +227,11 @@ export class RaidTurn {
         this._result2 = this._raidMove2.output
         this._raidState = this._result2.state.clone();
 
+        // TO DO - figure out how countdowns should actually work.
+        // Ability nullification and delayed moves should work properly. Most other things need testing
+        if (!this._isBossAction && !this._isEmptyTurn){
+            this.countDownAbilityNullification();
+        }
         if (!this._isCheer && !this._isBossAction && !this._isEmptyTurn) {
             this.removeProtection();
             if (!this._isBossAction) {
@@ -242,7 +246,6 @@ export class RaidTurn {
                 this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
                 // remove protect / wide guard / quick guard effects
                 this.countDownFieldEffects();
-                this.countDownAbilityNullification();
                 // Ability effects that trigger at the end of the turn
                 if (this._raidState.raiders[this.raiderID].hasAbility("Hunger Switch") && this._raidState.raiders[this.raiderID].name.includes("Morpeko")) {
                     if (this._raidState.raiders[this.raiderID].species.name === "Morpeko") {

@@ -1204,6 +1204,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             pokemon.field, 
             new Pokemon(gen, val, {
                 nature: "Hardy", 
+                level: val === "Carry Slot" ? 1 : 100,
                 // ability: "(No Ability)",
                 shieldData: !isBoss ? undefined : {
                     hpTrigger: 0,

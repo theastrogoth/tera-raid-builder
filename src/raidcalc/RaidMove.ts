@@ -331,7 +331,7 @@ export class RaidMove {
                 this._moveType = normal ? "Electric" : this._moveType;
                 break;
             case "Liquid Voice":
-                this._moveType = this.move.flags.sound ? "Water" : this._moveType;
+                this._moveType = this.move.flags && this.move.flags.sound ? "Water" : this._moveType;
                 break;
             case "Pixilate":
                 this._moveType = normal ? "Fairy" : this._moveType;

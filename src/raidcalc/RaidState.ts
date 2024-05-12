@@ -184,7 +184,7 @@ export class RaidState implements State.RaidState{
                 this.applyStatChange(id, boost, true, id);
             } 
             // Weak Armor
-            if (pokemon.ability === "Weak Armor") {
+            if (moveCategory === "Physical" && pokemon.ability === "Weak Armor") {
                 const boost = {def: -1 * nHits, spe: 2 * nHits};
                 this.applyStatChange(id, boost, true, id);
             }

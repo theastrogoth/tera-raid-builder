@@ -86,7 +86,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
 
                 let moves = pokemonData.moves;
                 if (moves.length < 1) {
-                    moves = allMoveNames.filter(m => !unsketchable.includes(m)).map(m => ({name: m, learnMethod: "level-up"}))
+                    moves = allMoveNames.filter(m => !unsketchable.includes(m)).map(m => ({name: m, learnMethod: "level-up"})); // Smeargle
                 }
                 const set = moves.map(md => {
                     const move = gen.moves.get(toID(md.name));

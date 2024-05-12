@@ -271,13 +271,9 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public applyDamage(damage: number): number { 
-        if (this.substitute) {
-            this.substitute = Math.max(0, this.substitute - damage) === 0 ? undefined : Math.max(0, this.substitute - damage)
-        } else {
-            this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
-            if (this.isEndure && this.originalCurHP === 0) {
-                this.originalCurHP = 1;
-            }
+        this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
+        if (this.isEndure && this.originalCurHP === 0) {
+            this.originalCurHP = 1;
         }
         return this.originalCurHP;
     }

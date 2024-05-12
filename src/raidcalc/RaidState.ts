@@ -32,15 +32,19 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false) {
+    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
-        if (nHits > 0 && damage > 0) {
-            pokemon.applyDamage(damage * nHits); // damage is per-hit for multi-hit moves
-        } else {
-            pokemon.applyDamage(damage);
+
+        for (let hit = 0; hit < Math.max(1, nHits); hit++) {
+            if (pokemon.substitute && !bypassSubstitute) {
+                pokemon.substitute = pokemon.substitute <= 0 ? undefined : pokemon.substitute - damage;
+            } else {
+                pokemon.applyDamage(damage);
+            }
         }
+
         const maxHP = pokemon.maxHP();
         const opponents = id === 0 ? [1,2,3,4] : [0];
         let unnerve = false;

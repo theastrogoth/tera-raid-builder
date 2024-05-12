@@ -373,6 +373,10 @@ export class RaidMove {
             if (this.userID !== 0 && pokemon.shieldActive && category === "Status") {
                 this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s shield!";
             }
+            // Substitute blocks status
+            if (pokemon.substitute && category === "Status" && !this.moveData.isSound && !this.moveData.bypassSub && !this._user.hasAbility("Infiltrator")) {
+                this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s substitute!";
+            }
             // Terrain-based failure
             if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && (this.moveData.priority || 0) > 0) {
                 if ((this.userID === 0) || (this._targetID === 0)) {
@@ -632,7 +636,8 @@ export class RaidMove {
                             if (calcMove.name === "False Swipe") {
                                 hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
                             }
-                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind);
+                            const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
+                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute);
                             totalDamage += hitDamage;
                             // remove buffs to user after damage
                             if (totalDamage > 0) {

@@ -685,7 +685,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                     <BuildTeraIcon src={getTeraTypeIconURL(raider.teraType!)} /> : null}
                                                 <BuildTypes direction="row">
                                                     {raider.types.map((type, index) => (
-                                                        <BuildTypeIcon key={index} src={getTypeIconURL(type)}/>
+                                                        <BuildTypeIcon key={index} src={getTypeIconURL(type === "???" ? "None" : type)}/>
                                                     ))}
                                                     {raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                                                 </BuildTypes>

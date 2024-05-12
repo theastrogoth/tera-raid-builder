@@ -37,6 +37,7 @@ export class RaidTurn {
     turnNumber: number;
 
     _isBossAction!:     boolean;
+    _isCheer!:          boolean;
     _isEmptyTurn!:      boolean;
 
     _raiderMovesFirst!: boolean;
@@ -86,6 +87,7 @@ export class RaidTurn {
     public result(): RaidTurnResult {
         // check if the turn should be considered a boss action
         this._isBossAction = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name !== "(No Move)";
+        this._isCheer = ["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(this.raiderMoveData.name);
         this._isEmptyTurn = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name === "(No Move)";
         // set up moves
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
@@ -149,7 +151,7 @@ export class RaidTurn {
             }
         }
         
-        if (!this._isBossAction) {
+        if (!this._isCheer && !this._isBossAction && !this._isEmptyTurn) {
             // sleep wake-up check
             const moveUser = this._raidState.getPokemon(this._raiderMoveID);
             if (moveUser.isSleep === 0 && moveUser.hasStatus("slp")) {
@@ -226,7 +228,7 @@ export class RaidTurn {
         this._result2 = this._raidMove2.output
         this._raidState = this._result2.state.clone();
 
-        if (!this._isEmptyTurn) {
+        if (!this._isCheer && !this._isBossAction && !this._isEmptyTurn) {
             this.removeProtection();
             if (!this._isBossAction) {
                 // delayed moves (Protect doesn't apply)

@@ -1,0 +1,25 @@
+{
+    "name": "Carry Slot",
+    "abilities": [
+        {
+            "name": "(No Ability)",
+            "hidden": false
+        }
+    ],
+    "types": [
+        "???"
+    ],
+    "stats": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+    },
+    "weightkg": 1,
+    "nfe": false,
+    "gender": null,
+    "moves": [
+    ]
+}

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
 
@@ -269,6 +269,9 @@ function App() {
 
   const gen = Generations.get(9); 
 
+  const longHashRef = useRef('');
+  const shortHashRef = useRef('');
+
   const [raidBoss, setRaidBoss] = useState(
     new Raider(0, "Raid Boss", false, false, new Field(), new Pokemon(gen, "Pikachu", {
       shieldData: {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0}
@@ -376,6 +379,8 @@ function App() {
                 setNotes={setNotes} 
                 setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
                 setLoading={setLoading}
+                shortHashRef={shortHashRef}
+                longHashRef={longHashRef}
                 placeholder={getTranslation("Load Strategy", translationKey)}
                 translationKey={translationKey}
               />
@@ -427,6 +432,8 @@ function App() {
                     setPrettyMode={setPrettyMode}
                     // loading={loading}
                     setLoading={setLoading}
+                    shortHashRef={shortHashRef}
+                    longHashRef={longHashRef}
                     translationKey={translationKey}
                   />
                   <Box width="15px"/>

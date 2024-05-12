@@ -25,7 +25,7 @@ import STRAT_LIST from "../data/strats/stratlist.json";
 const gen = Generations.get(9);
 const JSON_HASHES = Object.entries(STRAT_LIST).map(([boss, strats]) => Object.entries(strats as Object).map(([name, h]) => h as string)).flat();
 
-async function getFullHashFromShortHash(hash: string): Promise<string> {
+async function getFullHashFromShortHash(hash: string, longHashRef: React.MutableRefObject<string>, shortHashRef: React.MutableRefObject<string>): Promise<string> {
     let cleanHash = hash;
     if (hash[0] === "#") {
         cleanHash = hash.slice(1);
@@ -37,6 +37,10 @@ async function getFullHashFromShortHash(hash: string): Promise<string> {
       console.log("Invalid link");
     }
     const data = docSnap.data();
+    if (data) {
+        longHashRef.current = data.hash;
+        shortHashRef.current = cleanHash;
+    }
     return data ? data.hash : null;
 }
 
@@ -56,27 +60,32 @@ async function generateShortHash(): Promise<string> {
     return shortHash;
 }
 
-async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fullHash: string, setButtonDisabled: (b: boolean) => void, setSnackSeverity: (s: "success" | "warning" | "error") => void) {
-    const shortHash = await generateShortHash();
-    const id = decode(shortHash);
-    return setDoc(doc(db, "links", `${id}`), {
-        hash: fullHash,
-        path: shortHash,
-        date: Date.now(),
-        boss: raidInputProps.pokemon[0].name,
-        raiders: raidInputProps.pokemon.slice(1).map((p) => p.name),
-        title: title,
-    })
-    .then(() => {
-        setSnackSeverity("success");
-        return shortHash;
-    })
-    .catch((error) => {
-        console.log(error)
-        setButtonDisabled(false);
-        setSnackSeverity("warning");
-        return null
-    });
+async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fullHash: string, setButtonDisabled: (b: boolean) => void, setSnackSeverity: (s: "success" | "warning" | "error") => void, longHashRef: React.MutableRefObject<string>, shortHashRef: React.MutableRefObject<string>) {
+    if (fullHash === longHashRef.current) {
+        return shortHashRef.current;
+    }
+    return null
+    // const shortHash = await generateShortHash();
+    // const id = decode(shortHash);
+    // return setDoc(doc(db, "links", `${id}`), {
+    //     hash: fullHash,
+    //     path: shortHash,
+    //     date: Date.now(),
+    //     boss: raidInputProps.pokemon[0].name,
+    //     raiders: raidInputProps.pokemon.slice(1).map((p) => p.name),
+    //     title: title,
+    // })
+    // .then(() => {
+    //     setSnackSeverity("success");
+    //     shortHashRef.current = shortHash;
+    //     return shortHash;
+    // })
+    // .catch((error) => {
+    //     console.log(error)
+    //     setButtonDisabled(false);
+    //     setSnackSeverity("warning");
+    //     return null
+    // });
 }
 
 export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
@@ -237,7 +246,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
     }
 }
 
-function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][]): string {
+export function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][]): string {
     const obj: LightBuildInfo = {
         name: info.name || "",
         notes: info.notes || "",
@@ -317,9 +326,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
   
-function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, translationKey}: 
+function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, shortHashRef, longHashRef, translationKey}: 
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
-      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
+      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
       setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, translationKey: any}) {
     const [buildInfo, setBuildInfo] = useState<LightBuildInfo | null>(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
@@ -359,6 +368,11 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     import(`../data/strats/${lcHash}.json`)
                     .then((module) => {
                         setBuildInfo(module.default);
+                        let prettyHash = lcHash;
+                        if (prettyHash.slice(-5) === "/main") {
+                            prettyHash = lcHash.slice(0,-5);
+                        }
+                        shortHashRef.current = prettyHash;
                     })
                     .catch((error) => {
                         console.error('Error importing JSON file:', error);
@@ -387,7 +401,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                             const module = await import(`../data/strats/default.json`)
                             setBuildInfo(module.default as LightBuildInfo);
                         } else if (hash.length < 50) { // This check should probably be more systematic
-                            const fullHash = await getFullHashFromShortHash(hash);
+                            const fullHash = await getFullHashFromShortHash(hash, longHashRef, shortHashRef);
                             if (fullHash) {
                                 const bInfo = await deserialize(fullHash);
                                 setBuildInfo(bInfo);
@@ -406,7 +420,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     }
                 }
                 if (res) {
-                    const {name, notes, credits, pokemon, groups} = res;
+                    const {name, notes, credits, pokemon, groups, substitutes} = res;
                     setTitle(name);
                     setNotes(notes);
                     setCredits(credits);
@@ -416,11 +430,22 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     raidInputProps.setPokemon[3](pokemon[3]);
                     raidInputProps.setPokemon[4](pokemon[4]);
                     raidInputProps.setGroups(groups);
-                    setSubstitutes[0](res.substitutes[0]);
-                    setSubstitutes[1](res.substitutes[1]);
-                    setSubstitutes[2](res.substitutes[2]);
-                    setSubstitutes[3](res.substitutes[3]);
+                    setSubstitutes[0](substitutes[0]);
+                    setSubstitutes[1](substitutes[1]);
+                    setSubstitutes[2](substitutes[2]);
+                    setSubstitutes[3](substitutes[3]);
                     setHasLoadedInfo(true);
+                    longHashRef.current = serializeInfo(
+                        {
+                            name: name,
+                            notes: notes,
+                            credits: credits,
+                            startingState: new RaidState(pokemon),
+                            groups: groups,
+                        },
+                        substitutes,
+                    );   
+                    console.log(shortHashRef.current, longHashRef.current)
                 }
             } catch (e) {
                 setLoading(false);
@@ -469,9 +494,16 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 );
 
                 if (window.location.href.split("#")[0].includes("localhost")) { // prevent making firebase link for local testing
-                    console.log("Long hash link copied to clipboard.")
-                    const link = window.location.href.split("#")[0] + "#" + newHash;
-                    navigator.clipboard.writeText(link);
+                    if (newHash === longHashRef.current) {
+                        const link = window.location.href.split("#")[0] + "#" + shortHashRef.current;
+                        navigator.clipboard.writeText(link);
+                    } else {
+                        console.log("Long hash link copied to clipboard.")
+                        const link = window.location.href.split("#")[0] + "#" + newHash;
+                        navigator.clipboard.writeText(link);
+                        longHashRef.current = newHash;
+                        shortHashRef.current = newHash;
+                    }
                     return;
                 }
 
@@ -480,7 +512,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     // within a gesture event handler, so we need to pass a ClipboardItem
                     // This condition is also used for Chrome, or any other browser for which ClipboardItem is defined
                     const text = new ClipboardItem({
-                        "text/plain": setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity)
+                        "text/plain": setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity, longHashRef, shortHashRef)
                         .then(shortHash => {
                             handleClick();
                             return new Blob([
@@ -491,7 +523,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     navigator.clipboard.write([text]);
                 } else {
                     // Firefox compatibility case (ClipboardItem is not defined)
-                    setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity)
+                    setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity, longHashRef, shortHashRef)
                     .then(shortHash => {
                         handleClick();
                         navigator.clipboard.writeText(
@@ -499,6 +531,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                         )}
                     );
                 }
+
+                longHashRef.current = newHash;
             }}
         >
             {getTranslation("Create link for this strategy!", translationKey)}

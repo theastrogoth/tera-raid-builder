@@ -1206,14 +1206,14 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 nature: "Hardy", 
                 level: val === "Carry Slot" ? 1 : 100,
                 // ability: "(No Ability)",
-                ivs: {
+                ivs: val === "Carry Slot" ? {
                     hp: 0,
                     atk: 0,
                     def: 0,
                     spa: 0,
                     spd: 0,
                     spe: 0
-                },
+                } : undefined,
                 shieldData: !isBoss ? undefined : {
                     hpTrigger: 0,
                     timeTrigger: 0,

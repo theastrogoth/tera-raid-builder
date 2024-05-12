@@ -9976,6 +9976,13 @@ const SV_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     weightkg: 5.4,
     abilities: {0: 'Gooey'},
   },
+  // Not a real species
+  'Carry Slot': {
+    types: ['???'],
+    bs: {hp: 5, at: 5, df: 5, sa: 5, sd: 5, sp: 5},
+    weightkg: 1.0,
+    abilities: {0: '(No Ability)'},
+  }
 };
 
 const SV: {[name: string]: SpeciesData} = extend(true, {}, SS, SV_PATCH, PLA_PATCH);

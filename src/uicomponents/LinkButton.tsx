@@ -64,28 +64,27 @@ async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fu
     if (fullHash === longHashRef.current) {
         return shortHashRef.current;
     }
-    return null
-    // const shortHash = await generateShortHash();
-    // const id = decode(shortHash);
-    // return setDoc(doc(db, "links", `${id}`), {
-    //     hash: fullHash,
-    //     path: shortHash,
-    //     date: Date.now(),
-    //     boss: raidInputProps.pokemon[0].name,
-    //     raiders: raidInputProps.pokemon.slice(1).map((p) => p.name),
-    //     title: title,
-    // })
-    // .then(() => {
-    //     setSnackSeverity("success");
-    //     shortHashRef.current = shortHash;
-    //     return shortHash;
-    // })
-    // .catch((error) => {
-    //     console.log(error)
-    //     setButtonDisabled(false);
-    //     setSnackSeverity("warning");
-    //     return null
-    // });
+    const shortHash = await generateShortHash();
+    const id = decode(shortHash);
+    return setDoc(doc(db, "links", `${id}`), {
+        hash: fullHash,
+        path: shortHash,
+        date: Date.now(),
+        boss: raidInputProps.pokemon[0].name,
+        raiders: raidInputProps.pokemon.slice(1).map((p) => p.name),
+        title: title,
+    })
+    .then(() => {
+        setSnackSeverity("success");
+        shortHashRef.current = shortHash;
+        return shortHash;
+    })
+    .catch((error) => {
+        console.log(error)
+        setButtonDisabled(false);
+        setSnackSeverity("warning");
+        return null
+    });
 }
 
 export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {

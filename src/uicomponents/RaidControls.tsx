@@ -30,7 +30,7 @@ import MoveDisplay from './MoveDisplay';
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon, StatsTable } from '../calc';
-import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
+import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory, getPokemonArtURL } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
 import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
@@ -76,6 +76,7 @@ type Modifiers = {
     taunt?: boolean,
     yawn?: boolean,
     throatChop?: boolean,
+    substituteHP?: number,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -163,8 +164,13 @@ function ModifierBooleanTag({modifier, translationKey}: {modifier: string, trans
 
 function ModifierNumberTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
     return (
-        <ModifierGenericTag text ={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} />
     );
+}
+function ModifierValueTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
+    return (
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ': ' + value : ''}`} />
+    )
 }
 
 function NoModifersTag({modifiers}: {modifiers: Modifiers}) {
@@ -194,7 +200,12 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
         case "boolean":
             return value && <ModifierBooleanTag modifier={modifier} translationKey={translationKey}/>;
         case "number":
-            return value > 0 && <ModifierNumberTag modifier={modifier} value={value} translationKey={translationKey}/>;
+            if (modifier === "substituteHP") {
+                return value > 0 && <ModifierValueTag modifier={modifier} value={value} translationKey={translationKey}/>;
+
+            } else {
+                return value > 0 && <ModifierNumberTag modifier={modifier} value={value} translationKey={translationKey}/>;
+            }
         default:
             return undefined;
     }
@@ -216,7 +227,7 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
     );
 }
 
-function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, statChanges, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, kos: number, statChanges: StatsTable, modifiers: object, translationKey: any}) {
+function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, statChanges, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, statChanges: StatsTable, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -253,7 +264,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
                                     width: "16px",
                                     height: "16px",
                                     overflow: 'hidden',
-                                    background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                                    background: `url(${getPokemonSpriteURL(hasSubstitute ? "Substitute" : name)}) no-repeat center center / contain`,
                                 }}
                             />
                         </Avatar>
@@ -351,7 +362,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
                                         width: "32px",
                                         height: "32px",
                                         overflow: 'hidden',
-                                        background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                                        background: `url(${getPokemonSpriteURL(hasSubstitute ? "Substitute" : name)}) no-repeat center center / contain`,
                                     }}
                                 />
                                 {item && <Box
@@ -409,6 +420,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
     const abilities = turnState.raiders.map((raider) => raider.ability);
+    const haveSubstitutes = turnState.raiders.map((raider) => !!raider.substitute)
 
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
     const getModifiers = (raider: Raider): Modifiers => {
@@ -448,6 +460,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "taunt": raider.isTaunt !== undefined && raider.isTaunt !== 0,
             "yawn": raider.isYawn !== undefined && raider.isYawn !== 0,
             "throatChop": raider.isThroatChop !== undefined && raider.isThroatChop !== 0,
+            "substituteHP": raider.substitute,
         }
     }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));
@@ -479,7 +492,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]} translationKey={translationKey} />
+                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]} translationKey={translationKey} />
             ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>

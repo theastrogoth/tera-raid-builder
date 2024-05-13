@@ -21,6 +21,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Switch from "@mui/material/Switch";
 import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
@@ -737,6 +738,8 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
         return !gs.some((g) => g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Most Damaging)"));
     }
 
+    const switchIsOn = alreadyOptimized(raidInputProps.groups);
+
     const handleConfirm = () => {
         const groups: TurnGroupInfo[] = [];
         for (let g of raidInputProps.groups) {
@@ -759,9 +762,31 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
         setOpen(false);
     }
 
+    const handleTurnOff = () => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = g.turns.map(t => { return {
+                ...t,
+                bossMoveInfo: {
+                    ...t.bossMoveInfo,
+                    moveData: {
+                        ...t.bossMoveInfo.moveData,
+                        name: t.bossMoveInfo.moveData.name === "(Optimal Move)" ? "(Most Damaging)" as MoveName : t.bossMoveInfo.moveData.name,
+                    }
+                }
+            }});
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+        setOpen(false);
+    }
+    
     return (
         <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2, paddingTop: "5px", paddingBottom: "5px"}}>
-            <Button 
+            {/* <Button 
                 variant="contained" 
                 size="small" 
                 color="secondary"
@@ -770,7 +795,18 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
                 onClick={handleOpen}
             >
                 {getTranslation("Optimize Boss Moves", translationKey)}
-            </Button>
+            </Button> */}
+            <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
+                <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >
+                    { getTranslation("Optimize Boss Moves", translationKey) }
+                </Typography>
+                <Switch
+                    size='small'
+                    checked={switchIsOn}
+                    onChange={(e) => switchIsOn ? handleTurnOff() : handleOpen()}
+            
+                />
+            </Stack>
             <Dialog
                 open={open}
                 onClose={handleClose}

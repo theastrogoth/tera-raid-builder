@@ -382,6 +382,22 @@ export function shallowEqual(a: any, b: any) {
     );
 }
 
+export function deepEqual(a: any, b: any) {
+    if (a === b) { return true; }
+    if ((typeof a == "object" && a != null) && (typeof b == "object" && b != null)) {
+        if (Object.keys(a).length != Object.keys(b).length) { return false; }
+        for (var prop in a) {
+            if (b.hasOwnProperty(prop)) {  
+                if (!deepEqual(a[prop], b[prop])) { return false; }
+            } else { 
+                return false; 
+            }
+        }
+        return true;
+    }
+    return false;
+}
+
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
 const base = alphabet.length;
 export function encode(id: number) {

@@ -16,7 +16,7 @@ import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
 import { MoveData, RaidTurnInfo, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
-import { encode, decode, getTranslation } from "../utils";
+import { encode, decode, getTranslation, deepEqual } from "../utils";
 
 import { db } from "../config/firestore";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -152,12 +152,24 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                 bmdata = [...pokemon[0].moveData, ...pokemon[0].extraMoveData!].find((m) => m && m.name === t.bossMoveInfo.name) || {name: bname};
             }
 
+            // Enforce some things that are handled in MoveSelection.tsx for better compatibility with old links
+            const selfTargeting = mdata && (
+                mdata.name === "(No Move)" ||
+                mdata.target === undefined ||
+                mdata.target === "user" ||
+                mdata.target === "user-and-allies" ||
+                mdata.target === "all-allies" ||
+                mdata.target === "users-field" ||
+                mdata.target === "opponents-field" ||
+                mdata.target === "entire-field"
+            );
+
             const turn = {
                 id: t.id,
                 group: t.group,
                 moveInfo: {
                     userID: t.moveInfo.userID, 
-                    targetID: t.moveInfo.targetID, 
+                    targetID: selfTargeting ? t.moveInfo.userID : t.moveInfo.targetID, 
                     options: t.moveInfo.options, 
                     moveData: mdata || {name: t.moveInfo.name as MoveName}
                 },
@@ -444,7 +456,6 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                         },
                         substitutes,
                     );   
-                    console.log(shortHashRef.current, longHashRef.current)
                 }
             } catch (e) {
                 setLoading(false);
@@ -469,7 +480,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         <Button
             variant="outlined"
             // disabled={buttonDisabled} // Don't display when the button is disabled to avoid confusion
-            onClick={() => {
+            onClick={async () => {
                 if (buttonDisabled) { return; }
                 setButtonDisabled(true);
                 if(buttonTimer.current === null) {
@@ -493,7 +504,18 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 );
 
                 if (window.location.href.split("#")[0].includes("localhost")) { // prevent making firebase link for local testing
+                    const decodedFromRef = await deserializeInfo(longHashRef.current) as BuildInfo;
+                    console.log(
+                        "name: ", decodedFromRef.name === title,
+                        "notes: ", decodedFromRef.notes === notes,
+                        "credits: ", decodedFromRef.credits === credits,
+                        "pokemon: ", deepEqual(decodedFromRef.pokemon, raidInputProps.pokemon),
+                        "groups: ", deepEqual(decodedFromRef.groups, raidInputProps.groups),
+                        "substitutes: ", deepEqual(decodedFromRef.substitutes, substitutes),
+                    )
+                    // console.log(newHash === longHashRef.current, newHash, longHashRef.current);
                     if (newHash === longHashRef.current) {
+                        console.log("Strategy is unchanged since the last time a link was generated.")
                         const link = window.location.href.split("#")[0] + "#" + shortHashRef.current;
                         navigator.clipboard.writeText(link);
                     } else {

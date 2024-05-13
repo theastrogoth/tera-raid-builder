@@ -282,7 +282,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Reflect",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -308,7 +308,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Light Screen",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

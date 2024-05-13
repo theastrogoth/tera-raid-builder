@@ -1,6 +1,12 @@
 {
     "Primarina": {
-        "Steel the Show": "primarina/main"
+        "Steel the Show": "primarina/main",
+        "Team Eeveelutions Fires up the Stage": "primarina/eeveelutions",
+        "Fire Starters Light up the Stage": "primarina/fire_starters",
+        "Hot Sludge Sundae": "primarina/hot_sludge_sundae",
+        "Pink and Purple Power": "primarina/pink_and_purple",
+        "Sickly Sweet Barrage": "primarina/sickly_sweet_barrage",
+        "Punk Rockers": "primarina/punk_rockers"
     },
     "Walking Wake": {
         "Drifting Wake": "walking_wake/main",

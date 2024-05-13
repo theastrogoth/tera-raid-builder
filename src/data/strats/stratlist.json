@@ -2,11 +2,17 @@
     "Primarina": {
         "Steel the Show": "primarina/main",
         "Team Eeveelutions Fires up the Stage": "primarina/eeveelutions",
+        "Godzilla vs. Ebirah": "primarina/godzilla",
         "Fire Starters Light up the Stage": "primarina/fire_starters",
         "Hot Sludge Sundae": "primarina/hot_sludge_sundae",
         "Pink and Purple Power": "primarina/pink_and_purple",
         "Sickly Sweet Barrage": "primarina/sickly_sweet_barrage",
-        "Punk Rockers": "primarina/punk_rockers"
+        "Punk Rockers Take Over the Stage": "primarina/punk_rockers",
+        "Digging Holes and Taking Names": "primarina/digging_holes",
+        "Metal Heads Crash the Opera": "primarina/metal_heads",
+        "Take your Child to Work Day": "primarina/child_to_work",
+        "Apocalypse": "primarina/apocalypse",
+        "Nukebro": "primarina/nukebro"
     },
     "Walking Wake": {
         "Drifting Wake": "walking_wake/main",

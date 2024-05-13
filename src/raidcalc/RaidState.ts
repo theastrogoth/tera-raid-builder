@@ -89,7 +89,7 @@ export class RaidState implements State.RaidState{
             }
             // Weakness Policy and Super-Effective reducing Berries
             // TO DO - abilities that let users use berries more than once
-            if (damage > 0 && isSuperEffective) {
+            if (isSuperEffective) {
                 if (!fainted && pokemon.item === "Weakness Policy") { // weakness policy isn't consumed if the target faints (?)
                     this.applyStatChange(id, {atk: 2, spa: 2}, true, id)
                     this.loseItem(id);
@@ -150,10 +150,28 @@ export class RaidState implements State.RaidState{
                     }
                 }
             }
+            /// Non-super effective items consumed after damage
             // Chilan Berry
             if (!unnerve && pokemon.item === "Chilan Berry" && moveType === "Normal") {
                 this.loseItem(id);
+            // Absorb Bulb
+            } else if (pokemon.item === "Absorb Bulb" && moveType === "Water") {
+                this.applyStatChange(id, {spa: 1}, true, id);
+                this.loseItem(id);
+            // Cell Battery
+            } else if (pokemon.item === "Cell Battery" && moveType === "Electric") {
+                this.applyStatChange(id, {atk: 1}, true, id);
+                this.loseItem(id);
+            // Luminous Moss
+            } else if (pokemon.item === "Luminous Moss" && moveType === "Water") {
+                this.applyStatChange(id, {spd: 1}, true, id);
+                this.loseItem(id);
+            // Snowball
+            } else if (pokemon.item === "Snowball" && moveType === "Ice") {
+                this.applyStatChange(id, {atk: 1}, true, id);
+                this.loseItem(id);
             }
+ 
             /// abilities triggered by damage even if the target faints
             // Seed Sower
             if (pokemon.ability === "Seed Sower") {

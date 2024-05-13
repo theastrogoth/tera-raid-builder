@@ -4,12 +4,13 @@ import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { SxProps, Theme } from '@mui/material/styles';
 
 import { StyledTextField, SetLoadGroupHeader } from "./BuildControls";
-import { lightToFullBuildInfo } from "./LinkButton";
+import { lightToFullBuildInfo, serializeInfo } from "./LinkButton";
 
 import { SpeciesName } from "../calc/data/interface";
 import { LightBuildInfo } from "../raidcalc/hashData";
 import { RaidInputProps, BuildInfo } from "../raidcalc/inputs";
 import { SubstituteBuildInfo } from "../raidcalc/interface";
+import { RaidState } from "../raidcalc/RaidState";
 
 import { getTranslation } from "../utils";
 import STRAT_LIST from "../data/strats/stratlist.json";
@@ -41,9 +42,11 @@ function stratdexToOptions(dex: Object): StratOption[] {
 const stratOptions = stratdexToOptions(STRAT_LIST);
 
 function StratLoadField(
-    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, placeholder="Load Strategy", sx={ width: 260 }, translationKey}: 
+    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, shortHashRef, longHashRef, placeholder="Load Strategy", sx={ width: 260 }, translationKey}: 
     {raidInputProps: RaidInputProps, setTitle: (t: string) => void, setCredits: (c: string) => void, 
-     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, placeholder?: string, sx?: SxProps<Theme>, translationKey: any}) 
+     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
+     placeholder?: string, sx?: SxProps<Theme>, translationKey: any
+    }) 
 {
     const filterStratOptions = createFilterOptions({
         stringify: (option: StratOption) => getTranslation(option.boss, translationKey, "pokemon") + " " + option.name
@@ -80,7 +83,7 @@ function StratLoadField(
                     return;
                 }
                 if (res) {
-                    const {name, notes, credits, pokemon, groups} = res;
+                    const {name, notes, credits, pokemon, groups, substitutes} = res;
                     setTitle(name);
                     setNotes(notes);
                     setCredits(credits);
@@ -90,11 +93,21 @@ function StratLoadField(
                     raidInputProps.setPokemon[3](pokemon[3]);
                     raidInputProps.setPokemon[4](pokemon[4]);
                     raidInputProps.setGroups(groups);
-                    setSubstitutes[0](res.substitutes[0]);
-                    setSubstitutes[1](res.substitutes[1]);
-                    setSubstitutes[2](res.substitutes[2]);
-                    setSubstitutes[3](res.substitutes[3]);
+                    setSubstitutes[0](substitutes[0]);
+                    setSubstitutes[1](substitutes[1]);
+                    setSubstitutes[2](substitutes[2]);
+                    setSubstitutes[3](substitutes[3]);
                     setLoading(false);
+                    longHashRef.current = serializeInfo(
+                        {
+                            name: name,
+                            notes: notes,
+                            credits: credits,
+                            startingState: new RaidState(pokemon),
+                            groups: groups,
+                        },
+                        substitutes,
+                    );  
                 }
             } catch (e) {
                 setLoading(false);
@@ -141,6 +154,11 @@ function StratLoadField(
                 if (!newValue) return;
                 try {
                     setStratPath(newValue.path);
+                    let prettyHash = newValue.path;
+                    if (prettyHash.slice(-5) === "/main") {
+                        prettyHash = prettyHash.slice(0,-5);
+                    }
+                    shortHashRef.current = prettyHash;
                 } catch (e) {
                     console.log(e)
                 }

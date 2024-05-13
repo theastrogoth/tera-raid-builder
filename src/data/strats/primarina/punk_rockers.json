@@ -328,7 +328,7 @@
             "moveInfo": {
                 "name": "Heal Cheer",
                 "userID": 3,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

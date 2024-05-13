@@ -229,7 +229,7 @@
             "id": 2,
             "group": 6,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Defense Cheer",
                 "userID": 3,
                 "targetID": 3,
                 "options": {
@@ -257,7 +257,7 @@
             "moveInfo": {
                 "name": "Misty Terrain",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -283,7 +283,7 @@
             "moveInfo": {
                 "name": "Sunny Day",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -335,7 +335,7 @@
             "moveInfo": {
                 "name": "Heal Cheer",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -387,7 +387,7 @@
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 4,
-                "targetID": 1,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -413,7 +413,7 @@
             "moveInfo": {
                 "name": "Curse",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

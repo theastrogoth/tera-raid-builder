@@ -708,7 +708,7 @@ export class RaidMove {
                         result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
                         this._damage[id] = Math.min(totalDamage, this.raidState.raiders[id].originalCurHP);
                         this._desc[id] = result.desc();
-                        // for Fling / Symbiosis interactions, the Flinger should lose their item before the target recieves damage
+                        // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target recieves damage
                         if (this.moveData.name === "Fling" && this._user.item) {
                             this._flingItem = moveUser.item;
                             this._raidState.loseItem(this.userID, false);

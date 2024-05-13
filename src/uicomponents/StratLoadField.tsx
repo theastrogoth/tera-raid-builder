@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import Typography from "@mui/material/Typography";
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { SxProps, Theme } from '@mui/material/styles';
@@ -12,13 +14,18 @@ import { RaidInputProps, BuildInfo } from "../raidcalc/inputs";
 import { SubstituteBuildInfo } from "../raidcalc/interface";
 import { RaidState } from "../raidcalc/RaidState";
 
-import { getTranslation } from "../utils";
+import { getPokemonSpriteURL, getTranslation } from "../utils";
 import STRAT_LIST from "../data/strats/stratlist.json";
 
 type StratOption = {
     name: string,
     boss: string,
     path: string,
+    raiders: [string, string, string, string],
+    substitutes: string[],
+    abilities: string[],
+    moves: string[],
+    items: string[],
 }
 
 function stratdexToOptions(dex: Object): StratOption[] {
@@ -28,12 +35,40 @@ function stratdexToOptions(dex: Object): StratOption[] {
         for (let stratname of (Object.keys(dex[boss]))) {
             // @ts-ignore
             const stratpath = dex[boss][stratname];
-            const option = {
-                name: stratname,
-                boss: boss,
-                path: stratpath,
-            }
-            options.push(option);
+            import(`../data/strats/${stratpath}.json`)
+                .then((module) => {
+                    const info = module as LightBuildInfo;
+                    const raiders = info.pokemon.slice(1).map(p => p.name);
+                    const substitutes = info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [];
+                    const moves = [
+                        ...info.turns.map(t => t.moveInfo.name),
+                        ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
+                    ].filter(m => m !== undefined && m !== "(No Move)") as string[];
+                    const abilities = [
+                        ...info.pokemon.slice(1).map(p => p.ability),
+                        ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.ability).flat()).flat() : [])
+                    ].filter(a => a !== undefined && a !== "(No Ability)") as string[];
+                    const option = {
+                        name: stratname,
+                        boss: boss,
+                        path: stratpath,
+                        raiders: info.pokemon.slice(1).map(p => p.name) as [string, string, string, string],
+                        substitutes: info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [],
+                        moves: [
+                                ...info.turns.map(t => t.moveInfo.name),
+                                ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
+                            ].filter(m => m !== undefined && m !== "(No Move)") as string[],
+                        abilities: [
+                                ...info.pokemon.slice(1).map(p => p.ability),
+                                ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.ability).flat()).flat() : [])
+                            ].filter(a => a !== undefined && a !== "(No Ability)") as string[],
+                        items: [
+                                ...info.pokemon.slice(1).map(p => p.item),
+                                ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.item).flat()).flat() : [])
+                            ].filter(i => i !== undefined && i !== "(No Item)") as string[],
+                    }
+                    options.push(option);
+                })
         }
     }
     return options;
@@ -49,7 +84,13 @@ function StratLoadField(
     }) 
 {
     const filterStratOptions = createFilterOptions({
-        stringify: (option: StratOption) => getTranslation(option.boss, translationKey, "pokemon") + " " + option.name
+        stringify: (option: StratOption) => getTranslation(option.boss, translationKey, "pokemon") + " " + option.name + " " + 
+                                            option.raiders.map(r => getTranslation(r,translationKey,"pokemon")).join(" ") +
+                                            option.substitutes.map(s => getTranslation(s,translationKey,"pokemon")).join(" ") +
+                                            option.abilities.map(s => getTranslation(s,translationKey,"ability")).join(" ") +
+                                            option.moves.map(s => getTranslation(s,translationKey,"move")).join(" ") +
+                                            option.items.map(s => getTranslation(s,translationKey,"item")).join(" ")
+
     });
     const [stratPath, setStratPath] = useState<null | string>(null);
     const [buildInfo, setBuildInfo] = useState<null | LightBuildInfo>(null);
@@ -125,12 +166,36 @@ function StratLoadField(
             autoHighlight={true}  
             fullWidth={true}  
             size="medium"
-            value={{name:"", boss: "Pikachu" as SpeciesName, path: ""}}
+            value={{name:"", boss: "Pikachu" as SpeciesName, path: "", raiders: ["Pikachu", "Pikachu", "Pikachu", "Pikachu"], substitutes: [], abilities: [], moves: [], items: []}}
             sx={sx}
             options={stratOptions}
             filterOptions={filterStratOptions}
             groupBy={(option: StratOption) => option.boss}
-            renderOption={(props, option) => <li {...props}><Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{option.name}</Typography></li>}
+            renderOption={(props, option) => (
+                <li {...props}>
+                    <Stack direction="row" alignItems="center" spacing={0.25} sx={{ width: "100%"}}>
+                        <Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{option.name}</Typography>
+                        <Box flexGrow={1} sx={{ minWidth: "20px"}} />
+                        <Stack direction="row" spacing={-0.25}>
+                            {
+                                option.raiders.map((r, i) => 
+                                    <Box
+                                        key={i}
+                                        sx={{
+                                            width: "25px",
+                                            height: "25px",
+                                            zIndex: 10000 - i,
+                                            overflow: 'hidden',
+                                            background: `url(${getPokemonSpriteURL(r)}) no-repeat center center / contain`,
+                                        }}
+                                    />
+                                )
+                            }
+                        </Stack>
+                    </Stack>
+                </li>
+            )}
+            
             renderGroup={(params) => {
                 return  (
                     <li>

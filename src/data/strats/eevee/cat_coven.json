@@ -320,7 +320,7 @@
             "id": 3,
             "group": 2,
             "moveInfo": {
-                "name": "U-Turn",
+                "name": "U-turn",
                 "userID": 4,
                 "targetID": 2,
                 "options": {

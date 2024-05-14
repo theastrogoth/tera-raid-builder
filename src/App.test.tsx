@@ -1567,6 +1567,58 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/meganium/bugs.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('primarina/main', async () => {
+    const module = await import(`./data/strats/primarina/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/eeveelutions', async () => {
+    const module = await import(`./data/strats/primarina/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/godzilla', async () => {
+    const module = await import(`./data/strats/primarina/godzilla.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/fire_starters', async () => {
+    const module = await import(`./data/strats/primarina/fire_starters.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/hot_sludge_sundae', async () => {
+    const module = await import(`./data/strats/primarina/hot_sludge_sundae.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/pink_and_purple', async () => {
+    const module = await import(`./data/strats/primarina/pink_and_purple.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/sickly_sweet_barrage', async () => {
+    const module = await import(`./data/strats/primarina/sickly_sweet_barrage.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/punk_rockers', async () => {
+    const module = await import(`./data/strats/primarina/punk_rockers.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/digging_holes', async () => {
+    const module = await import(`./data/strats/primarina/digging_holes.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/metal_heads', async () => {
+    const module = await import(`./data/strats/primarina/metal_heads.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/child_to_work', async () => {
+    const module = await import(`./data/strats/primarina/child_to_work.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/apocalypse', async () => {
+    const module = await import(`./data/strats/primarina/apocalypse.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/nukebro', async () => {
+    const module = await import(`./data/strats/primarina/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

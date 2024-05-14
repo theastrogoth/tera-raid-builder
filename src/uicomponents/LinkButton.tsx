@@ -98,33 +98,39 @@ export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
 
 export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<MoveName,MoveData> | null): Promise<BuildInfo | null> {
     try {
-        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => new Raider(i, r.role, r.shiny, r.isAnyLevel, new Field(), 
-            new Pokemon(gen, r.name, {
-                ability: r.ability || undefined,
-                item: r.item || undefined,
-                nature: r.nature || undefined,
-                evs: r.evs || undefined,
-                ivs: r.ivs || undefined,
-                level: r.level || undefined,
-                gender: r.gender as GenderName || undefined,
-                teraType: (r.teraType || undefined) as (TypeName | undefined),
-                isTera: i === 0,
-                bossMultiplier: r.bossMultiplier || undefined,
-                moves: r.moves || undefined,
-                shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
-            }), 
-            (r.moves ? (
-                allMoves ? 
-                (r.moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
-                (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
-            ) as MoveData[] : []),
-            (r.extraMoves || undefined) as (MoveName[] | undefined),
-            (r.extraMoves ? (
-                allMoves ? 
+        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => {
+            const moves = r.moves ? r.moves.filter((m) => m !== "(No Move)") as MoveName[] : undefined;
+            const extraMoves = r.extraMoves ? r.extraMoves.filter((m) => m !== "(No Move)") as MoveName[] : undefined;
+            const moveData = (moves ? (allMoves ? 
+                (moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
+                (await Promise.all(moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
+            ) as MoveData[] : []);
+            const extraMoveData = (r.extraMoves ? (allMoves ? 
                 (r.extraMoves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
                 (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
-            ) as MoveData[] : []),
-        )));
+            ) as MoveData[] : []);
+            return (
+                new Raider(i, r.role, r.shiny, r.isAnyLevel, new Field(), 
+                    new Pokemon(gen, r.name, {
+                        ability: r.ability || undefined,
+                        item: r.item || undefined,
+                        nature: r.nature || undefined,
+                        evs: r.evs || undefined,
+                        ivs: r.ivs || undefined,
+                        level: r.level || undefined,
+                        gender: r.gender as GenderName || undefined,
+                        teraType: (r.teraType || undefined) as (TypeName | undefined),
+                        isTera: i === 0,
+                        bossMultiplier: r.bossMultiplier || undefined,
+                        moves: moves,
+                        shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
+                    }), 
+                    moveData,
+                    extraMoves,
+                    extraMoveData,
+                )
+            )}
+        ));
         const groups: TurnGroupInfo[] = [];
         const groupIds: number[] = [];
         let usedGroupIds: number[] = obj.turns.map((t) => t.group === undefined ? -1 : t.group);

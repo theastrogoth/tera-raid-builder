@@ -28,47 +28,53 @@ type StratOption = {
     items: string[],
 }
 
+function stratDexEntryToOption(options: StratOption[], index: number, boss: string, stratname: string, stratpath: string) {
+    import(`../data/strats/${stratpath}.json`)
+    .then((module) => {
+        const info = module as LightBuildInfo;
+        const raiders = info.pokemon.slice(1).map(p => p.name);
+        const substitutes = info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [];
+        const moves = [
+            ...info.turns.map(t => t.moveInfo.name),
+            ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
+        ].filter(m => m !== undefined && m !== "(No Move)") as string[];
+        const abilities = [
+            ...info.pokemon.slice(1).map(p => p.ability),
+            ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.ability).flat()).flat() : [])
+        ].filter(a => a !== undefined && a !== "(No Ability)") as string[];
+        const option = {
+            name: stratname,
+            boss: boss,
+            path: stratpath,
+            raiders: info.pokemon.slice(1).map(p => p.name) as [string, string, string, string],
+            substitutes: info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [],
+            moves: [
+                    ...info.turns.map(t => t.moveInfo.name),
+                    ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
+                ].filter(m => m !== undefined && m !== "(No Move)") as string[],
+            abilities: [
+                    ...info.pokemon.slice(1).map(p => p.ability),
+                    ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.ability).flat()).flat() : [])
+                ].filter(a => a !== undefined && a !== "(No Ability)") as string[],
+            items: [
+                    ...info.pokemon.slice(1).map(p => p.item),
+                    ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.item).flat()).flat() : [])
+                ].filter(i => i !== undefined && i !== "(No Item)") as string[],
+        }
+        options[index] = option;
+    })
+}
+
 function stratdexToOptions(dex: Object): StratOption[] {
     const options: StratOption[] = [];
+    let index = 0;
     for (let boss of (Object.keys(dex) as SpeciesName[])) {
         // @ts-ignore
         for (let stratname of (Object.keys(dex[boss]))) {
             // @ts-ignore
             const stratpath = dex[boss][stratname];
-            import(`../data/strats/${stratpath}.json`)
-                .then((module) => {
-                    const info = module as LightBuildInfo;
-                    const raiders = info.pokemon.slice(1).map(p => p.name);
-                    const substitutes = info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [];
-                    const moves = [
-                        ...info.turns.map(t => t.moveInfo.name),
-                        ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
-                    ].filter(m => m !== undefined && m !== "(No Move)") as string[];
-                    const abilities = [
-                        ...info.pokemon.slice(1).map(p => p.ability),
-                        ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.ability).flat()).flat() : [])
-                    ].filter(a => a !== undefined && a !== "(No Ability)") as string[];
-                    const option = {
-                        name: stratname,
-                        boss: boss,
-                        path: stratpath,
-                        raiders: info.pokemon.slice(1).map(p => p.name) as [string, string, string, string],
-                        substitutes: info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [],
-                        moves: [
-                                ...info.turns.map(t => t.moveInfo.name),
-                                ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
-                            ].filter(m => m !== undefined && m !== "(No Move)") as string[],
-                        abilities: [
-                                ...info.pokemon.slice(1).map(p => p.ability),
-                                ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.ability).flat()).flat() : [])
-                            ].filter(a => a !== undefined && a !== "(No Ability)") as string[],
-                        items: [
-                                ...info.pokemon.slice(1).map(p => p.item),
-                                ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.item).flat()).flat() : [])
-                            ].filter(i => i !== undefined && i !== "(No Item)") as string[],
-                    }
-                    options.push(option);
-                })
+            stratDexEntryToOption(options, index, boss, stratname, stratpath);   
+            index++;    
         }
     }
     return options;

@@ -251,36 +251,48 @@
         "The Glitter Gang": "rillaboom/glitter_gang",
         "Simian Showdown": "rillaboom/simian_showdown",
         "Comeback Beetle": "rillaboom/beetle",
+        "Nukebro": "rillaboom/nukebro",
         "Lil' Timmy's Revenge": "rillaboom/timmys_revenge"
     },
     "Delphox": {
         "Bonk!": "delphox/main",
         "Rain & Sustain": "delphox/rain&sustain",
+        "Nukebro 1": "delphox/nukebro",
+        "Nukebro 2": "delphox/nukebro_2",
         "Nuke Baby": "delphox/nuke_baby"
     },
     "Chesnaught": {
         "Flower Power": "chesnaught/main",
         "Go For Ghold": "chesnaught/ghold",
+        "Nukebro": "chesnaught/nukebro",
         "Simple as That, Baby!": "chesnaught/simple"
     },
     "Inteleon": {
         "AP Fire Bull": "inteleon/main",
         "Tinkaton": "inteleon/tinkaton",
+        "Nukebro": "inteleon/nukebro",
         "Burn Baby Burn!": "inteleon/burn_baby_burn"
     },
     "Typhlosion": {
         "AP Krook": "typhlosion/main",
-        "Hydriggly": "typhlosion/hydriggly"
+        "Hydriggly": "typhlosion/hydriggly",
+        "Nukebro": "typhlosion/nukebro"
     },
     "Samurott": {
         "Koraidon": "samurott/main",
-        "AP Fire Bull": "samurott/tauros"
+        "AP Fire Bull": "samurott/tauros",
+        "Nukebro": "samurott/nukebro"
     },
     "Decidueye": {
         "Miraidon": "decidueye/main",
-        "Rotom-tisserie Owl": "decidueye/rotom"
+        "Rotom-tisserie Owl": "decidueye/rotom",
+        "Nukebro": "decidueye/nukebro"
     },
     "Pikachu": {
-        "Contrary Lurantis": "pikachu/main"
+        "Contrary Lurantis": "pikachu/main",
+        "Nukebro": "pikachu/nukebro"
+    },
+    "Cinderace": {
+        "Nukebro": "cinderace/nukebro"
     }
 }

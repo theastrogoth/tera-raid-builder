@@ -791,15 +791,67 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/eevee/aura101.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('h_samurott/main', async () => {
+    const module = await import(`./data/strats/h_samurott/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dialga/main', async () => {
+    const module = await import(`./data/strats/dialga/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('palkia/main', async () => {
+    const module = await import(`./data/strats/palkia/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('iron_bundle/main', async () => {
+    const module = await import(`./data/strats/iron_bundle/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('blaziken/main', async () => {
+    const module = await import(`./data/strats/blaziken/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('empoleon/main', async () => {
+    const module = await import(`./data/strats/empoleon/main.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('venusaur/main', async () => {
+    const module = await import(`./data/strats/venusaur/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('blastoise/main', async () => {
+    const module = await import(`./data/strats/blastoise/main.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/main', async () => {
+    const module = await import(`./data/strats/charizard/main.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('meganium/main', async () => {
+    const module = await import(`./data/strats/meganium/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/main', async () => {
+    const module = await import(`./data/strats/primarina/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 describe('OHKO tests, Alternative Strats', () => {
-  test('decidueye/rotom', async () => {
-    const module = await import(`./data/strats/decidueye/rotom.json`)
+  test('cinderace/nukebro', async () => {
+    const module = await import(`./data/strats/cinderace/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/nukebro', async () => {
+    const module = await import(`./data/strats/pikachu/nukebro.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('decidueye/rotom', async () => {
     const module = await import(`./data/strats/decidueye/rotom.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('decidueye/nukebro', async () => {
+    const module = await import(`./data/strats/decidueye/nukebro.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('iron_leaves/krook', async () => {
@@ -814,20 +866,40 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/samurott/tauros.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  // test('samurott/nukebro', async () => {
+  //   const module = await import(`./data/strats/samurott/nukebro.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('typhlosion/hydriggly', async () => {
     const module = await import(`./data/strats/typhlosion/hydriggly.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('typhlosion/nukebro', async () => {
+    const module = await import(`./data/strats/typhlosion/nukebro.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('inteleon/tinkaton', async () => {
     const module = await import(`./data/strats/inteleon/tinkaton.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('inteleon/nukebro', async () => {
+    const module = await import(`./data/strats/inteleon/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('inteleon/burn_baby_burn', async () => {
     const module = await import(`./data/strats/inteleon/burn_baby_burn.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('chesnaught/nukebro', async () => {
+    const module = await import(`./data/strats/chesnaught/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('chesnaught/simple', async () => {
     const module = await import(`./data/strats/chesnaught/simple.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('delphox/nukebro', async () => {
+    const module = await import(`./data/strats/delphox/nukebro.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('delphox/nuke_baby', async () => {
@@ -852,6 +924,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('rillaboom/simian_showdown', async () => {
     const module = await import(`./data/strats/rillaboom/simian_showdown.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('rillaboom/nukebro', async () => {
+    const module = await import(`./data/strats/rillaboom/nukebro.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('rillaboom/timmys_revenge', async () => {
@@ -991,10 +1067,6 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/eevee/temper_tantrum.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('h_samurott/main', async () => {
-    const module = await import(`./data/strats/h_samurott/main.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
   test('h_samurott/eeveelution', async () => {
     const module = await import(`./data/strats/h_samurott/eeveelution.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1115,14 +1187,6 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_samurott/magnem_opus.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('dialga/main', async () => {
-    const module = await import(`./data/strats/dialga/main.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
-  test('palkia/main', async () => {
-    const module = await import(`./data/strats/palkia/main.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
   test('palkia/teatime', async () => {
     const module = await import(`./data/strats/palkia/teatime.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1141,10 +1205,6 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('palkia/piplup', async () => {
     const module = await import(`./data/strats/palkia/piplup.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
-  test('iron_bundle/main', async () => {
-    const module = await import(`./data/strats/iron_bundle/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('iron_bundle/steel_cats', async () => {
@@ -1173,10 +1233,6 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('iron_bundle/wishing_star', async () => {
     const module = await import(`./data/strats/iron_bundle/wishing_star.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
-  test('blaziken/main', async () => {
-    const module = await import(`./data/strats/blaziken/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('blaziken/bellibolt', async () => {
@@ -1263,10 +1319,6 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blaziken/rockabye.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('empoleon/main', async () => {
-    const module = await import(`./data/strats/empoleon/main.json`)
-    await testOHKO(module as LightBuildInfo); 
-  })
   test('empoleon/crab', async () => {
     const module = await import(`./data/strats/empoleon/crab.json`)
     await testOHKO(module as LightBuildInfo); 
@@ -1322,10 +1374,6 @@ describe('OHKO tests, Alternative Strats', () => {
   test('empleon/creepy_crawlies', async () => {
     const module = await import(`./data/strats/empoleon/creepy_crawlies.json`)
     await testOHKO(module as LightBuildInfo); 
-  })
-  test('venusaur/main', async () => {
-    const module = await import(`./data/strats/venusaur/main.json`)
-    await testOHKO(module as LightBuildInfo);
   })
   test('venusaur/eeveelutions', async () => {
     const module = await import(`./data/strats/venusaur/eeveelutions.json`)
@@ -1387,10 +1435,6 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/venusaur/froggy_forest.json`)
     await testOHKO(module as LightBuildInfo); 
   })
-  test('blastoise/main', async () => {
-    const module = await import(`./data/strats/blastoise/main.json`)
-    await testOHKO(module as LightBuildInfo); 
-  })
   test('blastoise/gastroporeon', async () => {
     const module = await import(`./data/strats/blastoise/gastroporeon.json`)
     await testOHKO(module as LightBuildInfo); 
@@ -1435,10 +1479,6 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blastoise/hocus_pokids.json`)
     await testOHKO(module as LightBuildInfo); 
   })
-  test('charizard/main', async () => {
-    const module = await import(`./data/strats/charizard/main.json`)
-    await testOHKO(module as LightBuildInfo); 
-  })
   test('charizard/sweet_dreams', async () => {
     const module = await import(`./data/strats/charizard/sweet_dreams.json`)
     await testOHKO(module as LightBuildInfo); 
@@ -1466,10 +1506,6 @@ describe('OHKO tests, Alternative Strats', () => {
   test('charizard/toddzilla_vs_rodan', async () => {
     const module = await import(`./data/strats/charizard/toddzilla_vs_rodan.json`)
     await testOHKO(module as LightBuildInfo); 
-  })
-  test('meganium/main', async () => {
-    const module = await import(`./data/strats/meganium/main.json`)
-    await testOHKO(module as LightBuildInfo);
   })
   test('meganium/godzilla', async () => {
     const module = await import(`./data/strats/meganium/godzilla.json`)
@@ -1565,10 +1601,6 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('meganium/bugs', async () => {
     const module = await import(`./data/strats/meganium/bugs.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
-  test('primarina/main', async () => {
-    const module = await import(`./data/strats/primarina/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('primarina/eeveelutions', async () => {

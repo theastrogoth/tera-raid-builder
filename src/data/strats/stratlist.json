@@ -12,7 +12,7 @@
         "Metal Heads Crash the Opera": "primarina/metal_heads",
         "Take your Child to Work Day": "primarina/child_to_work",
         "Apocalypse": "primarina/apocalypse",
-        "Nukebro": "primarina/nukebro"
+        "Nukebro vs. Primarina": "primarina/nukebro"
     },
     "Walking Wake": {
         "Drifting Wake": "walking_wake/main",
@@ -251,48 +251,48 @@
         "The Glitter Gang": "rillaboom/glitter_gang",
         "Simian Showdown": "rillaboom/simian_showdown",
         "Comeback Beetle": "rillaboom/beetle",
-        "Nukebro": "rillaboom/nukebro",
+        "Nukebro vs. Rillaboom": "rillaboom/nukebro",
         "Lil' Timmy's Revenge": "rillaboom/timmys_revenge"
     },
     "Delphox": {
         "Bonk!": "delphox/main",
         "Rain & Sustain": "delphox/rain&sustain",
-        "Nukebro 1": "delphox/nukebro",
-        "Nukebro 2": "delphox/nukebro_2",
+        "Nukebro vs. Delphox": "delphox/nukebro",
+        "Nukebro vs. Delphox Again": "delphox/nukebro_2",
         "Nuke Baby": "delphox/nuke_baby"
     },
     "Chesnaught": {
         "Flower Power": "chesnaught/main",
         "Go For Ghold": "chesnaught/ghold",
-        "Nukebro": "chesnaught/nukebro",
+        "Nukebro vs. Chesnaught": "chesnaught/nukebro",
         "Simple as That, Baby!": "chesnaught/simple"
     },
     "Inteleon": {
         "AP Fire Bull": "inteleon/main",
         "Tinkaton": "inteleon/tinkaton",
-        "Nukebro": "inteleon/nukebro",
+        "Nukebro vs. Inteleon": "inteleon/nukebro",
         "Burn Baby Burn!": "inteleon/burn_baby_burn"
     },
     "Typhlosion": {
         "AP Krook": "typhlosion/main",
         "Hydriggly": "typhlosion/hydriggly",
-        "Nukebro": "typhlosion/nukebro"
+        "Nukebro vs. Typhlosion": "typhlosion/nukebro"
     },
     "Samurott": {
         "Koraidon": "samurott/main",
         "AP Fire Bull": "samurott/tauros",
-        "Nukebro": "samurott/nukebro"
+        "Nukebro vs. Samurott": "samurott/nukebro"
     },
     "Decidueye": {
         "Miraidon": "decidueye/main",
         "Rotom-tisserie Owl": "decidueye/rotom",
-        "Nukebro": "decidueye/nukebro"
+        "Nukebro vs. Decidueye": "decidueye/nukebro"
     },
     "Pikachu": {
         "Contrary Lurantis": "pikachu/main",
-        "Nukebro": "pikachu/nukebro"
+        "Nukebro vs. Pikachu": "pikachu/nukebro"
     },
     "Cinderace": {
-        "Nukebro": "cinderace/nukebro"
+        "Nukebro vs. Cinderace": "cinderace/nukebro"
     }
 }

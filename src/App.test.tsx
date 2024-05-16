@@ -866,10 +866,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/samurott/tauros.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  // test('samurott/nukebro', async () => {
-  //   const module = await import(`./data/strats/samurott/nukebro.json`)
-  //   await testOHKO(module as LightBuildInfo);
-  // })
+  test('samurott/nukebro', async () => {
+    const module = await import(`./data/strats/samurott/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('typhlosion/hydriggly', async () => {
     const module = await import(`./data/strats/typhlosion/hydriggly.json`)
     await testOHKO(module as LightBuildInfo);
@@ -962,6 +962,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_decidueye/thirtysixtales.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('h_decidueye/nukebro', async () => {
+    const module = await import(`./data/strats/h_decidueye/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('h_decidueye/hoo_let_the_kids_cook', async () => {
     const module = await import(`./data/strats/h_decidueye/hoo_let_the_kids_cook.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1029,6 +1033,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('h_typhlosion/sinnoh_synergy', async () => {
     const module = await import(`./data/strats/h_typhlosion/sinnoh_synergy.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('h_typhlosion/nukebro', async () => {
+    const module = await import(`./data/strats/h_typhlosion/nukebro.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('h_typhlosion/pinch', async () => {

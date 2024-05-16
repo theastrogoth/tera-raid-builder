@@ -12,7 +12,7 @@
         "Metal Heads Crash the Opera": "primarina/metal_heads",
         "Take your Child to Work Day": "primarina/child_to_work",
         "Apocalypse": "primarina/apocalypse",
-        "Nukebro": "primarina/nukebro"
+        "Nukebro vs. Primarina": "primarina/nukebro"
     },
     "Walking Wake": {
         "Drifting Wake": "walking_wake/main",
@@ -227,6 +227,7 @@
         "Hydro Cannon Mew": "h_typhlosion/mew",
         "The Quag-kening": "h_typhlosion/quagkening",
         "Sinnoh Synergy": "h_typhlosion/sinnoh_synergy",
+        "Nukebro vs. Hyphlosion": "h_typhlosion/nukebro",
         "Cinch, Clinch, & Pinch": "h_typhlosion/pinch"
     },
     "Decidueye-Hisui": {
@@ -236,6 +237,7 @@
         "Tickle Squad: Charizard Edition": "h_decidueye/tickle_squad_charizard",
         "Thirtysixtales": "h_decidueye/thirtysixtales",
         "Owl Kabob": "h_decidueye/owl_kabob",
+        "Nukebro vs. Hecidueye": "h_decidueye/nukebro",
         "Hoo Let the Kids Cook?": "h_decidueye/hoo_let_the_kids_cook"
     },
     "Mewtwo": {
@@ -251,36 +253,48 @@
         "The Glitter Gang": "rillaboom/glitter_gang",
         "Simian Showdown": "rillaboom/simian_showdown",
         "Comeback Beetle": "rillaboom/beetle",
+        "Nukebro vs. Rillaboom": "rillaboom/nukebro",
         "Lil' Timmy's Revenge": "rillaboom/timmys_revenge"
     },
     "Delphox": {
         "Bonk!": "delphox/main",
         "Rain & Sustain": "delphox/rain&sustain",
+        "Nukebro vs. Delphox": "delphox/nukebro",
+        "Nukebro vs. Delphox Again": "delphox/nukebro_2",
         "Nuke Baby": "delphox/nuke_baby"
     },
     "Chesnaught": {
         "Flower Power": "chesnaught/main",
         "Go For Ghold": "chesnaught/ghold",
+        "Nukebro vs. Chesnaught": "chesnaught/nukebro",
         "Simple as That, Baby!": "chesnaught/simple"
     },
     "Inteleon": {
         "AP Fire Bull": "inteleon/main",
         "Tinkaton": "inteleon/tinkaton",
+        "Nukebro vs. Inteleon": "inteleon/nukebro",
         "Burn Baby Burn!": "inteleon/burn_baby_burn"
     },
     "Typhlosion": {
         "AP Krook": "typhlosion/main",
-        "Hydriggly": "typhlosion/hydriggly"
+        "Hydriggly": "typhlosion/hydriggly",
+        "Nukebro vs. Typhlosion": "typhlosion/nukebro"
     },
     "Samurott": {
         "Koraidon": "samurott/main",
-        "AP Fire Bull": "samurott/tauros"
+        "AP Fire Bull": "samurott/tauros",
+        "Nukebro vs. Samurott": "samurott/nukebro"
     },
     "Decidueye": {
         "Miraidon": "decidueye/main",
-        "Rotom-tisserie Owl": "decidueye/rotom"
+        "Rotom-tisserie Owl": "decidueye/rotom",
+        "Nukebro vs. Decidueye": "decidueye/nukebro"
     },
     "Pikachu": {
-        "Contrary Lurantis": "pikachu/main"
+        "Contrary Lurantis": "pikachu/main",
+        "Nukebro vs. Pikachu": "pikachu/nukebro"
+    },
+    "Cinderace": {
+        "Nukebro vs. Cinderace": "cinderace/nukebro"
     }
 }

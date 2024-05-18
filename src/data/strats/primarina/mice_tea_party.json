@@ -162,8 +162,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Skill Swap",
-                "Trick Room"
+                "Skill Swap"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],

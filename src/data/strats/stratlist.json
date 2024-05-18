@@ -1,6 +1,7 @@
 {
     "Primarina": {
         "Steel the Show": "primarina/main",
+        "Roll Out the Yellow Carpet": "primarina/yellow_carpet",
         "Team Eeveelutions Fires up the Stage": "primarina/eeveelutions",
         "Godzilla vs. Ebirah": "primarina/godzilla",
         "Fire Starters Light up the Stage": "primarina/fire_starters",
@@ -12,6 +13,8 @@
         "Metal Heads Crash the Opera": "primarina/metal_heads",
         "Take your Child to Work Day": "primarina/child_to_work",
         "Apocalypse": "primarina/apocalypse",
+        "Start Your Engines": "primarina/start_your_engines",
+        "Ladies' Night": "primarina/ladies_night",
         "Nukebro vs. Primarina": "primarina/nukebro",
         "A Very Mice Tea Party": "primarina/mice_tea_party"
     },

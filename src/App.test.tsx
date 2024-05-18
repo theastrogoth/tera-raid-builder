@@ -1611,6 +1611,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/meganium/bugs.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('primarina/yellow_carpet', async () => {
+    const module = await import(`./data/strats/primarina/yellow_carpet.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('primarina/eeveelutions', async () => {
     const module = await import(`./data/strats/primarina/eeveelutions.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1653,6 +1657,14 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('primarina/apocalypse', async () => {
     const module = await import(`./data/strats/primarina/apocalypse.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/start_your_engines', async () => {
+    const module = await import(`./data/strats/primarina/start_your_engines.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/ladies_night', async () => {
+    const module = await import(`./data/strats/primarina/ladies_night.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('primarina/nukebro', async () => {

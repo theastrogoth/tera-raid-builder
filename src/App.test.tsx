@@ -1659,6 +1659,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/primarina/nukebro.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('primarina/mice_tea_party', async () => {
+    const module = await import(`./data/strats/primarina/mice_tea_party.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

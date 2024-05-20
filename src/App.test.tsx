@@ -279,7 +279,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].flags[1].length).toEqual(0);
     expect(result.turnResults[2].results[1].desc.includes("Tera Ghost")).toEqual(false);
     // T4: Annihilape has attacked 4 times (at the end of the turn), has activated Tera
-    expect(result.turnResults[3].state.raiders[1].teraCharge).toEqual(4);
+    expect(result.turnResults[3].state.raiders[1].teraCharge).toEqual(3); // capped at 3
     expect(result.turnResults[3].state.raiders[1].isTera).toEqual(true);
     expect(result.turnResults[3].flags[1][0].includes("Tera activated")).toEqual(true);
     expect(result.turnResults[3].results[1].desc[0].includes("Tera Ghost")).toEqual(true);
@@ -1673,6 +1673,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('primarina/mice_tea_party', async () => {
     const module = await import(`./data/strats/primarina/mice_tea_party.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/opera_faux_pas', async () => {
+    const module = await import(`./data/strats/primarina/opera_faux_pas.json`)
     await testOHKO(module as LightBuildInfo);
   })
 })

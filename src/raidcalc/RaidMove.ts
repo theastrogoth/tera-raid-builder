@@ -5,7 +5,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, hasNoStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction } from "./util";
+import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -773,7 +773,7 @@ export class RaidMove {
         //     }
         // }
         // adjust tera charge
-        if ((this.moveData.category?.includes("damage") || (this.moveData.category === "unique" && this.moveData.power)) && hasCausedDamage) {
+        if ((this.moveData.category?.includes("damage") || (this.moveData.category === "unique" && this.moveData.power)) && hasCausedDamage && this._user.teraCharge < 3) {
             this._user.teraCharge++;
         } 
     }

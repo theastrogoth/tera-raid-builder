@@ -5,12 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Primarina",
-            "name": "Primarina",
+            "role": "Raid Boss",
+            "name": "Swampert",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Liquid Voice",
-            "nature": "Modest",
+            "ability": "Damp",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -29,23 +29,24 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Fairy",
+            "teraType": "Poison",
             "moves": [
-                "Moonblast",
-                "Sparkling Aria",
-                "Sing",
-                "Psychic"
+                "Poison Jab",
+                "Liquidation",
+                "Earthquake",
+                "Knock Off"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Encore",
-                "Surf",
-                "(No Move)"
+                "Yawn",
+                "Amnesia",
+                "Curse",
+                "Scary Face"
             ],
             "shieldData": {
                 "hpTrigger": 80,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 50,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -53,18 +54,18 @@
         },
         {
             "id": 1,
-            "role": "Copperajah",
-            "name": "Copperajah",
+            "role": "Espeon",
+            "name": "Espeon",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Sheer Force",
-            "item": "Choice Band",
-            "nature": "Adamant",
+            "ability": "Synchronize",
+            "item": "Choice Specs",
+            "nature": "Modest",
             "evs": {
                 "hp": 252,
-                "atk": 252,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -79,7 +80,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Heavy Slam"
+                "Stored Power"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -99,12 +100,12 @@
             "shiny": false,
             "isAnyLevel": false,
             "ability": "Sweet Veil",
-            "item": "Focus Sash",
-            "nature": "Calm",
+            "item": "Kebia Berry",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -117,7 +118,7 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "F",
             "moves": [
                 "Decorate"
@@ -135,19 +136,19 @@
         },
         {
             "id": 3,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Maushold",
+            "name": "Maushold",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Steely Spirit",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "Friend Guard",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -161,10 +162,8 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Throat Chop",
-                "Iron Head"
+                "Fake Tears",
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -179,19 +178,19 @@
         },
         {
             "id": 4,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Maushold",
+            "name": "Maushold",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Steely Spirit",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "Friend Guard",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -205,10 +204,8 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Throat Chop",
-                "Iron Head"
+                "Fake Tears",
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],

@@ -1256,7 +1256,8 @@ export class RaidMove {
                 break;
         /// Item-affecting moves
             case "Knock Off":
-                this._raidState.loseItem(this._targetID, false);
+                // Knock Off doesn't remove raiders' items
+                // this._raidState.loseItem(this._targetID, false);
                 break;
             case "Switcheroo":
             case "Trick":

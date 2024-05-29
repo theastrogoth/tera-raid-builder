@@ -596,6 +596,9 @@ export class RaidTurn {
                         this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
                     }
                     break;
+                // case "Cud Chew":
+                //     if this.turnNumber
+                //     break;
                 case "Slow Start": 
                     if (pokemon.slowStartCounter) {
                         pokemon.slowStartCounter--;
@@ -613,11 +616,17 @@ export class RaidTurn {
     private removeProtection() {
         const fields = this._raidState.fields;
         fields[this.raiderID].attackerSide.isProtected = false;
-        fields[this.raiderID].attackerSide.isWideGuard = false;
-        fields[this.raiderID].attackerSide.isQuickGuard = false;
+        // fields[this.raiderID].attackerSide.isWideGuard = false;
+        // fields[this.raiderID].attackerSide.isQuickGuard = false;
         fields[0].attackerSide.isProtected = false;
-        fields[0].attackerSide.isWideGuard = false;
-        fields[0].attackerSide.isQuickGuard = false;
+        // fields[0].attackerSide.isWideGuard = false;
+        // fields[0].attackerSide.isQuickGuard = false;
+        for (let field of fields) {
+            if (this.turnNumber % 4 === 3) {
+                field.attackerSide.isWideGuard = false;
+                field.attackerSide.isQuickGuard = false;
+            }
+        }
     }
 
     private countDownFieldEffects() {

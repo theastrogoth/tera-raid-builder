@@ -78,6 +78,8 @@ type Modifiers = {
     yawn?: boolean,
     throatChop?: boolean,
     substituteHP?: number,
+    wideGuard?: boolean,
+    quickGuard?: boolean,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -194,7 +196,8 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
             }
             else if (modifier === "boostedStat") {
                 return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
-            } else if (modifier === "choiceLocked" || modifier === "encore" || modifier === "disable") {
+            } 
+            else if (modifier === "choiceLocked" || modifier === "encore" || modifier === "disable") {
                 return value !== "" && <ModifierChoiceLockTag modifier={modifier} value={value} translationKey={translationKey}/>
             }
             break;
@@ -462,6 +465,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "yawn": raider.isYawn !== undefined && raider.isYawn !== 0,
             "throatChop": raider.isThroatChop !== undefined && raider.isThroatChop !== 0,
             "substituteHP": raider.substitute,
+            "wideGuard": raider.field.attackerSide.isWideGuard,
+            "quickGuard": raider.field.attackerSide.isQuickGuard,
         }
     }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));

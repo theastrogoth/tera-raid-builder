@@ -947,6 +947,8 @@ export function calculateBPModsSMSSSV(
   // Move effects
 
   let resistedKnockOffDamage =
+    //@ts-ignore (this is a hack, this should probably be made type safe at some point)
+    (attacker.hasOwnProperty("id") && attacker.id === 0) || // the Raid Boss does not get a boost to Knock Off
     !defender.item ||
     (defender.named('Dialga-Origin') && defender.hasItem('Adamant Crystal')) ||
     (defender.named('Palkia-Origin') && defender.hasItem('Lustrous Globe')) ||

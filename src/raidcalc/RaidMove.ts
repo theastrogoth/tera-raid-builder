@@ -712,6 +712,10 @@ export class RaidMove {
                         if (this.moveData.name === "Fling" && this._user.item) {
                             this._flingItem = moveUser.item;
                             this._raidState.loseItem(this.userID);
+                            this._user.lastConsumedItem = this._flingItem;
+                            if (this._user.hasAbility("Cud Chew") && this._flingItem!.includes("Berry")) {
+                                this._user.isCudChew = 2;
+                            }
                         }
                     } 
                     catch {

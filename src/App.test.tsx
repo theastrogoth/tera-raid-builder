@@ -105,7 +105,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].state.raiders[1].abilityOn).toEqual(true);
   })
   test('protection', async () => {
-    const hash = "#H4sIAAAAAAAAA71WTW/bMAz9K4ZOG6BDPtu1t6zttgJt0a0Begh8YG3aUSNLniQHDYr+91GynTjDVnhbF9iSKZrkE59Iw88sY6csebRaMc4cO10sBpwpKJDF3IsibYTECEcmFhOtUjCbiyzDxFlSGS2lNxpyVlk0l+c+EpgcXRB16YRW1luMOMuNrkrSFnqNlyrTJD5oa6/bZQ229CbgVjSnmHnYEsKchhm3ZnMj8hyNRxQF7lZ2KVCmZ6ASlOdQQI5bZb38Bu5Xqjka+I36bAkqxyZRpR363BODqQgslHqFRc1iZZTXhFQDQVgiBCNbPVgnXOWdaz6IPL+PwHjAVRt6CjtTmytco/Q8PAgpXFA7LIIxQXhzXPugIsyysc5RpTUhtOf5psSGbNsyXUknSimCDT45A9fN2zZpByyOOVuz02dGBfGBM9bci6A44UT9uYFcKxFI7MgZSIvNzN7d6GhWb/4946qSkrMvYFJKJQQ6okDbK35plePhTze9Gg4I86YJsmAzNAJkNEs8/AUYt/xewSosKCMsMLorEX3pesdFXIc+3sdrEU84HehVlYARvhy30iu5sHuElUJro1stReLP5lqnaN02s9F0FHCa5x9ldwPWbaJbqX3DfdJJZaOPEnxwdmuo8BLXNzEqsDun1aOmkgwHvrc60GHdixSjzxXF6rvtMSUqVpAsK9aRXjuPmqU7sEv2ZjWW123Xc88TzuYgtcpk3crdxYGI/lqJZNWP6bjp5WlQBXGyqy5qiEY53t97IRTbJU0e3UYckFvj5EyF9cQKeAourdOUH7V25N8t9eHO/+1Bh9QLrX+nIPmob6bdr0xf0BFV8nbTTTmRavz/EKdUh4dFHBNm698tQNpIX2b3Ptm9gSdUSP+Q6t+BHtN1MFBq0sWApiP/z+F/F2hMaYxpTGgcx+FnZO/yPjFv7zh+efkBkfu69OMJAAA=";
+    const hash = "#H4sIAAAAAAAAA71W3U/bMBD/Vyo/bZIf+gmMtw7YhgSoG5V4qPJwJJfU1LEz26moEP/7zk7Spmig7IPKiWNf7vy7+/nO8hNL2SmLH6xWjDPHTheLPmcKcmQR90OR1IPYCEcqFmOtEjCbizTF2FkSGS2lVxpwVlo0l+d+JTAZujDUhRNaWa8x5CwzuixImus1XqpU0/BeW3vdTElrxNlSOFvjLr02uBX1CabegwJCn4Qet2pzI7IMjQcXOe5mdilQJmegYpTnkEOGW2E1/QHud6I5GnhFfLYElWEds9IOPQ2xwUQEQgq9wrwitDTKS0LUgSssEIKSLe+tE670xhU1xKP3I5AfcNWGvsJO1eYK1yg9D/dCChfEDvOgTBBeHdd+URF6WWtnqJKKEPJ5vimw5t02pJfSiUKKoIOPzsB1/bcJ2gGLIs7W7PSJUW584ozVzyIIBn1O3J8byLQSgcXWOAVpse7Zhxvdm1bef2RclVJy9g1MQrGElY55f9ei50Y4Grx46NegT5g39SILNkUjQPamsYe/AOOWP0tYhQmFhDn2bgtEn8becBFVS5/s4zWIFBBt6VUZgxE+N7ejN4Jhdwgrhdb2ZlqK2O/OtU7Qum1ow8kwANXfPwrvBqzb9GZS++r7ouPS9j5L8IuzmaHUi13nyCjHbp1WD5qyMuz53uxA23UnEux9LWmtzn7TgTATK4iXJWuN3tqRiqdbsEv239Isq0qvq9NjzuYgtUplVc/tyYGo/l6KeNWN66gu6EkQheF4l2BUE4NKONr3PReK7aImi3Yx9ndGzpRYdSyHx2DSGE34UaNH9u1sf1fQAVVDY99KSZIOu4G2T5quoENK5a3TdT6RaPR+iBPKw8MijgizsW8nIDky7oi6d2x3Bh5TIv1DqH8Hekzt4KAn1F4HPdoHhXVGpdQJ9lXLcD4s+tQd+TuPv67QO/F3NXrH9B7TexKFC9GL5i0j3jxR9Pz8C4/drlB0CgAA";
     const result = await resultsFromHash(hash);
     // T1 Lucario Protects, no damage
     expect(result.turnResults[0].results[1].damage[1]).toEqual(0);
@@ -115,16 +115,18 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].results[1].damage[2]).toEqual(0);
     // T4 Stonjourner's Wide Guard blocks Earthquake for ally
     expect(result.turnResults[3].results[1].damage[3]).toEqual(0);
-    // T5 Stonjourner's Wide Guard wore off for ally, damage inflicted (Focus Sash used)
+    // T5 Stonjourner's Wide Guard wore off for ally (since "turn 1" is over), damage inflicted (Focus Sash used)
     expect(result.turnResults[4].results[1].damage[3]).toBeGreaterThan(0);
     expect(result.turnResults[4].state.raiders[3].originalCurHP).toEqual(1);
     // T6 Talonflame's Quick Guard blocks Extreme Speed
     expect(result.turnResults[5].results[1].damage[4]).toEqual(0);
     // T7 Talonflame's Quick Guard blocks Extreme Speed for ally
     expect(result.turnResults[6].results[0].damage[3]).toEqual(0);
-    // T8 Talonflame's Quick Guard wore off for ally, damage inflicted
-    expect(result.turnResults[7].results[0].damage[3]).toBeGreaterThan(0);
-    expect(result.turnResults[7].state.raiders[3].originalCurHP).toEqual(0);
+    // T8 Talonflame's Quick Guard blocks Extreme Speed for ally (Still on T2)
+    expect(result.turnResults[7].results[0].damage[3]).toEqual(0);
+    // T9 Talonflame's Quick Guard wore off for ally (T2 is over), damage inflicted
+    expect(result.turnResults[8].results[0].damage[3]).toBeGreaterThan(0);
+    expect(result.turnResults[8].state.raiders[3].originalCurHP).toEqual(0);
   })
   test('sapsipper_eartheater_flashfire_stormdrain', async () => {
     const hash = "#H4sIAAAAAAAAA7VUwW7bMAz9FYOnDdAhjtOtyK1A063Asg3IboEPqk0nWmXJoOSkWZF/HyXbRdIhW4AusEFQlB7fI0X7GSqYQvHTWQMCPEyXy5EAI2uEXARXlb1TkPJ8xGFhTSlpN6sqLLzjEFmtw6FUQOuQ7m9DJkkr9NG1jVfWuHBiLGBFtm04WtsN3pvKsvtgnZsPyy6PsR5D6oKwVJGksY9YdyJbMiESM7le3TrklP6RbYlV0NnIaMtosWdnqQh9fXz+QWnld+wpj3WMc/Kwg5vAoKLVuEEdeJHkj12DvXg3KG+1V41WSAH35EnO426eC9jA9Bm4px8EQP8uY+BasOY5bmGw777a5KaT8x6EabUW8FlSyeIi4CMDXp58PwSz9NXLW+lo1CVYwkySXyff7TaKu9Nctl9Tv1y0FBo1lytVSJ18QVlxlwJ6mQ8M14Iv4+ZXW0tSOjTh0F/IJlmopgnZ/pPiP/n50r5xEVtL4YIO3K62mfQXpc+4ZCqkUSbc+4HLzXTr5E6FcbkY+0TAJ+k82TJO/qG/8NyG5JakMhcQkPdzeiX6vbiadHMa5puHNOW9GM5EJbXD3kLNijjD/gVzNGEMSgeYpxY7A7V8iqABdsW1nyIen0t8PPAHxB3gFHP6duajD+/ciscnebM3V/xX4uwk8eRc4u5n8i/CPA7X/jfO8D3QdQYAAA==";

@@ -61,7 +61,7 @@ export class RaidState implements State.RaidState{
             if (pokemon.item === "Focus Sash" || pokemon.ability === "Sturdy") {
                 if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
                     pokemon.originalCurHP = 1;
-                    if (pokemon.ability !== "Sturdy") { this.loseItem(id); } 
+                    if (pokemon.ability !== "Sturdy") { this.consumeItem(id, pokemon.item!); } 
                     fainted = false;
                 }
             }
@@ -91,85 +91,71 @@ export class RaidState implements State.RaidState{
             // TO DO - abilities that let users use berries more than once
             if (isSuperEffective) {
                 if (!fainted && pokemon.item === "Weakness Policy") { // weakness policy isn't consumed if the target faints (?)
-                    this.applyStatChange(id, {atk: 2, spa: 2}, true, id)
-                    this.loseItem(id);
+                    this.consumeItem(id, pokemon.item, true);
                 } else if (!unnerve) {
                     switch (pokemon.item) {
                         case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
-                            if (moveType === "Fire") { this.loseItem(id); }
+                            if (moveType === "Fire") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Passho Berry":
-                            if (moveType === "Water") { this.loseItem(id); }
+                            if (moveType === "Water") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Wacan Berry":
-                            if (moveType === "Electric") { this.loseItem(id); }
+                            if (moveType === "Electric") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Rindo Berry":
-                            if (moveType === "Grass") { this.loseItem(id); }
+                            if (moveType === "Grass") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Yache Berry":
-                            if (moveType === "Ice") { this.loseItem(id); }
+                            if (moveType === "Ice") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Chople Berry":
-                            if (moveType === "Fighting") { this.loseItem(id); }
+                            if (moveType === "Fighting") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Kebia Berry":
-                            if (moveType === "Poison") { this.loseItem(id); }
+                            if (moveType === "Poison") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Shuca Berry":
-                            if (moveType === "Ground") { this.loseItem(id); }
+                            if (moveType === "Ground") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Coba Berry":
-                            if (moveType === "Flying") { this.loseItem(id); }
+                            if (moveType === "Flying") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Payapa Berry":
-                            if (moveType === "Psychic") { this.loseItem(id); }
+                            if (moveType === "Psychic") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Tanga Berry":
-                            if (moveType === "Bug") { this.loseItem(id); }
+                            if (moveType === "Bug") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Charti Berry":
-                            if (moveType === "Rock") { this.loseItem(id); }
+                            if (moveType === "Rock") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Kasib Berry":
-                            if (moveType === "Ghost") { this.loseItem(id); }
+                            if (moveType === "Ghost") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Haban Berry":
-                            if (moveType === "Dragon") { this.loseItem(id); }
+                            if (moveType === "Dragon") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Colbur Berry":
-                            if (moveType === "Dark") { this.loseItem(id); }
+                            if (moveType === "Dark") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Babiri Berry":
-                            if (moveType === "Steel") { this.loseItem(id); }
+                            if (moveType === "Steel") { this.consumeItem(id, pokemon.item); }
                             break;
                         case "Roseli Berry":
-                            if (moveType === "Fairy") { this.loseItem(id); }
+                            if (moveType === "Fairy") { this.consumeItem(id, pokemon.item); }
                             break;
                         default: break;
                     }
                 }
             }
             /// Non-super effective items consumed after damage
-            // Chilan Berry
-            if (!unnerve && pokemon.item === "Chilan Berry" && moveType === "Normal") {
-                this.loseItem(id);
-            // Absorb Bulb
-            } else if (pokemon.item === "Absorb Bulb" && moveType === "Water") {
-                this.applyStatChange(id, {spa: 1}, true, id);
-                this.loseItem(id);
-            // Cell Battery
-            } else if (pokemon.item === "Cell Battery" && moveType === "Electric") {
-                this.applyStatChange(id, {atk: 1}, true, id);
-                this.loseItem(id);
-            // Luminous Moss
-            } else if (pokemon.item === "Luminous Moss" && moveType === "Water") {
-                this.applyStatChange(id, {spd: 1}, true, id);
-                this.loseItem(id);
-            // Snowball
-            } else if (pokemon.item === "Snowball" && moveType === "Ice") {
-                this.applyStatChange(id, {atk: 1}, true, id);
-                this.loseItem(id);
+            if ( (!unnerve && pokemon.item === "Chilan Berry" && moveType === "Normal") ||
+                 (pokemon.item === "Absorb Bulb" && moveType === "Water") ||
+                 (pokemon.item === "Cell Battery" && moveType === "Electric") || 
+                 (pokemon.item === "Luminous Moss" && moveType === "Water") ||
+                 (pokemon.item === "Snowball" && moveType === "Ice") ) {
+                this.consumeItem(id, pokemon.item, true);
             }
  
             /// abilities triggered by damage even if the target faints
@@ -252,12 +238,8 @@ export class RaidState implements State.RaidState{
         if (!unnerve && pokemon.item && pokemon.item?.includes("Berry")) {
             // 50% HP Berries
             if (pokemon.originalCurHP <= maxHP / 2) {
-                if (pokemon.item === "Sitrus Berry") {
-                    pokemon.originalCurHP += Math.floor(maxHP / 4);
-                    this.loseItem(id);
-                } else if (pokemon.item === "Oran Berry") {
-                    pokemon.originalCurHP = Math.min(maxHP, pokemon.originalCurHP + 10);
-                    this.loseItem(id);
+                if (pokemon.item === "Sitrus Berry" || pokemon.item === "Oran Berry") {
+                    this.consumeItem(id, pokemon.item as ItemName, true)
                 }
             }
             // 33% HP Berries
@@ -271,40 +253,210 @@ export class RaidState implements State.RaidState{
             if ((pokemon.originalCurHP <= maxHP / 4) || (pokemon.hasAbility("Gluttony") && (pokemon.originalCurHP <= maxHP / 2))) {
                 switch (pokemon.item) {
                     case "Liechi Berry":
-                        this.applyStatChange(id, {atk: 1}, true, id);
-                        this.loseItem(id);
-                        break;
                     case "Ganlon Berry":
-                        this.applyStatChange(id, {def: 1}, true, id);
-                        this.loseItem(id);
-                        break;
                     case "Petaya Berry":
-                        this.applyStatChange(id, {spa: 1}, true, id);
-                        this.loseItem(id);
-                        break;
                     case "Apicot Berry":
-                        this.applyStatChange(id, {spd: 1}, true, id);
-                        this.loseItem(id);
-                        break;
                     case "Salac Berry":
-                        this.applyStatChange(id, {spe: 1}, true, id);
-                        this.loseItem(id);
-                        break;
                     case "Lansat Berry":
-                        if (!pokemon.isPumped) {
-                            pokemon.isPumped = 2;
-                            this.loseItem(id);
-                        }
-                        break;
                     case "Micle Berry":
-                        pokemon.isMicle = true;
-                        this.loseItem(id);
+                        this.consumeItem(id, pokemon.item as ItemName, true);
                         break;
                 }
             }
         }
         // Final Check for fainting
         if (fainted) { this.faint(id); }
+    }
+
+    public consumeItem(id: number, item: ItemName, lost: boolean = true) {
+        const pokemon = this.getPokemon(id);
+        switch (item) {
+            case "White Herb":
+                for (let stat in pokemon.boosts) {
+                    const statId = stat as StatIDExceptHP;
+                    if ((pokemon.boosts[statId] || 0) < 0) { 
+                        pokemon.boosts[statId] = 0; 
+                        pokemon.lastConsumedItem = item as ItemName;
+                        this.loseItem(id);
+                    }
+                }
+                break;
+            // Status-Curing Berries
+            case "Cheri Berry":
+                if (pokemon.status === "par") { 
+                    pokemon.status = "";
+                    pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Chesto Berry":
+                if (pokemon.status === "slp") { 
+                    pokemon.status = "";
+                    pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Pecha Berry":
+                if (pokemon.status === "psn") { 
+                    pokemon.status = "";
+                    pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Rawst Berry":
+                if (pokemon.status === "brn") { 
+                    pokemon.status = "";
+                    pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Aspear Berry":
+                if (pokemon.status === "frz") { 
+                    pokemon.status = "";
+                    pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Lum Berry":
+                if (pokemon.status !== "") { 
+                    pokemon.status = "";
+                    pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.isCudChew = 2;
+                }
+                if (pokemon.volatileStatus.includes("confusion")) { 
+                    pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Persim Berry": 
+                if (pokemon.volatileStatus.includes("confusion")) { 
+                    pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            // Stat-Boosting Berries
+            case "Liechi Berry":
+                const atkDiff = this.applyStatChange(id, {atk: 1});
+                if (atkDiff.atk){
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Ganlon Berry":
+                const defDiff = this.applyStatChange(id, {def: 1});
+                if (defDiff.def){
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Petaya Berry":
+                const spaDiff = this.applyStatChange(id, {spa: 1});
+                if (spaDiff.spa){
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Apicot Berry":
+                const spdDiff = this.applyStatChange(id, {spd: 1});
+                if (spdDiff.spd){
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Salac Berry":
+                const speDiff = this.applyStatChange(id, {spe: 1});
+                if (speDiff.spe){
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Lansat Berry":
+                if (!pokemon.isPumped) {
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                pokemon.isPumped = 2;
+                break;
+            case "Micle Berry":
+                if (!pokemon.isMicle) {
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                pokemon.isMicle = true;
+                break;
+            // Healing Berries (TO DO, other healing berries that confuse depending on nature)
+            case "Sitrus Berry":
+                const maxhp = pokemon.maxHP();
+                if (pokemon.originalCurHP < maxhp) {
+                    pokemon.originalCurHP = Math.min(maxhp, pokemon.originalCurHP + Math.floor(maxhp / 4));
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            case "Oran Berry":
+                if (pokemon.originalCurHP < pokemon.maxHP()) {
+                    pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + 10);
+                    pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.isCudChew = 2;
+                }
+                break;
+            // Terrain Seeds
+            case "Electric Seed": 
+            case "Grassy Seed":
+                const gsdiff = this.applyStatChange(id, {def: 1}, true, id);
+                if (gsdiff.def){
+                    pokemon.lastConsumedItem = item as ItemName;
+                }
+                break;
+            case "Psychic Seed":
+            case "Misty Seed":
+                const msdiff = this.applyStatChange(id, {spd: 1}, true, id);
+                if (msdiff.spd){
+                    pokemon.lastConsumedItem = item as ItemName;
+                }
+                break;
+            // Other boosting items
+            case "Weakness Policy":
+                const wpdiff = this.applyStatChange(id, {atk: 2, spa: 2}, true, id);
+                if (wpdiff.atk || wpdiff.spa){
+                    pokemon.lastConsumedItem = item as ItemName;
+                }
+                break;
+            case "Absorb Bulb":
+            case "Throat Spray":
+                const tsdiff = this.applyStatChange(id, {spa: 1}, true, id);
+                if (tsdiff.spa){
+                    pokemon.lastConsumedItem = item as ItemName;
+                }
+                break;
+            case "Luminous Moss":
+                const lmdiff = this.applyStatChange(id, {spd: 1}, true, id);
+                if (lmdiff.spd){
+                    pokemon.lastConsumedItem = item as ItemName;
+                }
+                break;
+            case "Cell Battery":
+            case "Snowball":
+                const sbdiff = this.applyStatChange(id, {atk: 1}, true, id);
+                if (sbdiff.atk){
+                    pokemon.lastConsumedItem = item as ItemName;
+                }
+                break;
+            // Other
+            case "Mental Herb":
+                const vslen = pokemon.volatileStatus.length;
+                pokemon.volatileStatus = [...pokemon.volatileStatus].filter(status => !["infatuation", "taunt", "encore", "disable", "torment", "heal-block"].includes(status));
+                if (pokemon.volatileStatus.length < vslen) {
+                    pokemon.lastConsumedItem = item as ItemName;
+                }
+                break;
+            default: 
+                pokemon.lastConsumedItem = item as ItemName;
+                break;
+        }
+        if (lost) { this.loseItem(id); }
     }
 
     public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {
@@ -377,23 +529,17 @@ export class RaidState implements State.RaidState{
                         }
                     }
                     if (hasPositiveBoost) {
-                        this.applyStatChange(opponentId, positiveDiff, false, id);
-                        if (opponent.item === "Mirror Herb") { this.loseItem(opponentId); }
+                        const changes = this.applyStatChange(opponentId, positiveDiff, false, id);
+                        if (Object.values(changes).some(val => val > 0) && opponent.item === "Mirror Herb") { 
+                            this.consumeItem(opponentId, opponent.item); 
+                        }
                     }
                 }
             }
         }
         // White Herb
         if (pokemon.item === "White Herb") {
-            let used = false
-            for (const stat in pokemon.boosts) {
-                const statId = stat as StatIDExceptHP;
-                if ((pokemon.boosts[statId] || 0) < 0) {
-                    pokemon.boosts[statId] = 0;
-                    used = true;
-                }
-            }
-            if (used) { this.loseItem(id); }
+            this.consumeItem(id, pokemon.item, false); // It will be consumed and removed only if there are negative stat changes
         }
  
         return diff;
@@ -437,15 +583,13 @@ export class RaidState implements State.RaidState{
         }
 
         // Status curing berries
-        if (pokemon.item === "Cheri Berry" && pokemon.status === "par") { pokemon.status = ""; this.loseItem(id); }
-        if (pokemon.item === "Chesto Berry" && pokemon.status === "slp") { pokemon.status = ""; pokemon.isSleep = 0; this.loseItem(id); }
-        if (pokemon.item === "Pecha Berry" && pokemon.status === "psn") { pokemon.status = ""; this.loseItem(id); }
-        if (pokemon.item === "Rawst Berry" && pokemon.status === "brn") { pokemon.status = ""; this.loseItem(id); }
-        if (pokemon.item === "Aspear Berry" && pokemon.status === "frz") { pokemon.status = ""; this.loseItem(id); }
-        if (pokemon.item === "Lum Berry" && pokemon.status !== "") { 
-            pokemon.status = ""; 
-            pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
-            this.loseItem(id); 
+        if ( (pokemon.item === "Cheri Berry" && pokemon.status === "par") || 
+             (pokemon.item === "Chesto Berry" && pokemon.status === "slp") ||
+             (pokemon.item === "Pecha Berry" && pokemon.status === "psn") ||
+             (pokemon.item === "Rawst Berry" && pokemon.status === "brn") ||
+             (pokemon.item === "Aspear Berry" && pokemon.status === "frz") ||
+             (pokemon.item === "Lum Berry" && pokemon.status !== "") ) { 
+            this.consumeItem(id, pokemon.item, true);
         }
     }
 
@@ -496,22 +640,16 @@ export class RaidState implements State.RaidState{
             }
         }
 
-        // Volatile Status curing berries
-        if (pokemon.hasItem("Persim Berry", "Lum Berry") && pokemon.volatileStatus.includes("confusion")) { 
-            pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
-            this.loseItem(id);
-        }
-        // Mental herb
-        if (pokemon.hasItem("Mental Herb")) {
-            const originalVolatileStatus = [...pokemon.volatileStatus];
-            pokemon.volatileStatus = pokemon.volatileStatus.filter(status => !["infatuation", "taunt", "encore", "disable", "torment", "heal-block"].includes(status));
-            if (originalVolatileStatus.length > pokemon.volatileStatus.length) { this.loseItem(id); }
+        // Volatile Status curing berries + Mental Herb
+        if ( (pokemon.hasItem("Persim Berry", "Lum Berry") && pokemon.volatileStatus.includes("confusion")) || 
+             (pokemon.hasItem("Mental Herb") && ["infatuation", "taunt", "encore", "disable", "torment", "heal-block"].includes(ailment)) ) {
+            this.consumeItem(id, pokemon.item!, true);
         } 
     }
 
-    public loseItem(id: number, consumed: boolean = true) {
+    public loseItem(id: number) {
         const pokemon = this.getPokemon(id);
-        pokemon.loseItem(consumed);
+        pokemon.loseItem();
         // Symbiosis
         if (id > 0) {
             const symbiosisIds: number[] = []
@@ -590,18 +728,11 @@ export class RaidState implements State.RaidState{
                 }
             }
             // Terrain Seeds
-            if (pokemon.item === "Electric Seed" && pokemon.field.hasTerrain("Electric")) {
-                this.applyStatChange(id, {def: 1}, true, id);
-                this.loseItem(id);
-            } else if (pokemon.item === "Grassy Seed" && pokemon.field.hasTerrain("Grassy")) {
-                this.applyStatChange(id, {def: 1}, true, id);
-                this.loseItem(id);
-            } else if (pokemon.item === "Psychic Seed" && pokemon.field.hasTerrain("Psychic")) {
-                this.applyStatChange(id, {spd: 1}, true, id);
-                this.loseItem(id);
-            } else if (pokemon.item === "Misty Seed" && pokemon.field.hasTerrain("Misty")) {
-                this.applyStatChange(id, {spd: 1}, true, id);
-                this.loseItem(id);
+            if ( (pokemon.item === "Electric Seed" && pokemon.field.hasTerrain("Electric")) ||
+                 (pokemon.item === "Grassy Seed" && pokemon.field.hasTerrain("Grassy")) ||
+                 (pokemon.item === "Psychic Seed" && pokemon.field.hasTerrain("Psychic")) ||
+                 (pokemon.item === "Misty Seed" && pokemon.field.hasTerrain("Misty")) ) {
+                this.consumeItem(id, pokemon.item, true);
             }
         }
     }

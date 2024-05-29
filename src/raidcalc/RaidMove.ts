@@ -57,7 +57,7 @@ export class RaidMove {
     _causesFlinch!: boolean[];
     _blockedBy!: string[];
 
-    _flingItem?: string;
+    _flingItem?: ItemName;
     _powerHerbUsed?: boolean;
 
     _moveType!: TypeName;
@@ -167,7 +167,7 @@ export class RaidMove {
                 this._user.isRecharging = true;
             }
             if (this._powerHerbUsed && this._user.hasItem("Power Herb")) {
-                this._raidState.loseItem(this.userID);
+                this._raidState.consumeItem(this.userID, this._user.item!);
             }
             this.applyPostMoveEffects();
         }
@@ -679,7 +679,7 @@ export class RaidMove {
                                         case "Pickpocket":
                                             if (!target.item && this._user.item) {
                                                 const item = this._user.item;
-                                                this._raidState.loseItem(this.userID, false);
+                                                this._raidState.loseItem(this.userID);
                                                 this._raidState.recieveItem(this._targetID, item);
                                             }
                                             break;
@@ -694,7 +694,7 @@ export class RaidMove {
                                         break;
                                     case "Sticky Barb":
                                         if (!this._user.item) {
-                                            this._raidState.loseItem(this._targetID, false);
+                                            this._raidState.loseItem(this._targetID);
                                             this._raidState.recieveItem(this.userID, "Sticky Barb" as ItemName);
                                         }
                                         break;
@@ -711,7 +711,7 @@ export class RaidMove {
                         // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target recieves damage
                         if (this.moveData.name === "Fling" && this._user.item) {
                             this._flingItem = moveUser.item;
-                            this._raidState.loseItem(this.userID, false);
+                            this._raidState.loseItem(this.userID);
                         }
                     } 
                     catch {
@@ -1029,8 +1029,7 @@ export class RaidMove {
     private applyOtherMoveEffects() {
         // Throat Spray
         if (this.moveData.isSound && this._user.hasItem("Throat Spray")) {
-            this._raidState.applyStatChange(this.userID, {spa: 1});
-            this._raidState.loseItem(this.userID, true);
+            this._raidState.consumeItem(this.userID, this._user.item!);
         }
     }
 
@@ -1258,7 +1257,7 @@ export class RaidMove {
             case "Knock Off":
                 // Knock Off doesn't remove raiders' items when used by the boss
                 if (this.userID !== 0) {
-                    this._raidState.loseItem(this._targetID, false);
+                    this._raidState.loseItem(this._targetID);
                 }
                 break;
             case "Switcheroo":
@@ -1270,7 +1269,7 @@ export class RaidMove {
                 // this._raidState.recieveItem(this.userID, tempTargetItem);
                 break;
             case "Fling":
-                if (this._flingItem) {
+                if (this._flingItem && !(target.hasAbility("Shield Dust") || target.hasItem("Covert Cloak"))) {
                     switch (this._flingItem) {
                         case "Light Ball":
                             this._raidState.applyStatus(target.id, "par", this.userID, true, this.options.roll);
@@ -1285,111 +1284,27 @@ export class RaidMove {
                             this._raidState.applyStatus(target.id, "psn", this.userID, true, this.options.roll);
                             break;
                         case "White Herb":
-                            for (let stat in target.boosts) {
-                                const statId = stat as StatIDExceptHP;
-                                if ((target.boosts[statId] || 0) < 0) { 
-                                    target.boosts[statId] = 0; 
-                                    target.lastConsumedItem = this._flingItem as ItemName;
-                                }
-                            }
-                            break;
                         // Status-Curing Berries
                         case "Cheri Berry":
-                            if (target.status === "par") { 
-                                target.status = "";
-                                target.lastConsumedItem = this._flingItem as ItemName; 
-                            }
-                            break;
                         case "Chesto Berry":
-                            if (target.status === "slp") { 
-                                target.status = "";
-                                target.lastConsumedItem = this._flingItem as ItemName; 
-                            }
-                            break;
                         case "Pecha Berry":
-                            if (target.status === "psn") { 
-                                target.status = "";
-                                target.lastConsumedItem = this._flingItem as ItemName; 
-                            }
-                            break;
                         case "Rawst Berry":
-                            if (target.status === "brn") { 
-                                target.status = "";
-                                target.lastConsumedItem = this._flingItem as ItemName; 
-                            }
-                            break;
                         case "Aspear Berry":
-                            if (target.status === "frz") { 
-                                target.status = "";
-                                target.lastConsumedItem = this._flingItem as ItemName; 
-                            }
-                            break;
                         case "Lum Berry":
-                            if (target.status !== "") { 
-                                target.status = "";
-                                target.lastConsumedItem = this._flingItem as ItemName; 
-                            }
-                            if (target.volatileStatus.includes("confusion")) { 
-                                target.volatileStatus = target.volatileStatus.filter(status => status !== "confusion"); 
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            break;
                         case "Persim Berry": 
-                            if (target.volatileStatus.includes("confusion")) { 
-                                target.volatileStatus = target.volatileStatus.filter(status => status !== "confusion"); 
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            break;
                         // Stat-Boosting Berries
                         case "Liechi Berry":
-                            const atkDiff = this._raidState.applyStatChange(this._targetID, {atk: 1});
-                            if (atkDiff.atk){
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            break;
                         case "Ganlon Berry":
-                            const defDiff = this._raidState.applyStatChange(this._targetID, {def: 1});
-                            if (defDiff.def){
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            break;
                         case "Petaya Berry":
-                            const spaDiff = this._raidState.applyStatChange(this._targetID, {spa: 1});
-                            if (spaDiff.spa){
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            break;
                         case "Apicot Berry":
-                            const spdDiff = this._raidState.applyStatChange(this._targetID, {spd: 1});
-                            if (spdDiff.spd){
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            break;
                         case "Salac Berry":
-                            const speDiff = this._raidState.applyStatChange(this._targetID, {spe: 1});
-                            if (speDiff.spe){
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            break;
                         case "Lansat Berry":
-                            if (!target.isPumped) {
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            target.isPumped = 2;
-                            break;
                         case "Micle Berry":
-                            if (!target.isMicle) {
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                            }
-                            target.isMicle = true;
-                            break;
                         // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                         case "Sitrus Berry":
-                            if (target.originalCurHP < target.maxHP()) {
-                                target.lastConsumedItem = this._flingItem as ItemName;
-                                const maxhp = target.maxHP();
-                                target.originalCurHP = Math.min(maxhp, target.originalCurHP + Math.floor(maxhp / 4));
-                            }
+                        // Other
+                        case "Mental Herb":
+                            this._raidState.consumeItem(this._targetID, this._flingItem, false);
                             break;
                         default: break;
                     }

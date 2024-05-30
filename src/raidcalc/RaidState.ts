@@ -272,7 +272,6 @@ export class RaidState implements State.RaidState{
         const pokemon = this.getPokemon(id);
         switch (item) {
             case "White Herb":
-                console.log("White Herb consumed", id, pokemon.name, pokemon.boosts);
                 for (let stat in pokemon.boosts) {
                     const statId = stat as StatIDExceptHP;
                     if ((pokemon.boosts[statId] || 0) < 0) { 

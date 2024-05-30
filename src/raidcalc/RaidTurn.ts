@@ -232,11 +232,9 @@ export class RaidTurn {
         if (!this._isBossAction && !this._isEmptyTurn){
             this.countDownAbilityNullification();
         }
-        if (!this._isCheer && !this._isBossAction && !this._isEmptyTurn) {
+        if (!this._isEmptyTurn) {
             this.removeProtection();
             if (!this._isBossAction) {
-                // delayed moves (Protect doesn't apply)
-                this.countdownDelayedMoves();
                 // item effects
                 this.applyEndOfTurnItemEffects();
                 // ability effects
@@ -299,6 +297,10 @@ export class RaidTurn {
                 if (this._boss.isEncore) { this._boss.isEncore--; }
                 if (this._raider.isThroatChop) { this._raider.isThroatChop--; }
                 if (this._boss.isThroatChop) { this._boss.isThroatChop--; }
+                if (!this._isCheer)  {
+                    // delayed moves (Protect doesn't apply)
+                    this.countdownDelayedMoves();
+                }
             }
         }
 

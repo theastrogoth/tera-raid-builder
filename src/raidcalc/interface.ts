@@ -145,6 +145,7 @@ export interface Raider extends Pokemon {
     syrupBombDrops?: number;
     syrupBombSource?: number;
     lastConsumedItem?: ItemName;
+    isCudChew?: number;    // store number of "turns" (each made of 4 moves) until Cud Chew activates
     isTransformed?: boolean;
     originalSpecies?: SpeciesName;
     originalMoves?: MoveData[];

@@ -52,6 +52,7 @@ export class Raider extends Pokemon implements State.Raider {
     syrupBombSource?: number; // id of the pokemon that inflicted the user with Syrup Bomb
 
     lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
+    isCudChew?: number;          // store number of "turns" (each made of 4 moves) until Cud Chew activates
 
     isTransformed?: boolean; // indicates that the pokemon has been transformed by Transform or Imposter
     isChangedForm?: boolean; // indicates that the pokemon has been changed form (e.g. Eiscue, Terapagos, Minior)
@@ -104,6 +105,7 @@ export class Raider extends Pokemon implements State.Raider {
         syrupBombDrops: number | undefined = 0,
         syrupBombSource: number | undefined = undefined,
         lastConsumedItem: ItemName | undefined = undefined,
+        isCudChew: number | undefined = 0,
         isTransformed: boolean | undefined = undefined,
         isChangedForm: boolean | undefined = undefined,
         originalSpecies: SpeciesName | undefined = undefined,
@@ -152,6 +154,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.syrupBombDrops = syrupBombDrops;
         this.syrupBombSource = syrupBombSource;
         this.lastConsumedItem = lastConsumedItem;
+        this.isCudChew = isCudChew;
         this.isTransformed = isTransformed;
         this.isChangedForm = isChangedForm;
         this.originalSpecies  = originalSpecies;
@@ -241,6 +244,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.syrupBombDrops,
             this.syrupBombSource,
             this.lastConsumedItem,
+            this.isCudChew,
             this.isTransformed,
             this.isChangedForm,
             this.originalSpecies,
@@ -289,13 +293,10 @@ export class Raider extends Pokemon implements State.Raider {
         return diff;
     }
 
-    public loseItem(consumed: boolean = true) {
+    public loseItem() {
         // Unburden
         if (this.ability === "Unburden" && this.item !== undefined) {
             this.abilityOn = true;
-        }
-        if (consumed) {
-            this.lastConsumedItem = this.item;
         }
         if (this.hasItem("Choice Band", "Choice Specs", "Choice Scarf")) {
             this.isChoiceLocked = false;

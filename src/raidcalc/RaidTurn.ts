@@ -596,9 +596,6 @@ export class RaidTurn {
                         this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
                     }
                     break;
-                // case "Cud Chew":
-                //     if this.turnNumber
-                //     break;
                 case "Slow Start": 
                     if (pokemon.slowStartCounter) {
                         pokemon.slowStartCounter--;
@@ -607,7 +604,21 @@ export class RaidTurn {
                             this._endFlags.push(pokemon.role + " — Slow Start ended");
                         }
                     }
-                break
+                    break;
+                default: break;
+            }
+        }
+        for (const pokemon of this._raidState.raiders) {
+            switch (pokemon.ability) {
+                case "Cud Chew":
+                    if (pokemon.isCudChew && this.turnNumber % 4 === 3) {
+                        pokemon.isCudChew--;
+                        if (pokemon.isCudChew === 0 && (pokemon.lastConsumedItem || "").includes("Berry")) {
+                            this._raidState.consumeItem(pokemon.id, pokemon.lastConsumedItem!, false);
+                            this._endFlags.push(pokemon.role + " — " + pokemon.lastConsumedItem + " consumed via Cud Chew");
+                        }
+                    }
+                    break;
                 default: break;
             }
         }

@@ -1569,6 +1569,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/meganium/infernal_sweets.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  // test('meganium/smashing_success', async () => {
+  //   const module = await import(`./data/strats/meganium/smashing_success.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('meganium/ghidorah', async () => {
     const module = await import(`./data/strats/meganium/ghidorah.json`)
     await testOHKO(module as LightBuildInfo);

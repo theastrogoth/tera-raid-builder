@@ -272,12 +272,12 @@ export class RaidState implements State.RaidState{
         const pokemon = this.getPokemon(id);
         switch (item) {
             case "White Herb":
+                console.log("White Herb consumed", id, pokemon.name, pokemon.boosts);
                 for (let stat in pokemon.boosts) {
                     const statId = stat as StatIDExceptHP;
                     if ((pokemon.boosts[statId] || 0) < 0) { 
                         pokemon.boosts[statId] = 0; 
                         pokemon.lastConsumedItem = item as ItemName;
-                        this.loseItem(id);
                     }
                 }
                 break;
@@ -546,8 +546,8 @@ export class RaidState implements State.RaidState{
             }
         }
         // White Herb
-        if (pokemon.item === "White Herb") {
-            this.consumeItem(id, pokemon.item, false); // It will be consumed and removed only if there are negative stat changes
+        if (pokemon.item === "White Herb" && Object.values(diff).some(val => val < 0)) {
+            this.consumeItem(id, pokemon.item, false);
         }
  
         return diff;

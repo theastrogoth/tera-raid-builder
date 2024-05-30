@@ -711,6 +711,7 @@ export class RaidMove {
                         // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target recieves damage
                         if (this.moveData.name === "Fling" && this._user.item) {
                             this._flingItem = moveUser.item;
+                            console.log("Fling Item set to " + this._flingItem)
                             this._raidState.loseItem(this.userID);
                             this._user.lastConsumedItem = this._flingItem;
                             if (this._user.hasAbility("Cud Chew") && this._flingItem!.includes("Berry")) {
@@ -1308,6 +1309,7 @@ export class RaidMove {
                         case "Sitrus Berry":
                         // Other
                         case "Mental Herb":
+                            console.log("Fling item: " + this._flingItem)
                             this._raidState.consumeItem(this._targetID, this._flingItem, false);
                             break;
                         default: break;

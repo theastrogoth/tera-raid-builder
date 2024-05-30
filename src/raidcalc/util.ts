@@ -160,7 +160,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
     }
 
     const accStage = attacker.boosts.acc || 0;
-    const evaStage = defender.boosts.eva || 0;
+    const evaStage = attacker.hasAbility("Keen Eye", "Illuminate") ? 0 : (defender.boosts.eva || 0);
     const calcStage = Math.max(-6, Math.min(6, accStage - evaStage));
 
     const accMod = calcStage >= 0 ? ((calcStage + 3)/3) : (3/(3 - calcStage)); 

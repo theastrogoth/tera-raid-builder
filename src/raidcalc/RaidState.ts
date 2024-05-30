@@ -485,14 +485,22 @@ export class RaidState implements State.RaidState{
                 }
             }
         }
-        if (!fromSelf && (!ignoreAbility && pokemon.hasAbility("Big Pecks"))) {
-            boosts["def"] = Math.max(0, boosts["def"] || 0);
-        }
-        if (!fromSelf && (pokemon.field.attackerSide.isFlowerVeil && pokemon.hasType("Grass"))) {
-            for (const stat in boosts) {
-                const statId = stat as StatIDExceptHP;
-                if (((boosts[statId] || 0) * boostCoef) < 0) {
-                    boosts[statId] = 0;
+        if (!fromSelf && !ignoreAbility) {
+            if (pokemon.hasAbility("Keen Eye", "Illuminate")) {
+                boosts["acc"] = Math.max(0, boosts["acc"] || 0);
+            }
+            else if (pokemon.hasAbility("Hyper Cutter")) {
+                boosts["atk"] = Math.max(0, boosts["atk"] || 0);
+            }
+            else if (pokemon.hasAbility("Big Pecks")) {
+                boosts["def"] = Math.max(0, boosts["def"] || 0);
+            }
+            if (pokemon.field.attackerSide.isFlowerVeil && pokemon.hasType("Grass")) {
+                for (const stat in boosts) {
+                    const statId = stat as StatIDExceptHP;
+                    if (((boosts[statId] || 0) * boostCoef) < 0) {
+                        boosts[statId] = 0;
+                    }
                 }
             }
         }

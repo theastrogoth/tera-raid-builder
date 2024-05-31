@@ -52,11 +52,11 @@
         },
         {
             "id": 1,
-            "role": "Espeon",
-            "name": "Espeon",
+            "role": "Meowstic-M",
+            "name": "Meowstic-M",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Synchronize",
+            "ability": "Keen Eye",
             "item": "Choice Specs",
             "nature": "Modest",
             "evs": {
@@ -76,7 +76,7 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "moves": [
                 "Stored Power"
             ],
@@ -93,19 +93,19 @@
         },
         {
             "id": 2,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Maushold",
+            "name": "Maushold",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Sweet Veil",
-            "item": "Kebia Berry",
+            "ability": "Friend Guard",
+            "item": "Sitrus Berry",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -117,9 +117,8 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Decorate"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -134,19 +133,19 @@
         },
         {
             "id": 3,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "ability": "Sweet Veil",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -158,10 +157,10 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Fake Tears",
-                "Helping Hand"
+                "Decorate",
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -176,19 +175,19 @@
         },
         {
             "id": 4,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "ability": "Sweet Veil",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -200,10 +199,10 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Fake Tears",
-                "Helping Hand"
+                "Decorate",
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],

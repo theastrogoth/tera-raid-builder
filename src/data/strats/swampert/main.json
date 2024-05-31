@@ -42,9 +42,9 @@
                 "Yawn"
             ],
             "shieldData": {
-                "hpTrigger": 50,
-                "timeTrigger": 85,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 85,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 45,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30

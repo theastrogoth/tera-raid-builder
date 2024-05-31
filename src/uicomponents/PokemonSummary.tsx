@@ -25,10 +25,10 @@ const allAbilities = ABILITIES[9].map(a => {return {name: a as AbilityName, hidd
 export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
     const [str, setStr] = useState(pokemon.role);
     const roleRef = useRef(pokemon.role);
-    const nameRef = useRef(pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
+    const nameRef = useRef(pokemon.species.name.includes("Meowstic") ? "Meowstic" : pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
     const [nameIsRaidBoss, setNameIsRaidBoss] = useState(pokemon.role === "Raid Boss");
     
-    const speciesName = pokemon.species.baseSpecies || pokemon.name;
+    const speciesName = pokemon.species.name.includes("Meowstic") ? "Meowstic" : pokemon.species.baseSpecies || pokemon.name;
     const translatedName = getTranslation(speciesName, translationKey, "pokemon");
 
     useEffect(() => {

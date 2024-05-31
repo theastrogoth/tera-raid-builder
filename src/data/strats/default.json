@@ -10,7 +10,7 @@
             "shiny": false,
             "isAnyLevel": false,
             "ability": "Damp",
-            "nature": "Adamant",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -31,22 +31,20 @@
             "gender": "N",
             "teraType": "Poison",
             "moves": [
-                "Poison Jab",
-                "Liquidation",
                 "Earthquake",
-                "Knock Off"
+                "Hydro Pump",
+                "Sludge Wave",
+                "Liquidation"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Yawn",
-                "Amnesia",
-                "Curse",
-                "Scary Face"
+                "Muddy Water",
+                "Yawn"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 80,
-                "shieldCancelDamage": 30,
+                "hpTrigger": 50,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30

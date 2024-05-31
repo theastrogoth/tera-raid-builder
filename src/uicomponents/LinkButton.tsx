@@ -389,6 +389,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                         if (prettyHash.slice(-5) === "/main") {
                             prettyHash = lcHash.slice(0,-5);
                         }
+                        console.log(prettyHash)
                         shortHashRef.current = prettyHash;
                     })
                     .catch((error) => {
@@ -413,7 +414,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 if (buildInfo && hashChangesRef.current === hashChanges) {
                     res = await lightToFullBuildInfo(buildInfo);
                 } else {
-                    if (!JSON_HASHES.includes(hash.slice(1)) && !JSON_HASHES.includes(hash.slice(1) + "/main")) {
+                    const lcHash = hash.toLowerCase();
+                    if (!JSON_HASHES.includes(lcHash.slice(1)) && !JSON_HASHES.includes(lcHash.slice(1) + "/main")) {
                         if (hash === "" || hash === "#") {
                             const module = await import(`../data/strats/default.json`)
                             setBuildInfo(module.default as LightBuildInfo);

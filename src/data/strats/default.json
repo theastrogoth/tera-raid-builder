@@ -36,7 +36,7 @@
                 "Sludge Wave",
                 "Liquidation"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
                 "Muddy Water",
                 "Yawn"

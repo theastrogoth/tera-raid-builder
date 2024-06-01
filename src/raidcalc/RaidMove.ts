@@ -1386,7 +1386,7 @@ export class RaidMove {
                 }
                 break;
             case "Psych Up":
-                for (let stat in target.boosts) {
+                for (let stat of ["atk", "def", "spa", "spd", "spe", "acc", "eva"]) {
                     const statId = stat as StatIDExceptHP;
                     this._user.boosts[statId] = target.boosts[statId] || 0;
                 }

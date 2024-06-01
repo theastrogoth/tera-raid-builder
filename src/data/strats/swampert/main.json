@@ -52,12 +52,11 @@
         },
         {
             "id": 1,
-            "role": "Mewtwo",
-            "name": "Mewtwo",
+            "role": "Meowstic",
+            "name": "Meowstic-M",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
+            "ability": "Keen Eye",
+            "item": "Choice Specs",
             "nature": "Modest",
             "evs": {
                 "hp": 0,
@@ -76,7 +75,7 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "moves": [
                 "Stored Power"
             ],
@@ -480,48 +479,6 @@
                 "raider": {
                     "id": 1,
                     "role": "Meowstic",
-                    "name": "Meowstic-M",
-                    "shiny": false,
-                    "ability": "Keen Eye",
-                    "item": "Choice Specs",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "M",
-                    "moves": [
-                        "Stored Power"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Attack Cheer",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    1,
-                    1,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 1,
-                    "role": "Meowstic",
                     "name": "Meowstic-F",
                     "shiny": false,
                     "ability": "Keen Eye",
@@ -545,6 +502,49 @@
                     },
                     "level": 100,
                     "gender": "F",
+                    "moves": [
+                        "Stored Power"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Attack Cheer",
+                    "Stored Power"
+                ],
+                "substituteTargets": [
+                    1,
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Mewtwo",
+                    "name": "Mewtwo",
+                    "shiny": false,
+                    "isAnyLevel": false,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
                     "moves": [
                         "Stored Power"
                     ]

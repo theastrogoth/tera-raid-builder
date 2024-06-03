@@ -32,7 +32,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false) {
+    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
@@ -154,7 +154,10 @@ export class RaidState implements State.RaidState{
                  (pokemon.item === "Absorb Bulb" && moveType === "Water") ||
                  (pokemon.item === "Cell Battery" && moveType === "Electric") || 
                  (pokemon.item === "Luminous Moss" && moveType === "Water") ||
-                 (pokemon.item === "Snowball" && moveType === "Ice") ) {
+                 (pokemon.item === "Snowball" && moveType === "Ice") ||
+                 (pokemon.item === "Kee Berry" && moveCategory === "Physical" && !isSheerForceBoosted) ||
+                 (pokemon.item === "Maranga Berry" && moveCategory === "Special" && !isSheerForceBoosted)
+                ) {
                 this.consumeItem(id, pokemon.item, true);
             }
  
@@ -202,12 +205,12 @@ export class RaidState implements State.RaidState{
                 this.applyStatChange(id, boost, true, id);
             }
             // Anger Shell
-            if (pokemon.ability === "Anger Shell" && originalHP > maxHP/2 && pokemon.originalCurHP <= maxHP/2) {
+            if (pokemon.ability === "Anger Shell" && !isSheerForceBoosted && originalHP > maxHP/2 && pokemon.originalCurHP <= maxHP/2) {
                 const boost = {atk: 1, spa: 1, spe: 1};
                 this.applyStatChange(id, boost, true, id);
             }
             // Berserk
-            if (pokemon.ability === "Berserk" && originalHP > maxHP/2 && pokemon.originalCurHP <= maxHP/2) {
+            if (pokemon.ability === "Berserk" && !isSheerForceBoosted && originalHP > maxHP/2 && pokemon.originalCurHP <= maxHP/2) {
                 const boost = {spa: 1};
                 this.applyStatChange(id, boost, true, id);
             }
@@ -285,103 +288,110 @@ export class RaidState implements State.RaidState{
                 if (pokemon.status === "par") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Chesto Berry":
                 if (pokemon.status === "slp") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Pecha Berry":
                 if (pokemon.status === "psn") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Rawst Berry":
                 if (pokemon.status === "brn") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Aspear Berry":
                 if (pokemon.status === "frz") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Lum Berry":
                 if (pokemon.status !== "") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 if (pokemon.volatileStatus.includes("confusion")) { 
                     pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Persim Berry": 
                 if (pokemon.volatileStatus.includes("confusion")) { 
                     pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             // Stat-Boosting Berries
             case "Liechi Berry":
-                const atkDiff = this.applyStatChange(id, {atk: 1});
+                const atkDiff = this.applyStatChange(id, {atk: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (atkDiff.atk){
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
+            case "Kee Berry":
             case "Ganlon Berry":
-                const defDiff = this.applyStatChange(id, {def: 1});
+                const defDiff = this.applyStatChange(id, {def: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (defDiff.def){
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Petaya Berry":
-                const spaDiff = this.applyStatChange(id, {spa: 1});
+                const spaDiff = this.applyStatChange(id, {spa: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (spaDiff.spa){
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
+            case "Maranga Berry":
             case "Apicot Berry":
-                const spdDiff = this.applyStatChange(id, {spd: 1});
+                const spdDiff = this.applyStatChange(id, {spd: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (spdDiff.spd){
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Salac Berry":
-                const speDiff = this.applyStatChange(id, {spe: 1});
+                const speDiff = this.applyStatChange(id, {spe: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (speDiff.spe){
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
+                break;
+            case "Starf Berry":
+                pokemon.randomBoosts += pokemon.boostCoefficient * (pokemon.hasAbility("Ripen") ? 4 : 2);
+                pokemon.lastConsumedItem = item as ItemName;
+                if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 break;
             case "Lansat Berry":
                 if (!pokemon.isPumped) {
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 pokemon.isPumped = 2;
                 break;
             case "Micle Berry":
                 if (!pokemon.isMicle) {
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 pokemon.isMicle = true;
                 break;
@@ -389,16 +399,16 @@ export class RaidState implements State.RaidState{
             case "Sitrus Berry":
                 const maxhp = pokemon.maxHP();
                 if (pokemon.originalCurHP < maxhp) {
-                    pokemon.originalCurHP = Math.min(maxhp, pokemon.originalCurHP + Math.floor(maxhp / 4));
+                    pokemon.originalCurHP = Math.min(maxhp, pokemon.originalCurHP + Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)));
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Oran Berry":
                 if (pokemon.originalCurHP < pokemon.maxHP()) {
-                    pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + 10);
+                    pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + (pokemon.hasAbility("Ripen") ? 20 : 10));
                     pokemon.lastConsumedItem = item as ItemName;
-                    pokemon.isCudChew = 2;
+                    if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             // Terrain Seeds

@@ -57,6 +57,8 @@ export class RaidMove {
     _causesFlinch!: boolean[];
     _blockedBy!: string[];
 
+    _isSheerForceBoosted?: boolean;
+
     _flingItem?: ItemName;
     _powerHerbUsed?: boolean;
 
@@ -94,6 +96,7 @@ export class RaidMove {
             return output;
         }
         this._raidState.raiders[0].checkShield(); // check for shield activation
+        this.checkSheerForce();
         this.setAffectedPokemon();
         if (this.flinch) { // prevent moving upon flinch
             this._desc[this.userID] = this._user.name + " flinched!";
@@ -114,10 +117,10 @@ export class RaidMove {
             this._user.isCharging = true;
             this._desc[this.userID] = this._user.name + " is charging its attack!";
             // Electro Shot boost check
-            if (this.moveData.name === "Electro Shot") {
+            if (this.moveData.name === "Electro Shot" && !this._isSheerForceBoosted) {
                 this._raidState.applyStatChange(this.userID, {spa: 1});
             }
-            if (this.moveData.name === "Meteor Beam") {
+            if (this.moveData.name === "Meteor Beam" && !this._isSheerForceBoosted) {
                 this._raidState.applyStatChange(this.userID, {spa: 1});
             }
         } else if (this._user.isRecharging) {
@@ -259,6 +262,18 @@ export class RaidMove {
                 return true;
             }
         }
+    }
+
+    private checkSheerForce() {
+        this._isSheerForceBoosted = (
+            this._user.hasAbility("Sheer Force") && (
+                ((this.moveData.flinchChance || 0) > 0) ||
+                (this.moveData.category === "damage+ailment") ||
+                (this.moveData.category === "damage+lower" && Object.values(this.moveData.statChanges!).some((val) => val.change < 0)) ||
+                (this.moveData.category === "damage+raise" && Object.values(this.moveData.statChanges!).some((val) => val.change > 0)) ||
+                ["Anchor Shot","Ceaseless Edge","Eerie Spell","Genesis Supernova","Secret Power","Sparkling Aria","Spirit Shackle","Stone Axe"].includes(this.moveData.name)
+            )
+        );
     }
 
     private setAffectedPokemon() {
@@ -564,7 +579,7 @@ export class RaidMove {
             this._flags[this.userID].push("changed to the " + this._moveType + " type");
         }
         // Electro Shot boost check (with Power Herb or in Rain)
-        if (this.moveData.name === "Electro Shot" && !moveUser.isCharging) {
+        if (this.moveData.name === "Electro Shot" && !this._isSheerForceBoosted && !moveUser.isCharging) {
             this._raidState.applyStatChange(this.userID, {spa: 1});
         }
         // Spit Up / Stockpile check
@@ -637,7 +652,7 @@ export class RaidMove {
                                 hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
                             }
                             const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
-                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute);
+                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
                             totalDamage += hitDamage;
                             // remove buffs to user after damage
                             if (totalDamage > 0) {
@@ -787,6 +802,7 @@ export class RaidMove {
         if ((this.moveData.drain || 0) < 0 && this._user.hasAbility("Rock Head", "Magic Guard")) {
             drainPercent = 0;
         }
+        drainPercent = (drainPercent || 0) + ((!this._isSheerForceBoosted && this._user.hasItem("Shell Bell")) ? 12.5 : 0);
         const damage = this._damage.reduce((a,b) => a + b, 0);
         if (drainPercent) {
             // scripted Matcha Gotcha could potentially drain from multiple raiders
@@ -841,7 +857,7 @@ export class RaidMove {
     private applyFlinch() {
         const flinchChance = (this.moveData.flinchChance || 0) * (this._user.hasAbility("Serene Grace") ? 2 : 1);
         const ignoreAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze");
-        if (flinchChance && (this.options.secondaryEffects || flinchChance >= 100)) {
+        if (flinchChance && !this._isSheerForceBoosted && (this.options.secondaryEffects || flinchChance >= 100)) {
             for (let id of this._affectedIDs) {
                 if (id === 0) { continue; }
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
@@ -858,6 +874,7 @@ export class RaidMove {
 
     private applyStatChanges() {
         const category = this.moveData.category;
+        if (this._isSheerForceBoosted) { return; } 
         const affectedIDs = category === "damage+raise" ? [this.userID] : this._affectedIDs;
         let statChanges = this.moveData.statChanges;
         // handle Growth
@@ -896,7 +913,7 @@ export class RaidMove {
     private applyAilment() {
         const ailment = this.moveData.ailment;
         const chance = (this.moveData.ailmentChance || 100) * (this._user.hasAbility("Serene Grace") ? 2 : 1);
-        if (ailment && (chance >= 100 || this.options.secondaryEffects)) {
+        if (ailment && !this._isSheerForceBoosted && (chance >= 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
                 if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
                 const pokemon = this.getPokemon(id);
@@ -921,7 +938,7 @@ export class RaidMove {
     private applySelfDamage() {
         if (this._user.hasAbility("Magic Guard")) { return; }
         const selfDamage = Math.floor((this._user.maxHP() * (this.moveData.selfDamage || 0) / 100) / ((this._user.bossMultiplier || 100) / 100)); 
-        const lifeOrbDamage = (this._user.item === "Life Orb" && this._damage.reduce((a,b) => a + b, 0) > 0) ? Math.floor(this._user.maxHP() * 0.1) : 0;
+        const lifeOrbDamage = (this._user.item === "Life Orb" && !this._isSheerForceBoosted && this._damage.reduce((a,b) => a + b, 0) > 0) ? Math.floor(this._user.maxHP() * 0.1) : 0;
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;
             this._flags[this.userID].push!(selfDamagePercent + "% self damage from " + this.moveData.name)
@@ -1298,14 +1315,18 @@ export class RaidMove {
                         case "Persim Berry": 
                         // Stat-Boosting Berries
                         case "Liechi Berry":
+                        case "Kee Berry":
                         case "Ganlon Berry":
                         case "Petaya Berry":
+                        case "Maranga Berry":
                         case "Apicot Berry":
                         case "Salac Berry":
+                        case "Starf Berry":
                         case "Lansat Berry":
                         case "Micle Berry":
                         // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                         case "Sitrus Berry":
+                        case "Oran Berry":
                         // Other
                         case "Mental Herb":
                             this._raidState.consumeItem(this._targetID, this._flingItem, false);
@@ -1421,7 +1442,7 @@ export class RaidMove {
                 }
                 break;
             case "Acupressure":
-                target.randomBoosts += 2;
+                target.randomBoosts += target.boostCoefficient * 2;
                 break;
             case "Rest":
                 if ((this._user.status !== "slp")

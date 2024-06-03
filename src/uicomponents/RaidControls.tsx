@@ -98,7 +98,7 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function StatChanges({statChanges, translationKey}: {statChanges: StatsTable, translationKey: any}) {
+function StatChanges({statChanges, randomStatBoosts, translationKey}: {statChanges: StatsTable, randomStatBoosts: number, translationKey: any}) {
     const filteredStatTable = Object.fromEntries(Object.entries(statChanges).filter(([stat, boosts]) => boosts !== 0));
     const statEntries = Object.entries(filteredStatTable);
     const sortedStatEntries = statEntries.sort((a, b) => {
@@ -114,7 +114,12 @@ function StatChanges({statChanges, translationKey}: {statChanges: StatsTable, tr
                     </Typography>
                 </Paper>
             ))}
-            {(sortedStatEntries.length === 0) &&
+            {randomStatBoosts &&
+                <Paper elevation={0} variant='outlined'>
+                    <Typography fontSize={10} m={.5}>{`${getTranslation("Random Stat Boosts", translationKey)} : ${randomStatBoosts > 0 ? '+' : ''}${randomStatBoosts}`}</Typography>
+                </Paper>
+            }
+            {(sortedStatEntries.length === 0 && !randomStatBoosts) &&
                 <Paper elevation={0} variant='outlined'>
                     <Typography fontSize={10} m={.5}>{getTranslation("No Stat Changes", translationKey)}</Typography>
                 </Paper>
@@ -231,7 +236,7 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
     );
 }
 
-function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, statChanges, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, statChanges: StatsTable, modifiers: object, translationKey: any}) {
+function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, statChanges, randomStatBoosts, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, statChanges: StatsTable, randomStatBoosts: number, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -387,7 +392,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubs
                             </Stack>
                         </Stack>
                         <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Stat Changes", translationKey)}</Divider>
-                        <StatChanges statChanges={statChanges} translationKey={translationKey} />
+                        <StatChanges statChanges={statChanges} randomStatBoosts={randomStatBoosts} translationKey={translationKey} />
                         <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Modifiers", translationKey)}</Divider>
                         <ModifierTags modifiers={modifiers} translationKey={translationKey} />
                     </Stack>
@@ -427,6 +432,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const haveSubstitutes = turnState.raiders.map((raider) => !!raider.substitute)
 
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
+    const randomStatBoosts = turnState.raiders.map((raider) => raider.randomBoosts || 0);
     const getModifiers = (raider: Raider): Modifiers => {
         return {
             "attackCheer": (raider.field.attackerSide.isAtkCheered ? 1 : 0) + raider.permanentAtkCheers,
@@ -498,7 +504,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]} translationKey={translationKey} />
+                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} modifiers={modifiers[i]} translationKey={translationKey} />
             ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>

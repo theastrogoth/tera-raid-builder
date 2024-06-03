@@ -114,9 +114,11 @@ function StatChanges({statChanges, randomStatBoosts, translationKey}: {statChang
                     </Typography>
                 </Paper>
             ))}
-            {randomStatBoosts &&
+            {(randomStatBoosts !== 0) &&
                 <Paper elevation={0} variant='outlined'>
-                    <Typography fontSize={10} m={.5}>{`${getTranslation("Random Stat Boosts", translationKey)} : ${randomStatBoosts > 0 ? '+' : ''}${randomStatBoosts}`}</Typography>
+                    <Typography fontSize={10} m={.5}>
+                        {`${getTranslation("Random Stat Boosts", translationKey)} : ${randomStatBoosts > 0 ? '+' : ''}${randomStatBoosts}`}
+                    </Typography>
                 </Paper>
             }
             {(sortedStatEntries.length === 0 && !randomStatBoosts) &&

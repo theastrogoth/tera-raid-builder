@@ -34,6 +34,7 @@ export namespace State {
     boosts?: Partial<I.StatsTable>;
     isPumped?: number;
     isMicle?: boolean;
+    isMinimize?: boolean;
     randomBoosts?: number;
     stockpile?: number;
     originalCurHP?: number;

@@ -1200,6 +1200,9 @@ export class RaidMove {
                     this._desc[this._targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
+            case "Minimize":
+                this._user.isMinimize = true;
+                break;
             case "Doodle":
                 if (!this._user.hasItem("Ability Shield") &&
                     !persistentAbilities["uncopyable"].includes(target_ability) &&

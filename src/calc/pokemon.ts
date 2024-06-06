@@ -41,6 +41,7 @@ export class Pokemon implements State.Pokemon {
   boosts: I.StatsTable;
   isPumped: number;
   isMicle: boolean;
+  isMinimize: boolean;
   randomBoosts: number;
   stockpile: number;
   rawStats: I.StatsTable;
@@ -104,6 +105,7 @@ export class Pokemon implements State.Pokemon {
     this.boosts = Pokemon.withDefault(gen, options.boosts, 0, false);
     this.isPumped = options.isPumped || 0;
     this.isMicle = !!options.isMicle;
+    this.isMinimize = !!options.isMinimize;
     this.randomBoosts = options.randomBoosts || 0;
     this.stockpile = options.stockpile || 0;
 
@@ -215,6 +217,7 @@ export class Pokemon implements State.Pokemon {
       boosts: extend(true, {}, this.boosts),
       isPumped: this.isPumped,
       isMicle: this.isMicle,
+      isMinimize: this.isMinimize,
       randomBoosts: this.randomBoosts,
       stockpile: this.stockpile,
       originalCurHP: this.originalCurHP,

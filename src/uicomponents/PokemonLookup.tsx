@@ -246,6 +246,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                     }
                     else {
                         let termMatched = false;
+                        if (normalizeText(token) === normalizeText(getTranslation("nfe", translationKey)) && species.nfe) { termMatched = true;}
                         const tokenComponents = token.split(/(<|>|<=|>=|=|==|===|!=|!==)/i).map((item) => item.trim()).filter(Boolean);
                         if (tokenComponents.length === 1) {
                             for (let move of species.moves) {

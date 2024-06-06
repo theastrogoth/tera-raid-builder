@@ -143,7 +143,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
     if (
         !movedata.accuracy || 
         (attacker.lastMove && attacker.lastMove.name === "Lock-On") ||
-        (attacker.field.hasWeather("Rain") && ["Thunder","Hurricane"].includes(movename)) ||
+        (attacker.field.hasWeather("Rain") && ["Thunder","Hurricane","Sandsear Storm","Bleakwind Storm","Wildbolt Storm"].includes(movename)) ||
         (attacker.field.hasWeather("Snow","Hail") && movename === "Blizzard") ||
         guaranteedHitMoves.includes(movename)
     ) {

@@ -26,6 +26,7 @@ type StratOption = {
     abilities: string[],
     moves: string[],
     items: string[],
+    credits?: string,
 }
 
 function stratDexEntryToOption(options: StratOption[], index: number, boss: string, stratname: string, stratpath: string) {
@@ -60,6 +61,7 @@ function stratDexEntryToOption(options: StratOption[], index: number, boss: stri
                     ...info.pokemon.slice(1).map(p => p.item),
                     ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.item).flat()).flat() : [])
                 ].filter(i => i !== undefined && i !== "(No Item)") as string[],
+            credits: info.credits,
         }
         options[index] = option;
     })
@@ -95,7 +97,8 @@ function StratLoadField(
                                             option.substitutes.map(s => getTranslation(s,translationKey,"pokemon")).join(" ") +
                                             option.abilities.map(s => getTranslation(s,translationKey,"ability")).join(" ") +
                                             option.moves.map(s => getTranslation(s,translationKey,"move")).join(" ") +
-                                            option.items.map(s => getTranslation(s,translationKey,"item")).join(" ")
+                                            option.items.map(s => getTranslation(s,translationKey,"item")).join(" ") + 
+                                            (option.credits || "")
 
     });
     const [stratPath, setStratPath] = useState<null | string>(null);

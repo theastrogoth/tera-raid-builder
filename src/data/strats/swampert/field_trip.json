@@ -1,7 +1,7 @@
 {
-    "name": "Born on the Bayou",
-    "notes": "",
-    "credits": "u/theAstrogoth, with the all-babies theme inspired by u/Gimikyu_",
+    "name": "Kindergarten Field Trip",
+    "notes": "Most 'mons with Calm Mind and Stored Power will work for DPS.  Make sure they draw Earthquake or Sludge Wave consistently.  Be mindful that Calm Mind stacking may cause Swampert to switch from a Special Attack to Physical, if a non-crit would start doing more.\nHP EVs and Cleffa's Friend Guard are not needed for all participants, but keeping HP up will decrease odds of non-optimal moves.",
+    "credits": "u/Ecksel, based on u/TheAstrogoth's Swamp Kids",
     "pokemon": [
         {
             "id": 0,
@@ -52,15 +52,15 @@
         },
         {
             "id": 1,
-            "role": "Slowpoke",
-            "name": "Slowpoke",
+            "role": "Eevee",
+            "name": "Eevee",
             "shiny": true,
             "isAnyLevel": false,
             "ability": "(No Ability)",
-            "item": "Weakness Policy",
+            "item": "Covert Cloak",
             "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
@@ -78,8 +78,8 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Psychic Terrain",
-                "Stored Power"
+                "Stored Power",
+                "Calm Mind"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -98,10 +98,10 @@
             "name": "Mudkip",
             "shiny": true,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
+            "ability": "Torrent",
             "nature": "Hardy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -134,14 +134,56 @@
         },
         {
             "id": 3,
-            "role": "Psyduck",
-            "name": "Psyduck",
+            "role": "Cleffa",
+            "name": "Cleffa",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "Friend Guard",
+            "item": "Covert Cloak",
+            "nature": "Calm",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Fake Tears"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Spoink",
+            "name": "Spoink",
             "shiny": true,
             "isAnyLevel": false,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -161,49 +203,6 @@
             "moves": [
                 "Simple Beam",
                 "Helping Hand"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
-        },
-        {
-            "id": 4,
-            "role": "Grimer",
-            "name": "Grimer",
-            "shiny": true,
-            "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Petaya Berry",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Haze",
-                "Acid Spray",
-                "Fling"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -271,12 +270,38 @@
             }
         },
         {
-            "id": 2,
+            "id": 4,
             "group": 2,
             "moveInfo": {
-                "name": "Haze",
+                "name": "Simple Beam",
                 "userID": 4,
-                "targetID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 3,
+            "moveInfo": {
+                "name": "Calm Mind",
+                "userID": 1,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -300,35 +325,9 @@
             "id": 3,
             "group": 3,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 3,
-            "moveInfo": {
-                "name": "Simple Beam",
+                "name": "Fake Tears",
                 "userID": 3,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -378,8 +377,8 @@
             "id": 6,
             "group": 5,
             "moveInfo": {
-                "name": "Psychic Terrain",
-                "userID": 1,
+                "name": "Helping Hand",
+                "userID": 4,
                 "targetID": 1,
                 "options": {
                     "crit": false,
@@ -404,9 +403,9 @@
             "id": 7,
             "group": 5,
             "moveInfo": {
-                "name": "Simple Beam",
-                "userID": 3,
-                "targetID": 0,
+                "name": "Calm Mind",
+                "userID": 1,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -430,14 +429,14 @@
             "id": 8,
             "group": 5,
             "moveInfo": {
-                "name": "Fling",
-                "userID": 4,
-                "targetID": 1,
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -482,9 +481,9 @@
             "id": 10,
             "group": 7,
             "moveInfo": {
-                "name": "Helping Hand",
-                "userID": 3,
-                "targetID": 1,
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -508,9 +507,9 @@
             "id": 11,
             "group": 7,
             "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 4,
-                "targetID": 0,
+                "name": "Calm Mind",
+                "userID": 1,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -519,7 +518,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -532,6 +531,32 @@
         },
         {
             "id": 12,
+            "group": 7,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 13,
             "group": 8,
             "moveInfo": {
                 "name": "Stored Power",
@@ -565,11 +590,11 @@
             1
         ],
         [
-            2
+            4
         ],
         [
-            3,
-            4
+            2,
+            3
         ],
         [
             5
@@ -584,10 +609,11 @@
         ],
         [
             10,
-            11
+            11,
+            12
         ],
         [
-            12
+            13
         ]
     ],
     "repeats": [
@@ -602,377 +628,18 @@
         1
     ],
     "substitutes": [
+        [],
         [
             {
                 "raider": {
                     "id": 1,
-                    "role": "Slowpoke",
-                    "name": "Slowpoke-Galar",
-                    "shiny": true,
-                    "ability": "Oblivious",
-                    "item": "Weakness Policy",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Amnesia",
-                        "Stored Power"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Attack Cheer",
-                    "Amnesia",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    1,
-                    1,
-                    1,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 2,
-                    "role": "Drowzee",
-                    "name": "Drowzee",
-                    "shiny": true,
-                    "ability": "Insomnia",
-                    "item": "Weakness Policy",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Psychic Terrain",
-                        "Stored Power",
-                        "(No Move)",
-                        "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Attack Cheer",
-                    "Psychic Terrain",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    1,
-                    1,
-                    1,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Spoink",
-                    "name": "Spoink",
-                    "shiny": true,
-                    "ability": "Thick Fat",
-                    "item": "Weakness Policy",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Psychic Terrain",
-                        "Expanding Force"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Attack Cheer",
-                    "Psychic Terrain",
-                    "Expanding Force"
-                ],
-                "substituteTargets": [
-                    1,
-                    1,
-                    1,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Sinistea",
-                    "name": "Sinistea",
-                    "shiny": true,
-                    "ability": "Weak Armor",
-                    "item": "Weakness Policy",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Calm Mind",
-                        "Stored Power"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Attack Cheer",
-                    "Calm Mind",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    1,
-                    1,
-                    1,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 5,
-                    "role": "Hatenna",
-                    "name": "Hatenna",
-                    "shiny": true,
-                    "ability": "Healer",
-                    "item": "Weakness Policy",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "F",
-                    "moves": [
-                        "Calm Mind",
-                        "Stored Power"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Attack Cheer",
-                    "Calm Mind",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    1,
-                    1,
-                    1,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 6,
-                    "role": "Gothita",
-                    "name": "Gothita",
-                    "shiny": true,
-                    "ability": "Healer",
-                    "item": "Weakness Policy",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Calm Mind",
-                        "Stored Power"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Attack Cheer",
-                    "Calm Mind",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    1,
-                    1,
-                    1,
-                    0
-                ]
-            }
-        ],
-        [
-            {
-                "raider": {
-                    "id": 1,
-                    "role": "Geodude",
-                    "name": "Geodude-Alola",
-                    "shiny": true,
-                    "ability": "(No Ability)",
-                    "item": "Eviolite",
-                    "nature": "Calm",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Wide Guard",
-                        "(No Move)",
-                        "(No Move)",
-                        "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "Wide Guard",
-                    "Wide Guard",
-                    "Wide Guard"
-                ],
-                "substituteTargets": [
-                    2,
-                    2,
-                    2
-                ]
-            },
-            {
-                "raider": {
-                    "id": 2,
-                    "role": "Makuhita",
-                    "name": "Makuhita",
-                    "shiny": true,
-                    "ability": "(No Ability)",
-                    "nature": "Calm",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Wide Guard"
-                    ]
-                },
-                "substituteMoves": [
-                    "Wide Guard",
-                    "Wide Guard",
-                    "Wide Guard"
-                ],
-                "substituteTargets": [
-                    2,
-                    2,
-                    2
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
                     "role": "Turtwig",
                     "name": "Turtwig",
                     "shiny": true,
                     "ability": "(No Ability)",
                     "nature": "Hardy",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -1006,14 +673,14 @@
             },
             {
                 "raider": {
-                    "id": 4,
+                    "id": 2,
                     "role": "Chespin",
                     "name": "Chespin",
                     "shiny": true,
-                    "ability": "(No Ability)",
+                    "ability": "Overgrow",
                     "nature": "Hardy",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -1049,18 +716,19 @@
         [
             {
                 "raider": {
-                    "id": 3,
-                    "role": "Spoink",
-                    "name": "Spoink",
+                    "id": 1,
+                    "role": "Chikorita",
+                    "name": "Chikorita",
                     "shiny": true,
                     "ability": "(No Ability)",
-                    "nature": "Hardy",
+                    "item": "Covert Cloak",
+                    "nature": "Calm",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
-                        "spd": 252,
+                        "spd": 0,
                         "spe": 0
                     },
                     "ivs": {
@@ -1074,21 +742,18 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Simple Beam",
-                        "Helping Hand",
-                        "(No Move)",
-                        "(No Move)"
+                        "Fake Tears"
                     ]
                 },
                 "substituteMoves": [
-                    "Simple Beam",
-                    "Simple Beam",
-                    "Helping Hand"
+                    "Fake Tears",
+                    "Fake Tears",
+                    "Fake Tears"
                 ],
                 "substituteTargets": [
-                    1,
                     0,
-                    1
+                    0,
+                    0
                 ]
             }
         ],

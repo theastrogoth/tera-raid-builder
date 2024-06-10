@@ -389,7 +389,6 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                         if (prettyHash.slice(-5) === "/main") {
                             prettyHash = lcHash.slice(0,-5);
                         }
-                        console.log(prettyHash)
                         shortHashRef.current = prettyHash;
                     })
                     .catch((error) => {
@@ -512,16 +511,6 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 );
 
                 if (window.location.href.split("#")[0].includes("localhost")) { // prevent making firebase link for local testing
-                    const decodedFromRef = await deserializeInfo(longHashRef.current) as BuildInfo;
-                    console.log(
-                        "name: ", decodedFromRef.name === title,
-                        "notes: ", decodedFromRef.notes === notes,
-                        "credits: ", decodedFromRef.credits === credits,
-                        "pokemon: ", deepEqual(decodedFromRef.pokemon, raidInputProps.pokemon),
-                        "groups: ", deepEqual(decodedFromRef.groups, raidInputProps.groups),
-                        "substitutes: ", deepEqual(decodedFromRef.substitutes, substitutes),
-                    )
-                    // console.log(newHash === longHashRef.current, newHash, longHashRef.current);
                     if (newHash === longHashRef.current) {
                         console.log("Strategy is unchanged since the last time a link was generated.")
                         const link = window.location.href.split("#")[0] + "#" + shortHashRef.current;

@@ -144,6 +144,7 @@
     "Empoleon": {
         "Death and Taxes": "empoleon/main",
         "Crabominable T1.5": "empoleon/crab",
+        "Tauros T1.25": "empoleon/tauros",
         "Eeveelutions Dethrone the Emperor": "empoleon/eeveelutions",
         "Psyching Up and Striking Down": "empoleon/psych_strike",
         "Weezing and the Cats": "empoleon/weezing",
@@ -184,6 +185,7 @@
     },
     "Iron Bundle":  {
         "Ghost of Christmas Future": "iron_bundle/main",
+        "Tauros T1": "iron_bundle/tauros",
         "Steel Cat Strat": "iron_bundle/steel_cats",
         "The Turtle and the Mariachi Trio": "iron_bundle/turtle",
         "Gholdengoo": "iron_bundle/gholdengoo",

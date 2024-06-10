@@ -6,11 +6,11 @@
         {
             "id": 0,
             "role": "Raid Boss",
-            "name": "Swampert",
+            "name": "Emboar",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Damp",
-            "nature": "Relaxed",
+            "ability": "Reckless",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -29,17 +29,19 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Poison",
+            "teraType": "Electric",
             "moves": [
-                "Earthquake",
-                "Hydro Pump",
-                "Sludge Wave",
-                "Liquidation"
+                "Flare Blitz",
+                "Wild Charge",
+                "Head Smash",
+                "Hammer Arm"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Muddy Water",
-                "Yawn"
+                "Bulk Up",
+                "Curse",
+                "Taunt",
+                "Sunny Day"
             ],
             "shieldData": {
                 "hpTrigger": 85,
@@ -52,18 +54,18 @@
         },
         {
             "id": 1,
-            "role": "Meowstic",
-            "name": "Meowstic-M",
+            "role": "Hariyama",
+            "name": "Hariyama",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Keen Eye",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "ability": "Guts",
+            "item": "Life Orb",
+            "nature": "Adamant",
             "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
+                "hp": 0,
+                "atk": 252,
+                "def": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -76,9 +78,10 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
+            "gender": "N",
             "moves": [
-                "Stored Power"
+                "Belly Drum",
+                "Headlong Rush"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -93,19 +96,19 @@
         },
         {
             "id": 2,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "Jigglypuff",
+            "name": "Jigglypuff",
             "shiny": false,
             "isAnyLevel": false,
             "ability": "Friend Guard",
-            "item": "Sitrus Berry",
+            "item": "Eviolite",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -119,6 +122,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -133,19 +137,19 @@
         },
         {
             "id": 3,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Maushold",
+            "name": "Maushold",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Sweet Veil",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "ability": "Friend Guard",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -157,10 +161,10 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Decorate",
-                "Fake Tears"
+                "Tickle",
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -175,19 +179,19 @@
         },
         {
             "id": 4,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Sweet Veil",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "ability": "Friend Guard",
+            "item": "Flame Orb",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -199,10 +203,11 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Decorate",
-                "Fake Tears"
+                "Fling",
+                "Tickle",
+                "Helping Hand"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],

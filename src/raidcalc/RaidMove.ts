@@ -5,7 +5,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction } from "./util";
+import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCumulativeKOChance } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -30,6 +30,8 @@ export type RaidMoveResult= {
 // we'll always use generation 9
 const gen = Generations.get(9);
 const dummyMove = new Move(gen, "Splash");
+
+const healCheerRoll = Array.from(Array(16).keys()).map((i) => (0.2 + 0.8 * i/15));
 
 export class RaidMove {
     move: Move;
@@ -65,6 +67,7 @@ export class RaidMove {
     _moveType!: TypeName;
     _isSpread?: boolean;
     _damage!: number[];
+    _damageRolls!: number[][][];
     _healing!: number[];
     _drain!: number[];
     _eot!: ({damage: number, texts: string[]} | undefined)[];
@@ -221,6 +224,7 @@ export class RaidMove {
         this._causesFlinch = [false, false, false, false, false];
         this._moveType = this.move.type;
         this._damage = [0,0,0,0,0];
+        this._damageRolls = [[],[],[],[],[]]
         this._drain = [0,0,0,0,0];
         this._healing = [0,0,0,0,0];
         this._eot = [undefined, undefined, undefined, undefined];
@@ -633,6 +637,7 @@ export class RaidMove {
                             const moveField = this.getMoveField(this.userID, id);
                             const result = calculate(9, moveUser, target, calcMove, moveField);
                             results.push(result);
+                            // ignore the possibility that result.damage is [number[], number[]]. When would that come up?
                             if (damageResult === undefined) {
                                 // @ts-ignore
                                 damageResult = result.damage;
@@ -642,18 +647,22 @@ export class RaidMove {
                                 damageResult = (damageResult as number[]).map((val, i) => val + (result.damage as number[])[i]);
                             }
                             let hitDamage = 0;
+                            let hitRoll = [0];
                             if (typeof(result.damage) === "number") {
                                 hitDamage = result.damage as number;
+                                hitRoll = [hitDamage];
                             } else {
                                 //@ts-ignore
                                 hitDamage = roll === "max" ? result.damage[result.damage.length-1] : roll === "min" ? result.damage[0] : result.damage[Math.floor(result.damage.length/2)];
+                                hitRoll = result.damage as number[];
                             }
                             if (calcMove.name === "False Swipe") {
                                 hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
                             }
                             const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
-                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
+                            this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
                             totalDamage += hitDamage;
+                            this._damageRolls[id].push(hitRoll);
                             // remove buffs to user after damage
                             if (totalDamage > 0) {
                                 hasCausedDamage = true;
@@ -722,6 +731,11 @@ export class RaidMove {
                         result.damage = damageResult as number | number[];
                         result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
                         this._damage[id] = Math.min(totalDamage, this.raidState.raiders[id].originalCurHP);
+                        // adjust desc with cumulative KO chance
+                        const koChance = getCumulativeKOChance(target.cumDamageRolls, target.maxHP());
+                        if (koChance > 0) {
+                            result.rawDesc.koTextOverride = koChance === 100 ? "guaranteed KO" : `${koChance}% cumulative chance to KO`;
+                        }
                         this._desc[id] = result.desc();
                         // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target recieves damage
                         if (this.moveData.name === "Fling" && this._user.item) {
@@ -806,23 +820,35 @@ export class RaidMove {
         const damage = this._damage.reduce((a,b) => a + b, 0);
         if (drainPercent) {
             // scripted Matcha Gotcha could potentially drain from multiple raiders
+            let drainRolls: number[][] | undefined = undefined;
             if (damage > 0) {
-                this._drain[this.userID] = absoluteFloor(this._damage[this._targetID] * drainPercent/100);
+                for (let id of this._affectedIDs) {
+                    this._drain[this.userID] = this._drain[this.userID] + absoluteFloor(this._damage[id] * drainPercent/100);
+                    for (let hitRolls of this._damageRolls[id]) {
+                        if (drainRolls === undefined) {
+                            drainRolls = [hitRolls.map(val => Math.floor(val * -drainPercent/100))];
+                        } else {
+                            drainRolls.push(hitRolls.map(val => Math.floor(val * -drainPercent/100)));
+                        }
+                    }
+                }
             }
             if (this._drain[this.userID] && this._user.originalCurHP > 0) {
-                this._raidState.applyDamage(this.userID, -this._drain[this.userID])
+                this._raidState.applyDamage(this.userID, -this._drain[this.userID], drainRolls)
             }
         }
     }
 
     private applyHealing() {
         let healingPercent = this.moveData.healing;
+        const healingRolls: (number[] | undefined)[] = [undefined, undefined, undefined, undefined, undefined];
         for (let id of this._affectedIDs) {
             if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
             const target = this.getPokemon(id);
             const maxHP = target.maxHP();
             if (this.move.name === "Heal Cheer") {
                 const roll = this.options.roll || "avg";
+                healingRolls[id] = healCheerRoll.map(val => -Math.floor(val * maxHP));
                 this._healing[id] += roll === "min" ? Math.floor(maxHP * 0.2) : roll === "max" ? maxHP : Math.floor(maxHP * 0.6);
                 const pokemon = this.getPokemon(id);
                 pokemon.status = "";
@@ -849,7 +875,7 @@ export class RaidMove {
         }
         for (let id=1; id<5; id++) {
             if (this._healing[id] && this.getPokemon(id).originalCurHP > 0) {
-                this._raidState.applyDamage(id, -this._healing[id])
+                this._raidState.applyDamage(id, -this._healing[id], healingRolls[id])
             }
         }
     }
@@ -1500,7 +1526,7 @@ export class RaidMove {
                 break;
             case "Curse": 
                 if (this._user.hasType("Ghost")) {
-                    this._raidState.applyDamage(this.userID, this._user.maxHP() / 2, 0);
+                    this._raidState.applyDamage(this.userID, this._user.maxHP() / 2);
                     // (Ghost) Curse probably doesn't work in raids
                 }
                 break;

@@ -32,7 +32,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
+    public applyDamage(id: number, damage: number, damageRolls: number[] | number[][] | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
@@ -41,7 +41,7 @@ export class RaidState implements State.RaidState{
             if (pokemon.substitute && !bypassSubstitute) {
                 pokemon.substitute = pokemon.substitute <= 0 ? undefined : pokemon.substitute - damage;
             } else {
-                pokemon.applyDamage(damage);
+                pokemon.applyDamage(damage, damageRolls);
             }
         }
 
@@ -399,7 +399,8 @@ export class RaidState implements State.RaidState{
             case "Sitrus Berry":
                 const maxhp = pokemon.maxHP();
                 if (pokemon.originalCurHP < maxhp) {
-                    pokemon.originalCurHP = Math.min(maxhp, pokemon.originalCurHP + Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)));
+                    // pokemon.originalCurHP = Math.min(maxhp, pokemon.originalCurHP + Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)));
+                    pokemon.applyDamage(-Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)));
                     pokemon.lastConsumedItem = item as ItemName;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
@@ -719,7 +720,7 @@ export class RaidState implements State.RaidState{
             this.applyTerrain(pokemon.field.terrain, pokemon.field.terrainTurnsRemaining, [id]);
         }
         // Berries consumed immediately upon reciept (via Symbiosis, Trick, etc) if their conditions are met
-        this.applyDamage(id, 0, 0);
+        this.applyDamage(id, 0);
     }
 
     public applyTerrain(terrain: Terrain | "Teraform Zero" | undefined, turns: number = 20, ids: number[] = [0,1,2,3,4]) {
@@ -928,7 +929,7 @@ export class RaidState implements State.RaidState{
                     const allies = this.raiders.slice(1).splice(id-1, 1);
                     for (let ally of allies) {
                         const healing = Math.floor(ally.maxHP() / 4);
-                        this.applyDamage(ally.id, -healing, 0)
+                        this.applyDamage(ally.id, -healing)
                     }
                 }
             // Intrepid Sword
@@ -1359,6 +1360,8 @@ export class RaidState implements State.RaidState{
         let ability = pokemon.ability;
         // reset HP
         pokemon.originalCurHP = pokemon.maxHP();
+        pokemon.damageHistory = [];
+        pokemon.cumDamageRolls = new Map<number, number>();
         // check Neutralizing Gas
         const neutralizingGas = this.raiders.reduce((p, c) => p || c.ability === "Neutralizing Gas", false);
         if (neutralizingGas && !pokemon.hasItem("Ability Shield") && !persistentAbilities.unsuppressable.includes(ability || "") && ability !== "Neutralizing Gas") { 

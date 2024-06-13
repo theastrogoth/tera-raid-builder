@@ -373,3 +373,54 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
     }
     return selectableMoves.map(m => m.name);
 }
+
+export function getRollCounts(rolls: number[][], min: number, max: number) {
+    const cumRolls = new Map<number, number>();
+    for (const rs of rolls) {
+        addRollsToCounts(cumRolls, rs, min, max);
+    }
+    return cumRolls;
+}
+
+export function addRollsToCounts(cumRolls: Map<number, number>, newRolls: number[], min: number, max: number) {
+    const prevCumRolls = new Map<number, number>(cumRolls);
+    if (prevCumRolls.size === 0) {
+        prevCumRolls.set(0, 0);
+    }
+    const prevRolls = Array.from(prevCumRolls.keys());
+    cumRolls.clear();
+    for (let i=0; i<newRolls.length; i++) {
+        const roll = newRolls[i];
+        for (let j=0; j<prevRolls.length; j++) {
+            const prevRoll = prevRolls[j];
+            const combinedRoll = Math.max(min, Math.min(max, roll + prevRoll));
+            const prevCount = prevCumRolls.get(combinedRoll) || 0;
+            const newCount = cumRolls.get(combinedRoll) || 0;
+            cumRolls.set(combinedRoll, prevCount + newCount + 1);
+        }
+    }
+    // mutates the first argument, but we'll also return it
+    return cumRolls;
+}
+
+export function combineRollCounts(a: Map<number, number>, b: Map<number, number>, min: number, max: number) {
+    const c = new Map<number, number>();
+    const aRolls = Array.from(a.keys());
+    const bRolls = Array.from(b.keys());
+    for (let i=0; i<aRolls.length; i++) {
+        for (let j=0; j<bRolls.length; j++) {
+            const combinedRoll = Math.max(min, Math.min(max, aRolls[i] + bRolls[j]));
+            const aCount = a.get(aRolls[i]) || 0;
+            const bCount = b.get(bRolls[j]) || 0;
+            const cCount = c.get(combinedRoll) || 0;
+            c.set(combinedRoll, aCount + bCount + cCount);
+        }
+    }
+    return c;
+}
+
+export function getCumulativeKOChance(rolls: Map<number, number>, hp: number) {
+    const numRolls = Array.from(rolls.values()).reduce((a, b) => a + b, 0);
+    const koRolls = rolls.get(hp) || 0;
+    return Math.round(koRolls / numRolls * 1000) / 10;
+}

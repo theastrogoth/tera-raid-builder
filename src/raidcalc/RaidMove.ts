@@ -5,7 +5,7 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCumulativeKOChance } from "./util";
+import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCumulativeKOChance, getCritChance, getRollCounts, catRollCounts, combineRollCounts } from "./util";
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -67,7 +67,7 @@ export class RaidMove {
     _moveType!: TypeName;
     _isSpread?: boolean;
     _damage!: number[];
-    _damageRolls!: number[][][];
+    _damageRolls!: Map<number,number>[][];
     _healing!: number[];
     _drain!: number[];
     _eot!: ({damage: number, texts: string[]} | undefined)[];
@@ -224,7 +224,7 @@ export class RaidMove {
         this._causesFlinch = [false, false, false, false, false];
         this._moveType = this.move.type;
         this._damage = [0,0,0,0,0];
-        this._damageRolls = [[],[],[],[],[]]
+        this._damageRolls = [[],[],[],[],[]];
         this._drain = [0,0,0,0,0];
         this._healing = [0,0,0,0,0];
         this._eot = [undefined, undefined, undefined, undefined];
@@ -599,7 +599,8 @@ export class RaidMove {
             } else if (this._blockedBy[id] !== "")  {
                 this._desc[id] = this.move.name + " was blocked by " + this._blockedBy[id] + "!";
             } else if (this._affectedIDs.includes(id)) {
-                const crit = this.options.crit || false;
+                const critChance = getCritChance(this.move, moveUser, target);
+                const crit = this.options.crit || critChance >= 1;
                 const roll = this.options.roll || "avg";
                 const superEffective = isSuperEffective(this.move, this._moveType, target.field, this._user, target);
                 let results = [];
@@ -609,6 +610,8 @@ export class RaidMove {
                 const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
                 const [accuracy, accEffectsList] = getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
                 const bpModifier = getBpModifier(this.moveData, target, this.damaged);
+                const accFraction = Math.min(1,accuracy/100);
+                const rollChance = accFraction * (crit ? critChance : (1 - critChance));
                 if (accuracy > 0) {
                     try {
                         // calculate each hit from a multi-hit move
@@ -636,6 +639,13 @@ export class RaidMove {
                             // get calc result
                             const moveField = this.getMoveField(this.userID, id);
                             const result = calculate(9, moveUser, target, calcMove, moveField);
+                            let otherResult = undefined;
+                            if (critChance > 0 && critChance < 1) {
+                                const otherCalcMove = calcMove.clone();
+                                otherCalcMove.isCrit = !crit;
+                                otherResult = calculate(9, moveUser, target, otherCalcMove, moveField);
+                            }
+                            
                             results.push(result);
                             // ignore the possibility that result.damage is [number[], number[]]. When would that come up?
                             if (damageResult === undefined) {
@@ -647,22 +657,31 @@ export class RaidMove {
                                 damageResult = (damageResult as number[]).map((val, i) => val + (result.damage as number[])[i]);
                             }
                             let hitDamage = 0;
-                            let hitRoll = [0];
+                            let hitRoll = undefined;
                             if (typeof(result.damage) === "number") {
                                 hitDamage = result.damage as number;
-                                hitRoll = [hitDamage];
+                                hitRoll = getRollCounts([[hitDamage]], 0, target.maxHP(), [rollChance]);
                             } else {
                                 //@ts-ignore
                                 hitDamage = roll === "max" ? result.damage[result.damage.length-1] : roll === "min" ? result.damage[0] : result.damage[Math.floor(result.damage.length/2)];
-                                hitRoll = result.damage as number[];
+                                hitRoll = getRollCounts([result.damage as number[]], 0, target.maxHP(), [rollChance]);
                             }
                             if (calcMove.name === "False Swipe") {
                                 hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
+                            }
+                            if (otherResult) {
+                                const otherRollChance = accFraction * (crit ? 1 - critChance : critChance);
+                                if (typeof(otherResult.damage) === "number") {
+                                    hitRoll = catRollCounts(hitRoll, getRollCounts([[otherResult.damage as number]], 0, target.maxHP(), [otherRollChance]));
+                                } else {
+                                    hitRoll = catRollCounts(hitRoll, getRollCounts([otherResult.damage as number[]], 0, target.maxHP(), [otherRollChance]));
+                                }
                             }
                             const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
                             this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
                             totalDamage += hitDamage;
                             this._damageRolls[id].push(hitRoll);
+        
                             // remove buffs to user after damage
                             if (totalDamage > 0) {
                                 hasCausedDamage = true;
@@ -820,15 +839,19 @@ export class RaidMove {
         const damage = this._damage.reduce((a,b) => a + b, 0);
         if (drainPercent) {
             // scripted Matcha Gotcha could potentially drain from multiple raiders
-            let drainRolls: number[][] | undefined = undefined;
+            let drainRolls: Map<number,number> | undefined = undefined;
             if (damage > 0) {
                 for (let id of this._affectedIDs) {
                     this._drain[this.userID] = this._drain[this.userID] + absoluteFloor(this._damage[id] * drainPercent/100);
                     for (let hitRolls of this._damageRolls[id]) {
+                        const scaledRolls = new Map<number,number>();
+                        for (let [key, val] of hitRolls) {
+                            scaledRolls.set(absoluteFloor(key * -drainPercent/100), val);
+                        }
                         if (drainRolls === undefined) {
-                            drainRolls = [hitRolls.map(val => Math.floor(val * -drainPercent/100))];
+                            drainRolls = scaledRolls;
                         } else {
-                            drainRolls.push(hitRolls.map(val => Math.floor(val * -drainPercent/100)));
+                            drainRolls = combineRollCounts(drainRolls, scaledRolls, -this._raidState.raiders[id].maxHP(), this._raidState.raiders[id].maxHP());
                         }
                     }
                 }
@@ -875,7 +898,7 @@ export class RaidMove {
         }
         for (let id=1; id<5; id++) {
             if (this._healing[id] && this.getPokemon(id).originalCurHP > 0) {
-                this._raidState.applyDamage(id, -this._healing[id], healingRolls[id])
+                this._raidState.applyDamage(id, -this._healing[id], healingRolls[id] ? getRollCounts([healingRolls[id] as number[]], -Infinity, 0) : undefined);
             }
         }
     }

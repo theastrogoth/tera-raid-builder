@@ -1,4 +1,4 @@
-import { Move, Field, Pokemon, Generations } from "../calc";
+import { Move, Field, Pokemon, Generations, toID } from "../calc";
 import { AilmentName, MoveData, Raider, RaidTurnInfo } from "./interface";
 import { AbilityName, ItemName, StatIDExceptHP, TypeName } from "../calc/data/interface";
 import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
@@ -374,18 +374,36 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
     return selectableMoves.map(m => m.name);
 }
 
-export function getRollCounts(rolls: number[][], min: number, max: number) {
+export function getCritChance(move: Move, attacker: Raider, defender: Raider) {
+    if (defender.hasAbility("Shell Armor")) { return 0; }
+    const data = gen.moves.get(toID(move.name));
+    if (data && data.willCrit) { return 1; }
+    const critStages = (move.highCritChance ? 1 : 0) + (attacker.isPumped || 0) + (attacker.hasAbility("Super Luck") ? 1 : 0) + (attacker.hasItem("Scope Lens", "Razor Claw") ? 1 : 0);
+    switch (critStages) {
+        case 0:
+            return 1 / 24;
+        case 1:
+            return 1 / 8;
+        case 2:
+            return 1 / 2;
+        default:
+            return 1;
+    }
+}
+
+export function getRollCounts(rolls: number[][], min: number, max: number, chances: number[] | undefined = undefined) {
     const cumRolls = new Map<number, number>();
-    for (const rs of rolls) {
-        addRollsToCounts(cumRolls, rs, min, max);
+    for (let i=0; i<rolls.length; i++) {
+        addRollsToCounts(cumRolls, rolls[i], min, max, chances ? chances[i] : undefined);
     }
     return cumRolls;
 }
 
-export function addRollsToCounts(cumRolls: Map<number, number>, newRolls: number[], min: number, max: number) {
+export function addRollsToCounts(cumRolls: Map<number, number>, newRolls: number[], min: number, max: number, chance: number | undefined = undefined) {
+    const rollChance = (chance || 1) / newRolls.length;
     const prevCumRolls = new Map<number, number>(cumRolls);
     if (prevCumRolls.size === 0) {
-        prevCumRolls.set(0, 0);
+        prevCumRolls.set(0, 1);
     }
     const prevRolls = Array.from(prevCumRolls.keys());
     cumRolls.clear();
@@ -394,9 +412,9 @@ export function addRollsToCounts(cumRolls: Map<number, number>, newRolls: number
         for (let j=0; j<prevRolls.length; j++) {
             const prevRoll = prevRolls[j];
             const combinedRoll = Math.max(min, Math.min(max, roll + prevRoll));
-            const prevCount = prevCumRolls.get(combinedRoll) || 0;
-            const newCount = cumRolls.get(combinedRoll) || 0;
-            cumRolls.set(combinedRoll, prevCount + newCount + 1);
+            const prevChance = prevCumRolls.get(combinedRoll) || 1;
+            const newChance = cumRolls.get(combinedRoll) || 0;
+            cumRolls.set(combinedRoll, newChance + prevChance * rollChance);
         }
     }
     // mutates the first argument, but we'll also return it
@@ -407,14 +425,37 @@ export function combineRollCounts(a: Map<number, number>, b: Map<number, number>
     const c = new Map<number, number>();
     const aRolls = Array.from(a.keys());
     const bRolls = Array.from(b.keys());
+    if (aRolls.length === 0) {
+        aRolls.push(0);
+    }
+    if (bRolls.length === 0) {
+        bRolls.push(0);
+    }
     for (let i=0; i<aRolls.length; i++) {
         for (let j=0; j<bRolls.length; j++) {
             const combinedRoll = Math.max(min, Math.min(max, aRolls[i] + bRolls[j]));
-            const aCount = a.get(aRolls[i]) || 0;
-            const bCount = b.get(bRolls[j]) || 0;
-            const cCount = c.get(combinedRoll) || 0;
-            c.set(combinedRoll, aCount + bCount + cCount);
+            const aChance = a.get(aRolls[i]) || 1;
+            const bChance = b.get(bRolls[j]) || 1;
+            const cChance = c.get(combinedRoll) || 0;
+            c.set(combinedRoll, aChance * bChance + cChance);
         }
+    }
+    return c;
+}
+
+export function catRollCounts(a: Map<number, number>, b: Map<number, number>) {
+    const c = new Map<number, number>();
+    const aRolls = Array.from(a.keys());
+    const bRolls = Array.from(b.keys());
+    for (let i=0; i<aRolls.length; i++) {
+        const aCount = a.get(aRolls[i]) || 0;
+        const cCount = c.get(aRolls[i]) || 0;
+        c.set(aRolls[i], aCount + cCount);
+    }
+    for (let i=0; i<bRolls.length; i++) {
+        const bCount = b.get(bRolls[i]) || 0;
+        const cCount = c.get(bRolls[i]) || 0;
+        c.set(bRolls[i], bCount + cCount);
     }
     return c;
 }
@@ -422,5 +463,5 @@ export function combineRollCounts(a: Map<number, number>, b: Map<number, number>
 export function getCumulativeKOChance(rolls: Map<number, number>, hp: number) {
     const numRolls = Array.from(rolls.values()).reduce((a, b) => a + b, 0);
     const koRolls = rolls.get(hp) || 0;
-    return Math.round(koRolls / numRolls * 1000) / 10;
+    return parseFloat((koRolls / numRolls * 100).toPrecision(3));
 }

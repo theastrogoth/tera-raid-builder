@@ -677,6 +677,9 @@ export class RaidMove {
                                     hitRoll = catRollCounts(hitRoll, getRollCounts([otherResult.damage as number[]], 0, target.maxHP(), [otherRollChance]));
                                 }
                             }
+                            if (accFraction > 0 && accFraction < 1) {
+                                hitRoll = catRollCounts(hitRoll, getRollCounts([[0]], 0, target.maxHP(), [1 - accFraction]));
+                            }
                             const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
                             this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
                             totalDamage += hitDamage;

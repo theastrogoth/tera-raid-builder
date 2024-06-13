@@ -34,8 +34,14 @@ export class RaidState implements State.RaidState{
 
     public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
         const pokemon = this.getPokemon(id);
-        if (pokemon.originalCurHP === 0) { return; } // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
         const originalHP = pokemon.originalCurHP;
+        const originalDamageRolls = new Map<number,number>(pokemon.cumDamageRolls);
+        if (pokemon.originalCurHP === 0) {          // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
+            if (damage !== 0 && damageRolls) {
+                pokemon.addDamageRoll(damageRolls); // but we should still record the damage rolls
+            }
+            return; 
+        } 
 
         for (let hit = 0; hit < Math.max(1, nHits); hit++) {
             if (pokemon.substitute && !bypassSubstitute) {
@@ -57,35 +63,42 @@ export class RaidState implements State.RaidState{
                 pokemon.hitsTaken = pokemon.hitsTaken + nHits;
             }
             // Item consumption / Ability Activation triggered by damage
-            // Focus Sash
-            if (pokemon.item === "Focus Sash" || pokemon.ability === "Sturdy") {
-                if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
-                    pokemon.originalCurHP = 1;
-                    if (pokemon.ability !== "Sturdy") { this.consumeItem(id, pokemon.item!); } 
-                    fainted = false;
-                }
-            }
             // Ice Face
             if (pokemon.ability === "Ice Face" && !pokemon.abilityOn && pokemon.name.includes("Eiscue") && moveCategory === "Physical") {
                 pokemon.changeForm("Eiscue-Noice" as SpeciesName);
                 pokemon.abilityOn = true;
                 pokemon.originalCurHP = originalHP; // no damage is done
+                pokemon.cumDamageRolls = originalDamageRolls;
                 fainted = false;
                 return; // don't trigger item use
-            }
-            // Air Balloon
-            if (pokemon.item === "Air Balloon") {
-                this.loseItem(id);
             }
             // Disguise
             if (pokemon.ability === "Disguise" && !pokemon.abilityOn && pokemon.name.includes("Mimikyu")) {
                 pokemon.abilityOn = true;
                 pokemon.originalCurHP = originalHP; // negate damage from attack
-                pokemon.applyDamage(Math.floor(pokemon.maxHP()/8)); // bust disguise, 1/8 max HP damage
+                pokemon.cumDamageRolls = originalDamageRolls;
+                pokemon.applyDamage(Math.floor(pokemon.maxHP()/8)); // bust disguise, 1/8 max HP damage                
                 if (pokemon.originalCurHP === 0) {
                     this.faint(id);
                 }
                 return; // don't trigger item use (except for Air Balloon)
+            }
+            // Focus Sash
+            if (pokemon.item === "Focus Sash" || pokemon.ability === "Sturdy") {
+                if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
+                    pokemon.originalCurHP = 1;
+                    pokemon.cumDamageRolls = originalDamageRolls;
+                    const sashDamageRolls = new Map<number,number>(originalDamageRolls);
+                    const faintChance = originalDamageRolls.get(maxHP) || 0;
+                    originalDamageRolls.delete(maxHP);
+                    sashDamageRolls.set(maxHP-1, faintChance + (originalDamageRolls.get(maxHP-1) || 0));
+                    if (pokemon.ability !== "Sturdy") { this.consumeItem(id, pokemon.item!); } 
+                    fainted = false;
+                }
+            }
+            // Air Balloon
+            if (pokemon.item === "Air Balloon") {
+                this.loseItem(id);
             }
             // Weakness Policy and Super-Effective reducing Berries
             // TO DO - abilities that let users use berries more than once

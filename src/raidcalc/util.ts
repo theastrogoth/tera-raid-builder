@@ -411,7 +411,7 @@ export function addRollsToCounts(cumRolls: Map<number, number>, newRolls: number
         const roll = newRolls[i];
         for (let j=0; j<prevRolls.length; j++) {
             const prevRoll = prevRolls[j];
-            const combinedRoll = Math.max(min, Math.min(max, roll + prevRoll));
+            const combinedRoll = prevRoll >= max ? max : Math.max(min, Math.min(max, roll + prevRoll)); // disallow healing if already fainted
             const prevChance = prevCumRolls.get(combinedRoll) || 1;
             const newChance = cumRolls.get(combinedRoll) || 0;
             cumRolls.set(combinedRoll, newChance + prevChance * rollChance);

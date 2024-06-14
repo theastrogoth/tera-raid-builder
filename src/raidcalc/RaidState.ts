@@ -32,14 +32,9 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-<<<<<<< HEAD
     public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
-=======
-    public applyDamage(id: number, damage: number, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
->>>>>>> main
         const pokemon = this.getPokemon(id);
         const originalHP = pokemon.originalCurHP;
-<<<<<<< HEAD
         const originalDamageRolls = new Map<number,number>(pokemon.cumDamageRolls);
         if (pokemon.originalCurHP === 0) {          // prevent healing KOd Pokemon, and there's no need to subtract damage from 0HP
             if (damage !== 0 && damageRolls) {
@@ -47,21 +42,13 @@ export class RaidState implements State.RaidState{
             }
             return; 
         } 
-=======
->>>>>>> main
-
         for (let hit = 0; hit < Math.max(1, nHits); hit++) {
             if (pokemon.substitute && !bypassSubstitute) {
                 pokemon.substitute = pokemon.substitute <= 0 ? undefined : pokemon.substitute - damage;
             } else {
-<<<<<<< HEAD
                 pokemon.applyDamage(damage, damageRolls);
-=======
-                pokemon.applyDamage(damage);
->>>>>>> main
             }
         }
-
         const maxHP = pokemon.maxHP();
         const opponents = id === 0 ? [1,2,3,4] : [0];
         let unnerve = false;
@@ -74,17 +61,6 @@ export class RaidState implements State.RaidState{
                 pokemon.hitsTaken = pokemon.hitsTaken + nHits;
             }
             // Item consumption / Ability Activation triggered by damage
-<<<<<<< HEAD
-=======
-            // Focus Sash
-            if (pokemon.item === "Focus Sash" || pokemon.ability === "Sturdy") {
-                if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
-                    pokemon.originalCurHP = 1;
-                    if (pokemon.ability !== "Sturdy") { this.consumeItem(id, pokemon.item!); } 
-                    fainted = false;
-                }
-            }
->>>>>>> main
             // Ice Face
             if (pokemon.ability === "Ice Face" && !pokemon.abilityOn && pokemon.name.includes("Eiscue") && moveCategory === "Physical") {
                 pokemon.changeForm("Eiscue-Noice" as SpeciesName);
@@ -434,12 +410,8 @@ export class RaidState implements State.RaidState{
             case "Sitrus Berry":
                 const maxhp = pokemon.maxHP();
                 if (pokemon.originalCurHP < maxhp) {
-<<<<<<< HEAD
                     // pokemon.originalCurHP = Math.min(maxhp, pokemon.originalCurHP + Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)));
                     pokemon.applyDamage(-Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)));
-=======
-                    pokemon.originalCurHP = Math.min(maxhp, pokemon.originalCurHP + Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)));
->>>>>>> main
                     pokemon.lastConsumedItem = item as ItemName;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }

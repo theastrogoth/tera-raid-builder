@@ -59,7 +59,6 @@ export interface RawDesc {
   isDefenderDynamaxed?: boolean;
   isCharged?: boolean;
   shieldActive?: boolean;
-  koTextOverride?: string;
 }
 
 export function display(
@@ -84,7 +83,7 @@ export function display(
   const damageText = `${min}-${max} (${minDisplay} - ${maxDisplay}${notation}${getBossMultiplierDesc(defender)})`;
 
   if (move.category === 'Status' && !move.named('Nature Power')) return `${desc}: ${damageText}`;
-  const koChanceText = rawDesc.koTextOverride || getKOChance(gen, attacker, defender, move, field, damage, err).text;
+  const koChanceText = getKOChance(gen, attacker, defender, move, field, damage, err).text;
   return koChanceText ? `${desc}: ${damageText} -- ${koChanceText}` : `${desc}: ${damageText}`;
 }
 

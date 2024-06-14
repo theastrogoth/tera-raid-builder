@@ -753,11 +753,6 @@ export class RaidMove {
                         result.damage = damageResult as number | number[];
                         result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
                         this._damage[id] = Math.min(totalDamage, this.raidState.raiders[id].originalCurHP);
-                        // adjust desc with cumulative KO chance
-                        const koChance = getCumulativeKOChance(target.cumDamageRolls, target.maxHP());
-                        if (koChance > 0) {
-                            result.rawDesc.koTextOverride = koChance === 100 ? "guaranteed KO" : `${koChance}% cumulative chance to KO`;
-                        }
                         this._desc[id] = result.desc();
                         // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target recieves damage
                         if (this.moveData.name === "Fling" && this._user.item) {
@@ -901,7 +896,7 @@ export class RaidMove {
         }
         for (let id=1; id<5; id++) {
             if (this._healing[id] && this.getPokemon(id).originalCurHP > 0) {
-                this._raidState.applyDamage(id, -this._healing[id], healingRolls[id] ? getRollCounts([healingRolls[id] as number[]], -Infinity, 0) : undefined);
+                this._raidState.applyDamage(id, -this._healing[id], healingRolls[id] ? getRollCounts([healingRolls[id] as number[]], -this._raidState.raiders[id].maxHP(), this._raidState.raiders[id].maxHP()) : undefined);
             }
         }
     }
@@ -1815,6 +1810,16 @@ export class RaidMove {
                 const finalPercent = Math.floor(finalHP / this._raiders[i].maxHP() * 1000)/10;
                 const hpStr = "HP: " + initialPercent + "% → " + finalPercent + "%";
                 this._flags[i].push(hpStr);
+            }
+        }
+        // display overall fainting chance
+        for (let i=0; i<5; i++) {
+            if (i === this.userID || i === this.targetID || i === this.raiderID || this._affectedIDs.includes(i)) {
+                const poke = this._raiders[i];
+                const koChance = getCumulativeKOChance(poke.cumDamageRolls, poke.maxHP());
+                if (koChance > 0) {
+                    this._flags[i].push(koChance >= 1 ? "Guaranteed KO" : `${koChance}% overall chance of being KOd`);
+                }
             }
         }
     }

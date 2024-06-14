@@ -837,6 +837,14 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/primarina/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('swampert/main', async () => {
+    const module = await import(`./data/strats/swampert/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('emboar/main', async () => {
+    const module = await import(`./data/strats/emboar/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 describe('OHKO tests, Alternative Strats', () => {
@@ -1683,6 +1691,134 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('primarina/opera_faux_pas', async () => {
     const module = await import(`./data/strats/primarina/opera_faux_pas.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/muddy`, async () => {
+    const module = await import(`./data/strats/swampert/muddy.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/farigiraf`, async () => {
+    const module = await import(`./data/strats/swampert/farigiraf.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/dessert`, async () => {
+    const module = await import(`./data/strats/swampert/dessert.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/just_desserts`, async () => {
+    const module = await import(`./data/strats/swampert/just_desserts.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/entropy`, async () => {
+    const module = await import(`./data/strats/swampert/entropy.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/for_the_birds`, async () => {
+    const module = await import(`./data/strats/swampert/for_the_birds.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/eeveelutions`, async () => {
+    const module = await import(`./data/strats/swampert/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/puppies`, async () => {
+    const module = await import(`./data/strats/swampert/puppies.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/godzilla`, async () => {
+    const module = await import(`./data/strats/swampert/godzilla.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/zen_and_psy`, async () => {
+    const module = await import(`./data/strats/swampert/zen_and_psy.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/gastrosire_redux`, async () => {
+    const module = await import(`./data/strats/swampert/gastrosire_redux.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/psychic_party`, async () => {
+    const module = await import(`./data/strats/swampert/psychic_party.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/espeon`, async () => {
+    const module = await import(`./data/strats/swampert/espeon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/golurk`, async () => {
+    const module = await import(`./data/strats/swampert/golurk.json`)
+    await testOHKO(module as LightBuildInfo);
+  }) 
+  test(`swampert/idk`, async () => {
+    const module = await import(`./data/strats/swampert/idk.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/pond_battle`, async () => {
+    const module = await import(`./data/strats/swampert/pond_battle.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/darwinism`, async () => {
+    const module = await import(`./data/strats/swampert/darwinism.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/jaws_of_defeat`, async () => {
+    const module = await import(`./data/strats/swampert/jaws_of_defeat.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/great_tusk`, async () => {
+    const module = await import(`./data/strats/swampert/great_tusk.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/groudon`, async () => {
+    const module = await import(`./data/strats/swampert/groudon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/bolero`, async () => {
+    const module = await import(`./data/strats/swampert/bolero.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/weather_whirlwind`, async () => {
+    const module = await import(`./data/strats/swampert/weather_whirlwind.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/fast_car`, async () => {
+    const module = await import(`./data/strats/swampert/fast_car.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/everglades`, async () => {
+    const module = await import(`./data/strats/swampert/everglades.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/inversion`, async () => {
+    const module = await import(`./data/strats/swampert/inversion.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/judgement`, async () => {
+    const module = await import(`./data/strats/swampert/judgement.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/spring_on_jupiter`, async () => {
+    const module = await import(`./data/strats/swampert/spring_on_jupiter.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/mini_menaces`, async () => {
+    const module = await import(`./data/strats/swampert/mini_menaces.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/skill_issue`, async () => {
+    const module = await import(`./data/strats/swampert/skill_issue.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/nukebro`, async () => {
+    const module = await import(`./data/strats/swampert/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/field_trip`, async () => {
+    const module = await import(`./data/strats/swampert/field_trip.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`swampert/born_on_the_bayou`, async () => {
+    const module = await import(`./data/strats/swampert/born_on_the_bayou.json`)
     await testOHKO(module as LightBuildInfo);
   })
 })

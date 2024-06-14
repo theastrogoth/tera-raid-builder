@@ -10,7 +10,7 @@
             "shiny": false,
             "isAnyLevel": false,
             "ability": "Reckless",
-            "nature": "Adamant",
+            "nature": "Brave",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,25 +28,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "teraType": "Electric",
             "moves": [
                 "Flare Blitz",
+                "Drain Punch",
                 "Wild Charge",
-                "Head Smash",
-                "Hammer Arm"
+                "Head Smash"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 4000,
             "extraMoves": [
                 "Bulk Up",
-                "Curse",
-                "Taunt",
-                "Sunny Day"
+                "Heat Crash"
             ],
             "shieldData": {
-                "hpTrigger": 85,
+                "hpTrigger": 90,
                 "timeTrigger": 80,
-                "shieldCancelDamage": 45,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -54,17 +52,17 @@
         },
         {
             "id": 1,
-            "role": "Hariyama",
-            "name": "Hariyama",
+            "role": "Ursaluna",
+            "name": "Ursaluna",
             "shiny": false,
             "isAnyLevel": false,
             "ability": "Guts",
-            "item": "Life Orb",
+            "item": "Flame Orb",
             "nature": "Adamant",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 252,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -75,13 +73,15 @@
                 "def": 31,
                 "spa": 31,
                 "spd": 31,
-                "spe": 31
+                "spe": 0
             },
             "level": 100,
             "gender": "N",
             "moves": [
                 "Belly Drum",
-                "Headlong Rush"
+                "Headlong Rush",
+                "Swords Dance",
+                "Earthquake"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -96,33 +96,35 @@
         },
         {
             "id": 2,
-            "role": "Jigglypuff",
-            "name": "Jigglypuff",
+            "role": "Stonjourner",
+            "name": "Stonjourner",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "ability": "Power Spot",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
             "level": 100,
             "gender": "N",
             "moves": [
-                "Helping Hand"
+                "Bulldoze",
+                "Low Sweep",
+                "Gravity",
+                "Wide Guard"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -164,7 +166,9 @@
             "gender": "N",
             "moves": [
                 "Tickle",
-                "Helping Hand"
+                "Helping Hand",
+                "Mud-Slap",
+                "Chilling Water"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -184,7 +188,7 @@
             "shiny": false,
             "isAnyLevel": false,
             "ability": "Friend Guard",
-            "item": "Flame Orb",
+            "item": "Eviolite",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -205,9 +209,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fling",
                 "Tickle",
-                "Helping Hand"
+                "Helping Hand",
+                "Reflect",
+                "Life Dew"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -228,7 +233,7 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

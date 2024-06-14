@@ -5,7 +5,11 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
+<<<<<<< HEAD
 import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCumulativeKOChance, getCritChance, getRollCounts, catRollCounts, combineRollCounts } from "./util";
+=======
+import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction } from "./util";
+>>>>>>> main
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -60,10 +64,17 @@ export class RaidMove {
     _blockedBy!: string[];
 
     _isSheerForceBoosted?: boolean;
+<<<<<<< HEAD
 
     _flingItem?: ItemName;
     _powerHerbUsed?: boolean;
 
+=======
+
+    _flingItem?: ItemName;
+    _powerHerbUsed?: boolean;
+
+>>>>>>> main
     _moveType!: TypeName;
     _isSpread?: boolean;
     _damage!: number[];
@@ -669,6 +680,7 @@ export class RaidMove {
                             if (calcMove.name === "False Swipe") {
                                 hitDamage = Math.min(hitDamage, target.originalCurHP - 1);
                             }
+<<<<<<< HEAD
                             if (otherResult) {
                                 const otherRollChance = accFraction * (crit ? 1 - critChance : critChance);
                                 if (typeof(otherResult.damage) === "number") {
@@ -685,6 +697,11 @@ export class RaidMove {
                             totalDamage += hitDamage;
                             this._damageRolls[id].push(hitRoll);
         
+=======
+                            const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
+                            this._raidState.applyDamage(id, hitDamage, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
+                            totalDamage += hitDamage;
+>>>>>>> main
                             // remove buffs to user after damage
                             if (totalDamage > 0) {
                                 hasCausedDamage = true;
@@ -839,6 +856,7 @@ export class RaidMove {
             // scripted Matcha Gotcha could potentially drain from multiple raiders
             let drainRolls: Map<number,number> | undefined = undefined;
             if (damage > 0) {
+<<<<<<< HEAD
                 for (let id of this._affectedIDs) {
                     this._drain[this.userID] = this._drain[this.userID] + absoluteFloor(this._damage[id] * drainPercent/100);
                     for (let hitRolls of this._damageRolls[id]) {
@@ -853,6 +871,9 @@ export class RaidMove {
                         }
                     }
                 }
+=======
+                this._drain[this.userID] = absoluteFloor(this._damage[this._targetID] * drainPercent/100);
+>>>>>>> main
             }
             if (this._drain[this.userID] && this._user.originalCurHP > 0) {
                 this._raidState.applyDamage(this.userID, -this._drain[this.userID], drainRolls)
@@ -862,7 +883,10 @@ export class RaidMove {
 
     private applyHealing() {
         let healingPercent = this.moveData.healing;
+<<<<<<< HEAD
         const healingRolls: (number[] | undefined)[] = [undefined, undefined, undefined, undefined, undefined];
+=======
+>>>>>>> main
         for (let id of this._affectedIDs) {
             if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
             const target = this.getPokemon(id);

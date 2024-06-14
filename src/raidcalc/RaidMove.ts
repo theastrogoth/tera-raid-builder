@@ -1818,7 +1818,7 @@ export class RaidMove {
                 const poke = this._raiders[i];
                 const koChance = getCumulativeKOChance(poke.cumDamageRolls, poke.maxHP());
                 if (koChance > 0) {
-                    this._flags[i].push(koChance >= 1 ? "Guaranteed KO" : `${koChance}% overall chance of being KOd`);
+                    this._flags[i].push(koChance >= 100 ? "Guaranteed KO" : `${koChance}% overall chance of being KOd`);
                 }
             }
         }

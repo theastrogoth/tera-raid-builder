@@ -280,7 +280,7 @@ export class Raider extends Pokemon implements State.Raider {
         return speed;
     }
 
-    public applyDamage(damage: number, damageRolls: Map<number,number> | undefined = undefined): number { 
+    public applyDamage(damage: number, damageRolls?: Map<number,number>): number { 
         let safeDamageRolls = new Map<number,number>(damageRolls);
         if (!damageRolls) {
             safeDamageRolls.set(damage, 1);

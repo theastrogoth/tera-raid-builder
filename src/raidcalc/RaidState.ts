@@ -418,7 +418,8 @@ export class RaidState implements State.RaidState{
                 break;
             case "Oran Berry":
                 if (pokemon.originalCurHP < pokemon.maxHP()) {
-                    pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + (pokemon.hasAbility("Ripen") ? 20 : 10));
+                    // pokemon.originalCurHP = Math.min(pokemon.maxHP(), pokemon.originalCurHP + (pokemon.hasAbility("Ripen") ? 20 : 10));
+                    pokemon.applyDamage(-Math.min(pokemon.maxHP(), pokemon.originalCurHP + (pokemon.hasAbility("Ripen") ? 20 : 10)));
                     pokemon.lastConsumedItem = item as ItemName;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }

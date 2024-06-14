@@ -65,6 +65,7 @@ const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {
+    if (name === "Carry Slot") { return "substitute"; }
     if (name === "Flabébé") { return "flabebe"; } // ugh
     if (name.includes("Arceus")) { return "arceus"; }
     return name.replaceAll(' ','_').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
@@ -158,6 +159,15 @@ export function getStatReadableName(stat: string) {
         stat === "spe" ? "Speed" :
         stat === "acc" ? "Acc" :
         stat === "eva" ? "Eva" :
+        "???"
+    )
+}
+
+export function getReadableGender(gender: string) {
+    return (
+        gender === "N" ? "None" :
+        gender === "M" ? "Male" :
+        gender === "F" ? "Female" :
         "???"
     )
 }
@@ -363,6 +373,29 @@ export function arraysEqual(a: any[], b: any[]) {
       if (a[i] !== b[i]) return false;
     }
     return true;
+}
+
+export function shallowEqual(a: any, b: any) {
+    return a === b || (
+        Object.keys(a).length === Object.keys(b).length &&
+        Object.keys(a).every(key => a[key] === b[key])
+    );
+}
+
+export function deepEqual(a: any, b: any) {
+    if (a === b) { return true; }
+    if ((typeof a == "object" && a != null) && (typeof b == "object" && b != null)) {
+        if (Object.keys(a).length != Object.keys(b).length) { return false; }
+        for (var prop in a) {
+            if (b.hasOwnProperty(prop)) {  
+                if (!deepEqual(a[prop], b[prop])) { return false; }
+            } else { 
+                return false; 
+            }
+        }
+        return true;
+    }
+    return false;
 }
 
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");

@@ -34,6 +34,7 @@ export namespace State {
     boosts?: Partial<I.StatsTable>;
     isPumped?: number;
     isMicle?: boolean;
+    isMinimize?: boolean;
     randomBoosts?: number;
     stockpile?: number;
     originalCurHP?: number;
@@ -46,8 +47,11 @@ export namespace State {
     shieldActive?: boolean;
     toxicCounter?: number;
     hitsTaken?: number;
+    timesFainted?: number;
     changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
     moves?: I.MoveName[];
+    permanentAtkCheers?: number;
+    permanentDefCheers?: number,
     overrides?: Partial<I.Specie>;
   }
 

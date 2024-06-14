@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
 
@@ -54,6 +54,15 @@ function App() {
   const hash = location.hash
   
   const [theme, setTheme] = useState(createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 720,
+        md: 820,
+        lg: 900,
+        xl: 1536,
+      },
+    },
     palette: {
       mode: lightMode,
       background: {
@@ -139,6 +148,15 @@ function App() {
   useEffect(() => {
     setTheme(createTheme(
       {
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 720,
+            md: 820,
+            lg: 900,
+            xl: 1536,
+          },
+        },
         palette: {
           mode: lightMode,
           background: {
@@ -251,8 +269,11 @@ function App() {
 
   const gen = Generations.get(9); 
 
+  const longHashRef = useRef('');
+  const shortHashRef = useRef('');
+
   const [raidBoss, setRaidBoss] = useState(
-    new Raider(0, "Raid Boss", false, new Field(), new Pokemon(gen, "Pikachu", {
+    new Raider(0, "Raid Boss", false, false, new Field(), new Pokemon(gen, "Pikachu", {
       shieldData: {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0}
     }), 
     [], 
@@ -260,19 +281,19 @@ function App() {
     [])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(1, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
     [])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(2, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
     [])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(3, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
     [])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Loading...", false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(4, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
     [])
   );
 
@@ -358,6 +379,8 @@ function App() {
                 setNotes={setNotes} 
                 setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
                 setLoading={setLoading}
+                shortHashRef={shortHashRef}
+                longHashRef={longHashRef}
                 placeholder={getTranslation("Load Strategy", translationKey)}
                 translationKey={translationKey}
               />
@@ -389,7 +412,7 @@ function App() {
             <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
           <Grid item>
-            <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} prettyMode={prettyMode} translationKey={translationKey} />
+            <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} setLoading={setLoading} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
         </Grid>
         <Grid container justifyContent="center">
@@ -397,7 +420,7 @@ function App() {
         </Grid>
         <Grid container justifyContent="left" sx={{ my: 1 }}>
           <Grid item xs={12}>
-            <Stack >
+            <Stack>
               <Stack direction="row" sx={{ p: 2 }}>
                 <Box flexGrow={1} />
                   <LinkButton 
@@ -409,6 +432,8 @@ function App() {
                     setPrettyMode={setPrettyMode}
                     // loading={loading}
                     setLoading={setLoading}
+                    shortHashRef={shortHashRef}
+                    longHashRef={longHashRef}
                     translationKey={translationKey}
                   />
                   <Box width="15px"/>
@@ -419,6 +444,20 @@ function App() {
                     setLoading={setLoading}
                     translationKey={translationKey}
                   />
+                <Box flexGrow={1} />
+              </Stack>
+              <Stack direction="row" sx={{ paddingTop: 2 }}>
+                <Box flexGrow={1} />
+                <Typography variant="body1">
+                  Looking for raid buddies? Want to share your raid strategies? Check out the <Link href="https://www.reddit.com/r/PokePortal/" target="_blank">r/PokePortal</Link> community on Reddit!
+                </Typography>
+                <Box flexGrow={1} />
+              </Stack>
+              <Stack direction="row" sx={{ p: 1 }}>
+                <Box flexGrow={1} />
+                <Link href="https://www.reddit.com/r/PokePortal/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                  <img src={process.env.PUBLIC_URL + "/pokeportal.png"} alt="PokePortal" width="400px" height="80px" />
+                </Link>
                 <Box flexGrow={1} />
               </Stack>
               <Stack sx={{ mx: 3, my: 3}}>
@@ -442,7 +481,7 @@ function App() {
                   German translations for the user interface were kindly provided by <Link href="https://reddit.com/u/AzuriteLeopard" target="_blank">u/AzuriteLeopard</Link>.
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{color: "text.secondary"}}>
-                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Event Raid Support team for their help with design and testing!
+                  Thank you to the <Link href="https://reddit.com/r/pokeportal" target="_blank">r/PokePortal</Link> Raid Team for their help with design and testing!
                 </Typography>
                 <Typography variant="h6" sx={{color: "text.secondary", marginTop: "10px"}}>
                   Contact
@@ -456,6 +495,11 @@ function App() {
         </Grid>
       </Stack>
     </Stack>
+    {/* For graphic generation */}
+    <Box id={"statplot1"} display="none" />
+    <Box id={"statplot2"} display="none" />
+    <Box id={"statplot3"} display="none" />
+    <Box id={"statplot4"} display="none" />
   </ThemeProvider>
   );
 }

@@ -2,9 +2,9 @@ import React, { useState, useRef } from "react";
 
 import Box from '@mui/material/Box';
 
-import { Move } from "../calc";
+import { Generations, Move, toID } from "../calc";
 import { SpeciesName, TypeName } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
 import { RaidMoveInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { PokedexService, PokemonData } from "../services/getdata"
@@ -15,7 +15,7 @@ import watermark from "watermarkjs";
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { TextField } from "@mui/material";
+import { Checkbox, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -30,6 +30,9 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import DownloadIcon from '@mui/icons-material/Download';
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
+import { getStatRadarPlotPNG } from "./StatRadarPlot";
+
+const gen = Generations.get(9); // we only use gen 9
 
 const graphicsTheme = createTheme({
     typography: {
@@ -196,9 +199,11 @@ const BuildWrapper = styled(Box)({
     color: "white"
 });
 
-const Build = styled(Box)({
+const Build = styled(Stack)({
     width: "675px",
-    margin: "50px"
+    margin: "50px",
+    paddingBottom: "100px",
+    height: "100%"
 });
 
 const BuildHeader = styled(Box)({
@@ -255,7 +260,7 @@ const BuildHeaderSeparator = styled("hr")({
 });
 
 const BuildInfoContainer = styled(Stack)({
-    height: "430px",
+
 });
 
 const BuildInfo = styled(Typography)({
@@ -270,6 +275,31 @@ const AbilityPatchIcon = styled("img")({
     height: "55px",
     margin: "0px 0px 0px 20px",
     filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.65))"
+});
+
+const StatPlotContainer = styled(Box)({
+    width: "auto",
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "0px 0px"
+});
+
+const StatPlot = styled("img")({
+    height: "625px",
+    width: "750px",
+});
+
+const AnyStatsMessageContainer = styled(Box)({
+    width: "100%%",
+    height: "auto"
+});
+
+const AnyStatsMessage = styled(Typography)({
+    fontSize: "1.8em",
+    lineHeight: "55px",
+    textAlign: "center"
 });
 
 const BuildMovesSection = styled(Box)({
@@ -605,7 +635,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
                 info,
                 isSpread,
                 repeats: group.repeats || 1,
-                teraActivated: !wait && !!(turnResult!.moveInfo.options!.activateTera && 
+                teraActivated: !wait && !!(turnResult!.moveInfo.options!.activateTera && (results.turnZeroState.raiders[t.moveInfo.userID].teraType || "???")!== "???" &&
                                 turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
             } 
         })
@@ -613,11 +643,13 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: RaidBattleResults, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, translationKey?: any) {
+function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: RaidBattleResults, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
-    
+
+    const ignoreStats = raidInputProps.pokemon.slice(1).map((raider) => (raider.isAnyLevel) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
+    console.log(ignoreStats)
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
@@ -653,7 +685,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                     <BuildTeraIcon src={getTeraTypeIconURL(raider.teraType!)} /> : null}
                                                 <BuildTypes direction="row">
                                                     {raider.types.map((type, index) => (
-                                                        <BuildTypeIcon key={index} src={getTypeIconURL(type)}/>
+                                                        <BuildTypeIcon key={index} src={getTypeIconURL(type === "???" ? "None" : type)}/>
                                                     ))}
                                                     {raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                                                 </BuildTypes>
@@ -661,7 +693,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                 <BuildHeaderSeparator />
                                             </BuildHeader>
                                             <BuildInfoContainer>
-                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (raider.level === 13 ? getTranslation("Any",translationKey) : raider.level) }</BuildInfo>
+                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (raider.isAnyLevel ? getTranslation("Any",translationKey) : raider.level) }</BuildInfo>
                                                 {(raider.teraType || "???") !== "???" &&
                                                     <BuildInfo>{ getTranslation("Tera Type", translationKey) + ": " + getTranslation(raider.teraType!, translationKey, "types") }</BuildInfo>
                                                 }
@@ -675,12 +707,29 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                         : null
                                                     }
                                                 </Stack> : null}
+                                                {raider.gender && raider.gender !== "N" &&
+                                                    <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(raider.gender), translationKey) }</BuildInfo>
+                                                }
                                                 <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(raider.nature, translationKey, "natures")) }</BuildInfo>
                                                 {getEVDescription(raider.evs, translationKey) ? 
                                                     <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(raider.evs, translationKey)}</BuildInfo> : null}
                                                 {getIVDescription(raider.ivs, translationKey) ? 
                                                     <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
                                             </BuildInfoContainer>
+                                            <Box flexGrow={1}/>
+                                            { statplots && !ignoreStats[index] &&
+                                                <StatPlotContainer>
+                                                    <StatPlot src={statplots[index]} />
+                                                </StatPlotContainer>
+                                            }
+                                            { statplots && ignoreStats[index] &&
+                                                <>
+                                                    <AnyStatsMessageContainer>
+                                                        <AnyStatsMessage>{ getTranslation("Any stats", translationKey) }</AnyStatsMessage>
+                                                    </AnyStatsMessageContainer>
+                                                    <Box flexGrow={1}/>
+                                                </>
+                                            }
                                             <BuildMovesSection>
                                                 <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
                                                 <MovesContainer>
@@ -692,7 +741,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                                     {noMove ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} sx={{opacity: `${optionalMove[raider.id][index] ? '50%' : '100%'}`}}/> : null}
                                                                     {noMove ? (
                                                                         optionalMove[raider.id][index] ? 
-                                                                            <OptionalMoveLabel>{ getTranslation(raider.moves[index] + "*", translationKey, "moves") }</OptionalMoveLabel> : 
+                                                                            <OptionalMoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
                                                                             <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel>
                                                                     ) : null}
                                                                     {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} sx={{opacity: `${optionalMove[raider.id][index] ? '50%' : '100%'}`}}/> : null}
@@ -925,6 +974,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
     const [subtitle, setSubtitle] = useState<string>("");
     const [watermarkText, setWatermarkText] = useState<string>("");
+    // const [plotsEnabled, setPlotsEnable] = useState<boolean[]>([false, false, false, false]);
+    const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -974,8 +1025,15 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
             }))
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
+            // generate radar plots
+            let statPlots: undefined | string[] = !plotsEnabled ? undefined : await Promise.all(
+                raidInputProps.pokemon.slice(1).map((poke) => {
+                    const nature = gen.natures.get(toID(poke.nature));
+                    return getStatRadarPlotPNG(poke.id, nature, poke.evs, poke.stats, translationKey, 20);
+                })
+            );
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, results, isHiddenAbility, learnMethods, moveTypes, optionalMove, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, translationKey);
+            const graphicTop = generateGraphic(theme, raidInputProps, results, isHiddenAbility, learnMethods, moveTypes, optionalMove, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);
@@ -1004,49 +1062,103 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                     horizontal: 'center',
                   }}
             >
-                <MenuItem>
-                    <input
-                        accept="image/*"
-                        style={{ display: 'none' }}
-                        id="graphic-button-file"
-                        type="file"
-                        onChange={handleFileInputChange}
-                    />
-                    <label htmlFor="graphic-button-file">
-                        <Button
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <input
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            id="graphic-button-file"
+                            type="file"
+                            onChange={handleFileInputChange}
+                        />
+                        <Stack direction="row">
+                            <Box flexGrow={1} />
+                            <label htmlFor="graphic-button-file">
+                                <Button
+                                    variant="outlined"
+                                    component="span"
+                                >
+                                    { getTranslation("Choose background", translationKey) }
+                                </Button>
+                            </label>
+                            <Box flexGrow={1} />
+                        </Stack>
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <TextField 
                             variant="outlined"
-                            component="span"
-                        >
-                            { getTranslation("Choose background", translationKey) }
-                        </Button>
-                    </label>
-                </MenuItem>
-                <MenuItem>
-                    <TextField 
-                        variant="outlined"
-                        placeholder={getTranslation("Subtitle", translationKey)}
-                        value={subtitle}
-                        onChange={(e) => setSubtitle(e.target.value)}
-                    />
-                </MenuItem>
-                <MenuItem>
-                    <TextField 
-                        variant="outlined"
-                        placeholder={getTranslation("Watermark text", translationKey)}
-                        value={watermarkText}
-                        inputProps={{ maxLength: 50 }}
-                        onChange={(e) => setWatermarkText(e.target.value)}
-                    />
-                </MenuItem>
-                <MenuItem>
-                  <Button
-                    variant="outlined"
-                    onClick={() => { handleDownload(); handleClose(); }}
-                    endIcon={<DownloadIcon />}
-                  >
-                    { getTranslation("Download", translationKey) }
-                  </Button>
-                </MenuItem>
+                            placeholder={getTranslation("Subtitle", translationKey)}
+                            value={subtitle}
+                            onChange={(e) => setSubtitle(e.target.value)}
+                        />
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <TextField 
+                            variant="outlined"
+                            placeholder={getTranslation("Watermark text", translationKey)}
+                            value={watermarkText}
+                            inputProps={{ maxLength: 50 }}
+                            onChange={(e) => setWatermarkText(e.target.value)}
+                        />
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <Stack direction="row" alignItems="center" justifyContent="center">
+                            <Box flexGrow={1} />
+                            <Typography variant="body1" fontWeight={600}>
+                                {getTranslation("Enable Stat Plots", translationKey) + ":"}
+                            </Typography>
+                            <Box flexGrow={2} />
+                            <Checkbox
+                                    checked={plotsEnabled}
+                                    onChange={(e) => { setPlotsEnable(!plotsEnabled); }}
+                                />
+                            <Box flexGrow={1} />
+                            {/* {[0,1,2,3].map((i) => (
+                        
+                            <Stack key={i} direction="row" alignItems="center" justifyContent="center">
+                                <Box flexGrow={1} />
+                                <Typography>
+                                    { `${getTranslation("Raider", translationKey)} ${i+1}` }
+                                </Typography>
+                                <Box flexGrow={2} />
+                                <Checkbox
+                                    checked={plotsEnabled[i]}
+                                    onChange={(e) => {
+                                        const newPlotsEnabled = plotsEnabled.slice();
+                                        newPlotsEnabled[i] = !newPlotsEnabled[i];
+                                        setPlotsEnable(newPlotsEnabled);
+                                    }}
+                                />
+                                <Box flexGrow={1} />
+                            </Stack>
+                            ))
+                                
+                            } */}
+                        </Stack>
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                        <Stack direction="row">
+                            <Box flexGrow={1} />
+                            <Button
+                                variant="outlined"
+                                component="span"
+                                onClick={() => { handleDownload(); handleClose(); }}
+                                endIcon={<DownloadIcon />}
+                            >
+                                { getTranslation("Download", translationKey) }
+                            </Button>
+                            <Box flexGrow={1} />
+                        </Stack>
+                    </Box>
+                </li>
             </Menu>
         </Box>
 

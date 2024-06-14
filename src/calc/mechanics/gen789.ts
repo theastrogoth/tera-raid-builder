@@ -768,6 +768,10 @@ export function calculateBasePowerSMSSSV(
     basePower = 50 + 50 * Math.min(6, attacker.hitsTaken);
     desc.moveBP = basePower;
     break;
+  case 'Last Respects':
+    basePower = 50 + 50 * Math.min(6, attacker.timesFainted);
+    desc.moveBP = basePower;
+    break;
   case 'Acrobatics':
     basePower = move.bp * (attacker.hasItem('Flying Gem') || !attacker.item ? 2 : 1);
     desc.moveBP = basePower;
@@ -864,19 +868,23 @@ export function calculateBasePowerSMSSSV(
     break;
   // Triple Axel's damage doubles after each consecutive hit (20, 40, 60), this is a hack
   case 'Triple Axel':
-    basePower = move.hits === 2 ? 30 : move.hits === 3 ? 40 : 20;
+    basePower = move.hits === 2 ? 30 : move.hits === 3 ? 40 : move.bp;
     desc.moveBP = basePower;
     break;
   // Triple Kick's damage doubles after each consecutive hit (10, 20, 30), this is a hack
   case 'Triple Kick':
-    basePower = move.hits === 2 ? 15 : move.hits === 3 ? 30 : 10;
+    basePower = move.hits === 2 ? 15 : move.hits === 3 ? 30 : move.bp;
     desc.moveBP = basePower;
     break;
   case 'Crush Grip':
   case 'Wring Out':
-  case 'Hard Press':
     basePower = 100 * Math.floor((defender.curHP() * 4096) / defender.maxHP());
     basePower = Math.floor(Math.floor((120 * basePower + 2048 - 1) / 4096) / 100) || 1;
+    desc.moveBP = basePower;
+    break;
+  case 'Hard Press':
+    basePower = 100 * Math.floor((defender.curHP() * 4096) / defender.maxHP());
+    basePower = Math.floor(Math.floor((100 * basePower + 2048 - 1) / 4096) / 100) || 1;
     desc.moveBP = basePower;
     break;
   case 'Tera Blast':
@@ -939,6 +947,7 @@ export function calculateBPModsSMSSSV(
   // Move effects
 
   let resistedKnockOffDamage =
+    (attacker.bossMultiplier > 100) || // the Raid Boss does not get a boost to Knock Off
     !defender.item ||
     (defender.named('Dialga-Origin') && defender.hasItem('Adamant Crystal')) ||
     (defender.named('Palkia-Origin') && defender.hasItem('Lustrous Globe')) ||
@@ -1027,6 +1036,9 @@ export function calculateBPModsSMSSSV(
       bpMods.push(5461);
       desc.moveBP = basePower * (5461 / 4096);
     }
+  } else if (defender.isMinimize && move.named("Body Slam", "Stomp", "Dragon Rush", "Heat Crash", "Heavy Slam", "Flying Press")) {
+    bpMods.push(8192);
+    desc.moveBP = basePower * 2;
   }
 
   if (field.attackerSide.isHelpingHand) {
@@ -1416,19 +1428,23 @@ export function calculateAtModsSMSSSV(
     desc.attackerItem = attacker.item;
   }
 
-  if (field.attackerSide.isAtkCheered && !move.named('Body Press') && !move.named('Foul Play')) {
-    atMods.push(6144);
-    desc.isAtkCheered = true;
+  const attackerAtkCheerStack = (field.attackerSide.isAtkCheered ? 1 : 0) + attacker.permanentAtkCheers;
+  const attackerDefCheerStack = (field.attackerSide.isDefCheered ? 1 : 0) + attacker.permanentDefCheers;
+  const defenderAtkCheerStack = (field.defenderSide.isAtkCheered ? 1 : 0) + defender.permanentAtkCheers;
+
+  if (attackerAtkCheerStack && !move.named('Body Press') && !move.named('Foul Play')) {
+    atMods.push(4096 * (1 + attackerAtkCheerStack/2));
+    desc.isAtkCheered = attackerAtkCheerStack;
   }
 
-  if (move.named('Foul Play') && field.defenderSide.isAtkCheered) {
-    atMods.push(6144);
-    desc.isAtkCheered = true;
+  if (move.named('Foul Play') && defenderAtkCheerStack) {
+    atMods.push(4096 * (1 + defenderAtkCheerStack/2));
+    desc.isAtkCheered = defenderAtkCheerStack;
   }
 
-  if (move.named('Body Press') && field.attackerSide.isDefCheered) {
-    atMods.push(6144);
-    desc.isDefCheeredBodyPress = true;
+  if (move.named('Body Press') && attackerDefCheerStack) {
+    atMods.push(4096 * (1 + attackerDefCheerStack/2));
+    desc.isDefCheeredBodyPress = attackerDefCheerStack;
   }
 
   return atMods;
@@ -1444,9 +1460,10 @@ export function calculateDefenseSMSSSV(
   isCritical = false
 ) {
   let defense: number;
-  const hitsPhysical = move.overrideDefensiveStat === 'def' || move.category === 'Physical' ||
+  let hitsPhysical = move.overrideDefensiveStat === 'def' || move.category === 'Physical' ||
     (move.named('Shell Side Arm') && getShellSideArmCategory(attacker, defender) === 'Physical');
   const defenseStat = hitsPhysical ? 'def' : 'spd';
+  hitsPhysical = field.isWonderRoom ? !hitsPhysical : hitsPhysical;
   desc.defenseEVs = getEVDescriptionText(gen, defender, defenseStat, defender.nature);
   if (defender.boosts[defenseStat] === 0 ||
       (isCritical && defender.boosts[defenseStat] > 0) ||
@@ -1564,9 +1581,10 @@ export function calculateDfModsSMSSSV(
     desc.defenderItem = defender.item;
   }
 
-  if (field.defenderSide.isDefCheered){
-    dfMods.push(6144);
-    desc.isDefCheered = true;
+  const defenderDefCheerStack = (field.defenderSide.isDefCheered ? 1 : 0) + defender.permanentDefCheers;
+  if (defenderDefCheerStack){
+    dfMods.push(4096 * (1 + defenderDefCheerStack/2));
+    desc.isDefCheered = defenderDefCheerStack;
   }
 
   return dfMods;

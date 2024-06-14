@@ -7,6 +7,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Modal from '@mui/material/Modal';
+import Popover from '@mui/material/Popover';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
@@ -15,6 +16,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -36,6 +38,29 @@ import { getEVDescription, setdexToOptions } from "../utils";
 import { getPokemonSpriteURL, getTranslation, getTypeIconURL, getItemSpriteURL } from "../utils";
 
 import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
+import { Chip, Divider } from "@mui/material";
+import { findOptionFromPokemonName } from "./BuildControls";
+
+const TYPE_COLORS = {
+    "Bug": "#A2A400",
+    "Dark": "#484848",
+    "Dragon": "#5463E8",
+    "Electric": "#CCAD00",
+    "Fairy": "#CC89CC",
+    "Fighting": "#FF9E00",
+    "Fire": "#FF5715",
+    "Flying": "#6CA2CC",
+    "Ghost": "#733E77",
+    "Grass": "#00C300",
+    "Ground": "#B37531",
+    "Ice": "#00ADCC",
+    "Normal": "#999999",
+    "Poison": "#A44BD6",
+    "Psychic": "#FF4D78",
+    "Rock": "#97996B",
+    "Steel": "#4DB3D8",
+    "Water": "#0095FF",
+};
 
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).filter((t) => t !== "Stellar" && t !== "???").sort();
@@ -150,6 +175,9 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 }
             break;
             case "Custom":
+                if(normalizeText(getTranslation(species.name, translationKey, "pokemon")).includes(normalizeText(filter.name))) {
+                    break;
+                }
                 const operatorPrecedence = {
                     "&&": 1,
                     "||": 0
@@ -158,8 +186,6 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 const orTranslation = normalizeText(getTranslation("or", translationKey));
                 const andOperators = ["and", "&&", "&", ",", andTranslation];
                 const orOperators = ["or", "||", "|", orTranslation];
-
-
 
                 const operatorRegExp = new RegExp(`(\\s${andTranslation}\\s|\\s${orTranslation}\\s|\\sand\\s|\\s\\s|\\sor\\s|&&|\\|\\||&|\\||,|\\(|\\))`, "i");
 
@@ -220,6 +246,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                     }
                     else {
                         let termMatched = false;
+                        if (normalizeText(token) === normalizeText(getTranslation("nfe", translationKey)) && species.nfe) { termMatched = true;}
                         const tokenComponents = token.split(/(<|>|<=|>=|=|==|===|!=|!==)/i).map((item) => item.trim()).filter(Boolean);
                         if (tokenComponents.length === 1) {
                             for (let move of species.moves) {
@@ -325,40 +352,48 @@ function checkOptionAgainstInput(option: SearchOption, inputValue: string, trans
         option.type === "Ability" ? "abilities" : 
         option.type === "Type" ? "types" : 
         undefined;
-    const translatedOptionName = getTranslation(option.name, translationKey, translationCategory);
+    const translatedOptionName = translationCategory === "pokemon" ? findOptionFromPokemonName(option.name, translationKey) : getTranslation(option.name, translationKey, translationCategory);
     const normalizedOptionName = normalizeText(translatedOptionName);
     const normalizedInputValue = normalizeText(inputValue);
     return normalizedOptionName.includes(normalizedInputValue);
 }
 
-function FilterGenericTag({text, handleDelete}: {text: String, handleDelete: () => void}) {
+function FilterGenericTag({text, handleDelete}: {text: String, handleDelete?: () => void}) {
     return (
-        <Paper elevation={0} variant='outlined' sx={{ borderRadius: 100 }}> 
-            <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center" sx={{ paddingLeft: "10px", paddingRight: "5px" }}>
-                <Typography variant="body1" justifyContent="center" alignItems="center">
+        <ShadedPaper elevation={0} variant='outlined' sx={{ borderRadius: 100 }}> 
+            <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center" sx={{ minWidth: "50px", paddingX: "10px", paddingRight: handleDelete ? "5px" : "10px" }}>
+                <Typography variant="body1" justifyContent="center" alignItems="center" sx={{ paddingY: "5px"}}>
                     {text}
                 </Typography>
-                <Box flexGrow={1} />
-                <IconButton size="small" onClick={handleDelete}>
-                    <CloseIcon/>
-                </IconButton>
+                { handleDelete &&
+                <>
+                    <Box flexGrow={1} />
+                    <IconButton size="small" onClick={handleDelete}>
+                        <CloseIcon/>
+                    </IconButton>
+                </>
+                }
             </Stack>
-        </Paper>
+        </ShadedPaper>
     );
 }
 
-function FilterTypeTag({text, handleDelete}: {text: String, handleDelete: () => void}) {
+function FilterTypeTag({text, color, handleDelete}: {text: String, color: String, handleDelete?: () => void}) {
     return (
-        // TODO: Add type colors
-        <Paper elevation={0} variant='outlined' sx={{ borderRadius: 100 }}> 
-            <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center" sx={{ paddingLeft: "10px", paddingRight: "5px" }}>
-                <Typography variant="body1" justifyContent="center" alignItems="center">
+        // @ts-ignore
+        <Paper elevation={0} variant='outlined' sx={{ borderRadius: 100, backgroundColor: color }}> 
+            <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center" sx={{ minWidth: "50px", paddingX: "10px", paddingRight: handleDelete ? "5px" : "10px" }}>
+                <Typography variant="body1" justifyContent="center" alignItems="center" color={"white"} sx={{ paddingY: "5px"}}>
                     {text}
                 </Typography>
-                <Box flexGrow={1} />
-                <IconButton size="small" onClick={handleDelete}>
-                    <CloseIcon/>
-                </IconButton>
+                { handleDelete &&
+                <>
+                    <Box flexGrow={1} />
+                    <IconButton size="small" onClick={handleDelete}>
+                        <CloseIcon/>
+                    </IconButton>
+                </>
+                }
             </Stack>
         </Paper>
     );
@@ -367,11 +402,14 @@ function FilterTypeTag({text, handleDelete}: {text: String, handleDelete: () => 
 function FilterTagDispatcher({filter, handleDelete, translationKey}: {filter: SearchOption, handleDelete: () => void, translationKey: any}) {
     switch(filter.type) {
         case "Type":
-            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "types")} handleDelete={handleDelete}/>
+            // @ts-ignore
+            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "types")} color={TYPE_COLORS[filter.name]} handleDelete={handleDelete}/>
         case "Moves":
-            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "moves")} handleDelete={handleDelete}/>
+            const move = gen.moves.get(toID(filter.name))!;
+            // @ts-ignore
+            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "moves")} color={TYPE_COLORS[move.type]} handleDelete={handleDelete}/>
         case "Ability":
-            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "abilities")} handleDelete={handleDelete}/>
+            return <FilterGenericTag text={getTranslation(filter.name, translationKey, "abilities")} handleDelete={handleDelete}/>
         case "Custom":
             return <FilterGenericTag text={getTranslation(filter.name, translationKey, "ui")} handleDelete={handleDelete}/>
         default:
@@ -388,6 +426,14 @@ function FilterTags({filters, translationKey, handleDeleteFilter}: {filters: Sea
         </Stack>
     );
 }
+
+const ShadedPaper = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'light' ? darken(theme.palette.background.paper, 0.1) : lighten(theme.palette.background.paper, 0.1),
+}));    
+
+const ShadedChip = styled(Chip)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'light' ? darken(theme.palette.background.paper, 0.1) : lighten(theme.palette.background.paper, 0.1),
+}));
 
 const ButtonTable = styled(Table)(({ theme }) => ({
     size: "small",
@@ -508,7 +554,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
             </CompactTableCell>
             <CompactTableCell width="100px">
                 <Typography fontSize={10} m={.5}>
-                    {getTranslation(data.name, translationKey, "pokemon")}
+                    {findOptionFromPokemonName(data.name, translationKey)}
                 </Typography>
             </CompactTableCell>
             <CompactTableCell width="60px">
@@ -783,10 +829,21 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                 break;
             }
         }
+        newSpeciesOptions.sort((a, b) => { // Necessary for maintaining alphabetical sorting for non-English languages. Too lazy to keep things DRY
+            const aName = findOptionFromPokemonName(a.name, translationKey);
+            const bName = findOptionFromPokemonName(b.name, translationKey);
+            if (sortDirection === 'desc') {
+                return (aName).localeCompare(bName);
+            } else if (sortDirection === 'asc') {
+                return (bName).localeCompare(aName);
+            }
+            return 0;
+        });
         setSpeciesOptions(newSpeciesOptions);
         setTypeOptions(newTypeOptions);
         setAbilityOptions(newAbilityOptions);
         setMoveOptions(newMoveOptions);
+        sortSpecies(newSpeciesOptions);
     }, [inputFilteredOptions]);
 
     const handleButtonClick = (label: string) => {
@@ -803,19 +860,21 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         }
     };
 
-    useEffect(() => {
+    const sortSpecies = (sortSpeciesOptions: SearchOption[]) => {
         let sortedSpeciesOptions: SearchOption[] = [];
         if (sortMethod === "species") {
-            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+            sortedSpeciesOptions = [...sortSpeciesOptions].sort((a, b) => {
+                const aName = findOptionFromPokemonName(a.name, translationKey);
+                const bName = findOptionFromPokemonName(b.name, translationKey);
                 if (sortDirection === 'desc') {
-                    return (a.name).localeCompare(b.name);
+                    return (aName).localeCompare(bName);
                 } else if (sortDirection === 'asc') {
-                    return (b.name).localeCompare(a.name);
+                    return (bName).localeCompare(aName);
                 }
                 return 0;
             });
         } else if (sortMethod === "bst") {
-            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+            sortedSpeciesOptions = [...sortSpeciesOptions].sort((a, b) => {
                 const aData = allSpecies?.get(a.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const bData = allSpecies?.get(b.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const aTotal = ["hp","atk","def","spa","spd","spe"].map((stat) => (aData?.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0)
@@ -828,7 +887,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                 return 0;
             });
         } else {
-            sortedSpeciesOptions = [...speciesOptions].sort((a, b) => {
+            sortedSpeciesOptions = [...sortSpeciesOptions].sort((a, b) => {
                 const aData = allSpecies?.get(a.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const bData = allSpecies?.get(b.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
                 const key = sortMethod as keyof StatsTable;
@@ -843,9 +902,15 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
             });
         }
         setSpeciesOptions(sortedSpeciesOptions);
+    }
+
+    useEffect(() => {
+        sortSpecies(speciesOptions);
     }, [sortMethod, sortDirection]);
 
-    const groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions, [1]].map((o) => o.length);
+    let groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions, (inputValue.length > 0 ? [1] : [])].map((o) => o.length);
+    const groupIndexes = [0, 1, 2, 3, 4].filter((i, idx) => groupCounts[idx] > 0);
+    groupCounts = groupCounts.filter((c) => c > 0);
     const cumulativeCounts: number[] = [0]
     let acc = 0;
     for (let c of groupCounts.slice(0, -1)) {
@@ -871,13 +936,12 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                 </Typography>
             }
             { (allSpecies && allMoves) &&
-            <Stack>
                 <GroupedVirtuoso 
                     style={{ height: "70vh", width: "720px" }}
                     groupCounts={groupCounts}
                     groupContent={ (g) => (
                         <>
-                        {g === 0 && speciesOptions.length > 0 ?
+                        { groupIndexes[g] === 0 && speciesOptions.length > 0 ?
                             <HeaderRow>
                                 <HeaderCell width="40px"></HeaderCell>
                                 <HeaderCell width="30px"></HeaderCell>
@@ -909,7 +973,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 </HeaderCell>
                             </HeaderRow> : null
                         }
-                        {g === 1 && typeOptions.length > 0 ?
+                        { groupIndexes[g] === 1 && typeOptions.length > 0 ?
                         <HeaderRow>
                             <HeaderCell width="40px"></HeaderCell>
                             <HeaderCell width="30px"></HeaderCell>
@@ -921,7 +985,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <HeaderCell width="350px" align="center"></HeaderCell>
                         </HeaderRow> : null
                         }
-                        { g === 2 && abilityOptions.length > 0 ?
+                        { groupIndexes[g] === 2 && abilityOptions.length > 0 ?
                         <HeaderRow>
                             <HeaderCell width="40px"></HeaderCell>
                             <HeaderCell width="30px"></HeaderCell>
@@ -933,7 +997,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <HeaderCell width="350px" align="center"></HeaderCell>    
                         </HeaderRow> : null
                         }
-                        { g === 3 && moveOptions.length > 0 ?
+                        { groupIndexes[g] === 3 && moveOptions.length > 0 ?
                         <HeaderRow>
                             <HeaderCell width="40px"></HeaderCell>
                             <HeaderCell width="30px"></HeaderCell>
@@ -947,7 +1011,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                             <HeaderCell width="250px" align="center"></HeaderCell>
                         </HeaderRow> : null
                         }
-                        { g === 4 && inputValue.length > 0 ?
+                        { groupIndexes[g] === 4 && inputValue.length > 0 ?
                         <HeaderRow>
                             <HeaderCell width="40px"></HeaderCell>
                             <HeaderCell width="30px"></HeaderCell>
@@ -963,7 +1027,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                     }
                     itemContent={(i, g) => (
                         <>
-                        { g === 0 && speciesOptions.length > 0 &&
+                        { groupIndexes[g] === 0 && speciesOptions.length > 0 &&
                             <SpeciesSearchResult 
                                 key={`${i}${g}`}
                                 pokemon={speciesOptions[i].name as SpeciesName} 
@@ -972,7 +1036,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        { g === 1 && typeOptions.length > 0 &&
+                        { groupIndexes[g] === 1 && typeOptions.length > 0 &&
                             <TypeSearchResult
                                 key={`${i}${g}`}
                                 type={typeOptions[i - cumulativeCounts[g]].name as TypeName} 
@@ -980,7 +1044,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        { g === 2 && abilityOptions.length > 0 &&
+                        { groupIndexes[g] === 2 && abilityOptions.length > 0 &&
                             <AbilitySearchResult
                                 key={`${i}${g}`}
                                 ability={abilityOptions[i - cumulativeCounts[g]].name as AbilityName} 
@@ -988,7 +1052,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        { g === 3 && moveOptions.length > 0 &&
+                        { groupIndexes[g] === 3 && moveOptions.length > 0 &&
                             <MoveSearchResult
                                 key={`${i}${g}`}
                                 move={moveOptions[i - cumulativeCounts[g]].name as MoveName} 
@@ -997,7 +1061,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                                 translationKey={translationKey}
                             />
                         }
-                        { g === 4 && inputValue.length > 0 &&
+                        { groupIndexes[g] === 4 && inputValue.length > 0 &&
                             <ButtonRow onClick={() => handleAddFilter({name: inputValue, type: "Custom"})}>
                                 <CompactLeftCell width="40px"></CompactLeftCell>
                                 <CompactTableCell width="30px"></CompactTableCell>
@@ -1019,7 +1083,6 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
                         </>
                     )}
                 />
-            </Stack>
             }
         </Box>
     )
@@ -1060,6 +1123,18 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
 
     const handleOpen = () => {setOpen(true); getOptionsData().catch((e) => console.log(e));}
     const handleClose = () => {setInputValue(""); setOpen(false)};
+
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handlePopoverClose = () => {
+        setAnchorEl(null);
+    };
+
+    const popoverOpen = Boolean(anchorEl);
 
     const handleAddFilter = (filter: SearchOption) => {
         const newFilters = [...filters];
@@ -1210,7 +1285,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                             <TextField
                                 variant="standard"
                                 placeholder={
-                                    `${getTranslation("Search", translationKey)}   ( ${getTranslation("Examples", translationKey)}: "${getTranslation("Fake Tears", translationKey, "moves")} ${getTranslation("or", translationKey)} ${getTranslation("Acid Spray", translationKey, "moves")}", "${getTranslation("Screech", translationKey, "moves")} ${getTranslation("and", translationKey)} ${getTranslation("Speed", translationKey, "stats")} < 50" )`
+                                    `${getTranslation("Search", translationKey)}`
                                 }
                                 value={inputValue}
                                 onChange={(event) => {
@@ -1226,6 +1301,100 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                                 }}
                                 sx={{ width: "100%", paddingRight: "10px"}}
                             />
+                            <Box>
+                                <IconButton aria-describedby={popoverOpen ? "simple-popover" : undefined} onClick={handlePopoverOpen}>
+                                    <InfoOutlinedIcon color="info" sx={{ transform: "scale(1.3)"}}/>
+                                </IconButton>
+                                <Popover
+                                    id={popoverOpen ? "simple-popover" : undefined}
+                                    open={popoverOpen}
+                                    anchorEl={anchorEl}
+                                    onClose={handlePopoverClose}
+                                    anchorOrigin={{
+                                      vertical: 'bottom',
+                                      horizontal: 'left',
+                                    }}
+                                >
+                                    <Paper sx={{ p: 2, backgroundColor: "modal.main" }}>
+                                        <Stack direction="column">
+                                            <Box>
+                                                <Typography variant="h6">
+                                                    {`${getTranslation("Search Info",translationKey)}`}
+                                                </Typography>
+                                            </Box>
+                                            <Divider/>
+                                            <Box padding="10px 0px">
+                                                <Typography fontWeight="bold">
+                                                    {`${getTranslation("Simple Filters",translationKey)}:`}
+                                                </Typography>
+                                                <Stack direction="column">
+                                                    <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
+                                                        <Typography>{`${getTranslation("By Type",translationKey)}:`}</Typography>
+                                                        <Box flexGrow={1} sx={{minWidth: "5px"}} />
+                                                        <FilterTypeTag text={getTranslation("Fairy",translationKey,"types")} color={TYPE_COLORS.Fairy} />
+                                                    </Stack>
+                                                    <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
+                                                        <Typography>{`${getTranslation("By Ability",translationKey)}:`}</Typography>
+                                                        <Box flexGrow={1} sx={{minWidth: "5px"}} />
+                                                        <FilterGenericTag text={getTranslation("Friend Guard",translationKey,"abilities")} />
+                                                    </Stack>
+                                                    <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
+                                                        <Typography>{`${getTranslation("By Move",translationKey)}:`}</Typography>
+                                                        <Box flexGrow={1} sx={{minWidth: "5px"}} />
+                                                        <FilterTypeTag text={getTranslation("Helping Hand",translationKey,"moves")} color={TYPE_COLORS.Normal} />
+                                                    </Stack>
+                                                    <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
+                                                        <Typography>{`${getTranslation("By Stat",translationKey)}:`}</Typography>
+                                                        <Box flexGrow={1} sx={{minWidth: "5px"}} />
+                                                        <FilterGenericTag text={`${getTranslation("Speed",translationKey,"stats")} > 95`} />
+                                                    </Stack>
+                                                </Stack>
+                                            </Box>
+                                            <Box padding="10px 0px">
+                                                <Typography fontWeight="bold">
+                                                    {`${getTranslation("Custom Filters",translationKey)}:`}
+                                                </Typography>
+                                                <Stack direction="column">
+                                                    <Stack direction="column" paddingLeft="20px" margin="5px 0px">
+                                                        <Typography>{`${getTranslation("And Operator",translationKey)}:`}</Typography>
+                                                        <FilterGenericTag text={`${getTranslation("Intimidate",translationKey,"abilities")} ${getTranslation("and",translationKey)} ${getTranslation("Fire",translationKey,"types")}`} />
+                                                    </Stack>
+                                                </Stack>
+                                                <Stack direction="column" paddingLeft="20px" margin="5px 0px">
+                                                    <Typography>{`${getTranslation("Or Operator",translationKey)}:`}</Typography>
+                                                    <FilterGenericTag text={`${getTranslation("Fake Tears",translationKey,"moves")} ${getTranslation("or",translationKey)} ${getTranslation("Acid Spray",translationKey,"moves")}`} />
+                                                </Stack>
+                                            </Box>
+                                            <Box padding="10px 0px">
+                                                <Typography fontWeight="bold">
+                                                    {`${getTranslation("Complex Filters",translationKey)}:`}
+                                                </Typography>
+                                                <Stack direction="column">
+                                                    <Stack direction="column" paddingLeft="20px" margin="5px 0px">
+                                                        <Typography>Queries:</Typography>
+                                                        <ShadedChip 
+                                                            label={
+                                                                <Typography style={{"whiteSpace":"normal", "fontSize":"0.6384rem", "textAlign":"center"}}>
+                                                                    {/* Flying and Screech and <br/>(Speed {'<'} 80 or Compound Eyes) */}
+                                                                    {`${getTranslation("Flying",translationKey,"types")} ${getTranslation("and",translationKey)} ${getTranslation("Screech",translationKey,"moves")} ${getTranslation("and",translationKey)}`}
+                                                                    <br/>
+                                                                    {`(${getTranslation("Speed",translationKey,"stats")} < 80 ${getTranslation("or",translationKey)} ${getTranslation("Compound Eyes",translationKey,"abilities")})`}
+                                                                </Typography>
+                                                            }
+                                                            variant="outlined" size="small" 
+                                                            sx={{
+                                                                "borderRadius": "100px",
+                                                                "width": "170px",
+                                                                "height": "48px"
+                                                            }}/>
+                                                        {/* <FilterGenericTag text={`${getTranslation("Flying",translationKey,"types")} ${getTranslation("and",translationKey)} ${getTranslation("Screech",translationKey,"moves")} ${getTranslation("and",translationKey)} (${getTranslation("Speed",translationKey,"stats")} < 80 ${getTranslation("or",translationKey)} ${getTranslation("Compound Eyes",translationKey,"abilities")})`} /> */}
+                                                    </Stack>
+                                                </Stack>
+                                            </Box>
+                                        </Stack>
+                                    </Paper>
+                                </Popover>
+                            </Box>
                             <Box sx={{ transform: "translate(20px, -20px)"}}>
                                 <IconButton size="large" onClick={handleClose}>
                                     <CloseIcon/>

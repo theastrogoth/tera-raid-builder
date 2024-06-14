@@ -512,7 +512,7 @@ export function countBoosts(gen: Generation, boosts: StatsTable, randomBoosts: n
     const boost = boosts[stat];
     if (boost && boost > 0) sum += boost;
   }
-  return sum + randomBoosts;
+  return sum + Math.max(0, randomBoosts);
 }
 
 export function getEVDescriptionText(

@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 
-import { Generations } from '../calc';
+import { ABILITIES, Generations } from '../calc';
 import { toID } from '../calc/util';
 
 import StatRadarPlot from "./StatRadarPlot";
@@ -20,14 +20,15 @@ import unsketchable from "../data/unsketchable.json";
 
 const gen = Generations.get(9); // we will only use gen 9
 const allMoveNames = Object.keys(MOVES[9]).slice(1).sort().slice(1).filter(m => m.substring(0,3) !== "Max" && m.substring(0,5) !== "G-Max" && m !== "Dynamax Cannon") as MoveName[];
+const allAbilities = ABILITIES[9].map(a => {return {name: a as AbilityName, hidden: false}});
 
 export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raider, setPokemon: (r: Raider) => void, translationKey: any}) {
     const [str, setStr] = useState(pokemon.role);
     const roleRef = useRef(pokemon.role);
-    const nameRef = useRef(pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
+    const nameRef = useRef(pokemon.species.name.includes("Meowstic") ? "Meowstic" : pokemon.species.baseSpecies || pokemon.name); // some regional forms have long names
     const [nameIsRaidBoss, setNameIsRaidBoss] = useState(pokemon.role === "Raid Boss");
     
-    const speciesName = pokemon.species.baseSpecies || pokemon.name;
+    const speciesName = pokemon.species.name.includes("Meowstic") ? "Meowstic" : pokemon.species.baseSpecies || pokemon.name;
     const translatedName = getTranslation(speciesName, translationKey, "pokemon");
 
     useEffect(() => {
@@ -82,11 +83,14 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
         if (!allSpecies) {
             async function fetchData() {
                 let pokemonData = await PokedexService.getPokemonByName(pokemon.name) as PokemonData;     
+                if (pokemonData.abilities[0].name === "(No Ability)") {
+                    pokemonData.abilities = allAbilities;
+                }
                 setAbilities(pokemonData.abilities);
 
                 let moves = pokemonData.moves;
                 if (moves.length < 1) {
-                    moves = allMoveNames.filter(m => !unsketchable.includes(m)).map(m => ({name: m, learnMethod: "level-up"}))
+                    moves = allMoveNames.filter(m => !unsketchable.includes(m)).map(m => ({name: m, learnMethod: "level-up"})); // Smeargle and Carry Slot
                 }
                 const set = moves.map(md => {
                     const move = gen.moves.get(toID(md.name));

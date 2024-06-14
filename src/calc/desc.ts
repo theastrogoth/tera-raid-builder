@@ -33,12 +33,12 @@ export interface RawDesc {
   isFriendGuard?: boolean;
   friendGuards?: number;
   isHelpingHand?: boolean;
-  isAtkCheered?: boolean;
+  isAtkCheered?: number;
   isCritical?: boolean;
   isSpread?: boolean;
   isLightScreen?: boolean;
-  isDefCheered?: boolean;
-  isDefCheeredBodyPress?: boolean;
+  isDefCheered?: number;
+  isDefCheeredBodyPress?: number;
   isBurned?: boolean;
   isProtected?: boolean;
   isReflect?: boolean;
@@ -899,10 +899,18 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
     output += 'Helping Hand ';
   }
   if (description.isAtkCheered) {
-    output += 'Atk Cheer ';
+    if (description.isAtkCheered > 1) {
+      output += 'Atk Cheer (×' + description.isAtkCheered + ') ';
+    } else {
+      output += 'Atk Cheer ';
+    }
   }
   if (description.isDefCheeredBodyPress) {
-    output += 'Def Cheer ';
+    if (description.isDefCheeredBodyPress > 1) {
+      output += 'Def Cheer (×' + description.isDefCheeredBodyPress + ') ';
+    } else {
+      output += 'Def Cheer ';
+    }
   }
   if (description.isFlowerGiftAttacker) {
     output += ' with an ally\'s Flower Gift ';
@@ -984,9 +992,17 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
   }
   if (description.isDefCheered) {
     if(description.isReflect || description.isLightScreen){
+      if (description.isDefCheered > 1) {
+        output += ' and Def Cheer (×' + description.isDefCheered + ')';
+      } else {
         output += ' and Def Cheer';
+      }
     } else {
+      if (description.isDefCheered > 1) {
+        output += ' through Def Cheer (×' + description.isDefCheered + ')';
+      } else {
         output += ' through Def Cheer';
+      }
     }
   }
   if (description.isFlowerGiftDefender) {

@@ -5,14 +5,23 @@ import Stack from  '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
-import Chip from '@mui/material/Chip';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
 import Slider from '@mui/material/Slider';
+import IconButton from '@mui/material/IconButton';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography'
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Switch from "@mui/material/Switch";
 import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
@@ -21,19 +30,19 @@ import MoveDisplay from './MoveDisplay';
 
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { Pokemon, Side, StatsTable } from '../calc';
-import { getPokemonSpriteURL, getTeraTypeIconURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
-import { RaidTurnResult } from '../raidcalc/RaidTurn';
+import { Pokemon, StatsTable } from '../calc';
+import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory, getPokemonArtURL } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
-import { MoveData, RaidMoveOptions, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
+import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
+import { MoveName } from '../calc/data/interface';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
 
 type Modifiers = {
-    attackCheer?: boolean,
-    defenseCheer?: boolean,
+    attackCheer?: number,
+    defenseCheer?: number,
     helpingHand?: boolean,
     tera ?: string,
     formChanged ?: string,
@@ -55,7 +64,10 @@ type Modifiers = {
     status?: string,
     abilityNullified?: boolean,
     charging?: boolean,
-    choiceLocked?: boolean,
+    choiceLocked?: string,
+    encore?: string,
+    torment?: boolean,
+    disable?: string,
     endure?: boolean,
     ingrain?: boolean,
     micleBerry?: boolean,
@@ -63,7 +75,11 @@ type Modifiers = {
     saltCure?: boolean,
     stockpile?: number,
     taunt?: boolean,
-    yawn?: boolean
+    yawn?: boolean,
+    throatChop?: boolean,
+    substituteHP?: number,
+    wideGuard?: boolean,
+    quickGuard?: boolean,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -82,7 +98,7 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function StatChanges({statChanges, translationKey}: {statChanges: StatsTable, translationKey: any}) {
+function StatChanges({statChanges, randomStatBoosts, translationKey}: {statChanges: StatsTable, randomStatBoosts: number, translationKey: any}) {
     const filteredStatTable = Object.fromEntries(Object.entries(statChanges).filter(([stat, boosts]) => boosts !== 0));
     const statEntries = Object.entries(filteredStatTable);
     const sortedStatEntries = statEntries.sort((a, b) => {
@@ -98,7 +114,14 @@ function StatChanges({statChanges, translationKey}: {statChanges: StatsTable, tr
                     </Typography>
                 </Paper>
             ))}
-            {(sortedStatEntries.length === 0) &&
+            {(randomStatBoosts !== 0) &&
+                <Paper elevation={0} variant='outlined'>
+                    <Typography fontSize={10} m={.5}>
+                        {`${getTranslation("Random Stat Boosts", translationKey)} : ${randomStatBoosts > 0 ? '+' : ''}${randomStatBoosts}`}
+                    </Typography>
+                </Paper>
+            }
+            {(sortedStatEntries.length === 0 && !randomStatBoosts) &&
                 <Paper elevation={0} variant='outlined'>
                     <Typography fontSize={10} m={.5}>{getTranslation("No Stat Changes", translationKey)}</Typography>
                 </Paper>
@@ -137,6 +160,12 @@ function ModifierStatTag({modifier, value, translationKey}: {modifier: string, v
     );
 }
 
+function ModifierChoiceLockTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
+    return (
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(value,translationKey,"moves")}`} />
+    );
+}
+
 function ModifierBooleanTag({modifier, translationKey}: {modifier: string, translationKey: any}) {
     return (
         <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} />
@@ -145,8 +174,13 @@ function ModifierBooleanTag({modifier, translationKey}: {modifier: string, trans
 
 function ModifierNumberTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
     return (
-        <ModifierGenericTag text ={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} />
     );
+}
+function ModifierValueTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
+    return (
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ': ' + value : ''}`} />
+    )
 }
 
 function NoModifersTag({modifiers}: {modifiers: Modifiers}) {
@@ -169,12 +203,20 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
             }
             else if (modifier === "boostedStat") {
                 return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
+            } 
+            else if (modifier === "choiceLocked" || modifier === "encore" || modifier === "disable") {
+                return value !== "" && <ModifierChoiceLockTag modifier={modifier} value={value} translationKey={translationKey}/>
             }
             break;
         case "boolean":
             return value && <ModifierBooleanTag modifier={modifier} translationKey={translationKey}/>;
         case "number":
-            return value > 0 && <ModifierNumberTag modifier={modifier} value={value} translationKey={translationKey}/>;
+            if (modifier === "substituteHP") {
+                return value > 0 && <ModifierValueTag modifier={modifier} value={value} translationKey={translationKey}/>;
+
+            } else {
+                return value > 0 && <ModifierNumberTag modifier={modifier} value={value} translationKey={translationKey}/>;
+            }
         default:
             return undefined;
     }
@@ -196,7 +238,7 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
     );
 }
 
-function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, statChanges, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, kos: number, statChanges: StatsTable, modifiers: object, translationKey: any}) {
+function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, statChanges, randomStatBoosts, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, statChanges: StatsTable, randomStatBoosts: number, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -233,7 +275,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
                                     width: "16px",
                                     height: "16px",
                                     overflow: 'hidden',
-                                    background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                                    background: `url(${getPokemonSpriteURL(hasSubstitute ? "Substitute" : name)}) no-repeat center center / contain`,
                                 }}
                             />
                         </Avatar>
@@ -331,7 +373,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
                                         width: "32px",
                                         height: "32px",
                                         overflow: 'hidden',
-                                        background: `url(${getPokemonSpriteURL(name)}) no-repeat center center / contain`,
+                                        background: `url(${getPokemonSpriteURL(hasSubstitute ? "Substitute" : name)}) no-repeat center center / contain`,
                                     }}
                                 />
                                 {item && <Box
@@ -352,7 +394,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, kos, st
                             </Stack>
                         </Stack>
                         <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Stat Changes", translationKey)}</Divider>
-                        <StatChanges statChanges={statChanges} translationKey={translationKey} />
+                        <StatChanges statChanges={statChanges} randomStatBoosts={randomStatBoosts} translationKey={translationKey} />
                         <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Modifiers", translationKey)}</Divider>
                         <ModifierTags modifiers={modifiers} translationKey={translationKey} />
                     </Stack>
@@ -380,20 +422,23 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
     const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
-    const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
-            kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
-        0));
-    koCounts[0] = Math.min(koCounts[0], 1);
+    // const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
+    //         kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
+    //     0));
+    // koCounts[0] = Math.min(koCounts[0], 1);
+    const koCounts = turnState.raiders.map((raider) => raider.timesFainted);
     const roles = turnState.raiders.map((raider) => raider.role);
     const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
     const abilities = turnState.raiders.map((raider) => raider.ability);
+    const haveSubstitutes = turnState.raiders.map((raider) => !!raider.substitute)
 
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
+    const randomStatBoosts = turnState.raiders.map((raider) => raider.randomBoosts || 0);
     const getModifiers = (raider: Raider): Modifiers => {
         return {
-            "attackCheer": raider.field.attackerSide.isAtkCheered > 0,
-            "defenseCheer": raider.field.attackerSide.isDefCheered > 0,
+            "attackCheer": (raider.field.attackerSide.isAtkCheered ? 1 : 0) + raider.permanentAtkCheers,
+            "defenseCheer":(raider.field.attackerSide.isDefCheered ? 1 : 0) + raider.permanentDefCheers,
             "helpingHand": raider.field.attackerSide.isHelpingHand,
             "tera": raider.isTera ? raider.teraType : "",
             "formChanged": raider.isChangedForm ? raider.name : "",
@@ -415,7 +460,9 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "status": raider.status,
             "abilityNullified": raider.abilityNullified !== undefined && raider.abilityNullified !== 0,
             "charging": raider.isCharging,
-            "choiceLocked": raider.isChoiceLocked,
+            "choiceLocked": raider.isChoiceLocked && raider.lastMove ? raider.lastMove.name : "",
+            "encore": raider.isEncore && raider.lastMove ? raider.lastMove.name : "",
+            "disable": raider.isDisable && raider.disabledMove ? raider.disabledMove : "",
             "endure": raider.isEndure,
             "ingrain": raider.isIngrain,
             "micleBerry": raider.isMicle,
@@ -424,6 +471,10 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "stockpile": raider.stockpile,
             "taunt": raider.isTaunt !== undefined && raider.isTaunt !== 0,
             "yawn": raider.isYawn !== undefined && raider.isYawn !== 0,
+            "throatChop": raider.isThroatChop !== undefined && raider.isThroatChop !== 0,
+            "substituteHP": raider.substitute,
+            "wideGuard": raider.field.attackerSide.isWideGuard,
+            "quickGuard": raider.field.attackerSide.isQuickGuard,
         }
     }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));
@@ -455,7 +506,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     return (
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} kos={koCounts[i]} statChanges={statChanges[i]} modifiers={modifiers[i]} translationKey={translationKey} />
+                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} modifiers={modifiers[i]} translationKey={translationKey} />
             ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true}>
@@ -501,25 +552,25 @@ function getCurrentRaiderRole(results: RaidBattleResults, displayedTurn: number,
     }
 }
 
-function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
-    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
-        return undefined;
-    }
-    else {
-        try {
-            const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
-            if (currentRaiderMove === "(No Move)") {
-                return undefined
-            }
-            else {
-                return getTranslation(currentRaiderMove, translationKey, "moves");
-            }
-        }
-        catch(e) {
-            return undefined;
-        }
-    }
-}
+// function getCurrentRaiderMove(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
+//     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+//         return undefined;
+//     }
+//     else {
+//         try {
+//             const currentRaiderMove = results.turnResults[displayedTurn - 1].raiderMoveUsed
+//             if (currentRaiderMove === "(No Move)") {
+//                 return undefined
+//             }
+//             else {
+//                 return getTranslation(currentRaiderMove, translationKey, "moves");
+//             }
+//         }
+//         catch(e) {
+//             return undefined;
+//         }
+//     }
+// }
 
 function getCurrentMoves(results: RaidBattleResults, displayedTurn: number, translationKey: any) {
     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
@@ -578,7 +629,7 @@ function getCurrentTurnText(bossRole: String, raiderRole: String, bossMove: Stri
 
 function RollCaseButtons({raidInputProps, setRollCase, translationKey}: {raidInputProps: RaidInputProps, setRollCase: (c: "min" | "avg" | "max") => void, translationKey: any}) {
     return (
-        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2}}>
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2, paddingTop: "5px", paddingBottom: "5px"}}>
             <RollCaseButton 
                 rollCase="min"
                 raidInputProps={raidInputProps}
@@ -685,7 +736,363 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
     return matchesCase;
 }
 
-function RaidControls({raidInputProps, results, setResults, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, prettyMode: boolean, translationKey: any}) {
+function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const alreadyOptimized = (gs: TurnGroupInfo[]) => {
+        return !gs.some((g) => g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Most Damaging)"));
+    }
+
+    const switchIsOn = alreadyOptimized(raidInputProps.groups);
+
+    const handleConfirm = () => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = g.turns.map(t => { return {
+                ...t,
+                bossMoveInfo: {
+                    ...t.bossMoveInfo,
+                    moveData: {
+                        ...t.bossMoveInfo.moveData,
+                        name: t.bossMoveInfo.moveData.name === "(Most Damaging)" ? "(Optimal Move)" as MoveName : t.bossMoveInfo.moveData.name,
+                    }
+                }
+            }});
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+        setOpen(false);
+    }
+
+    const handleTurnOff = () => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = g.turns.map(t => { return {
+                ...t,
+                bossMoveInfo: {
+                    ...t.bossMoveInfo,
+                    moveData: {
+                        ...t.bossMoveInfo.moveData,
+                        name: t.bossMoveInfo.moveData.name === "(Optimal Move)" ? "(Most Damaging)" as MoveName : t.bossMoveInfo.moveData.name,
+                    }
+                }
+            }});
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+        setOpen(false);
+    }
+    
+    return (
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2, paddingTop: "5px", paddingBottom: "5px"}}>
+            {/* <Button 
+                variant="contained" 
+                size="small" 
+                color="secondary"
+                sx={{ minWidth: "100px", height: "25px", fontWeight: "normal",}} 
+                disabled={alreadyOptimized(raidInputProps.groups)}
+                onClick={handleOpen}
+            >
+                {getTranslation("Optimize Boss Moves", translationKey)}
+            </Button> */}
+            <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
+                <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >
+                    { getTranslation("Optimize Boss Moves", translationKey) }
+                </Typography>
+                <Switch
+                    size='small'
+                    checked={switchIsOn}
+                    onChange={(e) => switchIsOn ? handleTurnOff() : handleOpen()}
+            
+                />
+            </Stack>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">{getTranslation("Optimize Boss Moves", translationKey)}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        {getTranslation("This can take a long time!", translationKey)}<br/>
+                        {getTranslation("Do you wish to continue?", translationKey)}
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        {getTranslation("Cancel", translationKey)}
+                    </Button>
+                    <Button onClick={handleConfirm} color="primary" autoFocus>
+                        {getTranslation("Confirm", translationKey)}
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </Stack>
+    )
+}
+
+function HelpMenu({translationKey}: {translationKey: any}) {
+    const [value, setValue] = useState<number>(1);
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue);
+    };  
+
+    return (
+        <Paper sx={{ p: 2, backgroundColor: "modal.main", height: "500px"}}>
+            <Stack direction={"row"} paddingBottom={1} justifyContent={"center"}>
+                <Tabs value={value} orientation="vertical" onChange={handleChange} centered variant="scrollable" scrollButtons allowScrollButtonsMobile>
+                    <Tab 
+                        label={getTranslation("Move Groups", translationKey)} 
+                        value={1} 
+                    />
+                    <Tab 
+                        label={getTranslation("Test Cases", translationKey)}
+                        value={2} 
+                    />
+                    <Tab 
+                        label={getTranslation("Move Options", translationKey)}
+                        value={3} 
+                    />
+                    <Tab 
+                        label={getTranslation("Extra Options", translationKey)}
+                        value={4} 
+                    />
+                </Tabs>
+                <Box width={"600px"} sx={{ overflowY: "auto", maxHeight: "475px", padding: "10px"}}>
+                    {/* Move Groups Section */}
+                    <Box hidden={value !== 1}>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Move", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <img 
+                                    src={process.env.PUBLIC_URL + "/help-assets/move.png"} 
+                                    alt=""
+                                />
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        A <Box component="span" fontWeight='fontWeightBold'>move</Box> is defined by:<br/>
+                                        - One action done by the raider<br/>
+                                        - One action done by the raid boss onto the raider<br/><br/>
+                                        For scripted boss actions, the "(No Move)" option should be selected for the raider.<br/>
+                                        In these cases, scripted boss moves will hit all raiders and apply spread damage when appropriate.
+                                    </Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Group", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <img 
+                                    src={process.env.PUBLIC_URL + "/help-assets/group.png"} 
+                                    alt=""
+                                />
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        A <Box component="span" fontWeight='fontWeightBold'>group</Box> is defined by a container of one or more moves in which order does not matter.<br/>
+                                    </Typography>
+                                    <Typography>Multiple groups are used to indicate sequencing in a Strategy.</Typography>
+                                    <Typography>Groups can be sequentially repeated by increasing "# Executions".</Typography>
+                                    <Typography>Groups are not necessarily equivalent to turns!</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Turn", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <img 
+                                    src={process.env.PUBLIC_URL + "/help-assets/turn.png"} 
+                                    alt=""
+                                />
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        A <Box component="span" fontWeight='fontWeightBold'>turn</Box> is defined by 1-4 moves roughly matching a raid's actionable turn cadence.
+                                        That is, each raider can move once within a single turn.
+                                    </Typography>
+                                    <Typography>Turn count estimates the length of your strategy.</Typography>
+                                    <Typography>Multiple groups can be ordered in a single turn.</Typography>
+                                    <Typography>Turns are automatically compiled by the tool for display in graphics and in "Pretty Mode".</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                    </Box>
+                    {/* Test Cases Section */}
+                    <Box hidden={value !== 2}>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Worst Case", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        All actions defined by these rules:<br/>
+                                        - Raid boss deals high-roll critical hits<br/>
+                                        - Raid boss applies secondary effects if applicable<br/>
+                                        - Raiders deal low-roll non-critical hits<br/>
+                                        - Raiders do not apply secondary effects<br/>
+                                        - Heal Cheers heal for 20%
+                                    </Typography>
+                                    <Typography>Use this setting when designing main strategies that are intended to be heavily used by a community.</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Average Case", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        All actions defined by these rules:<br/>
+                                        - Raid boss deals average-roll non-critical hits<br/>
+                                        - Raid boss does not apply secondary effects<br/>
+                                        - Raiders deal average-roll non-critical hits<br/>
+                                        - Raiders do not apply secondary effects<br/>
+                                        - Heal Cheers heal for 60%
+                                    </Typography>
+                                    <Typography>This option is most appropriate for longer strategies or when 100% reliability is not a requirement.</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Best Case", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>
+                                        All actions defined by these rules:<br/>
+                                        - Raid boss deals low-roll non-critical hits<br/>
+                                        - Raid boss does not apply secondary effects<br/>
+                                        - Raiders deal high-roll critical hits<br/>
+                                        - Raiders apply secondary effects if applicable<br/>
+                                        - Heal Cheers heal for 100%
+                                    </Typography>
+                                    <Typography>This setting can be used to check if items and/or abilities activate in edge cases for a given strategy.</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Optimize Boss Moves", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>The true worst case scenario!</Typography>
+                                    <Typography>This implements an AI for the raid boss to find the optimal move selection to keep itself alive.</Typography>
+                                    <Typography>Use this with Worst Case to stress test your strategy.</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                    </Box>
+                    {/* Move Options Section */}
+                    <Box hidden={value !== 3}>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Attacks", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>Moves from the moveset and, for bosses, extra moveset for scripted moves</Typography>
+                                    <Typography>Moves can target self, allies, and/or the raid boss. Some moves are limited to certain types of targets.</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Cheers", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography><Box component="span" fontWeight='fontWeightBold'>Attack Cheer</Box> increases raiders' Atk and SpAtk by 1.5x.</Typography>
+                                    <Typography><Box component="span" fontWeight='fontWeightBold'>Defense Cheer</Box> increases raiders' Def and SpDef by 1.5x.</Typography>
+                                    <Typography><Box component="span" fontWeight='fontWeightBold'>Heal Cheer</Box> heals between 20%-100% depending on test case.</Typography>
+                                    <Typography>Cheers are implemented as lasting 12 moves and cannot stack except by making use of an exploit that involves fainting while a cheer is active.</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Most Damaging", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>Automatically selects the move that deals the most damage</Typography>
+                                </Stack>
+                                <br/>
+                                <Chip label={<Typography variant="h6">{getTranslation("Most Optimal", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>Automatically selects the raid boss move that is most optimal for its survival.</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Chip label={<Typography variant="h6">{getTranslation("Remove Negative Effects", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>The raid boss clears any stat drops and removes volatile and non-volatile status effects on itself.</Typography>
+                                </Stack>
+                                <br/>
+                                <Chip label={<Typography variant="h6">{getTranslation("Clear Boosts / Abilities", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>For all raiders, the boss clears all stat boosts and cheers, and raider abilities are nullified for one turn when applicable.</Typography>
+                                </Stack>
+                                <br/>
+                                <Chip label={<Typography variant="h6">{getTranslation("Steal Tera Charge", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>The raid boss removes one tera charge stack from all raiders when applicable.</Typography>
+                                </Stack>
+                                <br/>
+                                <Chip label={<Typography variant="h6">{getTranslation("Activate Shield", translationKey)}</Typography>} color={"secondary"}/>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>The raid boss activates their shield.</Typography>
+                                    <Typography>This is used to simulate the timer based trigger.</Typography>
+                                </Stack>
+                                <br/>
+                            </Stack>
+                        </Paper>
+                    </Box>
+                    {/* Extra Options */}
+                    <Box hidden={value !== 4}>
+                        <Paper sx={{padding: "20px", margin: "10px"}}>
+                            <Stack direction={"column"}>
+                                <Typography>Extra options are found under the  <MenuIcon sx={{transform: "translateY(5px)"}}/>  icon.</Typography>
+                                <br/>
+                                <Stack direction={"column"} spacing={1}>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Tera</Box> switch is available if 3 tera charges are built up</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Crit</Box> enables/disables critical hits</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Effect</Box> enables/disables the application of secondary effects</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Roll</Box> provides options for damage rolls</Typography>
+                                </Stack>
+                            </Stack>
+                        </Paper>
+                    </Box>
+                </Box>
+            </Stack>
+        </Paper>
+    )
+}
+
+function RaidControls({raidInputProps, results, setResults, setLoading, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, setLoading: (b: boolean) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
     const [rollCase, setRollCase] = useState<"min" | "avg" | "max">("avg");
     const groups = raidInputProps.groups;
@@ -694,6 +1101,18 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
     const pokemon2 = raidInputProps.pokemon[2];
     const pokemon3 = raidInputProps.pokemon[3];
     const pokemon4 = raidInputProps.pokemon[4];
+
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+    const popoverOpen = Boolean(anchorEl);
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handlePopoverClose = () => {
+        setAnchorEl(null);
+    };
+
+    const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
     
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -703,11 +1122,21 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
         raidcalcWorker.onmessage = (event: MessageEvent<RaidBattleResults>) => {
             if (event && event.data) {
                 setResults(event.data);
+                if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                }
+                setLoading(false);
             }
         }
     }, [setResults]);
 
     useEffect(() => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+        timeoutRef.current = setTimeout(() => {
+            setLoading(true);
+        }, 1000);
         const info = {
             raiders: raidInputProps.pokemon,
             groups: raidInputProps.groups,
@@ -727,10 +1156,41 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
     return (
         <Box width={610} sx={{ mx: 1}}>
             <Stack>
-                <Box paddingBottom={1}>
+                <Stack direction={"row"} paddingBottom={1} justifyContent={"center"}>
                     <Tabs value={value} onChange={handleChange} centered>
                         <Tab 
-                            label={getTranslation("Move Order", translationKey)} 
+                            label={
+                                <Stack direction={"row"}>
+                                    <Box alignContent={"center"}>
+                                        {getTranslation("Move Order", translationKey)}
+                                    </Box>
+                                    <Box>
+                                        <IconButton aria-describedby={popoverOpen ? "simple-popover" : undefined} onClick={handlePopoverOpen} sx={{"paddingTop": 0, "paddingBottom": 0}}>
+                                            <InfoOutlinedIcon color="info" sx={{ transform: "translateY(-1px)"}}/>
+                                        </IconButton>
+                                        <Popover
+                                            id={popoverOpen ? "simple-popover" : undefined}
+                                            open={popoverOpen}
+                                            anchorEl={anchorEl}
+                                            onClose={handlePopoverClose}
+                                            anchorOrigin={{
+                                                vertical: 'bottom',
+                                                horizontal: 'left',
+                                            }}
+                                            transformOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'center',
+                                            }}
+                                            sx={{
+                                                width: "600px",
+                                                maxWidth: "100%",
+                                            }}
+                                        >
+                                            <HelpMenu translationKey={translationKey}/>
+                                        </Popover>
+                                    </Box>
+                                </Stack>
+                            } 
                             value={1} 
                         />
                         <Tab 
@@ -738,8 +1198,14 @@ function RaidControls({raidInputProps, results, setResults, prettyMode, translat
                             value={2} 
                         />
                     </Tabs>
-                </Box>
-                <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
+                </Stack>
+                <Stack direction="row" spacing={4} alignItems="center" justifyContent="center" marginBottom={"5px"}>
+                    <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
+                    
+                    {!prettyMode &&
+                        <OptimizeBossMovesButton raidInputProps={raidInputProps} translationKey={translationKey}/>
+                    }
+                </Stack>
                 <Box hidden={value !== 1}>
                     <HpDisplay results={results} translationKey={translationKey}/>
                 </Box>

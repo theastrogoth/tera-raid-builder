@@ -85,8 +85,9 @@ function TurnResultDisplay({state, turnResult, index}: {state: RaidState, turnRe
         <Stack direction="column" spacing={0} key={index}>
             <Typography variant="h6">Move {index+1}</Typography>
             <TurnFlagDisplay turnResult={turnResult} />
-            { moveResultDisplay(state, turnResult.results[0]) }
-            { moveResultDisplay(state, turnResult.results[1]) }
+            {
+                turnResult.results.map((moveResult) => moveResultDisplay(state, moveResult))
+            }
             <EndTurnFlagDisplay turnResult={turnResult} />
         </Stack>
     )

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { useTheme } from "@mui/material/styles";
 
 import Plot from "react-plotly.js";
+//@ts-ignore
+import Plotly from "plotly.js/dist/plotly";
 
 import { StatsTable } from '../calc';
 import { Nature } from "../calc/data/interface";
@@ -16,55 +18,71 @@ const lowEVColor    = "#fcca00"; // for non-maxed EVs
 const maxedEVColor  = "#00c8c8"; // for when total EVs are 510
 const badEVColor    = "#d44a4a"; // for wehn total EVs exceeding 510 (shouldn't happen unless something goes wrong)
 
-const tickorder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
+const tickOrder = ["HP", "Sp. Atk", "Sp. Def", "Speed", "Defense", "Attack", "HP"];
+const shortTickOrder = ["HP", "SpA", "SpD", "Spe", "Def", "Atk", "HP"];
+const statOrder = ["hp", "spa", "spd", "spe", "def", "atk", "hp"];
+const rightAligned = ["spa", "spd"];
 
+const ticktext = (index: number, stats: StatsTable, nature: Nature | undefined, evs: StatsTable, translationKey: any, shorten: boolean = false, pluscolor: string = plusColor, minuscolor: string = minusColor) => {
+    const stat = tickOrder[index];
+    const lcStat = statOrder[index] as keyof StatsTable;
+    const isPlus = nature ? nature.plus !== nature.minus && nature.plus === lcStat : false;
+    const isMinus = nature ? nature.plus !== nature.minus && nature.minus === lcStat : false;
+    const isMaxedEV = evs[lcStat] === 252;
+    let statTranslation = getTranslation(stat, translationKey, "stats");
+    if (shorten && !(index === 0 || index === 3 || index === 6) && statTranslation.length > 8) { // hack for avoiding overflow, mostly for the German translation of "Defense"
+        statTranslation = getTranslation(shortTickOrder[index], translationKey, "stats");
+    }
+    let text = '<b>' + statTranslation + '</b>';
+    if (isPlus) {
+        text = '<span style="color:' + pluscolor + '"><b>' + text + '</b></span>';    } else if (isMinus) {
+    } 
+    if (isMinus) {
+        text = '<span style="color:' + minuscolor + '"><b>' + text + '</b></span>';
+    }
+    if (isMaxedEV) {
+        if (rightAligned.includes(lcStat)) {
+            text = "\u2728"+text;
+        } else {
+            text += "\u2728";
+        }
+    }
+    text = text + "<br><b>" + stats[lcStat] +"</b>";
+    return text;
+}
+
+const sigmoid = (stat: number) => {
+    return 1.75 / (1 + Math.exp(stat / -125)) - .75;
+};
 
 function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}: {nature: Nature | undefined, evs: StatsTable, stats: StatsTable, translationKey: any, bossMultiplier?: number}) {
     const theme = useTheme()
     const isDark = theme.palette.mode === 'dark';
 
-    const [, setRotation] = useState(90);
-    const [revision, setRevision] = useState(1);
+    // const [, setRotation] = useState(90);
+    // const [revision, setRevision] = useState(1);
     
-    // Add a callback that we will use whenever the layout is updated.
-    // @ts-ignore
-    const onLayoutCallbacks = data => {
-        if (data['polar.angularaxis.rotation']) {
-            setRotation(90);
-            setRevision(revision + 1);
-        }
-    };
+    // // Add a callback that we will use whenever the layout is updated.
+    // // @ts-ignore
+    // const onLayoutCallbacks = data => {
+    //     if (data['polar.angularaxis.rotation']) {
+    //         setRotation(90);
+    //         setRevision(revision + 1);
+    //     }
+    // };
 
 
-    //@ts-ignore
-    const ticktexts = tickorder.map(stat => getTranslation(stat, translationKey, "stats") + ": " + stats[stat.toLowerCase()] + (evs[stat.toLowerCase()] === 252 ? '\u2728' : ''))
-    if (nature) {
-        for (let i=0; i<tickorder.length; i++) {
-            if (nature.plus === nature.minus) {
-                ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
-            }
-            else if (nature.plus === tickorder[i].toLowerCase()) {
-                ticktexts[i] = '<span style="color:' + plusColor + '"><b>' + ticktexts[i] + '</b></span>';
-            } else if (nature.minus === tickorder[i].toLowerCase()) {
-                ticktexts[i] = '<span style="color:' + minusColor + '"><b>' + ticktexts[i] + '</b></span>';
-            }
-            else {
-                ticktexts[i] = '<b>' + ticktexts[i] + '</b>';
-            }
-        }
-    }
-
+    const ticktexts = tickOrder.map((s,i) => ticktext(i, stats, nature, evs, translationKey));
     const evTotal = Object.values(evs).reduce((a,b) => a + b, 0)
     const evColor = evTotal > 510 ? badEVColor : (
                     evTotal < 510 ? lowEVColor : maxedEVColor);
-
-    const hpPlotVal = ((stats.hp*100/bossMultiplier)+100)/500
+    
     return (
         <Box>
             <Plot
-                onRelayout={onLayoutCallbacks}
-                //@ts-ignore
-                onRelayouting={onLayoutCallbacks}
+                // onRelayout={onLayoutCallbacks}
+                // //@ts-ignore
+                // onRelayouting={onLayoutCallbacks}
                 data={[
                     {
                         type: "scatterpolar", // Hack to get hexagonal axis
@@ -91,7 +109,7 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
                             color: statsColor,
                         },
                         name: "stats",
-                        r: [hpPlotVal, ...[stats.spa, stats.spd, stats.spe, stats.def, stats.atk].map(stat => (stat+50)/350), hpPlotVal],
+                        r: [stats.hp, stats.spa, stats.spd, stats.spe, stats.def, stats.atk, stats.hp].map((stat, index) => sigmoid(stat / ((index === 0 || index === 6) ? bossMultiplier / 100 : 1))),
                         theta: ticktexts,
                         fill: "toself",
                     },
@@ -147,20 +165,132 @@ function StatRadarPlot({nature, evs, stats, translationKey, bossMultiplier=100}:
                     }
                 }}
                 config={{ 
-                    staticPlot: false,
-                    modeBarButtonsToRemove: ['zoom2d'],  
-                    toImageButtonOptions: {
-                        format: "svg",
-                        filename: "statplot",
-                        // height: 800,
-                        // width: 600,
-                        // scale: 2,
-                    }
+                    staticPlot: true,
+                    // modeBarButtonsToRemove: ['zoom2d'],  
+                    // toImageButtonOptions: {
+                    //     format: "svg",
+                    //     filename: "statplot",
+                    //     // height: 800,
+                    //     // width: 600,
+                    //     // scale: 2,
+                    // }
                 }}
             />
             <Box height="10px"/>
         </Box>
     )
+}
+
+export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined, evs: StatsTable, stats: StatsTable, translationKey: any, scale: number = 10, bossMultiplier: number = 100) {
+    
+    const ticktexts = tickOrder.map((s,i) => ticktext(i, stats, nature, evs, translationKey, true, "#fdbab4", "#b3dbff"));
+    const evTotal = Object.values(evs).reduce((a,b) => a + b, 0)
+    const evColor = evTotal > 510 ? badEVColor : (
+                    evTotal < 510 ? lowEVColor : maxedEVColor);
+
+    const data = [
+        {
+            type: "scatterpolar", // Hack to get hexagonal axis
+            mode: "lines",
+            line: {
+                width: 2.5 * scale,
+                color: "#888888",
+            },
+            name: "axis",
+            r: [0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0],
+            theta: ticktexts.map((t) => [t,t]).flat(),
+            fill: "toself",
+            fillcolor: "rgba(0, 0, 0, .1)",
+        },
+        {
+            type: "scatterpolar", // Hack to get hexagonal axis
+            mode: "lines",
+            line: {
+                width: 4 * scale,
+                color: "#cccccc",
+            },
+            name: "axis",
+            r: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            theta: ticktexts,
+            fill: "toself",
+            fillcolor: "rgba(0, 0, 0, .1)",
+        },
+        {
+            type: "scatterpolar",
+            mode: "lines",
+            line: {
+                width: 2.5 * scale,
+                color: statsColor,
+            },
+            marker: {
+                width: 2.5 * scale,
+                color: statsColor,
+            },
+            name: "stats",
+            r: [stats.hp, stats.spa, stats.spd, stats.spe, stats.def, stats.atk, stats.hp].map((stat, index) => sigmoid(stat / (index === 0 ? bossMultiplier / 100 : 1))),
+            theta: ticktexts,
+            fill: "toself",
+        },
+        {
+            type: "scatterpolar",
+            mode: "lines",
+            line: {
+                width: 0,
+                color: evColor,
+            },
+            marker: {
+                size: 0,
+                color: evColor,
+            },
+            name: "evs",
+            r: [evs.hp, evs.spa, evs.spd, evs.spe, evs.def, evs.atk, evs.hp].map(stat => (stat + 23)/275),
+            theta: ticktexts,
+            fill: "toself",
+        },
+    ];
+
+    const layout = {
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        margin: {
+            r: 50 * scale,
+            l: 50 * scale,
+            t: 50 * scale,
+            b: 50 * scale,
+        },
+        showlegend: false,
+        font: {
+            family: "Poppins, sans-serif"
+        },
+        dragmode: false,
+        polar: {
+            bgcolor: 'rgba(0,0,0,0)',
+            angularaxis: {
+                tickfont: {
+                    size: 17 * scale,
+                    color: "#ffffff",
+                },
+                linewidth: 0, // 0 Makes circular axis invisible 
+                rotation: 90,
+                direction: "counterclockwise",
+                fixedrange: true,
+            },
+            radialaxis: {
+                visible: false,
+                range: [0, 1.05],
+                fixedrange: true,
+            }
+        }
+    };
+
+    const config = { staticPlot: false };
+
+    //@ts-ignore
+    const image = await Plotly.newPlot("statplot"+id, data, layout, config).then(async (gd) => {
+        return await Plotly.toImage(gd, {format: "png", width: 300*scale, height: 250*scale})
+    });
+    
+    return image as string;
 }
 
 export default React.memo(StatRadarPlot, (next, prev) => (next.evs === prev.evs && next.stats === prev.stats && next.nature === prev.nature && next.translationKey === prev.translationKey));

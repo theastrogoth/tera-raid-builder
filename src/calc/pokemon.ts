@@ -41,6 +41,7 @@ export class Pokemon implements State.Pokemon {
   boosts: I.StatsTable;
   isPumped: number;
   isMicle: boolean;
+  isMinimize: boolean;
   randomBoosts: number;
   stockpile: number;
   rawStats: I.StatsTable;
@@ -49,12 +50,15 @@ export class Pokemon implements State.Pokemon {
   originalCurHP: number;
   status: I.StatusName | '';
   volatileStatus: string[];
-  isChoiceLocked: boolean;
   toxicCounter: number;
   hitsTaken: number;
+  timesFainted: number;
   changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
 
   moves: I.MoveName[];
+
+  permanentAtkCheers: number;
+  permanentDefCheers: number;
 
   constructor(
     gen: I.Generation,
@@ -78,7 +82,7 @@ export class Pokemon implements State.Pokemon {
     this.bossMultiplier = options.bossMultiplier || 100;
     this.statMultipliers = Pokemon.withDefault(gen, options.statMultipliers, 1);
 
-    this.gender = options.gender || this.species.gender || 'M';
+    this.gender = options.gender || this.species.gender || 'N';
     this.ability = options.ability || this.species.abilities?.[0] || undefined;
     this.abilityOn = !!options.abilityOn;
 
@@ -101,6 +105,7 @@ export class Pokemon implements State.Pokemon {
     this.boosts = Pokemon.withDefault(gen, options.boosts, 0, false);
     this.isPumped = options.isPumped || 0;
     this.isMicle = !!options.isMicle;
+    this.isMinimize = !!options.isMinimize;
     this.randomBoosts = options.randomBoosts || 0;
     this.stockpile = options.stockpile || 0;
 
@@ -133,11 +138,13 @@ export class Pokemon implements State.Pokemon {
     this.originalCurHP = curHP && curHP <= this.rawStats.hp ? curHP : curHP === 0 ? 0 : this.rawStats.hp;
     this.status = options.status || '';
     this.volatileStatus = options.volatileStatus || [];
-    this.isChoiceLocked = options.isChoiceLocked || false;
     this.toxicCounter = options.toxicCounter || 0;
     this.hitsTaken = options.hitsTaken || 0;
+    this.timesFainted = options.timesFainted || 0;
     this.changedTypes = options.changedTypes;
     this.moves = options.moves || [];
+    this.permanentAtkCheers = options.permanentAtkCheers || 0;
+    this.permanentDefCheers = options.permanentDefCheers || 0;
   }
 
   maxHP(original = false) {
@@ -172,17 +179,16 @@ export class Pokemon implements State.Pokemon {
 
   hasType(...types: I.TypeName[]) {
     for (const type of types) {
-      if (this.teraType ? this.teraType === type : this.types.includes(type)) return true;
-    }
+      if ((this.isTera && this.teraType) ? this.teraType === type : this.types.includes(type)) return true;    }
     return false;
   }
 
   /** Ignores Tera type */
   hasOriginalType(...types: I.TypeName[]) {
     for (const type of types) {
-      if (this.types.includes(type)) return true;
+      if (!this.types.includes(type)) return false;
     }
-    return false;
+    return true;
   }
 
   named(...names: string[]) {
@@ -211,20 +217,23 @@ export class Pokemon implements State.Pokemon {
       boosts: extend(true, {}, this.boosts),
       isPumped: this.isPumped,
       isMicle: this.isMicle,
+      isMinimize: this.isMinimize,
       randomBoosts: this.randomBoosts,
       stockpile: this.stockpile,
       originalCurHP: this.originalCurHP,
       status: this.status,
       volatileStatus: this.volatileStatus,
-      isChoiceLocked: this.isChoiceLocked,
       teraType: this.teraType,
       isTera: this.isTera,
       shieldData: this.shieldData,
       shieldActive: this.shieldActive,
       toxicCounter: this.toxicCounter,
       hitsTaken: this.hitsTaken,
+      timesFainted: this.timesFainted,
       changedTypes: this.changedTypes,
       moves: this.moves.slice(),
+      permanentAtkCheers: this.permanentAtkCheers,
+      permanentDefCheers: this.permanentDefCheers,
       overrides: this.species,
     });
   }

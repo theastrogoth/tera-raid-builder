@@ -4912,16 +4912,19 @@ const RAID_CHEERS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     bp: 0,
     type: '???',
     category: 'Status',
+    priority: 10,
   },
   'Defense Cheer': {
     bp: 0,
     type: '???',
     category: 'Status',
+    priority: 10,
   },
   'Heal Cheer': {
     bp: 0,
     type: '???',
     category: 'Status',
+    priority: 10,
   }
 }
 

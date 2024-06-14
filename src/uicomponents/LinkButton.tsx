@@ -7,7 +7,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 import { Pokemon, Generations, Field } from "../calc";
-import { MoveName, TypeName } from "../calc/data/interface";
+import { GenderName, MoveName, TypeName } from "../calc/data/interface";
 import { RaidInputProps, BuildInfo } from "../raidcalc/inputs";
 import { LightBuildInfo, LightPokemon, LightTurnInfo } from "../raidcalc/hashData";
 import { Raider } from "../raidcalc/Raider";
@@ -16,7 +16,7 @@ import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
 import { MoveData, RaidTurnInfo, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
-import { encode, decode, getTranslation } from "../utils";
+import { encode, decode, getTranslation, deepEqual } from "../utils";
 
 import { db } from "../config/firestore";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -25,7 +25,7 @@ import STRAT_LIST from "../data/strats/stratlist.json";
 const gen = Generations.get(9);
 const JSON_HASHES = Object.entries(STRAT_LIST).map(([boss, strats]) => Object.entries(strats as Object).map(([name, h]) => h as string)).flat();
 
-async function getFullHashFromShortHash(hash: string): Promise<string> {
+async function getFullHashFromShortHash(hash: string, longHashRef: React.MutableRefObject<string>, shortHashRef: React.MutableRefObject<string>): Promise<string> {
     let cleanHash = hash;
     if (hash[0] === "#") {
         cleanHash = hash.slice(1);
@@ -37,6 +37,10 @@ async function getFullHashFromShortHash(hash: string): Promise<string> {
       console.log("Invalid link");
     }
     const data = docSnap.data();
+    if (data) {
+        longHashRef.current = data.hash;
+        shortHashRef.current = cleanHash;
+    }
     return data ? data.hash : null;
 }
 
@@ -56,7 +60,10 @@ async function generateShortHash(): Promise<string> {
     return shortHash;
 }
 
-async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fullHash: string, setButtonDisabled: (b: boolean) => void, setSnackSeverity: (s: "success" | "warning" | "error") => void) {
+async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fullHash: string, setButtonDisabled: (b: boolean) => void, setSnackSeverity: (s: "success" | "warning" | "error") => void, longHashRef: React.MutableRefObject<string>, shortHashRef: React.MutableRefObject<string>) {
+    if (fullHash === longHashRef.current) {
+        return shortHashRef.current;
+    }
     const shortHash = await generateShortHash();
     const id = decode(shortHash);
     return setDoc(doc(db, "links", `${id}`), {
@@ -69,6 +76,7 @@ async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fu
     })
     .then(() => {
         setSnackSeverity("success");
+        shortHashRef.current = shortHash;
         return shortHash;
     })
     .catch((error) => {
@@ -90,32 +98,39 @@ export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
 
 export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<MoveName,MoveData> | null): Promise<BuildInfo | null> {
     try {
-        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => new Raider(i, r.role, r.shiny, new Field(), 
-            new Pokemon(gen, r.name, {
-                ability: r.ability || undefined,
-                item: r.item || undefined,
-                nature: r.nature || undefined,
-                evs: r.evs || undefined,
-                ivs: r.ivs || undefined,
-                level: r.level || undefined,
-                teraType: (r.teraType || undefined) as (TypeName | undefined),
-                isTera: i === 0,
-                bossMultiplier: r.bossMultiplier || undefined,
-                moves: r.moves || undefined,
-                shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
-            }), 
-            (r.moves ? (
-                allMoves ? 
-                (r.moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
-                (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
-            ) as MoveData[] : []),
-            (r.extraMoves || undefined) as (MoveName[] | undefined),
-            (r.extraMoves ? (
-                allMoves ? 
+        const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => {
+            const moves = r.moves ? r.moves.filter((m) => m !== "(No Move)") as MoveName[] : undefined;
+            const extraMoves = r.extraMoves ? r.extraMoves.filter((m) => m !== "(No Move)") as MoveName[] : undefined;
+            const moveData = (moves ? (allMoves ? 
+                (moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
+                (await Promise.all(moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
+            ) as MoveData[] : []);
+            const extraMoveData = (r.extraMoves ? (allMoves ? 
                 (r.extraMoves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
                 (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
-            ) as MoveData[] : []),
-        )));
+            ) as MoveData[] : []);
+            return (
+                new Raider(i, r.role, r.shiny, r.isAnyLevel, new Field(), 
+                    new Pokemon(gen, r.name, {
+                        ability: r.ability || undefined,
+                        item: r.item || undefined,
+                        nature: r.nature || undefined,
+                        evs: r.evs || undefined,
+                        ivs: r.ivs || undefined,
+                        level: r.level || undefined,
+                        gender: r.gender as GenderName || undefined,
+                        teraType: (r.teraType || undefined) as (TypeName | undefined),
+                        isTera: i === 0,
+                        bossMultiplier: r.bossMultiplier || undefined,
+                        moves: moves,
+                        shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
+                    }), 
+                    moveData,
+                    extraMoves,
+                    extraMoveData,
+                )
+            )}
+        ));
         const groups: TurnGroupInfo[] = [];
         const groupIds: number[] = [];
         let usedGroupIds: number[] = obj.turns.map((t) => t.group === undefined ? -1 : t.group);
@@ -143,12 +158,24 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                 bmdata = [...pokemon[0].moveData, ...pokemon[0].extraMoveData!].find((m) => m && m.name === t.bossMoveInfo.name) || {name: bname};
             }
 
+            // Enforce some things that are handled in MoveSelection.tsx for better compatibility with old links
+            const selfTargeting = mdata && (
+                mdata.name === "(No Move)" ||
+                mdata.target === undefined ||
+                mdata.target === "user" ||
+                mdata.target === "user-and-allies" ||
+                mdata.target === "all-allies" ||
+                mdata.target === "users-field" ||
+                mdata.target === "opponents-field" ||
+                mdata.target === "entire-field"
+            );
+
             const turn = {
                 id: t.id,
                 group: t.group,
                 moveInfo: {
                     userID: t.moveInfo.userID, 
-                    targetID: t.moveInfo.targetID, 
+                    targetID: selfTargeting ? t.moveInfo.userID : t.moveInfo.targetID, 
                     options: t.moveInfo.options, 
                     moveData: mdata || {name: t.moveInfo.name as MoveName}
                 },
@@ -200,7 +227,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
             await Promise.all(subsList.map(async (s,i) => 
                     {
                         const r = s.raider;
-                        const subPoke = new Raider(i+1, r.role, r.shiny, new Field(), 
+                        const subPoke = new Raider(i+1, r.role, r.shiny, r.isAnyLevel, new Field(), 
                             new Pokemon(gen, r.name, {
                                 ability: r.ability || undefined,
                                 item: r.item || undefined,
@@ -208,6 +235,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                                 evs: r.evs || undefined,
                                 ivs: r.ivs || undefined,
                                 level: r.level || undefined,
+                                gender: r.gender as GenderName || undefined,
                                 teraType: (r.teraType || undefined) as (TypeName | undefined),
                                 isTera: i === 0,
                                 bossMultiplier: r.bossMultiplier || undefined,
@@ -235,7 +263,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
     }
 }
 
-function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][]): string {
+export function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][]): string {
     const obj: LightBuildInfo = {
         name: info.name || "",
         notes: info.notes || "",
@@ -246,12 +274,14 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
                 role: r.role,
                 name: r.name,
                 shiny: r.shiny,
+                isAnyLevel: r.isAnyLevel,
                 ability: r.ability,
                 item: r.item,
                 nature: r.nature,
                 evs: r.evs,
                 ivs: r.ivs,
                 level: r.level,
+                gender: r.gender,
                 teraType: r.teraType,
                 moves: r.moves,
                 bossMultiplier: r.bossMultiplier,
@@ -293,6 +323,7 @@ function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuildInfo[][
                     evs: r.evs,
                     ivs: r.ivs,
                     level: r.level,
+                    gender: r.gender,
                     teraType: r.teraType,
                     moves: r.moves,
                 },
@@ -312,9 +343,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
   
-function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, translationKey}: 
+function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, shortHashRef, longHashRef, translationKey}: 
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
-      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, 
+      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
       setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, translationKey: any}) {
     const [buildInfo, setBuildInfo] = useState<LightBuildInfo | null>(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
@@ -354,6 +385,11 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     import(`../data/strats/${lcHash}.json`)
                     .then((module) => {
                         setBuildInfo(module.default);
+                        let prettyHash = lcHash;
+                        if (prettyHash.slice(-5) === "/main") {
+                            prettyHash = lcHash.slice(0,-5);
+                        }
+                        shortHashRef.current = prettyHash;
                     })
                     .catch((error) => {
                         console.error('Error importing JSON file:', error);
@@ -377,12 +413,13 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                 if (buildInfo && hashChangesRef.current === hashChanges) {
                     res = await lightToFullBuildInfo(buildInfo);
                 } else {
-                    if (!JSON_HASHES.includes(hash.slice(1)) && !JSON_HASHES.includes(hash.slice(1) + "/main")) {
+                    const lcHash = hash.toLowerCase();
+                    if (!JSON_HASHES.includes(lcHash.slice(1)) && !JSON_HASHES.includes(lcHash.slice(1) + "/main")) {
                         if (hash === "" || hash === "#") {
                             const module = await import(`../data/strats/default.json`)
                             setBuildInfo(module.default as LightBuildInfo);
                         } else if (hash.length < 50) { // This check should probably be more systematic
-                            const fullHash = await getFullHashFromShortHash(hash);
+                            const fullHash = await getFullHashFromShortHash(hash, longHashRef, shortHashRef);
                             if (fullHash) {
                                 const bInfo = await deserialize(fullHash);
                                 setBuildInfo(bInfo);
@@ -401,7 +438,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     }
                 }
                 if (res) {
-                    const {name, notes, credits, pokemon, groups} = res;
+                    const {name, notes, credits, pokemon, groups, substitutes} = res;
                     setTitle(name);
                     setNotes(notes);
                     setCredits(credits);
@@ -411,11 +448,21 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     raidInputProps.setPokemon[3](pokemon[3]);
                     raidInputProps.setPokemon[4](pokemon[4]);
                     raidInputProps.setGroups(groups);
-                    setSubstitutes[0](res.substitutes[0]);
-                    setSubstitutes[1](res.substitutes[1]);
-                    setSubstitutes[2](res.substitutes[2]);
-                    setSubstitutes[3](res.substitutes[3]);
+                    setSubstitutes[0](substitutes[0]);
+                    setSubstitutes[1](substitutes[1]);
+                    setSubstitutes[2](substitutes[2]);
+                    setSubstitutes[3](substitutes[3]);
                     setHasLoadedInfo(true);
+                    longHashRef.current = serializeInfo(
+                        {
+                            name: name,
+                            notes: notes,
+                            credits: credits,
+                            startingState: new RaidState(pokemon),
+                            groups: groups,
+                        },
+                        substitutes,
+                    );   
                 }
             } catch (e) {
                 setLoading(false);
@@ -440,7 +487,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         <Button
             variant="outlined"
             // disabled={buttonDisabled} // Don't display when the button is disabled to avoid confusion
-            onClick={() => {
+            onClick={async () => {
                 if (buttonDisabled) { return; }
                 setButtonDisabled(true);
                 if(buttonTimer.current === null) {
@@ -463,12 +510,27 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     substitutes,
                 );
 
+                if (window.location.href.split("#")[0].includes("localhost")) { // prevent making firebase link for local testing
+                    if (newHash === longHashRef.current) {
+                        console.log("Strategy is unchanged since the last time a link was generated.")
+                        const link = window.location.href.split("#")[0] + "#" + shortHashRef.current;
+                        navigator.clipboard.writeText(link);
+                    } else {
+                        console.log("Long hash link copied to clipboard.")
+                        const link = window.location.href.split("#")[0] + "#" + newHash;
+                        navigator.clipboard.writeText(link);
+                        longHashRef.current = newHash;
+                        shortHashRef.current = newHash;
+                    }
+                    return;
+                }
+
                 if (typeof ClipboardItem && navigator.clipboard.write) {
                     // iOS compatibility case. clipboard.write() is only supported when used synchronously
                     // within a gesture event handler, so we need to pass a ClipboardItem
                     // This condition is also used for Chrome, or any other browser for which ClipboardItem is defined
                     const text = new ClipboardItem({
-                        "text/plain": setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity)
+                        "text/plain": setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity, longHashRef, shortHashRef)
                         .then(shortHash => {
                             handleClick();
                             return new Blob([
@@ -479,7 +541,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                     navigator.clipboard.write([text]);
                 } else {
                     // Firefox compatibility case (ClipboardItem is not defined)
-                    setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity)
+                    setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity, longHashRef, shortHashRef)
                     .then(shortHash => {
                         handleClick();
                         navigator.clipboard.writeText(
@@ -487,6 +549,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                         )}
                     );
                 }
+
+                longHashRef.current = newHash;
             }}
         >
             {getTranslation("Create link for this strategy!", translationKey)}

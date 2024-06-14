@@ -1,5 +1,5 @@
 import { Pokemon, Field, StatID } from "../calc";
-import { AbilityName, ItemName, MoveName, NatureName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
+import { AbilityName, GenderName, ItemName, MoveName, NatureName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 
 export type MoveSetItem = {
     name: string,
@@ -84,6 +84,19 @@ export type MoveData = {
     ailmentChance?: number,
     minHits?:       number,
     maxHits?:       number,
+    ignoreDefensive?: boolean,
+    breaksProtect?:  boolean,
+    bypassSub?:     boolean,
+    makesContact?:  boolean,
+    willCrit?:      boolean,
+    highCritChance?: boolean,
+    isPunch?:       boolean,
+    isBite?:        boolean,
+    isBullet?:      boolean,
+    isSound?:       boolean,
+    isPulse?:       boolean,
+    isSlicing?:     boolean,
+    isWind?:        boolean,
 }
 
 export type ShieldData  = {
@@ -99,6 +112,7 @@ export interface Raider extends Pokemon {
     id: number;
     role: string;
     shiny?: boolean;
+    isAnyLevel?: boolean;
     field: Field;
     moveData: MoveData[];
     extraMoves?: MoveName[];// for special boss actions
@@ -107,29 +121,44 @@ export interface Raider extends Pokemon {
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
+    yawnSource?: number;    // id of the pokemon that inflicted the user with Yawn
     isFrozen?: number;      // store number of turns that a Pokemon is frozen
     isCharging?: boolean;   // indicates that a Pokemon is charging a move (e.g. Solar Beam)
     isRecharging?: boolean; // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
-    yawnSource?: number;    // id of the pokemon that inflicted the user with Yawn
     lastMove?: MoveData;    // stored for Instruct and Copycat
     lastTarget?: number;    // stored for Instruct and Copycat
     moveRepeated?: number;  // stored for boost from Metronome, Fury Cutter, etc
     teraCharge?: number;    // stored for Tera activation check
+    isChoiceLocked?: boolean; 
+    isEncore?: number;      // store number of turns that a Pokemon is encored    
+    isTorment?: boolean;
+    isDisable?: number;     // store number of turns that a Pokemon is disabled
+    disabledMove?: MoveName;// store the move that is disabled
+    isThroatChop?: number;  // turn countdown until Throat Chop effect wears off
     shieldActivateHP?: number;
     shieldBroken?: boolean;
+    shieldBreakStun?: boolean[];
+    substitute?: number; // store substitute's HP
     abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
     nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
     originalAbility?: AbilityName | "(No Ability)"; // stores ability when nullified
     syrupBombDrops?: number;
     syrupBombSource?: number;
     lastConsumedItem?: ItemName;
+    isCudChew?: number;    // store number of "turns" (each made of 4 moves) until Cud Chew activates
     isTransformed?: boolean;
     originalSpecies?: SpeciesName;
     originalMoves?: MoveData[];
+    slowStartCounter?: number;
+    delayedMoveCounter?: number;
+    delayedMoveSource?: number;
+    delayedMoveOptions?: RaidMoveOptions;
+    delayedMove?: MoveData;
 }
 
 export interface RaidState {
-    raiders: Raider[]; // raiders[0] is the boss, while raiders 1-4 are the players
+    raiders: Raider[];      // raiders[0] is the boss, while raiders 1-4 are the players
+    lastMovedID?: number;   // id of the last Pokemon to move
 }
 
 export type RaidMoveOptions = {
@@ -171,7 +200,9 @@ export type SetOption = {
     name: string,
     pokemon: SpeciesName,
     shiny?: boolean,
+    isAnyLevel?: boolean,
     level?: number,
+    gender?: GenderName,
     item?: ItemName,
     ability?: AbilityName,
     nature?: NatureName,

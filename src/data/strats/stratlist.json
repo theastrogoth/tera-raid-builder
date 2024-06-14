@@ -1,4 +1,62 @@
 {
+    "Emboar": {
+        "Care Bear Carnage": "emboar/main"
+    },
+    "Swampert": {
+        "Tom and Jerry": "swampert/main",
+        "Tom and Jerry (3-person version)": "swampert/tom_and_jerry_3",
+        "A Muddy T1 in Store... (Backup Plan)": "swampert/muddy",
+        "Farigiraf T1.5": "swampert/farigiraf",
+        "Dessert for Swampert": "swampert/dessert",
+        "Swampert Gets its Just Desserts": "swampert/just_desserts",
+        "Entropy": "swampert/entropy",
+        "For the Birds": "swampert/for_the_birds",
+        "Team Eeveelutions Power up to Drain the Swamp": "swampert/eeveelutions",
+        "Zamazenta's Puppy Training": "swampert/puppies",
+        "Godzilla Minus One (Evasion)": "swampert/godzilla",
+        "Zen and Psy Psy-cle into the Swamp": "swampert/zen_and_psy",
+        "Gastrosire Redux": "swampert/gastrosire_redux",
+        "Psychic Party": "swampert/psychic_party",
+        "Espeon T1.25": "swampert/espeon",
+        "Golurk T1.25": "swampert/golurk", 
+        "Idk Man, I'm Doing My Best": "swampert/idk",
+        "Battle in the Pond": "swampert/pond_battle",
+        "Darwinism in the Modern Age": "swampert/darwinism",
+        "Jaws of Defeat": "swampert/jaws_of_defeat",
+        "Great Tusk T1.5": "swampert/great_tusk",
+        "Groudon T2": "swampert/groudon",
+        "Boléro": "swampert/bolero",
+        "Weather Whirlwind": "swampert/weather_whirlwind",
+        "Fast Car": "swampert/fast_car",
+        "Psyblades in the Everglads": "swampert/everglades",
+        "Inversion": "swampert/inversion",
+        "Judgement": "swampert/judgement",
+        "Spring on Jupiter": "swampert/spring_on_jupiter",
+        "Mini Menaces": "swampert/mini_menaces",
+        "Skill Issue the 3rd": "swampert/skill_issue",
+        "Nukebro vs. Swampert": "swampert/nukebro",
+        "Kindergarten Field Trip": "swampert/field_trip",
+        "Born on the Bayou": "swampert/born_on_the_bayou"
+    },
+    "Primarina": {
+        "Steel the Show": "primarina/main",
+        "Roll Out the Yellow Carpet": "primarina/yellow_carpet",
+        "Team Eeveelutions Fires up the Stage": "primarina/eeveelutions",
+        "Godzilla vs. Ebirah": "primarina/godzilla",
+        "Fire Starters Light up the Stage": "primarina/fire_starters",
+        "Hot Sludge Sundae": "primarina/hot_sludge_sundae",
+        "Pink and Purple Power": "primarina/pink_and_purple",
+        "Sickly Sweet Barrage": "primarina/sickly_sweet_barrage",
+        "Punk Rockers Take Over the Stage": "primarina/punk_rockers",
+        "Digging Holes and Taking Names": "primarina/digging_holes",
+        "Metal Heads Crash the Opera": "primarina/metal_heads",
+        "Take your Child to Work Day": "primarina/child_to_work",
+        "Apocalypse": "primarina/apocalypse",
+        "Start Your Engines": "primarina/start_your_engines",
+        "Ladies' Night": "primarina/ladies_night",
+        "Nukebro vs. Primarina": "primarina/nukebro",
+        "A Very Mice Tea Party": "primarina/mice_tea_party"
+    },
     "Walking Wake": {
         "Drifting Wake": "walking_wake/main",
         "Charging Wake": "walking_wake/charging_wake",
@@ -9,10 +67,131 @@
         "Kingambit": "iron_leaves/main",
         "AP Krook": "iron_leaves/krook"
     },
+    "Meganium": {
+        "Angry Krok vs. Happy Dino": "meganium/main",
+        "Furious Ape vs. Happy Dino": "meganium/furious_ape",
+        "Gaining a Mega Amount of Rage": "meganium/mega_rage",
+        "Kritikal Krook": "meganium/kritikal_krook",
+        "Team Eeveelutions Shocks a Dinosaur!": "meganium/eeveelutions",
+        "Cursed by Canines": "meganium/canines",
+        "Godzilla Raids Again!": "meganium/godzilla",
+        "King Ghidorah's Victory": "meganium/ghidorah",
+        "Put Your Heads Together": "meganium/heads_together",
+        "Inconspicuous Chandelier": "meganium/chandelier",
+        "Good Buzz": "meganium/good_buzz",
+        "Not the Bees!": "meganium/bees",
+        "Bugs!": "meganium/bugs",
+        "Beauty and Grace": "meganium/beauty_and_grace",
+        "Kleavor T2.25": "meganium/kleavor",
+        "DPS Corvi": "meganium/corv",
+        "Garden Party": "meganium/garden_party",
+        "Infernal Sweets": "meganium/infernal_sweets",
+        "Smashing Success": "meganium/smashing_success",
+        "The Way of the Warrior": "meganium/warrior",
+        "Zen and PSY's Mega Ball!": "meganium/mega_ball",
+        "Ancient Assault": "meganium/ancient_assault",
+        "Decorate a Dragon!": "meganium/decorate_a_dragon",
+        "Kung-Fu Jungle": "meganium/kung_fu_jungle",
+        "Curse All You Want": "meganium/curse_all_you_want",
+        "Dark Thoughts": "meganium/dark_thoughts",
+        "Dawn Wings": "meganium/dawn_wings",
+        "Unleashed": "meganium/unleashed",
+        "Nukebro vs. Meganium": "meganium/nukebro",
+        "Not Enough Buff": "meganium/not_enough_buff",
+        "Not Enough Fluff": "meganium/not_enough_fluff"
+    },
+    "Charizard": {
+        "Whipping Up a Storm": "charizard/main",
+        "Sweet Dreams": "charizard/sweet_dreams",
+        "Team Eeveelutions Takes Down a Mighty Dragon": "charizard/eeveelutions",
+        "Blubber Bubble": "charizard/blubber_bubble",
+        "Blizzard Warning": "charizard/blizzard_warning",
+        "Godzilla vs. Rodan": "charizard/godzilla_vs_rodan",
+        "King Ghidorah vs. Rodan": "charizard/king_ghidorah",
+        "Nukebro vs. Charizard": "charizard/nukebro",
+        "Toddzilla vs. Rodan": "charizard/toddzilla_vs_rodan"
+    },
+    "Blastoise": {
+        "Firefox Forecast": "blastoise/main",
+        "Gastroporeon": "blastoise/gastroporeon",
+        "Soak Up the Sun": "blastoise/soak_up_the_sun",
+        "Topsy-Turvying Up the Heat": "blastoise/topsy_turvying_up_the_heat",
+        "Mechamothra Overcooks Gamera": "blastoise/mechamothra",
+        "Godzilla vs. Gamera": "blastoise/godzilla_vs_gamera",
+        "Edgelord T3": "blastoise/edgelord",
+        "Gallade's Sacred Slash!": "blastoise/gallades_sacred_slash",
+        "Armada!": "blastoise/armada",
+        "Fiery Entertainment": "blastoise/fiery_entertainment",
+        "An All Aquatic Showdown": "blastoise/all_aquatic_showdown",
+        "Nukebro vs. Blastoise": "blastoise/nukebro",
+        "The Hocus-Pokids": "blastoise/hocus_pokids"
+    },
+    "Venusaur": {
+        "Cloud Nine, Hammer Time": "venusaur/main",
+        "Team Eeveelutions Dance in the Sun": "venusaur/eeveelutions",
+        "Giraffic Bark": "venusaur/giraffic_bark",
+        "Winter Migration": "venusaur/winter_migration",
+        "Faceplant": "venusaur/faceplant",
+        "Godzilla vs. Biollante": "venusaur/godzilla_vs_biollante",
+        "Mirrored": "venusaur/mirrored",
+        "Sir Clod Joins a Fight Club": "venusaur/sir_clod",
+        "Tumbleweed Whipping": "venusaur/tumbleweed_whipping",
+        "Virizion Wireless": "venusaur/virizion_wireless",
+        "Woodland Magic Show": "venusaur/woodland_magic_show",
+        "Mimikyu Bonks the Venu!": "venusaur/mimikyu_bonks_the_venu",
+        "Dozing off to Venus...": "venusaur/dozing_off_to_venus",
+        "Giving Zen and PSY Their Flowers": "venusaur/giving_zen_their_flowers",
+        "Nukebro vs. Venusaur": "venusaur/nukebro",
+        "Lost in a Froggy Forest": "venusaur/froggy_forest"
+    },
+    "Empoleon": {
+        "Death and Taxes": "empoleon/main",
+        "Crabominable T1.5": "empoleon/crab",
+        "Tauros T1.25": "empoleon/tauros",
+        "Eeveelutions Dethrone the Emperor": "empoleon/eeveelutions",
+        "Psyching Up and Striking Down": "empoleon/psych_strike",
+        "Weezing and the Cats": "empoleon/weezing",
+        "Simple Spice Steel": "empoleon/simple_spice_steel",
+        "Doodling in Spirit": "empoleon/doodling",
+        "Mythicals": "empoleon/mythicals",
+        "Mythical Mayhem": "empoleon/mythical_mayhem",
+        "Fire and Water": "empoleon/fire_and_water",
+        "Hisuian Hijinks": "empoleon/hisui_hijinks",
+        "Armarouge Army": "empoleon/armarouge_army",
+        "Year of the Dragon": "empoleon/dragon",
+        "Nukebro vs. Empoleon": "empoleon/nukebro",
+        "Creepy Crawlies": "empoleon/creepy_crawlies"
+    },
+    "Blaziken": {
+        "Mifrydon": "blaziken/main",
+        "Bellibolt T1": "blaziken/bellibolt",
+        "Eeveelutions Celebrate the New Year": "blaziken/eevee_new_year",
+        "Eeveelutions: Every Eevee Edition": "blaziken/every_eevee",
+        "Spooky Puppies": "blaziken/spooky_puppies",
+        "Double Paradox": "blaziken/double_paradox",
+        "Barbechu Chicken": "blaziken/barbechu_chicken",
+        "Iceberg": "blaziken/iceberg",
+        "Birds of a Feather": "blaziken/birds",
+        "Frozen Chicken": "blaziken/frozen_chicken",
+        "Zapped Chicken": "blaziken/zapped_chicken",
+        "Cat and Maus": "blaziken/cat_and_maus",
+        "Rotom-tisserie Chicken": "blaziken/rotom",
+        "Cream of Chicken": "blaziken/cream_of_chicken",
+        "Kleavor T3": "blaziken/kleavor",
+        "Mochi Mochi!": "blaziken/mochi",
+        "More Morpeking Duck": "blaziken/morpeking_duck",
+        "Skill Issue 2: Electric Boogaloo": "blaziken/skill_issue",
+        "Tackling The Problem Head On": "blaziken/head_on",
+        "Nukebro vs. Blaziken": "blaziken/nukebro",
+        "Maybe Babies?": "blaziken/maybe_babies",
+        "Rock-a-Bye Baby": "blaziken/rockabye"
+    },
     "Iron Bundle":  {
         "Ghost of Christmas Future": "iron_bundle/main",
+        "Tauros T1": "iron_bundle/tauros",
         "Steel Cat Strat": "iron_bundle/steel_cats",
         "The Turtle and the Mariachi Trio": "iron_bundle/turtle",
+        "Gholdengoo": "iron_bundle/gholdengoo",
         "Team Eeveelution: Christmas Style": "iron_bundle/eeveelution",
         "Emperor Beam": "iron_bundle/emperor",
         "Melted Veil": "iron_bundle/melted_veil",
@@ -58,6 +237,7 @@
         "Mostly Mice": "h_samurott/mostly_mice",
         "Sun Dog": "h_samurott/sun_dog",
         "Thunderstruck": "h_samurott/thunderstruck",
+        "Nukebro vs. Hamurott": "h_samurott/nukebro",
         "Rocked & Shocked": "h_samurott/rocked&shocked",
         "Magnem Opus": "h_samurott/magnem_opus"
     },
@@ -92,6 +272,7 @@
         "Hydro Cannon Mew": "h_typhlosion/mew",
         "The Quag-kening": "h_typhlosion/quagkening",
         "Sinnoh Synergy": "h_typhlosion/sinnoh_synergy",
+        "Nukebro vs. Hyphlosion": "h_typhlosion/nukebro",
         "Cinch, Clinch, & Pinch": "h_typhlosion/pinch"
     },
     "Decidueye-Hisui": {
@@ -101,6 +282,7 @@
         "Tickle Squad: Charizard Edition": "h_decidueye/tickle_squad_charizard",
         "Thirtysixtales": "h_decidueye/thirtysixtales",
         "Owl Kabob": "h_decidueye/owl_kabob",
+        "Nukebro vs. Hecidueye": "h_decidueye/nukebro",
         "Hoo Let the Kids Cook?": "h_decidueye/hoo_let_the_kids_cook"
     },
     "Mewtwo": {
@@ -116,36 +298,48 @@
         "The Glitter Gang": "rillaboom/glitter_gang",
         "Simian Showdown": "rillaboom/simian_showdown",
         "Comeback Beetle": "rillaboom/beetle",
+        "Nukebro vs. Rillaboom": "rillaboom/nukebro",
         "Lil' Timmy's Revenge": "rillaboom/timmys_revenge"
     },
     "Delphox": {
         "Bonk!": "delphox/main",
         "Rain & Sustain": "delphox/rain&sustain",
+        "Nukebro vs. Delphox": "delphox/nukebro",
+        "Nukebro vs. Delphox Again": "delphox/nukebro_2",
         "Nuke Baby": "delphox/nuke_baby"
     },
     "Chesnaught": {
         "Flower Power": "chesnaught/main",
         "Go For Ghold": "chesnaught/ghold",
+        "Nukebro vs. Chesnaught": "chesnaught/nukebro",
         "Simple as That, Baby!": "chesnaught/simple"
     },
     "Inteleon": {
         "AP Fire Bull": "inteleon/main",
         "Tinkaton": "inteleon/tinkaton",
+        "Nukebro vs. Inteleon": "inteleon/nukebro",
         "Burn Baby Burn!": "inteleon/burn_baby_burn"
     },
     "Typhlosion": {
         "AP Krook": "typhlosion/main",
-        "Hydriggly": "typhlosion/hydriggly"
+        "Hydriggly": "typhlosion/hydriggly",
+        "Nukebro vs. Typhlosion": "typhlosion/nukebro"
     },
     "Samurott": {
         "Koraidon": "samurott/main",
-        "AP Fire Bull": "samurott/tauros"
+        "AP Fire Bull": "samurott/tauros",
+        "Nukebro vs. Samurott": "samurott/nukebro"
     },
     "Decidueye": {
         "Miraidon": "decidueye/main",
-        "Rotom-tisserie Owl": "decidueye/rotom"
+        "Rotom-tisserie Owl": "decidueye/rotom",
+        "Nukebro vs. Decidueye": "decidueye/nukebro"
     },
     "Pikachu": {
-        "Contrary Lurantis": "pikachu/main"
+        "Contrary Lurantis": "pikachu/main",
+        "Nukebro vs. Pikachu": "pikachu/nukebro"
+    },
+    "Cinderace": {
+        "Nukebro vs. Cinderace": "cinderace/nukebro"
     }
 }

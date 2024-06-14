@@ -1134,6 +1134,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 setItems(genItems);
             }
         } else if (pokemon.name.includes("Zacian")) {
+            setTeraTypes(genTypes);
             if (pokemon.name !== "Zacian" && !pokemon.hasItem("Rusted Sword")) {
                 setItems(genItems);
                 const poke = pokemon.clone();
@@ -1147,6 +1148,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 setItems(genItems);
             }
         } else if (pokemon.name.includes("Zamazenta")) {
+            setTeraTypes(genTypes);
             if (pokemon.name !== "Zamazenta" && !pokemon.hasItem("Rusted Shield")) {
                 setItems(genItems);
                 const poke = pokemon.clone();
@@ -1163,6 +1165,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             setTeraTypes(["Stellar"]);
             setPokemonProperties(["teraType"])(["Stellar"]);
         } else if (pokemon.name.includes("Dialga")) {
+            setTeraTypes(genTypes);
             if (pokemon.name !== "Dialga" && !pokemon.hasItem("Adamant Crystal")) {
                 setItems(genItems);
                 const poke = pokemon.clone();
@@ -1176,6 +1179,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 setItems(genItems);
             }
         } else if (pokemon.name.includes("Palkia")) {
+            setTeraTypes(genTypes);
             if (pokemon.name !== "Palkia" && !pokemon.hasItem("Lustrous Globe")) {
                 setItems(genItems);
                 const poke = pokemon.clone();
@@ -1189,6 +1193,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 setItems(genItems);
             }
         } else if (pokemon.name.includes("Giratina")) {
+            setTeraTypes(genTypes);
             if (pokemon.name !== "Giratina" && !pokemon.hasItem("Griseous Orb", "Griseous Core")) {
                 setItems(genItems);
                 const poke = pokemon.clone();
@@ -1204,6 +1209,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         }
         // Arceus Plate Types
         else if (pokemon.name.includes("Arceus")) {
+            setTeraTypes(genTypes);
             if (pokemon.name !== "Arceus" && !pokemon.item?.includes("Plate")) {
                 setItems(genItems);
                 const poke = pokemon.clone();

@@ -191,7 +191,7 @@ export class RaidTurn {
                 this._bossMove, 
                 this._raidState, 
                 0, 
-                this.raiderID,
+                this._bossMove.isSpread ? this._raiderMoveID : this.raiderID, // If Instruct is used before the boss moves, spread moves from the boss will hit the target of instruct 
                 this.raiderID,
                 !this._raiderMovesFirst,
                 this.bossOptions,
@@ -570,6 +570,7 @@ export class RaidTurn {
                             pokemon.delayedMoveSource!,
                             true,
                             pokemon.delayedMoveOptions!,
+                            false,
                             false,
                             false,
                             false,

@@ -1,4 +1,4 @@
-import { Generations, Move, calculate, toID } from "../calc";
+import { Generations, Move, calculate } from "../calc";
 import { MoveData, RaidMoveOptions, RaidTurnInfo, RaidMoveInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";

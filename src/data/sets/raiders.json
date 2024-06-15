@@ -1519,6 +1519,15 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Syrup Bomb","Reflect","Pollen Puff","Dragon Cheer"]
+        },
+        "Balanced Support": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Supersweet Syrup",
+            "nature":"Calm",
+            "evs":{"hp":252,"df":56,"sd":200},
+            "ivs":{"at":0},
+            "moves":["Syrup Bomb","Dragon Cheer","Sweet Scent","Pollen Puff"]
         }
     },
     "Dusclops": {
@@ -2603,6 +2612,15 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Helping Hand","Rain Dance","Chilling Water","Mud-Slap"]
+        },
+        "Balanced Drizzle": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Drizzle",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":186,"sd":72},
+            "ivs":{"at":0},
+            "moves":["Helping Hand","Rain Dance","Mud-Slap","Chilling Water"]
         }
     },
     "Poliwrath": {

@@ -40,7 +40,6 @@ export namespace State {
     originalCurHP?: number;
     status?: I.StatusName | '';
     volatileStatus?: string[];
-    isChoiceLocked?: boolean;
     teraType?: I.TypeName;
     isTera?: boolean;
     shieldData?: ShieldData;
@@ -49,6 +48,7 @@ export namespace State {
     hitsTaken?: number;
     timesFainted?: number;
     changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
+    lastMoveFailed?: boolean;
     moves?: I.MoveName[];
     permanentAtkCheers?: number;
     permanentDefCheers?: number,

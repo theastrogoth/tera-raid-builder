@@ -31,6 +31,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
+    lastAccuracy?: number;      // stored for accuracy of instructed moves
     moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
     teraCharge: number;         // stored for Tera activation
 
@@ -90,6 +91,7 @@ export class Raider extends Pokemon implements State.Raider {
         isRecharging: boolean = false,
         lastMove: State.MoveData | undefined = undefined, 
         lastTarget: number | undefined = undefined, 
+        lastAccuracy: number | undefined = undefined,
         moveRepeated: number | undefined = undefined,
         teraCharge: number | undefined = 0, 
         choiceLocked: boolean = false,
@@ -140,6 +142,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isRecharging = isRecharging;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
+        this.lastAccuracy = lastAccuracy;
         this.moveRepeated = moveRepeated;
         this.teraCharge = teraCharge;
         this.isChoiceLocked = choiceLocked;
@@ -213,6 +216,7 @@ export class Raider extends Pokemon implements State.Raider {
                 hitsTaken: this.hitsTaken,
                 timesFainted: this.timesFainted,
                 changedTypes: this.changedTypes ? [...this.changedTypes] : undefined,
+                lastMoveFailed: this.lastMoveFailed,
                 moves: this.moves.slice(),
                 permanentAtkCheers: this.permanentAtkCheers,
                 permanentDefCheers: this.permanentDefCheers,
@@ -232,6 +236,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.isRecharging,
             this.lastMove,
             this.lastTarget,
+            this.lastAccuracy,
             this.moveRepeated,
             this.teraCharge,
             this.isChoiceLocked,

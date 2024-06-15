@@ -51,6 +51,7 @@ export class RaidTurn {
     _raiderMoveTarget!: number;
     _raiderMoveUsed!:   string;
     _bossMoveUsed!:     string;
+    _instructed?:       boolean;
 
     _raidMove1!:      RaidMove;
     _raidMove2!:      RaidMove;
@@ -178,7 +179,10 @@ export class RaidTurn {
                 this.raiderID,
                 this._raiderMovesFirst,
                 this.raiderOptions,
-                this._isBossAction
+                this._isBossAction,
+                false,
+                false,
+                this._instructed,
             );
             this._result1 = this._raidMove1.result();
             this._raidState = this._result1.state;
@@ -220,7 +224,8 @@ export class RaidTurn {
                 this.raiderOptions,
                 this._isBossAction,
                 this._result1.causesFlinch[this.raiderID],
-                this._result1.damage[this.raiderID] > 0
+                this._result1.damage[this.raiderID] > 0,
+                this._instructed,
             );
         }
         this._raidMove2.result();
@@ -448,6 +453,7 @@ export class RaidTurn {
         // Instruct
         if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
             if (!this.raidState.raiders[this.targetID].isCharging && !this.raidState.raiders[this.targetID].isRecharging) {
+                this._instructed = true;
                 this._raiderMoveID = this.targetID;
                 this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;
                 if (this._raiderMoveTarget === this.targetID) { this._raiderMoveTarget = this._raiderMoveID; }

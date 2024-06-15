@@ -887,6 +887,11 @@ export function calculateBasePowerSMSSSV(
     basePower = Math.floor(Math.floor((100 * basePower + 2048 - 1) / 4096) / 100) || 1;
     desc.moveBP = basePower;
     break;
+  case 'Stomping Tantrum':
+  case 'Temper Flare':
+    basePower = 150;
+    desc.moveBP = basePower;
+    break;
   case 'Tera Blast':
     basePower = attacker.teraType === "Stellar" ? 100 : 80;
     desc.moveBP = basePower;

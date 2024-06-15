@@ -54,6 +54,7 @@ export class Pokemon implements State.Pokemon {
   hitsTaken: number;
   timesFainted: number;
   changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
+  lastMoveFailed: boolean;
 
   moves: I.MoveName[];
 
@@ -142,6 +143,7 @@ export class Pokemon implements State.Pokemon {
     this.hitsTaken = options.hitsTaken || 0;
     this.timesFainted = options.timesFainted || 0;
     this.changedTypes = options.changedTypes;
+    this.lastMoveFailed = !!options.lastMoveFailed;
     this.moves = options.moves || [];
     this.permanentAtkCheers = options.permanentAtkCheers || 0;
     this.permanentDefCheers = options.permanentDefCheers || 0;
@@ -231,6 +233,7 @@ export class Pokemon implements State.Pokemon {
       hitsTaken: this.hitsTaken,
       timesFainted: this.timesFainted,
       changedTypes: this.changedTypes,
+      lastMoveFailed: this.lastMoveFailed,
       moves: this.moves.slice(),
       permanentAtkCheers: this.permanentAtkCheers,
       permanentDefCheers: this.permanentDefCheers,

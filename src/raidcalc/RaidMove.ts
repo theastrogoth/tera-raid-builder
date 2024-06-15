@@ -47,6 +47,7 @@ export class RaidMove {
     flinch?: boolean;
     damaged?: boolean;
     delayed?: boolean;
+    instructed?: boolean;
 
     _raidState!: RaidState;
     _raiders!: Raider[];
@@ -57,7 +58,7 @@ export class RaidMove {
     _targetID!: number; // the id of the target can be affected by Magic Bounce
     _doesNotAffect!: (string | undefined)[];
     _causesFlinch!: boolean[];
-    _blockedBy!: string[];
+    _blockedBy!: (string | undefined)[];
 
     _isSheerForceBoosted?: boolean;
 
@@ -75,7 +76,7 @@ export class RaidMove {
     _desc!: string[];
     _flags!: string[][];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean, delayed?: boolean) {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean, instructed?: boolean) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
@@ -87,7 +88,7 @@ export class RaidMove {
         this.isBossAction = isBossAction || false;
         this.flinch = flinch || false;
         this.damaged = damaged || false;
-        this.delayed = delayed || false;
+        this.instructed = instructed || false;
         this.hits = this.move.category === "Status" ? 0 : Math.max(this.moveData.minHits || 1, Math.min(this.moveData.maxHits || 1, this.options.hits || 1));
         this.hits = this.raidState.raiders[this.userID].ability === "Skill Link" ? (this.moveData.maxHits || 1) : this.hits;
     }
@@ -103,6 +104,7 @@ export class RaidMove {
         this.setAffectedPokemon();
         if (this.flinch) { // prevent moving upon flinch
             this._desc[this.userID] = this._user.name + " flinched!";
+            this._user.lastMoveFailed = true;
         } else if ( // prevent the boss from moving if it's shield has just been broken
             this.userID === 0 && 
             this._user.shieldBreakStun &&
@@ -129,7 +131,7 @@ export class RaidMove {
         } else if (this._user.isRecharging) {
             this._user.isRecharging = false;
             this._desc[this.userID] = this._user.name + " is recharging!";
-        } else if (!this.delayed && (this.move.name === "Future Sight" || this.move.name === "Doom Desire")) { // Delayed move check
+        } else if (this.move.name === "Future Sight" || this.move.name === "Doom Desire") { // Delayed move check
             const target = this.getPokemon(this._targetID);
             if (target.delayedMoveCounter) {
                 this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
@@ -221,6 +223,7 @@ export class RaidMove {
 
         // initialize arrays
         this._doesNotAffect = [undefined, undefined, undefined, undefined, undefined];
+        this._blockedBy= [undefined, undefined, undefined, undefined, undefined];
         this._causesFlinch = [false, false, false, false, false];
         this._moveType = this.move.type;
         this._damage = [0,0,0,0,0];
@@ -243,10 +246,12 @@ export class RaidMove {
             if (this._user.isSleep) {
                 this._desc[this.userID] = this._user.name + " is fast asleep.";
                 this._user.isSleep--; // decrement sleep counter
+                this._user.lastMoveFailed = true;
                 return false;
             } else if (this._user.isFrozen && !thawUserMoves.includes(this.move.name)) {
                 this._desc[this.userID] = this._user.name + " is frozen solid.";
                 this._user.isFrozen--; // decrement frozen counter;
+                this._user.lastMoveFailed = true;
                 return false;
             } else if (
                 this._user.isTaunt && 
@@ -255,12 +260,15 @@ export class RaidMove {
             ) {
                 this._desc[this.userID] = this._user.name + " can't use status moves due to Taunt!";
                 this._user.isTaunt--; // decrement taunt counter
+                this._user.lastMoveFailed = true;
                 return false;
             } else if (this._user.isDisable && this.move.name === this._user.disabledMove) {
                 this._desc[this.userID] = this.move.name + " is disabled!";
+                this._user.lastMoveFailed = true;
                 return false;
             } else if (this._user.isThroatChop && this.moveData.isSound) {
                 this._desc[this.userID] = this._user.name + " can't use sound-based moves due to Throat Chop!";
+                this._user.lastMoveFailed = true;
                 return false;
             } else {
                 return true;
@@ -365,7 +373,6 @@ export class RaidMove {
     }
 
     private setDoesNotAffect() {
-        this._blockedBy= ["", "", "", "", ""];
         if (isRaidAction(this.moveData.name)) { return; }
         const category = this.move.category;
         const targetType = this.moveData.target
@@ -518,6 +525,12 @@ export class RaidMove {
                 continue;
             }
         }
+        for (let dne of this._doesNotAffect)  {
+            if (dne) {
+                this._user.lastMoveFailed = true;
+                break;
+            }
+        }
     }
 
     private checkProtection() {
@@ -596,7 +609,7 @@ export class RaidMove {
             const target = this.getPokemon(id);
             if (this._doesNotAffect[id]) {
                 this._desc[id] = this.move.name + " " + this._doesNotAffect[id] + "!";
-            } else if (this._blockedBy[id] !== "")  {
+            } else if (this._blockedBy[id])  {
                 this._desc[id] = this.move.name + " was blocked by " + this._blockedBy[id] + "!";
             } else if (this._affectedIDs.includes(id)) {
                 const critChance = getCritChance(this.move, moveUser, target);
@@ -608,7 +621,8 @@ export class RaidMove {
                 let totalDamage = 0;
 
                 const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
-                const [accuracy, accEffectsList] = getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
+                let [accuracy, accEffectsList] = (this.instructed && this._user.lastAccuracy) ? [this._user.lastAccuracy, []] : getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
+                this._user.lastAccuracy = accuracy;
                 const bpModifier = getBpModifier(this.moveData, target, this.damaged);
                 const accFraction = Math.min(1,accuracy/100);
                 const rollChance = accFraction * (crit ? critChance : (1 - critChance));
@@ -774,9 +788,9 @@ export class RaidMove {
                         const accEffectsString = accEffectsList.length ? " (" + accEffectsList.join(", ") + ")" : "";
                         this._desc[id] += " [" + accString + "% chance to hit" + accEffectsString + "]";
                     }
-
                 } else {
                     this._desc[id] = this._user.name + " used " + this.move.name + " but it missed!"; //  due to semi-invulnerable moves
+                    this._user.lastMoveFailed = true;
                 }
             }
             // protection contact checks
@@ -864,7 +878,7 @@ export class RaidMove {
         let healingPercent = this.moveData.healing;
         const healingRolls: (number[] | undefined)[] = [undefined, undefined, undefined, undefined, undefined];
         for (let id of this._affectedIDs) {
-            if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
+            if (this._doesNotAffect[id] || this._blockedBy[id]) { continue; }
             const target = this.getPokemon(id);
             const maxHP = target.maxHP();
             if (this.move.name === "Heal Cheer") {
@@ -907,7 +921,7 @@ export class RaidMove {
         if (flinchChance && !this._isSheerForceBoosted && (this.options.secondaryEffects || flinchChance >= 100)) {
             for (let id of this._affectedIDs) {
                 if (id === 0) { continue; }
-                if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
+                if (this._doesNotAffect[id] || this._blockedBy[id]) { continue; }
                 const target = this.getPokemon(id);
                 if (target.item === "Covert Cloak" || target.ability === "Shield Dust") { continue; }
                 if (target.ability === "Inner Focus" && !(ignoreAbility && !target.hasItem("Ability Shield"))) { continue; }
@@ -931,7 +945,7 @@ export class RaidMove {
         const chance = (this.moveData.statChance || 100) * (this._raiders[this.userID].hasAbility("Serene Grace") ? 2 : 1);
         if (chance && (this.options.secondaryEffects || chance >= 100 )) {
             for (let id of affectedIDs) {
-                if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
+                if (this._doesNotAffect[id] || this._blockedBy[id]) { continue; }
                 const pokemon = this.getPokemon(id);
                 if (pokemon.originalCurHP === 0) { continue; }
                 const field = pokemon.field;
@@ -962,7 +976,7 @@ export class RaidMove {
         const chance = (this.moveData.ailmentChance || 100) * (this._user.hasAbility("Serene Grace") ? 2 : 1);
         if (ailment && !this._isSheerForceBoosted && (chance >= 100 || this.options.secondaryEffects)) {
             for (let id of this._affectedIDs) {
-                if (this._doesNotAffect[id] || this._blockedBy[id] !== "") { continue; }
+                if (this._doesNotAffect[id] || this._blockedBy[id]) { continue; }
                 const pokemon = this.getPokemon(id);
                 if (pokemon.originalCurHP === 0) { continue; }
                 const ailmentIsStatus = isStatus(ailment);

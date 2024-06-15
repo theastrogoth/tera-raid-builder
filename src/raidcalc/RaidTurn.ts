@@ -1,4 +1,4 @@
-import { Generations, Move, calculate } from "../calc";
+import { Generations, Move, calculate, toID } from "../calc";
 import { MoveData, RaidMoveOptions, RaidTurnInfo, RaidMoveInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
@@ -191,7 +191,7 @@ export class RaidTurn {
                 this._bossMove, 
                 this._raidState, 
                 0, 
-                this._bossMove.isSpread ? this._raiderMoveID : this.raiderID, // If Instruct is used before the boss moves, spread moves from the boss will hit the target of instruct 
+                ["all-opponents","all-other-pokemon","all-pokemon"].includes(this._bossMoveData.target || "") ? this._raiderMoveID : this.raiderID, // If Instruct is used before the boss moves, spread moves from the boss will hit the target of instruct 
                 this.raiderID,
                 !this._raiderMovesFirst,
                 this.bossOptions,

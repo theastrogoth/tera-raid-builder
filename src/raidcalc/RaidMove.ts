@@ -31,6 +31,8 @@ export type RaidMoveResult= {
 const gen = Generations.get(9);
 const dummyMove = new Move(gen, "Splash");
 
+const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
+
 const healCheerRoll = Array.from(Array(16).keys()).map((i) => (0.2 + 0.8 * i/15));
 
 export class RaidMove {
@@ -787,6 +789,10 @@ export class RaidMove {
                         const accString = Math.floor(accuracy * 10) / 10;
                         const accEffectsString = accEffectsList.length ? " (" + accEffectsList.join(", ") + ")" : "";
                         this._desc[id] += " [" + accString + "% chance to hit" + accEffectsString + "]";
+                    }
+
+                    if (!nonMoveActions.includes(this.moveData.name)) {
+                        this._user.lastMoveFailed = false;
                     }
                 } else {
                     this._desc[id] = this._user.name + " used " + this.move.name + " but it missed!"; //  due to semi-invulnerable moves

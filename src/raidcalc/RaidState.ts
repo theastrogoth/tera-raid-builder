@@ -575,7 +575,7 @@ export class RaidState implements State.RaidState{
         return diff;
     }
 
-    public applyStatus(id: number, status: StatusName, source: number, isSecondaryEffect: boolean = false, roll: "max" | "min" | "avg" | undefined = "avg") {
+    public applyStatus(id: number, status: StatusName, source: number, isSecondaryEffect: boolean = false, fromHeldItem: boolean | undefined = false, roll: "max" | "min" | "avg" | undefined = "avg") {
         const pokemon = this.getPokemon(id);
         const field = pokemon.field;
         const sourceAbility = this.getPokemon(source).ability;
@@ -589,7 +589,11 @@ export class RaidState implements State.RaidState{
             // Purifying Salt blocks all non-volatile statuses
             if (pokemon.hasAbility("Purifying Salt")) { success = false; }
             // field-based immunities
-            if (!selfInflicted && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected)) { success = false; }
+            if (selfInflicted) {
+                if (fromHeldItem && (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field))) { success = false; }
+            } else {
+                if ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)) || field.attackerSide.isProtected) { success = false; }
+            }
             if (status === "slp" && (field.hasTerrain("Electric") && pokemonIsGrounded(pokemon, field))) { success = false; }
             // type-based and ability-based immunities
             if (status === "brn" && (pokemon.hasType("Fire") || pokemon.hasAbility("Water Veil") || pokemon.hasAbility("Thermal Exchange") || pokemon.hasAbility("Water Bubble"))) { success = false; }

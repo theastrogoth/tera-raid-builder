@@ -801,14 +801,14 @@ export class RaidMove {
                             this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100)));
                             break;
                         case "Baneful Bunker":
-                            this._raidState.applyStatus(this.userID, "psn", target.id, false, this.options.roll);
+                            this._raidState.applyStatus(this.userID, "psn", target.id, false, false, this.options.roll);
                             break;
                         case "Burning Bulwark":
-                            this._raidState.applyStatus(this.userID, "brn", target.id, false, this.options.roll);
+                            this._raidState.applyStatus(this.userID, "brn", target.id, false, false, this.options.roll);
                             break;
                         case "Beak Blast":
                             if (target.isCharging) {
-                                this._raidState.applyStatus(this.userID, "brn", target.id, false, this.options.roll);
+                                this._raidState.applyStatus(this.userID, "brn", target.id, false, false, this.options.roll);
                             }
                             break;
                         case "King's Shield": 
@@ -983,14 +983,14 @@ export class RaidMove {
                 const isSecondaryEffect = this.moveData.category?.includes("damage");
                 // non-volatile status
                 if (ailmentIsStatus) {
-                    this._raidState.applyStatus(id, ailment as StatusName, this.userID, isSecondaryEffect, this.options.roll);
+                    this._raidState.applyStatus(id, ailment as StatusName, this.userID, isSecondaryEffect, false, this.options.roll);
                 // volatile status
                 } else {
                     this._raidState.applyVolatileStatus(id, ailment, isSecondaryEffect, this.userID, this.movesFirst);
                 }
                 // Toxic Chain
                 if (this._user.ability === "Toxic Chain" && isSecondaryEffect && this.options.secondaryEffects) {
-                    this._raidState.applyStatus(id, "tox", this.userID, true, this.options.roll);
+                    this._raidState.applyStatus(id, "tox", this.userID, true, false, this.options.roll);
                 }
             }
         }
@@ -1357,16 +1357,16 @@ export class RaidMove {
                 if (this._flingItem && !(target.hasAbility("Shield Dust") || target.hasItem("Covert Cloak"))) {
                     switch (this._flingItem) {
                         case "Light Ball":
-                            this._raidState.applyStatus(target.id, "par", this.userID, true, this.options.roll);
+                            this._raidState.applyStatus(target.id, "par", this.userID, true, false, this.options.roll);
                             break;
                         case "Flame Orb":
-                            this._raidState.applyStatus(target.id, "brn", this.userID, true, this.options.roll);
+                            this._raidState.applyStatus(target.id, "brn", this.userID, true, false, this.options.roll);
                             break;
                         case "Toxic Orb":
-                            this._raidState.applyStatus(target.id, "tox", this.userID, true, this.options.roll);
+                            this._raidState.applyStatus(target.id, "tox", this.userID, true, false, this.options.roll);
                             break
                         case "Poison Barb":
-                            this._raidState.applyStatus(target.id, "psn", this.userID, true, this.options.roll);
+                            this._raidState.applyStatus(target.id, "psn", this.userID, true, false, this.options.roll);
                             break;
                         case "White Herb":
                         // Status-Curing Berries
@@ -1516,7 +1516,7 @@ export class RaidMove {
                 ) {
                     this._user.originalCurHP = this._user.maxHP();
                     this._user.isSleep = this.options.roll === "max" ? 1 : this.options.roll === "min" ? 3 : 2;
-                    this._raidState.applyStatus(this.userID, "slp", this.userID, false, this.options.roll);
+                    this._raidState.applyStatus(this.userID, "slp", this.userID, false, false, this.options.roll);
                 }
                 break;
             case "Ingrain":

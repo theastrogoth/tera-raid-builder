@@ -537,13 +537,13 @@ export class RaidTurn {
             if (pokemon.status === undefined || pokemon.status === "") {
                 switch (pokemon.item) {
                     case "Flame Orb":
-                        this._raidState.applyStatus(id, "brn", id, false);
+                        this._raidState.applyStatus(id, "brn", id, false, true);
                         if (pokemon.status as StatusName === "brn") {
                             this._result2.flags[id].push("brn inflicted");
                         }
                         break;
                     case "Toxic Orb":
-                        this._raidState.applyStatus(id, "tox", id, false);
+                        this._raidState.applyStatus(id, "tox", id, false, true);
                         if (pokemon.status as StatusName === "tox") {
                             this._result2.flags[id].push("tox inflicted");
                         }

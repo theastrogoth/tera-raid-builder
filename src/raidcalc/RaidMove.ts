@@ -93,7 +93,7 @@ export class RaidMove {
         this.instructed = instructed || false;
         this.delayed = delayed || false;
         this.hits = this.move.category === "Status" ? 0 : Math.max(this.moveData.minHits || 1, Math.min(this.moveData.maxHits || 1, this.options.hits || 1));
-        this.hits = this.raidState.raiders[this.userID].ability === "Skill Link" ? (this.moveData.maxHits || 1) : this.hits;
+        this.hits = this.raidState.raiders[this.userID].hasAbility("Skill Link") ? (this.moveData.maxHits || 1) : this.hits;
     }
 
     public result(): RaidMoveResult {
@@ -414,7 +414,7 @@ export class RaidMove {
                 }
             }
             // Ability-based immunities
-            if (!(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))) {
+            if (!pokemon.abilityNullified && !(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))) {
                 if ((pokemon.ability === "Good as Gold" || pokemon.ability === "Good As Gold") && category === "Status" && targetType !== "user") { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue; 
@@ -523,7 +523,7 @@ export class RaidMove {
                 this._doesNotAffect[id] = "does not affect " + pokemon.name;
                 continue;
             }
-            if (id !== this.userID && this._user.ability === "Prankster" && category === "Status" && targetTypes.includes("Dark")) {
+            if (id !== this.userID && this._user.hasAbility("Prankster") && category === "Status" && targetTypes.includes("Dark")) {
                 this._doesNotAffect[id] = "does not affect " + pokemon.name;
                 continue;
             }
@@ -592,7 +592,7 @@ export class RaidMove {
         // check for spread damage (boss actions only)
         this._isSpread = this.moveData.category?.includes("damage") && (this._affectedIDs.length > 1);
         // protean / libero check
-        if (this.moveData.name !== "(No Move)" && this.moveData.type && (moveUser.ability === "Protean" || moveUser.ability === "Libero") && !moveUser.abilityOn && !moveUser.isTera) {
+        if (this.moveData.name !== "(No Move)" && this.moveData.type && moveUser.hasAbility("Protean", "Libero") && !moveUser.abilityOn && !moveUser.isTera) {
             moveUser.types = [this._moveType];
             moveUser.changedTypes = [this._moveType];
             moveUser.abilityOn = true;
@@ -713,7 +713,7 @@ export class RaidMove {
                                 const target = this._raidState.raiders[this._targetID]; // All contact moves are single-target (?)
                                 // abilities
                                 const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
-                                if (!attackerIgnoresAbility) {
+                                if (!target.abilityNullified && !attackerIgnoresAbility) {
                                     switch (this._raidState.raiders[this._targetID].ability) {
                                         case "Rough Skin":
                                         case "Iron Barbs":
@@ -930,10 +930,10 @@ export class RaidMove {
                 if (id === 0) { continue; }
                 if (this._doesNotAffect[id] || this._blockedBy[id]) { continue; }
                 const target = this.getPokemon(id);
-                if (target.item === "Covert Cloak" || target.ability === "Shield Dust") { continue; }
-                if (target.ability === "Inner Focus" && !(ignoreAbility && !target.hasItem("Ability Shield"))) { continue; }
+                if (target.item === "Covert Cloak" || target.hasAbility("Shield Dust")) { continue; }
+                if (target.hasAbility("Inner Focus") && !(ignoreAbility && !target.hasItem("Ability Shield"))) { continue; }
                 this._causesFlinch[id] = true;
-                if (this._user.ability === "Steadfast") {
+                if (this._user.hasAbility("Steadfast")) {
                     this._raidState.applyStatChange(id, {spe: 1}, true, this.userID, ignoreAbility);
                 }
             }
@@ -956,7 +956,7 @@ export class RaidMove {
                 const pokemon = this.getPokemon(id);
                 if (pokemon.originalCurHP === 0) { continue; }
                 const field = pokemon.field;
-                if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { continue; }
+                if (id !== this.userID && this.moveData.category?.includes("damage") && (pokemon.item === "Covert Cloak" || pokemon.hasAbility("Shield Dust"))) { continue; }
                 const boost: Partial<StatsTable> = {};
                 for (let statChange of (statChanges || [])) {
                     const stat = statChange.stat as StatIDExceptHP;
@@ -996,7 +996,7 @@ export class RaidMove {
                     this._raidState.applyVolatileStatus(id, ailment, isSecondaryEffect, this.userID, this.movesFirst);
                 }
                 // Toxic Chain
-                if (this._user.ability === "Toxic Chain" && isSecondaryEffect && this.options.secondaryEffects) {
+                if (this._user.hasAbility("Toxic Chain") && isSecondaryEffect && this.options.secondaryEffects) {
                     this._raidState.applyStatus(id, "tox", this.userID, true, false, this.options.roll);
                 }
             }
@@ -1140,17 +1140,17 @@ export class RaidMove {
                 for (let i=1; i<5; i++) {
                     const pokemon = this.getPokemon(i);
                     // Helping Hand is NOT cleared
-                    if (
-                        !persistentAbilities.unsuppressable.includes(pokemon.ability as AbilityName) 
-                        && !pokemon.hasItem("Ability Shield")
-                        && pokemon.ability !== "(No Ability)"
-                    ) { // abilities that are not unsupressable are nullified
-                        this._raidState.changeAbility(i, "(No Ability)");
-                    }
+                    // if (
+                    //     !persistentAbilities.unsuppressable.includes(pokemon.ability as AbilityName) 
+                    //     && !pokemon.hasItem("Ability Shield")
+                    //     && pokemon.ability !== "(No Ability)"
+                    // ) { // abilities that are not unsupressable are nullified
+                    //     this._raidState.changeAbility(i, "(No Ability)");
+                    // }
                     if (!pokemon.hasItem("Ability Shield") && !pokemon.hasAbility("Disguise", "Ice Face")) {
                         pokemon.abilityNullified = 1;
                         pokemon.nullifyAbilityOn = pokemon.abilityOn;
-                        pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed no without Ability Shield
+                        pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed temporarily without Ability Shield
                     }
                     pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers
                     pokemon.field.attackerSide.isDefCheered = 0;
@@ -1201,6 +1201,7 @@ export class RaidMove {
                 break;
             case "Skill Swap": 
                 if (
+                    !this._user.abilityNullified && !target.abilityNullified &&
                     !this._user.hasItem("Ability Shield") && 
                     !target.hasItem("Ability Shield") &&
                     !persistentAbilities["uncopyable"].includes(user_ability) &&
@@ -1249,6 +1250,7 @@ export class RaidMove {
                 break;
             case "Role Play":
                 if (
+                    !target.abilityNullified &&
                     !this._user.hasItem("Ability Shield") &&
                     !persistentAbilities["uncopyable"].includes(target_ability) &&
                     !persistentAbilities["unreplaceable"].includes(user_ability)
@@ -1518,8 +1520,8 @@ export class RaidMove {
             case "Rest":
                 if ((this._user.status !== "slp")
                     && !(isGrounded(this._user, this._user.field) && this._user.field.hasTerrain("Misty") || this._user.field.hasTerrain("Electric")) 
-                    && !["Insomnia", "Purifying Salt", "Vital Spirit"].includes(this._user.ability as string)
-                    && !(this._user.field.hasWeather("Sun") && this._user.ability === "Leaf Guard")
+                    && (this._user.abilityNullified || !["Insomnia", "Purifying Salt", "Vital Spirit"].includes(this._user.ability as string)) 
+                    && !(this._user.field.hasWeather("Sun") && this._user.hasAbility("Leaf Guard"))
                 ) {
                     this._user.originalCurHP = this._user.maxHP();
                     this._user.isSleep = this.options.roll === "max" ? 1 : this.options.roll === "min" ? 3 : 2;

@@ -1111,6 +1111,13 @@ export class RaidMove {
                     this._flags[this.userID].push(this.move.name + " broke the opponent's screens!")
                 }
                 break;
+            case "Clear Smog":
+                const target = this.getPokemon(this._targetID);
+                for (let stat in target.boosts) {
+                    const statId = stat as StatIDExceptHP;
+                    target.boosts[statId] = 0;
+                }
+                break;
             default: break;
         }
     }
@@ -1439,12 +1446,6 @@ export class RaidMove {
                     side.attackerSide.isMist = tempUserSide.isMist;
                     side.attackerSide.isAuroraVeil = tempUserSide.isAuroraVeil;
                     side.attackerSide.isTailwind = tempUserSide.isTailwind;
-                }
-                break;
-            case "Clear Smog":
-                for (let stat in target.boosts) {
-                    const statId = stat as StatIDExceptHP;
-                    target.boosts[statId] = 0;
                 }
                 break;
             case "Haze":

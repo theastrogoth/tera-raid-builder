@@ -496,7 +496,7 @@
         [
             {
                 "raider": {
-                    "id": 1,
+                    "id": 2,
                     "role": "Whimsicott",
                     "name": "Whimsicott",
                     "shiny": false,
@@ -529,11 +529,11 @@
                 },
                 "substituteMoves": [
                     "Taunt",
-                    "Helping Hand"
+                    "Attack Cheer"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    2
                 ]
             }
         ],

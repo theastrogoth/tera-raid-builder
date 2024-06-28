@@ -1359,7 +1359,7 @@ export class RaidState implements State.RaidState{
         pokemon.isTaunt = 0;
         pokemon.isCharging = false;
         pokemon.isRecharging = false;
-        pokemon.abilityNullified = 0;
+        pokemon.abilityNullified = undefined;
         pokemon.moveRepeated = undefined;
         pokemon.isChoiceLocked = false;
         pokemon.isEncore = 0;

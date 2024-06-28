@@ -174,10 +174,10 @@ export class RaidState implements State.RaidState{
  
             /// abilities triggered by damage even if the target faints
             // Seed Sower
-            if (pokemon.ability === "Seed Sower") {
+            if (pokemon.hasAbility("Seed Sower")) {
                 this.applyTerrain("Grassy", pokemon.hasItem("Terrain Extender") ? 32 : 20);
             // Sand Spit
-            } else if (pokemon.ability === "Sand Spit"){
+            } else if (pokemon.hasAbility("Sand Spit")){
                 this.applyWeather("Sand", pokemon.hasItem("Smooth Rock") ? 32 : 20)
             }
 

@@ -501,7 +501,8 @@
                     "name": "Whimsicott",
                     "shiny": false,
                     "ability": "Prankster",
-                    "nature": "Hardy",
+                    "item": "Sitrus Berry",
+                    "nature": "Impish",
                     "evs": {
                         "hp": 0,
                         "atk": 0,

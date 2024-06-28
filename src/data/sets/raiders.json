@@ -1252,6 +1252,14 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Fake Tears","Helping Hand","Gravity","Icy Wind"]
         },
+        "Friend Guard (Balanced)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Friend Guard",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":160,"sd":98},
+            "moves":["Fake Tears","Helping Hand","Gravity","Life Dew"]
+        },
         "Tickle Friend Guard (Def)": {
             "level":100,
             "item":"Eviolite",
@@ -1267,6 +1275,14 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Tickle","Helping Hand","Gravity","Icy Wind"]
+        },
+        "Tickle Friend Guard (Balanced)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Friend Guard",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":160, "sd":98},
+            "moves":["Tickle","Helping Hand","Gravity","Life Dew"]
         }
     },
     "Clodsire": {
@@ -1520,7 +1536,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Syrup Bomb","Reflect","Pollen Puff","Dragon Cheer"]
         },
-        "Balanced Support": {
+        "Support (Balanced)": {
             "level":100,
             "item":"Eviolite",
             "ability":"Supersweet Syrup",
@@ -1546,6 +1562,35 @@
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Helping Hand","Taunt","Trick Room","Gravity"]
+        }
+    },
+    "Electrode": {
+        "Fast Taunt (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Static",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "ivs":{"at":0},
+            "moves":["Taunt","Electric Terrain","Scary Face","Helping Hand"]
+        },
+        "Fast Taunt (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Static",
+            "nature":"Bold",
+            "evs":{"hp":252,"sd":252},
+            "ivs":{"at":0},
+            "moves":["Taunt","Electric Terrain","Eerie Impulse","Helping Hand"]
+        },
+        "Fast Taunt (Balanced)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Static",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":128, "sd":130},
+            "ivs":{"at":0},
+            "moves":["Taunt","Electric Terrain","Eerie Impulse","Helping Hand"]
         }
     },
     "Empoleon": {
@@ -1750,7 +1795,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
         },
-        "Balanced Simple Beam": {
+        "Simple Beam (Balanced)": {
             "level":100,
             "item":"Zoom Lens",
             "ability":"Cloud Nine",
@@ -1821,7 +1866,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
         },
-        "Balanced Simple Beam": {
+        "Simple Beam (Balanced)": {
             "level":100,
             "item":"Covert Cloak",
             "ability":"Thick Fat",
@@ -1848,7 +1893,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Night Slash","Helping Hand","Screech","Snarl"]
         },
-        "Balanced Crit": {
+        "Crit (Balanced)": {
             "level":100,
             "item":"Scope Lens",
             "ability":"Super Luck",
@@ -2085,7 +2130,7 @@
         }
     },
     "Latios": {
-        "Balanced Simple Beam": {
+        "Simple Beam (Balanced)": {
             "level":100,
             "item":"Covert Cloak",
             "ability":"Levitate",
@@ -2408,7 +2453,7 @@
         }
     },
     "Muk": {
-        "Balanced General Use": {
+        "Support (Balanced)": {
             "level":100,
             "item":"Zoom Lens",
             "ability":"Sticky Hold",
@@ -2515,7 +2560,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Instruct","Taunt","Light Screen"]
         },
-        "Balanced Symbiosis": {
+        "Symbiosis (Balanced)": {
             "level":100,
             "item":"Life Orb",
             "ability":"Symbiosis",
@@ -2576,7 +2621,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Screech","Helping Hand","Swagger","Taunt"]
         },
-        "Balanced General Use": {
+        "General Use (Balanced)": {
             "level":100,
             "item":"Zoom Lens",
             "ability":"Steely Spirit",
@@ -2613,7 +2658,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Helping Hand","Rain Dance","Chilling Water","Mud-Slap"]
         },
-        "Balanced Drizzle": {
+        "Rain Support (Balanced)": {
             "level":100,
             "item":"Sitrus Berry",
             "ability":"Drizzle",
@@ -2686,7 +2731,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
         },
-        "Balanced Simple Beam": {
+        "Simple Beam (Balanced)": {
             "level":100,
             "item":"Eviolite",
             "ability":"Cloud Nine",
@@ -2694,6 +2739,62 @@
             "evs":{"hp":252,"df":108,"sd":148},
             "ivs":{"at":0},
             "moves":["Simple Beam","Wonder Room","Helping Hand","Skill Swap"]
+        }
+    },
+    "Quagsire":{
+        "Boost Fling (Balanced)": {
+            "level":100,
+            "item":"Petaya Berry",
+            "ability":"Water Absorb",
+            "nature":"Calm",
+            "evs":{"hp":252,"df":88,"sd":168},
+            "ivs":{"at":0},
+            "moves":["Fling","Acid Spray","Mud-Slap","Helping Hand"]
+        },
+        "Boost Fling (Def)": {
+            "level":100,
+            "item":"Petaya Berry",
+            "ability":"Water Absorb",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "ivs":{"at":0},
+            "moves":["Fling","Acid Spray","Chilling Water","Helping Hand"]
+        },
+        "Boost Fling (SpD)": {
+            "level":100,
+            "item":"Petaya Berry",
+            "ability":"Water Absorb",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "ivs":{"at":0},
+            "moves":["Fling","Acid Spray","Mud-Slap","Helping Hand"]
+        },
+        "Unaware Fling (Balanced)": {
+            "level":100,
+            "item":"Flame Orb",
+            "ability":"Unaware",
+            "nature":"Calm",
+            "evs":{"hp":252,"df":88,"sd":168},
+            "ivs":{"at":0},
+            "moves":["Fling","Acid Spray","Mud-Slap","Helping Hand"]
+        },
+        "Unaware Fling (Def)": {
+            "level":100,
+            "item":"Flame Orb",
+            "ability":"Unaware",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "ivs":{"at":0},
+            "moves":["Fling","Acid Spray","Chilling Water","Helping Hand"]
+        },
+        "Unaware Fling (SpD)": {
+            "level":100,
+            "item":"Flame Orb",
+            "ability":"Unaware",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "ivs":{"at":0},
+            "moves":["Fling","Acid Spray","Mud-Slap","Helping Hand"]
         }
     },
     "Qwilfish":{
@@ -2940,7 +3041,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Simple Beam","Helping Hand","Light Screen","Taunt"]
         },
-        "Balanced Simple Beam": {
+        "Simple Beam (Balanced)": {
             "level":100,
             "item":"Eviolite",
             "ability":"Thick Fat",
@@ -3904,7 +4005,7 @@
             "evs":{"hp":252,"sd":252},
             "moves":["Acid Spray","Taunt","Clear Smog","Misty Terrain"]
         },
-        "Balanced Misty Surge": {
+        "Misty Surge (Balanced)": {
             "level":100,
             "item":"Sitrus Berry",
             "ability":"Misty Surge",

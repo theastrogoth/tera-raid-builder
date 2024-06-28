@@ -845,6 +845,10 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/emboar/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('sceptile/main', async () => {
+    const module = await import(`./data/strats/sceptile/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 describe('OHKO tests, Alternative Strats', () => {

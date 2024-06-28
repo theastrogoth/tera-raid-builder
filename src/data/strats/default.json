@@ -6,11 +6,11 @@
         {
             "id": 0,
             "role": "Raid Boss",
-            "name": "Emboar",
+            "name": "Sceptile",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Reckless",
-            "nature": "Brave",
+            "ability": "Unburden",
+            "nature": "Hasty",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,23 +28,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
-            "teraType": "Electric",
+            "gender": "N",
+            "teraType": "Dragon",
             "moves": [
-                "Flare Blitz",
-                "Drain Punch",
-                "Wild Charge",
-                "Head Smash"
+                "Leaf Blade",
+                "Breaking Swipe",
+                "Dragon Dance",
+                "Thunder Punch"
             ],
-            "bossMultiplier": 4000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Bulk Up",
-                "Heat Crash"
+                "Leaf Storm",
+                "Earthquake"
             ],
             "shieldData": {
-                "hpTrigger": 90,
-                "timeTrigger": 80,
-                "shieldCancelDamage": 35,
+                "hpTrigger": 70,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 50,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -52,15 +52,15 @@
         },
         {
             "id": 1,
-            "role": "Ursaluna",
-            "name": "Ursaluna",
+            "role": "Koraidon",
+            "name": "Koraidon",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Guts",
-            "item": "Flame Orb",
+            "ability": "Orichalcum Pulse",
+            "item": "Covert Cloak",
             "nature": "Adamant",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 252,
                 "def": 0,
                 "spa": 0,
@@ -73,15 +73,15 @@
                 "def": 31,
                 "spa": 31,
                 "spd": 31,
-                "spe": 0
+                "spe": 31
             },
             "level": 100,
             "gender": "N",
             "moves": [
-                "Belly Drum",
-                "Headlong Rush",
                 "Swords Dance",
-                "Earthquake"
+                "Outrage",
+                "Breaking Swipe",
+                "Dragon Claw"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -96,35 +96,36 @@
         },
         {
             "id": 2,
-            "role": "Stonjourner",
-            "name": "Stonjourner",
+            "role": "Meowscarada",
+            "name": "Meowscarada",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Power Spot",
-            "nature": "Hardy",
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Timid",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
             "level": 100,
             "gender": "N",
             "moves": [
-                "Bulldoze",
-                "Low Sweep",
-                "Gravity",
-                "Wide Guard"
+                "Taunt",
+                "Helping Hand",
+                "Chilling Water",
+                "Trick Room"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -139,17 +140,17 @@
         },
         {
             "id": 3,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "Muk",
+            "name": "Muk",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -165,10 +166,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Tickle",
+                "Screech",
                 "Helping Hand",
-                "Mud-Slap",
-                "Chilling Water"
+                "Lunge",
+                "Mud-Slap"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -183,17 +184,17 @@
         },
         {
             "id": 4,
-            "role": "Clefairy",
-            "name": "Clefairy",
+            "role": "Muk",
+            "name": "Muk",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -209,10 +210,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Tickle",
+                "Screech",
                 "Helping Hand",
-                "Reflect",
-                "Life Dew"
+                "Lunge",
+                "Mud-Slap"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -242,7 +243,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Leaf Storm",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

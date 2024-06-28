@@ -140,8 +140,10 @@ export class RaidTurn {
         this._raiderMoveUsed = this._raiderMoveData.name;
         this._bossMoveUsed = this._bossMoveData.name;
 
-        this.applyChangedMove();
-        
+        if (!this._isEmptyTurn) {
+            this.applyChangedMove();
+        }        
+
         // steal tera charge 
         // deprecated, kept for compaitiblity of old links
         if (this.bossOptions.stealTeraCharge) {
@@ -396,7 +398,7 @@ export class RaidTurn {
         }
         // For this option, pick the most damaging move based on the current field.
         if (!this.raidState.raiders[0].isCharging && this._bossMoveData.name === "(Most Damaging)") {
-            const moveOptions = getSelectableMoves(this._raidState.raiders[0], this._isBossAction);
+            const moveOptions = getSelectableMoves(this._raidState.raiders[0], false);
             let bestMove = "(No Move)";
             let bestDamage = 0;
             for (const move of moveOptions) {

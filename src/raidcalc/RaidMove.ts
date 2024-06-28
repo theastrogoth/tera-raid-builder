@@ -1024,7 +1024,7 @@ export class RaidMove {
         if (this.move.name === "Rain Dance") { this._raidState.applyWeather("Rain", this._user.item === "Damp Rock" ? 32 : 20); }
         if (this.move.name === "Sunny Day") { this._raidState.applyWeather("Sun", this._user.item === "Heat Rock" ? 32 : 20); }
         if (this.move.name === "Sandstorm") { this._raidState.applyWeather("Sand", this._user.item === "Smooth Rock" ? 32 : 20); }
-        if (this.move.name === "Snowscape") { this._raidState.applyWeather("Snow", this._user.item === "Icy Rock" ? 32 : 20); }
+        if (this.move.name === "Snowscape" || this.move.name === "Chilly Reception") { this._raidState.applyWeather("Snow", this._user.item === "Icy Rock" ? 32 : 20); }
         // Terrain
         if (this.move.name === "Electric Terrain") { this._raidState.applyTerrain("Electric", this._user.item === "Terrain Extender" ? 32 : 20); }
         if (this.move.name === "Grassy Terrain") { this._raidState.applyTerrain("Grassy", this._user.item === "Terrain Extender" ? 32 : 20); }
@@ -1109,6 +1109,13 @@ export class RaidMove {
                 }
                 if (hadScreens) {
                     this._flags[this.userID].push(this.move.name + " broke the opponent's screens!")
+                }
+                break;
+            case "Clear Smog":
+                const target = this.getPokemon(this._targetID);
+                for (let stat in target.boosts) {
+                    const statId = stat as StatIDExceptHP;
+                    target.boosts[statId] = 0;
                 }
                 break;
             default: break;
@@ -1441,12 +1448,6 @@ export class RaidMove {
                     side.attackerSide.isMist = tempUserSide.isMist;
                     side.attackerSide.isAuroraVeil = tempUserSide.isAuroraVeil;
                     side.attackerSide.isTailwind = tempUserSide.isTailwind;
-                }
-                break;
-            case "Clear Smog":
-                for (let stat in target.boosts) {
-                    const statId = stat as StatIDExceptHP;
-                    target.boosts[statId] = 0;
                 }
                 break;
             case "Haze":

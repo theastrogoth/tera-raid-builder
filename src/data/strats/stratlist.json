@@ -1,7 +1,11 @@
 {
     "Sceptile": {
         "Running Amuk": "sceptile/main",
-        "Koraidon T1": "sceptile/koraidon_t1"
+        "Koraidon T1": "sceptile/koraidon_t1",
+        "Here Be Dragons": "sceptile/here_be_dragons",
+        "Nukebro: Across the Nukeverse 1": "sceptile/nukebro_1",
+        "Nukebro: Across the Nukeverse 2": "sceptile/nukebro_2",
+        "Nukebro: Across the Nukeverse 3": "sceptile/nukebro_3"
     },
     "Emboar": {
         "Care Bear Carnage": "emboar/main",

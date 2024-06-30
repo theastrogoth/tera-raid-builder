@@ -170,7 +170,7 @@ export class Pokemon implements State.Pokemon {
   }
 
   hasAbility(...abilities: string[]) {
-    return this.abilityNullified !== 0 && !!(this.ability && abilities.includes(this.ability));
+    return (this.abilityNullified || 0) === 0 && !!(this.ability && abilities.includes(this.ability));
   }
 
   hasItem(...items: string[]) {

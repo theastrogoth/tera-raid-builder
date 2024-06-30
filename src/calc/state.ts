@@ -48,7 +48,7 @@ export namespace State {
     hitsTaken?: number;
     timesFainted?: number;
     changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
-    lastMoveFailed?: boolean;
+    // lastMoveFailed?: boolean;
     moves?: I.MoveName[];
     abilityNullified?: number;
     permanentAtkCheers?: number;

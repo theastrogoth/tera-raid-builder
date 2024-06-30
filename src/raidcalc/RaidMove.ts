@@ -107,7 +107,7 @@ export class RaidMove {
         this.setAffectedPokemon();
         if (this.flinch) { // prevent moving upon flinch
             this._desc[this.userID] = this._user.name + " flinched!";
-            this._user.lastMoveFailed = true;
+            // this._user.lastMoveFailed = true;
         } else if ( // prevent the boss from moving if it's shield has just been broken
             this.userID === 0 && 
             this._user.shieldBreakStun &&
@@ -249,12 +249,12 @@ export class RaidMove {
             if (this._user.isSleep) {
                 this._desc[this.userID] = this._user.name + " is fast asleep.";
                 this._user.isSleep--; // decrement sleep counter
-                this._user.lastMoveFailed = true;
+                // this._user.lastMoveFailed = true;
                 return false;
             } else if (this._user.isFrozen && !thawUserMoves.includes(this.move.name)) {
                 this._desc[this.userID] = this._user.name + " is frozen solid.";
                 this._user.isFrozen--; // decrement frozen counter;
-                this._user.lastMoveFailed = true;
+                // this._user.lastMoveFailed = true;
                 return false;
             } else if (
                 this._user.isTaunt && 
@@ -263,15 +263,15 @@ export class RaidMove {
             ) {
                 this._desc[this.userID] = this._user.name + " can't use status moves due to Taunt!";
                 this._user.isTaunt--; // decrement taunt counter
-                this._user.lastMoveFailed = true;
+                // this._user.lastMoveFailed = true;
                 return false;
             } else if (this._user.isDisable && this.move.name === this._user.disabledMove) {
                 this._desc[this.userID] = this.move.name + " is disabled!";
-                this._user.lastMoveFailed = true;
+                // this._user.lastMoveFailed = true;
                 return false;
             } else if (this._user.isThroatChop && this.moveData.isSound) {
                 this._desc[this.userID] = this._user.name + " can't use sound-based moves due to Throat Chop!";
-                this._user.lastMoveFailed = true;
+                // this._user.lastMoveFailed = true;
                 return false;
             } else {
                 return true;
@@ -530,7 +530,7 @@ export class RaidMove {
         }
         for (let dne of this._doesNotAffect)  {
             if (dne) {
-                this._user.lastMoveFailed = true;
+                // this._user.lastMoveFailed = true;
                 break;
             }
         }
@@ -793,11 +793,11 @@ export class RaidMove {
                     }
 
                     if (!nonMoveActions.includes(this.moveData.name)) {
-                        this._user.lastMoveFailed = false;
+                        // this._user.lastMoveFailed = false;
                     }
                 } else {
                     this._desc[id] = this._user.name + " used " + this.move.name + " but it missed!"; //  due to semi-invulnerable moves
-                    this._user.lastMoveFailed = true;
+                    // this._user.lastMoveFailed = true;
                 }
             }
             // protection contact checks

@@ -50,6 +50,7 @@ export namespace State {
     changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
     lastMoveFailed?: boolean;
     moves?: I.MoveName[];
+    abilityNullified?: number;
     permanentAtkCheers?: number;
     permanentDefCheers?: number,
     overrides?: Partial<I.Specie>;

@@ -58,6 +58,7 @@ export class Pokemon implements State.Pokemon {
 
   moves: I.MoveName[];
 
+  abilityNullified: number | undefined;
   permanentAtkCheers: number;
   permanentDefCheers: number;
 
@@ -145,6 +146,7 @@ export class Pokemon implements State.Pokemon {
     this.changedTypes = options.changedTypes;
     this.lastMoveFailed = !!options.lastMoveFailed;
     this.moves = options.moves || [];
+    this.abilityNullified = options.abilityNullified;
     this.permanentAtkCheers = options.permanentAtkCheers || 0;
     this.permanentDefCheers = options.permanentDefCheers || 0;
   }
@@ -168,7 +170,7 @@ export class Pokemon implements State.Pokemon {
   }
 
   hasAbility(...abilities: string[]) {
-    return !!(this.ability && abilities.includes(this.ability));
+    return (this.abilityNullified || 0) === 0 && !!(this.ability && abilities.includes(this.ability));
   }
 
   hasItem(...items: string[]) {
@@ -235,6 +237,7 @@ export class Pokemon implements State.Pokemon {
       changedTypes: this.changedTypes,
       lastMoveFailed: this.lastMoveFailed,
       moves: this.moves.slice(),
+      abilityNullified: this.abilityNullified,
       permanentAtkCheers: this.permanentAtkCheers,
       permanentDefCheers: this.permanentDefCheers,
       overrides: this.species,

@@ -510,25 +510,26 @@ export class RaidTurn {
 
     private modifyMovePriorityByAbility(moveData: MoveData, raider: Raider) {
         const ability = raider.ability;
-
-        switch (ability) {
-            case "Prankster": // do dark-type prankster failure elsewhere
-                if (moveData.priority !== undefined && pranksterMoves.includes(moveData.name)) {
-                    moveData.priority += 1;
-                }
-                break;
-            case "Gale Wings":
-                if (moveData.priority !== undefined && raider.curHP() === raider.maxHP() && moveData.type === "Flying") {
-                    moveData.priority += 1;
-                }
-                break;
-            case "Triage": // Comfey's signature ability
-                if (moveData.priority !== undefined && triageMoves.includes(moveData.name)) {
-                    moveData.priority += 3;
-                }
-                break;
-            default:
-                break;
+        if (!raider.abilityNullified) {
+            switch (ability) {
+                case "Prankster": // do dark-type prankster failure elsewhere
+                    if (moveData.priority !== undefined && pranksterMoves.includes(moveData.name)) {
+                        moveData.priority += 1;
+                    }
+                    break;
+                case "Gale Wings":
+                    if (moveData.priority !== undefined && raider.curHP() === raider.maxHP() && moveData.type === "Flying") {
+                        moveData.priority += 1;
+                    }
+                    break;
+                case "Triage": // Comfey's signature ability
+                    if (moveData.priority !== undefined && triageMoves.includes(moveData.name)) {
+                        moveData.priority += 3;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -707,22 +708,19 @@ export class RaidTurn {
             let abilityRestored = false;
             let abilityReactivated = false;
             if (pokemon.abilityNullified === 0) { // restore ability after a full turn
-                if (pokemon.ability === "(No Ability)") { // if you overwrite the ability in the meantime, what happens?
-                    this._raidState.changeAbility(this.raiderID, pokemon.originalAbility, true);
-                    abilityRestored = pokemon.ability !== "(No Ability)";
-                }
-                if (pokemon.nullifyAbilityOn) {
-                    abilityReactivated = pokemon.abilityOn !== true;
-                    pokemon.nullifyAbilityOn = undefined;
-                    pokemon.abilityOn = true;
-                }
+                pokemon.abilityNullified = undefined;
+                this._raidState.addAbilityFieldEffect(pokemon.id, pokemon.ability, false, true);
+                abilityRestored = pokemon.ability !== "(No Ability)";
+                abilityReactivated = !!pokemon.abilityOn;
                 // Not sure if we need to do anything special here to trigger ability reactivation
-                if (abilityRestored && abilityReactivated) {
-                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " restored and reactivated");
-                } else if (abilityRestored) {
-                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " restored");
-                } else if (abilityReactivated) {
-                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " reactivated");
+                if (pokemon.ability && (pokemon.ability !== "(No Ability)")) {
+                    if (abilityRestored && abilityReactivated) {
+                        this._endFlags.push(pokemon.role + " — " + pokemon.ability + " restored and reactivated");
+                    } else if (abilityRestored) {
+                        this._endFlags.push(pokemon.role + " — " + pokemon.ability + " restored");
+                    } else if (abilityReactivated) {
+                        this._endFlags.push(pokemon.role + " — " + pokemon.ability + " reactivated");
+                    }
                 }
             }
         }

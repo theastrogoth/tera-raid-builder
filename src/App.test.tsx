@@ -10,6 +10,7 @@ import { deserialize } from './utilities/shrinkstring';
 
 import { TextEncoder, TextDecoder } from 'util';
 import exp from 'constants';
+import { FlashOnOutlined } from '@mui/icons-material';
 Object.assign(global, { TextDecoder, TextEncoder });
 
 // RaidCalc tests
@@ -481,49 +482,49 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[0].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(1);
     expect(result.turnResults[0].results[1].desc[1].includes("1 ally's Friend Guards")).toEqual(true);
     // T2: abilities nullified
-    expect(result.turnResults[1].state.raiders[1].ability).toEqual("(No Ability)");
-    expect(result.turnResults[1].state.raiders[2].ability).toEqual("(No Ability)");
-    expect(result.turnResults[1].state.raiders[3].ability).toEqual("(No Ability)");
-    expect(result.turnResults[1].state.raiders[4].ability).toEqual("(No Ability)");
+    expect(result.turnResults[1].state.raiders[1].hasAbility("Pure Power")).toEqual(false);
+    expect(result.turnResults[1].state.raiders[2].hasAbility("Liquid Ooze")).toEqual(false);
+    expect(result.turnResults[1].state.raiders[3].hasAbility("Blaze")).toEqual(false);
+    expect(result.turnResults[1].state.raiders[4].hasAbility("Friend Guard")).toEqual(false);
     // T3: no Friend Guard, Pure Power restored to Medi
     expect(result.turnResults[2].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(0);
     expect(result.turnResults[2].results[1].desc[1].includes("Friend Guards")).toEqual(false);
-    expect(result.turnResults[2].results[1].state.raiders[1].ability).toEqual("(No Ability)");
-    expect(result.turnResults[2].state.raiders[1].ability).toEqual("Pure Power");
+    expect(result.turnResults[2].results[1].state.raiders[1].hasAbility("Pure Power")).toEqual(false);
+    expect(result.turnResults[2].state.raiders[1].hasAbility("Pure Power")).toEqual(true);
     // T4: Friend Guard restored
     expect(result.turnResults[3].results[1].state.raiders[4].field.attackerSide.friendGuards).toEqual(0);
     expect(result.turnResults[3].results[1].desc[4].includes("Friend Guards")).toEqual(false);
-    expect(result.turnResults[3].results[1].state.raiders[4].ability).toEqual("(No Ability)");
-    expect(result.turnResults[3].state.raiders[4].ability).toEqual("Friend Guard");
+    expect(result.turnResults[3].results[1].state.raiders[4].hasAbility("Friend Guard")).toEqual(false);
+    expect(result.turnResults[3].state.raiders[4].hasAbility("Friend Guard")).toEqual(true);
     // T5: one Friend Guard (only Jigglypuff), Blaze restored to Delphox
     expect(result.turnResults[4].results[1].state.raiders[3].field.attackerSide.friendGuards).toEqual(1);
     expect(result.turnResults[4].results[1].desc[3].includes("1 ally's Friend Guards")).toEqual(true);
-    expect(result.turnResults[4].results[1].state.raiders[3].ability).toEqual("(No Ability)");
-    expect(result.turnResults[4].state.raiders[3].ability).toEqual("Blaze");
+    expect(result.turnResults[4].results[1].state.raiders[3].hasAbility("Blaze")).toEqual(false);
+    expect(result.turnResults[4].state.raiders[3].hasAbility("Blaze")).toEqual(true);
     // T6: one Friend Guard (only Jigglypuff)
     expect(result.turnResults[5].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(1);
     expect(result.turnResults[5].results[1].desc[1].includes("1 ally's Friend Guards")).toEqual(true);
     // T7: Medi Skill Swap vs Jigglypuff, no Friend Guard in defensive calc
     expect(result.turnResults[6].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(0);
     expect(result.turnResults[6].results[1].desc[1].includes("Friend Guards")).toEqual(false);
-    expect(result.turnResults[6].results[0].state.raiders[1].ability).toEqual("Friend Guard");
-    expect(result.turnResults[6].state.raiders[1].ability).toEqual("Friend Guard");
-    expect(result.turnResults[6].state.raiders[4].ability).toEqual("Pure Power");
+    expect(result.turnResults[6].results[0].state.raiders[1].hasAbility("Friend Guard")).toEqual(true);
+    expect(result.turnResults[6].state.raiders[1].hasAbility("Friend Guard")).toEqual(true);
+    expect(result.turnResults[6].state.raiders[4].hasAbility("Pure Power")).toEqual(true);
     // T8: Jigglypuff now benefits from Friend Guard (only Medi)
     expect(result.turnResults[7].results[1].state.raiders[4].field.attackerSide.friendGuards).toEqual(1);
     expect(result.turnResults[7].results[1].desc[4].includes("1 ally's Friend Guards")).toEqual(true);
     // T9: Delphox copies Friend Guard from Jigglypuff, benfits from it (only Medi)
     expect(result.turnResults[8].results[1].state.raiders[3].field.attackerSide.friendGuards).toEqual(1);
     expect(result.turnResults[8].results[1].desc[3].includes("1 ally's Friend Guards")).toEqual(true);
-    expect(result.turnResults[8].results[0].state.raiders[3].ability).toEqual("Friend Guard");
-    expect(result.turnResults[8].state.raiders[3].ability).toEqual("Friend Guard");
+    expect(result.turnResults[8].results[0].state.raiders[3].hasAbility("Friend Guard")).toEqual(true);
+    expect(result.turnResults[8].state.raiders[3].hasAbility("Friend Guard")).toEqual(true);
     // T10: Jigglypuff benefits from 2 Friend Guards (Medi & Delphox)
     expect(result.turnResults[9].results[1].state.raiders[4].field.attackerSide.friendGuards).toEqual(2);
     expect(result.turnResults[9].results[1].desc[4].includes("2 allies' Friend Guards")).toEqual(true);
     // T11: Swalot nullifies Delphox's Friend Guard, benefits from it (only Medi)
     expect(result.turnResults[10].results[1].state.raiders[2].field.attackerSide.friendGuards).toEqual(1);
     expect(result.turnResults[10].results[1].desc[2].includes("1 ally's Friend Guards")).toEqual(true);
-    expect(result.turnResults[10].results[0].state.raiders[2].ability).toEqual("(No Ability)");
+    expect(result.turnResults[10].results[0].state.raiders[2].hasAbility("Friend Guard")).toEqual(false);
     // T12: Medicham doesn't benefit from Friend Guard, since it is the only one with it
     expect(result.turnResults[11].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(0);
     expect(result.turnResults[11].results[1].desc[1].includes("Friend Guards")).toEqual(false);
@@ -699,6 +700,27 @@ describe('Specific Test Cases', () => {
     // T4 : Flamethrower boosts Atk, secondary effect burn fails
     expect(result.turnResults[3].state.raiders[1].status).toEqual("");
     expect(result.turnResults[3].state.raiders[1].boosts.atk).toEqual(1);
+  })
+  test('ability-nullification', async() => {
+    const hash = "#H4sIAAAAAAAAA91WUU/bMBD+K5GfQMq00rRj8EYLEkgUIdpp0qo8HMk18erame0UEOK/785JKGUbGpu2SVNSxz6f7+777nLpvViIQ5F9dkaLWHhxOJ/3YqFhhSKNeSpznuzFonZoz45ZCWyBPkxN5aXRjjX6sSisqSuSrswaz/TC0PTaODfplo3BzEpPOw4zo3OwdyeLBWbekcgapehRSu9a3ZLNgV/SmOOCT1UQxjyM+Kg2s7Io0HJ0coWblSslqnwMOkN1DCso8FHYLK/Af080Qws/EI9L0AW2pGjjkUPPLOYygKjMElcNmbXVLAm0BHxYIQQlV187L33NhxvuCDvHEYgPfvUdPaU70nfnuEbmBa6lkj6IPa6CMrlgdVyzURlG1WoXqPOGEIp5dldhmxjXZaVWXlZKBh289RYm7W4H2oNI01isxeG9oLp4HwvR3vMgOIiJ+iuQeTQie7QxzZDqgXEsQDlsR/FBX9c2R6JE10rF4hQcowg23pGNxyt96ITJ3rObtvZ65O6C3BxbKJjguThHWEQjBTmDG1mEpdRFNL2RAW2jFx1z8mk5K2tmJLqsdVYS68mQDLY2pt5YZvQErC+/1LDk/IZY9uP9Xrw/jIe9uN/jeUJhdoEexFQCE8p8VgIf30y3CLikLEWX5oap7iiw+W9QEIzMCbHMllHAzewvpVIEHiqKnTXnaVDcBNvnCM2Ny8BCDuLZaivknQsTHTX1tsu2pbe1i0ZoLdffTK6oLXSR9od9Cr0ZXwthBrXmbnCKquLcnYLmV3tcEhZef6SXjgt0FqBeGbPagGvzs8XeBmxC8GrmJYwvgftEVqNzDO/qFSq4xefYfiU5U2oJSIX2DbbzWocuNKnzN1P1NFsvAxr8L4DStn8MgihMk63ypbcqaeTDbZywLmhzQwod25kY56PQoSkkQt+j0y+f7U4P4sET/y2KpBP9Ydd7nW7SpI+b7y67/2nkY4VgqfVSEC562+Zfcgd/TRx9uv4RBY9Y/55rKj36vzDgbzd/dumXpOFDHi7eTePuTtOHh68Mz9ngHgkAAA==";
+    const result = await resultsFromHash(hash);
+    // T0: Skill Swap, Muk Recieves Pure Power
+    expect(result.turnResults[0].state.raiders[3].ability).toEqual("Pure Power");
+    expect(result.turnResults[1].state.raiders[3].hasAbility("Pure Power")).toEqual(true);
+    // T1: Muk's attack is boosted by Pure Power
+    expect(result.turnResults[1].results[1].desc[0].includes("Pure Power")).toEqual(true);
+    // T2: Abilities Nullified
+    expect(result.turnResults[2].state.raiders[3].ability).toEqual("Pure Power");
+    expect(result.turnResults[2].state.raiders[3].abilityNullified).toEqual(1);
+    expect(result.turnResults[2].state.raiders[3].hasAbility("Pure Power")).toEqual(false);
+    // T3: Muk's attack is NOT boosted by Pure Power, nullification ends after turn
+    expect(result.turnResults[3].results[1].desc[0].includes("Pure Power")).toEqual(false);
+    expect(result.turnResults[3].results[1].state.raiders[3].abilityNullified).toEqual(1);
+    expect(result.turnResults[3].results[1].state.raiders[3].hasAbility("Pure Power")).toEqual(false);
+    expect(result.turnResults[3].state.raiders[3].abilityNullified).toEqual(undefined);
+    expect(result.turnResults[3].state.raiders[3].hasAbility("Pure Power")).toEqual(true);
+    // T4: Muk's attack is boosted by Pure Power
+    expect(result.turnResults[4].results[1].desc[0].includes("Pure Power")).toEqual(true);
   })
 })
 

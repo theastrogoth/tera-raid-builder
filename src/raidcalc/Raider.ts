@@ -47,8 +47,6 @@ export class Raider extends Pokemon implements State.Raider {
     shieldBreakStun?: boolean[];
     substitute?: number;
 
-    abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
-    nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
     originalAbility: AbilityName | "(No Ability)";   // stores ability when nullified
 
     syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
@@ -104,8 +102,6 @@ export class Raider extends Pokemon implements State.Raider {
         shieldBroken: boolean | undefined = undefined, 
         shieldBreakStun: boolean[] | undefined = undefined,
         substitute: number | undefined = undefined,
-        abilityNullified: number | undefined = 0, 
-        nullifyAbilityOn: boolean | undefined = undefined,
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
         syrupBombDrops: number | undefined = 0,
         syrupBombSource: number | undefined = undefined,
@@ -155,8 +151,6 @@ export class Raider extends Pokemon implements State.Raider {
         this.shieldBroken = shieldBroken;
         this.shieldBreakStun = shieldBreakStun;
         this.substitute = substitute;
-        this.abilityNullified = abilityNullified;
-        this.nullifyAbilityOn = nullifyAbilityOn;
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
         this.syrupBombDrops = syrupBombDrops;
         this.syrupBombSource = syrupBombSource;
@@ -218,6 +212,7 @@ export class Raider extends Pokemon implements State.Raider {
                 changedTypes: this.changedTypes ? [...this.changedTypes] : undefined,
                 lastMoveFailed: this.lastMoveFailed,
                 moves: this.moves.slice(),
+                abilityNullified: this.abilityNullified,
                 permanentAtkCheers: this.permanentAtkCheers,
                 permanentDefCheers: this.permanentDefCheers,
                 overrides: this.species,
@@ -249,8 +244,6 @@ export class Raider extends Pokemon implements State.Raider {
             this.shieldBroken,
             this.shieldBreakStun,
             this.substitute,
-            this.abilityNullified,
-            this.nullifyAbilityOn,
             this.originalAbility,
             this.syrupBombDrops,
             this.syrupBombSource,
@@ -270,8 +263,8 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public get boostCoefficient(): number {
-        const hasSimple = this.ability === "Simple";
-        const hasContrary = this.ability === "Contrary";
+        const hasSimple = this.hasAbility("Simple");
+        const hasContrary = this.hasAbility("Contrary");
         return hasSimple ? 2 : hasContrary ? -1 : 1;
     }
 
@@ -321,7 +314,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     public loseItem() {
         // Unburden
-        if (this.ability === "Unburden" && this.item !== undefined) {
+        if (this.hasAbility("Unburden") && this.item !== undefined) {
             this.abilityOn = true;
         }
         if (this.hasItem("Choice Band", "Choice Specs", "Choice Scarf")) {

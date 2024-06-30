@@ -3,7 +3,7 @@ import { SpeciesName } from "./calc/data/interface";
 import { RaidBattleResults } from "./raidcalc/RaidBattle";
 import { Raider } from "./raidcalc/Raider";
 import { RaidInputProps } from "./raidcalc/inputs";
-import { MoveData, SetOption, TurnGroupInfo } from "./raidcalc/interface";
+import { MoveData, MoveTarget, SetOption, TurnGroupInfo } from "./raidcalc/interface";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
@@ -335,6 +335,18 @@ export function setdexToOptions(dex: Object): SetOption[] {
         }
     }
     return options.sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
+}
+
+export function getSelectableTargets(moveTarget?: MoveTarget): number[] {
+    switch (moveTarget) {
+        case "ally":
+            return [1,2,3,4];
+        case "all-opponents":
+        case "all-other-pokemon":
+            return [0];
+        default:
+            return [0,1,2,3,4]
+    }
 }
 
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {

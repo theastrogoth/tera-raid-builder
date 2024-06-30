@@ -27,7 +27,7 @@ import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautif
 import { MoveName } from "../calc/data/interface";
 import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import { getPokemonSpriteURL, arraysEqual, getTranslation, shallowEqual } from "../utils";
+import { getPokemonSpriteURL, arraysEqual, getTranslation, shallowEqual, getSelectableTargets } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
@@ -318,7 +318,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
     );
-    const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : (moveInfo.moveData.target === "ally" ? [1,2,3,4] : [0,1,2,3,4]).filter((id) => id !== moveInfo.userID));
+    const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID));
     
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
         let newGroups = [...groups];
@@ -337,7 +337,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
         );
-        const newValidTargets = newDisableTarget ? [moveInfo.userID] : (moveInfo.moveData.target === "ally" ? [1,2,3,4] : [0,1,2,3,4]).filter((id) => id !== moveInfo.userID)
+        const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID)
     
         setDisableTarget(newDisableTarget);
         setValidTargets(newValidTargets);

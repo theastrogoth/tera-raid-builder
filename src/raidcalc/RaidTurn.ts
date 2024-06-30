@@ -713,12 +713,14 @@ export class RaidTurn {
                 abilityRestored = pokemon.ability !== "(No Ability)";
                 abilityReactivated = !!pokemon.abilityOn;
                 // Not sure if we need to do anything special here to trigger ability reactivation
-                if (abilityRestored && abilityReactivated) {
-                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " restored and reactivated");
-                } else if (abilityRestored) {
-                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " restored");
-                } else if (abilityReactivated) {
-                    this._endFlags.push(pokemon.role + " — " + pokemon.originalAbility + " reactivated");
+                if (pokemon.ability && (pokemon.ability !== "(No Ability)")) {
+                    if (abilityRestored && abilityReactivated) {
+                        this._endFlags.push(pokemon.role + " — " + pokemon.ability + " restored and reactivated");
+                    } else if (abilityRestored) {
+                        this._endFlags.push(pokemon.role + " — " + pokemon.ability + " restored");
+                    } else if (abilityReactivated) {
+                        this._endFlags.push(pokemon.role + " — " + pokemon.ability + " reactivated");
+                    }
                 }
             }
         }

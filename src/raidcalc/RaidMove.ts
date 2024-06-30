@@ -1769,10 +1769,19 @@ export class RaidMove {
             if (fainted[i]) { continue; }
             if (initialAbilities[i] !== finalAbilities[i])  {
                 if (finalAbilities[i] === "(No Ability)" || finalAbilities[i] === undefined) {
-                    this._flags[i].push(initialAbilities[i] + " nullified")
+                    this._flags[i].push(initialAbilities[i] + " removed")
                 } else {
                     this._flags[i].push("ability changed to " + finalAbilities[i])
                 }
+            }
+        }
+        // check for Ability Nullification
+        const initialNullified = this.raidState.raiders.map(p => p.abilityNullified)
+        const finalNullified = this._raidState.raiders.map(p => p.abilityNullified)
+        for (let i=0; i<5; i++) {
+            if (fainted[i] || (finalAbilities[i] === "(No Ability)")) { continue; }
+            if (!initialNullified[i] && !!finalNullified[i])  {
+                this._flags[i].push(finalAbilities[i] + " nullified")
             }
         }
         // check for ability triggers

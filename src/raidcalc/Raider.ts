@@ -47,7 +47,6 @@ export class Raider extends Pokemon implements State.Raider {
     shieldBreakStun?: boolean[];
     substitute?: number;
 
-    nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
     originalAbility: AbilityName | "(No Ability)";   // stores ability when nullified
 
     syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
@@ -103,7 +102,6 @@ export class Raider extends Pokemon implements State.Raider {
         shieldBroken: boolean | undefined = undefined, 
         shieldBreakStun: boolean[] | undefined = undefined,
         substitute: number | undefined = undefined,
-        nullifyAbilityOn: boolean | undefined = undefined,
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
         syrupBombDrops: number | undefined = 0,
         syrupBombSource: number | undefined = undefined,
@@ -153,7 +151,6 @@ export class Raider extends Pokemon implements State.Raider {
         this.shieldBroken = shieldBroken;
         this.shieldBreakStun = shieldBreakStun;
         this.substitute = substitute;
-        this.nullifyAbilityOn = nullifyAbilityOn;
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
         this.syrupBombDrops = syrupBombDrops;
         this.syrupBombSource = syrupBombSource;
@@ -247,7 +244,6 @@ export class Raider extends Pokemon implements State.Raider {
             this.shieldBroken,
             this.shieldBreakStun,
             this.substitute,
-            this.nullifyAbilityOn,
             this.originalAbility,
             this.syrupBombDrops,
             this.syrupBombSource,

@@ -1155,8 +1155,8 @@ export class RaidMove {
                     //     this._raidState.changeAbility(i, "(No Ability)");
                     // }
                     if (!pokemon.hasItem("Ability Shield") && !pokemon.hasAbility("Disguise", "Ice Face")) {
+                        this._raidState.removeAbilityFieldEffect(i, pokemon.ability);
                         pokemon.abilityNullified = 1;
-                        pokemon.nullifyAbilityOn = pokemon.abilityOn;
                         pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed temporarily without Ability Shield
                     }
                     pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers
@@ -1229,7 +1229,8 @@ export class RaidMove {
                     !persistentAbilities["unsuppressable"].includes(target_ability) &&
                     !target.hasItem("Ability Shield")
                 ) {
-                    this._raidState.changeAbility(this._targetID, "(No Ability)");
+                    this._raidState.removeAbilityFieldEffect(target.id, target.ability);
+                    target.abilityNullified = -1;
                 } else {
                     this._desc[this._targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }

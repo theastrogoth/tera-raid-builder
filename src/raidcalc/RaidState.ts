@@ -825,10 +825,11 @@ export class RaidState implements State.RaidState{
         const oldAbility = pokemon.ability;
         pokemon.ability = ability as AbilityName;
         pokemon.abilityOn = false;
-        pokemon.abilityNullified = undefined;
-        pokemon.nullifyAbilityOn = undefined;
         // lost field effects
-        this.removeAbilityFieldEffect(id, oldAbility);
+        if (!pokemon.abilityNullified) {
+            this.removeAbilityFieldEffect(id, oldAbility);
+        }
+        pokemon.abilityNullified = undefined;
         // gained field effects
         this.addAbilityFieldEffect(id, ability, true, restore);
     }
@@ -1025,9 +1026,8 @@ export class RaidState implements State.RaidState{
                     ) { 
                         continue; 
                     }
-                    this.changeAbility(i, "(No Ability)");
+                    this.removeAbilityFieldEffect(i, target.ability)
                     target.abilityNullified = -1;
-                    target.nullifyAbilityOn = target.abilityOn;
                     flags[i].push("Ability suppressed by Neutralizing Gas");
                 }
             }
@@ -1130,8 +1130,7 @@ export class RaidState implements State.RaidState{
                         const target = this.raiders[i];
                         if ((target.abilityNullified || 0) < 0 && target.originalAbility !== "(No Ability)") {
                             target.abilityNullified = undefined;
-                            target.abilityOn = target.nullifyAbilityOn;
-                            target.nullifyAbilityOn = undefined;
+                            this.addAbilityFieldEffect(i, target.ability, false, true);
                         }
                     }
                 }
@@ -1397,10 +1396,7 @@ export class RaidState implements State.RaidState{
         // check Neutralizing Gas
         const neutralizingGas = this.raiders.reduce((p, c) => p || c.ability === "Neutralizing Gas", false);
         if (neutralizingGas && !pokemon.hasItem("Ability Shield") && !persistentAbilities.unsuppressable.includes(ability || "") && ability !== "Neutralizing Gas") { 
-            ability = "(No Ability)" as AbilityName;
-            this.changeAbility(id, ability);
             pokemon.abilityNullified = -1;
-            pokemon.nullifyAbilityOn = pokemon.abilityOn;
         }
         // add abilites that Take Effect upon switch-in
         const flags = this.addAbilityFieldEffect(id, ability, true);

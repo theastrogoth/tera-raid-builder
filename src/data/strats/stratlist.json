@@ -7,6 +7,7 @@
         "Godzilla: Battle of the Ancients": "sceptile/godzilla",
         "Here Be Dragons": "sceptile/here_be_dragons",
         "Dragon's Fury": "sceptile/dragons_fury",
+        "Age of the Dragons": "sceptile/age_of_the_dragons",
         "Grandpas and Grandsons Take on a Weed Lizard": "sceptile/weed_lizard",
         "Fairy Fun Fesitivity": "sceptile/fairy_fun_festivity",
         "Sap Sippers Only!": "sceptile/sap_sippers",
@@ -20,7 +21,20 @@
     },
     "Emboar": {
         "Care Bear Carnage": "emboar/main",
+        "Great Tusk T1.25": "emboar/great_tusk",
+        "Avalugg OHKO": "emboar/avalugg",
+        "Sandy Shocks OHKO": "emboar/sandy_shocks",
         "Team Eeveelutions Blitz Emboar with a Fiery Flair!": "emboar/eeveelutions",
+        "Zen and Psy-smic wave Emboar Goodbye": "emboar/zen_and_psy",
+        "The Sagacious Infernape and The Emboar": "emboar/sagacious_infernape",
+        "Godzilla vs Thunder Boar": "emboar/godzilla",
+        "Bloody Moon": "emboar/bloody_moon",
+        "Burn and Nuke": "emboar/burn_and_nuke",
+        "Emboar Gets Grounded": "emboar/grounded",
+        "Land Shark": "emboar/land_shark",
+        "Raining on Emboar's Parade": "emboar/raining_on_parade",
+        "Seismic Sandstorm": "emboar/seismic_sandstorm",
+        "Nukebro": "emboar/nukebro",
         "Juvenile Reptiles": "emboar/juvenile_reptiles"
     },
     "Swampert": {

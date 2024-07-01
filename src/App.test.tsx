@@ -1847,6 +1847,134 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/swampert/born_on_the_bayou.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test(`emboar/great_tusk`, async () => {
+    const module = await import(`./data/strats/emboar/great_tusk.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/avalugg`, async () => {
+    const module = await import(`./data/strats/emboar/avalugg.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/sandy_shocks`, async () => {
+    const module = await import(`./data/strats/emboar/sandy_shocks.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/eeveelutions`, async () => {
+    const module = await import(`./data/strats/emboar/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/zen_and_psy`, async () => {
+    const module = await import(`./data/strats/emboar/zen_and_psy.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/sagacious_infernape`, async () => {
+    const module = await import(`./data/strats/emboar/sagacious_infernape.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/godzilla`, async () => {
+    const module = await import(`./data/strats/emboar/godzilla.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/bloody_moon`, async () => {
+    const module = await import(`./data/strats/emboar/bloody_moon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/burn_and_nuke`, async () => {
+    const module = await import(`./data/strats/emboar/burn_and_nuke.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/grounded`, async () => {
+    const module = await import(`./data/strats/emboar/grounded.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/land_shark`, async () => {
+    const module = await import(`./data/strats/emboar/land_shark.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/raining_on_parade`, async () => {
+    const module = await import(`./data/strats/emboar/raining_on_parade.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/seismic_sandstorm`, async () => {
+    const module = await import(`./data/strats/emboar/seismic_sandstorm.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/nukebro`, async () => {
+    const module = await import(`./data/strats/emboar/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`emboar/juvenile_reptiles`, async () => {
+    const module = await import(`./data/strats/emboar/juvenile_reptiles.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/koraidon_t1`, async () => {
+    const module = await import(`./data/strats/sceptile/koraidon_t1.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/sledding_amuk`, async () => {
+    const module = await import(`./data/strats/sceptile/sledding_amuk.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/eeveelutions`, async () => {
+    const module = await import(`./data/strats/sceptile/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/godzilla`, async () => {
+    const module = await import(`./data/strats/sceptile/godzilla.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/here_be_dragons`, async () => {
+    const module = await import(`./data/strats/sceptile/here_be_dragons.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/dragons_fury`, async () => {
+    const module = await import(`./data/strats/sceptile/dragons_fury.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/age_of_the_dragons`, async () => {
+    const module = await import(`./data/strats/sceptile/age_of_the_dragons.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/weed_lizard`, async () => {
+    const module = await import(`./data/strats/sceptile/weed_lizard.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/fairy_fun_festivity`, async () => {
+    const module = await import(`./data/strats/sceptile/fairy_fun_festivity.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/sap_sippers`, async () => {
+    const module = await import(`./data/strats/sceptile/sap_sippers.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/thirtysixtales`, async () => {
+    const module = await import(`./data/strats/sceptile/thirtysixtales.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/flying_contradiction`, async () => {
+    const module = await import(`./data/strats/sceptile/flying_contradiction.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/guides_of_galar`, async () => {
+    const module = await import(`./data/strats/sceptile/guides_of_galar.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/nukebro_1`, async () => {
+    const module = await import(`./data/strats/sceptile/nukebro_1.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/nukebro_2`, async () => {
+    const module = await import(`./data/strats/sceptile/nukebro_2.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/nukebro_3`, async () => {
+    const module = await import(`./data/strats/sceptile/nukebro_3.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/late_bloomers`, async () => {
+    const module = await import(`./data/strats/sceptile/late_bloomers.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 

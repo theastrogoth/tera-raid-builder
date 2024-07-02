@@ -577,7 +577,7 @@
         [
             {
                 "raider": {
-                    "id": 1,
+                    "id": 2,
                     "role": "Whimsicott",
                     "name": "Whimsicott",
                     "shiny": false,
@@ -607,6 +607,51 @@
                         "Helping Hand",
                         "Play Rough",
                         "Trick Room"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Cottonee",
+                    "name": "Cottonee",
+                    "shiny": false,
+                    "ability": "Prankster",
+                    "item": "Eviolite",
+                    "nature": "Impish",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Helping Hand",
+                        "Misty Terrain",
+                        "Cotton Guard"
                     ]
                 },
                 "substituteMoves": [
@@ -661,6 +706,447 @@
                     0,
                     2
                 ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Volbeat",
+                    "name": "Volbeat",
+                    "shiny": false,
+                    "ability": "Prankster",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Taunt",
+                        "Helping Hand",
+                        "Chilling Water",
+                        "Mud-Slap"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Revavroom",
+                    "name": "Revavroom",
+                    "shiny": false,
+                    "ability": "Overcoat",
+                    "item": "Choice Scarf",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Zebstrika",
+                    "name": "Zebstrika",
+                    "shiny": false,
+                    "ability": "Sap Sipper",
+                    "item": "Sitrus Berry",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Helping Hand",
+                        "Screech",
+                        "Electroweb"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Electrode",
+                    "name": "Electrode-Hisui",
+                    "shiny": false,
+                    "ability": "Soundproof",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Reflect",
+                        "Electroweb",
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Miraidon",
+                    "name": "Miraidon",
+                    "shiny": false,
+                    "ability": "Hadron Engine",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Dragon Cheer",
+                        "Parabolic Charge",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Overqwil",
+                    "name": "Overqwil",
+                    "shiny": false,
+                    "ability": "Intimidate",
+                    "item": "Choice Scarf",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Fezandipiti",
+                    "name": "Fezandipiti",
+                    "shiny": false,
+                    "ability": "Toxic Chain",
+                    "item": "Sitrus Berry",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Taunt",
+                        "Icy Wind",
+                        "Tailwind",
+                        "Moonblast"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Talonflame",
+                    "name": "Talonflame",
+                    "shiny": false,
+                    "ability": "Gale Wings",
+                    "item": "Sitrus Berry",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Tailwind",
+                        "Flamethrower",
+                        "Roost"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Salazzle",
+                    "name": "Salazzle",
+                    "shiny": false,
+                    "ability": "Corrosion",
+                    "item": "Choice Scarf",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "F",
+                    "moves": [
+                        "Taunt"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Magmar",
+                    "name": "Magmar",
+                    "shiny": false,
+                    "ability": "Flame Body",
+                    "item": "Eviolite",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Helping Hand",
+                        "Low Sweep",
+                        "Clear Smog"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2,
+                    0,
+                    2
+                ]
             }
         ],
         [
@@ -711,6 +1197,141 @@
             {
                 "raider": {
                     "id": 3,
+                    "role": "Skuntank",
+                    "name": "Skuntank",
+                    "shiny": false,
+                    "ability": "Stench",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Taunt",
+                        "Body Slam"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Revavroom",
+                    "name": "Revavroom",
+                    "shiny": false,
+                    "ability": "Overcoat",
+                    "item": "Zoom Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Taunt",
+                        "Swagger",
+                        "Bulldoze"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Varoom",
+                    "name": "Varoom",
+                    "shiny": false,
+                    "ability": "Overcoat",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Taunt",
+                        "Swagger",
+                        "Bulldoze"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
                     "role": "Magnezone",
                     "name": "Magnezone",
                     "shiny": false,
@@ -738,6 +1359,501 @@
                     "moves": [
                         "Screech",
                         "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Zebstrika",
+                    "name": "Zebstrika",
+                    "shiny": false,
+                    "ability": "Sap Sipper",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Taunt",
+                        "Electroweb"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Blitzle",
+                    "name": "Blitzle",
+                    "shiny": false,
+                    "ability": "Sap Sipper",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Taunt",
+                        "Electroweb"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Galvantula",
+                    "name": "Galvantula",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Joltik",
+                    "name": "Joltik",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Venonat",
+                    "name": "Venonat",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Skill Swap",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Volcarona",
+                    "name": "Volcarona",
+                    "shiny": false,
+                    "ability": "Flame Body",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Lunge",
+                        "Pounce",
+                        "Tailwind"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Iron Moth",
+                    "name": "Iron Moth",
+                    "shiny": false,
+                    "ability": "Quark Drive",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Leavanny",
+                    "name": "Leavanny",
+                    "shiny": false,
+                    "ability": "Swarm",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Swadloon",
+                    "name": "Swadloon",
+                    "shiny": false,
+                    "ability": "Leaf Guard",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Lunge",
+                        "Pounce",
+                        "Synthesis"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Sewaddle",
+                    "name": "Sewaddle",
+                    "shiny": false,
+                    "ability": "Swarm",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Lunge",
+                        "Pounce",
+                        "Synthesis"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Sceptile",
+                    "name": "Sceptile",
+                    "shiny": false,
+                    "ability": "Overgrow",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Dragon Cheer",
+                        "Breaking Swipe"
                     ]
                 },
                 "substituteMoves": [
@@ -792,9 +1908,144 @@
                     "Helping Hand"
                 ],
                 "substituteTargets": [
-                    4,
+                    3,
                     0,
                     1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Skuntank",
+                    "name": "Skuntank",
+                    "shiny": false,
+                    "ability": "Stench",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Taunt",
+                        "Body Slam"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Revavroom",
+                    "name": "Revavroom",
+                    "shiny": false,
+                    "ability": "Overcoat",
+                    "item": "Zoom Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Taunt",
+                        "Swagger",
+                        "Bulldoze"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Varoom",
+                    "name": "Varoom",
+                    "shiny": false,
+                    "ability": "Overcoat",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Taunt",
+                        "Swagger",
+                        "Bulldoze"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
                 ]
             },
             {
@@ -835,7 +2086,502 @@
                     "Helping Hand"
                 ],
                 "substituteTargets": [
-                    4,
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Zebstrika",
+                    "name": "Zebstrika",
+                    "shiny": false,
+                    "ability": "Sap Sipper",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Taunt",
+                        "Electroweb"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Blitzle",
+                    "name": "Blitzle",
+                    "shiny": false,
+                    "ability": "Sap Sipper",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Taunt",
+                        "Electroweb"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Galvantula",
+                    "name": "Galvantula",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Joltik",
+                    "name": "Joltik",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Venonat",
+                    "name": "Venonat",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Skill Swap",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Volcarona",
+                    "name": "Volcarona",
+                    "shiny": false,
+                    "ability": "Flame Body",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Lunge",
+                        "Pounce",
+                        "Tailwind"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Iron Moth",
+                    "name": "Iron Moth",
+                    "shiny": false,
+                    "ability": "Quark Drive",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Leavanny",
+                    "name": "Leavanny",
+                    "shiny": false,
+                    "ability": "Swarm",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Swadloon",
+                    "name": "Swadloon",
+                    "shiny": false,
+                    "ability": "Leaf Guard",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Lunge",
+                        "Pounce",
+                        "Synthesis"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Sewaddle",
+                    "name": "Sewaddle",
+                    "shiny": false,
+                    "ability": "Swarm",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Lunge",
+                        "Pounce",
+                        "Synthesis"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    3,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Sceptile",
+                    "name": "Sceptile",
+                    "shiny": false,
+                    "ability": "Overgrow",
+                    "item": "Zoom Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Dragon Cheer",
+                        "Breaking Swipe"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    3,
                     0,
                     1
                 ]

@@ -376,7 +376,7 @@ export class RaidTurn {
             }
         }
         // disallow status moves if taunted
-        if (this._boss.isTaunt) {
+        if (this._boss.isTaunt && this._bossMove.name !== "(No Move)") {
             const testMove = new Move(9, this.bossMoveData.name, this.bossOptions);
             if (testMove.category === "Status" && !["Clear Boosts / Abilities", "Remove Negative Effects"].includes(testMove.name)) {
                 if (this._isBossAction) {

@@ -733,15 +733,15 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[1].state.raiders[0].boosts.def).toEqual(-4);
     // T2: Muk's Screech fails due to Good as Gold
     expect(result.turnResults[2].state.raiders[0].boosts.def).toEqual(-4);
-    // T4: Abilities are cleared
-    // T5: Toedscruel moves first and move fails, since ability is nullified
-    expect(result.turnResults[5].raiderMovesFirst).toEqual(true);
-    expect(result.turnResults[2].state.raiders[0].boosts.def).toEqual(-4);
-    // T6: Toedscruel moves second and Good as Gold is ignored once ability is back
-    expect(result.turnResults[6].raiderMovesFirst).toEqual(false);
-    expect(result.turnResults[2].state.raiders[0].boosts.def).toEqual(-6);
-    // T7: Toedscruel moves first, since Acid Spray is a damaging move
-    expect(result.turnResults[7].raiderMovesFirst).toEqual(true);
+    // T3: Abilities are cleared
+    // T4: Toedscruel moves first and move fails, since ability is nullified
+    expect(result.turnResults[4].raiderMovesFirst).toEqual(true);
+    expect(result.turnResults[4].state.raiders[0].boosts.def).toEqual(-4);
+    // T5: Toedscruel moves second and Good as Gold is ignored once ability is back
+    expect(result.turnResults[5].raiderMovesFirst).toEqual(false);
+    expect(result.turnResults[5].state.raiders[0].boosts.def).toEqual(-6);
+    // T6: Toedscruel moves first, since Acid Spray is a damaging move
+    expect(result.turnResults[6].raiderMovesFirst).toEqual(true);
   })
 })
 

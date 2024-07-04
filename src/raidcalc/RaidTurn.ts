@@ -500,11 +500,19 @@ export class RaidTurn {
             this._raiderMovesFirst = false;
         } else {
             // if priority is the same, compare speed
-            const raiderSpeed = this._raider.effectiveSpeed;
-            const bossSpeed = this._boss.effectiveSpeed;
-
-            const bossField = this._raidState.fields[0];
-            this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
+            const raiderMM = this._raider.hasAbility("Mycelium Might") && this._raiderMove.category === "Status";
+            const bossMM = this._boss.hasAbility("Mycelium Might") && this._bossMove.category === "Status";
+            if (raiderMM && !bossMM) {
+                this._raiderMovesFirst = false;
+            } else if (bossMM && !raiderMM) {
+                this._raiderMovesFirst = true;
+            } else {
+                const raiderSpeed = this._raider.effectiveSpeed;
+                const bossSpeed = this._boss.effectiveSpeed;
+    
+                const bossField = this._raidState.fields[0];
+                this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
+            }
         }
     }
 

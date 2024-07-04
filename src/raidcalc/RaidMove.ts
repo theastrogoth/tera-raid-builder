@@ -414,7 +414,7 @@ export class RaidMove {
                 }
             }
             // Ability-based immunities
-            if (!pokemon.abilityNullified && !(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))) {
+            if (!pokemon.abilityNullified && !(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield")) && !(this._user.hasAbility("Mycelium Might") && this.move.category === "Status")) {
                 if ((pokemon.ability === "Good as Gold" || pokemon.ability === "Good As Gold") && category === "Status" && targetType !== "user") { 
                     this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
                     continue; 
@@ -623,7 +623,7 @@ export class RaidMove {
                 let damageResult: number | number[] | undefined = undefined;
                 let totalDamage = 0;
 
-                const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
+                const attackerIgnoresAbility = (this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield")) || (this._user.hasAbility("Mycelium Might") && this.move.category === "Status");
                 let [accuracy, accEffectsList] = (this.instructed && this._user.lastAccuracy) ? [this._user.lastAccuracy, []] : getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
                 this._user.lastAccuracy = accuracy;
                 const bpModifier = getBpModifier(this.moveData, target, this.damaged);
@@ -712,7 +712,7 @@ export class RaidMove {
                             if (this.moveData.makesContact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
                                 const target = this._raidState.raiders[this._targetID]; // All contact moves are single-target (?)
                                 // abilities
-                                const attackerIgnoresAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield");
+                                const attackerIgnoresAbility = (this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") || !target.hasItem("Ability Shield")) && (this._user.hasAbility("Mycelium Might") && this.move.category === "Status");
                                 if (!target.abilityNullified && !attackerIgnoresAbility) {
                                     switch (this._raidState.raiders[this._targetID].ability) {
                                         case "Rough Skin":
@@ -924,7 +924,7 @@ export class RaidMove {
 
     private applyFlinch() {
         const flinchChance = (this.moveData.flinchChance || 0) * (this._user.hasAbility("Serene Grace") ? 2 : 1);
-        const ignoreAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze");
+        const ignoreAbility = this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") || (this._user.hasAbility("Mycelium Might") && this.move.category === "Status");
         if (flinchChance && !this._isSheerForceBoosted && (this.options.secondaryEffects || flinchChance >= 100)) {
             for (let id of this._affectedIDs) {
                 if (id === 0) { continue; }
@@ -973,7 +973,7 @@ export class RaidMove {
                     }
                     boost[stat] = change;
                 }
-                this._raidState.applyStatChange(id, boost, true, this.userID, this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield"))
+                this._raidState.applyStatChange(id, boost, true, this.userID, (this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield")) || (this._user.hasAbility("Mycelium Might") && this.move.category === "Status"))
             }
         }
     }

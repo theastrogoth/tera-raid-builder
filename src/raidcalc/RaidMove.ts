@@ -514,6 +514,10 @@ export class RaidMove {
                     this._doesNotAffect[id] = "does not affect " + pokemon.name;
                     continue;
                 }
+                if (this._moveType === "Poison" && targetTypes.includes("Steel") && !this._user.hasAbility("Corrosion")) {
+                    this._doesNotAffect[id] = "does not affect " + pokemon.name;
+                    continue;
+                }
             }
             if (moveName === "Thunder Wave" && targetTypes.includes("Ground") && pokemon.item !== "Ring Target") {
                 this._doesNotAffect[id] = "does not affect " + pokemon.name;

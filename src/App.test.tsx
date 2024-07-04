@@ -723,7 +723,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[4].results[1].desc[0].includes("Pure Power")).toEqual(true);
   })
   test('mycelium-might', async() => {
-    const hash = "#H4sIAAAAAAAAA91WbWvbMBD+K0afVtBYXtu135p0awt1GUlgsOAPin2xtcqS0UvaUPrfd1LsvNF1CYMORpyzdDrd3fPcSckzmZMLkv40ShJKLLmYTluUSFYCSagf8swP2pQ4A/r2yhsxnYMNQ1VZrqTxFh1Kcq1chdpSLeBWzhUOZ8qYuJmuHKaaW1wxkCqZMb38Mp9Dag2qtBICXwW3prYtvDtmH1BmMPe7KhZkFiSszSaa5zlonx0vYTMzBQeRDZlMQVyxkuWwVq6mI2ZfU01As9+ohwWTOdSkSGXBp55qyHgAUakHKFdkOi29JtAS8EEFLBgZNzOWW+c3r7hD7D6PQHyIK5f45uZSLu9gAZ4XNuOC26C2UAZjDOHNYeGd8iBFbZ2DzFaEYM6TZQV1YUxTFScsrwQPNvBkNYvr1Qa0ZSRJKFmQi2eCffGZElI/06A4p0j9iPEsGqA/XLgulMhA5lj4ORMGakmulcoiZqJrXCZUOiEouWE6QyjB0Sk6Wn+Sl0bZbe89uHTWp+S+9jElMXuA6NZGmIQnfFywTD1GAxbaaFI4z8BMCd9uX1XqTPTNybRAxtutFp0mq0Bnu9Gb+OcUyztRkJlUu8Do9mQHX7zE7uKujGKeFz7YD6XK6A5C9QcBdA2p0+/UkcLobaw+yS2wY+wxwOwpuUyR83Gl2fJQKNhgMahHkzLNMt/YO7MdMB/uVXS56rQTzym3GokbgNa+8ya85Ptw1qCOgjNhTnqubkBUXObRDZP+UA8LLoSff8fj5lsTz3L6EI2Q0UPBdhGe81dGkG+B267TCAR7gtdKdSyyTaH2sN05Ge6f2GUfx4JVhwLq/S+Akvrm6AVVGGKx1u7bjbK/C5ItclzcMNLdO+ot3Pn2vmZnDy3bfxV4+x45KnDntcDdd0DcxdCNE98u/po/IRsi/hx6KIBpvOSVsSb6VPcb978Vx+TR28rjXUveRwr+SeBTxNw42bqzj4n9IUbSo/AHBM/dyWHx8ZhNW+H/SQdll/ZQ9vF7mgRl/fFWCW2eJHl5+QViK8X9DAoAAA=="
+    const hash = "#H4sIAAAAAAAAA91WbWvbMBD+K0afVtBYXtu135p0awtNGWlgsOAPin2xtciSkeS0YfS/706x81K6rmGsgxHnIp1Od/c8d5Lzg83ZGUu+O6MZZ56dTactzrQogMWchjKlQZuzyoG9viAjYTPwYWhKL412ZNHhLLOmKlFbmCVc67nB4cw4N2qma4eJlR5XHCRGp8KuPs3nkHiHKmuUwp9celfb5uRO+AXKFOa0qxRBpkHCxmxiZZaBpexkAduZyyWodCh0AupCFCKDjXI9HQv/nGoCVvxCPcyFzqAmRRsPlHpiIZUBRGkWUKzJrKwmTaAl4IMSRDBy1cx56SvavOYOsVMegfgQV6/wV7pzvbqBJRAvYiaV9EHtoQjGGILMYUlOZZCqts5Ap2tCMOfJqoS6MK6pSqW8LJUMNvDgrRjVqw1oL1gcc7ZkZz8Y9sVHzlj9TIPilCP1YyHTaID+cOEyNyoFnWHh50I5qCW7NCaNhIsucZlxXSnF2ZWwKUIJjo7R0eYTPzbKbvvJg0snfc5uax9TNhILiK59hEkQ4Xe5SM19NBChjSZ5RQzMjKJ2+2ySykVfKp3kyHi71eLTeB3oZD96E/+UY3knBlKX2CowujvZwzdaYXfJqohGMssp2DdjiugGQvUHAXQNqdPv1JHC6GWslOQO2DvsMcDsOTtPkPO70grqhVGVvr9TonwtKuy1EZh7lwgrUurxvdkerne3JjpfN90R0Su9RQ4HYC0FnshCPkW2wXcQsomoNNF2BaqUOouuhKbzPcylUjT/iiePuhSPdbKIxkjua8F2iZ8Fq+VL4HZLNgYlHuC5qh2KbFuzJ9huKh2uokOr1/tfAMX1JdILqjDEYm3ctxtlfx+kWGa4uGWk++TUt3Dny/uanT20bP9R4N0r5aDAnecCd98AcRdDN06oXejGP2JbIn4feqhAWLzvjfMu+lD3m6TXxiF59HbyeNOS95GCfxL4GDE3Tnav7wNi77/sDgl+grg3Xprz+Vdh4+metsI/pA7KLu+h7OP3GL8ncVjYfMg25s0Tx4+PPwF0pWDslAoAAA=="
     const result = await resultsFromHash(hash);
     // T0: Mycelium might makes Toedscruel move second and ignore Good as Gold
     expect(result.turnResults[0].raiderMovesFirst).toEqual(false);
@@ -740,8 +740,13 @@ describe('Specific Test Cases', () => {
     // T5: Toedscruel moves second and Good as Gold is ignored once ability is back
     expect(result.turnResults[5].raiderMovesFirst).toEqual(false);
     expect(result.turnResults[5].state.raiders[0].boosts.def).toEqual(-6);
-    // T6: Toedscruel moves first, since Acid Spray is a damaging move
+    // T6: Toedscruel moves first, since Acid Spray is a damaging move. Acid Spray does not affect Gholdengo due to Steel typing
     expect(result.turnResults[6].raiderMovesFirst).toEqual(true);
+    expect(result.turnResults[6].state.raiders[0].boosts.spd).toEqual(0);
+    expect(result.turnResults[6].results[0].desc[0].includes("does not affect")).toEqual(true);
+    // T7: Toedscruel moves first with Mud-Slap, which works normally
+    expect(result.turnResults[7].raiderMovesFirst).toEqual(true);
+    expect(result.turnResults[7].state.raiders[0].boosts.acc).toEqual(-1); 
   })
 })
 

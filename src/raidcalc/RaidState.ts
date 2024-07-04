@@ -582,8 +582,9 @@ export class RaidState implements State.RaidState{
     public applyStatus(id: number, status: StatusName, source: number, isSecondaryEffect: boolean = false, fromHeldItem: boolean | undefined = false, roll: "max" | "min" | "avg" | undefined = "avg") {
         const pokemon = this.getPokemon(id);
         const field = pokemon.field;
-        const sourceAbility = this.getPokemon(source).ability;
-        const attackerIgnoresAbility = !this.getPokemon(source).abilityNullified && !this.getPokemon(source).abilityNullified && ["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield");
+        const sourcePoke = this.getPokemon(source);
+        const sourceAbility = sourcePoke.abilityNullified ? undefined : sourcePoke.ability;
+        const attackerIgnoresAbility = (!this.getPokemon(source).abilityNullified && !this.getPokemon(source).abilityNullified && ["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield")) || (sourcePoke.hasAbility("Mycelium Might") && !isSecondaryEffect);
         const selfInflicted = id === source;
 
         if (hasNoStatus(pokemon)) {
@@ -634,8 +635,9 @@ export class RaidState implements State.RaidState{
     public applyVolatileStatus(id: number, ailment: string, isSecondaryEffect: boolean = false, source: number, firstMove?: boolean) {
         const pokemon = this.getPokemon(id);
         const field = pokemon.field;
-        const sourceAbility = this.getPokemon(source).ability;
-        const attackerIgnoresAbility = ["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield");
+        const sourcePoke = this.getPokemon(source);
+        const sourceAbility = sourcePoke.abilityNullified ? undefined : sourcePoke.ability;
+        const attackerIgnoresAbility = (["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield")) || (sourcePoke.hasAbility("Mycelium Might") && !isSecondaryEffect);
         const selfInflicted = id === source;
 
         if (!pokemon.volatileStatus.includes(ailment)) {

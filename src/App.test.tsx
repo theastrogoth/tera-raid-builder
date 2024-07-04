@@ -722,6 +722,27 @@ describe('Specific Test Cases', () => {
     // T4: Muk's attack is boosted by Pure Power
     expect(result.turnResults[4].results[1].desc[0].includes("Pure Power")).toEqual(true);
   })
+  test('mycelium-might', async() => {
+    const hash = "#H4sIAAAAAAAAA91WbWvbMBD+K0afVtBYXtu135p0awt1GUlgsOAPin2xtcqS0UvaUPrfd1LsvNF1CYMORpyzdDrd3fPcSckzmZMLkv40ShJKLLmYTluUSFYCSagf8swP2pQ4A/r2yhsxnYMNQ1VZrqTxFh1Kcq1chdpSLeBWzhUOZ8qYuJmuHKaaW1wxkCqZMb38Mp9Dag2qtBICXwW3prYtvDtmH1BmMPe7KhZkFiSszSaa5zlonx0vYTMzBQeRDZlMQVyxkuWwVq6mI2ZfU01As9+ohwWTOdSkSGXBp55qyHgAUakHKFdkOi29JtAS8EEFLBgZNzOWW+c3r7hD7D6PQHyIK5f45uZSLu9gAZ4XNuOC26C2UAZjDOHNYeGd8iBFbZ2DzFaEYM6TZQV1YUxTFScsrwQPNvBkNYvr1Qa0ZSRJKFmQi2eCffGZElI/06A4p0j9iPEsGqA/XLgulMhA5lj4ORMGakmulcoiZqJrXCZUOiEouWE6QyjB0Sk6Wn+Sl0bZbe89uHTWp+S+9jElMXuA6NZGmIQnfFywTD1GAxbaaFI4z8BMCd9uX1XqTPTNybRAxtutFp0mq0Bnu9Gb+OcUyztRkJlUu8Do9mQHX7zE7uKujGKeFz7YD6XK6A5C9QcBdA2p0+/UkcLobaw+yS2wY+wxwOwpuUyR83Gl2fJQKNhgMahHkzLNMt/YO7MdMB/uVXS56rQTzym3GokbgNa+8ya85Ptw1qCOgjNhTnqubkBUXObRDZP+UA8LLoSff8fj5lsTz3L6EI2Q0UPBdhGe81dGkG+B267TCAR7gtdKdSyyTaH2sN05Ge6f2GUfx4JVhwLq/S+Akvrm6AVVGGKx1u7bjbK/C5ItclzcMNLdO+ot3Pn2vmZnDy3bfxV4+x45KnDntcDdd0DcxdCNE98u/po/IRsi/hx6KIBpvOSVsSb6VPcb978Vx+TR28rjXUveRwr+SeBTxNw42bqzj4n9IUbSo/AHBM/dyWHx8ZhNW+H/SQdll/ZQ9vF7mgRl/fFWCW2eJHl5+QViK8X9DAoAAA=="
+    const result = await resultsFromHash(hash);
+    // T0: Mycelium might makes Toedscruel move second and ignore Good as Gold
+    expect(result.turnResults[0].raiderMovesFirst).toEqual(false);
+    expect(result.turnResults[0].state.raiders[0].boosts.def).toEqual(-2);
+    // T1: Toedscruel moves first, since Focus Punch has a lower priority bracket. Good as Gold is still ignored
+    expect(result.turnResults[1].raiderMovesFirst).toEqual(true);
+    expect(result.turnResults[1].state.raiders[0].boosts.def).toEqual(-4);
+    // T2: Muk's Screech fails due to Good as Gold
+    expect(result.turnResults[2].state.raiders[0].boosts.def).toEqual(-4);
+    // T4: Abilities are cleared
+    // T5: Toedscruel moves first and move fails, since ability is nullified
+    expect(result.turnResults[5].raiderMovesFirst).toEqual(true);
+    expect(result.turnResults[2].state.raiders[0].boosts.def).toEqual(-4);
+    // T6: Toedscruel moves second and Good as Gold is ignored once ability is back
+    expect(result.turnResults[6].raiderMovesFirst).toEqual(false);
+    expect(result.turnResults[2].state.raiders[0].boosts.def).toEqual(-6);
+    // T7: Toedscruel moves first, since Acid Spray is a damaging move
+    expect(result.turnResults[7].raiderMovesFirst).toEqual(true);
+  })
 })
 
 

@@ -748,6 +748,23 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[7].raiderMovesFirst).toEqual(true);
     expect(result.turnResults[7].state.raiders[0].boosts.acc).toEqual(-1); 
   })
+  test('multistrike-symbiosis', async() => {
+    const hash = "#H4sIAAAAAAAAA9VVUU/bMBD+K5GfNskPbUPH4I1SGEiAEO3EQ5QHN7kmXh07s51u1cTD/t9+1O6cNFDEEGzSpsmJcz6f77777pJ8Y0t2yLJPzmjGmWeHSTLgTIsKWMpJlDkJQ84aB/Z8SkbCFuCDaGovjXZkMeKssKapUVuZNZzrpUFxYZy73C5bh5mVHnccZEbnwm5OlkvIvEOVNUrho5TedbYluRN+hXMOSzpVizDnYYbebG5lUYAldLKC+5UrJaj8WOgM1FRUooBe2S5vhH9KNQcrfqE+LoUuoCNFGw8EPbOQy5BEbVZQtWQ2VpMm0BLygxpEMHLNwnnpGzrccoe5E45AfIirN/iU7khvLmANxItYSCV9UHuogjGGIHNYk1MZZtVZF6DzlhDEPN/U0BXGbavSKC9rJYMNfPVWXHa726S9YGnK2ZodfmPYF+85Y92VBMUBR+pvhMyjCfrDjVkG2A+Ux1IoB93MPupFY3NASnSjFGdnwlEWwcc79NGP9G6rjIePLtwaDjDcJYaZWlEQwQm7ALGMJkrklNzEglhJXUSzLzJk29pFUyo+LudlQ4xE143OSmQ9HqPDzsfMG0uMngjry8+NWFF9A5Z9vj/g+2M+HvDRgOQYYW6BHnBsgSNbCaxw6KwH8g4Fp0q4MjqVoVq3iFODc9G1UTKjek6MyntCRuMRktHOLyPlqmM2ScM66aHvcHsPGtvttim8lfSG9tIO4A/GACG7lTlEFxD6eAfl68rWI2T4atYKoqlcE8UvghsH/hbw4zvd7NFqB/ZsUy2kcdI9SfOZsPnvNt7pKzne+59Ap90bvRdUQUTSH5YKe2bYbox3wYt1wXh8nzmee3NlIvqWvGXo7JlTwxC6O7eHlsN/FTp+EPoMhIqOS6DvYozjeR9/GnmE4y8njcVOBuHvFdOvJw0iDtKnfHul6d3dT+zSthwcCAAA"
+    const result = await resultsFromHash(hash);
+    // T0: Triple Dive hits 3 times, but Symbiosis is only activated once (WP consumed, holding WP)
+    expect(result.turnResults[0].results[1].desc[1].includes("(3 hits)")).toEqual(true);
+    expect(result.turnResults[0].state.raiders[1].boosts.spa).toEqual(2);
+    expect(result.turnResults[0].state.raiders[1].item).toEqual("Weakness Policy");
+    // T1: Similar to T0
+    expect(result.turnResults[1].results[1].desc[1].includes("(3 hits)")).toEqual(true);
+    expect(result.turnResults[1].state.raiders[1].boosts.spa).toEqual(4);
+    expect(result.turnResults[1].state.raiders[1].item).toEqual("Weakness Policy");
+    // T2: Heal Cheer
+    // T3: Another Triple Dive, no more items to pass
+    expect(result.turnResults[3].results[1].desc[1].includes("(3 hits)")).toEqual(true);
+    expect(result.turnResults[3].state.raiders[1].boosts.spa).toEqual(6);
+    expect(result.turnResults[3].state.raiders[1].item).toEqual(undefined);
+  })
 })
 
 

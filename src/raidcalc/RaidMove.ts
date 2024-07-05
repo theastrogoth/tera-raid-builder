@@ -635,6 +635,7 @@ export class RaidMove {
                 const rollChance = accFraction * (crit ? critChance : (1 - critChance));
                 if (accuracy > 0) {
                     try {
+                        const preDamageItem = target.item;
                         // calculate each hit from a multi-hit move
                         for (let i=0; i<this.hits; i++) { 
                             const calcMove = this.move.clone();
@@ -702,7 +703,7 @@ export class RaidMove {
                                 hitRoll = catRollCounts(hitRoll, getRollCounts([[0]], 0, target.maxHP(), [1 - accFraction]));
                             }
                             const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
-                            this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this.move.name, this._moveType, this.move.category, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
+                            this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this._moveType, this.move.category, true, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
                             totalDamage += hitDamage;
                             this._damageRolls[id].push(hitRoll);
         
@@ -768,6 +769,10 @@ export class RaidMove {
                                     default: break; 
                                 }
                             }
+                        }
+                        const postDamageItem = target.item;
+                        if ((preDamageItem !== postDamageItem) && (!postDamageItem)) {
+                            this._raidState.loseItem(id);
                         }
                         // prepare desc from results
                         const result = results[0];
@@ -1362,7 +1367,7 @@ export class RaidMove {
         /// Item-affecting moves
             case "Knock Off":
                 // Knock Off doesn't remove raiders' items when used by the boss
-                if (this.userID !== 0) {
+                if (this.userID !== 0 && target.item) {
                     this._raidState.loseItem(this._targetID);
                 }
                 break;

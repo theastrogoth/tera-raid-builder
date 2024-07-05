@@ -32,7 +32,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveName?: MoveName, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
+    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
         const pokemon = this.getPokemon(id);
         const originalHP = pokemon.originalCurHP;
         const originalDamageRolls = new Map<number,number>(pokemon.cumDamageRolls);
@@ -42,13 +42,13 @@ export class RaidState implements State.RaidState{
             }
             return; 
         } 
-        for (let hit = 0; hit < Math.max(1, nHits); hit++) {
-            if (pokemon.substitute && !bypassSubstitute) {
-                pokemon.substitute = pokemon.substitute <= 0 ? undefined : pokemon.substitute - damage;
-            } else {
-                pokemon.applyDamage(damage, damageRolls);
-            }
+
+        if (pokemon.substitute && !bypassSubstitute) {
+            pokemon.substitute = pokemon.substitute <= 0 ? undefined : pokemon.substitute - damage;
+        } else {
+            pokemon.applyDamage(damage, damageRolls);
         }
+
         const maxHP = pokemon.maxHP();
         const opponents = id === 0 ? [1,2,3,4] : [0];
         let unnerve = false;
@@ -58,7 +58,7 @@ export class RaidState implements State.RaidState{
         }
         if (nHits > 0 && damage > 0) { // checks that the pokemon was attacked, and that the damage was not due to recoil or chip damage
             if (damage > 0) {
-                pokemon.hitsTaken = pokemon.hitsTaken + nHits;
+                pokemon.hitsTaken = pokemon.hitsTaken + 1;
             }
             // Item consumption / Ability Activation triggered by damage
             // Ice Face
@@ -90,71 +90,71 @@ export class RaidState implements State.RaidState{
                     const faintChance = originalDamageRolls.get(maxHP) || 0;
                     originalDamageRolls.delete(maxHP);
                     sashDamageRolls.set(maxHP-1, faintChance + (originalDamageRolls.get(maxHP-1) || 0));
-                    if (pokemon.ability !== "Sturdy") { this.consumeItem(id, pokemon.item!); } 
+                    if (pokemon.ability !== "Sturdy") { this.consumeItem(id, pokemon.item!, true, blockSymbiosis); } 
                     fainted = false;
                 }
             }
             // Air Balloon
             if (pokemon.item === "Air Balloon") {
-                this.loseItem(id);
+                this.loseItem(id, blockSymbiosis);
             }
             // Weakness Policy and Super-Effective reducing Berries
             // TO DO - abilities that let users use berries more than once
             if (isSuperEffective) {
                 if (!fainted && pokemon.item === "Weakness Policy") { // weakness policy isn't consumed if the target faints (?)
-                    this.consumeItem(id, pokemon.item, true);
+                    this.consumeItem(id, pokemon.item, true, blockSymbiosis);
                 } else if (!unnerve) {
                     switch (pokemon.item) {
                         case "Occa Berry":  // the calc alread takes the berry into account, so we can just remove it here
-                            if (moveType === "Fire") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Fire") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Passho Berry":
-                            if (moveType === "Water") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Water") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Wacan Berry":
-                            if (moveType === "Electric") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Electric") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Rindo Berry":
-                            if (moveType === "Grass") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Grass") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Yache Berry":
-                            if (moveType === "Ice") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Ice") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Chople Berry":
-                            if (moveType === "Fighting") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Fighting") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Kebia Berry":
-                            if (moveType === "Poison") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Poison") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Shuca Berry":
-                            if (moveType === "Ground") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Ground") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Coba Berry":
-                            if (moveType === "Flying") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Flying") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Payapa Berry":
-                            if (moveType === "Psychic") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Psychic") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Tanga Berry":
-                            if (moveType === "Bug") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Bug") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Charti Berry":
-                            if (moveType === "Rock") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Rock") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Kasib Berry":
-                            if (moveType === "Ghost") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Ghost") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Haban Berry":
-                            if (moveType === "Dragon") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Dragon") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Colbur Berry":
-                            if (moveType === "Dark") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Dark") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Babiri Berry":
-                            if (moveType === "Steel") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Steel") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         case "Roseli Berry":
-                            if (moveType === "Fairy") { this.consumeItem(id, pokemon.item); }
+                            if (moveType === "Fairy") { this.consumeItem(id, pokemon.item, true, blockSymbiosis); }
                             break;
                         default: break;
                     }
@@ -169,7 +169,7 @@ export class RaidState implements State.RaidState{
                  (pokemon.item === "Kee Berry" && moveCategory === "Physical" && !isSheerForceBoosted) ||
                  (pokemon.item === "Maranga Berry" && moveCategory === "Special" && !isSheerForceBoosted)
                 ) {
-                this.consumeItem(id, pokemon.item, true);
+                this.consumeItem(id, pokemon.item, true, blockSymbiosis);
             }
  
             /// abilities triggered by damage even if the target faints
@@ -196,27 +196,27 @@ export class RaidState implements State.RaidState{
             }
             // Water Compaction
             if (moveType === "Water" && pokemon.hasAbility("Water Compaction")) {
-                const boost = {def: 2 * nHits};
+                const boost = {def: 2};
                 this.applyStatChange(id, boost, true, id);
             }
             // Justified
             if (moveType === "Dark" && pokemon.hasAbility("Justified")) {
-                const boost = {atk: nHits};
+                const boost = {atk: 1};
                 this.applyStatChange(id, boost, true, id);
             }
             // Thermal Exchange
             if (moveType === "Fire" && pokemon.hasAbility("Thermal Exchange")) {
-                const boost = {atk: nHits};
+                const boost = {atk: 1};
                 this.applyStatChange(id, boost, true, id);
             } 
             // Weak Armor
             if (moveCategory === "Physical" && pokemon.hasAbility("Weak Armor")) {
-                const boost = {def: -1 * nHits, spe: 2 * nHits};
+                const boost = {def: -1, spe: 2};
                 this.applyStatChange(id, boost, true, id);
             }
             // Stamina
             if (pokemon.hasAbility("Stamina")) {
-                const boost = {def: nHits};
+                const boost = {def: 1};
                 this.applyStatChange(id, boost, true, id);
             }
             // Anger Shell
@@ -257,7 +257,7 @@ export class RaidState implements State.RaidState{
             // 50% HP Berries
             if (pokemon.originalCurHP <= maxHP / 2) {
                 if (pokemon.item === "Sitrus Berry" || pokemon.item === "Oran Berry") {
-                    this.consumeItem(id, pokemon.item as ItemName, true)
+                    this.consumeItem(id, pokemon.item as ItemName, true, blockSymbiosis)
                 }
             }
             // 33% HP Berries
@@ -277,7 +277,7 @@ export class RaidState implements State.RaidState{
                     case "Salac Berry":
                     case "Lansat Berry":
                     case "Micle Berry":
-                        this.consumeItem(id, pokemon.item as ItemName, true);
+                        this.consumeItem(id, pokemon.item as ItemName, true, blockSymbiosis);
                         break;
                 }
             }
@@ -286,7 +286,7 @@ export class RaidState implements State.RaidState{
         if (fainted) { this.faint(id); }
     }
 
-    public consumeItem(id: number, item: ItemName, lost: boolean = true) {
+    public consumeItem(id: number, item: ItemName, lost: boolean = true, blockSymbiosis = false) {
         const pokemon = this.getPokemon(id);
         switch (item) {
             case "White Herb":
@@ -482,7 +482,7 @@ export class RaidState implements State.RaidState{
                 pokemon.lastConsumedItem = item as ItemName;
                 break;
         }
-        if (lost) { this.loseItem(id); }
+        if (lost) { this.loseItem(id, blockSymbiosis); }
     }
 
     public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {
@@ -687,11 +687,11 @@ export class RaidState implements State.RaidState{
         } 
     }
 
-    public loseItem(id: number) {
+    public loseItem(id: number, blockSymbiosis: boolean = false) {
         const pokemon = this.getPokemon(id);
         pokemon.loseItem();
         // Symbiosis
-        if (id > 0) {
+        if (id > 0 && !blockSymbiosis) {
             const symbiosisIds: number[] = []
             for (let sid=1; sid<5; sid++) {
                 if (sid !== id && this.getPokemon(sid).hasAbility("Symbiosis") && this.getPokemon(sid).item !== undefined) {

@@ -14,7 +14,7 @@
             "nature": "Quiet",
             "evs": {
                 "hp": 252,
-                "atk": 0,
+                "atk": 6,
                 "def": 0,
                 "spa": 252,
                 "spd": 0,
@@ -79,7 +79,15 @@
             "gender": "N",
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 2,
@@ -109,7 +117,15 @@
             "gender": "N",
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 3,
@@ -139,7 +155,15 @@
             "gender": "N",
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 4,
@@ -169,7 +193,15 @@
             "gender": "N",
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
@@ -188,7 +220,33 @@
                 }
             },
             "bossMoveInfo": {
+                "name": "Rain Dance",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
                 "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Surf",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -202,7 +260,8 @@
     ],
     "groups": [
         [
-            0
+            0,
+            1
         ]
     ],
     "repeats": [

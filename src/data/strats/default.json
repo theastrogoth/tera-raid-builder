@@ -43,7 +43,7 @@
                 "Surf"
             ],
             "shieldData": {
-                "hpTrigger": 99,
+                "hpTrigger": 100,
                 "timeTrigger": 99,
                 "shieldCancelDamage": 100,
                 "shieldDamageRate": 1,
@@ -53,31 +53,36 @@
         },
         {
             "id": 1,
-            "role": "Carry Slot",
-            "name": "Carry Slot",
+            "role": "Serperior",
+            "name": "Serperior",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Contrary",
+            "item": "Covert Cloak",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
+            "teraType": "Grass",
+            "moves": [
+                "Knock Off",
+                "Leaf Storm"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -91,31 +96,34 @@
         },
         {
             "id": 2,
-            "role": "Carry Slot",
-            "name": "Carry Slot",
+            "role": "Dipplin",
+            "name": "Dipplin",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Supersweet Syrup",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
+            "moves": [
+                "Pollen Puff"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -129,14 +137,15 @@
         },
         {
             "id": 3,
-            "role": "Carry Slot",
-            "name": "Carry Slot",
+            "role": "Clodsire",
+            "name": "Clodsire",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Water Absorb",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -144,16 +153,18 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
+            "moves": [
+                "Acid Spray"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -167,14 +178,15 @@
         },
         {
             "id": 4,
-            "role": "Carry Slot",
-            "name": "Carry Slot",
+            "role": "Clodsire",
+            "name": "Clodsire",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Water Absorb",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -182,16 +194,18 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
+            "moves": [
+                "Acid Spray"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -237,7 +251,7 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

@@ -751,6 +751,14 @@ export class RaidMove {
                                                 this._raidState.recieveItem(this._targetID, item);
                                             }
                                             break;
+                                        case "Lingering Aroma":
+                                            if (!this._user.hasItem("Ability Shield") && 
+                                                !(!this._user.abilityNullified && (
+                                                    this._user.hasAbility("Lingering Aroma","Mummy") || persistentAbilities.unsuppressable.includes(this._user.ability || "")
+                                                ))) {
+                                                    this._raidState.changeAbility(this._user.id, target.ability!)
+                                            }
+                                            break;
                                         // TO DO: status-inflicting contact abilities. 
                                         default: break;
                                     }

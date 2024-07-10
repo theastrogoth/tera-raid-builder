@@ -733,11 +733,6 @@ export class RaidMove {
                                         case "Tangling Hair":
                                             this._raidState.applyStatChange(this.userID, {spe: -1});
                                             break;
-                                        case "Mummy":
-                                            if (!persistentAbilities["unreplaceable"].includes(this._user.ability as AbilityName)) {
-                                                this._user.ability = "Mummy" as AbilityName;
-                                            }
-                                            break;
                                         case "Wandering Spirit":
                                             if (!persistentAbilities["unreplaceable"].includes(this._user.ability as AbilityName)) {
                                                 target.ability = this._user.ability;
@@ -751,12 +746,13 @@ export class RaidMove {
                                                 this._raidState.recieveItem(this._targetID, item);
                                             }
                                             break;
+                                        case "Mummy":
                                         case "Lingering Aroma":
                                             if (!this._user.hasItem("Ability Shield") && 
                                                 !(!this._user.abilityNullified && (
-                                                    this._user.hasAbility("Lingering Aroma","Mummy") || persistentAbilities.unsuppressable.includes(this._user.ability || "")
+                                                    this._user.hasAbility("Lingering Aroma","Mummy") || persistentAbilities.unreplaceable.includes(this._user.ability || "")
                                                 ))) {
-                                                    this._raidState.changeAbility(this._user.id, target.ability!)
+                                                this._raidState.changeAbility(this._user.id, target.ability!)
                                             }
                                             break;
                                         // TO DO: status-inflicting contact abilities. 

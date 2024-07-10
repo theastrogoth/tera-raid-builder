@@ -1,4 +1,9 @@
 {
+    "Pikachu": {
+        "Forbidden Fruit": "pikachu/main",
+        "Terantis": "pikachu/terantis",
+        "Nukebro vs. Pikachu": "pikachu/nukebro"
+    },
     "Sceptile": {
         "Running Amuk": "sceptile/main",
         "Koraidon T1": "sceptile/koraidon_t1",
@@ -369,10 +374,6 @@
         "Miraidon": "decidueye/main",
         "Rotom-tisserie Owl": "decidueye/rotom",
         "Nukebro vs. Decidueye": "decidueye/nukebro"
-    },
-    "Pikachu": {
-        "Contrary Lurantis": "pikachu/main",
-        "Nukebro vs. Pikachu": "pikachu/nukebro"
     },
     "Cinderace": {
         "Nukebro vs. Cinderace": "cinderace/nukebro"

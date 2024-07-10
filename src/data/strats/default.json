@@ -81,7 +81,9 @@
             "teraType": "Grass",
             "moves": [
                 "Knock Off",
-                "Leaf Storm"
+                "Leaf Storm",
+                "Grassy Terrain",
+                "Giga Drain"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -122,7 +124,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Pollen Puff"
+                "Pollen Puff",
+                "Sunny Day",
+                "Grassy Terrain",
+                "Giga Drain"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -163,7 +168,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Acid Spray"
+                "Acid Spray",
+                "Helping Hand",
+                "Mud-Slap",
+                "Chilling Water"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -204,7 +212,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Acid Spray"
+                "Acid Spray",
+                "Helping Hand",
+                "Mud-Slap",
+                "Chilling Water"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],

@@ -408,15 +408,17 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const [displayedTurn, setDisplayedTurn] = useState<number>(0);
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
 
+    const turnIdx = Math.min(results.turnResults.length, displayedTurn) - 1;
+
     const turnState = (
         (displayedTurn === 0) ? results.turnZeroState :
         (displayedTurn > results.turnResults.length) ? results.endState : 
-        results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].state
+        results.turnResults[turnIdx].state
     );
     const prevTurnState = (
         (displayedTurn <= 1) ? results.turnZeroState : 
         (displayedTurn > results.turnResults.length) ? results.endState :
-        results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 2].state
+        results.turnResults[turnIdx - 1].state
     );
     const maxhps = turnState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, (raider.isTransformed && raider.originalSpecies) ? raider.originalSpecies  : raider.name, {...raider}).maxHP() : raider.maxHP()) );
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
@@ -487,6 +489,23 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const raiderMovesFirst = getCurrentMoveOrder(results, displayedTurn);
     const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove, raiderMovesFirst, translationKey);
 
+    const currentTurnDescs = turnIdx < 0 ? [] : [
+        results.turnResults[turnIdx].results[0].desc.filter((d) => d !== ""),
+        results.turnResults[turnIdx].results[1].desc.filter((d) => d !== "")
+    ].filter((d) => d.length > 0);
+    console.log(currentTurnDescs)
+
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+    const open = Boolean(anchorEl);
+
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+      };
+    
+      const handlePopoverClose = () => {
+        setAnchorEl(null);
+      };
+
     useEffect(() => { 
         if (snapToEnd || displayedTurn > results.turnResults.length) {
             setDisplayedTurn(results.turnResults.length);
@@ -504,12 +523,13 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     }, [displayedTurn]);
 
     return (
+        <>
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
                 <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} modifiers={modifiers[i]} translationKey={translationKey} />
             ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
-                <Typography fontSize={10} noWrap={true}>
+                <Typography fontSize={10} noWrap={true} onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
                     {currentTurnText}
                 </Typography>
                 <Stack direction="row" spacing={3} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
@@ -535,6 +555,37 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
                 </Stack>
             </Stack>
         </Stack>
+        <Popover
+                id={"mouse-over-calcs-popover"}
+                sx={{
+                pointerEvents: 'none',
+                }}
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+                }}
+                transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+            >
+                <Paper sx={{ p: 1.25, backgroundColor: "modal.main", width: "400px" }}>
+                    <Stack direction="column" spacing={2}>
+                        { currentTurnDescs.map((ds, i) => 
+                            <Stack key={i} direction="column" spacing={1}>
+                                {ds.map((d, j) => (
+                                    <Typography key={`${i}${j}`} fontSize={10}>{d}</Typography>
+                                ))}
+                            </Stack>
+                        )}
+                    </Stack>
+                </Paper>
+            </Popover>
+        </>
     )
 }
 
@@ -1220,7 +1271,7 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                     </Box>
                 </Box>
                 <Box hidden={value !== 2} sx={{ height: 560, overflowY: "auto" }}>
-                    <RaidResults results={results} />
+                    <RaidResults results={results} translationKey={translationKey} />
                 </Box>
             </Stack>
         </Box>

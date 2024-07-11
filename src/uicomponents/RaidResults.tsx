@@ -8,7 +8,7 @@ import { RaidState } from "../raidcalc/interface"
 import { RaidBattleResults } from "../raidcalc/RaidBattle"
 import { RaidTurnResult } from "../raidcalc/RaidTurn"
 import { RaidMoveResult } from "../raidcalc/RaidMove"
-import { getPokemonSpriteURL } from "../utils"
+import { getPokemonSpriteURL, getTranslation } from "../utils"
 import { Paper } from "@mui/material"
 
 function CopyTextButton({text}: {text: string}) {
@@ -82,7 +82,7 @@ function EndTurnFlagDisplay({turnResult}: {turnResult: RaidTurnResult}) {
     )
 }
 
-function TurnResultDisplay({state, turnResult, index}: {state: RaidState, turnResult: RaidTurnResult, index: number}) { 
+function TurnResultDisplay({state, turnResult, index, translationKey}: {state: RaidState, turnResult: RaidTurnResult, index: number, translationKey: any}) { 
     const displayedUser = turnResult.moveInfo.moveData.name !== "(No Move)" ? state.raiders.at(turnResult.moveInfo.userID)?.name : turnResult.bossMoveInfo.moveData.name !== "(No Move)" ? state.raiders.at(0)?.name : undefined;
     const displayedMove = turnResult.moveInfo.moveData.name !== "(No Move)" ? turnResult.moveInfo.moveData.name : turnResult.bossMoveInfo.moveData.name !== "(No Move)" ? turnResult.bossMoveInfo.moveData.name : undefined;
     return (
@@ -101,7 +101,7 @@ function TurnResultDisplay({state, turnResult, index}: {state: RaidState, turnRe
                                     background: `url(${getPokemonSpriteURL(displayedUser)}) no-repeat center center / contain`,
                                 }}
                             />}
-                            { displayedMove && <Typography fontSize={10} margin={"0px 5px"}>{displayedMove}</Typography>}
+                            { displayedMove && <Typography fontSize={10} margin={"0px 5px"}>{getTranslation(displayedMove, translationKey, 'moves')}</Typography>}
                         </Stack>
                     </Paper>
                 }
@@ -133,7 +133,7 @@ function TurnZeroDisplay({state, tZeroFlags, tZeroOrder}: {state: RaidState, tZe
     )
 }
 
-function RaidResults({results}: {results: RaidBattleResults | null}) {
+function RaidResults({results, translationKey}: {results: RaidBattleResults | null, translationKey: any}) {
     return (
         <Stack direction="column" spacing={1} justifyContent="left" sx={{ p: 2 }}>
             { results && 
@@ -141,7 +141,7 @@ function RaidResults({results}: {results: RaidBattleResults | null}) {
             }
             {results && 
                 results.turnResults.map((turnResult, index) => (
-                    <TurnResultDisplay key={index} state={results.endState} turnResult={turnResult} index={index} />
+                    <TurnResultDisplay key={index} state={results.endState} turnResult={turnResult} index={index} translationKey={translationKey} />
                 ))
             }
         </Stack>

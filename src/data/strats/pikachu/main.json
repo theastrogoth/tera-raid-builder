@@ -1,6 +1,6 @@
 {
     "name": "Forbidden Fruit",
-    "notes": "- Serperior/Lurantis must have a Grass Tera Type.\n- Serperior can move freely, but Lurantis should wait for Pollen Puff each turn before moving.\n- Trio: Serperior and Dipplin move the same; Clodsire uses Acid Spray x3 + Attack Cheer.",
+    "notes": "- Serperior/Lurantis must have a Grass Tera Type.\n- Serperior can move freely, but Lurantis should wait for Pollen Puff each turn before moving.\n- Trio: Serperior and Dipplin move the same; Clodsire uses Defense Cheer + 3x Acid Spray.",
     "credits": "The r/PokePortal Team",
     "pokemon": [
         {
@@ -80,8 +80,8 @@
             "gender": "N",
             "teraType": "Grass",
             "moves": [
-                "Knock Off",
                 "Leaf Storm",
+                "Knock Off",
                 "Grassy Terrain",
                 "Giga Drain"
             ],
@@ -283,8 +283,60 @@
             }
         },
         {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
             "id": 3,
             "group": 1,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
             "moveInfo": {
                 "name": "Pollen Puff",
                 "userID": 2,
@@ -309,62 +361,10 @@
             }
         },
         {
-            "id": 4,
-            "group": 1,
-            "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 5,
-            "group": 1,
+            "group": 2,
             "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 1,
-            "moveInfo": {
-                "name": "Knock Off",
+                "name": "Leaf Storm",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -388,7 +388,7 @@
         },
         {
             "id": 6,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
                 "name": "Pollen Puff",
                 "userID": 2,
@@ -414,7 +414,7 @@
         },
         {
             "id": 7,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
                 "name": "Acid Spray",
                 "userID": 3,
@@ -440,7 +440,7 @@
         },
         {
             "id": 8,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
                 "name": "Acid Spray",
                 "userID": 4,
@@ -466,7 +466,7 @@
         },
         {
             "id": 9,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
                 "name": "Leaf Storm",
                 "userID": 1,
@@ -492,110 +492,6 @@
         },
         {
             "id": 10,
-            "group": 3,
-            "moveInfo": {
-                "name": "Pollen Puff",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 11,
-            "group": 3,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 3,
-                "targetID": 3,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 12,
-            "group": 3,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
-                "targetID": 4,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 13,
-            "group": 3,
-            "moveInfo": {
-                "name": "Leaf Storm",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 14,
             "group": 4,
             "moveInfo": {
                 "name": "Leaf Storm",
@@ -628,10 +524,12 @@
             1
         ],
         [
-            3,
+            2,
+            3
+        ],
+        [
             4,
-            5,
-            2
+            5
         ],
         [
             6,
@@ -640,20 +538,14 @@
             9
         ],
         [
-            10,
-            11,
-            12,
-            13
-        ],
-        [
-            14
+            10
         ]
     ],
     "repeats": [
         1,
         1,
         1,
-        1,
+        2,
         1
     ],
     "substitutes": [
@@ -666,7 +558,7 @@
                     "shiny": false,
                     "ability": "Contrary",
                     "item": "Covert Cloak",
-                    "nature": "Modest",
+                    "nature": "Calm",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -696,7 +588,6 @@
                 "substituteMoves": [
                     "(No Move)",
                     "(No Move)",
-                    "Knock Off",
                     "Leaf Storm",
                     "Leaf Storm",
                     "Leaf Storm"
@@ -706,7 +597,6 @@
                     1,
                     0,
                     0,
-                    0,
                     0
                 ]
             }
@@ -714,7 +604,7 @@
         [
             {
                 "raider": {
-                    "id": 1,
+                    "id": 2,
                     "role": "Hydrapple",
                     "name": "Hydrapple",
                     "shiny": false,
@@ -748,11 +638,9 @@
                 },
                 "substituteMoves": [
                     "Pollen Puff",
-                    "Pollen Puff",
                     "Pollen Puff"
                 ],
                 "substituteTargets": [
-                    1,
                     1,
                     1
                 ]
@@ -794,14 +682,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Defense Cheer",
+                    "Acid Spray"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
-                    3
+                    3,
+                    0
                 ]
             },
             {
@@ -839,14 +725,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Defense Cheer",
+                    "Acid Spray"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
-                    3
+                    3,
+                    0
                 ]
             },
             {
@@ -884,14 +768,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Defense Cheer",
+                    "Acid Spray"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
-                    3
+                    3,
+                    0
                 ]
             },
             {
@@ -929,14 +811,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Defense Cheer",
+                    "Acid Spray"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
-                    3
+                    3,
+                    0
                 ]
             }
         ],
@@ -976,19 +856,17 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Defense Cheer",
+                    "Acid Spray"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
-                    4
+                    3,
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 2,
+                    "id": 4,
                     "role": "Wooper",
                     "name": "Wooper",
                     "shiny": false,
@@ -1021,14 +899,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Defense Cheer",
+                    "Acid Spray"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
-                    4
+                    4,
+                    0
                 ]
             },
             {
@@ -1066,14 +942,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Defense Cheer",
+                    "Acid Spray"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
-                    4
+                    3,
+                    0
                 ]
             },
             {
@@ -1111,14 +985,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Defense Cheer",
+                    "Acid Spray"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
-                    4
+                    3,
+                    0
                 ]
             }
         ]

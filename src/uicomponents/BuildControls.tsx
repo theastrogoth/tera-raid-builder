@@ -41,7 +41,7 @@ import ImportExportArea from "./ImportExportArea";
 import { MoveData, MoveSetItem, ShieldData, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService, { PokemonData } from "../services/getdata";
-import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation, setdexToOptions } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation, setdexToOptions, deepEqual } from "../utils";
 
 // import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
@@ -1081,9 +1081,9 @@ function GenderSymbol({g}: {g: GenderName | undefined}) {
     )
 }
 
-function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
+function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, groupsCounter, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
-         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
+         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, groupsCounter: number,  allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
          setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey?: any, isBoss?: boolean}
     ) {
     const [teraTypes, setTeraTypes] = useState(genTypes);
@@ -1093,6 +1093,17 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     const [importExportOpen, setImportExportOpen] = useState(false);
 
     const [level, setLevel] = useState(pokemon.level);
+
+    // console.log(groups)
+    // const groupsRef = useRef(isBoss ? undefined : groups.map(g => g.turns.map(t => t.moveInfo)));
+    // const [renderCounter, setRenderCounter] = useState(0);
+
+    // useEffect(() => {
+    //     if (!isBoss && deepEqual(groupsRef.current, groups)) {
+    //         groupsRef.current = groups.map(g => g.turns.map(t => t.moveInfo));
+    //         setRenderCounter(renderCounter + 1);
+    //     }
+    // }, [groups])
 
     useEffect(() => {
         // Locked items/teratypes
@@ -1996,7 +2007,8 @@ export const BossBuildControlsMemo = React.memo(BossBuildControls,
         arraysEqual(prevProps.pokemon.extraMoves!, nextProps.pokemon.extraMoves!) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         prevProps.prettyMode === nextProps.prettyMode &&
-        prevProps.translationKey === nextProps.translationKey);
+        prevProps.translationKey === nextProps.translationKey
+    );
 
 export default React.memo(BuildControls, 
     (prevProps, nextProps) => 
@@ -2006,5 +2018,7 @@ export default React.memo(BuildControls,
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
+        prevProps.groupsCounter === nextProps.groupsCounter && 
         prevProps.prettyMode === nextProps.prettyMode &&
-        prevProps.translationKey === nextProps.translationKey);
+        prevProps.translationKey === nextProps.translationKey
+    );

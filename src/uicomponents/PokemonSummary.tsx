@@ -71,8 +71,8 @@ export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raide
     )
 }
 
-function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, setSubstitutes, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
-    {pokemon: Raider, setPokemon: (r: Raider) => void, groups: TurnGroupInfo[], setGroups: (g: TurnGroupInfo[]) => void, 
+function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, substitutes, setSubstitutes, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
+    {pokemon: Raider, setPokemon: (r: Raider) => void, groups: TurnGroupInfo[], setGroups: (g: TurnGroupInfo[]) => void, groupsCounter: number,
      substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
      setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
 ) {
@@ -218,6 +218,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, substitutes, se
                         setPokemon={setPokemon} 
                         groups={groups} 
                         setGroups={setGroups} 
+                        groupsCounter={groupsCounter}
                         substitutes={substitutes} 
                         setSubstitutes={setSubstitutes} 
                         allSpecies={allSpecies}
@@ -242,6 +243,7 @@ export default React.memo(PokemonSummary,
         JSON.stringify(prevProps.substitutes) === JSON.stringify(nextProps.substitutes) &&
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
         (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
+        prevProps.groupsCounter === nextProps.groupsCounter &&
         prevProps.prettyMode === nextProps.prettyMode &&
         prevProps.translationKey === nextProps.translationKey
     )

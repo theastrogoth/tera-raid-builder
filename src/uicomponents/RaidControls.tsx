@@ -493,7 +493,6 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
         results.turnResults[turnIdx].results[0].desc.filter((d) => d !== ""),
         results.turnResults[turnIdx].results[1].desc.filter((d) => d !== "")
     ].filter((d) => d.length > 0);
-    console.log(currentTurnDescs)
 
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
     const open = Boolean(anchorEl);

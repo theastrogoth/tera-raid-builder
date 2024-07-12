@@ -41,7 +41,7 @@ import ImportExportArea from "./ImportExportArea";
 import { MoveData, MoveSetItem, ShieldData, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService, { PokemonData } from "../services/getdata";
-import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation, setdexToOptions, deepEqual } from "../utils";
+import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation, setdexToOptions } from "../utils";
 
 // import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import BOSS_SETDEX_SV from "../data/sets/raid_bosses.json";
@@ -49,13 +49,31 @@ import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 import BOSS_SETDEX_ID from "../data/sets/id_raid_bosses.json";
 
 import PokemonLookup from "./PokemonLookup";
-import { getItemBoostType } from "../calc/items";
 
 
 // we will always use Gen 9
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).sort();
 const genItems = ["(No Item)", ...[...gen.items].map(item => item.name).sort()];
+const arceusPlates = [
+    "Insect Plate",
+    "Dread Plate",
+    "Draco Plate",
+    "Zap Plate",
+    "Pixie Plate",
+    "Fist Plate",
+    "Flame Plate",
+    "Sky Plate",
+    "Spooky Plate",
+    "Meadow Plate",
+    "Earth Plate",
+    "Icicle Plate",
+    "Toxic Plate",
+    "Mind Plate",
+    "Stone Plate",
+    "Iron Plate",
+    "Splash Plate"
+]
 const genNatures = [...gen.natures].sort();
 
 const UNSELECTABLE_FORMS = [
@@ -1115,26 +1133,26 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 poke.teraType = "Grass";
                 poke.ability = "Defiant" as AbilityName;
                 handleForcedChangeSpecies("Ogerpon", poke);
-            } else if (pokemon.name === "Ogerpon-Hearthflame" || pokemon.hasItem("Hearthflame Mask")) {
+            } else if (pokemon.hasItem("Hearthflame Mask")) {
                 console.log("here")
                 setTeraTypes(["Fire"]);
-                setItems(["(No Item)", "Hearthflame Mask" as ItemName]);
+                setItems(["(No Item)", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]);
                 const poke = pokemon.clone();
                 poke.teraType = "Fire";
                 poke.item = "Hearthflame Mask" as ItemName;
                 poke.ability = "Mold Breaker" as AbilityName;
                 handleForcedChangeSpecies("Ogerpon-Hearthflame", poke);
-            } else if (pokemon.name === "Ogerpon-Wellspring" || pokemon.hasItem("Wellspring Mask")) {
+            } else if (pokemon.hasItem("Wellspring Mask")) {
                 setTeraTypes(["Water"]);
-                setItems(["(No Item)", "Wellspring Mask" as ItemName]);
+                setItems(["(No Item)", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]);
                 const poke = pokemon.clone();
                 poke.teraType = "Water";
                 poke.item = "Wellspring Mask" as ItemName;
                 poke.ability = "Water Absorb" as AbilityName;
                 handleForcedChangeSpecies("Ogerpon-Wellspring", poke);
-            } else if (pokemon.name === "Ogerpon-Cornerstone" || pokemon.hasItem("Cornerstone Mask")) {
+            } else if (pokemon.hasItem("Cornerstone Mask")) {
                 setTeraTypes(["Rock"]);
-                setItems(["(No Item)", "Cornerstone Mask" as ItemName]);
+                setItems(["(No Item)", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]);
                 const poke = pokemon.clone();
                 poke.teraType = "Rock";
                 poke.item = "Cornerstone Mask" as ItemName;
@@ -1221,41 +1239,33 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         // Arceus Plate Types
         else if (pokemon.name.includes("Arceus")) {
             setTeraTypes(genTypes);
-            if (pokemon.name !== "Arceus" && !pokemon.item?.includes("Plate")) {
+            if (!(pokemon.item || "").includes("Plate")) {
                 setItems(genItems);
                 const poke = pokemon.clone();
                 handleForcedChangeSpecies("Arceus", poke);
             } else if (pokemon.name.includes("Arceus-") || pokemon.item?.includes("Plate")) {
-                let plateType = "";
-                if (pokemon.name === "Arceus") {
-                    plateType = getItemBoostType(pokemon.item as ItemName) || "";
-                } else {
-                    plateType = pokemon.name.split("-")[1];
-                }
-                let plateItem = pokemon.item || "";
                 let form: string = pokemon.name;
-                switch (plateType) {
-                    case "Bug": plateItem       = "Insect Plate";   form = "Arceus-Bug";        break;
-                    case "Dark": plateItem      = "Dread Plate";    form = "Arceus-Dark";       break;
-                    case "Dragon": plateItem    = "Draco Plate";    form = "Arceus-Dragon";     break;
-                    case "Electric": plateItem  = "Zap Plate";      form = "Arceus-Electric";   break;
-                    case "Fairy": plateItem     = "Pixie Plate";    form = "Arceus-Fairy";      break;
-                    case "Fighting": plateItem  = "Fist Plate";     form = "Arceus-Fighting";   break;
-                    case "Fire": plateItem      = "Flame Plate";    form = "Arceus-Fire";       break;
-                    case "Flying": plateItem    = "Sky Plate";      form = "Arceus-Flying";     break;
-                    case "Ghost": plateItem     = "Spooky Plate";   form = "Arceus-Ghost";      break;
-                    case "Grass": plateItem     = "Meadow Plate";   form = "Arceus-Grass";      break;
-                    case "Ground": plateItem    = "Earth Plate";    form = "Arceus-Ground";     break;
-                    case "Ice": plateItem       = "Icicle Plate";   form = "Arceus-Ice";        break;
-                    case "Poison": plateItem    = "Toxic Plate";    form = "Arceus-Poison";     break;
-                    case "Psychic": plateItem   = "Mind Plate";     form = "Arceus-Psychic";    break;
-                    case "Rock": plateItem      = "Stone Plate";    form = "Arceus-Rock";       break;
-                    case "Steel": plateItem     = "Iron Plate";     form = "Arceus-Steel";      break;
-                    case "Water": plateItem     = "Splash Plate";   form = "Arceus-Water";      break;                 
+                switch (pokemon.item) {
+                    case "Insect Plate":   form = "Arceus-Bug";        break;
+                    case "Dread Plate":    form = "Arceus-Dark";       break;
+                    case "Draco Plate":    form = "Arceus-Dragon";     break;
+                    case "Zap Plate":      form = "Arceus-Electric";   break;
+                    case "Pixie Plate":    form = "Arceus-Fairy";      break;
+                    case "Fist Plate":     form = "Arceus-Fighting";   break;
+                    case "Flame Plate":    form = "Arceus-Fire";       break;
+                    case "Sky Plate":      form = "Arceus-Flying";     break;
+                    case "Spooky Plate":   form = "Arceus-Ghost";      break;
+                    case "Meadow Plate":   form = "Arceus-Grass";      break;
+                    case "Earth Plate":    form = "Arceus-Ground";     break;
+                    case "Icicle Plate":   form = "Arceus-Ice";        break;
+                    case "Toxic Plate":    form = "Arceus-Poison";     break;
+                    case "Mind Plate":     form = "Arceus-Psychic";    break;
+                    case "Stone Plate":    form = "Arceus-Rock";       break;
+                    case "Iron Plate":     form = "Arceus-Steel";      break;
+                    case "Splash Plate":   form = "Arceus-Water";      break;                 
                 }
-                setItems(["(No Item)", plateItem as ItemName]);
+                setItems(["(No Item)", ...arceusPlates]);
                 const poke = pokemon.clone();
-                poke.item = plateItem as ItemName;
                 handleForcedChangeSpecies(form as SpeciesName, poke);
             } else {
                 setItems(genItems);

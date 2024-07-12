@@ -206,9 +206,13 @@ function StratLoadField(
             )}
             
             renderGroup={(params) => {
+                let group = params.group;
+                if (group.includes("Rerun")) {
+                    group = group.slice(0,-6);
+                }
                 return  (
                     <li>
-                        <SetLoadGroupHeader pokemon={params.group as SpeciesName} translationKey={translationKey}/>
+                        <SetLoadGroupHeader pokemon={group as SpeciesName} translationKey={translationKey}/>
                         {params.children}
                     </li>
                 );

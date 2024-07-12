@@ -558,7 +558,7 @@
                     "shiny": false,
                     "ability": "Contrary",
                     "item": "Covert Cloak",
-                    "nature": "Calm",
+                    "nature": "Modest",
                     "evs": {
                         "hp": 252,
                         "atk": 0,

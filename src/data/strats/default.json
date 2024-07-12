@@ -13,10 +13,10 @@
             "item": "Light Ball",
             "nature": "Quiet",
             "evs": {
-                "hp": 252,
-                "atk": 6,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -46,9 +46,9 @@
                 "hpTrigger": 100,
                 "timeTrigger": 99,
                 "shieldCancelDamage": 100,
-                "shieldDamageRate": 1,
-                "shieldDamageRateTera": 120,
-                "shieldDamageRateTeraChange": 70
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {

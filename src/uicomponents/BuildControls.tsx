@@ -1134,7 +1134,6 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 poke.ability = "Defiant" as AbilityName;
                 handleForcedChangeSpecies("Ogerpon", poke);
             } else if (pokemon.hasItem("Hearthflame Mask")) {
-                console.log("here")
                 setTeraTypes(["Fire"]);
                 setItems(["(No Item)", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]);
                 const poke = pokemon.clone();
@@ -1223,21 +1222,21 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             }
         } else if (pokemon.name.includes("Giratina")) {
             setTeraTypes(genTypes);
-            if (pokemon.name !== "Giratina" && !pokemon.hasItem("Griseous Orb", "Griseous Core")) {
+            if (pokemon.name !== "Giratina" && !pokemon.hasItem("Griseous Core")) {
                 setItems(genItems);
                 const poke = pokemon.clone();
                 handleForcedChangeSpecies("Giratina", poke);
-            } else if (pokemon.name === "Giratina-Origin" || pokemon.hasItem("Griseous Orb", "Griseous Core")) {
-                setItems(["(No Item)", "Griseous Orb", "Griseous Core"]);
+            } else if (pokemon.name === "Giratina-Origin" || pokemon.hasItem("Griseous Core")) {
+                setItems(["(No Item)", "Griseous Core"]);
                 const poke = pokemon.clone();
-                poke.item = pokemon.hasItem("Griseous Orb", "Griseous Core") ? pokemon.item : "Griseous Orb" as ItemName;
+                poke.item = "Griseous Core" as ItemName;
                 handleForcedChangeSpecies("Giratina-Origin", poke);
             } else {
                 setItems(genItems);
             }
         }
         // Arceus Plate Types
-        else if (pokemon.name.includes("Arceus")) {
+        else if (pokemon.name.includes("Arceus") && !(pokemon.name === "Arceus" && !arceusPlates.includes(pokemon.item || ""))) {
             setTeraTypes(genTypes);
             if (!(pokemon.item || "").includes("Plate")) {
                 setItems(genItems);

@@ -267,7 +267,7 @@
             "ability":"Multitype",
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
-            "moves":["Judgement","Calm Mind","Acid Spray","Psych Up"]
+            "moves":["Judgment","Calm Mind","Acid Spray","Psych Up"]
         },
         "Stored Power DPS": {
             "level":100,

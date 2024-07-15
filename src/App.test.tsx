@@ -1958,8 +1958,20 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/sceptile/sledding_amuk.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test(`sceptile/angry_crab`, async () => {
+    const module = await import(`./data/strats/sceptile/angry_crab.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/aromatic_meteors`, async () => {
+    const module = await import(`./data/strats/sceptile/aromatic_meteors.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test(`sceptile/eeveelutions`, async () => {
     const module = await import(`./data/strats/sceptile/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/eevee_of_ice_and_fire`, async () => {
+    const module = await import(`./data/strats/sceptile/eevee_of_ice_and_fire.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test(`sceptile/godzilla`, async () => {
@@ -1978,8 +1990,20 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/sceptile/age_of_the_dragons.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test(`sceptile/dragon_battle`, async () => {
+    const module = await import(`./data/strats/sceptile/dragon_battle.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test(`sceptile/weed_lizard`, async () => {
     const module = await import(`./data/strats/sceptile/weed_lizard.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/corrosive_cannonade`, async () => {
+    const module = await import(`./data/strats/sceptile/corrosive_cannonade.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/dragon_slaying_dogs`, async () => {
+    const module = await import(`./data/strats/sceptile/dragon_slaying_dogs.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test(`sceptile/fairy_fun_festivity`, async () => {
@@ -2000,6 +2024,22 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test(`sceptile/guides_of_galar`, async () => {
     const module = await import(`./data/strats/sceptile/guides_of_galar.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/fake_and_real_tears`, async () => {
+    const module = await import(`./data/strats/sceptile/fake_and_real_tears.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/hot_and_cold`, async () => {
+    const module = await import(`./data/strats/sceptile/hot_and_cold.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/metal_and_magic`, async () => {
+    const module = await import(`./data/strats/sceptile/metal_and_magic.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test(`sceptile/mythicals`, async () => {
+    const module = await import(`./data/strats/sceptile/mythicals.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test(`sceptile/nukebro_1`, async () => {

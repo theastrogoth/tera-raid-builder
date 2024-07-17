@@ -34,6 +34,7 @@ export class Pokemon implements State.Pokemon {
   isQP? : boolean;
   usedBoosterEnergy?: boolean;
   isIngrain?: boolean;
+  isSmackDown?: boolean;
 
   nature: I.NatureName;
   ivs: I.StatsTable;
@@ -96,6 +97,7 @@ export class Pokemon implements State.Pokemon {
     this.boostedStat = options.boostedStat;
     this.usedBoosterEnergy = options.usedBoosterEnergy;
     this.isIngrain = options.isIngrain;
+    this.isSmackDown = options.isSmackDown;
     this.teraType = options.teraType;
     this.isTera = !!options.isTera;
     this.shieldData = options.shieldData;

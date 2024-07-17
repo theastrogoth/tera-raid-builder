@@ -19,8 +19,6 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 
@@ -30,8 +28,8 @@ import { GroupedVirtuoso } from 'react-virtuoso';
 
 import { AbilityName, ItemName, MoveName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 import PokedexService, { PokemonData } from "../services/getdata";
-import { MoveData, MoveSetItem, SetOption } from "../raidcalc/interface";
-import { ABILITIES, Generations, Move, toID } from "../calc";
+import { MoveData, SetOption } from "../raidcalc/interface";
+import { ABILITIES, Generations, toID } from "../calc";
 import { getEVDescription, setdexToOptions } from "../utils";
 
 // import { GenericWithIcon, GroupHeader, MoveWithIcon, PokemonPopper, findOptionFromPokemonName, findOptionFromTeraTypeName } from "./BuildControls";
@@ -278,9 +276,9 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                         const operand2 = evaluatorStack.pop();
                         const operand1 = evaluatorStack.pop();
 
-                        if (token == "&&") {
+                        if (token === "&&") {
                             evaluatorStack.push(!!operand2 && !!operand1);
-                        } else if (token == "||") {
+                        } else if (token === "||") {
                             evaluatorStack.push(!!operand2 || !!operand1);
                         }
                     }
@@ -885,6 +883,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         setAbilityOptions(newAbilityOptions);
         setMoveOptions(newMoveOptions);
         sortSpecies(newSpeciesOptions);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputFilteredOptions]);
 
     const handleButtonClick = (label: string) => {
@@ -947,6 +946,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
 
     useEffect(() => {
         sortSpecies(speciesOptions);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sortMethod, sortDirection]);
 
     let groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions, (inputValue.length > 0 ? [1] : [])].map((o) => o.length);
@@ -1287,6 +1287,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
         } else {
             setFilteredOptions(allOptions);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [filters]);
 
     useEffect(() => {

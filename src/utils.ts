@@ -1,9 +1,6 @@
 import { StatID, StatsTable } from "./calc";
 import { SpeciesName } from "./calc/data/interface";
-import { RaidBattleResults } from "./raidcalc/RaidBattle";
-import { Raider } from "./raidcalc/Raider";
-import { RaidInputProps } from "./raidcalc/inputs";
-import { MoveData, MoveTarget, SetOption, TurnGroupInfo } from "./raidcalc/interface";
+import { MoveTarget, SetOption, TurnGroupInfo } from "./raidcalc/interface";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
@@ -396,8 +393,8 @@ export function shallowEqual(a: any, b: any) {
 
 export function deepEqual(a: any, b: any) {
     if (a === b) { return true; }
-    if ((typeof a == "object" && a != null) && (typeof b == "object" && b != null)) {
-        if (Object.keys(a).length != Object.keys(b).length) { return false; }
+    if ((typeof a == "object" && a !== null) && (typeof b === "object" && b !== null)) {
+        if (Object.keys(a).length !== Object.keys(b).length) { return false; }
         for (var prop in a) {
             if (b.hasOwnProperty(prop)) {  
                 if (!deepEqual(a[prop], b[prop])) { return false; }

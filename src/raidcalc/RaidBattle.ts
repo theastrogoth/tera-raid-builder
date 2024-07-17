@@ -4,7 +4,6 @@ import { TurnGroupInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { RaidMove } from "./RaidMove";
 import { RaidTurn, RaidTurnResult } from "./RaidTurn";
-import { getCumulativeKOChance } from "./util";
 
 const gen = Generations.get(9);
 

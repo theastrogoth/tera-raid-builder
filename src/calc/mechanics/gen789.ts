@@ -769,7 +769,7 @@ export function calculateBasePowerSMSSSV(
     desc.moveBP = basePower;
     break;
   case 'Last Respects':
-    basePower = 50 + 50 * Math.min(6, attacker.timesFainted);
+    basePower = 50 + 50 * Math.min(100, attacker.timesFainted);
     desc.moveBP = basePower;
     break;
   case 'Acrobatics':
@@ -1158,7 +1158,7 @@ export function calculateBPModsSMSSSV(
   }
 
   if (field.attackerSide.powerSpots > 0){
-    for(var ii = 0; ii < field.attackerSide.powerSpots; ii++){
+    for(var iii = 0; iii < field.attackerSide.powerSpots; iii++){
         bpMods.push(5325);
     }
     desc.powerSpots = field.attackerSide.powerSpots;
@@ -1202,11 +1202,11 @@ export function calculateBPModsSMSSSV(
     desc.defenderAbility = defender.ability;
   }
 
-  if (attacker.hasAbility('Supreme Overlord') && attacker.alliesFainted) {
+  if (attacker.hasAbility('Supreme Overlord') && attacker.timesFainted) {
     const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-    bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
+    bpMods.push(powMod[Math.min(5, attacker.timesFainted)]);
     desc.attackerAbility = attacker.ability;
-    desc.alliesFainted = attacker.alliesFainted;
+    desc.timesFainted = attacker.timesFainted;
   }
 
   // Items

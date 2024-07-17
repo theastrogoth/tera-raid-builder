@@ -6,9 +6,11 @@ import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json";
 import triageMoves from "../data/triage_moves.json";
 import { MoveName, SpeciesName, StatusName } from "../calc/data/interface";
-import { getSelectableMoves, isRegularMove } from "./util";
+import { absoluteFloor, getSelectableMoves, isRegularMove } from "./util";
+import { getEndOfTurn } from "../calc/desc";
 
 const gen = Generations.get(9);
+const dummyMove = new Move(gen, "Splash");
 
 export type RaidTurnResult = {
     state: RaidState;
@@ -39,6 +41,7 @@ export class RaidTurn {
     _isBossAction!:     boolean;
     _isCheer!:          boolean;
     _isEmptyTurn!:      boolean;
+    _isEndOfFullTurn!:  boolean;
 
     _raiderMovesFirst!: boolean;
     _raider!:           Raider;
@@ -90,6 +93,8 @@ export class RaidTurn {
         this._isBossAction = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name !== "(No Move)";
         this._isCheer = ["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(this.raiderMoveData.name);
         this._isEmptyTurn = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name === "(No Move)";
+        // check if this marks the end of a 4-move "turn"
+        this._isEndOfFullTurn = !this._isBossAction && !this._isEmptyTurn && ((this.turnNumber % 4) === 3);
         // set up moves
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
@@ -242,6 +247,8 @@ export class RaidTurn {
         if (!this._isEmptyTurn) {
             this.removeProtection();
             if (!this._isBossAction) {
+                // end-of-turn damage
+                this.applyEndOfTurnDamage();
                 // item effects
                 this.applyEndOfTurnItemEffects();
                 // ability effects
@@ -541,6 +548,25 @@ export class RaidTurn {
         }
     }
 
+    private applyEndOfTurnDamage() {
+        if (this._isEndOfFullTurn) {
+            for (const pokemon of this._raidState.raiders) {
+                const moveField = pokemon.field.clone();
+                moveField.defenderSide = pokemon.field.attackerSide;
+                const eot = getEndOfTurn(gen, this._raidState.raiders[0], pokemon, dummyMove, moveField);
+                if (eot.damage) {
+                    eot.damage = absoluteFloor(eot.damage / ((pokemon.bossMultiplier || 100) / 100));
+                    const initialHP = pokemon.originalCurHP;
+                    this._raidState.applyDamage(pokemon.id, -eot.damage);
+                    const finalHP = pokemon.originalCurHP;
+                    const initialPercent = Math.floor(initialHP / pokemon.maxHP() * 1000)/10;;
+                    const finalPercent = Math.floor(finalHP / pokemon.maxHP() * 1000)/10;
+                    this._endFlags.push(pokemon.role + " —  HP: " + initialPercent + "% → " + finalPercent + "% after " + eot.texts.join(", "));
+                }
+            }
+        }
+    }
+
     private applyEndOfTurnItemEffects() {
         for (let id of [0, this.raiderID]) {
             const pokemon = this._raidState.raiders[id];
@@ -600,46 +626,47 @@ export class RaidTurn {
     }
 
     private applyEndOfTurnAbilityEffects() {
-        for (let id of [0, this.raiderID]) {
-            const pokemon = this._raidState.raiders[id];
-            switch (pokemon.ability) {
-                case "Speed Boost":
-                    if ((pokemon.originalCurHP > 0) && ((id !== 0) || ((this.turnNumber % 4) === 3))) {
-                        const origSpe = pokemon.boosts.spe || 0;
-                        this._raidState.applyStatChange(id, {"spe": 1}, true, id, false);
-                        this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
-                    }
-                    break;
-                case "Harvest": 
-                    if (pokemon.field.hasWeather("Sun") && !pokemon.item && (pokemon.lastConsumedItem || "").includes("Berry")) {
-                        this._raidState.recieveItem(id, pokemon.lastConsumedItem!);
-                        this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
-                    }
-                    break;
-                case "Slow Start": 
-                    if (pokemon.slowStartCounter) {
-                        pokemon.slowStartCounter--;
-                        if (pokemon.slowStartCounter === 0) {
-                            pokemon.abilityOn = false;
-                            this._endFlags.push(pokemon.role + " — Slow Start ended");
-                        }
-                    }
-                    break;
-                default: break;
-            }
-        }
         for (const pokemon of this._raidState.raiders) {
-            switch (pokemon.ability) {
-                case "Cud Chew":
-                    if (pokemon.isCudChew && this.turnNumber % 4 === 3) {
-                        pokemon.isCudChew--;
-                        if (pokemon.isCudChew === 0 && (pokemon.lastConsumedItem || "").includes("Berry")) {
-                            this._raidState.consumeItem(pokemon.id, pokemon.lastConsumedItem!, false);
-                            this._endFlags.push(pokemon.role + " — " + pokemon.lastConsumedItem + " consumed via Cud Chew");
+            if (this._isEndOfFullTurn && (pokemon.originalCurHP > 0)) {
+                switch (pokemon.ability) {
+                    case "Speed Boost":
+                        const origSpe = pokemon.boosts.spe || 0;
+                        this._raidState.applyStatChange(pokemon.id, {"spe": 1}, true, pokemon.id, false);
+                        this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
+                        break;
+                    case "Moody":
+                        pokemon.randomBoosts += 1;
+                        this._endFlags.push(pokemon.role + " — Moody boosts one stat by two and lowers another by one");
+                        break;
+                    case "Hydration":
+                        pokemon.status = "";
+                        break;
+                    case "Harvest": 
+                        if (pokemon.field.hasWeather("Sun") && !pokemon.item && (pokemon.lastConsumedItem || "").includes("Berry")) {
+                            this._raidState.recieveItem(pokemon.id, pokemon.lastConsumedItem!);
+                            this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
                         }
-                    }
-                    break;
-                default: break;
+                        break;
+                    case "Cud Chew":
+                        if (pokemon.isCudChew) {
+                            pokemon.isCudChew--;
+                            if (pokemon.isCudChew === 0 && (pokemon.lastConsumedItem || "").includes("Berry")) {
+                                this._raidState.consumeItem(pokemon.id, pokemon.lastConsumedItem!, false);
+                                this._endFlags.push(pokemon.role + " — " + pokemon.lastConsumedItem + " consumed via Cud Chew");
+                            }
+                        }
+                        break;
+                    case "Slow Start": 
+                        if (pokemon.slowStartCounter) {
+                            pokemon.slowStartCounter--;
+                            if (pokemon.slowStartCounter === 0) {
+                                pokemon.abilityOn = false;
+                                this._endFlags.push(pokemon.role + " — Slow Start ended");
+                            }
+                        }
+                        break;
+                    default: break;
+                }
             }
         }
     }

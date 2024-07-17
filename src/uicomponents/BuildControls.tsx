@@ -387,6 +387,7 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
                 fetchPokemonData().catch((e) => console.log(e));
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name, pokemon, showPopper])
     
     return (
@@ -457,6 +458,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                 }
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveItem, moveData, showPopper])
 
     const spriteURL = 
@@ -1112,17 +1114,6 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
 
     const [level, setLevel] = useState(pokemon.level);
 
-    // console.log(groups)
-    // const groupsRef = useRef(isBoss ? undefined : groups.map(g => g.turns.map(t => t.moveInfo)));
-    // const [renderCounter, setRenderCounter] = useState(0);
-
-    // useEffect(() => {
-    //     if (!isBoss && deepEqual(groupsRef.current, groups)) {
-    //         groupsRef.current = groups.map(g => g.turns.map(t => t.moveInfo));
-    //         setRenderCounter(renderCounter + 1);
-    //     }
-    // }, [groups])
-
     useEffect(() => {
         // Locked items/teratypes
         if (pokemon.name.includes("Ogerpon")) {
@@ -1285,6 +1276,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         } else if ((pokemon.level !== level) && !(level === 0 && pokemon.level === 1)) {
             setLevel(pokemon.level);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.level, pokemon.isAnyLevel])
 
     const setPokemonProperty = (propName: string) => {

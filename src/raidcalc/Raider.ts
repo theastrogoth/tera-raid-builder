@@ -1,9 +1,8 @@
 import { Field, Pokemon, Generations } from "../calc";
 import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName, TypeName, SpeciesName } from "../calc/data/interface";
 import { extend } from '../calc/util';
-import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus, addRollsToCounts, combineRollCounts, getRollCounts } from "./util";
+import { safeStatStage, combineRollCounts, getModifiedSpeed } from "./util";
 import * as State from "./interface";
-import { getModifiedStat } from "../calc/mechanics/util";
 
 const gen = Generations.get(9);
 
@@ -188,6 +187,7 @@ export class Raider extends Pokemon implements State.Raider {
                 boostedStat: this.boostedStat,
                 usedBoosterEnergy: this.usedBoosterEnergy,
                 isIngrain: this.isIngrain,
+                isSmackDown: this.isSmackDown,
                 item: this.item,
                 gender: this.gender,
                 nature: this.nature,
@@ -269,13 +269,8 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public get effectiveSpeed(): number {
-        let speed = getModifiedStat(this.stats.spe, this.boosts.spe, gen);
-        speed = modifyPokemonSpeedByStatus(speed, this.status, this.ability);
-        speed = modifyPokemonSpeedByItem(speed, this.item);
-        speed = modifyPokemonSpeedByAbility(speed, this.ability, this.abilityOn, this.status);
-        speed = modifyPokemonSpeedByQP(speed, this.field, this.ability, this.item, this.boostedStat as StatIDExceptHP);
-        speed = modifyPokemonSpeedByField(speed, this.field, this.ability);
-        return speed;
+        // moved to util.ts for use with R
+        return getModifiedSpeed(this);
     }
 
     public applyDamage(damage: number, damageRolls?: Map<number,number>): number { 

@@ -22,7 +22,7 @@ export interface RawDesc {
   defenseBoost?: number;
   defenseEVs?: string;
   hits?: number;
-  alliesFainted?: number;
+  timesFainted?: number;
   isBeadsOfRuin?: boolean;
   isSwordOfRuin?: boolean;
   isTabletsOfRuin?: boolean;
@@ -176,7 +176,7 @@ export function getRecoil(
   let recoil: [number, number] | number = [0, 0];
   let text = '';
 
-  const damageOverflow = minDamage > defender.curHP() || maxDamage > defender.curHP();
+  const damageOverflow = minDamage as number > defender.curHP() || maxDamage as number > defender.curHP();
   if (move.recoil) {
     const mod = (move.recoil[0] / move.recoil[1]) * 100;
     let minRecoilDamage, maxRecoilDamage;
@@ -675,7 +675,7 @@ export function getEndOfTurn(
   }
 
   if (defender.isIngrain)  {
-    damage += Math.max(1, Math.floor(defender.maxHP() * (defender.item === "Big Root" ? 0.3 : 1/16)));
+    damage += Math.max(1, Math.floor(defender.maxHP() * (defender.item === "Big Root" ? 1.3/16 : 1/16)));
     texts.push('Ingrain recovery');
   }
 
@@ -881,9 +881,9 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
   if (description.isBurned) {
     output += 'burned ';
   }
-  if (description.alliesFainted) {
-    output += Math.min(5, description.alliesFainted) +
-      ` ${description.alliesFainted === 1 ? 'ally' : 'allies'} fainted `;
+  if (description.timesFainted) {
+    output += `fainted ` + Math.min(5, description.timesFainted) +
+      (description.timesFainted === 1 ? ' time' : ' times');
   }
   if (description.attackerTera) {
     output += `Tera ${description.attackerTera} `;

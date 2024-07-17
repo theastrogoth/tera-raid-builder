@@ -1,7 +1,7 @@
 import { Move, Field, Pokemon, Generations, toID } from "../calc";
 import { AilmentName, MoveData, Raider, RaidTurnInfo } from "./interface";
 import { AbilityName, ItemName, StatIDExceptHP, TypeName } from "../calc/data/interface";
-import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
+import { getModifiedStat, getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
 import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 
 const gen = Generations.get(9);
@@ -251,6 +251,16 @@ export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boo
 
 // Speed modifiers
 
+export function getModifiedSpeed(pokemon: Raider) {
+    let speed = getModifiedStat(pokemon.stats.spe, pokemon.boosts.spe, gen);
+    speed = modifyPokemonSpeedByStatus(speed, pokemon.status, pokemon.ability);
+    speed = modifyPokemonSpeedByItem(speed, pokemon.item);
+    speed = modifyPokemonSpeedByAbility(speed, pokemon.ability, pokemon.abilityOn, pokemon.status);
+    speed = modifyPokemonSpeedByQP(speed, pokemon.field, pokemon.ability, pokemon.item, pokemon.boostedStat as StatIDExceptHP);
+    speed = modifyPokemonSpeedByField(speed, pokemon.field, pokemon.ability);
+    return speed;
+}
+
 export function modifyPokemonSpeedByStatus(speed: number, status?: string, ability?: AbilityName) {
     return status === "par" && ability !== "Quick Feet" ? speed * .5 : speed;
 }
@@ -296,11 +306,11 @@ export function modifyPokemonSpeedByQP(speed: number, field: Field, ability?: Ab
 
 export function modifyPokemonSpeedByField(speed: number, field: Field, ability?: AbilityName) {
     if (
-        ability === "Chlorophyll" && field.hasWeather("Sun") ||
-        ability === "Sand Rush" && field.hasWeather("Sand") ||
-        ability === "Slush Rush" && field.hasWeather("Snow") ||
-        ability === "Swift Swim" && field.hasWeather("Rain") ||
-        ability === "Surge Surfer" && field.hasTerrain("Electric")
+        ability === "Chlorophyll" && field.weather === "Sun" ||
+        ability === "Sand Rush" && field.weather === "Sand" ||
+        ability === "Slush Rush" && field.weather === "Snow" ||
+        ability === "Swift Swim" && field.weather === "Rain" ||
+        ability === "Surge Surfer" && field.terrain === "Electric"
     ) {
         speed *= 2;
     }

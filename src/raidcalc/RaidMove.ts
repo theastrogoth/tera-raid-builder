@@ -1,5 +1,4 @@
-import { Move, Field, StatsTable, Generations, calculate} from "../calc";
-import { getEndOfTurn } from "../calc/desc";
+import { Move, Field, StatsTable, calculate} from "../calc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
@@ -20,16 +19,11 @@ export type RaidMoveResult= {
     damage: number[];
     drain: number[];
     healing: number[];
-    eot: ({damage: number, texts: string[]} | undefined)[];
     desc: string[];
     flags: string[][];
     causesFlinch: boolean[];
     isSpread?: boolean;
 }
-
-// we'll always use generation 9
-const gen = Generations.get(9);
-const dummyMove = new Move(gen, "Splash");
 
 const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
 
@@ -73,7 +67,6 @@ export class RaidMove {
     _damageRolls!: Map<number,number>[][];
     _healing!: number[];
     _drain!: number[];
-    _eot!: ({damage: number, texts: string[]} | undefined)[];
 
     _desc!: string[];
     _flags!: string[][];
@@ -182,9 +175,6 @@ export class RaidMove {
             }
             this.applyPostMoveEffects();
         }
-        this.applyEndOfTurnEffects();       
-        this.setEndOfTurnDamage();
-        this.applyEndOfTurnDamage();
         this._raidState.raiders[0].checkShield(); // check for shield breaking 
         this.setFlags();
         // store move data and target
@@ -209,7 +199,6 @@ export class RaidMove {
             damage: this._damage,
             drain: this._drain,
             healing: this._healing,
-            eot: this._eot,
             desc: this._desc,
             flags: this._flags,
             causesFlinch: this._causesFlinch,
@@ -233,7 +222,6 @@ export class RaidMove {
         this._damageRolls = [[],[],[],[],[]];
         this._drain = [0,0,0,0,0];
         this._healing = [0,0,0,0,0];
-        this._eot = [undefined, undefined, undefined, undefined];
         this._desc = ['','','','',''];
         this._flags=[[],[],[],[],[]];
     }
@@ -1400,7 +1388,6 @@ export class RaidMove {
                             this._raidState.applyStatus(target.id, "psn", this.userID, true, false, this.options.roll);
                             break;
                         case "White Herb":
-                        // Status-Curing Berries
                         case "Cheri Berry":
                         case "Chesto Berry":
                         case "Pecha Berry":
@@ -1408,7 +1395,6 @@ export class RaidMove {
                         case "Aspear Berry":
                         case "Lum Berry":
                         case "Persim Berry": 
-                        // Stat-Boosting Berries
                         case "Liechi Berry":
                         case "Kee Berry":
                         case "Ganlon Berry":
@@ -1419,10 +1405,8 @@ export class RaidMove {
                         case "Starf Berry":
                         case "Lansat Berry":
                         case "Micle Berry":
-                        // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                         case "Sitrus Berry":
                         case "Oran Berry":
-                        // Other
                         case "Mental Herb":
                             this._raidState.consumeItem(this._targetID, this._flingItem, false);
                             break;
@@ -1548,6 +1532,9 @@ export class RaidMove {
             case "Ingrain":
                 this._user.isIngrain = true;
                 break;
+            case "Smack Down":
+                target.isSmackDown = true;
+                break;
             case "Focus Energy":
                 if (!this._user.isPumped) {
                     this._user.isPumped = 2;
@@ -1646,44 +1633,6 @@ export class RaidMove {
         if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
             this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
             this._user.isChoiceLocked = true;
-        }
-    }
-
-    public applyEndOfTurnEffects() {
-        /// Ability-related effects that occur
-        // Hydration
-        if (!this.movesFirst && this._raiders[0].field.hasWeather("Rain")) {
-            if (this._user.hasAbility("Hydration")) {
-                this._user.status = "";
-            }
-            if (this._raiders[0].hasAbility("Hydration")) {
-                this._user.status = "";
-            }
-        }
-    }
-
-    private setEndOfTurnDamage() {
-        // getEndOfTurn() calculates damage for a defending pokemon. 
-        // Here, we'll evaluate end-of-turn damage for both the user and boss only when the move does not go first
-        // positive eot indicates healing
-        if (!this.movesFirst && !this.isBossAction) {
-            const raider = this._raiders[this.raiderID];
-            const boss = this._raiders[0];
-            const raider_eot = getEndOfTurn(gen, boss, raider, dummyMove, this.getMoveField(0, this.raiderID));
-            const boss_eot = getEndOfTurn(gen, raider, boss, dummyMove, this.getMoveField(this.raiderID, 0));
-            raider_eot.damage = raider_eot.damage / ((raider.bossMultiplier || 100) / 100);
-            boss_eot.damage = absoluteFloor(boss_eot.damage / ((boss.bossMultiplier || 100) / 100));
-            this._eot[this.raiderID] = raider_eot;
-            this._eot[0] = boss_eot;
-        }
-    }
-
-    private applyEndOfTurnDamage() {
-        if (!this.isBossAction) {
-            for (let i=0; i<5; i++) {
-                const damage = this._eot[i] ? -this._eot[i]!.damage : 0;
-                this._raidState.applyDamage(i, damage);
-            }
         }
     }
 

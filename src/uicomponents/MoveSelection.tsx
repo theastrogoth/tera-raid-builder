@@ -25,9 +25,9 @@ import { styled } from '@mui/material/styles';
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
+import { MoveData, RaidMoveInfo, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import { getPokemonSpriteURL, arraysEqual, getTranslation, shallowEqual, getSelectableTargets } from "../utils";
+import { getPokemonSpriteURL, arraysEqual, getTranslation, getSelectableTargets } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
@@ -505,7 +505,6 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
     {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], translationKey: any}) 
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
-    const isBossAction = groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)";
     const moveSet = ["(No Move)", "(Most Damaging)", "(Optimal Move)", ...selectableMoves, "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
 
     const moveName = moveInfo.moveData.name;

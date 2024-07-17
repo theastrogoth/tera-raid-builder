@@ -2,7 +2,7 @@ import { Field, Generations, Pokemon, StatsTable } from "../calc";
 import { Raider } from "./Raider";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
-import { AbilityName, ItemName, MoveName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
+import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
 import persistentAbilities from "../data/persistent_abilities.json"
 import { hasNoStatus, pokemonIsGrounded } from "./util";
 
@@ -1367,6 +1367,12 @@ export class RaidState implements State.RaidState{
         pokemon.abilityNullified = undefined;
         pokemon.moveRepeated = undefined;
         pokemon.isChoiceLocked = false;
+        pokemon.isSaltCure = false;
+        pokemon.usedBoosterEnergy = false;
+        pokemon.boostedStat = undefined;
+        pokemon.isIngrain = false;
+        pokemon.isSmackDown = false;
+        pokemon.stockpile = 0;
         pokemon.isEncore = 0;
         pokemon.isTorment = false;
         pokemon.isDisable = 0;

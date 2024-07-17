@@ -33,16 +33,6 @@ function stratDexEntryToOption(options: StratOption[], index: number, boss: stri
     import(`../data/strats/${stratpath}.json`)
     .then((module) => {
         const info = module as LightBuildInfo;
-        const raiders = info.pokemon.slice(1).map(p => p.name);
-        const substitutes = info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [];
-        const moves = [
-            ...info.turns.map(t => t.moveInfo.name),
-            ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
-        ].filter(m => m !== undefined && m !== "(No Move)") as string[];
-        const abilities = [
-            ...info.pokemon.slice(1).map(p => p.ability),
-            ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.ability).flat()).flat() : [])
-        ].filter(a => a !== undefined && a !== "(No Ability)") as string[];
         const option = {
             name: stratname,
             boss: boss,

@@ -448,7 +448,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const randomStatBoosts = turnState.raiders.map((raider) => raider.randomBoosts || 0);
     const effectiveSpeeds = turnState.raiders.map((raider) => {
         const effectiveSpeed = getModifiedSpeed(raider);
-        return (effectiveSpeed === raider.stats.spe) ? undefined : effectiveSpeed;
+        return (effectiveSpeed === results.turnZeroState.raiders[raider.id].stats.spe) ? undefined : effectiveSpeed;
     });
     const getModifiers = (raider: Raider): Modifiers => {
         return {

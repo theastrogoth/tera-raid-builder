@@ -90,6 +90,8 @@ export class Pokemon extends A.Pokemon {
       curHP?: number;
       ivs?: Partial<I.StatsTable> & {spc?: number};
       evs?: Partial<I.StatsTable> & {spc?: number};
+      rawStats?: I.StatsTable;
+      stats?: I.StatsTable;
       boosts?: Partial<I.StatsTable> & {spc?: number};
     } = {}
   ) {

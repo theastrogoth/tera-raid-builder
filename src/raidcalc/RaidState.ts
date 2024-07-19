@@ -1325,25 +1325,23 @@ export class RaidState implements State.RaidState{
         pokemon.field.attackerSide.isAtkCheered = 0;
         pokemon.field.attackerSide.isDefCheered = 0;
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
-        if ((pokemon.isTransformed || pokemon.isChangedForm) && pokemon.originalSpecies) {
-            const originalSpecies = new Pokemon(9, pokemon.originalSpecies, {
-                ivs: pokemon.ivs,
-                evs: pokemon.evs,
-                nature: pokemon.nature,
-                statMultipliers: pokemon.statMultipliers,
-            });
-            pokemon.name = originalSpecies.name;
-            pokemon.species = originalSpecies.species;
-            pokemon.weightkg = originalSpecies.weightkg;
-            pokemon.stats = originalSpecies.stats;
-            pokemon.rawStats = originalSpecies.rawStats;
-            pokemon.isTransformed = false;
-            pokemon.isChangedForm = false;
-            pokemon.originalAbility = pokemon.originalFormAbility as AbilityName;
-            if (pokemon.originalMoves) {
-                pokemon.moveData = pokemon.originalMoves;
-                pokemon.moves = pokemon.originalMoves.map(m => m.name);
-            }
+        const originalSpecies = new Pokemon(9, pokemon.originalSpecies || pokemon.name, {
+            ivs: pokemon.ivs,
+            evs: pokemon.evs,
+            nature: pokemon.nature,
+            statMultipliers: pokemon.statMultipliers,
+        });
+        pokemon.name = originalSpecies.name;
+        pokemon.species = originalSpecies.species;
+        pokemon.weightkg = originalSpecies.weightkg;
+        pokemon.stats = originalSpecies.stats;
+        pokemon.rawStats = originalSpecies.rawStats;
+        pokemon.isTransformed = false;
+        pokemon.isChangedForm = false;
+        pokemon.originalAbility = pokemon.originalFormAbility as AbilityName;
+        if (pokemon.originalMoves) {
+            pokemon.moveData = pokemon.originalMoves;
+            pokemon.moves = pokemon.originalMoves.map(m => m.name);
         }
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;
@@ -1421,6 +1419,8 @@ export class RaidState implements State.RaidState{
                     pokemon.name as SpeciesName,
                     {
                         ...pokemon,
+                        rawStats: undefined,
+                        stats: undefined,
                         statMultipliers: {
                             hp: 1.5,
                             atk: 1.2,

@@ -192,7 +192,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].state.raiders[1].item).toEqual(undefined); // consumed
     // T4 Sturdy activates, Grassy Terrain heals 1HP
     expect(result.turnResults[3].results[0].state.raiders[1].originalCurHP).toEqual(1); // Sturdy activates for the last time
-    expect(result.turnResults[3].results[1].state.raiders[1].originalCurHP).toEqual(2); // Grassy Terrain Healing
+    expect(result.turnResults[3].state.raiders[1].originalCurHP).toEqual(2); // Grassy Terrain Healing
     expect(result.turnResults[3].state.raiders[1].item).toEqual(undefined); // no more berries are passed
     // T5 No more berries, KOd
     expect(result.turnResults[4].state.raiders[1].originalCurHP).toEqual(0); // KO
@@ -219,9 +219,9 @@ describe('Specific Test Cases', () => {
     // T0: Mirror Herb copies Growth, Weakness Policy passed
     expect(result.turnResults[0].state.raiders[1].boosts.spa).toEqual(1);
     expect(result.turnResults[0].state.raiders[1].item).toEqual("Weakness Policy");
-    // T5: Oranguru is targeted when using instruct, heals from Grassy Terrain after instruct instead of Qwilfish
+    // T5: Oranguru is targeted when using instruct, everyone healed by Grassy Terrain
     expect(result.turnResults[4].results[0].desc[4].includes("Def Oranguru")).toEqual(true);
-    expect(result.turnResults[4].results[1].flags[4].join().includes("HP")).toEqual(true);
+    expect(result.turnResults[4].endFlags.every((flags) => flags.includes("Grassy Terrain"))).toEqual(true);
   })
   test('fling_symbiosis', async() => {
     const hash = "#H4sIAAAAAAAAA71UUU/bMBD+K5GfhhRpbdNCx1sLY3SDgeimSYv64CSXxqtjR7bTUiH++85OUpJqEhESE5U5O3f3fffd2U8kJeck/qOlID4x5DwMBz4RNAey8q3JktqIFTPooiGWIqFq/zlNITYaj5Tk3DoNfVJqUItLm4mqNRhnysIwKbT1GPlkrWRZ4Gkut7AQqUQzklrfNtsqj5AGbOpYQcIcSCE3kFckSyXsicuka3aZzUnNBtcEUsuzoG5N3Ao1OlIFUteH/hHjzOzRYgZyd47J7RfYWgTmVg5b4BYXFP2xL6AmrxvmJTes4AyUjXs0it66r6uVT7bk/Imgpqc+WbKcUeEtM7lL5M7Wgb+LTLFHzPvRGpgwdN5THwt6oCzx5pgf3R4Y5zSS0lL8oqjWe29Zor7EFyXnPvmKDcAqXPAZBh/+Vs/NYTA8+uGn4QBxvkuVUywvJJeqzL05UMPEGoFmsZIRbmLLYC4TxOTUMriRO+8bizcoaTDBFCFykjuTOTeZR6XSdlDmJd94PwvUoSYx9bGx98jeKUG69ofv0ptV7TjB7S+gGwFae/eSs9h2aJbQnArTqnI0GdV1ovV6pU6qkFxwqcG7QJ7U1Li2XydYjfUKW3RxXu4UFetSlaRjLvd5xKS2HcMWShaDN6cicQLw5EDxhWCvVtQEF0IbVcbmH4QClEEIljFO3Rh2NkcK/sZWeDfgbsqxdm8jtsTLCHH2imhj7KtiOVSkWuYRvyscJvDuVIT2Ii+Yzo7oNSTHvQle8Wpyr4EXaHnXticvDFf19Zr4dYTbjdvl4IQOquPATynXUK8kZ4JghudDTDPyAwypA7BrUC0kp4/OvQmYoFcH8hJSbA3OYQb23Rj1he3e0b7goy54rdO4L2j7JegLeUiO8YfBCd4TMWghzoyh8aZRt3dT3wJ71viNjwYPJRi+H+xpC/b/6DttIR7eKByt4D0n91N3cruPd+++ti74a8D4SOCnMf6zGp/50xW+HM9/AQVx5XgmCQAA";

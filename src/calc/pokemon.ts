@@ -71,6 +71,8 @@ export class Pokemon implements State.Pokemon {
       ivs?: Partial<I.StatsTable> & {spc?: number};
       evs?: Partial<I.StatsTable> & {spc?: number};
       boosts?: Partial<I.StatsTable> & {spc?: number};
+      rawStats?: I.StatsTable;
+      stats?: I.StatsTable;
       statMultipliers?: Partial<I.StatsTable> & {spc?: number};
     } = {}
   ) {
@@ -130,12 +132,14 @@ export class Pokemon implements State.Pokemon {
       );
     }
 
+    const rawStatsProvided = !!options.rawStats;
+    const statsProvided = !!options.stats;
     this.rawStats = {} as I.StatsTable;
     this.stats = {} as I.StatsTable;
     for (const stat of STATS) {
       const val = this.calcStat(gen, stat);
-      this.rawStats[stat] = stat === "hp" ? ~~val*this.bossMultiplier/100 : val;
-      this.stats[stat] =  stat === "hp" ? ~~val*this.bossMultiplier/100 : val;
+      this.rawStats[stat] = rawStatsProvided ? options.rawStats![stat]! : ( stat === "hp" ? ~~val*this.bossMultiplier/100 : val);
+      this.stats[stat] =  statsProvided ? options.stats![stat]! : (stat === "hp" ? ~~val*this.bossMultiplier/100 : val);
     }
 
     const curHP = options.curHP || options.originalCurHP;
@@ -218,6 +222,7 @@ export class Pokemon implements State.Pokemon {
       item: this.item,
       gender: this.gender,
       nature: this.nature,
+      stats: this.stats,
       ivs: extend(true, {}, this.ivs),
       evs: extend(true, {}, this.evs),
       boosts: extend(true, {}, this.boosts),

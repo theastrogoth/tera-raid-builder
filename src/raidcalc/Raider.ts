@@ -390,7 +390,7 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public changeForm(formName: SpeciesName) {
-        const newForm = new Pokemon(gen, formName, {level: this.level, ivs: this.ivs, evs: this.evs, nature: this.nature});
+        const newForm = new Pokemon(gen, formName, {level: this.level, ivs: this.ivs, evs: this.evs, nature: this.nature, bossMultiplier: this.bossMultiplier});
         // make the form change revertable on fainting
         this.isChangedForm = true;
         this.originalSpecies = this.name;

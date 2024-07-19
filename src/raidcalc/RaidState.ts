@@ -1330,6 +1330,7 @@ export class RaidState implements State.RaidState{
             evs: pokemon.evs,
             nature: pokemon.nature,
             statMultipliers: pokemon.statMultipliers,
+            bossMultiplier: pokemon.bossMultiplier,
         });
         pokemon.name = originalSpecies.name;
         pokemon.species = originalSpecies.species;

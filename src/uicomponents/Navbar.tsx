@@ -74,9 +74,9 @@ function LanguageMenuButton({language, setLanguage, anchorEl, handleClick, handl
             }}
         >
             {
-                Object.keys(LANGUAGE_NAMES).map((key) => {
+                Object.keys(LANGUAGE_NAMES).map((key, idx) => {
                     return (
-                        <MenuItem onClick={() => {setLanguage(key as LanguageOption); handleClose()}}>{LANGUAGE_NAMES[key as LanguageOption]}</MenuItem>
+                        <MenuItem key={idx} onClick={() => {setLanguage(key as LanguageOption); handleClose()}}>{LANGUAGE_NAMES[key as LanguageOption]}</MenuItem>
                     )
                 })
             }

@@ -866,16 +866,6 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
     
     return (
         <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2, paddingTop: "5px", paddingBottom: "5px"}}>
-            {/* <Button 
-                variant="contained" 
-                size="small" 
-                color="secondary"
-                sx={{ minWidth: "100px", height: "25px", fontWeight: "normal",}} 
-                disabled={alreadyOptimized(raidInputProps.groups)}
-                onClick={handleOpen}
-            >
-                {getTranslation("Optimize Boss Moves", translationKey)}
-            </Button> */}
             <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
                 <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >
                     { getTranslation("Optimize Boss Moves", translationKey) }

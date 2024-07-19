@@ -80,6 +80,7 @@ type Modifiers = {
     substituteHP?: number,
     wideGuard?: boolean,
     quickGuard?: boolean,
+    minimized?: boolean,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -477,6 +478,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "substituteHP": raider.substitute,
             "wideGuard": raider.field.attackerSide.isWideGuard,
             "quickGuard": raider.field.attackerSide.isQuickGuard,
+            "minimized": raider.isMinimize,
         }
     }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));

@@ -26,6 +26,52 @@ export type RaidMoveResult= {
 }
 
 const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
+const ignoredVolatileStatuses = [
+    "banefulbunker",
+    "burningbulwark",
+    "charge",
+    "defensecurl",
+    "destinybond",
+    "protect",
+    "dragoncheer",
+    "electrify",
+    "embargo",
+    "endure",
+    "flinch",
+    "focusenergy",
+    "followme",
+    "foresight",
+    "gastroacid",
+    "grudge",
+    "helpinghand",
+    "partiallytrapped",
+    "imprison",
+    "kingsshield",
+    "laserfocus",
+    "magiccoat",
+    "maxguard",
+    "minimize",
+    "miracleeye",
+    "nightmare",
+    "noretreat",
+    "obstruct",
+    "octolock",
+    "no-type-immunity",
+    "powder",
+    "powershift",
+    "powertrick",
+    "protect",
+    "ragepowder",
+    "substitute",
+    "silktrap",
+    "smackdown",
+    "snatch",
+    "sparklingaria",
+    "spikyshield",
+    "spotlight",
+    "syrupbomb",
+    "telekinesis",
+]
 
 const healCheerRoll = Array.from(Array(16).keys()).map((i) => (0.2 + 0.8 * i/15));
 
@@ -826,6 +872,10 @@ export class RaidMove {
                         case "Obstruct":
                             this._raidState.applyStatChange(this.userID, {def: -2});
                             break;
+                        case "Silk Trap": {
+                            this._raidState.applyStatChange(this.userID, {spe: -1});
+                            break;
+                        }
                         default: break;
                     }
                 }   
@@ -1680,7 +1730,15 @@ export class RaidMove {
                         this._flags[i].push(" fell for the taunt!");
                     } else if (vStat === "yawn") {
                         this._flags[i].push(" is getting drowsy...");
-                    } else {
+                    } else if (vStat === "aquaring") {
+                        // TO DO
+                    } else if (vStat === "leech-seed") {
+                        // TO DO
+                    } else if (vStat === "magnetrise") {
+                        // TO DO
+                    } else if (vStat === "tarshot") {
+                        // TO DO
+                    } else if (!ignoredVolatileStatuses.includes(vStat)) {
                         this._flags[i].push(vStat + " inflicted")
                     }
                 }

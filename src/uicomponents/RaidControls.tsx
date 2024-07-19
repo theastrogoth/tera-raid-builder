@@ -84,6 +84,7 @@ type Modifiers = {
     quickGuard?: boolean,
     hitsTaken?: number,
     timesFainted?: number,
+    minimized?: boolean,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -492,6 +493,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "quickGuard": raider.field.attackerSide.isQuickGuard,
             "hitsTaken": raider.moves.includes("Rage Fist" as MoveName) ? raider.hitsTaken : undefined,
             "timesFainted": (raider.moves.includes("Last Respects" as MoveName) || raider.ability === "Supreme Overlord") ? raider.timesFainted : undefined,
+            "minimized": raider.isMinimize,
         }
     }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));

@@ -617,7 +617,8 @@ export class RaidTurn {
     }
 
     private applyEndOfTurnAbilityEffects() {
-        for (const pokemon of this._raidState.raiders) {
+        for (const id of [0, this.raiderID]) {
+            const pokemon =  this._raidState.raiders[id];
             // things that happen at the end of each move for raiders
             if (!pokemon.abilityNullified && (pokemon.id !== 0 || this._isEndOfFullTurn) && (pokemon.originalCurHP > 0)) {
                 switch (pokemon.ability) {

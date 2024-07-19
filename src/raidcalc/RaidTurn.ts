@@ -258,14 +258,6 @@ export class RaidTurn {
                 this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
                 // remove protect / wide guard / quick guard effects
                 this.countDownFieldEffects();
-                // Ability effects that trigger at the end of the turn
-                if (this._raidState.raiders[this.raiderID].hasAbility("Hunger Switch") && this._raidState.raiders[this.raiderID].name.includes("Morpeko")) {
-                    if (this._raidState.raiders[this.raiderID].species.name === "Morpeko") {
-                        this._raidState.raiders[this.raiderID].changeForm("Morpeko-Hangry" as SpeciesName);
-                    } else {
-                        this._raidState.raiders[this.raiderID].changeForm("Morpeko" as SpeciesName);
-                    }
-                }
                 // Syrup Bomb speed drops
                 for (let i of [0, this.raiderID]) {
                     const pokemon = this._raidState.getPokemon(i);
@@ -568,21 +560,20 @@ export class RaidTurn {
     }
 
     private applyEndOfTurnItemEffects() {
-        for (let id of [0, this.raiderID]) {
-            const pokemon = this._raidState.raiders[id];
+        for (const pokemon of this._raidState.raiders) {
             // Ailment-inducing Items
-            if (pokemon.status === undefined || pokemon.status === "") {
+            if (this._isEndOfFullTurn && (pokemon.status === undefined || pokemon.status === "")) {
                 switch (pokemon.item) {
                     case "Flame Orb":
-                        this._raidState.applyStatus(id, "brn", id, false, true);
+                        this._raidState.applyStatus(pokemon.id, "brn", pokemon.id, false, true);
                         if (pokemon.status as StatusName === "brn") {
-                            this._result2.flags[id].push("brn inflicted");
+                            this._result2.flags[pokemon.id].push("brn inflicted");
                         }
                         break;
                     case "Toxic Orb":
-                        this._raidState.applyStatus(id, "tox", id, false, true);
+                        this._raidState.applyStatus(pokemon.id, "tox", pokemon.id, false, true);
                         if (pokemon.status as StatusName === "tox") {
-                            this._result2.flags[id].push("tox inflicted");
+                            this._result2.flags[pokemon.id].push("tox inflicted");
                         }
                         break;
                     default: break
@@ -627,7 +618,8 @@ export class RaidTurn {
 
     private applyEndOfTurnAbilityEffects() {
         for (const pokemon of this._raidState.raiders) {
-            if (this._isEndOfFullTurn && (pokemon.originalCurHP > 0)) {
+            // things that happen at the end of each move for raiders
+            if (!pokemon.abilityNullified && (pokemon.id !== 0 || this._isEndOfFullTurn) && (pokemon.originalCurHP > 0)) {
                 switch (pokemon.ability) {
                     case "Speed Boost":
                         const origSpe = pokemon.boosts.spe || 0;
@@ -638,6 +630,28 @@ export class RaidTurn {
                         pokemon.randomBoosts += 1;
                         this._endFlags.push(pokemon.role + " — Moody boosts one stat by two and lowers another by one");
                         break;
+                    case "Slow Start": 
+                        if (pokemon.slowStartCounter) {
+                            pokemon.slowStartCounter--;
+                            if (pokemon.slowStartCounter === 0) {
+                                pokemon.abilityOn = false;
+                                this._endFlags.push(pokemon.role + " — Slow Start ended");
+                            }
+                        }
+                        break;
+                    case "Hunger Switch":
+                        if (this._raidState.raiders[this.raiderID].species.name === "Morpeko") {
+                            this._raidState.raiders[this.raiderID].changeForm("Morpeko-Hangry" as SpeciesName);
+                        } else if (this._raidState.raiders[this.raiderID].species.name === "Morpeko-Hangry") {
+                            this._raidState.raiders[this.raiderID].changeForm("Morpeko" as SpeciesName);
+                        }
+                        break;
+                    default: break;
+                }
+            }
+            // things that happen at the end of 4-move turns
+            if (!pokemon.abilityNullified && this._isEndOfFullTurn && pokemon.originalCurHP > 0) {
+                switch (pokemon.ability) {
                     case "Hydration":
                         pokemon.status = "";
                         break;
@@ -653,15 +667,6 @@ export class RaidTurn {
                             if (pokemon.isCudChew === 0 && (pokemon.lastConsumedItem || "").includes("Berry")) {
                                 this._raidState.consumeItem(pokemon.id, pokemon.lastConsumedItem!, false);
                                 this._endFlags.push(pokemon.role + " — " + pokemon.lastConsumedItem + " consumed via Cud Chew");
-                            }
-                        }
-                        break;
-                    case "Slow Start": 
-                        if (pokemon.slowStartCounter) {
-                            pokemon.slowStartCounter--;
-                            if (pokemon.slowStartCounter === 0) {
-                                pokemon.abilityOn = false;
-                                this._endFlags.push(pokemon.role + " — Slow Start ended");
                             }
                         }
                         break;

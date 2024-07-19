@@ -621,15 +621,6 @@ export class RaidTurn {
             // things that happen at the end of each move for raiders
             if (!pokemon.abilityNullified && (pokemon.id !== 0 || this._isEndOfFullTurn) && (pokemon.originalCurHP > 0)) {
                 switch (pokemon.ability) {
-                    case "Speed Boost":
-                        const origSpe = pokemon.boosts.spe || 0;
-                        this._raidState.applyStatChange(pokemon.id, {"spe": 1}, true, pokemon.id, false);
-                        this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
-                        break;
-                    case "Moody":
-                        pokemon.randomBoosts += 1;
-                        this._endFlags.push(pokemon.role + " — Moody boosts one stat by two and lowers another by one");
-                        break;
                     case "Slow Start": 
                         if (pokemon.slowStartCounter) {
                             pokemon.slowStartCounter--;
@@ -652,6 +643,19 @@ export class RaidTurn {
             // things that happen at the end of 4-move turns
             if (!pokemon.abilityNullified && this._isEndOfFullTurn && pokemon.originalCurHP > 0) {
                 switch (pokemon.ability) {
+                    case "Speed Boost":
+                        if (pokemon.lastMove) {
+                            const origSpe = pokemon.boosts.spe || 0;
+                            this._raidState.applyStatChange(pokemon.id, {"spe": 1}, true, pokemon.id, false);
+                            this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Speed Boost)");
+                        }
+                        break;
+                    case "Moody":
+                        if (pokemon.lastMove) {
+                            pokemon.randomBoosts += 1;
+                            this._endFlags.push(pokemon.role + " — Moody boosts one stat by two and lowers another by one");
+                        }
+                        break;
                     case "Hydration":
                         pokemon.status = "";
                         break;

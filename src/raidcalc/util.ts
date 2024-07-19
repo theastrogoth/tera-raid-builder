@@ -382,6 +382,9 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
         if (pokemon.isThroatChop) {
             selectableMoves = selectableMoves.filter(m => !(m.isSound))
         }
+        if (pokemon.item === "Assault Vest") {
+            selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
+        }
     }
     return selectableMoves.map(m => m.name);
 }

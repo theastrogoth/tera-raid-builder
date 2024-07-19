@@ -617,9 +617,9 @@ export class RaidTurn {
     }
 
     private applyEndOfTurnAbilityEffects() {
+        // things that happen at the end of each move for raiders
         for (const id of [0, this.raiderID]) {
             const pokemon =  this._raidState.raiders[id];
-            // things that happen at the end of each move for raiders
             if (!pokemon.abilityNullified && (pokemon.id !== 0 || this._isEndOfFullTurn) && (pokemon.originalCurHP > 0)) {
                 switch (pokemon.ability) {
                     case "Slow Start": 
@@ -641,7 +641,9 @@ export class RaidTurn {
                     default: break;
                 }
             }
-            // things that happen at the end of 4-move turns
+        }
+        // things that happen at the end of 4-move turns
+        for (const pokemon of this._raidState.raiders) {
             if (!pokemon.abilityNullified && this._isEndOfFullTurn && pokemon.originalCurHP > 0) {
                 switch (pokemon.ability) {
                     case "Speed Boost":

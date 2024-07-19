@@ -1560,6 +1560,11 @@ export class RaidMove {
                 this._user.stats.atk = this._user.stats.def;
                 this._user.stats.def = tempAtk;
                 break;
+            case "Speed Swap":
+                const tempSpe = this._user.stats.spe;
+                this._user.stats.spe = target.stats.spe;
+                target.stats.spe = tempSpe;
+                break;
             case "Topsy-Turvy": 
                 for (let stat in target.boosts) {
                     target.boosts[stat as StatIDExceptHP] = -(target.boosts[stat as StatIDExceptHP] || 0);

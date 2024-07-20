@@ -1297,6 +1297,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     item: newProps.item,
                     ivs: newProps.ivs,
                     evs: newProps.evs,
+                    moves: newProps.moves,
                     shieldData: newProps.shieldData,
                 }), 
                 newProps.moveData,
@@ -1324,6 +1325,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     item: newProps.item,
                     ivs: newProps.ivs,
                     evs: newProps.evs,
+                    moves: newProps.moves,
                     shieldData: newProps.shieldData,
                 }), 
                 newProps.moveData,
@@ -1865,10 +1867,29 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
 {
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
-            const newPokemon = pokemon.clone();
-            // @ts-ignore
-            newPokemon[propName] = val;
-            setPokemon(newPokemon.clone())
+            const newProps = {...pokemon, [propName]: val};
+            setPokemon(new Raider(
+                newProps.id, 
+                newProps.role, 
+                newProps.shiny, 
+                newProps.isAnyLevel,
+                newProps.field, 
+                new Pokemon(gen, newProps.name, {
+                    nature: newProps.nature, 
+                    level: newProps.level,
+                    ability: newProps.ability,
+                    teraType: newProps.teraType,
+                    gender: newProps.gender,
+                    item: newProps.item,
+                    ivs: newProps.ivs,
+                    evs: newProps.evs,
+                    moves: newProps.moves,
+                    shieldData: newProps.shieldData,
+                }), 
+                newProps.moveData,
+                newProps.extraMoves,
+                newProps.extraMoveData
+            ));
         }
     }
 

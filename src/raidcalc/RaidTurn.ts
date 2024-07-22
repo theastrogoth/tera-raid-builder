@@ -25,6 +25,7 @@ export type RaidTurnResult = {
     bossMoveInfo: RaidMoveInfo;
     flags: string[][];
     endFlags: string[];
+    turnNumber: number;
 }
 
 export class RaidTurn {
@@ -333,6 +334,7 @@ export class RaidTurn {
             },
             flags: this._flags,
             endFlags: this._endFlags,
+            turnNumber: this.turnNumber,
         }
 
     }

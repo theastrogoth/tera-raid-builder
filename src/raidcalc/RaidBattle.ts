@@ -82,6 +82,10 @@ export class RaidBattle {
         if (!this._continuing) {
             this._turnResults = [];
         }
+        if (this._continuing) {
+            const previousTurn = this._turnResults[this._turnResults.length - 1];
+            turnCounter = previousTurn.turnNumber + (previousTurn.moveInfo.moveData.name !== "(No Move)" ? 1 : 0);
+        }
         for (let i = 0; i < this.groups.length; i++) {
             const turns = this.groups[i].turns;
             const repeats = this.groups[i].repeats || 1;

@@ -54,7 +54,7 @@ export class Pokemon implements State.Pokemon {
   toxicCounter: number;
   hitsTaken: number;
   timesFainted: number;
-  changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
+  hasExtraType?: boolean;
   // lastMoveFailed: boolean;
 
   moves: I.MoveName[];
@@ -67,6 +67,7 @@ export class Pokemon implements State.Pokemon {
     gen: I.Generation,
     name: string,
     options: Partial<State.Pokemon> & {
+      types?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
       curHP?: number;
       ivs?: Partial<I.StatsTable> & {spc?: number};
       evs?: Partial<I.StatsTable> & {spc?: number};
@@ -80,7 +81,7 @@ export class Pokemon implements State.Pokemon {
 
     this.gen = gen;
     this.name = options.name || name as I.SpeciesName;
-    this.types = options.changedTypes || this.species.types;
+    this.types = options.types || this.species.types;
     this.weightkg = this.species.weightkg;
 
     this.level = options.level || 100;
@@ -149,7 +150,7 @@ export class Pokemon implements State.Pokemon {
     this.toxicCounter = options.toxicCounter || 0;
     this.hitsTaken = options.hitsTaken || 0;
     this.timesFainted = options.timesFainted || 0;
-    this.changedTypes = options.changedTypes;
+    this.hasExtraType = !!options.hasExtraType;
     // this.lastMoveFailed = !!options.lastMoveFailed;
     this.moves = options.moves || [];
     this.abilityNullified = options.abilityNullified;
@@ -241,7 +242,8 @@ export class Pokemon implements State.Pokemon {
       toxicCounter: this.toxicCounter,
       hitsTaken: this.hitsTaken,
       timesFainted: this.timesFainted,
-      changedTypes: this.changedTypes,
+      types: this.types,
+      hasExtraType: this.hasExtraType,
       // lastMoveFailed: this.lastMoveFailed,
       moves: this.moves.slice(),
       abilityNullified: this.abilityNullified,

@@ -48,7 +48,7 @@ export namespace State {
     toxicCounter?: number;
     hitsTaken?: number;
     timesFainted?: number;
-    changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
+    hasExtraType?: boolean;
     // lastMoveFailed?: boolean;
     moves?: I.MoveName[];
     abilityNullified?: number;

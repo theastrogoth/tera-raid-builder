@@ -1377,7 +1377,7 @@ export class RaidState implements State.RaidState{
         pokemon.isDisable = 0;
         pokemon.disabledMove = undefined;
         pokemon.isThroatChop = 0;
-        pokemon.changedTypes = undefined;
+        pokemon.hasExtraType =false;
         pokemon.substitute = undefined;
         pokemon.types = new Pokemon(9, pokemon.name).types;
         pokemon.moveData = pokemon.originalMoves || pokemon.moveData;

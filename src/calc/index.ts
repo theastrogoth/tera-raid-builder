@@ -83,6 +83,7 @@ export class Pokemon extends A.Pokemon {
     gen: I.GenerationNum | I.Generation,
     name: string,
     options: Partial<Omit<State.Pokemon, 'ability' | 'item' | 'nature' | 'moves'>> & {
+      types?: [string] | [string, string] | [string, string, string];
       ability?: string;
       item?: string;
       nature?: string;

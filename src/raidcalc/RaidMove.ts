@@ -632,8 +632,8 @@ export class RaidMove {
         // protean / libero check
         if (this.moveData.name !== "(No Move)" && this.moveData.type && moveUser.hasAbility("Protean", "Libero") && !moveUser.abilityOn && !moveUser.isTera) {
             moveUser.types = [this._moveType];
-            moveUser.changedTypes = [this._moveType];
             moveUser.abilityOn = true;
+            moveUser.hasExtraType = false;
             this._flags[this.userID].push("changed to the " + this._moveType + " type");
         }
         // Electro Shot boost check (with Power Herb or in Rain)
@@ -1354,12 +1354,21 @@ export class RaidMove {
                 break;
         /// Type-affecting moves
             case "Soak":
-                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Water")) {
+                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !(target.types.every(type => type === "Water"))) {
                     target.types = ["Water"];
-                    target.changedTypes = ["Water"];
+                    target.hasExtraType = false;
                     this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — Soak changed " + target.name + "'s type to Water!";
                 } else {
                     this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — Soak failed!";
+                }
+                break;
+            case "Magic Powder":
+                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !(target.types.every(type => type === "Psychic"))) {
+                    target.types = ["Psychic"];
+                    target.hasExtraType = false;
+                    this._desc[target.id] = this._user.name + " Magic Powder vs. " + target.name + " — Magic Powder changed " + target.name + "'s type to Psychic!";
+                } else {
+                    this._desc[target.id] = this._user.name + " Magic Powder vs. " + target.name + " — Magic Powder failed!";
                 }
                 break;
             case "Forest's Curse":
@@ -1369,7 +1378,7 @@ export class RaidMove {
                     } else {
                         target.types.push("Grass");
                     }
-                    target.changedTypes = [...target.types];
+                    target.hasExtraType = true;
                     this._desc[target.id] = this._user.name + " Forest's Curse vs. " + target.name + " — the Grass type was added to " + target.name + "!";
                 } else {
                     this._desc[target.id] = this._user.name + " Forest's Curse vs. " + target.name + " — Forest's Curse failed!";
@@ -1382,7 +1391,7 @@ export class RaidMove {
                     } else {
                         target.types.push("Ghost");
                     }
-                    target.changedTypes = [...target.types];
+                    target.hasExtraType = true;
                     this._desc[target.id] = this._user.name + " Trick-or-Treat vs. " + target.name + " — the Ghost type was added to " + target.name + "!";
                 } else {
                     this._desc[target.id] = this._user.name + " Trick-or-Treat vs. " + target.name + " — Trick-or-Treat failed!";
@@ -1392,18 +1401,18 @@ export class RaidMove {
                 const firstMoveType = this._user.moveData[0].type;
                 if (firstMoveType) {
                     this._user.types = [firstMoveType];
-                    this._user.changedTypes = [firstMoveType];
+                    this._user.hasExtraType = false;
                     this._desc[this.userID] = this._user.name + " Conversion — " + this._user.name + " transformed into the " + firstMoveType.toUpperCase() + " type!";
                 }
                 break;
             case "Reflect Type":
                 if (!target.isTera || (target.teraType !== undefined || target.teraType !== "???")) {
                     this._user.types = [...target.types];
-                    this._user.changedTypes = [...target.types];
+                    this._user.hasExtraType = target.hasExtraType;
                     this._desc[this.userID] = this._user.name + " Reflect Type vs. " + target.name + " — " + this._user.name + "'s types changed to match " + target.name + "'s!";
                 } else {
                     this._user.types = [target.teraType];
-                    this._user.changedTypes = [target.teraType];
+                    this._user.hasExtraType = false;
                 }
                 this._desc[this.userID] = this._user.name + " Reflect Type vs. " + target.name + " — " + this._user.name + "'s type changed to match " + target.name + "'s!";
                 break;

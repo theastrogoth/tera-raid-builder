@@ -211,7 +211,8 @@ export class Raider extends Pokemon implements State.Raider {
                 toxicCounter: this.toxicCounter,
                 hitsTaken: this.hitsTaken,
                 timesFainted: this.timesFainted,
-                changedTypes: this.changedTypes ? [...this.changedTypes] : undefined,
+                types: this.types,
+                hasExtraType: this.hasExtraType,
                 // lastMoveFailed: this.lastMoveFailed,
                 moves: this.moves.slice(),
                 abilityNullified: this.abilityNullified,
@@ -323,6 +324,10 @@ export class Raider extends Pokemon implements State.Raider {
     public activateTera(): boolean {
         if (!this.isTera && this.teraCharge >= 3) {
             this.isTera = true;
+            if (this.hasExtraType && this.types.length > 1) {
+                this.types = this.types.slice(0, this.types.length-1) as ([TypeName] | [TypeName, TypeName]);
+                this.hasExtraType = false;
+            }
             if (this.name.includes("Ogerpon")) {
                 if (this.name === "Ogerpon") {
                     this.teraType = "Grass";
@@ -380,6 +385,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.weightkg = pokemon.weightkg;
         this.rawStats = {...pokemon.rawStats, hp: this.rawStats.hp}; // HP is retained
         this.types = pokemon.types.slice() as [TypeName] | [TypeName, TypeName];
+        this.hasExtraType = pokemon.hasExtraType;
         // copy stats and moves
         this.boosts = {...pokemon.boosts};
         this.moves = pokemon.moves.slice();
@@ -401,6 +407,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.weightkg = newForm.weightkg;
         this.rawStats = {...newForm.rawStats, hp: this.rawStats.hp}; // HP is retained
         this.types = newForm.types.slice() as [TypeName] | [TypeName, TypeName];
+        this.hasExtraType = false;
         // copy stats
         this.stats = {...newForm.stats, hp: this.stats.hp}; // HP is retained
     }

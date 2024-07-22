@@ -5,6 +5,7 @@ import { Raider } from "./Raider";
 import { RaidMove, RaidMoveResult } from "./RaidMove";
 import pranksterMoves from "../data/prankster_moves.json";
 import triageMoves from "../data/triage_moves.json";
+import chargeMoves from "../data/charge_moves.json";
 import { MoveName, SpeciesName, StatusName } from "../calc/data/interface";
 import { absoluteFloor, getSelectableMoves, isRegularMove } from "./util";
 import { getEndOfTurn } from "../calc/desc";
@@ -453,7 +454,7 @@ export class RaidTurn {
         // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
         // Instruct
         if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
-            if (!this.raidState.raiders[this.targetID].isCharging && !this.raidState.raiders[this.targetID].isRecharging) {
+            if (!this.raidState.raiders[this.targetID].isCharging && !this.raidState.raiders[this.targetID].isRecharging && !chargeMoves.includes(this.raidState.raiders[this.targetID].lastMove?.name || "")) {
                 this._instructed = true;
                 this._raiderMoveID = this.targetID;
                 this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;

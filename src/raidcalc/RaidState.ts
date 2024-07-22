@@ -1335,6 +1335,7 @@ export class RaidState implements State.RaidState{
         pokemon.name = originalSpecies.name;
         pokemon.species = originalSpecies.species;
         pokemon.weightkg = originalSpecies.weightkg;
+        pokemon.types = originalSpecies.types;
         pokemon.stats = originalSpecies.stats;
         pokemon.rawStats = originalSpecies.rawStats;
         pokemon.isTransformed = false;
@@ -1379,7 +1380,6 @@ export class RaidState implements State.RaidState{
         pokemon.isThroatChop = 0;
         pokemon.hasExtraType =false;
         pokemon.substitute = undefined;
-        pokemon.types = new Pokemon(9, pokemon.name).types;
         pokemon.moveData = pokemon.originalMoves || pokemon.moveData;
         pokemon.moves = pokemon.moveData.map(m => m.name);
         

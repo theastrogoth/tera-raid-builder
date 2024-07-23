@@ -767,8 +767,9 @@ export class RaidMove {
                                         case "Tangling Hair":
                                             this._raidState.applyStatChange(this.userID, {spe: -1});
                                             break;
+                                        // Guessing NoReceiver
                                         case "Wandering Spirit":
-                                            if (!persistentAbilities["unreplaceable"].includes(this._user.ability as AbilityName)) {
+                                            if (!persistentAbilities["NoReceiver"].includes(this._user.ability as AbilityName)) {
                                                 target.ability = this._user.ability;
                                                 this._user.ability = "Wandering Spirit" as AbilityName;
                                             }
@@ -781,11 +782,12 @@ export class RaidMove {
                                                 this._raidState.recieveItem(this._targetID, item);
                                             }
                                             break;
+                                        // Guessing NoReceiver
                                         case "Mummy":
                                         case "Lingering Aroma":
                                             if (!this._user.hasItem("Ability Shield") && 
                                                 !(!this._user.abilityNullified && (
-                                                    this._user.hasAbility("Lingering Aroma","Mummy") || persistentAbilities.unreplaceable.includes(this._user.ability || "")
+                                                    this._user.hasAbility("Lingering Aroma","Mummy") || persistentAbilities["NoReceiver"].includes(this._user.ability || "")
                                                 ))) {
                                                 this._raidState.changeAbility(this._user.id, target.ability!)
                                             }
@@ -1263,10 +1265,8 @@ export class RaidMove {
                     !this._user.abilityNullified && !target.abilityNullified &&
                     !this._user.hasItem("Ability Shield") && 
                     !target.hasItem("Ability Shield") &&
-                    !persistentAbilities["uncopyable"].includes(user_ability) &&
-                    !persistentAbilities["uncopyable"].includes(target_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(user_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["FailSkillSwap"].includes(user_ability) &&
+                    !persistentAbilities["FailSkillSwap"].includes(target_ability)
                 ) {
                     const tempUserAbility = user_ability;
                     this._raidState.changeAbility(this.userID, target_ability);
@@ -1278,7 +1278,7 @@ export class RaidMove {
             case "Core Enforcer":
             case "Gastro Acid":
                 if (
-                    !persistentAbilities["unsuppressable"].includes(target_ability) &&
+                    !persistentAbilities["CantSuppress"].includes(target_ability) &&
                     !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.removeAbilityFieldEffect(target.id, target.ability);
@@ -1289,8 +1289,7 @@ export class RaidMove {
                 break;
             case "Entrainment":
                 if (
-                    !persistentAbilities["uncopyable"].includes(user_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability) &&
+                    !persistentAbilities["NoEntrain"].includes(user_ability) &&
                     !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this._targetID, user_ability);
@@ -1298,10 +1297,11 @@ export class RaidMove {
                     this._desc[this._targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
+            // Worry Seed is weird, using FailSkillSwap as an approximation
             case "Worry Seed":
                 if (
-                    !target.hasItem("Ability Shield") &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["FailSkillSwap"].includes(target_ability) &&
+                    !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this._targetID, "Insomnia" as AbilityName);
                 } else {
@@ -1311,19 +1311,19 @@ export class RaidMove {
             case "Role Play":
                 if (
                     !target.abilityNullified &&
-                    !this._user.hasItem("Ability Shield") &&
-                    !persistentAbilities["uncopyable"].includes(target_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(user_ability)
+                    !persistentAbilities["FailRolePlay"].includes(target_ability) &&
+                    !this._user.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this.userID, target_ability);
                 } else {
                     this._desc[this._targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
+            // Using CantSuppress as a guess
             case "Simple Beam":
                 if (
-                    !target.hasItem("Ability Shield") && 
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["CantSuppress"].includes(target_ability) &&
+                    !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this._targetID, "Simple" as AbilityName);
                 } else {
@@ -1333,18 +1333,19 @@ export class RaidMove {
             case "Minimize":
                 this._user.isMinimize = true;
                 break;
+            // Using FailRolePlay/NoReceiver as a guess
             case "Doodle":
-                if (!this._user.hasItem("Ability Shield") &&
-                    !persistentAbilities["uncopyable"].includes(target_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(user_ability)) 
-                {           
+                if (
+                    !persistentAbilities["NoReceiver"].includes(target_ability) &&
+                    !this._user.hasItem("Ability Shield")
+                ) {           
                     this._raidState.changeAbility(this.userID, target_ability);
                     if (this.userID !== 0) {
                         for (let i=1; i<5; i++) {
                             const pokemon = this.getPokemon(i);
                             if (i !== this.userID &&
                                 !pokemon.hasItem("Ability Shield") &&
-                                !persistentAbilities["unreplaceable"].includes(pokemon.ability || ""))
+                                !persistentAbilities["NoReceiver"].includes(pokemon.ability || ""))
                             {
                                 this._raidState.changeAbility(i, target_ability);
                             }

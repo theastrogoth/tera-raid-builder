@@ -820,9 +820,9 @@ export class RaidState implements State.RaidState{
         const pokemon = this.getPokemon(id);
         if (pokemon.hasItem("Ability Shield")) { return; }
         if (ability === "(No Ability)") {
-            if (persistentAbilities.unsuppressable.includes(pokemon.ability || "")) { return; }
+            if (persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
         } else {
-            if (persistentAbilities.unreplaceable.includes(pokemon.ability || "")) { return; }
+            if (persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
         }
         const oldAbility = pokemon.ability;
         pokemon.ability = ability as AbilityName;
@@ -867,7 +867,7 @@ export class RaidState implements State.RaidState{
             const opponentIds = id === 0 ? [1,2,3,4] : [0];
             for (let oid of opponentIds) { // Trace might be random for bosses, but we'll check abilities in order
                 const copiedAbility = this.raiders[oid].ability;
-                if (copiedAbility && !this.raiders[oid].abilityNullified && !persistentAbilities["uncopyable"].includes(copiedAbility)) {
+                if (copiedAbility && !this.raiders[oid].abilityNullified && !persistentAbilities["NoTrace"].includes(copiedAbility)) {
                     pokemon.ability = copiedAbility;
                     ability = copiedAbility;
                     flags[id].push("Trace copies " + copiedAbility);
@@ -1023,7 +1023,7 @@ export class RaidState implements State.RaidState{
                     const targetAbility = this.raiders[i].ability;
                     if (
                         target.hasItem("Ability Shield") ||
-                        persistentAbilities.unsuppressable.includes(targetAbility || "") || 
+                        // persistentAbilities.unsuppressable.includes(targetAbility || "") || 
                         (targetAbility === "Neutralizing Gas")
                     ) { 
                         continue; 
@@ -1302,7 +1302,7 @@ export class RaidState implements State.RaidState{
             if (i === id) { continue; }
             const ally = this.getPokemon(i);
             if ((ally.ability === "Receiver" || ally.ability === "Power Of Alchemy") && ally.originalCurHP !== 0) {
-                if (ability && !persistentAbilities["uncopyable"].includes(ability)) {
+                if (ability && !persistentAbilities["NoReceiver"].includes(ability)) {
                     ally.ability = ability;
                 }
             }
@@ -1402,7 +1402,7 @@ export class RaidState implements State.RaidState{
         pokemon.cumDamageRolls = new Map<number, number>();
         // check Neutralizing Gas
         const neutralizingGas = this.raiders.reduce((p, c) => p || c.ability === "Neutralizing Gas", false);
-        if (neutralizingGas && !pokemon.hasItem("Ability Shield") && !persistentAbilities.unsuppressable.includes(ability || "") && ability !== "Neutralizing Gas") { 
+        if (neutralizingGas && !pokemon.hasItem("Ability Shield") && ability !== "Neutralizing Gas") { 
             pokemon.abilityNullified = -1;
         }
         // add abilites that Take Effect upon switch-in

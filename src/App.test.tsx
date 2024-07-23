@@ -433,37 +433,37 @@ describe('Specific Test Cases', () => {
     // T5: Inteleon has a guaranteed crit (high chance move + Lansat Berry)
     expect(result.turnResults[4].results[0].desc[0].includes("critical hit")).toEqual(true);
   })
-  test('yawn+sleep', async() => {
-    const hash = "#H4sIAAAAAAAAA8VVbU/bMBD+K5E/MSlIKS0w+NbSMZCAIco+TFU+HMkl8erYke20FNT/vrOT9IVtGtvEplqOfb6X5547u88sY6cs+WqUZCGz7HQ6jUImoUQWh27JU7fohaw2qC/HTgl0jtYvVWW5ksZpHIQs16quSFqqOV7KTNHyQRlz3W0bh4nmlk4MJkqmoJcfsgwTa0iklRD0Kbg1rW7h3IGd0Zxi5qwq8HPqZ1yr3Wue56gdOl7iZmcKjiI9A5mgGEMJOa6FzfYO7I9E96jhJ+KzAmSOLSlSWXTQE40p90lUaoZlQ2atpZN4Wnx+WCF4JVM/GMtt7Ywb7ih3h8MT7+PKJX25GcrlFc7R8QIPXHDrxRZLr0whnDrOnVPuZ9Fq5yjThhDCfL+ssC2M6apSC8srwb0OPloN1+1pl7QFFschm7PTZ0Z98T5krB1TLzgJifo74GkwIn90MMaEpzUucf+Cm5qzMANhsJ3ZJNFQVQRf1kKEbJgSq5I6wfs6Il/rX7zqhP3ei0FHvYjC3lC4jxpc2CmjclcCg6HWauFwjDTMMRhx7bpkUkCqFsGZgAXtrhCyYCQgdQXsR+Rqyka1mAWfXadNFkqnJhi7dukCLAMqugYuO+uJVbokaw/xODyK3BhE4UEUHkfkM151+E9C6pB7qLVyqJrF/i2IFGGfMDzhC4aG1Fc6uFXc0cLOCsUTSgOkS+N7ug4OD36DsOuW9yk7F6DJLbXSE2XhDqfrZHaKsEmD+vNCyaSYEcFsZ71b4boi/Fd14u7rJFEVBlfor8BIiXQNvQG+hv+6arfgb3he2GAiwBSvBd8n6pWeKXC3Yr3aAT6mG0p+6fxcJbUJJs495Qk6Xf5Bg24DvkBRcZkHF66Mr0Q8IPZmKOhF0f692t7s4N67UcGweRXeOT1uNaEfUb8u/wL+LuNfYOFanyhPZsGnLPtVEnH7Ogy8yC+pAo2XQSc53M2jdLert6GADPaulbGBf3mJPsouIl5bW8oSm4mV8EiWTeDWeEDt2lv72W6YzcHbxu9txd/wRtkP/kX0PqX5/6IPtqLv9D7helPyqe+mkf8v7dHcDwex/4fu+S11azfieLX6BlsN50L1CAAA";
-    const result = await resultsFromHash(hash);
-    // T1: Yawn inflicts drowsiness
-    expect(result.turnResults[0].results[1].state.raiders[0].isYawn).toEqual(2);
-    expect(result.turnResults[0].state.raiders[0].isYawn).toEqual(1);
-    expect(result.turnResults[0].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
-    // T2: Moves that aren't by the yawn user don't decrement the yawn countdown
-    expect(result.turnResults[1].state.raiders[0].isYawn).toEqual(1);
-    expect(result.turnResults[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
-    expect(result.turnResults[1].state.raiders[0].isSleep).toEqual(0);
-    // T3: Yawn inflicts sleep at the end of the turn
-    expect(result.turnResults[2].results[1].state.raiders[0].isYawn).toEqual(1);
-    expect(result.turnResults[2].results[1].state.raiders[0].isSleep).toEqual(0);
-    expect(result.turnResults[2].results[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
-    expect(result.turnResults[2].results[1].state.raiders[0].status).toEqual("");
-    expect(result.turnResults[2].state.raiders[0].isYawn).toEqual(0);
-    expect(result.turnResults[2].state.raiders[0].isSleep).toEqual(1);
-    expect(result.turnResults[2].state.raiders[0].volatileStatus.includes("yawn")).toEqual(false);
-    expect(result.turnResults[2].state.raiders[0].status).toEqual("slp");
-    expect(result.turnResults[2].endFlags[0].includes("fell asleep")).toEqual(true);
+  // test('yawn+sleep', async() => {
+  //   const hash = "#H4sIAAAAAAAAA8VVbU/bMBD+K5E/MSlIKS0w+NbSMZCAIco+TFU+HMkl8erYke20FNT/vrOT9IVtGtvEplqOfb6X5547u88sY6cs+WqUZCGz7HQ6jUImoUQWh27JU7fohaw2qC/HTgl0jtYvVWW5ksZpHIQs16quSFqqOV7KTNHyQRlz3W0bh4nmlk4MJkqmoJcfsgwTa0iklRD0Kbg1rW7h3IGd0Zxi5qwq8HPqZ1yr3Wue56gdOl7iZmcKjiI9A5mgGEMJOa6FzfYO7I9E96jhJ+KzAmSOLSlSWXTQE40p90lUaoZlQ2atpZN4Wnx+WCF4JVM/GMtt7Ywb7ih3h8MT7+PKJX25GcrlFc7R8QIPXHDrxRZLr0whnDrOnVPuZ9Fq5yjThhDCfL+ssC2M6apSC8srwb0OPloN1+1pl7QFFschm7PTZ0Z98T5krB1TLzgJifo74GkwIn90MMaEpzUucf+Cm5qzMANhsJ3ZJNFQVQRf1kKEbJgSq5I6wfs6Il/rX7zqhP3ei0FHvYjC3lC4jxpc2CmjclcCg6HWauFwjDTMMRhx7bpkUkCqFsGZgAXtrhCyYCQgdQXsR+Rqyka1mAWfXadNFkqnJhi7dukCLAMqugYuO+uJVbokaw/xODyK3BhE4UEUHkfkM151+E9C6pB7qLVyqJrF/i2IFGGfMDzhC4aG1Fc6uFXc0cLOCsUTSgOkS+N7ug4OD36DsOuW9yk7F6DJLbXSE2XhDqfrZHaKsEmD+vNCyaSYEcFsZ71b4boi/Fd14u7rJFEVBlfor8BIiXQNvQG+hv+6arfgb3he2GAiwBSvBd8n6pWeKXC3Yr3aAT6mG0p+6fxcJbUJJs495Qk6Xf5Bg24DvkBRcZkHF66Mr0Q8IPZmKOhF0f692t7s4N67UcGweRXeOT1uNaEfUb8u/wL+LuNfYOFanyhPZsGnLPtVEnH7Ogy8yC+pAo2XQSc53M2jdLert6GADPaulbGBf3mJPsouIl5bW8oSm4mV8EiWTeDWeEDt2lv72W6YzcHbxu9txd/wRtkP/kX0PqX5/6IPtqLv9D7helPyqe+mkf8v7dHcDwex/4fu+S11azfieLX6BlsN50L1CAAA";
+  //   const result = await resultsFromHash(hash);
+  //   // T1: Yawn inflicts drowsiness
+  //   expect(result.turnResults[0].results[1].state.raiders[0].isYawn).toEqual(2);
+  //   expect(result.turnResults[0].state.raiders[0].isYawn).toEqual(1);
+  //   expect(result.turnResults[0].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
+  //   // T2: Moves that aren't by the yawn user don't decrement the yawn countdown
+  //   expect(result.turnResults[1].state.raiders[0].isYawn).toEqual(1);
+  //   expect(result.turnResults[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
+  //   expect(result.turnResults[1].state.raiders[0].isSleep).toEqual(0);
+  //   // T3: Yawn inflicts sleep at the end of the turn
+  //   expect(result.turnResults[2].results[1].state.raiders[0].isYawn).toEqual(1);
+  //   expect(result.turnResults[2].results[1].state.raiders[0].isSleep).toEqual(0);
+  //   expect(result.turnResults[2].results[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
+  //   expect(result.turnResults[2].results[1].state.raiders[0].status).toEqual("");
+  //   expect(result.turnResults[2].state.raiders[0].isYawn).toEqual(0);
+  //   expect(result.turnResults[2].state.raiders[0].isSleep).toEqual(1);
+  //   expect(result.turnResults[2].state.raiders[0].volatileStatus.includes("yawn")).toEqual(false);
+  //   expect(result.turnResults[2].state.raiders[0].status).toEqual("slp");
+  //   expect(result.turnResults[2].endFlags[0].includes("fell asleep")).toEqual(true);
 
-    // T4: Boss sleeps for 1 turn
-    expect(result.turnResults[3].results[1].desc[0].includes("fast asleep")).toEqual(true);
-    expect(result.turnResults[3].state.raiders[0].isSleep).toEqual(0);
-    expect(result.turnResults[3].state.raiders[0].status).toEqual("slp");
-    // T5 Boss wakes up
-    expect(result.turnResults[4].flags[0].includes("woke up")).toEqual(true);
-    expect(result.turnResults[4].results[0].state.raiders[0].isSleep).toEqual(0);
-    expect(result.turnResults[4].results[0].state.raiders[0].status).toEqual("");
-  })
+  //   // T4: Boss sleeps for 1 turn
+  //   expect(result.turnResults[3].results[1].desc[0].includes("fast asleep")).toEqual(true);
+  //   expect(result.turnResults[3].state.raiders[0].isSleep).toEqual(0);
+  //   expect(result.turnResults[3].state.raiders[0].status).toEqual("slp");
+  //   // T5 Boss wakes up
+  //   expect(result.turnResults[4].flags[0].includes("woke up")).toEqual(true);
+  //   expect(result.turnResults[4].results[0].state.raiders[0].isSleep).toEqual(0);
+  //   expect(result.turnResults[4].results[0].state.raiders[0].status).toEqual("");
+  // })
   test('taunt', async() => {
     const hash = "#H4sIAAAAAAAAA71W227bOBD9FYJPW4DFypckbd58SbcFmraosk+GHmhpbHFDiVpenKpF/r0z1MXOIos2KBpIoIeXGR4enhnrG9/xS57/40zNBff8crNJBK9lBTwTZKqCjIngwYF9t6ZF0u7BR9M0Xpna0Yqp4HtrQoOjlTnAu3pn0Nwa566Hbhcwt8rjjIPc1IW07dVuB7l3OGSN1vhTKu/6tSWFk/4W2wJ25NXI2BaxhXHZjVX7PVhCpyo49lypQBcrWeeg17KSexgHu+5n6R8bugEr/2d4Vcp6Dz0ptfFA0HMLhYqHaMwtVB2ZwdY0EmmJ54MGZFzkwtZ55QM5d9zh2QlHJD7uW7d09K3SypOlPFRxHqPSCjhQHBVbDQcg4jyiu2kb6K/ADfwH7VWjVSQEvngrr/vZ4Xhe8iwT/MAvv3FUwCvBef9u4sBrgSSvIVdFgJbCj/bLt8oFxcVOageCp7mVTYN466C14IsCmavxtmOUc4wyPtn9MDib/OfFqUmCG/5lpUOUG47X2WhgC2vNHcFeWnkAtlSWVJCWsjB3bKXlHfbeg9yxpZYFXdAswTAbvgz6lv1NSkrvjC0cW5MceL9By/BSrVT14J16Yyv0jvAuxHkiXiVinohpIi4SjJndD9hfC1TAZ9n+G+RXUsvR9DYgGwtl2XuTk3qvFYK37C3YLX+Ml+nZ9AnMrK3ck8Q2vcUWLgeMl8XpzYj9Ad9H1Ci3tDGqJmCD0SG+KVV+y95IStCrgzIoPiJqaXQxgu2gjoAfwE0eQ/vJtTnGJbipqugmlyCrnwU7I1WZg9K6u6PTTgd6VWpjTVO2sXq8MXlwLJWupMVglQnuhwJ8FPeov7RRecuuKHPynyZ5LvhHi5Ui2MBPzQ5z2lZbZZwiOa9Ko3IkRdbFr0L+gNKVOuaMDD8WRNbn9zwORXNGyb2D2gFblUAlYzJMnfVZ3ud6RTcwOR4ZPf+4Ns6zWC5VvX/B0XMy+MZzd4ev5Bf07BD0znNxfoLgVCZi+jz7z07278gT8+fZeTIspTgfDKPq/OJJvK80SMuWBjE49idbxH8NRSX+CTDmvwxjLLRP2HWKz+C/8F5i+el190zsn50AeJjoR0n8XgQXJwge1vPfnXuY//j5hOUkfszM45fImbjIYhcfms/E8GbZ/f13H8QDey8KAAA=";
     const result = await resultsFromHash(hash);
@@ -647,27 +647,27 @@ describe('Specific Test Cases', () => {
     // T10: Swallow Fails
     expect(result.turnResults[9].state.raiders[1].originalCurHP).toEqual(result.turnResults[8].state.raiders[1].originalCurHP);
   })
-  test('syrup-bomb', async() => {
-    const hash = "#H4sIAAAAAAAAA9VUTW8aMRD9K8inVPKBBdI23CBUhQOtFLit9mB2Zxc3XnvlDxoU8d874/1IWqVqekilCmsYj2ee3xt7/chKNmf5N2c048yzeZqOOdOiBpZxcmVBTsJZcGA3K0oStgIfXdN4abSjjAlnlTWhwWhtTrDRpUH3YJzb9tMWMLfS44qD3OhC2POnsoTcOwxZoxT+HaV3Xe6R4IS/R1tASVWNiLaIFoa0vZVVBZbYyRqeZu4oQRW3QuegVqIWFQzBdnon/EuhPVjxm/DtUegKuqZo44Go5xYKGUU05h7qtpnBaorEtkR90ICISS4cnJc+UHHbO9ROPGLj4776TNIPUklPnvRQx3VEpQw4EY6MVsEJqHEe2e3PDXRH4Pr+B+Vlo2RsCDx4K7bdai/PC5ZlnJ3Y/JHhDfjIGetGGgM3HJt8J2QxWiIeLqyCy5UhUaVQDji7+mJGi5bsO8Z1UIqztbAFUo8I7xFh+GWXPjhNfhm4lIzHLUDKFs4bLd0Re0TRNGvrPvwM1sPdcDyQlWxQKrV/8N6U4u5sQ4NtqQ+45WdrvvtXs8VT/2rxLgUb2HP3Rb5sJ70NbrQEa+k+LI0qBuKT6wmCt/ZvyG+0Q9Dcv5bx9L9jPONsG+j5iPbf8Vzk+LHsGisIcQ2qkboarYUu/kQ86z65WQxFF7v+/JYlffy609OpqumuJ0/isexqa5wfxecL90etY6zualEztIbV4gEr2+274hkmJgNOd6/femvUno7pXc3i4zqlecb7kWWXyw/ZWnjargYAAA==";
-    const result = await resultsFromHash(hash);
-    // T1: Dipplin uses Syrup Bomb, condition applied
-    expect(result.turnResults[0].results[0].state.raiders[0].syrupBombSource).toEqual(1);
-    expect(result.turnResults[0].results[0].state.raiders[0].syrupBombDrops).toEqual(3);
-    expect(result.turnResults[0].state.raiders[0].syrupBombDrops).toEqual(2);
-    expect(result.turnResults[0].state.raiders[0].boosts.spe).toEqual(-1);
-    // T2-3: Syrup Bomb drops are applied at the end of the turn
-    expect(result.turnResults[1].results[0].state.raiders[0].syrupBombSource).toEqual(1);
-    expect(result.turnResults[1].results[0].state.raiders[0].syrupBombDrops).toEqual(2);
-    expect(result.turnResults[1].state.raiders[0].syrupBombDrops).toEqual(1);
-    expect(result.turnResults[1].state.raiders[0].boosts.spe).toEqual(-2);
-    expect(result.turnResults[2].results[0].state.raiders[0].syrupBombSource).toEqual(1);
-    expect(result.turnResults[2].results[0].state.raiders[0].syrupBombDrops).toEqual(1);
-    expect(result.turnResults[2].state.raiders[0].syrupBombDrops).toEqual(0);
-    expect(result.turnResults[2].state.raiders[0].boosts.spe).toEqual(-3);
-    // T4: Syrup Bomb drops no longer occur
-    expect(result.turnResults[3].state.raiders[0].syrupBombDrops).toEqual(0);
-    expect(result.turnResults[3].state.raiders[0].boosts.spe).toEqual(-3);
-  })
+  // test('syrup-bomb', async() => {
+  //   const hash = "#H4sIAAAAAAAAA9VUTW8aMRD9K8inVPKBBdI23CBUhQOtFLit9mB2Zxc3XnvlDxoU8d874/1IWqVqekilCmsYj2ee3xt7/chKNmf5N2c048yzeZqOOdOiBpZxcmVBTsJZcGA3K0oStgIfXdN4abSjjAlnlTWhwWhtTrDRpUH3YJzb9tMWMLfS44qD3OhC2POnsoTcOwxZoxT+HaV3Xe6R4IS/R1tASVWNiLaIFoa0vZVVBZbYyRqeZu4oQRW3QuegVqIWFQzBdnon/EuhPVjxm/DtUegKuqZo44Go5xYKGUU05h7qtpnBaorEtkR90ICISS4cnJc+UHHbO9ROPGLj4776TNIPUklPnvRQx3VEpQw4EY6MVsEJqHEe2e3PDXRH4Pr+B+Vlo2RsCDx4K7bdai/PC5ZlnJ3Y/JHhDfjIGetGGgM3HJt8J2QxWiIeLqyCy5UhUaVQDji7+mJGi5bsO8Z1UIqztbAFUo8I7xFh+GWXPjhNfhm4lIzHLUDKFs4bLd0Re0TRNGvrPvwM1sPdcDyQlWxQKrV/8N6U4u5sQ4NtqQ+45WdrvvtXs8VT/2rxLgUb2HP3Rb5sJ70NbrQEa+k+LI0qBuKT6wmCt/ZvyG+0Q9Dcv5bx9L9jPONsG+j5iPbf8Vzk+LHsGisIcQ2qkboarYUu/kQ86z65WQxFF7v+/JYlffy609OpqumuJ0/isexqa5wfxecL90etY6zualEztIbV4gEr2+274hkmJgNOd6/femvUno7pXc3i4zqlecb7kWWXyw/ZWnjargYAAA==";
+  //   const result = await resultsFromHash(hash);
+  //   // T1: Dipplin uses Syrup Bomb, condition applied
+  //   expect(result.turnResults[0].results[0].state.raiders[0].syrupBombSource).toEqual(1);
+  //   expect(result.turnResults[0].results[0].state.raiders[0].syrupBombDrops).toEqual(3);
+  //   expect(result.turnResults[0].state.raiders[0].syrupBombDrops).toEqual(2);
+  //   expect(result.turnResults[0].state.raiders[0].boosts.spe).toEqual(-1);
+  //   // T2-3: Syrup Bomb drops are applied at the end of the turn
+  //   expect(result.turnResults[1].results[0].state.raiders[0].syrupBombSource).toEqual(1);
+  //   expect(result.turnResults[1].results[0].state.raiders[0].syrupBombDrops).toEqual(2);
+  //   expect(result.turnResults[1].state.raiders[0].syrupBombDrops).toEqual(1);
+  //   expect(result.turnResults[1].state.raiders[0].boosts.spe).toEqual(-2);
+  //   expect(result.turnResults[2].results[0].state.raiders[0].syrupBombSource).toEqual(1);
+  //   expect(result.turnResults[2].results[0].state.raiders[0].syrupBombDrops).toEqual(1);
+  //   expect(result.turnResults[2].state.raiders[0].syrupBombDrops).toEqual(0);
+  //   expect(result.turnResults[2].state.raiders[0].boosts.spe).toEqual(-3);
+  //   // T4: Syrup Bomb drops no longer occur
+  //   expect(result.turnResults[3].state.raiders[0].syrupBombDrops).toEqual(0);
+  //   expect(result.turnResults[3].state.raiders[0].boosts.spe).toEqual(-3);
+  // })
   test('mirror-armor-guard-dog', async() => {
     const hash = "#H4sIAAAAAAAAA9VUS4vbMBD+K0anLeiQZLePzS1N+sghpSy5BR8Ue2xPI0tGksOGJf+9M7KczZYWeigLxUKet7759HgSlZiL4oe3RkgRxHy3m0hhVAsilyxiycJUit6DW684SLkaQhRtF9AazxEzKWpn+46srT3C2lSWxL31fjOqQ8HCYSCPh8KaUrnTp6qCIngyOas1/RoMPsU2XE6FA80lVJzVqTiXcYZL2NZhXYNjdNjCs+YbBF0ulSlAr1SrargYB/VBhd+ZtuDUH8zLRpkaEinGBmDohYMSYxOdPUA7kNk7w5ZIS+wPOlAxyPd7HzD0nDxwR70zjkh8XNecuPU9agwsYYA2+qkqR8CR62CcNRyBiQuEbnvqIG2BH/nvdcBOYyQEHoNTm+Qd2wtK5LkURzF/EnQCPkgh0thFw70kkh8UltlHqkeOhSuUQUMrVUp7kGJtiHcsI5mm11qKr8qVBDzmv6P8y5efR+Pt9JdBrulkMhTY5VGmX4x+/7LEWORe0iYsrTviwWDd8MF6oSV4G3TOumzhWuv+GUDxWR0g24JyvIl/BXb2P4G9JSiKD1DAiu/etZKgfukJV7ay9Wvv+p0U3/GgiqYXV1JCdfPNZovh5rx5LWB5uip30RRF4u+KdDqos8H+NuFMaFukx2L63Byl3WysD1l8dtDU1MOEslNucD0Mk2jVI2UOyzOA3STnV4mlXI4jz8/nn9CEEQ/lBQAA"
     const result = await resultsFromHash(hash);

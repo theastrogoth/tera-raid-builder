@@ -49,7 +49,6 @@ export class Raider extends Pokemon implements State.Raider {
     originalAbility: AbilityName | "(No Ability)";   // stores ability when nullified
 
     syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
-    syrupBombSource?: number; // id of the pokemon that inflicted the user with Syrup Bomb
 
     lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
     isCudChew?: number;          // store number of "turns" (each made of 4 moves) until Cud Chew activates
@@ -103,7 +102,6 @@ export class Raider extends Pokemon implements State.Raider {
         substitute: number | undefined = undefined,
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
         syrupBombDrops: number | undefined = 0,
-        syrupBombSource: number | undefined = undefined,
         lastConsumedItem: ItemName | undefined = undefined,
         isCudChew: number | undefined = 0,
         isTransformed: boolean | undefined = undefined,
@@ -152,7 +150,6 @@ export class Raider extends Pokemon implements State.Raider {
         this.substitute = substitute;
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
         this.syrupBombDrops = syrupBombDrops;
-        this.syrupBombSource = syrupBombSource;
         this.lastConsumedItem = lastConsumedItem;
         this.isCudChew = isCudChew;
         this.isTransformed = isTransformed;
@@ -249,7 +246,6 @@ export class Raider extends Pokemon implements State.Raider {
             this.substitute,
             this.originalAbility,
             this.syrupBombDrops,
-            this.syrupBombSource,
             this.lastConsumedItem,
             this.isCudChew,
             this.isTransformed,

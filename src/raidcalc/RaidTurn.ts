@@ -241,11 +241,6 @@ export class RaidTurn {
         this._result2 = this._raidMove2.output
         this._raidState = this._result2.state.clone();
 
-        // TO DO - figure out how countdowns should actually work.
-        // Ability nullification and delayed moves should work properly. Most other things need testing
-        if (!this._isBossAction && !this._isEmptyTurn){
-            this.countDownAbilityNullification();
-        }
         if (!this._isEmptyTurn) {
             this.removeProtection();
             if (!this._isBossAction) {
@@ -260,54 +255,15 @@ export class RaidTurn {
                 this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
                 // remove protect / wide guard / quick guard effects
                 this.countDownFieldEffects();
-                // Syrup Bomb speed drops
-                for (let i of [0, this.raiderID]) {
-                    const pokemon = this._raidState.getPokemon(i);
-                    if (pokemon.syrupBombDrops && (i !== 0 || this.raiderID === pokemon.syrupBombSource)) {
-                        const origSpe = pokemon.boosts.spe || 0;
-                        this._raidState.applyStatChange(i, {"spe": -1}, false, i, false);
-                        this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
-                        pokemon.syrupBombDrops--;
-                    }
-                }
-                // yawn check
-                for (let i of [0, this.raiderID])  {
-                    const pokemon = this._raidState.getPokemon(i);
-                    if (pokemon.isYawn && ((i !== 0) || (this.raiderID === pokemon.yawnSource))) {
-                        pokemon.isYawn--;
-                        if (pokemon.isYawn === 0) {
-                            const sleepTurns = i === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
-                                                        (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
-                            this._raidState.applyStatus(i, "slp", i, false);
-                            if (pokemon.status === "slp") {
-                                pokemon.isSleep = sleepTurns;
-                                this._endFlags.push(pokemon.name + " fell asleep!");
-                            }
-                            pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
-                        }
-                    }
-                }
-                // Freeze thawing checks
-                if (this._raider.isFrozen === 0 && this._raider.hasStatus("frz")) {
-                    this._raider.status = "";
-                    this._endFlags.push(this._raider.role + " thawed!");
-                }
-                if (this._boss.isFrozen === 0 && this._boss.hasStatus("frz")) {
-                    this._boss.status = "";
-                    this._endFlags.push(this._boss.role + " thawed!");
-                }
-                // Move-selection-related countdowns
-                if (this._raider.isDisable) { this._raider.isDisable--; }
-                if (!this._raider.isDisable && this._raider.disabledMove) { this._raider.disabledMove = undefined; }
-                if (this._raider.isEncore) { this._raider.isEncore--; }
-                if (this._boss.isDisable) { this._boss.isDisable--; }
-                if (!this._boss.isDisable && this._boss.disabledMove) { this._boss.disabledMove = undefined; }
-                if (this._boss.isEncore) { this._boss.isEncore--; }
-                if (this._raider.isThroatChop) { this._raider.isThroatChop--; }
-                if (this._boss.isThroatChop) { this._boss.isThroatChop--; }
+                // other end-of-turn stuff
+                this.applyEndOfTurnMoveEffects();
+                this.applyEndOfTurnStatusEffects();
                 if (!this._isCheer)  {
                     // delayed moves (Protect doesn't apply)
                     this.countdownDelayedMoves();
+                }
+                if (!this._isBossAction){
+                    this.countDownAbilityNullification(); // this might happen earlier
                 }
             }
         }
@@ -689,13 +645,9 @@ export class RaidTurn {
     private removeProtection() {
         const fields = this._raidState.fields;
         fields[this.raiderID].attackerSide.isProtected = false;
-        // fields[this.raiderID].attackerSide.isWideGuard = false;
-        // fields[this.raiderID].attackerSide.isQuickGuard = false;
         fields[0].attackerSide.isProtected = false;
-        // fields[0].attackerSide.isWideGuard = false;
-        // fields[0].attackerSide.isQuickGuard = false;
         for (let field of fields) {
-            if (this.turnNumber % 4 === 3) {
+            if (this._isEndOfFullTurn) {
                 field.attackerSide.isWideGuard = false;
                 field.attackerSide.isQuickGuard = false;
             }
@@ -703,51 +655,95 @@ export class RaidTurn {
     }
 
     private countDownFieldEffects() {
-        const fields = this._raidState.fields;
-        for (let field of fields) {
-            // global effects
-            field.terrainTurnsRemaining = Math.max(0, (field.terrainTurnsRemaining || 0) - 1);
-            field.terrain = field.terrainTurnsRemaining ? field.terrain : undefined;
-            field.weatherTurnsRemaining = Math.max(0, (field.weatherTurnsRemaining || 0) - 1);
-            field.weather = field.weatherTurnsRemaining ? field.weather : undefined;
-            field.isGravity = Math.max(0, field.isGravity - 1);
-            field.isTrickRoom = Math.max(0, field.isTrickRoom - 1);
-            field.isMagicRoom = Math.max(0, field.isMagicRoom - 1);
-            field.isWonderRoom = Math.max(0, field.isWonderRoom - 1);
-            // single-side effects
-            field.attackerSide.isReflect = Math.max(0, field.attackerSide.isReflect - 1);
-            field.attackerSide.isLightScreen = Math.max(0, field.attackerSide.isLightScreen - 1);
-            field.attackerSide.isAuroraVeil = Math.max(0, field.attackerSide.isAuroraVeil - 1);
-            field.attackerSide.isMist = Math.max(0, field.attackerSide.isMist - 1);
-            field.attackerSide.isSafeguard = Math.max(0, field.attackerSide.isSafeguard - 1);
-            field.attackerSide.isTailwind = Math.max(0, field.attackerSide.isTailwind - 1);
-            field.attackerSide.isAtkCheered = Math.max(0, field.attackerSide.isAtkCheered - 1);
-            field.attackerSide.isDefCheered = Math.max(0, field.attackerSide.isDefCheered - 1);
+        if (this._isEndOfFullTurn) {
+            const fields = this._raidState.fields;
+            for (let field of fields) {
+                // global effects
+                field.terrainTurnsRemaining = Math.max(0, (field.terrainTurnsRemaining || 0) - 1);
+                field.terrain = field.terrainTurnsRemaining ? field.terrain : undefined;
+                field.weatherTurnsRemaining = Math.max(0, (field.weatherTurnsRemaining || 0) - 1);
+                field.weather = field.weatherTurnsRemaining ? field.weather : undefined;
+                field.isGravity = Math.max(0, field.isGravity - 1);
+                field.isTrickRoom = Math.max(0, field.isTrickRoom - 1);
+                field.isMagicRoom = Math.max(0, field.isMagicRoom - 1);
+                field.isWonderRoom = Math.max(0, field.isWonderRoom - 1);
+                // single-side effects
+                field.attackerSide.isReflect = Math.max(0, field.attackerSide.isReflect - 1);
+                field.attackerSide.isLightScreen = Math.max(0, field.attackerSide.isLightScreen - 1);
+                field.attackerSide.isAuroraVeil = Math.max(0, field.attackerSide.isAuroraVeil - 1);
+                field.attackerSide.isMist = Math.max(0, field.attackerSide.isMist - 1);
+                field.attackerSide.isSafeguard = Math.max(0, field.attackerSide.isSafeguard - 1);
+                field.attackerSide.isTailwind = Math.max(0, field.attackerSide.isTailwind - 1);
+                field.attackerSide.isAtkCheered = Math.max(0, field.attackerSide.isAtkCheered - 1);
+                field.attackerSide.isDefCheered = Math.max(0, field.attackerSide.isDefCheered - 1);
+            }
+            /// add flags for effects that have ended
+            // global
+            if (this.raidState.fields[0].weather && !fields[0].weather) { this._endFlags.push(this.raidState.fields[0].weather! + " ended"); }
+            if (this.raidState.fields[0].terrain && !fields[0].terrain) { this._endFlags.push(this.raidState.fields[0].terrain! + " terrain ended"); }
+            if (this.raidState.fields[0].isGravity && !fields[0].isGravity) { this._endFlags.push("Gravity ended"); }
+            if (this.raidState.fields[0].isTrickRoom && !fields[0].isTrickRoom) { this._endFlags.push("Trick Room ended"); }
+            if (this.raidState.fields[0].isMagicRoom && !fields[0].isMagicRoom) { this._endFlags.push("Magic Room ended"); }
+            if (this.raidState.fields[0].isWonderRoom && !fields[0].isWonderRoom) { this._endFlags.push("Wonder Room ended"); }
+            // boss
+            if (this.raidState.fields[0].attackerSide.isReflect && !fields[0].attackerSide.isReflect) { this._endFlags.push("Reflect ended"); }
+            if (this.raidState.fields[0].attackerSide.isLightScreen && !fields[0].attackerSide.isLightScreen) { this._endFlags.push("Light Screen ended"); }
+            if (this.raidState.fields[0].attackerSide.isAuroraVeil && !fields[0].attackerSide.isAuroraVeil) { this._endFlags.push("Aurora Veil ended"); }
+            if (this.raidState.fields[0].attackerSide.isMist && !fields[0].attackerSide.isMist) { this._endFlags.push("Mist ended"); }
+            if (this.raidState.fields[0].attackerSide.isSafeguard && !fields[0].attackerSide.isSafeguard) { this._endFlags.push("Safeguard ended"); }
+            if (this.raidState.fields[0].attackerSide.isTailwind && !fields[0].attackerSide.isTailwind) { this._endFlags.push("Tailwind ended"); }
+            // raiders
+            if (this.raidState.fields[1].attackerSide.isReflect && !fields[1].attackerSide.isReflect) { this._endFlags.push("Reflect ended"); }
+            if (this.raidState.fields[1].attackerSide.isLightScreen && !fields[1].attackerSide.isLightScreen) { this._endFlags.push("Light Screen ended"); }
+            if (this.raidState.fields[1].attackerSide.isAuroraVeil && !fields[1].attackerSide.isAuroraVeil) { this._endFlags.push("Aurora Veil ended"); }
+            if (this.raidState.fields[1].attackerSide.isMist && !fields[1].attackerSide.isMist) { this._endFlags.push("Mist ended"); }
+            if (this.raidState.fields[1].attackerSide.isSafeguard && !fields[1].attackerSide.isSafeguard) { this._endFlags.push("Safeguard ended"); }
+            if (this.raidState.fields[1].attackerSide.isTailwind && !fields[1].attackerSide.isTailwind) { this._endFlags.push("Tailwind ended"); }
+            if (this.raidState.fields[1].attackerSide.isAtkCheered && !fields[1].attackerSide.isAtkCheered) { this._endFlags.push("Attack Cheer ended"); }
+            if (this.raidState.fields[1].attackerSide.isDefCheered && !fields[1].attackerSide.isDefCheered) { this._endFlags.push("Defense Cheer ended"); }
         }
-        /// add flags for effects that have ended
-        // global
-        if (this.raidState.fields[0].weather && !fields[0].weather) { this._endFlags.push(this.raidState.fields[0].weather! + " ended"); }
-        if (this.raidState.fields[0].terrain && !fields[0].terrain) { this._endFlags.push(this.raidState.fields[0].terrain! + " terrain ended"); }
-        if (this.raidState.fields[0].isGravity && !fields[0].isGravity) { this._endFlags.push("Gravity ended"); }
-        if (this.raidState.fields[0].isTrickRoom && !fields[0].isTrickRoom) { this._endFlags.push("Trick Room ended"); }
-        if (this.raidState.fields[0].isMagicRoom && !fields[0].isMagicRoom) { this._endFlags.push("Magic Room ended"); }
-        if (this.raidState.fields[0].isWonderRoom && !fields[0].isWonderRoom) { this._endFlags.push("Wonder Room ended"); }
-        // boss
-        if (this.raidState.fields[0].attackerSide.isReflect && !fields[0].attackerSide.isReflect) { this._endFlags.push("Reflect ended"); }
-        if (this.raidState.fields[0].attackerSide.isLightScreen && !fields[0].attackerSide.isLightScreen) { this._endFlags.push("Light Screen ended"); }
-        if (this.raidState.fields[0].attackerSide.isAuroraVeil && !fields[0].attackerSide.isAuroraVeil) { this._endFlags.push("Aurora Veil ended"); }
-        if (this.raidState.fields[0].attackerSide.isMist && !fields[0].attackerSide.isMist) { this._endFlags.push("Mist ended"); }
-        if (this.raidState.fields[0].attackerSide.isSafeguard && !fields[0].attackerSide.isSafeguard) { this._endFlags.push("Safeguard ended"); }
-        if (this.raidState.fields[0].attackerSide.isTailwind && !fields[0].attackerSide.isTailwind) { this._endFlags.push("Tailwind ended"); }
-        // raiders
-        if (this.raidState.fields[1].attackerSide.isReflect && !fields[1].attackerSide.isReflect) { this._endFlags.push("Reflect ended"); }
-        if (this.raidState.fields[1].attackerSide.isLightScreen && !fields[1].attackerSide.isLightScreen) { this._endFlags.push("Light Screen ended"); }
-        if (this.raidState.fields[1].attackerSide.isAuroraVeil && !fields[1].attackerSide.isAuroraVeil) { this._endFlags.push("Aurora Veil ended"); }
-        if (this.raidState.fields[1].attackerSide.isMist && !fields[1].attackerSide.isMist) { this._endFlags.push("Mist ended"); }
-        if (this.raidState.fields[1].attackerSide.isSafeguard && !fields[1].attackerSide.isSafeguard) { this._endFlags.push("Safeguard ended"); }
-        if (this.raidState.fields[1].attackerSide.isTailwind && !fields[1].attackerSide.isTailwind) { this._endFlags.push("Tailwind ended"); }
-        if (this.raidState.fields[1].attackerSide.isAtkCheered && !fields[1].attackerSide.isAtkCheered) { this._endFlags.push("Attack Cheer ended"); }
-        if (this.raidState.fields[1].attackerSide.isDefCheered && !fields[1].attackerSide.isDefCheered) { this._endFlags.push("Defense Cheer ended"); }
+    }
+
+    private applyEndOfTurnMoveEffects() {
+        // end-of-turn move effects
+        for (const pokemon of this._raidState.raiders) {
+            // syrup bomb
+            if (pokemon.syrupBombDrops && this._isEndOfFullTurn) {
+                const origSpe = pokemon.boosts.spe || 0;
+                this._raidState.applyStatChange(pokemon.id, {"spe": -1}, false, pokemon.id, false);
+                this._endFlags.push(pokemon.role + " — Spe: " + origSpe + "->" + pokemon.boosts.spe! + " (Syrup Bomb)");
+                pokemon.syrupBombDrops--;
+            }
+            // yawn
+            if (pokemon.isYawn && this._isEndOfFullTurn) {
+                pokemon.isYawn--;
+                if (pokemon.isYawn === 0) {
+                    const sleepTurns = pokemon.id === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
+                                                (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
+                    this._raidState.applyStatus(pokemon.id, "slp", pokemon.id, false);
+                    if (pokemon.status === "slp") {
+                        pokemon.isSleep = sleepTurns;
+                        this._endFlags.push(pokemon.name + " fell asleep!");
+                    }
+                    pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
+                }
+            }
+        }
+    }
+
+    private applyEndOfTurnStatusEffects() {
+        for (let pokemon of this._raidState.raiders) {
+            // Move-selection-related countdowns (TO DO: check if these are turn-based or not)
+            if (pokemon.isDisable) { pokemon.isDisable--; }
+            if (!pokemon.isDisable && pokemon.disabledMove) { pokemon.disabledMove = undefined; }
+            if (pokemon.isEncore) { pokemon.isEncore--; }
+            if (pokemon.isThroatChop) { pokemon.isThroatChop--; }
+            // Freeze thawing checks (I don't plan on checking to see when these are actually applied)
+            if (pokemon.isFrozen === 0 && pokemon.hasStatus("frz")) {
+                pokemon.status = "";
+                this._endFlags.push(pokemon.role + " thawed!");
+            }
+        }
     }
 
     private countDownAbilityNullification() {

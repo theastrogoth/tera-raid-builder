@@ -287,7 +287,7 @@ export class RaidMove {
                 return false;
             } else if (this._user.isFrozen && !thawUserMoves.includes(this.move.name)) {
                 this._desc[this.userID] = this._user.name + " is frozen solid.";
-                this._user.isFrozen--; // decrement frozen counter;
+                this._user.isFrozen--; // decrement frozen counter
                 // this._user.lastMoveFailed = true;
                 return false;
             } else if (
@@ -1073,15 +1073,15 @@ export class RaidMove {
     private applyFieldChanges() {
         /// Whole-Field Effects
         // Weather
-        if (this.move.name === "Rain Dance") { this._raidState.applyWeather("Rain", this._user.item === "Damp Rock" ? 32 : 20); }
-        if (this.move.name === "Sunny Day") { this._raidState.applyWeather("Sun", this._user.item === "Heat Rock" ? 32 : 20); }
-        if (this.move.name === "Sandstorm") { this._raidState.applyWeather("Sand", this._user.item === "Smooth Rock" ? 32 : 20); }
-        if (this.move.name === "Snowscape" || this.move.name === "Chilly Reception") { this._raidState.applyWeather("Snow", this._user.item === "Icy Rock" ? 32 : 20); }
+        if (this.move.name === "Rain Dance") { this._raidState.applyWeather("Rain", this._user.item === "Damp Rock" ? 8 : 5); }
+        if (this.move.name === "Sunny Day") { this._raidState.applyWeather("Sun", this._user.item === "Heat Rock" ? 8 : 5); }
+        if (this.move.name === "Sandstorm") { this._raidState.applyWeather("Sand", this._user.item === "Smooth Rock" ? 8 : 5); }
+        if (this.move.name === "Snowscape" || this.move.name === "Chilly Reception") { this._raidState.applyWeather("Snow", this._user.item === "Icy Rock" ? 8 : 5); }
         // Terrain
-        if (this.move.name === "Electric Terrain") { this._raidState.applyTerrain("Electric", this._user.item === "Terrain Extender" ? 32 : 20); }
-        if (this.move.name === "Grassy Terrain") { this._raidState.applyTerrain("Grassy", this._user.item === "Terrain Extender" ? 32 : 20); }
-        if (this.move.name === "Misty Terrain") { this._raidState.applyTerrain("Misty", this._user.item === "Terrain Extender" ? 32 : 20); }
-        if (this.move.name === "Psychic Terrain") { this._raidState.applyTerrain("Psychic", this._user.item === "Terrain Extender" ? 32 : 20); }
+        if (this.move.name === "Electric Terrain") { this._raidState.applyTerrain("Electric", this._user.item === "Terrain Extender" ? 8 : 5); }
+        if (this.move.name === "Grassy Terrain") { this._raidState.applyTerrain("Grassy", this._user.item === "Terrain Extender" ? 8 : 5); }
+        if (this.move.name === "Misty Terrain") { this._raidState.applyTerrain("Misty", this._user.item === "Terrain Extender" ? 8 : 5); }
+        if (this.move.name === "Psychic Terrain") { this._raidState.applyTerrain("Psychic", this._user.item === "Terrain Extender" ? 8 : 5); }
         // Gravity
         const gravity = this.move.name === "Gravity";
         // Trick Room
@@ -1092,10 +1092,10 @@ export class RaidMove {
         const wonderroom = this.move.name === "Wonder Room";
         // apply effects
         for (let field of this._fields) {
-            field.isGravity = (gravity && !field.isGravity) ? 20 : field.isGravity;
-            field.isTrickRoom = trickroom ? (field.isTrickRoom ? 0 : 20) : field.isTrickRoom;
-            field.isMagicRoom = magicroom ? (field.isMagicRoom ? 0 : 20) : field.isMagicRoom;
-            field.isWonderRoom = wonderroom ? (field.isWonderRoom ? 0 : 20) : field.isWonderRoom;
+            field.isGravity = (gravity && !field.isGravity) ? 5 : field.isGravity;
+            field.isTrickRoom = trickroom ? (field.isTrickRoom ? 0 : 5) : field.isTrickRoom;
+            field.isMagicRoom = magicroom ? (field.isMagicRoom ? 0 : 5) : field.isMagicRoom;
+            field.isWonderRoom = wonderroom ? (field.isWonderRoom ? 0 : 5) : field.isWonderRoom;
         }
         /// Side Effects
         // Reflect
@@ -1118,14 +1118,14 @@ export class RaidMove {
         const sideFieldIDs = this.userID === 0 ? [0] : [1,2,3,4];
         for (let id of sideFieldIDs) {
             const field = this._fields[id];
-            field.attackerSide.isReflect = (reflect && !field.attackerSide.isReflect) ? (this._user.item === "Light Clay" ? 32 : 20) : field.attackerSide.isReflect;
-            field.attackerSide.isLightScreen = (lightscreen && !field.attackerSide.isLightScreen) ? (this._user.item === "Light Clay" ? 32 : 20) : field.attackerSide.isLightScreen;
-            field.attackerSide.isAuroraVeil = (auroraveil && !field.attackerSide.isAromaVeil) ? (this._user.item === "Light Clay" ? 32 : 20) : field.attackerSide.isAuroraVeil;
-            field.attackerSide.isMist = (mist && !field.attackerSide.isMist) ? 20 : field.attackerSide.isMist;
-            field.attackerSide.isSafeguard = (safeguard && !field.attackerSide.isSafeguard) ? 20 : field.attackerSide.isSafeguard;
-            field.attackerSide.isTailwind = (tailwind && !field.attackerSide.isTailwind) ? 20 : field.attackerSide.isTailwind;
-            field.attackerSide.isAtkCheered = attackcheer ? 12 : field.attackerSide.isAtkCheered;
-            field.attackerSide.isDefCheered = defensecheer ? 12 : field.attackerSide.isDefCheered;
+            field.attackerSide.isReflect = (reflect && !field.attackerSide.isReflect) ? (this._user.item === "Light Clay" ? 8 : 5) : field.attackerSide.isReflect;
+            field.attackerSide.isLightScreen = (lightscreen && !field.attackerSide.isLightScreen) ? (this._user.item === "Light Clay" ? 8 : 5) : field.attackerSide.isLightScreen;
+            field.attackerSide.isAuroraVeil = (auroraveil && !field.attackerSide.isAromaVeil) ? (this._user.item === "Light Clay" ? 8 : 5) : field.attackerSide.isAuroraVeil;
+            field.attackerSide.isMist = (mist && !field.attackerSide.isMist) ? 5 : field.attackerSide.isMist;
+            field.attackerSide.isSafeguard = (safeguard && !field.attackerSide.isSafeguard) ? 5 : field.attackerSide.isSafeguard;
+            field.attackerSide.isTailwind = (tailwind && !field.attackerSide.isTailwind) ? 5 : field.attackerSide.isTailwind;
+            field.attackerSide.isAtkCheered = Math.min(6, (attackcheer ? 3 : 0) + field.attackerSide.isAtkCheered);
+            field.attackerSide.isDefCheered = Math.min(6, (defensecheer ? 3 : 0) + field.attackerSide.isDefCheered);
         }
 
         // Helping Hand
@@ -1229,9 +1229,7 @@ export class RaidMove {
                 // boss.isTaunt = 0; according to IVSore, taunt isn't cleared
                 boss.isSleep = 0;
                 boss.isYawn = 0;
-                boss.yawnSource = 0;
                 boss.syrupBombDrops = 0;
-                boss.syrupBombSource = 0;
                 for (let stat in boss.boosts) {
                     boss.boosts[stat as StatIDExceptHP] = Math.max(0, boss.boosts[stat as StatIDExceptHP] || 0);
                 }
@@ -1620,7 +1618,6 @@ export class RaidMove {
             case "Syrup Bomb":
                 if (!target.syrupBombDrops) {
                     target.syrupBombDrops = 3;
-                    target.syrupBombSource = this.userID;
                     this._flags[this._targetID].push("Covered in Sticky Syrup!");
                 }
                 break;

@@ -816,10 +816,10 @@ export class RaidState implements State.RaidState{
         return pokemon.activateTera();
     }
 
-    public changeAbility(id: number, ability: AbilityName | "(No Ability)", restore: boolean = false) {
+    public changeAbility(id: number, ability: AbilityName | "(No Ability)", isSkillSwap: boolean = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.hasItem("Ability Shield")) { return; }
-        if (persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
+        if (!isSkillSwap && persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
         const oldAbility = pokemon.ability;
         pokemon.ability = ability as AbilityName;
         pokemon.abilityOn = false;
@@ -829,7 +829,7 @@ export class RaidState implements State.RaidState{
         }
         pokemon.abilityNullified = undefined;
         // gained field effects
-        this.addAbilityFieldEffect(id, ability, true, restore);
+        this.addAbilityFieldEffect(id, ability, true, false);
     }
 
     public nullifyAbility(id: number)  {

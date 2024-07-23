@@ -819,11 +819,7 @@ export class RaidState implements State.RaidState{
     public changeAbility(id: number, ability: AbilityName | "(No Ability)", restore: boolean = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.hasItem("Ability Shield")) { return; }
-        if (ability === "(No Ability)") {
-            if (persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
-        } else {
-            if (persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
-        }
+        if (persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
         const oldAbility = pokemon.ability;
         pokemon.ability = ability as AbilityName;
         pokemon.abilityOn = false;

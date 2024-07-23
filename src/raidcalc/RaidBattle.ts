@@ -47,6 +47,7 @@ export class RaidBattle {
             this.startingState = info.startingState;
             this.groups = info.groups;
             this._continuing = false;
+            this._turnResults = [];
         }
     }
 
@@ -79,10 +80,7 @@ export class RaidBattle {
 
     private calculateTurns(){
         let turnCounter = 0;
-        if (!this._continuing) {
-            this._turnResults = [];
-        }
-        if (this._continuing) {
+        if (this._continuing && this._turnResults.length > 0) {
             const previousTurn = this._turnResults[this._turnResults.length - 1];
             turnCounter = previousTurn.turnNumber + (previousTurn.moveInfo.moveData.name !== "(No Move)" ? 1 : 0);
         }

@@ -784,10 +784,6 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/decidueye/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('pikachu', async () => {
-    const module = await import(`./data/strats/pikachu/main.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
   test('walking_wake', async () => {
     const module = await import(`./data/strats/walking_wake/main.json`)
     await testOHKO(module as LightBuildInfo);
@@ -924,11 +920,19 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/sceptile/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('pikachu/main', async () => {
+    const module = await import(`./data/strats/pikachu/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 describe('OHKO tests, Alternative Strats', () => {
   test('cinderace/nukebro', async () => {
     const module = await import(`./data/strats/cinderace/nukebro.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/terantis', async () => {
+    const module = await import(`./data/strats/pikachu/terantis.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('pikachu/nukebro', async () => {
@@ -1548,6 +1552,14 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blastoise/mechamothra.json`)
     await testOHKO(module as LightBuildInfo); 
   })
+  // test('blastoise/godzilla_vs_gamera', async () => {
+  //   const module = await import(`./data/strats/blastoise/godzilla_vs_gamera.json`)
+  //   await testOHKO(module as LightBuildInfo); 
+  // })
+  test('blastoise/zen_and_psy', async () => {
+    const module = await import(`./data/strats/blastoise/zen_and_psy.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
   test('blastoise/edgelord', async () => {
     const module = await import(`./data/strats/blastoise/edgelord.json`)
     await testOHKO(module as LightBuildInfo); 
@@ -1594,6 +1606,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('charizard/godzilla_vs_rodan', async () => {
     const module = await import(`./data/strats/charizard/godzilla_vs_rodan.json`)
+    await testOHKO(module as LightBuildInfo); 
+  })
+  test('charizard/zen_and_psy', async () => {
+    const module = await import(`./data/strats/charizard/zen_and_psy.json`)
     await testOHKO(module as LightBuildInfo); 
   })
   test('charizard/nukebro', async () => {
@@ -1714,6 +1730,10 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('primarina/godzilla', async () => {
     const module = await import(`./data/strats/primarina/godzilla.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('primarina/zen_and_psy', async () => {
+    const module = await import(`./data/strats/primarina/zen_and_psy.json`)
     await testOHKO(module as LightBuildInfo);
   })
   test('primarina/fire_starters', async () => {
@@ -2008,6 +2028,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/sceptile/weed_lizard.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('sceptile/zen_and_psy', async () => {
+    const module = await import(`./data/strats/sceptile/zen_and_psy.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test(`sceptile/corrosive_cannonade`, async () => {
     const module = await import(`./data/strats/sceptile/corrosive_cannonade.json`)
     await testOHKO(module as LightBuildInfo);
@@ -2066,6 +2090,82 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test(`sceptile/late_bloomers`, async () => {
     const module = await import(`./data/strats/sceptile/late_bloomers.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/vileplume', async () => {
+    const module = await import(`./data/strats/pikachu/vileplume.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/vileplume_t2', async () => {
+    const module = await import(`./data/strats/pikachu/vileplume_t2.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/eeveelutions', async () => {
+    const module = await import(`./data/strats/pikachu/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/godzilla', async () => {
+    const module = await import(`./data/strats/pikachu/godzilla.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/zen_and_psy', async () => {
+    const module = await import(`./data/strats/pikachu/zen_and_psy.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/appletun', async () => {
+    const module = await import(`./data/strats/pikachu/appletun.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/new_leaf', async () => {
+    const module = await import(`./data/strats/pikachu/new_leaf.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/10m_teravolt_thunderbolt', async () => {
+    const module = await import(`./data/strats/pikachu/10m_teravolt_thunderbolt.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/zekrom', async () => {
+    const module = await import(`./data/strats/pikachu/zekrom.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/reshiram', async () => {
+    const module = await import(`./data/strats/pikachu/reshiram.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/lusamines_pikachu', async () => {
+    const module = await import(`./data/strats/pikachu/lusamines_pikachu.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/miraidon', async () => {
+    const module = await import(`./data/strats/pikachu/miraidon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/ogerpon', async () => {
+    const module = await import(`./data/strats/pikachu/ogerpon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/mythicals', async () => {
+    const module = await import(`./data/strats/pikachu/mythicals.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/belli_breaking_the_mold', async () => {
+    const module = await import(`./data/strats/pikachu/belli_breaking_the_mold.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/flower_power', async () => {
+    const module = await import(`./data/strats/pikachu/flower_power.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/nukebro_short', async () => {
+    const module = await import(`./data/strats/pikachu/nukebro_short.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/nukebro_long', async () => {
+    const module = await import(`./data/strats/pikachu/nukebro_long.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('pikachu/boy_sprouts', async () => {
+    const module = await import(`./data/strats/pikachu/boy_sprouts.json`)
     await testOHKO(module as LightBuildInfo);
   })
 })

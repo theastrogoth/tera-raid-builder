@@ -167,14 +167,22 @@ export class RaidTurn {
                 moveUser.status = "";
                 this._flags[this._raiderMoveID].push("woke up");
             }
-            if (this._boss.isSleep === 0 && this._boss.hasStatus("slp")) {
-                this._boss.status = "";
-                this._flags[0].push("woke up");
-            }
             // taunt shake-off check
             if (moveUser.isTaunt === 0 && moveUser.volatileStatus.includes("taunt")) {
                 moveUser.volatileStatus = moveUser.volatileStatus.filter((status) => status !== "taunt");
                 this._flags[this._raiderMoveID].push("shook off the taunt");
+            }
+        }
+        if (!this._isBossAction && !this._isEmptyTurn) {
+            // boss sleep wake-up check
+            if (this._boss.isSleep === 0 && this._boss.hasStatus("slp")) {
+                this._boss.status = "";
+                this._flags[0].push("woke up");
+            }
+            // boss taunt shake-off check
+            if (this._boss.isTaunt === 0 && this._boss.volatileStatus.includes("taunt")) {
+                this._boss.volatileStatus = this._boss.volatileStatus.filter((status) => status !== "taunt");
+                this._flags[0].push("shook off the taunt");
             }
         }
         // execute moves

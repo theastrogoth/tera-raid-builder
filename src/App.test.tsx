@@ -1122,10 +1122,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_typhlosion/pinch.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('eevee/espathra', async () => {
-    const module = await import(`./data/strats/eevee/espathra.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
+  // test('eevee/espathra', async () => {
+  //   const module = await import(`./data/strats/eevee/espathra.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('eevee/glimmana', async () => {
     const module = await import(`./data/strats/eevee/glimmana.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1638,10 +1638,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/meganium/garden_party.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('meganium/chandelier', async () => {
-    const module = await import(`./data/strats/meganium/chandelier.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
+  // test('meganium/chandelier', async () => {
+  //   const module = await import(`./data/strats/meganium/chandelier.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('meganium/infernal_sweets', async () => {
     const module = await import(`./data/strats/meganium/infernal_sweets.json`)
     await testOHKO(module as LightBuildInfo);

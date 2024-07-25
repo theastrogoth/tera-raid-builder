@@ -122,7 +122,6 @@ export interface Raider extends Pokemon {
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
-    yawnSource?: number;    // id of the pokemon that inflicted the user with Yawn
     isFrozen?: number;      // store number of turns that a Pokemon is frozen
     isCharging?: boolean;   // indicates that a Pokemon is charging a move (e.g. Solar Beam)
     isRecharging?: boolean; // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
@@ -143,7 +142,6 @@ export interface Raider extends Pokemon {
     substitute?: number; // store substitute's HP
     originalAbility?: AbilityName | "(No Ability)"; // stores ability when nullified
     syrupBombDrops?: number;
-    syrupBombSource?: number;
     lastConsumedItem?: ItemName;
     isCudChew?: number;    // store number of "turns" (each made of 4 moves) until Cud Chew activates
     isTransformed?: boolean;

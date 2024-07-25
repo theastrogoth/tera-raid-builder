@@ -31,11 +31,12 @@ import MoveDisplay from './MoveDisplay';
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon, StatsTable } from '../calc';
-import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory, getPokemonArtURL } from "../utils";
+import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
 import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 import { MoveName } from '../calc/data/interface';
+import { getModifiedSpeed } from '../raidcalc/util';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -70,6 +71,7 @@ type Modifiers = {
     disable?: string,
     endure?: boolean,
     ingrain?: boolean,
+    smackDown?: boolean,
     micleBerry?: boolean,
     pumped?: number,
     saltCure?: boolean,
@@ -80,6 +82,8 @@ type Modifiers = {
     substituteHP?: number,
     wideGuard?: boolean,
     quickGuard?: boolean,
+    hitsTaken?: number,
+    timesFainted?: number,
     minimized?: boolean,
 }
 
@@ -99,7 +103,7 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function StatChanges({statChanges, randomStatBoosts, translationKey}: {statChanges: StatsTable, randomStatBoosts: number, translationKey: any}) {
+function StatChanges({statChanges, randomStatBoosts, effectiveSpeed, translationKey}: {statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, translationKey: any}) {
     const filteredStatTable = Object.fromEntries(Object.entries(statChanges).filter(([stat, boosts]) => boosts !== 0));
     const statEntries = Object.entries(filteredStatTable);
     const sortedStatEntries = statEntries.sort((a, b) => {
@@ -127,6 +131,11 @@ function StatChanges({statChanges, randomStatBoosts, translationKey}: {statChang
                     <Typography fontSize={10} m={.5}>{getTranslation("No Stat Changes", translationKey)}</Typography>
                 </Paper>
                 
+            }
+            {(effectiveSpeed) &&
+                <Paper elevation={0} variant='outlined'>
+                    <Typography fontSize={10} m={.5}>{`${getTranslation("Effective Speed", translationKey)} : ${effectiveSpeed}`}</Typography>
+                </Paper> 
             }
         </Stack>
     );
@@ -212,9 +221,8 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
         case "boolean":
             return value && <ModifierBooleanTag modifier={modifier} translationKey={translationKey}/>;
         case "number":
-            if (modifier === "substituteHP") {
+            if (modifier === "substituteHP" || modifier === "timesFainted" || modifier === "hitsTaken") {
                 return value > 0 && <ModifierValueTag modifier={modifier} value={value} translationKey={translationKey}/>;
-
             } else {
                 return value > 0 && <ModifierNumberTag modifier={modifier} value={value} translationKey={translationKey}/>;
             }
@@ -239,7 +247,7 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
     );
 }
 
-function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, statChanges, randomStatBoosts, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, statChanges: StatsTable, randomStatBoosts: number, modifiers: object, translationKey: any}) {
+function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
@@ -395,7 +403,7 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubs
                             </Stack>
                         </Stack>
                         <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Stat Changes", translationKey)}</Divider>
-                        <StatChanges statChanges={statChanges} randomStatBoosts={randomStatBoosts} translationKey={translationKey} />
+                        <StatChanges statChanges={statChanges} randomStatBoosts={randomStatBoosts} effectiveSpeed={effectiveSpeed} translationKey={translationKey} />
                         <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Modifiers", translationKey)}</Divider>
                         <ModifierTags modifiers={modifiers} translationKey={translationKey} />
                     </Stack>
@@ -438,6 +446,10 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
 
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
     const randomStatBoosts = turnState.raiders.map((raider) => raider.randomBoosts || 0);
+    const effectiveSpeeds = turnState.raiders.map((raider) => {
+        const effectiveSpeed = getModifiedSpeed(raider);
+        return (effectiveSpeed === results.turnZeroState.raiders[raider.id].stats.spe) ? undefined : effectiveSpeed;
+    });
     const getModifiers = (raider: Raider): Modifiers => {
         return {
             "attackCheer": (raider.field.attackerSide.isAtkCheered ? 1 : 0) + raider.permanentAtkCheers,
@@ -468,6 +480,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "disable": raider.isDisable && raider.disabledMove ? raider.disabledMove : "",
             "endure": raider.isEndure,
             "ingrain": raider.isIngrain,
+            "smackDown": raider.isSmackDown,
             "micleBerry": raider.isMicle,
             "pumped": raider.isPumped,
             "saltCure": raider.isSaltCure,
@@ -478,6 +491,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "substituteHP": raider.substitute,
             "wideGuard": raider.field.attackerSide.isWideGuard,
             "quickGuard": raider.field.attackerSide.isQuickGuard,
+            "hitsTaken": raider.moves.includes("Rage Fist" as MoveName) ? raider.hitsTaken : undefined,
+            "timesFainted": (raider.moves.includes("Last Respects" as MoveName) || raider.ability === "Supreme Overlord") ? raider.timesFainted : undefined,
             "minimized": raider.isMinimize,
         }
     }
@@ -527,7 +542,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
         <>
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} modifiers={modifiers[i]} translationKey={translationKey} />
+                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} effectiveSpeed={effectiveSpeeds[i]} modifiers={modifiers[i]} translationKey={translationKey} />
             ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true} onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
@@ -851,16 +866,6 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
     
     return (
         <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2, paddingTop: "5px", paddingBottom: "5px"}}>
-            {/* <Button 
-                variant="contained" 
-                size="small" 
-                color="secondary"
-                sx={{ minWidth: "100px", height: "25px", fontWeight: "normal",}} 
-                disabled={alreadyOptimized(raidInputProps.groups)}
-                onClick={handleOpen}
-            >
-                {getTranslation("Optimize Boss Moves", translationKey)}
-            </Button> */}
             <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
                 <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >
                     { getTranslation("Optimize Boss Moves", translationKey) }
@@ -1180,6 +1185,7 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                 setLoading(false);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [setResults]);
 
     useEffect(() => {

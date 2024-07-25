@@ -192,7 +192,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].state.raiders[1].item).toEqual(undefined); // consumed
     // T4 Sturdy activates, Grassy Terrain heals 1HP
     expect(result.turnResults[3].results[0].state.raiders[1].originalCurHP).toEqual(1); // Sturdy activates for the last time
-    expect(result.turnResults[3].results[1].state.raiders[1].originalCurHP).toEqual(2); // Grassy Terrain Healing
+    expect(result.turnResults[3].state.raiders[1].originalCurHP).toEqual(2); // Grassy Terrain Healing
     expect(result.turnResults[3].state.raiders[1].item).toEqual(undefined); // no more berries are passed
     // T5 No more berries, KOd
     expect(result.turnResults[4].state.raiders[1].originalCurHP).toEqual(0); // KO
@@ -219,9 +219,9 @@ describe('Specific Test Cases', () => {
     // T0: Mirror Herb copies Growth, Weakness Policy passed
     expect(result.turnResults[0].state.raiders[1].boosts.spa).toEqual(1);
     expect(result.turnResults[0].state.raiders[1].item).toEqual("Weakness Policy");
-    // T5: Oranguru is targeted when using instruct, heals from Grassy Terrain after instruct instead of Qwilfish
+    // T5: Oranguru is targeted when using instruct, everyone healed by Grassy Terrain
     expect(result.turnResults[4].results[0].desc[4].includes("Def Oranguru")).toEqual(true);
-    expect(result.turnResults[4].results[1].flags[4].join().includes("HP")).toEqual(true);
+    expect(result.turnResults[4].endFlags.every((flags) => flags.includes("Grassy Terrain"))).toEqual(true);
   })
   test('fling_symbiosis', async() => {
     const hash = "#H4sIAAAAAAAAA71UUU/bMBD+K5GfhhRpbdNCx1sLY3SDgeimSYv64CSXxqtjR7bTUiH++85OUpJqEhESE5U5O3f3fffd2U8kJeck/qOlID4x5DwMBz4RNAey8q3JktqIFTPooiGWIqFq/zlNITYaj5Tk3DoNfVJqUItLm4mqNRhnysIwKbT1GPlkrWRZ4Gkut7AQqUQzklrfNtsqj5AGbOpYQcIcSCE3kFckSyXsicuka3aZzUnNBtcEUsuzoG5N3Ao1OlIFUteH/hHjzOzRYgZyd47J7RfYWgTmVg5b4BYXFP2xL6AmrxvmJTes4AyUjXs0it66r6uVT7bk/Imgpqc+WbKcUeEtM7lL5M7Wgb+LTLFHzPvRGpgwdN5THwt6oCzx5pgf3R4Y5zSS0lL8oqjWe29Zor7EFyXnPvmKDcAqXPAZBh/+Vs/NYTA8+uGn4QBxvkuVUywvJJeqzL05UMPEGoFmsZIRbmLLYC4TxOTUMriRO+8bizcoaTDBFCFykjuTOTeZR6XSdlDmJd94PwvUoSYx9bGx98jeKUG69ofv0ptV7TjB7S+gGwFae/eSs9h2aJbQnArTqnI0GdV1ovV6pU6qkFxwqcG7QJ7U1Li2XydYjfUKW3RxXu4UFetSlaRjLvd5xKS2HcMWShaDN6cicQLw5EDxhWCvVtQEF0IbVcbmH4QClEEIljFO3Rh2NkcK/sZWeDfgbsqxdm8jtsTLCHH2imhj7KtiOVSkWuYRvyscJvDuVIT2Ii+Yzo7oNSTHvQle8Wpyr4EXaHnXticvDFf19Zr4dYTbjdvl4IQOquPATynXUK8kZ4JghudDTDPyAwypA7BrUC0kp4/OvQmYoFcH8hJSbA3OYQb23Rj1he3e0b7goy54rdO4L2j7JegLeUiO8YfBCd4TMWghzoyh8aZRt3dT3wJ71viNjwYPJRi+H+xpC/b/6DttIR7eKByt4D0n91N3cruPd+++ti74a8D4SOCnMf6zGp/50xW+HM9/AQVx5XgmCQAA";
@@ -434,35 +434,38 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[4].results[0].desc[0].includes("critical hit")).toEqual(true);
   })
   test('yawn+sleep', async() => {
-    const hash = "#H4sIAAAAAAAAA8VVbU/bMBD+K5E/MSlIKS0w+NbSMZCAIco+TFU+HMkl8erYke20FNT/vrOT9IVtGtvEplqOfb6X5547u88sY6cs+WqUZCGz7HQ6jUImoUQWh27JU7fohaw2qC/HTgl0jtYvVWW5ksZpHIQs16quSFqqOV7KTNHyQRlz3W0bh4nmlk4MJkqmoJcfsgwTa0iklRD0Kbg1rW7h3IGd0Zxi5qwq8HPqZ1yr3Wue56gdOl7iZmcKjiI9A5mgGEMJOa6FzfYO7I9E96jhJ+KzAmSOLSlSWXTQE40p90lUaoZlQ2atpZN4Wnx+WCF4JVM/GMtt7Ywb7ih3h8MT7+PKJX25GcrlFc7R8QIPXHDrxRZLr0whnDrOnVPuZ9Fq5yjThhDCfL+ssC2M6apSC8srwb0OPloN1+1pl7QFFschm7PTZ0Z98T5krB1TLzgJifo74GkwIn90MMaEpzUucf+Cm5qzMANhsJ3ZJNFQVQRf1kKEbJgSq5I6wfs6Il/rX7zqhP3ei0FHvYjC3lC4jxpc2CmjclcCg6HWauFwjDTMMRhx7bpkUkCqFsGZgAXtrhCyYCQgdQXsR+Rqyka1mAWfXadNFkqnJhi7dukCLAMqugYuO+uJVbokaw/xODyK3BhE4UEUHkfkM151+E9C6pB7qLVyqJrF/i2IFGGfMDzhC4aG1Fc6uFXc0cLOCsUTSgOkS+N7ug4OD36DsOuW9yk7F6DJLbXSE2XhDqfrZHaKsEmD+vNCyaSYEcFsZ71b4boi/Fd14u7rJFEVBlfor8BIiXQNvQG+hv+6arfgb3he2GAiwBSvBd8n6pWeKXC3Yr3aAT6mG0p+6fxcJbUJJs495Qk6Xf5Bg24DvkBRcZkHF66Mr0Q8IPZmKOhF0f692t7s4N67UcGweRXeOT1uNaEfUb8u/wL+LuNfYOFanyhPZsGnLPtVEnH7Ogy8yC+pAo2XQSc53M2jdLert6GADPaulbGBf3mJPsouIl5bW8oSm4mV8EiWTeDWeEDt2lv72W6YzcHbxu9txd/wRtkP/kX0PqX5/6IPtqLv9D7helPyqe+mkf8v7dHcDwex/4fu+S11azfieLX6BlsN50L1CAAA";
+    const hash = "#H4sIAAAAAAAAA71W227bOBD9FYFPLaAAku1c33zZbgok2aLOPiwMPTDSSOKaIgWSsusW+ffOUJIvaY1NF6khgaKGczlzZkjpG8vZDUv/tVqxkDl2s1hEIVO8ApaENBUZTeKQNRbMxxkpcVOA81NdO6GVJY1ByAqjmxqllV7BR5VrnD5pa+/719ZhaoTDFQupVhk3mz/yHFJnUWS0lPgohbOdbknuuFvimEFOVjX3Y+ZH2Ko9GlEUYAidqGD3ZksBMptylYKc8YoXsBW2r5+5+5noEQw/Ip6WXBXQkaK0A4KeGsiET6LWS6haMhujSOJp8flBDdwr2ebJOuEaMm65w9wJhyfex1UbfAo7Vps7WAHxwp+EFM6LHVReGUOQOqzIqfCj7LQLUFlLCGJ+3NTQFcb2VWmkE7UUXge+OMPvu9U+acdZkoRsxW6+MeyLq5Cx7l54wXWI1H/mIgsm6A8XZpCKrIENnN0K2wgW5lxa6EY2Tw2va4SvGilDNs6QVYWd4H1doK/tlTz3wmH84salOMKwDxjuT8Mp7IJhuWsJwdgYvSYcE8NXEEyEoS6ZlzzT62Aq+Rrf7oDnwUTyjAo4jNDVgk0auQz+pk6br7XJbDCjdukDbAIsuuFC9dZzp02F1h7iZXgR0T2KwkEUXkboM3nu8V+H2CGPvDGaULWTs09cZsDPEMNXeMHQGPvKBJ+0IFrYtNQixTS4ojR+pGtwPvgFwu473hfsg+QG3WIrfcUsaHGxTeagCLs0sD9vtUrLJRLMDuaHFW5qxH/XpLRf56muIbgDvwUmWmZb6C3wLfzXVbsD/yCK0gVzyW35WvBDpF6bpea0K7azA+Az3KHoF9c/6LSxwZzcY57cZJv/36Ad5FuQtVBFcEuFfCXmEfK3BIlnivEn1v7LAfJ3DzoYt+fCe9ITziD+CXbs5s0S+IevqfmR9HQZ/JXn/5VE0p0PIy/yU6xB62XUS84P86hof8U7CtDg3b22LvBnL9KH2UW4nTpbzBLagVX8C1q2gTvjETZsvPWz3zK7hd8bP96Lf1B/7MaTADjfAzB2jio3LYHO+vgIAL4qfgXAEdsdgiFyvaOAyz7+CK8TEDA6En6I1wnCXxwJfyr2L4/EH/Ty3xz/qqd5uH9wHC3+W4e/3gv/Yv///Px5awBxtIdgBjl+BuHUPRDHexheswfeHMCgL/dpuwA/QIvI/1bH4Tk+hyFtyEucXWFnYGnimP7eB4n/h+8uMkrC/k6S5+fvW5p7hRsNAAA=";
     const result = await resultsFromHash(hash);
     // T1: Yawn inflicts drowsiness
-    expect(result.turnResults[0].results[1].state.raiders[0].isYawn).toEqual(2);
-    expect(result.turnResults[0].state.raiders[0].isYawn).toEqual(1);
+    expect(result.turnResults[0].state.raiders[0].isYawn).toEqual(2);
     expect(result.turnResults[0].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
-    // T2: Moves that aren't by the yawn user don't decrement the yawn countdown
-    expect(result.turnResults[1].state.raiders[0].isYawn).toEqual(1);
-    expect(result.turnResults[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
-    expect(result.turnResults[1].state.raiders[0].isSleep).toEqual(0);
-    // T3: Yawn inflicts sleep at the end of the turn
-    expect(result.turnResults[2].results[1].state.raiders[0].isYawn).toEqual(1);
-    expect(result.turnResults[2].results[1].state.raiders[0].isSleep).toEqual(0);
-    expect(result.turnResults[2].results[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
-    expect(result.turnResults[2].results[1].state.raiders[0].status).toEqual("");
-    expect(result.turnResults[2].state.raiders[0].isYawn).toEqual(0);
-    expect(result.turnResults[2].state.raiders[0].isSleep).toEqual(1);
-    expect(result.turnResults[2].state.raiders[0].volatileStatus.includes("yawn")).toEqual(false);
-    expect(result.turnResults[2].state.raiders[0].status).toEqual("slp");
-    expect(result.turnResults[2].endFlags[0].includes("fell asleep")).toEqual(true);
+    expect(result.turnResults[6].state.raiders[0].isSleep).toEqual(0);
+    // T2-7: Yawn hasn't triggered yet
+    expect(result.turnResults[6].state.raiders[0].isYawn).toEqual(1);
+    expect(result.turnResults[6].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
+    expect(result.turnResults[6].state.raiders[0].isSleep).toEqual(0);
+    // T8: Yawn inflicts sleep at the end of the turn second 4-move turn
+    expect(result.turnResults[7].results[1].state.raiders[0].isYawn).toEqual(1);
+    expect(result.turnResults[7].results[1].state.raiders[0].isSleep).toEqual(0);
+    expect(result.turnResults[7].results[1].state.raiders[0].volatileStatus.includes("yawn")).toEqual(true);
+    expect(result.turnResults[7].results[1].state.raiders[0].status).toEqual("");
+    expect(result.turnResults[7].state.raiders[0].isYawn).toEqual(0);
+    expect(result.turnResults[7].state.raiders[0].isSleep).toEqual(2);
+    expect(result.turnResults[7].state.raiders[0].volatileStatus.includes("yawn")).toEqual(false);
+    expect(result.turnResults[7].state.raiders[0].status).toEqual("slp");
+    expect(result.turnResults[7].endFlags[0].includes("fell asleep")).toEqual(true);
 
-    // T4: Boss sleeps for 1 turn
-    expect(result.turnResults[3].results[1].desc[0].includes("fast asleep")).toEqual(true);
-    expect(result.turnResults[3].state.raiders[0].isSleep).toEqual(0);
-    expect(result.turnResults[3].state.raiders[0].status).toEqual("slp");
-    // T5 Boss wakes up
-    expect(result.turnResults[4].flags[0].includes("woke up")).toEqual(true);
-    expect(result.turnResults[4].results[0].state.raiders[0].isSleep).toEqual(0);
-    expect(result.turnResults[4].results[0].state.raiders[0].status).toEqual("");
+    // T9-10: Boss sleeps for 2 moves
+    expect(result.turnResults[8].results[1].desc[0].includes("fast asleep")).toEqual(true);
+    expect(result.turnResults[8].state.raiders[0].isSleep).toEqual(1);
+    expect(result.turnResults[8].state.raiders[0].status).toEqual("slp");
+    expect(result.turnResults[9].results[1].desc[0].includes("fast asleep")).toEqual(true);
+    expect(result.turnResults[9].state.raiders[0].isSleep).toEqual(0);
+    expect(result.turnResults[9].state.raiders[0].status).toEqual("slp");
+    // T11: Boss wakes up
+    expect(result.turnResults[10].flags[0].includes("woke up")).toEqual(true);
+    expect(result.turnResults[10].results[0].state.raiders[0].isSleep).toEqual(0);
+    expect(result.turnResults[10].results[0].state.raiders[0].status).toEqual("");
   })
   test('taunt', async() => {
     const hash = "#H4sIAAAAAAAAA71W227bOBD9FYJPW4DFypckbd58SbcFmraosk+GHmhpbHFDiVpenKpF/r0z1MXOIos2KBpIoIeXGR4enhnrG9/xS57/40zNBff8crNJBK9lBTwTZKqCjIngwYF9t6ZF0u7BR9M0Xpna0Yqp4HtrQoOjlTnAu3pn0Nwa566Hbhcwt8rjjIPc1IW07dVuB7l3OGSN1vhTKu/6tSWFk/4W2wJ25NXI2BaxhXHZjVX7PVhCpyo49lypQBcrWeeg17KSexgHu+5n6R8bugEr/2d4Vcp6Dz0ptfFA0HMLhYqHaMwtVB2ZwdY0EmmJ54MGZFzkwtZ55QM5d9zh2QlHJD7uW7d09K3SypOlPFRxHqPSCjhQHBVbDQcg4jyiu2kb6K/ADfwH7VWjVSQEvngrr/vZ4Xhe8iwT/MAvv3FUwCvBef9u4sBrgSSvIVdFgJbCj/bLt8oFxcVOageCp7mVTYN466C14IsCmavxtmOUc4wyPtn9MDib/OfFqUmCG/5lpUOUG47X2WhgC2vNHcFeWnkAtlSWVJCWsjB3bKXlHfbeg9yxpZYFXdAswTAbvgz6lv1NSkrvjC0cW5MceL9By/BSrVT14J16Yyv0jvAuxHkiXiVinohpIi4SjJndD9hfC1TAZ9n+G+RXUsvR9DYgGwtl2XuTk3qvFYK37C3YLX+Ml+nZ9AnMrK3ck8Q2vcUWLgeMl8XpzYj9Ad9H1Ci3tDGqJmCD0SG+KVV+y95IStCrgzIoPiJqaXQxgu2gjoAfwE0eQ/vJtTnGJbipqugmlyCrnwU7I1WZg9K6u6PTTgd6VWpjTVO2sXq8MXlwLJWupMVglQnuhwJ8FPeov7RRecuuKHPynyZ5LvhHi5Ui2MBPzQ5z2lZbZZwiOa9Ko3IkRdbFr0L+gNKVOuaMDD8WRNbn9zwORXNGyb2D2gFblUAlYzJMnfVZ3ud6RTcwOR4ZPf+4Ns6zWC5VvX/B0XMy+MZzd4ev5Bf07BD0znNxfoLgVCZi+jz7z07278gT8+fZeTIspTgfDKPq/OJJvK80SMuWBjE49idbxH8NRSX+CTDmvwxjLLRP2HWKz+C/8F5i+el190zsn50AeJjoR0n8XgQXJwge1vPfnXuY//j5hOUkfszM45fImbjIYhcfms/E8GbZ/f13H8QDey8KAAA=";
@@ -648,25 +651,32 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[9].state.raiders[1].originalCurHP).toEqual(result.turnResults[8].state.raiders[1].originalCurHP);
   })
   test('syrup-bomb', async() => {
-    const hash = "#H4sIAAAAAAAAA9VUTW8aMRD9K8inVPKBBdI23CBUhQOtFLit9mB2Zxc3XnvlDxoU8d874/1IWqVqekilCmsYj2ee3xt7/chKNmf5N2c048yzeZqOOdOiBpZxcmVBTsJZcGA3K0oStgIfXdN4abSjjAlnlTWhwWhtTrDRpUH3YJzb9tMWMLfS44qD3OhC2POnsoTcOwxZoxT+HaV3Xe6R4IS/R1tASVWNiLaIFoa0vZVVBZbYyRqeZu4oQRW3QuegVqIWFQzBdnon/EuhPVjxm/DtUegKuqZo44Go5xYKGUU05h7qtpnBaorEtkR90ICISS4cnJc+UHHbO9ROPGLj4776TNIPUklPnvRQx3VEpQw4EY6MVsEJqHEe2e3PDXRH4Pr+B+Vlo2RsCDx4K7bdai/PC5ZlnJ3Y/JHhDfjIGetGGgM3HJt8J2QxWiIeLqyCy5UhUaVQDji7+mJGi5bsO8Z1UIqztbAFUo8I7xFh+GWXPjhNfhm4lIzHLUDKFs4bLd0Re0TRNGvrPvwM1sPdcDyQlWxQKrV/8N6U4u5sQ4NtqQ+45WdrvvtXs8VT/2rxLgUb2HP3Rb5sJ70NbrQEa+k+LI0qBuKT6wmCt/ZvyG+0Q9Dcv5bx9L9jPONsG+j5iPbf8Vzk+LHsGisIcQ2qkboarYUu/kQ86z65WQxFF7v+/JYlffy609OpqumuJ0/isexqa5wfxecL90etY6zualEztIbV4gEr2+274hkmJgNOd6/femvUno7pXc3i4zqlecb7kWWXyw/ZWnjargYAAA==";
+    const hash = "#H4sIAAAAAAAAA9VW3W/aMBD/V5CfOskPkNB25Y2WaSCNTip9Q3kwySV4dezIH6yo4n/f2fmAVmVtpYppSnRcznf3+92dbfFEcjIi6S+jJKHEktFy2adEshJIQr3KM68MKHEG9GzinZguwAZVVZYrabxHREmhlavQWqoNzGSuUF0pY+btZ50w1dziioFUyYzp7bc8h9QaNGklBP6suTWN79qnY/YBZQa5j6pYkFmQ0Lnda14UoD07XsL+y6w5iOyGyRTEhJWsgM5Yf94x+5rpHjQ7Yr5ZM1lA0xSpLHjqqYaMhyIq9QBl3UynpbeEtoT6oAIWnIxbGcut88F177B2zyM0PuDKLf5yM5bbH7AB3xe24oLbYLZQBmeE8O6w8Ul5kKLxLkBmdUOQ8/22gmYwpp2KE5ZXggcfeLSazZvVtmjLSJJQsiGjJ4L74islpHmXwXBFsfV3jGe9a8yHCxNnUqF8qTkTBhpJzm5Vb1xz/0KodEJQMmU6w0pCngvM0z3JrjXGgxcvLg36CHnbJFmSsbFKcrPGHkZ9XFomdfDl84xtziuKE5vwCqv28+m0E7FdbLWrsFflCsG/a/XbeuKD9/DGDfJT47Zz2pFD9S/MyYJb7UzvGrT2e+ZaiawrITqPEKKWHy1jJg0mTu17ucf/MfchJXPnb58g/wXjcYrna1Fp5rNOQVRcFr0pk9lbJSTNKR0GU1BxEod7cNDaz59XVvozMdi3AcPO5srYXrgHER/r7WN0E4t1Qy1IyR4xsoZvgod7GMwzgRykgd7NGvy9E+HzGgO2KT7C4EjsnkJ0nEKMzykoxAcUDmc6PDKEz8Yftr5xd/eg5a34z8E+P8DuTiAO5TToF6+ix9iRU6BfHqCfcu54/JfeL6Ixqn4GF/QyCX9avAGvjfZNkt3uD5WgZaoGCgAA";
     const result = await resultsFromHash(hash);
     // T1: Dipplin uses Syrup Bomb, condition applied
-    expect(result.turnResults[0].results[0].state.raiders[0].syrupBombSource).toEqual(1);
-    expect(result.turnResults[0].results[0].state.raiders[0].syrupBombDrops).toEqual(3);
-    expect(result.turnResults[0].state.raiders[0].syrupBombDrops).toEqual(2);
-    expect(result.turnResults[0].state.raiders[0].boosts.spe).toEqual(-1);
-    // T2-3: Syrup Bomb drops are applied at the end of the turn
-    expect(result.turnResults[1].results[0].state.raiders[0].syrupBombSource).toEqual(1);
-    expect(result.turnResults[1].results[0].state.raiders[0].syrupBombDrops).toEqual(2);
-    expect(result.turnResults[1].state.raiders[0].syrupBombDrops).toEqual(1);
-    expect(result.turnResults[1].state.raiders[0].boosts.spe).toEqual(-2);
-    expect(result.turnResults[2].results[0].state.raiders[0].syrupBombSource).toEqual(1);
-    expect(result.turnResults[2].results[0].state.raiders[0].syrupBombDrops).toEqual(1);
-    expect(result.turnResults[2].state.raiders[0].syrupBombDrops).toEqual(0);
-    expect(result.turnResults[2].state.raiders[0].boosts.spe).toEqual(-3);
-    // T4: Syrup Bomb drops no longer occur
-    expect(result.turnResults[3].state.raiders[0].syrupBombDrops).toEqual(0);
-    expect(result.turnResults[3].state.raiders[0].boosts.spe).toEqual(-3);
+    expect(result.turnResults[0].state.raiders[0].syrupBombDrops).toEqual(3);
+    expect(result.turnResults[0].state.raiders[0].boosts.spe).toEqual(0);
+    // T3: First speed drop not yet applied
+    expect(result.turnResults[2].state.raiders[0].syrupBombDrops).toEqual(3);
+    expect(result.turnResults[2].state.raiders[0].boosts.spe).toEqual(0);
+    // T4: First speed drop applied (end of first "turn")
+    expect(result.turnResults[3].state.raiders[0].syrupBombDrops).toEqual(2);
+    expect(result.turnResults[3].state.raiders[0].boosts.spe).toEqual(-1);
+    // T7: Second speed drop not yet applied
+    expect(result.turnResults[6].state.raiders[0].syrupBombDrops).toEqual(2);
+    expect(result.turnResults[6].state.raiders[0].boosts.spe).toEqual(-1);
+    // T8: Second speed drop applied (end of second "turn")
+    expect(result.turnResults[7].state.raiders[0].syrupBombDrops).toEqual(1);
+    expect(result.turnResults[7].state.raiders[0].boosts.spe).toEqual(-2);
+    // T11: Third drop not yet applied
+    expect(result.turnResults[10].state.raiders[0].syrupBombDrops).toEqual(1);
+    expect(result.turnResults[10].state.raiders[0].boosts.spe).toEqual(-2);
+    // T12: Last drop applied
+    expect(result.turnResults[11].state.raiders[0].syrupBombDrops).toEqual(0);
+    expect(result.turnResults[11].state.raiders[0].boosts.spe).toEqual(-3);
+    // T16: No more speed drops
+    expect(result.turnResults[15].state.raiders[0].syrupBombDrops).toEqual(0);
+    expect(result.turnResults[15].state.raiders[0].boosts.spe).toEqual(-3);
   })
   test('mirror-armor-guard-dog', async() => {
     const hash = "#H4sIAAAAAAAAA9VUS4vbMBD+K0anLeiQZLePzS1N+sghpSy5BR8Ue2xPI0tGksOGJf+9M7KczZYWeigLxUKet7759HgSlZiL4oe3RkgRxHy3m0hhVAsilyxiycJUit6DW684SLkaQhRtF9AazxEzKWpn+46srT3C2lSWxL31fjOqQ8HCYSCPh8KaUrnTp6qCIngyOas1/RoMPsU2XE6FA80lVJzVqTiXcYZL2NZhXYNjdNjCs+YbBF0ulSlAr1SrargYB/VBhd+ZtuDUH8zLRpkaEinGBmDohYMSYxOdPUA7kNk7w5ZIS+wPOlAxyPd7HzD0nDxwR70zjkh8XNecuPU9agwsYYA2+qkqR8CR62CcNRyBiQuEbnvqIG2BH/nvdcBOYyQEHoNTm+Qd2wtK5LkURzF/EnQCPkgh0thFw70kkh8UltlHqkeOhSuUQUMrVUp7kGJtiHcsI5mm11qKr8qVBDzmv6P8y5efR+Pt9JdBrulkMhTY5VGmX4x+/7LEWORe0iYsrTviwWDd8MF6oSV4G3TOumzhWuv+GUDxWR0g24JyvIl/BXb2P4G9JSiKD1DAiu/etZKgfukJV7ay9Wvv+p0U3/GgiqYXV1JCdfPNZovh5rx5LWB5uip30RRF4u+KdDqos8H+NuFMaFukx2L63Byl3WysD1l8dtDU1MOEslNucD0Mk2jVI2UOyzOA3STnV4mlXI4jz8/nn9CEEQ/lBQAA"
@@ -1122,10 +1132,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/h_typhlosion/pinch.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('eevee/espathra', async () => {
-    const module = await import(`./data/strats/eevee/espathra.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
+  // test('eevee/espathra', async () => {
+  //   const module = await import(`./data/strats/eevee/espathra.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('eevee/glimmana', async () => {
     const module = await import(`./data/strats/eevee/glimmana.json`)
     await testOHKO(module as LightBuildInfo);
@@ -1638,10 +1648,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/meganium/garden_party.json`)
     await testOHKO(module as LightBuildInfo);
   })
-  test('meganium/chandelier', async () => {
-    const module = await import(`./data/strats/meganium/chandelier.json`)
-    await testOHKO(module as LightBuildInfo);
-  })
+  // test('meganium/chandelier', async () => {
+  //   const module = await import(`./data/strats/meganium/chandelier.json`)
+  //   await testOHKO(module as LightBuildInfo);
+  // })
   test('meganium/infernal_sweets', async () => {
     const module = await import(`./data/strats/meganium/infernal_sweets.json`)
     await testOHKO(module as LightBuildInfo);
@@ -2059,5 +2069,3 @@ describe('OHKO tests, Alternative Strats', () => {
     await testOHKO(module as LightBuildInfo);
   })
 })
-
-

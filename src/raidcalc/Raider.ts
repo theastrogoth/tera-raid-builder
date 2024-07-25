@@ -1,9 +1,8 @@
 import { Field, Pokemon, Generations } from "../calc";
 import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName, TypeName, SpeciesName } from "../calc/data/interface";
 import { extend } from '../calc/util';
-import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus, addRollsToCounts, combineRollCounts, getRollCounts } from "./util";
+import { safeStatStage, combineRollCounts, getModifiedSpeed } from "./util";
 import * as State from "./interface";
-import { getModifiedStat } from "../calc/mechanics/util";
 
 const gen = Generations.get(9);
 
@@ -50,7 +49,6 @@ export class Raider extends Pokemon implements State.Raider {
     originalAbility: AbilityName | "(No Ability)";   // stores ability when nullified
 
     syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
-    syrupBombSource?: number; // id of the pokemon that inflicted the user with Syrup Bomb
 
     lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
     isCudChew?: number;          // store number of "turns" (each made of 4 moves) until Cud Chew activates
@@ -104,7 +102,6 @@ export class Raider extends Pokemon implements State.Raider {
         substitute: number | undefined = undefined,
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
         syrupBombDrops: number | undefined = 0,
-        syrupBombSource: number | undefined = undefined,
         lastConsumedItem: ItemName | undefined = undefined,
         isCudChew: number | undefined = 0,
         isTransformed: boolean | undefined = undefined,
@@ -153,7 +150,6 @@ export class Raider extends Pokemon implements State.Raider {
         this.substitute = substitute;
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
         this.syrupBombDrops = syrupBombDrops;
-        this.syrupBombSource = syrupBombSource;
         this.lastConsumedItem = lastConsumedItem;
         this.isCudChew = isCudChew;
         this.isTransformed = isTransformed;
@@ -188,9 +184,12 @@ export class Raider extends Pokemon implements State.Raider {
                 boostedStat: this.boostedStat,
                 usedBoosterEnergy: this.usedBoosterEnergy,
                 isIngrain: this.isIngrain,
+                isSmackDown: this.isSmackDown,
                 item: this.item,
                 gender: this.gender,
                 nature: this.nature,
+                rawStats: this.rawStats,
+                stats: this.stats,
                 ivs: extend(true, {}, this.ivs),
                 evs: extend(true, {}, this.evs),
                 boosts: extend(true, {}, this.boosts),
@@ -209,7 +208,8 @@ export class Raider extends Pokemon implements State.Raider {
                 toxicCounter: this.toxicCounter,
                 hitsTaken: this.hitsTaken,
                 timesFainted: this.timesFainted,
-                changedTypes: this.changedTypes ? [...this.changedTypes] : undefined,
+                types: this.types,
+                hasExtraType: this.hasExtraType,
                 // lastMoveFailed: this.lastMoveFailed,
                 moves: this.moves.slice(),
                 abilityNullified: this.abilityNullified,
@@ -246,7 +246,6 @@ export class Raider extends Pokemon implements State.Raider {
             this.substitute,
             this.originalAbility,
             this.syrupBombDrops,
-            this.syrupBombSource,
             this.lastConsumedItem,
             this.isCudChew,
             this.isTransformed,
@@ -269,13 +268,8 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public get effectiveSpeed(): number {
-        let speed = getModifiedStat(this.stats.spe, this.boosts.spe, gen);
-        speed = modifyPokemonSpeedByStatus(speed, this.status, this.ability);
-        speed = modifyPokemonSpeedByItem(speed, this.item);
-        speed = modifyPokemonSpeedByAbility(speed, this.ability, this.abilityOn, this.status);
-        speed = modifyPokemonSpeedByQP(speed, this.field, this.ability, this.item, this.boostedStat as StatIDExceptHP);
-        speed = modifyPokemonSpeedByField(speed, this.field, this.ability);
-        return speed;
+        // moved to util.ts for use with R
+        return getModifiedSpeed(this);
     }
 
     public applyDamage(damage: number, damageRolls?: Map<number,number>): number { 
@@ -326,6 +320,10 @@ export class Raider extends Pokemon implements State.Raider {
     public activateTera(): boolean {
         if (!this.isTera && this.teraCharge >= 3) {
             this.isTera = true;
+            if (this.hasExtraType && this.types.length > 1) {
+                this.types = this.types.slice(0, this.types.length-1) as ([TypeName] | [TypeName, TypeName]);
+                this.hasExtraType = false;
+            }
             if (this.name.includes("Ogerpon")) {
                 if (this.name === "Ogerpon") {
                     this.teraType = "Grass";
@@ -383,6 +381,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.weightkg = pokemon.weightkg;
         this.rawStats = {...pokemon.rawStats, hp: this.rawStats.hp}; // HP is retained
         this.types = pokemon.types.slice() as [TypeName] | [TypeName, TypeName];
+        this.hasExtraType = pokemon.hasExtraType;
         // copy stats and moves
         this.boosts = {...pokemon.boosts};
         this.moves = pokemon.moves.slice();
@@ -393,7 +392,7 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public changeForm(formName: SpeciesName) {
-        const newForm = new Pokemon(gen, formName, {...this.clone()});
+        const newForm = new Pokemon(gen, formName, {level: this.level, ivs: this.ivs, evs: this.evs, nature: this.nature, bossMultiplier: this.bossMultiplier});
         // make the form change revertable on fainting
         this.isChangedForm = true;
         this.originalSpecies = this.name;
@@ -404,6 +403,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.weightkg = newForm.weightkg;
         this.rawStats = {...newForm.rawStats, hp: this.rawStats.hp}; // HP is retained
         this.types = newForm.types.slice() as [TypeName] | [TypeName, TypeName];
+        this.hasExtraType = false;
         // copy stats
         this.stats = {...newForm.stats, hp: this.stats.hp}; // HP is retained
     }

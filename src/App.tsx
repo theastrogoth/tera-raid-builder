@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
 
@@ -313,6 +313,7 @@ function App() {
         }
       )
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // only triggered on mount
 
   const [title, setTitle] = useState<string>("");
@@ -340,7 +341,8 @@ function App() {
       groupsRef.current = groups.map((g) => { return {...g, turns: g.turns.map((t) => t)} });
       setGroupsCounter((prev) => prev + 1);
     }
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [groups]);
 
   const [substitutes1, setSubstitutes1] = useState<SubstituteBuildInfo[]>([]);
   const [substitutes2, setSubstitutes2] = useState<SubstituteBuildInfo[]>([]);
@@ -352,8 +354,6 @@ function App() {
     setPokemon: [setRaidBoss, setRaider1, setRaider2, setRaider3, setRaider4],
     groups: groups,
     setGroups: setGroups,
-    // substitutes: [substitutes1, substitutes2, substitutes3, substitutes4],
-    // setSubstitutes: [setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4],
   }
 
   const [results, setResults] = useState<RaidBattleResults>(

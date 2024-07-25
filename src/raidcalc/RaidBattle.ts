@@ -4,7 +4,6 @@ import { TurnGroupInfo } from "./interface";
 import { RaidState } from "./RaidState";
 import { RaidMove } from "./RaidMove";
 import { RaidTurn, RaidTurnResult } from "./RaidTurn";
-import { getCumulativeKOChance } from "./util";
 
 const gen = Generations.get(9);
 
@@ -48,6 +47,7 @@ export class RaidBattle {
             this.startingState = info.startingState;
             this.groups = info.groups;
             this._continuing = false;
+            this._turnResults = [];
         }
     }
 
@@ -80,8 +80,9 @@ export class RaidBattle {
 
     private calculateTurns(){
         let turnCounter = 0;
-        if (!this._continuing) {
-            this._turnResults = [];
+        if (this._continuing && this._turnResults.length > 0) {
+            const previousTurn = this._turnResults[this._turnResults.length - 1];
+            turnCounter = previousTurn.turnNumber + (previousTurn.moveInfo.moveData.name !== "(No Move)" ? 1 : 0);
         }
         for (let i = 0; i < this.groups.length; i++) {
             const turns = this.groups[i].turns;

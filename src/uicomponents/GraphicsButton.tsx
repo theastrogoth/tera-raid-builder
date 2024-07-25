@@ -27,7 +27,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import DownloadIcon from '@mui/icons-material/Download';
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { getStatRadarPlotPNG } from "./StatRadarPlot";

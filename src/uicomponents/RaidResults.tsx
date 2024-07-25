@@ -33,21 +33,21 @@ function moveResultText(name: string, flags: string[]) {
     }
 }
 
-function moveResultDisplay(state: RaidState, moveResult: RaidMoveResult) {
+function moveResultDisplay(state: RaidState, moveResult: RaidMoveResult, idx: number) {
     const hasDesc = moveResult.desc.map((d) => d !== "" && d !== undefined);
     const texts = state.raiders.map((r,i) => moveResultText(state.raiders[i].role, moveResult.flags[i]));
     return (
-        <Stack direction="column" spacing={0}>
-            { hasDesc.map((hasd, idx) => {
-                const desc = moveResult.desc[idx];
+        <Stack key={idx} direction="column" spacing={0}>
+            { hasDesc.map((hasd, didx) => {
+                const desc = moveResult.desc[didx];
                 return ( hasd ? 
-                    <CopyTextButton text={desc}></CopyTextButton>
-                    : <></>);
+                    <CopyTextButton key={'d'+didx} text={desc}></CopyTextButton>
+                    : null);
                 })
             }
             {
-                texts.map((text, idx) => (
-                    <Typography key={idx} variant="body2" style={{ whiteSpace: "pre-wrap" }}>{text}</Typography>
+                texts.map((text, tidx) => (
+                    <Typography key={'t'+tidx} variant="body2" style={{ whiteSpace: "pre-wrap" }}>{text}</Typography>
                 ))
             }
         </Stack>
@@ -108,7 +108,7 @@ function TurnResultDisplay({state, turnResult, index, translationKey}: {state: R
             </Stack>
             <TurnFlagDisplay turnResult={turnResult} />
             {
-                turnResult.results.map((moveResult) => moveResultDisplay(state, moveResult))
+                turnResult.results.map((moveResult, idx) => moveResultDisplay(state, moveResult, idx))
             }
             <EndTurnFlagDisplay turnResult={turnResult} />
         </Stack>

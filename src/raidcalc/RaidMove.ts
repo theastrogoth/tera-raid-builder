@@ -1,5 +1,4 @@
-import { Move, Field, StatsTable, Generations, calculate} from "../calc";
-import { getEndOfTurn } from "../calc/desc";
+import { Move, Field, StatsTable, calculate} from "../calc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
@@ -20,16 +19,11 @@ export type RaidMoveResult= {
     damage: number[];
     drain: number[];
     healing: number[];
-    eot: ({damage: number, texts: string[]} | undefined)[];
     desc: string[];
     flags: string[][];
     causesFlinch: boolean[];
     isSpread?: boolean;
 }
-
-// we'll always use generation 9
-const gen = Generations.get(9);
-const dummyMove = new Move(gen, "Splash");
 
 const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
 const ignoredVolatileStatuses = [
@@ -119,7 +113,6 @@ export class RaidMove {
     _damageRolls!: Map<number,number>[][];
     _healing!: number[];
     _drain!: number[];
-    _eot!: ({damage: number, texts: string[]} | undefined)[];
 
     _desc!: string[];
     _flags!: string[][];
@@ -228,9 +221,6 @@ export class RaidMove {
             }
             this.applyPostMoveEffects();
         }
-        this.applyEndOfTurnEffects();       
-        this.setEndOfTurnDamage();
-        this.applyEndOfTurnDamage();
         this._raidState.raiders[0].checkShield(); // check for shield breaking 
         this.setFlags();
         // store move data and target
@@ -255,7 +245,6 @@ export class RaidMove {
             damage: this._damage,
             drain: this._drain,
             healing: this._healing,
-            eot: this._eot,
             desc: this._desc,
             flags: this._flags,
             causesFlinch: this._causesFlinch,
@@ -279,7 +268,6 @@ export class RaidMove {
         this._damageRolls = [[],[],[],[],[]];
         this._drain = [0,0,0,0,0];
         this._healing = [0,0,0,0,0];
-        this._eot = [undefined, undefined, undefined, undefined];
         this._desc = ['','','','',''];
         this._flags=[[],[],[],[],[]];
     }
@@ -299,7 +287,7 @@ export class RaidMove {
                 return false;
             } else if (this._user.isFrozen && !thawUserMoves.includes(this.move.name)) {
                 this._desc[this.userID] = this._user.name + " is frozen solid.";
-                this._user.isFrozen--; // decrement frozen counter;
+                this._user.isFrozen--; // decrement frozen counter
                 // this._user.lastMoveFailed = true;
                 return false;
             } else if (
@@ -644,8 +632,8 @@ export class RaidMove {
         // protean / libero check
         if (this.moveData.name !== "(No Move)" && this.moveData.type && moveUser.hasAbility("Protean", "Libero") && !moveUser.abilityOn && !moveUser.isTera) {
             moveUser.types = [this._moveType];
-            moveUser.changedTypes = [this._moveType];
             moveUser.abilityOn = true;
+            moveUser.hasExtraType = false;
             this._flags[this.userID].push("changed to the " + this._moveType + " type");
         }
         // Electro Shot boost check (with Power Herb or in Rain)
@@ -779,8 +767,9 @@ export class RaidMove {
                                         case "Tangling Hair":
                                             this._raidState.applyStatChange(this.userID, {spe: -1});
                                             break;
+                                        // Guessing NoReceiver
                                         case "Wandering Spirit":
-                                            if (!persistentAbilities["unreplaceable"].includes(this._user.ability as AbilityName)) {
+                                            if (!persistentAbilities["NoReceiver"].includes(this._user.ability as AbilityName)) {
                                                 target.ability = this._user.ability;
                                                 this._user.ability = "Wandering Spirit" as AbilityName;
                                             }
@@ -793,11 +782,12 @@ export class RaidMove {
                                                 this._raidState.recieveItem(this._targetID, item);
                                             }
                                             break;
+                                        // Guessing NoReceiver
                                         case "Mummy":
                                         case "Lingering Aroma":
                                             if (!this._user.hasItem("Ability Shield") && 
                                                 !(!this._user.abilityNullified && (
-                                                    this._user.hasAbility("Lingering Aroma","Mummy") || persistentAbilities.unreplaceable.includes(this._user.ability || "")
+                                                    this._user.hasAbility("Lingering Aroma","Mummy") || persistentAbilities["NoReceiver"].includes(this._user.ability || "")
                                                 ))) {
                                                 this._raidState.changeAbility(this._user.id, target.ability!)
                                             }
@@ -1085,15 +1075,15 @@ export class RaidMove {
     private applyFieldChanges() {
         /// Whole-Field Effects
         // Weather
-        if (this.move.name === "Rain Dance") { this._raidState.applyWeather("Rain", this._user.item === "Damp Rock" ? 32 : 20); }
-        if (this.move.name === "Sunny Day") { this._raidState.applyWeather("Sun", this._user.item === "Heat Rock" ? 32 : 20); }
-        if (this.move.name === "Sandstorm") { this._raidState.applyWeather("Sand", this._user.item === "Smooth Rock" ? 32 : 20); }
-        if (this.move.name === "Snowscape" || this.move.name === "Chilly Reception") { this._raidState.applyWeather("Snow", this._user.item === "Icy Rock" ? 32 : 20); }
+        if (this.move.name === "Rain Dance") { this._raidState.applyWeather("Rain", this._user.item === "Damp Rock" ? 8 : 5); }
+        if (this.move.name === "Sunny Day") { this._raidState.applyWeather("Sun", this._user.item === "Heat Rock" ? 8 : 5); }
+        if (this.move.name === "Sandstorm") { this._raidState.applyWeather("Sand", this._user.item === "Smooth Rock" ? 8 : 5); }
+        if (this.move.name === "Snowscape" || this.move.name === "Chilly Reception") { this._raidState.applyWeather("Snow", this._user.item === "Icy Rock" ? 8 : 5); }
         // Terrain
-        if (this.move.name === "Electric Terrain") { this._raidState.applyTerrain("Electric", this._user.item === "Terrain Extender" ? 32 : 20); }
-        if (this.move.name === "Grassy Terrain") { this._raidState.applyTerrain("Grassy", this._user.item === "Terrain Extender" ? 32 : 20); }
-        if (this.move.name === "Misty Terrain") { this._raidState.applyTerrain("Misty", this._user.item === "Terrain Extender" ? 32 : 20); }
-        if (this.move.name === "Psychic Terrain") { this._raidState.applyTerrain("Psychic", this._user.item === "Terrain Extender" ? 32 : 20); }
+        if (this.move.name === "Electric Terrain") { this._raidState.applyTerrain("Electric", this._user.item === "Terrain Extender" ? 8 : 5); }
+        if (this.move.name === "Grassy Terrain") { this._raidState.applyTerrain("Grassy", this._user.item === "Terrain Extender" ? 8 : 5); }
+        if (this.move.name === "Misty Terrain") { this._raidState.applyTerrain("Misty", this._user.item === "Terrain Extender" ? 8 : 5); }
+        if (this.move.name === "Psychic Terrain") { this._raidState.applyTerrain("Psychic", this._user.item === "Terrain Extender" ? 8 : 5); }
         // Gravity
         const gravity = this.move.name === "Gravity";
         // Trick Room
@@ -1104,10 +1094,10 @@ export class RaidMove {
         const wonderroom = this.move.name === "Wonder Room";
         // apply effects
         for (let field of this._fields) {
-            field.isGravity = (gravity && !field.isGravity) ? 20 : field.isGravity;
-            field.isTrickRoom = trickroom ? (field.isTrickRoom ? 0 : 20) : field.isTrickRoom;
-            field.isMagicRoom = magicroom ? (field.isMagicRoom ? 0 : 20) : field.isMagicRoom;
-            field.isWonderRoom = wonderroom ? (field.isWonderRoom ? 0 : 20) : field.isWonderRoom;
+            field.isGravity = (gravity && !field.isGravity) ? 5 : field.isGravity;
+            field.isTrickRoom = trickroom ? (field.isTrickRoom ? 0 : 5) : field.isTrickRoom;
+            field.isMagicRoom = magicroom ? (field.isMagicRoom ? 0 : 5) : field.isMagicRoom;
+            field.isWonderRoom = wonderroom ? (field.isWonderRoom ? 0 : 5) : field.isWonderRoom;
         }
         /// Side Effects
         // Reflect
@@ -1130,14 +1120,14 @@ export class RaidMove {
         const sideFieldIDs = this.userID === 0 ? [0] : [1,2,3,4];
         for (let id of sideFieldIDs) {
             const field = this._fields[id];
-            field.attackerSide.isReflect = (reflect && !field.attackerSide.isReflect) ? (this._user.item === "Light Clay" ? 32 : 20) : field.attackerSide.isReflect;
-            field.attackerSide.isLightScreen = (lightscreen && !field.attackerSide.isLightScreen) ? (this._user.item === "Light Clay" ? 32 : 20) : field.attackerSide.isLightScreen;
-            field.attackerSide.isAuroraVeil = (auroraveil && !field.attackerSide.isAromaVeil) ? (this._user.item === "Light Clay" ? 32 : 20) : field.attackerSide.isAuroraVeil;
-            field.attackerSide.isMist = (mist && !field.attackerSide.isMist) ? 20 : field.attackerSide.isMist;
-            field.attackerSide.isSafeguard = (safeguard && !field.attackerSide.isSafeguard) ? 20 : field.attackerSide.isSafeguard;
-            field.attackerSide.isTailwind = (tailwind && !field.attackerSide.isTailwind) ? 20 : field.attackerSide.isTailwind;
-            field.attackerSide.isAtkCheered = attackcheer ? 12 : field.attackerSide.isAtkCheered;
-            field.attackerSide.isDefCheered = defensecheer ? 12 : field.attackerSide.isDefCheered;
+            field.attackerSide.isReflect = (reflect && !field.attackerSide.isReflect) ? (this._user.item === "Light Clay" ? 8 : 5) : field.attackerSide.isReflect;
+            field.attackerSide.isLightScreen = (lightscreen && !field.attackerSide.isLightScreen) ? (this._user.item === "Light Clay" ? 8 : 5) : field.attackerSide.isLightScreen;
+            field.attackerSide.isAuroraVeil = (auroraveil && !field.attackerSide.isAromaVeil) ? (this._user.item === "Light Clay" ? 8 : 5) : field.attackerSide.isAuroraVeil;
+            field.attackerSide.isMist = (mist && !field.attackerSide.isMist) ? 5 : field.attackerSide.isMist;
+            field.attackerSide.isSafeguard = (safeguard && !field.attackerSide.isSafeguard) ? 5 : field.attackerSide.isSafeguard;
+            field.attackerSide.isTailwind = (tailwind && !field.attackerSide.isTailwind) ? 5 : field.attackerSide.isTailwind;
+            field.attackerSide.isAtkCheered = Math.min(6, (attackcheer ? 3 : 0) + field.attackerSide.isAtkCheered);
+            field.attackerSide.isDefCheered = Math.min(6, (defensecheer ? 3 : 0) + field.attackerSide.isDefCheered);
         }
 
         // Helping Hand
@@ -1241,9 +1231,7 @@ export class RaidMove {
                 // boss.isTaunt = 0; according to IVSore, taunt isn't cleared
                 boss.isSleep = 0;
                 boss.isYawn = 0;
-                boss.yawnSource = 0;
                 boss.syrupBombDrops = 0;
-                boss.syrupBombSource = 0;
                 for (let stat in boss.boosts) {
                     boss.boosts[stat as StatIDExceptHP] = Math.max(0, boss.boosts[stat as StatIDExceptHP] || 0);
                 }
@@ -1275,14 +1263,12 @@ export class RaidMove {
                     !this._user.abilityNullified && !target.abilityNullified &&
                     !this._user.hasItem("Ability Shield") && 
                     !target.hasItem("Ability Shield") &&
-                    !persistentAbilities["uncopyable"].includes(user_ability) &&
-                    !persistentAbilities["uncopyable"].includes(target_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(user_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["FailSkillSwap"].includes(user_ability) &&
+                    !persistentAbilities["FailSkillSwap"].includes(target_ability)
                 ) {
                     const tempUserAbility = user_ability;
-                    this._raidState.changeAbility(this.userID, target_ability);
-                    this._raidState.changeAbility(this._targetID, tempUserAbility);
+                    this._raidState.changeAbility(this.userID, target_ability, true);
+                    this._raidState.changeAbility(this._targetID, tempUserAbility, true);
                 } else {
                     this._desc[this._targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
@@ -1290,7 +1276,7 @@ export class RaidMove {
             case "Core Enforcer":
             case "Gastro Acid":
                 if (
-                    !persistentAbilities["unsuppressable"].includes(target_ability) &&
+                    !persistentAbilities["CantSuppress"].includes(target_ability) &&
                     !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.removeAbilityFieldEffect(target.id, target.ability);
@@ -1301,8 +1287,7 @@ export class RaidMove {
                 break;
             case "Entrainment":
                 if (
-                    !persistentAbilities["uncopyable"].includes(user_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability) &&
+                    !persistentAbilities["NoEntrain"].includes(user_ability) &&
                     !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this._targetID, user_ability);
@@ -1310,10 +1295,11 @@ export class RaidMove {
                     this._desc[this._targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
+            // Worry Seed is weird, using FailSkillSwap as an approximation
             case "Worry Seed":
                 if (
-                    !target.hasItem("Ability Shield") &&
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["FailSkillSwap"].includes(target_ability) &&
+                    !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this._targetID, "Insomnia" as AbilityName);
                 } else {
@@ -1323,19 +1309,19 @@ export class RaidMove {
             case "Role Play":
                 if (
                     !target.abilityNullified &&
-                    !this._user.hasItem("Ability Shield") &&
-                    !persistentAbilities["uncopyable"].includes(target_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(user_ability)
+                    !persistentAbilities["FailRolePlay"].includes(target_ability) &&
+                    !this._user.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this.userID, target_ability);
                 } else {
                     this._desc[this._targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
                 break;
+            // Using CantSuppress as a guess
             case "Simple Beam":
                 if (
-                    !target.hasItem("Ability Shield") && 
-                    !persistentAbilities["unreplaceable"].includes(target_ability)
+                    !persistentAbilities["CantSuppress"].includes(target_ability) &&
+                    !target.hasItem("Ability Shield")
                 ) {
                     this._raidState.changeAbility(this._targetID, "Simple" as AbilityName);
                 } else {
@@ -1345,18 +1331,19 @@ export class RaidMove {
             case "Minimize":
                 this._user.isMinimize = true;
                 break;
+            // Using FailRolePlay/NoReceiver as a guess
             case "Doodle":
-                if (!this._user.hasItem("Ability Shield") &&
-                    !persistentAbilities["uncopyable"].includes(target_ability) &&
-                    !persistentAbilities["unreplaceable"].includes(user_ability)) 
-                {           
+                if (
+                    !persistentAbilities["NoReceiver"].includes(target_ability) &&
+                    !this._user.hasItem("Ability Shield")
+                ) {           
                     this._raidState.changeAbility(this.userID, target_ability);
                     if (this.userID !== 0) {
                         for (let i=1; i<5; i++) {
                             const pokemon = this.getPokemon(i);
                             if (i !== this.userID &&
                                 !pokemon.hasItem("Ability Shield") &&
-                                !persistentAbilities["unreplaceable"].includes(pokemon.ability || ""))
+                                !persistentAbilities["NoReceiver"].includes(pokemon.ability || ""))
                             {
                                 this._raidState.changeAbility(i, target_ability);
                             }
@@ -1366,12 +1353,21 @@ export class RaidMove {
                 break;
         /// Type-affecting moves
             case "Soak":
-                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !target.types.includes("Water")) {
+                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !(target.types.every(type => type === "Water"))) {
                     target.types = ["Water"];
-                    target.changedTypes = ["Water"];
+                    target.hasExtraType = false;
                     this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — Soak changed " + target.name + "'s type to Water!";
                 } else {
                     this._desc[target.id] = this._user.name + " Soak vs. " + target.name + " — Soak failed!";
+                }
+                break;
+            case "Magic Powder":
+                if (!target.isTera || !(target.teraType !== undefined || target.teraType !== "???") && !(target.types.every(type => type === "Psychic"))) {
+                    target.types = ["Psychic"];
+                    target.hasExtraType = false;
+                    this._desc[target.id] = this._user.name + " Magic Powder vs. " + target.name + " — Magic Powder changed " + target.name + "'s type to Psychic!";
+                } else {
+                    this._desc[target.id] = this._user.name + " Magic Powder vs. " + target.name + " — Magic Powder failed!";
                 }
                 break;
             case "Forest's Curse":
@@ -1381,7 +1377,7 @@ export class RaidMove {
                     } else {
                         target.types.push("Grass");
                     }
-                    target.changedTypes = [...target.types];
+                    target.hasExtraType = true;
                     this._desc[target.id] = this._user.name + " Forest's Curse vs. " + target.name + " — the Grass type was added to " + target.name + "!";
                 } else {
                     this._desc[target.id] = this._user.name + " Forest's Curse vs. " + target.name + " — Forest's Curse failed!";
@@ -1394,7 +1390,7 @@ export class RaidMove {
                     } else {
                         target.types.push("Ghost");
                     }
-                    target.changedTypes = [...target.types];
+                    target.hasExtraType = true;
                     this._desc[target.id] = this._user.name + " Trick-or-Treat vs. " + target.name + " — the Ghost type was added to " + target.name + "!";
                 } else {
                     this._desc[target.id] = this._user.name + " Trick-or-Treat vs. " + target.name + " — Trick-or-Treat failed!";
@@ -1404,18 +1400,18 @@ export class RaidMove {
                 const firstMoveType = this._user.moveData[0].type;
                 if (firstMoveType) {
                     this._user.types = [firstMoveType];
-                    this._user.changedTypes = [firstMoveType];
+                    this._user.hasExtraType = false;
                     this._desc[this.userID] = this._user.name + " Conversion — " + this._user.name + " transformed into the " + firstMoveType.toUpperCase() + " type!";
                 }
                 break;
             case "Reflect Type":
                 if (!target.isTera || (target.teraType !== undefined || target.teraType !== "???")) {
                     this._user.types = [...target.types];
-                    this._user.changedTypes = [...target.types];
+                    this._user.hasExtraType = target.hasExtraType;
                     this._desc[this.userID] = this._user.name + " Reflect Type vs. " + target.name + " — " + this._user.name + "'s types changed to match " + target.name + "'s!";
                 } else {
                     this._user.types = [target.teraType];
-                    this._user.changedTypes = [target.teraType];
+                    this._user.hasExtraType = false;
                 }
                 this._desc[this.userID] = this._user.name + " Reflect Type vs. " + target.name + " — " + this._user.name + "'s type changed to match " + target.name + "'s!";
                 break;
@@ -1450,7 +1446,6 @@ export class RaidMove {
                             this._raidState.applyStatus(target.id, "psn", this.userID, true, false, this.options.roll);
                             break;
                         case "White Herb":
-                        // Status-Curing Berries
                         case "Cheri Berry":
                         case "Chesto Berry":
                         case "Pecha Berry":
@@ -1458,7 +1453,6 @@ export class RaidMove {
                         case "Aspear Berry":
                         case "Lum Berry":
                         case "Persim Berry": 
-                        // Stat-Boosting Berries
                         case "Liechi Berry":
                         case "Kee Berry":
                         case "Ganlon Berry":
@@ -1469,10 +1463,8 @@ export class RaidMove {
                         case "Starf Berry":
                         case "Lansat Berry":
                         case "Micle Berry":
-                        // Healing Berries (TO DO, other healing berries that confuse depending on nature)
                         case "Sitrus Berry":
                         case "Oran Berry":
-                        // Other
                         case "Mental Herb":
                             this._raidState.consumeItem(this._targetID, this._flingItem, false);
                             break;
@@ -1576,6 +1568,11 @@ export class RaidMove {
                 this._user.stats.atk = this._user.stats.def;
                 this._user.stats.def = tempAtk;
                 break;
+            case "Speed Swap":
+                const tempSpe = this._user.stats.spe;
+                this._user.stats.spe = target.stats.spe;
+                target.stats.spe = tempSpe;
+                break;
             case "Topsy-Turvy": 
                 for (let stat in target.boosts) {
                     target.boosts[stat as StatIDExceptHP] = -(target.boosts[stat as StatIDExceptHP] || 0);
@@ -1598,6 +1595,9 @@ export class RaidMove {
             case "Ingrain":
                 this._user.isIngrain = true;
                 break;
+            case "Smack Down":
+                target.isSmackDown = true;
+                break;
             case "Focus Energy":
                 if (!this._user.isPumped) {
                     this._user.isPumped = 2;
@@ -1619,7 +1619,6 @@ export class RaidMove {
             case "Syrup Bomb":
                 if (!target.syrupBombDrops) {
                     target.syrupBombDrops = 3;
-                    target.syrupBombSource = this.userID;
                     this._flags[this._targetID].push("Covered in Sticky Syrup!");
                 }
                 break;
@@ -1696,44 +1695,6 @@ export class RaidMove {
         if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
             this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
             this._user.isChoiceLocked = true;
-        }
-    }
-
-    public applyEndOfTurnEffects() {
-        /// Ability-related effects that occur
-        // Hydration
-        if (!this.movesFirst && this._raiders[0].field.hasWeather("Rain")) {
-            if (this._user.hasAbility("Hydration")) {
-                this._user.status = "";
-            }
-            if (this._raiders[0].hasAbility("Hydration")) {
-                this._user.status = "";
-            }
-        }
-    }
-
-    private setEndOfTurnDamage() {
-        // getEndOfTurn() calculates damage for a defending pokemon. 
-        // Here, we'll evaluate end-of-turn damage for both the user and boss only when the move does not go first
-        // positive eot indicates healing
-        if (!this.movesFirst && !this.isBossAction) {
-            const raider = this._raiders[this.raiderID];
-            const boss = this._raiders[0];
-            const raider_eot = getEndOfTurn(gen, boss, raider, dummyMove, this.getMoveField(0, this.raiderID));
-            const boss_eot = getEndOfTurn(gen, raider, boss, dummyMove, this.getMoveField(this.raiderID, 0));
-            raider_eot.damage = raider_eot.damage / ((raider.bossMultiplier || 100) / 100);
-            boss_eot.damage = absoluteFloor(boss_eot.damage / ((boss.bossMultiplier || 100) / 100));
-            this._eot[this.raiderID] = raider_eot;
-            this._eot[0] = boss_eot;
-        }
-    }
-
-    private applyEndOfTurnDamage() {
-        if (!this.isBossAction) {
-            for (let i=0; i<5; i++) {
-                const damage = this._eot[i] ? -this._eot[i]!.damage : 0;
-                this._raidState.applyDamage(i, damage);
-            }
         }
     }
 

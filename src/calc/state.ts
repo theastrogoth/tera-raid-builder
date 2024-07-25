@@ -26,6 +26,7 @@ export namespace State {
     boostedStat?: I.StatIDExceptHP | 'auto';
     usedBoosterEnergy?: boolean;
     isIngrain?: boolean;
+    isSmackDown?: boolean;
     item?: I.ItemName;
     gender?: I.GenderName;
     nature?: I.NatureName;
@@ -47,7 +48,7 @@ export namespace State {
     toxicCounter?: number;
     hitsTaken?: number;
     timesFainted?: number;
-    changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
+    hasExtraType?: boolean;
     // lastMoveFailed?: boolean;
     moves?: I.MoveName[];
     abilityNullified?: number;

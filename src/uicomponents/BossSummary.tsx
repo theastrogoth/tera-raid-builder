@@ -64,6 +64,7 @@ function BossSummary({pokemon, setPokemon, allSpecies, allMoves, setAllSpecies, 
                 console.log("No pokemon data for " + pokemon.name);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.name])
 
     // const spriteURL = imgProlog + pokemon.name.toLocaleLowerCase() + imgExt;

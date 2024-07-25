@@ -387,6 +387,7 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
                 fetchPokemonData().catch((e) => console.log(e));
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name, pokemon, showPopper])
     
     return (
@@ -457,6 +458,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                 }
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveItem, moveData, showPopper])
 
     const spriteURL = 
@@ -1112,17 +1114,6 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
 
     const [level, setLevel] = useState(pokemon.level);
 
-    // console.log(groups)
-    // const groupsRef = useRef(isBoss ? undefined : groups.map(g => g.turns.map(t => t.moveInfo)));
-    // const [renderCounter, setRenderCounter] = useState(0);
-
-    // useEffect(() => {
-    //     if (!isBoss && deepEqual(groupsRef.current, groups)) {
-    //         groupsRef.current = groups.map(g => g.turns.map(t => t.moveInfo));
-    //         setRenderCounter(renderCounter + 1);
-    //     }
-    // }, [groups])
-
     useEffect(() => {
         // Locked items/teratypes
         if (pokemon.name.includes("Ogerpon")) {
@@ -1285,25 +1276,64 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         } else if ((pokemon.level !== level) && !(level === 0 && pokemon.level === 1)) {
             setLevel(pokemon.level);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.level, pokemon.isAnyLevel])
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
-            const newPokemon = pokemon.clone();
-            // @ts-ignore
-            newPokemon[propName] = val;
-            setPokemon(newPokemon.clone())
+            const newProps = {...pokemon, [propName]: val};
+            setPokemon(new Raider(
+                newProps.id, 
+                newProps.role, 
+                newProps.shiny, 
+                newProps.isAnyLevel,
+                newProps.field, 
+                new Pokemon(gen, newProps.name, {
+                    nature: newProps.nature, 
+                    level: newProps.level,
+                    ability: newProps.ability,
+                    teraType: newProps.teraType,
+                    gender: newProps.gender,
+                    item: newProps.item,
+                    ivs: newProps.ivs,
+                    evs: newProps.evs,
+                    moves: newProps.moves,
+                    bossMultiplier: newProps.bossMultiplier,
+                    shieldData: newProps.shieldData,
+                }), 
+                newProps.moveData,
+                newProps.extraMoves,
+                newProps.extraMoveData
+            ));
         }
     }
 
     const setPokemonProperties = (propNames: string[]) => {
         return (vals: any[]) => {
-            const newPokemon = pokemon.clone();
-            propNames.forEach((propName, i) => {
-                // @ts-ignore
-                newPokemon[propName] = vals[i];
-            })
-            setPokemon(newPokemon.clone())
+            const newProps = {...pokemon, ...Object.fromEntries(propNames.map((prop, idx) => [prop, vals[idx]]))};
+            setPokemon(new Raider(
+                newProps.id, 
+                newProps.role, 
+                newProps.shiny, 
+                newProps.isAnyLevel,
+                newProps.field, 
+                new Pokemon(gen, newProps.name, {
+                    nature: newProps.nature, 
+                    level: newProps.level,
+                    ability: newProps.ability,
+                    teraType: newProps.teraType,
+                    gender: newProps.gender,
+                    item: newProps.item,
+                    ivs: newProps.ivs,
+                    evs: newProps.evs,
+                    moves: newProps.moves,
+                    bossMultiplier: newProps.bossMultiplier,
+                    shieldData: newProps.shieldData,
+                }), 
+                newProps.moveData,
+                newProps.extraMoves,
+                newProps.extraMoveData
+            ));
         }
     }
 
@@ -1839,10 +1869,30 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
 {
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
-            const newPokemon = pokemon.clone();
-            // @ts-ignore
-            newPokemon[propName] = val;
-            setPokemon(newPokemon.clone())
+            const newProps = {...pokemon, [propName]: val};
+            setPokemon(new Raider(
+                newProps.id, 
+                newProps.role, 
+                newProps.shiny, 
+                newProps.isAnyLevel,
+                newProps.field, 
+                new Pokemon(gen, newProps.name, {
+                    nature: newProps.nature, 
+                    level: newProps.level,
+                    ability: newProps.ability,
+                    teraType: newProps.teraType,
+                    gender: newProps.gender,
+                    item: newProps.item,
+                    ivs: newProps.ivs,
+                    evs: newProps.evs,
+                    moves: newProps.moves,
+                    bossMultiplier: newProps.bossMultiplier,
+                    shieldData: newProps.shieldData,
+                }), 
+                newProps.moveData,
+                newProps.extraMoves,
+                newProps.extraMoveData
+            ));
         }
     }
 

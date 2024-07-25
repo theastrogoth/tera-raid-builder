@@ -182,10 +182,11 @@ function splitBranch(info: RaidBattleInfo, prevResults: RaidBattleResults, moveD
     }
 
     const lastMove = lastGroup.turns[lastGroup.turns.length-1];
+    const previousTurn = penultimateResult.turnResults.length ? penultimateResult.turnResults[penultimateResult.turnResults.length - 1] : undefined;
     const branchTurnResults = pickInterestingMoves(
         penultimateResult.endState, 
         lastMove, 
-        info.groups.reduce((acc, g) => acc + g.turns.length, 0), 
+        previousTurn ? (previousTurn.turnNumber + (previousTurn.moveInfo.moveData.name !== "(No Move)" ? 1 : 0)) : 0, 
         moveData
     );
     const branchResults = branchTurnResults.map((t) => {

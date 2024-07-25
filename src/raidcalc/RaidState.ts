@@ -2,7 +2,7 @@ import { Field, Generations, Pokemon, StatsTable } from "../calc";
 import { Raider } from "./Raider";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
-import { AbilityName, ItemName, MoveName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
+import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
 import persistentAbilities from "../data/persistent_abilities.json"
 import { hasNoStatus, pokemonIsGrounded } from "./util";
 
@@ -175,10 +175,10 @@ export class RaidState implements State.RaidState{
             /// abilities triggered by damage even if the target faints
             // Seed Sower
             if (pokemon.hasAbility("Seed Sower")) {
-                this.applyTerrain("Grassy", pokemon.hasItem("Terrain Extender") ? 32 : 20);
+                this.applyTerrain("Grassy", pokemon.hasItem("Terrain Extender") ? 8 : 5);
             // Sand Spit
             } else if (pokemon.hasAbility("Sand Spit")){
-                this.applyWeather("Sand", pokemon.hasItem("Smooth Rock") ? 32 : 20)
+                this.applyWeather("Sand", pokemon.hasItem("Smooth Rock") ? 8 : 5)
             }
 
             /// the rest can be skipped if the target faints
@@ -663,7 +663,7 @@ export class RaidState implements State.RaidState{
             if (success) {
                 pokemon.volatileStatus.push!(ailment);
                 if (ailment === "taunt") {
-                    pokemon.isTaunt = (firstMove ? 3 : 4) * (id === 0 ? 4 : 1);
+                    pokemon.isTaunt = (firstMove ? 3 : 4);
                 } else if (ailment === "encore") {
                     pokemon.isEncore = 3;
                 } else if (ailment === "torment") {
@@ -673,7 +673,6 @@ export class RaidState implements State.RaidState{
                     pokemon.disabledMove = pokemon.lastMove!.name;
                 } else if (ailment === "yawn") {
                     pokemon.isYawn = 2;
-                    pokemon.yawnSource = source;
                 } else if (ailment === "ingrain") {
                     pokemon.isIngrain = true;
                 }
@@ -745,7 +744,7 @@ export class RaidState implements State.RaidState{
         this.applyDamage(id, 0);
     }
 
-    public applyTerrain(terrain: Terrain | "Teraform Zero" | undefined, turns: number = 20, ids: number[] = [0,1,2,3,4]) {
+    public applyTerrain(terrain: Terrain | "Teraform Zero" | undefined, turns: number = 5, ids: number[] = [0,1,2,3,4]) {
         const setTeraformZero = terrain === "Teraform Zero";
         for (let id of ids) {
             const pokemon = this.getPokemon(id);
@@ -777,7 +776,7 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyWeather(weather: Weather | "Cloud Nine" | undefined, turns = 20, ids: number[] = [0,1,2,3,4]) {
+    public applyWeather(weather: Weather | "Cloud Nine" | undefined, turns = 5, ids: number[] = [0,1,2,3,4]) {
         const setCloudNine = weather === "Cloud Nine";
         for (let id of ids) {
             const pokemon = this.getPokemon(id);
@@ -816,14 +815,10 @@ export class RaidState implements State.RaidState{
         return pokemon.activateTera();
     }
 
-    public changeAbility(id: number, ability: AbilityName | "(No Ability)", restore: boolean = false) {
+    public changeAbility(id: number, ability: AbilityName | "(No Ability)", isSkillSwap: boolean = false) {
         const pokemon = this.getPokemon(id);
         if (pokemon.hasItem("Ability Shield")) { return; }
-        if (ability === "(No Ability)") {
-            if (persistentAbilities.unsuppressable.includes(pokemon.ability || "")) { return; }
-        } else {
-            if (persistentAbilities.unreplaceable.includes(pokemon.ability || "")) { return; }
-        }
+        if (!isSkillSwap && persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
         const oldAbility = pokemon.ability;
         pokemon.ability = ability as AbilityName;
         pokemon.abilityOn = false;
@@ -833,7 +828,7 @@ export class RaidState implements State.RaidState{
         }
         pokemon.abilityNullified = undefined;
         // gained field effects
-        this.addAbilityFieldEffect(id, ability, true, restore);
+        this.addAbilityFieldEffect(id, ability, true, false);
     }
 
     public nullifyAbility(id: number)  {
@@ -867,7 +862,7 @@ export class RaidState implements State.RaidState{
             const opponentIds = id === 0 ? [1,2,3,4] : [0];
             for (let oid of opponentIds) { // Trace might be random for bosses, but we'll check abilities in order
                 const copiedAbility = this.raiders[oid].ability;
-                if (copiedAbility && !this.raiders[oid].abilityNullified && !persistentAbilities["uncopyable"].includes(copiedAbility)) {
+                if (copiedAbility && !this.raiders[oid].abilityNullified && !persistentAbilities["NoTrace"].includes(copiedAbility)) {
                     pokemon.ability = copiedAbility;
                     ability = copiedAbility;
                     flags[id].push("Trace copies " + copiedAbility);
@@ -880,53 +875,53 @@ export class RaidState implements State.RaidState{
             /// Weather Abilities
             if (ability === "Drought") {
                 if (this.fields[0].weather !== "Sun") {
-                    this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
+                    this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 8 : 5);
                     flags[id].push("Drought summons the Sun");
                 }
             } else if (ability === "Drizzle") {
                 if (this.fields[0].weather !== "Rain") {
-                    this.applyWeather("Rain", pokemon.item === "Damp Rock" ? 32 : 20);
+                    this.applyWeather("Rain", pokemon.item === "Damp Rock" ? 8 : 5);
                     flags[id].push("Drizzle summons the Rain");
                 }
             } else if (ability === "Sand Stream") {
                 if (this.fields[0].weather !== "Sand") {
-                    this.applyWeather("Sand", pokemon.item === "Smooth Rock" ? 32 : 20);
+                    this.applyWeather("Sand", pokemon.item === "Smooth Rock" ? 8 : 5);
                     flags[id].push("Sand Stream summons a Sandstorm");
                 }
             } else if (ability === "Snow Warning") {
                 if (this.fields[0].weather !== "Snow") {
-                    this.applyWeather("Snow", pokemon.item === "Icy Rock" ? 32 : 20);
+                    this.applyWeather("Snow", pokemon.item === "Icy Rock" ? 8 : 5);
                     flags[id].push("Snow Warning summons a Snowstorm");
                 }
             } else if (ability === "Orichalcum Pulse") {
                 if (this.fields[0].weather !== "Sun") {
-                    this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 32 : 20);
+                    this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 8 : 5);
                     flags[id].push("Orichalcum Pulse summons the Sun");
                 }
             /// Terrain Abilities
             } else if (ability === "Grassy Surge") {
                 if (this.fields[0].terrain !== "Grassy") {
-                    this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Grassy Surge summons Grassy Terrain");
                 }
             } else if (ability === "Electric Surge") {
                 if (this.fields[0].terrain !== "Electric") {
-                    this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Electric Surge summons Electric Terrain");
                 }
             } else if (ability === "Misty Surge") {
                 if (this.fields[0].terrain !== "Misty") {
-                    this.applyTerrain("Misty", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    this.applyTerrain("Misty", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Misty Surge summons Misty Terrain");
                 }
             } else if (ability === "Psychic Surge") {
                 if (this.fields[0].terrain !== "Psychic") {
-                    this.applyTerrain("Psychic", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    this.applyTerrain("Psychic", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Psychic Surge summons Psychic Terrain");
                 }
             } else if (ability === "Hadron Engine") {
                 if (this.fields[0].terrain !== "Electric") {
-                    this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 32 : 20);
+                    this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Hadron Engine summons Electric Terrain");
                 }
             /// Ruin Abilities (should be uncopyable / unsupressable)
@@ -1023,7 +1018,7 @@ export class RaidState implements State.RaidState{
                     const targetAbility = this.raiders[i].ability;
                     if (
                         target.hasItem("Ability Shield") ||
-                        persistentAbilities.unsuppressable.includes(targetAbility || "") || 
+                        // persistentAbilities.unsuppressable.includes(targetAbility || "") || 
                         (targetAbility === "Neutralizing Gas")
                     ) { 
                         continue; 
@@ -1302,7 +1297,7 @@ export class RaidState implements State.RaidState{
             if (i === id) { continue; }
             const ally = this.getPokemon(i);
             if ((ally.ability === "Receiver" || ally.ability === "Power Of Alchemy") && ally.originalCurHP !== 0) {
-                if (ability && !persistentAbilities["uncopyable"].includes(ability)) {
+                if (ability && !persistentAbilities["NoReceiver"].includes(ability)) {
                     ally.ability = ability;
                 }
             }
@@ -1325,25 +1320,25 @@ export class RaidState implements State.RaidState{
         pokemon.field.attackerSide.isAtkCheered = 0;
         pokemon.field.attackerSide.isDefCheered = 0;
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
-        if ((pokemon.isTransformed || pokemon.isChangedForm) && pokemon.originalSpecies) {
-            const originalSpecies = new Pokemon(9, pokemon.originalSpecies, {
-                ivs: pokemon.ivs,
-                evs: pokemon.evs,
-                nature: pokemon.nature,
-                statMultipliers: pokemon.statMultipliers,
-            });
-            pokemon.name = originalSpecies.name;
-            pokemon.species = originalSpecies.species;
-            pokemon.weightkg = originalSpecies.weightkg;
-            pokemon.stats = originalSpecies.stats;
-            pokemon.rawStats = originalSpecies.rawStats;
-            pokemon.isTransformed = false;
-            pokemon.isChangedForm = false;
-            pokemon.originalAbility = pokemon.originalFormAbility as AbilityName;
-            if (pokemon.originalMoves) {
-                pokemon.moveData = pokemon.originalMoves;
-                pokemon.moves = pokemon.originalMoves.map(m => m.name);
-            }
+        const originalSpecies = new Pokemon(9, pokemon.originalSpecies || pokemon.name, {
+            ivs: pokemon.ivs,
+            evs: pokemon.evs,
+            nature: pokemon.nature,
+            statMultipliers: pokemon.statMultipliers,
+            bossMultiplier: pokemon.bossMultiplier,
+        });
+        pokemon.name = originalSpecies.name;
+        pokemon.species = originalSpecies.species;
+        pokemon.weightkg = originalSpecies.weightkg;
+        pokemon.types = originalSpecies.types;
+        pokemon.stats = originalSpecies.stats;
+        pokemon.rawStats = originalSpecies.rawStats;
+        pokemon.isTransformed = false;
+        pokemon.isChangedForm = false;
+        pokemon.originalAbility = pokemon.originalFormAbility as AbilityName;
+        if (pokemon.originalMoves) {
+            pokemon.moveData = pokemon.originalMoves;
+            pokemon.moves = pokemon.originalMoves.map(m => m.name);
         }
         pokemon.ability = pokemon.originalAbility as AbilityName; // restore original ability
         pokemon.abilityOn = false;
@@ -1367,14 +1362,19 @@ export class RaidState implements State.RaidState{
         pokemon.abilityNullified = undefined;
         pokemon.moveRepeated = undefined;
         pokemon.isChoiceLocked = false;
+        pokemon.isSaltCure = false;
+        pokemon.usedBoosterEnergy = false;
+        pokemon.boostedStat = undefined;
+        pokemon.isIngrain = false;
+        pokemon.isSmackDown = false;
+        pokemon.stockpile = 0;
         pokemon.isEncore = 0;
         pokemon.isTorment = false;
         pokemon.isDisable = 0;
         pokemon.disabledMove = undefined;
         pokemon.isThroatChop = 0;
-        pokemon.changedTypes = undefined;
+        pokemon.hasExtraType =false;
         pokemon.substitute = undefined;
-        pokemon.types = new Pokemon(9, pokemon.name).types;
         pokemon.moveData = pokemon.originalMoves || pokemon.moveData;
         pokemon.moves = pokemon.moveData.map(m => m.name);
         
@@ -1397,7 +1397,7 @@ export class RaidState implements State.RaidState{
         pokemon.cumDamageRolls = new Map<number, number>();
         // check Neutralizing Gas
         const neutralizingGas = this.raiders.reduce((p, c) => p || c.ability === "Neutralizing Gas", false);
-        if (neutralizingGas && !pokemon.hasItem("Ability Shield") && !persistentAbilities.unsuppressable.includes(ability || "") && ability !== "Neutralizing Gas") { 
+        if (neutralizingGas && !pokemon.hasItem("Ability Shield") && ability !== "Neutralizing Gas") { 
             pokemon.abilityNullified = -1;
         }
         // add abilites that Take Effect upon switch-in
@@ -1415,6 +1415,8 @@ export class RaidState implements State.RaidState{
                     pokemon.name as SpeciesName,
                     {
                         ...pokemon,
+                        rawStats: undefined,
+                        stats: undefined,
                         statMultipliers: {
                             hp: 1.5,
                             atk: 1.2,

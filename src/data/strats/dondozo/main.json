@@ -80,7 +80,9 @@
             "teraType": "???",
             "moves": [
                 "Charge",
-                "Electro Drift"
+                "Electro Drift",
+                "Parabolic Charge",
+                "Electric Terrain"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],

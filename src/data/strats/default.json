@@ -9,8 +9,8 @@
             "name": "Dondozo",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Water Veil",
-            "nature": "Sassy",
+            "ability": "Unaware",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -31,22 +31,20 @@
             "gender": "N",
             "teraType": "Water",
             "moves": [
-                "Curse",
-                "Earthquake",
                 "Wave Crash",
-                "Order Up"
+                "Order Up",
+                "Earthquake",
+                "Avalanche"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Rain Dance",
                 "Yawn",
-                "Noble Roar",
-                "Surf"
+                "Curse"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 80,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 70,
+                "timeTrigger": 70,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -60,9 +58,9 @@
             "isAnyLevel": false,
             "ability": "Hadron Engine",
             "item": "Life Orb",
-            "nature": "Bold",
+            "nature": "Modest",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,

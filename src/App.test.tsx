@@ -924,6 +924,10 @@ describe('OHKO tests, Official Strats', () => {
     const module = await import(`./data/strats/pikachu/main.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('dondozo/main', async () => {
+    const module = await import(`./data/strats/dondozo/main.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
 })
 
 describe('OHKO tests, Alternative Strats', () => {

@@ -17,17 +17,17 @@ import {Result} from '../result';
 import {
   chainMods,
   checkAirLock,
-  checkDauntlessShield,
-  checkDownload,
-  checkEmbody,
+  // checkDauntlessShield,
+  // checkDownload,
+  // checkEmbody,
   checkForecast,
   checkInfiltrator,
-  checkIntimidate,
-  checkIntrepidSword,
+  // checkIntimidate,
+  // checkIntrepidSword,
   checkItem,
   checkTeraformZero,
   checkMultihitBoost,
-  checkSeedBoost,
+  // checkSeedBoost,
   checkWonderRoom,
   computeFinalStats,
   countBoosts,
@@ -65,21 +65,21 @@ export function calculateSMSSSV(
   checkItem(defender, !!field.isMagicRoom);
   checkWonderRoom(attacker, !!field.isWonderRoom);
   checkWonderRoom(defender, !!field.isWonderRoom);
-  checkSeedBoost(attacker, field);
-  checkSeedBoost(defender, field);
-  checkDauntlessShield(attacker, gen);
-  checkDauntlessShield(defender, gen);
-  checkEmbody(attacker, gen);
-  checkEmbody(defender, gen);
+  // checkSeedBoost(attacker, field);
+  // checkSeedBoost(defender, field);
+  // checkDauntlessShield(attacker, gen);
+  // checkDauntlessShield(defender, gen);
+  // checkEmbody(attacker, gen);
+  // checkEmbody(defender, gen);
 
   computeFinalStats(gen, attacker, defender, field, 'def', 'spd', 'spe');
 
-  checkIntimidate(gen, attacker, defender);
-  checkIntimidate(gen, defender, attacker);
-  checkDownload(attacker, defender, !!field.isWonderRoom);
-  checkDownload(defender, attacker, !!field.isWonderRoom);
-  checkIntrepidSword(attacker, gen);
-  checkIntrepidSword(defender, gen);
+  // checkIntimidate(gen, attacker, defender);
+  // checkIntimidate(gen, defender, attacker);
+  // checkDownload(attacker, defender, !!field.isWonderRoom);
+  // checkDownload(defender, attacker, !!field.isWonderRoom);
+  // checkIntrepidSword(attacker, gen);
+  // checkIntrepidSword(defender, gen);
 
   computeFinalStats(gen, attacker, defender, field, 'atk', 'spa');
 

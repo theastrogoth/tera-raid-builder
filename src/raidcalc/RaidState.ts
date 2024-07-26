@@ -809,10 +809,16 @@ export class RaidState implements State.RaidState{
 
     public activateTera(id: number): boolean {
         const pokemon = this.getPokemon(id);
-        if (pokemon.name.includes("Terapagos")) {
-            this.changeAbility(id, "Teraform Zero" as AbilityName);
+        const terastalized = pokemon.activateTera();
+        if (terastalized) {
+            if (pokemon.name.includes("Terapagos")) {
+                this.changeAbility(id, "Teraform Zero" as AbilityName);
+            }
+            if (pokemon.name.includes("Ogerpon")) {
+                this.addAbilityFieldEffect(id, pokemon.ability);
+            }
         }
-        return pokemon.activateTera();
+        return terastalized
     }
 
     public changeAbility(id: number, ability: AbilityName | "(No Ability)", isSkillSwap: boolean = false) {
@@ -828,7 +834,7 @@ export class RaidState implements State.RaidState{
         }
         pokemon.abilityNullified = undefined;
         // gained field effects
-        this.addAbilityFieldEffect(id, ability, true, false);
+        this.addAbilityFieldEffect(id, ability);
     }
 
     public nullifyAbility(id: number)  {
@@ -841,7 +847,7 @@ export class RaidState implements State.RaidState{
         this.removeAbilityFieldEffect(id, oldAbility);
     }
 
-    public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, switchInOrChange: boolean = false, restore: boolean = false): string[][] {
+    public addAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined, restore: boolean = false): string[][] {
         const pokemon = this.getPokemon(id);
         const flags: string[][] = [[],[],[],[],[]];
         if (pokemon.abilityNullified) { return flags; }
@@ -870,92 +876,106 @@ export class RaidState implements State.RaidState{
                 }
             } 
         }
-        //// Abilities only activated upon switch-in
-        if (switchInOrChange) {
+        //// Abilities only activated upon switch-in or skill change
+        if (!restore) {
+            switch (ability) {
             /// Weather Abilities
-            if (ability === "Drought") {
+            case "Drought":
                 if (this.fields[0].weather !== "Sun") {
                     this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 8 : 5);
                     flags[id].push("Drought summons the Sun");
                 }
-            } else if (ability === "Drizzle") {
+                break;
+            case "Drizzle":
                 if (this.fields[0].weather !== "Rain") {
                     this.applyWeather("Rain", pokemon.item === "Damp Rock" ? 8 : 5);
                     flags[id].push("Drizzle summons the Rain");
                 }
-            } else if (ability === "Sand Stream") {
+                break;
+            case "Sand Stream":
                 if (this.fields[0].weather !== "Sand") {
                     this.applyWeather("Sand", pokemon.item === "Smooth Rock" ? 8 : 5);
                     flags[id].push("Sand Stream summons a Sandstorm");
                 }
-            } else if (ability === "Snow Warning") {
+                break;
+            case "Snow Warning":
                 if (this.fields[0].weather !== "Snow") {
                     this.applyWeather("Snow", pokemon.item === "Icy Rock" ? 8 : 5);
                     flags[id].push("Snow Warning summons a Snowstorm");
                 }
-            } else if (ability === "Orichalcum Pulse") {
+                break;
+            case "Orichalcum Pulse":
                 if (this.fields[0].weather !== "Sun") {
                     this.applyWeather("Sun", pokemon.item === "Heat Rock" ? 8 : 5);
                     flags[id].push("Orichalcum Pulse summons the Sun");
                 }
+                break;
             /// Terrain Abilities
-            } else if (ability === "Grassy Surge") {
+            case "Grassy Surge":
                 if (this.fields[0].terrain !== "Grassy") {
                     this.applyTerrain("Grassy", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Grassy Surge summons Grassy Terrain");
                 }
-            } else if (ability === "Electric Surge") {
+                break;
+            case "Electric Surge":
                 if (this.fields[0].terrain !== "Electric") {
                     this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Electric Surge summons Electric Terrain");
                 }
-            } else if (ability === "Misty Surge") {
+                break;
+            case "Misty Surge":
                 if (this.fields[0].terrain !== "Misty") {
                     this.applyTerrain("Misty", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Misty Surge summons Misty Terrain");
                 }
-            } else if (ability === "Psychic Surge") {
+                break;
+            case "Psychic Surge":
                 if (this.fields[0].terrain !== "Psychic") {
                     this.applyTerrain("Psychic", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Psychic Surge summons Psychic Terrain");
                 }
-            } else if (ability === "Hadron Engine") {
+                break;
+            case "Hadron Engine":
                 if (this.fields[0].terrain !== "Electric") {
                     this.applyTerrain("Electric", pokemon.item === "Terrain Extender" ? 8 : 5);
                     flags[id].push("Hadron Engine summons Electric Terrain");
                 }
+                break;
             /// Ruin Abilities (should be uncopyable / unsupressable)
-            } else if (ability === "Sword of Ruin") {
+            case "Sword of Ruin":
                 for (let field of this.fields) {
                     field.isSwordOfRuin = true;
                 }
                 flags[id].push("Sword of Ruin lowers Defenses");
-            } else if (ability === "Beads of Ruin") {
+                break;
+            case "Beads of Ruin":
                 for (let field of this.fields) {
                     field.isBeadsOfRuin = true;
                 }
                 flags[id].push("Beads of Ruin lowers Special Defenses");
-            } else if (ability === "Vessel of Ruin") {
+                break;
+            case "Vessel of Ruin":
                 for (let field of this.fields) {
                     field.isVesselOfRuin = true;
                 }
                 flags[id].push("Vessel of Ruin lowers Special Attacks");
-            } else if (ability === "Tablets of Ruin") {
+                break;
+            case "Tablets of Ruin":
                 for (let field of this.fields) {
                     field.isTabletsOfRuin = true;
                 }
                 flags[id].push("Tablets of Ruin lowers Attacks");
+                break;
             /// others
-            // Supersweet Syrup
-            } else if (ability === "Supersweet Syrup") {
-                const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
-                for (let opponent of affectedPokemon) {
+            case "Supersweet Syrup":
+                const affectedSSPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
+                for (let opponent of affectedSSPokemon) {
                     const origEva = opponent.boosts.eva || 0;
                     this.applyStatChange(opponent.id, {eva: -1}, true, id);
                     flags[opponent.id].push("Eva: " + origEva + " → " + opponent.boosts.eva + " (Supersweet Syrup)");
                 }
-            // Hospitality 
-            } else if (ability === "Hospitality") {
+                break;
+            case "Hospitality":
                 if (id !== 0) {
                     const allies = this.raiders.slice(1).splice(id-1, 1);
                     for (let ally of allies) {
@@ -963,151 +983,179 @@ export class RaidState implements State.RaidState{
                         this.applyDamage(ally.id, -healing)
                     }
                 }
-            // Intrepid Sword
-            } else if (ability === "Intrepid Sword") {
+                break;
+            case "Download":
+                const target = id === 0 ? this.raiders[1] : this.raiders[0];
+                let def = target.stats.def;
+                let spd = target.stats.spd;
+                def = getModifiedStat(def, target.boosts.def, target.gen);
+                spd = getModifiedStat(spd, target.boosts.spd, target.gen);
+                if (spd <= def) {
+                    const origSpa = pokemon.boosts.spa;
+                    this.applyStatChange(id, {spa: 1}, true, id);
+                    flags[id].push("SpA: " + origSpa + " → " + (pokemon.boosts.spa > 0 ? "+" : "") + pokemon.boosts.spa + " (Download)");
+                } else {
+                    const origAtk = pokemon.boosts.atk;
+                    this.applyStatChange(id, {atk: 1}, true, id);
+                    flags[id].push("Atk: " + origAtk + " → " + (pokemon.boosts.atk > 0 ? "+" : "") + pokemon.boosts.atk + " (Download)");
+                }
+                break;
+            case "Intrepid Sword":
                 const origAtk = pokemon.boosts.atk;
                 this.applyStatChange(id, {atk: 1}, true, id);
                 flags[id].push("Atk: " + origAtk + " → " + pokemon.boosts.atk + " (Intrepid Sword)");
-            // Dauntless Shield
-            } else if (ability === "Dauntless Shield") {
+                break;
+            case "Dauntless Shield":
                 const origDef = pokemon.boosts.def;
                 this.applyStatChange(id, {def: 1}, true, id);
                 flags[id].push("Def: " + origDef + " → " + pokemon.boosts.def + " (Dauntless Shield)");
-            // Protosynthesis and Quark Drive  (should be uncopyable / unsupressable)
-            } else if (ability === "Protosynthesis" || ability === "Quark Drive") {
+                break;
+            case "Embody Aspect (Teal)":
+                this.applyStatChange(id, {spe: 1}, true, id);
+                break;
+            case "Embody Aspect (Wellspring)":
+                this.applyStatChange(id, {spd: 1}, true, id);
+                break;
+            case "Embody Aspect (Hearthflame)":
+                this.applyStatChange(id, {atk: 1}, true, id);
+                break;           
+            case "Embody Aspect (Cornerstone)":
+                this.applyStatChange(id, {def: 1}, true, id);
+                break;     
+            case "Protosynthesis": 
+            case "Quark Drive":
                 if (pokemon.item === "Booster Energy" && !pokemon.abilityOn) {
                     this.recieveItem(id, "Booster Energy" as ItemName); // consume Booster Energy
                 }
-            // Slow Start
-            } else if (ability === "Slow Start") {
+                break;
+            case "Slow Start":
                 pokemon.slowStartCounter = 5;
                 pokemon.abilityOn = true;
+                break;
+            case "Intimidate":
+                const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
+                for (let opponent of affectedPokemon) {
+                    if (opponent.hasAbility("Guard Dog")) {
+                        const origAtk = opponent.boosts.atk ||  0;
+                        this.applyStatChange(opponent.id, {atk: 1}, true, id);
+                        flags[opponent.id].push("Atk: " + origAtk + " → " + opponent.boosts.atk + " (Guard Dog)");
+                    } else if (opponent.abilityNullified || !["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
+                        const origAtk = opponent.boosts.atk ||  0;
+                        const origSourceAtk = pokemon.boosts.atk || 0;
+                        this.applyStatChange(opponent.id, {atk: -1}, true, id);
+                        if (opponent.hasAbility("Mirror Armor")) {
+                            flags[id].push("Atk: " + origSourceAtk + " → " + pokemon.boosts.atk + " (Mirror Armor)");
+                        } else {
+                            flags[opponent.id].push("Atk: " + origAtk + " → " + opponent.boosts.atk + " (Intimidate)");
+                        }
+                    }
+                    if (opponent.hasAbility("Rattled")) {
+                        const origSpe = opponent.boosts.spe || 0;
+                        this.applyStatChange(opponent.id, {spe: 1}, true, opponent.id);
+                        flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + " → " + opponent.boosts.spe + " (Rattled)";
+                    }
+                }
             }
         }
         /// Other Field-Related Abilities
-        // Intimidate (activated on switch in OR ability change, but not when restored after nullification)
-        if (!restore && ability === "Intimidate") {
-            const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
-            for (let opponent of affectedPokemon) {
-                if (opponent.hasAbility("Guard Dog")) {
-                    const origAtk = opponent.boosts.atk ||  0;
-                    this.applyStatChange(opponent.id, {atk: 1}, true, id);
-                    flags[opponent.id].push("Atk: " + origAtk + " → " + opponent.boosts.atk + " (Guard Dog)");
-                } else if (opponent.abilityNullified || !["Oblivious", "Own Tempo", "Inner Focus", "Scrappy"].includes(opponent.ability || "")) {
-                    const origAtk = opponent.boosts.atk ||  0;
-                    const origSourceAtk = pokemon.boosts.atk || 0;
-                    this.applyStatChange(opponent.id, {atk: -1}, true, id);
-                    if (opponent.hasAbility("Mirror Armor")) {
-                        flags[id].push("Atk: " + origSourceAtk + " → " + pokemon.boosts.atk + " (Mirror Armor)");
-                    } else {
-                        flags[opponent.id].push("Atk: " + origAtk + " → " + opponent.boosts.atk + " (Intimidate)");
+        switch (ability) {
+            case "Neutralizing Gas":
+                for (let i = 0; i < 5; i++) {
+                    if (i !== id ) {
+                        const target = this.raiders[i];
+                        const targetAbility = this.raiders[i].ability;
+                        if (
+                            target.hasItem("Ability Shield") ||
+                            (targetAbility === "Neutralizing Gas")
+                        ) { 
+                            continue; 
+                        }
+                        this.removeAbilityFieldEffect(i, target.ability)
+                        target.abilityNullified = -1;
+                        flags[i].push("Ability suppressed by Neutralizing Gas");
                     }
                 }
-                if (opponent.hasAbility("Rattled")) {
-                    const origSpe = opponent.boosts.spe || 0;
-                    this.applyStatChange(opponent.id, {spe: 1}, true, opponent.id);
-                    flags[opponent.id][flags[opponent.id].length-1] += ", Spe: " + origSpe + " → " + opponent.boosts.spe + " (Rattled)";
-                }
-            }
-        }
-        // Neutralizing Gas
-        if (ability === "Neutralizing Gas") {
-            for (let i = 0; i < 5; i++) {
-                if (i !== id ) {
-                    const target = this.raiders[i];
-                    const targetAbility = this.raiders[i].ability;
-                    if (
-                        target.hasItem("Ability Shield") ||
-                        // persistentAbilities.unsuppressable.includes(targetAbility || "") || 
-                        (targetAbility === "Neutralizing Gas")
-                    ) { 
-                        continue; 
-                    }
-                    this.removeAbilityFieldEffect(i, target.ability)
-                    target.abilityNullified = -1;
-                    flags[i].push("Ability suppressed by Neutralizing Gas");
-                }
-            }
-        // Cloud Nine / Air Lock
-        } else if (ability === "Cloud Nine" || ability === "Air Lock") {
-            this.applyWeather("Cloud Nine");
-            flags[id].push(ability + " negates the weather");
-        // Teraform Zero
-        } else if (ability === "Teraform Zero") {
-            this.applyWeather("Cloud Nine");
-            this.applyTerrain("Teraform Zero");
-            flags[id].push("Teraform Zero negates the weather and terrain");
-        // Steely Spirit
-        } else if (ability === "Steely Spirit") {
-            if (id !== 0) {
-                for (let [index, field] of this.fields.entries()) {
-                    if (index !== 0 && index !== id) {
-                        field.attackerSide.steelySpirits += 1;
+                break;
+                        case "Cloud Nine":
+            case "Air Lock": 
+                this.applyWeather("Cloud Nine");
+                flags[id].push(ability + " negates the weather");
+                break;
+            case "Teraform Zero":
+                this.applyWeather("Cloud Nine");
+                this.applyTerrain("Teraform Zero");
+                flags[id].push("Teraform Zero negates the weather and terrain");
+                break;
+            case "Steely Spirit":
+                if (id !== 0) {
+                    for (let [index, field] of this.fields.entries()) {
+                        if (index !== 0 && index !== id) {
+                            field.attackerSide.steelySpirits += 1;
+                        }
                     }
                 }
-            }
-            flags[id].push("Steely Spirit boosts Allies' Steel-type attacks");
-        // Aroma Veil
-        } else if (ability === "Aroma Veil") {
-            if (id === 0) {
-                this.fields[0].attackerSide.isAromaVeil = true;
-            } else {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.isAromaVeil = true;
-                }
-            }
-            flags[id].push("Aroma Veil protects allies");
-        // Power Spot
-        } else if (ability === "Power Spot") {
-            if (id !== 0) {
-                for (let [index,field] of this.fields.entries()) {
-                    if (index !== 0 && index !== id) {
-                        field.attackerSide.powerSpots += 1;
+                flags[id].push("Steely Spirit boosts Allies' Steel-type attacks");
+                break;
+            case "Aroma Veil":
+                if (id === 0) {
+                    this.fields[0].attackerSide.isAromaVeil = true;
+                } else {
+                    for (let field of this.fields.slice(1)) {
+                        field.attackerSide.isAromaVeil = true;
                     }
                 }
-            }
-            flags[id].push("Power Spot boosts attack power");
-        // Battery
-        } else if (ability === "Battery") {
-            if (id !==0 ) {
-                for (let [index,field] of this.fields.entries()) {
-                    if (index !== 0 && index !== id) {
-                        field.attackerSide.batteries += 1;
+                flags[id].push("Aroma Veil protects allies");
+                break;
+            case "Power Spot":
+                if (id !== 0) {
+                    for (let [index,field] of this.fields.entries()) {
+                        if (index !== 0 && index !== id) {
+                            field.attackerSide.powerSpots += 1;
+                        }
                     }
                 }
-            }
-            flags[id].push("Battery boosts special attack power");
-        // Friend Guard
-        } else if (ability === "Friend Guard") {
-            if (id !== 0) {
-                for (let fid=1; fid<5; fid++) {
-                    if (id !== fid) {
-                        this.fields[fid].attackerSide.friendGuards += 1;
+                flags[id].push("Power Spot boosts attack power");
+                break;
+            case "Battery":
+                if (id !==0 ) {
+                    for (let [index,field] of this.fields.entries()) {
+                        if (index !== 0 && index !== id) {
+                            field.attackerSide.batteries += 1;
+                        }
                     }
                 }
-            }
-            flags[id].push("Friend Guard reduces allies' damage taken");
-        // Flower Veil
-        } else if (ability === "Flower Veil") {
-            if (id !== 0) {
-                for (let fid=1; fid<5; fid++) {
-                    this.fields[fid].attackerSide.isFlowerVeil = true;
+                flags[id].push("Battery boosts special attack power");
+                break;
+            case "Friend Guard":
+                if (id !== 0) {
+                    for (let fid=1; fid<5; fid++) {
+                        if (id !== fid) {
+                            this.fields[fid].attackerSide.friendGuards += 1;
+                        }
+                    }
                 }
-            }
-        } else {
-            // 
-        }
-        // Plus-Minus check
-        if (ability === "Minus" || ability === "Plus") {
-            const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
-            for (id of allyIDs) {
-                const ally = this.getPokemon(id);
-                if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
-                    pokemon.abilityOn = true;
-                    ally.abilityOn = true;
-                    flags[id].push(ability + " activated");
+                flags[id].push("Friend Guard reduces allies' damage taken");
+                break;
+            case "Flower Veil":
+                if (id !== 0) {
+                    for (let fid=1; fid<5; fid++) {
+                        this.fields[fid].attackerSide.isFlowerVeil = true;
+                    }
                 }
-            }
+                break;
+            case "Plus":
+            case "Minus":
+                const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
+                for (id of allyIDs) {
+                    const ally = this.getPokemon(id);
+                    if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
+                        pokemon.abilityOn = true;
+                        ally.abilityOn = true;
+                        flags[id].push(ability + " activated");
+                    }
+                }
+                break;
+            default: break;
         }
         return flags;
     }
@@ -1127,7 +1175,7 @@ export class RaidState implements State.RaidState{
                         const target = this.raiders[i];
                         if ((target.abilityNullified || 0) < 0 && target.originalAbility !== "(No Ability)") {
                             target.abilityNullified = undefined;
-                            this.addAbilityFieldEffect(i, target.ability, false, true);
+                            this.addAbilityFieldEffect(i, target.ability, true);
                         }
                     }
                 }
@@ -1401,7 +1449,7 @@ export class RaidState implements State.RaidState{
             pokemon.abilityNullified = -1;
         }
         // add abilites that Take Effect upon switch-in
-        const flags = this.addAbilityFieldEffect(id, ability, true);
+        const flags = this.addAbilityFieldEffect(id, ability);
         // Mew stat boosts for Mewtwo event.
         if (id !== 0 && pokemon.name === "Mew" && this.raiders[0].name === "Mewtwo") {
             this.raiders[id] = new Raider(

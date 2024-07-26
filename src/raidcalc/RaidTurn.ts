@@ -763,7 +763,7 @@ export class RaidTurn {
             let abilityReactivated = false;
             if (pokemon.abilityNullified === 0) { // restore ability after a full turn
                 pokemon.abilityNullified = undefined;
-                this._raidState.addAbilityFieldEffect(pokemon.id, pokemon.ability, false, true);
+                this._raidState.addAbilityFieldEffect(pokemon.id, pokemon.ability, true);
                 abilityRestored = pokemon.ability !== "(No Ability)";
                 abilityReactivated = !!pokemon.abilityOn;
                 // Not sure if we need to do anything special here to trigger ability reactivation

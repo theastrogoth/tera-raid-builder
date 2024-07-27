@@ -107,6 +107,10 @@ export function safeStatStage(value: number) {
 
 export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, string[]] {
     // returns [accuracy (0-100)]
+
+    if (attacker.hasAbility("No Guard") || defender.hasAbility("No Guard")) {
+        return [100,[]];
+    }
     
     const movename = movedata.name;
     // Toxic NEVER misses if used by a poison type

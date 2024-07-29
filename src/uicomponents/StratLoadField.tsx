@@ -172,8 +172,8 @@ function StratLoadField(
             groupBy={(option: StratOption) => option.boss}
             renderOption={(props, option) => (
                 <li {...props}>
-                    <Stack direction="row" alignItems="center" spacing={0.25} sx={{ width: "100%"}}>
-                        <Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{option.name}</Typography>
+                    <Stack direction="row" alignItems="center" spacing={0.25} sx={{ height: "25px", width: "100%"}}>
+                        <Typography variant="body2" style={{ whiteSpace: "pre-wrap" }} sx={{ maxWidth: "175px" }}>{option.name}</Typography>
                         <Box flexGrow={1} sx={{ minWidth: "20px"}} />
                         <Stack direction="row" spacing={-0.25}>
                             {
@@ -231,7 +231,7 @@ function StratLoadField(
                     console.log(e)
                 }
             }}
-            componentsProps={{ popper: { style: { width: 'fit-content', minWidth: 225 } } }}
+            componentsProps={{ popper: { placement: "bottom-start", style: { width: 'fit-content', minWidth: 225 } } }}
             style={{ whiteSpace: "pre-wrap" }}
         />
     )

@@ -1,6 +1,22 @@
 {
     "Dondozo": {
-        "Don Fishin'": "dondozo/main"
+        "Don Fishin'": "dondozo/main",
+        "4-Move Miraidon": "dondozo/miraidon",
+        "Team Eeveelutions Goes Electrofishing!": "dondozo/eeveelutions",
+        "3-Leafeon Clover": "dondozo/three_leafeon_clover",
+        "Freezing in the Sun": "dondozo/freezing_in_the_sun",
+        "Godzilla vs. The Creature From The Deep": "dondozo/godzilla",
+        "Four Cats Fish for Catfish": "dondozo/catfish",
+        "Four Cats Fish for Catfish (Meowscarada)": "dondozo/catfish_meow",
+        "Fish vs. Fish": "dondozo/fish",
+        "Big Fish in a Frog Pond": "dondozo/frogs",
+        "There are no Dondozo in Alola": "dondozo/alola_bugs",
+        "Dragons?": "dondozo/dragons",
+        "Heat Lightning": "dondozo/heat_lightning",
+        "Ball Lightning": "dondozo/ball_lightning",
+        "Strange Reflections": "dondozo/strange_reflections",
+        "Arceus & Sea Angels Deal Judgment": "dondozo/sea_angels",
+        "Teravolt Strike": "dondozo/teravolt_strike"
     },
     "Pikachu Rerun": {
         "Forbidden Fruit": "pikachu/main",
@@ -63,7 +79,7 @@
         "Team Eeveelutions Blitz Emboar with a Fiery Flair!": "emboar/eeveelutions",
         "Zen and Psy-smic wave Emboar Goodbye": "emboar/zen_and_psy",
         "The Sagacious Infernape and The Emboar": "emboar/sagacious_infernape",
-        "Godzilla vs Thunder Boar": "emboar/godzilla",
+        "Godzilla vs. Thunder Boar": "emboar/godzilla",
         "Bloody Moon": "emboar/bloody_moon",
         "Burn and Nuke": "emboar/burn_and_nuke",
         "Emboar Gets Grounded": "emboar/grounded",

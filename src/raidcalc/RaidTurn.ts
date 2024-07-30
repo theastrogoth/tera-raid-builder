@@ -510,17 +510,19 @@ export class RaidTurn {
     private applyEndOfTurnDamage() {
         if (this._isEndOfFullTurn) {
             for (const pokemon of this._raidState.raiders) {
-                const moveField = pokemon.field.clone();
-                moveField.defenderSide = pokemon.field.attackerSide;
-                const eot = getEndOfTurn(gen, this._raidState.raiders[0], pokemon, dummyMove, moveField);
-                if (eot.damage) {
-                    eot.damage = absoluteFloor(eot.damage / ((pokemon.bossMultiplier || 100) / 100));
-                    const initialHP = pokemon.originalCurHP;
-                    this._raidState.applyDamage(pokemon.id, -eot.damage);
-                    const finalHP = pokemon.originalCurHP;
-                    const initialPercent = Math.floor(initialHP / pokemon.maxHP() * 1000)/10;;
-                    const finalPercent = Math.floor(finalHP / pokemon.maxHP() * 1000)/10;
-                    this._endFlags.push(pokemon.role + " —  HP: " + initialPercent + "% → " + finalPercent + "% after " + eot.texts.join(", "));
+                if (pokemon.originalCurHP > 0) {
+                    const moveField = pokemon.field.clone();
+                    moveField.defenderSide = pokemon.field.attackerSide;
+                    const eot = getEndOfTurn(gen, this._raidState.raiders[0], pokemon, dummyMove, moveField);
+                    if (eot.damage) {
+                        eot.damage = absoluteFloor(eot.damage / ((pokemon.bossMultiplier || 100) / 100));
+                        const initialHP = pokemon.originalCurHP;
+                        this._raidState.applyDamage(pokemon.id, -eot.damage);
+                        const finalHP = pokemon.originalCurHP;
+                        const initialPercent = Math.floor(initialHP / pokemon.maxHP() * 1000)/10;;
+                        const finalPercent = Math.floor(finalHP / pokemon.maxHP() * 1000)/10;
+                        this._endFlags.push(pokemon.role + " —  HP: " + initialPercent + "% → " + finalPercent + "% after " + eot.texts.join(", "));
+                    }
                 }
             }
         }

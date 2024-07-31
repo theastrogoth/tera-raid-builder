@@ -1408,6 +1408,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/blaziken/skill_issue.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('blaziken/skill_issue_sequel', async () => {
+    const module = await import(`./data/strats/blaziken/skill_issue_sequel.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('blaziken/head_on', async () => {
     const module = await import(`./data/strats/blaziken/head_on.json`)
     await testOHKO(module as LightBuildInfo);

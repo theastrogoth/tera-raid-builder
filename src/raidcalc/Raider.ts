@@ -1,8 +1,9 @@
 import { Field, Pokemon, Generations } from "../calc";
 import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName, TypeName, SpeciesName } from "../calc/data/interface";
 import { extend } from '../calc/util';
-import { safeStatStage, combineRollCounts, getModifiedSpeed } from "./util";
+import { safeStatStage, getModifiedSpeed } from "./util";
 import * as State from "./interface";
+import { CumulativeRolls } from "./rolls";
 
 const gen = Generations.get(9);
 
@@ -16,7 +17,7 @@ export class Raider extends Pokemon implements State.Raider {
     extraMoves?: MoveName[];    // for special boss actions
     extraMoveData?: State.MoveData[];
 
-    cumDamageRolls: Map<number, number>;
+    cumDamageRolls: CumulativeRolls;
 
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     isTaunt?: number;           // store number of turns that a Pokemon can't use status moves
@@ -76,7 +77,7 @@ export class Raider extends Pokemon implements State.Raider {
         moveData: State.MoveData[], 
         extraMoves: MoveName[] = [], 
         extraMoveData: State.MoveData[] = [],
-        cumDamageRolls: Map<number, number> | undefined = undefined,
+        cumDamageRolls: CumulativeRolls | undefined = undefined,
         isEndure: boolean = false, 
         isTaunt: number = 0,
         isSleep: number = 0,
@@ -124,7 +125,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.moveData = moveData;
         this.extraMoves = extraMoves;
         this.extraMoveData = extraMoveData;
-        this.cumDamageRolls = cumDamageRolls || new Map<number, number>();
+        this.cumDamageRolls = cumDamageRolls || new CumulativeRolls();
         this.isEndure = isEndure;
         this.isTaunt = isTaunt;
         this.isSleep = isSleep;
@@ -220,7 +221,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.moveData,
             this.extraMoves,
             this.extraMoveData,
-            new Map<number,number>(this.cumDamageRolls),
+            this.cumDamageRolls.clone(),
             this.isEndure,
             this.isTaunt,
             this.isSleep,
@@ -272,24 +273,16 @@ export class Raider extends Pokemon implements State.Raider {
         return getModifiedSpeed(this);
     }
 
-    public applyDamage(damage: number, damageRolls?: Map<number,number>): number { 
-        let safeDamageRolls = new Map<number,number>(damageRolls);
-        if (!damageRolls) {
-            safeDamageRolls.set(damage, 1);
-        }
+    public applyDamage(damage: number, damageRolls?: Map<number,number>, ignoreForRolls?: boolean): number { 
         this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
         if (this.isEndure && this.originalCurHP === 0) {
             this.originalCurHP = 1;
-            if (damageRolls) {
-               for (let [roll, count] of damageRolls) {
-                    if (roll > this.originalCurHP -1) {
-                        safeDamageRolls.set(this.originalCurHP -1, (safeDamageRolls.get(this.originalCurHP - 1) || 0) + count);
-                        safeDamageRolls.delete(roll);
-                    }
-               }
-            }
         }
-        if (safeDamageRolls) {
+        if (!ignoreForRolls) {
+            const safeDamageRolls = damageRolls || new Map<number, number>();
+            if (safeDamageRolls.size === 0 && damage !== 0) {
+                safeDamageRolls.set(damage, 1);
+            }
             this.addDamageRoll(safeDamageRolls);
         }
         return this.originalCurHP;
@@ -434,6 +427,6 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public addDamageRoll(damageRolls: Map<number, number>) {
-        this.cumDamageRolls = combineRollCounts(this.cumDamageRolls, damageRolls, 0, this.maxHP());
+        this.cumDamageRolls.addRolls(damageRolls, this);
     }
 }

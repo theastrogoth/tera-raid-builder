@@ -4,7 +4,8 @@ import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCumulativeKOChance, getCritChance, getRollCounts, catRollCounts, combineRollCounts } from "./util";
+import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCritChance } from "./util";
+import { getRollCounts, catRollCounts, combineRollCounts } from "./rolls"
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -817,7 +818,7 @@ export class RaidMove {
                                             if (!target.item && this._user.item) {
                                                 const item = this._user.item;
                                                 this._raidState.loseItem(this.userID);
-                                                this._raidState.recieveItem(this._targetID, item);
+                                                this._raidState.receiveItem(this._targetID, item);
                                             }
                                             break;
                                         // Guessing NoReceiver
@@ -842,7 +843,7 @@ export class RaidMove {
                                     case "Sticky Barb":
                                         if (!this._user.item) {
                                             this._raidState.loseItem(this._targetID);
-                                            this._raidState.recieveItem(this.userID, "Sticky Barb" as ItemName);
+                                            this._raidState.receiveItem(this.userID, "Sticky Barb" as ItemName);
                                         }
                                         break;
                                     default: break; 
@@ -851,7 +852,7 @@ export class RaidMove {
                         }
                         const postDamageItem = target.item;
                         if ((preDamageItem !== postDamageItem) && (!postDamageItem)) {
-                            this._raidState.loseItem(id);
+                            this._raidState.loseItem(id); // This triggers Symbiosis, which only happens at the end of multi-strike moves
                         }
                         // prepare desc from results
                         const result = results[0];
@@ -859,7 +860,7 @@ export class RaidMove {
                         result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
                         this._damage[id] = Math.min(totalDamage, this.raidState.raiders[id].originalCurHP);
                         this._desc[id] = result.desc();
-                        // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target recieves damage
+                        // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target receives damage
                         if (this.moveData.name === "Fling" && this._user.item) {
                             this._flingItem = moveUser.item;
                             this._raidState.loseItem(this.userID);
@@ -962,7 +963,7 @@ export class RaidMove {
                         if (drainRolls === undefined) {
                             drainRolls = scaledRolls;
                         } else {
-                            drainRolls = combineRollCounts(drainRolls, scaledRolls, -this._raidState.raiders[id].maxHP(), this._raidState.raiders[id].maxHP());
+                            drainRolls = combineRollCounts(drainRolls, scaledRolls, -this._raidState.raiders[id].maxHP(), this._raidState.raiders[id].maxHP()).c;
                         }
                     }
                 }
@@ -1465,8 +1466,8 @@ export class RaidMove {
                 // These moves don't work in Tera raids
                 // const tempUserItem = this._user.item;
                 // const tempTargetItem = target.item;
-                // this._raidState.recieveItem(this._targetID, tempUserItem);
-                // this._raidState.recieveItem(this.userID, tempTargetItem);
+                // this._raidState.receiveItem(this._targetID, tempUserItem);
+                // this._raidState.receiveItem(this.userID, tempTargetItem);
                 break;
             case "Fling":
                 if (this._flingItem && !(target.hasAbility("Shield Dust") || target.hasItem("Covert Cloak"))) {
@@ -1567,6 +1568,7 @@ export class RaidMove {
                 break;
             case "Endure":
                 this._user.isEndure = true;
+                this._user.cumDamageRolls.addPersistentCondition("Endure");
                 break;
             case "Substitute":
                 const substituteHP = Math.floor(this._user.maxHP() / 4);
@@ -1922,7 +1924,7 @@ export class RaidMove {
         for (let i=0; i<5; i++) {
             if (i === this.userID || i === this.targetID || i === this.raiderID || this._affectedIDs.includes(i)) {
                 const poke = this._raiders[i];
-                const koChance = getCumulativeKOChance(poke.cumDamageRolls, poke.maxHP());
+                const koChance = poke.cumDamageRolls.getKOChance(poke.maxHP());
                 if (koChance > 0) {
                     this._flags[i].push(koChance >= 100 ? "Guaranteed KO" : `${koChance}% overall chance of being KOd`);
                 }

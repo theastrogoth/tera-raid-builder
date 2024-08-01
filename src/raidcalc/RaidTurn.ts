@@ -260,7 +260,9 @@ export class RaidTurn {
                 this.applyEndOfTurnAbilityEffects();
                 // Clear Endure (since side-attacks are not endured)
                 this._raidState.raiders[this.raiderID].isEndure = false;
+                this._raidState.raiders[this.raiderID].cumDamageRolls.removePersistentCondition("Endure");
                 this._raidState.raiders[0].isEndure = false; // I am unaware of any raid bosses that have endure
+                this._raidState.raiders[0].cumDamageRolls.removePersistentCondition("Endure");
                 // remove protect / wide guard / quick guard effects
                 this.countDownFieldEffects();
                 // other end-of-turn stuff
@@ -633,7 +635,7 @@ export class RaidTurn {
                         break;
                     case "Harvest": 
                         if (pokemon.field.hasWeather("Sun") && !pokemon.item && (pokemon.lastConsumedItem || "").includes("Berry")) {
-                            this._raidState.recieveItem(pokemon.id, pokemon.lastConsumedItem!);
+                            this._raidState.receiveItem(pokemon.id, pokemon.lastConsumedItem!);
                             this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
                         }
                         break;

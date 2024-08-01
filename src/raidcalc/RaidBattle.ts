@@ -107,6 +107,7 @@ export class RaidBattle {
         const speeds = this._state.raiders.map(raider => raider.effectiveSpeed);
         const speedOrder = speeds.map((speed, index) => [speed, index]).sort((a, b) => b[0] - a[0]).map(pair => pair[1]);
         this._turnZeroOrder = speedOrder;
+        // activate switch-in effects
         for (let id of speedOrder) {
             const flags = this._state.switchIn(id);
             for (let i=0; i<5; i++) {

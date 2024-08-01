@@ -630,6 +630,8 @@ export class RaidState implements State.RaidState{
 
         if (!pokemon.volatileStatus.includes(ailment)) {
             let success = true;
+            // Any non-volatile status, Electric Terrain, and Safeguard block Yawn
+            if (ailment === "yawn" && ((pokemon.status !== "") || field.hasTerrain("Electric") || field.attackerSide.isSafeguard)) { success = false; }
             // Safeguard and Misty Terrain block confusion
             if (ailment === "confusion" && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { success = false; }
             // Covert Cloak

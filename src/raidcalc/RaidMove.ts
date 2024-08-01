@@ -1556,6 +1556,7 @@ export class RaidMove {
                 }
                 break;
             case "Heal Bell":
+            case "Jungle Healing":
                 for (let id of this._affectedIDs) {
                     if (!this._doesNotAffect[id]) {
                         const pokemon = this._raidState.getPokemon(id);

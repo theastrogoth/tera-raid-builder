@@ -1367,6 +1367,12 @@ export class RaidState implements State.RaidState{
         }
         pokemon.field.attackerSide.isAtkCheered = 0;
         pokemon.field.attackerSide.isDefCheered = 0;
+        // remove some "field" modifiers
+        pokemon.field.attackerSide.isHelpingHand = false;
+        pokemon.field.attackerSide.isCharged = false;
+        pokemon.field.attackerSide.isProtected = false;
+        pokemon.field.attackerSide.isWideGuard = false;
+        pokemon.field.attackerSide.isQuickGuard = false;
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
         const originalSpecies = new Pokemon(9, pokemon.originalSpecies || pokemon.name, {
             ivs: pokemon.ivs,

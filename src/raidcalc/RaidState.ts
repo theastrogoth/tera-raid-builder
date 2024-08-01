@@ -1141,6 +1141,19 @@ export class RaidState implements State.RaidState{
                     for (let fid=1; fid<5; fid++) {
                         this.fields[fid].attackerSide.isFlowerVeil = true;
                     }
+                } else {
+                    this.fields[0].attackerSide.isFlowerVeil = true;
+                }
+                break;
+            case "Dazzling":
+            case "Queenly Majesty":
+            case "Armor Tail":
+                if (id !== 0) {
+                    for (let fid=1; fid<5; fid++) {
+                        this.fields[fid].attackerSide.isDazzling = true;
+                    }
+                } else {
+                    this.fields[0].attackerSide.isDazzling = true;
                 }
                 break;
             case "Plus":
@@ -1162,178 +1175,212 @@ export class RaidState implements State.RaidState{
 
     public removeAbilityFieldEffect(id: number, ability: AbilityName | "(No Ability)" | undefined) {
         const poke = this.getPokemon(id);
-        // on/off field-based abilties
         if (ability === undefined || ability === "(No Ability)" || poke.abilityNullified) { return; }
-        if (ability === "Neutralizing Gas") {
-            if (
-                !this.raiders
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Neutralizing Gas" as AbilityName)
-            ) {
-                for (let i = 0; i < 5; i++) {
-                    if (i !== id ) {
-                        const target = this.raiders[i];
-                        if ((target.abilityNullified || 0) < 0 && target.originalAbility !== "(No Ability)") {
-                            target.abilityNullified = undefined;
-                            this.addAbilityFieldEffect(i, target.ability, true);
+        switch (ability) {
+            // on/off field-based abilties
+            case "Neutralizing Gas":
+                if (
+                    !this.raiders
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .map(r => r.ability).includes("Neutralizing Gas" as AbilityName)
+                ) {
+                    for (let i = 0; i < 5; i++) {
+                        if (i !== id ) {
+                            const target = this.raiders[i];
+                            if ((target.abilityNullified || 0) < 0 && target.originalAbility !== "(No Ability)") {
+                                target.abilityNullified = undefined;
+                                this.addAbilityFieldEffect(i, target.ability, true);
+                            }
                         }
                     }
                 }
-            }
-        } else if (["Cloud Nine", "Air Lock"].includes(ability)) {
-            if (
-                !this.raiders
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName)).includes(true)
-            ) {
-                for (let field of this.fields) {
-                    field.isCloudNine = false;
+                break;
+            case "Cloud Nine":
+            case "Air Lock":
+                if (
+                    !this.raiders
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .some(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName))
+                ) {
+                    for (let field of this.fields) {
+                        field.isCloudNine = false;
+                    }
+                    this.applyWeather(undefined);
                 }
-                this.applyWeather(undefined);
-            }
-        } else if (ability === "Teraform Zero") {
-            if (
-                !this.raiders
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName)).includes(true)
-            ) {
-                for (let field of this.fields) {
-                    field.isCloudNine = false;
+                break;
+            case "Teraform Zero":
+                if (
+                    !this.raiders
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .some(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName))
+                ) {
+                    for (let field of this.fields) {
+                        field.isCloudNine = false;
+                    }
+                    this.applyWeather(undefined);
                 }
-                this.applyWeather(undefined);
-            }
-            if (
-                !this.raiders
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Teraform Zero" as AbilityName)
-            ) {
-                for (let field of this.fields) {
-                    field.isTeraformZero = false;
+                if (
+                    !this.raiders
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .map(r => r.ability).includes("Teraform Zero" as AbilityName)
+                ) {
+                    for (let field of this.fields) {
+                        field.isTeraformZero = false;
+                    }
+                    this.applyTerrain(undefined);
                 }
-                this.applyTerrain(undefined);
-            }
-        
-        } else if (ability === "Sword of Ruin") {
-            if (
-                !this.raiders
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Sword of Ruin" as AbilityName)
-            ) {
-                for (let field of this.fields) {
-                    field.isSwordOfRuin = false;
-                }
-            }
-        } else if (ability === "Beads of Ruin") {
-            if (
-                !this.raiders
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Beads of Ruin" as AbilityName)
-            ) {
-                for (let field of this.fields) {
-                    field.isBeadsOfRuin = false;
-                }
-            }
-        } else if (ability === "Vessel of Ruin") {
-            if (
-                !this.raiders
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Vessel of Ruin" as AbilityName)
-            ) {
-                for (let field of this.fields) {
-                    field.isVesselOfRuin = false;
-                }
-            }
-        } else if (ability === "Tablets of Ruin") {
-            if (
-                !this.raiders
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Tablets of Ruin" as AbilityName)
-            ) {
-                for (let field of this.fields) {
-                    field.isTabletsOfRuin = false;
-                }
-            }
-        // stackable abilities
-        } else if (ability === "Steely Spirit") {
-            if (id !== 0) {
-                for (let [index,field] of this.fields.entries()) {
-                    if (index !== 0 && index !== id) {
-                        field.attackerSide.steelySpirits -= 1;
+            
+                break;
+            case "Sword of Ruin":
+                if (
+                    !this.raiders
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .map(r => r.ability).includes("Sword of Ruin" as AbilityName)
+                ) {
+                    for (let field of this.fields) {
+                        field.isSwordOfRuin = false;
                     }
                 }
-            }
-        } else if (ability === "Power Spot") {
-            if (id !== 0) {
-                for (let [index,field] of this.fields.entries()) {
-                    if (index !== 0 && index !== id) {
-                        field.attackerSide.powerSpots -= 1;
+                break;
+            case "Beads of Ruin":
+                if (
+                    !this.raiders
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .map(r => r.ability).includes("Beads of Ruin" as AbilityName)
+                ) {
+                    for (let field of this.fields) {
+                        field.isBeadsOfRuin = false;
                     }
                 }
-            }
-        } else if (ability === "Battery") {
-            if (id !==0) {
-                for (let [index,field] of this.fields.entries()) {
-                    if (index !== 0 && index !== id) {
-                        field.attackerSide.batteries -= 1;
-                        if (field.attackerSide.batteries === 0) {
-                            field.attackerSide.isBattery = false;
+                break;
+            case "Vessel of Ruin":
+                if (
+                    !this.raiders
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .map(r => r.ability).includes("Vessel of Ruin" as AbilityName)
+                ) {
+                    for (let field of this.fields) {
+                        field.isVesselOfRuin = false;
+                    }
+                }
+                break;
+            case "Tablets of Ruin":
+                if (
+                    !this.raiders
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .map(r => r.ability).includes("Tablets of Ruin" as AbilityName)
+                ) {
+                    for (let field of this.fields) {
+                        field.isTabletsOfRuin = false;
+                    }
+                }
+                break;
+            // stackable abilities
+            case "Steely Spirit":
+                if (id !== 0) {
+                    for (let [index,field] of this.fields.entries()) {
+                        if (index !== 0 && index !== id) {
+                            field.attackerSide.steelySpirits -= 1;
                         }
                     }
                 }
-            }
-        } else if (ability === "Friend Guard") {
-            if (id !== 0) {
-                for (let fid=1; fid<5; fid++) {
-                    if (id !== fid) {
-                        this.fields[fid].attackerSide.friendGuards -= 1;
-                        if (this.fields[fid].attackerSide.friendGuards === 0) {
+                break;
+            case "Power Spot":
+                if (id !== 0) {
+                    for (let [index,field] of this.fields.entries()) {
+                        if (index !== 0 && index !== id) {
+                            field.attackerSide.powerSpots -= 1;
                         }
                     }
                 }
-            }
-        // single-side field abilities
-        } else if (ability === "Aroma Veil") {
-            if (id === 0) {
-                this.fields[0].attackerSide.isAromaVeil = false;
-            } else if (
-                !this.raiders.slice(1)
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Aroma Veil" as AbilityName)
-            ) {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.isAromaVeil = false;
+                break;
+            case "Battery":
+                if (id !==0) {
+                    for (let [index,field] of this.fields.entries()) {
+                        if (index !== 0 && index !== id) {
+                            field.attackerSide.batteries -= 1;
+                            if (field.attackerSide.batteries === 0) {
+                                field.attackerSide.isBattery = false;
+                            }
+                        }
+                    }
                 }
-            }
-        } else if (ability === "Flower Veil") {
-            if (id === 0) {
-                this.fields[0].attackerSide.isFlowerVeil = false;
-            } else if (
-                !this.raiders.slice(1)
-                .filter(r => r.id !== id && r.originalCurHP !== 0)
-                .map(r => r.ability).includes("Flower Veil" as AbilityName)
-            ) {
-                for (let field of this.fields.slice(1)) {
-                    field.attackerSide.isFlowerVeil = false;
+                break;
+            case "Friend Guard":
+                if (id !== 0) {
+                    for (let fid=1; fid<5; fid++) {
+                        if (id !== fid) {
+                            this.fields[fid].attackerSide.friendGuards -= 1;
+                            if (this.fields[fid].attackerSide.friendGuards === 0) {
+                            }
+                        }
+                    }
                 }
-            }
-        }
-        // Plus-Minus check
-        if (ability === "Minus" || ability === "Plus") {
-            const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
-            const plusMinusCount = allyIDs.reduce((p, c) => p + (this.getPokemon(c).ability === "Minus" || this.getPokemon(c).ability === "Plus" ? 1 : 0), 0);
-            for (id of allyIDs) {
-                const ally = this.getPokemon(id);
-                if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
-                    ally.abilityOn = plusMinusCount > 1;
+                break;
+            // single-side field abilities
+            case "Aroma Veil":
+                if (id === 0) {
+                    this.fields[0].attackerSide.isAromaVeil = false;
+                } else if (
+                    !this.raiders.slice(1)
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .map(r => r.ability).includes("Aroma Veil" as AbilityName)
+                ) {
+                    for (let field of this.fields.slice(1)) {
+                        field.attackerSide.isAromaVeil = false;
+                    }
                 }
-            }
-        }
-        // Individuual changes
-        const pokemon = this.getPokemon(id);
-        if (["Protosynthesis", "Quark Drive", "Orichalcum Pulse", "Hadron Engine"].includes(ability)) {
-            pokemon.boostedStat = undefined;
-            pokemon.isQP = false;
-            pokemon.usedBoosterEnergy = false;
+                break;
+            case "Flower Veil":
+                if (id === 0) {
+                    this.fields[0].attackerSide.isFlowerVeil = false;
+                } else if (
+                    !this.raiders.slice(1)
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .map(r => r.ability).includes("Flower Veil" as AbilityName)
+                ) {
+                    for (let field of this.fields.slice(1)) {
+                        field.attackerSide.isFlowerVeil = false;
+                    }
+                }
+                break;
+            case "Dazzling":
+            case "Queenly Majesty":
+            case "Armor Tail":
+                if (id === 0) {
+                    this.fields[0].attackerSide.isDazzling = false;
+                } else if (
+                    !this.raiders.slice(1)
+                    .filter(r => r.id !== id && r.originalCurHP !== 0)
+                    .some(r => ["Dazzling", "Queenly Majesty", "Armor Tail"].includes(r.ability as AbilityName))
+                ) {
+                    for (let field of this.fields.slice(1)) {
+                        field.attackerSide.isDazzling = false;
+                    }
+                }
+                break;
+            // Plus-Minus check
+            case "Plus":
+            case "Minus":
+                const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
+                const plusMinusCount = allyIDs.reduce((p, c) => p + (this.getPokemon(c).ability === "Minus" || this.getPokemon(c).ability === "Plus" ? 1 : 0), 0);
+                for (id of allyIDs) {
+                    const ally = this.getPokemon(id);
+                    if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
+                        ally.abilityOn = plusMinusCount > 1;
+                    }
+                }
+                break;
+            // Individuual changes
+            case "Protosynthesis":
+            case "Quark Drive":
+            case "Orichalcum Pulse":
+            case "Hadron Engine":
+                poke.boostedStat = undefined;
+                poke.isQP = false;
+                poke.usedBoosterEnergy = false;
+                break;
+            default: break;
         }
     }
 

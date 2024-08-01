@@ -426,7 +426,7 @@ export class RaidMove {
             const field = pokemon.field;
             // Magic Bounce
             if (magicBounceMoves.includes(moveName) && pokemon.hasAbility("Magic Bounce")) {
-                this._doesNotAffect[id] = "bounced back by Magic Bounce!";
+                this._doesNotAffect[id] = "bounced back by Magic Bounce";
                 this._affectedIDs[i] = this.userID;
                 this._targetID = this.userID;
                 id = this.userID
@@ -434,13 +434,13 @@ export class RaidMove {
             }
             // Status Moves blocked by Boss Shield
             if (this.userID !== 0 && pokemon.shieldActive && category === "Status") {
-                this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s shield!";
+                this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s shield";
             }
             // Substitute blocks status
             if (pokemon.substitute && category === "Status" && !this.moveData.isSound && !this.moveData.bypassSub && !this._user.hasAbility("Infiltrator")) {
-                this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s substitute!";
+                this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s substitute";
             }
-            // Terrain-based failure
+            // Field-based failure
             if (field.hasTerrain("Psychic") && pokemonIsGrounded(pokemon, field) && (this.moveData.priority || 0) > 0) {
                 if ((this.userID === 0) || (this._targetID === 0)) {
                     this._doesNotAffect[id] = "blocked by Psychic Terrain";
@@ -449,76 +449,114 @@ export class RaidMove {
             }
             // Ability-based immunities
             if (!pokemon.abilityNullified && !(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield")) && !(this._user.hasAbility("Mycelium Might") && this.move.category === "Status")) {
-                if ((pokemon.ability === "Good as Gold" || pokemon.ability === "Good As Gold") && category === "Status" && targetType !== "user") { 
-                    this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
-                    continue; 
+                // NEEDS TESTING: Do Dazzling/Queenly Majesty/Armor Tail block priority moves before checking for immunity?
+                if (field.attackerSide.isDazzling && (this.moveData.priority || 0) > 0) {
+                    this._doesNotAffect[id] = "blocked due to its priority"
                 }
-                if (["Dry Skin", "Water Absorb"].includes(pokemon.ability || "") && this._moveType === "Water") { 
-                    this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
-                    this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
-                    continue;
-                }
-                if (pokemon.ability === "Volt Absorb" && this._moveType === "Electric") { 
-                    this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
-                    this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
-                    continue;
-                }
-                if (pokemon.ability === "Earth Eater" && this._moveType === "Ground") {
-                    this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
-                    this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
-                    continue;
-                }
-                if (pokemon.ability === "Flash Fire" && this._moveType === "Fire") { 
-                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
-                    this._raidState.getPokemon(id).abilityOn = true;
-                    continue;
-                }
-                if (pokemon.ability === "Well-Baked Body" && this._moveType === "Fire") {
-                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
-                    const boost = {def: 2};
-                    this._raidState.applyStatChange(id, boost);
-                    continue;
-                }
-                if (pokemon.ability === "Sap Sipper" && this._moveType === "Grass") {
-                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
-                    const boost = {atk: 1};
-                    this._raidState.applyStatChange(id, boost);
-                    continue;
-                }
-                if (pokemon.ability === "Motor Drive" && this._moveType === "Electric") {
-                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
-                    const boost = {spe: 1};
-                    this._raidState.applyStatChange(id, boost);
-                    continue;
-                }
-                if (pokemon.ability === "Storm Drain" && this._moveType === "Water") {
-                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
-                    const boost = {spa: 1};
-                    this._raidState.applyStatChange(id, boost);
-                    continue;
-                }
-                if (pokemon.ability === "Lightning Rod" && this._moveType === "Electric") {
-                    this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
-                    const boost = {spa: 1};
-                    this._raidState.applyStatChange(id, boost);
-                    continue;
-                }
-                if (pokemon.ability === "Bulletproof" && this.moveData.isBullet) {
-                    this._doesNotAffect[id] = "blocked by Bulletproof";
-                    continue;
-                }
-                if (pokemon.ability === "Wind Rider" && this.moveData.isWind) {
-                    this._doesNotAffect[id] = "blocked by Wind Rider";
-                    const boost = {atk: 1};
-                    this._raidState.applyStatChange(id, boost);
-                }
-                if (pokemon.ability === "Levitate" && !pokemonIsGrounded(pokemon, field) && this._moveType === "Ground") { 
-                    this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
-                    continue;
-                }
-                if (pokemon.ability === "Soundproof" && this.moveData.isSound) {
-                    this._doesNotAffect[id] = "blocked by Soundproof";
-                    continue;
+                switch (pokemon.ability) {
+                    case "Good as Gold":
+                    case "Good As Gold":
+                        if (category === "Status" && targetType !== "user") { 
+                            this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
+                            continue; 
+                        }
+                        break;
+                    case "Dry Skin":
+                    case "Water Absorb":
+                        if (this._moveType === "Water") { 
+                            this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
+                            this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
+                            continue;
+                        }
+                        break;
+                    case "Volt Absorb":
+                        if (this._moveType === "Electric") { 
+                            this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
+                            this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
+                            continue;
+                        }
+                        break;
+                    case "Earth Eater":
+                        if (this._moveType === "Ground") {
+                            this._doesNotAffect[id] = "heals " + pokemon.name + " due to " + pokemon.ability; 
+                            this._healing[id] = Math.floor(pokemon.maxHP() * 0.25);
+                            continue;
+                        }
+                        break;
+                    case "Flash Fire":
+                        if (this._moveType === "Fire") { 
+                            this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
+                            this._raidState.getPokemon(id).abilityOn = true;
+                            continue;
+                        }
+                        break;
+                    case "Well-Baked Body":
+                        if (pokemon.ability === "Well-Baked Body" && this._moveType === "Fire") {
+                            this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
+                            const boost = {def: 2};
+                            this._raidState.applyStatChange(id, boost);
+                            continue;
+                        }
+                        break;
+                    case "Sap Sipper":
+                        if (this._moveType === "Grass") {
+                            this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
+                            const boost = {atk: 1};
+                            this._raidState.applyStatChange(id, boost);
+                            continue;
+                        }
+                        break;
+                    case "Motor Drive":
+                        if (this._moveType === "Electric") {
+                            this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
+                            const boost = {spe: 1};
+                            this._raidState.applyStatChange(id, boost);
+                            continue;
+                        }
+                        break;
+                    case "Storm Drain":
+                        if (this._moveType === "Water") {
+                            this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
+                            const boost = {spa: 1};
+                            this._raidState.applyStatChange(id, boost);
+                            continue;
+                        }
+                        break;
+                    case "Lightning Rod":
+                        if (this._moveType === "Electric") {
+                            this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
+                            const boost = {spa: 1};
+                            this._raidState.applyStatChange(id, boost);
+                            continue;
+                        }
+                        break;
+                    case "Bulletproof":
+                        if (this.moveData.isBullet) {
+                            this._doesNotAffect[id] = "blocked by Bulletproof";
+                            continue;
+                        }
+                        break;
+                    case "Wind Rider":
+                        if (this.moveData.isWind) {
+                            this._doesNotAffect[id] = "blocked by Wind Rider";
+                            const boost = {atk: 1};
+                            this._raidState.applyStatChange(id, boost);
+                            continue;
+                        }
+                        break;
+                    case "Levitate":
+                        if (!pokemonIsGrounded(pokemon, field) && this._moveType === "Ground") { 
+                            this._doesNotAffect[id] = "does not affect " + pokemon.name + " due to " + pokemon.ability;
+                            continue;
+                        }
+                        break;
+                    case "Soundproof":
+                        if (this.moveData.isSound) {
+                            this._doesNotAffect[id] = "blocked by Soundproof";
+                            continue;
+                        }
+                        break;
+                    default: break;
                 }
             }
             // Type-based immunities

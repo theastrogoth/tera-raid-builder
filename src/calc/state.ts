@@ -114,6 +114,7 @@ export namespace State {
     isHelpingHand?: boolean;
     isAtkCheered?: number;      // # turns remaining
     isFlowerGift?: boolean;
+    isDazzling?: boolean;
     isFriendGuard?: boolean;
     friendGuards?: number;
     isAuroraVeil?: number;      // # turns remaining

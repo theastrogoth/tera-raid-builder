@@ -248,10 +248,10 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
     );
 }
 
-function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, koChance, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {index: number, role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, koChance: number, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
+function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, koChance, warning, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {index: number, role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, koChance: number, warning: string | undefined, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
-    const [koWarningAnchorEl, setKoWarningAnchorEl] = React.useState<HTMLElement | null>(null)
+    const [WarningAnchorEl, setWarningAnchorEl] = React.useState<HTMLElement | null>(null)
 
     const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
       setAnchorEl(event.currentTarget);
@@ -261,22 +261,24 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
       setAnchorEl(null);
     };
 
-    const hasKoWarning = index === 0 ? 
+    const hasWarning = (index && warning && warning !== "");
+    const hasKoChance = (index === 0 ? 
         (curhp === 0 && koChance < 100) : 
-        (koChance > 0);
+        (koChance > 0));
+    const showWarning = hasWarning || hasKoChance;
 
-    const handleKoWarningOpen = (event: React.MouseEvent<HTMLElement>) => {
-        if (hasKoWarning) {
-            setKoWarningAnchorEl(event.currentTarget);
+    const handleWarningOpen = (event: React.MouseEvent<HTMLElement>) => {
+        if (showWarning) {
+            setWarningAnchorEl(event.currentTarget);
         }
     };
 
-    const handleKoWarningClose = () => {
-        setKoWarningAnchorEl(null);
+    const handleWarningClose = () => {
+        setWarningAnchorEl(null);
     };
   
     const open = Boolean(anchorEl);
-    const koWarningOpen = Boolean(koWarningAnchorEl);
+    const WarningOpen = Boolean(WarningAnchorEl);
 
     const hpPercent = curhp / maxhp * 100;
     const prevhpPercent = prevhp / maxhp * 100;
@@ -369,8 +371,8 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
                     </Box>
                 </Stack>
                 <Stack direction="row" spacing={1} justifyContent="start" alignItems="center" sx={{ width: "85px"}}
-                    aria-owns={open ? 'ko-warning-popover' : undefined} aria-haspopup="true"
-                    onMouseEnter={handleKoWarningOpen} onMouseLeave={handleKoWarningClose}
+                    aria-owns={open ? 'warning-popover' : undefined} aria-haspopup="true"
+                    onMouseEnter={handleWarningOpen} onMouseLeave={handleWarningClose}
                 >
                     <Box sx={{ width: "40px" }}>
                         <Typography>
@@ -378,7 +380,7 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
                         </Typography>
                     </Box>
                     <Box sx={{ width: "10px", position: "absolute", transform: "translate(30px, 2px)"}}>
-                        { hasKoWarning &&
+                        { showWarning &&
                             <WarningIcon color={"warning"} />
                         }
                     </Box>
@@ -439,12 +441,12 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
                 </Paper>
             </Popover>
             <Popover
-                id={"ko-warning-popover"+role}
+                id={"warning-popover"+role}
                 sx={{
                 pointerEvents: 'none',
                 }}
-                open={koWarningOpen}
-                anchorEl={koWarningAnchorEl}
+                open={WarningOpen}
+                anchorEl={WarningAnchorEl}
                 anchorOrigin={{
                 vertical: 'center',
                 horizontal: 'center',
@@ -453,13 +455,22 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
                 vertical: 'center',
                 horizontal: 'center',
                 }}
-                onClose={handleKoWarningClose}
+                onClose={handleWarningClose}
                 disableRestoreFocus
             >
                 <Paper sx={{ p: 1, backgroundColor: "modal.main" }}>
-                    <Typography fontSize={10}>
-                        {koChance + "% " + getTranslation("chance to be KOd", translationKey)}
-                    </Typography>
+                    <Stack spacing={1}>
+                        { hasWarning &&
+                            <Typography fontSize={10}>
+                                {warning}
+                            </Typography>
+                        }
+                        { hasKoChance &&
+                            <Typography fontSize={10}>
+                                {koChance + "% " + getTranslation("chance to be KOd", translationKey)}
+                            </Typography>
+                        }
+                    </Stack>
                 </Paper>
             </Popover>
         </Box>
@@ -549,12 +560,15 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));
 
     const currentBossRole = turnState.raiders[0].role;
-    const currentRaiderRole = getCurrentRaiderRole(results, displayedTurn, roles);
+    const currentRaiderIndex = getCurrentRaiderIndex(results, displayedTurn);
+    const currentRaiderRole = roles[currentRaiderIndex];
     const currentMoves = getCurrentMoves(results, displayedTurn, translationKey);
     const currentBossMove = currentMoves[0];
     const currentRaiderMove = currentMoves[1];
     const raiderMovesFirst = getCurrentMoveOrder(results, displayedTurn);
     const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove, raiderMovesFirst, translationKey);
+
+    const warning = getCurrentWarning(results, displayedTurn);
 
     const currentTurnDescs = turnIdx < 0 ? [] : [
         results.turnResults[turnIdx].results[0].desc.filter((d) => d !== ""),
@@ -592,7 +606,26 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
         <>
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} index={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} koChance={koChances[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} effectiveSpeed={effectiveSpeeds[i]} modifiers={modifiers[i]} translationKey={translationKey} />
+                <HpDisplayLine 
+                    key={i} 
+                    index={i} 
+                    role={roles[i]}
+                    name={names[i]} 
+                    item={items[i]} 
+                    ability={abilities[i]} 
+                    curhp={currenthps[i]} 
+                    prevhp={prevhps[i]} 
+                    maxhp={maxhps[i]} 
+                    hasSubstitute={haveSubstitutes[i]} 
+                    kos={koCounts[i]} 
+                    koChance={koChances[i]} 
+                    warning={i === currentRaiderIndex ? warning : undefined}
+                    statChanges={statChanges[i]} 
+                    randomStatBoosts={randomStatBoosts[i]} 
+                    effectiveSpeed={effectiveSpeeds[i]} 
+                    modifiers={modifiers[i]} 
+                    translationKey={translationKey} 
+                />
             ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true} onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
@@ -655,16 +688,31 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     )
 }
 
-function getCurrentRaiderRole(results: RaidBattleResults, displayedTurn: number, roles: String[]) {
+function getCurrentRaiderIndex(results: RaidBattleResults, displayedTurn: number) {
     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
-        return roles[0];
+        return 0;
     }
     else {
         try {
-            return roles[results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].moveInfo.userID]
+            return results.turnResults[displayedTurn - 1].moveInfo.userID
         }
         catch(e) {
-            return roles[0];
+            return 0;
+        }
+    }
+}
+
+function getCurrentWarning(results: RaidBattleResults, displayedTurn: number) {
+    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+        return undefined;
+    }
+    else {
+        try {
+            const raiderMovesFirst = results.turnResults[displayedTurn - 1].raiderMovesFirst;
+            return results.turnResults[displayedTurn - 1].results[raiderMovesFirst ? 0 : 1].warning;
+        }
+        catch(e) {
+            return undefined;
         }
     }
 }

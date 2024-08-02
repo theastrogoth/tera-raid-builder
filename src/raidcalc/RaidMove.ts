@@ -24,6 +24,7 @@ export type RaidMoveResult= {
     flags: string[][];
     causesFlinch: boolean[];
     isSpread?: boolean;
+    warning?: string;
 }
 
 const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
@@ -117,6 +118,7 @@ export class RaidMove {
 
     _desc!: string[];
     _flags!: string[][];
+    _warning!: string;
 
     constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean, instructed?: boolean, delayed?: boolean) {
         this.move = move;
@@ -250,6 +252,7 @@ export class RaidMove {
             flags: this._flags,
             causesFlinch: this._causesFlinch,
             isSpread: this._isSpread,
+            warning: this._warning,
         }
     }
 
@@ -271,25 +274,33 @@ export class RaidMove {
         this._healing = [0,0,0,0,0];
         this._desc = ['','','','',''];
         this._flags=[[],[],[],[],[]];
+        this._warning = "";
     }
 
     private checkIfMoves(): boolean {
         if (this._user.originalCurHP === 0) {
+            this._warning = this._user.name + " fainted before moving.";
             return false;
         } else if (this.isBossAction && this.userID !== 0) {
             return false;
         } else if (isRaidAction(this.moveData.name)) {
             return true;
+        } else if (this.flinch) {
+            this._desc[this.userID] = this._user.name + " flinched!";
+            this._warning = this._user.name + " flinched and skips its move.";
+            return false;
         } else {
             if (this._user.isSleep) {
                 this._desc[this.userID] = this._user.name + " is fast asleep.";
                 this._user.isSleep--; // decrement sleep counter
                 // this._user.lastMoveFailed = true;
+                this._warning = this._user.name + " is asleep and skips its move.";
                 return false;
             } else if (this._user.isFrozen && !thawUserMoves.includes(this.move.name)) {
                 this._desc[this.userID] = this._user.name + " is frozen solid.";
                 this._user.isFrozen--; // decrement frozen counter
                 // this._user.lastMoveFailed = true;
+                this._warning = this._user.name + " is frozen and skips its move.";
                 return false;
             } else if (
                 this._user.isTaunt && 
@@ -299,16 +310,24 @@ export class RaidMove {
                 this._desc[this.userID] = this._user.name + " can't use status moves due to Taunt!";
                 this._user.isTaunt--; // decrement taunt counter
                 // this._user.lastMoveFailed = true;
+                this._warning = this._user.name + " is taunted and can't use " + this.moveData.name + ".";
                 return false;
             } else if (this._user.isDisable && this.move.name === this._user.disabledMove) {
                 this._desc[this.userID] = this.move.name + " is disabled!";
                 // this._user.lastMoveFailed = true;
+                this._warning = this.moveData.name + " is disabled and can't be used.";
                 return false;
             } else if (this._user.isThroatChop && this.moveData.isSound) {
                 this._desc[this.userID] = this._user.name + " can't use sound-based moves due to Throat Chop!";
                 // this._user.lastMoveFailed = true;
+                this._warning = "Throat Chop prevents the use of " + this.moveData.name + ".";
                 return false;
             } else {
+                if (this._user.status === "par") {
+                    this._warning = "Paralysis may prevent " + this._user.name + " from moving.";
+                } else if (this._user.volatileStatus.includes("confusion")) {
+                    this._warning = "Confusion may prevent " + this._user.name + " from moving.";
+                }
                 return true;
             }
         }

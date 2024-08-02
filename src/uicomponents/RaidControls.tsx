@@ -22,6 +22,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Switch from "@mui/material/Switch";
+import WarningIcon from '@mui/icons-material/Warning';
 import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
@@ -247,9 +248,10 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
     );
 }
 
-function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
+function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, koChance, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {index: number, role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, koChance: number, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+    const [koWarningAnchorEl, setKoWarningAnchorEl] = React.useState<HTMLElement | null>(null)
 
     const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
       setAnchorEl(event.currentTarget);
@@ -258,8 +260,23 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubs
     const handlePopoverClose = () => {
       setAnchorEl(null);
     };
+
+    const hasKoWarning = index === 0 ? 
+        (curhp === 0 && koChance < 100) : 
+        (koChance > 0);
+
+    const handleKoWarningOpen = (event: React.MouseEvent<HTMLElement>) => {
+        if (hasKoWarning) {
+            setKoWarningAnchorEl(event.currentTarget);
+        }
+    };
+
+    const handleKoWarningClose = () => {
+        setKoWarningAnchorEl(null);
+    };
   
     const open = Boolean(anchorEl);
+    const koWarningOpen = Boolean(koWarningAnchorEl);
 
     const hpPercent = curhp / maxhp * 100;
     const prevhpPercent = prevhp / maxhp * 100;
@@ -267,93 +284,105 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubs
 
     return (
         <Box>
-            <Stack 
-                direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }} 
-                aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true"
-                onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}
-            >
-                <Box sx={{ width: 200 }}>
-                    <Stack direction="row">
-                        <Box flexGrow={1}/>
+            <Stack direction="row" spacing={-1}>
+                <Stack 
+                    direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }} 
+                    aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true"
+                    onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}
+                >
+                    <Box sx={{ width: 200 }}>
+                        <Stack direction="row">
+                            <Box flexGrow={1}/>
+                            <Typography>
+                                {role}
+                            </Typography>
+                            <Avatar sx={{width: "20px", height: "20px", marginLeft: "8px"}} variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "16px",
+                                        height: "16px",
+                                        overflow: 'hidden',
+                                        background: `url(${getPokemonSpriteURL(hasSubstitute ? "Substitute" : name)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Avatar>
+                        </Stack>
+                    </Box>
+                    <Box sx={{ width: "100%" , position: "relative"}}>
+                        {/* Full Bar */}
+                        <HpBar 
+                            sx={{
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+                                },
+                                opacity: "100%",
+                                position: "absolute",
+                                width: "100%"
+                            }}
+                            variant="determinate" 
+                            value={100} 
+                        />
+                        {/* prevHP > curHP */}
+                        <HpBar 
+                            sx={{
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
+                                },
+                                opacity: hpPercent < prevhpPercent ? "25%" : "0%",
+                                position: "absolute",
+                                width: "100%"
+                            }}
+                            variant="determinate" 
+                            value={ hpPercent < prevhpPercent ? prevhpPercent : hpPercent}
+                        />
+                        {/* curHP */}
+                        <HpBar 
+                            sx={{
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: color,
+                                },
+                                opacity: "100%",
+                                position: "absolute",
+                                width: "100%"
+                            }}
+                            
+                            variant="determinate" 
+                            value={hpPercent} 
+                        />
+                        {/* curHP > prevHP */}
+                        <HpBar 
+                            sx={{
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
+                                },
+                                opacity: hpPercent > prevhpPercent ? "25%" : "0%",
+                                width: "100%"
+                            }}
+                            variant="determinate" 
+                            value={ hpPercent > prevhpPercent ? prevhpPercent : hpPercent}
+                        />
+                    </Box>
+                    <Box sx={{ width: 150 }}>
                         <Typography>
-                            {role}
+                            { curhp + " / " + maxhp }
                         </Typography>
-                        <Avatar sx={{width: "20px", height: "20px", marginLeft: "8px"}} variant="rounded">
-                            <Box
-                                sx={{
-                                    width: "16px",
-                                    height: "16px",
-                                    overflow: 'hidden',
-                                    background: `url(${getPokemonSpriteURL(hasSubstitute ? "Substitute" : name)}) no-repeat center center / contain`,
-                                }}
-                            />
-                        </Avatar>
-                    </Stack>
-                </Box>
-                <Box sx={{ width: "100%" , position: "relative"}}>
-                    {/* Full Bar */}
-                    <HpBar 
-                        sx={{
-                            '& .MuiLinearProgress-bar': {
-                                backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
-                            },
-                            opacity: "100%",
-                            position: "absolute",
-                            width: "100%"
-                        }}
-                        variant="determinate" 
-                        value={100} 
-                    />
-                    {/* prevHP > curHP */}
-                    <HpBar 
-                        sx={{
-                            '& .MuiLinearProgress-bar': {
-                                backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
-                            },
-                            opacity: hpPercent < prevhpPercent ? "25%" : "0%",
-                            position: "absolute",
-                            width: "100%"
-                        }}
-                        variant="determinate" 
-                        value={ hpPercent < prevhpPercent ? prevhpPercent : hpPercent}
-                    />
-                    {/* curHP */}
-                    <HpBar 
-                        sx={{
-                            '& .MuiLinearProgress-bar': {
-                                backgroundColor: color,
-                            },
-                            opacity: "100%",
-                            position: "absolute",
-                            width: "100%"
-                        }}
-                        
-                        variant="determinate" 
-                        value={hpPercent} 
-                    />
-                    {/* curHP > prevHP */}
-                    <HpBar 
-                        sx={{
-                            '& .MuiLinearProgress-bar': {
-                                backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
-                            },
-                            opacity: hpPercent > prevhpPercent ? "25%" : "0%",
-                            width: "100%"
-                        }}
-                        variant="determinate" 
-                        value={ hpPercent > prevhpPercent ? prevhpPercent : hpPercent}
-                    />
-                </Box>
-                <Box sx={{ width: 150 }}>
-                    <Typography>
-                        { curhp + " / " + maxhp }
-                    </Typography>
-                </Box>
-                <Box sx={{ width: 75 }}>
-                    <Typography>
-                        {kos > 0 ? ( kos  + (kos > 1 ? " KOs" : " KO")) : ""}
-                    </Typography>
-                </Box>
+                    </Box>
+                </Stack>
+                <Stack direction="row" spacing={1} justifyContent="start" alignItems="center" sx={{ width: "85px"}}
+                    aria-owns={open ? 'ko-warning-popover' : undefined} aria-haspopup="true"
+                    onMouseEnter={handleKoWarningOpen} onMouseLeave={handleKoWarningClose}
+                >
+                    <Box sx={{ width: "40px" }}>
+                        <Typography>
+                            {kos > 0 ? ( kos  + (kos > 1 ? " KOs" : " KO")) : ""}
+                        </Typography>
+                    </Box>
+                    <Box sx={{ width: "10px", position: "absolute", transform: "translate(30px, 2px)"}}>
+                        { hasKoWarning &&
+                            <WarningIcon color={"warning"} />
+                        }
+                    </Box>
+                </Stack>
             </Stack>
             <Popover
                 id={"mouse-over-popover"+role}
@@ -409,6 +438,30 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubs
                     </Stack>
                 </Paper>
             </Popover>
+            <Popover
+                id={"ko-warning-popover"+role}
+                sx={{
+                pointerEvents: 'none',
+                }}
+                open={koWarningOpen}
+                anchorEl={koWarningAnchorEl}
+                anchorOrigin={{
+                vertical: 'center',
+                horizontal: 'center',
+                }}
+                transformOrigin={{
+                vertical: 'center',
+                horizontal: 'center',
+                }}
+                onClose={handleKoWarningClose}
+                disableRestoreFocus
+            >
+                <Paper sx={{ p: 1, backgroundColor: "modal.main" }}>
+                    <Typography fontSize={10}>
+                        {koChance + "% " + getTranslation("chance to be KOd", translationKey)}
+                    </Typography>
+                </Paper>
+            </Popover>
         </Box>
     );
 }
@@ -433,11 +486,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
     const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
-    // const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
-    //         kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
-    //     0));
-    // koCounts[0] = Math.min(koCounts[0], 1);
     const koCounts = turnState.raiders.map((raider) => raider.timesFainted);
+    const koChances = turnState.raiders.map((raider) => raider.koChance);
     const roles = turnState.raiders.map((raider) => raider.role);
     const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
@@ -542,7 +592,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
         <>
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} effectiveSpeed={effectiveSpeeds[i]} modifiers={modifiers[i]} translationKey={translationKey} />
+                <HpDisplayLine key={i} index={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} koChance={koChances[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} effectiveSpeed={effectiveSpeeds[i]} modifiers={modifiers[i]} translationKey={translationKey} />
             ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true} onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>

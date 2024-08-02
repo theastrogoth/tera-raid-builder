@@ -18,6 +18,7 @@ export class Raider extends Pokemon implements State.Raider {
     extraMoveData?: State.MoveData[];
 
     cumDamageRolls: CumulativeRolls;
+    koChance: number;
 
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     isTaunt?: number;           // store number of turns that a Pokemon can't use status moves
@@ -78,6 +79,7 @@ export class Raider extends Pokemon implements State.Raider {
         extraMoves: MoveName[] = [], 
         extraMoveData: State.MoveData[] = [],
         cumDamageRolls: CumulativeRolls | undefined = undefined,
+        koChance: number = 0,
         isEndure: boolean = false, 
         isTaunt: number = 0,
         isSleep: number = 0,
@@ -126,6 +128,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.extraMoves = extraMoves;
         this.extraMoveData = extraMoveData;
         this.cumDamageRolls = cumDamageRolls || new CumulativeRolls();
+        this.koChance = koChance;
         this.isEndure = isEndure;
         this.isTaunt = isTaunt;
         this.isSleep = isSleep;
@@ -222,6 +225,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.extraMoves,
             this.extraMoveData,
             this.cumDamageRolls.clone(),
+            this.koChance,
             this.isEndure,
             this.isTaunt,
             this.isSleep,
@@ -428,5 +432,6 @@ export class Raider extends Pokemon implements State.Raider {
 
     public addDamageRoll(damageRolls: Map<number, number>) {
         this.cumDamageRolls.addRolls(damageRolls, this);
+        this.koChance = this.cumDamageRolls.getKOChance(this.maxHP());
     }
 }

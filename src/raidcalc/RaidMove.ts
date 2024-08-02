@@ -1925,7 +1925,7 @@ export class RaidMove {
         for (let i=0; i<5; i++) {
             if (i === this.userID || i === this.targetID || i === this.raiderID || this._affectedIDs.includes(i)) {
                 const poke = this._raiders[i];
-                const koChance = poke.cumDamageRolls.getKOChance(poke.maxHP());
+                const koChance = poke.koChance;
                 if (koChance > 0) {
                     this._flags[i].push(koChance >= 100 ? "Guaranteed KO" : `${koChance}% overall chance of being KOd`);
                 }

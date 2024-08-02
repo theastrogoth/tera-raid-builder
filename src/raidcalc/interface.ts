@@ -131,6 +131,7 @@ export interface Raider extends Pokemon {
     extraMoves?: MoveName[];// for special boss actions
     extraMoveData?: MoveData[];
     cumDamageRolls: CumulativeRolls;
+    koChance: number;
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
     isSleep?: number;       // store number of turns that a Pokemon is asleep

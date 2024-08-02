@@ -110,7 +110,7 @@ export function combineRollCounts(a: Map<number, number>, b: Map<number, number>
     }
     for (let i=0; i<aRolls.length; i++) {
         for (let j=0; j<bRolls.length; j++) {
-            let combinedRoll = Math.max(min, Math.min(max, aRolls[i] + bRolls[j]));
+            let combinedRoll = aRolls[i] === max ? max : Math.max(min, Math.min(max, aRolls[i] + bRolls[j]));
             const aChance = a.get(aRolls[i]) || 1;
             const bChance = b.get(bRolls[j]) || 1;
             if (p && conditions) {

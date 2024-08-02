@@ -248,7 +248,7 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
     );
 }
 
-function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, koChance, warning, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {index: number, role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, koChance: number, warning: string | undefined, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
+function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, koChance, warnings, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {index: number, role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, koChance: number, warnings: string[] | undefined, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
     const [WarningAnchorEl, setWarningAnchorEl] = React.useState<HTMLElement | null>(null)
@@ -261,7 +261,7 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
       setAnchorEl(null);
     };
 
-    const hasWarning = (index && warning && warning !== "");
+    const hasWarning = (index && warnings && warnings.length > 0);
     const hasKoChance = (index === 0 ? 
         (curhp === 0 && koChance < 100) : 
         (koChance > 0));
@@ -461,9 +461,11 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
                 <Paper sx={{ p: 1, backgroundColor: "modal.main" }}>
                     <Stack spacing={1}>
                         { hasWarning &&
-                            <Typography fontSize={10}>
-                                {warning}
-                            </Typography>
+                            warnings.map((warning, i) => (
+                                <Typography key={i} fontSize={10}>
+                                    {warning}
+                                </Typography>
+                            ))
                         }
                         { hasKoChance &&
                             <Typography fontSize={10}>
@@ -568,7 +570,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const raiderMovesFirst = getCurrentMoveOrder(results, displayedTurn);
     const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove, raiderMovesFirst, translationKey);
 
-    const warning = getCurrentWarning(results, displayedTurn);
+    const warnings = getCurrentWarning(results, displayedTurn);
 
     const currentTurnDescs = turnIdx < 0 ? [] : [
         results.turnResults[turnIdx].results[0].desc.filter((d) => d !== ""),
@@ -619,7 +621,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
                     hasSubstitute={haveSubstitutes[i]} 
                     kos={koCounts[i]} 
                     koChance={koChances[i]} 
-                    warning={i === currentRaiderIndex ? warning : undefined}
+                    warnings={i === currentRaiderIndex ? warnings : undefined}
                     statChanges={statChanges[i]} 
                     randomStatBoosts={randomStatBoosts[i]} 
                     effectiveSpeed={effectiveSpeeds[i]} 
@@ -709,7 +711,7 @@ function getCurrentWarning(results: RaidBattleResults, displayedTurn: number) {
     else {
         try {
             const raiderMovesFirst = results.turnResults[displayedTurn - 1].raiderMovesFirst;
-            return results.turnResults[displayedTurn - 1].results[raiderMovesFirst ? 0 : 1].warning;
+            return results.turnResults[displayedTurn - 1].results[raiderMovesFirst ? 0 : 1].warnings;
         }
         catch(e) {
             return undefined;

@@ -178,8 +178,9 @@ export type RaidMoveOptions = {
     secondaryEffects?: boolean;
     hits?: number;
     roll?: "max" | "min" | "avg";
+    allowMiss?: boolean;    
     activateTera?: boolean;
-    stealTeraCharge?: boolean;
+    stealTeraCharge?: boolean; // deprecated
 }
 
 export type RaidMoveInfo = {

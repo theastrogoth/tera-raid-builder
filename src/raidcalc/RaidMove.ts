@@ -2,7 +2,7 @@ import { Move, Field, StatsTable, calculate} from "../calc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
-import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
+import { AbilityName, ItemName, MoveName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
 import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCritChance } from "./util";
 import { getRollCounts, catRollCounts, combineRollCounts } from "./rolls"
@@ -322,6 +322,15 @@ export class RaidMove {
                 // this._user.lastMoveFailed = true;
                 this._warnings.push("Throat Chop prevents the use of " + this.moveData.name + ".");
                 return false;
+            } else if (this._user.status === "par" && this.options.allowMiss && this.options.roll === "min") {
+                this._desc[this.userID] = this._user.name + " is fully paralyzed and can't move!";
+                // this._user.lastMoveFailed = true;
+                this._warnings.push(this._user.name + " is fully paralyzed and can't move.");
+                return false;
+            } else if (this._user.volatileStatus.includes("confusion") && this.options.allowMiss && this.options.roll === "min") {
+                // this._user.lastMoveFailed = true;
+                this.applyConfusionDamage();                
+                return false;
             } else {
                 if (this._user.status === "par") {
                     this._warnings.push("Paralysis may prevent " + this._user.name + " from moving.");
@@ -331,6 +340,30 @@ export class RaidMove {
                 return true;
             }
         }
+    }
+
+    private applyConfusionDamage() {
+        const confusedPoke = this._user.clone();
+        if (confusedPoke.hasAbility("Pure Power", "Huge Power", "Super Luck")) {
+            confusedPoke.ability = "(No Ability)" as AbilityName;
+        }
+        if (confusedPoke.boostedStat === "atk") {
+            confusedPoke.boostedStat = undefined;
+        }
+        if (confusedPoke.hasItem("Life Orb", "Choice Band", "Light Ball", "Thick Club")) {
+            confusedPoke.item = undefined;
+        }
+        confusedPoke.isPumped = 0;
+        const field = new Field();
+        const move = new Move(9, "hurt itself in its confusion");
+        const res = calculate(9, confusedPoke, confusedPoke, move, field);
+        const damage = res.damage as number[];
+        const damageVal = this.options.roll === "max" ? damage[damage.length-1] : this.options.roll === "min" ? damage[0] : damage[Math.floor(damage.length/2)];
+        const roll = getRollCounts([damage], 0, confusedPoke.maxHP(), [1])
+        this._damage[this.userID] = damageVal;
+        this._desc[this.userID] = res.desc();
+        this._warnings.push(this._user.name + " hurt itself in its confusion.");
+        this._raidState.applyDamage(this.userID, damageVal, roll, 1, false, false, "???", "Physical", false, false, true, false);
     }
 
     private checkSheerForce() {
@@ -725,7 +758,7 @@ export class RaidMove {
                 const bpModifier = getBpModifier(this.moveData, target, this.damaged);
                 const accFraction = Math.min(1,accuracy/100);
                 const rollChance = accFraction * (crit ? critChance : (1 - critChance));
-                if (accuracy > 0) {
+                if (this.options.allowMiss ? (accuracy >= 100 || roll !== "min") : (accuracy > 0)) {
                     try {
                         const preDamageItem = target.item;
                         // calculate each hit from a multi-hit move
@@ -906,7 +939,11 @@ export class RaidMove {
                         // this._user.lastMoveFailed = false;
                     }
                 } else {
-                    this._desc[id] = this._user.name + " used " + this.move.name + " but it missed!"; //  due to semi-invulnerable moves
+                    const accString = Math.round(accuracy * 10) / 10;
+                    const missString = Math.round((100 - accString) * 10) / 10;
+                    const accEffectsString = accEffectsList.length ? " with " + accEffectsList.join(", ") : "";
+                    this._desc[id] = this._user.name + " used " + this.move.name + ", but it missed! (" + accString + "% chance to hit " + accEffectsString + ")";
+                    this._warnings.push(this.move.name + " missed (" + missString + "% chance to miss" + accEffectsString + ").");
                     // this._user.lastMoveFailed = true;
                 }
             }

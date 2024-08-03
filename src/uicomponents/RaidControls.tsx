@@ -15,6 +15,13 @@ import Slider from '@mui/material/Slider';
 import IconButton from '@mui/material/IconButton';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
+import TableContainer from "@mui/material/TableContainer";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import Typography from '@mui/material/Typography'
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -875,6 +882,7 @@ function rollCaseToOptions(rollCase: "max" | "min" | "avg", moveData: MoveData) 
                 Math.floor(((moveData.minHits || 1) + (moveData.maxHits || 1)) / 2)
             )
         ),
+        allowMiss: rollCase === "min",
         roll: rollCase
     }
 }
@@ -888,11 +896,13 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
                 turn.moveInfo.options.crit === raiderShouldMatch.crit &&
                 turn.moveInfo.options.secondaryEffects === raiderShouldMatch.secondaryEffects &&
                 ((turn.moveInfo.moveData.maxHits || 1) > 1 ? turn.moveInfo.options.hits === raiderShouldMatch.hits : true) &&
+                turn.moveInfo.options.allowMiss === raiderShouldMatch.allowMiss &&
                 turn.moveInfo.options.roll === raiderShouldMatch.roll;
             const bossMatches = !!turn.bossMoveInfo.options &&
                 turn.bossMoveInfo.options.crit === bossShouldMatch.crit &&
                 turn.bossMoveInfo.options.secondaryEffects === bossShouldMatch.secondaryEffects &&
                 ((turn.bossMoveInfo.moveData.maxHits || 1) > 1 ? turn.bossMoveInfo.options.hits === bossShouldMatch.hits : true) &&
+                turn.bossMoveInfo.options.allowMiss === bossShouldMatch.allowMiss &&
                 turn.bossMoveInfo.options.roll === bossShouldMatch.roll;
             matchesCase = matchesCase && raiderMatches && bossMatches;
             if (!matchesCase) {
@@ -901,6 +911,10 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
         }
     }
     return matchesCase;
+}
+
+const alreadyOptimized = (gs: TurnGroupInfo[]) => {
+    return !gs.some((g) => g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Most Damaging)"));
 }
 
 function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
@@ -914,9 +928,6 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
         setOpen(false);
     };
 
-    const alreadyOptimized = (gs: TurnGroupInfo[]) => {
-        return !gs.some((g) => g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Most Damaging)"));
-    }
 
     const switchIsOn = alreadyOptimized(raidInputProps.groups);
 
@@ -1000,6 +1011,189 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
                 </DialogActions>
             </Dialog>
         </Stack>
+    )
+}
+
+const alreadyGlobalOption = (field: string) => (gs: TurnGroupInfo[]) => {
+    // @ts-ignore
+    return gs.every((g) => g.turns.every((t) => t.moveInfo.options && t.moveInfo.options[field]));
+}
+
+const alreadyGlobalBossOption = (field: string) => (gs: TurnGroupInfo[]) => {
+    // @ts-ignore 
+    return gs.every((g) => g.turns.every((t) => t.bossMoveInfo.options && t.bossMoveInfo.options[field]));
+}
+
+function GlobalOptionSwitch({raidInputProps, boss, field}: {raidInputProps: RaidInputProps, boss: boolean, field: string}) {
+    const switchIsOn = boss ? alreadyGlobalBossOption(field)(raidInputProps.groups) : alreadyGlobalOption(field)(raidInputProps.groups);
+
+    const handleSwitchOn = () => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = boss ? 
+            g.turns.map(t => { 
+                const newT = {...t, bossMoveInfo: {...t.bossMoveInfo, options: {...t.bossMoveInfo.options}}};
+                // @ts-ignore
+                newT.bossMoveInfo.options[field] = true;
+                return newT;
+            }) :
+            g.turns.map(t => { 
+                const newT = {...t, moveInfo: {...t.moveInfo, options: {...t.moveInfo.options}}};
+                // @ts-ignore
+                newT.moveInfo.options[field] = true;
+                return newT;
+            });
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+    }
+
+    const handleSwitchOff = () => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = boss ? 
+            g.turns.map(t => { 
+                const newT = {...t, bossMoveInfo: {...t.bossMoveInfo, options: {...t.bossMoveInfo.options}}};
+                // @ts-ignore
+                newT.bossMoveInfo.options[field] = false;
+                return newT;
+            }) :
+            g.turns.map(t => { 
+                const newT = {...t, moveInfo: {...t.moveInfo, options: {...t.moveInfo.options}}};
+                // @ts-ignore
+                newT.moveInfo.options[field] = false;
+                return newT;
+            });
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+    }
+
+    return (
+        <Switch
+            size='small'
+            checked={switchIsOn}
+            onChange={(e) => switchIsOn ? handleSwitchOff() : handleSwitchOn()}
+        />
+    )
+}
+
+const getGlobalRoll = (gs: TurnGroupInfo[]) => {
+    let roll = "avg";
+    for (let g of gs) {
+        for (let t of g.turns) {
+            if (t.moveInfo.options && t.moveInfo.options.roll) {
+                roll = t.moveInfo.options.roll;
+                break;
+            }
+        }
+    }
+    if (gs.every((g) => g.turns.every((t) => t.moveInfo.options && t.moveInfo.options.roll === roll))) {
+        return roll;
+    } else {
+        return undefined;
+    }
+}
+
+const getBossGlobalRoll = (gs: TurnGroupInfo[]) => {
+    let roll = "avg";
+    for (let g of gs) {
+        for (let t of g.turns) {
+            if (t.bossMoveInfo.options && t.bossMoveInfo.options.roll) {
+                roll = t.bossMoveInfo.options.roll;
+                break;
+            }
+        }
+    }
+    if (gs.every((g) => g.turns.every((t) => t.bossMoveInfo.options && t.bossMoveInfo.options.roll === roll))) {
+        return roll;
+    } else {
+        return undefined;
+    }
+}
+
+function GlobalRollSelect({raidInputProps, boss, translationKey}: {raidInputProps: RaidInputProps, boss: boolean, translationKey: any}) {
+    const globalRoll = (boss ? getBossGlobalRoll : getGlobalRoll)(raidInputProps.groups) || "";
+
+    const setGlobalRoll = (roll: "min" | "max" | "avg") => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = boss ? 
+                g.turns.map(t => { 
+                    const newT = {...t, bossMoveInfo: {...t.bossMoveInfo, options: {...t.bossMoveInfo.options}}};
+                    newT.bossMoveInfo.options.roll = roll;
+                    return newT;
+                }) :
+                g.turns.map(t => { 
+                    const newT = {...t, moveInfo: {...t.moveInfo, options: {...t.moveInfo.options}}};
+                    newT.moveInfo.options.roll = roll;
+                    return newT;
+                });
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+    }
+
+    return (
+        <Select
+            size="small"
+            variant="standard"
+            value = {globalRoll}
+            renderValue = {(value) => <Typography variant="body2">{getTranslation(value, translationKey)}</Typography>}
+            onChange={ (e) => setGlobalRoll(e.target.value as "min" | "max" | "avg") }
+            sx={{ minWidth : "50px"}}
+        >
+            {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{getTranslation(r, translationKey)}</Typography></MenuItem>)}
+        </Select>
+    )
+}
+
+function GlobalOptionsMenu({raidInputProps, boss, translationKey}: {raidInputProps: RaidInputProps, boss: boolean, translationKey: any}) {
+    return (
+        <TableContainer>
+            <Table size="small">
+                <TableBody>
+                    <TableRow>
+                        <TableCell colSpan={2}> 
+                            <Typography fontWeight="bold">{getTranslation(boss ? "Raid Boss" : "Raiders", translationKey)} </Typography>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell> {getTranslation("Crit",translationKey)} </TableCell>
+                        <TableCell> 
+                            <GlobalOptionSwitch raidInputProps={raidInputProps} boss={boss} field={"crit"} />
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell> {getTranslation("Effect",translationKey)} </TableCell>
+                        <TableCell> 
+                            <GlobalOptionSwitch raidInputProps={raidInputProps} boss={boss} field={"secondaryEffects"} />
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell> {getTranslation("Miss",translationKey)} </TableCell>
+                        <TableCell> 
+                            <GlobalOptionSwitch raidInputProps={raidInputProps} boss={boss} field={"allowMiss"} />
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell> {getTranslation("Roll",translationKey)} </TableCell>
+                        <TableCell> 
+                            <GlobalRollSelect raidInputProps={raidInputProps} boss={boss} translationKey={translationKey} />
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </TableContainer>
     )
 }
 
@@ -1107,6 +1301,8 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         - Raid boss applies secondary effects if applicable<br/>
                                         - Raiders deal low-roll non-critical hits<br/>
                                         - Raiders do not apply secondary effects<br/>
+                                        - Raiders moves will miss when possible<br/>
+                                        - Raiders will lose their turn from paralysis or confusion<br/>
                                         - Heal Cheers heal for 20%
                                     </Typography>
                                     <Typography>Use this setting when designing main strategies that are intended to be heavily used by a community.</Typography>
@@ -1124,6 +1320,8 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         - Raid boss does not apply secondary effects<br/>
                                         - Raiders deal average-roll non-critical hits<br/>
                                         - Raiders do not apply secondary effects<br/>
+                                        - No moves will miss due to low accuracy<br/>
+                                        - Paralysis and confusion will never result in a lost turn<br/>
                                         - Heal Cheers heal for 60%
                                     </Typography>
                                     <Typography>This option is most appropriate for longer strategies or when 100% reliability is not a requirement.</Typography>
@@ -1139,6 +1337,8 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         All actions defined by these rules:<br/>
                                         - Raid boss deals low-roll non-critical hits<br/>
                                         - Raid boss does not apply secondary effects<br/>
+                                        - The raid boss will miss when possible<br/>
+                                        - The raid boss will lose its turn from paralysis or confusion<br/>
                                         - Raiders deal high-roll critical hits<br/>
                                         - Raiders apply secondary effects if applicable<br/>
                                         - Heal Cheers heal for 100%
@@ -1238,6 +1438,7 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                     <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Tera</Box> switch is available if 3 tera charges are built up</Typography>
                                     <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Crit</Box> enables/disables critical hits</Typography>
                                     <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Effect</Box> enables/disables the application of secondary effects</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Miss</Box> enables/disables accuracy checks for best/worst case options</Typography>
                                     <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Roll</Box> provides options for damage rolls</Typography>
                                 </Stack>
                             </Stack>
@@ -1264,9 +1465,17 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
     const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
-
     const handlePopoverClose = () => {
         setAnchorEl(null);
+    };
+
+    const [menuAnchorEl, setMenuAnchorEl] = useState<HTMLElement | null>(null);
+    const menuOpen = Boolean(menuAnchorEl);
+    const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setMenuAnchorEl(event.currentTarget);
+    };
+    const handleMenuClose = () => {
+        setMenuAnchorEl(null);
     };
 
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
@@ -1357,11 +1566,45 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                         />
                     </Tabs>
                 </Stack>
-                <Stack direction="row" spacing={4} alignItems="center" justifyContent="center" marginBottom={"5px"}>
+                <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" marginBottom={"5px"}>
                     <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
-                    
                     {!prettyMode &&
                         <OptimizeBossMovesButton raidInputProps={raidInputProps} translationKey={translationKey}/>
+                    }
+                    {!prettyMode &&
+                    <Box>
+                        <IconButton aria-describedby={popoverOpen ? "menu-popover" : undefined} onClick={handleMenuOpen}>
+                            <MenuIcon />
+                        </IconButton>
+                        <Popover
+                            id={menuOpen ? "menu-popover" : undefined}
+                            open={menuOpen}
+                            anchorEl={menuAnchorEl}
+                            onClose={handleMenuClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                            sx={{
+                                width: "600px",
+                                maxWidth: "100%",
+                            }}
+                        >
+                            <Paper sx={{ p: 1 }}>
+                                <Stack spacing={1} justifyContent="center" alignItems="center">
+                                    <Typography fontWeight="bold">Apply Options to All Moves</Typography>
+                                    <Stack direction="row" spacing={1}>
+                                        <GlobalOptionsMenu raidInputProps={raidInputProps} boss={false} translationKey={translationKey}/>
+                                        <GlobalOptionsMenu raidInputProps={raidInputProps} boss={true} translationKey={translationKey}/>
+                                    </Stack>
+                                </Stack>
+                            </Paper>
+                        </Popover>
+                    </Box>
                     }
                 </Stack>
                 <Box hidden={value !== 1}>

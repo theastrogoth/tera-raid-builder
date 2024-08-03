@@ -944,6 +944,7 @@ export class RaidMove {
                     const accEffectsString = accEffectsList.length ? " with " + accEffectsList.join(", ") : "";
                     this._desc[id] = this._user.name + " used " + this.move.name + ", but it missed! (" + accString + "% chance to hit " + accEffectsString + ")";
                     this._warnings.push(this.move.name + " missed (" + missString + "% chance to miss" + accEffectsString + ").");
+                    this._doesNotAffect[id] = "missed";
                     // this._user.lastMoveFailed = true;
                 }
             }

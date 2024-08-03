@@ -71,6 +71,7 @@ type Modifiers = {
     mist?: boolean,
     charged?: boolean,
     status?: string,
+    confused?: boolean,
     abilityNullified?: boolean,
     charging?: boolean,
     choiceLocked?: string,
@@ -268,7 +269,7 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
       setAnchorEl(null);
     };
 
-    const hasWarning = (index && warnings && warnings.length > 0);
+    const hasWarning = (warnings && warnings.length > 0);
     const hasKoChance = (index === 0 ? 
         (curhp === 0 && koChance < 100) : 
         (koChance > 0));
@@ -467,7 +468,7 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
             >
                 <Paper sx={{ p: 1, backgroundColor: "modal.main" }}>
                     <Stack spacing={1}>
-                        { hasWarning &&
+                        { !!hasWarning &&
                             warnings.map((warning, i) => (
                                 <Typography key={i} fontSize={10}>
                                     {warning}
@@ -543,6 +544,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "mist": raider.field.attackerSide.isMist > 0,
             "charged": raider.field.attackerSide.isCharged,
             "status": raider.status,
+            "confused": raider.volatileStatus.includes("confusion"),
             "abilityNullified": raider.abilityNullified !== undefined && raider.abilityNullified !== 0,
             "charging": raider.isCharging,
             "choiceLocked": raider.isChoiceLocked && raider.lastMove ? raider.lastMove.name : "",
@@ -577,7 +579,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const raiderMovesFirst = getCurrentMoveOrder(results, displayedTurn);
     const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove, raiderMovesFirst, translationKey);
 
-    const warnings = getCurrentWarning(results, displayedTurn);
+    const warnings = getCurrentWarning(results, displayedTurn, false);
+    const bossWarnings = getCurrentWarning(results, displayedTurn, true);
 
     const currentTurnDescs = turnIdx < 0 ? [] : [
         results.turnResults[turnIdx].results[0].desc.filter((d) => d !== ""),
@@ -628,7 +631,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
                     hasSubstitute={haveSubstitutes[i]} 
                     kos={koCounts[i]} 
                     koChance={koChances[i]} 
-                    warnings={i === currentRaiderIndex ? warnings : undefined}
+                    warnings={i === 0 ? bossWarnings : (i === currentRaiderIndex ? warnings : undefined)}
                     statChanges={statChanges[i]} 
                     randomStatBoosts={randomStatBoosts[i]} 
                     effectiveSpeed={effectiveSpeeds[i]} 
@@ -711,14 +714,14 @@ function getCurrentRaiderIndex(results: RaidBattleResults, displayedTurn: number
     }
 }
 
-function getCurrentWarning(results: RaidBattleResults, displayedTurn: number) {
+function getCurrentWarning(results: RaidBattleResults, displayedTurn: number, boss: boolean) {
     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
         return undefined;
     }
     else {
         try {
             const raiderMovesFirst = results.turnResults[displayedTurn - 1].raiderMovesFirst;
-            return results.turnResults[displayedTurn - 1].results[raiderMovesFirst ? 0 : 1].warnings;
+            return results.turnResults[displayedTurn - 1].results[raiderMovesFirst ? (boss ? 1 : 0) : (boss ? 0 : 1)].warnings;
         }
         catch(e) {
             return undefined;

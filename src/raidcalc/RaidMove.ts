@@ -279,7 +279,9 @@ export class RaidMove {
 
     private checkIfMoves(): boolean {
         if (this._user.originalCurHP === 0) {
-            this._warnings.push(this._user.name + " fainted before moving.");
+            if (this._user.id !== 0) {
+                this._warnings.push(this._user.name + " fainted before moving.");
+            }
             return false;
         } else if (this.isBossAction && this.userID !== 0) {
             return false;
@@ -287,7 +289,9 @@ export class RaidMove {
             return true;
         } else if (this.flinch) {
             this._desc[this.userID] = this._user.name + " flinched!";
-            this._warnings.push(this._user.name + " flinched and skips its move.");
+            if (this._user.id !== 0) {
+                this._warnings.push(this._user.name + " flinched and skips its move.");
+            }
             return false;
         } else {
             if (this._user.isSleep) {
@@ -356,6 +360,7 @@ export class RaidMove {
         confusedPoke.isPumped = 0;
         const field = new Field();
         const move = new Move(9, "hurt itself in its confusion");
+        console.log(move)
         const res = calculate(9, confusedPoke, confusedPoke, move, field);
         const damage = res.damage as number[];
         const damageVal = this.options.roll === "max" ? damage[damage.length-1] : this.options.roll === "min" ? damage[0] : damage[Math.floor(damage.length/2)];

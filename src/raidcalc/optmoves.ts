@@ -265,7 +265,7 @@ function resultObjective(result: RaidBattleResults): number {
     const bossKO = result.endState.raiders[0].originalCurHP <= 0;
     const raiderKOs = result.endState.raiders.slice(1).reduce((acc, r) => acc + r.timesFainted, 0);
     const raiderKOChances = result.endState.raiders.slice(1).reduce((acc, r) => {
-        const koChance = r.cumDamageRolls.getKOChance(r.maxHP()) || 0;
+        const koChance = r.koChance || 0;
         const score = koChance === 0 ? 0 : Math.max(1, koChance)
         return acc + score;
     }, 0);

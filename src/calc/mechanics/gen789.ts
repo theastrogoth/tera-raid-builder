@@ -1471,11 +1471,10 @@ export function calculateDefenseSMSSSV(
     (move.named('Shell Side Arm') && getShellSideArmCategory(attacker, defender) === 'Physical');
   const defenseStat = hitsPhysical ? 'def' : 'spd';
   let defEVStat: 'def' | 'spd' = defenseStat;
-  if (field.isWonderRoom) {
+  if (field.isWonderRoom && !attacker.hasAbility("Unaware")) {
     hitsPhysical = !hitsPhysical;
     defEVStat = defenseStat === 'def' ? 'spd' : 'def';
   }
-  hitsPhysical = field.isWonderRoom ? !hitsPhysical : hitsPhysical;
   desc.defenseEVs = getEVDescriptionText(gen, defender, defEVStat, defender.nature);
   if (defender.boosts[defenseStat] === 0 ||
       (isCritical && defender.boosts[defenseStat] > 0) ||

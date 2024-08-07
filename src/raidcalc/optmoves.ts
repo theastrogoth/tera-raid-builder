@@ -264,8 +264,13 @@ function calculateBranches(branchChunks: TurnGroupInfo[][], prevResults: RaidBat
 function resultObjective(result: RaidBattleResults): number {
     const bossKO = result.endState.raiders[0].originalCurHP <= 0;
     const raiderKOs = result.endState.raiders.slice(1).reduce((acc, r) => acc + r.timesFainted, 0);
+    const raiderKOChances = result.endState.raiders.slice(1).reduce((acc, r) => {
+        const koChance = r.koChance || 0;
+        const score = koChance === 0 ? 0 : Math.max(1, koChance)
+        return acc + score;
+    }, 0);
     const raiderHP = result.endState.raiders.slice(1).reduce((acc, r) => acc + r.originalCurHP, 0);
-    return ( bossKO ? 0 : 1000000 ) + raiderKOs * 10000 - raiderHP;
+    return ( bossKO ? 0 : 1000000000 ) + raiderKOs * 1000000 + raiderKOChances * 5000 - raiderHP;
 }
 
 export function optimizeBossMoves(raiders: Raider[], groups: TurnGroupInfo[]) {

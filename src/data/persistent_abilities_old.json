@@ -1,0 +1,5 @@
+{
+    "uncopyable": [ "As One", "Battle Bond", "Comatose", "Commander", "Disguise", "Flower Gift", "Forecast", "Gulp Missile", "Ice Face", "Illusion", "Imposter", "Neutralizing Gas", "Multitype", "Power Of Alchemy", "Protosynthesis", "Quark Drive", "Receiver", "RKS System", "Schooling", "Shields Down", "Stance Change", "Trace", "Wonder Guard", "Zen Mode", "Zero To Hero", "Tera Shift", "Schooling", "Power Construct" ],
+    "unreplaceable": [ "As One", "Battle Bond", "Comatose", "Commander", "Disguise", "Gulp Missile", "Ice Face", "Multitype", "RKS System", "Schooling", "Shields Down", "Stance Change", "Wonder Guard", "Zen Mode", "Zero To Hero", "Tera Shift", "Schooling", "Power Construct" ],
+    "unsuppressable": [ "As One", "Battle Bond", "Comatose", "Disguise", "Gulp Missile", "Ice Face", "Multitype", "Power Construct", "RKS System", "Schooling", "Shields Down", "Stance Change", "Zen Mode", "Zero To Hero", "Schooling", "Tera Shift" ]
+}

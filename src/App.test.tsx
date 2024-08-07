@@ -180,12 +180,12 @@ describe('Specific Test Cases', () => {
     const result = await resultsFromHash(hash);
     // T1 Sturdy activates, Oran Berry heals
     expect(result.turnResults[0].state.raiders[1].originalCurHP).toEqual(11);
-    expect(result.turnResults[0].state.raiders[1].item).toEqual("Oran Berry"); // Recieved via Symbiosis from Florges
+    expect(result.turnResults[0].state.raiders[1].item).toEqual("Oran Berry"); // Received via Symbiosis from Florges
     expect(result.turnResults[0].state.raiders[2].item).toEqual("Oran Berry"); // Not yet passed
     expect(result.turnResults[0].state.raiders[3].item).toEqual(undefined); // passed
     // T2 Sturdy activates, Oran Berry heals
     expect(result.turnResults[1].state.raiders[1].originalCurHP).toEqual(11);
-    expect(result.turnResults[1].state.raiders[1].item).toEqual("Oran Berry"); //  Recieved via Symbiosis
+    expect(result.turnResults[1].state.raiders[1].item).toEqual("Oran Berry"); //  Received via Symbiosis
     expect(result.turnResults[1].state.raiders[2].item).toEqual(undefined); // passed
     // T3 Sturdy activates, Oran Berry heals
     expect(result.turnResults[2].state.raiders[1].originalCurHP).toEqual(11);
@@ -714,7 +714,7 @@ describe('Specific Test Cases', () => {
   test('ability-nullification', async() => {
     const hash = "#H4sIAAAAAAAAA91WUU/bMBD+K5GfQMq00rRj8EYLEkgUIdpp0qo8HMk18erame0UEOK/785JKGUbGpu2SVNSxz6f7+777nLpvViIQ5F9dkaLWHhxOJ/3YqFhhSKNeSpznuzFonZoz45ZCWyBPkxN5aXRjjX6sSisqSuSrswaz/TC0PTaODfplo3BzEpPOw4zo3OwdyeLBWbekcgapehRSu9a3ZLNgV/SmOOCT1UQxjyM+Kg2s7Io0HJ0coWblSslqnwMOkN1DCso8FHYLK/Af080Qws/EI9L0AW2pGjjkUPPLOYygKjMElcNmbXVLAm0BHxYIQQlV187L33NhxvuCDvHEYgPfvUdPaU70nfnuEbmBa6lkj6IPa6CMrlgdVyzURlG1WoXqPOGEIp5dldhmxjXZaVWXlZKBh289RYm7W4H2oNI01isxeG9oLp4HwvR3vMgOIiJ+iuQeTQie7QxzZDqgXEsQDlsR/FBX9c2R6JE10rF4hQcowg23pGNxyt96ITJ3rObtvZ65O6C3BxbKJjguThHWEQjBTmDG1mEpdRFNL2RAW2jFx1z8mk5K2tmJLqsdVYS68mQDLY2pt5YZvQErC+/1LDk/IZY9uP9Xrw/jIe9uN/jeUJhdoEexFQCE8p8VgIf30y3CLikLEWX5oap7iiw+W9QEIzMCbHMllHAzewvpVIEHiqKnTXnaVDcBNvnCM2Ny8BCDuLZaivknQsTHTX1tsu2pbe1i0ZoLdffTK6oLXSR9od9Cr0ZXwthBrXmbnCKquLcnYLmV3tcEhZef6SXjgt0FqBeGbPagGvzs8XeBmxC8GrmJYwvgftEVqNzDO/qFSq4xefYfiU5U2oJSIX2DbbzWocuNKnzN1P1NFsvAxr8L4DStn8MgihMk63ypbcqaeTDbZywLmhzQwod25kY56PQoSkkQt+j0y+f7U4P4sET/y2KpBP9Ydd7nW7SpI+b7y67/2nkY4VgqfVSEC562+Zfcgd/TRx9uv4RBY9Y/55rKj36vzDgbzd/dumXpOFDHi7eTePuTtOHh68Mz9ngHgkAAA==";
     const result = await resultsFromHash(hash);
-    // T0: Skill Swap, Muk Recieves Pure Power
+    // T0: Skill Swap, Muk Receives Pure Power
     expect(result.turnResults[0].state.raiders[3].ability).toEqual("Pure Power");
     expect(result.turnResults[1].state.raiders[3].hasAbility("Pure Power")).toEqual(true);
     // T1: Muk's attack is boosted by Pure Power

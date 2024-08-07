@@ -108,6 +108,19 @@ export type ShieldData  = {
     shieldDamageRateTeraChange: number;
 }
 
+export type ConditionalRoll = {
+    name: string,
+    roll: (d: number, r: Pokemon) => number,
+    condition: (newDamage: number, prevDamage: number, r: Raider) => boolean,
+}
+
+export type CumulativeRolls = {
+    rolls: Map<number, number>[];
+    persistentConditions: ConditionalRoll[];
+    sequentialConditions: ConditionalRoll[];
+}
+
+
 export interface Raider extends Pokemon {
     id: number;
     role: string;
@@ -117,7 +130,8 @@ export interface Raider extends Pokemon {
     moveData: MoveData[];
     extraMoves?: MoveName[];// for special boss actions
     extraMoveData?: MoveData[];
-    cumDamageRolls: Map<number, number>;
+    cumDamageRolls: CumulativeRolls;
+    koChance: number;
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
     isSleep?: number;       // store number of turns that a Pokemon is asleep
@@ -164,8 +178,9 @@ export type RaidMoveOptions = {
     secondaryEffects?: boolean;
     hits?: number;
     roll?: "max" | "min" | "avg";
+    allowMiss?: boolean;    
     activateTera?: boolean;
-    stealTeraCharge?: boolean;
+    stealTeraCharge?: boolean; // deprecated
 }
 
 export type RaidMoveInfo = {

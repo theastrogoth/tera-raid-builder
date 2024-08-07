@@ -29,6 +29,7 @@ export class RaidBattle {
 
     _continuing!: boolean
 
+    _turnZeroState!: RaidState;
     _state!: RaidState;
     _turnResults!: RaidTurnResult[];
 
@@ -39,6 +40,7 @@ export class RaidBattle {
         if (result) {
             this.startingState = result.endState;
             this.groups = info.groups;
+            this._turnZeroState = result.turnZeroState;
             this._turnZeroFlags = result.turnZeroFlags;
             this._turnZeroOrder = result.turnZeroOrder;
             this._turnResults = result.turnResults;
@@ -64,7 +66,7 @@ export class RaidBattle {
                 turnResults: this._turnResults,
                 turnZeroFlags: this._turnZeroFlags,
                 turnZeroOrder: this._turnZeroOrder,
-                turnZeroState: t0
+                turnZeroState: this._turnZeroState,
             }
         } catch (e) {
             console.error(e);
@@ -107,6 +109,7 @@ export class RaidBattle {
         const speeds = this._state.raiders.map(raider => raider.effectiveSpeed);
         const speedOrder = speeds.map((speed, index) => [speed, index]).sort((a, b) => b[0] - a[0]).map(pair => pair[1]);
         this._turnZeroOrder = speedOrder;
+        // activate switch-in effects
         for (let id of speedOrder) {
             const flags = this._state.switchIn(id);
             for (let i=0; i<5; i++) {
@@ -125,6 +128,7 @@ export class RaidBattle {
                 true,
                 ).result();
             this._state = moveResult.state;
+            this._turnZeroState = moveResult.state;
             for (let i=0; i<5; i++) {
                 this._turnZeroFlags[i+5] = this._turnZeroFlags[i+5].concat(moveResult.flags[i]);
             }

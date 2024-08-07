@@ -2,9 +2,10 @@ import { Move, Field, StatsTable, calculate} from "../calc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
-import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
+import { AbilityName, ItemName, MoveName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
-import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCumulativeKOChance, getCritChance, getRollCounts, catRollCounts, combineRollCounts } from "./util";
+import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCritChance } from "./util";
+import { getRollCounts, catRollCounts, combineRollCounts } from "./rolls"
 import persistentAbilities from "../data/persistent_abilities.json"
 import bypassProtectMoves from "../data/bypass_protect_moves.json"
 import chargeMoves from "../data/charge_moves.json";
@@ -23,6 +24,7 @@ export type RaidMoveResult= {
     flags: string[][];
     causesFlinch: boolean[];
     isSpread?: boolean;
+    warnings?: string[];
 }
 
 const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
@@ -116,6 +118,7 @@ export class RaidMove {
 
     _desc!: string[];
     _flags!: string[][];
+    _warnings!: string[];
 
     constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean, instructed?: boolean, delayed?: boolean) {
         this.move = move;
@@ -249,6 +252,7 @@ export class RaidMove {
             flags: this._flags,
             causesFlinch: this._causesFlinch,
             isSpread: this._isSpread,
+            warnings: this._warnings,
         }
     }
 
@@ -270,25 +274,37 @@ export class RaidMove {
         this._healing = [0,0,0,0,0];
         this._desc = ['','','','',''];
         this._flags=[[],[],[],[],[]];
+        this._warnings = [];
     }
 
     private checkIfMoves(): boolean {
         if (this._user.originalCurHP === 0) {
+            if (this._user.id !== 0) {
+                this._warnings.push(this._user.name + " fainted before moving.");
+            }
             return false;
         } else if (this.isBossAction && this.userID !== 0) {
             return false;
         } else if (isRaidAction(this.moveData.name)) {
             return true;
+        } else if (this.flinch) {
+            this._desc[this.userID] = this._user.name + " flinched!";
+            if (this._user.id !== 0) {
+                this._warnings.push(this._user.name + " flinched and skips its move.");
+            }
+            return false;
         } else {
             if (this._user.isSleep) {
                 this._desc[this.userID] = this._user.name + " is fast asleep.";
                 this._user.isSleep--; // decrement sleep counter
                 // this._user.lastMoveFailed = true;
+                this._warnings.push(this._user.name + " is asleep and skips its move.");
                 return false;
             } else if (this._user.isFrozen && !thawUserMoves.includes(this.move.name)) {
                 this._desc[this.userID] = this._user.name + " is frozen solid.";
                 this._user.isFrozen--; // decrement frozen counter
                 // this._user.lastMoveFailed = true;
+                this._warnings.push(this._user.name + " is frozen and skips its move.");
                 return false;
             } else if (
                 this._user.isTaunt && 
@@ -298,19 +314,61 @@ export class RaidMove {
                 this._desc[this.userID] = this._user.name + " can't use status moves due to Taunt!";
                 this._user.isTaunt--; // decrement taunt counter
                 // this._user.lastMoveFailed = true;
+                this._warnings.push(this._user.name + " is taunted and can't use " + this.moveData.name + ".");
                 return false;
             } else if (this._user.isDisable && this.move.name === this._user.disabledMove) {
                 this._desc[this.userID] = this.move.name + " is disabled!";
                 // this._user.lastMoveFailed = true;
+                this._warnings.push(this.moveData.name + " is disabled and can't be used.");
                 return false;
             } else if (this._user.isThroatChop && this.moveData.isSound) {
                 this._desc[this.userID] = this._user.name + " can't use sound-based moves due to Throat Chop!";
                 // this._user.lastMoveFailed = true;
+                this._warnings.push("Throat Chop prevents the use of " + this.moveData.name + ".");
+                return false;
+            } else if (this._user.status === "par" && this.options.allowMiss && this.options.roll === "min") {
+                this._desc[this.userID] = this._user.name + " is fully paralyzed and can't move!";
+                // this._user.lastMoveFailed = true;
+                this._warnings.push(this._user.name + " is fully paralyzed and can't move.");
+                return false;
+            } else if (this._user.volatileStatus.includes("confusion") && this.options.allowMiss && this.options.roll === "min") {
+                // this._user.lastMoveFailed = true;
+                this.applyConfusionDamage();                
                 return false;
             } else {
+                if (this._user.status === "par") {
+                    this._warnings.push("Paralysis may prevent " + this._user.name + " from moving.");
+                } else if (this._user.volatileStatus.includes("confusion")) {
+                    this._warnings.push("Confusion may prevent " + this._user.name + " from moving.");
+                }
                 return true;
             }
         }
+    }
+
+    private applyConfusionDamage() {
+        const confusedPoke = this._user.clone();
+        if (confusedPoke.hasAbility("Pure Power", "Huge Power", "Super Luck")) {
+            confusedPoke.ability = "(No Ability)" as AbilityName;
+        }
+        if (confusedPoke.boostedStat === "atk") {
+            confusedPoke.boostedStat = undefined;
+        }
+        if (confusedPoke.hasItem("Life Orb", "Choice Band", "Light Ball", "Thick Club")) {
+            confusedPoke.item = undefined;
+        }
+        confusedPoke.isPumped = 0;
+        const field = new Field();
+        const move = new Move(9, "hurt itself in its confusion");
+        console.log(move)
+        const res = calculate(9, confusedPoke, confusedPoke, move, field);
+        const damage = res.damage as number[];
+        const damageVal = this.options.roll === "max" ? damage[damage.length-1] : this.options.roll === "min" ? damage[0] : damage[Math.floor(damage.length/2)];
+        const roll = getRollCounts([damage], 0, confusedPoke.maxHP(), [1])
+        this._damage[this.userID] = damageVal;
+        this._desc[this.userID] = res.desc();
+        this._warnings.push(this._user.name + " hurt itself in its confusion.");
+        this._raidState.applyDamage(this.userID, damageVal, roll, 1, false, false, "???", "Physical", false, false, true, false);
     }
 
     private checkSheerForce() {
@@ -705,7 +763,7 @@ export class RaidMove {
                 const bpModifier = getBpModifier(this.moveData, target, this.damaged);
                 const accFraction = Math.min(1,accuracy/100);
                 const rollChance = accFraction * (crit ? critChance : (1 - critChance));
-                if (accuracy > 0) {
+                if (this.options.allowMiss ? (accuracy >= 100 || roll !== "min") : (accuracy > 0)) {
                     try {
                         const preDamageItem = target.item;
                         // calculate each hit from a multi-hit move
@@ -817,7 +875,7 @@ export class RaidMove {
                                             if (!target.item && this._user.item) {
                                                 const item = this._user.item;
                                                 this._raidState.loseItem(this.userID);
-                                                this._raidState.recieveItem(this._targetID, item);
+                                                this._raidState.receiveItem(this._targetID, item);
                                             }
                                             break;
                                         // Guessing NoReceiver
@@ -842,7 +900,7 @@ export class RaidMove {
                                     case "Sticky Barb":
                                         if (!this._user.item) {
                                             this._raidState.loseItem(this._targetID);
-                                            this._raidState.recieveItem(this.userID, "Sticky Barb" as ItemName);
+                                            this._raidState.receiveItem(this.userID, "Sticky Barb" as ItemName);
                                         }
                                         break;
                                     default: break; 
@@ -851,7 +909,7 @@ export class RaidMove {
                         }
                         const postDamageItem = target.item;
                         if ((preDamageItem !== postDamageItem) && (!postDamageItem)) {
-                            this._raidState.loseItem(id);
+                            this._raidState.loseItem(id); // This triggers Symbiosis, which only happens at the end of multi-strike moves
                         }
                         // prepare desc from results
                         const result = results[0];
@@ -859,7 +917,7 @@ export class RaidMove {
                         result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
                         this._damage[id] = Math.min(totalDamage, this.raidState.raiders[id].originalCurHP);
                         this._desc[id] = result.desc();
-                        // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target recieves damage
+                        // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target receives damage
                         if (this.moveData.name === "Fling" && this._user.item) {
                             this._flingItem = moveUser.item;
                             this._raidState.loseItem(this.userID);
@@ -875,16 +933,23 @@ export class RaidMove {
 
                     // add accuracy to desc if there is a chance to miss
                     if (accuracy < 100) {
-                        const accString = Math.floor(accuracy * 10) / 10;
+                        const accString = Math.round(accuracy * 10) / 10;
+                        const missString = Math.round((100 - accString) * 10) / 10;
                         const accEffectsString = accEffectsList.length ? " (" + accEffectsList.join(", ") + ")" : "";
                         this._desc[id] += " [" + accString + "% chance to hit" + accEffectsString + "]";
+                        this._warnings.push(this.move.name + " has a " + missString + "% chance to miss" + accEffectsString);
                     }
 
                     if (!nonMoveActions.includes(this.moveData.name)) {
                         // this._user.lastMoveFailed = false;
                     }
                 } else {
-                    this._desc[id] = this._user.name + " used " + this.move.name + " but it missed!"; //  due to semi-invulnerable moves
+                    const accString = Math.round(accuracy * 10) / 10;
+                    const missString = Math.round((100 - accString) * 10) / 10;
+                    const accEffectsString = accEffectsList.length ? " with " + accEffectsList.join(", ") : "";
+                    this._desc[id] = this._user.name + " used " + this.move.name + ", but it missed! (" + accString + "% chance to hit " + accEffectsString + ")";
+                    this._warnings.push(this.move.name + " missed (" + missString + "% chance to miss" + accEffectsString + ").");
+                    this._doesNotAffect[id] = "missed";
                     // this._user.lastMoveFailed = true;
                 }
             }
@@ -962,7 +1027,7 @@ export class RaidMove {
                         if (drainRolls === undefined) {
                             drainRolls = scaledRolls;
                         } else {
-                            drainRolls = combineRollCounts(drainRolls, scaledRolls, -this._raidState.raiders[id].maxHP(), this._raidState.raiders[id].maxHP());
+                            drainRolls = combineRollCounts(drainRolls, scaledRolls, -this._raidState.raiders[id].maxHP(), this._raidState.raiders[id].maxHP()).c;
                         }
                     }
                 }
@@ -1465,8 +1530,8 @@ export class RaidMove {
                 // These moves don't work in Tera raids
                 // const tempUserItem = this._user.item;
                 // const tempTargetItem = target.item;
-                // this._raidState.recieveItem(this._targetID, tempUserItem);
-                // this._raidState.recieveItem(this.userID, tempTargetItem);
+                // this._raidState.receiveItem(this._targetID, tempUserItem);
+                // this._raidState.receiveItem(this.userID, tempTargetItem);
                 break;
             case "Fling":
                 if (this._flingItem && !(target.hasAbility("Shield Dust") || target.hasItem("Covert Cloak"))) {
@@ -1568,6 +1633,7 @@ export class RaidMove {
                 break;
             case "Endure":
                 this._user.isEndure = true;
+                this._user.cumDamageRolls.addPersistentCondition("Endure");
                 break;
             case "Substitute":
                 const substituteHP = Math.floor(this._user.maxHP() / 4);
@@ -1923,7 +1989,7 @@ export class RaidMove {
         for (let i=0; i<5; i++) {
             if (i === this.userID || i === this.targetID || i === this.raiderID || this._affectedIDs.includes(i)) {
                 const poke = this._raiders[i];
-                const koChance = getCumulativeKOChance(poke.cumDamageRolls, poke.maxHP());
+                const koChance = poke.koChance;
                 if (koChance > 0) {
                     this._flags[i].push(koChance >= 100 ? "Guaranteed KO" : `${koChance}% overall chance of being KOd`);
                 }

@@ -437,6 +437,14 @@ export function getQPBoostedStat(
       bestStat = stat;
     }
   }
+  if (isWonderRoom) {
+    if (bestStat === 'def') {
+      bestStat = 'spd';
+    }
+    if (bestStat === 'spd') {
+      bestStat = 'def';
+    }
+  }
   return bestStat;
 }
 

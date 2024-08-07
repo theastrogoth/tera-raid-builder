@@ -63,8 +63,7 @@ export function calculateSMSSSV(
   checkForecast(defender, field.weather);
   checkItem(attacker, !!field.isMagicRoom);
   checkItem(defender, !!field.isMagicRoom);
-  checkWonderRoom(attacker, !!field.isWonderRoom, defender.hasAbility("Unaware"));
-  checkWonderRoom(defender, !!field.isWonderRoom, attacker.hasAbility("Unaware"));
+  checkWonderRoom(attacker, defender, field);
   // checkSeedBoost(attacker, field);
   // checkSeedBoost(defender, field);
   // checkDauntlessShield(attacker, gen);
@@ -1572,8 +1571,8 @@ export function calculateDfModsSMSSSV(
     (isQPActive(defender, field))
   ) {
     if (
-      (hitsPhysical && getQPBoostedStat(defender) === 'def') ||
-      (!hitsPhysical && getQPBoostedStat(defender) === 'spd')
+      (hitsPhysical && getQPBoostedStat(defender, !!field.isWonderRoom) === 'def') ||
+      (!hitsPhysical && getQPBoostedStat(defender, !!field.isWonderRoom) === 'spd')
     ) {
       desc.defenderAbility = defender.ability;
       dfMods.push(5324);

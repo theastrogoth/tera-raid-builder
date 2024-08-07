@@ -726,7 +726,7 @@ export class RaidState implements State.RaidState{
         // Booster Energy
         if (pokemon.item === "Booster Energy" && pokemon.hasAbility("Protosynthesis", "Quark Drive") && !pokemon.abilityOn) {
             pokemon.abilityOn = true;
-            const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
+            const statId = getQPBoostedStat(pokemon, !!pokemon.field.isWonderRoom, gen) as StatIDExceptHP;
             pokemon.boostedStat = statId;
             pokemon.usedBoosterEnergy = true;
             this.loseItem(id)
@@ -753,7 +753,7 @@ export class RaidState implements State.RaidState{
             if (pokemon.hasAbility("Quark Drive") && !pokemon.usedBoosterEnergy) {
                 if (pokemon.field.hasTerrain("Electric") && !pokemon.abilityOn) {
                     pokemon.abilityOn = true;
-                    const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
+                    const statId = getQPBoostedStat(pokemon, !!pokemon.field.isWonderRoom, gen) as StatIDExceptHP;
                     pokemon.boostedStat = statId;
                 } else if (!pokemon.field.hasTerrain("Electric") && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
@@ -785,7 +785,7 @@ export class RaidState implements State.RaidState{
             if (pokemon.hasAbility("Protosynthesis") && !pokemon.usedBoosterEnergy) {
                 if (pokemon.field.hasWeather("Sun") && !pokemon.abilityOn) {
                     pokemon.abilityOn = true;
-                    const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
+                    const statId = getQPBoostedStat(pokemon, !!pokemon.field.isWonderRoom, gen) as StatIDExceptHP;
                     pokemon.boostedStat = statId;
                 } else if (!pokemon.field.hasWeather("Sun") && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
@@ -989,7 +989,7 @@ export class RaidState implements State.RaidState{
                 let spd = target.stats.spd;
                 def = getModifiedStat(def, target.boosts.def, target.gen);
                 spd = getModifiedStat(spd, target.boosts.spd, target.gen);
-                if (spd <= def) {
+                if (spd <= def && !this.fields[0].isWonderRoom) {
                     const origSpa = pokemon.boosts.spa;
                     this.applyStatChange(id, {spa: 1}, true, id);
                     flags[id].push("SpA: " + origSpa + " → " + (pokemon.boosts.spa > 0 ? "+" : "") + pokemon.boosts.spa + " (Download)");

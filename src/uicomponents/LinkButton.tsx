@@ -16,7 +16,7 @@ import { RaidBattleInfo } from "../raidcalc/RaidBattle";
 
 import PokedexService from "../services/getdata";
 import { MoveData, RaidTurnInfo, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
-import { encode, decode, getTranslation, deepEqual } from "../utils";
+import { encode, decode, getTranslation } from "../utils";
 
 import { db } from "../config/firestore";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -515,10 +515,12 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                         console.log("Strategy is unchanged since the last time a link was generated.")
                         const link = window.location.href.split("#")[0] + "#" + shortHashRef.current;
                         navigator.clipboard.writeText(link);
+                        setCopiedLink(link);
                     } else {
                         console.log("Long hash link copied to clipboard.")
                         const link = window.location.href.split("#")[0] + "#" + newHash;
                         navigator.clipboard.writeText(link);
+                        setCopiedLink(link);
                         longHashRef.current = newHash;
                         shortHashRef.current = newHash;
                     }
@@ -533,8 +535,10 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                         "text/plain": setLinkDocument(title, raidInputProps, newHash, setButtonDisabled, setSnackSeverity, longHashRef, shortHashRef)
                         .then(shortHash => {
                             handleClick();
+                            const link = window.location.href.split("#")[0] + "#" + (shortHash || newHash);
+                            setCopiedLink(link);
                             return new Blob([
-                                window.location.href.split("#")[0] + "#" + (shortHash || newHash)
+                                link
                             ], { type: "text/plain" })
                         })
                     })

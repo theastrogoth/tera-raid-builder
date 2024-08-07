@@ -1,7 +1,7 @@
-import { Move, Field, Pokemon, Generations } from "../calc";
+import { Move, Field, Pokemon, Generations, toID } from "../calc";
 import { AilmentName, MoveData, Raider, RaidTurnInfo } from "./interface";
 import { AbilityName, ItemName, StatIDExceptHP, TypeName } from "../calc/data/interface";
-import { getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
+import { getModifiedStat, getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
 import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
 
 const gen = Generations.get(9);
@@ -107,6 +107,10 @@ export function safeStatStage(value: number) {
 
 export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, string[]] {
     // returns [accuracy (0-100)]
+
+    if (attacker.hasAbility("No Guard") || defender.hasAbility("No Guard")) {
+        return [100,[]];
+    }
     
     const movename = movedata.name;
     // Toxic NEVER misses if used by a poison type
@@ -251,6 +255,16 @@ export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boo
 
 // Speed modifiers
 
+export function getModifiedSpeed(pokemon: Raider) {
+    let speed = getModifiedStat(pokemon.stats.spe, pokemon.boosts.spe, gen);
+    speed = modifyPokemonSpeedByStatus(speed, pokemon.status, pokemon.ability);
+    speed = modifyPokemonSpeedByItem(speed, pokemon.item);
+    speed = modifyPokemonSpeedByAbility(speed, pokemon.ability, pokemon.abilityOn, pokemon.status);
+    speed = modifyPokemonSpeedByQP(speed, pokemon.field, pokemon.ability, pokemon.item, pokemon.boostedStat as StatIDExceptHP);
+    speed = modifyPokemonSpeedByField(speed, pokemon.field, pokemon.ability);
+    return speed;
+}
+
 export function modifyPokemonSpeedByStatus(speed: number, status?: string, ability?: AbilityName) {
     return status === "par" && ability !== "Quick Feet" ? speed * .5 : speed;
 }
@@ -296,11 +310,13 @@ export function modifyPokemonSpeedByQP(speed: number, field: Field, ability?: Ab
 
 export function modifyPokemonSpeedByField(speed: number, field: Field, ability?: AbilityName) {
     if (
-        ability === "Chlorophyll" && field.hasWeather("Sun") ||
-        ability === "Sand Rush" && field.hasWeather("Sand") ||
-        ability === "Slush Rush" && field.hasWeather("Snow") ||
-        ability === "Swift Swim" && field.hasWeather("Rain") ||
-        ability === "Surge Surfer" && field.hasTerrain("Electric")
+        !field.isCloudNine && (
+            ability === "Chlorophyll" && field.weather === "Sun" ||
+            ability === "Sand Rush" && field.weather === "Sand" ||
+            ability === "Slush Rush" && field.weather === "Snow" ||
+            ability === "Swift Swim" && field.weather === "Rain" ||
+            ability === "Surge Surfer" && field.terrain === "Electric"
+        )
     ) {
         speed *= 2;
     }
@@ -370,6 +386,26 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
         if (pokemon.isThroatChop) {
             selectableMoves = selectableMoves.filter(m => !(m.isSound))
         }
+        if (pokemon.item === "Assault Vest") {
+            selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
+        }
     }
     return selectableMoves.map(m => m.name);
+}
+
+export function getCritChance(move: Move, attacker: Raider, defender: Raider) {
+    if (defender.hasAbility("Shell Armor")) { return 0; }
+    const data = gen.moves.get(toID(move.name));
+    if (data && data.willCrit) { return 1; }
+    const critStages = (move.highCritChance ? 1 : 0) + (attacker.isPumped || 0) + (attacker.hasAbility("Super Luck") ? 1 : 0) + (attacker.hasItem("Scope Lens", "Razor Claw") ? 1 : 0);
+    switch (critStages) {
+        case 0:
+            return 1 / 24;
+        case 1:
+            return 1 / 8;
+        case 2:
+            return 1 / 2;
+        default:
+            return 1;
+    }
 }

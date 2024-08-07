@@ -108,6 +108,19 @@ export type ShieldData  = {
     shieldDamageRateTeraChange: number;
 }
 
+export type ConditionalRoll = {
+    name: string,
+    roll: (d: number, r: Pokemon) => number,
+    condition: (newDamage: number, prevDamage: number, r: Raider) => boolean,
+}
+
+export type CumulativeRolls = {
+    rolls: Map<number, number>[];
+    persistentConditions: ConditionalRoll[];
+    sequentialConditions: ConditionalRoll[];
+}
+
+
 export interface Raider extends Pokemon {
     id: number;
     role: string;
@@ -117,16 +130,18 @@ export interface Raider extends Pokemon {
     moveData: MoveData[];
     extraMoves?: MoveName[];// for special boss actions
     extraMoveData?: MoveData[];
+    cumDamageRolls: CumulativeRolls;
+    koChance: number;
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
-    yawnSource?: number;    // id of the pokemon that inflicted the user with Yawn
     isFrozen?: number;      // store number of turns that a Pokemon is frozen
     isCharging?: boolean;   // indicates that a Pokemon is charging a move (e.g. Solar Beam)
     isRecharging?: boolean; // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
     lastMove?: MoveData;    // stored for Instruct and Copycat
     lastTarget?: number;    // stored for Instruct and Copycat
+    lastAccuracy?: number;  // stored for accuracy of instructed moves
     moveRepeated?: number;  // stored for boost from Metronome, Fury Cutter, etc
     teraCharge?: number;    // stored for Tera activation check
     isChoiceLocked?: boolean; 
@@ -139,11 +154,8 @@ export interface Raider extends Pokemon {
     shieldBroken?: boolean;
     shieldBreakStun?: boolean[];
     substitute?: number; // store substitute's HP
-    abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
-    nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
     originalAbility?: AbilityName | "(No Ability)"; // stores ability when nullified
     syrupBombDrops?: number;
-    syrupBombSource?: number;
     lastConsumedItem?: ItemName;
     isCudChew?: number;    // store number of "turns" (each made of 4 moves) until Cud Chew activates
     isTransformed?: boolean;
@@ -166,8 +178,9 @@ export type RaidMoveOptions = {
     secondaryEffects?: boolean;
     hits?: number;
     roll?: "max" | "min" | "avg";
+    allowMiss?: boolean;    
     activateTera?: boolean;
-    stealTeraCharge?: boolean;
+    stealTeraCharge?: boolean; // deprecated
 }
 
 export type RaidMoveInfo = {

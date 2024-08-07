@@ -1,9 +1,6 @@
 import { StatID, StatsTable } from "./calc";
 import { SpeciesName } from "./calc/data/interface";
-import { RaidBattleResults } from "./raidcalc/RaidBattle";
-import { Raider } from "./raidcalc/Raider";
-import { RaidInputProps } from "./raidcalc/inputs";
-import { MoveData, SetOption, TurnGroupInfo } from "./raidcalc/interface";
+import { MoveTarget, SetOption, TurnGroupInfo } from "./raidcalc/interface";
 
 const SPECIAL_NAMES = {
     // Hyphenated Pokemon Names
@@ -337,6 +334,18 @@ export function setdexToOptions(dex: Object): SetOption[] {
     return options.sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 }
 
+export function getSelectableTargets(moveTarget?: MoveTarget): number[] {
+    switch (moveTarget) {
+        case "ally":
+            return [1,2,3,4];
+        case "all-opponents":
+        case "all-other-pokemon":
+            return [0];
+        default:
+            return [0,1,2,3,4]
+    }
+}
+
 export function getTranslation(word: string, translationKey: any, translationCategory: string = "ui") {
     if (!translationKey) { return word; }
     if (!translationKey[translationCategory]) { return word; }
@@ -384,8 +393,8 @@ export function shallowEqual(a: any, b: any) {
 
 export function deepEqual(a: any, b: any) {
     if (a === b) { return true; }
-    if ((typeof a == "object" && a != null) && (typeof b == "object" && b != null)) {
-        if (Object.keys(a).length != Object.keys(b).length) { return false; }
+    if ((typeof a == "object" && a !== null) && (typeof b === "object" && b !== null)) {
+        if (Object.keys(a).length !== Object.keys(b).length) { return false; }
         for (var prop in a) {
             if (b.hasOwnProperty(prop)) {  
                 if (!deepEqual(a[prop], b[prop])) { return false; }

@@ -89,6 +89,8 @@ function nonHPChanges(caseA: Raider, caseB: Raider): boolean {
         caseA.isTaunt !== caseB.isTaunt ||
         caseA.isEndure !== caseB.isEndure ||
         caseA.isYawn !== caseB.isYawn ||
+        caseA.syrupBombDrops !== caseB.syrupBombDrops ||
+        (caseA.moves.includes("Rage Fist" as MoveName) && (caseA.hitsTaken !== caseB.hitsTaken)) ||
         caseA.isFrozen !== caseB.isFrozen ||
         caseA.isChoiceLocked !== caseB.isChoiceLocked ||
         caseA.isEncore !== caseB.isEncore ||
@@ -98,50 +100,52 @@ function nonHPChanges(caseA: Raider, caseB: Raider): boolean {
         caseA.abilityNullified !== caseB.abilityNullified ||
         caseA.field.terrain !== caseB.field.terrain ||
         caseA.field.weather !== caseB.field.weather ||
+        caseA.field.isTrickRoom !== caseB.field.isTrickRoom ||
+        caseA.field.isWonderRoom !== caseB.field.isWonderRoom ||
+        caseA.field.isMagicRoom !== caseB.field.isMagicRoom ||
+        caseA.field.isCloudNine !== caseB.field.isCloudNine ||
+        caseA.field.isSwordOfRuin !== caseB.field.isSwordOfRuin ||
+        caseA.field.isBeadsOfRuin !== caseB.field.isBeadsOfRuin ||
+        caseA.field.isVesselOfRuin !== caseB.field.isVesselOfRuin ||
+        caseA.field.isTabletsOfRuin !== caseB.field.isTabletsOfRuin ||
         caseA.field.attackerSide.isAuroraVeil !== caseB.field.attackerSide.isAuroraVeil ||
         caseA.field.attackerSide.isReflect !== caseB.field.attackerSide.isReflect ||
         caseA.field.attackerSide.isLightScreen !== caseB.field.attackerSide.isLightScreen ||
         caseA.field.attackerSide.isSafeguard !== caseB.field.attackerSide.isSafeguard ||
         caseA.field.attackerSide.isMist !== caseB.field.attackerSide.isMist ||
         caseA.field.attackerSide.isTailwind !== caseB.field.attackerSide.isTailwind ||
-        caseA.field.attackerSide.isSeeded !== caseB.field.attackerSide.isSeeded
+        caseA.field.attackerSide.isSeeded !== caseB.field.attackerSide.isSeeded ||
+        caseA.field.attackerSide.powerSpots !== caseB.field.attackerSide.powerSpots ||
+        caseA.field.attackerSide.steelySpirits !== caseB.field.attackerSide.steelySpirits ||
+        caseA.field.attackerSide.friendGuards !== caseB.field.attackerSide.friendGuards ||
+        caseA.field.attackerSide.batteries !== caseB.field.attackerSide.batteries
     );
 }
 
 // checks if a move results in secondary effects or turn order changes
-function moveIsInteresting(noMoveResult: RaidTurnResult, moveResult: RaidTurnResult): boolean {
-    const targetID = moveResult.bossMoveInfo.targetID;
-    const noMoveTarget = noMoveResult.state.raiders[targetID];
-    const moveTarget = moveResult.state.raiders[targetID];
-    const noMoveBoss = noMoveResult.state.raiders[0];
-    const moveBoss = moveResult.state.raiders[0];
+function moveIsInteresting(resultA: RaidTurnResult, resultB: RaidTurnResult): boolean {
+    const targetID = resultB.bossMoveInfo.targetID;
+    const targetA = resultA.state.raiders[targetID];
+    const targetB = resultB.state.raiders[targetID];
+    const bossA = resultA.state.raiders[0];
+    const bossB = resultB.state.raiders[0];
 
-    const orderChange = noMoveResult.raiderMovesFirst !== moveResult.raiderMovesFirst;
+    const orderChange = resultA.raiderMovesFirst !== resultB.raiderMovesFirst;
     
     return (
         orderChange || 
-        nonHPChanges(noMoveTarget, moveTarget) ||
-        nonHPChanges(noMoveBoss, moveBoss)
+        nonHPChanges(targetA, targetB) ||
+        nonHPChanges(bossA, bossB)
     );
 }
 
 // returns the results from boss moves that have secondary effects or cause the most damage.
 function pickInterestingMoves(state: RaidState, turn: RaidTurnInfo, turnNumber: number, moveData: MoveData[]): RaidTurnResult[] {
-    const noMoveResult = new RaidTurn(
-        state,
-        {
-            ...turn,
-            bossMoveInfo: {
-                ...turn.bossMoveInfo,
-                moveData: {name: "(No Move)" as MoveName}
-            }
-        },
-        turnNumber
-    ).result();
-
     const turnResults: RaidTurnResult[] = [];
-    let mostDamage = 0;
+    let mostDamage = -Infinity;
     let mostDamagingMoveIdx: number = -1;
+    let leastDamage = Infinity;
+    let leastDamagingMoveIdx: number = -1;
     for (let i=0; i<moveData.length; i++) {
         const m = moveData[i];
         const turnInfo: RaidTurnInfo = {
@@ -157,10 +161,34 @@ function pickInterestingMoves(state: RaidState, turn: RaidTurnInfo, turnNumber: 
         if (damage > mostDamage) {
             mostDamage = damage;
             mostDamagingMoveIdx = i;
+        } 
+        if (damage < leastDamage) {
+            leastDamage = damage;
+            leastDamagingMoveIdx = i;
         }
         turnResults.push(result);
     }
-    const interestingMoveResults = turnResults.filter(t => moveIsInteresting(noMoveResult, t));
+    const interestingMoveResults: RaidTurnResult[] = [turnResults[mostDamagingMoveIdx]];
+    if (leastDamagingMoveIdx !== mostDamagingMoveIdx) {
+        interestingMoveResults.push(turnResults[leastDamagingMoveIdx]);
+    }
+    let moveidx = 0;
+    while (moveidx < moveData.length) {
+        if (moveidx !== mostDamagingMoveIdx && moveidx !== leastDamagingMoveIdx) {
+            let resIsDifferent = true;
+            for (let r of interestingMoveResults) {
+                if (!moveIsInteresting(r, turnResults[moveidx])) {
+                    resIsDifferent = false;
+                    break;
+                }
+            }
+            if (resIsDifferent) {
+                interestingMoveResults.push(turnResults[moveidx]);
+            }
+        }
+        moveidx++;
+    }
+    // const interestingMoveResults = turnResults.filter(t => moveIsInteresting(noMoveResult, mostDamagingResult, t));
     if (mostDamagingMoveIdx >= 0 && !interestingMoveResults.some((r) => r.bossMoveInfo.moveData.name === moveData[mostDamagingMoveIdx].name)) {
         interestingMoveResults.push(turnResults[mostDamagingMoveIdx]);
     }
@@ -182,10 +210,11 @@ function splitBranch(info: RaidBattleInfo, prevResults: RaidBattleResults, moveD
     }
 
     const lastMove = lastGroup.turns[lastGroup.turns.length-1];
+    const previousTurn = penultimateResult.turnResults.length ? penultimateResult.turnResults[penultimateResult.turnResults.length - 1] : undefined;
     const branchTurnResults = pickInterestingMoves(
         penultimateResult.endState, 
         lastMove, 
-        info.groups.reduce((acc, g) => acc + g.turns.length, 0), 
+        previousTurn ? (previousTurn.turnNumber + (previousTurn.moveInfo.moveData.name !== "(No Move)" ? 1 : 0)) : 0, 
         moveData
     );
     const branchResults = branchTurnResults.map((t) => {
@@ -235,8 +264,13 @@ function calculateBranches(branchChunks: TurnGroupInfo[][], prevResults: RaidBat
 function resultObjective(result: RaidBattleResults): number {
     const bossKO = result.endState.raiders[0].originalCurHP <= 0;
     const raiderKOs = result.endState.raiders.slice(1).reduce((acc, r) => acc + r.timesFainted, 0);
+    const raiderKOChances = result.endState.raiders.slice(1).reduce((acc, r) => {
+        const koChance = r.koChance || 0;
+        const score = koChance === 0 ? 0 : Math.max(1, koChance)
+        return acc + score;
+    }, 0);
     const raiderHP = result.endState.raiders.slice(1).reduce((acc, r) => acc + r.originalCurHP, 0);
-    return ( bossKO ? 0 : 1000000 ) + raiderKOs * 10000 - raiderHP;
+    return ( bossKO ? 0 : 1000000000 ) + raiderKOs * 1000000 + raiderKOChances * 5000 - raiderHP;
 }
 
 export function optimizeBossMoves(raiders: Raider[], groups: TurnGroupInfo[]) {

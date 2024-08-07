@@ -28,7 +28,7 @@ const EV_ITEMS = [
 ];
 
 export function isGrounded(pokemon: Pokemon, field: Field) {
-  return (field.isGravity || pokemon.hasItem('Iron Ball') || pokemon.isIngrain ||
+  return (field.isGravity || pokemon.hasItem('Iron Ball') || pokemon.isIngrain || pokemon.isSmackDown ||
     (!pokemon.hasType('Flying') &&
       !pokemon.hasAbility('Levitate') &&
       !pokemon.hasItem('Air Balloon')));
@@ -199,8 +199,8 @@ export function checkItem(pokemon: Pokemon, magicRoomActive?: boolean) {
   }
 }
 
-export function checkWonderRoom(pokemon: Pokemon, wonderRoomActive?: boolean) {
-  if (wonderRoomActive) {
+export function checkWonderRoom(pokemon: Pokemon, wonderRoomActive?: boolean, opponentHasUnaware?: boolean) {
+  if (wonderRoomActive && !opponentHasUnaware) {
     [pokemon.rawStats.def, pokemon.rawStats.spd] = [pokemon.rawStats.spd, pokemon.rawStats.def];
   }
 }

@@ -5,12 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Raid Boss",
-            "name": "Emboar",
+            "role": "Dondozo",
+            "name": "Dondozo",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Reckless",
-            "nature": "Brave",
+            "ability": "Unaware",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,22 +28,22 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
-            "teraType": "Electric",
+            "gender": "N",
+            "teraType": "Water",
             "moves": [
-                "Flare Blitz",
-                "Drain Punch",
-                "Wild Charge",
-                "Head Smash"
+                "Wave Crash",
+                "Order Up",
+                "Earthquake",
+                "Avalanche"
             ],
-            "bossMultiplier": 4000,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Bulk Up",
-                "Heat Crash"
+                "Yawn",
+                "Curse"
             ],
             "shieldData": {
-                "hpTrigger": 90,
-                "timeTrigger": 80,
+                "hpTrigger": 70,
+                "timeTrigger": 70,
                 "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -52,18 +52,18 @@
         },
         {
             "id": 1,
-            "role": "Ursaluna",
-            "name": "Ursaluna",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Guts",
-            "item": "Flame Orb",
-            "nature": "Adamant",
+            "ability": "Hadron Engine",
+            "item": "Life Orb",
+            "nature": "Modest",
             "evs": {
-                "hp": 252,
-                "atk": 252,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -73,15 +73,14 @@
                 "def": 31,
                 "spa": 31,
                 "spd": 31,
-                "spe": 0
+                "spe": 31
             },
             "level": 100,
             "gender": "N",
+            "teraType": "???",
             "moves": [
-                "Belly Drum",
-                "Headlong Rush",
-                "Swords Dance",
-                "Earthquake"
+                "Charge",
+                "Electro Drift"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -99,8 +98,9 @@
             "role": "Stonjourner",
             "name": "Stonjourner",
             "shiny": false,
-            "isAnyLevel": false,
+            "isAnyLevel": true,
             "ability": "Power Spot",
+            "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -118,14 +118,9 @@
                 "spd": 0,
                 "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Bulldoze",
-                "Low Sweep",
-                "Gravity",
-                "Wide Guard"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -139,36 +134,32 @@
         },
         {
             "id": 3,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "Bonsly",
+            "name": "Bonsly",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "Sturdy",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
             "moves": [
-                "Tickle",
-                "Helping Hand",
-                "Mud-Slap",
-                "Chilling Water"
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -183,36 +174,32 @@
         },
         {
             "id": 4,
-            "role": "Clefairy",
-            "name": "Clefairy",
+            "role": "Bonsly",
+            "name": "Bonsly",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "Sturdy",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
             "moves": [
-                "Tickle",
-                "Helping Hand",
-                "Reflect",
-                "Life Dew"
+                "Fake Tears"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -237,6 +224,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": false,
                     "roll": "avg",
                     "hits": 1
                 }
@@ -248,6 +236,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": false,
                     "roll": "avg",
                     "hits": 1
                 }

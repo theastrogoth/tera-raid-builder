@@ -55,8 +55,62 @@ import PokemonLookup from "./PokemonLookup";
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).sort();
 const genItems = ["(No Item)", ...[...gen.items].map(item => item.name).sort()];
+const arceusPlates = [
+    "Insect Plate",
+    "Dread Plate",
+    "Draco Plate",
+    "Zap Plate",
+    "Pixie Plate",
+    "Fist Plate",
+    "Flame Plate",
+    "Sky Plate",
+    "Spooky Plate",
+    "Meadow Plate",
+    "Earth Plate",
+    "Icicle Plate",
+    "Toxic Plate",
+    "Mind Plate",
+    "Stone Plate",
+    "Iron Plate",
+    "Splash Plate"
+]
 const genNatures = [...gen.natures].sort();
-const genSpecies = [...gen.species].map(specie => specie.name).filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n)).sort();
+
+const UNSELECTABLE_FORMS = [
+    "Mimikyu-Busted", 
+    "Minior-Meteor", 
+    "Eiscue-Noice", 
+    "Morpeko-Hangry", 
+    "Terapagos-Stellar", 
+    "Meloetta-Pirouette",
+    "Zacian-Crowned",
+    "Zamazenta-Crowned",
+    "Dialga-Origin",
+    "Palkia-Origin",
+    "Giratina-Origin",
+    "Ogerpon-Hearthflame",
+    "Ogerpon-Wellspring",
+    "Ogerpon-Cornerstone",
+    "Arceus-Bug",
+    "Arceus-Dark",
+    "Arceus-Dragon",
+    "Arceus-Electric",
+    "Arceus-Fairy",
+    "Arceus-Fighting",
+    "Arceus-Fire",
+    "Arceus-Flying",
+    "Arceus-Ghost",
+    "Arceus-Grass",
+    "Arceus-Ground",
+    "Arceus-Ice",
+    "Arceus-Psychic",
+    "Arceus-Poison",
+    "Arceus-Rock",
+    "Arceus-Steel",
+    "Arceus-Water",
+];
+
+const genSpecies = [...gen.species].map(specie => specie.name).filter((n) => !UNSELECTABLE_FORMS.includes(n)).sort();
 
 // const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
 const bossSetOptions = [...setdexToOptions(BOSS_SETDEX_SV), ...setdexToOptions(BOSS_SETDEX_TM), ...setdexToOptions(BOSS_SETDEX_ID)].sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
@@ -333,6 +387,7 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
                 fetchPokemonData().catch((e) => console.log(e));
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name, pokemon, showPopper])
     
     return (
@@ -403,6 +458,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                 }
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveItem, moveData, showPopper])
 
     const spriteURL = 
@@ -1045,9 +1101,9 @@ function GenderSymbol({g}: {g: GenderName | undefined}) {
     )
 }
 
-function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
+function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, groupsCounter, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
-         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
+         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, groupsCounter: number,  allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
          setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey?: any, isBoss?: boolean}
     ) {
     const [teraTypes, setTeraTypes] = useState(genTypes);
@@ -1061,67 +1117,149 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     useEffect(() => {
         // Locked items/teratypes
         if (pokemon.name.includes("Ogerpon")) {
-            if (pokemon.name === "Ogerpon") {
+            if (pokemon.name !== "Ogerpon" && !pokemon.hasItem("Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask")) {
                 setTeraTypes(["Grass"]);
-                setPokemonProperties(["role", "teraType"])(["Ogerpon", "Grass"]);
-            } else if (pokemon.name === "Ogerpon-Hearthflame") {
+                setItems(genItems);
+                const poke = pokemon.clone();
+                poke.teraType = "Grass";
+                poke.ability = "Defiant" as AbilityName;
+                handleForcedChangeSpecies("Ogerpon", poke);
+            } else if (pokemon.hasItem("Hearthflame Mask")) {
                 setTeraTypes(["Fire"]);
-                setItems(["Hearthflame Mask" as ItemName]);
-                setPokemonProperties(["role", "teraType", "item"])(["Ogerpon", "Fire", "Hearthflame Mask"]);
-            } else if (pokemon.name === "Ogerpon-Wellspring") {
+                setItems(["(No Item)", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]);
+                const poke = pokemon.clone();
+                poke.teraType = "Fire";
+                poke.item = "Hearthflame Mask" as ItemName;
+                poke.ability = "Mold Breaker" as AbilityName;
+                handleForcedChangeSpecies("Ogerpon-Hearthflame", poke);
+            } else if (pokemon.hasItem("Wellspring Mask")) {
                 setTeraTypes(["Water"]);
-                setItems(["Wellspring Mask" as ItemName]);
-                setPokemonProperties(["role", "teraType", "item"])(["Ogerpon", "Water", "Wellspring Mask"]);
-            } else { // (pokemmon.name === "Ogerpon-Cornerstone")
+                setItems(["(No Item)", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]);
+                const poke = pokemon.clone();
+                poke.teraType = "Water";
+                poke.item = "Wellspring Mask" as ItemName;
+                poke.ability = "Water Absorb" as AbilityName;
+                handleForcedChangeSpecies("Ogerpon-Wellspring", poke);
+            } else if (pokemon.hasItem("Cornerstone Mask")) {
                 setTeraTypes(["Rock"]);
-                setItems(["Cornerstone Mask" as ItemName]);
-                setPokemonProperties(["role", "teraType", "item"])(["Ogerpon", "Rock", "Cornerstone Mask"]);
+                setItems(["(No Item)", "Hearthflame Mask", "Wellspring Mask", "Cornerstone Mask"]);
+                const poke = pokemon.clone();
+                poke.teraType = "Rock";
+                poke.item = "Cornerstone Mask" as ItemName;
+                poke.ability = "Sturdy" as AbilityName;
+                handleForcedChangeSpecies("Ogerpon-Cornerstone", poke);
+            } else if (teraTypes.length !== 1 || teraTypes[0] !== "Grass") {
+                setTeraTypes(["Grass"]);
+                setItems(genItems);
             }
-        } else if (pokemon.name === "Zacian-Crowned") {
-            setItems(["Rusted Sword" as ItemName]);
-            setPokemonProperties(["role","item"])(["Zacian", "Rusted Sword"]);
-        } else if (pokemon.name === "Zamazenta-Crowned") {
-            setItems(["Rusted Shield" as ItemName]);
-            setPokemonProperties(["role","item"])(["Zamazenta", "Rusted Shield"]);
+        } else if (pokemon.name.includes("Zacian")) {
+            setTeraTypes(genTypes);
+            if (pokemon.name !== "Zacian" && !pokemon.hasItem("Rusted Sword")) {
+                setItems(genItems);
+                const poke = pokemon.clone();
+                handleForcedChangeSpecies("Zacian", poke);
+            } else if (pokemon.name === "Zacian-Crowned" || pokemon.hasItem("Rusted Sword")) {
+                setItems(["(No Item)", "Rusted Sword" as ItemName]);
+                const poke = pokemon.clone();
+                poke.item = "Rusted Sword" as ItemName;
+                handleForcedChangeSpecies("Zacian-Crowned", poke);
+            } else {
+                setItems(genItems);
+            }
+        } else if (pokemon.name.includes("Zamazenta")) {
+            setTeraTypes(genTypes);
+            if (pokemon.name !== "Zamazenta" && !pokemon.hasItem("Rusted Shield")) {
+                setItems(genItems);
+                const poke = pokemon.clone();
+                handleForcedChangeSpecies("Zamazenta", poke);
+            } else if (pokemon.name === "Zamazenta-Crowned") {
+                setItems(["(No Item)", "Rusted Shield" as ItemName]);
+                const poke = pokemon.clone();
+                poke.item = "Rusted Shield" as ItemName;
+                handleForcedChangeSpecies("Zamazenta-Crowned", poke);
+            } else {
+                setItems(genItems);
+            }
         } else if (pokemon.name.includes("Terapagos")) {
             setTeraTypes(["Stellar"]);
             setPokemonProperties(["teraType"])(["Stellar"]);
-        } else if (pokemon.name.includes("Dialga-Origin")) {
-            setItems(["Adamant Crystal"]);
-            setPokemonProperties(["role","item"])(["Dialga", "Adamant Crystal"]);
-        } else if (pokemon.name.includes("Palkia-Origin")) {
-            setItems(["Lustrous Globe"]);
-            setPokemonProperties(["role","item"])(["Palkia", "Lustrous Globe"]);
-        } else if (pokemon.name.includes("Giratina-Origin")) {
-            setItems(["Griseous Orb", "Griseous Core"]);
-            // setPokemonProperties(["role","item"])(["Giratina", "Griseous Core"]);
+        } else if (pokemon.name.includes("Dialga")) {
+            setTeraTypes(genTypes);
+            if (pokemon.name !== "Dialga" && !pokemon.hasItem("Adamant Crystal")) {
+                setItems(genItems);
+                const poke = pokemon.clone();
+                handleForcedChangeSpecies("Dialga", poke);
+            } else if (pokemon.name === "Dialga-Origin" || pokemon.hasItem("Adamant Crystal")) {
+                setItems(["(No Item)", "Adamant Crystal"]);
+                const poke = pokemon.clone();
+                poke.item = "Adamant Crystal" as ItemName;
+                handleForcedChangeSpecies("Dialga-Origin", poke);
+            } else {
+                setItems(genItems);
+            }
+        } else if (pokemon.name.includes("Palkia")) {
+            setTeraTypes(genTypes);
+            if (pokemon.name !== "Palkia" && !pokemon.hasItem("Lustrous Globe")) {
+                setItems(genItems);
+                const poke = pokemon.clone();
+                handleForcedChangeSpecies("Palkia", poke);
+            } else if (pokemon.name === "Palkia-Origin" || pokemon.hasItem("Lustrous Globe")) {
+                setItems(["(No Item)", "Lustrous Globe"]);
+                const poke = pokemon.clone();
+                poke.item = "Lustrous Globe" as ItemName;
+                handleForcedChangeSpecies("Palkia-Origin", poke);
+            } else {
+                setItems(genItems);
+            }
+        } else if (pokemon.name.includes("Giratina")) {
+            setTeraTypes(genTypes);
+            if (pokemon.name !== "Giratina" && !pokemon.hasItem("Griseous Core")) {
+                setItems(genItems);
+                const poke = pokemon.clone();
+                handleForcedChangeSpecies("Giratina", poke);
+            } else if (pokemon.name === "Giratina-Origin" || pokemon.hasItem("Griseous Core")) {
+                setItems(["(No Item)", "Griseous Core"]);
+                const poke = pokemon.clone();
+                poke.item = "Griseous Core" as ItemName;
+                handleForcedChangeSpecies("Giratina-Origin", poke);
+            } else {
+                setItems(genItems);
+            }
         }
         // Arceus Plate Types
-        else if (pokemon.name.includes("Arceus")) {
-            if (pokemon.name.includes("-")) {
-                const plateType = pokemon.name.split("-")[1];
-                let plateItem = pokemon.item || "";
-                switch (plateType) {
-                    case "Dragon": plateItem = "Draco Plate"; break;
-                    case "Dark": plateItem = "Dread Plate"; break;
-                    case "Electric": plateItem = "Zap Plate"; break;
-                    case "Fairy": plateItem = "Pixie Plate"; break;
-                    case "Fighting": plateItem = "Fist Plate"; break;
-                    case "Fire": plateItem = "Flame Plate"; break;
-                    case "Flying": plateItem = "Sky Plate"; break;
-                    case "Ghost": plateItem = "Spooky Plate"; break;
-                    case "Grass": plateItem = "Meadow Plate"; break;
-                    case "Ground": plateItem = "Earth Plate"; break;
-                    case "Ice": plateItem = "Icicle Plate"; break;
-                    case "Poison": plateItem = "Toxic Plate"; break;
-                    case "Psychic": plateItem = "Mind Plate"; break;
-                    case "Rock": plateItem = "Stone Plate"; break;
-                    case "Steel": plateItem = "Iron Plate"; break;
-                    case "Water": plateItem = "Splash Plate"; break;                 
+        else if (pokemon.name.includes("Arceus") && !(pokemon.name === "Arceus" && !arceusPlates.includes(pokemon.item || ""))) {
+            setTeraTypes(genTypes);
+            if (!(pokemon.item || "").includes("Plate")) {
+                setItems(genItems);
+                const poke = pokemon.clone();
+                handleForcedChangeSpecies("Arceus", poke);
+            } else if (pokemon.name.includes("Arceus-") || pokemon.item?.includes("Plate")) {
+                let form: string = pokemon.name;
+                switch (pokemon.item) {
+                    case "Insect Plate":   form = "Arceus-Bug";        break;
+                    case "Dread Plate":    form = "Arceus-Dark";       break;
+                    case "Draco Plate":    form = "Arceus-Dragon";     break;
+                    case "Zap Plate":      form = "Arceus-Electric";   break;
+                    case "Pixie Plate":    form = "Arceus-Fairy";      break;
+                    case "Fist Plate":     form = "Arceus-Fighting";   break;
+                    case "Flame Plate":    form = "Arceus-Fire";       break;
+                    case "Sky Plate":      form = "Arceus-Flying";     break;
+                    case "Spooky Plate":   form = "Arceus-Ghost";      break;
+                    case "Meadow Plate":   form = "Arceus-Grass";      break;
+                    case "Earth Plate":    form = "Arceus-Ground";     break;
+                    case "Icicle Plate":   form = "Arceus-Ice";        break;
+                    case "Toxic Plate":    form = "Arceus-Poison";     break;
+                    case "Mind Plate":     form = "Arceus-Psychic";    break;
+                    case "Stone Plate":    form = "Arceus-Rock";       break;
+                    case "Iron Plate":     form = "Arceus-Steel";      break;
+                    case "Splash Plate":   form = "Arceus-Water";      break;                 
                 }
-                setItems([plateItem as ItemName]);
-                setPokemonProperties(["role", "item", "ability"])(["Arceus", plateItem, "Multitype"]);
-            } 
+                setItems(["(No Item)", ...arceusPlates]);
+                const poke = pokemon.clone();
+                handleForcedChangeSpecies(form as SpeciesName, poke);
+            } else {
+                setItems(genItems);
+            }
         } else {
             setTeraTypes(genTypes);
             setItems(genItems);
@@ -1138,25 +1276,64 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         } else if ((pokemon.level !== level) && !(level === 0 && pokemon.level === 1)) {
             setLevel(pokemon.level);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon.level, pokemon.isAnyLevel])
 
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
-            const newPokemon = pokemon.clone();
-            // @ts-ignore
-            newPokemon[propName] = val;
-            setPokemon(newPokemon.clone())
+            const newProps = {...pokemon, [propName]: val};
+            setPokemon(new Raider(
+                newProps.id, 
+                newProps.role, 
+                newProps.shiny, 
+                newProps.isAnyLevel,
+                newProps.field, 
+                new Pokemon(gen, newProps.name, {
+                    nature: newProps.nature, 
+                    level: newProps.level,
+                    ability: newProps.ability,
+                    teraType: newProps.teraType,
+                    gender: newProps.gender,
+                    item: newProps.item,
+                    ivs: newProps.ivs,
+                    evs: newProps.evs,
+                    moves: newProps.moves,
+                    bossMultiplier: newProps.bossMultiplier,
+                    shieldData: newProps.shieldData,
+                }), 
+                newProps.moveData,
+                newProps.extraMoves,
+                newProps.extraMoveData
+            ));
         }
     }
 
     const setPokemonProperties = (propNames: string[]) => {
         return (vals: any[]) => {
-            const newPokemon = pokemon.clone();
-            propNames.forEach((propName, i) => {
-                // @ts-ignore
-                newPokemon[propName] = vals[i];
-            })
-            setPokemon(newPokemon.clone())
+            const newProps = {...pokemon, ...Object.fromEntries(propNames.map((prop, idx) => [prop, vals[idx]]))};
+            setPokemon(new Raider(
+                newProps.id, 
+                newProps.role, 
+                newProps.shiny, 
+                newProps.isAnyLevel,
+                newProps.field, 
+                new Pokemon(gen, newProps.name, {
+                    nature: newProps.nature, 
+                    level: newProps.level,
+                    ability: newProps.ability,
+                    teraType: newProps.teraType,
+                    gender: newProps.gender,
+                    item: newProps.item,
+                    ivs: newProps.ivs,
+                    evs: newProps.evs,
+                    moves: newProps.moves,
+                    bossMultiplier: newProps.bossMultiplier,
+                    shieldData: newProps.shieldData,
+                }), 
+                newProps.moveData,
+                newProps.extraMoves,
+                newProps.extraMoveData
+            ));
         }
     }
 
@@ -1224,6 +1401,30 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 },
             }), 
             [],
+        ));
+    }
+
+    const handleForcedChangeSpecies = (val: string, poke: Raider) => {
+        setPokemon(new Raider(
+            poke.id, 
+            poke.role, 
+            poke.shiny, 
+            false,
+            poke.field, 
+            new Pokemon(gen, val, {
+                nature: poke.nature, 
+                level: poke.level,
+                ability: poke.ability,
+                teraType: poke.teraType,
+                item: poke.item,
+                evs: poke.evs,
+                ivs: poke.ivs,
+                moves: poke.moves,
+                shieldData: poke.shieldData,
+            }), 
+            poke.moveData,
+            poke.extraMoves,
+            poke.extraMoveData,
         ));
     }
 
@@ -1668,10 +1869,30 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
 {
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
-            const newPokemon = pokemon.clone();
-            // @ts-ignore
-            newPokemon[propName] = val;
-            setPokemon(newPokemon.clone())
+            const newProps = {...pokemon, [propName]: val};
+            setPokemon(new Raider(
+                newProps.id, 
+                newProps.role, 
+                newProps.shiny, 
+                newProps.isAnyLevel,
+                newProps.field, 
+                new Pokemon(gen, newProps.name, {
+                    nature: newProps.nature, 
+                    level: newProps.level,
+                    ability: newProps.ability,
+                    teraType: newProps.teraType,
+                    gender: newProps.gender,
+                    item: newProps.item,
+                    ivs: newProps.ivs,
+                    evs: newProps.evs,
+                    moves: newProps.moves,
+                    bossMultiplier: newProps.bossMultiplier,
+                    shieldData: newProps.shieldData,
+                }), 
+                newProps.moveData,
+                newProps.extraMoves,
+                newProps.extraMoveData
+            ));
         }
     }
 
@@ -1845,7 +2066,8 @@ export const BossBuildControlsMemo = React.memo(BossBuildControls,
         arraysEqual(prevProps.pokemon.extraMoves!, nextProps.pokemon.extraMoves!) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         prevProps.prettyMode === nextProps.prettyMode &&
-        prevProps.translationKey === nextProps.translationKey);
+        prevProps.translationKey === nextProps.translationKey
+    );
 
 export default React.memo(BuildControls, 
     (prevProps, nextProps) => 
@@ -1855,5 +2077,7 @@ export default React.memo(BuildControls,
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
+        prevProps.groupsCounter === nextProps.groupsCounter && 
         prevProps.prettyMode === nextProps.prettyMode &&
-        prevProps.translationKey === nextProps.translationKey);
+        prevProps.translationKey === nextProps.translationKey
+    );

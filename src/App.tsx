@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
 
@@ -36,6 +36,7 @@ import PokedexService, { PokemonData } from "./services/getdata";
 import { getTranslation } from './utils.ts';
 import DEFAULT_STRAT from './data/strats/default.json';
 import { LightBuildInfo } from './raidcalc/hashData.ts';
+import { deepEqual } from './utils.ts';
 
 type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
 
@@ -312,6 +313,7 @@ function App() {
         }
       )
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // only triggered on mount
 
   const [title, setTitle] = useState<string>("");
@@ -331,6 +333,17 @@ function App() {
       ]
     }
   ]);
+  const groupsRef = useRef(groups.map((g) => { return {...g, turns: g.turns.map((t) => t)} }));
+  const [groupsCounter, setGroupsCounter] = useState(0);
+
+  useEffect(() => {
+    if (!deepEqual(groups, groupsRef.current)) {
+      groupsRef.current = groups.map((g) => { return {...g, turns: g.turns.map((t) => t)} });
+      setGroupsCounter((prev) => prev + 1);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [groups]);
+
   const [substitutes1, setSubstitutes1] = useState<SubstituteBuildInfo[]>([]);
   const [substitutes2, setSubstitutes2] = useState<SubstituteBuildInfo[]>([]);
   const [substitutes3, setSubstitutes3] = useState<SubstituteBuildInfo[]>([]);
@@ -341,8 +354,6 @@ function App() {
     setPokemon: [setRaidBoss, setRaider1, setRaider2, setRaider3, setRaider4],
     groups: groups,
     setGroups: setGroups,
-    // substitutes: [substitutes1, substitutes2, substitutes3, substitutes4],
-    // setSubstitutes: [setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4],
   }
 
   const [results, setResults] = useState<RaidBattleResults>(
@@ -398,14 +409,14 @@ function App() {
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} substitutes={substitutes1} setSubstitutes={setSubstitutes1} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
-              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} substitutes={substitutes2} setSubstitutes={setSubstitutes2} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey}/>
+              <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes1} setSubstitutes={setSubstitutes1} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes2} setSubstitutes={setSubstitutes2} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey}/>
             </Stack>
           </Grid>
           <Grid item>
             <Stack direction="row">
-              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} substitutes={substitutes3} setSubstitutes={setSubstitutes3} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
-              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} substitutes={substitutes4} setSubstitutes={setSubstitutes4} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes3} setSubstitutes={setSubstitutes3} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+              <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes4} setSubstitutes={setSubstitutes4} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
             </Stack>
           </Grid>
           <Grid item>

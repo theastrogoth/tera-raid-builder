@@ -1,9 +1,9 @@
 import { Field, Pokemon, Generations } from "../calc";
 import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName, TypeName, SpeciesName } from "../calc/data/interface";
 import { extend } from '../calc/util';
-import { safeStatStage, modifyPokemonSpeedByAbility, modifyPokemonSpeedByField, modifyPokemonSpeedByItem, modifyPokemonSpeedByQP, modifyPokemonSpeedByStatus } from "./util";
+import { safeStatStage, getModifiedSpeed } from "./util";
 import * as State from "./interface";
-import { getModifiedStat } from "../calc/mechanics/util";
+import { CumulativeRolls } from "./rolls";
 
 const gen = Generations.get(9);
 
@@ -17,6 +17,9 @@ export class Raider extends Pokemon implements State.Raider {
     extraMoves?: MoveName[];    // for special boss actions
     extraMoveData?: State.MoveData[];
 
+    cumDamageRolls: CumulativeRolls;
+    koChance: number;
+
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     isTaunt?: number;           // store number of turns that a Pokemon can't use status moves
     isSleep?: number;           // store number of turns that a Pokemon is asleep
@@ -29,6 +32,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     lastMove?: State.MoveData;  // stored for Instruct and Copycat
     lastTarget?: number;        // stored for Instruct and Copycat
+    lastAccuracy?: number;      // stored for accuracy of instructed moves
     moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
     teraCharge: number;         // stored for Tera activation
 
@@ -44,12 +48,9 @@ export class Raider extends Pokemon implements State.Raider {
     shieldBreakStun?: boolean[];
     substitute?: number;
 
-    abilityNullified?: number;  // indicates when the boss has nullified the ability of the Raider
-    nullifyAbilityOn?: boolean; // indicates that the ability was active before nullification
     originalAbility: AbilityName | "(No Ability)";   // stores ability when nullified
 
     syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
-    syrupBombSource?: number; // id of the pokemon that inflicted the user with Syrup Bomb
 
     lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
     isCudChew?: number;          // store number of "turns" (each made of 4 moves) until Cud Chew activates
@@ -76,7 +77,9 @@ export class Raider extends Pokemon implements State.Raider {
         pokemon: Pokemon, 
         moveData: State.MoveData[], 
         extraMoves: MoveName[] = [], 
-        extraMoveData: State.MoveData[] = [], 
+        extraMoveData: State.MoveData[] = [],
+        cumDamageRolls: CumulativeRolls | undefined = undefined,
+        koChance: number = 0,
         isEndure: boolean = false, 
         isTaunt: number = 0,
         isSleep: number = 0,
@@ -87,6 +90,7 @@ export class Raider extends Pokemon implements State.Raider {
         isRecharging: boolean = false,
         lastMove: State.MoveData | undefined = undefined, 
         lastTarget: number | undefined = undefined, 
+        lastAccuracy: number | undefined = undefined,
         moveRepeated: number | undefined = undefined,
         teraCharge: number | undefined = 0, 
         choiceLocked: boolean = false,
@@ -99,11 +103,8 @@ export class Raider extends Pokemon implements State.Raider {
         shieldBroken: boolean | undefined = undefined, 
         shieldBreakStun: boolean[] | undefined = undefined,
         substitute: number | undefined = undefined,
-        abilityNullified: number | undefined = 0, 
-        nullifyAbilityOn: boolean | undefined = undefined,
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
         syrupBombDrops: number | undefined = 0,
-        syrupBombSource: number | undefined = undefined,
         lastConsumedItem: ItemName | undefined = undefined,
         isCudChew: number | undefined = 0,
         isTransformed: boolean | undefined = undefined,
@@ -126,6 +127,8 @@ export class Raider extends Pokemon implements State.Raider {
         this.moveData = moveData;
         this.extraMoves = extraMoves;
         this.extraMoveData = extraMoveData;
+        this.cumDamageRolls = cumDamageRolls || new CumulativeRolls();
+        this.koChance = koChance;
         this.isEndure = isEndure;
         this.isTaunt = isTaunt;
         this.isSleep = isSleep;
@@ -136,6 +139,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.isRecharging = isRecharging;
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
+        this.lastAccuracy = lastAccuracy;
         this.moveRepeated = moveRepeated;
         this.teraCharge = teraCharge;
         this.isChoiceLocked = choiceLocked;
@@ -148,11 +152,8 @@ export class Raider extends Pokemon implements State.Raider {
         this.shieldBroken = shieldBroken;
         this.shieldBreakStun = shieldBreakStun;
         this.substitute = substitute;
-        this.abilityNullified = abilityNullified;
-        this.nullifyAbilityOn = nullifyAbilityOn;
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
         this.syrupBombDrops = syrupBombDrops;
-        this.syrupBombSource = syrupBombSource;
         this.lastConsumedItem = lastConsumedItem;
         this.isCudChew = isCudChew;
         this.isTransformed = isTransformed;
@@ -187,9 +188,12 @@ export class Raider extends Pokemon implements State.Raider {
                 boostedStat: this.boostedStat,
                 usedBoosterEnergy: this.usedBoosterEnergy,
                 isIngrain: this.isIngrain,
+                isSmackDown: this.isSmackDown,
                 item: this.item,
                 gender: this.gender,
                 nature: this.nature,
+                rawStats: this.rawStats,
+                stats: this.stats,
                 ivs: extend(true, {}, this.ivs),
                 evs: extend(true, {}, this.evs),
                 boosts: extend(true, {}, this.boosts),
@@ -208,8 +212,11 @@ export class Raider extends Pokemon implements State.Raider {
                 toxicCounter: this.toxicCounter,
                 hitsTaken: this.hitsTaken,
                 timesFainted: this.timesFainted,
-                changedTypes: this.changedTypes ? [...this.changedTypes] : undefined,
+                types: this.types,
+                hasExtraType: this.hasExtraType,
+                // lastMoveFailed: this.lastMoveFailed,
                 moves: this.moves.slice(),
+                abilityNullified: this.abilityNullified,
                 permanentAtkCheers: this.permanentAtkCheers,
                 permanentDefCheers: this.permanentDefCheers,
                 overrides: this.species,
@@ -217,6 +224,8 @@ export class Raider extends Pokemon implements State.Raider {
             this.moveData,
             this.extraMoves,
             this.extraMoveData,
+            this.cumDamageRolls.clone(),
+            this.koChance,
             this.isEndure,
             this.isTaunt,
             this.isSleep,
@@ -227,6 +236,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.isRecharging,
             this.lastMove,
             this.lastTarget,
+            this.lastAccuracy,
             this.moveRepeated,
             this.teraCharge,
             this.isChoiceLocked,
@@ -239,11 +249,8 @@ export class Raider extends Pokemon implements State.Raider {
             this.shieldBroken,
             this.shieldBreakStun,
             this.substitute,
-            this.abilityNullified,
-            this.nullifyAbilityOn,
             this.originalAbility,
             this.syrupBombDrops,
-            this.syrupBombSource,
             this.lastConsumedItem,
             this.isCudChew,
             this.isTransformed,
@@ -260,25 +267,27 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public get boostCoefficient(): number {
-        const hasSimple = this.ability === "Simple";
-        const hasContrary = this.ability === "Contrary";
+        const hasSimple = this.hasAbility("Simple");
+        const hasContrary = this.hasAbility("Contrary");
         return hasSimple ? 2 : hasContrary ? -1 : 1;
     }
 
     public get effectiveSpeed(): number {
-        let speed = getModifiedStat(this.stats.spe, this.boosts.spe, gen);
-        speed = modifyPokemonSpeedByStatus(speed, this.status, this.ability);
-        speed = modifyPokemonSpeedByItem(speed, this.item);
-        speed = modifyPokemonSpeedByAbility(speed, this.ability, this.abilityOn, this.status);
-        speed = modifyPokemonSpeedByQP(speed, this.field, this.ability, this.item, this.boostedStat as StatIDExceptHP);
-        speed = modifyPokemonSpeedByField(speed, this.field, this.ability);
-        return speed;
+        // moved to util.ts for use with R
+        return getModifiedSpeed(this);
     }
 
-    public applyDamage(damage: number): number { 
+    public applyDamage(damage: number, damageRolls?: Map<number,number>, ignoreForRolls?: boolean): number { 
         this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
         if (this.isEndure && this.originalCurHP === 0) {
             this.originalCurHP = 1;
+        }
+        if (!ignoreForRolls) {
+            const safeDamageRolls = damageRolls || new Map<number, number>();
+            if (safeDamageRolls.size === 0 && damage !== 0) {
+                safeDamageRolls.set(damage, 1);
+            }
+            this.addDamageRoll(safeDamageRolls);
         }
         return this.originalCurHP;
     }
@@ -296,7 +305,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     public loseItem() {
         // Unburden
-        if (this.ability === "Unburden" && this.item !== undefined) {
+        if (this.hasAbility("Unburden") && this.item !== undefined) {
             this.abilityOn = true;
         }
         if (this.hasItem("Choice Band", "Choice Specs", "Choice Scarf")) {
@@ -308,6 +317,10 @@ export class Raider extends Pokemon implements State.Raider {
     public activateTera(): boolean {
         if (!this.isTera && this.teraCharge >= 3) {
             this.isTera = true;
+            if (this.hasExtraType && this.types.length > 1) {
+                this.types = this.types.slice(0, this.types.length-1) as ([TypeName] | [TypeName, TypeName]);
+                this.hasExtraType = false;
+            }
             if (this.name.includes("Ogerpon")) {
                 if (this.name === "Ogerpon") {
                     this.teraType = "Grass";
@@ -365,6 +378,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.weightkg = pokemon.weightkg;
         this.rawStats = {...pokemon.rawStats, hp: this.rawStats.hp}; // HP is retained
         this.types = pokemon.types.slice() as [TypeName] | [TypeName, TypeName];
+        this.hasExtraType = pokemon.hasExtraType;
         // copy stats and moves
         this.boosts = {...pokemon.boosts};
         this.moves = pokemon.moves.slice();
@@ -375,7 +389,7 @@ export class Raider extends Pokemon implements State.Raider {
     }
 
     public changeForm(formName: SpeciesName) {
-        const newForm = new Pokemon(gen, formName, {...this.clone()});
+        const newForm = new Pokemon(gen, formName, {level: this.level, ivs: this.ivs, evs: this.evs, nature: this.nature, bossMultiplier: this.bossMultiplier});
         // make the form change revertable on fainting
         this.isChangedForm = true;
         this.originalSpecies = this.name;
@@ -386,6 +400,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.weightkg = newForm.weightkg;
         this.rawStats = {...newForm.rawStats, hp: this.rawStats.hp}; // HP is retained
         this.types = newForm.types.slice() as [TypeName] | [TypeName, TypeName];
+        this.hasExtraType = false;
         // copy stats
         this.stats = {...newForm.stats, hp: this.stats.hp}; // HP is retained
     }
@@ -413,5 +428,10 @@ export class Raider extends Pokemon implements State.Raider {
         this.lastMove = move;
         this.lastTarget = targetID;
         this.moveRepeated = 0;
+    }
+
+    public addDamageRoll(damageRolls: Map<number, number>) {
+        this.cumDamageRolls.addRolls(damageRolls, this);
+        this.koChance = this.cumDamageRolls.getKOChance(this.maxHP());
     }
 }

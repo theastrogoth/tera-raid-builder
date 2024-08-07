@@ -15,6 +15,13 @@ import Slider from '@mui/material/Slider';
 import IconButton from '@mui/material/IconButton';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
+import TableContainer from "@mui/material/TableContainer";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import Typography from '@mui/material/Typography'
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -22,6 +29,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Switch from "@mui/material/Switch";
+import WarningIcon from '@mui/icons-material/Warning';
 import styled from '@mui/material/styles/styled';
 
 import MoveSelection from "./MoveSelection";
@@ -31,11 +39,12 @@ import MoveDisplay from './MoveDisplay';
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { Pokemon, StatsTable } from '../calc';
-import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory, getPokemonArtURL } from "../utils";
+import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
 import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 import { MoveName } from '../calc/data/interface';
+import { getModifiedSpeed } from '../raidcalc/util';
 
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
@@ -62,6 +71,7 @@ type Modifiers = {
     mist?: boolean,
     charged?: boolean,
     status?: string,
+    confused?: boolean,
     abilityNullified?: boolean,
     charging?: boolean,
     choiceLocked?: string,
@@ -70,6 +80,7 @@ type Modifiers = {
     disable?: string,
     endure?: boolean,
     ingrain?: boolean,
+    smackDown?: boolean,
     micleBerry?: boolean,
     pumped?: number,
     saltCure?: boolean,
@@ -80,6 +91,9 @@ type Modifiers = {
     substituteHP?: number,
     wideGuard?: boolean,
     quickGuard?: boolean,
+    hitsTaken?: number,
+    timesFainted?: number,
+    minimized?: boolean,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -98,7 +112,7 @@ const HpBar = styled(LinearProgress)(({ theme }) => ({
     },
 }));
 
-function StatChanges({statChanges, randomStatBoosts, translationKey}: {statChanges: StatsTable, randomStatBoosts: number, translationKey: any}) {
+function StatChanges({statChanges, randomStatBoosts, effectiveSpeed, translationKey}: {statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, translationKey: any}) {
     const filteredStatTable = Object.fromEntries(Object.entries(statChanges).filter(([stat, boosts]) => boosts !== 0));
     const statEntries = Object.entries(filteredStatTable);
     const sortedStatEntries = statEntries.sort((a, b) => {
@@ -126,6 +140,11 @@ function StatChanges({statChanges, randomStatBoosts, translationKey}: {statChang
                     <Typography fontSize={10} m={.5}>{getTranslation("No Stat Changes", translationKey)}</Typography>
                 </Paper>
                 
+            }
+            {(effectiveSpeed) &&
+                <Paper elevation={0} variant='outlined'>
+                    <Typography fontSize={10} m={.5}>{`${getTranslation("Effective Speed", translationKey)} : ${effectiveSpeed}`}</Typography>
+                </Paper> 
             }
         </Stack>
     );
@@ -211,9 +230,8 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
         case "boolean":
             return value && <ModifierBooleanTag modifier={modifier} translationKey={translationKey}/>;
         case "number":
-            if (modifier === "substituteHP") {
+            if (modifier === "substituteHP" || modifier === "timesFainted" || modifier === "hitsTaken") {
                 return value > 0 && <ModifierValueTag modifier={modifier} value={value} translationKey={translationKey}/>;
-
             } else {
                 return value > 0 && <ModifierNumberTag modifier={modifier} value={value} translationKey={translationKey}/>;
             }
@@ -238,9 +256,10 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
     );
 }
 
-function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, statChanges, randomStatBoosts, modifiers, translationKey}: {role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, statChanges: StatsTable, randomStatBoosts: number, modifiers: object, translationKey: any}) {
+function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, koChance, warnings, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {index: number, role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, koChance: number, warnings: string[] | undefined, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
     const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+    const [WarningAnchorEl, setWarningAnchorEl] = React.useState<HTMLElement | null>(null)
 
     const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
       setAnchorEl(event.currentTarget);
@@ -249,8 +268,25 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubs
     const handlePopoverClose = () => {
       setAnchorEl(null);
     };
+
+    const hasWarning = (warnings && warnings.length > 0);
+    const hasKoChance = (index === 0 ? 
+        (curhp === 0 && koChance < 100) : 
+        (koChance > 0));
+    const showWarning = hasWarning || hasKoChance;
+
+    const handleWarningOpen = (event: React.MouseEvent<HTMLElement>) => {
+        if (showWarning) {
+            setWarningAnchorEl(event.currentTarget);
+        }
+    };
+
+    const handleWarningClose = () => {
+        setWarningAnchorEl(null);
+    };
   
     const open = Boolean(anchorEl);
+    const WarningOpen = Boolean(WarningAnchorEl);
 
     const hpPercent = curhp / maxhp * 100;
     const prevhpPercent = prevhp / maxhp * 100;
@@ -258,93 +294,105 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubs
 
     return (
         <Box>
-            <Stack 
-                direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }} 
-                aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true"
-                onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}
-            >
-                <Box sx={{ width: 200 }}>
-                    <Stack direction="row">
-                        <Box flexGrow={1}/>
+            <Stack direction="row" spacing={-1}>
+                <Stack 
+                    direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ width: "100%" }} 
+                    aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true"
+                    onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}
+                >
+                    <Box sx={{ width: 200 }}>
+                        <Stack direction="row">
+                            <Box flexGrow={1}/>
+                            <Typography>
+                                {role}
+                            </Typography>
+                            <Avatar sx={{width: "20px", height: "20px", marginLeft: "8px"}} variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "16px",
+                                        height: "16px",
+                                        overflow: 'hidden',
+                                        background: `url(${getPokemonSpriteURL(hasSubstitute ? "Substitute" : name)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Avatar>
+                        </Stack>
+                    </Box>
+                    <Box sx={{ width: "100%" , position: "relative"}}>
+                        {/* Full Bar */}
+                        <HpBar 
+                            sx={{
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+                                },
+                                opacity: "100%",
+                                position: "absolute",
+                                width: "100%"
+                            }}
+                            variant="determinate" 
+                            value={100} 
+                        />
+                        {/* prevHP > curHP */}
+                        <HpBar 
+                            sx={{
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
+                                },
+                                opacity: hpPercent < prevhpPercent ? "25%" : "0%",
+                                position: "absolute",
+                                width: "100%"
+                            }}
+                            variant="determinate" 
+                            value={ hpPercent < prevhpPercent ? prevhpPercent : hpPercent}
+                        />
+                        {/* curHP */}
+                        <HpBar 
+                            sx={{
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: color,
+                                },
+                                opacity: "100%",
+                                position: "absolute",
+                                width: "100%"
+                            }}
+                            
+                            variant="determinate" 
+                            value={hpPercent} 
+                        />
+                        {/* curHP > prevHP */}
+                        <HpBar 
+                            sx={{
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
+                                },
+                                opacity: hpPercent > prevhpPercent ? "25%" : "0%",
+                                width: "100%"
+                            }}
+                            variant="determinate" 
+                            value={ hpPercent > prevhpPercent ? prevhpPercent : hpPercent}
+                        />
+                    </Box>
+                    <Box sx={{ width: 150 }}>
                         <Typography>
-                            {role}
+                            { curhp + " / " + maxhp }
                         </Typography>
-                        <Avatar sx={{width: "20px", height: "20px", marginLeft: "8px"}} variant="rounded">
-                            <Box
-                                sx={{
-                                    width: "16px",
-                                    height: "16px",
-                                    overflow: 'hidden',
-                                    background: `url(${getPokemonSpriteURL(hasSubstitute ? "Substitute" : name)}) no-repeat center center / contain`,
-                                }}
-                            />
-                        </Avatar>
-                    </Stack>
-                </Box>
-                <Box sx={{ width: "100%" , position: "relative"}}>
-                    {/* Full Bar */}
-                    <HpBar 
-                        sx={{
-                            '& .MuiLinearProgress-bar': {
-                                backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
-                            },
-                            opacity: "100%",
-                            position: "absolute",
-                            width: "100%"
-                        }}
-                        variant="determinate" 
-                        value={100} 
-                    />
-                    {/* prevHP > curHP */}
-                    <HpBar 
-                        sx={{
-                            '& .MuiLinearProgress-bar': {
-                                backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
-                            },
-                            opacity: hpPercent < prevhpPercent ? "25%" : "0%",
-                            position: "absolute",
-                            width: "100%"
-                        }}
-                        variant="determinate" 
-                        value={ hpPercent < prevhpPercent ? prevhpPercent : hpPercent}
-                    />
-                    {/* curHP */}
-                    <HpBar 
-                        sx={{
-                            '& .MuiLinearProgress-bar': {
-                                backgroundColor: color,
-                            },
-                            opacity: "100%",
-                            position: "absolute",
-                            width: "100%"
-                        }}
-                        
-                        variant="determinate" 
-                        value={hpPercent} 
-                    />
-                    {/* curHP > prevHP */}
-                    <HpBar 
-                        sx={{
-                            '& .MuiLinearProgress-bar': {
-                                backgroundColor: (prevhpPercent === hpPercent) ? color : theme.palette.mode === 'light' ? "#909090" : "#ffffff",
-                            },
-                            opacity: hpPercent > prevhpPercent ? "25%" : "0%",
-                            width: "100%"
-                        }}
-                        variant="determinate" 
-                        value={ hpPercent > prevhpPercent ? prevhpPercent : hpPercent}
-                    />
-                </Box>
-                <Box sx={{ width: 150 }}>
-                    <Typography>
-                        { curhp + " / " + maxhp }
-                    </Typography>
-                </Box>
-                <Box sx={{ width: 75 }}>
-                    <Typography>
-                        {kos > 0 ? ( kos  + (kos > 1 ? " KOs" : " KO")) : ""}
-                    </Typography>
-                </Box>
+                    </Box>
+                </Stack>
+                <Stack direction="row" spacing={1} justifyContent="start" alignItems="center" sx={{ width: "85px"}}
+                    aria-owns={open ? 'warning-popover' : undefined} aria-haspopup="true"
+                    onMouseEnter={handleWarningOpen} onMouseLeave={handleWarningClose}
+                >
+                    <Box sx={{ width: "40px" }}>
+                        <Typography>
+                            {kos > 0 ? ( kos  + (kos > 1 ? " KOs" : " KO")) : ""}
+                        </Typography>
+                    </Box>
+                    <Box sx={{ width: "10px", position: "absolute", transform: "translate(30px, 2px)"}}>
+                        { showWarning &&
+                            <WarningIcon color={"warning"} />
+                        }
+                    </Box>
+                </Stack>
             </Stack>
             <Popover
                 id={"mouse-over-popover"+role}
@@ -394,9 +442,44 @@ function HpDisplayLine({role, name, item, ability, curhp, prevhp, maxhp, hasSubs
                             </Stack>
                         </Stack>
                         <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Stat Changes", translationKey)}</Divider>
-                        <StatChanges statChanges={statChanges} randomStatBoosts={randomStatBoosts} translationKey={translationKey} />
+                        <StatChanges statChanges={statChanges} randomStatBoosts={randomStatBoosts} effectiveSpeed={effectiveSpeed} translationKey={translationKey} />
                         <Divider textAlign="left" orientation="horizontal" flexItem>{getTranslation("Modifiers", translationKey)}</Divider>
                         <ModifierTags modifiers={modifiers} translationKey={translationKey} />
+                    </Stack>
+                </Paper>
+            </Popover>
+            <Popover
+                id={"warning-popover"+role}
+                sx={{
+                pointerEvents: 'none',
+                }}
+                open={WarningOpen}
+                anchorEl={WarningAnchorEl}
+                anchorOrigin={{
+                vertical: 'center',
+                horizontal: 'center',
+                }}
+                transformOrigin={{
+                vertical: 'center',
+                horizontal: 'center',
+                }}
+                onClose={handleWarningClose}
+                disableRestoreFocus
+            >
+                <Paper sx={{ p: 1, backgroundColor: "modal.main" }}>
+                    <Stack spacing={1}>
+                        { !!hasWarning &&
+                            warnings.map((warning, i) => (
+                                <Typography key={i} fontSize={10}>
+                                    {warning}
+                                </Typography>
+                            ))
+                        }
+                        { hasKoChance &&
+                            <Typography fontSize={10}>
+                                {koChance + "% " + getTranslation("chance to be KOd", translationKey)}
+                            </Typography>
+                        }
                     </Stack>
                 </Paper>
             </Popover>
@@ -408,25 +491,24 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     const [displayedTurn, setDisplayedTurn] = useState<number>(0);
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
 
+    const turnIdx = Math.min(results.turnResults.length, displayedTurn) - 1;
+
     const turnState = (
         (displayedTurn === 0) ? results.turnZeroState :
         (displayedTurn > results.turnResults.length) ? results.endState : 
-        results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].state
+        results.turnResults[turnIdx].state
     );
     const prevTurnState = (
         (displayedTurn <= 1) ? results.turnZeroState : 
         (displayedTurn > results.turnResults.length) ? results.endState :
-        results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 2].state
+        results.turnResults[turnIdx - 1].state
     );
     const maxhps = turnState.raiders.map((raider) => ( raider.maxHP === undefined ? new Pokemon(9, (raider.isTransformed && raider.originalSpecies) ? raider.originalSpecies  : raider.name, {...raider}).maxHP() : raider.maxHP()) );
     const currenthps = displayedTurn === 0 ? maxhps : turnState.raiders.map((raider) => raider.originalCurHP); 
     const prevhps = displayedTurn <= 1 ? maxhps : prevTurnState.raiders.map((raider) => raider.originalCurHP);
 
-    // const koCounts = [0,1,2,3,4].map((i) => results.turnResults.slice(0,displayedTurn).reduce((kos, turn, idx) => 
-    //         kos + ((turn.state.raiders[i].originalCurHP === 0 && (i === 0 || turn.moveInfo.userID === i)) ? 1 : 0),
-    //     0));
-    // koCounts[0] = Math.min(koCounts[0], 1);
     const koCounts = turnState.raiders.map((raider) => raider.timesFainted);
+    const koChances = turnState.raiders.map((raider) => raider.koChance);
     const roles = turnState.raiders.map((raider) => raider.role);
     const names = turnState.raiders.map((raider) => raider.name);
     const items = turnState.raiders.map((raider) => raider.item);
@@ -435,6 +517,10 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
 
     const statChanges = turnState.raiders.map((raider) => raider.boosts);
     const randomStatBoosts = turnState.raiders.map((raider) => raider.randomBoosts || 0);
+    const effectiveSpeeds = turnState.raiders.map((raider) => {
+        const effectiveSpeed = getModifiedSpeed(raider);
+        return (effectiveSpeed === results.turnZeroState.raiders[raider.id].stats.spe) ? undefined : effectiveSpeed;
+    });
     const getModifiers = (raider: Raider): Modifiers => {
         return {
             "attackCheer": (raider.field.attackerSide.isAtkCheered ? 1 : 0) + raider.permanentAtkCheers,
@@ -458,6 +544,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "mist": raider.field.attackerSide.isMist > 0,
             "charged": raider.field.attackerSide.isCharged,
             "status": raider.status,
+            "confused": raider.volatileStatus.includes("confusion"),
             "abilityNullified": raider.abilityNullified !== undefined && raider.abilityNullified !== 0,
             "charging": raider.isCharging,
             "choiceLocked": raider.isChoiceLocked && raider.lastMove ? raider.lastMove.name : "",
@@ -465,6 +552,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "disable": raider.isDisable && raider.disabledMove ? raider.disabledMove : "",
             "endure": raider.isEndure,
             "ingrain": raider.isIngrain,
+            "smackDown": raider.isSmackDown,
             "micleBerry": raider.isMicle,
             "pumped": raider.isPumped,
             "saltCure": raider.isSaltCure,
@@ -475,17 +563,40 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "substituteHP": raider.substitute,
             "wideGuard": raider.field.attackerSide.isWideGuard,
             "quickGuard": raider.field.attackerSide.isQuickGuard,
+            "hitsTaken": raider.moves.includes("Rage Fist" as MoveName) ? raider.hitsTaken : undefined,
+            "timesFainted": (raider.moves.includes("Last Respects" as MoveName) || raider.ability === "Supreme Overlord") ? raider.timesFainted : undefined,
+            "minimized": raider.isMinimize,
         }
     }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));
 
     const currentBossRole = turnState.raiders[0].role;
-    const currentRaiderRole = getCurrentRaiderRole(results, displayedTurn, roles);
+    const currentRaiderIndex = getCurrentRaiderIndex(results, displayedTurn);
+    const currentRaiderRole = roles[currentRaiderIndex];
     const currentMoves = getCurrentMoves(results, displayedTurn, translationKey);
     const currentBossMove = currentMoves[0];
     const currentRaiderMove = currentMoves[1];
     const raiderMovesFirst = getCurrentMoveOrder(results, displayedTurn);
     const currentTurnText = getCurrentTurnText(currentBossRole, currentRaiderRole, currentBossMove, currentRaiderMove, raiderMovesFirst, translationKey);
+
+    const warnings = getCurrentWarning(results, displayedTurn, false);
+    const bossWarnings = getCurrentWarning(results, displayedTurn, true);
+
+    const currentTurnDescs = turnIdx < 0 ? [] : [
+        results.turnResults[turnIdx].results[0].desc.filter((d) => d !== ""),
+        results.turnResults[turnIdx].results[1].desc.filter((d) => d !== "")
+    ].filter((d) => d.length > 0);
+
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+    const open = Boolean(anchorEl);
+
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+      };
+    
+      const handlePopoverClose = () => {
+        setAnchorEl(null);
+      };
 
     useEffect(() => { 
         if (snapToEnd || displayedTurn > results.turnResults.length) {
@@ -504,12 +615,32 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     }, [displayedTurn]);
 
     return (
+        <>
         <Stack spacing={1} sx={{marginBottom: 2}}>
             {[0,1,2,3,4].map((i) => (
-                <HpDisplayLine key={i} role={roles[i]} name={names[i]} item={items[i]} ability={abilities[i]} curhp={currenthps[i]} prevhp={prevhps[i]} maxhp={maxhps[i]} hasSubstitute={haveSubstitutes[i]} kos={koCounts[i]} statChanges={statChanges[i]} randomStatBoosts={randomStatBoosts[i]} modifiers={modifiers[i]} translationKey={translationKey} />
+                <HpDisplayLine 
+                    key={i} 
+                    index={i} 
+                    role={roles[i]}
+                    name={names[i]} 
+                    item={items[i]} 
+                    ability={abilities[i]} 
+                    curhp={currenthps[i]} 
+                    prevhp={prevhps[i]} 
+                    maxhp={maxhps[i]} 
+                    hasSubstitute={haveSubstitutes[i]} 
+                    kos={koCounts[i]} 
+                    koChance={koChances[i]} 
+                    warnings={i === 0 ? bossWarnings : (i === currentRaiderIndex ? warnings : undefined)}
+                    statChanges={statChanges[i]} 
+                    randomStatBoosts={randomStatBoosts[i]} 
+                    effectiveSpeed={effectiveSpeeds[i]} 
+                    modifiers={modifiers[i]} 
+                    translationKey={translationKey} 
+                />
             ))}
             <Stack direction="column" justifyContent="center" alignItems="center">
-                <Typography fontSize={10} noWrap={true}>
+                <Typography fontSize={10} noWrap={true} onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
                     {currentTurnText}
                 </Typography>
                 <Stack direction="row" spacing={3} justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
@@ -535,19 +666,65 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
                 </Stack>
             </Stack>
         </Stack>
+        <Popover
+                id={"mouse-over-calcs-popover"}
+                sx={{
+                pointerEvents: 'none',
+                }}
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+                }}
+                transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+            >
+                <Paper sx={{ p: 1.25, backgroundColor: "modal.main", width: "400px" }}>
+                    <Stack direction="column" spacing={2}>
+                        { currentTurnDescs.map((ds, i) => 
+                            <Stack key={i} direction="column" spacing={1}>
+                                {ds.map((d, j) => (
+                                    <Typography key={`${i}${j}`} fontSize={10}>{d}</Typography>
+                                ))}
+                            </Stack>
+                        )}
+                    </Stack>
+                </Paper>
+            </Popover>
+        </>
     )
 }
 
-function getCurrentRaiderRole(results: RaidBattleResults, displayedTurn: number, roles: String[]) {
+function getCurrentRaiderIndex(results: RaidBattleResults, displayedTurn: number) {
     if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
-        return roles[0];
+        return 0;
     }
     else {
         try {
-            return roles[results.turnResults[Math.min(results.turnResults.length, displayedTurn) - 1].moveInfo.userID]
+            return results.turnResults[displayedTurn - 1].moveInfo.userID
         }
         catch(e) {
-            return roles[0];
+            return 0;
+        }
+    }
+}
+
+function getCurrentWarning(results: RaidBattleResults, displayedTurn: number, boss: boolean) {
+    if (displayedTurn === 0 || displayedTurn > results.turnResults.length) {
+        return undefined;
+    }
+    else {
+        try {
+            const raiderMovesFirst = results.turnResults[displayedTurn - 1].raiderMovesFirst;
+            return results.turnResults[displayedTurn - 1].results[raiderMovesFirst ? (boss ? 1 : 0) : (boss ? 0 : 1)].warnings;
+        }
+        catch(e) {
+            return undefined;
         }
     }
 }
@@ -708,6 +885,7 @@ function rollCaseToOptions(rollCase: "max" | "min" | "avg", moveData: MoveData) 
                 Math.floor(((moveData.minHits || 1) + (moveData.maxHits || 1)) / 2)
             )
         ),
+        allowMiss: rollCase === "min",
         roll: rollCase
     }
 }
@@ -721,11 +899,13 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
                 turn.moveInfo.options.crit === raiderShouldMatch.crit &&
                 turn.moveInfo.options.secondaryEffects === raiderShouldMatch.secondaryEffects &&
                 ((turn.moveInfo.moveData.maxHits || 1) > 1 ? turn.moveInfo.options.hits === raiderShouldMatch.hits : true) &&
+                turn.moveInfo.options.allowMiss === raiderShouldMatch.allowMiss &&
                 turn.moveInfo.options.roll === raiderShouldMatch.roll;
             const bossMatches = !!turn.bossMoveInfo.options &&
                 turn.bossMoveInfo.options.crit === bossShouldMatch.crit &&
                 turn.bossMoveInfo.options.secondaryEffects === bossShouldMatch.secondaryEffects &&
                 ((turn.bossMoveInfo.moveData.maxHits || 1) > 1 ? turn.bossMoveInfo.options.hits === bossShouldMatch.hits : true) &&
+                turn.bossMoveInfo.options.allowMiss === bossShouldMatch.allowMiss &&
                 turn.bossMoveInfo.options.roll === bossShouldMatch.roll;
             matchesCase = matchesCase && raiderMatches && bossMatches;
             if (!matchesCase) {
@@ -734,6 +914,10 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
         }
     }
     return matchesCase;
+}
+
+const alreadyOptimized = (gs: TurnGroupInfo[]) => {
+    return !gs.some((g) => g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Most Damaging)"));
 }
 
 function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputProps: RaidInputProps, translationKey: any}) {
@@ -747,9 +931,6 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
         setOpen(false);
     };
 
-    const alreadyOptimized = (gs: TurnGroupInfo[]) => {
-        return !gs.some((g) => g.turns.some((t) => t.bossMoveInfo.moveData.name === "(Most Damaging)"));
-    }
 
     const switchIsOn = alreadyOptimized(raidInputProps.groups);
 
@@ -799,16 +980,6 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
     
     return (
         <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ marginTop: 1, marginBottom: 2, paddingTop: "5px", paddingBottom: "5px"}}>
-            {/* <Button 
-                variant="contained" 
-                size="small" 
-                color="secondary"
-                sx={{ minWidth: "100px", height: "25px", fontWeight: "normal",}} 
-                disabled={alreadyOptimized(raidInputProps.groups)}
-                onClick={handleOpen}
-            >
-                {getTranslation("Optimize Boss Moves", translationKey)}
-            </Button> */}
             <Stack direction="column" spacing={0} alignItems="center" justifyContent="center">
                 <Typography variant="body2" fontWeight="bold" sx={{ paddingX: 1}} >
                     { getTranslation("Optimize Boss Moves", translationKey) }
@@ -843,6 +1014,189 @@ function OptimizeBossMovesButton({raidInputProps, translationKey}: {raidInputPro
                 </DialogActions>
             </Dialog>
         </Stack>
+    )
+}
+
+const alreadyGlobalOption = (field: string) => (gs: TurnGroupInfo[]) => {
+    // @ts-ignore
+    return gs.every((g) => g.turns.every((t) => t.moveInfo.options && t.moveInfo.options[field]));
+}
+
+const alreadyGlobalBossOption = (field: string) => (gs: TurnGroupInfo[]) => {
+    // @ts-ignore 
+    return gs.every((g) => g.turns.every((t) => t.bossMoveInfo.options && t.bossMoveInfo.options[field]));
+}
+
+function GlobalOptionSwitch({raidInputProps, boss, field}: {raidInputProps: RaidInputProps, boss: boolean, field: string}) {
+    const switchIsOn = boss ? alreadyGlobalBossOption(field)(raidInputProps.groups) : alreadyGlobalOption(field)(raidInputProps.groups);
+
+    const handleSwitchOn = () => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = boss ? 
+            g.turns.map(t => { 
+                const newT = {...t, bossMoveInfo: {...t.bossMoveInfo, options: {...t.bossMoveInfo.options}}};
+                // @ts-ignore
+                newT.bossMoveInfo.options[field] = true;
+                return newT;
+            }) :
+            g.turns.map(t => { 
+                const newT = {...t, moveInfo: {...t.moveInfo, options: {...t.moveInfo.options}}};
+                // @ts-ignore
+                newT.moveInfo.options[field] = true;
+                return newT;
+            });
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+    }
+
+    const handleSwitchOff = () => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = boss ? 
+            g.turns.map(t => { 
+                const newT = {...t, bossMoveInfo: {...t.bossMoveInfo, options: {...t.bossMoveInfo.options}}};
+                // @ts-ignore
+                newT.bossMoveInfo.options[field] = false;
+                return newT;
+            }) :
+            g.turns.map(t => { 
+                const newT = {...t, moveInfo: {...t.moveInfo, options: {...t.moveInfo.options}}};
+                // @ts-ignore
+                newT.moveInfo.options[field] = false;
+                return newT;
+            });
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+    }
+
+    return (
+        <Switch
+            size='small'
+            checked={switchIsOn}
+            onChange={(e) => switchIsOn ? handleSwitchOff() : handleSwitchOn()}
+        />
+    )
+}
+
+const getGlobalRoll = (gs: TurnGroupInfo[]) => {
+    let roll = "avg";
+    for (let g of gs) {
+        for (let t of g.turns) {
+            if (t.moveInfo.options && t.moveInfo.options.roll) {
+                roll = t.moveInfo.options.roll;
+                break;
+            }
+        }
+    }
+    if (gs.every((g) => g.turns.every((t) => t.moveInfo.options && t.moveInfo.options.roll === roll))) {
+        return roll;
+    } else {
+        return undefined;
+    }
+}
+
+const getBossGlobalRoll = (gs: TurnGroupInfo[]) => {
+    let roll = "avg";
+    for (let g of gs) {
+        for (let t of g.turns) {
+            if (t.bossMoveInfo.options && t.bossMoveInfo.options.roll) {
+                roll = t.bossMoveInfo.options.roll;
+                break;
+            }
+        }
+    }
+    if (gs.every((g) => g.turns.every((t) => t.bossMoveInfo.options && t.bossMoveInfo.options.roll === roll))) {
+        return roll;
+    } else {
+        return undefined;
+    }
+}
+
+function GlobalRollSelect({raidInputProps, boss, translationKey}: {raidInputProps: RaidInputProps, boss: boolean, translationKey: any}) {
+    const globalRoll = (boss ? getBossGlobalRoll : getGlobalRoll)(raidInputProps.groups) || "";
+
+    const setGlobalRoll = (roll: "min" | "max" | "avg") => {
+        const groups: TurnGroupInfo[] = [];
+        for (let g of raidInputProps.groups) {
+            const newTurns = boss ? 
+                g.turns.map(t => { 
+                    const newT = {...t, bossMoveInfo: {...t.bossMoveInfo, options: {...t.bossMoveInfo.options}}};
+                    newT.bossMoveInfo.options.roll = roll;
+                    return newT;
+                }) :
+                g.turns.map(t => { 
+                    const newT = {...t, moveInfo: {...t.moveInfo, options: {...t.moveInfo.options}}};
+                    newT.moveInfo.options.roll = roll;
+                    return newT;
+                });
+            groups.push({
+                ...g,
+                turns: newTurns
+            });
+        }
+        raidInputProps.setGroups(groups);
+    }
+
+    return (
+        <Select
+            size="small"
+            variant="standard"
+            value = {globalRoll}
+            renderValue = {(value) => <Typography variant="body2">{getTranslation(value, translationKey)}</Typography>}
+            onChange={ (e) => setGlobalRoll(e.target.value as "min" | "max" | "avg") }
+            sx={{ minWidth : "50px"}}
+        >
+            {["min", "avg", "max"].map((r, i) => <MenuItem key={i} value={r}><Typography variant="body2">{getTranslation(r, translationKey)}</Typography></MenuItem>)}
+        </Select>
+    )
+}
+
+function GlobalOptionsMenu({raidInputProps, boss, translationKey}: {raidInputProps: RaidInputProps, boss: boolean, translationKey: any}) {
+    return (
+        <TableContainer>
+            <Table size="small">
+                <TableBody>
+                    <TableRow>
+                        <TableCell colSpan={2}> 
+                            <Typography fontWeight="bold">{getTranslation(boss ? "Raid Boss" : "Raiders", translationKey)} </Typography>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell> {getTranslation("Crit",translationKey)} </TableCell>
+                        <TableCell> 
+                            <GlobalOptionSwitch raidInputProps={raidInputProps} boss={boss} field={"crit"} />
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell> {getTranslation("Effect",translationKey)} </TableCell>
+                        <TableCell> 
+                            <GlobalOptionSwitch raidInputProps={raidInputProps} boss={boss} field={"secondaryEffects"} />
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell> {getTranslation("Miss",translationKey)} </TableCell>
+                        <TableCell> 
+                            <GlobalOptionSwitch raidInputProps={raidInputProps} boss={boss} field={"allowMiss"} />
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell> {getTranslation("Roll",translationKey)} </TableCell>
+                        <TableCell> 
+                            <GlobalRollSelect raidInputProps={raidInputProps} boss={boss} translationKey={translationKey} />
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </TableContainer>
     )
 }
 
@@ -950,6 +1304,8 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         - Raid boss applies secondary effects if applicable<br/>
                                         - Raiders deal low-roll non-critical hits<br/>
                                         - Raiders do not apply secondary effects<br/>
+                                        - Raiders moves will miss when possible<br/>
+                                        - Raiders will lose their turn from paralysis or confusion<br/>
                                         - Heal Cheers heal for 20%
                                     </Typography>
                                     <Typography>Use this setting when designing main strategies that are intended to be heavily used by a community.</Typography>
@@ -967,6 +1323,8 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         - Raid boss does not apply secondary effects<br/>
                                         - Raiders deal average-roll non-critical hits<br/>
                                         - Raiders do not apply secondary effects<br/>
+                                        - No moves will miss due to low accuracy<br/>
+                                        - Paralysis and confusion will never result in a lost turn<br/>
                                         - Heal Cheers heal for 60%
                                     </Typography>
                                     <Typography>This option is most appropriate for longer strategies or when 100% reliability is not a requirement.</Typography>
@@ -982,6 +1340,8 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                         All actions defined by these rules:<br/>
                                         - Raid boss deals low-roll non-critical hits<br/>
                                         - Raid boss does not apply secondary effects<br/>
+                                        - The raid boss will miss when possible<br/>
+                                        - The raid boss will lose its turn from paralysis or confusion<br/>
                                         - Raiders deal high-roll critical hits<br/>
                                         - Raiders apply secondary effects if applicable<br/>
                                         - Heal Cheers heal for 100%
@@ -1081,6 +1441,7 @@ function HelpMenu({translationKey}: {translationKey: any}) {
                                     <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Tera</Box> switch is available if 3 tera charges are built up</Typography>
                                     <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Crit</Box> enables/disables critical hits</Typography>
                                     <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Effect</Box> enables/disables the application of secondary effects</Typography>
+                                    <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Miss</Box> enables/disables accuracy checks for best/worst case options</Typography>
                                     <Typography>{"- "}<Box component="span" fontWeight='fontWeightBold'>Roll</Box> provides options for damage rolls</Typography>
                                 </Stack>
                             </Stack>
@@ -1107,9 +1468,17 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
     const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
-
     const handlePopoverClose = () => {
         setAnchorEl(null);
+    };
+
+    const [menuAnchorEl, setMenuAnchorEl] = useState<HTMLElement | null>(null);
+    const menuOpen = Boolean(menuAnchorEl);
+    const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setMenuAnchorEl(event.currentTarget);
+    };
+    const handleMenuClose = () => {
+        setMenuAnchorEl(null);
     };
 
     const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
@@ -1128,6 +1497,7 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                 setLoading(false);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [setResults]);
 
     useEffect(() => {
@@ -1199,11 +1569,45 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                         />
                     </Tabs>
                 </Stack>
-                <Stack direction="row" spacing={4} alignItems="center" justifyContent="center" marginBottom={"5px"}>
+                <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" marginBottom={"5px"}>
                     <RollCaseButtons raidInputProps={raidInputProps} setRollCase={setRollCase} translationKey={translationKey}/>
-                    
                     {!prettyMode &&
                         <OptimizeBossMovesButton raidInputProps={raidInputProps} translationKey={translationKey}/>
+                    }
+                    {!prettyMode &&
+                    <Box>
+                        <IconButton aria-describedby={popoverOpen ? "menu-popover" : undefined} onClick={handleMenuOpen}>
+                            <MenuIcon />
+                        </IconButton>
+                        <Popover
+                            id={menuOpen ? "menu-popover" : undefined}
+                            open={menuOpen}
+                            anchorEl={menuAnchorEl}
+                            onClose={handleMenuClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                            sx={{
+                                width: "600px",
+                                maxWidth: "100%",
+                            }}
+                        >
+                            <Paper sx={{ p: 1 }}>
+                                <Stack spacing={1} justifyContent="center" alignItems="center">
+                                    <Typography fontWeight="bold">Apply Options to All Moves</Typography>
+                                    <Stack direction="row" spacing={1}>
+                                        <GlobalOptionsMenu raidInputProps={raidInputProps} boss={false} translationKey={translationKey}/>
+                                        <GlobalOptionsMenu raidInputProps={raidInputProps} boss={true} translationKey={translationKey}/>
+                                    </Stack>
+                                </Stack>
+                            </Paper>
+                        </Popover>
+                    </Box>
                     }
                 </Stack>
                 <Box hidden={value !== 1}>
@@ -1220,7 +1624,7 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                     </Box>
                 </Box>
                 <Box hidden={value !== 2} sx={{ height: 560, overflowY: "auto" }}>
-                    <RaidResults results={results} />
+                    <RaidResults results={results} translationKey={translationKey} />
                 </Box>
             </Stack>
         </Box>

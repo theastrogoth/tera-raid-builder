@@ -17,17 +17,17 @@ import {Result} from '../result';
 import {
   chainMods,
   checkAirLock,
-  checkDauntlessShield,
-  checkDownload,
-  checkEmbody,
+  // checkDauntlessShield,
+  // checkDownload,
+  // checkEmbody,
   checkForecast,
   checkInfiltrator,
-  checkIntimidate,
-  checkIntrepidSword,
+  // checkIntimidate,
+  // checkIntrepidSword,
   checkItem,
   checkTeraformZero,
   checkMultihitBoost,
-  checkSeedBoost,
+  // checkSeedBoost,
   checkWonderRoom,
   computeFinalStats,
   countBoosts,
@@ -63,23 +63,23 @@ export function calculateSMSSSV(
   checkForecast(defender, field.weather);
   checkItem(attacker, !!field.isMagicRoom);
   checkItem(defender, !!field.isMagicRoom);
-  checkWonderRoom(attacker, !!field.isWonderRoom);
-  checkWonderRoom(defender, !!field.isWonderRoom);
-  checkSeedBoost(attacker, field);
-  checkSeedBoost(defender, field);
-  checkDauntlessShield(attacker, gen);
-  checkDauntlessShield(defender, gen);
-  checkEmbody(attacker, gen);
-  checkEmbody(defender, gen);
+  checkWonderRoom(attacker, !!field.isWonderRoom, defender.hasAbility("Unaware"));
+  checkWonderRoom(defender, !!field.isWonderRoom, attacker.hasAbility("Unaware"));
+  // checkSeedBoost(attacker, field);
+  // checkSeedBoost(defender, field);
+  // checkDauntlessShield(attacker, gen);
+  // checkDauntlessShield(defender, gen);
+  // checkEmbody(attacker, gen);
+  // checkEmbody(defender, gen);
 
   computeFinalStats(gen, attacker, defender, field, 'def', 'spd', 'spe');
 
-  checkIntimidate(gen, attacker, defender);
-  checkIntimidate(gen, defender, attacker);
-  checkDownload(attacker, defender, !!field.isWonderRoom);
-  checkDownload(defender, attacker, !!field.isWonderRoom);
-  checkIntrepidSword(attacker, gen);
-  checkIntrepidSword(defender, gen);
+  // checkIntimidate(gen, attacker, defender);
+  // checkIntimidate(gen, defender, attacker);
+  // checkDownload(attacker, defender, !!field.isWonderRoom);
+  // checkDownload(defender, attacker, !!field.isWonderRoom);
+  // checkIntrepidSword(attacker, gen);
+  // checkIntrepidSword(defender, gen);
 
   computeFinalStats(gen, attacker, defender, field, 'atk', 'spa');
 
@@ -96,7 +96,7 @@ export function calculateSMSSSV(
     defenderName: defender.name,
     defenderTera: defTeraType,
     isDefenderDynamaxed: defender.isDynamaxed,
-    isWonderRoom: !!field.isWonderRoom,
+    isWonderRoom: !!field.isWonderRoom && !(attacker.hasAbility("Unaware") || (defender.hasAbility("Unaware") && move.named("Body Press"))),
   };
 
   const result = new Result(gen, attacker, defender, move, field, 0, desc);
@@ -375,7 +375,7 @@ export function calculateSMSSSV(
         !defender.hasItem('Iron Ball') && defender.hasAbility('Levitate')) ||
       (move.flags.bullet && defender.hasAbility('Bulletproof')) ||
       (move.flags.sound && !move.named('Clangorous Soul') && defender.hasAbility('Soundproof')) ||
-      (move.priority > 0 && defender.hasAbility('Queenly Majesty', 'Dazzling', 'Armor Tail')) ||
+      (move.priority > 0 && field.defenderSide.isDazzling || (defender.hasAbility('Queenly Majesty', 'Dazzling', 'Armor Tail'))) ||
       (move.hasType('Ground') && defender.hasAbility('Earth Eater')) ||
       (move.flags.wind && defender.hasAbility('Wind Rider'))
   ) {
@@ -769,7 +769,7 @@ export function calculateBasePowerSMSSSV(
     desc.moveBP = basePower;
     break;
   case 'Last Respects':
-    basePower = 50 + 50 * Math.min(6, attacker.timesFainted);
+    basePower = 50 + 50 * Math.min(100, attacker.timesFainted);
     desc.moveBP = basePower;
     break;
   case 'Acrobatics':
@@ -887,6 +887,13 @@ export function calculateBasePowerSMSSSV(
     basePower = Math.floor(Math.floor((100 * basePower + 2048 - 1) / 4096) / 100) || 1;
     desc.moveBP = basePower;
     break;
+  // case 'Stomping Tantrum':
+  // case 'Temper Flare':
+  //   if (attacker.lastMoveFailed) {
+  //     basePower = 150;
+  //     desc.moveBP = basePower;
+  //   }
+  //   break;
   case 'Tera Blast':
     basePower = attacker.teraType === "Stellar" ? 100 : 80;
     desc.moveBP = basePower;
@@ -1151,7 +1158,7 @@ export function calculateBPModsSMSSSV(
   }
 
   if (field.attackerSide.powerSpots > 0){
-    for(var ii = 0; ii < field.attackerSide.powerSpots; ii++){
+    for(var iii = 0; iii < field.attackerSide.powerSpots; iii++){
         bpMods.push(5325);
     }
     desc.powerSpots = field.attackerSide.powerSpots;
@@ -1195,11 +1202,11 @@ export function calculateBPModsSMSSSV(
     desc.defenderAbility = defender.ability;
   }
 
-  if (attacker.hasAbility('Supreme Overlord') && attacker.alliesFainted) {
+  if (attacker.hasAbility('Supreme Overlord') && attacker.timesFainted) {
     const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-    bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
+    bpMods.push(powMod[Math.min(5, attacker.timesFainted)]);
     desc.attackerAbility = attacker.ability;
-    desc.alliesFainted = attacker.alliesFainted;
+    desc.timesFainted = attacker.timesFainted;
   }
 
   // Items
@@ -1373,8 +1380,8 @@ export function calculateAtModsSMSSSV(
     desc.defenderAbility = defender.ability;
   }
 
-  const isTabletsOfRuinActive = defender.hasAbility('Tablets of Ruin') || field.isTabletsOfRuin;
-  const isVesselOfRuinActive = defender.hasAbility('Vessel of Ruin') || field.isVesselOfRuin;
+  const isTabletsOfRuinActive = (defender.hasAbility('Tablets of Ruin') || field.isTabletsOfRuin) && !attacker.hasAbility('Tabelts of Ruin');
+  const isVesselOfRuinActive = (defender.hasAbility('Vessel of Ruin') || field.isVesselOfRuin) && !attacker.hasAbility('Vessel of Ruin');
   if (
     (isTabletsOfRuinActive && move.category === 'Physical') ||
     (isVesselOfRuinActive && move.category === 'Special')
@@ -1463,8 +1470,13 @@ export function calculateDefenseSMSSSV(
   let hitsPhysical = move.overrideDefensiveStat === 'def' || move.category === 'Physical' ||
     (move.named('Shell Side Arm') && getShellSideArmCategory(attacker, defender) === 'Physical');
   const defenseStat = hitsPhysical ? 'def' : 'spd';
+  let defEVStat: 'def' | 'spd' = defenseStat;
+  if (field.isWonderRoom) {
+    hitsPhysical = !hitsPhysical;
+    defEVStat = defenseStat === 'def' ? 'spd' : 'def';
+  }
   hitsPhysical = field.isWonderRoom ? !hitsPhysical : hitsPhysical;
-  desc.defenseEVs = getEVDescriptionText(gen, defender, defenseStat, defender.nature);
+  desc.defenseEVs = getEVDescriptionText(gen, defender, defEVStat, defender.nature);
   if (defender.boosts[defenseStat] === 0 ||
       (isCritical && defender.boosts[defenseStat] > 0) ||
       move.ignoreDefensive) {
@@ -1543,8 +1555,8 @@ export function calculateDfModsSMSSSV(
     desc.defenderAbility = defender.ability;
   }
 
-  const isSwordOfRuinActive = attacker.hasAbility('Sword of Ruin') || field.isSwordOfRuin;
-  const isBeadsOfRuinActive = attacker.hasAbility('Beads of Ruin') || field.isBeadsOfRuin;
+  const isSwordOfRuinActive = (attacker.hasAbility('Sword of Ruin') || field.isSwordOfRuin) && !defender.hasAbility('Sword of Ruin');
+  const isBeadsOfRuinActive = (attacker.hasAbility('Beads of Ruin') || field.isBeadsOfRuin) && !defender.hasAbility('Beads of Ruin');
   if (
     (isSwordOfRuinActive && hitsPhysical) ||
     (isBeadsOfRuinActive && !hitsPhysical)

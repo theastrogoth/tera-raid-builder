@@ -33,16 +33,6 @@ function stratDexEntryToOption(options: StratOption[], index: number, boss: stri
     import(`../data/strats/${stratpath}.json`)
     .then((module) => {
         const info = module as LightBuildInfo;
-        const raiders = info.pokemon.slice(1).map(p => p.name);
-        const substitutes = info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [];
-        const moves = [
-            ...info.turns.map(t => t.moveInfo.name),
-            ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
-        ].filter(m => m !== undefined && m !== "(No Move)") as string[];
-        const abilities = [
-            ...info.pokemon.slice(1).map(p => p.ability),
-            ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.ability).flat()).flat() : [])
-        ].filter(a => a !== undefined && a !== "(No Ability)") as string[];
         const option = {
             name: stratname,
             boss: boss,
@@ -182,8 +172,8 @@ function StratLoadField(
             groupBy={(option: StratOption) => option.boss}
             renderOption={(props, option) => (
                 <li {...props}>
-                    <Stack direction="row" alignItems="center" spacing={0.25} sx={{ width: "100%"}}>
-                        <Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{option.name}</Typography>
+                    <Stack direction="row" alignItems="center" spacing={0.25} sx={{ height: "25px", width: "100%"}}>
+                        <Typography variant="body2" style={{ whiteSpace: "pre-wrap" }} sx={{ maxWidth: "175px" }}>{option.name}</Typography>
                         <Box flexGrow={1} sx={{ minWidth: "20px"}} />
                         <Stack direction="row" spacing={-0.25}>
                             {
@@ -206,9 +196,13 @@ function StratLoadField(
             )}
             
             renderGroup={(params) => {
+                let group = params.group;
+                if (group.includes("Rerun")) {
+                    group = group.slice(0,-6);
+                }
                 return  (
                     <li>
-                        <SetLoadGroupHeader pokemon={params.group as SpeciesName} translationKey={translationKey}/>
+                        <SetLoadGroupHeader pokemon={group as SpeciesName} translationKey={translationKey}/>
                         {params.children}
                     </li>
                 );
@@ -237,7 +231,7 @@ function StratLoadField(
                     console.log(e)
                 }
             }}
-            componentsProps={{ popper: { style: { width: 'fit-content', minWidth: 225 } } }}
+            componentsProps={{ popper: { placement: "bottom-start", style: { width: 'fit-content', minWidth: 225 } } }}
             style={{ whiteSpace: "pre-wrap" }}
         />
     )

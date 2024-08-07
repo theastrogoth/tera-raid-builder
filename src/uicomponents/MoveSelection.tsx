@@ -9,7 +9,7 @@ import Switch from "@mui/material/Switch";
 import Button from "@mui/material/Button";
 import MuiInput from '@mui/material/Input';
 import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
+import Popover from "@mui/material/Popover";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -25,9 +25,9 @@ import { styled } from '@mui/material/styles';
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { MoveName } from "../calc/data/interface";
-import { MoveData, RaidMoveInfo, RaidMoveOptions, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
+import { MoveData, RaidMoveInfo, RaidTurnInfo, Raider, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
-import { getPokemonSpriteURL, arraysEqual, getTranslation, shallowEqual } from "../utils";
+import { getPokemonSpriteURL, arraysEqual, getTranslation, getSelectableTargets } from "../utils";
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
@@ -69,6 +69,7 @@ const handleAddGroup = (groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[])
                     options: {
                         crit: rollCase === "max", 
                         secondaryEffects: rollCase === "max", 
+                        allowMiss: rollCase === "min",
                         roll: rollCase, 
                         hits: rollCase === "max" ? 10 : 1,
                     }
@@ -80,6 +81,7 @@ const handleAddGroup = (groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[])
                     options: {
                         crit: rollCase === "min", 
                         secondaryEffects: rollCase === "min", 
+                        allowMiss: rollCase === "max",
                         roll: rollCase === "max" ? "min" : (rollCase === "min" ? "max" : rollCase), 
                         hits: rollCase === "min" ? 10 : 1, 
                     }
@@ -113,6 +115,7 @@ const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (
                 crit: rollCase === "max", 
                 secondaryEffects: rollCase === "max", 
                 roll: rollCase, 
+                allowMiss: rollCase === "min",
                 hits: rollCase === "max" ? 10 : 1,
             }
         },
@@ -124,6 +127,7 @@ const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (
                 crit: rollCase === "min", 
                 secondaryEffects: rollCase === "min", 
                 roll: rollCase === "max" ? "min" : (rollCase === "min" ? "max" : rollCase), 
+                allowMiss: rollCase === "max",
                 hits: rollCase === "min" ? 10 : 1, 
             }
         },
@@ -145,6 +149,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
     
     const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
+    const allowMissChecked = moveInfo.options ? (moveInfo.options.allowMiss || false) : false;
     const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
     const activateTeraChecked = moveInfo.options ? (moveInfo.options.activateTera || false) : false;
 
@@ -155,7 +160,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
             >
                 <MenuIcon />
             </IconButton>
-            <Menu
+            <Popover
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
@@ -168,7 +173,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                     horizontal: 'center',
                   }}
             >
-                <Stack direction="column" spacing={1}>
+                <Stack direction="column" spacing={1} sx={{ py: 1.5 }}>
                     <Typography variant="body1" fontWeight="bold" paddingLeft={1.5}>
                         {getTranslation("Options",translationKey) + ":"}
                     </Typography>
@@ -223,6 +228,23 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                                             onChange={
                                                 (e) => {
                                                     setMoveInfo({...moveInfo, options: {...moveInfo.options, secondaryEffects: !effectChecked}});
+                                                }
+                                            }
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        {getTranslation("Allow Miss",translationKey)}
+                                    </TableCell>
+                                    <TableCell>
+                                        <Switch 
+                                            size="small" 
+                                            style={{ padding: "4px"}}
+                                            checked={allowMissChecked}
+                                            onChange={
+                                                (e) => {
+                                                    setMoveInfo({...moveInfo, options: {...moveInfo.options, allowMiss: !allowMissChecked}});
                                                 }
                                             }
                                         />
@@ -288,7 +310,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                         </Table>
                     </TableContainer>
                 </Stack>
-            </Menu>
+            </Popover>
         </Box>
     )
 }
@@ -318,7 +340,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
     );
-    const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : (moveInfo.moveData.target === "ally" ? [1,2,3,4] : [0,1,2,3,4]).filter((id) => id !== moveInfo.userID));
+    const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID));
     
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
         let newGroups = [...groups];
@@ -337,7 +359,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
         );
-        const newValidTargets = newDisableTarget ? [moveInfo.userID] : (moveInfo.moveData.target === "ally" ? [1,2,3,4] : [0,1,2,3,4]).filter((id) => id !== moveInfo.userID)
+        const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID)
     
         setDisableTarget(newDisableTarget);
         setValidTargets(newValidTargets);
@@ -505,7 +527,6 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
     {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], translationKey: any}) 
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
-    const isBossAction = groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)";
     const moveSet = ["(No Move)", "(Most Damaging)", "(Optimal Move)", ...selectableMoves, "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
 
     const moveName = moveInfo.moveData.name;
@@ -751,10 +772,12 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
             pTurn.moveInfo.options?.secondaryEffects === nTurn.moveInfo.options?.secondaryEffects &&
             pTurn.moveInfo.options?.roll === nTurn.moveInfo.options?.roll &&
             pTurn.moveInfo.options?.hits === nTurn.moveInfo.options?.hits &&
+            pTurn.moveInfo.options?.allowMiss === nTurn.moveInfo.options?.allowMiss &&
             pTurn.bossMoveInfo.options?.crit === nTurn.bossMoveInfo.options?.crit &&
             pTurn.bossMoveInfo.options?.secondaryEffects === nTurn.bossMoveInfo.options?.secondaryEffects &&
             pTurn.bossMoveInfo.options?.roll === nTurn.bossMoveInfo.options?.roll &&
-            pTurn.bossMoveInfo.options?.hits === nTurn.bossMoveInfo.options?.hits
+            pTurn.bossMoveInfo.options?.hits === nTurn.bossMoveInfo.options?.hits &&
+            pTurn.bossMoveInfo.options?.allowMiss === nTurn.bossMoveInfo.options?.allowMiss
         )) &&
         (!!pRaider && !!nRaider) &&
         pRaider.teraCharge === nRaider.teraCharge &&

@@ -19,8 +19,6 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 
@@ -28,10 +26,10 @@ import { styled, lighten, darken } from '@mui/material/styles';
 
 import { GroupedVirtuoso } from 'react-virtuoso';
 
-import { AbilityName, MoveName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
+import { AbilityName, ItemName, MoveName, SpeciesName, StatsTable, TypeName } from "../calc/data/interface";
 import PokedexService, { PokemonData } from "../services/getdata";
-import { MoveData, MoveSetItem, SetOption } from "../raidcalc/interface";
-import { ABILITIES, Generations, Move, toID } from "../calc";
+import { MoveData, SetOption } from "../raidcalc/interface";
+import { ABILITIES, Generations, toID } from "../calc";
 import { getEVDescription, setdexToOptions } from "../utils";
 
 // import { GenericWithIcon, GroupHeader, MoveWithIcon, PokemonPopper, findOptionFromPokemonName, findOptionFromTeraTypeName } from "./BuildControls";
@@ -66,8 +64,46 @@ const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).filter((t) => t !== "Stellar" && t !== "???").sort();
 const genAbilities = ABILITIES[gen.num].filter((a) => a !== "(No Ability)").sort();
 const genMoves = [...gen.moves].map(move => move.name).filter((m) => m !== "(No Move)").sort();
+
+const IGNORED_FORMS = [
+    "Mimikyu-Busted", 
+    "Minior-Meteor", 
+    "Eiscue-Noice", 
+    "Morpeko-Hangry", 
+    "Terapagos-Stellar", 
+    "Meloetta-Pirouette",
+    "Arceus-Bug",
+    "Arceus-Dark",
+    "Arceus-Dragon",
+    "Arceus-Electric",
+    "Arceus-Fairy",
+    "Arceus-Fighting",
+    "Arceus-Fire",
+    "Arceus-Flying",
+    "Arceus-Ghost",
+    "Arceus-Grass",
+    "Arceus-Ground",
+    "Arceus-Ice",
+    "Arceus-Psychic",
+    "Arceus-Poison",
+    "Arceus-Rock",
+    "Arceus-Steel",
+    "Arceus-Water",
+];
+
+const FORCED_ITEMS = new Map<SpeciesName, ItemName>([
+    ["Zacian-Crowned", "Rusted Sword"],
+    ["Zamazenta-Crowned", "Rusted Shield"],
+    ["Dialga-Origin", "Adamant Crystal"],
+    ["Palkia-Origin", "Lustrous Globe"],
+    ["Giratina-Origin", "Griseous Orb"],
+    ["Ogerpon-Hearthflame", "Hearthflame Mask"],
+    ["Ogerpon-Wellspring", "Wellspring Mask"],
+    ["Ogerpon-Cornerstone", "Cornerstone Mask"],
+] as [SpeciesName, ItemName][]);
+
 const genSpecies = [...gen.species].map(specie => specie.name)
-    .filter((n) => !["Mimikyu-Busted", "Minior-Meteor", "Eiscue-Noice", "Morpeko-Hangry", "Terapagos-Stellar", "Meloetta-Pirouette"].includes(n))
+    .filter((n) => !IGNORED_FORMS.includes(n))
     .sort();
 
 const raiderSetOptions = setdexToOptions(RAIDER_SETDEX_SV);
@@ -90,6 +126,7 @@ for (let [specie, sets] of raiderSetMap) {
         level: 100,
         nature: "Hardy",
         ability: (pokeData && pokeData.abilities)? (pokeData.abilities[0] === "" ? undefined : pokeData.abilities[0]) : undefined,
+        item: FORCED_ITEMS.get(specie),
     }])
 }
 
@@ -161,6 +198,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                 }
             break;
             case "Type":
+                if (species.name === "Arceus") { break; }
                 const typeFilter = filter.name as TypeName;
                 let typeFilterResult = false;
                 for (let type of species.types) {
@@ -238,9 +276,9 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                         const operand2 = evaluatorStack.pop();
                         const operand1 = evaluatorStack.pop();
 
-                        if (token == "&&") {
+                        if (token === "&&") {
                             evaluatorStack.push(!!operand2 && !!operand1);
-                        } else if (token == "||") {
+                        } else if (token === "||") {
                             evaluatorStack.push(!!operand2 || !!operand1);
                         }
                     }
@@ -532,6 +570,7 @@ function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translation
         level: 100,
         nature: "Hardy",
         ability: data.abilities[0].name,
+        item: FORCED_ITEMS.get(pokemon),
     }];
 
     return (
@@ -844,6 +883,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
         setAbilityOptions(newAbilityOptions);
         setMoveOptions(newMoveOptions);
         sortSpecies(newSpeciesOptions);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputFilteredOptions]);
 
     const handleButtonClick = (label: string) => {
@@ -906,6 +946,7 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
 
     useEffect(() => {
         sortSpecies(speciesOptions);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sortMethod, sortDirection]);
 
     let groupCounts = [speciesOptions, typeOptions, abilityOptions, moveOptions, (inputValue.length > 0 ? [1] : [])].map((o) => o.length);
@@ -1246,6 +1287,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
         } else {
             setFilteredOptions(allOptions);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [filters]);
 
     useEffect(() => {

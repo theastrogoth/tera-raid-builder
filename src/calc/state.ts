@@ -26,6 +26,7 @@ export namespace State {
     boostedStat?: I.StatIDExceptHP | 'auto';
     usedBoosterEnergy?: boolean;
     isIngrain?: boolean;
+    isSmackDown?: boolean;
     item?: I.ItemName;
     gender?: I.GenderName;
     nature?: I.NatureName;
@@ -40,7 +41,6 @@ export namespace State {
     originalCurHP?: number;
     status?: I.StatusName | '';
     volatileStatus?: string[];
-    isChoiceLocked?: boolean;
     teraType?: I.TypeName;
     isTera?: boolean;
     shieldData?: ShieldData;
@@ -48,8 +48,10 @@ export namespace State {
     toxicCounter?: number;
     hitsTaken?: number;
     timesFainted?: number;
-    changedTypes?: [I.TypeName] | [I.TypeName, I.TypeName] | [I.TypeName, I.TypeName, I.TypeName];
+    hasExtraType?: boolean;
+    // lastMoveFailed?: boolean;
     moves?: I.MoveName[];
+    abilityNullified?: number;
     permanentAtkCheers?: number;
     permanentDefCheers?: number,
     overrides?: Partial<I.Specie>;
@@ -112,6 +114,7 @@ export namespace State {
     isHelpingHand?: boolean;
     isAtkCheered?: number;      // # turns remaining
     isFlowerGift?: boolean;
+    isDazzling?: boolean;
     isFriendGuard?: boolean;
     friendGuards?: number;
     isAuroraVeil?: number;      // # turns remaining

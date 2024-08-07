@@ -199,8 +199,8 @@ export function checkItem(pokemon: Pokemon, magicRoomActive?: boolean) {
   }
 }
 
-export function checkWonderRoom(pokemon: Pokemon, wonderRoomActive?: boolean) {
-  if (wonderRoomActive) {
+export function checkWonderRoom(pokemon: Pokemon, wonderRoomActive?: boolean, opponentHasUnaware?: boolean) {
+  if (wonderRoomActive && !opponentHasUnaware) {
     [pokemon.rawStats.def, pokemon.rawStats.spd] = [pokemon.rawStats.spd, pokemon.rawStats.def];
   }
 }

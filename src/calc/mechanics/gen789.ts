@@ -63,8 +63,8 @@ export function calculateSMSSSV(
   checkForecast(defender, field.weather);
   checkItem(attacker, !!field.isMagicRoom);
   checkItem(defender, !!field.isMagicRoom);
-  checkWonderRoom(attacker, !!field.isWonderRoom);
-  checkWonderRoom(defender, !!field.isWonderRoom);
+  checkWonderRoom(attacker, !!field.isWonderRoom, defender.hasAbility("Unaware"));
+  checkWonderRoom(defender, !!field.isWonderRoom, attacker.hasAbility("Unaware"));
   // checkSeedBoost(attacker, field);
   // checkSeedBoost(defender, field);
   // checkDauntlessShield(attacker, gen);
@@ -96,7 +96,7 @@ export function calculateSMSSSV(
     defenderName: defender.name,
     defenderTera: defTeraType,
     isDefenderDynamaxed: defender.isDynamaxed,
-    isWonderRoom: !!field.isWonderRoom,
+    isWonderRoom: !!field.isWonderRoom && !(attacker.hasAbility("Unaware") || (defender.hasAbility("Unaware") && move.named("Body Press"))),
   };
 
   const result = new Result(gen, attacker, defender, move, field, 0, desc);
@@ -1470,8 +1470,13 @@ export function calculateDefenseSMSSSV(
   let hitsPhysical = move.overrideDefensiveStat === 'def' || move.category === 'Physical' ||
     (move.named('Shell Side Arm') && getShellSideArmCategory(attacker, defender) === 'Physical');
   const defenseStat = hitsPhysical ? 'def' : 'spd';
+  let defEVStat: 'def' | 'spd' = defenseStat;
+  if (field.isWonderRoom) {
+    hitsPhysical = !hitsPhysical;
+    defEVStat = defenseStat === 'def' ? 'spd' : 'def';
+  }
   hitsPhysical = field.isWonderRoom ? !hitsPhysical : hitsPhysical;
-  desc.defenseEVs = getEVDescriptionText(gen, defender, defenseStat, defender.nature);
+  desc.defenseEVs = getEVDescriptionText(gen, defender, defEVStat, defender.nature);
   if (defender.boosts[defenseStat] === 0 ||
       (isCritical && defender.boosts[defenseStat] > 0) ||
       move.ignoreDefensive) {

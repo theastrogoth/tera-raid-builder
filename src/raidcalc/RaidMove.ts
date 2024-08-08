@@ -327,14 +327,14 @@ export class RaidMove {
                     this._warnings.push("Throat Chop prevents the use of " + this.moveData.name + ".");
                     return false;
                 } else if (mon.status === "par" && this.options.allowMiss && 
-                    ((mon.id !== 0 && this.targetID !== 0 && (this.moveData.power || 0) > 0) ? this.options.roll === "max" : this.options.roll === "min")
+                    ((mon.id !== 0 && this.targetID !== 0 && this.moveData.moveCategory !== "Status") ? this.options.roll === "max" : this.options.roll === "min")
                 ) {
                     this._desc[mon.id] = mon.name + " is fully paralyzed and can't move!";
                     // mon.lastMoveFailed = true;
                     this._warnings.push(mon.name + " is fully paralyzed and can't move.");
                     return false;
                 } else if (mon.volatileStatus.includes("confusion") && this.options.allowMiss && 
-                    ((mon.id !== 0 && this.targetID !== 0 && (this.moveData.power || 0) > 0) ? this.options.roll === "max" : this.options.roll === "min")
+                    ((mon.id !== 0 && this.targetID !== 0 && this.moveData.moveCategory !== "Status") ? this.options.roll === "max" : this.options.roll === "min")
                 ) {
                     // mon.lastMoveFailed = true;
                     this.applyConfusionDamage();                

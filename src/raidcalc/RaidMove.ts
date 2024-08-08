@@ -147,10 +147,7 @@ export class RaidMove {
         this._raidState.raiders[0].checkShield(); // check for shield activation
         this.checkSheerForce();
         this.setAffectedPokemon();
-        if (this.flinch) { // prevent moving upon flinch
-            this._desc[this.userID] = this._user.name + " flinched!";
-            // this._user.lastMoveFailed = true;
-        } else if ( // prevent the boss from moving if it's shield has just been broken
+        if ( // prevent the boss from moving if it's shield has just been broken
             this.userID === 0 && 
             this._user.shieldBreakStun &&
             this._user.shieldBreakStun![this._targetID-1]
@@ -278,72 +275,76 @@ export class RaidMove {
     }
 
     private checkIfMoves(): boolean {
-        if (this._user.originalCurHP === 0) {
-            if (this._user.id !== 0) {
-                this._warnings.push(this._user.name + " fainted before moving.");
-            }
-            return false;
-        } else if (this.isBossAction && this.userID !== 0) {
-            return false;
-        } else if (isRaidAction(this.moveData.name)) {
-            return true;
-        } else if (this.flinch) {
-            this._desc[this.userID] = this._user.name + " flinched!";
-            if (this._user.id !== 0) {
-                this._warnings.push(this._user.name + " flinched and skips its move.");
-            }
-            return false;
-        } else {
-            if (this._user.isSleep) {
-                this._desc[this.userID] = this._user.name + " is fast asleep.";
-                this._user.isSleep--; // decrement sleep counter
-                // this._user.lastMoveFailed = true;
-                this._warnings.push(this._user.name + " is asleep and skips its move.");
+        // in the case of instruct, check the Instruct user first, and then the intstructed Pokemon
+        const monsToCheck = this.raiderID !== this.userID ? [this._raidState.getPokemon(this.raiderID), this._user] : [this._user];
+        for (let mon of monsToCheck) {
+            if (mon.originalCurHP === 0) {
+                if (mon.id !== 0) {
+                    this._warnings.push(mon.name + " fainted before moving.");
+                }
                 return false;
-            } else if (this._user.isFrozen && !thawUserMoves.includes(this.move.name)) {
-                this._desc[this.userID] = this._user.name + " is frozen solid.";
-                this._user.isFrozen--; // decrement frozen counter
-                // this._user.lastMoveFailed = true;
-                this._warnings.push(this._user.name + " is frozen and skips its move.");
+            } else if (this.isBossAction && mon.id !== 0) {
                 return false;
-            } else if (
-                this._user.isTaunt && 
-                this.move.category === "Status" && 
-                !isRaidAction(this.moveData.name)
-            ) {
-                this._desc[this.userID] = this._user.name + " can't use status moves due to Taunt!";
-                this._user.isTaunt--; // decrement taunt counter
-                // this._user.lastMoveFailed = true;
-                this._warnings.push(this._user.name + " is taunted and can't use " + this.moveData.name + ".");
-                return false;
-            } else if (this._user.isDisable && this.move.name === this._user.disabledMove) {
-                this._desc[this.userID] = this.move.name + " is disabled!";
-                // this._user.lastMoveFailed = true;
-                this._warnings.push(this.moveData.name + " is disabled and can't be used.");
-                return false;
-            } else if (this._user.isThroatChop && this.moveData.isSound) {
-                this._desc[this.userID] = this._user.name + " can't use sound-based moves due to Throat Chop!";
-                // this._user.lastMoveFailed = true;
-                this._warnings.push("Throat Chop prevents the use of " + this.moveData.name + ".");
-                return false;
-            } else if (this._user.status === "par" && this.options.allowMiss && this.options.roll === "min") {
-                this._desc[this.userID] = this._user.name + " is fully paralyzed and can't move!";
-                // this._user.lastMoveFailed = true;
-                this._warnings.push(this._user.name + " is fully paralyzed and can't move.");
-                return false;
-            } else if (this._user.volatileStatus.includes("confusion") && this.options.allowMiss && this.options.roll === "min") {
-                // this._user.lastMoveFailed = true;
-                this.applyConfusionDamage();                
+            } else if (isRaidAction(this.moveData.name)) {
+                return true;
+            } else if (this.flinch) {
+                this._desc[mon.id] = mon.name + " flinched!";
+                if (mon.id !== 0) {
+                    this._warnings.push(mon.name + " flinched and skips its move.");
+                }
                 return false;
             } else {
-                if (this._user.status === "par") {
-                    this._warnings.push("Paralysis may prevent " + this._user.name + " from moving.");
-                } else if (this._user.volatileStatus.includes("confusion")) {
-                    this._warnings.push("Confusion may prevent " + this._user.name + " from moving.");
+                if (mon.isSleep) {
+                    this._desc[mon.id] = mon.name + " is fast asleep.";
+                    mon.isSleep--; // decrement sleep counter
+                    // mon.lastMoveFailed = true;
+                    this._warnings.push(mon.name + " is asleep and skips its move.");
+                    return false;
+                } else if (mon.isFrozen && !thawUserMoves.includes(this.move.name)) {
+                    this._desc[mon.id] = mon.name + " is frozen solid.";
+                    mon.isFrozen--; // decrement frozen counter
+                    // mon.lastMoveFailed = true;
+                    this._warnings.push(mon.name + " is frozen and skips its move.");
+                    return false;
+                } else if (
+                    mon.isTaunt && 
+                    this.move.category === "Status" && 
+                    !isRaidAction(this.moveData.name)
+                ) {
+                    this._desc[mon.id] = mon.name + " can't use status moves due to Taunt!";
+                    mon.isTaunt--; // decrement taunt counter
+                    // mon.lastMoveFailed = true;
+                    this._warnings.push(mon.name + " is taunted and can't use " + this.moveData.name + ".");
+                    return false;
+                } else if (mon.isDisable && this.move.name === mon.disabledMove) {
+                    this._desc[mon.id] = this.move.name + " is disabled!";
+                    // mon.lastMoveFailed = true;
+                    this._warnings.push(this.moveData.name + " is disabled and can't be used.");
+                    return false;
+                } else if (mon.isThroatChop && this.moveData.isSound) {
+                    this._desc[mon.id] = mon.name + " can't use sound-based moves due to Throat Chop!";
+                    // mon.lastMoveFailed = true;
+                    this._warnings.push("Throat Chop prevents the use of " + this.moveData.name + ".");
+                    return false;
+                } else if (mon.status === "par" && this.options.allowMiss && this.options.roll === "min") {
+                    this._desc[mon.id] = mon.name + " is fully paralyzed and can't move!";
+                    // mon.lastMoveFailed = true;
+                    this._warnings.push(mon.name + " is fully paralyzed and can't move.");
+                    return false;
+                } else if (mon.volatileStatus.includes("confusion") && this.options.allowMiss && this.options.roll === "min") {
+                    // mon.lastMoveFailed = true;
+                    this.applyConfusionDamage();                
+                    return false;
+                } else {
+                    if (mon.status === "par") {
+                        this._warnings.push("Paralysis may prevent " + mon.name + " from moving.");
+                    } else if (mon.volatileStatus.includes("confusion")) {
+                        this._warnings.push("Confusion may prevent " + mon.name + " from moving.");
+                    }
                 }
-                return true;
             }
         }
+        return true;
     }
 
     private applyConfusionDamage() {

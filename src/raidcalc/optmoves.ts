@@ -131,9 +131,10 @@ function moveIsInteresting(resultA: RaidTurnResult, resultB: RaidTurnResult): bo
     const bossB = resultB.state.raiders[0];
 
     const orderChange = resultA.raiderMovesFirst !== resultB.raiderMovesFirst;
-    
+    const flinchChange = (!resultA.raiderMovesFirst && resultA.results[0].causesFlinch[resultA.moveInfo.userID]) !== (!resultB.raiderMovesFirst && resultB.results[0].causesFlinch[resultB.moveInfo.userID])
     return (
         orderChange || 
+        flinchChange ||
         nonHPChanges(targetA, targetB) ||
         nonHPChanges(bossA, bossB)
     );

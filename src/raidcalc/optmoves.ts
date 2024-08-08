@@ -233,6 +233,9 @@ function splitBranch(info: RaidBattleInfo, prevResults: RaidBattleResults, moveD
 
 // recursively calculate the results of all "interesting" branches of the battle
 function calculateBranches(branchChunks: TurnGroupInfo[][], prevResults: RaidBattleResults, moveData: MoveData[], bestResult: [RaidBattleResults], bestScore: [number], branchCounter: [number]): void {
+    if (bestScore[0] > 950000000) { // if the boss doesn't faint, stop looking
+        return;
+    }
     if (branchChunks.length === 0 ||
         (branchChunks.reduce((acc, c) => acc + c.reduce((acc2, g) => acc2 + g.turns.length, 0), 0) === 0)
     ) {
@@ -292,6 +295,6 @@ export function optimizeBossMoves(raiders: Raider[], groups: TurnGroupInfo[]) {
     const bestScore: [number] = [0];
     const branchCounter: [number] = [1];
     calculateBranches(branchChunks, startingResult, raiders[0].moveData, bestResult, bestScore, branchCounter);
-    console.log("Number of branches for boss move optimization: " + branchCounter[0]);
+    console.log("Number of branches searched for boss move optimization: " + branchCounter[0]);
     return bestResult[0];
 }

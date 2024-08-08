@@ -276,7 +276,7 @@ export class RaidMove {
 
     private checkIfMoves(): boolean {
         // in the case of instruct, check the Instruct user first, and then the intstructed Pokemon
-        const monsToCheck = this.raiderID !== this.userID ? [this._raidState.getPokemon(this.raiderID), this._user] : [this._user];
+        const monsToCheck = (this.userID && (this.raiderID !== this.userID)) ? [this._raidState.getPokemon(this.raiderID), this._user] : [this._user];
         for (let mon of monsToCheck) {
             if (mon.originalCurHP === 0) {
                 if (mon.id !== 0) {

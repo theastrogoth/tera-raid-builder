@@ -232,34 +232,39 @@ function splitBranch(info: RaidBattleInfo, prevResults: RaidBattleResults, moveD
 }
 
 // recursively calculate the results of all "interesting" branches of the battle
-function calculateBranches(branchChunks: TurnGroupInfo[][], prevResults: RaidBattleResults[], moveData: MoveData[]): RaidBattleResults[] {
+function calculateBranches(branchChunks: TurnGroupInfo[][], prevResults: RaidBattleResults, moveData: MoveData[], bestResult: [RaidBattleResults], bestScore: [number], branchCounter: [number]): void {
     if (branchChunks.length === 0 ||
         (branchChunks.reduce((acc, c) => acc + c.reduce((acc2, g) => acc2 + g.turns.length, 0), 0) === 0)
     ) {
-        return prevResults;
+        const score = resultObjective(prevResults);
+        if (score > bestScore[0]) {
+            bestResult[0] = prevResults;
+            bestScore[0] = score;
+        }
+        return;
     }
     if (branchChunks.length === 1) {
         const lastGroup = branchChunks[0][branchChunks[0].length-1];
         const lastTurn = lastGroup.turns[lastGroup.turns.length-1];
         if (lastTurn.bossMoveInfo.moveData.name !== "(Optimal Move)") {
-            return prevResults.map((pr) => {
-                const info: RaidBattleInfo = {
-                    startingState: pr.endState,
-                    groups: branchChunks[0]
-                };
-                return new RaidBattle(info, pr).result();
-            });
+            const finalResults = new RaidBattle({startingState: prevResults.endState, groups: branchChunks[0]}, prevResults).result();
+            const score = resultObjective(finalResults);
+            if (score > bestScore[0]) {
+                bestResult[0] = finalResults;
+                bestScore[0] = score;
+            }
+            return;
         }
     }
-    const branchResults = prevResults.map((pr, i) => {
-        const branchInfo: RaidBattleInfo = {
-            startingState: pr.endState,
-            groups: branchChunks[0]
-        }
-        const nextResults = splitBranch(branchInfo, pr, moveData);
-        return calculateBranches(branchChunks.slice(1), nextResults, moveData);
-    }).flat();
-    return branchResults;
+    const branchInfo: RaidBattleInfo = {
+        startingState: prevResults.endState,
+        groups: branchChunks[0]
+    }
+    const nextResults = splitBranch(branchInfo, prevResults, moveData);
+    branchCounter[0] += nextResults.length - 1;
+    for (let r of nextResults) {
+        calculateBranches(branchChunks.slice(1), r, moveData, bestResult, bestScore, branchCounter);
+    }
 }
 
 function resultObjective(result: RaidBattleResults): number {
@@ -283,9 +288,10 @@ export function optimizeBossMoves(raiders: Raider[], groups: TurnGroupInfo[]) {
     const startingResult = new RaidBattle(startingInfo).result();
 
     const branchChunks = splitGroups(expandRepeats(groups).filter((g) => g.turns.length > 0));
-    const branchResults = calculateBranches(branchChunks, [startingResult], raiders[0].moveData);
-    const branchScores = branchResults.map((r) => resultObjective(r));
-    console.log("Number of branches for boss move optimization: " + branchResults.length);
-    const bestResult = branchResults[branchScores.indexOf(Math.max(...branchScores))];
-    return bestResult;
+    const bestResult: [RaidBattleResults] = [startingResult];
+    const bestScore: [number] = [0];
+    const branchCounter: [number] = [1];
+    calculateBranches(branchChunks, startingResult, raiders[0].moveData, bestResult, bestScore, branchCounter);
+    console.log("Number of branches for boss move optimization: " + branchCounter[0]);
+    return bestResult[0];
 }

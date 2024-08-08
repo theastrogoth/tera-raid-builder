@@ -872,21 +872,23 @@ function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}:
 
 function getMoveOptionsForRollCase(rollCase: "max" | "min" | "avg", targetID: number, moveData: MoveData, bossMoveData: MoveData) {
     const bossRollCase = rollCase === "max" ? "min" : (rollCase === "min" ? "max" : "avg")
-    const raiderRollCase = (targetID !== 0 && moveData.category?.includes("damage")) ? bossRollCase : rollCase;
+    const raiderRollCase = (targetID !== 0 && moveData.category?.includes("damage")) ? (
+        rollCase === "max" ? "sidemax" : (rollCase === "min" ? "sidemin" : "avg")
+    ) : rollCase;
     return [rollCaseToOptions(raiderRollCase, moveData), rollCaseToOptions(bossRollCase, bossMoveData)]
 }
 
-function rollCaseToOptions(rollCase: "max" | "min" | "avg", moveData: MoveData) {
+function rollCaseToOptions(rollCase: "max" | "min" | "avg" | "sidemax" | "sidemin", moveData: MoveData) {
     return {
-        crit: rollCase === "max",
-        secondaryEffects: rollCase === "max",
-        hits: rollCase === "max" ? 10 : (
-            rollCase === "min" ? 1 : (
+        crit: rollCase === "max" || rollCase === "sidemin",
+        secondaryEffects: rollCase === "max" || rollCase === "sidemin",
+        hits: (rollCase === "max" || rollCase === "sidemin") ? 10 : (
+            (rollCase === "min" || rollCase === "sidemax") ? 1 : (
                 Math.floor(((moveData.minHits || 1) + (moveData.maxHits || 1)) / 2)
             )
         ),
-        allowMiss: rollCase === "min",
-        roll: rollCase
+        allowMiss: rollCase === "min" || rollCase === "sidemin",
+        roll: (rollCase === "sidemax" ? "min" : (rollCase === "sidemin" ? "max" : rollCase))
     }
 }
 

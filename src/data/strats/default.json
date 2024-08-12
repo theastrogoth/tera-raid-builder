@@ -5,12 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Dondozo",
-            "name": "Dondozo",
+            "role": "Gimmighoul",
+            "name": "Gimmighoul",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Unaware",
-            "nature": "Adamant",
+            "ability": "Rattled",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,43 +27,42 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 100,
+            "level": 75,
             "gender": "N",
-            "teraType": "Water",
+            "teraType": "Normal",
             "moves": [
-                "Wave Crash",
-                "Order Up",
-                "Earthquake",
-                "Avalanche"
+                "Take Down",
+                "Shadow Ball",
+                "Hex",
+                "Power Gem"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 2000,
             "extraMoves": [
-                "Yawn",
-                "Curse"
+                "Nasty Plot"
             ],
             "shieldData": {
-                "hpTrigger": 70,
-                "timeTrigger": 70,
-                "shieldCancelDamage": 35,
+                "hpTrigger": 55,
+                "timeTrigger": 60,
+                "shieldCancelDamage": 25,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "shieldDamageRateTera": 80,
+                "shieldDamageRateTeraChange": 40
             }
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Ursaluna",
+            "name": "Ursaluna",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Hadron Engine",
-            "item": "Life Orb",
-            "nature": "Modest",
+            "ability": "Guts",
+            "item": "Flame Orb",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,10 +76,11 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "???",
             "moves": [
-                "Charge",
-                "Electro Drift"
+                "Belly Drum",
+                "Headlong Rush",
+                "Heavy Slam",
+                "Close Combat"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -95,12 +95,11 @@
         },
         {
             "id": 2,
-            "role": "Stonjourner",
-            "name": "Stonjourner",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": true,
-            "ability": "Power Spot",
-            "item": "Focus Sash",
+            "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -134,11 +133,11 @@
         },
         {
             "id": 3,
-            "role": "Bonsly",
-            "name": "Bonsly",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": true,
-            "ability": "Sturdy",
+            "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -158,9 +157,7 @@
             },
             "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -174,11 +171,11 @@
         },
         {
             "id": 4,
-            "role": "Bonsly",
-            "name": "Bonsly",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": true,
-            "ability": "Sturdy",
+            "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -198,9 +195,7 @@
             },
             "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {

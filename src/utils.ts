@@ -62,7 +62,7 @@ const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {
-    if (name === "Carry Slot") { return "substitute"; }
+    if (name === "Carry Slot" || name === "NPC") { return "substitute"; }
     if (name === "Flabébé") { return "flabebe"; } // ugh
     if (name.includes("Arceus")) { return "arceus"; }
     return name.replaceAll(' ','_').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();

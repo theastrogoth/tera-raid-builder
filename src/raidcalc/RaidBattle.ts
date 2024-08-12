@@ -36,21 +36,27 @@ export class RaidBattle {
     _turnZeroFlags!: string[][];
     _turnZeroOrder!: number[];
 
+    _firstRaiderHasMoved!: boolean;
+    _numNPCs!: number;
+
     constructor(info: RaidBattleInfo, result: RaidBattleResults | null = null) {
         if (result) {
             this.startingState = result.endState;
             this.groups = info.groups;
             this._turnZeroState = result.turnZeroState;
+            this._turnResults = result.turnResults;
             this._turnZeroFlags = result.turnZeroFlags;
             this._turnZeroOrder = result.turnZeroOrder;
-            this._turnResults = result.turnResults;
             this._continuing = true;
+            this._firstRaiderHasMoved = this._turnResults.some(turn => turn.moveInfo.userID === 1 && turn.moveInfo.moveData.name !== "(No Move)");
         } else {
             this.startingState = info.startingState;
             this.groups = info.groups;
-            this._continuing = false;
             this._turnResults = [];
+            this._continuing = false;
+            this._firstRaiderHasMoved = false;
         }
+        this._numNPCs = this.startingState.raiders.reduce((acc, raider) => acc + (raider.name === "NPC" ? 1 : 0), 0);
     }
 
     public result(): RaidBattleResults {
@@ -92,11 +98,32 @@ export class RaidBattle {
             for (let j = 0; j < repeats; j++) {
                 for (let k = 0; k < turns.length; k++) {
                     const turn = turns[k];
-                    const result = new RaidTurn(this._state, turn, turnCounter).result();
+                    const result = new RaidTurn(this._state, turn, turnCounter, this._numNPCs).result();
                     this._turnResults.push(result);
                     this._state = result.state;
                     if(turn.moveInfo.moveData.name !== "(No Move)") {
-                        turnCounter++;
+
+                        if (turn.moveInfo.userID === 1 && this._numNPCs > 0) {
+                            if (!this._firstRaiderHasMoved) {
+                                const firstNPC = this._state.raiders.find(raider => raider.name === "NPC")!;
+                                const defCheerResult = new RaidTurn(
+                                    this._state,
+                                    {
+                                        id: -1,
+                                        group: turn.group,
+                                        moveInfo: {moveData: {name: "Defense Cheer" as MoveName}, userID: firstNPC.id, targetID: firstNPC.id},
+                                        bossMoveInfo: {moveData: {name: "(Most Damaging)" as MoveName}, userID: 0, targetID: firstNPC.id, options: turn.bossMoveInfo.options},
+                                    },
+                                    turnCounter,
+                                    0
+                                ).result();
+                                this._turnResults.push(defCheerResult);
+                                this._firstRaiderHasMoved = true;
+                            }
+                            turnCounter = turnCounter + 1 + this._numNPCs;
+                        } else {
+                            turnCounter++;
+                        }
                     }
                 }
             }

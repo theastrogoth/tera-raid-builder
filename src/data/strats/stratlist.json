@@ -1,6 +1,7 @@
 {
     "Dondozo": {
         "Don Fishin'": "dondozo/main",
+        "Oops! All Miraidon": "dondozo/all_miraidon",
         "4-Move Miraidon": "dondozo/miraidon",
         "Team Eeveelutions Goes Electrofishing!": "dondozo/eeveelutions",
         "3-Leafeon Clover": "dondozo/three_leafeon_clover",
@@ -8,6 +9,8 @@
         "Godzilla vs. The Creature From The Deep": "dondozo/godzilla",
         "Four Cats Fish for Catfish": "dondozo/catfish",
         "Four Cats Fish for Catfish (Meowscarada)": "dondozo/catfish_meow",
+        "Whiskers in a Knot": "dondozo/whiskers",
+        "Dog Salad": "dondozo/dog_salad",
         "Fish vs. Fish": "dondozo/fish",
         "Big Fish in a Frog Pond": "dondozo/frogs",
         "There are no Dondozo in Alola": "dondozo/alola_bugs",
@@ -24,6 +27,7 @@
         "Another Sunny Day for (Surge) Surfing": "dondozo/surge_surfing",
         "Tea Time": "dondozo/tea_time",
         "\"Not Very Effective\"": "dondozo/not_very_effective",
+        "Flower Power": "dondozo/flower_power",
         "Baby Beam": "dondozo/baby_beam",
         "Boy Sprouts go Fishing": "dondozo/boy_sprouts_go_fishing",
         "Pinkies and the Bird Brain": "dondozo/pinkies_and_the_bird_brain"
@@ -393,6 +397,7 @@
     },
     "Rillaboom": {
         "Korzilla vs. Rilla Kong": "rillaboom/main",
+        "Oops! All Koraidon": "rillaboom/all_koraidon",
         "Tickle Squad": "rillaboom/tickle_squad",
         "Shrimpiosis": "rillaboom/shrimpiosis",
         "Pump Up the Cham!": "rillaboom/pump_up_the_cham",

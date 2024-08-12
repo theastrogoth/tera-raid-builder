@@ -1003,6 +1003,10 @@ describe('OHKO tests, Alternative Strats', () => {
     const module = await import(`./data/strats/delphox/nuke_baby.json`)
     await testOHKO(module as LightBuildInfo);
   })
+  test('rillaboom/all_koraidon', async() => {
+    const module = await import(`./data/strats/rillaboom/all_koraidon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
   test('rillaboom/shrimpiosis', async () => {
     const module = await import(`./data/strats/rillaboom/shrimpiosis.json`)
     await testOHKO(module as LightBuildInfo);
@@ -2174,6 +2178,126 @@ describe('OHKO tests, Alternative Strats', () => {
   })
   test('pikachu/boy_sprouts', async () => {
     const module = await import(`./data/strats/pikachu/boy_sprouts.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/all_miraidon', async () => {
+    const module = await import(`./data/strats/dondozo/all_miraidon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/miraidon', async () => {
+    const module = await import(`./data/strats/dondozo/miraidon.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/eeveelutions', async () => {
+    const module = await import(`./data/strats/dondozo/eeveelutions.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/three_leafeon_clover', async () => {
+    const module = await import(`./data/strats/dondozo/three_leafeon_clover.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/freezing_in_the_sun', async () => {
+    const module = await import(`./data/strats/dondozo/freezing_in_the_sun.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/godzilla', async () => {
+    const module = await import(`./data/strats/dondozo/godzilla.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/catfish', async () => {
+    const module = await import(`./data/strats/dondozo/catfish.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/catfish_meow', async () => {
+    const module = await import(`./data/strats/dondozo/catfish_meow.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/whiskers', async () => {
+    const module = await import(`./data/strats/dondozo/whiskers.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/dog_salad', async () => {
+    const module = await import(`./data/strats/dondozo/dog_salad.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/fish', async () => {
+    const module = await import(`./data/strats/dondozo/fish.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/frogs', async () => {
+    const module = await import(`./data/strats/dondozo/frogs.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/alola_bugs', async () => {
+    const module = await import(`./data/strats/dondozo/alola_bugs.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/dragons', async () => {
+    const module = await import(`./data/strats/dondozo/dragons.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/heat_lightning', async () => {
+    const module = await import(`./data/strats/dondozo/heat_lightning.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/ball_lightning', async () => {
+    const module = await import(`./data/strats/dondozo/ball_lightning.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/strange_reflections', async () => {
+    const module = await import(`./data/strats/dondozo/strange_reflections.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/sea_angels', async () => {
+    const module = await import(`./data/strats/dondozo/sea_angels.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/pond_bloom', async () => {
+    const module = await import(`./data/strats/dondozo/pond_bloom.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/teravolt_strike', async () => {
+    const module = await import(`./data/strats/dondozo/teravolt_strike.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/birds_of_a_feather', async () => {
+    const module = await import(`./data/strats/dondozo/birds_of_a_feather.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/quadruple_paradox', async () => {
+    const module = await import(`./data/strats/dondozo/quadruple_paradox.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/monkey_business', async () => {
+    const module = await import(`./data/strats/dondozo/monkey_business.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/surge_surfing', async () => {
+    const module = await import(`./data/strats/dondozo/surge_surfing.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/tea_time', async () => {
+    const module = await import(`./data/strats/dondozo/tea_time.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/not_very_effective', async () => {
+    const module = await import(`./data/strats/dondozo/not_very_effective.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/flower_power', async () => {
+    const module = await import(`./data/strats/dondozo/flower_power.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/baby_beam', async () => {
+    const module = await import(`./data/strats/dondozo/baby_beam.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/boy_sprouts_go_fishing', async () => {
+    const module = await import(`./data/strats/dondozo/boy_sprouts_go_fishing.json`)
+    await testOHKO(module as LightBuildInfo);
+  })
+  test('dondozo/pinkies_and_the_bird_brain', async () => {
+    const module = await import(`./data/strats/dondozo/pinkies_and_the_bird_brain.json`)
     await testOHKO(module as LightBuildInfo);
   })
 })

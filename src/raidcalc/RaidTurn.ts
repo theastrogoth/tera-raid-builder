@@ -29,16 +29,17 @@ export type RaidTurnResult = {
 }
 
 export class RaidTurn {
-    raidState:      RaidState; // We shouldn't mutate this state; it is the result from the previous turn
-    raiderID:       number;
-    targetID:       number;
-    raiderMoveData!: MoveData;
-    bossMoveData!:   MoveData;
-    raiderOptions:  RaidMoveOptions;
-    bossOptions:    RaidMoveOptions;
-    id:        number;
-    group?:     number;
-    turnNumber: number;
+    raidState:          RaidState; // We shouldn't mutate this state; it is the result from the previous turn
+    raiderID:           number;
+    targetID:           number;
+    raiderMoveData!:    MoveData;
+    bossMoveData!:      MoveData;
+    raiderOptions:      RaidMoveOptions;
+    bossOptions:        RaidMoveOptions;
+    id:                 number;
+    group?:             number;
+    turnNumber:         number;
+    numNPCs:            number;
 
     _isBossAction!:     boolean;
     _isCheer!:          boolean;
@@ -58,19 +59,19 @@ export class RaidTurn {
     _bossMoveUsed!:     string;
     _instructed?:       boolean;
 
-    _raidMove1!:      RaidMove;
-    _raidMove2!:      RaidMove;
+    _raidMove1!:        RaidMove;
+    _raidMove2!:        RaidMove;
 
-    _result1!:        RaidMoveResult;
-    _result2!:        RaidMoveResult;
-    _delayedResults!: RaidMoveResult[];
-    _raidState!:      RaidState; // This tracks changes during this turn
+    _result1!:          RaidMoveResult;
+    _result2!:          RaidMoveResult;
+    _delayedResults!:   RaidMoveResult[];
+    _raidState!:        RaidState; // This tracks changes during this turn
 
-    _flags!:          string[][]; 
-    _endFlags!:       string[];
+    _flags!:            string[][]; 
+    _endFlags!:         string[];
 
 
-    constructor(raidState: RaidState, info: RaidTurnInfo, turnNumber: number) {
+    constructor(raidState: RaidState, info: RaidTurnInfo, turnNumber: number, numNPCs: number) {
         this.raidState = raidState;
         this.raiderID = info.moveInfo.userID;
         this.targetID = info.moveInfo.targetID;
@@ -85,6 +86,7 @@ export class RaidTurn {
         this.id = info.id;
         this.group = info.group;
         this.turnNumber = turnNumber;
+        this.numNPCs = numNPCs;
 
         this.raiderOptions = info.moveInfo.options || {};
         this.bossOptions = info.bossMoveInfo.options || {};
@@ -96,7 +98,11 @@ export class RaidTurn {
         this._isCheer = ["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(this.raiderMoveData.name);
         this._isEmptyTurn = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name === "(No Move)";
         // check if this marks the end of a 4-move "turn"
-        this._isEndOfFullTurn = !this._isBossAction && !this._isEmptyTurn && ((this.turnNumber % 4) === 3);
+        const turnMoveNumber = this.turnNumber % 4;
+        this._isEndOfFullTurn = !this._isBossAction && !this._isEmptyTurn && (
+            (turnMoveNumber === 3) || 
+            (this.raiderID === 1 && ((this.numNPCs + turnMoveNumber) >= 3))
+        );
         // set up moves
         this._raiderMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
         if (this.raiderOptions.crit) this._raiderMove.isCrit = true;

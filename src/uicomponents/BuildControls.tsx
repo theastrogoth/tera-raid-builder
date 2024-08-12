@@ -1377,7 +1377,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             pokemon.id, 
             pokemon.role, 
             pokemon.shiny, 
-            false,
+            (val === "Carry Slot" || val === "NPC"),
             pokemon.field, 
             new Pokemon(gen, val, {
                 nature: "Hardy", 
@@ -1409,7 +1409,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             poke.id, 
             poke.role, 
             poke.shiny, 
-            false,
+            poke.isAnyLevel,
             poke.field, 
             new Pokemon(gen, val, {
                 nature: poke.nature, 

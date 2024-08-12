@@ -3,8 +3,10 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
-import { ABILITIES, Generations } from '../calc';
+import { ABILITIES, Generations, Pokemon } from '../calc';
 import { toID } from '../calc/util';
 
 import StatRadarPlot from "./StatRadarPlot";
@@ -78,6 +80,30 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, 
 ) {
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
+
+    const handleDelete = () => {
+        setPokemon(new Raider(
+            pokemon.id, 
+            getTranslation("NPC", translationKey, "pokemon"),
+            false, 
+            true,
+            pokemon.field, 
+            new Pokemon(gen, "NPC", {
+                nature: "Hardy", 
+                level: 1,
+                // ability: "(No Ability)",
+                ivs: {
+                    hp: 0,
+                    atk: 0,
+                    def: 0,
+                    spa: 0,
+                    spd: 0,
+                    spe: 0
+                }
+            }), 
+            [],
+        ));
+    }
   
     useEffect(() => {
         if (!allSpecies) {
@@ -134,9 +160,18 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, 
 
     return (
         <Box>
-            <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>                
+            <Paper elevation={3} sx={{ mx: 1, my: 1, width: 280, display: "flex", flexDirection: "column", padding: "0px"}}>     
+                {!prettyMode &&   
+                    <Box sx={{position: "absolute", transform: "translate(248px, 2px)"}} >
+                        <Paper elevation={3} sx={{borderRadius: 100, justifyContent: "center", alignItems: "center", boxShadow: "none"}}>
+                            <IconButton size="small" onClick={handleDelete}>
+                                <CloseIcon />
+                            </IconButton>
+                        </Paper>
+                    </Box>         
+                }
                 <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "666px" : "800px"} sx={{ marginTop: 1 }} >
-                    <Box paddingBottom={0} width="90%">
+                    <Box paddingBottom={0} paddingLeft={1.5} width="88%" alignSelf="start">
                         <RoleField pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />
                     </Box>
                     <Box width="100%" marginTop="10px" display="flex" justifyContent="center">

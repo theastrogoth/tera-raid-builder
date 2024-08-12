@@ -1381,9 +1381,9 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             pokemon.field, 
             new Pokemon(gen, val, {
                 nature: "Hardy", 
-                level: val === "Carry Slot" ? 1 : 100,
+                level: (val === "Carry Slot" || val === "NPC") ? 1 : 100,
                 // ability: "(No Ability)",
-                ivs: val === "Carry Slot" ? {
+                ivs: (val === "Carry Slot" || val === "NPC") ? {
                     hp: 0,
                     atk: 0,
                     def: 0,

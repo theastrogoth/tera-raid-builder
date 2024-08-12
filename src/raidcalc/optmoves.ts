@@ -292,7 +292,7 @@ export function optimizeBossMoves(raiders: Raider[], groups: TurnGroupInfo[]) {
 
     const branchChunks = splitGroups(expandRepeats(groups).filter((g) => g.turns.length > 0));
     const bestResult: [RaidBattleResults] = [startingResult];
-    const bestScore: [number] = [0];
+    const bestScore: [number] = [-Infinity];
     const branchCounter: [number] = [1];
     calculateBranches(branchChunks, startingResult, raiders[0].moveData, bestResult, bestScore, branchCounter);
     console.log("Number of branches searched for boss move optimization: " + branchCounter[0]);

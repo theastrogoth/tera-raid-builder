@@ -379,11 +379,12 @@ export class RaidMove {
     private checkSheerForce() {
         this._isSheerForceBoosted = (
             this._user.hasAbility("Sheer Force") && (
+                this.move.secondaries || 
                 ((this.moveData.flinchChance || 0) > 0) ||
                 (this.moveData.category === "damage+ailment") ||
                 (this.moveData.category === "damage+lower" && Object.values(this.moveData.statChanges!).some((val) => val.change < 0)) ||
                 (this.moveData.category === "damage+raise" && Object.values(this.moveData.statChanges!).some((val) => val.change > 0)) ||
-                ["Anchor Shot","Ceaseless Edge","Eerie Spell","Genesis Supernova","Secret Power","Sparkling Aria","Spirit Shackle","Stone Axe"].includes(this.moveData.name)
+                ["Anchor Shot","Ceaseless Edge","Eerie Spell","Genesis Supernova","Secret Power","Sparkling Aria","Spirit Shackle","Stone Axe","Electro Shot"].includes(this.moveData.name)
             )
         );
     }

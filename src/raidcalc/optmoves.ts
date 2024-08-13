@@ -156,7 +156,8 @@ function pickInterestingMoves(state: RaidState, turn: RaidTurnInfo, turnNumber: 
                 moveData: m,
             }
         }
-        const result = new RaidTurn(state, turnInfo, turnNumber).result();
+        const numNPCs = state.raiders.reduce((acc, raider) => acc + (raider.name === "NPC" ? 1 : 0), 0); // Store this somewhere to avoid recalculating it?
+        const result = new RaidTurn(state, turnInfo, turnNumber, numNPCs).result();
         const targetID = turn.moveInfo.userID;
         const damage = state.raiders[targetID].originalCurHP - result.state.raiders[targetID].originalCurHP;
         if (damage > mostDamage) {

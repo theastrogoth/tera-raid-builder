@@ -164,7 +164,7 @@ export class RaidMove {
             this._user.isCharging = true;
             this._desc[this.userID] = this._user.name + " is charging its attack!";
             // Electro Shot boost check
-            if (this.moveData.name === "Electro Shot" && !this._isSheerForceBoosted) {
+            if (this.moveData.name === "Electro Shot") {
                 this._raidState.applyStatChange(this.userID, {spa: 1});
             }
             if (this.moveData.name === "Meteor Beam" && !this._isSheerForceBoosted) {
@@ -739,7 +739,7 @@ export class RaidMove {
             this._flags[this.userID].push("changed to the " + this._moveType + " type");
         }
         // Electro Shot boost check (with Power Herb or in Rain)
-        if (this.moveData.name === "Electro Shot" && !this._isSheerForceBoosted && !moveUser.isCharging) {
+        if (this.moveData.name === "Electro Shot" && !moveUser.isCharging) {
             this._raidState.applyStatChange(this.userID, {spa: 1});
         }
         // Spit Up / Stockpile check

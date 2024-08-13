@@ -364,7 +364,6 @@ export class RaidMove {
         confusedPoke.isPumped = 0;
         const field = new Field();
         const move = new Move(9, "hurt itself in its confusion");
-        console.log(move)
         const res = calculate(9, confusedPoke, confusedPoke, move, field);
         const damage = res.damage as number[];
         const damageVal = this.options.roll === "max" ? damage[damage.length-1] : this.options.roll === "min" ? damage[0] : damage[Math.floor(damage.length/2)];
@@ -1281,7 +1280,6 @@ export class RaidMove {
                 }
                 break;
             case "Fling":
-                console.log(this._user.item);
                 if (this._user.item && !(target.hasAbility("Shield Dust") || target.hasItem("Covert Cloak"))) {
                     switch (this._user.item) {
                         case "Light Ball":

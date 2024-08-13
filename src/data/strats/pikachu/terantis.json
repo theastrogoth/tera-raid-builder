@@ -8,6 +8,7 @@
             "role": "Pikachu",
             "name": "Pikachu",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Lightning Rod",
             "item": "Light Ball",
             "nature": "Quiet",
@@ -28,6 +29,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "teraType": "Water",
             "moves": [
                 "Surf",
@@ -54,6 +56,7 @@
             "role": "Lurantis",
             "name": "Lurantis",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Contrary",
             "item": "Zoom Lens",
             "nature": "Modest",
@@ -74,6 +77,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "teraType": "Grass",
             "moves": [
                 "Leaf Storm",
@@ -97,6 +101,7 @@
             "role": "Arboliva",
             "name": "Arboliva",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Seed Sower",
             "item": "Covert Cloak",
             "nature": "Calm",
@@ -117,6 +122,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "teraType": "Grass",
             "moves": [
                 "Sunny Day",
@@ -140,6 +146,7 @@
             "role": "Clodsire",
             "name": "Clodsire",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Water Absorb",
             "item": "Grassy Seed",
             "nature": "Impish",
@@ -160,6 +167,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "teraType": "Grass",
             "moves": [
                 "Acid Spray",
@@ -183,6 +191,7 @@
             "role": "Oranguru",
             "name": "Oranguru",
             "shiny": false,
+            "isAnyLevel": false,
             "ability": "Telepathy",
             "item": "Covert Cloak",
             "nature": "Calm",
@@ -203,6 +212,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "teraType": "Grass",
             "moves": [
                 "Instruct",
@@ -233,8 +243,9 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -242,10 +253,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
@@ -255,12 +267,13 @@
             "moveInfo": {
                 "name": "Sunny Day",
                 "userID": 2,
-                "targetID": 0,
+                "targetID": 2,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -268,10 +281,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
@@ -285,8 +299,9 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -294,10 +309,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
@@ -311,8 +327,9 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -320,10 +337,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
@@ -333,12 +351,13 @@
             "moveInfo": {
                 "name": "Heal Cheer",
                 "userID": 2,
-                "targetID": 0,
+                "targetID": 2,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -346,10 +365,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
@@ -363,8 +383,9 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -372,10 +393,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
@@ -389,8 +411,9 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -398,10 +421,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
@@ -415,9 +439,10 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
+                    "roll": "avg",
                     "hits": 1,
-                    "activateTera": true
+                    "activateTera": true,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -425,10 +450,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         }

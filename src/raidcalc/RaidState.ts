@@ -33,7 +33,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
+    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false, blockWhiteHerb: boolean = false) {
         const pokemon = this.getPokemon(id);
         const originalHP = pokemon.originalCurHP;
         const originalDamageRolls = pokemon.cumDamageRolls.clone();
@@ -194,7 +194,7 @@ export class RaidState implements State.RaidState{
                 this.applyStatChange(id, boost, true, id);
             }  else if (moveCategory === "Physical" && pokemon.hasAbility("Weak Armor")) {
                 const boost = {def: -1, spe: 2};
-                this.applyStatChange(id, boost, true, id);
+                this.applyStatChange(id, boost, true, id, false, false, blockWhiteHerb);
             } else if (pokemon.hasAbility("Stamina")) {
                 const boost = {def: 1};
                 this.applyStatChange(id, boost, true, id);
@@ -390,7 +390,7 @@ export class RaidState implements State.RaidState{
                 break;
             case "Oran Berry":
                 if (pokemon.originalCurHP < pokemon.maxHP()) {
-                    pokemon.applyDamage(-Math.min(pokemon.maxHP(), pokemon.originalCurHP + (pokemon.hasAbility("Ripen") ? 20 : 10)), undefined, true);
+                    pokemon.applyDamage(-Math.min(pokemon.maxHP() - pokemon.originalCurHP, pokemon.hasAbility("Ripen") ? 20 : 10), undefined, true);
                     pokemon.lastConsumedItem = item as ItemName;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
@@ -473,7 +473,7 @@ export class RaidState implements State.RaidState{
         if (lost) { this.loseItem(id, true, blockSymbiosis); }
     }
 
-    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {
+    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false, blockWhiteHerb = false): StatsTable {
         const pokemon = this.getPokemon(id);
         const fromSelf = id === sourceID;
         const fromEnemy = (id === 0) ? (sourceID !== 0) : (sourceID === 0)
@@ -560,8 +560,13 @@ export class RaidState implements State.RaidState{
             }
         }
         // White Herb
-        if (pokemon.item === "White Herb" && Object.values(diff).some(val => val < 0)) {
+        if (!blockWhiteHerb && pokemon.item === "White Herb" && Object.values(pokemon.boosts).some(val => val < 0)) {
+            const preWhiteHerbBoosts = {...pokemon.boosts};
             this.consumeItem(id, pokemon.item, true, false);
+            for (let stat in diff) {
+                const statId = stat as StatIDExceptHP;
+                diff[statId] = (diff[statId] || 0) + (pokemon.boosts[statId] || 0) - (preWhiteHerbBoosts[statId] || 0);
+            }
         }
  
         return diff;

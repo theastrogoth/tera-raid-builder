@@ -2,7 +2,7 @@ import { Move, Field, StatsTable, calculate} from "../calc";
 import { MoveData, RaidMoveOptions } from "./interface";
 import { RaidState } from "./RaidState";
 import { Raider } from "./Raider";
-import { AbilityName, ItemName, MoveName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
+import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, TypeName } from "../calc/data/interface";
 import { isGrounded } from "../calc/mechanics/util";
 import { absoluteFloor, isSuperEffective, pokemonIsGrounded, isStatus, getAccuracy, getBpModifier, isRegularMove, isRaidAction, getCritChance } from "./util";
 import { getRollCounts, catRollCounts, combineRollCounts } from "./rolls"
@@ -106,7 +106,6 @@ export class RaidMove {
 
     _isSheerForceBoosted?: boolean;
 
-    _flingItem?: ItemName;
     _powerHerbUsed?: boolean;
 
     _moveType!: TypeName;
@@ -839,7 +838,7 @@ export class RaidMove {
                                 hitRoll = catRollCounts(hitRoll, getRollCounts([[0]], 0, target.maxHP(), [1 - accFraction]));
                             }
                             const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
-                            this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this._moveType, this.move.category, true, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted);
+                            this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this._moveType, this.move.category, true, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted, i !== (this.hits - 1));
                             totalDamage += hitDamage;
                             this._damageRolls[id].push(hitRoll);
         
@@ -867,7 +866,7 @@ export class RaidMove {
                                             break;
                                         case "Gooey":
                                         case "Tangling Hair":
-                                            this._raidState.applyStatChange(this.userID, {spe: -1});
+                                            this._raidState.applyStatChange(this.userID, {spe: -1}, true, this.targetID, false, false, i !== (this.hits - 1));
                                             break;
                                         // Guessing NoReceiver
                                         case "Wandering Spirit":
@@ -925,10 +924,10 @@ export class RaidMove {
                         this._desc[id] = result.desc();
                         // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target receives damage
                         if (this.moveData.name === "Fling" && this._user.item) {
-                            this._flingItem = moveUser.item;
+                            const flingItem = this._user.item;
                             this._raidState.loseItem(this.userID);
-                            this._user.lastConsumedItem = this._flingItem;
-                            if (this._user.hasAbility("Cud Chew") && this._flingItem!.includes("Berry")) {
+                            this._user.lastConsumedItem = flingItem;
+                            if (this._user.hasAbility("Cud Chew") && flingItem!.includes("Berry")) {
                                 this._user.isCudChew = 2;
                             }
                         }
@@ -1257,7 +1256,8 @@ export class RaidMove {
         }
 
         if (this._doesNotAffect[this._targetID]) { return; }
-        
+        const target = this.getPokemon(this._targetID);
+
         switch (this.move.name) {
             case "Brick Break":
             case "Psychic Fangs":
@@ -1275,10 +1275,52 @@ export class RaidMove {
                 }
                 break;
             case "Clear Smog":
-                const target = this.getPokemon(this._targetID);
                 for (let stat in target.boosts) {
                     const statId = stat as StatIDExceptHP;
                     target.boosts[statId] = 0;
+                }
+                break;
+            case "Fling":
+                console.log(this._user.item);
+                if (this._user.item && !(target.hasAbility("Shield Dust") || target.hasItem("Covert Cloak"))) {
+                    switch (this._user.item) {
+                        case "Light Ball":
+                            this._raidState.applyStatus(target.id, "par", this.userID, true, false, this.options.roll);
+                            break;
+                        case "Flame Orb":
+                            this._raidState.applyStatus(target.id, "brn", this.userID, true, false, this.options.roll);
+                            break;
+                        case "Toxic Orb":
+                            this._raidState.applyStatus(target.id, "tox", this.userID, true, false, this.options.roll);
+                            break
+                        case "Poison Barb":
+                            this._raidState.applyStatus(target.id, "psn", this.userID, true, false, this.options.roll);
+                            break;
+                        case "White Herb":
+                        case "Cheri Berry":
+                        case "Chesto Berry":
+                        case "Pecha Berry":
+                        case "Rawst Berry":
+                        case "Aspear Berry":
+                        case "Lum Berry":
+                        case "Persim Berry": 
+                        case "Liechi Berry":
+                        case "Kee Berry":
+                        case "Ganlon Berry":
+                        case "Petaya Berry":
+                        case "Maranga Berry":
+                        case "Apicot Berry":
+                        case "Salac Berry":
+                        case "Starf Berry":
+                        case "Lansat Berry":
+                        case "Micle Berry":
+                        case "Sitrus Berry":
+                        case "Oran Berry":
+                        case "Mental Herb":
+                            this._raidState.consumeItem(this._targetID, this._user.item, false);
+                            break;
+                        default: break;
+                    }
                 }
                 break;
             default: break;
@@ -1539,48 +1581,6 @@ export class RaidMove {
                 // this._raidState.receiveItem(this._targetID, tempUserItem);
                 // this._raidState.receiveItem(this.userID, tempTargetItem);
                 break;
-            case "Fling":
-                if (this._flingItem && !(target.hasAbility("Shield Dust") || target.hasItem("Covert Cloak"))) {
-                    switch (this._flingItem) {
-                        case "Light Ball":
-                            this._raidState.applyStatus(target.id, "par", this.userID, true, false, this.options.roll);
-                            break;
-                        case "Flame Orb":
-                            this._raidState.applyStatus(target.id, "brn", this.userID, true, false, this.options.roll);
-                            break;
-                        case "Toxic Orb":
-                            this._raidState.applyStatus(target.id, "tox", this.userID, true, false, this.options.roll);
-                            break
-                        case "Poison Barb":
-                            this._raidState.applyStatus(target.id, "psn", this.userID, true, false, this.options.roll);
-                            break;
-                        case "White Herb":
-                        case "Cheri Berry":
-                        case "Chesto Berry":
-                        case "Pecha Berry":
-                        case "Rawst Berry":
-                        case "Aspear Berry":
-                        case "Lum Berry":
-                        case "Persim Berry": 
-                        case "Liechi Berry":
-                        case "Kee Berry":
-                        case "Ganlon Berry":
-                        case "Petaya Berry":
-                        case "Maranga Berry":
-                        case "Apicot Berry":
-                        case "Salac Berry":
-                        case "Starf Berry":
-                        case "Lansat Berry":
-                        case "Micle Berry":
-                        case "Sitrus Berry":
-                        case "Oran Berry":
-                        case "Mental Herb":
-                            this._raidState.consumeItem(this._targetID, this._flingItem, false);
-                            break;
-                        default: break;
-                    }
-                }
-                break;
             // other
             case "Defog":
                 const targetFields = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];
@@ -1654,6 +1654,7 @@ export class RaidMove {
                     this._user.boosts[statId] = target.boosts[statId] || 0;
                     this._user.isPumped = target.isPumped;
                 }
+                this._raidState.applyStatChange(this.userID, {}, false, this.userID, false);
                 break;
             case "Power Swap":
                 const tempUserAtkBoosts = {...this._user.boosts};
@@ -1661,6 +1662,7 @@ export class RaidMove {
                 this._user.boosts.spa = target.boosts.spa;
                 target.boosts.atk = tempUserAtkBoosts.atk;
                 target.boosts.spa = tempUserAtkBoosts.spa;
+                this._raidState.applyStatChange(this.userID, {}, false, this.userID, false);
                 break;
             case "Guard Swap":
                 const tempUserDefBoosts = {...this._user.boosts};
@@ -1668,11 +1670,13 @@ export class RaidMove {
                 this._user.boosts.spd = target.boosts.spd;
                 target.boosts.def = tempUserDefBoosts.def;
                 target.boosts.spd = tempUserDefBoosts.spd;
+                this._raidState.applyStatChange(this.userID, {}, false, this.userID, false);
                 break;
             case "Heart Swap":
                 const tempUserBoosts = {...this._user.boosts};
                 this._user.boosts = {...target.boosts};
                 target.boosts = {...tempUserBoosts};
+                this._raidState.applyStatChange(this.userID, {}, false, this.userID, false);
                 break;
             case "Power Trick":
                 const tempAtk = this._user.stats.atk;
@@ -1688,6 +1692,7 @@ export class RaidMove {
                 for (let stat in target.boosts) {
                     target.boosts[stat as StatIDExceptHP] = -(target.boosts[stat as StatIDExceptHP] || 0);
                 }
+                this._raidState.applyStatChange(this.userID, {}, false, this.userID, false);
                 break;
             case "Acupressure":
                 target.randomBoosts += target.boostCoefficient * 2;

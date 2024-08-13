@@ -9,8 +9,7 @@ import { lightToFullBuildInfo } from './uicomponents/LinkButton';
 import { deserialize } from './utilities/shrinkstring';
 
 import { TextEncoder, TextDecoder } from 'util';
-import exp from 'constants';
-import { FlashOnOutlined } from '@mui/icons-material';
+
 Object.assign(global, { TextDecoder, TextEncoder });
 
 // RaidCalc tests
@@ -35,6 +34,9 @@ async function resultsFromLightBuild(strategy: LightBuildInfo) {
   let totalTurns = strategy.turns.length; 
   if (strategy.repeats) {
     totalTurns = strategy.groups!.reduce((a, b, i) => b.length * (strategy.repeats![i] || 1) + a, 0);
+  }
+  if (startingState.raiders.some(r => r.name === "NPC") && buildInfo.groups.some(g => g.turns.some(t => t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)"))) {
+    totalTurns += 1; // NPC moves first in the first turn
   }
   expect(result.turnResults.length).toEqual(totalTurns); // this checks that the calc didn't encounter an error
   return result;
@@ -774,6 +776,31 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[3].results[1].desc[1].includes("(3 hits)")).toEqual(true);
     expect(result.turnResults[3].state.raiders[1].boosts.spa).toEqual(6);
     expect(result.turnResults[3].state.raiders[1].item).toEqual(undefined);
+  })
+  test('white-herb-fling-psych-up', async() => {
+    const hash = "#H4sIAAAAAAAAA81VyW7bMBD9FWFOLcCD5SXbLUuzAHEa1C5yMHSgpZHEmiIFkrJjBPn3DmnJjoMWDVokKChRw+Fw+ObxSXqCHE4g/WG1AgYOTmazHgPFK4SEeVNk3ogZNBbNzYUP4qZAF0xdO6GV9RF9BoXRTU3eSi/xRuWazLm2dtwNNwlTIxzNWEy1yrhZf8lzTJ0lF5dSr8bCettoKelRCmfbdaVPzd2C+gxzn6Hmoc9Cj9uwqRFFgcYjFRXuRrYUKLNzrlKUF7ziBW6dm+E37n7lmqLhv3Gfl1wV2BKktEMPPTWYiVBQrRdYbYhtjPKeQFGoD2vkIcg2c+uEa/ziDY9Uu8cRDiHsq9b0FPZUrW9xiZ4XPhdSuOB2WIVg2sKH49InFaGXbXSBKtsQQpin6xrbQ7LdCTXSiVqKEIOPzvBxO9sV7TgkCYMlnDwBaeSIAbTXLDiOGVF/JapKFKVu/J4vBzmXFtseiDsnkQ5NNVIyuOYmozpClgPKsm3Jc+ccxK8umjocMbijbe60qThtMYMpX2B0oVee7knJM72KzngQ0TU+Un+vV2iiK2IrYf1er0dL7rh16+heake+sNkhG43YQY/1RxTDjnpsSDg6JMcs9mmkQ5KAsA5ejfbKfEC+iE5NpT2nD6RjjK7RzOGvK44Jsi850DZLwni2hb2XZgeY1HSGpqhEUPbO3IM6Iel4RPDVcBVRkFn/A8wXIOEmFanEaEJaN/BGyAPSjqEX1/PWGa/gokrLd2EVLqVQxVuRDhmcS8y5CHztzD20l0bQ2xddNYTvfTDfipyEjysvR7tOy+h7/acKkva1HQZXMIn2vdMi6cSbmdFeQW1ZfFkAi3ds0PJPY21dFD6QROJnoMxvy9DlGFJ8vE23K2tI7aOR9Kn9P7wMqHXpNhIlx8fD2B7E4IXU2PADkZBwZz3/u/V/SroHdA+T8P9tm49IWHclyfPzT3pQzE7jCAAA";
+    const result = await resultsFromHash(hash);
+    // T0: White Herb activates *after* all hits from Icicle Spear
+    expect(result.turnResults[0].results[1].state.raiders[1].boosts.def).toEqual(0);
+    expect(result.turnResults[0].results[1].state.raiders[1].item).toEqual(undefined);
+    // T2: Weak Armor debuffs to Def happen without White Herb
+    expect(result.turnResults[2].results[1].state.raiders[1].boosts.def).toEqual(-2); // 2 hits from Icicle Spear
+    // T3: Flung White Herb activates *before* debuffs from Weak Armor
+    expect(result.turnResults[3].results[0].state.raiders[1].boosts.def).toEqual(-1); // White Herb removes -2, Weak Armor applies -1
+    // T4: Psych Up copies boosts, White Herb removes debuffs
+    expect(result.turnResults[4].results[0].state.raiders[4].boosts.spe).toEqual(6);
+    expect (result.turnResults[4].results[0].state.raiders[4].boosts.def).toEqual(0); 
+  })
+  test('white-herb-gooey-npc', async() => {
+    const hash = "#H4sIAAAAAAAAA81VTW/bMAz9K4ZOHaCD4zT9unXJ2hRoiqIJ0EPgg2IzjhZZMiQ5XVDkv4+U7aQZVqzbYRts0NQTRfKRtP3KluyKZV+d0Ywzz67m85gzLUpgKSdV5qT0OKsd2LsRGQlbgA+qqbw02pFFwllhTV0hWpoN3OmlQXVhnJt0y8ZhZqXHHQeZ0bmw2y/LJWTeISSUMi8T6Ui3Ril8rKR37bkVuRZ+jTKHJXmoRJB5kLA3m1lZFGApU1nCYeVWElQ+FDoDNRKlKGAPNssn4X8GzcCKd+DhSugC2gJp44FSzyzkMhCqzBrKprC11YSEEgV+UIEIRq5eOC99TYebOiJ3yiM0IcTVW3xKd62397ABqotYSCV9gD2UwRhDkDlsyKkMUrXWBei8KQjmPNtW0DbJdR2qlZeVksEGvnkrJu1uR9oLlqacbdjVK8MZueCMtfc8AJccS39rTB5K1SlLoRy0kkDAhHWtFGdjYXNchLNneDbmveSik+mu2+j3frhx6xIjPbR+5mxkRWF09FhjDIw8rS2NxlTVeQHRZ1MucPVoXsBGzytZYYGTQRzjuSchdTSiWUAsRDvnZzHd/ZgnMT8f8P4g3XWpXHJs8LWsDNW6fR6xm66lUtG91DSfGMpDNAZL0e/KSrrVnmsySJBnI+Nfce3FR2SnOFqQoS82BlVJXURjoWn8ZzJbh5m5qe02mr7IKgwTHZ/v6cWH6y0xHLihgqWQlsbpoB7Ru7ESZyi6rbFv7/cw/gNOt1ZsaJL32RJ+yK6Pto9D1somG29rTOnkwUTXzWvw6TdSOgZ7b1L5YL1O/5uM0vblOw1QULFcXUGxsUkDDo562XZUbArGewdiePJkYpyPwhcOZwsp4Pv4IQ+dj1O07+3dvZ1FhOO/nsy+AP8yGWzSPKYfBH3b0/CnwIvQlHd3mu523wGz2q28iQcAAA==";
+    const result = await resultsFromHash(hash);
+    // T1: White Herb activates *after* all of the hits from Fury Swipes
+    expect(result.turnResults[1].results[0].state.raiders[1].boosts.spe).toEqual(0);
+    // T2: NPC cheers after the host (raider 1) moves
+    expect(result.turnResults[2].results[0].userID).toEqual(3);
+    expect(result.turnResults[2].results[0].desc[3].includes("Defense Cheer")).toEqual(true);
+    // T3: This time, Fury Swipes gets -1 speed for each hit
+    expect(result.turnResults[3].results[0].state.raiders[1].boosts.spe).toEqual(-5);
   })
 })
 

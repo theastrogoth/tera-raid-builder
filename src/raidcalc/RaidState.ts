@@ -561,7 +561,7 @@ export class RaidState implements State.RaidState{
         }
         // White Herb
         if (pokemon.item === "White Herb" && Object.values(diff).some(val => val < 0)) {
-            this.consumeItem(id, pokemon.item, false);
+            this.consumeItem(id, pokemon.item, true, false);
         }
  
         return diff;

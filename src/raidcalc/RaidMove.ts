@@ -139,99 +139,61 @@ export class RaidMove {
 
     public result(): RaidMoveResult {
         this.setOutputRaidState();
-        if (!this.checkIfMoves()) {
-            const output = this.output;
-            return output;
-        }
-        this._raidState.raiders[0].checkShield(); // check for shield activation
-        this.checkSheerForce();
-        this.setAffectedPokemon();
-        if ( // prevent the boss from moving if it's shield has just been broken
-            this.userID === 0 && 
-            this._user.shieldBreakStun &&
-            this._user.shieldBreakStun![this._targetID-1]
-        ) {
-            this._desc[this.userID] = this._user.name + " is stunned after having its shield broken!";         
-            this._user.shieldBreakStun![this._targetID-1] = false;           
-        } else if ( // don't move yet for charge moves
-            !this._user.isCharging &&
-            chargeMoves.includes(this.move.name) &&
-            !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name)) &&
-            !(this._user.field.hasWeather("Rain") && this.move.name === "Electro Shot") &&
-            !this._user.hasItem("Power Herb")
-        ) {
-            this._user.isCharging = true;
-            this._desc[this.userID] = this._user.name + " is charging its attack!";
-            // Electro Shot boost check
-            if (this.moveData.name === "Electro Shot") {
-                this._raidState.applyStatChange(this.userID, {spa: 1});
+        if (this.checkIfMoves()) {
+            this._raidState.raiders[0].checkShield(); // check for shield activation
+            this.checkSheerForce();
+            this.setAffectedPokemon();
+            if (!this.checkIfCharging()) {
+                if (!this._user.isCharging && 
+                    chargeMoves.includes(this.move.name) && 
+                    !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name)) &&
+                    !(this._user.field.hasWeather("Rain") && this.move.name === "Electro Shot") &&
+                    this._user.hasItem("Power Herb")
+                ) {
+                    this._powerHerbUsed = true;
+                    // this._raidState.loseItem(this.userID); // Power Herb is consumed after the move is used for the purposes of Symbiosis
+                }
+                this.setMoveType();
+                this.setDoesNotAffect();
+                this.checkProtection();
+                this.applyProtection();
+                this.applyPreDamageEffects();
+                this.applyDamage();
+                this.applyDrain();
+                this.applyHealing();
+                this.applySelfDamage();
+                this.applyFlinch();
+                this.applyStatChanges();
+                this.applyAilment();
+                this.applyFieldChanges();
+                this.applyOtherMoveEffects();
+                this.applyUniqueMoveEffects();
+                this._user.isCharging = false;
+                if (rechargeMoves.includes(this.move.name)) {
+                    this._user.isRecharging = true;
+                }
+                if (this._powerHerbUsed && this._user.hasItem("Power Herb")) {
+                    this._raidState.consumeItem(this.userID, this._user.item!);
+                }
+                this.applyPostMoveEffects();
             }
-            if (this.moveData.name === "Meteor Beam" && !this._isSheerForceBoosted) {
-                this._raidState.applyStatChange(this.userID, {spa: 1});
-            }
-        } else if (this._user.isRecharging) {
-            this._user.isRecharging = false;
-            this._desc[this.userID] = this._user.name + " is recharging!";
-        } else if (!this.delayed && (this.move.name === "Future Sight" || this.move.name === "Doom Desire")) { // Delayed move check
-            const target = this.getPokemon(this._targetID);
-            if (target.delayedMoveCounter) {
-                this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
-            } else {
-                target.delayedMoveCounter = 3;
-                target.delayedMoveSource = this.userID;
-                target.delayedMove = this.moveData;
-                if (this.moveData.name === "Future Sight") {
-                    this._desc[this.userID] = this._user.name + " forsaw an attack!";
-                } else {
-                    this._desc[this.userID] = this._user.name + " chose Doom Desire as its destiny!";
+            this._raidState.raiders[0].checkShield(); // check for shield breaking 
+            this.setFlags();
+            // store move data and target
+            if (isRegularMove(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
+                this._user.lastMove = this.moveData;
+                this._user.lastTarget = this.moveData.target === "user" ? this.userID : this._targetID;
+                this._raidState.lastMovedID = this.userID;
+                // remove Micle boost
+                this._user.isMicle = false;
+                if (this.userID !== 0) {
+                    this._raidState.raiders[this.raiderID].isMicle = false; // in case of Instruct
                 }
             }
-        } else {
-            if (!this._user.isCharging && 
-                chargeMoves.includes(this.move.name) && 
-                !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name)) &&
-                !(this._user.field.hasWeather("Rain") && this.move.name === "Electro Shot") &&
-                this._user.hasItem("Power Herb")
-            ) {
-                this._powerHerbUsed = true;
-                // this._raidState.loseItem(this.userID); // Power Herb is consumed after the move is used for the purposes of Symbiosis
-            }
-            this.setMoveType();
-            this.setDoesNotAffect();
-            this.checkProtection();
-            this.applyProtection();
-            this.applyPreDamageEffects();
-            this.applyDamage();
-            this.applyDrain();
-            this.applyHealing();
-            this.applySelfDamage();
-            this.applyFlinch();
-            this.applyStatChanges();
-            this.applyAilment();
-            this.applyFieldChanges();
-            this.applyOtherMoveEffects();
-            this.applyUniqueMoveEffects();
-            this._user.isCharging = false;
-            if (rechargeMoves.includes(this.move.name)) {
-                this._user.isRecharging = true;
-            }
-            if (this._powerHerbUsed && this._user.hasItem("Power Herb")) {
-                this._raidState.consumeItem(this.userID, this._user.item!);
-            }
-            this.applyPostMoveEffects();
         }
-        this._raidState.raiders[0].checkShield(); // check for shield breaking 
-        this.setFlags();
-        // store move data and target
-        if (isRegularMove(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
-            this._user.lastMove = this.moveData;
-            this._user.lastTarget = this.moveData.target === "user" ? this.userID : this._targetID;
-            this._raidState.lastMovedID = this.userID;
-            // remove Micle boost
-            this._user.isMicle = false;
-            if (this.userID !== 0) {
-                this._raidState.raiders[this.raiderID].isMicle = false; // in case of Instruct
-            }
+        // remove isCharged
+        if (this.move.hasType("Electric") && !this.move.named("Charge")) {
+            this._user.field.attackerSide.isCharged = false;
         }
         return this.output;
     }
@@ -277,7 +239,14 @@ export class RaidMove {
         // in the case of instruct, check the Instruct user first, and then the intstructed Pokemon
         const monsToCheck = (this.userID && (this.raiderID !== this.userID)) ? [this._raidState.getPokemon(this.raiderID), this._user] : [this._user];
         for (let mon of monsToCheck) {
-            if (mon.originalCurHP === 0) {
+            if ( // prevent the boss from moving if it's shield has just been broken
+                mon.id === 0 && 
+                mon.shieldBreakStun &&
+                mon.shieldBreakStun![this._targetID-1]
+            ) {
+                this._desc[this.userID] = this._user.name + " is stunned after having its shield broken!";         
+                this._user.shieldBreakStun![this._targetID-1] = false;           
+            } else if (mon.originalCurHP === 0) {
                 if (mon.id !== 0) {
                     this._warnings.push(mon.name + " fainted before moving.");
                 }
@@ -397,6 +366,47 @@ export class RaidMove {
         else if (targetType === "user-and-allies") { this._affectedIDs = this.userID === 0 ? [0] : [1,2,3,4]; }
         else if (["users-field", "allies-field", "entire-field"].includes(targetType || "")) { this._affectedIDs = [this.userID]; } // make user the target for the purposes of generating the desc
         else { this._affectedIDs = [this._targetID]; }
+    }
+
+    private checkIfCharging() {
+        if ( // don't move yet for charge moves
+            !this._user.isCharging &&
+            chargeMoves.includes(this.move.name) &&
+            !(this._user.field.hasWeather("Sun") && ["Solar Beam", "Solar Blade"].includes(this.move.name)) &&
+            !(this._user.field.hasWeather("Rain") && this.move.name === "Electro Shot") &&
+            !this._user.hasItem("Power Herb")
+        ) {
+            this._user.isCharging = true;
+            this._desc[this.userID] = this._user.name + " is charging its attack!";
+            // Electro Shot boost check
+            if (this.moveData.name === "Electro Shot") {
+                this._raidState.applyStatChange(this.userID, {spa: 1});
+            }
+            if (this.moveData.name === "Meteor Beam" && !this._isSheerForceBoosted) {
+                this._raidState.applyStatChange(this.userID, {spa: 1});
+            }
+            return true;
+        } else if (this._user.isRecharging) {
+            this._user.isRecharging = false;
+            this._desc[this.userID] = this._user.name + " is recharging!";
+            return true;
+        } else if (!this.delayed && (this.move.name === "Future Sight" || this.move.name === "Doom Desire")) { // Delayed move check
+            const target = this.getPokemon(this._targetID);
+            if (target.delayedMoveCounter) {
+                this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
+            } else {
+                target.delayedMoveCounter = 3;
+                target.delayedMoveSource = this.userID;
+                target.delayedMove = this.moveData;
+                if (this.moveData.name === "Future Sight") {
+                    this._desc[this.userID] = this._user.name + " forsaw an attack!";
+                } else {
+                    this._desc[this.userID] = this._user.name + " chose Doom Desire as its destiny!";
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     private setMoveType() {
@@ -845,7 +855,6 @@ export class RaidMove {
                             if (totalDamage > 0) {
                                 hasCausedDamage = true;
                                 moveUser.field.attackerSide.isHelpingHand = false;
-                                if (this._moveType === "Electric") { moveUser.field.attackerSide.isCharged = false; }
                             }
                             // contact checks
                             if (this.moveData.makesContact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {

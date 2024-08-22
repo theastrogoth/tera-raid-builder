@@ -798,7 +798,6 @@ function AbilitySearchResult({ability, handleAddFilter, translationKey}: {abilit
 
 function MoveSearchResult({move, allMoves, handleAddFilter, translationKey}: {move: MoveName, allMoves: Map<MoveName,MoveData>, handleAddFilter: (f: SearchOption) => void,translationKey: any}) {
     const data = allMoves.get(move)!;
-    console.log(move, data);
     return (
         <ButtonRow onClick={() => handleAddFilter({name: data.name, type: "Moves"})}>
             <CompactLeftCell width="40px"></CompactLeftCell>

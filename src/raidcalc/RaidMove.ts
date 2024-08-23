@@ -280,7 +280,7 @@ export class RaidMove {
                     !isRaidAction(this.moveData.name)
                 ) {
                     this._desc[mon.id] = mon.name + " can't use status moves due to Taunt!";
-                    mon.isTaunt--; // decrement taunt counter
+                    // mon.isTaunt--; // decrement taunt counter [moved to RaidTurn]
                     // mon.lastMoveFailed = true;
                     this._warnings.push(mon.name + " is taunted and can't use " + this.moveData.name + ".");
                     return false;

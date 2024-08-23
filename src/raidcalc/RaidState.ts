@@ -658,7 +658,7 @@ export class RaidState implements State.RaidState{
             if (success) {
                 pokemon.volatileStatus.push!(ailment);
                 if (ailment === "taunt") {
-                    pokemon.isTaunt = (firstMove ? 3 : 4);
+                    pokemon.isTaunt = 3; // (firstMove ? 3 : 4);
                 } else if (ailment === "encore") {
                     pokemon.isEncore = 3;
                 } else if (ailment === "torment") {

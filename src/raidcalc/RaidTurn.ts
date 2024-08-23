@@ -731,6 +731,10 @@ export class RaidTurn {
     private applyEndOfTurnMoveEffects() {
         // end-of-turn move effects
         for (const pokemon of this._raidState.raiders) {
+            // taunt
+            if (pokemon.isTaunt && this._isEndOfFullTurn) {
+                pokemon.isTaunt--;
+            }
             // syrup bomb
             if (pokemon.syrupBombDrops && this._isEndOfFullTurn) {
                 const origSpe = pokemon.boosts.spe || 0;

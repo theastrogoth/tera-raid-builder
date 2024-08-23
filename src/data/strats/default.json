@@ -5,12 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Gimmighoul",
-            "name": "Gimmighoul",
+            "role": "Dragonite",
+            "name": "Dragonite",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Rattled",
-            "nature": "Hardy",
+            "ability": "Inner Focus",
+            "nature": "Brave",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,71 +27,60 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 75,
+            "level": 100,
             "gender": "N",
             "teraType": "Normal",
             "moves": [
-                "Take Down",
-                "Shadow Ball",
-                "Hex",
-                "Power Gem"
+                "Extreme Speed",
+                "Scale Shot",
+                "Dragon Dance",
+                "Earthquake"
             ],
-            "bossMultiplier": 2000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Nasty Plot"
+                "Rain Dance",
+                "Hurricane",
+                "Thunder",
+                "Draco Meteor"
             ],
             "shieldData": {
-                "hpTrigger": 55,
-                "timeTrigger": 60,
-                "shieldCancelDamage": 25,
+                "hpTrigger": 75,
+                "timeTrigger": 70,
+                "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 80,
-                "shieldDamageRateTeraChange": 40
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
             "id": 1,
-            "role": "Ursaluna",
-            "name": "Ursaluna",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Guts",
-            "item": "Flame Orb",
-            "nature": "Adamant",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
-                "atk": 252,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Belly Drum",
-                "Headlong Rush",
-                "Heavy Slam",
-                "Close Combat"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 2,
@@ -225,7 +214,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Rain Dance",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -236,11 +225,40 @@
                     "hits": 1
                 }
             }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Hurricane",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
         }
     ],
     "groups": [
         [
-            0
+            0,
+            1
         ]
     ],
     "repeats": [

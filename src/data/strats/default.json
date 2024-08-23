@@ -54,61 +54,81 @@
         },
         {
             "id": 1,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Iron Hands",
+            "name": "Iron Hands",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "Quark Drive",
+            "item": "Sitrus Berry",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
+            "moves": [
+                "Belly Drum",
+                "Close Combat",
+                "Drain Punch",
+                "Swords Dance"
+            ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 2,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Maushold",
+            "name": "Maushold",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "Friend Guard",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
+            "moves": [
+                "Taunt",
+                "Helping Hand",
+                "Tickle",
+                "Mud-Slap"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -122,14 +142,15 @@
         },
         {
             "id": 3,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -137,16 +158,21 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
+            "moves": [
+                "Tickle",
+                "Misty Terrain",
+                "Reflect",
+                "Chilling Water"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -160,14 +186,15 @@
         },
         {
             "id": 4,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -175,16 +202,21 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
+            "moves": [
+                "Tickle",
+                "Misty Terrain",
+                "Reflect",
+                "Chilling Water"
+            ],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -232,7 +264,7 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

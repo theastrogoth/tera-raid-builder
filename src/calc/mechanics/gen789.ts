@@ -374,7 +374,7 @@ export function calculateSMSSSV(
         !defender.hasItem('Iron Ball') && defender.hasAbility('Levitate')) ||
       (move.flags.bullet && defender.hasAbility('Bulletproof')) ||
       (move.flags.sound && !move.named('Clangorous Soul') && defender.hasAbility('Soundproof')) ||
-      (move.priority > 0 && field.defenderSide.isDazzling || (defender.hasAbility('Queenly Majesty', 'Dazzling', 'Armor Tail'))) ||
+      (move.priority > 0 && field.defenderSide.isDazzling) || // || (defender.hasAbility('Queenly Majesty', 'Dazzling', 'Armor Tail'))) ||
       (move.hasType('Ground') && defender.hasAbility('Earth Eater')) ||
       (move.flags.wind && defender.hasAbility('Wind Rider'))
   ) {

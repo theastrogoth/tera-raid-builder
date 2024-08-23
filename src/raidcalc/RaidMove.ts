@@ -1068,6 +1068,7 @@ export class RaidMove {
                 pokemon.isSleep = 0;
                 pokemon.isYawn = 0;
                 pokemon.syrupBombDrops = 0;
+                pokemon.volatileStatus = pokemon.volatileStatus.filter(s => s !== "confusion");
             } else if (this.move.name === "Swallow") {
                 // Swallow / Stockpile check
                 if (!target.stockpile) {

@@ -411,6 +411,11 @@ export function calculateSMSSSV(
     return result;
   }
 
+  if (move.named('Endeavor')) {
+    result.damage = Math.max(0, defender.originalCurHP - attacker.originalCurHP);
+    return result;
+  }
+
   if (move.named('Final Gambit')) {
     result.damage = attacker.curHP();
     return result;

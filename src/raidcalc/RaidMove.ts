@@ -794,6 +794,9 @@ export class RaidMove {
                             if (calcMove.name === "Pollen Puff" && this.userID !== 0 && this._targetID !== 0) {
                                 break;
                             }
+                            if (calcMove.named("Endeavor") && (this.userID === 0 || this.targetID === 0)) {
+                                break;
+                            }
                             // handle moves that are affected by repeated use
                             if (this._user.lastMove && (this.moveData.name === this._user.lastMove.name)) {
                                 this._user.moveRepeated = (this._user.moveRepeated || 0) + 1;

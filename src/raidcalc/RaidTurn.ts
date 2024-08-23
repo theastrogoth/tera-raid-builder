@@ -376,7 +376,9 @@ export class RaidTurn {
             let bestMove = "(No Move)";
             let bestDamage = 0;
             for (const move of moveOptions) {
+                const moveData = this._raidState.raiders[0].moveData.find((moveData) => moveData.name === move) || {name: move} as MoveData;
                 const testMove = new Move(9, move, this.bossOptions);
+                const hits = Math.min(Math.max(this.bossOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
                 testMove.isCrit = this.bossOptions.crit || false;
                 const testField = this._raidState.raiders[0].field;
                 testField.defenderSide = this._raidState.raiders[this.raiderID].field.attackerSide;
@@ -389,6 +391,7 @@ export class RaidTurn {
                               this.bossOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
                               result.damage[Math.floor(result.damage.length / 2)]) as number;
                 }
+                damage = damage * hits; // since this isn't being handled by calculate
                 if (damage > bestDamage) {
                     bestMove = move;
                     bestDamage = damage;
@@ -403,7 +406,9 @@ export class RaidTurn {
             let bestMove = "(No Move)";
             let bestDamage = 0;
             for (const move of moveOptions) {
+                const moveData = this._raidState.raiders[this.raiderID].moveData.find((moveData) => moveData.name === move) || {name: move} as MoveData;
                 const testMove = new Move(9, move, this.raiderOptions);
+                const hits = Math.min(Math.max(this.raiderOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
                 testMove.isCrit = this.raiderOptions.crit || false;
                 const testField = this._raidState.raiders[this.raiderID].field;
                 testField.defenderSide = this._raidState.raiders[this.targetID].field.attackerSide;
@@ -416,6 +421,7 @@ export class RaidTurn {
                               this.raiderOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
                               result.damage[Math.floor(result.damage.length / 2)]) as number;
                 }
+                damage = damage * hits; // since this isn't being handled by calculate
                 if (damage > bestDamage && !(testMove.name === "Pollen Puff" && this.targetID !== 0)) {
                     bestMove = move;
                     bestDamage = damage;

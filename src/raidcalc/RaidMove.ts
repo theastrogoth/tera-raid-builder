@@ -522,7 +522,7 @@ export class RaidMove {
             // Ability-based immunities
             if (!pokemon.abilityNullified && !(this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield")) && !(this._user.hasAbility("Mycelium Might") && this.move.category === "Status")) {
                 // NEEDS TESTING: Do Dazzling/Queenly Majesty/Armor Tail block priority moves before checking for immunity?
-                if (field.attackerSide.isDazzling && (this.moveData.priority || 0) > 0) {
+                if ((this.userID * this.targetID === 0) && field.attackerSide.isDazzling && (this.moveData.priority || 0) > 0) {
                     this._doesNotAffect[id] = "blocked due to its priority"
                 }
                 switch (pokemon.ability) {

@@ -24928,7 +24928,16 @@
         "healing": null,
         "selfDamage": null,
         "ailment": null,
-        "statChanges": null,
+        "statChanges": [
+            {
+                "stat": "def",
+                "change": -1
+            },
+            {
+                "stat": "spe",
+                "change": 1
+            }
+        ],
         "flinchChance": null,
         "statChance": null,
         "ailmentChance": null,

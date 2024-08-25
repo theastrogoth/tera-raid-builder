@@ -1428,6 +1428,7 @@ export class RaidState implements State.RaidState{
         pokemon.field.attackerSide.isQuickGuard = false;
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
         const originalSpecies = new Pokemon(9, pokemon.originalSpecies || pokemon.name, {
+            level: pokemon.level,
             ivs: pokemon.ivs,
             evs: pokemon.evs,
             nature: pokemon.nature,

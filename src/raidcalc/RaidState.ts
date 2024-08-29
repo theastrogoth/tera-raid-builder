@@ -642,7 +642,7 @@ export class RaidState implements State.RaidState{
             // Covert Cloak
             if (ailment === "confusion" && !selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { success = false; }
             // Aroma Veil
-            if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation", "yawn"].includes(ailment)) {
+            if (field.attackerSide.isAromaVeil && ["taunt", "encore", "disable", "infatuation", "yawn", "heal-block"].includes(ailment)) {
                 success = false;
             // Own Tempo
             } else if (!attackerIgnoresAbility && pokemon.hasAbility("Own Tempo") && ailment === "confusion") {

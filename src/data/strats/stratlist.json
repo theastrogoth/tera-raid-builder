@@ -1,6 +1,8 @@
 {
     "Dragonite": {
-        "Tickle Squad": "dragonite/main"
+        "Tickle Squad": "dragonite/main",
+        "Chesnaught T2.25": "dragonite/chesnaught",
+        "Zen (and PSY!) Psy-n the Dragon Off For the Nite!": "dragonite/zen_and_psy"
     },
     "Dondozo": {
         "Don Fishin'": "dondozo/main",
@@ -10,6 +12,7 @@
         "3-Leafeon Clover": "dondozo/three_leafeon_clover",
         "Freezing in the Sun": "dondozo/freezing_in_the_sun",
         "Godzilla vs. The Creature From The Deep": "dondozo/godzilla",
+        "Zen (and PSY!) Psy-chologically Destroy Dondozo's Dream!": "dondozo/zen_and_psy",
         "Four Cats Fish for Catfish": "dondozo/catfish",
         "Four Cats Fish for Catfish (Meowscarada)": "dondozo/catfish_meow",
         "Whiskers in a Knot": "dondozo/whiskers",

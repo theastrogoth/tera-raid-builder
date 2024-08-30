@@ -361,7 +361,7 @@
         },
         {
             "id": 3,
-            "group": 1,
+            "group": 4,
             "moveInfo": {
                 "name": "Taunt",
                 "userID": 2,
@@ -375,7 +375,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -389,7 +389,7 @@
         },
         {
             "id": 4,
-            "group": 1,
+            "group": 5,
             "moveInfo": {
                 "name": "Defense Cheer",
                 "userID": 4,
@@ -403,7 +403,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -417,7 +417,7 @@
         },
         {
             "id": 2,
-            "group": 1,
+            "group": 6,
             "moveInfo": {
                 "name": "Heal Cheer",
                 "userID": 3,
@@ -431,7 +431,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -459,7 +459,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -487,7 +487,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -515,7 +515,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -543,7 +543,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -557,7 +557,7 @@
         },
         {
             "id": 10,
-            "group": 3,
+            "group": 7,
             "moveInfo": {
                 "name": "Screech",
                 "userID": 4,
@@ -571,7 +571,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -599,7 +599,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -621,9 +621,15 @@
             13
         ],
         [
-            3,
-            4,
-            2,
+            3
+        ],
+        [
+            4
+        ],
+        [
+            2
+        ],
+        [
             5
         ],
         [
@@ -632,11 +638,17 @@
             7
         ],
         [
-            10,
+            10
+        ],
+        [
             9
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
+        1,
         1,
         1,
         1,

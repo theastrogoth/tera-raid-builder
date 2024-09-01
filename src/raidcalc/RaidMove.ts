@@ -139,7 +139,7 @@ export class RaidMove {
 
     public result(): RaidMoveResult {
         this.setOutputRaidState();
-        if (this.checkIfMoves()) {
+        if (this.checkIfMoves() && !this.checkIfFails()) {
             this._raidState.raiders[0].checkShield(); // check for shield activation
             this.checkSheerForce();
             this.setAffectedPokemon();
@@ -341,6 +341,19 @@ export class RaidMove {
         this._desc[this.userID] = res.desc();
         this._warnings.push(this._user.name + " hurt itself in its confusion.");
         this._raidState.applyDamage(this.userID, damageVal, roll, 1, false, false, "???", "Physical", false, false, true, false);
+    }
+
+    private checkIfFails() {
+        const target = this.getPokemon(this._targetID);
+        if (
+            // TO DO: consolidate other failure checks here, add missing ones (?)
+            (target.isTaunt && this.move.named("Taunt")) ||
+            (this._user.field.isGravity && this.move.named("Bounce", "Fly", "Flying Press", "High Jump Kick", "Jump Kick", "Magnet Rise", "Sky Drop", "Splash", "Telekenesis"))
+        ) {
+            this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
+            return true;
+        }
+        return false;
     }
 
     private checkSheerForce() {

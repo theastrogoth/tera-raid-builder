@@ -611,6 +611,9 @@ export class RaidState implements State.RaidState{
                 } else if (status === "frz") { // lasts indefinitely, average of 3 turns
                     pokemon.isFrozen = roll === "max" ? 10 : roll === "min" ? 1 : 3;
                 }
+                if (!selfInflicted && pokemon.hasAbility("Synchronize")) {
+                    this.applyStatus(source, status, id, false, false, roll);
+                }
             }
         }
 

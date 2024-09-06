@@ -462,6 +462,13 @@ export class RaidState implements State.RaidState{
             case "Mental Herb":
                 const vslen = pokemon.volatileStatus.length;
                 pokemon.volatileStatus = [...pokemon.volatileStatus].filter(status => !["infatuation", "taunt", "encore", "disable", "torment", "heal-block"].includes(status));
+                pokemon.isTaunt = 0;
+                pokemon.firstTauntTurn = false;
+                pokemon.isEncore = 0;
+                pokemon.isDisable = 0;
+                pokemon.disabledMove = undefined;
+                pokemon.isTorment = false;
+                // TO DO: Heal Block
                 if (pokemon.volatileStatus.length < vslen) {
                     pokemon.lastConsumedItem = item as ItemName;
                 }

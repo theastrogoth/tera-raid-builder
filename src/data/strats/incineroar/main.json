@@ -401,7 +401,7 @@
             "id": 6,
             "group": 4,
             "moveInfo": {
-                "name": "Belly Drum",
+                "name": "Heal Cheer",
                 "userID": 1,
                 "targetID": 1,
                 "options": {
@@ -513,7 +513,7 @@
             "id": 10,
             "group": 5,
             "moveInfo": {
-                "name": "Heal Cheer",
+                "name": "Belly Drum",
                 "userID": 1,
                 "targetID": 1,
                 "options": {
@@ -730,7 +730,6 @@
                     "(No Move)",
                     "(No Move)",
                     "Taunt",
-                    "(No Move)",
                     "Heal Cheer",
                     "Belly Drum",
                     "Close Combat"
@@ -738,7 +737,6 @@
                 "substituteTargets": [
                     1,
                     1,
-                    0,
                     0,
                     1,
                     1,

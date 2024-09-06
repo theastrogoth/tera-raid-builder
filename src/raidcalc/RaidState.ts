@@ -662,6 +662,7 @@ export class RaidState implements State.RaidState{
                 pokemon.volatileStatus.push!(ailment);
                 if (ailment === "taunt") {
                     pokemon.isTaunt = (firstMove ? 3 : 4);
+                    pokemon.firstTauntTurn = true;
                 } else if (ailment === "encore") {
                     pokemon.isEncore = 3;
                 } else if (ailment === "torment") {
@@ -1468,6 +1469,7 @@ export class RaidState implements State.RaidState{
         pokemon.originalCurHP = 0;
         pokemon.isEndure = false;
         pokemon.isTaunt = 0;
+        pokemon.firstTauntTurn = false;
         pokemon.isCharging = false;
         pokemon.isRecharging = false;
         pokemon.abilityNullified = undefined;

@@ -350,7 +350,7 @@ export class RaidTurn {
             }
         }
         // disallow status moves if taunted
-        if (this._boss.isTaunt && this._bossMove.name !== "(No Move)") {
+        if (this._boss.isTaunt && !this._boss.firstTauntTurn && this._bossMove.name !== "(No Move)") {
             const testMove = new Move(9, this.bossMoveData.name, this.bossOptions);
             if (testMove.category === "Status" && !["Clear Boosts / Abilities", "Remove Negative Effects"].includes(testMove.name)) {
                 if (this._isBossAction) {
@@ -366,7 +366,7 @@ export class RaidTurn {
         }
         if (this._raider.isTaunt) {
             const testMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
-            if (testMove.category === "Status" && !["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(testMove.name)) {
+            if (testMove.category === "Status" && !["Attack Cheer", "Defense Cheer", "Heal Cheer", "(No Move)"].includes(testMove.name)) {
                 this._raiderMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
             }
         }
@@ -733,6 +733,7 @@ export class RaidTurn {
         for (const pokemon of this._raidState.raiders) {
             // taunt
             if (pokemon.isTaunt && this._isEndOfFullTurn) {
+                pokemon.firstTauntTurn = false;
                 pokemon.isTaunt--;
             }
             // syrup bomb

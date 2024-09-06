@@ -22,6 +22,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     isTaunt?: number;           // store number of turns that a Pokemon can't use status moves
+    firstTauntTurn?: boolean;
     isSleep?: number;           // store number of turns that a Pokemon is asleep
     isYawn?: number;            // turn countdown until yawn takes effect
     yawnSource?: number;        // id of the pokemon that inflicted the user with Yawn
@@ -82,6 +83,7 @@ export class Raider extends Pokemon implements State.Raider {
         koChance: number = 0,
         isEndure: boolean = false, 
         isTaunt: number = 0,
+        firstTauntTurn: boolean = false,
         isSleep: number = 0,
         isYawn: number = 0,
         yawnSource: number | undefined = undefined,
@@ -131,6 +133,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.koChance = koChance;
         this.isEndure = isEndure;
         this.isTaunt = isTaunt;
+        this.firstTauntTurn = firstTauntTurn;
         this.isSleep = isSleep;
         this.isYawn = isYawn;
         this.yawnSource = yawnSource;
@@ -228,6 +231,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.koChance,
             this.isEndure,
             this.isTaunt,
+            this.firstTauntTurn,
             this.isSleep,
             this.isYawn,
             this.yawnSource,

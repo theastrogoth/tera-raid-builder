@@ -134,6 +134,7 @@ export interface Raider extends Pokemon {
     koChance: number;
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
+    firstTauntTurn?: boolean; 
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
     isFrozen?: number;      // store number of turns that a Pokemon is frozen

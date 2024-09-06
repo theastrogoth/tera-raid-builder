@@ -380,7 +380,7 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
         if (pokemon.isDisable && pokemon.disabledMove) {
             selectableMoves = selectableMoves.filter(m => m.name !== pokemon.disabledMove);
         }
-        if (pokemon.isTaunt) {
+        if (pokemon.isTaunt && !(pokemon.id === 0 && pokemon.firstTauntTurn)) {
             selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
         }
         if (pokemon.isThroatChop) {

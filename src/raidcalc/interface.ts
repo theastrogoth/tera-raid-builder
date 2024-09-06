@@ -145,6 +145,7 @@ export interface Raider extends Pokemon {
     lastAccuracy?: number;  // stored for accuracy of instructed moves
     moveRepeated?: number;  // stored for boost from Metronome, Fury Cutter, etc
     teraCharge?: number;    // stored for Tera activation check
+    cheersLeft?: number;
     isChoiceLocked?: boolean; 
     isEncore?: number;      // store number of turns that a Pokemon is encored    
     isTorment?: boolean;

@@ -36,6 +36,7 @@ export class Raider extends Pokemon implements State.Raider {
     lastAccuracy?: number;      // stored for accuracy of instructed moves
     moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
     teraCharge: number;         // stored for Tera activation
+    cheersLeft: number;
 
     isChoiceLocked?: boolean;   // indicates that a Pokemon is locked into a move
     isEncore?: number;          // store number of turns that a Pokemon is encored
@@ -95,6 +96,7 @@ export class Raider extends Pokemon implements State.Raider {
         lastAccuracy: number | undefined = undefined,
         moveRepeated: number | undefined = undefined,
         teraCharge: number | undefined = 0, 
+        cheersLeft: number = 3,
         choiceLocked: boolean = false,
         isEncore: number | undefined = 0,
         isTorment: boolean | undefined = false,
@@ -145,6 +147,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.lastAccuracy = lastAccuracy;
         this.moveRepeated = moveRepeated;
         this.teraCharge = teraCharge;
+        this.cheersLeft = cheersLeft;
         this.isChoiceLocked = choiceLocked;
         this.isEncore = isEncore;
         this.isTorment = isTorment;
@@ -243,6 +246,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.lastAccuracy,
             this.moveRepeated,
             this.teraCharge,
+            this.cheersLeft,
             this.isChoiceLocked,
             this.isEncore,
             this.isTorment,

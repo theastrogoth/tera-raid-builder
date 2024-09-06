@@ -348,7 +348,8 @@ export class RaidMove {
         if (
             // TO DO: consolidate other failure checks here, add missing ones (?)
             (target.isTaunt && this.move.named("Taunt")) ||
-            (this._user.field.isGravity && this.move.named("Bounce", "Fly", "Flying Press", "High Jump Kick", "Jump Kick", "Magnet Rise", "Sky Drop", "Splash", "Telekenesis"))
+            (this._user.field.isGravity && this.move.named("Bounce", "Fly", "Flying Press", "High Jump Kick", "Jump Kick", "Magnet Rise", "Sky Drop", "Splash", "Telekenesis")) ||
+            (this._user.cheersLeft < 1 && this.move.named("Attack Cheer", "Defense Cheer", "Heal Cheer"))
         ) {
             this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
             return true;

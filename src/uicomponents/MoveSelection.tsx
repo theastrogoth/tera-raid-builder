@@ -324,8 +324,9 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
 
     const targetRef = useRef(moveInfo.moveData.target);
 
-    const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
-    const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
+    // const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
+    const raider = raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID];
+    const moveSet = ["(No Move)", "(Most Damaging)", ...selectableMoves, ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||

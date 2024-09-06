@@ -277,6 +277,8 @@ export class RaidTurn {
                 if (!this._isCheer)  {
                     // delayed moves (Protect doesn't apply)
                     this.countdownDelayedMoves();
+                } else {
+                    this._raidState.raiders[this.raiderID].cheersLeft--;
                 }
                 if (!this._isBossAction){
                     this.countDownAbilityNullification(); // this might happen earlier

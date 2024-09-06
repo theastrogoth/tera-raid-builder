@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Dragonite",
-            "name": "Dragonite",
+            "role": "Incineroar",
+            "name": "Incineroar",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Inner Focus",
+            "ability": "Intimidate",
             "nature": "Brave",
             "evs": {
                 "hp": 0,
@@ -28,24 +28,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Normal",
+            "gender": "M",
+            "teraType": "Dark",
             "moves": [
-                "Extreme Speed",
-                "Scale Shot",
-                "Dragon Dance",
-                "Earthquake"
+                "Flare Blitz",
+                "Darkest Lariat",
+                "Bulk Up",
+                "Iron Head"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Rain Dance",
-                "Hurricane",
-                "Thunder",
-                "Draco Meteor"
+                "Snarl",
+                "Taunt",
+                "Earthquake"
             ],
             "shieldData": {
-                "hpTrigger": 75,
-                "timeTrigger": 70,
+                "hpTrigger": 65,
+                "timeTrigger": 60,
                 "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -54,18 +53,18 @@
         },
         {
             "id": 1,
-            "role": "Iron Hands",
-            "name": "Iron Hands",
+            "role": "Sylveon",
+            "name": "Sylveon",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Quark Drive",
-            "item": "Sitrus Berry",
-            "nature": "Adamant",
+            "ability": "Pixilate",
+            "item": "Clear Amulet",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
-                "atk": 252,
+                "hp": 252,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -80,10 +79,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Belly Drum",
-                "Close Combat",
-                "Drain Punch",
-                "Swords Dance"
+                "Calm Mind",
+                "Hyper Beam",
+                "Hyper Voice",
+                "Misty Terrain"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -98,37 +97,32 @@
         },
         {
             "id": 2,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Friend Guard",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
             "item": "Covert Cloak",
-            "nature": "Bold",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Taunt",
-                "Helping Hand",
-                "Tickle",
-                "Mud-Slap"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -142,15 +136,15 @@
         },
         {
             "id": 3,
-            "role": "Clefairy",
-            "name": "Clefairy",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -158,21 +152,16 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Tickle",
-                "Misty Terrain",
-                "Reflect",
-                "Chilling Water"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -186,15 +175,15 @@
         },
         {
             "id": 4,
-            "role": "Clefairy",
-            "name": "Clefairy",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -202,21 +191,16 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Tickle",
-                "Misty Terrain",
-                "Reflect",
-                "Chilling Water"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -246,7 +230,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Rain Dance",
+                "name": "Snarl",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -274,7 +258,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Hurricane",
+                "name": "Taunt",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

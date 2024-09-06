@@ -61,6 +61,7 @@ type Modifiers = {
     friendGuard?: number,
     powerSpot?: number,
     steelySpirit?: number,
+    flashFireActive?: boolean,
     boostedStat?: string, // from Paradox Abilities
     auroraVeil?: boolean,
     lightScreen?: boolean,
@@ -534,7 +535,8 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "friendGuard": raider.field.attackerSide.friendGuards,
             "powerSpot": raider.field.attackerSide.powerSpots,
             "steelySpirit": raider.field.attackerSide.steelySpirits,
-            "boostedStat": raider.abilityOn && raider.boostedStat ? raider.boostedStat : "",
+            "flashFireActive": !raider.abilityNullified && raider.ability === "Flash Fire" && raider.abilityOn,
+            "boostedStat": !raider.abilityNullified && raider.abilityOn && raider.boostedStat ? raider.boostedStat : "",
             "auroraVeil": raider.field.attackerSide.isAuroraVeil > 0,
             "lightScreen": raider.field.attackerSide.isLightScreen > 0,
             "reflect": raider.field.attackerSide.isReflect > 0,

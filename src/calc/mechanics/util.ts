@@ -452,10 +452,7 @@ export function isQPActive(
   pokemon: Pokemon,
   field: Field
 ): boolean {
-  if (!(pokemon.boostedStat && pokemon.abilityOn)) {
-    return false;
-  }
-  return true;
+  return (pokemon.hasAbility('Quark Drive', 'Protosynthesis') && !!pokemon.abilityOn);
 
   // const weather = field.weather || '';
   // const terrain = field.terrain;

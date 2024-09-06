@@ -1389,7 +1389,8 @@ export class RaidMove {
                     if (!pokemon.hasItem("Ability Shield") && !pokemon.hasAbility("Disguise", "Ice Face")) {
                         this._raidState.removeAbilityFieldEffect(i, pokemon.ability);
                         pokemon.abilityNullified = 1;
-                        pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed temporarily without Ability Shield
+                        // pokemon.abilityOn = false; // boosts from abilities (i.e. Flash Fire) are removed temporarily without Ability Shield
+                        // this is now handled by incorporating the abilityNullified flag into all hasAbility() checks
                     }
                     pokemon.field.attackerSide.isAtkCheered = 0; // clear active cheers
                     pokemon.field.attackerSide.isDefCheered = 0;

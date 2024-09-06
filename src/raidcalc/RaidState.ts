@@ -1393,7 +1393,8 @@ export class RaidState implements State.RaidState{
             case "Quark Drive":
             case "Orichalcum Pulse":
             case "Hadron Engine":
-                poke.boostedStat = undefined;
+                // When nullified and restored (but not *reactivated*) QP boosts stay the same (?)
+                // poke.boostedStat = undefined;
                 poke.isQP = false;
                 poke.usedBoosterEnergy = false;
                 break;

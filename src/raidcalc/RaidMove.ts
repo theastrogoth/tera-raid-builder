@@ -347,7 +347,7 @@ export class RaidMove {
         const target = this.getPokemon(this._targetID);
         if (
             // TO DO: consolidate other failure checks here, add missing ones (?)
-            (this.move.named("Self-Destruct", "Explosion", "Misty Explosion", "Final Gambit")) ||
+            (this.move.named("Self-Destruct", "Explosion", "Misty Explosion", "Final Gambit", "Healing Wish", "Lunar Dance", "Memento")) || // Moves that cause the user to faint
             (target.isTaunt && this.move.named("Taunt")) ||
             (this._user.field.isGravity && this.move.named("Bounce", "Fly", "Flying Press", "High Jump Kick", "Jump Kick", "Magnet Rise", "Sky Drop", "Splash", "Telekenesis")) ||
             (this._user.cheersLeft < 1 && this.move.named("Attack Cheer", "Defense Cheer", "Heal Cheer"))

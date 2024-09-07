@@ -280,9 +280,6 @@ export class RaidTurn {
                 } else {
                     this._raidState.raiders[this.raiderID].cheersLeft--;
                 }
-                if (!this._isBossAction){
-                    this.countDownAbilityNullification(); // this might happen earlier
-                }
             }
         }
 
@@ -666,6 +663,11 @@ export class RaidTurn {
                 }
             }
         }
+        // ability nullification by the boss ends after the current 4-move turn
+        if (this._isEndOfFullTurn) {
+            this.countDownAbilityNullification();
+        }
+
     }
 
     private removeProtection() {
@@ -779,17 +781,17 @@ export class RaidTurn {
 
     private countDownAbilityNullification() {
         // count down nullified ability counter
-        const pokemon = this._raidState.getPokemon(this.raiderID);
+        // const pokemon = this._raidState.getPokemon(this.raiderID);
+        for (let pokemon of this._raidState.raiders) {
         if (pokemon.abilityNullified) {
             pokemon.abilityNullified!--;
             let abilityRestored = false;
             let abilityReactivated = false;
-            if (pokemon.abilityNullified === 0) { // restore ability after a full turn
+            if (pokemon.abilityNullified === 0) {
                 pokemon.abilityNullified = undefined;
                 this._raidState.addAbilityFieldEffect(pokemon.id, pokemon.ability, true);
                 abilityRestored = pokemon.ability !== "(No Ability)";
                 abilityReactivated = !!pokemon.abilityOn;
-                // Not sure if we need to do anything special here to trigger ability reactivation
                 if (pokemon.ability && (pokemon.ability !== "(No Ability)")) {
                     if (abilityRestored && abilityReactivated) {
                         this._endFlags.push(pokemon.role + " — " + pokemon.ability + " restored and reactivated");
@@ -800,6 +802,6 @@ export class RaidTurn {
                     }
                 }
             }
-        }
+        }}
     }
 }

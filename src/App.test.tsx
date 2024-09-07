@@ -491,21 +491,24 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[1].state.raiders[2].hasAbility("Liquid Ooze")).toEqual(false);
     expect(result.turnResults[1].state.raiders[3].hasAbility("Blaze")).toEqual(false);
     expect(result.turnResults[1].state.raiders[4].hasAbility("Friend Guard")).toEqual(false);
-    // T3: no Friend Guard, Pure Power restored to Medi
+    // T3: no Friend Guard, Pure Power *not yet* restored to Medi
     expect(result.turnResults[2].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(0);
     expect(result.turnResults[2].results[1].desc[1].includes("Friend Guards")).toEqual(false);
     expect(result.turnResults[2].results[1].state.raiders[1].hasAbility("Pure Power")).toEqual(false);
-    expect(result.turnResults[2].state.raiders[1].hasAbility("Pure Power")).toEqual(true);
-    // T4: Friend Guard restored
+    expect(result.turnResults[2].state.raiders[1].hasAbility("Pure Power")).toEqual(false);
+    // T4: Friend Guard *not yet* restored
     expect(result.turnResults[3].results[1].state.raiders[4].field.attackerSide.friendGuards).toEqual(0);
     expect(result.turnResults[3].results[1].desc[4].includes("Friend Guards")).toEqual(false);
     expect(result.turnResults[3].results[1].state.raiders[4].hasAbility("Friend Guard")).toEqual(false);
-    expect(result.turnResults[3].state.raiders[4].hasAbility("Friend Guard")).toEqual(true);
-    // T5: one Friend Guard (only Jigglypuff), Blaze restored to Delphox
-    expect(result.turnResults[4].results[1].state.raiders[3].field.attackerSide.friendGuards).toEqual(1);
-    expect(result.turnResults[4].results[1].desc[3].includes("1 ally's Friend Guards")).toEqual(true);
+    expect(result.turnResults[3].state.raiders[4].hasAbility("Friend Guard")).toEqual(false);
+    // T5: Abilities restored at the end of the turn
+    expect(result.turnResults[4].results[1].state.raiders[3].field.attackerSide.friendGuards).toEqual(0);
+    expect(result.turnResults[4].results[1].desc[3].includes("Friend Guard")).toEqual(false);
     expect(result.turnResults[4].results[1].state.raiders[3].hasAbility("Blaze")).toEqual(false);
+    expect(result.turnResults[4].state.raiders[1].hasAbility("Pure Power")).toEqual(true);
+    expect(result.turnResults[4].state.raiders[2].hasAbility("Liquid Ooze")).toEqual(true);
     expect(result.turnResults[4].state.raiders[3].hasAbility("Blaze")).toEqual(true);
+    expect(result.turnResults[4].state.raiders[4].hasAbility("Friend Guard")).toEqual(true);
     // T6: one Friend Guard (only Jigglypuff)
     expect(result.turnResults[5].results[1].state.raiders[1].field.attackerSide.friendGuards).toEqual(1);
     expect(result.turnResults[5].results[1].desc[1].includes("1 ally's Friend Guards")).toEqual(true);
@@ -714,7 +717,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[3].state.raiders[1].boosts.atk).toEqual(1);
   })
   test('ability-nullification', async() => {
-    const hash = "#H4sIAAAAAAAAA91WUU/bMBD+K5GfQMq00rRj8EYLEkgUIdpp0qo8HMk18erame0UEOK/785JKGUbGpu2SVNSxz6f7+777nLpvViIQ5F9dkaLWHhxOJ/3YqFhhSKNeSpznuzFonZoz45ZCWyBPkxN5aXRjjX6sSisqSuSrswaz/TC0PTaODfplo3BzEpPOw4zo3OwdyeLBWbekcgapehRSu9a3ZLNgV/SmOOCT1UQxjyM+Kg2s7Io0HJ0coWblSslqnwMOkN1DCso8FHYLK/Af080Qws/EI9L0AW2pGjjkUPPLOYygKjMElcNmbXVLAm0BHxYIQQlV187L33NhxvuCDvHEYgPfvUdPaU70nfnuEbmBa6lkj6IPa6CMrlgdVyzURlG1WoXqPOGEIp5dldhmxjXZaVWXlZKBh289RYm7W4H2oNI01isxeG9oLp4HwvR3vMgOIiJ+iuQeTQie7QxzZDqgXEsQDlsR/FBX9c2R6JE10rF4hQcowg23pGNxyt96ITJ3rObtvZ65O6C3BxbKJjguThHWEQjBTmDG1mEpdRFNL2RAW2jFx1z8mk5K2tmJLqsdVYS68mQDLY2pt5YZvQErC+/1LDk/IZY9uP9Xrw/jIe9uN/jeUJhdoEexFQCE8p8VgIf30y3CLikLEWX5oap7iiw+W9QEIzMCbHMllHAzewvpVIEHiqKnTXnaVDcBNvnCM2Ny8BCDuLZaivknQsTHTX1tsu2pbe1i0ZoLdffTK6oLXSR9od9Cr0ZXwthBrXmbnCKquLcnYLmV3tcEhZef6SXjgt0FqBeGbPagGvzs8XeBmxC8GrmJYwvgftEVqNzDO/qFSq4xefYfiU5U2oJSIX2DbbzWocuNKnzN1P1NFsvAxr8L4DStn8MgihMk63ypbcqaeTDbZywLmhzQwod25kY56PQoSkkQt+j0y+f7U4P4sET/y2KpBP9Ydd7nW7SpI+b7y67/2nkY4VgqfVSEC562+Zfcgd/TRx9uv4RBY9Y/55rKj36vzDgbzd/dumXpOFDHi7eTePuTtOHh68Mz9ngHgkAAA==";
+    const hash = "#H4sIAAAAAAAAA91WbU/bMBD+K5E/gZRpfaFj4xu0SCBRhGinSavy4UiuiVfXzmyngCb+++6cpF1hMGDaJk1JXft8vrvnucvJ38RcHIj0izNaxMKLg9msEwsNSxRJzFOZNZPUSk8qDlOjM7C3x/M5pt7xbjcWlUN7OmITYHP0YWpKL40OGr1Y5NZUJUmXZoWnem5oemWcG7dL0urHwhqlaKeQtWWSgFLmeiydEw92KaqCTYJf0JjhnOMrIYxZGHGtNrUyz9FyhHKJm5UrJKpsCDpFNYIl5LgW1stL8D8TTdHCI+JhATrHhhhtPHLoqcWMw45FaRa4rOmurGZJoCbgwxIhKLnqynnpKz5c80fYOY6QmuBX39K/dIf69gxXyLzAlVTSB7HHZVAmF6yOKzYqw6ga7Rx1VhNCMU9vS2yS49rMVMrLUsmggzfewrjZbUF7EEkSi5U4+CaocrpEtGjeWS3pxiS7BJlFRyZkcJIiVQUjmYNy2Izio76qbIZEiq6UisUJOMYRjLwnG+snuWuF/e69l7a6HXJ3Tm5GFnKmeCbOEObRkYKM4R1ZhIXUeTS5lgFvrReNOP20nBYVcxJdVDotiPf+gAw2NibeWOb0GKwvvlaw4AyHWD7E+514fxAPOnGvw/M+hdkGShRQFYwp+WkBfH4z3WLgghIVXZhrZrvlwGa/wUEwMiPIMl1EATjTv5BKEXooKXjWnK0xbDn4Ifoeh2yuXQoWMhD3VlsYds5NdFjX4C47k95WLjpCa7kmp3JJzaQNvTfokat6fCmmKVSae9EJqpKzeQKaP/dhQeB4/Yk+RC7aacB+aczy2Wip4YwrZiqMT6H7TGajMwwf8CUquMH74F6Trgn1CaTaewDurNKhNY2r7M1EvSB/e/8LoqRpKoMgCtO9rYqOOX1B/m4bJ6xy2tywQsd2xsb5KPRtConQd+j002fb0wOidOO/QdFvRX/YdbfV3avTxy15l90/G/lQIVhqxxSEi942+Zfc118SR4+ef0TBGuvfd82pf8z1/tbx1wTwCwvhC6DLzB5fLPhOwPcj+g2ScNNoHtZJ4vZNkru779fAHw/jCQAA";
     const result = await resultsFromHash(hash);
     // T0: Skill Swap, Muk Receives Pure Power
     expect(result.turnResults[0].state.raiders[3].ability).toEqual("Pure Power");
@@ -725,14 +728,20 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].state.raiders[3].ability).toEqual("Pure Power");
     expect(result.turnResults[2].state.raiders[3].abilityNullified).toEqual(1);
     expect(result.turnResults[2].state.raiders[3].hasAbility("Pure Power")).toEqual(false);
-    // T3: Muk's attack is NOT boosted by Pure Power, nullification ends after turn
+    // T3: Muk's attack is NOT boosted by Pure Power, nullification still in effect
     expect(result.turnResults[3].results[1].desc[0].includes("Pure Power")).toEqual(false);
     expect(result.turnResults[3].results[1].state.raiders[3].abilityNullified).toEqual(1);
     expect(result.turnResults[3].results[1].state.raiders[3].hasAbility("Pure Power")).toEqual(false);
-    expect(result.turnResults[3].state.raiders[3].abilityNullified).toEqual(undefined);
-    expect(result.turnResults[3].state.raiders[3].hasAbility("Pure Power")).toEqual(true);
-    // T4: Muk's attack is boosted by Pure Power
-    expect(result.turnResults[4].results[1].desc[0].includes("Pure Power")).toEqual(true);
+    expect(result.turnResults[3].state.raiders[3].abilityNullified).toEqual(1);
+    expect(result.turnResults[3].state.raiders[3].hasAbility("Pure Power")).toEqual(false);
+    // T4: Muk's attack is NOT boosted by Pure Power, nullification ends after this move (end of 4-move turn)
+    expect(result.turnResults[4].results[1].desc[0].includes("Pure Power")).toEqual(false);
+    expect(result.turnResults[4].results[1].state.raiders[3].abilityNullified).toEqual(1);
+    expect(result.turnResults[4].results[1].state.raiders[3].hasAbility("Pure Power")).toEqual(false);
+    expect(result.turnResults[4].state.raiders[3].abilityNullified).toEqual(undefined);
+    expect(result.turnResults[4].state.raiders[3].hasAbility("Pure Power")).toEqual(true);
+    // T5: Muk's attack is boosted by Pure Power
+    expect(result.turnResults[5].results[1].desc[0].includes("Pure Power")).toEqual(true);
   })
   test('mycelium-might', async() => {
     const hash = "#H4sIAAAAAAAAA91WbWvbMBD+K0afVtBYXtu135p0awtNGWlgsOAPin2xtciSkeS0YfS/706x81K6rmGsgxHnIp1Od/c8d5Lzg83ZGUu+O6MZZ56dTactzrQogMWchjKlQZuzyoG9viAjYTPwYWhKL412ZNHhLLOmKlFbmCVc67nB4cw4N2qma4eJlR5XHCRGp8KuPs3nkHiHKmuUwp9celfb5uRO+AXKFOa0qxRBpkHCxmxiZZaBpexkAduZyyWodCh0AupCFCKDjXI9HQv/nGoCVvxCPcyFzqAmRRsPlHpiIZUBRGkWUKzJrKwmTaAl4IMSRDBy1cx56SvavOYOsVMegfgQV6/wV7pzvbqBJRAvYiaV9EHtoQjGGILMYUlOZZCqts5Ap2tCMOfJqoS6MK6pSqW8LJUMNvDgrRjVqw1oL1gcc7ZkZz8Y9sVHzlj9TIPilCP1YyHTaID+cOEyNyoFnWHh50I5qCW7NCaNhIsucZlxXSnF2ZWwKUIJjo7R0eYTPzbKbvvJg0snfc5uax9TNhILiK59hEkQ4Xe5SM19NBChjSZ5RQzMjKJ2+2ySykVfKp3kyHi71eLTeB3oZD96E/+UY3knBlKX2CowujvZwzdaYXfJqohGMssp2DdjiugGQvUHAXQNqdPv1JHC6GWslOQO2DvsMcDsOTtPkPO70grqhVGVvr9TonwtKuy1EZh7lwgrUurxvdkerne3JjpfN90R0Su9RQ4HYC0FnshCPkW2wXcQsomoNNF2BaqUOouuhKbzPcylUjT/iiePuhSPdbKIxkjua8F2iZ8Fq+VL4HZLNgYlHuC5qh2KbFuzJ9huKh2uokOr1/tfAMX1JdILqjDEYm3ctxtlfx+kWGa4uGWk++TUt3Dny/uanT20bP9R4N0r5aDAnecCd98AcRdDN06oXejGP2JbIn4feqhAWLzvjfMu+lD3m6TXxiF59HbyeNOS95GCfxL4GDE3Tnav7wNi77/sDgl+grg3Xprz+Vdh4+metsI/pA7KLu+h7OP3GL8ncVjYfMg25s0Tx4+PPwF0pWDslAoAAA=="

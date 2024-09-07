@@ -1,5 +1,5 @@
 {
-    "name": "Tauros T1.25",
+    "name": "Tauros T1.25 OHKO Empoleon the Unrivaled",
     "notes": "If the user is frozen, Flare Blitz will thaw the user out, then inflict damage on the target, which make this a guaranteed T1.25.",
     "credits": "Nyashiro",
     "pokemon": [
@@ -182,11 +182,11 @@
             "item": "Covert Cloak",
             "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -227,7 +227,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -238,7 +239,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -253,7 +255,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -264,12 +267,13 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
-            "id": 1,
+            "id": 2,
             "group": 1,
             "moveInfo": {
                 "name": "Sunny Day",
@@ -279,7 +283,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -290,39 +295,14 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 2,
-            "moveInfo": {
-                "name": "Sunny Day",
-                "userID": 4,
-                "targetID": 4,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Optimal Move)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
             "id": 3,
-            "group": 2,
+            "group": 1,
             "moveInfo": {
                 "name": "Wicked Blow",
                 "userID": 2,
@@ -331,7 +311,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -342,13 +323,14 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
             "id": 7,
-            "group": 2,
+            "group": 1,
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 3,
@@ -357,7 +339,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -368,7 +351,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -383,7 +367,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -394,7 +379,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -409,7 +395,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -420,7 +407,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         }
@@ -429,9 +417,6 @@
         [
             0,
             6
-        ],
-        [
-            1
         ],
         [
             2,
@@ -446,7 +431,6 @@
         ]
     ],
     "repeats": [
-        1,
         1,
         1,
         1,

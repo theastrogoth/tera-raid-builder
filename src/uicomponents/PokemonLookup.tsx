@@ -1343,6 +1343,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                                     ),
                                 }}
                                 sx={{ width: "100%", paddingRight: "10px"}}
+                                autoFocus
                             />
                             <Box>
                                 <IconButton aria-describedby={popoverOpen ? "simple-popover" : undefined} onClick={handlePopoverOpen}>

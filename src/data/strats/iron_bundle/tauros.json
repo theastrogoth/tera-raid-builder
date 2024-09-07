@@ -1,5 +1,5 @@
 {
-    "name": "Tauros T1 ",
+    "name": "Tauros T1 OHKO Iron Bundle the Unrivaled",
     "notes": "Cloud Nine on Golduck prevents Iron Bundle from setting up Aurora Veil. The Level 70 Golduck minimizes the time penalty from fainting. The moment Golduck faints, Cloud Nine is no longer in effect; however, Wonder Room reverses the Defense and Special Defense stats AFTER the snow boost is applied. Iron Bundle shields up pretty late (at 80% time remaining), so after Golduck faints, there is still a 30-40 second window for other raiders to react, which makes this a guaranteed T1 strat.",
     "credits": "Nyashiro",
     "pokemon": [
@@ -225,8 +225,9 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -234,15 +235,16 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
-            "id": 6,
+            "id": 1,
             "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
@@ -251,8 +253,9 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -260,36 +263,39 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
             "id": 2,
-            "group": 2,
+            "group": 1,
             "moveInfo": {
-                "name": "Wonder Room",
-                "userID": 3,
-                "targetID": 3,
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -301,21 +307,23 @@
                 "userID": 2,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -323,25 +331,27 @@
             "id": 4,
             "group": 2,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
-                "targetID": 4,
+                "name": "Wonder Room",
+                "userID": 3,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -355,19 +365,21 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         }
@@ -375,10 +387,12 @@
     "groups": [
         [
             0,
-            6
+            1
         ],
         [
-            2,
+            2
+        ],
+        [
             3,
             4
         ],
@@ -389,49 +403,11 @@
     "repeats": [
         1,
         1,
+        1,
         1
     ],
     "substitutes": [
-        [
-            {
-                "raider": {
-                    "id": 1,
-                    "role": "Meowstic",
-                    "name": "Meowstic-M",
-                    "shiny": false,
-                    "ability": "Keen Eye",
-                    "item": "Choice Specs",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "M",
-                    "moves": [
-                        "Stored Power"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)"
-                ],
-                "substituteTargets": [
-                    1
-                ]
-            }
-        ],
+        [],
         [],
         [],
         []

@@ -316,7 +316,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                             }
                             if (isNaN(value1)) {
                                 if (statID1 === "bst") {
-                                    ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0);
+                                    value1 = ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0);
                                 } else {
                                     value1 = species.stats[statID1 as keyof StatsTable]!;
                                 }   
@@ -335,7 +335,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                             }
                             if (isNaN(value2)) {
                                 if (statID2 === "bst") {
-                                    ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0);
+                                    value2 = ["hp","atk","def","spa","spd","spe"].map((stat) => (species.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0);
                                 } else {
                                     value2 = species.stats[statID2 as keyof StatsTable]!;
                                 }   

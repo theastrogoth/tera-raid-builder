@@ -1,7 +1,12 @@
 {
     "Incineroar": {
         "One-Hit Kommo-O": "incineroar/main",
-        "Iron Hands T1.75": "incineroar/iron_hands"
+        "Winged King T1.5": "incineroar/winged_king",
+        "Iron Hands T1.75": "incineroar/iron_hands",
+        "Team Eeveelutions Takes Down Incineroar!": "incineroar/eeveelutions",
+        "Godzilla": "incineroar/godzilla",
+        "Mythicals": "incineroar/mythicals",
+        "Nukebro Returns to the Water": "incineroar/nukebro"
     },
     "Dragonite": {
         "Tickle Squad": "dragonite/main",

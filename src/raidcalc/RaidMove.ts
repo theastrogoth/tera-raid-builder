@@ -1611,6 +1611,14 @@ export class RaidMove {
                 // this._raidState.receiveItem(this._targetID, tempUserItem);
                 // this._raidState.receiveItem(this.userID, tempTargetItem);
                 break;
+            case "Recycle":
+                // TODO: Fail Recycle based on the move that caused the item loss
+                if (!this._user.item && this._user.lastConsumedItem) {
+                    this._raidState.receiveItem(this.userID, this._user.lastConsumedItem);
+                } else {
+                    this._desc[this.userID] = this._user.name + " Recycle vs. " + target.name + " — Recycle failed!";
+                }
+                break;
             // other
             case "Defog":
                 const targetFields = this.userID === 0 ? this._fields.slice(1) : [this._fields[0]];

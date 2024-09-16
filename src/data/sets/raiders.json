@@ -1509,6 +1509,24 @@
             "moves":["Frost Breath","Snowscape","Aurora Veil","Mist"]
         }
     },
+    "Dachsbun": {
+        "Aroma Veil Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Aroma Veil",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Misty Terrain","Mud-Slap","Charm"]
+        },
+        "Aroma Veil Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Aroma Veil",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Misty Terrain","Mud-Slap","Snarl"]
+        }
+    },
     "Darkrai": {
         "Special DPS": {
             "level":100,
@@ -1571,7 +1589,6 @@
             "ability":"Static",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "ivs":{"at":0},
             "moves":["Taunt","Electric Terrain","Scary Face","Helping Hand"]
         },
         "Fast Taunt (SpD)": {
@@ -1580,7 +1597,6 @@
             "ability":"Static",
             "nature":"Bold",
             "evs":{"hp":252,"sd":252},
-            "ivs":{"at":0},
             "moves":["Taunt","Electric Terrain","Eerie Impulse","Helping Hand"]
         },
         "Fast Taunt (Balanced)": {
@@ -1601,6 +1617,32 @@
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
             "moves":["Hydro Pump","Flash Cannon","Steel Beam","Hydro Cannon"]
+        }
+    },
+    "Espathra": {
+        "Lumina Crash Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Opportunist",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Lumina Crash","Helping Hand","Skill Swap","Feather Dance"]
+        },
+        "Lumina Crash Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Opportunist",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Lumina Crash","Helping Hand","Skill Swap","Light Screen"]
+        },
+        "Stored Power DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Opportunist",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Calm Mind","Stored Power","Skill Swap","Lumina Crash"]
         }
     },
     "Farigiraf": {
@@ -1694,6 +1736,50 @@
             "shiny":true
         }
     },
+    "Froslass": {
+        "Crit (Def)": {
+            "level":100,
+            "item":"Wide Lens",
+            "ability":"Snow Cloak",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Frost Breath","Helping Hand","Chilling Water","Icy Wind"]
+        },
+        "Crit (SpD)": {
+            "level":100,
+            "item":"Wide Lens",
+            "ability":"Snow Cloak",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Frost Breath","Helping Hand","Light Screen","Icy Wind"]
+        }
+    },
+    "Galvantula": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Compound Eyes",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Lunge","Gastro Acid"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Compound Eyes",
+            "nature":"Sassy",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Struggle Bug","Gastro Acid"]
+        },
+        "Screech (Carry)": {
+            "level":100,
+            "item":"Focus Sash",
+            "ability":"Compound Eyes",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "moves":["Screech"]
+        }
+    },
     "Geodude": {
         "Oran": {
             "level":1,
@@ -1732,6 +1818,24 @@
             "nature":"Timid",
             "evs":{"sa":252,"sp":252},
             "moves":["Nasty Plot","Make It Rain","Shadow Ball","Steel Beam"]
+        }
+    },
+    "Glalie": {
+        "Crit (Def)": {
+            "level":100,
+            "item":"Wide Lens",
+            "ability":"Inner Focus",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Frost Breath","Helping Hand","Chilling Water","Icy Wind"]
+        },
+        "Crit (SpD)": {
+            "level":100,
+            "item":"Wide Lens",
+            "ability":"Inner Focus",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Frost Breath","Helping Hand","Light Screen","Icy Wind"]
         }
     },
     "Gligar": {
@@ -1876,6 +1980,16 @@
             "moves":["Simple Beam","Psychic Terrain","Helping Hand","Snarl"]
         }
     },
+    "Hariyama": {
+        "Belly Drum DPS": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Guts",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Belly Drum","Close Combat","Drain Punch","Taunt"]
+        }
+    },
     "Honchkrow": {
         "Crit (Def)": {
             "level":100,
@@ -1945,7 +2059,7 @@
             "item":"Life Orb",
             "ability":"Blaze",
             "nature":"Modest",
-            "evs":{"hp":252,"at":252},
+            "evs":{"hp":252,"sa":252},
             "moves":["Nasty Plot","Aura Sphere","Overheat","Fake Tears"]
         }
     },
@@ -2008,9 +2122,17 @@
             "level":100,
             "item":"Eviolite",
             "ability":"Compound Eyes",
-            "nature":"Bold",
+            "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
             "moves":["Screech","Helping Hand","Lunge","Gastro Acid"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Compound Eyes",
+            "nature":"Sassy",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Struggle Bug","Gastro Acid"]
         },
         "Screech (Carry)": {
             "level":100,
@@ -2019,6 +2141,16 @@
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Screech"]
+        }
+    },
+    "Kingambit": {
+        "Pysical DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Defiant",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Kowtow Cleave","Iron Head","Brick Break"]
         }
     },
     "Kommo-o": {
@@ -2201,6 +2333,33 @@
             "moves":["Tickle","Chilling Water","Rain Dance","Grassy Terrain"]
         }
     },
+    "Mabosstiff": {
+        "Fake Tears (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Intimidate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Charm","Scary Face","Helping Hand"]
+        },
+        "Fake Tears (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Intimidate",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Snarl","Scary Face","Helping Hand"]
+        },
+        "Fake Tears (Balanced)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Intimidate",
+            "nature":"Calm",
+            "evs":{"hp":252, "df":128, "sd":130},
+            "ivs":{"at":0},
+            "moves":["Fake Tears","Snarl","Charm","Helping Hand"]
+        }
+    },
     "Magcargo": {
         "Shell Smash DPS": {
             "level":100,
@@ -2236,13 +2395,21 @@
             "evs":{"hp":0,"df":0},
             "moves":["Helping Hand","Screech","Gravity"]
         },
-        "Screech Support":{
+        "Screech Support (Def)":{
             "level":100,
             "item":"Zoom Lens",
             "ability":"Sturdy",
-            "nature":"Bold",
+            "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
-            "moves":["Screech", "Helping Hand", "Reflect", "Thunder Wave"]
+            "moves":["Screech", "Helping Hand", "Reflect", "Gravity"]
+        },
+        "Screech Support (SpD)":{
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Sassy",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech", "Helping Hand", "Light Screen", "Gravity"]
         },
         "Screech (Carry)": {
             "level":24,
@@ -2251,6 +2418,66 @@
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Screech"]
+        }
+    },
+    "Magneton": {
+        "Screech Support (Def)":{
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech", "Helping Hand", "Reflect", "Gravity"]
+        },
+        "Screech Support (SpD)":{
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Sassy",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech", "Helping Hand", "Light Screen", "Gravity"]
+        },
+        "Screech (Carry)": {
+            "level":30,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "moves":["Screech"]
+        }
+    },
+    "Magnezone": {
+        "Screech Support (Def)":{
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech", "Helping Hand", "Reflect", "Gravity"]
+        },
+        "Screech Support (SpD)":{
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Sassy",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech", "Helping Hand", "Light Screen", "Gravity"]
+        },
+        "Screech (Carry)": {
+            "level":30,
+            "item":"Zoom Lens",
+            "ability":"Sturdy",
+            "nature":"Hardy",
+            "evs":{"hp":0,"df":0},
+            "moves":["Screech"]
+        },
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Analytic",
+            "nature":"Quiet",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Charge","Thunderbolt","Lock-On","Steel Beam"]
         }
     },
     "Mamoswine": {
@@ -2321,6 +2548,69 @@
             "nature":"Careful",
             "evs":{"hp":252,"sd":252},
             "moves":["Fake Tears","Defog","Taunt","Snarl"]
+        }
+    },
+    "Mareanie": {
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Limber",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Chilling Water","Wide Guard","Haze"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Limber",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Mud Shot","Wide Guard","Haze"]
+        }
+    },
+    "Marshtomp": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Torrent",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Mud-Slap","Wide Guard"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Torrent",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Mud-Slap","Wide Guard"]
+        }
+    },
+    "Maschiff": {
+        "Fake Tears (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Intimidate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Charm","Lick","Helping Hand"]
+        },
+        "Fake Tears (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Intimidate",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Snarl","Scary Face","Helping Hand"]
+        },
+        "Fake Tears (Balanced)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Intimidate",
+            "nature":"Calm",
+            "evs":{"hp":252, "df":128, "sd":130},
+            "ivs":{"at":0},
+            "moves":["Fake Tears","Snarl","Charm","Helping Hand"]
         }
     },
     "Maushold": {
@@ -2398,6 +2688,16 @@
             "moves":["Flower Trick"]
         }
     },
+    "Meowstic-M": {
+        "Stored Power DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Keen Eye",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Stored Power","Nasty Plot","Fake Tears","Psychic Terrain"]
+        }
+    },
     "Mienshao": {
         "Physical DPS": {
             "level":100,
@@ -2434,6 +2734,24 @@
             "moves":["Dragon Dance","Coil","Waterfall","Rain Dance"]
         }
     },
+    "Minccino": {
+        "Skill Link Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Bullet Seed","Helping Hand","Fake Tears","Tickle"]
+        },
+        "Skill Link Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Bullet Seed","Helping Hand","Fake Tears","Tickle"]
+        }
+    },
     "Miraidon": {
         "Standard Bulky DPS":{
             "level":100,
@@ -2452,7 +2770,41 @@
             "moves":["Charge","Electro Drift","Metal Sound","Calm Mind"]
         }
     },
+    "Mudkip": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Torrent",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Chilling Water","Mud-Slap","Wide Guard"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Torrent",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Mud-Slap","Wide Guard","Rain Dance"]
+        }
+    },
     "Muk": {
+        "Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sticky Hold",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Acid Spray","Helping Hand","Mud-Slap"]
+        },
+        "Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Sticky Hold",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Acid Spray","Helping Hand","Mud-Slap"]
+        },
         "Support (Balanced)": {
             "level":100,
             "item":"Zoom Lens",
@@ -2525,6 +2877,24 @@
             "nature":"Hardy",
             "evs":{"hp":0,"df":0},
             "moves":["Helping Hand","Gravity","Wide Guard","Taunt"]
+        }
+    },
+    "Oinkologne-F": {
+        "Aroma Veil Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Aroma Veil",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Helping Hand","Chilling Water","Mud-Slap","Bulldoze"]
+        },
+        "Aroma Veil Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Aroma Veil",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Helping Hand","Mud-Slap","Bulldoze","Tail"]
         }
     },
     "Oranguru": {
@@ -2631,6 +3001,24 @@
             "moves":["Screech","Fake Tears","Helping Hand","Chilling Water"]
         }
     },
+    "Pikipek": {
+        "Skill Link Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Bullet Seed","Helping Hand","Screech","Feather Dance"]
+        },
+        "Skill Link Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Bullet Seed","Helping Hand","Screech","Tailwind"]
+        }
+    },
     "Pincurchin": {
         "Electric Terrain": {
             "level":100,
@@ -2671,11 +3059,11 @@
     "Poliwrath": {
         "Belly Drum DPS": {
             "level":100,
-            "item":"Life Orb",
+            "item":"Sitrus Berry",
             "ability":"Swift Swim",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
-            "moves":["Belly Drum","Close Combat","Liquidation"]
+            "moves":["Belly Drum","Close Combat","Liquidation","Taunt"]
         }
     },
     "Polteageist": {
@@ -2757,7 +3145,6 @@
             "ability":"Water Absorb",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "ivs":{"at":0},
             "moves":["Fling","Acid Spray","Chilling Water","Helping Hand"]
         },
         "Boost Fling (SpD)": {
@@ -2766,7 +3153,6 @@
             "ability":"Water Absorb",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "ivs":{"at":0},
             "moves":["Fling","Acid Spray","Mud-Slap","Helping Hand"]
         },
         "Unaware Fling (Balanced)": {
@@ -2784,7 +3170,6 @@
             "ability":"Unaware",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "ivs":{"at":0},
             "moves":["Fling","Acid Spray","Chilling Water","Helping Hand"]
         },
         "Unaware Fling (SpD)": {
@@ -2793,7 +3178,6 @@
             "ability":"Unaware",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "ivs":{"at":0},
             "moves":["Fling","Acid Spray","Mud-Slap","Helping Hand"]
         }
     },
@@ -2844,7 +3228,38 @@
 
     },
     "Sandy Shocks": {
-
+        "Fast Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Protosynthesis",
+            "nature":"Timid",
+            "evs":{"sa":252,"sp":252},
+            "moves":["Earth Power","Charge","Electro Ball","Thunderbolt"]
+        },
+        "Bulky Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Protosynthesis",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Earth Power","Charge","Electro Ball","Thunderbolt"]
+        },
+        "Gravity Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Protosynthesis",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Gravity","Screech","Metal Sound","Thunder Wave"]
+        },
+        "Gravity Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Protosynthesis",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Gravity","Screech","Metal Sound","Thunder Wave"]
+        }
     },
     "Scovillain":  {
         "Spicy Extract Support (Def)": {
@@ -2863,25 +3278,118 @@
         }
     },
     "Scrafty": {
-
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Intimidate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Helping Hand","Taunt","Scary Face"]
+        },
+        "Coaching Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Intimidate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Coaching","Helping Hand","Leer","Taunt"]
+        }
     },
     "Scraggy": {
-
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Intimidate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Helping Hand","Taunt","Scary Face"]
+        },
+        "Coaching Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Intimidate",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Coaching","Helping Hand","Leer","Taunt"]
+        }
     },
     "Scream Tail": {
-
+        "Fake Tears Support (Def)": {
+            "level":100,
+            "item":"Flame Orb",
+            "ability":"Protosynthesis",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Helping Hand","Reflect","Fling"]
+        },
+        "Fake Tears Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Protosynthesis",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Helping Hand","Light Screen","Sunny Day"]
+        },
+        "Howl Support (Def)": {
+            "level":100,
+            "item":"Flame Orb",
+            "ability":"Protosynthesis",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Howl","Helping Hand","Reflect","Fling"]
+        },
+        "Howl Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Protosynthesis",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Howl","Helping Hand","Light Screen","Sunny Day"]
+        }
     },
     "Serperior": {
-
+        "Contrary DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Contrary",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Leaf Storm","Grassy Terrain","Giga Drain","Gastro Acid"]
+        }
     },
     "Seviper": {
 
+    },
+    "Sewaddle": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Overcoat",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Lunge","Electroweb"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Overcoat",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Struggle Bug","Electroweb"]
+        }
     },
     "Shaymin": {
 
     },
     "Shellder": {
-
+        "Skill Link Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Icicle Spear","Helping Hand","Chilling Water","Life Dew"]
+        }
     },
     "Shellos": {
 
@@ -2899,6 +3407,24 @@
     "Shinx": {
 
     },
+    "Shuppet": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Insomnia",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Will-O-Wisp","Skill Swap"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Insomnia",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Skitter Smack","Skill Swap"]
+        }
+    },
     "Sinistcha": {
 
     },
@@ -2906,7 +3432,22 @@
 
     },
     "Skeledirge": {
-
+        "Throat Spray DPS": {
+            "level":100,
+            "item":"Throat Spray",
+            "ability":"Blaze",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Torch Song","Shadow Ball","Will-O-Wisp","Hex"]
+        },
+        "Burn Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Unaware",
+            "nature":"Relaxed",
+            "evs":{"hp":252,"df":252},
+            "moves":["Will-O-Wisp","Helping Hand","Mud-Slap","Scary Face"]
+        }
     },
     "Skuntank": {
         "Acid Spray Support (Def)": {
@@ -2999,17 +3540,32 @@
             "evs":{"hp":252,"at":252},
             "moves":["Belly Drum","Double-Edge","Earthquake","Heavy Slam"]
         },
-        "Support": {
+        "Screech Support (Def)": {
             "level":100,
             "item":"Zoom Lens",
             "ability":"Thick Fat",
-            "nature":"Impish",
+            "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
             "moves":["Screech","Helping Hand"]
         }
     },
     "Snorunt": {
-
+        "Crit (Def)": {
+            "level":100,
+            "item":"Wide Lens",
+            "ability":"Inner Focus",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Frost Breath","Helping Hand","Chilling Water","Icy Wind"]
+        },
+        "Crit (SpD)": {
+            "level":100,
+            "item":"Wide Lens",
+            "ability":"Inner Focus",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Frost Breath","Helping Hand","Light Screen","Icy Wind"]
+        }
     },
     "Snover": {
 
@@ -3120,6 +3676,24 @@
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
             "moves":["Growth","Solar Beam"]
+        }
+    },
+    "Swadloon": {
+        "Screech Support (Def)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Overcoat",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Screech","Helping Hand","Lunge","Electroweb"]
+        },
+        "Screech Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Overcoat",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Screech","Helping Hand","Struggle Bug","Light Screen"]
         }
     },
     "Swalot": {
@@ -3486,13 +4060,21 @@
         }
     },
     "Toucannon": {
-        "Skill Link Support": {
+        "Skill Link Support (Def)": {
             "level":100,
             "item":"Zoom Lens",
             "ability":"Skill Link",
             "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
-            "moves":["Screech","Bullet Seed","Helping Hand","Feather Dance"] 
+            "moves":["Bullet Seed","Helping Hand","Screech","Feather Dance"] 
+        },
+        "Skill Link Support (SpD)": {
+            "level":100,
+            "item":"Zoom Lens",
+            "ability":"Skill Link",
+            "nature":"Sassy",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Bullet Seed","Helping Hand","Screech","Tailwind"] 
         }
     },
     "Toxapex": {
@@ -3589,6 +4171,24 @@
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
             "moves":["Growth","Solar Beam","Hurricane","Sunny Day"]
+        }
+    },
+    "Trumbeak": {
+        "Skill Link Support (Def)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Bullet Seed","Helping Hand","Screech","Feather Dance"]
+        },
+        "Skill Link Support (SpD)": {
+            "level":100,
+            "item":"Eviolite",
+            "ability":"Skill Link",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Bullet Seed","Helping Hand","Screech","Tailwind"]
         }
     },
     "Typhlosion": {
@@ -3826,6 +4426,32 @@
             "moves":["Screech","Acid Spray","Stun Spore","Struggle Bug"]
         }
     },
+    "Venusaur": {
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Chlorophyll",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Solar Beam","Growth","Sludge Bomb","Sunny Day"]
+        },
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Chlorophyll",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Helping Hand","Sunny Day","Synthesis"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Chlorophyll",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Helping Hand","Sunny Day","Synthesis"]
+        }
+    },
     "Victreebel": {
         "Acid Spray Support (Def)": {
             "level":100,
@@ -3855,6 +4481,14 @@
         }
     },
     "Vileplume":{
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Chlorophyll",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Petal Dance","Growth","Sludge Wave","Acid Spray"]
+        },
         "Acid Spray Support (Def)": {
             "level":100,
             "item":"Covert Cloak",

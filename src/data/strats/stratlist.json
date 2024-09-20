@@ -1,4 +1,8 @@
 {
+    "Serperior": {
+        "Cooking With Gas": "serperior/main",
+        "Cooking With Gas (3-person version)": "serperior/cooking_w_gas_3"
+    },
     "Incineroar": {
         "One-Hit Kommo-O": "incineroar/main",
         "Winged King T1.5": "incineroar/winged_king",

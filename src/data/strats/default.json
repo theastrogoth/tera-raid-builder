@@ -53,12 +53,12 @@
         },
         {
             "id": 1,
-            "role": "Tauros",
-            "name": "Tauros-Paldea-Blaze",
+            "role": "Charizard",
+            "name": "Charizard",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
             "nature": "Adamant",
             "evs": {
                 "hp": 0,
@@ -66,7 +66,7 @@
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -77,9 +77,12 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
+            "gender": "N",
             "moves": [
-                "Flare Blitz"
+                "Belly Drum",
+                "Flare Blitz",
+                "Swords Dance",
+                "Acrobatics"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -94,15 +97,15 @@
         },
         {
             "id": 2,
-            "role": "Meowscarada",
-            "name": "Meowscarada",
+            "role": "Weezing",
+            "name": "Weezing",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Focus Sash",
-            "nature": "Timid",
+            "ability": "Neutralizing Gas",
+            "item": "Ability Shield",
+            "nature": "Hardy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -110,17 +113,20 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
             "level": 100,
             "gender": "N",
             "moves": [
-                "Flower Trick"
+                "Sunny Day",
+                "Body Slam",
+                "Gunk Shot",
+                "Sludge Bomb"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -135,15 +141,15 @@
         },
         {
             "id": 3,
-            "role": "Torkoal",
-            "name": "Torkoal",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Drought",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -151,17 +157,20 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
             "moves": [
-                "Helping Hand"
+                "Screech",
+                "Helping Hand",
+                "Light Screen",
+                "Mud-Slap"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -176,15 +185,15 @@
         },
         {
             "id": 4,
-            "role": "Stonjourner",
-            "name": "Stonjourner",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Power Spot",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -192,20 +201,20 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
             "moves": [
-                "(No Move)",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Screech",
+                "Helping Hand",
+                "Light Screen",
+                "Mud-Slap"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -221,12 +230,12 @@
     ],
     "turns": [
         {
-            "id": 3,
+            "id": 0,
             "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -251,7 +260,7 @@
     ],
     "groups": [
         [
-            3
+            0
         ]
     ],
     "repeats": [

@@ -82,7 +82,15 @@
                 "Flare Blitz"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 2,
@@ -112,10 +120,7 @@
             "level": 1,
             "gender": "N",
             "moves": [
-                "Frost Breath",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Frost Breath"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -133,7 +138,7 @@
             "role": "Vulpix",
             "name": "Vulpix",
             "shiny": false,
-            "isAnyLevel": true,
+            "isAnyLevel": false,
             "ability": "Drought",
             "item": "Focus Sash",
             "nature": "Hardy",
@@ -155,22 +160,9 @@
             },
             "level": 1,
             "gender": "N",
-            "moves": [
-                "Helping Hand",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 4,
@@ -203,7 +195,15 @@
                 "Skill Swap"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
@@ -267,9 +267,9 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Helping Hand",
+                "name": "Attack Cheer",
                 "userID": 3,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

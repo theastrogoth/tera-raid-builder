@@ -862,6 +862,7 @@ describe('OHKO tests, Official Strats', () => {
     { name: 'pikachu/main', path: 'pikachu/main.json' },
     { name: 'dondozo/main', path: 'dondozo/main.json' },
     { name: 'dragonite/main', path: 'dragonite/main.json' },
+    { name: 'incineroar/main', path: 'incineroar/main.json' },
   ];
 
   testCases.forEach(({ name, path }) => {
@@ -1227,7 +1228,23 @@ describe('OHKO tests, Alternative Strats', () => {
     'dragonite/godzilla',
     'dragonite/zen_and_psy',
     'dragonite/nukebro',
-    'dragonite/mienfoo_fighters'
+    'dragonite/mienfoo_fighters',
+    "incineroar/main",
+    "incineroar/winged_king",
+    "incineroar/iron_hands",
+    "incineroar/angry_bull",
+    "incineroar/eeveelutions",
+    "incineroar/godzilla",
+    "incineroar/mythicals",
+    "incineroar/stinging_defeat",
+    "incineroar/bugged",
+    "incineroar/for_the_birds",
+    "incineroar/slim_shady",
+    "incineroar/zen_and_psy",
+    "incineroar/dazzling_battle",
+    "incineroar/face_vs_heel",
+    "incineroar/nukebro",
+    "incineroar/heavy_sleepers"
   ];
 
   testNames.forEach(name => {

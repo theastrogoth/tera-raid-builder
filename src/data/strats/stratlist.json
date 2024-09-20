@@ -2,6 +2,7 @@
     "Serperior": {
         "Cooking With Gas": "serperior/main",
         "Cooking With Gas (3-person version)": "serperior/cooking_w_gas_3",
+        "Minimal T1 Anger Point": "serperior/anger_point",
         "Braviary T1": "serperior/braviary"
     },
     "Incineroar": {
@@ -13,7 +14,12 @@
         "Godzilla": "incineroar/godzilla",
         "Mythicals": "incineroar/mythicals",
         "A Stinging Defeat": "incineroar/stinging_defeat",
+        "Bugged": "incineroar/bugged",
         "For the Birds": "incineroar/for_the_birds",
+        "Will the Real Incineroar Please Stand Up": "incineroar/slim_shady",
+        "Zen (and PSY!) Slither From the Out-Psy-de to RHKO Incineroar!": "incineroar/zen_and_psy",
+        "A Dazzling Battle!": "incineroar/dazzling_battle",
+        "Face vs. Heel": "incineroar/face_vs_heel",
         "Nukebro Returns to the Water": "incineroar/nukebro",
         "Heavy Sleepers": "incineroar/heavy_sleepers"
     },

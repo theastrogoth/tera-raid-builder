@@ -119,6 +119,7 @@ export class RaidBattle {
                                 ).result();
                                 this._turnResults.push(defCheerResult);
                                 this._firstRaiderHasMoved = true;
+                                this._state = defCheerResult.state;
                             }
                             turnCounter = turnCounter + 1 + this._numNPCs;
                         } else {

@@ -121,15 +121,7 @@
                 "Sludge Bomb"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 3,
@@ -195,15 +187,7 @@
             "gender": "N",
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         }
     ],
     "turns": [
@@ -213,7 +197,7 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -478,7 +462,7 @@
         [
             {
                 "raider": {
-                    "id": 2,
+                    "id": 1,
                     "role": "Weezing",
                     "name": "Weezing-Galar",
                     "shiny": false,
@@ -525,7 +509,7 @@
         [
             {
                 "raider": {
-                    "id": 3,
+                    "id": 1,
                     "role": "Muk",
                     "name": "Muk",
                     "shiny": false,
@@ -562,7 +546,7 @@
             },
             {
                 "raider": {
-                    "id": 3,
+                    "id": 2,
                     "role": "Muk",
                     "name": "Muk-Alola",
                     "shiny": false,
@@ -633,6 +617,92 @@
                 },
                 "substituteMoves": [],
                 "substituteTargets": []
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Corviknight",
+                    "name": "Corviknight",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Light Screen",
+                        "Rock Smash",
+                        "Sunny Day"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Corviknight",
+                    "name": "Corviknight",
+                    "shiny": false,
+                    "ability": "Mirror Armor",
+                    "item": "Ability Shield",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Light Screen",
+                        "Rock Smash",
+                        "Sunny Day"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
             }
         ],
         []

@@ -1,7 +1,8 @@
 {
     "Serperior": {
         "Cooking With Gas": "serperior/main",
-        "Cooking With Gas (3-person version)": "serperior/cooking_w_gas_3"
+        "Cooking With Gas (3-person version)": "serperior/cooking_w_gas_3",
+        "Braviary T1": "serperior/braviary"
     },
     "Incineroar": {
         "One-Hit Kommo-O": "incineroar/main",

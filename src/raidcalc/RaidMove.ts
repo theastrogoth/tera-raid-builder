@@ -1441,7 +1441,7 @@ export class RaidMove {
                 break;
             case "Skill Swap": 
                 if (
-                    !this._user.abilityNullified && !target.abilityNullified &&
+                    // !this._user.abilityNullified && !target.abilityNullified &&
                     !this._user.hasItem("Ability Shield") && 
                     !target.hasItem("Ability Shield") &&
                     !persistentAbilities["FailSkillSwap"].includes(user_ability) &&
@@ -1489,7 +1489,7 @@ export class RaidMove {
                 break;
             case "Role Play":
                 if (
-                    !target.abilityNullified &&
+                    // !target.abilityNullified &&
                     !persistentAbilities["FailRolePlay"].includes(target_ability) &&
                     !this._user.hasItem("Ability Shield")
                 ) {

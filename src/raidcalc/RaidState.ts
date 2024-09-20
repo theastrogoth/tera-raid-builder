@@ -843,7 +843,7 @@ export class RaidState implements State.RaidState{
         if (!pokemon.abilityNullified) {
             this.removeAbilityFieldEffect(id, oldAbility);
         }
-        pokemon.abilityNullified = undefined;
+        // pokemon.abilityNullified = undefined;
         // gained field effects
         this.addAbilityFieldEffect(id, ability);
     }

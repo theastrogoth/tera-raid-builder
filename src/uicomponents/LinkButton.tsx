@@ -223,8 +223,8 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
         const notes = obj.notes || "";
         const credits = obj.credits || "";
 
-        const substitutes: SubstituteBuildInfo[][] = await Promise.all((obj.substitutes || [[],[],[],[]]).map(async (subsList) => 
-            await Promise.all(subsList.map(async (s,i) => 
+        const substitutes: SubstituteBuildInfo[][] = await Promise.all((obj.substitutes || [[],[],[],[]]).map(async (subsList,i) => 
+            await Promise.all(subsList.map(async s => 
                     {
                         const r = s.raider;
                         const subPoke = new Raider(i+1, r.role, r.shiny, r.isAnyLevel, new Field(), 

@@ -1085,9 +1085,11 @@ export class RaidState implements State.RaidState{
                         ) { 
                             continue; 
                         }
+                        if (!target.abilityNullified) {
+                            flags[i].push("Ability suppressed by Neutralizing Gas");
+                        }
                         this.removeAbilityFieldEffect(i, target.ability)
                         target.abilityNullified = -1;
-                        flags[i].push("Ability suppressed by Neutralizing Gas");
                     }
                 }
                 break;
@@ -1519,11 +1521,16 @@ export class RaidState implements State.RaidState{
         pokemon.cumDamageRolls.addSequentialCondition(pokemon.item)
         // check Neutralizing Gas
         const neutralizingGas = this.raiders.reduce((p, c) => p || c.ability === "Neutralizing Gas", false);
-        if (neutralizingGas && !pokemon.hasItem("Ability Shield") && ability !== "Neutralizing Gas") { 
+        const nullifiedByGas = neutralizingGas && !pokemon.hasItem("Ability Shield") && ability !== "Neutralizing Gas";
+        if (nullifiedByGas) { 
             pokemon.abilityNullified = -1;
         }
         // add abilites that Take Effect upon switch-in
         const flags = this.addAbilityFieldEffect(id, ability);
+        if (nullifiedByGas) {
+            flags[id].push("Ability suppressed by Neutralizing Gas");
+        }
+
         // Mew stat boosts for Mewtwo event.
         if (id !== 0 && pokemon.name === "Mew" && this.raiders[0].name === "Mewtwo") {
             this.raiders[id] = new Raider(

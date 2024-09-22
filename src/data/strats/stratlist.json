@@ -2,8 +2,10 @@
     "Serperior": {
         "Cooking With Gas": "serperior/main",
         "Cooking With Gas (3-person version)": "serperior/cooking_w_gas_3",
+        "Cooking With Gas: Monkey edition": "serperior/cooking_w_monkey",
         "Minimal T1 Anger Point": "serperior/anger_point",
-        "Braviary T1": "serperior/braviary"
+        "Braviary T1": "serperior/braviary",
+        "Snake Pit": "serperior/snake_pit"
     },
     "Incineroar": {
         "One-Hit Kommo-O": "incineroar/main",

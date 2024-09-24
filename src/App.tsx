@@ -37,6 +37,7 @@ import { getTranslation } from './utils.ts';
 import DEFAULT_STRAT from './data/strats/default.json';
 import { LightBuildInfo } from './raidcalc/hashData.ts';
 import { deepEqual } from './utils.ts';
+import RaiderSummaries from './uicomponents/RaiderSummaries.tsx';
 
 type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
 
@@ -407,7 +408,20 @@ function App() {
           </Grid>
         </Grid>
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
-          <Grid item>
+          <RaiderSummaries
+            raidInputProps={raidInputProps}
+            substitutes={[substitutes1, substitutes2, substitutes3, substitutes4]}
+            setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
+            groupsCounter={groupsCounter}
+            setGroupsCounter={setGroupsCounter}
+            allSpecies={allSpecies}
+            allMoves={allMoves}
+            setAllSpecies={setAllSpecies}
+            setAllMoves={setAllMoves}
+            prettyMode={prettyMode}
+            translationKey={translationKey}
+          />
+          {/* <Grid item>
             <Stack direction="row">
               <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes1} setSubstitutes={setSubstitutes1} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
               <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes2} setSubstitutes={setSubstitutes2} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey}/>
@@ -418,7 +432,7 @@ function App() {
               <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes3} setSubstitutes={setSubstitutes3} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
               <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes4} setSubstitutes={setSubstitutes4} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
             </Stack>
-          </Grid>
+          </Grid> */}
           <Grid item>
             <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>

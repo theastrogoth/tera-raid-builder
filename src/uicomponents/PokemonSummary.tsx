@@ -5,6 +5,8 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import ChevronLeft from '@mui/icons-material/ChevronLeft';
+import ChevronRight from '@mui/icons-material/ChevronRight';
 
 import { ABILITIES, Generations, Pokemon } from '../calc';
 import { toID } from '../calc/util';
@@ -73,10 +75,10 @@ export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raide
     )
 }
 
-function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, substitutes, setSubstitutes, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
+function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, substitutes, setSubstitutes, swapIDs, setSwapIDs, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
     {pokemon: Raider, setPokemon: (r: Raider) => void, groups: TurnGroupInfo[], setGroups: (g: TurnGroupInfo[]) => void, groupsCounter: number,
-     substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
-     setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
+     substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void,  swapIDs: [number, number] | undefined, setSwapIDs: (i: [number, number] | undefined) => void,
+     allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
 ) {
     const [moveSet, setMoveSet] = useState<(MoveSetItem)[]>([])
     const [abilities, setAbilities] = useState<{name: AbilityName, hidden: boolean}[]>([])
@@ -169,6 +171,24 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, 
                             </IconButton>
                         </Paper>
                     </Box>         
+                }
+                {!prettyMode && 
+                    <Box sx={{position: "absolute", transform: "translate(0px, 132px)"}} >
+                        <Paper elevation={3} sx={{borderRadius: 100, justifyContent: "center", alignItems: "center", boxShadow: "none"}}>
+                            <IconButton size="small" disabled={pokemon.id < 2} onClick={() => setSwapIDs([pokemon.id-1, pokemon.id])}>
+                                <ChevronLeft fontSize="large"/>
+                            </IconButton>
+                        </Paper>
+                    </Box>
+                }
+                {!prettyMode && 
+                    <Box sx={{position: "absolute", transform: "translate(242px, 132px)"}} >
+                        <Paper elevation={3} sx={{borderRadius: 100, justifyContent: "center", alignItems: "center", boxShadow: "none"}}>
+                            <IconButton size="small" disabled={pokemon.id > 3} onClick={() => setSwapIDs([pokemon.id, pokemon.id+1])}>
+                                <ChevronRight fontSize="large"/>
+                            </IconButton>
+                        </Paper>
+                    </Box>
                 }
                 <Stack direction="column" spacing={0} alignItems="center" justifyContent="top" minHeight= {prettyMode ? "666px" : "800px"} sx={{ marginTop: 1 }} >
                     <Box paddingBottom={0} paddingLeft={1.5} width="88%" alignSelf="start">
@@ -279,6 +299,13 @@ export default React.memo(PokemonSummary,
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
         (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
         prevProps.groupsCounter === nextProps.groupsCounter &&
+        (
+            prevProps.swapIDs === nextProps.swapIDs || (
+                prevProps.swapIDs !== undefined && nextProps.swapIDs !== undefined &&
+                prevProps.swapIDs[0] === nextProps.swapIDs[0] &&
+                prevProps.swapIDs[1] === nextProps.swapIDs[1]
+            ) 
+        ) &&
         prevProps.prettyMode === nextProps.prettyMode &&
         prevProps.translationKey === nextProps.translationKey
     )

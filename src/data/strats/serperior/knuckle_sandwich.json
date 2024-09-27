@@ -1,0 +1,678 @@
+{
+    "name": "Serperior Orders a Sweet Knuckle Sandwich!",
+    "notes": "- Builds are important\n- T1 order is important",
+    "credits": "@ Hydracinth",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Serperior",
+            "name": "Serperior",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Contrary",
+            "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Grass",
+            "moves": [
+                "Leaf Storm",
+                "Gastro Acid",
+                "Dragon Pulse",
+                "Iron Tail"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Sweet Scent",
+                "Breaking Swipe",
+                "Glare"
+            ],
+            "shieldData": {
+                "hpTrigger": 75,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 60,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Annihilape",
+            "name": "Annihilape",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "Defiant",
+            "item": "Choice Band",
+            "nature": "Careful",
+            "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Rage Fist"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 2,
+            "role": "Toucannon",
+            "name": "Toucannon",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "Skill Link",
+            "item": "Ability Shield",
+            "nature": "Quirky",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Helping Hand",
+                "Rock Blast"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 3,
+            "role": "Grumpig",
+            "name": "Grumpig",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Choice Scarf",
+            "nature": "Calm",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Simple Beam"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Screecher",
+            "name": "Umbreon",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Sweet Scent",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 1,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 3,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 5,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 5,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 2,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 2,
+            "moveInfo": {
+                "name": "Rock Blast",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 3
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 4,
+            "moveInfo": {
+                "name": "Rage Fist",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0
+        ],
+        [
+            5
+        ],
+        [
+            2
+        ],
+        [
+            3,
+            1
+        ],
+        [
+            6,
+            4,
+            7
+        ],
+        [
+            8
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Corviknight",
+                    "name": "Corviknight",
+                    "shiny": false,
+                    "ability": "Unnerve",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Light Screen",
+                        "Rock Smash",
+                        "Sunny Day"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Muk",
+                    "name": "Muk-Alola",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Mud-Slap",
+                        "Gunk Shot"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Muk",
+                    "name": "Muk",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Mud-Slap",
+                        "Gunk Shot"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Perrserker",
+                    "name": "Perrserker",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Sunny Day",
+                        "Body Slam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ]
+    ]
+}

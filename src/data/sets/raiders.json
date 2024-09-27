@@ -3742,7 +3742,7 @@
     "Skuntank": {
         "Acid Spray Support (Def)": {
             "level":100,
-            "item":"Eviolite",
+            "item":"Sitrus Berry",
             "ability":"Stench",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
@@ -3750,7 +3750,7 @@
         },
         "Acid Spray Support (SpD)": {
             "level":100,
-            "item":"Eviolite",
+            "item":"Sitrus Berry",
             "ability":"Stench",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
@@ -4701,16 +4701,16 @@
     "Venomoth": {
         "General Support (Def)": {
             "level":100,
-            "item":"Sitrus Berry",
-            "ability":"Compound Eyes",
+            "item":"Zoom Lens",
+            "ability":"Shield Dust",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
             "moves":["Screech","Acid Spray","Stun Spore","Lunge"]
         },
         "General Support (SpD)": {
             "level":100,
-            "item":"Sitrus Berry",
-            "ability":"Compound Eyes",
+            "item":"Zoom Lens",
+            "ability":"Shield Dust",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
             "moves":["Screech","Acid Spray","Stun Spore","Struggle Bug"]

@@ -385,6 +385,25 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveSet, moveInfo.moveData.target])
 
+    useEffect(() => {
+        const newDisableTarget = (
+            moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.target === undefined ||
+            moveInfo.moveData.target === "user" ||
+            moveInfo.moveData.target === "user-and-allies" ||
+            moveInfo.moveData.target === "all-allies" ||
+            // moveInfo.moveData.target === "all-opponents" ||
+            // moveInfo.moveData.target === "all-other-pokemon" ||
+            // moveInfo.moveData.target === "all-pokemon" ||
+            moveInfo.moveData.target === "users-field" ||
+            moveInfo.moveData.target === "opponents-field" ||
+            moveInfo.moveData.target === "entire-field"
+        );
+        const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID)
+        setDisableTarget(newDisableTarget);
+        setValidTargets(newValidTargets);
+    }, [moveInfo.userID])
+
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
             <Stack width="450px" direction="row" spacing={0.5} alignItems="center" justifyContent="center">

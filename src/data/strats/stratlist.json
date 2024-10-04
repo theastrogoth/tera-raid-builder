@@ -1,4 +1,10 @@
 {
+    "Infernape": {
+        "Rock All Night": "infernape/main",
+        "Steely T1": "infernape/steely",
+        "Minimal T1 Anger Point": "infernape/anger_point",
+        "Fish Food": "infernape/fish_food"
+    },
     "Serperior": {
         "Cooking With Gas": "serperior/main",
         "Cooking With Gas (3-person version)": "serperior/cooking_w_gas_3",

@@ -5,12 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Serperior",
-            "name": "Serperior",
+            "role": "Infernape",
+            "name": "Infernape",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Contrary",
-            "nature": "Modest",
+            "ability": "Iron Fist",
+            "nature": "Naughty",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,24 +28,24 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Grass",
+            "gender": "M",
+            "teraType": "Rock",
             "moves": [
-                "Leaf Storm",
-                "Gastro Acid",
-                "Dragon Pulse",
-                "Iron Tail"
+                "Flare Blitz",
+                "Aura Sphere",
+                "Tera Blast",
+                "Grass Knot"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Sweet Scent",
-                "Breaking Swipe",
-                "Glare"
+                "Nasty Plot",
+                "Swords Dance",
+                "Focus Energy"
             ],
             "shieldData": {
-                "hpTrigger": 75,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 60,
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 50,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -53,15 +53,15 @@
         },
         {
             "id": 1,
-            "role": "Charizard",
-            "name": "Charizard",
+            "role": "Kommo-o",
+            "name": "Kommo-o",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
+            "ability": "Bulletproof",
+            "item": "Covert Cloak",
             "nature": "Adamant",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 252,
                 "def": 0,
                 "spa": 0,
@@ -80,9 +80,9 @@
             "gender": "N",
             "moves": [
                 "Belly Drum",
-                "Flare Blitz",
+                "Close Combat",
                 "Swords Dance",
-                "Acrobatics"
+                "Drain Punch"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -97,17 +97,17 @@
         },
         {
             "id": 2,
-            "role": "Weezing",
-            "name": "Weezing",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Neutralizing Gas",
-            "item": "Ability Shield",
-            "nature": "Hardy",
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -123,10 +123,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Sunny Day",
-                "Body Slam",
-                "Gunk Shot",
-                "Sludge Bomb"
+                "Helping Hand",
+                "Heal Pulse",
+                "Chilling Water",
+                "Rain Dance"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -169,8 +169,8 @@
             "moves": [
                 "Screech",
                 "Helping Hand",
-                "Light Screen",
-                "Mud-Slap"
+                "Snarl",
+                "Rain Dance"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -213,8 +213,8 @@
             "moves": [
                 "Screech",
                 "Helping Hand",
-                "Light Screen",
-                "Mud-Slap"
+                "Snarl",
+                "Rain Dance"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -235,24 +235,24 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "Sweet Scent",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             }

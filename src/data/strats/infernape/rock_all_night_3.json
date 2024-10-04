@@ -1,6 +1,6 @@
 {
-    "name": "Rock All Night",
-    "notes": "",
+    "name": "Rock All Night (3-person version)",
+    "notes": "There is a very small chance for a Friend Guard support to faint if it is the host or moves before the host.",
     "credits": "the r/PokePortal Team",
     "pokemon": [
         {
@@ -53,16 +53,16 @@
         },
         {
             "id": 1,
-            "role": "Kommo-o",
-            "name": "Kommo-o",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Bulletproof",
-            "item": "Covert Cloak",
-            "nature": "Adamant",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
-                "atk": 252,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
@@ -79,10 +79,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Belly Drum",
-                "Close Combat",
-                "Swords Dance",
-                "Drain Punch"
+                "Screech",
+                "Helping Hand",
+                "Snarl",
+                "Rain Dance"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -141,16 +141,16 @@
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Kommo-o",
+            "name": "Kommo-o",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "Bulletproof",
+            "item": "Covert Cloak",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
@@ -167,10 +167,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Snarl",
-                "Rain Dance"
+                "Belly Drum",
+                "Close Combat",
+                "Swords Dance",
+                "Drain Punch"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -185,15 +185,14 @@
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -201,21 +200,16 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Helping Hand",
-                "Snarl",
-                "Rain Dance"
-            ],
+            "moves": [],
             "bossMultiplier": 100,
             "extraMoves": [],
             "shieldData": {
@@ -233,9 +227,9 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 2,
-                "targetID": 2,
+                "name": "Screech",
+                "userID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -247,7 +241,7 @@
             "bossMoveInfo": {
                 "name": "(Most Damaging)",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
@@ -261,9 +255,9 @@
             "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Screech",
-                "userID": 3,
-                "targetID": 0,
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -275,7 +269,7 @@
             "bossMoveInfo": {
                 "name": "(Most Damaging)",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
@@ -289,9 +283,9 @@
             "id": 2,
             "group": 0,
             "moveInfo": {
-                "name": "Screech",
-                "userID": 4,
-                "targetID": 0,
+                "name": "Belly Drum",
+                "userID": 3,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -303,7 +297,7 @@
             "bossMoveInfo": {
                 "name": "(Most Damaging)",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
@@ -315,28 +309,28 @@
         },
         {
             "id": 3,
-            "group": 0,
+            "group": 1,
             "moveInfo": {
-                "name": "Belly Drum",
+                "name": "Screech",
                 "userID": 1,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
                     "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
                 "name": "(Most Damaging)",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
                     "allowMiss": false,
+                    "roll": "max",
                     "hits": 10
                 }
             }
@@ -347,94 +341,38 @@
             "moveInfo": {
                 "name": "Helping Hand",
                 "userID": 2,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
                 "name": "(Most Damaging)",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "allowMiss": false,
                     "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
         },
         {
             "id": 5,
-            "group": 1,
+            "group": 2,
             "moveInfo": {
-                "name": "Screech",
+                "name": "Close Combat",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 1,
-            "moveInfo": {
-                "name": "Screech",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 2,
-            "moveInfo": {
-                "name": "Close Combat",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
                     "allowMiss": true,
                     "roll": "min",
                     "hits": 1
@@ -443,7 +381,7 @@
             "bossMoveInfo": {
                 "name": "(Most Damaging)",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 3,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
@@ -458,16 +396,14 @@
         [
             0,
             1,
-            2,
-            3
+            2
         ],
         [
-            4,
-            5,
-            6
+            3,
+            4
         ],
         [
-            7
+            5
         ]
     ],
     "repeats": [
@@ -476,7 +412,51 @@
         1
     ],
     "substitutes": [
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Muk",
+                    "name": "Muk",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Mud-Slap",
+                        "Scary Face"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ],
         [
             {
                 "raider": {
@@ -650,95 +630,7 @@
                 ]
             }
         ],
-        [
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Muk",
-                    "name": "Muk",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Relaxed",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Mud-Slap",
-                        "Scary Face"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Screech"
-                ],
-                "substituteTargets": [
-                    0,
-                    0
-                ]
-            }
-        ],
-        [
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Muk",
-                    "name": "Muk",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Relaxed",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Mud-Slap",
-                        "Scary Face"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Screech"
-                ],
-                "substituteTargets": [
-                    0,
-                    0
-                ]
-            }
-        ]
+        [],
+        []
     ]
 }

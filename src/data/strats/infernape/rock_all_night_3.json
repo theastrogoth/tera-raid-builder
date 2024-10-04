@@ -493,12 +493,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Defense Cheer",
+                    "Attack Cheer",
                     "Helping Hand"
                 ],
                 "substituteTargets": [
                     2,
-                    1
+                    3
                 ]
             },
             {
@@ -536,12 +536,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Defense Cheer",
+                    "Attack Cheer",
                     "Helping Hand"
                 ],
                 "substituteTargets": [
                     2,
-                    1
+                    3
                 ]
             },
             {
@@ -579,12 +579,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Defense Cheer",
+                    "Attack Cheer",
                     "Helping Hand"
                 ],
                 "substituteTargets": [
                     2,
-                    1
+                    3
                 ]
             },
             {
@@ -621,12 +621,12 @@
                     ]
                 },
                 "substituteMoves": [
-                    "Defense Cheer",
+                    "Attack Cheer",
                     "Helping Hand"
                 ],
                 "substituteTargets": [
                     2,
-                    1
+                    3
                 ]
             }
         ],

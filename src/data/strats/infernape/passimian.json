@@ -1,0 +1,349 @@
+{
+    "name": "Passimian T1 OHKO Infernape the Unrivaled",
+    "notes": "All members' levels should be as low as possible (Level 1 is preferred) to minimize the time penalty, according to Gimikyu's research.\nVideo demonstration:\nhttps://www.reddit.com/r/PokePortal/comments/1fy517h/primate_powerhouse_passimian_t1_ohko_infernape/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button",
+    "credits": "Nyashiro",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Infernape",
+            "name": "Infernape",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Iron Fist",
+            "nature": "Naughty",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "M",
+            "teraType": "Rock",
+            "moves": [
+                "Flare Blitz",
+                "Aura Sphere",
+                "Tera Blast",
+                "Grass Knot"
+            ],
+            "bossMultiplier": 3500,
+            "extraMoves": [
+                "Nasty Plot",
+                "Swords Dance",
+                "Focus Energy"
+            ],
+            "shieldData": {
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 50,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Passimian",
+            "name": "Passimian",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Receiver",
+            "item": "Mirror Herb",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Reversal"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 2,
+            "role": "Carbink",
+            "name": "Carbink",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Sturdy",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [
+                "Endeavor"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 3,
+            "role": "Meditite",
+            "name": "Meditite",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Pure Power",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Scovillain",
+            "name": "Scovillain",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Chlorophyll",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [
+                "Spicy Extract"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Spicy Extract",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Endeavor",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": true,
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Reversal",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0,
+            1,
+            2
+        ],
+        [
+            3
+        ]
+    ],
+    "repeats": [
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

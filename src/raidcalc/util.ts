@@ -96,8 +96,8 @@ export function pokemonIsGrounded(pokemon: Raider, field: Field) {
 }
 
 export function getBoostCoefficient(pokemon: Pokemon) {
-    const hasSimple = pokemon.ability === "Simple";
-    const hasContrary = pokemon.ability === "Contrary";
+    const hasSimple = pokemon.hasAbility("Simple");
+    const hasContrary = pokemon.hasAbility("Contrary");
     return hasSimple ? 2 : hasContrary ? -1 : 1;
 }
 

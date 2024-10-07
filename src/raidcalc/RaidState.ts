@@ -650,7 +650,7 @@ export class RaidState implements State.RaidState{
             // Safeguard and Misty Terrain block confusion
             if (ailment === "confusion" && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { success = false; }
             // Covert Cloak
-            if (ailment === "confusion" && !selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { success = false; }
+            if (ailment === "confusion" && !selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.hasAbility("Shield Dust"))) { success = false; }
             // Aroma Veil
             if (field.attackerSide.isAromaVeil && ["taunt", "encore", "disable", "infatuation", "yawn", "heal-block"].includes(ailment)) {
                 success = false;
@@ -1178,7 +1178,7 @@ export class RaidState implements State.RaidState{
                 const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
                 for (id of allyIDs) {
                     const ally = this.getPokemon(id);
-                    if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
+                    if (ally.originalCurHP > 0 && ally.hasAbility("Minus", "Plus")) {
                         pokemon.abilityOn = true;
                         ally.abilityOn = true;
                         flags[id].push(ability + " activated");
@@ -1382,10 +1382,10 @@ export class RaidState implements State.RaidState{
             case "Plus":
             case "Minus":
                 const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
-                const plusMinusCount = allyIDs.reduce((p, c) => p + (this.getPokemon(c).ability === "Minus" || this.getPokemon(c).ability === "Plus" ? 1 : 0), 0);
+                const plusMinusCount = allyIDs.reduce((p, c) => p + (this.getPokemon(c).hasAbility("Minus","Plus") ? 1 : 0), 0);
                 for (id of allyIDs) {
                     const ally = this.getPokemon(id);
-                    if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
+                    if (ally.originalCurHP > 0 && ally.hasAbility("Minus", "Plus")) {
                         ally.abilityOn = plusMinusCount > 1;
                     }
                 }
@@ -1411,7 +1411,7 @@ export class RaidState implements State.RaidState{
         for (let i=1; i<5; i++) {
             if (i === id) { continue; }
             const ally = this.getPokemon(i);
-            if ((ally.ability === "Receiver" || ally.ability === "Power Of Alchemy") && ally.originalCurHP !== 0) {
+            if (ally.hasAbility("Receiver","Power of Alchemy","Power Of Alchemy") && ally.originalCurHP !== 0) {
                 if (ability && !persistentAbilities["NoReceiver"].includes(ability)) {
                     ally.ability = ability;
                 }
@@ -1421,7 +1421,7 @@ export class RaidState implements State.RaidState{
         for (let i=0; i<5; i++) {
             if (i === id) { continue; }
             const poke = this.getPokemon(i);
-            if (poke.ability === "Soul-Heart" && poke.originalCurHP !== 0) {
+            if (poke.hasAbility("Soul-Heart") && poke.originalCurHP !== 0) {
                 this.applyStatChange(i, {spa: 1}, true, i);
             }
         }
@@ -1520,7 +1520,7 @@ export class RaidState implements State.RaidState{
         pokemon.cumDamageRolls = new CumulativeRolls();
         pokemon.cumDamageRolls.addSequentialCondition(pokemon.item)
         // check Neutralizing Gas
-        const neutralizingGas = this.raiders.reduce((p, c) => p || c.ability === "Neutralizing Gas", false);
+        const neutralizingGas = this.raiders.reduce((p, c) => p || c.hasAbility("Neutralizing Gas"), false);
         const nullifiedByGas = neutralizingGas && !pokemon.hasItem("Ability Shield") && ability !== "Neutralizing Gas";
         if (nullifiedByGas) { 
             pokemon.abilityNullified = -1;

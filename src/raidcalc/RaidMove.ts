@@ -578,7 +578,7 @@ export class RaidMove {
                         }
                         break;
                     case "Well-Baked Body":
-                        if (pokemon.ability === "Well-Baked Body" && this._moveType === "Fire") {
+                        if (this._moveType === "Fire") {
                             this._doesNotAffect[id] = "boosts " + pokemon.name + " due to " + pokemon.ability; 
                             const boost = {def: 2};
                             this._raidState.applyStatChange(id, boost);

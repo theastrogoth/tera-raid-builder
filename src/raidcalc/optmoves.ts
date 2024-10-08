@@ -63,6 +63,33 @@ function splitGroups(groups: TurnGroupInfo[]): TurnGroupInfo[][] {
     return groupsChunks;
 }
 
+function addNPCCheer(npcid: number, groupsChunks: TurnGroupInfo[][]) {
+    for (let i = 0; i < groupsChunks.length; i++) {
+        for (let j = 0; j < groupsChunks[i].length; j++) {
+            for (let k = 0; k < groupsChunks[i][j].turns.length; k++) {
+                if (groupsChunks[i][j].turns[k].moveInfo.userID === 1) {
+                    const cheerMove: RaidTurnInfo = {
+                        id: groupsChunks[i][j].turns[k].id + 0.5,
+                        group: groupsChunks[i][j].turns[k].id,
+                        moveInfo: {
+                            userID: npcid,
+                            targetID: npcid,
+                            moveData: { name: "Defense Cheer" as MoveName },
+                        },
+                        bossMoveInfo: {
+                            userID: 0,
+                            targetID: npcid,
+                            moveData: groupsChunks[i][j].turns[k].bossMoveInfo.moveData,
+                        },
+                    };
+                    groupsChunks[i][j].turns.splice(k+1, 0, cheerMove);
+                    return;
+                }
+            }
+        }
+    }
+}
+
 // checks for changes in stats and other modifiers between two states for a single raider
 function nonHPChanges(caseA: Raider, caseB: Raider): boolean {
     const boostsAreEqual = (
@@ -292,6 +319,10 @@ export function optimizeBossMoves(raiders: Raider[], groups: TurnGroupInfo[]) {
     const startingResult = new RaidBattle(startingInfo).result();
 
     const branchChunks = splitGroups(expandRepeats(groups).filter((g) => g.turns.length > 0));
+    const npcid = raiders.findIndex((r) => r.name === "NPC");
+    if (npcid >= 0) {
+        addNPCCheer(npcid, branchChunks);
+    }
     const bestResult: [RaidBattleResults] = [startingResult];
     const bestScore: [number] = [-Infinity];
     const branchCounter: [number] = [1];

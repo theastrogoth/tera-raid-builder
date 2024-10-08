@@ -102,7 +102,6 @@ export class RaidBattle {
                     this._turnResults.push(result);
                     this._state = result.state;
                     if(turn.moveInfo.moveData.name !== "(No Move)") {
-
                         if (turn.moveInfo.userID === 1 && this._numNPCs > 0) {
                             if (!this._firstRaiderHasMoved) {
                                 const firstNPC = this._state.raiders.find(raider => raider.name === "NPC")!;

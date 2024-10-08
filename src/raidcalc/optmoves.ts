@@ -63,14 +63,15 @@ function splitGroups(groups: TurnGroupInfo[]): TurnGroupInfo[][] {
     return groupsChunks;
 }
 
-function addNPCCheer(npcid: number, groupsChunks: TurnGroupInfo[][]) {
-    for (let i = 0; i < groupsChunks.length; i++) {
-        for (let j = 0; j < groupsChunks[i].length; j++) {
-            for (let k = 0; k < groupsChunks[i][j].turns.length; k++) {
-                if (groupsChunks[i][j].turns[k].moveInfo.userID === 1) {
+function addNPCCheer(npcid: number, groups: TurnGroupInfo[]) { // without this, the NPC cheer gets skipped if the host's first move has boss move optimization
+    for (let i = 0; i < groups.length; i++) {
+        for (let j = 0; j < groups[i].turns.length; j++) {
+            if (groups[i].turns[j].moveInfo.userID === 1 && groups[i].turns[j].moveInfo.moveData.name !== "(No Move)") {
+                console.log(groups[i].turns[j])
+                if (groups[i].turns[j].bossMoveInfo.moveData.name === "(Optimal Move)") {
                     const cheerMove: RaidTurnInfo = {
-                        id: groupsChunks[i][j].turns[k].id + 0.5,
-                        group: groupsChunks[i][j].turns[k].id,
+                        id: -1,
+                        group: groups[i].turns[j].id,
                         moveInfo: {
                             userID: npcid,
                             targetID: npcid,
@@ -79,12 +80,13 @@ function addNPCCheer(npcid: number, groupsChunks: TurnGroupInfo[][]) {
                         bossMoveInfo: {
                             userID: 0,
                             targetID: npcid,
-                            moveData: groupsChunks[i][j].turns[k].bossMoveInfo.moveData,
+                            moveData: groups[i].turns[j].bossMoveInfo.moveData,
                         },
                     };
-                    groupsChunks[i][j].turns.splice(k+1, 0, cheerMove);
-                    return;
+                    groups[i].turns.splice(j+1, 0, cheerMove);
+                    console.log("NPC Cheer Added")
                 }
+                return;
             }
         }
     }
@@ -235,7 +237,7 @@ function splitBranch(info: RaidBattleInfo, prevResults: RaidBattleResults, moveD
     }
     const lastGroup = info.groups[info.groups.length-1];
     if (lastGroup.turns.length > 1) {
-        penultimateResult = new RaidBattle({...info, groups: [{...lastGroup, turns: lastGroup.turns.slice(0,-1)}]}, prevResults).result();
+        penultimateResult = new RaidBattle({...info, groups: [{...lastGroup, turns: lastGroup.turns.slice(0,-1)}]}, penultimateResult).result();
     }
 
     const lastMove = lastGroup.turns[lastGroup.turns.length-1];
@@ -299,9 +301,10 @@ function calculateBranches(branchChunks: TurnGroupInfo[][], prevResults: RaidBat
 }
 
 function resultObjective(result: RaidBattleResults): number {
+    const players = result.endState.raiders.slice(1).filter((r) => r.name !== "NPC");
     const bossKO = result.endState.raiders[0].originalCurHP <= 0;
-    const raiderKOs = result.endState.raiders.slice(1).reduce((acc, r) => acc + r.timesFainted, 0);
-    const raiderKOChances = result.endState.raiders.slice(1).reduce((acc, r) => {
+    const raiderKOs = players.reduce((acc, r) => acc + r.timesFainted, 0);
+    const raiderKOChances = players.reduce((acc, r) => {
         const koChance = r.koChance || 0;
         const score = koChance === 0 ? 0 : Math.max(1, koChance)
         return acc + score;
@@ -318,11 +321,13 @@ export function optimizeBossMoves(raiders: Raider[], groups: TurnGroupInfo[]) {
     }
     const startingResult = new RaidBattle(startingInfo).result();
 
-    const branchChunks = splitGroups(expandRepeats(groups).filter((g) => g.turns.length > 0));
+    const expandedGroups = expandRepeats(groups);
     const npcid = raiders.findIndex((r) => r.name === "NPC");
     if (npcid >= 0) {
-        addNPCCheer(npcid, branchChunks);
+        addNPCCheer(npcid, expandedGroups);
     }
+    const branchChunks = splitGroups(expandedGroups.filter((g) => g.turns.length > 0));
+
     const bestResult: [RaidBattleResults] = [startingResult];
     const bestScore: [number] = [-Infinity];
     const branchCounter: [number] = [1];

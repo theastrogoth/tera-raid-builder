@@ -273,7 +273,7 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
     const hasWarning = (warnings && warnings.length > 0);
     const hasKoChance = (index === 0 ? 
         (curhp === 0 && koChance < 100) : 
-        (koChance > 0));
+        (name !== "NPC" && koChance > 0));
     const showWarning = hasWarning || hasKoChance;
 
     const handleWarningOpen = (event: React.MouseEvent<HTMLElement>) => {

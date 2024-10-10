@@ -1537,6 +1537,16 @@
             "moves":["Nasty Plot","Dark Pulse","Snarl","Taunt"]
         }
     },
+    "Dialga": {
+        "Special DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Pressure",
+            "nature":"Modest",
+            "evs":{"hp":252,"sa":252},
+            "moves":["Steel Beam","Roar of Time","Draco Meteor","Psych Up"]
+        }
+    },
     "Dipplin": {
         "Support (Def)": {
             "level":100,
@@ -2293,6 +2303,15 @@
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
             "moves":["Swords Dance","Kowtow Cleave","Iron Head","Brick Break"]
+        },
+        "Flingambit": {
+            "level":100,
+            "item":"Big Nugget",
+            "ability":"Defiant",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Fling","Kowtow Cleave","Iron Head"],
+            "teraType":"Dark"
         }
     },
     "Kommo-o": {

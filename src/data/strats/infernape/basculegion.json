@@ -1,7 +1,7 @@
 {
-    "name": "Monkey Business",
+    "name": "Basculegion T1",
     "notes": "",
-    "credits": "Sabu Karma",
+    "credits": "u/Suicidal-Lysosome",
     "pokemon": [
         {
             "id": 0,
@@ -53,11 +53,11 @@
         },
         {
             "id": 1,
-            "role": "Rillaboom",
-            "name": "Rillaboom",
+            "role": "Basculegion",
+            "name": "Basculegion",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Grassy Surge",
+            "ability": "Adaptability",
             "item": "Mirror Herb",
             "nature": "Adamant",
             "evs": {
@@ -77,82 +77,24 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "moves": [
-                "Wood Hammer"
+                "Wave Crash"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         },
         {
             "id": 2,
-            "role": "Medicham",
-            "name": "Medicham",
-            "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Pure Power",
-            "item": "Focus Sash",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "level": 1,
-            "gender": "N",
-            "moves": [
-                "Skill Swap"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
-        },
-        {
-            "id": 3,
-            "role": "Latios",
-            "name": "Latios",
-            "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "item": "Focus Sash",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "level": 1,
-            "gender": "M",
-            "moves": [
-                "Simple Beam"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
-        },
-        {
-            "id": 4,
-            "role": "Scovillain",
+            "role": "Spice",
             "name": "Scovillain",
             "shiny": false,
             "isAnyLevel": true,
@@ -181,7 +123,95 @@
                 "Spicy Extract"
             ],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 3,
+            "role": "Drizzle",
+            "name": "Pelipper",
+            "shiny": false,
+            "isAnyLevel": true,
+            "ability": "Drizzle",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [
+                "Helping Hand"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Stonjourner",
+            "name": "Stonjourner",
+            "shiny": false,
+            "isAnyLevel": true,
+            "ability": "Power Spot",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
@@ -189,9 +219,9 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Skill Swap",
+                "name": "Spicy Extract",
                 "userID": 2,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -217,9 +247,9 @@
             "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Simple Beam",
+                "name": "Helping Hand",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -243,16 +273,16 @@
         },
         {
             "id": 2,
-            "group": 1,
+            "group": 0,
             "moveInfo": {
-                "name": "Spicy Extract",
+                "name": "Attack Cheer",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -263,17 +293,17 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "allowMiss": false,
                     "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
         },
         {
             "id": 3,
-            "group": 2,
+            "group": 1,
             "moveInfo": {
-                "name": "Wood Hammer",
+                "name": "Wave Crash",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -301,9 +331,7 @@
     "groups": [
         [
             0,
-            1
-        ],
-        [
+            1,
             2
         ],
         [
@@ -312,273 +340,43 @@
     ],
     "repeats": [
         1,
-        1,
         1
     ],
     "substitutes": [
-        [],
         [
             {
                 "raider": {
-                    "id": 2,
-                    "role": "Meditite",
-                    "name": "Meditite",
+                    "id": 1,
+                    "role": "Basculegion",
+                    "name": "Basculegion-F",
                     "shiny": false,
-                    "ability": "Pure Power",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
+                    "ability": "Adaptability",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
                     "evs": {
                         "hp": 0,
-                        "atk": 0,
+                        "atk": 252,
                         "def": 0,
                         "spa": 0,
                         "spd": 0,
-                        "spe": 0
+                        "spe": 252
                     },
                     "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
                     },
-                    "level": 1,
-                    "gender": "N",
+                    "level": 100,
+                    "gender": "F",
                     "moves": [
-                        "Skill Swap"
+                        "Wave Crash"
                     ]
                 },
                 "substituteMoves": [
-                    "Skill Swap"
-                ],
-                "substituteTargets": [
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 2,
-                    "role": "Stonjourner",
-                    "name": "Stonjourner",
-                    "shiny": false,
-                    "ability": "Power Spot",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": []
-                },
-                "substituteMoves": [
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    2
-                ]
-            }
-        ],
-        [
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Spoink",
-                    "name": "Spoink",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Simple Beam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Simple Beam"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Grumpig",
-                    "name": "Grumpig",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Simple Beam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Simple Beam"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Psyduck",
-                    "name": "Psyduck",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Simple Beam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Simple Beam"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Golduck",
-                    "name": "Golduck",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Simple Beam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Simple Beam"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Smeargle",
-                    "name": "Smeargle",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Simple Beam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Simple Beam"
+                    "Wave Crash"
                 ],
                 "substituteTargets": [
                     0
@@ -588,7 +386,7 @@
         [
             {
                 "raider": {
-                    "id": 4,
+                    "id": 2,
                     "role": "Smeargle",
                     "name": "Smeargle",
                     "shiny": false,
@@ -622,6 +420,122 @@
                 ],
                 "substituteTargets": [
                     0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Drizzle",
+                    "name": "Kyogre",
+                    "shiny": false,
+                    "ability": "Drizzle",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Drizzle",
+                    "name": "Politoed",
+                    "shiny": false,
+                    "ability": "Drizzle",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Chien-Pao",
+                    "name": "Chien-Pao",
+                    "shiny": false,
+                    "ability": "Sword of Ruin",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    4
                 ]
             }
         ]

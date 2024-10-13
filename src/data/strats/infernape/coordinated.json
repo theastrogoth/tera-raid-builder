@@ -1,6 +1,6 @@
 {
     "name": "Coordinated Operation",
-    "notes": "",
+    "notes": "Bonus points for bringing a pink/blue shiny as the 4th raider!",
     "credits": "u/theAstrogoth",
     "pokemon": [
         {
@@ -525,6 +525,255 @@
                 ]
             }
         ],
-        []
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Ampharos",
+                    "name": "Ampharos",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [],
+                "substituteTargets": []
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Porygon",
+                    "name": "Porygon",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [],
+                "substituteTargets": []
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Porygon2",
+                    "name": "Porygon2",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [],
+                "substituteTargets": []
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Porygon-Z",
+                    "name": "Porygon-Z",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [],
+                "substituteTargets": []
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Comfey",
+                    "name": "Comfey",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [],
+                "substituteTargets": []
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Popplio",
+                    "name": "Popplio",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [],
+                "substituteTargets": []
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Dragalge",
+                    "name": "Dragalge",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [],
+                "substituteTargets": []
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Cubchoo",
+                    "name": "Cubchoo",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [],
+                "substituteTargets": []
+            }
+        ]
     ]
 }

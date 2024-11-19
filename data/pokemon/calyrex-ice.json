@@ -71,6 +71,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Double Kick",
             "learnMethod": "level-up"
         },
@@ -93,6 +97,10 @@
         {
             "name": "Energy Ball",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -235,6 +243,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Psych Up",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Psychic",
             "learnMethod": "level-up"
         },
@@ -345,6 +357,10 @@
         {
             "name": "Thrash",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Throat Chop",
+            "learnMethod": "machine"
         },
         {
             "name": "Torment",

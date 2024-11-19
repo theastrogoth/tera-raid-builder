@@ -63,6 +63,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Curse",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Dark Pulse",
             "learnMethod": "machine"
         },
@@ -93,6 +97,10 @@
         {
             "name": "Energy Ball",
             "learnMethod": "level-up"
+        },
+        {
+            "name": "Expanding Force",
+            "learnMethod": "machine"
         },
         {
             "name": "Facade",
@@ -199,6 +207,10 @@
             "learnMethod": "machine"
         },
         {
+            "name": "Pain Split",
+            "learnMethod": "machine"
+        },
+        {
             "name": "Phantom Force",
             "learnMethod": "machine"
         },
@@ -216,6 +228,10 @@
         },
         {
             "name": "Psybeam",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Psych Up",
             "learnMethod": "machine"
         },
         {

@@ -193,6 +193,7 @@ export class RaidTurn {
         }
         // execute moves
         if (this._raiderMovesFirst) {
+            this.applyRaiderIndirectMove();
             this._raidMove1 = new RaidMove(
                 this._raiderMoveData,
                 this._raiderMove, 
@@ -210,6 +211,7 @@ export class RaidTurn {
             );
             this._result1 = this._raidMove1.result();
             this._raidState = this._result1.state;
+            this.applyBossIndirectMove();
             this._raidMove2 = new RaidMove(
                 this._bossMoveData,
                 this._bossMove, 
@@ -225,6 +227,7 @@ export class RaidTurn {
                 this._result1.statLowered[0]
             );
         } else {
+            this.applyBossIndirectMove();
             this._raidMove1 = new RaidMove(
                 this._bossMoveData, 
                 this._bossMove, 
@@ -238,6 +241,7 @@ export class RaidTurn {
             );
             this._result1 = this._raidMove1.result();
             this._raidState = this._result1.state;
+            this.applyRaiderIndirectMove();
             this._raidMove2 = new RaidMove(
                 this._raiderMoveData, 
                 this._raiderMove, 
@@ -433,15 +437,26 @@ export class RaidTurn {
             this._raiderMove = new Move(9, bestMove, this.raiderOptions);
             this._raiderMoveUsed = bestMove;
         }
-        // Moves that cause different moves to be carried out (Instruct and Copycat, let's not worry about Metronome)
+        // Force the move to be the last move used for Choice Lock / Encore
+        if (isRegularMove(this._raiderMove.name) && (this._raider.isChoiceLocked || this._raider.isEncore) && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
+            this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
+            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+            this._raiderMoveUsed = this._raiderMoveData.name;
+        } 
+    }
+
+    private applyRaiderIndirectMove() {
+        // let's not worry about Metronome
         // Instruct
-        if (this.raiderMoveData.name === "Instruct" && this.raidState.raiders[this.targetID].lastMove !== undefined) {
-            if (this.targetID !== 0 && !this.raidState.raiders[this.targetID].isCharging && !this.raidState.raiders[this.targetID].isRecharging && !chargeMoves.includes(this.raidState.raiders[this.targetID].lastMove?.name || "")) {
+        if (this.raiderMoveData.name === "Instruct" && this._raidState.raiders[this.targetID].lastMove !== undefined) {
+            if (this.targetID !== 0 && !this._raidState.raiders[this.targetID].isCharging && !this._raidState.raiders[this.targetID].isRecharging && !chargeMoves.includes(this.raidState.raiders[this.targetID].lastMove?.name || "")) {
                 this._instructed = true;
                 this._raiderMoveID = this.targetID;
-                this._raiderMoveTarget = this.raidState.raiders[this._raiderMoveID].lastTarget!;
+                this._raiderMoveTarget = this._raidState.raiders[this._raiderMoveID].lastTarget!;
                 if (this._raiderMoveTarget === this.targetID) { this._raiderMoveTarget = this._raiderMoveID; }
-                this._raiderMoveData = this.raidState.raiders[this.targetID].lastMove!
+                this._raiderMoveData = this._raidState.raiders[this.targetID].lastMove!
                 this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
                 if (this.raiderOptions.crit) { this._raiderMove.isCrit = true; }
                 if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
@@ -449,21 +464,28 @@ export class RaidTurn {
         // Copycat
         } else if (this.raiderMoveData.name === "Copycat") {
             if (this._raidState.lastMovedID !== undefined) {
-                const lastMoveUser = this.raidState.getPokemon(this._raidState.lastMovedID);
+                const lastMoveUser = this._raidState.getPokemon(this._raidState.lastMovedID);
                 this._raiderMoveTarget = 0; // always target the boss, when applicable?
                 this._raiderMoveData = lastMoveUser.lastMove!;
                 this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
                 if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
                 if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
             }
-        // Force the move to be the last move used for Choice Lock / Encore
-        } else if (isRegularMove(this._raiderMove.name) && (this._raider.isChoiceLocked || this._raider.isEncore) && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
-            this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
-            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
-            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
-            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
-            this._raiderMoveUsed = this._raiderMoveData.name;
-        } 
+        }
+    }
+
+    private applyBossIndirectMove() {
+        // Instruct is not learned by any bosses, ignoring it for now
+        // Copycat (only learned by 1-star Bonsly)
+        if (this.bossMoveData.name === "Copycat") {
+            if (this._raidState.lastMovedID !== undefined) {
+                const lastMoveUser = this.raidState.getPokemon(this._raidState.lastMovedID);
+                this._bossMoveData = lastMoveUser.lastMove!;
+                this._bossMove = new Move(9, this._bossMoveData.name, this.bossOptions);
+                if (this.bossOptions.crit) this._bossMove.isCrit = true;
+                if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
+            }
+        }
     }
 
     private setTurnOrder() {

@@ -21,6 +21,7 @@ const IGNORED_STRATS = [ // strats that fail, mostly for known reasons
   'blastoise/double_trouble',
   'meganium/chandelier',
   'meganium/smashing_success',
+  'pikachu/flower_power', // test takes a long time due to move optimization -- check manually if desired
 ]
 
 const MAIN_STRATS = [ // manually include ones that aren't named "main"

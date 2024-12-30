@@ -184,16 +184,7 @@ export class RaidMove {
             this._raidState.raiders[0].checkShield(); // check for shield breaking 
             this.setFlags();
             // store move data and target
-            if (isRegularMove(this.moveData.name)) { // don't store cheers or (No Move) for Instruct/Mimic/Copycat
-                this._user.lastMove = this.moveData;
-                if (this._user.moves.includes("Last Resort" as MoveName)) {
-                    const moveIndex = this._user.moves.findIndex((move) => move === this.moveData.name)
-                    if (moveIndex !== -1) { // will be missing for Mimic/Copycat/Instructed moves
-                        this._user.movesUsed[moveIndex] = true;
-                    }
-                }
-                this._user.lastTarget = this.moveData.target === "user" ? this.userID : this._targetID;
-                this._raidState.lastMovedID = this.userID;
+            if (isRegularMove(this.moveData.name)) { 
                 // remove Micle boost
                 this._user.isMicle = false;
                 if (this.userID !== 0) {
@@ -248,7 +239,7 @@ export class RaidMove {
     }
 
     private checkIfMoves(): boolean {
-        // in the case of instruct, check the Instruct user first, and then the intstructed Pokemon
+        // in the case of instruct, check the Instruct user first, and then the instructed Pokemon
         const monsToCheck = (this.userID && (this.raiderID !== this.userID)) ? [this._raidState.getPokemon(this.raiderID), this._user] : [this._user];
         for (let mon of monsToCheck) {
             if ( // prevent the boss from moving if it's shield has just been broken
@@ -328,6 +319,7 @@ export class RaidMove {
                 }
             }
         }
+        this.storeLastMove();
         return true;
     }
 
@@ -353,6 +345,21 @@ export class RaidMove {
         this._desc[this.userID] = res.desc();
         this._warnings.push(this._user.name + " hurt itself in its confusion.");
         this._raidState.applyDamage(this.userID, damageVal, roll, 1, false, false, "???", "Physical", false, false, true, false);
+    }
+
+    private storeLastMove() {
+        // we've already checked if a "Raid Action" is being used
+        if (this.moveData.name !== "(No Move)") {
+            this._user.lastMove = this.moveData;
+            if (this._user.moves.includes("Last Resort" as MoveName)) {
+                const moveIndex = this._user.moves.findIndex((move) => move === this.moveData.name)
+                if (moveIndex !== -1) { // will be missing for Mimic/Copycat/Instructed moves
+                    this._user.movesUsed[moveIndex] = true;
+                }
+            }
+            this._user.lastTarget = this.moveData.target === "user" ? this.userID : this._targetID;
+            this._raidState.lastMovedID = this.userID;
+        }
     }
 
     private checkIfFails() {

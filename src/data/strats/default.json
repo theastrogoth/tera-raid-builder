@@ -5,12 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Rayquaza",
-            "name": "Rayquaza",
-            "shiny": true,
+            "role": "Meowscarada",
+            "name": "Meowscarada",
+            "shiny": false,
             "isAnyLevel": false,
-            "ability": "Air Lock",
-            "nature": "Naughty",
+            "ability": "Protean",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,39 +27,73 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 75,
-            "gender": "N",
-            "teraType": "Dragon",
+            "level": 100,
+            "gender": "F",
+            "teraType": "Grass",
             "moves": [
-                "Dragon Pulse",
-                "Hurricane",
-                "Earthquake",
-                "Extreme Speed"
+                "Flower Trick",
+                "Night Slash",
+                "Acrobatics",
+                "Play Rough"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Dragon Ascent",
-                "Draco Meteor",
-                "Dragon Dance"
+                "Hone Claws",
+                "Petal Blizzard",
+                "Grassy Terrain"
             ],
             "shieldData": {
                 "hpTrigger": 80,
                 "timeTrigger": 75,
-                "shieldCancelDamage": 30,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 80,
-                "shieldDamageRateTeraChange": 40
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Chi-Yu",
+            "name": "Chi-Yu",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Hadron Engine",
-            "item": "Choice Specs",
+            "ability": "Beads of Ruin",
+            "item": "Life Orb",
             "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Nasty Plot",
+                "Flamethrower",
+                "Overheat",
+                "Fake Tears"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Torkoal",
+            "name": "Torkoal",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Drought",
+            "item": "Zoom Lens",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -79,27 +113,21 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Dragon Pulse"
+                "Will-O-Wisp",
+                "Helping Hand",
+                "Flamethrower",
+                "Sunny Day"
             ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "bossMultiplier": 100
         },
         {
-            "id": 2,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "id": 3,
+            "role": "Maushold",
+            "name": "Maushold",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Sweet Veil",
-            "item": "Covert Cloak",
+            "ability": "Friend Guard",
+            "item": "Sitrus Berry",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -118,50 +146,6 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
-            "moves": [
-                "Decorate",
-                "Helping Hand",
-                "Fake Tears",
-                "Misty Terrain"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
-        },
-        {
-            "id": 3,
-            "role": "Maushold",
-            "name": "Maushold",
-            "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Sitrus Berry",
-            "nature": "Calm",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 252,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
             "gender": "N",
             "moves": [
                 "Fake Tears",
@@ -169,16 +153,7 @@
                 "Mud-Slap",
                 "Chilling Water"
             ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "bossMultiplier": 100
         },
         {
             "id": 4,
@@ -188,13 +163,13 @@
             "isAnyLevel": false,
             "ability": "Friend Guard",
             "item": "Sitrus Berry",
-            "nature": "Calm",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -213,16 +188,7 @@
                 "Mud-Slap",
                 "Chilling Water"
             ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "bossMultiplier": 100
         }
     ],
     "turns": [
@@ -242,7 +208,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Dragon Ascent",
+                "name": "Hone Claws",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -258,7 +224,7 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 1,
                 "targetID": 0,
                 "options": {

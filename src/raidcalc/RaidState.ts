@@ -1262,7 +1262,7 @@ export class RaidState implements State.RaidState{
                             const target = this.raiders[i];
                             if ((target.abilityNullified || 0) < 0 && target.originalAbility !== "(No Ability)") {
                                 target.abilityNullified = undefined;
-                                this.addAbilityFieldEffect(i, target.ability, true);
+                                this.addAbilityFieldEffect(i, target.ability, false);
                             }
                         }
                     }

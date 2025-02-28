@@ -38,7 +38,8 @@ const MAIN_STRATS = [ // manually include ones that aren't named "main"
   'infernape/rock_all_night_3',
   'feraligatr/latr_gatr_3',
   'torterra/cryogre_3',
-  'rayquaza/cakey_snakey_3'
+  'rayquaza/cakey_snakey_3',
+  'meowscarada/catfished_3'
 ]
 
 for (const [_, list] of Object.entries(STRAT_LIST)) { // collect all the ones named "main"

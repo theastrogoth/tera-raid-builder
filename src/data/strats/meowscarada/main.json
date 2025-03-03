@@ -1,6 +1,6 @@
 {
     "name": "Catfished",
-    "notes": "Either Speed or HP EVs will work for Chi-Yu.\nFor alternative damage dealer options:\n   - Armarouge is assumed to be targeted with Night Slash to activate its Weakness Policy\n   - Delphox needs to wait until after Torkoal uses Will-O-Wisp.",
+    "notes": "Either Speed or HP EVs will work for Chi-Yu.\nFor alternative damage dealer options:\n   - Weakness Policy is not guaranteed to be activated\n   - Attackers may need to wait until after Torkoal uses Will-O-Wisp to ensure survival.",
     "credits": "the r/PokePortal Team",
     "pokemon": [
         {
@@ -515,6 +515,7 @@
                     "role": "Armarouge",
                     "name": "Armarouge",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Weak Armor",
                     "item": "Weakness Policy",
                     "nature": "Modest",
@@ -558,6 +559,7 @@
                     "role": "Delphox",
                     "name": "Delphox",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "(No Ability)",
                     "item": "Mirror Herb",
                     "nature": "Modest",
@@ -594,6 +596,138 @@
                     1,
                     0
                 ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Scovillain",
+                    "name": "Scovillain",
+                    "shiny": false,
+                    "isAnyLevel": false,
+                    "ability": "Chlorophyll",
+                    "item": "Weakness Policy",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Growth",
+                        "Flamethrower"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Growth",
+                    "Flamethrower"
+                ],
+                "substituteTargets": [
+                    1,
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Chandelure",
+                    "name": "Chandelure",
+                    "shiny": false,
+                    "isAnyLevel": false,
+                    "ability": "(No Ability)",
+                    "item": "Weakness Policy",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Psych Up",
+                        "Overheat"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Psych Up",
+                    "Overheat"
+                ],
+                "substituteTargets": [
+                    1,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Numel",
+                    "name": "Numel",
+                    "shiny": false,
+                    "isAnyLevel": false,
+                    "ability": "Simple",
+                    "item": "Mirror Herb",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Growth",
+                        "Overheat"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Growth",
+                    "Overheat"
+                ],
+                "substituteTargets": [
+                    1,
+                    1,
+                    0
+                ]
             }
         ],
         [
@@ -603,6 +737,7 @@
                     "role": "Ninetales",
                     "name": "Ninetales",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Drought",
                     "item": "Zoom Lens",
                     "nature": "Hardy",
@@ -646,6 +781,7 @@
                     "role": "Vulpix",
                     "name": "Vulpix",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Drought",
                     "item": "Zoom Lens",
                     "nature": "Bold",
@@ -691,6 +827,7 @@
                     "role": "Clefairy",
                     "name": "Clefairy",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Friend Guard",
                     "item": "Eviolite",
                     "nature": "Bold",
@@ -734,6 +871,7 @@
                     "role": "Jigglypuff",
                     "name": "Jigglypuff",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Friend Guard",
                     "item": "Eviolite",
                     "nature": "Bold",
@@ -779,6 +917,7 @@
                     "role": "Clefairy",
                     "name": "Clefairy",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Friend Guard",
                     "item": "Eviolite",
                     "nature": "Bold",
@@ -822,6 +961,7 @@
                     "role": "Jigglypuff",
                     "name": "Jigglypuff",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Friend Guard",
                     "item": "Eviolite",
                     "nature": "Bold",
@@ -865,6 +1005,7 @@
                     "role": "Granbull",
                     "name": "Granbull",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Intimidate",
                     "nature": "Hardy",
                     "evs": {
@@ -907,6 +1048,7 @@
                     "role": "Snubbull",
                     "name": "Snubbull",
                     "shiny": false,
+                    "isAnyLevel": false,
                     "ability": "Intimidate",
                     "item": "Eviolite",
                     "nature": "Bold",

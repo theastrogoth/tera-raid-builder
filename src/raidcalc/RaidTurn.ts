@@ -207,6 +207,7 @@ export class RaidTurn {
                 false,
                 false,
                 false,
+                [false, false, false, false, false],
                 this._instructed,
             );
             this._result1 = this._raidMove1.result();
@@ -224,7 +225,8 @@ export class RaidTurn {
                 this._isBossAction,
                 this._result1.causesFlinch[0],
                 this._result1.damage[0] > 0,
-                this._result1.statLowered[0]
+                this._result1.statLowered[0],
+                this._result1.statRaised
             );
         } else {
             this.applyBossIndirectMove();
@@ -255,6 +257,7 @@ export class RaidTurn {
                 this._result1.causesFlinch[this.raiderID],
                 this._result1.damage[this.raiderID] > 0,
                 this._result1.statLowered[this.raiderID],
+                this._result1.statRaised,
                 this._instructed,
             );
         }
@@ -609,6 +612,7 @@ export class RaidTurn {
                             false,
                             false,
                             false,
+                            [false, false, false, false, false],
                             false,
                             true,
                         );

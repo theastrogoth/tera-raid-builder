@@ -904,6 +904,18 @@ describe('Specific Test Cases', () => {
     // T4: This time, Fury Swipes gets -1 speed for each hit
     expect(result.turnResults[4].results[0].state.raiders[1].boosts.spe).toEqual(-5);
   })
+  test('alluring-voice-confusion', async() => {
+    const hash = "#H4sIAAAAAAAAA71V32/TMBD+VyI/gZSHpd34sTe2MjaJDkQLCFV5uCXX1NSxI9tpV6H979w5SZsMpg0kUCPnfL6cv++7s/tDLMWpyL47o0UsvDhdLI5ioaFEkcZsyrw1Mis9hTjMjM7B7t4ul5h5x6tJLGqH9mrCKcAW6INpKi+NDhGjWBTW1BV5S7PBK700ZN4Y56bdlKLGsbBGKVoBpcx2Kp0jeyWbXcZDdxvZrRLCFacHv6YxxyVjrSCMeRhxHza3sijQMlpZ4mHmVhJVfg46QzWBEgrcO5vpJ/C/c83RwgPu8xXoAluRtPHI0DOLOcOORWXWWDbS11azJ8gU+GGFEIJcfeO89DV/3GhJ3BlHKFPYV+/oLd0bvXuPGwwK3kglfXB7LEMwbcHhuOGkMoyqjS5Q540ghHm+q7AtlOuqVCsvKyVDDN56C9N2tSPtQaRpLDbi9IegLkpIaNE+i8aTxOSbrVEReRuk7U+WoBy2o/isYQsMVtdKxWJqcnTUfCHPK0qz/6V3nXOc3HtoKTmiHa9powvJyRZibmy2imZGF7z7CnKzjc4g9NEbpWordRF9MTIL4DIOZs8MdM7Kj08o30LMaq130QRY22+w5eJdUqWir7AJ32mwiqIDrtdDsB1c0oLaYU7lrQtppRjYAyVm3tgymliQvM8n41DJ6Ayt5d3v6TI6GYWN2vfTtAkKL8Q1OL+LPirDZ3xWWz4+l7vcmuhjXfK5IgiZiabo0Vhix58vHiVJrTqF2q2M4iN4MAcUL6yk7ove1WA5aia9rd2e41n4YMCw4/lnDC9gjdEcwbpQMFVxaS+ptDQ9X0mleP6Vjq0NCnQ1fipVup3m5hYqvBU9a0B0ijaTCvn2avr6khjv/r6tW2JX1uhogkvUDg9webEH75hASb0GHy6bgzkA+GGrSaGy4rv5Q5bBvgjnoMpf2qwtxBOwXuyxzrbG5o6E1eGMPbumlqKL5PmD9iPyp+3lchJcwSSm/VKPOv+LIdeSDxR1GsbJoY7Hv94DR3RS2+9DdBhECfviJg2QNsNJnPSADEpDLTJuVl4OoLQZGc8TobzsQenoMKD7UEY9KEPlj+n3X1UZ96D075rkkOjfAqFOWXDwKB6n/G/M8zTunjS9u/sJpMNhEgsJAAA=";
+    const result = await resultsFromHash(hash);
+    // T1: No stat raise, no confusion
+    expect(result.turnResults[0].state.raiders[2].volatileStatus.includes("confusion")).toBeFalsy();
+    // T2: Alluring Voice before stat raise, no confusion
+    expect(result.turnResults[1].state.raiders[3].volatileStatus.includes("confusion")).toBeFalsy();
+    // T3: Alluring Voice after stat raise, Own Tempo, no confusion
+    expect(result.turnResults[2].state.raiders[4].volatileStatus.includes("confusion")).toBeFalsy();
+    // T4: Alluring Voice after stat raise, confusion
+    expect(result.turnResults[3].state.raiders[1].volatileStatus.includes("confusion")).toBeTruthy();
+  })
 })
 
 

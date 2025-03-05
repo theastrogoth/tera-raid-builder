@@ -24,6 +24,7 @@ export type RaidMoveResult= {
     flags: string[][];
     causesFlinch: boolean[];
     statLowered: boolean[];
+    statRaised: boolean[];
     isSpread?: boolean;
     warnings?: string[];
 }
@@ -92,6 +93,7 @@ export class RaidMove {
     flinch?: boolean;
     damaged?: boolean;
     statLowered?: boolean;
+    statRaised: boolean[];
     delayed?: boolean;
     instructed?: boolean;
 
@@ -106,6 +108,9 @@ export class RaidMove {
     _causesFlinch!: boolean[];
     _blockedBy!: (string | undefined)[];
     _statLowered!: boolean[];
+    _statRaised!: boolean[];
+
+    _alluringVoiceEffect?: boolean;
 
     _isSheerForceBoosted?: boolean;
 
@@ -122,7 +127,7 @@ export class RaidMove {
     _flags!: string[][];
     _warnings!: string[];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean, statLowered?: boolean, instructed?: boolean, delayed?: boolean) {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean, statLowered?: boolean, statRaised?: boolean[], instructed?: boolean, delayed?: boolean) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
@@ -135,6 +140,7 @@ export class RaidMove {
         this.flinch = flinch || false;
         this.damaged = damaged || false;
         this.statLowered = statLowered || false;
+        this.statRaised = statRaised || [false, false, false, false, false];
         this.instructed = instructed || false;
         this.delayed = delayed || false;
         this.hits = this.move.category === "Status" ? 0 : Math.max(this.moveData.minHits || 1, Math.min(this.moveData.maxHits || 1, this.options.hits || 1));
@@ -212,6 +218,7 @@ export class RaidMove {
             causesFlinch: this._causesFlinch,
             isSpread: this._isSpread,
             statLowered: this._statLowered,
+            statRaised: this._statRaised,
             warnings: this._warnings,
         }
     }
@@ -228,6 +235,7 @@ export class RaidMove {
         this._blockedBy= [undefined, undefined, undefined, undefined, undefined];
         this._causesFlinch = [false, false, false, false, false];
         this._statLowered = [false, false, false, false, false];
+        this._statRaised = [false, false, false, false, false];
         this._moveType = this.move.type;
         this._damage = [0,0,0,0,0];
         this._damageRolls = [[],[],[],[],[]];
@@ -1224,6 +1232,8 @@ export class RaidMove {
                     const statId = stat as StatIDExceptHP;
                     if (diff[statId] && diff[statId] < 0) {
                         this._statLowered[id] = true;
+                    } else if (diff[statId] && diff[statId] > 0) {
+                        this._statRaised[id] = true;
                     }
                 }
             }
@@ -1371,6 +1381,11 @@ export class RaidMove {
                 for (let stat in target.boosts) {
                     const statId = stat as StatIDExceptHP;
                     target.boosts[statId] = 0;
+                }
+                break;
+            case "Alluring Voice": // putting this here because stat changes need to be checked before the execution of the move
+                if (this.statRaised[this._targetID]) {
+                    this._alluringVoiceEffect = true;
                 }
                 break;
             case "Fling":
@@ -1903,6 +1918,11 @@ export class RaidMove {
                 break;
             case "Throat Chop":
                 target.isThroatChop = target.id === 0 ? 8 : 2;
+                break;
+            case "Alluring Voice":
+                if (this._alluringVoiceEffect) {
+                    this._raidState.applyVolatileStatus(this._targetID, "confusion", true, this.userID, this.movesFirst);
+                }
                 break;
             default: break;
             }

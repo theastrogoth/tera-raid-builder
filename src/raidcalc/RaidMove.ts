@@ -1749,6 +1749,8 @@ export class RaidMove {
                     if (!this._doesNotAffect[id]) {
                         const pokemon = this._raidState.getPokemon(id);
                         pokemon.status = "";
+                        pokemon.isSleep = 0;
+                        pokemon.isFrozen = 0;
                     }
                 }
                 break;

@@ -673,6 +673,13 @@ export class RaidTurn {
                         break;
                     case "Hydration":
                         pokemon.status = "";
+                        pokemon.isSleep = 0;
+                        pokemon.isFrozen = 0;
+                        break;
+                    case "Water Bubble":
+                        if (pokemon.status === "brn") {
+                            pokemon.status = "";
+                        }
                         break;
                     case "Harvest": 
                         if (pokemon.field.hasWeather("Sun") && !pokemon.item && (pokemon.lastConsumedItem || "").includes("Berry")) {

@@ -96,12 +96,12 @@
         },
         {
             "id": 2,
-            "role": "Araquanid",
-            "name": "Araquanid",
+            "role": "Chansey",
+            "name": "Chansey",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Water Bubble",
-            "item": "Sitrus Berry",
+            "ability": "(No Ability)",
+            "item": "Eviolite",
             "nature": "Calm",
             "evs": {
                 "hp": 252,
@@ -120,22 +120,15 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Entrainment",
+                "Helping Hand",
+                "Heal Pulse",
                 "Rain Dance",
-                "Liquidation"
+                "Life Dew"
             ],
             "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "extraMoves": []
         },
         {
             "id": 3,
@@ -209,7 +202,15 @@
             "gender": "N",
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
@@ -273,7 +274,7 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Entrainment",
+                "name": "Helping Hand",
                 "userID": 2,
                 "targetID": 1,
                 "options": {
@@ -357,9 +358,9 @@
             "id": 5,
             "group": 2,
             "moveInfo": {
-                "name": "Heal Cheer",
+                "name": "Heal Pulse",
                 "userID": 2,
-                "targetID": 2,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -464,8 +465,97 @@
     ],
     "substitutes": [
         [],
-        [],
-        [],
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Araquanid",
+                    "name": "Araquanid",
+                    "shiny": false,
+                    "isAnyLevel": false,
+                    "ability": "Water Bubble",
+                    "item": "Sitrus Berry",
+                    "nature": "Careful",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 252,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Entrainment",
+                        "Rain Dance",
+                        "Liquidation"
+                    ]
+                },
+                "substituteMoves": [
+                    "Entrainment",
+                    "Heal Cheer"
+                ],
+                "substituteTargets": [
+                    1,
+                    2
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Maushold",
+                    "name": "Maushold",
+                    "shiny": false,
+                    "isAnyLevel": false,
+                    "ability": "Friend Guard",
+                    "item": "Sitrus Berry",
+                    "nature": "Careful",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 252,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fake Tears",
+                        "Helping Hand",
+                        "Mud-Slap",
+                        "Rain Dance"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ],
         []
     ]
 }

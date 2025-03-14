@@ -1714,6 +1714,11 @@ export class RaidMove {
                     field.attackerSide.isAuroraVeil = 0;
                 }
                 break;
+            case "Ice Spinner":
+                for (let field of this._fields) {
+                    field.terrain = undefined;
+                }
+                break;
             case "Court Change": 
                 const tempUserSide = {...(this._fields[this.userID].attackerSide)};
                 const sameSides = this.userID === 0 ? [this._fields[0]] : this._fields.slice(1);

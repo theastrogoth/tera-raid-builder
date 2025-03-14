@@ -5,12 +5,12 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Skeledirge",
-            "name": "Skeledirge",
+            "role": "Quaquaval",
+            "name": "Quaquaval",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Unaware",
-            "nature": "Rash",
+            "ability": "Moxie",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,24 +28,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
-            "teraType": "Fire",
+            "gender": "N",
+            "teraType": "Water",
             "moves": [
-                "Torch Song",
-                "Shadow Ball",
-                "Stomping Tantrum",
-                "Hyper Voice"
+                "Aqua Step",
+                "Brick Break",
+                "Brave Bird",
+                "Ice Spinner"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Disarming Voice",
-                "Flame Charge",
-                "Hyper Voice"
+                "Bulk Up",
+                "Rain Dance"
             ],
             "shieldData": {
                 "hpTrigger": 75,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 25,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -53,20 +52,19 @@
         },
         {
             "id": 1,
-            "role": "Kyogre",
-            "name": "Kyogre",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Drizzle",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -79,9 +77,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Water Spout",
-                "Surf",
-                "Muddy Water"
+                "(No Move)",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -96,19 +95,18 @@
         },
         {
             "id": 2,
-            "role": "Araquanid",
-            "name": "Araquanid",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Water Bubble",
-            "item": "Sitrus Berry",
-            "nature": "Calm",
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -122,9 +120,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Entrainment",
-                "Rain Dance",
-                "Liquidation"
+                "(No Move)",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -139,19 +138,18 @@
         },
         {
             "id": 3,
-            "role": "Clefairy",
-            "name": "Clefairy",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Calm",
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -165,10 +163,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Life Dew",
-                "Rain Dance"
+                "(No Move)",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -183,19 +181,18 @@
         },
         {
             "id": 4,
-            "role": "Clefairy",
-            "name": "Clefairy",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Calm",
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -209,10 +206,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Life Dew",
-                "Rain Dance"
+                "(No Move)",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -243,7 +240,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Disarming Voice",
+                "name": "Bulk Up",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -257,39 +254,11 @@
         },
         {
             "id": 1,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Flame Charge",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 2,
             "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -314,11 +283,10 @@
     ],
     "groups": [
         [
-            0,
-            1
+            0
         ],
         [
-            2
+            1
         ]
     ],
     "repeats": [

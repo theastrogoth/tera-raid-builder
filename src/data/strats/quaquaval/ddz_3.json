@@ -145,6 +145,7 @@
             "shiny": false,
             "isAnyLevel": false,
             "ability": "Intimidate",
+            "item": "Sitrus Berry",
             "nature": "Hardy",
             "evs": {
                 "hp": 252,
@@ -167,7 +168,7 @@
             "moves": [
                 "Acid Spray",
                 "Chilling Water",
-                "Scary Face",
+                "Haze",
                 "Acupressure"
             ],
             "bossMultiplier": 100,
@@ -209,7 +210,15 @@
             "gender": "N",
             "moves": [],
             "bossMultiplier": 100,
-            "extraMoves": []
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
         }
     ],
     "turns": [
@@ -569,6 +578,7 @@
                     "shiny": false,
                     "isAnyLevel": false,
                     "ability": "Intimidate",
+                    "item": "Eviolite",
                     "nature": "Hardy",
                     "evs": {
                         "hp": 252,
@@ -589,7 +599,10 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Acid Spray"
+                        "Acid Spray",
+                        "Chilling Water",
+                        "Haze",
+                        "Acupressure"
                     ]
                 },
                 "substituteMoves": [

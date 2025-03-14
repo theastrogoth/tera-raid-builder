@@ -37,7 +37,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false, blockWhiteHerb: boolean = false) {
+    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false, blockWhiteHerb: boolean = false, source?: number) {
         const pokemon = this.getPokemon(id);
         const originalHP = pokemon.originalCurHP;
         const originalDamageRolls = pokemon.cumDamageRolls.clone();
@@ -168,7 +168,13 @@ export class RaidState implements State.RaidState{
             }
 
             /// the rest can be skipped if the target faints
-            if (fainted) { this.faint(id); return; }
+            if (fainted) { 
+                this.faint(id); 
+                if (source !== undefined && this.getPokemon(source).hasAbility("Moxie")) {
+                    this.applyStatChange(source, {atk: 1}, true, source);
+                }
+                return; 
+            }
 
             /// Non-super effective items consumed after damage if the target survives
             if ( (!unnerve && pokemon.item === "Chilan Berry" && moveType === "Normal") ||

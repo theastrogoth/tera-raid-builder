@@ -1,4 +1,8 @@
 {
+    "Quaquaval": {
+        "Electric Slide": "quaquaval/main",
+        "Electric Slide (trio)": "quaquaval/electric_slide_3"
+    },
     "Skeledirge": {
         "Singing in the Rain": "skeledirge/main",
         "Singing in the Rain (3-person version)": "skeledirge/singing_in_the_rain_3",

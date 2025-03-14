@@ -52,17 +52,18 @@
         },
         {
             "id": 1,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Hadron Engine",
+            "item": "Life Orb",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,10 +78,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "(No Move)",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Charge",
+                "Electro Drift",
+                "Parabolic Charge",
+                "Calm Mind"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -95,14 +96,15 @@
         },
         {
             "id": 2,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Torkoal",
+            "name": "Torkoal",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
+            "ability": "Drought",
+            "item": "Zoom Lens",
             "nature": "Hardy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -120,10 +122,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "(No Move)",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Will-O-Wisp",
+                "Helping Hand",
+                "Sunny Day",
+                "Lava Plume"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -138,14 +140,14 @@
         },
         {
             "id": 3,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Qwilfish",
+            "name": "Qwilfish",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
+            "ability": "Intimidate",
             "nature": "Hardy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -163,10 +165,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "(No Move)",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Acid Spray",
+                "Chilling Water",
+                "Scary Face",
+                "Acupressure"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -181,14 +183,14 @@
         },
         {
             "id": 4,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Qwilfish",
+            "name": "Qwilfish",
             "shiny": false,
             "isAnyLevel": false,
-            "ability": "(No Ability)",
+            "ability": "Intimidate",
             "nature": "Hardy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -206,10 +208,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "(No Move)",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Acid Spray",
+                "Chilling Water",
+                "Scary Face",
+                "Acupressure"
             ],
             "bossMultiplier": 100,
             "extraMoves": [],
@@ -256,7 +258,7 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 1,
                 "targetID": 0,
                 "options": {

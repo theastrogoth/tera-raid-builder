@@ -62,13 +62,19 @@ function DarkLightModeSwitch({lightMode, setLightMode}: {lightMode: 'dark' | 'li
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lightMode])
+
+    useEffect(() => {
+      const savedMode = localStorage.getItem('lightMode');
+      if (savedMode) {
+        setLightMode(savedMode as 'dark' | 'light');
+      }
+    }, [setLightMode])
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setChecked(event.target.checked)
-        if(event.target.checked) {
-            setLightMode('dark')
-        } else {
-            setLightMode('light')
-        }
+        const currentMode = event.target.checked ? 'dark' : 'light';
+        setLightMode(currentMode);
+        localStorage.setItem('lightMode', currentMode);
     };
     return (
       <MaterialUISwitch 

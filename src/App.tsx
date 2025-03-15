@@ -367,6 +367,22 @@ function App() {
     }
   );
 
+  // For now, always prompt on unload
+  const [unsavedChanges, setUnsavedChanges] = useState<boolean>(true);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (unsavedChanges) {
+        event.preventDefault();
+      }
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [])
+
   return (
   <ThemeProvider theme={theme}> 
     <CssBaseline />

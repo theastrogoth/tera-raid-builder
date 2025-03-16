@@ -218,7 +218,7 @@ export type ExtraBuildInfo = {
     learnMethods: string[];
     moveTypes: TypeName[];
     optionalMove: boolean[];
-    subForId: number;
+    subFor?: string;
 }
 
 export type SetOption = {

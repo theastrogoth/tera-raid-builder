@@ -257,6 +257,13 @@ const BuildRole = styled(Typography)({
     margin: "0px"
 });
 
+const BuildSubstituteSubtitle = styled(Typography)({
+    lineHeight: "55px",
+    color: "rgba(255, 255, 255, 0.65)",
+    fontSize: "1.75em",
+    marginTop: "25px",
+});
+
 const BuildHeaderSeparator = styled("hr")({
     border: "4px solid rgba(255, 255, 255, .35)",
     margin: "30px 0px"
@@ -652,7 +659,6 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
     const root = createRoot(graphicTop);
 
     const ignoreStats = raidPokemon.slice(1).map((raider) => (raider.isAnyLevel) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
-    // console.log(ignoreStats)
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
@@ -695,6 +701,9 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                     {raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                                                 </BuildTypes>
                                                 <BuildRole>{raider.role}</BuildRole>
+                                                { raiderExtraBuildInfo[index].subFor &&
+                                                    <BuildSubstituteSubtitle>Substitute for {raiderExtraBuildInfo[index - 1].subFor}</BuildSubstituteSubtitle>
+                                                }
                                                 <BuildHeaderSeparator />
                                             </BuildHeader>
                                             <BuildInfoContainer>
@@ -739,17 +748,17 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                 <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
                                                 <MovesContainer>
                                                     {
-                                                        [...Array(4)].map((val, index) => {
-                                                            const noMove = (raider.moves[index] && raider.moves[index] !== "(No Move)");
+                                                        [...Array(4)].map((moveSlot, moveSlotIndex) => {
+                                                            const noMove = (raider.moves[moveSlotIndex] && raider.moves[moveSlotIndex] !== "(No Move)");
                                                             return (
-                                                                <MoveBox key={"move_box_" + index}>
-                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(raiderExtraBuildInfo[raider.id - 1].moveTypes[index])} sx={{opacity: `${raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? '50%' : '100%'}`}}/> : null}
+                                                                <MoveBox key={"move_box_" + moveSlotIndex}>
+                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(raiderExtraBuildInfo[index].moveTypes[moveSlotIndex])} sx={{opacity: `${raiderExtraBuildInfo[index].optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
                                                                     {noMove ? (
-                                                                        raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ?
-                                                                            <OptionalMoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
-                                                                            <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel>
+                                                                        raiderExtraBuildInfo[raider.id - 1].optionalMove[moveSlotIndex] ?
+                                                                            <OptionalMoveLabel>{ getTranslation(raider.moves[moveSlotIndex], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
+                                                                            <MoveLabel>{ getTranslation(raider.moves[moveSlotIndex], translationKey, "moves") }</MoveLabel>
                                                                     ) : null}
-                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(raiderExtraBuildInfo[raider.id - 1].learnMethods[index], raiderExtraBuildInfo[raider.id - 1].moveTypes[index])} sx={{opacity: `${raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? '50%' : '100%'}`}}/> : null}
+                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(raiderExtraBuildInfo[index].learnMethods[moveSlotIndex], raiderExtraBuildInfo[index].moveTypes[moveSlotIndex])} sx={{opacity: `${raiderExtraBuildInfo[index].optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
                                                                 </MoveBox>
                                                             )
                                                         })
@@ -952,6 +961,7 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
         imageTimeout: 15000,
     }).then((canvas) => {
         // Scale post-html2canvas to prevent formatting issues
+        // The image should ideally be under Discord's 10MB Limit
         const scaledCanvas = document.createElement("canvas");
         scaledCanvas.width = canvas.width * .5;
         scaledCanvas.height = canvas.height * .5;
@@ -1034,7 +1044,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
             const statPlots = await getStatPlots(includedRaidPokemon);
 
             // generate graphic
-            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemon, results, extraBuildInfo, buildsOnly ? includedRaidPokemon.length : buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
+            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemon, results, extraBuildInfo, buildsOnly ? includedRaidPokemon.length - 1 : buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);
@@ -1141,7 +1151,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                     learnMethods: learnMethodMatrix[slotIndex][index],
                     moveTypes: moveTypeMatrix[slotIndex][index],
                     optionalMove: optionalMoveMatrix[slotIndex][index],
-                    subForId: index === 0 ? -1 : slotIndex + 1,
+                    subFor: index === 0 ? undefined : raidInputProps.pokemon[slotIndex + 1].role,
                 };
             })
         );   
@@ -1151,14 +1161,15 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         const buildsOnlyMatrix: ExtraBuildInfo[] = [];
         
         // For now, the logic for the builds only graphic is to priorite the main raiders then list substitutes in order of slot
-        for (const [slotIndex, slot] of extraBuildInfoMatrix.entries()) {
-            const speciesName = pokemonDataMatrix[slotIndex][0].name;
+        for (const [mainSlotIndex, mainSlot] of extraBuildInfoMatrix.entries()) {
+            const speciesName = pokemonDataMatrix[mainSlotIndex][0].name;
             if (speciesName !== "NPC") {
-                buildsOnlyMatrix.push(slot[0]);
+                buildsOnlyMatrix.push(mainSlot[0]);
             }
         }
         for (const [slotIndex, slot] of extraBuildInfoMatrix.entries()) {
-            for (const [subIndex, sub] of slot.slice(1).entries()) {
+            for (const [subIndex, sub] of slot.entries()) {
+                if (subIndex === 0) continue; // Skip the main raider
                 const speciesName = pokemonDataMatrix[slotIndex][subIndex].name;
                 if (speciesName !== "NPC") {
                     buildsOnlyMatrix.push(sub);

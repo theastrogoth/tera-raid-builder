@@ -381,7 +381,7 @@ function App() {
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, [])
+  }, [unsavedChanges])
 
   return (
   <ThemeProvider theme={theme}> 
@@ -481,7 +481,9 @@ function App() {
                   <GraphicsButton
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps} results={results}
-                    allSpecies={allSpecies} 
+                    substitutes={[substitutes1, substitutes2, substitutes3, substitutes4]}
+                    allSpecies={allSpecies}
+                    buildsCount={4}
                     setLoading={setLoading}
                     translationKey={translationKey}
                   />
@@ -536,11 +538,6 @@ function App() {
         </Grid>
       </Stack>
     </Stack>
-    {/* For graphic generation */}
-    <Box id={"statplot1"} display="none" />
-    <Box id={"statplot2"} display="none" />
-    <Box id={"statplot3"} display="none" />
-    <Box id={"statplot4"} display="none" />
   </ThemeProvider>
   );
 }

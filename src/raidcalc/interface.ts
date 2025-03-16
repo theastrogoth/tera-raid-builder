@@ -213,6 +213,14 @@ export type SubstituteBuildInfo = {
     substituteTargets: number[],
 }
 
+export type ExtraBuildInfo = {
+    isHiddenAbility?: boolean;
+    learnMethods: string[];
+    moveTypes: TypeName[];
+    optionalMove: boolean[];
+    subForId: number;
+}
+
 export type SetOption = {
     name: string,
     pokemon: SpeciesName,

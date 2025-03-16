@@ -5,8 +5,9 @@ import Box from '@mui/material/Box';
 import { Generations, Move, toID } from "../calc";
 import { SpeciesName, TypeName } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
-import { RaidMoveInfo, TurnGroupInfo } from "../raidcalc/interface";
+import { RaidMoveInfo, SubstituteBuildInfo, TurnGroupInfo, ExtraBuildInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
+import { Raider } from "../raidcalc/interface";
 import { PokedexService, PokemonData } from "../services/getdata"
 
 import html2canvas from 'html2canvas';
@@ -30,6 +31,7 @@ import Menu from "@mui/material/Menu";
 import DownloadIcon from '@mui/icons-material/Download';
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { getStatRadarPlotPNG } from "./StatRadarPlot";
+import { create } from "domain";
 
 const gen = Generations.get(9); // we only use gen 9
 
@@ -184,15 +186,17 @@ const RightBar = styled("hr")({
 const BuildsContainer = styled(Box)({
     width: "auto",
     display: "flex",
-    justifyContent: "space-between",
-    padding: "0px 100px",
-    margin: "80px 0px"
+    flexWrap: "wrap",
+    justifyContent: "center",
+    padding: "0px 50px",
+    margin: "80px 0px",
+    gap: "125px 0px"
 });
 
 const BuildWrapper = styled(Box)({
     width: "775px",
     backgroundColor: "rgba(255, 255, 255, .35)",
-    marginTop: "200px",
+    margin: "200px 50px 0px 50px",
     position: "relative",
     fontSize: "2.2em",
     color: "white"
@@ -642,28 +646,28 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: RaidBattleResults, isHiddenAbility: boolean[], learnMethods: string[][], moveTypes: TypeName[][], optionalMove: boolean[][], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
+function generateBuildsGraphic(theme: any, raidPokemon: Raider[], results: RaidBattleResults, raiderExtraBuildInfo: ExtraBuildInfo[], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
 
-    const ignoreStats = raidInputProps.pokemon.slice(1).map((raider) => (raider.isAnyLevel) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
+    const ignoreStats = raidPokemon.slice(1).map((raider) => (raider.isAnyLevel) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
     // console.log(ignoreStats)
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
                 <GraphicsContainer 
                     style={{
-                        backgroundImage: `linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(${backgroundImageURL})`,
+                        backgroundImage: `linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(${backgroundImageURL})`,
                     }} 
                 >
                     <Header>
-                        <BossWrapper>
+                        {/* <BossWrapper>
                             <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name, raidInputProps.pokemon[0].shiny)} />
                             <BossTera src={getTeraTypeBannerURL(raidInputProps.pokemon[0].teraType || "blank")}></BossTera>
                         </BossWrapper>
                         <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
-                        <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidInputProps.pokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle>
+                        <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidInputProps.pokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle> */}
                     </Header>
                     <BuildsSection>
                         <Separator>
@@ -673,7 +677,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                         </Separator> 
                         <BuildsContainer>    
                             {
-                                raidInputProps.pokemon.slice(1, 5).map((raider, index) => (
+                                raidPokemon.slice(1).map((raider, index) => (
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
@@ -701,7 +705,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                 {!!raider.ability && raider.ability !== "(No Ability)" ? 
                                                 <Stack direction="row">
                                                     <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(raider.ability, translationKey, "abilities") }</BuildInfo>
-                                                    {isHiddenAbility[index] ? 
+                                                    { raiderExtraBuildInfo[index].isHiddenAbility && raiderExtraBuildInfo[index].isHiddenAbility ? 
                                                         <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
                                                         : null
                                                     }
@@ -737,13 +741,163 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                             const noMove = (raider.moves[index] && raider.moves[index] !== "(No Move)");
                                                             return (
                                                                 <MoveBox key={"move_box_" + index}>
-                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(moveTypes[raider.id][index])} sx={{opacity: `${optionalMove[raider.id][index] ? '50%' : '100%'}`}}/> : null}
+                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(raiderExtraBuildInfo[raider.id - 1].moveTypes[index])} sx={{opacity: `${raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? '50%' : '100%'}`}}/> : null}
                                                                     {noMove ? (
-                                                                        optionalMove[raider.id][index] ? 
+                                                                        raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? 
                                                                             <OptionalMoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
                                                                             <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel>
                                                                     ) : null}
-                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(learnMethods[raider.id][index], moveTypes[raider.id][index])} sx={{opacity: `${optionalMove[raider.id][index] ? '50%' : '100%'}`}}/> : null}
+                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(raiderExtraBuildInfo[raider.id - 1].learnMethods[index], raiderExtraBuildInfo[raider.id - 1].moveTypes[index])} sx={{opacity: `${raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? '50%' : '100%'}`}}/> : null}
+                                                                </MoveBox>
+                                                            )
+                                                        })
+                                                    }
+                                                </MovesContainer>
+                                            </BuildMovesSection>
+                                        </Build>
+                                    </BuildWrapper>
+                                ))
+                            }
+
+                        </BuildsContainer>
+                        {raiderExtraBuildInfo.some(entry => entry.optionalMove.some(move => move)) &&
+                            <FootnoteContainer>
+                                <FootnoteText>
+                                    * {getTranslation("Optional Moves", translationKey)}
+                                </FootnoteText>
+                            </FootnoteContainer>
+                        }
+                    </BuildsSection>
+                        {notes && 
+                            <NotesSection>
+                                <Separator>
+                                    <LeftBar />
+                                        <SeparatorLabel>{ getTranslation("Notes", translationKey) }</SeparatorLabel>
+                                        <RightBar />
+                                    </Separator> 
+                                <NotesContainer>
+                                    <Notes>{notes}</Notes>
+                                </NotesContainer>
+                            </NotesSection>
+                        }
+                    <InfoSection>
+                        <CreditsContainer>
+                            <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>
+                            {title && title.endsWith("!PPT") && <PPTLogo src={getMiscImageURL("PPT_logo")}/>}
+                            <Credit>{ getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</Credit>
+                        </CreditsContainer>
+                    </InfoSection>
+                </GraphicsContainer> 
+            </ThemeProvider>     
+        );
+    });
+    
+    document.body.appendChild(graphicTop); // this makes the element findable for html2canvas
+    return graphicTop;
+}
+
+function generateGraphic(theme: any, raidPokemon: Raider[], results: RaidBattleResults, raiderExtraBuildInfo: ExtraBuildInfo[], buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
+    const graphicTop = document.createElement('graphic_top');
+    graphicTop.setAttribute("style", "width: 3600px");
+    const root = createRoot(graphicTop);
+
+    const ignoreStats = raidPokemon.slice(1).map((raider) => (raider.isAnyLevel) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
+    // console.log(ignoreStats)
+    flushSync(() => {
+        root.render(
+            <ThemeProvider theme={graphicsTheme}>
+                <GraphicsContainer 
+                    style={{
+                        backgroundImage: `linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(${backgroundImageURL})`,
+                    }} 
+                >
+                    <Header>
+                        <BossWrapper>
+                            <Boss src={getPokemonArtURL(raidPokemon[0].species.name, raidPokemon[0].shiny)} />
+                            <BossTera src={getTeraTypeBannerURL(raidPokemon[0].teraType || "blank")}></BossTera>
+                        </BossWrapper>
+                        <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
+                        <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidPokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidPokemon[0].species.name} Tera Raid Battle`}</Subtitle>
+                    </Header>
+                    <BuildsSection>
+                        <Separator>
+                            <LeftBar />
+                            <SeparatorLabel>{ !translationKey ? "The Crew" : getTranslation("Pokémon", translationKey) }</SeparatorLabel>
+                            <RightBar />
+                        </Separator> 
+                        <BuildsContainer>    
+                            {
+                                raidPokemon.slice(1, buildsCount + 1).map((raider, index) => (
+                                    <BuildWrapper key={index}>
+                                        <Build>
+                                            <BuildHeader>
+                                                <BuildArt src={getPokemonArtURL(raider.species.name, raider.shiny)}/>
+                                                {raider.item ? 
+                                                    <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
+                                                {(raider.teraType || "???") !== "???" ?
+                                                    <BuildTeraIcon src={getTeraTypeIconURL(raider.teraType!)} /> : null}
+                                                <BuildTypes direction="row">
+                                                    {raider.types.map((type, index) => (
+                                                        <BuildTypeIcon key={index} src={getTypeIconURL(type === "???" ? "None" : type)}/>
+                                                    ))}
+                                                    {raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
+                                                </BuildTypes>
+                                                <BuildRole>{raider.role}</BuildRole>
+                                                <BuildHeaderSeparator />
+                                            </BuildHeader>
+                                            <BuildInfoContainer>
+                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (raider.isAnyLevel ? getTranslation("Any",translationKey) : raider.level) }</BuildInfo>
+                                                {(raider.teraType || "???") !== "???" &&
+                                                    <BuildInfo>{ getTranslation("Tera Type", translationKey) + ": " + getTranslation(raider.teraType!, translationKey, "types") }</BuildInfo>
+                                                }
+                                                {raider.item ?
+                                                    <BuildInfo>{ getTranslation("Item", translationKey) + ": " + getTranslation(raider.item, translationKey, "items")}</BuildInfo> : null}
+                                                {!!raider.ability && raider.ability !== "(No Ability)" ? 
+                                                <Stack direction="row">
+                                                    <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(raider.ability, translationKey, "abilities") }</BuildInfo>
+                                                    {raiderExtraBuildInfo[index].isHiddenAbility ? 
+                                                        <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
+                                                        : null
+                                                    }
+                                                </Stack> : null}
+                                                {raider.gender && raider.gender !== "N" &&
+                                                    <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(raider.gender), translationKey) }</BuildInfo>
+                                                }
+                                                <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(raider.nature, translationKey, "natures")) }</BuildInfo>
+                                                {getEVDescription(raider.evs, translationKey) ? 
+                                                    <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(raider.evs, translationKey)}</BuildInfo> : null}
+                                                {getIVDescription(raider.ivs, translationKey) ? 
+                                                    <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
+                                            </BuildInfoContainer>
+                                            <Box flexGrow={1}/>
+                                            { statplots && !ignoreStats[index] &&
+                                                <StatPlotContainer>
+                                                    <StatPlot src={statplots[index]} />
+                                                </StatPlotContainer>
+                                            }
+                                            { statplots && ignoreStats[index] &&
+                                                <>
+                                                    <AnyStatsMessageContainer>
+                                                        <AnyStatsMessage>{ getTranslation("Any stats", translationKey) }</AnyStatsMessage>
+                                                    </AnyStatsMessageContainer>
+                                                    <Box flexGrow={1}/>
+                                                </>
+                                            }
+                                            <BuildMovesSection>
+                                                <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
+                                                <MovesContainer>
+                                                    {
+                                                        [...Array(4)].map((val, index) => {
+                                                            const noMove = (raider.moves[index] && raider.moves[index] !== "(No Move)");
+                                                            return (
+                                                                <MoveBox key={"move_box_" + index}>
+                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(raiderExtraBuildInfo[raider.id - 1].moveTypes[index])} sx={{opacity: `${raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? '50%' : '100%'}`}}/> : null}
+                                                                    {noMove ? (
+                                                                        raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ?
+                                                                            <OptionalMoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
+                                                                            <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel>
+                                                                    ) : null}
+                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(raiderExtraBuildInfo[raider.id - 1].learnMethods[index], raiderExtraBuildInfo[raider.id - 1].moveTypes[index])} sx={{opacity: `${raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? '50%' : '100%'}`}}/> : null}
                                                                 </MoveBox>
                                                             )
                                                         })
@@ -755,7 +909,7 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                 ))
                             }
                         </BuildsContainer>
-                        {(optionalMove.reduce((a,b) => a + b.reduce((c,d) => c + (d ? 1 : 0), 0), 0) > 0) &&
+                        {raiderExtraBuildInfo.some(entry => entry.optionalMove.some(move => move)) &&
                             <FootnoteContainer>
                                 <FootnoteText>
                                     * {getTranslation("Optional Moves", translationKey)}
@@ -804,11 +958,11 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                                         <ExecutionMoveTag>{""}</ExecutionMoveTag>
                                                                         <ExecutionMoveActionWrapper>
                                                                             <ExecutionMoveTeraIconWrapper>
-                                                                                <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                                <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidPokemon[move.info.userID].teraType!)} />
                                                                             </ExecutionMoveTeraIconWrapper>
                                                                             <ExecutionMoveTag>{getTranslation("Terastallize", translationKey)}</ExecutionMoveTag>
                                                                             <ExecutionMoveTeraIconWrapper>
-                                                                                <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidInputProps.pokemon[move.info.userID].teraType!)} />
+                                                                                <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidPokemon[move.info.userID].teraType!)} />
                                                                             </ExecutionMoveTeraIconWrapper>
                                                                         </ExecutionMoveActionWrapper>
                                                                         <ExecutionMoveTag>{""}</ExecutionMoveTag>
@@ -818,13 +972,13 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                                     <ExecutionMove key={moveIndex}>
                                                                         {move.teraActivated ?
                                                                         <ExecutionMovePokemonWrapperShifted>
-                                                                            <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                            <ExecutionMovePokemonName>{raidPokemon[move.info.userID].role}</ExecutionMovePokemonName>
                                                                             <ExecutionMovePokemonIconWrapper>
                                                                                 <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
                                                                             </ExecutionMovePokemonIconWrapper>
                                                                         </ExecutionMovePokemonWrapperShifted> :
                                                                         <ExecutionMovePokemonWrapper>
-                                                                            <ExecutionMovePokemonName>{raidInputProps.pokemon[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                            <ExecutionMovePokemonName>{raidPokemon[move.info.userID].role}</ExecutionMovePokemonName>
                                                                             <ExecutionMovePokemonIconWrapper>
                                                                                 <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
                                                                             </ExecutionMovePokemonIconWrapper>
@@ -848,8 +1002,8 @@ function generateGraphic(theme: any, raidInputProps: RaidInputProps, results: Ra
                                                                                 <ExecutionMovePokemonName>
                                                                                     {
                                                                                         (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
-                                                                                        move.move === "Remove Negative Effects" ? raidInputProps.pokemon[0].role :
-                                                                                        raidInputProps.pokemon[move.info.targetID].role
+                                                                                        move.move === "Remove Negative Effects" ? raidPokemon[0].role :
+                                                                                        raidPokemon[move.info.targetID].role
                                                                                     }
                                                                                 </ExecutionMovePokemonName>
                                                                                 { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?
@@ -943,7 +1097,16 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
         scale: 1,
         imageTimeout: 15000,
     }).then((canvas) => {
-        const graphicUrl = canvas.toDataURL("graphic/png");
+        // Scale post-html2canvas to prevent formatting issues
+        const scaledCanvas = document.createElement("canvas");
+        scaledCanvas.width = canvas.width * .5;
+        scaledCanvas.height = canvas.height * .5;
+        const ctx = scaledCanvas.getContext("2d")!;
+
+        ctx.scale(.5, .5);
+        ctx.drawImage(canvas, 0, 0);
+
+        const graphicUrl = scaledCanvas.toDataURL("graphic/png");
         const gridSize = 1.1;
         const gridSizeFloor = Math.floor(gridSize);
         if (watermarkText && watermarkText !== "") {
@@ -966,8 +1129,8 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
     title.endsWith("!PPT") ? void(0) : graphicTop.remove(); // remove the element from the DOM
 }
 
-function GraphicsButton({title, notes, credits, raidInputProps, results, allSpecies, setLoading, translationKey}: 
-    { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, results: RaidBattleResults, allSpecies: Map<SpeciesName, PokemonData> | null, setLoading: (l: boolean) => void, translationKey: any}) {
+function GraphicsButton({title, notes, credits, raidInputProps, substitutes, results, allSpecies, buildsCount, setLoading, translationKey}: 
+    { title: string, notes: string, credits: string, substitutes: SubstituteBuildInfo[][], raidInputProps: RaidInputProps, results: RaidBattleResults, allSpecies: Map<SpeciesName, PokemonData> | null, buildsCount: number, setLoading: (l: boolean) => void, translationKey: any}) {
 
     const theme = useTheme();
     const loadedImageURLRef = useRef<string>(getMiscImageURL("default"));
@@ -975,6 +1138,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
     const [watermarkText, setWatermarkText] = useState<string>("");
     // const [plotsEnabled, setPlotsEnable] = useState<boolean[]>([false, false, false, false]);
     const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
+    const [buildsOnly, setBuildsOnly] = useState<boolean>(false);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -994,52 +1158,226 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
     const handleDownload = async () => {
         setLoading(true);
         try {
-            // get learn method + types for moves
-            const pokemonData = allSpecies ? 
-                raidInputProps.pokemon.map((poke) => allSpecies.get(poke.species.name)) as PokemonData[] : 
-                (await Promise.all(
-                    raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name)))
-                ) as PokemonData[];
-            const isHiddenAbility: boolean[] = pokemonData.slice(1).map((data, id) => {
-                const ability = raidInputProps.pokemon[id+1].ability;
-                if (!ability || ability === "(No Ability)") { return false; }
-                const abilityData = data.abilities.find((abilityData) => abilityData.name === ability);
-                return abilityData ? abilityData.hidden || false : false;
-            })
-            const moves = raidInputProps.pokemon.map((poke) => poke.moves.filter((move) => move !== undefined).map((move) => new Move(9, move)));
-            const learnMethods = moves.map((ms, index) => 
-                ms.map((move) => 
-                    {
-                        const m = pokemonData[index].moves.find((moveData) => moveData.name === move.name);
-                        return m ? m.learnMethod : "level-up";
-                    }
-                )
-            );
-            const moveTypes = moves.map((ms) => ms.map((move) => move.type));
-            // identify moves that aren't used in the strat
-            const optionalMove = moves.map((ms,id) => ms.map(m => {
-                if (id === 0) { return false; }
-                const move = results.turnResults.find((r) => r.moveInfo.moveData.name === m.name && r.moveInfo.userID === id);
-                return !move && (m.name !== undefined) && (m.name !== "(No Move)");
-            }))
+            const pokemonDataMatrix = await createPokemonDataMatrix();
+            const isHiddenAbilityMatrix = createIsHiddenAbilityMatrix(pokemonDataMatrix);
+
+            const movesMatrix = createMovesMatrix(pokemonDataMatrix);
+            const learnMethodMatrix = createLearnMethodMatrix(pokemonDataMatrix, movesMatrix);
+            const moveTypeMatrix = createMoveTypeMatrix(pokemonDataMatrix, movesMatrix);
+            const optionalMoveMatrix = createOptionalMoveMatrix(pokemonDataMatrix, movesMatrix);
+
+            // contains all the extra info needed for extra elements on the graphics, ability patch icon, learn method icons, move type icons, optional move boolean
+            const extraBuildInfoMatrix = createExtraBuildInfoMatrix(isHiddenAbilityMatrix, learnMethodMatrix, moveTypeMatrix, optionalMoveMatrix);
+
+            // all raiders including the raid boss and substitutes            
+            const allRaidPokemon = getAllRaidPokemon();
+
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
-            // generate radar plots
-            let statPlots: undefined | string[] = !plotsEnabled ? undefined : await Promise.all(
-                raidInputProps.pokemon.slice(1).map((poke) => {
-                    const nature = gen.natures.get(toID(poke.nature));
-                    return getStatRadarPlotPNG(poke.id, nature, poke.evs, poke.stats, translationKey, 20);
-                })
-            );
+
             // generate graphic
-            const graphicTop = generateGraphic(theme, raidInputProps, results, isHiddenAbility, learnMethods, moveTypes, optionalMove, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
+            let graphicTop;
+            if (buildsOnly) {
+                // Pre-process the matrices to keep the graphics generators clean and agnostic of display logic
+                const extraBuildInfo = processBuildsOnlyMatrix(extraBuildInfoMatrix, pokemonDataMatrix);
+                const includedRaidPokemon = getBuildsOnlyRaidPokemon(allRaidPokemon);
+                const statPlots = await getStatPlots(includedRaidPokemon);
+                graphicTop = generateBuildsGraphic(theme, includedRaidPokemon, results, extraBuildInfo, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
+            }
+            else {
+                const extraBuildInfo = processFullGraphicMatrix(extraBuildInfoMatrix, buildsCount);
+                const includedRaidPokemon = getFullGraphicRaidPokemon(allRaidPokemon, buildsCount);
+                const statPlots = await getStatPlots(includedRaidPokemon);
+                graphicTop = generateGraphic(theme, includedRaidPokemon, results, extraBuildInfo, buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
+            }
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);
             console.log(e)
         }
     };
+
+    async function createPokemonDataMatrix(): Promise<PokemonData[][]> {
+        const pokemonDataMatrix: PokemonData[][] = [[], [], [], []];
+
+        // First add the main 4 Pokemon as the first item in each column of the data Matrix
+        const mainPokemonData = allSpecies ?
+            raidInputProps.pokemon.map((poke) => allSpecies.get(poke.species.name)) as PokemonData[] : (
+                await Promise.all(
+                    raidInputProps.pokemon.map((poke) => PokedexService.getPokemonByName(poke.name))
+                )
+            ) as PokemonData[];
+
+        mainPokemonData.slice(1, 5).forEach((data, index) => {
+            pokemonDataMatrix[index].push(data);
+        });
+
+        // Add the substitutes into the correct columns
+        for (const [slotIndex, slot] of substitutes.entries()) {
+            for (const sub of slot) {
+                const subData = allSpecies ?
+                    allSpecies.get(sub.raider.species.name) as PokemonData :
+                    await PokedexService.getPokemonByName(sub.raider.species.name) as PokemonData;
+                pokemonDataMatrix[slotIndex].push(subData)
+            }
+        }
+
+        return pokemonDataMatrix;
+    }
+
+    function createIsHiddenAbilityMatrix(pokemonDataMatrix: PokemonData[][]): boolean[][] {
+        return pokemonDataMatrix.map((slot, slotIndex) =>
+            slot.map((data, index) => {
+                const isMain = index === 0;
+                const ability = isMain ? raidInputProps.pokemon[slotIndex + 1].ability : substitutes[slotIndex][index - 1].raider.ability;
+                if (!ability || ability === "(No Ability)") { return false; }
+                const abilityData = data.abilities.find((abilityData) => abilityData.name === ability);
+                return abilityData ? abilityData.hidden || false : false;
+            })
+        );
+    }
+
+    function createMovesMatrix(pokemonDataMatrix: PokemonData[][]): Move[][][] {
+        return pokemonDataMatrix.map((slot, slotIndex) =>
+            slot.map((data, index) => {
+                const isMain = index === 0;
+                const moves = isMain ? raidInputProps.pokemon[slotIndex + 1].moves : substitutes[slotIndex][index - 1].raider.moves;
+                return moves.filter((move) => move !== undefined && move !== "(No Move)").map((move) => new Move(9, move));
+            })
+        );
+    }
+
+    function createLearnMethodMatrix(pokemonDataMatrix: PokemonData[][], movesMatrix: Move[][][]): any[][][] {
+        return pokemonDataMatrix.map((slot, slotIndex) =>
+            slot.map((data, index) => {
+                const moves = movesMatrix[slotIndex][index];
+                return moves.map((move) => {
+                    const moveData = data.moves.find((moveData) => moveData.name === move.name);
+                    return moveData ? moveData.learnMethod : "level-up";
+                });
+            })
+        );
+    }
+
+    function createMoveTypeMatrix(pokemonDataMatrix: PokemonData[][], movesMatrix: Move[][][]): TypeName[][][] {
+        return pokemonDataMatrix.map((slot, slotIndex) =>
+            slot.map((data, index) => {
+                const moves = movesMatrix[slotIndex][index];
+                return moves.map((move) => {
+                    const moveData = data.moves.find((moveData) => moveData.name === move.name);
+                    return moveData ? move.type : "???";
+                });
+            })
+        );
+    }
+
+    function createOptionalMoveMatrix(pokemonDataMatrix: PokemonData[][], movesMatrix: Move[][][]): boolean[][][] {
+        return pokemonDataMatrix.map((slot, slotIndex) =>
+            slot.map((data, index) => {
+                // assuming substitutes required moves always match with the main raider required moves
+                const moves = movesMatrix[slotIndex][0];
+                return moves.map((move) => {
+                    const moveName = move.name;
+                    const moveUsed = results.turnResults.some((turnResult) =>
+                        turnResult.moveInfo.userID === slotIndex + 1 && turnResult.moveInfo.moveData.name === moveName
+                    );
+                    return !moveUsed && moveName !== "(No Move)";
+                });
+            })
+        );
+    }
+
+    function createExtraBuildInfoMatrix(isHiddenAbilityMatrix: boolean[][], learnMethodMatrix: any[][][], moveTypeMatrix: TypeName[][][], optionalMoveMatrix: boolean[][][]): ExtraBuildInfo[][] {
+        return isHiddenAbilityMatrix.map((slot, slotIndex) =>
+            // all matrices should have the same shape
+            slot.map((isHiddenAbility, index) => {
+                return {
+                    isHiddenAbility,
+                    learnMethods: learnMethodMatrix[slotIndex][index],
+                    moveTypes: moveTypeMatrix[slotIndex][index],
+                    optionalMove: optionalMoveMatrix[slotIndex][index],
+                    subForId: index === 0 ? -1 : slotIndex + 1,
+                };
+            })
+        );   
+    }
+
+    function processBuildsOnlyMatrix(extraBuildInfoMatrix: ExtraBuildInfo[][], pokemonDataMatrix: PokemonData[][]): ExtraBuildInfo[] {
+        const buildsOnlyMatrix: ExtraBuildInfo[] = [];
+        
+        // For now, the logic for the builds only graphic is to priorite the main raiders then list substitutes in order of slot
+        for (const [slotIndex, slot] of extraBuildInfoMatrix.entries()) {
+            const speciesName = pokemonDataMatrix[slotIndex][0].name;
+            if (speciesName !== "NPC") {
+                buildsOnlyMatrix.push(slot[0]);
+            }
+        }
+        for (const [slotIndex, slot] of extraBuildInfoMatrix.entries()) {
+            for (const [subIndex, sub] of slot.slice(1).entries()) {
+                const speciesName = pokemonDataMatrix[slotIndex][subIndex].name;
+                if (speciesName !== "NPC") {
+                    buildsOnlyMatrix.push(sub);
+                }
+            }
+        }
+        return buildsOnlyMatrix
+    }
+
+    function processFullGraphicMatrix(extraBuildInfoMatrix: ExtraBuildInfo[][], buildsCount: number): ExtraBuildInfo[] {
+        const fullGraphicMatrix: ExtraBuildInfo[] = [];
+        let subsToIncludeCounter = buildsCount - 4;
+        // For now, only support the 4 main raiders in the full graphic
+        extraBuildInfoMatrix.map(slot => fullGraphicMatrix.push(slot[0]));
+
+        for (const [slotIndex, slot] of extraBuildInfoMatrix.entries()) {
+            for (const [subIndex, sub] of slot.slice(1).entries()) {
+                if (subsToIncludeCounter > 0) {
+                    fullGraphicMatrix.push(sub);
+                    subsToIncludeCounter-=1;
+                }
+            }
+        }
+
+        return fullGraphicMatrix
+    }
+
+    function getAllRaidPokemon(): Raider[] {
+        const allRaidPokemon: Raider[] = [];
+        raidInputProps.pokemon.forEach((raider) => {
+            allRaidPokemon.push(raider);
+        });
+        substitutes.forEach((slot) => {
+            slot.forEach((sub) => {
+                allRaidPokemon.push(sub.raider);
+            });
+        });
+        return allRaidPokemon;
+    }
+
+    function getBuildsOnlyRaidPokemon(allRaidPokemon: Raider[]): Raider[] {
+        return allRaidPokemon.filter((raider) => raider.name !== "NPC");
+    }
     
+    function getFullGraphicRaidPokemon(allRaidPokemon: Raider[], buildsCount: number): Raider[] {
+        // For now, only support the 4 main raiders in the full graphic
+        return allRaidPokemon.slice(0, buildsCount + 1);
+    }
+
+    async function getStatPlots(allRaidPokemon: Raider[]): Promise<string[] | undefined> {
+        let statPlots: undefined | string[] = !plotsEnabled ? undefined : await Promise.all(
+            allRaidPokemon.slice(1).map((poke, index) => {
+                const nature = gen.natures.get(toID(poke.nature));
+                return getStatRadarPlotPNG(index + 1, nature, poke.evs, poke.stats, translationKey, 20);
+            })
+        );
+        return statPlots;
+    }
+
+    const maxRaiders = substitutes.reduce((acc, slot) => acc + slot.length, 0) + 4;
+    const initializedStatPlots = Array.from({ length: maxRaiders }, (_, index) => (
+        <Box key={index} id={`statplot${index + 1}`} display="none" />
+    ));
+
     return (
         <Box>
             <Button 
@@ -1106,7 +1444,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                     </Box>
                 </li>
                 <li>
-                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
                         <Stack direction="row" alignItems="center" justifyContent="center">
                             <Box flexGrow={1} />
                             <Typography variant="body1" fontWeight={600}>
@@ -1117,7 +1455,6 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                                     checked={plotsEnabled}
                                     onChange={(e) => { setPlotsEnable(!plotsEnabled); }}
                                 />
-                            <Box flexGrow={1} />
                             {/* {[0,1,2,3].map((i) => (
                         
                             <Stack key={i} direction="row" alignItems="center" justifyContent="center">
@@ -1143,6 +1480,21 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                     </Box>
                 </li>
                 <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
+                        <Stack direction="row" alignItems="center" justifyContent="center">
+                            <Box flexGrow={1} />
+                            <Typography variant="body1" fontWeight={600}>
+                                {getTranslation("Builds Only", translationKey) + ":"}
+                            </Typography>
+                            <Box flexGrow={2} />
+                            <Checkbox
+                                    checked={buildsOnly}
+                                    onChange={(e) => { setBuildsOnly(!buildsOnly); }}
+                                />
+                        </Stack>
+                    </Box>
+                </li>
+                <li>
                     <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
                         <Stack direction="row">
                             <Box flexGrow={1} />
@@ -1159,8 +1511,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, results, allSpec
                     </Box>
                 </li>
             </Menu>
+            { /* Render the stat plots for the graphic*/}
+            {initializedStatPlots}
         </Box>
-
     );
 };
 

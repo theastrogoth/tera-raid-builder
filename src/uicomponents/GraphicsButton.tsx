@@ -646,7 +646,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateBuildsGraphic(theme: any, raidPokemon: Raider[], results: RaidBattleResults, raiderExtraBuildInfo: ExtraBuildInfo[], turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
+function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[], results: RaidBattleResults, raiderExtraBuildInfo: ExtraBuildInfo[], buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -661,164 +661,16 @@ function generateBuildsGraphic(theme: any, raidPokemon: Raider[], results: RaidB
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(${backgroundImageURL})`,
                     }} 
                 >
-                    <Header>
-                        {/* <BossWrapper>
-                            <Boss src={getPokemonArtURL(raidInputProps.pokemon[0].species.name, raidInputProps.pokemon[0].shiny)} />
-                            <BossTera src={getTeraTypeBannerURL(raidInputProps.pokemon[0].teraType || "blank")}></BossTera>
-                        </BossWrapper>
-                        <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
-                        <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidInputProps.pokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidInputProps.pokemon[0].species.name} Tera Raid Battle`}</Subtitle> */}
-                    </Header>
-                    <BuildsSection>
-                        <Separator>
-                            <LeftBar />
-                            <SeparatorLabel>{ !translationKey ? "The Crew" : getTranslation("Pokémon", translationKey) }</SeparatorLabel>
-                            <RightBar />
-                        </Separator> 
-                        <BuildsContainer>    
-                            {
-                                raidPokemon.slice(1).map((raider, index) => (
-                                    <BuildWrapper key={index}>
-                                        <Build>
-                                            <BuildHeader>
-                                                <BuildArt src={getPokemonArtURL(raider.species.name, raider.shiny)}/>
-                                                {raider.item ? 
-                                                    <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
-                                                {(raider.teraType || "???") !== "???" ?
-                                                    <BuildTeraIcon src={getTeraTypeIconURL(raider.teraType!)} /> : null}
-                                                <BuildTypes direction="row">
-                                                    {raider.types.map((type, index) => (
-                                                        <BuildTypeIcon key={index} src={getTypeIconURL(type === "???" ? "None" : type)}/>
-                                                    ))}
-                                                    {raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
-                                                </BuildTypes>
-                                                <BuildRole>{raider.role}</BuildRole>
-                                                <BuildHeaderSeparator />
-                                            </BuildHeader>
-                                            <BuildInfoContainer>
-                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (raider.isAnyLevel ? getTranslation("Any",translationKey) : raider.level) }</BuildInfo>
-                                                {(raider.teraType || "???") !== "???" &&
-                                                    <BuildInfo>{ getTranslation("Tera Type", translationKey) + ": " + getTranslation(raider.teraType!, translationKey, "types") }</BuildInfo>
-                                                }
-                                                {raider.item ?
-                                                    <BuildInfo>{ getTranslation("Item", translationKey) + ": " + getTranslation(raider.item, translationKey, "items")}</BuildInfo> : null}
-                                                {!!raider.ability && raider.ability !== "(No Ability)" ? 
-                                                <Stack direction="row">
-                                                    <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(raider.ability, translationKey, "abilities") }</BuildInfo>
-                                                    { raiderExtraBuildInfo[index].isHiddenAbility && raiderExtraBuildInfo[index].isHiddenAbility ? 
-                                                        <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
-                                                        : null
-                                                    }
-                                                </Stack> : null}
-                                                {raider.gender && raider.gender !== "N" &&
-                                                    <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(raider.gender), translationKey) }</BuildInfo>
-                                                }
-                                                <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(raider.nature, translationKey, "natures")) }</BuildInfo>
-                                                {getEVDescription(raider.evs, translationKey) ? 
-                                                    <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(raider.evs, translationKey)}</BuildInfo> : null}
-                                                {getIVDescription(raider.ivs, translationKey) ? 
-                                                    <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
-                                            </BuildInfoContainer>
-                                            <Box flexGrow={1}/>
-                                            { statplots && !ignoreStats[index] &&
-                                                <StatPlotContainer>
-                                                    <StatPlot src={statplots[index]} />
-                                                </StatPlotContainer>
-                                            }
-                                            { statplots && ignoreStats[index] &&
-                                                <>
-                                                    <AnyStatsMessageContainer>
-                                                        <AnyStatsMessage>{ getTranslation("Any stats", translationKey) }</AnyStatsMessage>
-                                                    </AnyStatsMessageContainer>
-                                                    <Box flexGrow={1}/>
-                                                </>
-                                            }
-                                            <BuildMovesSection>
-                                                <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
-                                                <MovesContainer>
-                                                    {
-                                                        [...Array(4)].map((val, index) => {
-                                                            const noMove = (raider.moves[index] && raider.moves[index] !== "(No Move)");
-                                                            return (
-                                                                <MoveBox key={"move_box_" + index}>
-                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(raiderExtraBuildInfo[raider.id - 1].moveTypes[index])} sx={{opacity: `${raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? '50%' : '100%'}`}}/> : null}
-                                                                    {noMove ? (
-                                                                        raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? 
-                                                                            <OptionalMoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
-                                                                            <MoveLabel>{ getTranslation(raider.moves[index], translationKey, "moves") }</MoveLabel>
-                                                                    ) : null}
-                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(raiderExtraBuildInfo[raider.id - 1].learnMethods[index], raiderExtraBuildInfo[raider.id - 1].moveTypes[index])} sx={{opacity: `${raiderExtraBuildInfo[raider.id - 1].optionalMove[index] ? '50%' : '100%'}`}}/> : null}
-                                                                </MoveBox>
-                                                            )
-                                                        })
-                                                    }
-                                                </MovesContainer>
-                                            </BuildMovesSection>
-                                        </Build>
-                                    </BuildWrapper>
-                                ))
-                            }
-
-                        </BuildsContainer>
-                        {raiderExtraBuildInfo.some(entry => entry.optionalMove.some(move => move)) &&
-                            <FootnoteContainer>
-                                <FootnoteText>
-                                    * {getTranslation("Optional Moves", translationKey)}
-                                </FootnoteText>
-                            </FootnoteContainer>
-                        }
-                    </BuildsSection>
-                        {notes && 
-                            <NotesSection>
-                                <Separator>
-                                    <LeftBar />
-                                        <SeparatorLabel>{ getTranslation("Notes", translationKey) }</SeparatorLabel>
-                                        <RightBar />
-                                    </Separator> 
-                                <NotesContainer>
-                                    <Notes>{notes}</Notes>
-                                </NotesContainer>
-                            </NotesSection>
-                        }
-                    <InfoSection>
-                        <CreditsContainer>
-                            <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>
-                            {title && title.endsWith("!PPT") && <PPTLogo src={getMiscImageURL("PPT_logo")}/>}
-                            <Credit>{ getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</Credit>
-                        </CreditsContainer>
-                    </InfoSection>
-                </GraphicsContainer> 
-            </ThemeProvider>     
-        );
-    });
-    
-    document.body.appendChild(graphicTop); // this makes the element findable for html2canvas
-    return graphicTop;
-}
-
-function generateGraphic(theme: any, raidPokemon: Raider[], results: RaidBattleResults, raiderExtraBuildInfo: ExtraBuildInfo[], buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
-    const graphicTop = document.createElement('graphic_top');
-    graphicTop.setAttribute("style", "width: 3600px");
-    const root = createRoot(graphicTop);
-
-    const ignoreStats = raidPokemon.slice(1).map((raider) => (raider.isAnyLevel) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
-    // console.log(ignoreStats)
-    flushSync(() => {
-        root.render(
-            <ThemeProvider theme={graphicsTheme}>
-                <GraphicsContainer 
-                    style={{
-                        backgroundImage: `linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(${backgroundImageURL})`,
-                    }} 
-                >
-                    <Header>
-                        <BossWrapper>
-                            <Boss src={getPokemonArtURL(raidPokemon[0].species.name, raidPokemon[0].shiny)} />
-                            <BossTera src={getTeraTypeBannerURL(raidPokemon[0].teraType || "blank")}></BossTera>
-                        </BossWrapper>
-                        <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
-                        <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidPokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidPokemon[0].species.name} Tera Raid Battle`}</Subtitle>
-                    </Header>
+                    { !buildsOnly &&
+                        <Header>
+                            <BossWrapper>
+                                <Boss src={getPokemonArtURL(raidPokemon[0].species.name, raidPokemon[0].shiny)} />
+                                <BossTera src={getTeraTypeBannerURL(raidPokemon[0].teraType || "blank")}></BossTera>
+                            </BossWrapper>
+                            <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
+                            <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidPokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidPokemon[0].species.name} Tera Raid Battle`}</Subtitle>
+                        </Header>
+                    }
                     <BuildsSection>
                         <Separator>
                             <LeftBar />
@@ -917,137 +769,139 @@ function generateGraphic(theme: any, raidPokemon: Raider[], results: RaidBattleR
                             </FootnoteContainer>
                         }
                     </BuildsSection>
-                    <ExecutionSection>
-                        <Separator>
-                            <LeftBar />
-                            <SeparatorLabel>{!translationKey ? "Execution" : getTranslation("Moves", translationKey)}</SeparatorLabel>
-                            <RightBar />
-                        </Separator> 
-                        { turnGroups.map((moveGroups, turnIndex) => (
-                            <ExecutionContainer direction="row">
-                                <ExecutionTable>
-                                    {(turnNumbers[turnIndex] !== 0) && (
-                                        <ExecutionTurnLabelContainer>
-                                            <ExecutionTurnLabel>{getTranslation("Turn", translationKey) + " " + turnNumbers[turnIndex]}</ExecutionTurnLabel>
-                                        </ExecutionTurnLabelContainer>
-                                        )
-                                    }
-                                    {
-                                        moveGroups.map((moveGroup, index) => (
-                                            moveGroup.length > 0 ? (
-                                                <ExecutionRow key={index}>
-                                                    <ExecutionGroup sx={{
-                                                        //@ts-ignore
-                                                        background: graphicsTheme.palette["group"+(((index + turnGroups.slice(0, turnIndex).reduce((a,b) => a + b.length, 0)).toString()) % 12)].main,
-                                                        height: (160*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
-                                                    }}>
-                                                        <ExecutionMoveNumber>{moveGroups.length > 1 ? (index + 1) : null}</ExecutionMoveNumber>
-                                                        <ExecutionMoveContainer>
-                                                            {
-                                                                moveGroup.map((move, moveIndex) => { 
-                                                                    let showTarget = move.info.userID === 0 ?
-                                                                        ( move.isSpread || move.move === "Remove Negative Effects" ) :
-                                                                        !["user", "user-and-allies", "all-allies", "users-field", "opponents-field", "entire-field"].includes(move.info.moveData.target!);
-                                                                    showTarget = showTarget && (move.move !== "Waits");
-                                                                    const turnIndex = results.turnResults.findIndex((t) => t.id === move.id);
-                                                                    const turnRaiders = turnIndex > 0 ? results.turnResults[turnIndex-1].state.raiders : results.turnZeroState.raiders;
-                                                                    return ([
-                                                                    move.teraActivated ? 
-                                                                    <ExecutionMove key={moveIndex - 0.5}>
-                                                                        <ExecutionMovePokemonWrapperEmpty/>
-                                                                        <ExecutionMoveTag>{""}</ExecutionMoveTag>
-                                                                        <ExecutionMoveActionWrapper>
-                                                                            <ExecutionMoveTeraIconWrapper>
-                                                                                <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidPokemon[move.info.userID].teraType!)} />
-                                                                            </ExecutionMoveTeraIconWrapper>
-                                                                            <ExecutionMoveTag>{getTranslation("Terastallize", translationKey)}</ExecutionMoveTag>
-                                                                            <ExecutionMoveTeraIconWrapper>
-                                                                                <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidPokemon[move.info.userID].teraType!)} />
-                                                                            </ExecutionMoveTeraIconWrapper>
-                                                                        </ExecutionMoveActionWrapper>
-                                                                        <ExecutionMoveTag>{""}</ExecutionMoveTag>
-                                                                        <ExecutionMovePokemonWrapperEmpty />
-                                                                    </ExecutionMove>
-                                                                    : null,
-                                                                    <ExecutionMove key={moveIndex}>
-                                                                        {move.teraActivated ?
-                                                                        <ExecutionMovePokemonWrapperShifted>
-                                                                            <ExecutionMovePokemonName>{raidPokemon[move.info.userID].role}</ExecutionMovePokemonName>
-                                                                            <ExecutionMovePokemonIconWrapper>
-                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
-                                                                            </ExecutionMovePokemonIconWrapper>
-                                                                        </ExecutionMovePokemonWrapperShifted> :
-                                                                        <ExecutionMovePokemonWrapper>
-                                                                            <ExecutionMovePokemonName>{raidPokemon[move.info.userID].role}</ExecutionMovePokemonName>
-                                                                            <ExecutionMovePokemonIconWrapper>
-                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
-                                                                            </ExecutionMovePokemonIconWrapper>
-                                                                        </ExecutionMovePokemonWrapper>
-                                                                        }
-                                                                        {move.teraActivated && <ExecutionMovePokemonWrapperEmpty/>}
-                                                                        {(move.teraActivated || move.move === "Waits") ?
-                                                                            <ExecutionMoveTag>{""}</ExecutionMoveTag> :
-                                                                            <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
-                                                                        }
-                                                                        {move.teraActivated ?
-                                                                            <ExecutionMoveTagShiftedContainer>
-                                                                                <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
-                                                                            </ExecutionMoveTagShiftedContainer> :
-                                                                            null
-                                                                        }
-                                                                        <ExecutionMoveAction>{getTranslation(move.move, translationKey, "moves")}</ExecutionMoveAction>
-                                                                        <ExecutionMoveTag>{showTarget ? getTranslation("on", translationKey) : ""}</ExecutionMoveTag>
-                                                                        {showTarget ?
-                                                                            <ExecutionMovePokemonWrapper>
-                                                                                <ExecutionMovePokemonName>
-                                                                                    {
-                                                                                        (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
-                                                                                        move.move === "Remove Negative Effects" ? raidPokemon[0].role :
-                                                                                        raidPokemon[move.info.targetID].role
-                                                                                    }
-                                                                                </ExecutionMovePokemonName>
-                                                                                { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?
-                                                                                    <ExecutionMovePokemonIconWrapper>
-                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.move === "Remove Negative Effects" ? 0 : move.info.targetID].species.name)} />
-                                                                                    </ExecutionMovePokemonIconWrapper> : 
-                                                                                    <ExecutionMovePokemonIconWrapper direction="row" spacing="-50px">
-                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[1].species.name)} />
-                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[2].species.name)} />
-                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[3].species.name)} />
-                                                                                        <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[4].species.name)} />
-                                                                                    </ExecutionMovePokemonIconWrapper>
-
-                                                                                }
-                                                                            </ExecutionMovePokemonWrapper>
-                                                                            :
+                    { !buildsOnly &&
+                        <ExecutionSection>
+                            <Separator>
+                                <LeftBar />
+                                <SeparatorLabel>{!translationKey ? "Execution" : getTranslation("Moves", translationKey)}</SeparatorLabel>
+                                <RightBar />
+                            </Separator> 
+                            { turnGroups.map((moveGroups, turnIndex) => (
+                                <ExecutionContainer direction="row">
+                                    <ExecutionTable>
+                                        {(turnNumbers[turnIndex] !== 0) && (
+                                            <ExecutionTurnLabelContainer>
+                                                <ExecutionTurnLabel>{getTranslation("Turn", translationKey) + " " + turnNumbers[turnIndex]}</ExecutionTurnLabel>
+                                            </ExecutionTurnLabelContainer>
+                                            )
+                                        }
+                                        {
+                                            moveGroups.map((moveGroup, index) => (
+                                                moveGroup.length > 0 ? (
+                                                    <ExecutionRow key={index}>
+                                                        <ExecutionGroup sx={{
+                                                            //@ts-ignore
+                                                            background: graphicsTheme.palette["group"+(((index + turnGroups.slice(0, turnIndex).reduce((a,b) => a + b.length, 0)).toString()) % 12)].main,
+                                                            height: (160*(moveGroup.length + moveGroup.reduce((a,b) => (b.teraActivated ? 1 : 0) + a, 0))).toString() + "px"
+                                                        }}>
+                                                            <ExecutionMoveNumber>{moveGroups.length > 1 ? (index + 1) : null}</ExecutionMoveNumber>
+                                                            <ExecutionMoveContainer>
+                                                                {
+                                                                    moveGroup.map((move, moveIndex) => { 
+                                                                        let showTarget = move.info.userID === 0 ?
+                                                                            ( move.isSpread || move.move === "Remove Negative Effects" ) :
+                                                                            !["user", "user-and-allies", "all-allies", "users-field", "opponents-field", "entire-field"].includes(move.info.moveData.target!);
+                                                                        showTarget = showTarget && (move.move !== "Waits");
+                                                                        const turnIndex = results.turnResults.findIndex((t) => t.id === move.id);
+                                                                        const turnRaiders = turnIndex > 0 ? results.turnResults[turnIndex-1].state.raiders : results.turnZeroState.raiders;
+                                                                        return ([
+                                                                        move.teraActivated ? 
+                                                                        <ExecutionMove key={moveIndex - 0.5}>
+                                                                            <ExecutionMovePokemonWrapperEmpty/>
+                                                                            <ExecutionMoveTag>{""}</ExecutionMoveTag>
+                                                                            <ExecutionMoveActionWrapper>
+                                                                                <ExecutionMoveTeraIconWrapper>
+                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidPokemon[move.info.userID].teraType!)} />
+                                                                                </ExecutionMoveTeraIconWrapper>
+                                                                                <ExecutionMoveTag>{getTranslation("Terastallize", translationKey)}</ExecutionMoveTag>
+                                                                                <ExecutionMoveTeraIconWrapper>
+                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidPokemon[move.info.userID].teraType!)} />
+                                                                                </ExecutionMoveTeraIconWrapper>
+                                                                            </ExecutionMoveActionWrapper>
+                                                                            <ExecutionMoveTag>{""}</ExecutionMoveTag>
                                                                             <ExecutionMovePokemonWrapperEmpty />
-                                                                        }
-                                                                    </ExecutionMove>
-                                                                ])}).flat()
-                                                            }
-                                                        </ExecutionMoveContainer>
-                                                        <ExecutionRepeatNumber>{moveGroup[0].repeats > 1 ? "×" + (moveGroup[0].repeats) : ""}</ExecutionRepeatNumber>
-                                                        </ExecutionGroup>
-                                                </ExecutionRow>
-                                            ) : null
-                                        ))
-                                    }
-                                </ExecutionTable>
-                            </ExecutionContainer>
-                        ))}
-                    </ExecutionSection>
-                        {notes && 
-                            <NotesSection>
-                                <Separator>
-                                    <LeftBar />
-                                        <SeparatorLabel>{ getTranslation("Notes", translationKey) }</SeparatorLabel>
-                                        <RightBar />
-                                    </Separator> 
-                                <NotesContainer>
-                                    <Notes>{notes}</Notes>
-                                </NotesContainer>
-                            </NotesSection>
-                        }
+                                                                        </ExecutionMove>
+                                                                        : null,
+                                                                        <ExecutionMove key={moveIndex}>
+                                                                            {move.teraActivated ?
+                                                                            <ExecutionMovePokemonWrapperShifted>
+                                                                                <ExecutionMovePokemonName>{raidPokemon[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                                <ExecutionMovePokemonIconWrapper>
+                                                                                    <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
+                                                                                </ExecutionMovePokemonIconWrapper>
+                                                                            </ExecutionMovePokemonWrapperShifted> :
+                                                                            <ExecutionMovePokemonWrapper>
+                                                                                <ExecutionMovePokemonName>{raidPokemon[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                                <ExecutionMovePokemonIconWrapper>
+                                                                                    <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
+                                                                                </ExecutionMovePokemonIconWrapper>
+                                                                            </ExecutionMovePokemonWrapper>
+                                                                            }
+                                                                            {move.teraActivated && <ExecutionMovePokemonWrapperEmpty/>}
+                                                                            {(move.teraActivated || move.move === "Waits") ?
+                                                                                <ExecutionMoveTag>{""}</ExecutionMoveTag> :
+                                                                                <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
+                                                                            }
+                                                                            {move.teraActivated ?
+                                                                                <ExecutionMoveTagShiftedContainer>
+                                                                                    <ExecutionMoveTag>{getTranslation("uses", translationKey)}</ExecutionMoveTag>
+                                                                                </ExecutionMoveTagShiftedContainer> :
+                                                                                null
+                                                                            }
+                                                                            <ExecutionMoveAction>{getTranslation(move.move, translationKey, "moves")}</ExecutionMoveAction>
+                                                                            <ExecutionMoveTag>{showTarget ? getTranslation("on", translationKey) : ""}</ExecutionMoveTag>
+                                                                            {showTarget ?
+                                                                                <ExecutionMovePokemonWrapper>
+                                                                                    <ExecutionMovePokemonName>
+                                                                                        {
+                                                                                            (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
+                                                                                            move.move === "Remove Negative Effects" ? raidPokemon[0].role :
+                                                                                            raidPokemon[move.info.targetID].role
+                                                                                        }
+                                                                                    </ExecutionMovePokemonName>
+                                                                                    { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?
+                                                                                        <ExecutionMovePokemonIconWrapper>
+                                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.move === "Remove Negative Effects" ? 0 : move.info.targetID].species.name)} />
+                                                                                        </ExecutionMovePokemonIconWrapper> : 
+                                                                                        <ExecutionMovePokemonIconWrapper direction="row" spacing="-50px">
+                                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[1].species.name)} />
+                                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[2].species.name)} />
+                                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[3].species.name)} />
+                                                                                            <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[4].species.name)} />
+                                                                                        </ExecutionMovePokemonIconWrapper>
+
+                                                                                    }
+                                                                                </ExecutionMovePokemonWrapper>
+                                                                                :
+                                                                                <ExecutionMovePokemonWrapperEmpty />
+                                                                            }
+                                                                        </ExecutionMove>
+                                                                    ])}).flat()
+                                                                }
+                                                            </ExecutionMoveContainer>
+                                                            <ExecutionRepeatNumber>{moveGroup[0].repeats > 1 ? "×" + (moveGroup[0].repeats) : ""}</ExecutionRepeatNumber>
+                                                            </ExecutionGroup>
+                                                    </ExecutionRow>
+                                                ) : null
+                                            ))
+                                        }
+                                    </ExecutionTable>
+                                </ExecutionContainer>
+                            ))}
+                        </ExecutionSection>
+                    }
+                    {notes && 
+                        <NotesSection>
+                            <Separator>
+                                <LeftBar />
+                                    <SeparatorLabel>{ getTranslation("Notes", translationKey) }</SeparatorLabel>
+                                    <RightBar />
+                                </Separator> 
+                            <NotesContainer>
+                                <Notes>{notes}</Notes>
+                            </NotesContainer>
+                        </NotesSection>
+                    }
                     <InfoSection>
                         <CreditsContainer>
                             <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>
@@ -1168,28 +1022,19 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
 
             // contains all the extra info needed for extra elements on the graphics, ability patch icon, learn method icons, move type icons, optional move boolean
             const extraBuildInfoMatrix = createExtraBuildInfoMatrix(isHiddenAbilityMatrix, learnMethodMatrix, moveTypeMatrix, optionalMoveMatrix);
+            const extraBuildInfo = buildsOnly ? processBuildsOnlyMatrix(extraBuildInfoMatrix, pokemonDataMatrix) : processFullGraphicMatrix(extraBuildInfoMatrix, buildsCount);
 
             // all raiders including the raid boss and substitutes            
             const allRaidPokemon = getAllRaidPokemon();
+            const includedRaidPokemon = buildsOnly ? getBuildsOnlyRaidPokemon(allRaidPokemon) : getFullGraphicRaidPokemon(allRaidPokemon, buildsCount);
 
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
 
+            const statPlots = await getStatPlots(includedRaidPokemon);
+
             // generate graphic
-            let graphicTop;
-            if (buildsOnly) {
-                // Pre-process the matrices to keep the graphics generators clean and agnostic of display logic
-                const extraBuildInfo = processBuildsOnlyMatrix(extraBuildInfoMatrix, pokemonDataMatrix);
-                const includedRaidPokemon = getBuildsOnlyRaidPokemon(allRaidPokemon);
-                const statPlots = await getStatPlots(includedRaidPokemon);
-                graphicTop = generateBuildsGraphic(theme, includedRaidPokemon, results, extraBuildInfo, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
-            }
-            else {
-                const extraBuildInfo = processFullGraphicMatrix(extraBuildInfoMatrix, buildsCount);
-                const includedRaidPokemon = getFullGraphicRaidPokemon(allRaidPokemon, buildsCount);
-                const statPlots = await getStatPlots(includedRaidPokemon);
-                graphicTop = generateGraphic(theme, includedRaidPokemon, results, extraBuildInfo, buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
-            }
+            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemon, results, extraBuildInfo, buildsOnly ? includedRaidPokemon.length : buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);

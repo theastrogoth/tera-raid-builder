@@ -775,7 +775,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                                 <MoveBox key={"move_box_" + moveSlotIndex}>
                                                                     {noMove ? <MoveTypeIcon src={getTypeIconURL(raiderExtraBuildInfo[index].moveTypes[moveSlotIndex])} sx={{opacity: `${raiderExtraBuildInfo[index].optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
                                                                     {noMove ? (
-                                                                        raiderExtraBuildInfo[raider.id - 1].optionalMove[moveSlotIndex] ?
+                                                                        raiderExtraBuildInfo[index].optionalMove[moveSlotIndex] ?
                                                                             <OptionalMoveLabel>{ getTranslation(raider.moves[moveSlotIndex], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
                                                                             <MoveLabel>{ getTranslation(raider.moves[moveSlotIndex], translationKey, "moves") }</MoveLabel>
                                                                     ) : null}
@@ -1158,15 +1158,24 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     function createOptionalMoveMatrix(pokemonDataMatrix: PokemonData[][], movesMatrix: Move[][][]): boolean[][][] {
         return pokemonDataMatrix.map((slot, slotIndex) =>
             slot.map((data, index) => {
-                // assuming substitutes required moves always match with the main raider required moves
-                const moves = movesMatrix[slotIndex][0];
-                return moves.map((move) => {
-                    const moveName = move.name;
-                    const moveUsed = results.turnResults.some((turnResult) =>
-                        turnResult.moveInfo.userID === slotIndex + 1 && turnResult.moveInfo.moveData.name === moveName
-                    );
-                    return !moveUsed && moveName !== "(No Move)";
-                });
+                const isMain = index === 0;
+                if (isMain) {
+                    const moves = movesMatrix[slotIndex][0];
+                    return moves.map((move) => {
+                        const moveName = move.name;
+                        const moveUsed = results.turnResults.some((turnResult) =>
+                            turnResult.moveInfo.userID === slotIndex + 1 && turnResult.moveInfo.moveData.name === moveName
+                        );
+                        return !moveUsed && moveName !== "(No Move)";
+                    });
+                }
+                else {
+                    const moves = substitutes[slotIndex][index - 1].raider.moves;
+                    const usedMoves = substitutes[slotIndex][index - 1].substituteMoves;
+                    return moves.map((move) => {
+                        return move !== "(No Move)" && !usedMoves.includes(move);
+                    })
+                }
             })
         );
     }

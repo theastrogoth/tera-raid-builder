@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 
 import Box from '@mui/material/Box';
 
-import { Generations, Move, toID } from "../calc";
-import { SpeciesName, TypeName } from "../calc/data/interface";
+import { Generations, Move, toID, StatsTable } from "../calc";
+import { SpeciesName, TypeName, Nature, StatID } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
 import { RaidMoveInfo, SubstituteBuildInfo, TurnGroupInfo, ExtraBuildInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
@@ -16,7 +16,7 @@ import watermark from "watermarkjs";
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { Checkbox, TextField } from "@mui/material";
+import { Checkbox, Select, MenuItem, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -26,12 +26,15 @@ import { useTheme } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
 
 import Menu from "@mui/material/Menu";
 import DownloadIcon from '@mui/icons-material/Download';
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { getStatRadarPlotPNG } from "./StatRadarPlot";
 import { create } from "domain";
+import { stat } from "fs";
+import { off } from "process";
 
 const gen = Generations.get(9); // we only use gen 9
 
@@ -299,6 +302,27 @@ const StatPlotContainer = styled(Box)({
 const StatPlot = styled("img")({
     height: "625px",
     width: "750px",
+});
+
+const StatTableContainer = styled(Grid)({
+
+})
+
+const StatTableGrid = styled(Grid)({
+
+})
+
+const StatTableBox = styled(Box)({
+    backgroundColor: "rgba(255, 255, 255, .25)",
+    height: "125px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "start",
+    padding: "25px"
+});
+
+const StatTableText = styled(Typography)({
+    lineHeight: "50px",
 });
 
 const AnyStatsMessageContainer = styled(Box)({
@@ -653,7 +677,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[], results: RaidBattleResults, raiderExtraBuildInfo: ExtraBuildInfo[], buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statplots?: (string | undefined)[], translationKey?: any) {
+function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[], results: RaidBattleResults, raiderExtraBuildInfo: ExtraBuildInfo[], buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -702,7 +726,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                 </BuildTypes>
                                                 <BuildRole>{raider.role}</BuildRole>
                                                 { raiderExtraBuildInfo[index].subFor &&
-                                                    <BuildSubstituteSubtitle>Substitute for {raiderExtraBuildInfo[index - 1].subFor}</BuildSubstituteSubtitle>
+                                                    <BuildSubstituteSubtitle>Substitute for {raiderExtraBuildInfo[index].subFor}</BuildSubstituteSubtitle>
                                                 }
                                                 <BuildHeaderSeparator />
                                             </BuildHeader>
@@ -731,12 +755,10 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                     <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
                                             </BuildInfoContainer>
                                             <Box flexGrow={1}/>
-                                            { statplots && !ignoreStats[index] &&
-                                                <StatPlotContainer>
-                                                    <StatPlot src={statplots[index]} />
-                                                </StatPlotContainer>
+                                            { statDisplay && !ignoreStats[index] &&
+                                                statDisplay[index]
                                             }
-                                            { statplots && ignoreStats[index] &&
+                                            { statDisplay && ignoreStats[index] &&
                                                 <>
                                                     <AnyStatsMessageContainer>
                                                         <AnyStatsMessage>{ getTranslation("Any stats", translationKey) }</AnyStatsMessage>
@@ -1001,7 +1023,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const [subtitle, setSubtitle] = useState<string>("");
     const [watermarkText, setWatermarkText] = useState<string>("");
     // const [plotsEnabled, setPlotsEnable] = useState<boolean[]>([false, false, false, false]);
-    const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
+    const [statDisplay, setStatDisplay] = useState<string>("None");
+    // const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
     const [buildsOnly, setBuildsOnly] = useState<boolean>(false);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -1041,10 +1064,17 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
 
-            const statPlots = await getStatPlots(includedRaidPokemon);
+            let statDisplayElements: JSX.Element[] = []
+            if (statDisplay === "Stat Plot") {
+                const statPlots = await getStatPlots(includedRaidPokemon);
+                statDisplayElements = getStatPlotElements(statPlots);
+            }
+            if (statDisplay === "Stat Table") {
+                statDisplayElements = getStatTableElements(includedRaidPokemon);
+            }
 
             // generate graphic
-            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemon, results, extraBuildInfo, buildsOnly ? includedRaidPokemon.length - 1 : buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statPlots, translationKey);
+            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemon, results, extraBuildInfo, buildsOnly ? includedRaidPokemon.length - 1 : buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);
@@ -1220,7 +1250,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     }
 
     async function getStatPlots(allRaidPokemon: Raider[]): Promise<string[] | undefined> {
-        let statPlots: undefined | string[] = !plotsEnabled ? undefined : await Promise.all(
+        let statPlots: undefined | string[] = statDisplay !== "Stat Plot" ? undefined : await Promise.all(
             allRaidPokemon.slice(1).map((poke, index) => {
                 const nature = gen.natures.get(toID(poke.nature));
                 return getStatRadarPlotPNG(index + 1, nature, poke.evs, poke.stats, translationKey, 20);
@@ -1233,6 +1263,50 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const initializedStatPlots = Array.from({ length: maxRaiders }, (_, index) => (
         <Box key={index} id={`statplot${index + 1}`} display="none" />
     ));
+
+    function getStatPlotElements(statPlots?: string[]): JSX.Element[] {
+        if (!statPlots) return [];
+        return statPlots.map((statPlot, index) => (
+            <StatPlotContainer>
+                <StatPlot src={statPlot} />
+            </StatPlotContainer>
+        ));
+    }
+
+    function getStatTableElements(includedRaidPokemon: Raider[]): JSX.Element[] {
+        const shortStatNames = ["HP", "Atk", "Def", "SpA", "SpD", "Spe"];
+        let statTableElements = [];
+
+        for (const [index, raider] of includedRaidPokemon.slice(1).entries()) {
+            const nature = gen.natures.get(toID(raider.nature));
+            const statTableElement = (
+                <StatTableContainer container spacing={2} key="stat-table-grid">
+                    {[raider.stats.hp, raider.stats.atk, raider.stats.def, raider.stats.spa, raider.stats.spd, raider.stats.spe].map((stat, statIndex) => (
+                        <StatTableGrid item xs={4} key={`stat-${index}-${statIndex}`}>
+                            <StatTableBox>
+                                <Stack direction="column">
+                                    <StatTableText fontSize={"1.3em"} color={getStatColor(shortStatNames[statIndex].toLowerCase() as StatID, nature)}>{shortStatNames[statIndex]}</StatTableText>
+                                    <StatTableText fontSize={"1.8em"} color={getStatColor(shortStatNames[statIndex].toLowerCase() as StatID, nature)}>{stat}</StatTableText>
+                                </Stack>
+                            </StatTableBox>
+                        </StatTableGrid>
+                    ))}
+                </StatTableContainer>
+            );
+            statTableElements.push(statTableElement);
+        }
+        return statTableElements;
+    }
+
+    function getStatColor(stat: StatID, nature?: Nature): string {
+        if (nature && nature.plus !== nature.minus && nature.plus === stat) {
+            return "#ffc0c0"
+        }
+        if (nature && nature.minus !== nature.plus && nature.minus === stat) {
+            return "#bad7ff"
+        }
+        return "#ffffff"
+    }
 
     return (
         <Box>
@@ -1255,6 +1329,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                     horizontal: 'center',
                   }}
             >
+                <Stack padding={"8px"}>
                 <li>
                     <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
                         <input
@@ -1280,73 +1355,60 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                 </li>
                 <li>
                     <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
-                        <TextField 
-                            variant="outlined"
-                            placeholder={getTranslation("Subtitle", translationKey)}
-                            value={subtitle}
-                            onChange={(e) => setSubtitle(e.target.value)}
-                        />
+                        <Stack direction="row">
+                            <Box flexGrow={1} />
+                            <TextField 
+                                variant="outlined"
+                                placeholder={getTranslation("Subtitle", translationKey)}
+                                value={subtitle}
+                                onChange={(e) => setSubtitle(e.target.value)}
+                                sx={{justifyContent: "center", alignItems: "center"}}
+                            />
+                            <Box flexGrow={1} />
+                        </Stack>
                     </Box>
                 </li>
                 <li>
                     <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
-                        <TextField 
-                            variant="outlined"
-                            placeholder={getTranslation("Watermark text", translationKey)}
-                            value={watermarkText}
-                            inputProps={{ maxLength: 50 }}
-                            onChange={(e) => setWatermarkText(e.target.value)}
-                        />
-                    </Box>
-                </li>
-                <li>
-                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
-                        <Stack direction="row" alignItems="center" justifyContent="center">
+                        <Stack direction="row">
                             <Box flexGrow={1} />
-                            <Typography variant="body1" fontWeight={600}>
-                                {getTranslation("Enable Stat Plots", translationKey) + ":"}
-                            </Typography>
-                            <Box flexGrow={2} />
-                            <Checkbox
-                                    checked={plotsEnabled}
-                                    onChange={(e) => { setPlotsEnable(!plotsEnabled); }}
-                                />
-                            {/* {[0,1,2,3].map((i) => (
-                        
-                            <Stack key={i} direction="row" alignItems="center" justifyContent="center">
-                                <Box flexGrow={1} />
-                                <Typography>
-                                    { `${getTranslation("Raider", translationKey)} ${i+1}` }
-                                </Typography>
-                                <Box flexGrow={2} />
-                                <Checkbox
-                                    checked={plotsEnabled[i]}
-                                    onChange={(e) => {
-                                        const newPlotsEnabled = plotsEnabled.slice();
-                                        newPlotsEnabled[i] = !newPlotsEnabled[i];
-                                        setPlotsEnable(newPlotsEnabled);
-                                    }}
-                                />
-                                <Box flexGrow={1} />
-                            </Stack>
-                            ))
-                                
-                            } */}
+                            <TextField 
+                                variant="outlined"
+                                placeholder={getTranslation("Watermark text", translationKey)}
+                                value={watermarkText}
+                                inputProps={{ maxLength: 50 }}
+                                onChange={(e) => setWatermarkText(e.target.value)}
+                            />
+                            <Box flexGrow={1} />
                         </Stack>
                     </Box>
                 </li>
                 <li>
                     <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
                         <Stack direction="row" alignItems="center" justifyContent="center">
-                            <Box flexGrow={1} />
                             <Typography variant="body1" fontWeight={600}>
-                                {getTranslation("Builds Only", translationKey) + ":"}
+                                {getTranslation("Stat Display", translationKey) + ":"}
                             </Typography>
                             <Box flexGrow={2} />
-                            <Checkbox
-                                    checked={buildsOnly}
-                                    onChange={(e) => { setBuildsOnly(!buildsOnly); }}
-                                />
+                            <Select value={statDisplay} onChange={(e) => setStatDisplay(e.target.value) } inputProps={{ 'aria-label': 'Stat Display' }} sx={{ height: "30px", width: "105px", margin: "10px" }} >
+                                <MenuItem value="None">{getTranslation("None", translationKey)}</MenuItem>
+                                <MenuItem value="Stat Plot">{getTranslation("Stat Plot", translationKey)}</MenuItem>
+                                <MenuItem value="Stat Table">{getTranslation("Stat Table", translationKey)}</MenuItem>
+                            </Select>
+                        </Stack>
+                    </Box>
+                </li>
+                <li>
+                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
+                        <Stack direction="row" alignItems="center" justifyContent="center">
+                            <Typography variant="body1" fontWeight={600}>
+                                {getTranslation("Graphic Type", translationKey) + ":"}
+                            </Typography>
+                            <Box flexGrow={2} />
+                            <Select value={buildsOnly ? getTranslation("Builds Only", translationKey) : getTranslation("Full Graphic", translationKey)} onChange={(e) => setBuildsOnly(e.target.value === "Builds Only") } inputProps={{ 'aria-label': 'Builds Only' }} sx={{ height: "30px", width: "115px", margin: "10px" }} >
+                                <MenuItem value="Full Graphic">{getTranslation("Full Graphic", translationKey)}</MenuItem>
+                                <MenuItem value="Builds Only">{getTranslation("Builds Only", translationKey)}</MenuItem>
+                            </Select>
                         </Stack>
                     </Box>
                 </li>
@@ -1366,6 +1428,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                         </Stack>
                     </Box>
                 </li>
+                </Stack>
             </Menu>
             { /* Render the stat plots for the graphic*/}
             {initializedStatPlots}

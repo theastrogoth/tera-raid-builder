@@ -32,9 +32,6 @@ import Menu from "@mui/material/Menu";
 import DownloadIcon from '@mui/icons-material/Download';
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { getStatRadarPlotPNG } from "./StatRadarPlot";
-import { create } from "domain";
-import { stat } from "fs";
-import { off } from "process";
 
 const gen = Generations.get(9); // we only use gen 9
 

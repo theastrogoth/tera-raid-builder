@@ -688,16 +688,18 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(${backgroundImageURL})`,
                     }} 
                 >
-                    { !buildsOnly &&
-                        <Header>
-                            <BossWrapper>
-                                <Boss src={getPokemonArtURL(raidPokemon[0].species.name, raidPokemon[0].shiny)} />
-                                <BossTera src={getTeraTypeBannerURL(raidPokemon[0].teraType || "blank")}></BossTera>
-                            </BossWrapper>
-                            <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
-                            <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidPokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidPokemon[0].species.name} Tera Raid Battle`}</Subtitle>
-                        </Header>
-                    }
+                    <Header>
+                        { !buildsOnly &&
+                            <Box>
+                                <BossWrapper>
+                                    <Boss src={getPokemonArtURL(raidPokemon[0].species.name, raidPokemon[0].shiny)} />
+                                    <BossTera src={getTeraTypeBannerURL(raidPokemon[0].teraType || "blank")}></BossTera>
+                                </BossWrapper>
+                                <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
+                                <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidPokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidPokemon[0].species.name} Tera Raid Battle`}</Subtitle>
+                            </Box>
+                        }
+                    </Header>
                     <BuildsSection>
                         <Separator>
                             <LeftBar />

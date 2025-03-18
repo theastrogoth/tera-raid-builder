@@ -1431,6 +1431,21 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     const handleAddSubstitute = () => {
         const newSubstitute = makeSubstituteInfo(pokemon, groups);
         setSubstitutes([...substitutes, newSubstitute]);
+        setPokemon(new Raider(
+            pokemon.id, 
+            pokemon.role, 
+            pokemon.shiny, 
+            false,
+            pokemon.field, 
+            new Pokemon(gen, "Carry Slot", {
+                nature: "Hardy", 
+                level: 100,
+                // ability: "(No Ability)",
+                ivs: undefined,
+                shieldData: undefined
+            }), 
+            [],
+        ));
     }
 
     return (

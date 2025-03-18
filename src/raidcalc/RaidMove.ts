@@ -186,6 +186,7 @@ export class RaidMove {
                     this._raidState.consumeItem(this.userID, this._user.item!);
                 }
                 this.applyPostMoveEffects();
+                this.storeLastMove();
             }
             this._raidState.raiders[0].checkShield(); // check for shield breaking 
             this.setFlags();
@@ -327,7 +328,6 @@ export class RaidMove {
                 }
             }
         }
-        this.storeLastMove();
         return true;
     }
 
@@ -356,8 +356,7 @@ export class RaidMove {
     }
 
     private storeLastMove() {
-        // we've already checked if a "Raid Action" is being used
-        if (this.moveData.name !== "(No Move)") {
+        if (!isRaidAction(this.moveData.name) && this.moveData.name !== "(No Move)") {
             this._user.lastMove = this.moveData;
             if (this._user.moves.includes("Last Resort" as MoveName)) {
                 const moveIndex = this._user.moves.findIndex((move) => move === this.moveData.name)
@@ -429,6 +428,7 @@ export class RaidMove {
             if (this.moveData.name === "Meteor Beam" && !this._isSheerForceBoosted) {
                 this._raidState.applyStatChange(this.userID, {spa: 1});
             }
+            this.storeLastMove();
             return true;
         } else if (this._user.isRecharging) {
             this._user.isRecharging = false;

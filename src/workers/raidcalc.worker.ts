@@ -12,7 +12,7 @@ const gen = Generations.get(9);
 
 self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[]}>) => {
     const raidersMessage = event.data.raiders;
-    const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, r.shiny, false, new Field(), new Pokemon(gen, r.name, {
+    const raiders = raidersMessage.map((r) => new Raider(r.id, r.role, r.shiny, r.isAnyLevel, new Field(), new Pokemon(gen, r.name, {
         level: r.level,
         gender: r.gender,
         bossMultiplier: r.bossMultiplier,

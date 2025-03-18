@@ -14,11 +14,10 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import PokemonSummary from './uicomponents/PokemonSummary.tsx';
 import BossSummary from './uicomponents/BossSummary.tsx';
 import Navbar from './uicomponents/Navbar.tsx';
 import RaidControls from './uicomponents/RaidControls.tsx';
-import LinkButton, { lightToFullBuildInfo } from './uicomponents/LinkButton.tsx';
+import LinkButton, { lightToFullBuildInfo, serializeInfo } from './uicomponents/LinkButton.tsx';
 import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
 
@@ -27,7 +26,7 @@ import { MoveName, SpeciesName } from './calc/data/interface.ts';
 import { MoveData, SubstituteBuildInfo, TurnGroupInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
-import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
+import { RaidBattleInfo, RaidBattleResults } from './raidcalc/RaidBattle.ts';
 import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
@@ -271,9 +270,6 @@ function App() {
 
   const gen = Generations.get(9); 
 
-  const longHashRef = useRef('');
-  const shortHashRef = useRef('');
-
   const [raidBoss, setRaidBoss] = useState(
     new Raider(0, "Raid Boss", false, false, new Field(), new Pokemon(gen, "Pikachu", {
       shieldData: {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0}
@@ -367,21 +363,31 @@ function App() {
     }
   );
 
-  // For now, always prompt on unload
-  const [unsavedChanges, setUnsavedChanges] = useState<boolean>(true);
+  // aggresively check for unsaved changes in a way that will correctly recognize when changes were made and then reverted
+  const longHashRef = useRef('');  // these refs are used for both prompting on unload
+  const shortHashRef = useRef(''); // and for avoiding the creation of new links for an unchanged strat
 
-  useEffect(() => {
+  useEffect(() => { // this is updated on every change to the strat, but it is fast (<1ms)
     const handleBeforeUnload = (event: BeforeUnloadEvent) => {
-      if (unsavedChanges) {
-        event.preventDefault();
-      }
+      const info: RaidBattleInfo = {
+        name: title,
+        notes: notes,
+        credits: credits,
+        groups: groups,
+        startingState: results.turnZeroState,
+      };
+      const currentLongHash = serializeInfo(info, [substitutes1, substitutes2, substitutes3, substitutes4]);
+      if (currentLongHash !== longHashRef.current) {  // generating the hash and checking for equivalence is 1-2ms
+        event.preventDefault();                       // it can still prompt on unload if a link has been loaded (with no changes by the user)
+      }                                               // if the format of RaidBattleInfo or SubstituteBuildInfo has changed
     };
     window.addEventListener('beforeunload', handleBeforeUnload);
 
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, [unsavedChanges])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [title, notes, credits, results, substitutes1, substitutes2, substitutes3, substitutes4]);
 
   return (
   <ThemeProvider theme={theme}> 

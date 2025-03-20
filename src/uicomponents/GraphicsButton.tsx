@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import { Generations, Move, toID, StatsTable } from "../calc";
 import { SpeciesName, TypeName, Nature, StatID } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
-import { RaidMoveInfo, SubstituteBuildInfo, TurnGroupInfo, ExtraBuildInfo } from "../raidcalc/interface";
+import { RaidMoveInfo, SubstituteBuildInfo, TurnGroupInfo, ExtraBuildInfo, GraphicBuildInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { Raider } from "../raidcalc/interface";
 import { PokedexService, PokemonData } from "../services/getdata"
@@ -315,7 +315,11 @@ const StatTableBox = styled(Box)({
     display: "flex",
     alignItems: "center",
     justifyContent: "start",
-    padding: "25px"
+});
+
+const StatTableEntryLevel = styled(Box)({
+    backgroundColor: "rgba(255, 255, 255, .15)",
+    width: "100%",
 });
 
 const StatTableText = styled(Typography)({
@@ -674,12 +678,12 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[], results: RaidBattleResults, raiderExtraBuildInfo: ExtraBuildInfo[], buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], translationKey?: any) {
+function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuildInfo[], results: RaidBattleResults, buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
 
-    const ignoreStats = raidPokemon.slice(1).map((raider) => (raider.isAnyLevel) || (Object.entries(raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
+    const ignoreStats = buildInfo.slice(1).map((info) => (info.raider.isAnyLevel) || (Object.entries(info.raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(info.raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
@@ -692,11 +696,11 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                         { !buildsOnly &&
                             <Box>
                                 <BossWrapper>
-                                    <Boss src={getPokemonArtURL(raidPokemon[0].species.name, raidPokemon[0].shiny)} />
-                                    <BossTera src={getTeraTypeBannerURL(raidPokemon[0].teraType || "blank")}></BossTera>
+                                    <Boss src={getPokemonArtURL(buildInfo[0].raider.species.name, buildInfo[0].raider.shiny)} />
+                                    <BossTera src={getTeraTypeBannerURL(buildInfo[0].raider.teraType || "blank")}></BossTera>
                                 </BossWrapper>
                                 <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
-                                <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(raidPokemon[0].species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${raidPokemon[0].species.name} Tera Raid Battle`}</Subtitle>
+                                <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(buildInfo[0].raider.species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${buildInfo[0].raider.species.name} Tera Raid Battle`}</Subtitle>
                             </Box>
                         }
                     </Header>
@@ -708,50 +712,50 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                         </Separator> 
                         <BuildsContainer>    
                             {
-                                raidPokemon.slice(1, buildsCount + 1).map((raider, index) => (
+                                buildInfo.slice(1, buildsCount + 1).map((info, index) => (
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
-                                                <BuildArt src={getPokemonArtURL(raider.species.name, raider.shiny)}/>
-                                                {raider.item ? 
-                                                    <BuildItemArt src={getItemSpriteURL(raider.item)} /> : null}
-                                                {(raider.teraType || "???") !== "???" ?
-                                                    <BuildTeraIcon src={getTeraTypeIconURL(raider.teraType!)} /> : null}
+                                                <BuildArt src={getPokemonArtURL(info.raider.species.name, info.raider.shiny)}/>
+                                                {info.raider.item ? 
+                                                    <BuildItemArt src={getItemSpriteURL(info.raider.item)} /> : null}
+                                                {(info.raider.teraType || "???") !== "???" ?
+                                                    <BuildTeraIcon src={getTeraTypeIconURL(info.raider.teraType!)} /> : null}
                                                 <BuildTypes direction="row">
-                                                    {raider.types.map((type, index) => (
+                                                    {info.raider.types.map((type, index) => (
                                                         <BuildTypeIcon key={index} src={getTypeIconURL(type === "???" ? "None" : type)}/>
                                                     ))}
-                                                    {raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
+                                                    {info.raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                                                 </BuildTypes>
-                                                <BuildRole>{raider.role}</BuildRole>
-                                                { raiderExtraBuildInfo[index].subFor &&
-                                                    <BuildSubstituteSubtitle>Substitute for {raiderExtraBuildInfo[index].subFor}</BuildSubstituteSubtitle>
+                                                <BuildRole>{info.raider.role}</BuildRole>
+                                                { info.extraBuildInfo.subFor &&
+                                                    <BuildSubstituteSubtitle>Substitute for {info.extraBuildInfo.subFor}</BuildSubstituteSubtitle>
                                                 }
                                                 <BuildHeaderSeparator />
                                             </BuildHeader>
                                             <BuildInfoContainer>
-                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (raider.isAnyLevel ? getTranslation("Any",translationKey) : raider.level) }</BuildInfo>
-                                                {(raider.teraType || "???") !== "???" &&
-                                                    <BuildInfo>{ getTranslation("Tera Type", translationKey) + ": " + getTranslation(raider.teraType!, translationKey, "types") }</BuildInfo>
+                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (info.raider.isAnyLevel ? getTranslation("Any",translationKey) : info.raider.level) }</BuildInfo>
+                                                {(info.raider.teraType || "???") !== "???" &&
+                                                    <BuildInfo>{ getTranslation("Tera Type", translationKey) + ": " + getTranslation(info.raider.teraType!, translationKey, "types") }</BuildInfo>
                                                 }
-                                                {raider.item ?
-                                                    <BuildInfo>{ getTranslation("Item", translationKey) + ": " + getTranslation(raider.item, translationKey, "items")}</BuildInfo> : null}
-                                                {!!raider.ability && raider.ability !== "(No Ability)" ? 
+                                                {info.raider.item ?
+                                                    <BuildInfo>{ getTranslation("Item", translationKey) + ": " + getTranslation(info.raider.item, translationKey, "items")}</BuildInfo> : null}
+                                                {!!info.raider.ability && info.raider.ability !== "(No Ability)" ? 
                                                 <Stack direction="row">
-                                                    <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(raider.ability, translationKey, "abilities") }</BuildInfo>
-                                                    {raiderExtraBuildInfo[index].isHiddenAbility ? 
+                                                    <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(info.raider.ability, translationKey, "abilities") }</BuildInfo>
+                                                    {info.extraBuildInfo.isHiddenAbility ? 
                                                         <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
                                                         : null
                                                     }
                                                 </Stack> : null}
-                                                {raider.gender && raider.gender !== "N" &&
-                                                    <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(raider.gender), translationKey) }</BuildInfo>
+                                                {info.raider.gender && info.raider.gender !== "N" &&
+                                                    <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(info.raider.gender), translationKey) }</BuildInfo>
                                                 }
-                                                <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(raider.nature, translationKey, "natures")) }</BuildInfo>
-                                                {getEVDescription(raider.evs, translationKey) ? 
-                                                    <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(raider.evs, translationKey)}</BuildInfo> : null}
-                                                {getIVDescription(raider.ivs, translationKey) ? 
-                                                    <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(raider.ivs, translationKey)}</BuildInfo> : null}
+                                                <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (info.raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(info.raider.nature, translationKey, "natures")) }</BuildInfo>
+                                                {getEVDescription(info.raider.evs, translationKey) ? 
+                                                    <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(info.raider.evs, translationKey)}</BuildInfo> : null}
+                                                {getIVDescription(info.raider.ivs, translationKey) ? 
+                                                    <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(info.raider.ivs, translationKey)}</BuildInfo> : null}
                                             </BuildInfoContainer>
                                             <Box flexGrow={1}/>
                                             { statDisplay && !ignoreStats[index] &&
@@ -770,16 +774,16 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                 <MovesContainer>
                                                     {
                                                         [...Array(4)].map((moveSlot, moveSlotIndex) => {
-                                                            const noMove = (raider.moves[moveSlotIndex] && raider.moves[moveSlotIndex] !== "(No Move)");
+                                                            const noMove = (info.raider.moves[moveSlotIndex] && info.raider.moves[moveSlotIndex] !== "(No Move)");
                                                             return (
                                                                 <MoveBox key={"move_box_" + moveSlotIndex}>
-                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(raiderExtraBuildInfo[index].moveTypes[moveSlotIndex])} sx={{opacity: `${raiderExtraBuildInfo[index].optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
+                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(info.extraBuildInfo.moveTypes[moveSlotIndex])} sx={{opacity: `${info.extraBuildInfo.optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
                                                                     {noMove ? (
-                                                                        raiderExtraBuildInfo[index].optionalMove[moveSlotIndex] ?
-                                                                            <OptionalMoveLabel>{ getTranslation(raider.moves[moveSlotIndex], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
-                                                                            <MoveLabel>{ getTranslation(raider.moves[moveSlotIndex], translationKey, "moves") }</MoveLabel>
+                                                                        info.extraBuildInfo.optionalMove[moveSlotIndex] ?
+                                                                            <OptionalMoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
+                                                                            <MoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") }</MoveLabel>
                                                                     ) : null}
-                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(raiderExtraBuildInfo[index].learnMethods[moveSlotIndex], raiderExtraBuildInfo[index].moveTypes[moveSlotIndex])} sx={{opacity: `${raiderExtraBuildInfo[index].optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
+                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(info.extraBuildInfo.learnMethods[moveSlotIndex], info.extraBuildInfo.moveTypes[moveSlotIndex])} sx={{opacity: `${info.extraBuildInfo.optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
                                                                 </MoveBox>
                                                             )
                                                         })
@@ -791,7 +795,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                 ))
                             }
                         </BuildsContainer>
-                        {raiderExtraBuildInfo.some(entry => entry.optionalMove.some(move => move)) &&
+                        { buildInfo.some(entry => entry.extraBuildInfo.optionalMove.some(move => move)) &&
                             <FootnoteContainer>
                                 <FootnoteText>
                                     * {getTranslation("Optional Moves", translationKey)}
@@ -841,11 +845,11 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                                             <ExecutionMoveTag>{""}</ExecutionMoveTag>
                                                                             <ExecutionMoveActionWrapper>
                                                                                 <ExecutionMoveTeraIconWrapper>
-                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidPokemon[move.info.userID].teraType!)} />
+                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(buildInfo[move.info.userID].raider.teraType!)} />
                                                                                 </ExecutionMoveTeraIconWrapper>
                                                                                 <ExecutionMoveTag>{getTranslation("Terastallize", translationKey)}</ExecutionMoveTag>
                                                                                 <ExecutionMoveTeraIconWrapper>
-                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(raidPokemon[move.info.userID].teraType!)} />
+                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(buildInfo[move.info.userID].raider.teraType!)} />
                                                                                 </ExecutionMoveTeraIconWrapper>
                                                                             </ExecutionMoveActionWrapper>
                                                                             <ExecutionMoveTag>{""}</ExecutionMoveTag>
@@ -855,13 +859,13 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                                         <ExecutionMove key={moveIndex}>
                                                                             {move.teraActivated ?
                                                                             <ExecutionMovePokemonWrapperShifted>
-                                                                                <ExecutionMovePokemonName>{raidPokemon[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                                <ExecutionMovePokemonName>{buildInfo[move.info.userID].raider.role}</ExecutionMovePokemonName>
                                                                                 <ExecutionMovePokemonIconWrapper>
                                                                                     <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
                                                                                 </ExecutionMovePokemonIconWrapper>
                                                                             </ExecutionMovePokemonWrapperShifted> :
                                                                             <ExecutionMovePokemonWrapper>
-                                                                                <ExecutionMovePokemonName>{raidPokemon[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                                <ExecutionMovePokemonName>{buildInfo[move.info.userID].raider.role}</ExecutionMovePokemonName>
                                                                                 <ExecutionMovePokemonIconWrapper>
                                                                                     <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
                                                                                 </ExecutionMovePokemonIconWrapper>
@@ -885,8 +889,8 @@ function generateGraphic(theme: any, buildsOnly: boolean, raidPokemon: Raider[],
                                                                                     <ExecutionMovePokemonName>
                                                                                         {
                                                                                             (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
-                                                                                            move.move === "Remove Negative Effects" ? raidPokemon[0].role :
-                                                                                            raidPokemon[move.info.targetID].role
+                                                                                            move.move === "Remove Negative Effects" ? buildInfo[0].raider.role :
+                                                                                            buildInfo[move.info.targetID].raider.role
                                                                                         }
                                                                                     </ExecutionMovePokemonName>
                                                                                     { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?
@@ -1054,26 +1058,27 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
 
             // contains all the extra info needed for extra elements on the graphics, ability patch icon, learn method icons, move type icons, optional move boolean
             const extraBuildInfoMatrix = createExtraBuildInfoMatrix(isHiddenAbilityMatrix, learnMethodMatrix, moveTypeMatrix, optionalMoveMatrix);
-            const extraBuildInfo = buildsOnly ? processBuildsOnlyMatrix(extraBuildInfoMatrix, pokemonDataMatrix) : processFullGraphicMatrix(extraBuildInfoMatrix, buildsCount);
 
             // all raiders including the raid boss and substitutes            
-            const allRaidPokemon = getAllRaidPokemon();
-            const includedRaidPokemon = buildsOnly ? getBuildsOnlyRaidPokemon(allRaidPokemon) : getFullGraphicRaidPokemon(allRaidPokemon, buildsCount);
+            const allRaidPokemonMatrix = getAllRaidPokemonMatrix();
+            const buildInfo = zipBuildInfo(allRaidPokemonMatrix, extraBuildInfoMatrix);
+
+            const includedRaidPokemonBuildInfo = buildsOnly ? processBuildsOnlyInfo(buildInfo) : processFullGraphicInfo(buildInfo);
 
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
 
             let statDisplayElements: JSX.Element[] = []
             if (statDisplay === "Stat Plot") {
-                const statPlots = await getStatPlots(includedRaidPokemon);
+                const statPlots = await getStatPlots(includedRaidPokemonBuildInfo.map(buildInfo => buildInfo.raider));
                 statDisplayElements = getStatPlotElements(statPlots);
             }
             if (statDisplay === "Stat Table") {
-                statDisplayElements = getStatTableElements(includedRaidPokemon);
+                statDisplayElements = getStatTableElements(includedRaidPokemonBuildInfo.map(buildInfo => buildInfo.raider));
             }
 
             // generate graphic
-            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemon, results, extraBuildInfo, buildsOnly ? includedRaidPokemon.length - 1 : buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, translationKey);
+            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemonBuildInfo, results, buildsOnly ? includedRaidPokemonBuildInfo.length - 1 : buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);
@@ -1195,66 +1200,97 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         );   
     }
 
-    function processBuildsOnlyMatrix(extraBuildInfoMatrix: ExtraBuildInfo[][], pokemonDataMatrix: PokemonData[][]): ExtraBuildInfo[] {
-        const buildsOnlyMatrix: ExtraBuildInfo[] = [];
-        
-        // For now, the logic for the builds only graphic is to priorite the main raiders then list substitutes in order of slot
-        for (const [mainSlotIndex, mainSlot] of extraBuildInfoMatrix.entries()) {
-            const speciesName = pokemonDataMatrix[mainSlotIndex][0].name;
-            if (speciesName !== "NPC") {
-                buildsOnlyMatrix.push(mainSlot[0]);
+    function getAllRaidPokemonMatrix(): Raider[][] {
+        const allRaidPokemon: Raider[][] = [[], [], [], [], []];
+
+        raidInputProps.pokemon.slice(0, 5).forEach((data, index) => {
+            allRaidPokemon[index].push(data);
+        });
+        for (const [slotIndex, slot] of substitutes.entries()) {
+            for (const sub of slot) {
+                allRaidPokemon[slotIndex + 1].push(sub.raider)
             }
         }
-        for (const [slotIndex, slot] of extraBuildInfoMatrix.entries()) {
-            for (const [subIndex, sub] of slot.entries()) {
-                if (subIndex === 0) continue; // Skip the main raider
-                const speciesName = pokemonDataMatrix[slotIndex][subIndex].name;
-                if (speciesName !== "NPC") {
-                    buildsOnlyMatrix.push(sub);
-                }
-            }
-        }
-        return buildsOnlyMatrix
+        return allRaidPokemon;
     }
 
-    function processFullGraphicMatrix(extraBuildInfoMatrix: ExtraBuildInfo[][], buildsCount: number): ExtraBuildInfo[] {
-        const fullGraphicMatrix: ExtraBuildInfo[] = [];
+    function zipBuildInfo(allRaidPokemonMatrix: Raider[][], extraBuildInfoMatrix: ExtraBuildInfo[][]): GraphicBuildInfo[][] {
+        const buildInfoMatrix: GraphicBuildInfo[][] = [];
+
+        // matrices have different shape since raid boss does not have extra build info
+        for (let i = 0; i < allRaidPokemonMatrix.length; i++) {
+            if (i === 0) {
+                buildInfoMatrix.push([{
+                    raider: allRaidPokemonMatrix[i][0],
+                    extraBuildInfo: {
+                        isHiddenAbility: undefined,
+                        learnMethods: [],
+                        moveTypes: [],
+                        optionalMove: [],
+                    }
+                }]);
+                continue;
+            }
+            const buildInfoRow: GraphicBuildInfo[] = [];
+            for (let j = 0; j < allRaidPokemonMatrix[i].length; j++) {
+                buildInfoRow.push({
+                    raider: allRaidPokemonMatrix[i][j],
+                    extraBuildInfo: extraBuildInfoMatrix[i-1][j],
+                });
+            }
+            buildInfoMatrix.push(buildInfoRow);
+        }
+        return buildInfoMatrix;
+    }
+
+    function processBuildsOnlyInfo(buildInfo: GraphicBuildInfo[][]): GraphicBuildInfo[] {
+        const buildsOnlyBuildInfo: GraphicBuildInfo[] = [];
+        
+        // For now, the logic for the builds only graphic is to priorize the main raiders then list substitutes in order of slot
+        for (const slot of buildInfo) {
+            checkDuplicate(slot[0], buildsOnlyBuildInfo);
+        }
+
+        for (const slot of buildInfo) {
+            for (const sub of slot.slice(1)) {
+                checkDuplicate(sub, buildsOnlyBuildInfo);
+            }
+        }
+        return buildsOnlyBuildInfo;
+    }
+
+    function checkDuplicate(buildInfo: GraphicBuildInfo, buildsOnlyBuildInfo: GraphicBuildInfo[]): boolean {
+        if (buildInfo.raider.species.name !== "NPC") {
+            const isDuplicate = buildsOnlyBuildInfo.some(checkedRaider => {
+                if (buildInfo.raider.isIdenticalBuild(checkedRaider.raider)) {
+                    // duplicate raiders need to have optional moves combined
+                    checkedRaider.extraBuildInfo.optionalMove = checkedRaider.extraBuildInfo.optionalMove.map((move, index) => move && buildInfo.extraBuildInfo.optionalMove[index]);
+                    return true;
+                }
+                return false;
+            });
+            if (!isDuplicate) {
+                buildsOnlyBuildInfo.push(buildInfo);
+            }
+        }
+        return false;
+    }
+
+    function processFullGraphicInfo(buildInfo: GraphicBuildInfo[][]): GraphicBuildInfo[] {
+        const fullGraphicBuildInfo: GraphicBuildInfo[] = [];
         let subsToIncludeCounter = buildsCount - 4;
         // For now, only support the 4 main raiders in the full graphic
-        extraBuildInfoMatrix.map(slot => fullGraphicMatrix.push(slot[0]));
+        buildInfo.map(slot => fullGraphicBuildInfo.push(slot[0])); 
 
-        for (const [slotIndex, slot] of extraBuildInfoMatrix.entries()) {
+        for (const [slotIndex, slot] of buildInfo.entries()) {
             for (const [subIndex, sub] of slot.slice(1).entries()) {
                 if (subsToIncludeCounter > 0) {
-                    fullGraphicMatrix.push(sub);
+                    fullGraphicBuildInfo.push(sub);
                     subsToIncludeCounter-=1;
                 }
             }
         }
-
-        return fullGraphicMatrix
-    }
-
-    function getAllRaidPokemon(): Raider[] {
-        const allRaidPokemon: Raider[] = [];
-        raidInputProps.pokemon.forEach((raider) => {
-            allRaidPokemon.push(raider);
-        });
-        substitutes.forEach((slot) => {
-            slot.forEach((sub) => {
-                allRaidPokemon.push(sub.raider);
-            });
-        });
-        return allRaidPokemon;
-    }
-
-    function getBuildsOnlyRaidPokemon(allRaidPokemon: Raider[]): Raider[] {
-        return allRaidPokemon.filter((raider) => raider.name !== "NPC");
-    }
-    
-    function getFullGraphicRaidPokemon(allRaidPokemon: Raider[], buildsCount: number): Raider[] {
-        // For now, only support the 4 main raiders in the full graphic
-        return allRaidPokemon.slice(0, buildsCount + 1);
+        return fullGraphicBuildInfo
     }
 
     async function getStatPlots(allRaidPokemon: Raider[]): Promise<string[] | undefined> {
@@ -1292,7 +1328,10 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                     {[raider.stats.hp, raider.stats.atk, raider.stats.def, raider.stats.spa, raider.stats.spd, raider.stats.spe].map((stat, statIndex) => (
                         <StatTableGrid item xs={4} key={`stat-${index}-${statIndex}`}>
                             <StatTableBox>
-                                <Stack direction="column">
+                                <Box display={"flex"} alignItems={"flex-end"} width={"100%"} height={"100%"}>
+                                    <StatTableEntryLevel height={(raider.evs?.[shortStatNames[statIndex].toLowerCase() as StatID] || 0) / 252}/>
+                                </Box>
+                                <Stack direction="column" position={"absolute"} margin={"25px"}>
                                     <StatTableText fontSize={"1.3em"} color={getStatColor(shortStatNames[statIndex].toLowerCase() as StatID, nature)}>{shortStatNames[statIndex]}</StatTableText>
                                     <StatTableText fontSize={"1.8em"} color={getStatColor(shortStatNames[statIndex].toLowerCase() as StatID, nature)}>{stat}</StatTableText>
                                 </Stack>

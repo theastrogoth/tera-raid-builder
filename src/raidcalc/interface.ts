@@ -221,6 +221,11 @@ export type ExtraBuildInfo = {
     subFor?: string;
 }
 
+export type GraphicBuildInfo = {
+    raider: Raider,
+    extraBuildInfo: ExtraBuildInfo,
+}
+
 export type SetOption = {
     name: string,
     pokemon: SpeciesName,

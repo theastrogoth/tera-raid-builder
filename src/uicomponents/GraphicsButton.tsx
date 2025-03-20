@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import Box from '@mui/material/Box';
 
@@ -16,7 +16,7 @@ import watermark from "watermarkjs";
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { Checkbox, Select, MenuItem, TextField } from "@mui/material";
+import { Select, MenuItem, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -27,11 +27,18 @@ import { createTheme } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import IconButton from "@mui/material/IconButton";
+import RefreshIcon from "@mui/icons-material/Refresh";
+import CloseIcon from "@mui/icons-material/Close";
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 
 import Menu from "@mui/material/Menu";
 import DownloadIcon from '@mui/icons-material/Download';
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { getStatRadarPlotPNG } from "./StatRadarPlot";
+
+import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
 
 const gen = Generations.get(9); // we only use gen 9
 
@@ -1025,6 +1032,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const [statDisplay, setStatDisplay] = useState<string>("None");
     // const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
     const [buildsOnly, setBuildsOnly] = useState<boolean>(false);
+    const [buildsOrder, setBuildsOrder] = useState<number[]>([]);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -1044,6 +1052,10 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const handleDownload = async () => {
         setLoading(true);
         try {
+            // all raiders including the raid boss and substitutes            
+            const allRaidPokemon = getAllRaidPokemon();
+            const includedRaidPokemon = buildsOnly ? getBuildsOnlyRaidPokemon(allRaidPokemon, buildsOrder) : getFullGraphicRaidPokemon(allRaidPokemon, buildsCount);
+            
             const pokemonDataMatrix = await createPokemonDataMatrix();
             const isHiddenAbilityMatrix = createIsHiddenAbilityMatrix(pokemonDataMatrix);
 
@@ -1054,11 +1066,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
 
             // contains all the extra info needed for extra elements on the graphics, ability patch icon, learn method icons, move type icons, optional move boolean
             const extraBuildInfoMatrix = createExtraBuildInfoMatrix(isHiddenAbilityMatrix, learnMethodMatrix, moveTypeMatrix, optionalMoveMatrix);
-            const extraBuildInfo = buildsOnly ? processBuildsOnlyMatrix(extraBuildInfoMatrix, pokemonDataMatrix) : processFullGraphicMatrix(extraBuildInfoMatrix, buildsCount);
-
-            // all raiders including the raid boss and substitutes            
-            const allRaidPokemon = getAllRaidPokemon();
-            const includedRaidPokemon = buildsOnly ? getBuildsOnlyRaidPokemon(allRaidPokemon) : getFullGraphicRaidPokemon(allRaidPokemon, buildsCount);
+            const extraBuildInfo = buildsOnly ? processBuildsOnlyMatrix(extraBuildInfoMatrix, pokemonDataMatrix, buildsOrder) : processFullGraphicMatrix(extraBuildInfoMatrix, buildsCount);
 
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
@@ -1195,14 +1203,20 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         );   
     }
 
-    function processBuildsOnlyMatrix(extraBuildInfoMatrix: ExtraBuildInfo[][], pokemonDataMatrix: PokemonData[][]): ExtraBuildInfo[] {
+    function processBuildsOnlyMatrix(extraBuildInfoMatrix: ExtraBuildInfo[][], pokemonDataMatrix: PokemonData[][], buildsOrder: number[]): ExtraBuildInfo[] {
         const buildsOnlyMatrix: ExtraBuildInfo[] = [];
         
-        // For now, the logic for the builds only graphic is to priorite the main raiders then list substitutes in order of slot
+        // This adds builds according to the order selected via the drag and drop
+        // (doesn't really make use of the slots/matrix setup)
+        let idx = 0;
         for (const [mainSlotIndex, mainSlot] of extraBuildInfoMatrix.entries()) {
             const speciesName = pokemonDataMatrix[mainSlotIndex][0].name;
             if (speciesName !== "NPC") {
-                buildsOnlyMatrix.push(mainSlot[0]);
+                const addAt = buildsOrder.indexOf(idx);
+                if (addAt !== -1) {
+                    buildsOnlyMatrix[addAt] = mainSlot[0];
+                }
+                idx++;
             }
         }
         for (const [slotIndex, slot] of extraBuildInfoMatrix.entries()) {
@@ -1210,7 +1224,11 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                 if (subIndex === 0) continue; // Skip the main raider
                 const speciesName = pokemonDataMatrix[slotIndex][subIndex].name;
                 if (speciesName !== "NPC") {
-                    buildsOnlyMatrix.push(sub);
+                    const addAt =buildsOrder.indexOf(idx);
+                    if (addAt !== -1) {
+                        buildsOnlyMatrix[addAt] = sub;
+                    }
+                    idx++;
                 }
             }
         }
@@ -1248,8 +1266,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         return allRaidPokemon;
     }
 
-    function getBuildsOnlyRaidPokemon(allRaidPokemon: Raider[]): Raider[] {
-        return allRaidPokemon.filter((raider) => raider.name !== "NPC");
+    function getBuildsOnlyRaidPokemon(allRaidPokemon: Raider[], buildsOrder: number[]): Raider[] {
+        const allBuilds = allRaidPokemon.slice(1).filter((raider) => raider.name !== "NPC");
+        return [allRaidPokemon[0], ...buildsOrder.map((index) => allBuilds[index])];
     }
     
     function getFullGraphicRaidPokemon(allRaidPokemon: Raider[], buildsCount: number): Raider[] {
@@ -1337,105 +1356,119 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                     horizontal: 'center',
                   }}
             >
-                <Stack padding={"8px"}>
-                <li>
-                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
-                        <input
-                            accept="image/*"
-                            style={{ display: 'none' }}
-                            id="graphic-button-file"
-                            type="file"
-                            onChange={handleFileInputChange}
-                        />
-                        <Stack direction="row">
-                            <Box flexGrow={1} />
-                            <label htmlFor="graphic-button-file">
+                <Stack direction="row">
+                    <Stack padding={"8px"}>
+                    <li>
+                        <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                            <input
+                                accept="image/*"
+                                style={{ display: 'none' }}
+                                id="graphic-button-file"
+                                type="file"
+                                onChange={handleFileInputChange}
+                            />
+                            <Stack direction="row">
+                                <Box flexGrow={1} />
+                                <label htmlFor="graphic-button-file">
+                                    <Button
+                                        variant="outlined"
+                                        component="span"
+                                    >
+                                        { getTranslation("Choose background", translationKey) }
+                                    </Button>
+                                </label>
+                                <Box flexGrow={1} />
+                            </Stack>
+                        </Box>
+                    </li>
+                    <li>
+                        <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                            <Stack direction="row">
+                                <Box flexGrow={1} />
+                                <TextField 
+                                    variant="outlined"
+                                    placeholder={getTranslation("Subtitle", translationKey)}
+                                    value={subtitle}
+                                    onChange={(e) => setSubtitle(e.target.value)}
+                                    sx={{justifyContent: "center", alignItems: "center"}}
+                                />
+                                <Box flexGrow={1} />
+                            </Stack>
+                        </Box>
+                    </li>
+                    <li>
+                        <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                            <Stack direction="row">
+                                <Box flexGrow={1} />
+                                <TextField 
+                                    variant="outlined"
+                                    placeholder={getTranslation("Watermark text", translationKey)}
+                                    value={watermarkText}
+                                    inputProps={{ maxLength: 50 }}
+                                    onChange={(e) => setWatermarkText(e.target.value)}
+                                />
+                                <Box flexGrow={1} />
+                            </Stack>
+                        </Box>
+                    </li>
+                    <li>
+                        <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
+                            <Stack direction="row" alignItems="center" justifyContent="center">
+                                <Typography variant="body1" fontWeight={600}>
+                                    {getTranslation("Stat Display", translationKey) + ":"}
+                                </Typography>
+                                <Box flexGrow={2} />
+                                <Select value={statDisplay} onChange={(e) => setStatDisplay(e.target.value) } inputProps={{ 'aria-label': 'Stat Display' }} sx={{ height: "30px", width: "105px", margin: "10px" }} >
+                                    <MenuItem value="None">{getTranslation("None", translationKey)}</MenuItem>
+                                    <MenuItem value="Stat Plot">{getTranslation("Stat Plot", translationKey)}</MenuItem>
+                                    <MenuItem value="Stat Table">{getTranslation("Stat Table", translationKey)}</MenuItem>
+                                </Select>
+                            </Stack>
+                        </Box>
+                    </li>
+                    <li>
+                        <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
+                            <Stack direction="row" alignItems="center" justifyContent="center">
+                                <Typography variant="body1" fontWeight={600}>
+                                    {getTranslation("Graphic Type", translationKey) + ":"}
+                                </Typography>
+                                <Box flexGrow={2} />
+                                <Select value={buildsOnly ? getTranslation("Builds Only", translationKey) : getTranslation("Full Graphic", translationKey)} onChange={(e) => setBuildsOnly(e.target.value === "Builds Only") } inputProps={{ 'aria-label': 'Builds Only' }} sx={{ height: "30px", width: "115px", margin: "10px" }} >
+                                    <MenuItem value="Full Graphic">{getTranslation("Full Graphic", translationKey)}</MenuItem>
+                                    <MenuItem value="Builds Only">{getTranslation("Builds Only", translationKey)}</MenuItem>
+                                </Select>
+                            </Stack>
+                        </Box>
+                    </li>
+                    <li>
+                        <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
+                            <Stack direction="row">
+                                <Box flexGrow={1} />
                                 <Button
                                     variant="outlined"
                                     component="span"
+                                    onClick={() => { handleDownload(); handleClose(); }}
+                                    endIcon={<DownloadIcon />}
                                 >
-                                    { getTranslation("Choose background", translationKey) }
+                                    { getTranslation("Download", translationKey) }
                                 </Button>
-                            </label>
-                            <Box flexGrow={1} />
+                                <Box flexGrow={1} />
+                            </Stack>
+                        </Box>
+                    </li>
+                    </Stack >
+                    {
+                        buildsOnly &&
+                        <Stack padding={"8px"} alignItems="center" sx={{height: "350px", marginRight: 1, overflowY: "auto"}}>
+                            <Stack direction="row" spacing={1} alignItems="center" sx={{marginBottom: 1}}>
+                                <Typography variant="body1" fontWeight={600}>{getTranslation("Order", translationKey)}</Typography>
+                                <IconButton onClick={() => setBuildsOrder([...Array(raidInputProps.pokemon.slice(1).filter((r) => r.name !== "NPC").length - 1 + substitutes.reduce((acc, subs) => acc + subs.filter((s) => s.raider.name !== "NPC").length, 0)).keys()])}>
+                                    <RefreshIcon />
+                                </IconButton>
+                            </Stack>
+                            <BuildsOrderDnD buildsOrder={buildsOrder} setBuildsOrder={setBuildsOrder} raiders={raidInputProps.pokemon} substitutes={substitutes}/>
                         </Stack>
-                    </Box>
-                </li>
-                <li>
-                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
-                        <Stack direction="row">
-                            <Box flexGrow={1} />
-                            <TextField 
-                                variant="outlined"
-                                placeholder={getTranslation("Subtitle", translationKey)}
-                                value={subtitle}
-                                onChange={(e) => setSubtitle(e.target.value)}
-                                sx={{justifyContent: "center", alignItems: "center"}}
-                            />
-                            <Box flexGrow={1} />
-                        </Stack>
-                    </Box>
-                </li>
-                <li>
-                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
-                        <Stack direction="row">
-                            <Box flexGrow={1} />
-                            <TextField 
-                                variant="outlined"
-                                placeholder={getTranslation("Watermark text", translationKey)}
-                                value={watermarkText}
-                                inputProps={{ maxLength: 50 }}
-                                onChange={(e) => setWatermarkText(e.target.value)}
-                            />
-                            <Box flexGrow={1} />
-                        </Stack>
-                    </Box>
-                </li>
-                <li>
-                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
-                        <Stack direction="row" alignItems="center" justifyContent="center">
-                            <Typography variant="body1" fontWeight={600}>
-                                {getTranslation("Stat Display", translationKey) + ":"}
-                            </Typography>
-                            <Box flexGrow={2} />
-                            <Select value={statDisplay} onChange={(e) => setStatDisplay(e.target.value) } inputProps={{ 'aria-label': 'Stat Display' }} sx={{ height: "30px", width: "105px", margin: "10px" }} >
-                                <MenuItem value="None">{getTranslation("None", translationKey)}</MenuItem>
-                                <MenuItem value="Stat Plot">{getTranslation("Stat Plot", translationKey)}</MenuItem>
-                                <MenuItem value="Stat Table">{getTranslation("Stat Table", translationKey)}</MenuItem>
-                            </Select>
-                        </Stack>
-                    </Box>
-                </li>
-                <li>
-                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
-                        <Stack direction="row" alignItems="center" justifyContent="center">
-                            <Typography variant="body1" fontWeight={600}>
-                                {getTranslation("Graphic Type", translationKey) + ":"}
-                            </Typography>
-                            <Box flexGrow={2} />
-                            <Select value={buildsOnly ? getTranslation("Builds Only", translationKey) : getTranslation("Full Graphic", translationKey)} onChange={(e) => setBuildsOnly(e.target.value === "Builds Only") } inputProps={{ 'aria-label': 'Builds Only' }} sx={{ height: "30px", width: "115px", margin: "10px" }} >
-                                <MenuItem value="Full Graphic">{getTranslation("Full Graphic", translationKey)}</MenuItem>
-                                <MenuItem value="Builds Only">{getTranslation("Builds Only", translationKey)}</MenuItem>
-                            </Select>
-                        </Stack>
-                    </Box>
-                </li>
-                <li>
-                    <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
-                        <Stack direction="row">
-                            <Box flexGrow={1} />
-                            <Button
-                                variant="outlined"
-                                component="span"
-                                onClick={() => { handleDownload(); handleClose(); }}
-                                endIcon={<DownloadIcon />}
-                            >
-                                { getTranslation("Download", translationKey) }
-                            </Button>
-                            <Box flexGrow={1} />
-                        </Stack>
-                    </Box>
-                </li>
+                    }
                 </Stack>
             </Menu>
             { /* Render the stat plots for the graphic*/}
@@ -1443,5 +1476,102 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         </Box>
     );
 };
+
+function BuildsOrderDnD({buildsOrder, setBuildsOrder, raiders, substitutes}: { buildsOrder: number[], setBuildsOrder: (o: number[]) => void, raiders: Raider[], substitutes: SubstituteBuildInfo[][]}) {
+    const [allBuilds, setAllBuilds] = useState<Raider[]>([...raiders.slice(1).filter((r) => r.name !== "NPC"), ...substitutes.flat().map(sub => sub.raider).filter((r) => r.name !== "NPC")]);
+    const [disableButtons, setDisableButtons] = useState<boolean>(false);
+
+    const resetOrder = () => {
+        setBuildsOrder([...Array(raiders.slice(1).filter((r) => r.name !== "NPC").length - 1 + substitutes.reduce((acc, subs) => acc + subs.filter((s) => s.raider.name !== "NPC").length, 0)).keys()]);
+    }
+
+    useEffect(() => {
+        setAllBuilds([...raiders.slice(1).filter((r) => r.name !== "NPC"), ...substitutes.flat().map(sub => sub.raider).filter((r) => r.name !== "NPC")]);
+        resetOrder();
+    }, [raiders, substitutes])
+
+    const onDragStart = () => { setDisableButtons(true); }
+
+    const onDragEnd = (result: DropResult) => {
+        const {destination, source} = result;
+        if (!destination || destination.index === source.index) { 
+            return;
+        }
+        const newBuildsOrder = [...buildsOrder];
+        const [removed] = newBuildsOrder.splice(source.index, 1);
+        newBuildsOrder.splice(destination.index, 0, removed);
+        setBuildsOrder(newBuildsOrder);
+        setDisableButtons(false);
+    };
+
+    return (
+        <DragDropContext
+            onDragStart={onDragStart}
+            onDragEnd={onDragEnd}
+        >
+            <Droppable droppableId="graphicBuilds" type="builds">
+                {(provided) => (
+                    <div
+                        ref={provided.innerRef}
+                        {...provided.droppableProps} 
+                    >
+                        <Stack spacing={1}>
+                            {
+                                buildsOrder.map((buildIndex, dragIndex) => BuildDraggable({index: dragIndex, buildIndex,raider: allBuilds[buildIndex], buildsOrder, setBuildsOrder, disableButtons}))
+                            }
+                        </Stack>
+                        {provided.placeholder}
+                    </div>
+                )}
+            </Droppable>
+        </DragDropContext>
+    )
+}
+
+function BuildDraggable({ index, buildIndex, raider, buildsOrder, setBuildsOrder, disableButtons }: { index: number, buildIndex: number, raider: Raider, buildsOrder: number[], setBuildsOrder: (o: number[]) => void, disableButtons: boolean }) {
+    const theme = useTheme();
+    const handleDelete = () =>  {
+        setBuildsOrder(buildsOrder.filter((i) => i !== buildIndex));
+    }
+    
+    return (
+        <Draggable 
+            key={index}
+            draggableId={index.toString()} 
+            index={index}
+        >
+            {(provided) => (
+                <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                >
+                    <Paper elevation={2} sx={{padding: 0.5}}>
+                        <li>
+                            <Stack direction="row" alignItems="center" sx={{width: "175px"}}>
+                                {/* @ts-ignore */}
+                                <DragIndicatorIcon color="subdued" sx={{paddingRight: "5px"}}/>
+                                <Box
+                                    sx={{
+                                        width: "25px",
+                                        height: "25px",
+                                        overflow: 'hidden',
+                                        background: `url(${getPokemonSpriteURL(raider ? raider.species.name : "NPC")}) no-repeat center center / contain`,
+                                    }}
+                                />
+                                <Box flexGrow={1}/>
+                                <Typography variant="body1">{raider ? raider.name : "Blank"}</Typography>
+                                <Box flexGrow={1}/>
+                                <IconButton size="small" onClick={handleDelete} disabled={disableButtons}>
+                                    <CloseIcon />
+                                </IconButton>
+                            </Stack>
+                        </li>
+                    </Paper>
+                </div>
+            )}
+        </Draggable>
+    )
+}
 
 export default GraphicsButton;

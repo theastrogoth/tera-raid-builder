@@ -8,7 +8,6 @@
             "role": "Quaquaval",
             "name": "Quaquaval",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Moxie",
             "nature": "Adamant",
             "evs": {
@@ -55,7 +54,6 @@
             "role": "Miraidon",
             "name": "Miraidon",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Hadron Engine",
             "item": "Choice Specs",
             "nature": "Modest",
@@ -79,9 +77,7 @@
             "gender": "N",
             "moves": [
                 "Electro Drift"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            ]
         },
         {
             "id": 2,
@@ -110,9 +106,7 @@
             },
             "level": 1,
             "gender": "N",
-            "moves": [],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            "moves": []
         },
         {
             "id": 3,
@@ -143,9 +137,7 @@
             "gender": "N",
             "moves": [
                 "Fake Tears"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            ]
         },
         {
             "id": 4,
@@ -176,9 +168,7 @@
             "gender": "N",
             "moves": [
                 "Fake Tears"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            ]
         }
     ],
     "turns": [
@@ -343,8 +333,199 @@
     ],
     "substitutes": [
         [],
-        [],
-        [],
-        []
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Alcremie",
+                    "name": "Alcremie",
+                    "shiny": false,
+                    "isAnyLevel": true,
+                    "ability": "Sweet Veil",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "F",
+                    "moves": [
+                        "Decorate"
+                    ]
+                },
+                "substituteMoves": [
+                    "Decorate"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Chi-Yu",
+                    "name": "Chi-Yu",
+                    "shiny": false,
+                    "ability": "Beads of Ruin",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 60,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Charjabug",
+                    "name": "Charjabug",
+                    "shiny": false,
+                    "isAnyLevel": true,
+                    "ability": "Battery",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    2
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Goodra",
+                    "name": "Goodra-Hisui",
+                    "shiny": false,
+                    "ability": "Gooey",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Acid Spray"
+                    ]
+                },
+                "substituteMoves": [
+                    "Acid Spray"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Goodra",
+                    "name": "Goodra-Hisui",
+                    "shiny": false,
+                    "ability": "Gooey",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Acid Spray"
+                    ]
+                },
+                "substituteMoves": [
+                    "Acid Spray"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ]
     ]
 }

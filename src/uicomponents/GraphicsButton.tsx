@@ -1560,8 +1560,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                 <Box flexGrow={0.4}/>
                                 <IconButton 
                                     onClick={() => {
-                                        const newOrder = [...Array(getNonNPCRaiders(raidInputProps.pokemon, substitutes).length).keys()]
-                                        const newEnabled = newOrder.map(() => true);
+                                        const raiders = getNonNPCRaiders(raidInputProps.pokemon, substitutes);
+                                        const newOrder = [...Array(raiders.length).keys()]
+                                        const newEnabled = getRaiderUniqueness(raiders);
                                         setBuildsOrder(newOrder);
                                         setBuildsEnabled(newEnabled);
                                     }}

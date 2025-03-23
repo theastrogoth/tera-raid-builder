@@ -1598,6 +1598,7 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEn
     const onDragStart = () => { setDisableButtons(true); }
 
     const onDragEnd = (result: DropResult) => {
+        setDisableButtons(false);
         const {destination, source} = result;
         if (!destination || destination.index === source.index) { 
             return;
@@ -1611,8 +1612,6 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEn
         const [removedEnabled] = newbd.splice(source.index, 1);
         newbd.splice(destination.index, 0, removedEnabled);
         setBuildsEnabled(newbd);
-        
-        setDisableButtons(false);
     };
 
     return (

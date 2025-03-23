@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 import Box from '@mui/material/Box';
 
-import { Generations, Move, toID, StatsTable } from "../calc";
+import { Generations, Move, toID } from "../calc";
 import { SpeciesName, TypeName, Nature, StatID } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
 import { RaidMoveInfo, SubstituteBuildInfo, TurnGroupInfo, ExtraBuildInfo, GraphicBuildInfo } from "../raidcalc/interface";
@@ -16,7 +16,7 @@ import watermark from "watermarkjs";
 import { saveAs } from 'file-saver';
 
 import Button from "@mui/material/Button"
-import { Select, MenuItem, TextField } from "@mui/material";
+import { Select, MenuItem, TextField, Switch } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
 import { createRoot } from 'react-dom/client';
@@ -30,7 +30,6 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import CloseIcon from "@mui/icons-material/Close";
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 
 import Menu from "@mui/material/Menu";
@@ -1025,6 +1024,23 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
     title.endsWith("!PPT") ? void(0) : graphicTop.remove(); // remove the element from the DOM
 }
 
+function getNonNPCRaiders(raiders: Raider[], substitutes: SubstituteBuildInfo[][]) {
+    return [...raiders.slice(1).filter(raider => raider.species.name !== "NPC"), ...substitutes.flat().map(sub => sub.raider).filter(raider => raider.species.name !== "NPC")];
+}
+
+function getRaiderUniqueness(raiders: Raider[]) {
+    const uniqueRaiderIdxs: number[] = [];
+    for (let i=0; i < raiders.length; i++) {
+        const isDuplicate = uniqueRaiderIdxs.some(idx => {
+            return raiders[i].isIdenticalBuild(raiders[idx]);
+        })
+        if (!isDuplicate) {
+            uniqueRaiderIdxs.push(i);
+        }
+    }
+    return [...Array(raiders.length).keys()].map(idx => uniqueRaiderIdxs.includes(idx));
+}
+
 function GraphicsButton({title, notes, credits, raidInputProps, substitutes, results, allSpecies, buildsCount, setLoading, translationKey}: 
     { title: string, notes: string, credits: string, substitutes: SubstituteBuildInfo[][], raidInputProps: RaidInputProps, results: RaidBattleResults, allSpecies: Map<SpeciesName, PokemonData> | null, buildsCount: number, setLoading: (l: boolean) => void, translationKey: any}) {
 
@@ -1037,6 +1053,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     // const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
     const [buildsOnly, setBuildsOnly] = useState<boolean>(false);
     const [buildsOrder, setBuildsOrder] = useState<number[]>([]);
+    const [buildsEnabled, setBuildsEnabled] = useState<boolean[]>([]);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -1071,7 +1088,13 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
             const extraBuildInfoMatrix = createExtraBuildInfoMatrix(isHiddenAbilityMatrix, learnMethodMatrix, moveTypeMatrix, optionalMoveMatrix);
 
             const buildInfo = zipBuildInfo(allRaidPokemonMatrix, extraBuildInfoMatrix);
-            const includedRaidPokemonBuildInfo = buildsOnly ? processBuildsOnlyInfo(buildInfo, pokemonDataMatrix, buildsOrder) : processFullGraphicInfo(buildInfo);
+            const displayOrder: number[] = [];
+            for (const idx of buildsOrder) {
+                if (buildsEnabled[idx]) {
+                    displayOrder.push(idx);
+                }
+            }
+            const includedRaidPokemonBuildInfo = buildsOnly ? processBuildsOnlyInfo(buildInfo, pokemonDataMatrix, displayOrder) : processFullGraphicInfo(buildInfo);
 
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
@@ -1296,22 +1319,22 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         // return buildsOnlyBuildInfo;
     }
 
-    function checkDuplicate(buildInfo: GraphicBuildInfo, buildsOnlyBuildInfo: GraphicBuildInfo[]): boolean {
-        if (buildInfo.raider.species.name !== "NPC") {
-            const isDuplicate = buildsOnlyBuildInfo.some(checkedRaider => {
-                if (buildInfo.raider.isIdenticalBuild(checkedRaider.raider)) {
-                    // duplicate raiders need to have optional moves combined
-                    checkedRaider.extraBuildInfo.optionalMove = checkedRaider.extraBuildInfo.optionalMove.map((move, index) => move && buildInfo.extraBuildInfo.optionalMove[index]);
-                    return true;
-                }
-                return false;
-            });
-            if (!isDuplicate) {
-                buildsOnlyBuildInfo.push(buildInfo);
-            }
-        }
-        return false;
-    }
+    // function checkDuplicate(buildInfo: GraphicBuildInfo, buildsOnlyBuildInfo: GraphicBuildInfo[]): boolean {
+    //     if (buildInfo.raider.species.name !== "NPC") {
+    //         const isDuplicate = buildsOnlyBuildInfo.some(checkedRaider => {
+    //             if (buildInfo.raider.isIdenticalBuild(checkedRaider.raider)) {
+    //                 // duplicate raiders need to have optional moves combined
+    //                 checkedRaider.extraBuildInfo.optionalMove = checkedRaider.extraBuildInfo.optionalMove.map((move, index) => move && buildInfo.extraBuildInfo.optionalMove[index]);
+    //                 return true;
+    //             }
+    //             return false;
+    //         });
+    //         if (!isDuplicate) {
+    //             buildsOnlyBuildInfo.push(buildInfo);
+    //         }
+    //     }
+    //     return false;
+    // }
 
     function processFullGraphicInfo(buildInfo: GraphicBuildInfo[][]): GraphicBuildInfo[] {
         const fullGraphicBuildInfo: GraphicBuildInfo[] = [];
@@ -1319,8 +1342,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         // For now, only support the 4 main raiders in the full graphic
         buildInfo.map(slot => fullGraphicBuildInfo.push(slot[0])); 
 
-        for (const [slotIndex, slot] of buildInfo.entries()) {
-            for (const [subIndex, sub] of slot.slice(1).entries()) {
+        for (const [, slot] of buildInfo.entries()) {
+            for (const [, sub] of slot.slice(1).entries()) {
                 if (subsToIncludeCounter > 0) {
                     fullGraphicBuildInfo.push(sub);
                     subsToIncludeCounter-=1;
@@ -1331,18 +1354,18 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         return fullGraphicBuildInfo;
     }
 
-    function getAllRaidPokemon(): Raider[] {
-        const allRaidPokemon: Raider[] = [];
-        raidInputProps.pokemon.forEach((raider) => {
-            allRaidPokemon.push(raider);
-        });
-        substitutes.forEach((slot) => {
-            slot.forEach((sub) => {
-                allRaidPokemon.push(sub.raider);
-            });
-        });
-        return allRaidPokemon;
-    }
+    // function getAllRaidPokemon(): Raider[] {
+    //     const allRaidPokemon: Raider[] = [];
+    //     raidInputProps.pokemon.forEach((raider) => {
+    //         allRaidPokemon.push(raider);
+    //     });
+    //     substitutes.forEach((slot) => {
+    //         slot.forEach((sub) => {
+    //             allRaidPokemon.push(sub.raider);
+    //         });
+    //     });
+    //     return allRaidPokemon;
+    // }
 
     async function getStatPlots(allRaidPokemon: Raider[]): Promise<string[] | undefined> {
         let statPlots: undefined | string[] = statDisplay !== "Stat Plot" ? undefined : await Promise.all(
@@ -1530,14 +1553,23 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                     </Stack >
                     {
                         buildsOnly &&
-                        <Stack padding={"8px"} alignItems="center" sx={{height: "350px", marginRight: 1, overflowY: "auto"}}>
-                            <Stack direction="row" spacing={1} alignItems="center" sx={{marginBottom: 1}}>
+                        <Stack padding={"8px"} alignItems="center" sx={{ height: "350px", marginRight: 1, overflowY: "auto" }}>
+                            <Stack direction="row" spacing={1} alignItems="center" sx={{ width: "100%", marginBottom: 1 }}>
+                                <Box flexGrow={1}/>
                                 <Typography variant="body1" fontWeight={600}>{getTranslation("Order", translationKey)}</Typography>
-                                <IconButton onClick={() => setBuildsOrder([...Array(raidInputProps.pokemon.slice(1).filter((r) => r.name !== "NPC").length - 1 + substitutes.reduce((acc, subs) => acc + subs.filter((s) => s.raider.name !== "NPC").length, 0)).keys()])}>
+                                <Box flexGrow={0.4}/>
+                                <IconButton 
+                                    onClick={() => {
+                                        const newOrder = [...Array(getNonNPCRaiders(raidInputProps.pokemon, substitutes).length).keys()]
+                                        const newEnabled = newOrder.map(() => true);
+                                        setBuildsOrder(newOrder);
+                                        setBuildsEnabled(newEnabled);
+                                    }}
+                                >
                                     <RefreshIcon />
                                 </IconButton>
                             </Stack>
-                            <BuildsOrderDnD buildsOrder={buildsOrder} setBuildsOrder={setBuildsOrder} raiders={raidInputProps.pokemon} substitutes={substitutes}/>
+                            <BuildsOrderDnD buildsOrder={buildsOrder} setBuildsOrder={setBuildsOrder} buildsEnabled={buildsEnabled} setBuildsEnabled={setBuildsEnabled} raiders={raidInputProps.pokemon} substitutes={substitutes}/>
                         </Stack>
                     }
                 </Stack>
@@ -1548,17 +1580,18 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     );
 };
 
-function BuildsOrderDnD({buildsOrder, setBuildsOrder, raiders, substitutes}: { buildsOrder: number[], setBuildsOrder: (o: number[]) => void, raiders: Raider[], substitutes: SubstituteBuildInfo[][]}) {
-    const [allBuilds, setAllBuilds] = useState<Raider[]>([...raiders.slice(1).filter((r) => r.name !== "NPC"), ...substitutes.flat().map(sub => sub.raider).filter((r) => r.name !== "NPC")]);
+function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, raiders, substitutes}: { buildsOrder: number[], setBuildsOrder: (o: number[]) => void, buildsEnabled: boolean[], setBuildsEnabled: (o: boolean[]) => void, raiders: Raider[], substitutes: SubstituteBuildInfo[][]}) {
+    const [allBuilds, setAllBuilds] = useState<Raider[]>(getNonNPCRaiders(raiders, substitutes));
     const [disableButtons, setDisableButtons] = useState<boolean>(false);
 
-    const resetOrder = () => {
-        setBuildsOrder([...Array(raiders.slice(1).filter((r) => r.name !== "NPC").length - 1 + substitutes.reduce((acc, subs) => acc + subs.filter((s) => s.raider.name !== "NPC").length, 0)).keys()]);
-    }
-
     useEffect(() => {
-        setAllBuilds([...raiders.slice(1).filter((r) => r.name !== "NPC"), ...substitutes.flat().map(sub => sub.raider).filter((r) => r.name !== "NPC")]);
-        resetOrder();
+        const nonNPCRaiders = getNonNPCRaiders(raiders, substitutes);
+        const newBuildsOrder = [...Array(nonNPCRaiders.length).keys()];
+        const newBuildsEnabled = getRaiderUniqueness(nonNPCRaiders);
+        setAllBuilds(nonNPCRaiders);
+        setBuildsOrder(newBuildsOrder);
+        setBuildsEnabled(newBuildsEnabled);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [raiders, substitutes])
 
     const onDragStart = () => { setDisableButtons(true); }
@@ -1572,6 +1605,12 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, raiders, substitutes}: { b
         const [removed] = newBuildsOrder.splice(source.index, 1);
         newBuildsOrder.splice(destination.index, 0, removed);
         setBuildsOrder(newBuildsOrder);
+
+        const newbd = [...buildsEnabled];
+        const [removedEnabled] = newbd.splice(source.index, 1);
+        newbd.splice(destination.index, 0, removedEnabled);
+        setBuildsEnabled(newbd);
+        
         setDisableButtons(false);
     };
 
@@ -1588,7 +1627,7 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, raiders, substitutes}: { b
                     >
                         <Stack spacing={1}>
                             {
-                                buildsOrder.map((buildIndex, dragIndex) => BuildDraggable({index: dragIndex, buildIndex,raider: allBuilds[buildIndex], buildsOrder, setBuildsOrder, disableButtons}))
+                                buildsOrder.map((buildIndex, dragIndex) => BuildDraggable({index: dragIndex, buildIndex,raider: allBuilds[buildIndex], buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, disableButtons}))
                             }
                         </Stack>
                         {provided.placeholder}
@@ -1599,12 +1638,13 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, raiders, substitutes}: { b
     )
 }
 
-function BuildDraggable({ index, buildIndex, raider, buildsOrder, setBuildsOrder, disableButtons }: { index: number, buildIndex: number, raider: Raider, buildsOrder: number[], setBuildsOrder: (o: number[]) => void, disableButtons: boolean }) {
-    const theme = useTheme();
-    const handleDelete = () =>  {
-        setBuildsOrder(buildsOrder.filter((i) => i !== buildIndex));
+function BuildDraggable({ index, buildIndex, raider, buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, disableButtons }: { index: number, buildIndex: number, raider: Raider, buildsOrder: number[], setBuildsOrder: (o: number[]) => void, buildsEnabled: boolean[], setBuildsEnabled: (d: boolean[]) => void, disableButtons: boolean }) {
+    const handleToggleOff = () => {
+        const newbd = [...buildsEnabled]; 
+        newbd[index] = !buildsEnabled[index]; 
+        setBuildsEnabled(newbd)
     }
-    
+
     return (
         <Draggable 
             key={index}
@@ -1617,7 +1657,7 @@ function BuildDraggable({ index, buildIndex, raider, buildsOrder, setBuildsOrder
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                 >
-                    <Paper elevation={2} sx={{padding: 0.5}}>
+                    <Paper elevation={2} sx={{padding: 0.5, opacity: buildsEnabled[index] ? "100%" : "50%"}}>
                         <li>
                             <Stack direction="row" alignItems="center" sx={{width: "175px"}}>
                                 {/* @ts-ignore */}
@@ -1627,15 +1667,19 @@ function BuildDraggable({ index, buildIndex, raider, buildsOrder, setBuildsOrder
                                         width: "25px",
                                         height: "25px",
                                         overflow: 'hidden',
+                                        opacity: buildsEnabled[index] ? "100%" : "50%",
                                         background: `url(${getPokemonSpriteURL(raider ? raider.species.name : "NPC")}) no-repeat center center / contain`,
                                     }}
                                 />
                                 <Box flexGrow={1}/>
-                                <Typography variant="body1">{raider ? raider.name : "Blank"}</Typography>
+                                <Typography variant="body1" sx={{opacity: buildsEnabled[index] ? "100%" : "80%"}}>{raider ? raider.name : "Blank"}</Typography>
                                 <Box flexGrow={1}/>
-                                <IconButton size="small" onClick={handleDelete} disabled={disableButtons}>
-                                    <CloseIcon />
-                                </IconButton>
+                                <Switch
+                                    checked={buildsEnabled[index]}
+                                    onChange={handleToggleOff}
+                                    disabled={disableButtons}
+                                    style={{ transition: "none" }} // this is to prevent most of the flickering when reordering the list
+                                />
                             </Stack>
                         </li>
                     </Paper>

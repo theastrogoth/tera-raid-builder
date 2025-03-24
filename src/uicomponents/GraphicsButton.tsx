@@ -1024,21 +1024,21 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
     title.endsWith("!PPT") ? void(0) : graphicTop.remove(); // remove the element from the DOM
 }
 
-function getNonNPCRaiders(raiders: Raider[], substitutes: SubstituteBuildInfo[][]) {
-    return [...raiders.slice(1).filter(raider => raider.species.name !== "NPC"), ...substitutes.flat().map(sub => sub.raider).filter(raider => raider.species.name !== "NPC")];
+function getNonNPCBuilds(buildInfo: GraphicBuildInfo[][]) {
+    return buildInfo.slice(1).flat().filter(binfo => binfo.raider.species.name !== "NPC");
 }
 
-function getRaiderUniqueness(raiders: Raider[]) {
+function getBuildUniqueness(buildInfo: GraphicBuildInfo[]) {
     const uniqueRaiderIdxs: number[] = [];
-    for (let i=0; i < raiders.length; i++) {
+    for (let i=0; i < buildInfo.length; i++) {
         const isDuplicate = uniqueRaiderIdxs.some(idx => {
-            return raiders[i].isIdenticalBuild(raiders[idx]);
-        })
+            return buildInfo[i].raider.isIdenticalBuild(buildInfo[idx].raider);
+        });
         if (!isDuplicate) {
             uniqueRaiderIdxs.push(i);
         }
     }
-    return [...Array(raiders.length).keys()].map(idx => uniqueRaiderIdxs.includes(idx));
+    return [...Array(buildInfo.length).keys()].map(idx => uniqueRaiderIdxs.includes(idx));
 }
 
 function GraphicsButton({title, notes, credits, raidInputProps, substitutes, results, allSpecies, buildsCount, setLoading, translationKey}: 
@@ -1051,6 +1051,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     // const [plotsEnabled, setPlotsEnable] = useState<boolean[]>([false, false, false, false]);
     const [statDisplay, setStatDisplay] = useState<string>("None");
     // const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
+    const [buildInfo, setBuildInfo] = useState([] as GraphicBuildInfo[][]);
+    const [pokemonDataMatrix, setPokemonDataMatrix] = useState([] as PokemonData[][]);
     const [buildsOnly, setBuildsOnly] = useState<boolean>(false);
     const [buildsOrder, setBuildsOrder] = useState<number[]>([]);
     const [buildsEnabled, setBuildsEnabled] = useState<boolean[]>([]);
@@ -1070,31 +1072,34 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         loadedImageURLRef.current = imageFileURL;
     };
 
-    const handleDownload = async () => {
-        setLoading(true);
+    const createBuildInfo = async () => {
         try {
             // all raiders including the raid boss and substitutes            
             const allRaidPokemonMatrix = getAllRaidPokemonMatrix();
-            
-            const pokemonDataMatrix = await createPokemonDataMatrix();
-            const isHiddenAbilityMatrix = createIsHiddenAbilityMatrix(pokemonDataMatrix);
+                        
+            const pDataMatrix = await createPokemonDataMatrix();
+            const isHiddenAbilityMatrix = createIsHiddenAbilityMatrix(pDataMatrix);
 
-            const movesMatrix = createMovesMatrix(pokemonDataMatrix);
-            const learnMethodMatrix = createLearnMethodMatrix(pokemonDataMatrix, movesMatrix);
-            const moveTypeMatrix = createMoveTypeMatrix(pokemonDataMatrix, movesMatrix);
-            const optionalMoveMatrix = createOptionalMoveMatrix(pokemonDataMatrix, movesMatrix);
+            const movesMatrix = createMovesMatrix(pDataMatrix);
+            const learnMethodMatrix = createLearnMethodMatrix(pDataMatrix, movesMatrix);
+            const moveTypeMatrix = createMoveTypeMatrix(pDataMatrix, movesMatrix);
+            const optionalMoveMatrix = createOptionalMoveMatrix(pDataMatrix, movesMatrix);
 
             // contains all the extra info needed for extra elements on the graphics, ability patch icon, learn method icons, move type icons, optional move boolean
             const extraBuildInfoMatrix = createExtraBuildInfoMatrix(isHiddenAbilityMatrix, learnMethodMatrix, moveTypeMatrix, optionalMoveMatrix);
+            const bInfo = zipBuildInfo(allRaidPokemonMatrix, extraBuildInfoMatrix);
+            setPokemonDataMatrix(pDataMatrix);
+            setBuildInfo(bInfo);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
-            const buildInfo = zipBuildInfo(allRaidPokemonMatrix, extraBuildInfoMatrix);
-            const displayOrder: number[] = [];
-            for (const idx of buildsOrder) {
-                if (buildsEnabled[idx]) {
-                    displayOrder.push(idx);
-                }
-            }
-            const includedRaidPokemonBuildInfo = buildsOnly ? processBuildsOnlyInfo(buildInfo, pokemonDataMatrix, displayOrder) : processFullGraphicInfo(buildInfo);
+    const handleDownload = async () => {
+        setLoading(true);
+        try {
+
+            const includedRaidPokemonBuildInfo = buildsOnly ? processBuildsOnlyInfo(buildInfo, pokemonDataMatrix, buildsOrder, buildsEnabled) : processFullGraphicInfo(buildInfo);
 
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
@@ -1274,67 +1279,43 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         return buildInfoMatrix;
     }
 
-    function processBuildsOnlyInfo(buildInfo: GraphicBuildInfo[][], pokemonDataMatrix: PokemonData[][], buildsOrder: number[]): GraphicBuildInfo[] {
+
+    function processBuildsOnlyInfo(buildInfo: GraphicBuildInfo[][], pokemonDataMatrix: PokemonData[][], buildsOrder: number[], buildsEnabled: boolean[]): GraphicBuildInfo[] {
+        const flatBuildInfo = getNonNPCBuilds(buildInfo);
         const buildsOnlyBuildInfo: GraphicBuildInfo[] = [];
+
+        const displayOrder: number[] = [];
+        for (const idx of buildsOrder) {
+            if (buildsEnabled[idx]) {
+                displayOrder.push(idx);
+            }
+        }
 
         // This adds builds according to the order selected via the drag and drop
         // (doesn't really make use of the slots/matrix setup)
-        let idx = 0;
-        for (const [mainSlotIndex, mainSlot] of buildInfo.slice(1).entries()) {
-            const speciesName = pokemonDataMatrix[mainSlotIndex][0].name;
-            if (speciesName !== "NPC") {
-                const addAt = buildsOrder.indexOf(idx);
-                if (addAt !== -1) {
-                    buildsOnlyBuildInfo[addAt] = mainSlot[0];
-                }
-                idx++;
+        for (const idx of displayOrder) {
+            buildsOnlyBuildInfo.push(flatBuildInfo[idx]);
+        }
+
+        // Add "required" moves from builds that are not enabled if they're identical with an added build
+        for (let i=0; i<flatBuildInfo.length; i++) {
+            if (!buildsEnabled[i]) {
+                lumpRequiredMoves(flatBuildInfo[i], buildsOnlyBuildInfo);
             }
         }
-        for (const [slotIndex, slot] of buildInfo.slice(1).entries()) {
-            for (const [subIndex, sub] of slot.entries()) {
-                if (subIndex === 0) continue; // Skip the main raider
-                const speciesName = pokemonDataMatrix[slotIndex][subIndex].name;
-                if (speciesName !== "NPC") {
-                    const addAt = buildsOrder.indexOf(idx);
-                    if (addAt !== -1) {
-                        buildsOnlyBuildInfo[addAt] = sub;
-                    }
-                    idx++;
-                }
-            }
-        }
+
         buildsOnlyBuildInfo.unshift(buildInfo[0][0]); // Add boss info directly
         return buildsOnlyBuildInfo;
-        
-        // // For now, the logic for the builds only graphic is to priorize the main raiders then list substitutes in order of slot
-        // for (const slot of buildInfo) {
-        //     checkDuplicate(slot[0], buildsOnlyBuildInfo);
-        // }
-
-        // for (const slot of buildInfo) {
-        //     for (const sub of slot.slice(1)) {
-        //         checkDuplicate(sub, buildsOnlyBuildInfo);
-        //     }
-        // }
-        // return buildsOnlyBuildInfo;
     }
 
-    // function checkDuplicate(buildInfo: GraphicBuildInfo, buildsOnlyBuildInfo: GraphicBuildInfo[]): boolean {
-    //     if (buildInfo.raider.species.name !== "NPC") {
-    //         const isDuplicate = buildsOnlyBuildInfo.some(checkedRaider => {
-    //             if (buildInfo.raider.isIdenticalBuild(checkedRaider.raider)) {
-    //                 // duplicate raiders need to have optional moves combined
-    //                 checkedRaider.extraBuildInfo.optionalMove = checkedRaider.extraBuildInfo.optionalMove.map((move, index) => move && buildInfo.extraBuildInfo.optionalMove[index]);
-    //                 return true;
-    //             }
-    //             return false;
-    //         });
-    //         if (!isDuplicate) {
-    //             buildsOnlyBuildInfo.push(buildInfo);
-    //         }
-    //     }
-    //     return false;
-    // }
+    function lumpRequiredMoves(buildInfo: GraphicBuildInfo, buildsOnlyBuildInfo: GraphicBuildInfo[]): void {
+        for (const checkedRaider of buildsOnlyBuildInfo) {
+            if (buildInfo.raider.isIdenticalBuild(checkedRaider.raider)) {
+                // duplicate raiders have non-optional moves combined
+                checkedRaider.extraBuildInfo.optionalMove = checkedRaider.extraBuildInfo.optionalMove.map((move, index) => move && buildInfo.extraBuildInfo.optionalMove[index]);
+            }
+        }
+    }
 
     function processFullGraphicInfo(buildInfo: GraphicBuildInfo[][]): GraphicBuildInfo[] {
         const fullGraphicBuildInfo: GraphicBuildInfo[] = [];
@@ -1353,19 +1334,6 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
 
         return fullGraphicBuildInfo;
     }
-
-    // function getAllRaidPokemon(): Raider[] {
-    //     const allRaidPokemon: Raider[] = [];
-    //     raidInputProps.pokemon.forEach((raider) => {
-    //         allRaidPokemon.push(raider);
-    //     });
-    //     substitutes.forEach((slot) => {
-    //         slot.forEach((sub) => {
-    //             allRaidPokemon.push(sub.raider);
-    //         });
-    //     });
-    //     return allRaidPokemon;
-    // }
 
     async function getStatPlots(allRaidPokemon: Raider[]): Promise<string[] | undefined> {
         let statPlots: undefined | string[] = statDisplay !== "Stat Plot" ? undefined : await Promise.all(
@@ -1428,6 +1396,11 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         }
         return "#ffffff"
     }
+
+    useEffect(() => {
+        if (open) { createBuildInfo(); }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [open, raidInputProps, substitutes, results, allSpecies]);
 
     return (
         <Box>
@@ -1560,9 +1533,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                 <Box flexGrow={0.4}/>
                                 <IconButton 
                                     onClick={() => {
-                                        const raiders = getNonNPCRaiders(raidInputProps.pokemon, substitutes);
-                                        const newOrder = [...Array(raiders.length).keys()]
-                                        const newEnabled = getRaiderUniqueness(raiders);
+                                        const builds = getNonNPCBuilds(buildInfo);
+                                        const newOrder = [...Array(builds.length).keys()]
+                                        const newEnabled = getBuildUniqueness(builds);
                                         setBuildsOrder(newOrder);
                                         setBuildsEnabled(newEnabled);
                                     }}
@@ -1570,7 +1543,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                     <RefreshIcon />
                                 </IconButton>
                             </Stack>
-                            <BuildsOrderDnD buildsOrder={buildsOrder} setBuildsOrder={setBuildsOrder} buildsEnabled={buildsEnabled} setBuildsEnabled={setBuildsEnabled} raiders={raidInputProps.pokemon} substitutes={substitutes}/>
+                            <BuildsOrderDnD buildsOrder={buildsOrder} setBuildsOrder={setBuildsOrder} buildsEnabled={buildsEnabled} setBuildsEnabled={setBuildsEnabled} buildInfo={buildInfo} />
                         </Stack>
                     }
                 </Stack>
@@ -1581,19 +1554,19 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     );
 };
 
-function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, raiders, substitutes}: { buildsOrder: number[], setBuildsOrder: (o: number[]) => void, buildsEnabled: boolean[], setBuildsEnabled: (o: boolean[]) => void, raiders: Raider[], substitutes: SubstituteBuildInfo[][]}) {
-    const [allBuilds, setAllBuilds] = useState<Raider[]>(getNonNPCRaiders(raiders, substitutes));
+function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, buildInfo}: { buildsOrder: number[], setBuildsOrder: (o: number[]) => void, buildsEnabled: boolean[], setBuildsEnabled: (o: boolean[]) => void, buildInfo: GraphicBuildInfo[][] }) {
+    const [allBuilds, setAllBuilds] = useState<GraphicBuildInfo[]>(getNonNPCBuilds(buildInfo));
     const [disableButtons, setDisableButtons] = useState<boolean>(false);
 
     useEffect(() => {
-        const nonNPCRaiders = getNonNPCRaiders(raiders, substitutes);
-        const newBuildsOrder = [...Array(nonNPCRaiders.length).keys()];
-        const newBuildsEnabled = getRaiderUniqueness(nonNPCRaiders);
-        setAllBuilds(nonNPCRaiders);
+        const nonNPCBuilds = getNonNPCBuilds(buildInfo);
+        const newBuildsOrder = [...Array(nonNPCBuilds.length).keys()];
+        const newBuildsEnabled = getBuildUniqueness(nonNPCBuilds);
+        setAllBuilds(nonNPCBuilds);
         setBuildsOrder(newBuildsOrder);
         setBuildsEnabled(newBuildsEnabled);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [raiders, substitutes])
+    }, [buildInfo])
 
     const onDragStart = () => { setDisableButtons(true); }
 
@@ -1627,7 +1600,7 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEn
                     >
                         <Stack spacing={1}>
                             {
-                                buildsOrder.map((buildIndex, dragIndex) => BuildDraggable({index: dragIndex, buildIndex,raider: allBuilds[buildIndex], buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, disableButtons}))
+                                buildsOrder.map((buildIndex, dragIndex) => BuildDraggable({index: dragIndex, build: allBuilds[buildIndex], buildsEnabled, setBuildsEnabled, disableButtons}))
                             }
                         </Stack>
                         {provided.placeholder}
@@ -1638,9 +1611,9 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEn
     )
 }
 
-function BuildDraggable({ index, buildIndex, raider, buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, disableButtons }: { index: number, buildIndex: number, raider: Raider, buildsOrder: number[], setBuildsOrder: (o: number[]) => void, buildsEnabled: boolean[], setBuildsEnabled: (d: boolean[]) => void, disableButtons: boolean }) {
+function BuildDraggable({ index, build, buildsEnabled, setBuildsEnabled, disableButtons }: { index: number, build: GraphicBuildInfo, buildsEnabled: boolean[], setBuildsEnabled: (d: boolean[]) => void, disableButtons: boolean }) {
     const handleToggleOff = () => {
-        const newbd = [...buildsEnabled]; 
+        const newbd = [...buildsEnabled];
         newbd[index] = !buildsEnabled[index]; 
         setBuildsEnabled(newbd)
     }
@@ -1668,11 +1641,11 @@ function BuildDraggable({ index, buildIndex, raider, buildsOrder, setBuildsOrder
                                         height: "25px",
                                         overflow: 'hidden',
                                         opacity: buildsEnabled[index] ? "100%" : "50%",
-                                        background: `url(${getPokemonSpriteURL(raider ? raider.species.name : "NPC")}) no-repeat center center / contain`,
+                                        background: `url(${getPokemonSpriteURL(build ? build.raider.species.name : "NPC")}) no-repeat center center / contain`,
                                     }}
                                 />
                                 <Box flexGrow={1}/>
-                                <Typography variant="body1" sx={{opacity: buildsEnabled[index] ? "100%" : "80%"}}>{raider ? raider.name : "Blank"}</Typography>
+                                <Typography variant="body1" sx={{opacity: buildsEnabled[index] ? "100%" : "80%"}}>{build ? build.raider.role : "Blank"}</Typography>
                                 <Box flexGrow={1}/>
                                 <Switch
                                     checked={buildsEnabled[index]}

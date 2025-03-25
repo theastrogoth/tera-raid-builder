@@ -13,6 +13,7 @@
 
 # misc
 /backup_moves
+/data/sv_common
 .DS_Store
 .env.local
 .env.development.local

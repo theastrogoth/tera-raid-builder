@@ -1,0 +1,14 @@
+{
+    "name": "Harvest",
+    "flavorText": {
+        "en": "May create another Berry after one is used.",
+        "ja": "使った　きのみを 何回も　作りだす。",
+        "fr": "Permet de réutiliser une même Baie plusieurs fois.",
+        "es": "Puede reutilizar varias veces una misma baya.",
+        "de": "Das Pokémon kann dieselbe Beere mehrmals verwenden.",
+        "it": "Può ricreare più volte una bacca utilizzata.",
+        "ko": "사용한 나무열매를 몇 번이고 만들어 낸다.",
+        "zh-Hant": "可多次採收 已被使用過的樹果。",
+        "zh-Hans": "可以多次制作出 已被使用掉的树果。"
+    }
+}

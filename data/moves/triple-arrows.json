@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user kicks, then fires three arrows. This move has a heightened chance of landing a critical hit and may also lower the target's Defense stat or make it flinch.",
+        "ja": "足技のあと　３本の矢を　同時に放つ。 相手の　防御を　さげたり　ひるませることが ある。　急所に　当たりやすい。",
+        "fr": "Le lanceur donne un coup de pied et tire trois flèches simultanément, ce qui peut baisser la Défense de la cible ou l'apeurer. Taux de critiques élevé.",
+        "es": "Propina un talonazo y lanza tres flechas. Suele asestar un golpe crítico y puede reducir la Defensa del objetivo o amedrentarlo.",
+        "de": "Der Anwender tritt zu und schießt dann drei Pfeile ab. Senkt eventuell die Verteidigung des Zieles oder lässt es zurückschrecken. Hohe Volltrefferquote.",
+        "it": "Il Pokémon sferra un calcio per poi scoccare tre dardi insieme. Può ridurre la Difesa del bersaglio o farlo tentennare. Probabile brutto colpo.",
+        "ko": "발 기술을 사용하고 3개의 화살을 동시에 발사한다. 상대의 방어를 떨어뜨리거나 풀죽게 만들 때가 있다. 급소에 맞기 쉽다.",
+        "zh-Hant": "使出腿技後同時發射３箭。 有時會降低對手的防禦或讓對手畏縮。 容易擊中要害。",
+        "zh-Hans": "使出一记腿技后同时发射３箭。 有时会降低对手的防御或 使对手畏缩。容易击中要害。"
+    }
 }

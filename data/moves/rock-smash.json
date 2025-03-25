@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks with a punch. This may also lower the target's Defense stat.",
+        "ja": "パンチで　攻撃する。相手の 防御を　さげる　ことが　ある。",
+        "fr": "Le lanceur porte un coup de poing à la cible, ce qui peut baisser la Défense de celle-ci.",
+        "es": "Propina un gran puñetazo que puede reducir la Defensa del objetivo.",
+        "de": "Der Anwender greift mit einem Hieb an und kann so den Verteidigungs-Wert des Zieles senken.",
+        "it": "Il Pokémon attacca il bersaglio con un pugno che può anche ridurne la Difesa.",
+        "ko": "펀치로 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "用拳頭進行攻擊。 有時會降低對手的防禦。",
+        "zh-Hans": "用拳头进行攻击。 有时会降低对手的防御。"
+    }
 }

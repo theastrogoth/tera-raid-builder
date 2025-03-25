@@ -1,0 +1,14 @@
+{
+    "name": "Common Stone",
+    "flavorText": {
+        "en": "A perfectly normal stone that might appear to be valuable to some. It's all in the eye of the beholder.",
+        "ja": "みる　人に　よっては 貴重　かもしれない でも　普通の　石。",
+        "fr": "Une pierre assez banale qui pourrait avoir de la valeur pour certaines personnes.",
+        "es": "Una piedra de aspecto normal que a algunos les puede parecer de gran valor.",
+        "de": "Ein Stein, der für manche vielleicht wertvoll aussieht, tatsächlich aber nur ein gewöhnlicher Stein ist.",
+        "it": "Un sasso qualsiasi che qualcuno potrebbe ritenere di valore.",
+        "ko": "보는 사람에 따라서는 귀중할지도 모르는 평범한 돌.",
+        "zh-Hant": "在某些人眼裡 可能會覺得它十分貴重。 但其實是塊普通的石頭。",
+        "zh-Hans": "在有些人看来 可能会觉得它十分贵重。 但其实是块普通的石头。"
+    }
+}

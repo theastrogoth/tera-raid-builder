@@ -1,0 +1,14 @@
+{
+    "name": "Curious Medicine",
+    "flavorText": {
+        "en": "When the Pokémon enters a battle, it scatters medicine from its shell, which removes all stat changes from allies.",
+        "ja": "登場　したときに 貝がらから　薬を　振りまいて 味方の　能力変化を　元に戻す。",
+        "fr": "Quand il entre au combat, le Pokémon répand une substance qui annule les changements de stats de ses alliés.",
+        "es": "Al entrar en combate, rezuma una substancia medicinal por la caracola que revierte los cambios en las características de los aliados.",
+        "de": "Das Pokémon versprüht bei Kampfantritt Arznei aus seiner Muschel, die alle Statusveränderungen von Mitstreitern aufhebt.",
+        "it": "Quando il Pokémon entra in campo, sparge un farmaco dalla conchiglia che annulla le modifiche alle statistiche degli alleati.",
+        "ko": "등장했을 때 조개껍질에서 약을 흩뿌려서 같은 편의 능력 변화를 원래대로 되돌린다.",
+        "zh-Hant": "出場時，會從貝殼撒藥， 將我方的能力變化復原。",
+        "zh-Hans": "出场时会从贝壳撒药， 将我方的能力变化复原。"
+    }
+}

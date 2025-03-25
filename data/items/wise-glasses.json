@@ -1,0 +1,14 @@
+{
+    "name": "Wise Glasses",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This thick pair of glasses slightly boosts the power of the holder's special moves.",
+        "ja": "ぶあつい　レンズの　ついた　メガネ。 持たせると　特殊技の 威力が　少し　あがる。",
+        "fr": "Objet à tenir. Une paire de lunettes épaisses qui augmente légèrement la puissance des capacités spéciales.",
+        "es": "Potencian ligeramente los ataques especiales. Debe llevarlas un Pokémon.",
+        "de": "Ein Item zum Tragen. Diese dicke Brille verstärkt auf Spezial-Angriff basierende Attacken.",
+        "it": "Strumento da dare a un Pokémon. Paio di occhiali dalle lenti spesse che potenzia di poco le mosse speciali.",
+        "ko": "두꺼운 렌즈를 붙인 안경. 지니게 하면 특수 기술의 위력이 조금 올라간다.",
+        "zh-Hant": "裝著很厚鏡片的眼鏡。 攜帶後，特殊招式的 威力就會少量提高。",
+        "zh-Hans": "装着很厚镜片的眼镜。 携带后，特殊招式的 威力就会少量提高。"
+    }
+}

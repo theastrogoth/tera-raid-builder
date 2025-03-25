@@ -1,0 +1,14 @@
+{
+    "name": "Coin Case",
+    "flavorText": {
+        "en": "A case for holding coins obtained at the Game Corner. It can hold up to 50,000 coins.",
+        "ja": "ゲームコーナーで　てにいれた コインを　５００００枚まで いれることが　できる　ケース。",
+        "fr": "Une boîte pour conserver les Jetons obtenus à la salle d'arcade. Peut contenir jusqu'à 50 000 Jetons.",
+        "es": "Se puede obtener en la Sala de Juegos. Tiene capacidad para 50 000 fichas.",
+        "de": "Im Korb finden bis zu 50 000 Münzen des Gamer-Paradieses Platz.",
+        "it": "Contenitore ottenuto al Casinò che può contenere fino a 50.000 Gettoni.",
+        "ko": "게임코너에서 손에 넣은 동전을 50000개 까지 넣을 수 있는 케이스.",
+        "zh-Hant": "最多可以放入５００００枚 在遊戲城獲得的代幣的盒子。",
+        "zh-Hans": "可以存放代币的盒子。 最多能放入５００００枚 在游戏城获得的代币。"
+    }
+}

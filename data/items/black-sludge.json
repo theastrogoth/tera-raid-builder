@@ -1,0 +1,14 @@
+{
+    "name": "Black Sludge",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If the holder is a Poison type, this sludge will gradually restore its HP. It damages any other type.",
+        "ja": "持たせると　どくタイプの　ポケモンは 少しずつ　ＨＰを　回復する。 それ以外は　ＨＰが　減ってしまう。",
+        "fr": "Objet à tenir. Restaure peu à peu les PV des Pokémon de type Poison. Inflige des dégâts à tous les autres types.",
+        "es": "Si lo lleva un Pokémon de tipo Veneno, restaura gradualmente sus PS. Si es de otro tipo, sus PS se reducirán.",
+        "de": "Ein Item zum Tragen. Es füllt die KP von Gift-Pokémon stetig auf. Anderen Pokémon fügt es Schaden zu.",
+        "it": "Strumento da dare a un Pokémon. Restituisce gradualmente PS ai Pokémon di tipo Veleno, ma fa perdere PS a tutti gli altri.",
+        "ko": "지니게 하면 독타입의 포켓몬은 조금씩 HP를 회복한다. 그 이외의 타입은 HP가 줄어 버린다.",
+        "zh-Hant": "攜帶後，毒屬性的寶可夢 會緩緩回復ＨＰ。 其他屬性的話，ＨＰ則會減少。",
+        "zh-Hans": "携带后，毒属性的宝可梦 会缓缓回复ＨＰ。 其他属性的话，ＨＰ则会减少。"
+    }
+}

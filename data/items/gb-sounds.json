@@ -1,0 +1,14 @@
+{
+    "name": "GB Sounds",
+    "flavorText": {
+        "en": "A music player that allows you to listen to nostalgic songs. It's operated with the flip of a single switch.",
+        "ja": "なつかしい曲が　きける 音楽プレイヤー。 スイッチ　ひとつで　きりかえられる。",
+        "fr": "Un lecteur de musique qui permet de se plonger dans une atmosphère rétro. Une pression suffit pour changer de mode.",
+        "es": "Reproductor con el que se pueden escuchar aquellas canciones tan nostálgicas. Se cambia de canción con un solo botón.",
+        "de": "Ein Abspielgerät, das Musik aus einer längst vergangenen Zeit spielt. Lässt sich durch simplen Knopfdruck bedienen.",
+        "it": "Lettore di musica che permette di immergersi in atmosfere rétro. Funziona con un solo tasto.",
+        "ko": "그리운 곡을 들을 수 있는 음악 플레이어. 스위치 하나로 전환할 수 있다.",
+        "zh-Hant": "可以聽到懷舊歌曲的 音樂播放機。 可一鍵切換歌曲。",
+        "zh-Hans": "可以听到怀旧歌曲的音乐播放器。 可用一个开关切换歌曲。"
+    }
+}

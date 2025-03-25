@@ -1,0 +1,14 @@
+{
+    "name": "Limber",
+    "flavorText": {
+        "en": "The Pokémon's limber body prevents it from being paralyzed.",
+        "ja": "柔軟な　体によって まひ状態に　ならない。",
+        "fr": "Le Pokémon s'est suffisamment échauffé, ce qui l'immunise contre la paralysie.",
+        "es": "Evita ser paralizado gracias a la flexibilidad de su cuerpo.",
+        "de": "Dank seines flexiblen Körpers kann das Pokémon nicht paralysiert werden.",
+        "it": "Il corpo flessibile del Pokémon gli impedisce di subire gli effetti della paralisi.",
+        "ko": "유연한 몸으로 인해 마비 상태가 되지 않는다.",
+        "zh-Hant": "因為身體柔軟， 不會陷入麻痺狀態。",
+        "zh-Hans": "因为身体柔软， 不会变为麻痹状态。"
+    }
+}

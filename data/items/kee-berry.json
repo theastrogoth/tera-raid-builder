@@ -1,0 +1,14 @@
+{
+    "name": "Kee Berry",
+    "flavorText": {
+        "en": "If a Pokémon holding this Berry is hit with a physical move, the holder's Defense stat will be boosted.",
+        "ja": "ポケモンに　持たせると 物理技を　受けたとき 自分の　防御が　あがる。",
+        "fr": "Tenue, cette Baie augmente la Défense du Pokémon lorsqu'il est touché par une capacité physique.",
+        "es": "Si la lleva un Pokémon, aumenta su Defensa tras recibir un ataque físico.",
+        "de": "Als getragenes Item erhöht diese Beere die Verteidigung des Pokémon, wenn dieses von einer physischen Attacke getroffen wird.",
+        "it": "Se un Pokémon ha questa bacca, aumenta la propria Difesa quando subisce una mossa fisica.",
+        "ko": "포켓몬에게 지니게 하면 물리 기술로 공격받았을 때 자신의 방어가 올라간다.",
+        "zh-Hant": "讓寶可夢攜帶後， 在受到物理招式攻擊時， 自己的防禦就會提高。",
+        "zh-Hans": "让宝可梦携带后， 在受到物理招式攻击时， 自己的防御就会提高。"
+    }
+}

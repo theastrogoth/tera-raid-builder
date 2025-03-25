@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user materializes an odd psychic wave to attack the target. This move deals physical damage.",
+        "ja": "不思議な　念波を　実体化して 相手を　攻撃する。 物理的な　ダメージを　与える。",
+        "fr": "Le lanceur matérialise des ondes mystérieuses qu'il projette sur la cible, ce qui inflige des dégâts physiques à celle-ci.",
+        "es": "Crea una onda psíquica que causa daño físico al objetivo.",
+        "de": "Anwender erzeugt eine seltsame Energiewelle, die dem Ziel physischen Schaden zufügt.",
+        "it": "Il Pokémon attacca il bersaglio facendo materializzare misteriose onde psichiche che provocano danni fisici.",
+        "ko": "이상한 염력파를 실체화하여 상대를 공격한다. 물리적인 데미지를 준다.",
+        "zh-Hant": "將神奇的念力波實體化後攻擊對手。 給予對手物理傷害。",
+        "zh-Hans": "将神奇的念波实体化攻击对手。 给予物理伤害。"
+    }
 }

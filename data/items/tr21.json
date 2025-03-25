@@ -1,0 +1,14 @@
+{
+    "name": "TR21",
+    "flavorText": {
+        "en": "An all-out attack that becomes more powerful the less HP the user has.",
+        "ja": "力を　ふりしぼり　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　あがる。",
+        "fr": "Le lanceur ne retient plus ses coups. Plus ses PV sont bas, plus la puissance de cette capacité augmente.",
+        "es": "Ataque desesperado que causa más daño cuantos menos PS tenga el usuario.",
+        "de": "Richtet mehr Schaden an, wenn eigene KP niedrig sind.",
+        "it": "Il Pokémon attacca con tutte le sue forze. Più i suoi PS sono bassi, più la potenza della mossa aumenta.",
+        "ko": "힘을 쥐어짜서 공격한다. 자신의 HP가 적을수록 기술의 위력이 올라간다.",
+        "zh-Hant": "竭盡全力進行攻擊。 自己的ＨＰ越少， 招式的威力越大。",
+        "zh-Hans": "竭尽全力进行攻击。 自己的ＨＰ越少， 招式的威力越大。"
+    }
+}

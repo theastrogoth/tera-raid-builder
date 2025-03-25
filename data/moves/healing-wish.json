@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user faints. In return, the Pokémon taking its place will have its HP restored and status conditions cured.",
+        "ja": "自分は　ひんしに　なるが 控えから　でてくる　ポケモンの 状態異常と　ＨＰを　回復する。",
+        "fr": "Le lanceur tombe K.O. pour soigner les altérations de statut et les PV du Pokémon qui viendra le remplacer sur le terrain.",
+        "es": "El usuario se debilita, pero cura los problemas de estado del Pokémon que lo sustituye y restaura sus PS.",
+        "de": "Anwender geht K.O. Das an seine Stelle tretende Pokémon hat volle KP. Statusprobleme werden geheilt.",
+        "it": "Il Pokémon va KO, ma chi lo sostituisce recupera tutti i PS e guarisce dai problemi di stato.",
+        "ko": "자신은 기절하지만 교대하여 나오는 포켓몬의 상태 이상과 HP를 회복한다.",
+        "zh-Hant": "雖然自己會陷入瀕死， 但可以治癒接替上場的 寶可夢的異常狀態並回復ＨＰ。",
+        "zh-Hans": "虽然自己陷入昏厥， 但可以治愈后备上场的 宝可梦的异常状态以及回复ＨＰ。"
+    }
 }

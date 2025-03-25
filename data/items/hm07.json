@@ -1,0 +1,14 @@
+{
+    "name": "HM07",
+    "flavorText": {
+        "en": "Diving on the first turn, the user floats up and attacks on the next turn.",
+        "ja": "１ターン目で　潜り　２ターン目に 浮きあがって　攻撃する。",
+        "fr": "Le lanceur plonge sous l'eau au premier tour et frappe au second.",
+        "es": "El usuario se sumerge en el primer turno y ataca en el segundo.",
+        "de": "Anwender taucht in Runde 1 ab und greift in Runde 2 aus der Tiefe an.",
+        "it": "Il Pokémon si tuffa in acqua per emergere e attaccare al turno successivo.",
+        "ko": "1턴째에 잠수했다가 2턴째에 떠올라 공격한다.",
+        "zh-Hant": "使用後的第１回合潛入水中， 並於第２回合浮上來進行攻擊。",
+        "zh-Hans": "第１回合潜入水中， 第２回合浮上来进行攻击。"
+    }
+}

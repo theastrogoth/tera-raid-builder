@@ -1,0 +1,14 @@
+{
+    "name": "Normalize",
+    "flavorText": {
+        "en": "All the Pokémon's moves become Normal type. The power of those moves is boosted a little.",
+        "ja": "どんな　タイプの　技でも すべて　ノーマルタイプに　なる。 威力が　少し　上がる。",
+        "fr": "Toutes les capacités du Pokémon deviennent de type Normal, quel que soit leur type original. Leur puissance augmente légèrement.",
+        "es": "Hace que todos sus movimientos se vuelvan de tipo Normal y aumenta ligeramente su potencia.",
+        "de": "Alle Attacken des Pokémon nehmen den Typ Normal an und ihre Stärke steigt ein wenig.",
+        "it": "Tutte le mosse del Pokémon diventano di tipo Normale e la loro potenza aumenta un po'.",
+        "ko": "사용하는 기술의 타입이 모두 노말타입이 된다. 위력이 조금 올라간다.",
+        "zh-Hant": "無論是什麼屬性的招式， 全部都會變為一般屬性。 威力會少量提高。",
+        "zh-Hans": "无论是什么属性的招式， 全部会变为一般属性。 威力会少量提高。"
+    }
+}

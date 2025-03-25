@@ -1,0 +1,14 @@
+{
+    "name": "Lemonade",
+    "flavorText": {
+        "en": "A very sweet and refreshing drink. It can be used to restore 70 HP to a Pokémon.",
+        "ja": "とても　あまい　ジュース。 ポケモン　１匹の　ＨＰを ７０だけ　回復する。",
+        "fr": "Une boisson très sucrée. Restaure 70 PV d'un Pokémon.",
+        "es": "Bebida muy dulce que restaura 70 PS de un Pokémon.",
+        "de": "Ein sehr süßes Getränk, das die KP eines Pokémon um 70 Punkte auffüllt.",
+        "it": "Bevanda molto dolce. Restituisce 70 PS a un Pokémon.",
+        "ko": "매우 달콤한 주스. 포켓몬 1마리의 HP를 70만큼 회복한다.",
+        "zh-Hant": "非常甜的果汁。 能讓１隻寶可夢 回復７０ＨＰ。",
+        "zh-Hans": "非常香甜的牛奶。 能让１只宝可梦 回复７０ＨＰ。"
+    }
+}

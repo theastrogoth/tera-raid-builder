@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user creates a protective field that prevents status conditions for five turns.",
+        "ja": "５ターンの　間 不思議な　力に　守られて 状態異常に　ならなくなる。",
+        "fr": "Crée un champ protecteur qui empêche toutes les altérations de statut pendant cinq tours.",
+        "es": "Un poder misterioso que protege de problemas de estado durante cinco turnos.",
+        "de": "Team des Anwenders ist fünf Runden lang vor Statusproblemen geschützt.",
+        "it": "Il Pokémon crea un campo protettivo che previene i problemi di stato per cinque turni.",
+        "ko": "5턴 동안 이상한 힘의 보호를 받아 상태 이상이 되지 않는다.",
+        "zh-Hant": "在５回合內 被神奇的力量守護， 不會陷入異常狀態。",
+        "zh-Hans": "在５回合内 被神奇的力量守护， 从而不会陷入异常状态。"
+    }
 }

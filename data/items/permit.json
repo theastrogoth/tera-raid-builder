@@ -1,0 +1,14 @@
+{
+    "name": "Permit",
+    "flavorText": {
+        "en": "A permit that is needed to enter the Nature Preserve, a place that not many people know about.",
+        "ja": "わずかな人しか　知らない 自然保護区に　入るために 必要な　ライセンスカード。",
+        "fr": "Un permis nécessaire pour pénétrer dans la Réserve Naturelle, lieu protégé des foules modernes.",
+        "es": "Permiso necesario para acceder a la Reserva Natural, lugar que solo unos pocos conocen.",
+        "de": "Eine Genehmigung in Form einer Karte, die den Zutritt ins Naturschutzgebiet ermöglicht. Nur wenige kennen den Ort.",
+        "it": "Tessera che permette di accedere a una Riserva Naturale conosciuta da pochi.",
+        "ko": "소수의 사람밖에 모르는 자연보호구역에 들어가기 위해 필요한 라이선스 카드.",
+        "zh-Hant": "進入只有極少數人 才知道的自然保護區時， 所需的授權卡。",
+        "zh-Hans": "只有极少数人才知道的， 进入自然保护区所需的授权卡。"
+    }
+}

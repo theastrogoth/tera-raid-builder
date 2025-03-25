@@ -1,0 +1,14 @@
+{
+    "name": "Max Potion",
+    "flavorText": {
+        "en": "A recipe for crafting Max Potions from scratch. Required materials: 1 Sitrus Berry and 1 bunch of King's Leaf.",
+        "ja": "まんたんのくすりのレシピ。　材料は オボンのみ×１　キングリーフ×１",
+        "fr": "Méthode pour Potion Max. Ressources requises : 1 Baie Sitrus et 1 bouquet d'Herbe Souveraine.",
+        "es": "Receta para crear Pociones Máximas. Materiales: 1 Baya Zidra y 1 Hierba Regia.",
+        "de": "Die Anleitung zur Herstellung eines Top-Tranks. Benötigte Materialien: 1 Tsitrubeere und 1 Königsblatt.",
+        "it": "Ricetta per una Pozione max. Richiede 1 Baccacedro e 1 ciuffo di Foglia regina.",
+        "ko": "풀회복약의 레시피. 재료: 자뭉열매×1 킹리프×1",
+        "zh-Hant": "全滿藥的材料單。材料是： 文柚果×１　皇葉×１",
+        "zh-Hans": "全满药的材料单。材料是： 文柚果×１　皇叶×１"
+    }
+}

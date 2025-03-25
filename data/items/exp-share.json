@@ -1,0 +1,14 @@
+{
+    "name": "Exp. Share",
+    "flavorText": {
+        "en": "Turning on this special device will allow all the Pokémon on your team to share in Exp. Points gained.",
+        "ja": "スイッチを　いれると 手持ちのポケモン　すべてが 経験値を　もらえる　装置。",
+        "fr": "Objet à activer. Il permet de faire gagner des Points d'Expérience à tous les Pokémon de l'équipe.",
+        "es": "Al activar el dispositivo, todos los Pokémon de tu equipo ganan puntos de experiencia tras los combates.",
+        "de": "Solange der EP-Teiler angeschaltet ist, erhält jedes Team-Pokémon nach einem Sieg Erfahrungspunkte.",
+        "it": "Se attivato, tutti i Pokémon della squadra ricevono Punti Esperienza dalla lotta.",
+        "ko": "스위치를 켜면 지닌 포켓몬 모두가 경험치를 받을 수 있는 장치.",
+        "zh-Hant": "打開開關後， 同行的所有寶可夢 都可獲得經驗值的裝置。",
+        "zh-Hans": "打开开关后， 能让同行的所有宝可梦 获得经验值的装置。"
+    }
+}

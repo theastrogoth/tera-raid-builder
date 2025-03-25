@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user releases cotton-like spores that cling to opposing Pokémon. This harshly lowers their Speed stats.",
+        "ja": "綿のような　フワフワの　胞子を まとわり　つかせて 相手の　素早さを　がくっと　さげる。",
+        "fr": "Le lanceur libère des spores cotonneuses qui collent à la cible et baissent beaucoup sa Vitesse.",
+        "es": "Adhiere esporas al objetivo para reducir mucho su Velocidad.",
+        "de": "Wattebäusche heften sich an gegnerische Pokémon, deren Initiative-Wert dadurch stark sinkt.",
+        "it": "Il Pokémon rilascia spore simili al cotone che si attaccano agli avversari e ne riducono di molto la Velocità.",
+        "ko": "솜처럼 폭신폭신한 포자를 착 달라붙게 해서 상대의 스피드를 크게 떨어뜨린다.",
+        "zh-Hant": "將棉花般柔軟的孢子 纏繞對手， 大幅降低對手的速度。",
+        "zh-Hans": "将棉花般柔软的孢子 紧贴对手， 从而大幅降低对手的速度。"
+    }
 }

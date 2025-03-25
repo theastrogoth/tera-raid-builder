@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "If the user is knocked out after using this move, the Pokémon that knocked it out will also faint. This move's chance of failing rises if it is used in succession.",
+        "ja": "技のあと　相手の　攻撃で　ひんしに なると　攻撃　相手も　ひんしにする。 連続して　出すと　失敗する。",
+        "fr": "Si un assaillant porte un coup fatal au lanceur après qu'il a activé cette capacité, ils sont tous les deux mis K.O. La capacité échoue si elle est immédiatement réutilisée.",
+        "es": "Si el usuario se debilita por un ataque rival antes de usar otro movimiento, el Pokémon rival se debilitará también. Puede fallar si se usa repetidamente.",
+        "de": "Wird der Anwender nach Einsatz dieser Attacke kampfunfähig, führt dies auch beim Pokémon, das ihn besiegt hat, zum K.O. Scheitert bei Wiederholung.",
+        "it": "Se il Pokémon va KO a causa di un attacco, chi ha sferrato il colpo da KO fa la stessa fine. Se usata in successione fallisce.",
+        "ko": "기술을 쓴 뒤 상대의 공격으로 기절했을 때 공격 상대도 기절하게 한다. 연속으로 쓰면 실패한다.",
+        "zh-Hant": "使出招式後，當受到對手攻擊， 陷入瀕死時，對手也會一同陷入瀕死。 連續使用時會失敗。",
+        "zh-Hans": "使出招式后，当受到对手攻击 陷入昏厥时，对手也会一同昏厥。 连续使出则会失败。"
+    }
 }

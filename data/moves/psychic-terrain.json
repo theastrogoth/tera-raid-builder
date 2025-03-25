@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This protects Pokémon on the ground from priority moves and powers up Psychic-type moves for five turns.",
+        "ja": "５ターンの間　地面にいると 先制技を　受けない。 エスパータイプの　威力が　あがる。",
+        "fr": "Pendant cinq tours, les Pokémon au sol ne peuvent plus subir d'attaques prioritaires et la puissance des capacités de type Psy augmente.",
+        "es": "Durante cinco turnos, se potencian los movimientos de tipo Psíquico y los Pokémon que están en el suelo quedan protegidos contra movimientos con prioridad.",
+        "de": "Verhindert für fünf Runden, dass Pokémon am Boden von Erstschlag-Attacken getroffen werden. Erhöht die Stärke von Psycho-Attacken.",
+        "it": "Per cinque turni il terreno entra nello stato di Campo Psichico: i Pokémon a terra non subiscono mosse ad alta priorità e la potenza delle mosse di tipo Psico aumenta.",
+        "ko": "5턴 동안 땅에 있으면 선제공격을 받지 않는다. 에스퍼타입의 위력이 올라간다.",
+        "zh-Hant": "在５回合內，地面上的寶可夢 不會受到先制招式攻擊。 超能力屬性的招式威力會提高。",
+        "zh-Hans": "在５回合内，地面上的宝可梦 不会受到先制招式的攻击。 超能力属性的招式威力会提高。"
+    }
 }

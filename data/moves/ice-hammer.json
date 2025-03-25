@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user swings its strong, heavy fist at the target to inflict damage. This also lowers the user's Speed stat.",
+        "ja": "強くて　重い　こぶしを ふるって　ダメージを　与える。 自分の　素早さが　さがる。",
+        "fr": "Le lanceur donne un puissant coup de poing à la cible, ce qui réduit la Vitesse du lanceur.",
+        "es": "Propina un golpe devastador con el puño, pero reduce la Velocidad del usuario.",
+        "de": "Anwender trifft mit einem starken Hieb. Senkt Initiative des Anwenders.",
+        "it": "Il Pokémon infligge danni al bersaglio colpendolo con un pugno molto potente, ma la sua Velocità diminuisce.",
+        "ko": "강하고 무거운 주먹을 휘둘러 데미지를 준다. 자신의 스피드가 떨어진다.",
+        "zh-Hant": "揮出強力而沉重的拳頭， 給予對手傷害。 自己的速度會降低。",
+        "zh-Hans": "挥舞强力而沉重的拳头， 给予对手伤害。 自己的速度会降低。"
+    }
 }

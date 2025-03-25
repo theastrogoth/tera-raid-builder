@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user switches places with a party Pokémon in waiting, if any. If a wild Pokémon uses this move, it flees.",
+        "ja": "ひかえの　ポケモンが　いるときに 使うと　入れ替わる。 野生の　ポケモンは　逃げてしまう。",
+        "fr": "Permet de changer de place avec un autre Pokémon de l'équipe s'il y en a. Quand cette capacité est utilisée par un Pokémon sauvage, celui-ci fuit le combat.",
+        "es": "Permite al usuario cambiarse por otro Pokémon del equipo, si lo hay. Si un Pokémon salvaje usa este movimiento, huye del combate.",
+        "de": "Der Anwender tauscht den Platz mit einem anderen Team-Mitglied, sofern vorhanden. Setzen wilde Pokémon die Attacke ein, ergreifen diese die Flucht.",
+        "it": "Il Pokémon viene sostituito se ci sono altri Pokémon in squadra. Se un Pokémon selvatico usa questa mossa, fugge dalla lotta.",
+        "ko": "교대할 포켓몬이 있을 때 사용하면 교체한다. 야생 포켓몬은 도망가 버린다.",
+        "zh-Hant": "在有後備寶可夢時使用， 可進行替換。 野生寶可夢則會逃走。",
+        "zh-Hans": "当有后备宝可梦时使用， 就可以进行替换。 野生的宝可梦使用则会逃走。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Smoke Bomb",
+    "flavorText": {
+        "en": "When thrown at the ground, these balls produce a cloud of fine powder that will reduce visibility in the area and keep wild Pokémon from noticing you.",
+        "ja": "地面に投げつけると　飛び散った 細かい粉末が周囲の視界をさえぎり ポケモンに気づかれなくなる。",
+        "fr": "Lorsqu'on la lance au sol, elle libère une fine poudre qui réduit la visibilité et permet d'échapper à l'attention des Pokémon situés à proximité.",
+        "es": "Expulsa una fina polvareda a su alrededor tras lanzarla contra el suelo y reduce la visibilidad, de forma que los Pokémon salvajes no se percatan de tu presencia.",
+        "de": "Wirfst du sie auf den Boden, wird ein rauchähnliches feines Pulver verstreut, das die Sicht einschränkt und Pokémon daran hindert, dich zu bemerken.",
+        "it": "Se lanciata a terra, libera una polvere sottile che riduce la visibilità e permette di non farsi notare dai Pokémon.",
+        "ko": "땅에 던지면 고운 가루가 흩어져서 주위의 시야를 차단하고 포켓몬에게 들키지 않게 된다.",
+        "zh-Hant": "丟向地面後，飛散的細粉 會遮蔽周圍的視野， 讓自己不會被寶可夢察覺。",
+        "zh-Hans": "丢向地面后，飞散的细粉 会遮蔽周围的视野， 让自己不会被宝可梦察觉。"
+    }
+}

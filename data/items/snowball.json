@@ -1,0 +1,14 @@
+{
+    "name": "Snowball",
+    "flavorText": {
+        "en": "A hard ball made of compressed snow. Hitting a Pokémon with one may stun the Pokémon, creating an opening for you to act.",
+        "ja": "雪を固めて作った球状の物体。 ポケモンに投げつけると動きが鈍り 隙がうまれることもある。",
+        "fr": "Une boule obtenue en compressant de la neige. Lancez-la sur un Pokémon pour ralentir ses mouvements, voire le rendre vulnérable.",
+        "es": "Bola creada a partir de nieve endurecida. Al acertar a un Pokémon con ella, dificulta sus movimientos y puede dejarlo expuesto.",
+        "de": "Wird dieser harte Schneeball auf ein Pokémon geworfen, macht er es schwerfälliger und schafft so möglicherweise eine günstige Gelegenheit für dich.",
+        "it": "Oggetto sferico fatto di neve indurita. Se lanciata contro un Pokémon, ne rallenta i movimenti e può fargli abbassare la guardia.",
+        "ko": "눈을 뭉쳐서 만든 구형의 물체. 포켓몬에게 던지면 움직임이 둔해져서 빈틈이 생길 때가 있다.",
+        "zh-Hant": "用雪壓成的球狀物體。 用它投中寶可夢能使其動作 變得遲緩，有時還會生出破綻。",
+        "zh-Hans": "用雪压成的球状物体。 用它投中宝可梦能使其动作 变得迟缓，有时还会生出破绽。"
+    }
+}

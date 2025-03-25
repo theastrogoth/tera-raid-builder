@@ -1,0 +1,14 @@
+{
+    "name": "Drought",
+    "flavorText": {
+        "en": "Turns the sunlight harsh when the Pokémon enters a battle.",
+        "ja": "登場　したときに 天気を　晴れに　する。",
+        "fr": "Le Pokémon invoque le soleil quand il entre au combat.",
+        "es": "El tiempo pasa a ser soleado al entrar en combate.",
+        "de": "Das Pokémon erzeugt bei Kampfantritt Sonnenschein.",
+        "it": "Quando il Pokémon entra in campo, la luce solare diventa intensa.",
+        "ko": "등장했을 때 날씨를 맑음으로 만든다.",
+        "zh-Hant": "出場時， 會將天氣變為晴朗。",
+        "zh-Hans": "出场时， 会将天气变为晴朗。"
+    }
+}

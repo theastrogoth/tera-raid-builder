@@ -1,0 +1,14 @@
+{
+    "name": "Prof's Letter",
+    "flavorText": {
+        "en": "A letter that Professor Sycamore wrote to your mother. A faint but pleasant perfume seems to cling to the paper.",
+        "ja": "プラターヌ博士から ママあてに　書かれた　手紙。 ほんのり　いい　香りがする。",
+        "fr": "Une lettre du Professeur Platane à Maman. Elle dégage un parfum subtil.",
+        "es": "Una carta sutilmente perfumada que el Profesor Ciprés le ha escrito a tu madre.",
+        "de": "Ein an deine Mutter adressierter Brief von Professor Platan. Ihm haftet ein schwacher Parfümduft an.",
+        "it": "Lettera del Professor Platan per la mamma. Emana un delicato profumo.",
+        "ko": "플라타느박사가 엄마에게 쓴 편지. 은은하게 좋은 향기가 난다.",
+        "zh-Hant": "布拉塔諾博士 寫給媽媽的信。 信上帶有微微香氣。",
+        "zh-Hans": "布拉塔诺博士写给妈妈的信。 上面带有微微的香气。"
+    }
+}

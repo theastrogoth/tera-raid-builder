@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user wags its tail cutely, making opposing Pokémon less wary. This lowers their Defense stats.",
+        "ja": "しっぽを　左右に　かわいく　ふって 油断を　誘う。 相手の　防御を　さげる。",
+        "fr": "Le lanceur remue son adorable queue pour tromper la vigilance de la cible et baisser sa Défense.",
+        "es": "Agita la cola para despistar al objetivo y reducir su Defensa.",
+        "de": "Der Anwender wedelt niedlich mit dem Schweif und veranlasst Gegner dadurch, nachlässig zu werden. Senkt die Verteidigung der gegnerischen Pokémon.",
+        "it": "Il Pokémon agita la coda per distrarre gli avversari, riducendone la Difesa.",
+        "ko": "꼬리를 좌우로 귀엽게 흔들어 방심을 유도한다. 상대의 방어를 떨어뜨린다.",
+        "zh-Hant": "可愛地左右搖晃尾巴， 誘使對手疏忽大意。 可降低對手的防禦。",
+        "zh-Hans": "可爱地左右摇晃尾巴， 诱使对手疏忽大意。 会降低对手的防御。"
+    }
 }

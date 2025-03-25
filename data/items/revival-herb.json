@@ -1,0 +1,14 @@
+{
+    "name": "Revival Herb",
+    "flavorText": {
+        "en": "A very bitter medicinal herb. It can be used to revive a Pokémon that has fainted. It also fully restores the Pokémon's max HP.",
+        "ja": "とても　にがい　薬草。 ひんしの　ポケモン　１匹の ＨＰを　すべて　回復する。",
+        "fr": "Une herbe médicinale très amère. Ranime un Pokémon K.O. et restaure tous ses PV.",
+        "es": "Hierba medicinal muy amarga que reanima a un Pokémon debilitado y restaura todos sus PS.",
+        "de": "Ein bitteres medizinisches Kraut, das ein kampfunfähiges Pokémon wiederbelebt und dessen KP vollständig wieder auffüllt.",
+        "it": "Erba medicinale amarissima che restituisce tutti i PS a un Pokémon esausto.",
+        "ko": "매우 쓴 약초. 기절한 포켓몬 1마리의 HP를 모두 회복한다.",
+        "zh-Hant": "非常苦的藥草。 能讓１隻瀕死的寶可夢 回復所有ＨＰ。",
+        "zh-Hans": "非常苦的药草。 能让１只昏厥的宝可梦 回复所有ＨＰ。"
+    }
+}

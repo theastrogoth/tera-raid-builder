@@ -1,0 +1,14 @@
+{
+    "name": "Good as Gold",
+    "flavorText": {
+        "en": "A body of pure, solid gold gives the Pokémon full immunity to other Pokémon's status moves.",
+        "ja": "酸化せず　丈夫な　黄金の体は 相手からの　変化技を　受けない。",
+        "fr": "Le corps en or pur et robuste du Pokémon l'immunise contre les capacités de statut des autres Pokémon.",
+        "es": "Su robusto cuerpo de oro inoxidable lo hace inmune frente a movimientos de estado de otros Pokémon.",
+        "de": "Dank seines robusten Körpers aus reinem, rostfreiem Gold kann das Pokémon nicht von Status-Attacken getroffen werden.",
+        "it": "Grazie al robusto e inossidabile corpo d'oro, il Pokémon è immune alle mosse di stato sferrate da altri.",
+        "ko": "산화하지 않는 튼튼한 황금몸 덕분에 상대의 변화 기술의 영향을 받지 않는다.",
+        "zh-Hant": "既不氧化又堅韌的黃金之軀 不會受到對手的變化類招式攻擊。",
+        "zh-Hans": "不会氧化的坚固黄金身躯 不会受到对手的变化招式的影响。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Item Drop",
+    "flavorText": {
+        "en": "When used, it causes an ally Pokémon to drop a held item.",
+        "ja": "使うと　味方のポケモンが 持っている　道具を　なくす。 ",
+        "fr": "Retire tout objet tenu par un Pokémon de l'équipe.",
+        "es": "Cuando se usa, un Pokémon de tu equipo pierde su objeto.",
+        "de": "Der Mitstreiter lässt bei Gebrauch das von ihm getragene Item fallen.",
+        "it": "Usandolo, un Pokémon della squadra lascerà il proprio strumento.",
+        "ko": "사용하면 같은 편 포켓몬이 지니고 있는 도구를 잃어버린다.",
+        "zh-Hant": "使用後，我方寶可夢 能立刻丟棄攜帶的道具。",
+        "zh-Hans": "使用后，能立刻丢弃 我方宝可梦携带的道具。"
+    }
+}

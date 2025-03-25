@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is raked with steel claws. This may also boost the user's Attack stat.",
+        "ja": "鋼鉄の　ツメで 相手を　切り裂いて　攻撃する。 自分の　攻撃が　あがることが　ある。",
+        "fr": "Attaque avec des griffes d'acier. Peut aussi augmenter l'Attaque du lanceur.",
+        "es": "Ataque con garras de acero que puede aumentar el Ataque del usuario.",
+        "de": "Klauen-Attacke, die eventuell den Angriffs-Wert des Anwenders erhöht.",
+        "it": "Il Pokémon attacca il bersaglio con artigli d'acciaio. Può anche aumentare il proprio Attacco.",
+        "ko": "강철의 발톱으로 상대를 베어 갈라 공격한다. 자신의 공격이 올라갈 때도 있다.",
+        "zh-Hant": "用鋼鐵之爪 撕裂對手進行攻擊。 有時會提高自己的攻擊。",
+        "zh-Hans": "用钢铁之爪 劈开对手进行攻击。 有时会提高自己的攻击。"
+    }
 }

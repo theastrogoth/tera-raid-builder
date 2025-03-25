@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This relentless attack does massive damage to a target affected by status conditions.",
+        "ja": "たたみかける　ように　攻撃する。 状態異常の　相手に 大きな　ダメージを　与える。",
+        "fr": "Une attaque acharnée qui cause davantage de dégâts à la cible si elle a une altération de statut.",
+        "es": "Ataque que causa un gran daño a los objetivos que sufren problemas de estado.",
+        "de": "Eine Attacke, bei der der Anwender das Ziel bedrängt. Fügt Zielen mit Statusproblemen hohen Schaden zu.",
+        "it": "Il Pokémon attacca in modo implacabile. Infligge grossi danni se il bersaglio ha problemi di stato.",
+        "ko": "엎친 데 덮친 격으로 공격한다. 상태 이상인 상대에게 큰 데미지를 준다.",
+        "zh-Hant": "接二連三地向對手進行攻擊。 攻擊陷入異常狀態的對手時， 能給予較大的傷害。",
+        "zh-Hans": "接二连三地进行攻击。 对处于异常状态的对手 给予较大的伤害。"
+    }
 }

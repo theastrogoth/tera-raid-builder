@@ -1,0 +1,14 @@
+{
+    "name": "Wailmer Pail",
+    "flavorText": {
+        "en": "A watering can shaped like a Wailmer. It helps promote the healthy growth of any Berries planted in soil.",
+        "ja": "みずを　かける　道具。 土に　うめた　きのみを すくすく　育てる。",
+        "fr": "Un objet qui sert à arroser les Baies plantées dans le sol.",
+        "es": "Regadera con forma de Wailmer. Muy útil para que crezcan las bayas plantadas.",
+        "de": "Eine Gießkanne. Gießt du mit ihr im Boden angepflanzte Beeren, wachsen sie schneller.",
+        "it": "Annaffiatoio a forma di Wailmer che aiuta a far crescere rigogliose le piantine di bacche.",
+        "ko": "물을 주는 도구. 땅에 심은 나무열매를 쑥쑥 키운다.",
+        "zh-Hant": "澆水的器具。 能讓埋在土壤裡的 樹果快快長大。",
+        "zh-Hans": "浇水的道具。 能让埋在土壤里的 树果快快长大。"
+    }
+}

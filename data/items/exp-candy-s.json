@@ -1,0 +1,14 @@
+{
+    "name": "Exp. Candy S",
+    "flavorText": {
+        "en": "A candy that is packed with energy. If consumed, it grants a Pokémon a small number of Exp. Points.",
+        "ja": "エネルギーの　つまった　アメ。 与えると　ポケモン　１匹の 経験値が　少し　増える。",
+        "fr": "Un bonbon plein d'énergie. Il permet à un Pokémon de gagner une petite quantité de Points d'Expérience.",
+        "es": "Caramelo energético que aumenta ligeramente los puntos de experiencia de un Pokémon.",
+        "de": "Ein Bonbon, das voller Energie steckt. Beim Verzehr erhält das Pokémon eine geringe Menge an Erfahrungspunkten.",
+        "it": "Caramella piena zeppa di energia che aumenta di poco i Punti Esperienza di un Pokémon.",
+        "ko": "에너지가 가득한 사탕. 먹이면 포켓몬 1마리의 경험치가 조금 올라간다.",
+        "zh-Hant": "充滿能量的糖果。 餵給寶可夢後， 能讓１隻寶可夢增加少量經驗值。",
+        "zh-Hans": "充满能量的糖果。 交给１只宝可梦后， 可以为它增加少许经验值。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks while destroying the terrain. This move fails if the ground hasn't turned into a terrain.",
+        "ja": "フィールドを　破壊しながら　攻撃。 なんらかの　フィールド状態に 変わっていないと　技は　失敗する。",
+        "fr": "Une attaque qui inflige des dégâts et fait disparaître le champ actif, mais qui échoue s'il n'y en a pas à ce moment.",
+        "es": "El usuario lanza su ataque y destruye el campo activo en el terreno de combate. Si no hay ninguno en ese momento, el movimiento falla.",
+        "de": "Der Anwender greift an und zerstört dabei etwaige Felder. Ist kein Feld aktiv, schlägt die Attacke fehl.",
+        "it": "Il Pokémon attacca eliminando lo stato del terreno di lotta. La mossa fallisce se nel terreno non è attivo alcuno stato.",
+        "ko": "필드를 파괴하면서 공격한다. 필드가 어떤 상태로든 변해 있지 않은 경우 기술은 실패한다.",
+        "zh-Hant": "一邊破壞場地，一邊進行攻擊。 在不是特殊狀態的場地上使用， 招式就會失敗。",
+        "zh-Hans": "在破坏场地的同时攻击对手。 如果脚下没有任何场地状态存在， 使出此招式时便会失败。"
+    }
 }

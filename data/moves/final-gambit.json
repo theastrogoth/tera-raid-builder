@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user risks everything to attack the target. The user faints but inflicts damage equal to its own HP.",
+        "ja": "命懸けで　相手を　攻撃する。 自分は　ひんしに　なるが　相手に ＨＰ分の　ダメージを　与える。",
+        "fr": "Une attaque très risquée. Le lanceur perd tous ses PV restants et inflige autant de dégâts à la cible.",
+        "es": "El usuario se sacrifica causándole un daño al objetivo equivalente a sus propios PS perdidos.",
+        "de": "Ein Angriff, der dem Ziel Schaden in Höhe der aktuellen KP des Anwenders zufügt. Letzterer wird dadurch selbst besiegt.",
+        "it": "Il Pokémon attacca rischiando il tutto per tutto. Va KO, ma infligge al bersaglio un danno pari ai PS che ha perso.",
+        "ko": "목숨을 걸고 상대를 공격한다. 자신은 기절하게 되지만 상대에게 HP만큼의 데미지를 준다.",
+        "zh-Hant": "捨身攻擊對手。 雖然自己會陷入瀕死，但能夠給予對手 和自己現有ＨＰ相同的傷害。",
+        "zh-Hans": "拼命攻击对手。 虽然自己陷入昏厥，但会给予对手 和自己目前ＨＰ等量的伤害。"
+    }
 }

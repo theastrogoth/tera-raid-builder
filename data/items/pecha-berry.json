@@ -1,0 +1,14 @@
+{
+    "name": "Pecha Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to lift the effects of being poisoned from itself.",
+        "ja": "ポケモンに　持たせると 毒を　回復する。 ",
+        "fr": "Une Baie qui soigne l'empoisonnement lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para curarse del envenenamiento.",
+        "de": "Als getragenes Item heilt diese Beere das Pokémon von Vergiftung.",
+        "it": "Se un Pokémon ha questa bacca, guarisce dall'avvelenamento.",
+        "ko": "포켓몬에게 지니게 하면 독을 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以治癒中毒。",
+        "zh-Hans": "让宝可梦携带后， 可以治愈中毒。"
+    }
+}

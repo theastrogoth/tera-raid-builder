@@ -1,0 +1,14 @@
+{
+    "name": "Fresh-Start Mochi",
+    "flavorText": {
+        "en": "A mochi cake with Berries kneaded into its dough. It causes a Pokémon to lose all its base points.",
+        "ja": "きのみが　ねりこまれた　もち。 ポケモンの　基礎ポイントが すべて　なくなってしまう。",
+        "fr": "Un mochi contenant des Baies qui réinitialise tous les points de base d'un Pokémon.",
+        "es": "La masa de este mochi está preparada con bayas. Restablece todos los puntos de base de un Pokémon.",
+        "de": "Ein mit Beeren gefüllter Mochi, der alle Basispunkte eines Pokémon zurücksetzt.",
+        "it": "Mochi preparato con un impasto a base di bacche. Azzera tutti i punti base.",
+        "ko": "으깬 나무열매가 들어 있는 떡. 포켓몬의 기초 포인트가 모두 사라지게 된다.",
+        "zh-Hant": "加入樹果揉製而成的麻糬。 能讓寶可夢的基礎點數 全部消失。",
+        "zh-Hans": "糅合树果的粘糕。 能让宝可梦的基础点数 全部消失。"
+    }
+}

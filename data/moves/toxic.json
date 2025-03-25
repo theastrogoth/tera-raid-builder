@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A move that leaves the target badly poisoned. Its poison damage worsens every turn.",
+        "ja": "相手を　猛毒の　状態に　する。 ターンが　すすむほど 毒の　ダメージが　増えていく。",
+        "fr": "Le lanceur empoisonne gravement la cible. Les dégâts dus au poison augmentent à chaque tour.",
+        "es": "Envenena gravemente al objetivo y causa un daño mayor en cada turno.",
+        "de": "Vergiftet das Ziel mit einem potenten Toxin schwer. Die Vergiftung wird von Runde zu Runde stärker.",
+        "it": "Iperavvelena il bersaglio con una potente tossina. Il danno peggiora a ogni turno.",
+        "ko": "상대를 맹독 상태로 만든다. 턴이 진행될수록 독의 데미지가 증가한다.",
+        "zh-Hant": "讓對手陷入劇毒狀態。 中毒傷害會隨著 回合的進行而增加。",
+        "zh-Hans": "让对手陷入剧毒状态。 随着回合的推进， 中毒伤害会增加。"
+    }
 }

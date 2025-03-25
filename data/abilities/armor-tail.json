@@ -1,0 +1,14 @@
+{
+    "name": "Armor Tail",
+    "flavorText": {
+        "en": "The mysterious tail covering the Pokémon's head makes opponents unable to use priority moves against the Pokémon or its allies.",
+        "ja": "頭を包む　謎のしっぽが こちらに　むかって　先制技を 出せない　ようにする。",
+        "fr": "Une étrange queue recouvre la tête du Pokémon, ce qui empêche ce dernier et ses alliés d'être visés par une capacité prioritaire.",
+        "es": "La extraña cola que le envuelve la cabeza impide al rival usar movimientos con prioridad contra él y sus aliados.",
+        "de": "Der rätselhafte Schweif, der den Kopf des Pokémon umhüllt, hindert Gegner daran, Erstschlag-Attacken gegen die Mitstreiterseite einzusetzen.",
+        "it": "La misteriosa coda che avvolge la testa del Pokémon impedisce agli avversari di usare mosse che hanno priorità alta contro di lui o i suoi alleati.",
+        "ko": "머리를 감싸고 있는 수수께끼의 꼬리가 이쪽을 향한 선제 기술을 사용할 수 없게 한다.",
+        "zh-Hant": "包覆著頭部的神秘尾巴 使對手無法對我方使出先制招式。",
+        "zh-Hans": "包裹头部的神秘尾巴 使对手无法对我方使出先制招式。"
+    }
+}

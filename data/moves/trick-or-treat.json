@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user takes the target trick-or-treating. This adds Ghost type to the target's type.",
+        "ja": "相手を　ハロウィンに　誘う。 相手の　タイプに ゴーストタイプが　追加される。",
+        "fr": "Insuffle à la cible l'esprit d'Halloween, et ajoute le type Spectre à ses types actuels.",
+        "es": "Invita al objetivo a celebrar Halloween, lo que añade el tipo Fantasma a los tipos de este.",
+        "de": "Der Anwender lehrt das Ziel das Fürchten. Dieses nimmt dadurch zusätzlich den Typ Geist an.",
+        "it": "Il Pokémon invita il bersaglio a festeggiare Halloween, facendogli così acquisire anche il tipo Spettro.",
+        "ko": "상대를 핼러윈으로 초대한다. 상대 타입에 고스트타입이 추가된다.",
+        "zh-Hant": "邀請對手參加萬聖夜。 讓對手追加幽靈屬性。",
+        "zh-Hans": "邀请对手参加万圣夜。 使对手被追加幽灵属性。"
+    }
 }

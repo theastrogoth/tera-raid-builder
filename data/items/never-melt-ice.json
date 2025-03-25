@@ -1,0 +1,14 @@
+{
+    "name": "Never-Melt Ice",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a heat-repelling piece of ice that boosts the power of the holder's Ice- type moves.",
+        "ja": "熱を　よせつけない　氷。 持たせると　こおりタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Un morceau de glace qui réfléchit la chaleur et augmente la puissance des capacités de type Glace.",
+        "es": "Fragmento de hielo que repele el calor y potencia los movimientos de tipo Hielo. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein Stück Eis, das Hitze fernhält und Attacken vom Typ Eis verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Pezzo di ghiaccio che respinge il calore e potenzia le mosse di tipo Ghiaccio.",
+        "ko": "열을 가까이하지 않게 하는 얼음. 지니게 하면 얼음타입 기술의 위력이 올라간다.",
+        "zh-Hant": "隔絕熱的冰。 攜帶後，冰屬性的 招式威力就會提高。",
+        "zh-Hans": "能隔绝热量的冰。 携带后，冰属性的 招式威力就会提高。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user bites the target with toxic fangs. This may also leave the target badly poisoned.",
+        "ja": "毒の　ある　キバで 相手に　かみついて　攻撃する。 猛毒を　おわせる　ことが　ある。",
+        "fr": "Le lanceur mord la cible avec ses crocs toxiques, ce qui peut aussi l'empoisonner gravement.",
+        "es": "Mordedura con colmillos venenosos que inflige daño al objetivo y puede envenenarlo gravemente.",
+        "de": "Angriff mit giftigen Reißzähnen. Das Ziel wird eventuell schwer vergiftet.",
+        "it": "Il Pokémon attacca il bersaglio mordendolo con denti avvelenati che possono anche iperavvelenarlo.",
+        "ko": "독이 있는 이빨로 상대를 물어서 공격한다. 맹독을 주입할 때가 있다.",
+        "zh-Hant": "用有毒的牙齒 咬住對手進行攻擊。 有時會讓對手陷入劇毒狀態。",
+        "zh-Hans": "用有毒的牙齿 咬住对手进行攻击。 有时会使对手中剧毒。"
+    }
 }

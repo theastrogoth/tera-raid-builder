@@ -1,0 +1,14 @@
+{
+    "name": "Dire Hit",
+    "flavorText": {
+        "en": "A recipe for crafting Dire Hits from scratch. Required materials: 2 Direshrooms and 1 Candy Truffle.",
+        "ja": "クリティカッターのレシピ。　材料は キュウショウロ×２　スイートトリュフ×１",
+        "fr": "Méthode pour Muscle +. Ressources requises : 2 Champiscotos et 1 Truffe Sucrée.",
+        "es": "Receta para crear Grageas Críticas. Materiales: 2 Setas Críticas y 1 Trufa Dulce.",
+        "de": "Die Anleitung zur Herstellung von Treffervitaminen. Benötigte Materialien: 2 Volltrefferlinge und 1 Süßtrüffel.",
+        "it": "Ricetta per un Supercolpo. Richiede 2 Colpogoni e 1 Tartufo dolce.",
+        "ko": "크리티컬커터의 레시피. 재료: 급소버섯×2 스위트러플×1",
+        "zh-Hant": "要害攻擊的材料單。材料是： 要害松露×２　甜松露×１",
+        "zh-Hans": "要害攻击的材料单。材料是： 要害松露×２　甜松露×１"
+    }
+}

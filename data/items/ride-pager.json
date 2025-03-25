@@ -1,0 +1,14 @@
+{
+    "name": "Ride Pager",
+    "flavorText": {
+        "en": "By entering certain numbers on this pager, you can summon Ride Pokémon in an instant.",
+        "ja": "ナンバーを　うちこむことで 対応した　ライドポケモンを 瞬時に　呼びだす　道具。",
+        "fr": "Un appareil permettant d'appeler une Poké Monture instantanément en tapant le bon numéro.",
+        "es": "Dispositivo dotado de un teclado numérico con el que llamar a diversas Pokémonturas.",
+        "de": "Ein Gerät, mit dem durch die Eingabe einer Nummer das entsprechende Pokémon für PokéMobil gerufen wird.",
+        "it": "Dispositivo che permette di chiamare i Pokémon del Poképassaggio digitando il numero corrispondente.",
+        "ko": "넘버를 입력해서 대응하는 라이드포켓몬을 순식간에 불러내는 도구.",
+        "zh-Hant": "透過輸入編號，瞬間叫出 與編號對應的坐騎寶可夢的道具。",
+        "zh-Hans": "通过输入编号，瞬间召唤 与编号对应的坐骑宝可梦的道具。"
+    }
+}

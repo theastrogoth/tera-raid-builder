@@ -1,0 +1,14 @@
+{
+    "name": "Cursed Body",
+    "flavorText": {
+        "en": "May disable a move that has dealt damage to the Pokémon.",
+        "ja": "攻撃を　受けると　相手の　技を かなしばり状態に することが　ある。",
+        "fr": "Quand le Pokémon est touché par une capacité adverse, il inflige parfois Entrave sur celle-ci.",
+        "es": "Puede anular el movimiento usado en su contra.",
+        "de": "Das Pokémon blockiert gelegentlich die Attacke, mit der ein Angreifer es getroffen hat.",
+        "it": "Quando il Pokémon subisce un attacco, la mossa di chi lo ha attaccato può essere bloccata.",
+        "ko": "공격을 받으면 상대의 기술을 사슬묶기 상태로 만들 때가 있다.",
+        "zh-Hant": "受到攻擊時， 有時會把對手的招式 變為定身法狀態。",
+        "zh-Hans": "受到攻击时， 有时会把对手的招式 变为定身法状态。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is razed by a fiery explosion. The user can't move on the next turn.",
+        "ja": "爆発の　炎で 相手を　焼きつくして　攻撃する。 次の　ターンは　動けなくなる。",
+        "fr": "Une explosion ardente consume la cible. Le lanceur doit se reposer au tour suivant.",
+        "es": "Calcina al objetivo con una explosión de fuego. El usuario deberá descansar en el siguiente turno.",
+        "de": "Das Ziel wird von einer starken Explosion getroffen. Anwender setzt eine Runde aus.",
+        "it": "Il Pokémon attacca incenerendo il bersaglio con le fiamme di una potente esplosione, ma al turno successivo non può muoversi.",
+        "ko": "폭발하는 불꽃으로 상대를 태워서 공격한다. 다음 턴은 움직일 수 없다.",
+        "zh-Hant": "用爆炸的火焰 燒盡對手進行攻擊。 下一回合自己將無法動彈。",
+        "zh-Hans": "用爆炸的火焰 烧尽对手进行攻击。 下一回合自己将无法动弹。"
+    }
 }

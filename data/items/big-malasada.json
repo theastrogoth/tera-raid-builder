@@ -1,0 +1,14 @@
+{
+    "name": "Big Malasada",
+    "flavorText": {
+        "en": "The Alola region's famous fried confection. It can be used to cure any status condition a Pokémon may have.",
+        "ja": "アローラ名物の　あげパン。 ポケモン　１匹の　状態異常を すべて　回復する。",
+        "fr": "Une spécialité d'Alola. Soigne toutes les altérations de statut d'un Pokémon.",
+        "es": "Fritura típica de Alola que cura todos los problemas de estado de un Pokémon.",
+        "de": "Dieses Gebäck ist eine Spezialität aus Alola. Es behebt alle Statusprobleme eines Pokémon.",
+        "it": "Frittella tipica di Alola. Cura tutti i problemi di stato di un Pokémon.",
+        "ko": "알로라의 명물인 튀긴 빵. 포켓몬 1마리의 상태 이상을 모두 회복한다.",
+        "zh-Hant": "阿羅拉特產的油炸麵包。 能治癒１隻寶可夢的 所有異常狀態。",
+        "zh-Hans": "阿罗拉特产的油炸面包。 能治愈１只宝可梦的 所有异常状态。"
+    }
+}

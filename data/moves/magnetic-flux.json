@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user manipulates magnetic fields, which boosts the Defense and Sp. Def stats of ally Pokémon with the Plus Ability or the Minus Ability.",
+        "ja": "磁場を　操作　することによって 特性　プラスと　マイナスの 防御　特防が　あがる。",
+        "fr": "Manipule les champs magnétiques pour augmenter la Défense et la Défense Spéciale des Pokémon alliés dotés du talent Plus ou du talent Moins.",
+        "es": "Manipula el campo magnético y logra aumentar la Defensa y la Defensa Especial de los Pokémon aliados que cuenten con las habilidades Más o Menos.",
+        "de": "Das Magnetfeld wird so manipuliert, dass Spezial- Verteidigung und Verteidigung von Team-Pokémon mit der Fähigkeit Plus oder Minus steigen.",
+        "it": "Tramite il controllo dei campi magnetici, chi la usa aumenta la Difesa e la Difesa Speciale dei Pokémon dotati delle abilità Più o Meno.",
+        "ko": "자기장 조작으로 인해 특성이 플러스 또는 마이너스인 포켓몬의 방어, 특수방어가 올라간다.",
+        "zh-Hant": "操控磁場， 提高特性是正電和負電的 寶可夢的防禦和特防。",
+        "zh-Hans": "通过操控磁场， 会提高特性为正电和负电的 宝可梦的防御和特防。"
+    }
 }

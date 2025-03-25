@@ -1,0 +1,14 @@
+{
+    "name": "Fairy Gem",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This gem is imbued with the essence of fairies and will boost the power of a Fairy-type move—but only once.",
+        "ja": "フェアリーの　タイプの　ジュエル。 持たせると　１度だけ　フェアリーの 技の　威力が　強まる。",
+        "fr": "Objet à tenir. Un joyau augmentant une fois la puissance des capacités de type Fée.",
+        "es": "Joya de un solo uso que potencia un movimiento de tipo Hada. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Dieses Juwel verstärkt einmalig Attacken vom Typ Fee.",
+        "it": "Strumento da dare a un Pokémon. Gioiello che potenzia una sola volta le mosse di tipo Folletto.",
+        "ko": "페어리타입의 주얼. 지니게 하면 한 번만 페어리 기술의 위력이 강해진다.",
+        "zh-Hant": "妖精屬性的寶石。 攜帶後，妖精屬性的 招式威力會僅增強１次。",
+        "zh-Hans": "妖精属性的宝石。 携带后，妖精属性的 招式威力会仅增强１次。"
+    }
+}

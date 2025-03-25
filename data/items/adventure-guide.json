@@ -1,0 +1,14 @@
+{
+    "name": "Adventure Guide",
+    "flavorText": {
+        "en": "A mysterious and convenient notebook that contains all the advice a Trainer receives out on an adventure.",
+        "ja": "トレーナーが　旅を　するときの アドバイスが　まとめられていく 不思議で　便利な　手帳。",
+        "fr": "Un mystérieux carnet très utile dans lequel sont notés les conseils qu'un Dresseur ou une Dresseuse reçoit au cours de ses aventures.",
+        "es": "Una extraña y práctica libreta usada para compilar consejos y pistas útiles para la aventura de todo Entrenador.",
+        "de": "Ein mysteriöses und praktisches Notizbuch, in welchem nützliche Informationen zu allen Themen, die für einen Trainer auf Reisen von Belang sind, verzeichnet werden.",
+        "it": "Utile ma misterioso taccuino che raccoglie consigli per gli Allenatori in viaggio.",
+        "ko": "트레이너가 여행할 때 필요한 어드바이스가 정리되는 신기하고도 편리한 수첩.",
+        "zh-Hant": "一種神奇的好用手冊。 會整合訓練家在旅途中 需要的各種建議。",
+        "zh-Hans": "一种神奇便利的手册。 会汇总训练家在旅行时 所需要的各种建议。"
+    }
+}

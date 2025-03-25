@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user launches razor-like wind to slash opposing Pokémon. This move has a heightened chance of landing a critical hit.",
+        "ja": "鋭い　風で 相手を　切りつけて　攻撃する。 急所に　当たりやすい。",
+        "fr": "Le lanceur appelle des vents tranchants qui lacèrent la cible. Taux de critiques élevé.",
+        "es": "Viento cortante que azota. Suele asestar un golpe crítico.",
+        "de": "Greift gegnerische Pokémon mit rasierklingenartigem Wind an. Hohe Volltrefferquote.",
+        "it": "Il Pokémon provoca un vento tagliente che sferza il bersaglio. Probabile brutto colpo.",
+        "ko": "날카로운 바람으로 상대를 베어 공격한다. 급소에 맞기 쉽다.",
+        "zh-Hant": "用鋒利的風刃 斬切對手進行攻擊。 容易擊中要害。",
+        "zh-Hans": "用锐利的风 切斩对手进行攻击。 容易击中要害。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user scatters a cloud of soporific dust that puts the target to sleep.",
+        "ja": "眠くなる　粉を たくさん　ふりまいて 相手を　眠り状態に　する。",
+        "fr": "Le lanceur répand une poudre soporifique qui endort la cible.",
+        "es": "Esparce polvo que duerme al objetivo.",
+        "de": "Verstreut Schlafpuder, der das Ziel in Schlaf versetzt.",
+        "it": "Investe il bersaglio con una grande nuvola di polvere soporifera che lo fa addormentare.",
+        "ko": "잠이 오는 가루를 많이 흩뿌려서 상대를 잠듦 상태로 만든다.",
+        "zh-Hant": "撒出大量令人想睡的粉末， 讓對手陷入睡眠狀態。",
+        "zh-Hans": "撒出催眠粉， 从而让对手陷入睡眠状态。"
+    }
 }

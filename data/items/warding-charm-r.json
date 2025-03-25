@@ -1,0 +1,14 @@
+{
+    "name": "Warding Charm R",
+    "flavorText": {
+        "en": "A mysterious charm that holds the power to protect a person from being afflicted with status conditions. This type of charm comes in five different colors.",
+        "ja": "状態異常を回避する 効果を秘めた不思議なおまもり。 色が５種類あるうちのひとつ。",
+        "fr": "Cette mystérieuse amulette renferme un pouvoir qui permet d'éviter les altérations de statut. Elle existe en cinq couleurs différentes.",
+        "es": "Amuleto imbuido de un extraño y misterioso poder que otorga protección contra los problemas de estado. Este es uno de los cinco colores que existen.",
+        "de": "Ein mysteriöser Talisman, der dich vor Statusproblemen schützt. Dies ist eine von fünf Farbvarianten.",
+        "it": "Misterioso amuleto che garantisce protezione contro i problemi di stato. Ne esistono di cinque colori differenti.",
+        "ko": "상태 이상을 회피하는 효과가 담긴 신비한 부적. 색이 다른 5종류 중 하나.",
+        "zh-Hant": "不可思議的護符。 有著避免陷入異常狀態的效果。 是５種顏色的護符中的一種。",
+        "zh-Hans": "不可思议的护符。 有着避免陷入异常状态的效果。 是５种颜色的护符中的一种。"
+    }
+}

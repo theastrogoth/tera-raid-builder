@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks opposing Pokémon by twanging a guitar or bass guitar, causing a huge echo and strong vibration.",
+        "ja": "ギターや　ベースを　かきならして 激しく　響く　大きな　振動を 相手に　与えて　攻撃する。",
+        "fr": "Le lanceur gratte ses cordes de guitare ou de basse pour créer de violentes vibrations sonores qui blessent la cible.",
+        "es": "El usuario rasguea la guitarra o el bajo para generar enormes vibraciones de intensa reverberación con las que ataca al objetivo.",
+        "de": "Der Anwender haut in die Saiten seiner Gitarre oder seines Basses und erzeugt dröhnende, kraftvolle Vibrationen, die gegnerischen Pokémon schaden.",
+        "it": "Il Pokémon suona la chitarra o il basso creando un'onda sonora potentissima con cui attacca il bersaglio.",
+        "ko": "기타나 베이스를 쳐서 큰 울림과 강한 진동을 상대에게 전달하여 공격한다.",
+        "zh-Hant": "彈奏吉他和貝斯， 用發出巨響的激烈震動 攻擊對手。",
+        "zh-Hans": "奏响吉他和贝斯，释放出 发出巨响的剧烈震动 攻击对手。"
+    }
 }

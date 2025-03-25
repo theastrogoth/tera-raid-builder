@@ -1,0 +1,14 @@
+{
+    "name": "Wonder Guard",
+    "flavorText": {
+        "en": "Its mysterious power only lets supereffective moves hit the Pokémon.",
+        "ja": "効果バツグンの　技しか 当たらない　不思議な　力。",
+        "fr": "Une puissance mystérieuse protège le Pokémon contre toutes les capacités, sauf celles qui sont super efficaces.",
+        "es": "Gracias a un poder misterioso, solo le hacen daño los movimientos supereficaces.",
+        "de": "Wundersame Kräfte bewirken, dass das Pokémon nur von sehr effektiven Attacken getroffen werden kann.",
+        "it": "Un potere misterioso protegge il Pokémon e lo rende vulnerabile solo alle mosse superefficaci.",
+        "ko": "효과가 굉장한 기술만 맞는 불가사의한 힘.",
+        "zh-Hant": "不可思議的力量， 只有效果絕佳的招式才會擊中自己。",
+        "zh-Hans": "不可思议的力量， 只有效果绝佳的招式才能击中。"
+    }
+}

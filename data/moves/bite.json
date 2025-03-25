@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is bitten with viciously sharp fangs. This may also make the target flinch.",
+        "ja": "鋭く　とがった　歯で かみついて　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur utilise ses canines tranchantes pour mordre la cible, ce qui peut aussi l'apeurer.",
+        "es": "Un voraz bocado con dientes afilados que puede amedrentar al objetivo.",
+        "de": "Beißt zu und lässt das Ziel eventuell zurückschrecken.",
+        "it": "Il bersaglio viene morso da denti affilatissimi che possono farlo tentennare.",
+        "ko": "날카롭고 뾰족한 이빨로 물어서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "用尖銳的牙齒 咬住對手進行攻擊。 有時會使對手畏縮。",
+        "zh-Hans": "用尖锐的牙 咬住对手进行攻击。 有时会使对手畏缩。"
+    }
 }

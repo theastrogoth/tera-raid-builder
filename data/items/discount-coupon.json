@@ -1,0 +1,14 @@
+{
+    "name": "Discount Coupon",
+    "flavorText": {
+        "en": "This special coupon allows you to buy items at a discount when you are shopping at a boutique.",
+        "ja": "ブティックで　アイテムを　買うとき いつもより　安くなる　チケット。 ",
+        "fr": "Un ticket donnant droit à une réduction dans les boutiques de vêtements.",
+        "es": "Este vale otorga jugosos descuentos al ir de compras a una boutique.",
+        "de": "Ein Coupon, mit dem du in Boutiquen günstiger einkaufen kannst.",
+        "it": "Buono che permette di avere uno sconto sugli acquisti nei negozi di abbigliamento.",
+        "ko": "부티크에서 아이템을 살 때 평소보다 저렴해지는 티켓.",
+        "zh-Hant": "在時裝店買物品時， 能以比平時更低的 價格購買的券。",
+        "zh-Hans": "在时装店买道具时， 能以比平时更低的 价格购买的券。"
+    }
+}

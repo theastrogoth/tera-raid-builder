@@ -1,0 +1,14 @@
+{
+    "name": "Well-Baked Body",
+    "flavorText": {
+        "en": "The Pokémon takes no damage when hit by Fire-type moves. Instead, its Defense stat is sharply boosted.",
+        "ja": "ほのおタイプの　技を　受けると ダメージを　受けずに 防御が　ぐーんと　上がる。",
+        "fr": "Si le Pokémon est touché par une capacité de type Feu, il ne subit aucun dégât et sa Défense augmente beaucoup.",
+        "es": "Si lo alcanza un movimiento de tipo Fuego, aumenta mucho su Defensa en vez de sufrir daño.",
+        "de": "Wird das Pokémon von einer Feuer-Attacke getroffen, erleidet es keinen Schaden. Stattdessen steigt seine Verteidigung stark.",
+        "it": "Se il Pokémon viene colpito da una mossa di tipo Fuoco, la neutralizza e aumenta di molto la propria Difesa.",
+        "ko": "불꽃타입 기술로 공격받으면 데미지를 받지 않고 방어가 크게 올라간다.",
+        "zh-Hant": "受到火屬性的招式攻擊時， 不但不會受到傷害，反而防禦會大幅提高。",
+        "zh-Hans": "受到火属性的招式攻击时， 不会受到伤害，而是会大幅提高防御。"
+    }
+}

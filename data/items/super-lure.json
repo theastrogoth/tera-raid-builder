@@ -1,0 +1,14 @@
+{
+    "name": "Super Lure",
+    "flavorText": {
+        "en": "A bottle of perfume that makes rare Pokémon more likely to appear when sprayed about. Its effect lasts longer than that of a Lure.",
+        "ja": "使うと　珍しい　ポケモンが 出てきやすくなる　香水。 むしよせコロンより　長く　もつ。",
+        "fr": "Une substance qui fait apparaître les Pokémon rares plus facilement pendant une durée plus longue que le Parfum.",
+        "es": "Colonia que atrae a los Pokémon raros y cuyo efecto es algo más duradero que el de la Colonia.",
+        "de": "Ein Parfüm, das für kurze Zeit vermehrt seltene Pokémon erscheinen lässt. Wirkt länger als das Item Lockparfüm.",
+        "it": "Profumo che attira Pokémon rari. Il suo effetto dura più a lungo di quello del Profumo invito.",
+        "ko": "사용하면 희귀한 포켓몬이 나오기 쉬워지는 향수. 벌레유인코롱보다 효과가 오래간다.",
+        "zh-Hant": "使用後，讓稀有寶可夢 變得容易出現的香水。 效果比引蟲香水更持久。",
+        "zh-Hans": "使用该香水后， 稀有宝可梦会更容易出现。 效果比引虫香水更持久。"
+    }
+}

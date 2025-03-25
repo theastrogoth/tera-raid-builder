@@ -1,0 +1,14 @@
+{
+    "name": "Snow Warning",
+    "flavorText": {
+        "en": "The Pokémon makes it snow when it enters a battle.",
+        "ja": "登場　したときに 天気を　ゆきに　する。",
+        "fr": "Le Pokémon invoque la neige quand il entre au combat.",
+        "es": "Invoca una nevada al entrar en combate.",
+        "de": "Das Pokémon erzeugt bei Kampfantritt Schnee.",
+        "it": "Quando il Pokémon entra in campo, provoca una nevicata.",
+        "ko": "등장했을 때 날씨를 눈으로 만든다.",
+        "zh-Hant": "出場時， 會將天氣變為下雪。",
+        "zh-Hans": "出场时， 会将天气变为下雪。"
+    }
+}

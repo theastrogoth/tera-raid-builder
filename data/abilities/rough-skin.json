@@ -1,0 +1,14 @@
+{
+    "name": "Rough Skin",
+    "flavorText": {
+        "en": "The Pokémon's rough skin damages attackers that make direct contact with it.",
+        "ja": "攻撃を　受けたとき 自分に　触れた　相手を ざらざらの　肌で　キズつける。",
+        "fr": "Blesse l'attaquant lorsque le Pokémon subit une attaque directe.",
+        "es": "Hiere con su piel áspera al Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Angreifer werden bei Berührung durch die raue Haut des Pokémon verletzt.",
+        "it": "Quando il Pokémon subisce un attacco, grazie alla sua pelle ruvida infligge a sua volta danni al Pokémon con cui è entrato in contatto.",
+        "ko": "공격을 받았을 때 자신에게 접촉한 상대를 까칠까칠한 피부로 상처를 입힌다.",
+        "zh-Hant": "受到攻擊時， 用粗糙的皮膚弄傷 接觸到自己的對手。",
+        "zh-Hans": "受到攻击时， 用粗糙的皮肤弄伤 接触到自己的对手。"
+    }
+}

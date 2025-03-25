@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Cloaking itself in powerful energy, the user slams into the target to inflict damage. This move's type changes depending on the kind of memory disc held by the user.",
+        "ja": "高い　エネルギーを　まといつつ 相手に　ぶつかって　攻撃する。 メモリに　より　タイプが　変わる。",
+        "fr": "Le Pokémon s'entoure d'une puissante énergie avant de foncer sur sa cible. Le type de la capacité dépend de la ROM installée.",
+        "es": "El Pokémon se rodea de una potente energía con la que golpea al objetivo. El tipo del movimiento depende del disco que lleva el usuario.",
+        "de": "Der Anwender sammelt eine große Menge Energie und greift das Ziel damit an. Der Typ der Attacke hängt von dem der Disc ab.",
+        "it": "Il Pokémon si avvolge in un potente campo energetico e attacca scontrandosi contro il bersaglio. Il tipo della mossa varia in base alla ROM installata.",
+        "ko": "높은 에너지를 둘러싸 상대에게 부딪쳐 공격한다. 메모리에 따라 타입이 바뀐다.",
+        "zh-Hant": "讓強大能量圍繞全身， 撞向對手進行攻擊。 招式屬性會隨著記憶碟而改變。",
+        "zh-Hans": "一边覆盖高能量， 一边撞向对手进行攻击。 根据存储碟不同，属性会改变。"
+    }
 }

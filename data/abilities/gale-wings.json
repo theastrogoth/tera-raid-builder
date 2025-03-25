@@ -1,0 +1,14 @@
+{
+    "name": "Gale Wings",
+    "flavorText": {
+        "en": "Gives priority to the Pokémon's Flying-type moves while its HP is full.",
+        "ja": "ＨＰが　満タン　だと ひこうタイプの　技を 先制で　出すことが　できる。",
+        "fr": "Quand les PV du Pokémon sont au maximum, ses capacités de type Vol sont prioritaires.",
+        "es": "Da prioridad a los movimientos de tipo Volador si sus PS están al máximo.",
+        "de": "Die Fähigkeit ermöglicht dem Pokémon bei vollen KP einen Erstschlag mit Flug-Attacken.",
+        "it": "Se il Pokémon ha tutti i PS, le sue mosse di tipo Volante acquistano priorità alta.",
+        "ko": "HP가 꽉 찼을 때 비행타입의 기술을 먼저 쓸 수 있다.",
+        "zh-Hant": "ＨＰ全滿時， 可以搶先在對手之前 使出飛行屬性的招式。",
+        "zh-Hans": "ＨＰ全满时， 飞行属性的招式可以率先使出。"
+    }
+}

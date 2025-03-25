@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is infested and attacked for four to five turns. The target can't flee during this time.",
+        "ja": "４ー５ターンの　間　相手に まとわりついて　攻撃する。 そのあいだ　相手は　逃げられない。",
+        "fr": "Cette attaque perdure pendant quatre à cinq tours. La cible ne peut pas quitter le terrain pendant cette période.",
+        "es": "Hostiga al objetivo durante cuatro o cinco turnos e impide que pueda huir o ser cambiado por otro mientras tanto.",
+        "de": "Der Anwender fällt vier bis fünf Runden lang wie eine Plage über das Ziel her und greift es an. Dabei wird es an der Flucht beziehungsweise am Auswechseln gehindert.",
+        "it": "Il Pokémon attacca il bersaglio tormentandolo per quattro o cinque turni, durante i quali gli impedisce di lasciare il campo.",
+        "ko": "4~5턴 동안 상대에게 엉겨 붙어서 공격한다. 그동안 상대는 도망갈 수 없다.",
+        "zh-Hant": "在４～５回合內 死纏爛打地進行攻擊。 在此期間對手將無法逃走。",
+        "zh-Hans": "在４～５回合内 死缠烂打地进行攻击。 在此期间对手将无法逃走。"
+    }
 }

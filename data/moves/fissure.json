@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user opens up a fissure in the ground and drops the target in. The target faints instantly if this attack hits.",
+        "ja": "地割れの　裂け目に 相手を　落として　攻撃する。 当たれば　一撃で　ひんしに　する。",
+        "fr": "Le lanceur fait tomber la cible dans une crevasse. Si cette attaque réussit, elle met K.O. sur le coup.",
+        "es": "Abre una grieta en el suelo y mete al objetivo en ella. Fulmina al objetivo de un solo golpe si acierta.",
+        "de": "Das Ziel wird in eine Erdspalte geworfen. Ist die Attacke erfolgreich, führt sie zu einem K.O.",
+        "it": "Il Pokémon attacca il bersaglio gettandolo in una spaccatura nel terreno. Se la mossa va a segno, il Pokémon colpito va KO.",
+        "ko": "땅이 갈라진 곳에 상대를 떨어뜨려 공격한다. 맞으면 일격에 기절한다.",
+        "zh-Hant": "讓對手掉進地面的 裂縫中進行攻擊。 只要命中就會一擊瀕死。",
+        "zh-Hans": "让对手掉落于地裂的 裂缝中进行攻击。 只要命中就会一击昏厥。"
+    }
 }

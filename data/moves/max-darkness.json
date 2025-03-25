@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This is a Dark-type attack Dynamax Pokémon use. This lowers the target's Sp. Def stat.",
+        "ja": "ダイマックスした　ポケモンが 繰りだす　あくタイプの　攻撃。 相手の　特防を　下げる。",
+        "fr": "Une attaque de type Ténèbres que seuls les Pokémon Dynamax peuvent utiliser. Baisse la Défense Spéciale de la cible.",
+        "es": "Ataque de tipo Siniestro ejecutado por un Pokémon Dinamax. Reduce la Defensa Especial del objetivo.",
+        "de": "Eine Unlicht-Attacke, die nur Dynamax-Pokémon einsetzen können. Senkt die Spezial-Verteidigung der Gegnerseite.",
+        "it": "Un attacco di tipo Buio che può essere eseguito dai Pokémon dynamaxizzati. Riduce la Difesa Speciale degli avversari.",
+        "ko": "다이맥스한 포켓몬이 날리는 악타입의 공격. 상대의 특수방어를 떨어뜨린다.",
+        "zh-Hant": "極巨化寶可夢 所使出的惡屬性攻擊。 可降低對手的特防。",
+        "zh-Hans": "极巨化宝可梦使出的恶属性攻击。 会降低对手的特防。"
+    }
 }

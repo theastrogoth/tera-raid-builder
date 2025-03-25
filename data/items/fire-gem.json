@@ -1,0 +1,14 @@
+{
+    "name": "Fire Gem",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This gem is imbued with the essence of fire and will boost the power of a Fire-type move—but only once.",
+        "ja": "ほのおのタイプの　ジュエル。 持たせると　１度だけ　ほのおの 技の威力が　強まる。",
+        "fr": "Objet à tenir. Un joyau augmentant une fois la puissance des capacités de type Feu.",
+        "es": "Joya de un solo uso que potencia un movimiento de tipo Fuego. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Dieses Juwel verstärkt einmalig eine Attacke vom Typ Feuer.",
+        "it": "Strumento da dare a un Pokémon. Gioiello che potenzia una sola volta le mosse di tipo Fuoco.",
+        "ko": "불꽃타입의 주얼. 지니게 하면 한 번만 불꽃 기술의 위력이 강해진다.",
+        "zh-Hant": "火屬性的寶石。 攜帶後，火屬性招式的 威力會僅增強１次。",
+        "zh-Hans": "火属性的宝石。 携带后，火属性的 招式威力仅会增强１次。"
+    }
+}

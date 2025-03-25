@@ -35,5 +35,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A horrible sound like scraping metal harshly lowers the target's Sp. Def stat.",
+        "ja": "金属を　こすって　でるような いやな　音を　聞かせる。 相手の　特防を　がくっと　さげる。",
+        "fr": "Un cri horrible tel un crissement métallique qui réduit beaucoup la Défense Spéciale de la cible.",
+        "es": "Horrible chirrido metálico que reduce mucho la Defensa Especial del objetivo.",
+        "de": "Stößt einen spitzen Schrei aus, der die Spezial-Verteidigung des Zieles stark senkt.",
+        "it": "Orribile stridio, simile a quello prodotto sfregando il metallo, che riduce di molto la Difesa Speciale del bersaglio.",
+        "ko": "금속을 긁을 때 나는 듯한 싫은 소리를 들려준다. 상대의 특수방어를 크게 떨어뜨린다.",
+        "zh-Hant": "讓對手聽如同金屬摩擦般 的刺耳聲。 大幅降低對手的特防。",
+        "zh-Hans": "让对手听摩擦金属般 讨厌的声音。 大幅降低对手的特防。"
+    }
 }

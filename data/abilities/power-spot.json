@@ -1,0 +1,14 @@
+{
+    "name": "Power Spot",
+    "flavorText": {
+        "en": "Just being next to the Pokémon powers up moves.",
+        "ja": "隣に　いるだけで 技の　威力が　上がる。",
+        "fr": "Augmente la puissance des capacités des Pokémon qui se trouvent à proximité.",
+        "es": "Potencia los movimientos de los Pokémon adyacentes.",
+        "de": "Das Pokémon erhöht bei direkt benachbarten Pokémon die Stärke von Attacken.",
+        "it": "Potenzia le mosse di chi si trova nelle immediate vicinanze.",
+        "ko": "옆에 있기만 해도 기술의 위력이 올라간다.",
+        "zh-Hant": "只要站在旁邊， 招式的威力就會提高。",
+        "zh-Hans": "只要处在相邻位置， 招式的威力就会提高。"
+    }
+}

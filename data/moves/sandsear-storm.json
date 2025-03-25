@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user attacks by wrapping opposing Pokémon in fierce winds and searingly hot sand. This may also leave them with a burn.",
+        "ja": "熱く焼けた砂と　強烈な風で 包みこんで　攻撃する。 相手を　やけど状態に　することがある。",
+        "fr": "Le lanceur déclenche un violent typhon mêlé à du sable ardent qui s'abat sur la cible, ce qui peut la brûler.",
+        "es": "Ataca al objetivo envolviéndolo en unas arenas tórridas y un fuerte vendaval que pueden causar quemaduras.",
+        "de": "Der Anwender greift gegnerische Pokémon an, indem er sie mit heftigen Windböen und brennend heißem Sand umgibt. Eventuell erleiden sie Verbrennungen.",
+        "it": "Il Pokémon attacca il bersaglio avvolgendolo con sabbia ardente e un vento fortissimo che possono scottarlo.",
+        "ko": "뜨겁게 달궈진 모래와 강렬한 바람으로 상대를 둘러싸서 공격한다. 상대를 화상 상태로 만들 때가 있다.",
+        "zh-Hant": "用灼熱的沙子和強烈的風 席捲對手進行攻擊。 有時會讓對手陷入灼傷狀態。",
+        "zh-Hans": "用灼热的沙子和强烈的风 席卷对手进行攻击。 有时会让对手陷入灼伤状态。"
+    }
 }

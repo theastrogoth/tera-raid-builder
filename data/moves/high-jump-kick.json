@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is attacked with a knee kick from a jump. If this move misses, the user takes damage instead.",
+        "ja": "ジャンプからの　ひざげりで 相手を　攻撃する。 はずすと　自分が　ダメージを　受ける。",
+        "fr": "Le lanceur s'élance pour effectuer un coup de genou sauté. S'il échoue, le lanceur se blesse.",
+        "es": "El usuario salta muy alto y propina un rodillazo al objetivo. Si falla, se hiere a sí mismo.",
+        "de": "Sprungtritt mit Knie. Bei Misserfolg verletzt sich der Anwender selbst.",
+        "it": "Il Pokémon attacca il bersaglio con una ginocchiata in volo. Se la mossa fallisce, il Pokémon subisce dei danni.",
+        "ko": "점프해서 무릎차기로 상대를 공격한다. 빗나가면 자신이 데미지를 입는다.",
+        "zh-Hant": "跳起後用膝蓋踢擊對手。 沒踢中對手時自己會受到傷害。",
+        "zh-Hans": "跳起后用膝盖撞对手进行攻击。 如果撞偏则自己会受到伤害。"
+    }
 }

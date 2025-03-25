@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by throwing steel gears at the target twice in a row.",
+        "ja": "鋼鉄の　ギアを　相手に 投げつけて　攻撃する。 ２回連続で　ダメージを　与える。",
+        "fr": "Le lanceur jette deux écrous d'acier qui frappent la cible deux fois d'affilée.",
+        "es": "Arroja dos engranajes de hierro sobre el objetivo. Golpea dos veces seguidas.",
+        "de": "Anwender greift an, indem er stählerne Zahnräder auf das Ziel schleudert. Angriff erfolgt zweimal hintereinander.",
+        "it": "Il Pokémon attacca il bersaglio due volte di fila lanciandogli contro degli ingranaggi d'acciaio.",
+        "ko": "강철의 기어를 상대에게 던져서 공격한다. 2회 연속으로 데미지를 준다.",
+        "zh-Hant": "向對手投擲 鋼鐵齒輪進行攻擊。 連續２次給予傷害。",
+        "zh-Hans": "向对手投掷 钢铁齿轮进行攻击。 连续２次给予伤害。"
+    }
 }

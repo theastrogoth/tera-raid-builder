@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by struggling against opposing Pokémon. This also lowers their Sp. Atk stats.",
+        "ja": "抵抗して　相手を　攻撃する。 相手の　特攻を　さげる。",
+        "fr": "Le lanceur frappe en se débattant de toutes ses forces, et baisse l'Attaque Spéciale de la cible.",
+        "es": "El usuario opone resistencia y ataca al objetivo. También reduce su Ataque Especial.",
+        "de": "Anwender leistet Widerstand und greift an. Der Spezial-Angriff der gegnerischen Pokémon sinkt.",
+        "it": "Il Pokémon attacca il bersaglio opponendo resistenza e riducendone l'Attacco Speciale.",
+        "ko": "저항해서 상대를 공격한다. 상대의 특수공격을 떨어뜨린다.",
+        "zh-Hant": "抵抗對手進行攻擊。 可降低對手的特攻。",
+        "zh-Hans": "抵抗并攻击对手。 会降低对手的特攻。"
+    }
 }

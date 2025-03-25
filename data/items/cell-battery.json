@@ -1,0 +1,14 @@
+{
+    "name": "Cell Battery",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This single-use battery boosts the Attack stat if the holder is damaged by an Electric-type attack.",
+        "ja": "使い捨ての　じゅうでんち。 持たせて　でんきの技の　ダメージを 受けると　攻撃が　あがる。",
+        "fr": "Objet à tenir. Une pile jetable qui augmente l'Attaque du porteur lorsqu'il subit des dégâts à cause d'une capacité de type Électrik.",
+        "es": "Pila que aumenta el Ataque del portador si lo alcanza un ataque de tipo Eléctrico. Es de un solo uso.",
+        "de": "Nimmt der Träger dieses Akkus durch eine Elektro-Attacke Schaden, steigt sein Angriff und das Item verschwindet.",
+        "it": "Pila monouso. Se il Pokémon che ha questo strumento subisce danni da una mossa di tipo Elettro, il suo Attacco aumenta.",
+        "ko": "단 한 번 쓰면 없어지는 충전지. 지니게 하고 전기 기술에 데미지를 받으면 공격이 올라간다.",
+        "zh-Hant": "只能使用一次的充電電池。 攜帶它的寶可夢如果受到電屬性 招式的傷害，攻擊就會提高。",
+        "zh-Hans": "一次性使用的充电电池。 携带它的宝可梦如果受到电属性 招式的伤害，攻击就会提高。"
+    }
+}

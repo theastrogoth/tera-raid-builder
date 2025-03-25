@@ -1,0 +1,14 @@
+{
+    "name": "Leftovers",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. The holder's HP is slowly but steadily restored throughout a battle.",
+        "ja": "持たせると　ポケモンの　ＨＰが 戦闘のあいだ　少しずつ　回復する。",
+        "fr": "Objet à tenir. Permet de restaurer graduellement les PV du porteur durant le combat.",
+        "es": "Este objeto restaura gradualmente durante el combate los PS del Pokémon que lo lleva.",
+        "de": "Ein Item zum Tragen. Es füllt im Kampf stetig KP auf.",
+        "it": "Strumento da dare a un Pokémon. Fa recuperare gradualmente i PS durante la lotta.",
+        "ko": "지니게 하면 포켓몬의 HP가 배틀을 하는 동안 조금씩 회복된다.",
+        "zh-Hant": "攜帶後，寶可夢的ＨＰ 會在戰鬥期間緩緩回復。",
+        "zh-Hans": "携带后，宝可梦的ＨＰ 会在战斗期间缓缓回复。"
+    }
+}

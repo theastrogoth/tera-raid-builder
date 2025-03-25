@@ -1,0 +1,14 @@
+{
+    "name": "Jalapeño",
+    "flavorText": {
+        "en": "A very spicy ingredient—so spicy as to leave no room for ambivalence about it. You either like it or you don't.",
+        "ja": "辛味が　強い　食材。 辛味が　非常に　強いので　好き嫌いが はっきり　分かれる　食材なのだ。",
+        "fr": "Un ingrédient au goût très épicé. Son goût est tellement relevé qu'il est très clivant : soit on l'aime, soit on le déteste.",
+        "es": "Un ingrediente con un sabor muy picante, por lo que normalmente o se ama o se odia.",
+        "de": "Eine sehr scharfe Zutat. An ihrem außerordentlich hohen Schärfegrad scheiden sich die Geister.",
+        "it": "Un ingrediente molto piccante. La sua piccantezza estrema si ama o si odia senza mezze misure.",
+        "ko": "매운맛이 강한 식재료. 매운맛이 매우 강해서 호불호가 확실하게 갈리는 식재료다.",
+        "zh-Hant": "辣味強勁的食材。 由於辣味非常強烈， 所以人們對其的好惡相當分明。",
+        "zh-Hans": "辣味强烈的食材。 由于辣味非常之强， 所以是喜恶两极化的食材。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user traps the target inside a maelstrom of fire that inflicts damage for four to five turns.",
+        "ja": "激しく　燃えたぎる　炎の　なかに ４ー５ターンの　間 相手を　閉じこめて　攻撃する。",
+        "fr": "La cible est prise dans un tourbillon de feu qui dure de quatre à cinq tours.",
+        "es": "El objetivo queda atrapado en una tormenta de fuego que dura de cuatro a cinco turnos.",
+        "de": "Das Ziel wird in einen Feuersog gezogen, der vier bis fünf Runden aktiv ist.",
+        "it": "Il Pokémon intrappola il bersaglio in un turbine di fuoco che dura per quattro o cinque turni.",
+        "ko": "세차게 타오르는 불꽃 속에 4~5턴 동안 상대를 가두어 공격한다.",
+        "zh-Hant": "將對手困在 熊熊燃燒的火焰中， 在４～５回合內進行攻擊。",
+        "zh-Hans": "将对手困在 熊熊燃烧的火焰中， 在４～５回合内进行攻击。"
+    }
 }

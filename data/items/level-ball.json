@@ -1,0 +1,14 @@
+{
+    "name": "Level Ball",
+    "flavorText": {
+        "en": "A somewhat different Poké Ball that becomes more effective the lower the level of the Pokémon compared to your own Pokémon.",
+        "ja": "自分のポケモンより　レベルが 低いほど　捕まえやすくなる ちょっと変わった　ボール。",
+        "fr": "Une Poké Ball un peu spéciale qui fonctionne particulièrement bien sur les Pokémon de niveau inférieur au sien.",
+        "es": "Poké Ball algo distinta a las demás que funciona mejor cuanto menor sea el nivel del Pokémon salvaje en relación al del Pokémon propio.",
+        "de": "Ein Ball, mit dem sich Pokémon umso leichter fangen lassen, je niedriger ihr Level im Vergleich zu deinem Team ist.",
+        "it": "Poké Ball un po' diversa che diventa tanto più efficace quanto più il livello del Pokémon da catturare è inferiore a quello del proprio.",
+        "ko": "자신의 포켓몬보다 레벨이 낮을수록 잡기 쉬워지는 조금 특이한 볼.",
+        "zh-Hant": "有點與眾不同的球。 對手的等級比自己的寶可夢低越多， 就越容易捉到。",
+        "zh-Hans": "有点与众不同的球。 要捕捉的宝可梦比自己宝可梦的 等级越低，就会越容易捕捉。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Analytic",
+    "flavorText": {
+        "en": "Boosts the power of the Pokémon's move if it is the last to act that turn.",
+        "ja": "いちばん　最後に　技を　出すと 技の　威力が　上がる。",
+        "fr": "Augmente la puissance des capacités du Pokémon s'il attaque en dernier.",
+        "es": "Aumenta la potencia de su movimiento si es el último en atacar.",
+        "de": "Setzt das Pokémon als Letztes eine Attacke ein, steigt deren Stärke.",
+        "it": "Se il Pokémon agisce per ultimo, la potenza della mossa aumenta.",
+        "ko": "제일 마지막에 기술을 쓰면 기술의 위력이 올라간다.",
+        "zh-Hant": "如果在最後使出招式， 招式的威力就會變強。",
+        "zh-Hans": "如果在最后使出招式， 招式的威力会提高。"
+    }
+}

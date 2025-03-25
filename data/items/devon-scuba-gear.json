@@ -1,0 +1,14 @@
+{
+    "name": "Devon Scuba Gear",
+    "flavorText": {
+        "en": "A device made by Devon Corporation that provides oxygen to users during the use of Dive.",
+        "ja": "ダイビング中に　身につける 酸素補給用の　マスク。 デボンで　つくられた。",
+        "fr": "Un masque à oxygène fabriqué par la société Devon et utilisé pour la plongée sous-marine.",
+        "es": "Máscara que surte de oxígeno durante las inmersiones en el agua. Producto de Devon S. A.",
+        "de": "Eine von der Devon Corporation hergestellte Maske, die Taucher unter Wasser mit ausreichend Sauerstoff versorgt.",
+        "it": "Maschera di ossigeno prodotta dalla Devon, utile durante le immersioni.",
+        "ko": "다이빙할 때 몸에 착용하는 산소 호흡용 마스크. 데봉에서 만들어졌다.",
+        "zh-Hant": "潛水時裝備在身上 用來呼吸氧氣的面罩。 得文製造。",
+        "zh-Hans": "潜水时装备在身上 用来呼吸氧气的面罩。 得文制造。"
+    }
+}

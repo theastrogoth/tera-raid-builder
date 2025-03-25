@@ -1,0 +1,14 @@
+{
+    "name": "Sharpness",
+    "flavorText": {
+        "en": "Powers up slicing moves.",
+        "ja": "相手を　切る技の 威力が　上がる。",
+        "fr": "Augmente la puissance des capacités tranchantes.",
+        "es": "Aumenta la potencia de los movimientos cortantes.",
+        "de": "Die Stärke von Schnitt-Attacken des Pokémon steigt.",
+        "it": "Aumenta la potenza delle mosse che tagliano il bersaglio.",
+        "ko": "상대를 베는 기술의 위력이 올라간다.",
+        "zh-Hant": "切斬對手的招式威力會提高。",
+        "zh-Hans": "提高切割对手的 招式的威力。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Two turns after this move is used, a concentrated bundle of light blasts the target.",
+        "ja": "技を　使った　２ターン後に 無数の　光の　束で 相手を　攻撃する。",
+        "fr": "Le lanceur génère une sphère lumineuse qu'il projette sur l'ennemi deux tours plus tard.",
+        "es": "Ataca al objetivo con innumerables haces de luz dos turnos después de haber usado el movimiento.",
+        "de": "Angriff mit gebündeltem Licht erfolgt zwei Runden nach Attackeneinsatz.",
+        "it": "Il Pokémon attacca il bersaglio con un intenso fascio di luce due turni dopo l'uso della mossa.",
+        "ko": "기술을 사용한 2턴 뒤에 무수한 빛의 다발이 상대를 공격한다.",
+        "zh-Hant": "使用招式的２回合後， 向對手發射無數道光束進行攻擊。",
+        "zh-Hans": "使用招式２回合后， 会用无数道光束攻击对手。"
+    }
 }

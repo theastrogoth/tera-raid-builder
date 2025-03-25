@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user properly coaches its ally Pokémon, boosting their Attack and Defense stats.",
+        "ja": "的確な　指導を　おこなうことで 味方　全員の 攻撃と　防御を　上げる。",
+        "fr": "Le lanceur coache ses alliés, augmentant ainsi leur Attaque et leur Défense.",
+        "es": "El usuario imparte indicaciones precisas a sus aliados, que ven aumentados su Ataque y su Defensa.",
+        "de": "Der Anwender sorgt durch geschickte Anweisungen dafür, dass der Angriff und die Verteidigung seiner Mitstreiter steigen.",
+        "it": "Il Pokémon aumenta l'Attacco e la Difesa di tutti gli alleati dando loro indicazioni precise.",
+        "ko": "적절한 지도를 통해서 같은 편 전원의 공격과 방어를 올린다.",
+        "zh-Hant": "透過適切的指導， 提高我方全體的攻擊和防禦。",
+        "zh-Hans": "通过进行正确合理的指导， 提高我方全员的攻击和防御。"
+    }
 }

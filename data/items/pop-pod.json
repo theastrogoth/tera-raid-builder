@@ -1,0 +1,14 @@
+{
+    "name": "Pop Pod",
+    "flavorText": {
+        "en": "A sea vegetable used for crafting Scatter Bangs. If you wrap it up so that the air has no way to escape, then deal it a sharp blow, it produces a loud popping noise.",
+        "ja": "ばりばりだまの材料となる海藻。 包んで空気の逃げ道を減らしてから 衝撃を加えると大きな音が鳴る。",
+        "fr": "Une algue qui sert à confectionner des Sachets Pétarade. Lorsqu'on y emprisonne de l'air en la roulant en boule, puis qu'on y porte un coup, elle éclate bruyamment.",
+        "es": "Alga marina necesaria para crear Bolas Ruidosas. Se envuelve de forma que no deje escapar el aire y, al darle un golpe seco, provoca un fuerte estruendo.",
+        "de": "Eine Meeresalge, aus der Knallkugeln hergestellt werden. Wird sie luftdicht gewickelt und dann einem starken Schlag ausgesetzt, erzeugt sie ein lautes Geräusch.",
+        "it": "Alga impiegata nella fabbricazione delle Scoppiosfere. Avvolta in modo da intrappolare l'aria al suo interno, genera un forte rumore quando viene colpita.",
+        "ko": "팡팡환의 재료가 되는 해초. 감싸서 공기가 샐 틈을 좁힌 다음 충격을 주면 커다란 소리가 난다.",
+        "zh-Hant": "能作為聲彈的材料使用的海藻。 將它包起來減少空氣逸出的管道， 然後施加衝擊，就會發出巨大的聲響。",
+        "zh-Hans": "能作为声弹的材料使用的海藻。 将它包起来减少空气逸出的路径， 然后施加冲击，就会发出巨大的声响。"
+    }
+}

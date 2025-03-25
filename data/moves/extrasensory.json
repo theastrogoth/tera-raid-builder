@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks with an odd, unseeable power. This may also make the target flinch.",
+        "ja": "みえない　不思議な　力を 送って　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur attaque avec un pouvoir étrange et invisible qui peut aussi apeurer la cible.",
+        "es": "Emite una energía muy extraña que puede amedrentar al objetivo.",
+        "de": "Besonderer Angriff mit einer unsichtbaren Kraft, die das Ziel eventuell zurückschrecken lässt.",
+        "it": "Il Pokémon attacca con una misteriosa forza invisibile. Può far tentennare il bersaglio.",
+        "ko": "보이지 않는 이상한 힘을 보내어 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "發送看不見的 神奇力量進行攻擊。 有時會使對手畏縮。",
+        "zh-Hans": "发出看不见的 神奇力量进行攻击。 有时会使对手畏缩。"
+    }
 }

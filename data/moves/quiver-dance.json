@@ -43,5 +43,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lightly performs a beautiful, mystic dance. This boosts the user's Sp. Atk, Sp. Def, and Speed stats.",
+        "ja": "神秘的で　美しい　舞を 軽やかに　おどる。　自分の　特攻と 特防と　素早さを　あげる。",
+        "fr": "Une danse mystique dont le rythme parfait augmente l'Attaque Spéciale, la Défense Spéciale et la Vitesse du lanceur.",
+        "es": "Danza mística que aumenta el Ataque Especial, la Defensa Especial y la Velocidad.",
+        "de": "Anwender legt behände einen mystischen, formvollendeten Tanz aufs Parkett. Spezial-Angriff, Spezial-Verteidigung und Initiative steigen.",
+        "it": "Danza leggiadra ed elegante che aumenta l'Attacco Speciale, la Difesa Speciale e la Velocità di chi la usa.",
+        "ko": "신비롭고 아름다운 춤을 경쾌하게 춘다. 자신의 특수공격과 특수방어, 스피드를 올린다.",
+        "zh-Hant": "輕巧地跳起神秘又美麗的舞蹈。 提高自己的特攻、特防和速度。",
+        "zh-Hans": "轻巧地跳起神秘而又美丽的舞蹈。 提高自己的特攻、特防和速度。"
+    }
 }

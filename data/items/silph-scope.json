@@ -1,0 +1,14 @@
+{
+    "name": "Silph Scope",
+    "flavorText": {
+        "en": "A scope that lets you see what cannot usually be seen. It is made by Silph Co.",
+        "ja": "人の　目に　見えない　ものを 見ることが　できる　スコープ。 シルフカンパニー製。",
+        "fr": "Un appareil permettant de voir les Pokémon invisibles. Il est fabriqué par la Sylphe SARL.",
+        "es": "Dispositivo que permite ver cosas que, de otra forma, resultarían invisibles para el ojo humano. Fabricado por Silph S. A.",
+        "de": "Dieses Gerät macht Dinge sichtbar, die dem menschlichen Auge sonst verborgen bleiben. Es wurde von der Silph Company entwickelt.",
+        "it": "Sonda che rivela i Pokémon invisibili, prodotta dalla Silph S.p.A.",
+        "ko": "사람의 눈에 보이지 않는 것을 볼 수 있게 해 주는 스코프. 실프주식회사 제품.",
+        "zh-Hant": "西爾佛公司製造的檢視鏡。 能看見人類肉眼 看不到的東西。",
+        "zh-Hans": "西尔佛公司制造的透视镜。 可以看见人眼无法看见的东西。"
+    }
+}

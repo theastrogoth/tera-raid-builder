@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user scatters a cloud of poisonous dust that poisons the target.",
+        "ja": "毒の　ある　粉を たくさん　ふりまいて 相手を　毒状態に　する。",
+        "fr": "Une poudre toxique empoisonne la cible.",
+        "es": "Esparce polvo tóxico que envenena al objetivo.",
+        "de": "Verstreut giftigen Puder, der das Ziel vergiftet.",
+        "it": "Investe il bersaglio con una nuvola di polvere tossica che avvelena.",
+        "ko": "독이 있는 가루를 많이 흩뿌려서 상대를 독 상태로 만든다.",
+        "zh-Hant": "撒出大量的有毒粉末 讓對手陷入中毒狀態。",
+        "zh-Hans": "撒出毒粉， 从而让对手陷入中毒状态。"
+    }
 }

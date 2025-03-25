@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target by scattering petals for two to three turns. The user then becomes confused.",
+        "ja": "２ー３ターンの　間　花を まきちらして　相手を　攻撃する。 まきちらした　あとは　混乱する。",
+        "fr": "Le lanceur attaque en projetant des pétales pendant deux à trois tours avant de céder à la confusion.",
+        "es": "Ataca al objetivo lanzando pétalos de dos a tres turnos y, al finalizar, el usuario se queda confuso.",
+        "de": "Angriff mit Blütenblättern für zwei bis drei Runden. Danach wird der Angreifer verwirrt.",
+        "it": "Il Pokémon attacca il bersaglio cospargendolo di petali per due o tre turni, ma rimane confuso.",
+        "ko": "2~3턴 동안 꽃을 흩뿌려서 상대를 공격한다. 흩뿌린 뒤에는 혼란에 빠진다.",
+        "zh-Hant": "在２～３回合內 不斷灑出花瓣攻擊對手。 招式結束後自己會陷入混亂狀態。",
+        "zh-Hans": "在２～３回合内， 散落花瓣攻击对手。 之后自己会陷入混乱。"
+    }
 }

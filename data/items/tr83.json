@@ -1,0 +1,14 @@
+{
+    "name": "TR83",
+    "flavorText": {
+        "en": "The user teleports using a strange power and switches places with one of its allies.",
+        "ja": "不思議な　力で　テレポートして 自分と　味方の　居場所を 入れ替える。",
+        "fr": "Le lanceur se téléporte à l'aide d'un pouvoir mystérieux. Il échange sa place avec celle d'un allié sur le terrain.",
+        "es": "Extraño poder que intercambia la posición del usuario con la de un aliado sobre el terreno de combate.",
+        "de": "Wundersame Kräfte teleportieren den Anwender an den Platz eines Mitstreiters.",
+        "it": "Il Pokémon cambia di posto con un alleato in campo grazie a un misterioso potere.",
+        "ko": "이상한 힘으로 순간이동하여 자신과 같은 편의 위치를 바꾼다.",
+        "zh-Hant": "用神奇的力量瞬間移動， 讓自己和同伴的所在位置互換。",
+        "zh-Hans": "用神奇的力量瞬间移动， 互换自己和同伴所在的位置。"
+    }
+}

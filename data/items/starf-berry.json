@@ -1,0 +1,14 @@
+{
+    "name": "Starf Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, one of its stats will be sharply boosted should it find itself in a pinch.",
+        "ja": "ポケモンに　持たせると ピンチのとき　どれか　１つの 能力が　ぐーんと　あがる。",
+        "fr": "Tenue, cette Baie augmente beaucoup une des stats en cas de besoin.",
+        "es": "Si la lleva un Pokémon, le aumenta mucho una característica en un momento de apuro.",
+        "de": "Als getragenes Item erhöht diese Beere einen Statuswert des Pokémon stark, sobald es in einer Notlage steckt.",
+        "it": "Se il Pokémon che ha questa bacca si trova in difficoltà, una delle sue statistiche aumenta di molto.",
+        "ko": "포켓몬에게 지니게 하면 위급할 때 능력 중의 하나가 크게 올라간다.",
+        "zh-Hant": "讓寶可夢攜帶後， 危機時，某一項能力 就會大幅提高。",
+        "zh-Hans": "让宝可梦携带后，危机时， 某一项能力就会大幅提高。"
+    }
+}

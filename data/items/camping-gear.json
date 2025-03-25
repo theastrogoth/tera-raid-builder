@@ -1,0 +1,14 @@
+{
+    "name": "Camping Gear",
+    "flavorText": {
+        "en": "Everything you need to set up a tent and get cooking in a Wild Area or at a camping spot.",
+        "ja": "ワイルドエリアや　キャンプスポットで テントを　張ったり　その中で 料理を　作ることが　できる。",
+        "fr": "Ce kit permet d'installer une tente dans les zones de camping des Terres Sauvages et d'y cuisiner.",
+        "es": "Este kit tiene todo lo necesario para montar una tienda de campaña y cocinar, ya sea en el Área Silvestre o en zonas de acampada.",
+        "de": "Mit diesem Set ist es möglich, in der Naturzone sowie an anderen bestimmten Orten ein Zelt aufzuschlagen und dort zu kochen.",
+        "it": "Permette di montare una tenda e cucinare nelle Terre Selvagge o in altri luoghi adatti al campeggio.",
+        "ko": "와일드에리어나 캠핑 스폿에서 텐트를 치거나 그 안에서 요리를 만들 수 있다.",
+        "zh-Hant": "可以用它 在曠野地帶或營地 搭起帳篷和製作料理。",
+        "zh-Hans": "可以在旷野地带 或露营营地上搭起帐篷， 在那里制作料理。"
+    }
+}

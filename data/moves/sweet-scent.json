@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user releases a scent that harshly lowers opposing Pokémon's evasiveness.",
+        "ja": "香りで　相手の　回避率を がくっと　さげる。",
+        "fr": "Un doux parfum qui réduit beaucoup l'Esquive de la cible.",
+        "es": "Un dulce aroma engatusa al objetivo, por lo que se reduce mucho su Evasión.",
+        "de": "Senkt den Ausweichwert der gegnerischen Pokémon stark.",
+        "it": "Il Pokémon riduce di molto l'elusione degli avversari con un dolce profumo.",
+        "ko": "향기로 상대의 회피율을 크게 떨어뜨린다.",
+        "zh-Hant": "用香氣大幅降低對手的閃避率。",
+        "zh-Hans": "用香气大幅降低对手的闪避率。"
+    }
 }

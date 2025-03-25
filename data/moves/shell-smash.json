@@ -51,5 +51,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user breaks its shell, which lowers its Defense and Sp. Def stats but sharply boosts its Attack, Sp. Atk, and Speed stats.",
+        "ja": "殻を　やぶって　自分の　防御 特防を　さげるが　攻撃　特攻 素早さを　ぐーんと　あげる。",
+        "fr": "Le lanceur brise sa carapace. Il baisse sa Défense et sa Défense Spéciale, mais augmente beaucoup son Attaque, son Attaque Spéciale et sa Vitesse.",
+        "es": "El usuario rompe su coraza y reduce su Defensa y su Defensa Especial, pero aumenta mucho su Ataque, su Ataque Especial y su Velocidad.",
+        "de": "Anwender zerbricht seine Schale und senkt seine Verteidigung und Spezial-Verteidigung, aber dafür steigen Angriff, Spezial-Angriff und Initiative stark.",
+        "it": "Il Pokémon si disfa del guscio. Difesa e Difesa Speciale diminuiscono, ma aumentano di molto Attacco, Attacco Speciale e Velocità.",
+        "ko": "껍질을 깨서 자신의 방어와 특수방어를 떨어뜨리지만 공격과 특수공격, 스피드를 크게 올린다.",
+        "zh-Hant": "破殼而出。 自己的防禦和特防會降低， 但能大幅提高攻擊、特攻和速度。",
+        "zh-Hans": "打破外壳， 降低自己的防御和特防， 但大幅提高攻击、特攻和速度。"
+    }
 }

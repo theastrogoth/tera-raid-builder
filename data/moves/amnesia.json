@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user temporarily empties its mind to forget its concerns. This sharply boosts the user's Sp. Def stat.",
+        "ja": "頭を　からにして 一瞬　なにかを　忘れることで 自分の　特防を　ぐーんと　あげる。",
+        "fr": "Le lanceur fait le vide dans son esprit pour oublier ses soucis. Augmente beaucoup sa Défense Spéciale.",
+        "es": "El usuario olvida sus preocupaciones y aumenta mucho la Defensa Especial.",
+        "de": "Gedächtnisverlust, der die Spezial-Verteidigung stark erhöht.",
+        "it": "Il Pokémon svuota per un po' la mente per dimenticare i problemi. La Difesa Speciale aumenta di molto.",
+        "ko": "머리를 비워서 순간적으로 무언가를 잊어버림으로써 자신의 특수방어를 크게 올린다.",
+        "zh-Hant": "將頭腦清空， 藉由在一瞬間遺忘某些事 大幅提高自己的特防。",
+        "zh-Hans": "将头脑清空， 瞬间忘记某事， 从而大幅提高自己的特防。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Soot Sack",
+    "flavorText": {
+        "en": "A sack used to gather and hold volcanic ash.",
+        "ja": "つもった　かざんばいを 集めるための　ふくろ。",
+        "fr": "Un sac utilisé pour ramasser les cendres volcaniques accumulées au sol.",
+        "es": "Bolsa en la que recoger la ceniza de volcán sedimentada en el suelo.",
+        "de": "Eine Tasche, mit der du herabgerieselte Vulkanasche aufsammeln kannst.",
+        "it": "Sacco per raccogliere la cenere vulcanica.",
+        "ko": "쌓인 화산재를 모으기 위한 주머니.",
+        "zh-Hant": "用於收集堆積的 火山灰的袋子。",
+        "zh-Hans": "将堆积起来的火山灰 收集起来的袋子。"
+    }
+}

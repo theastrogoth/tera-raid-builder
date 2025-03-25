@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user immerses the target in superheated steam. This may also leave the target with a burn.",
+        "ja": "ものすごく　熱い　蒸気を 相手に　浴びせる。 相手は　やけどする　ことがある。",
+        "fr": "Le lanceur projette de la vapeur extrêmement chaude sur la cible, ce qui peut aussi la brûler.",
+        "es": "Envuelve al objetivo con vapor extremadamente caliente que puede causar quemaduras.",
+        "de": "Der Anwender feuert einen siedend heißen Dampfschwall auf das Ziel ab. Dieses kann dabei Verbrennungen erleiden.",
+        "it": "Il Pokémon travolge il bersaglio con un'ondata di vapore rovente che può anche scottarlo.",
+        "ko": "상대에게 굉장히 뜨거운 증기를 뿜는다. 상대는 화상을 입기도 한다.",
+        "zh-Hant": "將超高溫的蒸汽噴向對手。 有時會讓對手陷入灼傷狀態。",
+        "zh-Hans": "将滚烫的蒸汽喷向对手。 有时会让对手灼伤。"
+    }
 }

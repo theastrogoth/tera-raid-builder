@@ -1,0 +1,14 @@
+{
+    "name": "TR76",
+    "flavorText": {
+        "en": "The user lays a trap of levitating stones around the opposing team. The trap hurts opposing Pokémon that switch into battle.",
+        "ja": "相手の　周りに　無数の　岩を 浮かべて　交代で　でてきた　相手の ポケモンに　ダメージを　与える。",
+        "fr": "Le lanceur fait flotter des pierres autour de la cible qui blessent tout adversaire entrant au combat.",
+        "es": "Hace flotar innumerables rocas alrededor del objetivo que hieren a los rivales que entran en combate.",
+        "de": "Der Anwender legt eine Falle aus schwebenden Steinen aus, die gegnerische Pokémon verletzen, die in den Kampf gerufen werden.",
+        "it": "Il Pokémon piazza una trappola di rocce sospese che danneggia gli avversari che entrano in campo.",
+        "ko": "상대의 주위에 무수한 바위를 띄워 교체되어 나온 상대 포켓몬에게 데미지를 준다.",
+        "zh-Hant": "在對手周圍撒下無數飄浮的岩石， 讓對手替換出場的寶可夢受到傷害。",
+        "zh-Hans": "将无数岩石悬浮在对手的周围， 从而对替换出场的 对手的宝可梦给予伤害。"
+    }
+}

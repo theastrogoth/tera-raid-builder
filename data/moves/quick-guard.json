@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user protects itself and its allies from priority moves.",
+        "ja": "自分と　味方を　相手の 先制攻撃から　守る。",
+        "fr": "Protège le lanceur et ses alliés des attaques prioritaires.",
+        "es": "Se protege a sí mismo y a sus aliados de movimientos con prioridad.",
+        "de": "Schützt Anwender und Mitstreiter vor Erstschlag-Attacken.",
+        "it": "Il Pokémon protegge sé e gli alleati dagli attacchi ad alta priorità.",
+        "ko": "자신과 같은 편을 상대의 선제공격으로부터 지킨다.",
+        "zh-Hant": "保護自己和同伴， 防禦來自對手的先制攻擊。",
+        "zh-Hans": "守护自己和同伴， 以防对手的先制攻击。"
+    }
 }

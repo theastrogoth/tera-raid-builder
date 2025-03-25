@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with its psychic power. When the ground is Psychic Terrain, this move's power is boosted and it damages all opposing Pokémon.",
+        "ja": "サイコパワーで　相手を　攻撃する。 サイコフィールドの時　威力が　あがり すべての　相手に　ダメージを　与える。",
+        "fr": "Le lanceur attaque la cible avec ses pouvoirs psychiques. Si un champ psychique est actif, la puissance de cette capacité augmente et elle touche tous les ennemis.",
+        "es": "El usuario ataca al objetivo con sus poderes psíquicos. Cuando se usa en conjunción con un campo psíquico, aumenta su potencia y daña a los rivales adyacentes.",
+        "de": "Der Anwender greift das Ziel mit Psycho-Kräften an. Wenn ein Psychofeld aktiv ist, steigt die Stärke und es wird allen gegnerischen Pokémon Schaden zugefügt.",
+        "it": "Il Pokémon attacca il bersaglio con energia psichica. Se usata quando è attivo un Campo Psichico, la mossa aumenta di potenza e danneggia tutti gli avversari.",
+        "ko": "사이코 파워로 상대를 공격한다. 사이코필드일 때는 위력이 오르며 모든 상대에게 데미지를 준다.",
+        "zh-Hant": "用精神力量攻擊對手。 在精神場地時，威力會提高， 能給予所有對手傷害。",
+        "zh-Hans": "利用精神力量攻击对手。 在精神场地上威力会有所提高， 能对所有对手造成伤害。"
+    }
 }

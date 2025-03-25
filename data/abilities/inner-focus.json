@@ -1,0 +1,14 @@
+{
+    "name": "Inner Focus",
+    "flavorText": {
+        "en": "The Pokémon's intense focus prevents it from flinching or being affected by Intimidate.",
+        "ja": "鍛えられた　精神に　よって 相手の　攻撃に　ひるまない。 いかくにも　動じない。",
+        "fr": "Le Pokémon a un mental à toute épreuve qui empêche les attaques ennemies de lui faire peur. Il est aussi immunisé contre le talent Intimidation.",
+        "es": "Gracias a su profunda concentración, no se amedrenta ante los ataques de otros Pokémon ni sufre los efectos de Intimidación.",
+        "de": "Die erhöhte Konzentrationsfähigkeit des Pokémon verhindert, dass es durch Angriffe anderer Pokémon zurückschreckt. Auch Bedroher wirkt bei ihm nicht.",
+        "it": "La capacità di concentrazione del Pokémon evita che tentenni per gli attacchi subiti e lo protegge dall'effetto di Prepotenza.",
+        "ko": "단련한 정신 덕분에 상대의 공격에 풀죽지 않는다. 위협을 당해도 동요하지 않는다.",
+        "zh-Hant": "靠著經過鍛鍊的精神， 不會因對手的攻擊而畏縮。 面對威嚇也不會動搖。",
+        "zh-Hans": "拥有经过锻炼的精神， 而不会因对手的攻击而畏缩。 对威吓也毫不动摇。"
+    }
+}

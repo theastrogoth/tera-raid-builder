@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user gathers light on the first turn, then blasts a bundled beam on the next turn.",
+        "ja": "１ターン目に　光を　いっぱいに　集め ２ターン目に　光の　束を 発射して　攻撃する。",
+        "fr": "Le lanceur absorbe une grande quantité de lumière au premier tour et envoie un rayon puissant au tour suivant.",
+        "es": "El usuario absorbe luz en el primer turno y, en el segundo, lanza un potente rayo de energía.",
+        "de": "Absorbiert Licht in Runde 1. In Runde 2 erfolgt der Angriff.",
+        "it": "Il Pokémon assorbe luce al primo turno per attaccare con un raggio intenso al turno successivo.",
+        "ko": "1턴째에 빛을 가득 모아 2턴째에 빛의 다발을 발사하여 공격한다.",
+        "zh-Hant": "使用後的第１回合吸收大量日光， 並於第２回合發射光束進行攻擊。",
+        "zh-Hans": "第１回合收集满满的日光， 第２回合发射光束进行攻击。"
+    }
 }

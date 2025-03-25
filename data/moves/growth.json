@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user's body grows all at once, boosting the Attack and Sp. Atk stats.",
+        "ja": "体を　一気に 大きく　生長させて 攻撃と　特攻を　あげる。",
+        "fr": "Le corps du lanceur se développe. Augmente l'Attaque et l'Attaque Spéciale.",
+        "es": "Hace que su cuerpo crezca a marchas forzadas, con lo que aumenta su Ataque y su Ataque Especial.",
+        "de": "Der Körper wächst. Dadurch steigen Angriff und Spezial-Angriff.",
+        "it": "Provoca la crescita immediata del corpo e l'aumento dell'Attacco e dell'Attacco Speciale di chi la usa.",
+        "ko": "몸을 단숨에 크게 성장시켜 공격과 특수공격을 올린다.",
+        "zh-Hant": "讓身體瞬間長大， 提高自己的攻擊和特攻。",
+        "zh-Hans": "让身体一下子长大， 从而提高攻击和特攻。"
+    }
 }

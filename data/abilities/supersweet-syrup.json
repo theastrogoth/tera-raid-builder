@@ -1,0 +1,14 @@
+{
+    "name": "Supersweet Syrup",
+    "flavorText": {
+        "en": "A sickly sweet scent spreads across the field the first time the Pokémon enters a battle, lowering the evasiveness of opposing Pokémon.",
+        "ja": "最初に　登場　したとき 甘ったるい　蜜の香りを　ふりまいて 相手の　回避率を　下げる。",
+        "fr": "La première fois que le Pokémon entre au combat, une odeur de nectar sucré se répand sur le terrain, ce qui baisse l'Esquive de l'adversaire.",
+        "es": "Al entrar en combate por primera vez, esparce un aroma dulzón a néctar que reduce la Evasión del rival.",
+        "de": "Beim ersten Kampfantritt verbreitet das Pokémon den Duft süßen Nektars und senkt so den Ausweichwert seiner Gegner.",
+        "it": "La prima volta che il Pokémon entra in campo, spande un odore dolciastro che diminuisce l'elusione degli avversari.",
+        "ko": "처음 등장했을 때 감미로운 꿀의 향기를 흩뿌려서 상대의 회피율을 떨어뜨린다.",
+        "zh-Hant": "在對戰中首次出場時， 會四處散播甜膩的蜜香， 降低對手的閃避率。",
+        "zh-Hans": "首次出场时， 会散发出甜腻的蜜的香味 来降低对手的闪避率。"
+    }
+}

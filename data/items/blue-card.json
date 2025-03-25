@@ -1,0 +1,14 @@
+{
+    "name": "Blue Card",
+    "flavorText": {
+        "en": "A card to save points for the Buena's Password show.",
+        "ja": "「アオイのあいことば」　番組の ポイントを　貯める　カード。 ",
+        "fr": "Une carte pour accumuler les points de l'émission « Le Mot de Passe de Buena ».",
+        "es": "Tarjeta para conseguir puntos con el programa de radio Las contraseñas de Buena.",
+        "de": "Eine Karte, auf der die Punkte für „Passwort mit Buena“ festgehalten werden.",
+        "it": "Carta per accumulare i punti del programma \"Password Show\" di Buena.",
+        "ko": "“규화의 암호” 방송의 포인트를 모으는 카드.",
+        "zh-Hant": "可以將《葵妍的密語》 這節目的點數 儲存起來的卡片。",
+        "zh-Hans": "可以将《葵妍的密语》 这节目的点数积攒起来的卡片。"
+    }
+}

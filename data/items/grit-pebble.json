@@ -1,0 +1,14 @@
+{
+    "name": "Grit Pebble",
+    "flavorText": {
+        "en": "A mysterious pebble that can raise the effort level for one of a Pokémon's stats. It can be used only if the effort level is at least level six and no greater than level eight.",
+        "ja": "ポケモンのがんばレベルをあげる 不思議な石。 がんばレベルが６から８のポケモンに使える。",
+        "fr": "Une pierre mystérieuse qui permet d'augmenter le niveau d'effort d'un Pokémon s'il se trouve entre 6 et 8.",
+        "es": "Misteriosa piedra que aumenta el nivel de esfuerzo de un Pokémon. Solamente puede utilizarse si su nivel de esfuerzo se encuentra entre seis y ocho.",
+        "de": "Dieser rätselhafte Stein erhöht den Leistungslevel eines Pokémon. Er kann für Pokémon mit einem Leistungslevel von 6 bis 8 verwendet werden.",
+        "it": "Misteriosa pietra che aumenta il livello di impegno di un Pokémon. Può essere utilizzata su Pokémon con un livello di impegno tra 6 e 8.",
+        "ko": "포켓몬의 노력 레벨을 올리는 신비한 돌. 노력 레벨이 6부터 8인 포켓몬에게 사용할 수 있다.",
+        "zh-Hant": "不可思議的石塊。 能讓寶可夢的奮鬥等級提升。 可用於奮鬥等級６～８的寶可夢。",
+        "zh-Hans": "不可思议的石块。 能让宝可梦的奋斗等级提升。 可用于奋斗等级６～８的宝可梦。"
+    }
+}

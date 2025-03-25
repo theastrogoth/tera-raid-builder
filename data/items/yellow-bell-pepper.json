@@ -1,0 +1,14 @@
+{
+    "name": "Yellow Bell Pepper",
+    "flavorText": {
+        "en": "An ingredient with some bitterness. It's not much different from its red counterpart in flavor, but mixing the colors makes a feast for the eyes.",
+        "ja": "苦味が　ある　食材。 赤いパプリカと　味の差は　特にないが ミックスして　使えば　目にも　おいしい。",
+        "fr": "Un ingrédient au goût amer. Sa saveur est proche du poivron rouge, mais le mélange des variétés aux couleurs différentes est aussi un régal pour les yeux.",
+        "es": "Tiene un sabor amargo casi idéntico a su variante roja, pero, al mezclarlos, la variedad de colores da muy buen aspecto a cualquier comida.",
+        "de": "Diese bittere Zutat unterscheidet sich im Geschmack nicht sehr von Roter Paprika, doch mischt man die verschiedenfarbigen Sorten, freut sich das Auge.",
+        "it": "Un ingrediente amaro dal sapore simile a quello del Peperone rosso. Mischiarli crea una festa di colori.",
+        "ko": "쓴맛이 나는 식재료. 빨간 파프리카와 맛의 차이는 거의 없으나 섞어서 사용하면 보기에도 좋다.",
+        "zh-Hant": "帶有苦味的食材。 味道和紅椒並無特別差異， 不過混合使用會更加美觀。",
+        "zh-Hans": "带有苦味的食材。 味道与红椒几乎无异，但混合 起来用便能给人带来视觉享受。"
+    }
+}

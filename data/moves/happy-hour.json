@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Using Happy Hour doubles the amount of prize money received after battle.",
+        "ja": "ハッピータイムの　技を　使うと 戦闘の　あとで　もらえる お金が　倍になる。",
+        "fr": "Utilisée pendant un combat, multiplie par deux l'argent gagné à la fin.",
+        "es": "Al usar este movimiento, se duplica el dinero recibido tras el combate.",
+        "de": "Nach Einsatz der Attacke Goldene Zeiten verdoppelt sich das Preisgeld, das du im Falle eines Sieges erhältst.",
+        "it": "Questa mossa raddoppia la ricompensa ricevuta dopo aver vinto una lotta.",
+        "ko": "해피타임 기술을 쓰면 배틀 후에 받을 수 있는 돈이 배가 된다.",
+        "zh-Hant": "使用歡樂時光後， 戰鬥結束時獲得的錢會加倍。",
+        "zh-Hans": "如果使用欢乐时光， 战斗后得到的钱会翻倍。"
+    }
 }

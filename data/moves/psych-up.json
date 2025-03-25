@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hypnotizes itself into copying any stat change made by the target.",
+        "ja": "自分に　暗示を　かけることで 能力変化の　状態を 相手と　同じにする。",
+        "fr": "Une autohypnose qui permet au lanceur de copier les changements de stats de la cible.",
+        "es": "El usuario se sume en un trance y copia cualquier cambio que haya en las características de su objetivo.",
+        "de": "Der Anwender hypnotisiert sich selbst, um die Statusveränderungen des Zieles zu kopieren.",
+        "it": "Il Pokémon s'ipnotizza per copiare ogni modifica alle statistiche del bersaglio.",
+        "ko": "자신에게 암시를 걸어서 능력 변화 상태를 상대와 똑같은 상태로 만든다.",
+        "zh-Hant": "向自己施加自我暗示， 讓能力變化的狀態 變得與對手相同。",
+        "zh-Hans": "向自己施以自我暗示， 将能力变化的状态 变得和对手一样。"
+    }
 }

@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user tickles the target into laughing, lowering its Attack and Defense stats.",
+        "ja": "体を　くすぐり　笑わせる　ことで 相手の　攻撃と　防御を　さげる。 ",
+        "fr": "Le lanceur chatouille la cible, ce qui baisse son Attaque et sa Défense.",
+        "es": "Hace reír al objetivo para reducir su Ataque y su Defensa.",
+        "de": "Bringt das Ziel zum Lachen und senkt dadurch dessen Angriff und Verteidigung.",
+        "it": "Il Pokémon solletica il bersaglio e lo fa ridere, riducendone l'Attacco e la Difesa.",
+        "ko": "몸을 간질여 웃게 만들어서 상대의 공격과 방어를 떨어뜨린다.",
+        "zh-Hant": "搔癢對手的身體，讓對手發笑， 降低對手的攻擊和防禦。",
+        "zh-Hans": "给对手挠痒，使其发笑， 从而降低对手的攻击和防御。"
+    }
 }

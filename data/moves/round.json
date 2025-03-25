@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with a song. If others use this move, they will act immediately after the initial user, and the power of their Rounds will be boosted.",
+        "ja": "歌で　相手を　攻撃する。 みんなで　輪唱すると　続けて だすことが　でき　威力も　あがる。",
+        "fr": "Le lanceur attaque la cible en chantant. Si plusieurs Pokémon déclenchent cette attaque à la suite, la puissance augmente.",
+        "es": "Entona una canción que daña al objetivo. Si otro Pokémon lo usa en el mismo turno, ataca justo a continuación y la potencia del movimiento aumenta.",
+        "de": "Angriff mit Gesang. Singt der Anwender mit allen im Kanon, steigt die Stärke.",
+        "it": "Chi la usa attacca il bersaglio con una melodia. Se usata durante lo stesso turno da più Pokémon, la potenza della mossa aumenta.",
+        "ko": "노래로 상대를 공격한다. 함께 돌림노래를 하면 계속해서 쓸 수 있고 위력도 올라간다.",
+        "zh-Hant": "用歌聲攻擊對手。 大家一起輪唱便可以接連使出， 威力也會提高。",
+        "zh-Hans": "用歌声攻击对手。 大家一起轮唱便可以接连使出， 威力也会提高。"
+    }
 }

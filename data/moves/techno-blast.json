@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by firing a beam of light at the target. This move's type changes depending on the kind of drive held by the user.",
+        "ja": "光弾を　相手に　放出する。 自分の　持つ カセットにより　タイプが　変わる。",
+        "fr": "Le lanceur projette un rayon lumineux sur la cible. Le type varie selon le module que tient le lanceur.",
+        "es": "Ataca al objetivo con un gran láser. El tipo del ataque lo determina el cartucho que porta el usuario.",
+        "de": "Anwender feuert ein Lichtgeschoss auf das Ziel ab. Der Typ der Attacke hängt von dem des Moduls ab.",
+        "it": "Il Pokémon rilascia un colpo di luce contro il bersaglio. Il tipo varia a seconda del modulo che ha.",
+        "ko": "광탄을 상대에게 방출한다. 자신이 지니고 있는 카세트에 의해 타입이 바뀐다.",
+        "zh-Hant": "向對手發射光彈。 招式的屬性會隨著自己 攜帶的卡帶不同而改變。",
+        "zh-Hans": "向对手放出光弹。 属性会根据自己 携带的卡带不同而改变。"
+    }
 }

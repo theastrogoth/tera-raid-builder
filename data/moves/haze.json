@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user creates a haze that eliminates every stat change among all the Pokémon engaged in battle.",
+        "ja": "黒い霧を　だして　戦闘に でている　ポケモン　全員の 能力変化を　もとに　もどす。",
+        "fr": "Crée un brouillard qui annule les changements de stats de tous les Pokémon au combat.",
+        "es": "Neblina oscura que elimina los cambios en las características de todos los Pokémon en combate.",
+        "de": "Erzeugt einen dunklen Nebel. Alle Veränderungen der Statuswerte der Kampfteilnehmer werden annulliert.",
+        "it": "Il Pokémon crea una nube nera che annulla ogni modifica alle statistiche di tutti i Pokémon in campo.",
+        "ko": "흑안개를 뿜어 배틀에 참가 중인 포켓몬 전원의 능력 변화를 원래대로 되돌린다.",
+        "zh-Hant": "放出黑霧，讓場上全體寶可夢的 能力變化回到初始狀態。",
+        "zh-Hans": "升起黑雾，将正在场上战斗的 全体宝可梦的能力变回原点。"
+    }
 }

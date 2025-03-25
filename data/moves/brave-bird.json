@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user tucks in its wings and charges at a low altitude. This also damages the user quite a lot.",
+        "ja": "はねを　おりたたみ 低空飛行で　突撃する。 自分も　かなり　ダメージを　受ける。",
+        "fr": "Le lanceur replie ses ailes et charge en rase-mottes. Blesse gravement le lanceur.",
+        "es": "Pliega las alas y ataca con un vuelo rasante. El usuario se hiere seriamente a sí mismo.",
+        "de": "Anwender greift aus niedriger Höhe an. Er erleidet bei dieser Attacke selbst großen Schaden.",
+        "it": "Il Pokémon ripiega le ali e carica da bassa quota. Tuttavia, subisce seri danni.",
+        "ko": "날개를 접어 저공비행으로 돌격한다. 자신도 상당한 데미지를 입는다.",
+        "zh-Hant": "收起翅膀， 低空飛行突擊對手。 自己也會受到不小的傷害。",
+        "zh-Hans": "收拢翅膀， 通过低空飞行突击对手。 自己也会受到不小的伤害。"
+    }
 }

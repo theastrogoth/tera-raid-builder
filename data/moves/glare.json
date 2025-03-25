@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user intimidates the target with the pattern on its belly to cause paralysis.",
+        "ja": "おなかの　模様で　おびえさせて 相手を　まひの　状態に　する。",
+        "fr": "Le lanceur intimide la cible grâce à son regard terrifiant pour la paralyser.",
+        "es": "Intimida y asusta al objetivo con la mirada para dejarlo paralizado.",
+        "de": "Schüchtert Ziel ein, sodass dieses paralysiert wird.",
+        "it": "Il Pokémon spaventa il bersaglio con uno sguardo terrificante e ne causa la paralisi.",
+        "ko": "배의 무늬로 겁을 주어 상대를 마비 상태로 만든다.",
+        "zh-Hant": "用腹部的花紋使對手心生恐懼， 讓對手陷入麻痺狀態。",
+        "zh-Hans": "用腹部的花纹使对手害怕， 从而让其陷入麻痹状态。"
+    }
 }

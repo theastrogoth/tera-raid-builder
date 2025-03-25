@@ -1,0 +1,14 @@
+{
+    "name": "Red Flute",
+    "flavorText": {
+        "en": "A flute made from red glass. It snaps Pokémon out of infatuation.",
+        "ja": "赤いガラスで　できた　笛。 メロメロ状態を　回復する。",
+        "fr": "Un jouet en forme de flûte en verre rouge. Annule l'effet du statut attraction.",
+        "es": "Una flauta de cristal rojo cuyas notas hacen volver en sí a un Pokémon enamorado.",
+        "de": "Eine Spielzeugflöte aus rotem Glas. Heilt Anziehung.",
+        "it": "Flauto fatto di vetro rosso. Ha il potere di curare l'infatuazione.",
+        "ko": "빨간 유리로 만들어진 피리. 헤롱헤롱 상태를 회복한다.",
+        "zh-Hant": "以紅色玻璃製成的笛子。 可以治癒著迷狀態。",
+        "zh-Hans": "以红色玻璃制成的哨子。 可以治愈着迷状态。"
+    }
+}

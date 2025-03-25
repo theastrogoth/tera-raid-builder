@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user turns the target's strength against it. The higher the target's Attack stat, the greater the damage this move inflicts.",
+        "ja": "相手の　力を　利用する。 戦っている　相手の　攻撃が 高いほど　ダメージが　あがる。",
+        "fr": "Le lanceur utilise la force de la cible. Plus l'Attaque de celle-ci est élevée, plus le lanceur inflige de dégâts.",
+        "es": "El usuario emplea la fuerza del objetivo para atacarlo. Cuanto mayor es el Ataque del objetivo, más daño provoca.",
+        "de": "Anwender macht sich die Kraft des Zieles zunutze. Je höher dessen Angriff, desto mehr Schaden richtet die Attacke an.",
+        "it": "Il Pokémon sfrutta la forza del bersaglio. Il danno inflitto è proporzionale all'Attacco dell'avversario.",
+        "ko": "상대의 힘을 이용한다. 싸우고 있는 상대의 공격이 높을수록 데미지가 올라간다.",
+        "zh-Hant": "利用對手的力量進行攻擊。 對手的攻擊越高， 給予對手的傷害越大。",
+        "zh-Hans": "利用对手的力量进行攻击。 正和自己战斗的对手， 其攻击越高，伤害越大。"
+    }
 }

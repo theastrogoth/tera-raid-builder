@@ -1,0 +1,14 @@
+{
+    "name": "Parcel",
+    "flavorText": {
+        "en": "A parcel you were asked to deliver to Professor Oak from Viridian City's Poké Mart.",
+        "ja": "トキワシティの　ショップ　から オーキド博士に　届けるよう 頼まれた　荷物。",
+        "fr": "Un paquet à livrer au Professeur Chen de la part de la Boutique Pokémon de Jadielle.",
+        "es": "Un paquete para el Profesor Oak que te entregaron en la Tienda Pokémon de Ciudad Verde.",
+        "de": "Ein Paket für Professor Eich, das man dir im Pokémon-Supermarkt von Vertania City anvertraut hat.",
+        "it": "Un pacchetto per il Professor Oak dal Pokémon-Market di Smeraldopoli.",
+        "ko": "상록시티의 숍에서 오박사님에게 전달하도록 부탁받은 물건.",
+        "zh-Hant": "在常青市的商店 被拜託送到大木博士 手上的包裹。",
+        "zh-Hans": "这是常青市的商店 托付给你的包裹。 需要将它交给大木博士。"
+    }
+}

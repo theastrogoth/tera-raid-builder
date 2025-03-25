@@ -1,0 +1,14 @@
+{
+    "name": "Moxie",
+    "flavorText": {
+        "en": "When the Pokémon knocks out a target, it shows moxie, which boosts its Attack stat.",
+        "ja": "相手を　倒すと 自信が　ついて 攻撃が　上がる。",
+        "fr": "Quand le Pokémon met un ennemi K.O., sa confiance en lui ne connaît plus de limite et son Attaque augmente.",
+        "es": "Al debilitar a un objetivo, su confianza se refuerza de tal manera que aumenta su Ataque.",
+        "de": "Besiegt das Pokémon ein anderes Pokémon, steigt sein Selbstvertrauen und somit auch sein Angriff.",
+        "it": "Quando causa un KO, il Pokémon si fa sicuro di sé e aumenta il proprio Attacco.",
+        "ko": "상대를 쓰러뜨리면 자신감이 붙어서 공격이 올라간다.",
+        "zh-Hant": "如果打倒對手， 會充滿自信並提高攻擊。",
+        "zh-Hans": "如果打倒对手， 就会充满自信，攻击会提高。"
+    }
+}

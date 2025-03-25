@@ -1,0 +1,14 @@
+{
+    "name": "Iron Ball",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It lowers the holder's Speed stat and makes the holder vulnerable to Ground- type moves even if it is a Flying type or is levitating.",
+        "ja": "持たせると　素早さが　さがる。 ひこうタイプや　ふゆうポケモンは じめん技が　当たってしまう。",
+        "fr": "Objet à tenir. Réduit la Vitesse. Rend les porteurs de type Vol, ainsi que ceux en lévitation, sensibles aux capacités de type Sol.",
+        "es": "Reduce la Velocidad del Pokémon que la lleva. Si levita o es de tipo Volador, se torna sensible a movimientos de tipo Tierra.",
+        "de": "Ein Item zum Tragen. Macht Pokémon des Typs Flug oder mit der Fähigkeit Schwebe anfällig für Boden-Attacken. Senkt die Initiative.",
+        "it": "Riduce la Velocità e rende vulnerabili alle mosse di tipo Terra se chi ce l'ha è di tipo Volante o ha l'abilità Levitazione.",
+        "ko": "지니게 하면 스피드가 떨어진다. 비행타입이나 부유포켓몬은 땅 기술에 맞아 버린다.",
+        "zh-Hant": "攜帶後，速度會降低。 飛行屬性以及飄浮特性的 寶可夢會被地面招式擊中。",
+        "zh-Hans": "携带后，速度会降低。 飞行属性以及飘浮宝可梦 会被地面招式击中。"
+    }
+}

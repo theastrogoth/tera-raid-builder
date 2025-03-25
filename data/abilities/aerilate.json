@@ -1,0 +1,14 @@
+{
+    "name": "Aerilate",
+    "flavorText": {
+        "en": "Normal-type moves become Flying-type moves. The power of those moves is boosted a little.",
+        "ja": "ノーマルタイプの　技が ひこうタイプになる。 威力が　少し　上がる。",
+        "fr": "Les capacités de type Normal deviennent de type Vol. Leur puissance augmente légèrement.",
+        "es": "Convierte los movimientos de tipo Normal en tipo Volador y aumenta ligeramente su potencia.",
+        "de": "Normal-Attacken des Pokémon nehmen den Typ Flug an und ihre Stärke steigt ein wenig.",
+        "it": "Le mosse di tipo Normale diventano di tipo Volante e la loro potenza aumenta un po'.",
+        "ko": "노말타입의 기술이 비행타입이 된다. 위력이 조금 올라간다.",
+        "zh-Hant": "一般屬性的招式 會變為飛行屬性。 威力會少量提高。",
+        "zh-Hans": "一般属性的招式 会变为飞行属性。 威力会少量提高。"
+    }
+}

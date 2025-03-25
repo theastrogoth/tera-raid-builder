@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This attack is used in desperation only if the user has no remaining PP. It also damages the user a little.",
+        "ja": "自分の　ＰＰが　なくなると あがいて　相手を　攻撃する。 自分も　少し　ダメージを　受ける。",
+        "fr": "Une attaque désespérée, utilisée quand le lanceur n'a plus de PP. Le blesse aussi légèrement.",
+        "es": "Solo se usa como último recurso al acabarse los PP. El usuario se hiere ligeramente a sí mismo.",
+        "de": "Angriff nur bei verbrauchten AP. Anwender verletzt sich selbst leicht.",
+        "it": "Attacco da usare solo in caso estremo, quando non si hanno più PP. Chi lo usa subisce un po' di danni. ",
+        "ko": "자신의 PP가 떨어지면 발버둥 쳐 상대를 공격한다. 자신도 조금 데미지를 입는다.",
+        "zh-Hant": "在自己的ＰＰ耗盡時， 努力掙扎攻擊對手。 自己也會受到少許傷害。",
+        "zh-Hans": "当自己的ＰＰ耗尽时， 努力挣扎攻击对手。 自己也会受到少许伤害。"
+    }
 }

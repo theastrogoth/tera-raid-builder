@@ -1,0 +1,14 @@
+{
+    "name": "Maranga Berry",
+    "flavorText": {
+        "en": "If a Pokémon holding this Berry is hit with a special move, the holder's Sp. Def stat will be boosted.",
+        "ja": "ポケモンに　持たせると 特殊技を　受けたとき 自分の　特防が　あがる。",
+        "fr": "Tenue, cette Baie augmente la Défense Spéciale du Pokémon lorsqu'il est touché par une capacité spéciale.",
+        "es": "Si la lleva un Pokémon, aumenta su Defensa Especial tras recibir un ataque especial.",
+        "de": "Als getragenes Item erhöht diese Beere die Spezial-Verteidigung des Pokémon, wenn dieses von einer Spezial-Attacke getroffen wird.",
+        "it": "Se un Pokémon ha questa bacca, aumenta la propria Difesa Speciale quando subisce una mossa speciale.",
+        "ko": "포켓몬에게 지니게 하면 특수 기술로 공격받았을 때 자신의 특수방어가 올라간다.",
+        "zh-Hant": "讓寶可夢攜帶後， 在受到特殊招式攻擊時， 自己的特防就會提高。",
+        "zh-Hans": "让宝可梦携带后， 在受到特殊招式攻击时， 自己的特防就会提高。"
+    }
+}

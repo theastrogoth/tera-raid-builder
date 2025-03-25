@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "A howling blizzard is summoned to strike opposing Pokémon. This may also leave the opposing Pokémon frozen.",
+        "ja": "激しい　吹雪を 相手に　吹きつけて　攻撃する。 こおり状態に　することが　ある。",
+        "fr": "Une violente tempête de neige s'abat sur la cible, ce qui peut aussi la geler.",
+        "es": "Tormenta de hielo que puede llegar a congelar.",
+        "de": "Ein Schneesturm wütet, der gegnerische Pokémon einfrieren kann.",
+        "it": "Il Pokémon attacca il bersaglio con una tremenda tempesta di ghiaccio che può anche congelarlo.",
+        "ko": "세찬 눈보라를 상대에게 내뿜어 공격한다. 얼음 상태로 만들 때가 있다.",
+        "zh-Hant": "將猛烈的暴風雪 吹向對手進行攻擊。 有時會讓對手陷入冰凍狀態。",
+        "zh-Hans": "将猛烈的暴风雪 刮向对手进行攻击。 有时会让对手陷入冰冻状态。"
+    }
 }

@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user strikes the target with a burning lash. This also lowers the target's Defense stat.",
+        "ja": "焼けたムチで　相手を　打ちつける。 攻撃を　受けた　相手は 防御が　さがる。",
+        "fr": "Frappe la cible avec un fouet incandescent et baisse sa Défense.",
+        "es": "Golpea al objetivo con un látigo incandescente y reduce su Defensa.",
+        "de": "Der Anwender greift das Ziel mit einer brennenden Peitsche an und senkt dabei zusätzlich dessen Verteidigungs-Wert.",
+        "it": "Il Pokémon colpisce il bersaglio con una frusta infuocata e ne riduce la Difesa.",
+        "ko": "불타는 채찍으로 상대를 친다. 공격을 받은 상대는 방어가 떨어진다.",
+        "zh-Hant": "用燃燒的鞭子抽打對手。 受到攻擊的對手防禦會降低。",
+        "zh-Hans": "用燃烧的鞭子抽打对手。 受到攻击的对手防御会降低。"
+    }
 }

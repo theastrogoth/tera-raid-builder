@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user whips up a vicious tornado to tear at opposing Pokémon. This may also make them flinch.",
+        "ja": "竜巻を　おこして 相手を　まきこみ　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur déclenche un terrible ouragan sur la cible, ce qui peut aussi apeurer celle-ci.",
+        "es": "Crea un violento tornado para hacer trizas al objetivo. Puede amedrentarlo.",
+        "de": "Trifft gegnerische Pokémon mit einem heftigen Wirbelsturm, was diese eventuell zurückschrecken lässt.",
+        "it": "Il Pokémon attacca scatenando un potente tornado che si abbatte sul bersaglio. Può anche farlo tentennare.",
+        "ko": "회오리를 일으켜 상대를 휩쓸어 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "刮起龍捲風， 將對手捲入進行攻擊。 有時會使對手畏縮。",
+        "zh-Hans": "兴起龙卷风， 将对手卷入进行攻击。 有时会使对手畏缩。"
+    }
 }

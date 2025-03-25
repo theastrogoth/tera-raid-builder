@@ -1,0 +1,14 @@
+{
+    "name": "Shed Skin",
+    "flavorText": {
+        "en": "The Pokémon may cure its own status conditions by shedding its skin.",
+        "ja": "体の　皮を　脱ぎ捨てることで 状態異常を 治すことが　ある。",
+        "fr": "Le Pokémon soigne parfois ses altérations de statut en muant.",
+        "es": "Puede curar sus problemas de estado al mudar la piel.",
+        "de": "Das Pokémon befreit sich gelegentlich von Statusproblemen, indem es seine Haut abstreift.",
+        "it": "Il Pokémon può guarire dai problemi di stato facendo la muta completa della pelle.",
+        "ko": "몸의 껍질을 벗어 던져 상태 이상을 회복할 때가 있다.",
+        "zh-Hant": "透過蛻去身上的皮， 有時會治癒異常狀態。",
+        "zh-Hans": "通过蜕去身上的皮， 有时会治愈异常状态。"
+    }
+}

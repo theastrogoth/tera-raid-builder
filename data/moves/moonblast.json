@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat.",
+        "ja": "月の　パワーを　かりて 相手を　攻撃する。　相手の 特攻を　さげる　ことがある。",
+        "fr": "Le lanceur attaque la cible grâce au pouvoir de la lune, ce qui peut diminuer l'Attaque Spéciale de celle-ci.",
+        "es": "Invoca el poder de la luna para atacar al objetivo. Puede reducir su Ataque Especial.",
+        "de": "Der Anwender macht sich die Kraft des Mondes zunutze, um anzugreifen. Gelegentlich wird dabei der Spezial-Angriff des Zieles gesenkt.",
+        "it": "Il Pokémon sfrutta il potere della luna per attaccare il bersaglio. Può anche ridurne l'Attacco Speciale.",
+        "ko": "달의 파워를 빌려서 상대를 공격한다. 상대의 특수공격을 떨어뜨릴 때가 있다.",
+        "zh-Hant": "借用月亮的力量攻擊對手。 有時會降低對手的特攻。",
+        "zh-Hans": "借用月亮的力量攻击对手。 有时会降低对手的特攻。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Full Heal",
+    "flavorText": {
+        "en": "A recipe for crafting Full Heals from scratch. Required materials: 1 Cheri Berry, 1 Pecha Berry, 1 Rawst Berry, and 1 Aspear Berry.",
+        "ja": "なんでもなおしのレシピ。　材料は クラボのみ×１　モモンのみ×１ チーゴのみ×１　ナナシのみ×１",
+        "fr": "Méthode pour Total Soin. Ressources requises : 1 Baie Ceriz, 1 Baie Pêcha, 1 Baie Fraive et 1 Baie Willia.",
+        "es": "Receta para crear Curas Totales. Materiales: 1 Baya Zreza, 1 Baya Meloc, 1 Baya Safre y 1 Baya Perasi.",
+        "de": "Die Anleitung zur Herstellung eines Hyperheilers. Benötigte Materialien: 1 Amrenabeere, 1 Pirsifbeere, 1 Fragiabeere und 1 Wilbirbeere.",
+        "it": "Ricetta per una Cura totale. Richiede 1 Baccaliegia, 1 Baccapesca, 1 Baccafrago e 1 Baccaperina.",
+        "ko": "만병통치제의 레시피. 재료: 버치열매×1 복슝열매×1 복분열매×1 배리열매×1",
+        "zh-Hant": "萬靈藥的材料單。材料是： 櫻子果×１　桃桃果×１ 莓莓果×１　利木果×１",
+        "zh-Hans": "万灵药的材料单。材料是： 樱子果×１　桃桃果×１ 莓莓果×１　利木果×１"
+    }
+}

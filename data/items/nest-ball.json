@@ -1,0 +1,14 @@
+{
+    "name": "Nest Ball",
+    "flavorText": {
+        "en": "A somewhat different Poké Ball that becomes more effective the lower the level of the wild Pokémon.",
+        "ja": "捕まえる　野生のポケモンが 弱いほど　捕まえやすくなる ちょっと変わった　ボール。",
+        "fr": "Une Poké Ball un peu spéciale qui fonctionne particulièrement bien sur les Pokémon les plus faibles.",
+        "es": "Poké Ball algo distinta a las demás que funciona especialmente bien con los Pokémon salvajes de nivel bajo.",
+        "de": "Ein Ball, mit dem sich Pokémon niedrigen Levels leichter fangen lassen.",
+        "it": "Poké Ball un po' diversa che diventa tanto più efficace quanto più è basso il livello del Pokémon selvatico da catturare.",
+        "ko": "잡으려는 야생 포켓몬이 약할수록 잡기 쉬운 조금 특이한 볼.",
+        "zh-Hant": "有點與眾不同的球。 捕捉的野生寶可夢越弱， 就越容易捉到。",
+        "zh-Hans": "有点与众不同的球。 捕捉的野生宝可梦越弱， 就会越容易捕捉。"
+    }
+}

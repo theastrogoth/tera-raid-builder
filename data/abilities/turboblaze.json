@@ -1,0 +1,14 @@
+{
+    "name": "Turboblaze",
+    "flavorText": {
+        "en": "The Pokémon's moves are unimpeded by the Ability of the target.",
+        "ja": "相手の　特性に　ジャマされず 相手に　技を　出すことが　できる。",
+        "fr": "Le Pokémon ignore les talents adverses qui auraient un effet sur ses capacités.",
+        "es": "Sus movimientos no se ven afectados por la habilidad del objetivo.",
+        "de": "Das Pokémon kann Attacken ungeachtet der Fähigkeit des Zieles einsetzen.",
+        "it": "Quando il Pokémon attacca, ignora l'abilità del bersaglio se questa ha effetto sulle mosse.",
+        "ko": "상대 특성에 방해받지 않고 상대에게 기술을 쓸 수 있다.",
+        "zh-Hant": "可以不受對手特性的干擾， 向對手使出招式。",
+        "zh-Hans": "可以不受对手特性的干扰， 向对手使出招式。"
+    }
+}

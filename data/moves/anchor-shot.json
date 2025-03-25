@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user entangles the target with its anchor chain while attacking. The target becomes unable to flee.",
+        "ja": "アンカーを　相手に　からませて 攻撃する。　相手は 逃げることが　できなくなる。",
+        "fr": "Le lanceur jette son ancre sur la cible pour l'attaquer. Une fois accrochée, elle l'empêche de quitter le terrain.",
+        "es": "Ataca lanzando un ancla al objetivo, que queda atrapado y no puede huir ni ser cambiado por otro.",
+        "de": "Der Anwender greift das Ziel an, indem er es mit einer Ankerkette umwickelt. Das Ziel wird dadurch an der Flucht beziehungsweise am Auswechseln gehindert.",
+        "it": "Il Pokémon attacca il bersaglio con un'ancora e lo intrappola nella catena impedendogli di lasciare il campo.",
+        "ko": "앵커를 상대에게 휘감아서 공격한다. 상대는 도망칠 수 없게 된다.",
+        "zh-Hant": "將錨纏住對手進行攻擊。 使對手無法逃走。",
+        "zh-Hans": "将锚缠住对手进行攻击。 使对手无法逃走。"
+    }
 }

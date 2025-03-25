@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power.",
+        "ja": "足を　強く　けり 相手を　転ばせて　攻撃する。 相手が　重いほど　威力が　あがる。",
+        "fr": "Un grand coup de pied bas qui fauche la cible. Plus celle-ci est lourde, plus la puissance de cette capacité augmente.",
+        "es": "Patada baja que derriba al objetivo. Cuanto más pesa este, más daño le causa.",
+        "de": "Ein Tritt, der das Ziel umwirft. Je schwerer das Ziel ist, desto mehr Schaden fügt ihm die Attacke zu.",
+        "it": "Il Pokémon attacca il bersaglio con un calcio basso e potente che lo fa cadere. Più il bersaglio è pesante, maggiore è la potenza della mossa.",
+        "ko": "발을 강하게 걸고 상대를 넘어뜨려 공격한다. 상대가 무거울수록 위력이 올라간다.",
+        "zh-Hant": "用力踢對手的腳， 讓對手摔倒進行攻擊。 對手越重，威力越大。",
+        "zh-Hans": "用力踢对手的脚， 使其摔倒进行攻击。 对手越重，威力越大。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Oran Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to restore 10 HP to itself.",
+        "ja": "ポケモンに　持たせると ＨＰを　１０だけ　回復する。 ",
+        "fr": "Une Baie qui restaure 10 PV lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para restaurar 10 PS.",
+        "de": "Als getragenes Item füllt diese Beere die KP des Pokémon um 10 Punkte auf.",
+        "it": "Se un Pokémon ha questa bacca, recupera 10 PS.",
+        "ko": "포켓몬에게 지니게 하면 HP를 10만큼 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以回復１０ＨＰ。",
+        "zh-Hans": "让宝可梦携带后， 可以回复１０ＨＰ。"
+    }
+}

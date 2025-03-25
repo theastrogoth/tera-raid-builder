@@ -1,0 +1,14 @@
+{
+    "name": "Light Metal",
+    "flavorText": {
+        "en": "Halves the Pokémon's weight.",
+        "ja": "自分の　重さが 半分に　なる。",
+        "fr": "Divise par deux le poids du Pokémon.",
+        "es": "Reduce a la mitad su peso.",
+        "de": "Das Gewicht des Pokémon wird halbiert.",
+        "it": "Dimezza il peso del Pokémon.",
+        "ko": "자신의 무게가 절반이 된다.",
+        "zh-Hant": "自己的重量會減半。",
+        "zh-Hans": "自身的重量会减半。"
+    }
+}

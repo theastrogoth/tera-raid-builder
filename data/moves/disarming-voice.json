@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Letting out a charming cry, the user does emotional damage to opposing Pokémon. This attack never misses.",
+        "ja": "魅惑の　鳴き声を　だして　相手に 精神的な　ダメージを　与える。 攻撃は　必ず　命中　する。",
+        "fr": "Le lanceur laisse s'échapper une voix enchanteresse qui inflige des dégâts psychiques à la cible. N'échoue jamais.",
+        "es": "Obnubila al objetivo con su fascinante voz y le provoca daños emocionales. No falla nunca.",
+        "de": "Der Anwender stößt einen bezirzenden Ruf aus, mit dem er gegnerische Pokémon in seinen Bann schlägt und ihnen mentalen Schaden zufügt. Trifft garantiert.",
+        "it": "Il Pokémon infligge un danno spirituale agli avversari con una voce suadente. Questo attacco va sempre a segno.",
+        "ko": "매혹적인 울음소리를 내어 상대에게 정신적 데미지를 준다. 공격은 반드시 명중한다.",
+        "zh-Hant": "發出迷人的叫聲， 給予對手精神上的傷害。 攻擊必定會命中。",
+        "zh-Hans": "发出魅惑的叫声， 给予对手精神上的伤害。 攻击必定会命中。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Water Compaction",
+    "flavorText": {
+        "en": "Boosts the Defense stat sharply when the Pokémon is hit by a Water-type move.",
+        "ja": "みずタイプの　技を　受けると 防御が　ぐーんと　上がる。",
+        "fr": "Augmente beaucoup la Défense du Pokémon quand il subit une capacité de type Eau.",
+        "es": "Aumenta mucho su Defensa si lo alcanza un movimiento de tipo Agua.",
+        "de": "Wird das Pokémon von einer Wasser-Attacke getroffen, steigt seine Verteidigung stark.",
+        "it": "Se il Pokémon subisce una mossa di tipo Acqua, la sua Difesa aumenta di molto.",
+        "ko": "물타입의 기술로 공격받으면 방어가 크게 올라간다.",
+        "zh-Hant": "受到水屬性的招式攻擊時， 防禦會大幅提高。",
+        "zh-Hans": "受到水属性的招式攻击时， 防御会大幅提高。"
+    }
+}

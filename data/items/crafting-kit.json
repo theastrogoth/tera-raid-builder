@@ -1,0 +1,14 @@
+{
+    "name": "Crafting Kit",
+    "flavorText": {
+        "en": "A kit containing everything you might need for crafting, even when there is no workbench around. However, you can only use the materials you have in your satchel.",
+        "ja": "クラフト台がない場所でも クラフトを可能にする道具がそろったセット。 ただし使えるのはポーチの中の材料だけ。",
+        "fr": "Une boîte contenant tous les outils nécessaires pour confectionner des objets même sans établi. Toutefois, elle ne permet d'utiliser que les ressources de la Sacoche.",
+        "es": "Kit que contiene los instrumentos necesarios para crear objetos aun sin una mesa de trabajo a mano. Tan solo podrás usar los materiales que tengas en el Zurrón.",
+        "de": "Mit diesem Werkzeugsatz kannst du Items auch an Orten herstellen, an denen es keine Werkbank gibt. Dies geht aber nur mit Materialien aus deiner Tasche.",
+        "it": "Set di attrezzi che permette di creare strumenti anche in assenza di un banco per il faidaté. È possibile adoperare solo i materiali contenuti nel Borsello.",
+        "ko": "공작대가 없는 곳에서도 공작을 할 수 있는 도구가 갖춰져 있는 세트. 단, 파우치 안의 재료만 사용할 수 있다.",
+        "zh-Hant": "在沒有工藝製作台的地方 也能進行工藝製作的工具組合。 但僅限使用腰包中的材料。",
+        "zh-Hans": "在没有工艺制作台的地方 也能进行工艺制作的工具组合。 但仅限使用腰包中的材料。"
+    }
+}

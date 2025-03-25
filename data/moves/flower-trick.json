@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user slashes at the target after kowtowing to make the target let down its guard. This attack never misses.",
+        "ja": "土下座して　相手を 油断させておいて　切りかかる。 攻撃は　必ず　命中する。",
+        "fr": "Le lanceur se prosterne devant la cible et profite de cette distraction pour l'attaquer avec une lame. N'échoue jamais.",
+        "es": "Se postra en ademán de reverencia para hacer que el objetivo baje la guardia y aprovecha el descuido para atacar. No falla nunca.",
+        "de": "Der Anwender fällt auf die Knie und verleitet das Ziel zu Unachtsamkeit, bevor er mit einer Klinge zuschlägt. Diese Attacke trifft garantiert.",
+        "it": "Il Pokémon si genuflette per far abbassare la guardia al bersaglio e poi fenderlo. Questo attacco va sempre a segno.",
+        "ko": "머리를 조아려 상대를 방심하게 만든 뒤에 베어 버린다. 공격은 반드시 명중한다.",
+        "zh-Hant": "向對手下跪使其大意， 接著對其劈斬。 攻擊必定會命中。",
+        "zh-Hans": "下跪让对手大意后 发起袭击劈向对手。 攻击必定会命中。"
+    }
 }

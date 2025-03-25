@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user plays its drum, controlling the drum's roots to attack the target. This also lowers the target's Speed stat.",
+        "ja": "ドラムの　根っこを　ドラミングで コントロールして　こうげき　することで 相手の　素早さを　下げる。",
+        "fr": "Le lanceur bat son tambour pour en diriger les racines sur la cible, l'attaquer, et baisser sa Vitesse.",
+        "es": "El usuario controla un tocón mediante la percusión y al atacar reduce la Velocidad del objetivo.",
+        "de": "Der Anwender kontrolliert durch Trommeln Wurzeln, die das Ziel angreifen und dessen Initiative senken.",
+        "it": "Il Pokémon percuote il proprio tamburo per controllarne le radici e attaccare il bersaglio, riducendone la Velocità.",
+        "ko": "드럼 연주로 뿌리를 조종해서 공격한다. 상대의 스피드를 떨어뜨린다.",
+        "zh-Hant": "用打鼓來控制 鼓的根部進行攻擊， 進而降低對手的速度。",
+        "zh-Hans": "用鼓点来控制 鼓的根部进行攻击， 从而降低对手的速度。"
+    }
 }

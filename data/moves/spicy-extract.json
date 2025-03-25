@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user summons a torrent around its fist and punches at blinding speed. This move always goes first.",
+        "ja": "激流を　こぶしに　まとって 目にも　留まらぬ　パンチを　くりだす。 必ず　先制攻撃　できる。",
+        "fr": "Le lanceur enveloppe son poing d'un torrent furieux et attaque si rapidement qu'on peine à le discerner. Frappe en priorité.",
+        "es": "Se envuelve el puño con un torrente y propina un golpe a tal velocidad que resulta casi imperceptible. Este movimiento tiene prioridad alta.",
+        "de": "Bei dieser Erstschlag-Attacke hüllt der Anwender seine Faust in einen Strudel und greift mit einem extrem schnellen Hieb an.",
+        "it": "Il Pokémon avvolge il pugno in una corrente impetuosa e sferra un colpo a una tale velocità da rendersi quasi invisibile. Questo attacco ha priorità alta.",
+        "ko": "거센 물살을 주먹에 둘러 눈에 보이지 않는 속도로 펀치를 날린다. 반드시 선제공격할 수 있다.",
+        "zh-Hant": "讓激流圍繞在拳頭上， 以迅雷不及掩耳之勢出拳。 必定能夠發動先制攻擊。",
+        "zh-Hans": "将激流覆盖于拳头， 以肉眼无法辨识的速度打出拳击。 必定能够先制攻击。"
+    }
 }

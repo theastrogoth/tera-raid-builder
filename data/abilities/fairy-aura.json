@@ -1,0 +1,14 @@
+{
+    "name": "Fairy Aura",
+    "flavorText": {
+        "en": "Powers up the Fairy-type moves of all Pokémon on the field.",
+        "ja": "全員の　フェアリータイプの 技が　強くなる。",
+        "fr": "Augmente la puissance des capacités de type Fée de tous les Pokémon.",
+        "es": "Aumenta la potencia de los movimientos de tipo Hada de todos los Pokémon.",
+        "de": "Die Feen-Attacken aller Pokémon werden verstärkt.",
+        "it": "Potenzia le mosse di tipo Folletto di tutti i Pokémon.",
+        "ko": "전원의 페어리타입 기술이 강해진다.",
+        "zh-Hant": "全體的妖精屬性招式變強。",
+        "zh-Hans": "全体的妖精属性招式变强。"
+    }
+}

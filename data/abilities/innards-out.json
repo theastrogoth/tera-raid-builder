@@ -1,0 +1,14 @@
+{
+    "name": "Innards Out",
+    "flavorText": {
+        "en": "When the Pokémon is knocked out, it damages its attacker by the amount equal to the HP it had left before it was hit.",
+        "ja": "相手に　倒されたとき ＨＰの　残りの　ぶんだけ 相手に　ダメージを　あたえる。",
+        "fr": "Le Pokémon inflige à l'adversaire l'ayant mis K.O. des dégâts égaux au nombre de PV qu'il lui restait avant le coup de grâce.",
+        "es": "Al caer debilitado, inflige al atacante un daño equivalente a los PS que le quedaran antes de recibir el golpe de gracia.",
+        "de": "Wird das Pokémon von einem Angreifer besiegt, fügt es diesem Schaden in Höhe des KP-Werts zu, den es besaß, bevor es kampfunfähig wurde.",
+        "it": "Se il Pokémon va KO, infligge a chi lo ha colpito tanti danni quanti erano i PS che gli restavano.",
+        "ko": "상대에게 쓰러졌을 때 남아 있던 HP의 양만큼 상대에게 데미지를 준다.",
+        "zh-Hant": "被對手打倒的時候， 會給予對手相當於 ＨＰ剩餘量的傷害。",
+        "zh-Hans": "被对手打倒的时候， 会给予对手相当于 ＨＰ剩余量的伤害。"
+    }
+}

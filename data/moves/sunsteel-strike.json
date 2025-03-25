@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user slams into the target with the force of a meteor. This move can be used on the target regardless of its Ability.",
+        "ja": "流星の　ような　勢いで 突進する。　相手の　特性を 無視して　攻撃　することが　できる。",
+        "fr": "Le lanceur fonce sur la cible avec la puissance d'une météorite. Ignore le talent de la cible.",
+        "es": "Ataca al objetivo con la potencia de un meteoro, ignorando su habilidad.",
+        "de": "Der Anwender stürzt mit der Gewalt eines Meteors auf das Ziel. Die Fähigkeit des Zieles wird dabei ignoriert.",
+        "it": "Il Pokémon travolge il bersaglio con la potenza di una meteora. Questo attacco ignora l'abilità del bersaglio.",
+        "ko": "유성 같은 기세로 돌진한다. 상대의 특성을 무시하고 공격할 수 있다.",
+        "zh-Hant": "以流星般的氣勢猛撞對手。 可不顧對手的特性進行攻擊。",
+        "zh-Hans": "以流星般的气势猛撞对手。 可以无视对手的特性进行攻击。"
+    }
 }

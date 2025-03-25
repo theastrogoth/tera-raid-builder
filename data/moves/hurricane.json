@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user attacks by wrapping the target in a fierce wind. This may also confuse the target.",
+        "ja": "強烈な　風で　相手を 包みこんで　攻撃する。 相手を　混乱させることが　ある。",
+        "fr": "Le lanceur déclenche une tempête de vents violents qui s'abat sur la cible, et peut aussi la rendre confuse.",
+        "es": "Golpea al objetivo con un fuerte torbellino que lo envuelve y puede confundirlo.",
+        "de": "Anwender greift das Ziel an, indem er es mit heftigen Windböen umgibt. Ziel wird eventuell verwirrt.",
+        "it": "Il Pokémon attacca il bersaglio avvolgendolo con un vento fortissimo. Può anche confonderlo.",
+        "ko": "강렬한 바람으로 상대를 둘러싸서 공격한다. 상대를 혼란시킬 때가 있다.",
+        "zh-Hant": "用強烈的風席捲 對手進行攻擊。 有時會使對手混亂。",
+        "zh-Hans": "用强烈的风席卷 对手进行攻击。 有时会使对手混乱。"
+    }
 }

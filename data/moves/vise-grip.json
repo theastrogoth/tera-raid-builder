@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is gripped and squeezed from both sides to inflict damage.",
+        "ja": "相手を　両側から　はさんで ダメージを　あたえる。",
+        "fr": "La cible est attrapée et compressée par les côtés.",
+        "es": "Atenaza al objetivo y le inflige daño.",
+        "de": "Das Ziel wird umklammert und zusammengequetscht.",
+        "it": "Il Pokémon stringe il bersaglio in una morsa, infliggendogli danni.",
+        "ko": "상대를 양쪽에서 집어서 데미지를 준다.",
+        "zh-Hant": "從兩側夾住對手， 給予傷害。",
+        "zh-Hans": "将对手从两侧夹住， 给予伤害。"
+    }
 }

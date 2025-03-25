@@ -1,0 +1,14 @@
+{
+    "name": "Magnet Pull",
+    "flavorText": {
+        "en": "Prevents Steel-type Pokémon from fleeing by pulling them in with magnetism.",
+        "ja": "はがねタイプの　ポケモンを 磁力で　引きつけて 逃げられなくする。",
+        "fr": "Attire les Pokémon Acier grâce à un champ magnétique, ce qui les empêche de quitter le terrain.",
+        "es": "Su magnetismo atrae a los Pokémon de tipo Acero y les impide huir o ser cambiados por otros.",
+        "de": "Das Pokémon hindert Stahl-Pokémon durch Magnetismus an der Flucht beziehungsweise am Auswechseln.",
+        "it": "La carica magnetica attrae i Pokémon di tipo Acciaio impedendogli la fuga o la sostituzione.",
+        "ko": "강철타입의 포켓몬을 자력으로 끌어모아 도망칠 수 없게 한다.",
+        "zh-Hant": "用磁力吸住鋼屬性的寶可夢， 使其無法逃走。",
+        "zh-Hans": "用磁力吸住钢属性的宝可梦， 使其无法逃走。"
+    }
+}

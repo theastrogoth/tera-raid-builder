@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user picks up and throws a small rock at the target to inflict damage.",
+        "ja": "小さな　岩を　持ちあげて 相手に　投げつけて　攻撃する。",
+        "fr": "Le lanceur soulève une pierre et la lance sur la cible.",
+        "es": "Tira una pequeña roca al objetivo.",
+        "de": "Das Ziel wird mit einem kleinen Stein beworfen.",
+        "it": "Il Pokémon raccoglie una pietra e attacca il bersaglio lanciandogliela contro.",
+        "ko": "작은 바위를 들어 올려 상대에게 내던져서 공격한다.",
+        "zh-Hant": "舉起小岩石， 向對手投擲進行攻擊。",
+        "zh-Hans": "拿起小岩石， 投掷对手进行攻击。"
+    }
 }

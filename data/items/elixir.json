@@ -1,0 +1,14 @@
+{
+    "name": "Elixir",
+    "flavorText": {
+        "en": "A medicine that can be used to restore 10 PP to all four moves that a Pokémon knows.",
+        "ja": "ポケモンが　覚えている ４つの技の　ＰＰを １０ずつ　回復する。",
+        "fr": "Restaure 10 PP de toutes les capacités d'un Pokémon.",
+        "es": "Restaura 10 PP de todos los movimientos aprendidos por el Pokémon elegido.",
+        "de": "Füllt die AP aller Attacken eines Pokémon um 10 Punkte auf.",
+        "it": "Restituisce 10 PP alle quattro mosse conosciute dal Pokémon.",
+        "ko": "포켓몬이 기억하고 있는 4개 기술의 PP를 10씩 회복한다.",
+        "zh-Hant": "能讓寶可夢已學會的 ４個招式各 回復１０ＰＰ。",
+        "zh-Hans": "能让宝可梦学会的 ４个招式各 回复１０ＰＰ。"
+    }
+}

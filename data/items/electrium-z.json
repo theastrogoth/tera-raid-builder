@@ -1,0 +1,14 @@
+{
+    "name": "Electrium Z",
+    "flavorText": {
+        "en": "It converts Z-Power into crystals that upgrade Electric-type moves to Electric-type Z-Moves.",
+        "ja": "でんきタイプの　技を Ｚワザに　グレードアップする Ｚパワーの　結晶を　作りだす。",
+        "fr": "Permet de concentrer la Force Z en un cristal, qui autorise son porteur à transformer ses capacités de type Électrik en capacité Z.",
+        "es": "Concentra el Poder Z en cristales que permiten a los portadores convertir sus movimientos de tipo Eléctrico en movimientos Z.",
+        "de": "Kristallisierte Z-Kraft, die Elektro-Attacken zu Z-Attacken aufstuft. Wird bei Bedarf automatisch vervielfacht.",
+        "it": "Permette di creare cristalli carichi di Potere Z che consentono ai Pokémon di trasformare le mosse di tipo Elettro in mosse Z.",
+        "ko": "전기타입 기술을 Z기술로 업그레이드하는 Z파워의 결정을 만들어 낸다.",
+        "zh-Hant": "會製造出把電屬性招式 升級為Ｚ招式的Ｚ力量結晶。",
+        "zh-Hans": "可用它来制造用于对战 并能将电属性招式升级成 Ｚ招式的Ｚ力量结晶。"
+    }
+}

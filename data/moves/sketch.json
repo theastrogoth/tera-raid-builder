@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This move enables the user to permanently learn the move last used by the target. Once used, Sketch disappears.",
+        "ja": "相手が　使った　技を 自分の　ものに　する。 １回　使うと　スケッチは　消える。",
+        "fr": "Le lanceur apprend la dernière capacité utilisée par la cible. Gribouille disparaît après utilisation.",
+        "es": "Aprende de forma permanente el último movimiento utilizado por el objetivo. Es de un solo uso.",
+        "de": "Anwender erlernt die letzte Attacke des Zieles dauerhaft. Nachahmer verschwindet nach Gebrauch.",
+        "it": "Il Pokémon impara l'ultima mossa usata dal bersaglio. La nuova mossa appresa sostituisce Schizzo.",
+        "ko": "상대가 쓴 기술을 자신의 것으로 만든다. 한 번 사용하면 스케치는 사라진다.",
+        "zh-Hant": "將對手使用的招式變成自己的。 寫生在使用１次之後就會消失。",
+        "zh-Hans": "将对手使用的招式 变成自己的招式。 使用１次后写生消失。"
+    }
 }

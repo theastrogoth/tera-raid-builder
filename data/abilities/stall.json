@@ -1,0 +1,14 @@
+{
+    "name": "Stall",
+    "flavorText": {
+        "en": "The Pokémon is always the last to use its moves.",
+        "ja": "技を　出す　順番が かならず　最後に　なる。",
+        "fr": "Le Pokémon utilise toujours sa capacité en dernier.",
+        "es": "Ejecuta su movimiento tras todos los demás.",
+        "de": "Das Pokémon setzt seine Attacken immer als Letztes ein.",
+        "it": "Il Pokémon agisce sempre per ultimo.",
+        "ko": "기술을 사용하는 순서가 반드시 마지막이 된다.",
+        "zh-Hant": "使出招式的順序 必定會變為最後。",
+        "zh-Hans": "使出招式的顺序 必定会变为最后。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Guidebook",
+    "flavorText": {
+        "en": "A notebook that keeps a record of your adventure so far.",
+        "ja": "これまでの　冒険の様子が 記録されている　ノート。",
+        "fr": "Un carnet contenant des informations utiles qui se remplit au fur et à mesure de votre aventure.",
+        "es": "Un cuaderno en el que se recogen, día a día, los progresos de la aventura.",
+        "de": "In diesen Notizen stehen Informationen, die dir im Verlauf deines Abenteuers von Nutzen sein werden.",
+        "it": "Diario in cui viene annotata la tua avventura giorno per giorno.",
+        "ko": "지금까지의 모험 상황이 기록되어 있는 노트.",
+        "zh-Hant": "記錄著到目前為止的 冒險歷程的筆記。",
+        "zh-Hans": "记录着到现在为止的 冒险经历的笔记。"
+    }
+}

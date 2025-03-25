@@ -1,0 +1,14 @@
+{
+    "name": "Steely Spirit",
+    "flavorText": {
+        "en": "Powers up the Steel-type moves of the Pokémon and its allies.",
+        "ja": "味方の　はがねタイプの 攻撃の　威力が　上がる。",
+        "fr": "Augmente la puissance des attaques de type Acier du Pokémon et de ses alliés.",
+        "es": "Potencia los movimientos de tipo Acero del Pokémon y sus aliados.",
+        "de": "Die Stärke von Stahl-Angriffen auf der Mitstreiterseite steigt.",
+        "it": "Potenzia gli attacchi di tipo Acciaio del Pokémon e dei suoi alleati.",
+        "ko": "같은 편의 강철타입 공격의 위력이 올라간다.",
+        "zh-Hant": "我方的鋼屬性 攻擊威力會提高。",
+        "zh-Hans": "我方的钢属性 攻击威力会提高。"
+    }
+}

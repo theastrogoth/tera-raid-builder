@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user swings its whole body around to attack with its huge hammer. This move can't be used twice in a row.",
+        "ja": "大きな　ハンマーを　体ごと ぶんまわして　攻撃する。 この技は　２回連続で　だせない。",
+        "fr": "Le lanceur met tout son corps à contribution pour attaquer la cible avec un immense marteau. Cette capacité ne peut pas être utilisée deux fois d'affilée.",
+        "es": "El usuario se ayuda de su propio peso corporal para propinar un golpe con un enorme martillo. Este movimiento no puede usarse dos veces seguidas.",
+        "de": "Der Anwender greift mit einem großen Hammer an, den er mit vollem Körpereinsatz um sich schwingt. Diese Attacke kann nicht zweimal in Folge eingesetzt werden.",
+        "it": "Il Pokémon attacca con un grosso martello mettendoci tutta la forza che ha in corpo. Questa mossa non può essere usata due volte di fila.",
+        "ko": "거대한 해머를 온몸으로 휘둘러서 공격한다. 이 기술은 2회 연속으로 쓸 수 없다.",
+        "zh-Hant": "將大錘連同身體 一起揮舞進行攻擊。 這個招式無法連續２次使用。",
+        "zh-Hans": "连同身体转起巨大的锤子进行攻击。 这个招式无法连续使出２次。"
+    }
 }

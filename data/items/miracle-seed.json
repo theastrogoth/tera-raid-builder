@@ -1,0 +1,14 @@
+{
+    "name": "Miracle Seed",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a seed imbued with life-force that boosts the power of the holder's Grass-type moves.",
+        "ja": "生命が宿る　タネ。 持たせると　くさタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Une graine remplie de vie qui augmente la puissance des capacités de type Plante.",
+        "es": "La vitalidad de la semilla potencia los movimientos de tipo Planta. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein Samen voller Lebenskraft, der Attacken vom Typ Pflanze verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Seme intriso di vita che potenzia le mosse di tipo Erba.",
+        "ko": "생명이 깃든 씨앗. 지니게 하면 풀타입 기술의 위력이 올라간다.",
+        "zh-Hant": "蘊藏生命的種子。 攜帶後，草屬性的 招式威力就會提高。",
+        "zh-Hans": "孕育生命的种子。 携带后，草属性的 招式威力就会提高。"
+    }
+}

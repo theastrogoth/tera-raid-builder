@@ -1,0 +1,14 @@
+{
+    "name": "Sweet Heart",
+    "flavorText": {
+        "en": "A piece of cloyingly sweet chocolate. It can be used to restore 20 HP to a Pokémon.",
+        "ja": "とても甘ったるい　チョコレート。 ポケモン　１匹の　ＨＰを ２０だけ　回復する。",
+        "fr": "Un chocolat extrêmement sucré. Restaure 20 PV d'un Pokémon.",
+        "es": "Chocolatina de sabor dulce. Restaura 20 PS de un Pokémon.",
+        "de": "Ein süßer Schokosnack, der die KP eines Pokémon um 20 Punkte auffüllt.",
+        "it": "Cioccolato molto dolce. Restituisce 20 PS a un Pokémon.",
+        "ko": "지나칠 정도로 달콤한 초콜릿. 포켓몬 1마리의 HP를 20만큼 회복한다.",
+        "zh-Hant": "非常甜膩的巧克力。 能讓１隻寶可夢 回復２０ＨＰ。",
+        "zh-Hans": "非常甜腻的巧克力。 能让１只宝可梦 回复２０ＨＰ。"
+    }
+}

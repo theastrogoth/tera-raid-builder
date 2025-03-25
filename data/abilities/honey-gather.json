@@ -1,0 +1,14 @@
+{
+    "name": "Honey Gather",
+    "flavorText": {
+        "en": "The Pokémon may gather Honey after a battle.",
+        "ja": "戦闘が　終わったとき あまいミツを　拾うことが　ある。",
+        "fr": "Le Pokémon peut parfois trouver du Miel après un combat.",
+        "es": "Puede que encuentre Miel una vez concluido el combate.",
+        "de": "Das Pokémon sammelt nach Kämpfen gelegentlich Honig auf.",
+        "it": "Il Pokémon può raccogliere del Miele alla fine della lotta.",
+        "ko": "배틀이 끝났을 때 달콤한꿀을 주울 때가 있다.",
+        "zh-Hant": "戰鬥結束時， 有時候會撿來甜甜蜜。",
+        "zh-Hans": "战斗结束时， 有时候会捡来甜甜蜜。"
+    }
+}

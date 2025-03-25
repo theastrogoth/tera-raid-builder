@@ -1,0 +1,14 @@
+{
+    "name": "Steelworker",
+    "flavorText": {
+        "en": "Powers up Steel-type moves.",
+        "ja": "はがねタイプの　技の 威力が　上がる。",
+        "fr": "Augmente la puissance des attaques de type Acier.",
+        "es": "Potencia los movimientos de tipo Acero.",
+        "de": "Die Stärke von Stahl-Attacken des Pokémon steigt.",
+        "it": "Aumenta la potenza delle mosse di tipo Acciaio.",
+        "ko": "강철타입 기술의 위력이 올라간다.",
+        "zh-Hant": "鋼屬性的招式威力會提高。",
+        "zh-Hans": "钢属性的招式威力会提高。"
+    }
+}

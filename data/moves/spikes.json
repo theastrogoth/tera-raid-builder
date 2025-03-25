@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lays a trap of spikes at the feet of the opposing team. The spikes will damage opposing Pokémon that switch into battle.",
+        "ja": "相手の　足下に　まきびしを しかける。交代で　でてきた　相手の ポケモンに　ダメージを　与える。",
+        "fr": "Le lanceur disperse des picots sur le sol pour blesser tout ennemi qui entre au combat.",
+        "es": "Lanza una trampa de púas a los pies del objetivo que hiere a los rivales que entran en combate.",
+        "de": "Der Anwender legt Stacheln aus, die gegnerische Pokémon verletzen, die in den Kampf gerufen werden.",
+        "it": "Il Pokémon piazza sul terreno una trappola di punte che danneggia gli avversari quando entrano in campo.",
+        "ko": "상대의 발밑에 압정을 뿌린다. 교체된 상대 포켓몬에게 데미지를 준다.",
+        "zh-Hant": "將撒菱散布在對手的腳下。 讓對手替換出場的寶可夢 受到傷害。",
+        "zh-Hans": "在对手的脚下扔撒菱。 对替换出场的对手的宝可梦 给予伤害。"
+    }
 }

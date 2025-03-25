@@ -1,0 +1,14 @@
+{
+    "name": "Stench",
+    "flavorText": {
+        "en": "By releasing a stench when attacking, the Pokémon may cause the target to flinch.",
+        "ja": "臭い　においを　放つことによって 攻撃した　ときに　相手を ひるませることが　ある。",
+        "fr": "Le Pokémon émet une odeur si nauséabonde qu'il peut effrayer sa cible en l'attaquant.",
+        "es": "Puede amedrentar a un Pokémon al atacarlo debido al mal olor que emana.",
+        "de": "Das Pokémon sondert einen Gestank ab, der bei einem Angriff das Ziel gelegentlich zurückschrecken lässt.",
+        "it": "Quando il Pokémon attacca il bersaglio, può farlo tentennare grazie al cattivo odore che emana.",
+        "ko": "악취를 풍겨서 공격했을 때 상대가 풀죽을 때가 있다.",
+        "zh-Hant": "發出臭氣， 在攻擊的時候， 有時會使對手畏縮。",
+        "zh-Hans": "通过释放臭臭的气味， 在攻击的时候， 有时会使对手畏缩。"
+    }
+}

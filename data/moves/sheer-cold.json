@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target faints instantly. This move is less likely to hit the target if used by Pokémon other than Ice types.",
+        "ja": "相手を　一撃で　瀕死に　する。 こおりタイプ　以外の　ポケモンが 使うと　当たりにくい。",
+        "fr": "Une vague de froid glacial frappe la cible pour la mettre K.O. en un coup. Cela a peu de chances de réussir si le lanceur ne possède pas le type Glace.",
+        "es": "Fulmina al objetivo de un solo golpe. Si lo usa un Pokémon que no sea de tipo Hielo, es difícil que acierte.",
+        "de": "Diese Attacke führt beim Ziel sofort zum K.O. Wird sie von einem Pokémon eingesetzt, das nicht dem Typ Eis angehört, trifft sie seltener.",
+        "it": "Il Pokémon manda KO il bersaglio in un colpo solo. Se la mossa viene usata da Pokémon che non sono di tipo Ghiaccio, difficilmente va a segno.",
+        "ko": "상대를 일격에 기절시킨다. 얼음타입 이외의 포켓몬이 사용하면 잘 맞지 않는다.",
+        "zh-Hant": "一擊讓對手陷入瀕死。 冰屬性以外的寶可夢使用時， 會比較不易命中對手。",
+        "zh-Hans": "给对手一击昏厥。 如果是冰属性以外的宝可梦使用， 就会难以打中。"
+    }
 }

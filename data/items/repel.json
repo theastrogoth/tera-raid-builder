@@ -1,0 +1,14 @@
+{
+    "name": "Repel",
+    "flavorText": {
+        "en": "An item that prevents low-level wild Pokémon from jumping out at you for a short time.",
+        "ja": "使うと　少しのあいだ 弱い　野生のポケモンが まったく　出てこなくなる。",
+        "fr": "Repousse les Pokémon sauvages faibles pendant un court moment.",
+        "es": "Evita encuentros con Pokémon salvajes de nivel bajo durante un corto período de tiempo.",
+        "de": "Hält für kurze Zeit schwache wilde Pokémon ab.",
+        "it": "Strumento che evita a chi lo usa di incontrare Pokémon selvatici deboli per un po' di tempo.",
+        "ko": "사용하면 잠시 동안 약한 야생 포켓몬이 전혀 나오지 않게 된다.",
+        "zh-Hant": "使用後的短暫期間， 弱小的野生寶可夢變得 完全不會出現。",
+        "zh-Hans": "使用后，在较短的一段时间内， 弱小的野生宝可梦将完全不会出现。"
+    }
+}

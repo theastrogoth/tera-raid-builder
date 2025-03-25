@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user reflects the target's type to become the same type as the target.",
+        "ja": "相手の　タイプを　反射して 自分も　同じ　タイプに　なる。",
+        "fr": "Le lanceur adopte le même type que la cible.",
+        "es": "Cambia el tipo del usuario al mismo tipo que el del objetivo.",
+        "de": "Anwender ahmt das Ziel nach und nimmt dabei dessen Typ an.",
+        "it": "Il Pokémon cambia il proprio tipo in quello del bersaglio.",
+        "ko": "상대의 타입을 반사해서 자신도 똑같은 타입이 된다.",
+        "zh-Hant": "在自己身上反映出對手的屬性， 讓自己也變成相同的屬性。",
+        "zh-Hans": "反射对手的属性， 让自己也变成一样的属性。"
+    }
 }

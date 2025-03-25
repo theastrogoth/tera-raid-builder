@@ -1,0 +1,14 @@
+{
+    "name": "Dragon Scale",
+    "flavorText": {
+        "en": "A very tough and inflexible scale. Dragon-type Pokémon may be holding this item when caught.",
+        "ja": "硬くて　丈夫な　ウロコ。 ドラゴンタイプの　ポケモンが 持っていることが　ある。",
+        "fr": "Une écaille épaisse et dure, parfois tenue par les Pokémon de type Dragon.",
+        "es": "Una gruesa y resistente escama que a veces llevan los Pokémon de tipo Dragón.",
+        "de": "Eine dicke und starke Haut. Drachen-Pokémon tragen dieses Item eventuell bei sich.",
+        "it": "Squama spessa e dura. Può averla un Pokémon di tipo Drago.",
+        "ko": "단단하고 튼튼한 비늘. 드래곤타입의 포켓몬이 지니고 있는 경우가 있다.",
+        "zh-Hant": "又硬又結實的鱗片。 有時龍屬性寶可夢 會攜帶著它。",
+        "zh-Hans": "又硬又坚固的鳞片。 龙属性宝可梦有时会携带它。"
+    }
+}

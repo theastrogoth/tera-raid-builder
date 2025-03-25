@@ -1,0 +1,14 @@
+{
+    "name": "Golden Pinap Berry",
+    "flavorText": {
+        "en": "A Berry that makes you drastically more likely to get an item when given to Pokémon you're trying to catch.",
+        "ja": "ポケモンに　あたえると 捕まえたときに　道具が かなり　手にはいりやすくなる　きのみ。",
+        "fr": "Une Baie à donner à un Pokémon sauvage pour avoir beaucoup plus de chances d'obtenir un objet après l'avoir capturé.",
+        "es": "Una baya que puedes lanzar a un Pokémon salvaje para aumentar mucho las probabilidades de conseguir un objeto tras capturarlo.",
+        "de": "Gibst du diese Beere einem Pokémon zu essen, wird die Chance, bei einem erfolgreichen Fangversuch ein Item zu erhalten, stark erhöht.",
+        "it": "Bacca che rende molto più facile ottenere strumenti quando catturi il Pokémon a cui l'hai data.",
+        "ko": "포켓몬에게 주면 잡았을 때 도구를 손에 넣기 상당히 쉬워지는 나무열매.",
+        "zh-Hant": "把這個樹果餵給寶可夢， 在捕捉成功後， 會非常容易獲得道具。",
+        "zh-Hans": "如果把这树果交给宝可梦， 那么接下来捉住该宝可梦时， 会非常容易获得道具。"
+    }
+}

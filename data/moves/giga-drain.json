@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A nutrient-draining attack. The user's HP is restored by up to half the damage taken by the target.",
+        "ja": "養分を　吸い取り　攻撃する。 与えた　ダメージの 半分の　ＨＰを　回復できる。",
+        "fr": "Une attaque qui absorbe les nutriments et convertit la moitié des dégâts infligés en PV pour le lanceur.",
+        "es": "Un ataque que absorbe nutrientes. El usuario recupera la mitad de los PS del daño que produce.",
+        "de": "Das Ziel wird angegriffen und die Hälfte des zugefügten Schadens dem Anwender als KP gutgeschrieben.",
+        "it": "Il Pokémon attacca assorbendo PS. La quantità di PS recuperati è pari alla metà del danno inflitto.",
+        "ko": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+        "zh-Hant": "吸取對手的養分進行攻擊。 可以回復給予對手 傷害的一半ＨＰ。",
+        "zh-Hans": "吸取对手的养分进行攻击。 可以回复给予对手 伤害的一半ＨＰ。"
+    }
 }

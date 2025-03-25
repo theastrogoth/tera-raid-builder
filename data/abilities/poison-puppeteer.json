@@ -1,0 +1,14 @@
+{
+    "name": "Poison Puppeteer",
+    "flavorText": {
+        "en": "Pokémon poisoned by Pecharunt's moves will also become confused.",
+        "ja": "モモワロウの　技によって どく状態に　なった　相手は こんらん状態にも　なってしまう。",
+        "fr": "Lorsque Pêchaminus empoisonne un Pokémon grâce à l'une de ses capacités, ce dernier devient également confus.",
+        "es": "Los rivales que Pecharunt envenene con sus movimientos también sufrirán confusión.",
+        "de": "Wenn Infamomo ein Ziel mit einer Attacke vergiftet, so wird dieses auch verwirrt.",
+        "it": "I Pokémon avvelenati dalle mosse di Pecharunt entreranno anche in stato di confusione.",
+        "ko": "복숭악동의 기술에 의해 독 상태가 된 상대는 혼란 상태도 되어 버린다.",
+        "zh-Hant": "因為桃歹郎的招式 而陷入中毒狀態的對手 同時也會陷入混亂狀態。",
+        "zh-Hans": "因桃歹郎的招式 而陷入中毒状态的对手 同时也会陷入混乱状态。"
+    }
+}

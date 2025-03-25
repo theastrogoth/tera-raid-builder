@@ -1,0 +1,14 @@
+{
+    "name": "Letter",
+    "flavorText": {
+        "en": "An extremely important letter to Steven from the president of Devon Corporation.",
+        "ja": "デボン社長から あずかった　手紙。",
+        "fr": "Une lettre confiée par le directeur de Devon.",
+        "es": "Carta que te ha confiado el presidente de Devon S. A.",
+        "de": "Ein Brief, den du im Namen des Präsidenten der Devon Corporation an Troy aushändigen sollst.",
+        "it": "Lettera che ti è stata affidata dal direttore della Devon.",
+        "ko": "데봉사장이 맡긴 편지.",
+        "zh-Hant": "得文社長託付的信。",
+        "zh-Hans": "从得文社长 那里得到的信。"
+    }
+}

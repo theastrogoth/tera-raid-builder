@@ -1,0 +1,14 @@
+{
+    "name": "Dark Aura",
+    "flavorText": {
+        "en": "Powers up the Dark-type moves of all Pokémon on the field.",
+        "ja": "全員の　あくタイプの 技が　強くなる。",
+        "fr": "Augmente la puissance des capacités de type Ténèbres de tous les Pokémon.",
+        "es": "Aumenta la potencia de los movimientos de tipo Siniestro de todos los Pokémon.",
+        "de": "Die Unlicht-Attacken aller Pokémon werden verstärkt.",
+        "it": "Potenzia le mosse di tipo Buio di tutti i Pokémon.",
+        "ko": "전원의 악타입 기술이 강해진다.",
+        "zh-Hant": "全體的惡屬性招式變強。",
+        "zh-Hans": "全体的恶属性招式变强。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Torn Journal",
+    "flavorText": {
+        "en": "An old, stab-bound diary in a traditional style. It has been torn and is missing the latter half of its pages.",
+        "ja": "古びた和とじの日記。 破れており後半のページが抜けている。",
+        "fr": "Un vieux journal relié selon une méthode traditionnelle. Il est déchiré et il manque la moitié des pages.",
+        "es": "Diario antiguo y ajado, con una encuadernación clásica, al que le han arrancado las últimas hojas.",
+        "de": "Ein altes, fadengebundenes Tagebuch. Es ist ziemlich ramponiert und die zweite Hälfte der Seiten fehlt.",
+        "it": "Antico diario rilegato in modo tradizionale. È alquanto malconcio e mancano le pagine da metà in poi.",
+        "ko": "옛날 방식으로 제본된 일기. 찢어져서 후반 페이지가 빠져 있다.",
+        "zh-Hant": "陳舊的線裝日記本。 日記本破損嚴重， 缺少了後半的書頁。",
+        "zh-Hans": "陈旧的线装日记本。 日记本破损严重， 缺少了后半的书页。"
+    }
+}

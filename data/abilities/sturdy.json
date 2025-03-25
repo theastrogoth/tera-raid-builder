@@ -1,0 +1,14 @@
+{
+    "name": "Sturdy",
+    "flavorText": {
+        "en": "The Pokémon cannot be knocked out by a single hit as long as its HP is full. One-hit KO moves will also fail to knock it out.",
+        "ja": "ＨＰが　満タンのとき　技を　受けても 一撃で　倒されることが　ない。 一撃必殺技も　効かない。",
+        "fr": "Le Pokémon encaisse toujours au moins une attaque s'il a tous ses PV. Il est également immunisé contre les capacités pouvant mettre K.O. en un coup.",
+        "es": "El Pokémon no puede debilitarse de un solo golpe cuando tiene los PS al máximo. También evita los movimientos fulminantes.",
+        "de": "Das Pokémon kann bei vollen KP nicht auf einen Schlag von Attacken besiegt werden. Auch K.O.-Attacken wirken bei ihm nicht.",
+        "it": "Evita che il Pokémon vada KO in un sol colpo se ha tutti i PS e lo rende immune alle mosse che causano KO immediato.",
+        "ko": "HP가 꽉 찼을 때 기술을 받아도 일격에 쓰러지지 않는다. 일격필살 기술의 효과도 받지 않는다.",
+        "zh-Hant": "在ＨＰ全滿時受到招式攻擊 不會被一擊打倒。 一擊必殺的招式也沒有效果。",
+        "zh-Hans": "在ＨＰ全满时，即使受到招式攻击， 也不会被一击打倒。 一击必杀的招式也没有效果。"
+    }
+}

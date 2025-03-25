@@ -1,0 +1,14 @@
+{
+    "name": "Armorite Ore",
+    "flavorText": {
+        "en": "Rare ore that can be obtained on the Isle of Armor. Something good will happen if you give it to a collector on the Isle of Armor.",
+        "ja": "ヨロイ島で　採れる　珍しい石。 ヨロイ島の　コレクターに　あげると なにか　いいことが　ある。",
+        "fr": "Un minerai rare que l'on trouve à Isolarmure. Vous pourriez avoir une bonne surprise en le donnant à un collectionneur de l'île.",
+        "es": "Un mineral poco común que se encuentra en la Isla de la Armadura. Tal vez ocurra algo bueno al dárselo a un coleccionista de dicha isla.",
+        "de": "Ein seltenes Gestein, das auf der Rüstungsinsel zu finden ist. Gibst du es einem Sammler auf der Insel, passiert etwas Gutes.",
+        "it": "Una pietra rara che si può trovare sull'Isola dell'Armatura. Se la consegni a un collezionista di quella zona, potresti guadagnarci qualcosa.",
+        "ko": "갑옷섬에서 얻을 수 있는 희귀한 광석. 갑옷섬의 컬렉터에게 주면 좋은 일이 일어난다.",
+        "zh-Hant": "能夠在鎧島找到的稀奇石頭。 把它送給鎧島上的收藏家， 就會有好事發生。",
+        "zh-Hans": "能够在铠岛找出的珍稀石头。 把它送给铠岛的收藏家， 就会有好事发生。"
+    }
+}

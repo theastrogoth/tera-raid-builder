@@ -1,0 +1,14 @@
+{
+    "name": "Unaware",
+    "flavorText": {
+        "en": "When attacking, the Pokémon ignores the target's stat changes.",
+        "ja": "相手の　能力の　変化を 無視して　攻撃が　できる。",
+        "fr": "Le Pokémon ignore les changements de stats des autres Pokémon, qu'il attaque ou soit attaqué.",
+        "es": "Pasa por alto los cambios en las características de un Pokémon al atacarlo o recibir daño.",
+        "de": "Das Pokémon ignoriert beim Angriff sämtliche Statusveränderungen des Zieles.",
+        "it": "Il Pokémon ignora le modifiche alle statistiche del bersaglio e di chi lo attacca.",
+        "ko": "상대의 능력 변화를 무시하고 공격할 수 있다.",
+        "zh-Hant": "可無視對手能力的變化， 進行攻擊。",
+        "zh-Hans": "可以无视对手能力的变化， 进行攻击。"
+    }
+}

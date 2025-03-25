@@ -1,0 +1,14 @@
+{
+    "name": "Anticipation",
+    "flavorText": {
+        "en": "The Pokémon can sense an opposing Pokémon's dangerous moves.",
+        "ja": "相手の　持つ　危険な　技を 察知する　ことができる。",
+        "fr": "Le Pokémon devine si l'adversaire connaît une capacité dangereuse pour lui.",
+        "es": "Prevé los movimientos peligrosos del rival.",
+        "de": "Das Pokémon ahnt, wenn ein Gegner über gefährliche Attacken verfügt.",
+        "it": "Rivela se gli avversari hanno mosse pericolose.",
+        "ko": "상대가 지닌 위험한 기술을 감지할 수 있다.",
+        "zh-Hant": "察覺對手持有的 危險招式。",
+        "zh-Hans": "可以察觉到 对手拥有的危险招式。"
+    }
+}

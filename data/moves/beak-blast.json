@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user first heats up its beak, and then it attacks the target. Making direct contact with the user while it's heating up its beak results in a burn.",
+        "ja": "最初に　クチバシを　加熱してから 攻撃を　くりだす。 加熱中に　さわると　やけどする。",
+        "fr": "Le lanceur fait chauffer son bec avant d'attaquer. S'il subit une attaque directe pendant la montée en température, l'attaquant sera brûlé.",
+        "es": "Primero aumenta la temperatura de su pico y, luego, ejecuta un ataque. Quema a quien use un movimiento de contacto contra él mientras está calentando el pico.",
+        "de": "Der Anwender erhitzt zuerst seinen Schnabel und greift dann an. Pokémon, die ihn während des Erhitzens berühren, erleiden Verbrennungen.",
+        "it": "Chi la usa arroventa il proprio becco e poi attacca. Se un Pokémon entra in contatto con lui mentre sta accumulando calore, resta scottato.",
+        "ko": "먼저 부리를 가열시킨 다음 공격을 날린다. 가열 중에 만지면 화상을 입는다.",
+        "zh-Hant": "先加熱鳥嘴後再進行攻擊。 若對手在加熱時觸碰的話， 就會灼傷。",
+        "zh-Hans": "先加热鸟嘴后再进行攻击。 鸟嘴在加热时对手触碰的话， 就会使其灼伤。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Wishing Piece",
+    "flavorText": {
+        "en": "Throw one into a Pokémon Den to attract a wild Dynamax Pokémon.",
+        "ja": "ポケモンの　巣穴に　投げいれると ダイマックスポケモンが　現れる。",
+        "fr": "Un objet à lancer dans l'antre d'un Pokémon pour y faire apparaître un Pokémon Dynamax.",
+        "es": "Al lanzarlo en un nido Pokémon, aparece un Pokémon Dinamax.",
+        "de": "Wirft man ihn in ein Pokémon-Nest, taucht ein Dynamax-Pokémon auf.",
+        "it": "Se lanciato dentro una tana di Pokémon fa comparire un Pokémon Dynamax.",
+        "ko": "포켓몬굴에 던져 넣으면 다이맥스 포켓몬이 나타난다.",
+        "zh-Hant": "投進寶可夢的巢穴裡， 極巨化寶可夢就會現身。",
+        "zh-Hans": "投掷到宝可梦的巢穴里， 就会有极巨化宝可梦出现。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Red Onion",
+    "flavorText": {
+        "en": "An ingredient with some sweetness to it. Its spiciness and fragrance are milder than those of other onions, making it a pleasant bite.",
+        "ja": "甘味が　ある　食材。 たまねぎと　比較して　辛味や 香りが　穏やかで　食べやすい。",
+        "fr": "Un ingrédient au goût sucré. Il est plus doux et moins âcre que les autres oignons, ce qui lui permet de satisfaire la plupart des palais.",
+        "es": "Comparada con otros tipos de cebolla, la fragancia y el picante de esta variante dulzona son mucho más suaves, por lo que se deja comer mejor.",
+        "de": "Diese süßliche Zutat zeichnet sich im Vergleich zu gewöhnlichen Zwiebeln durch milde Schärfe und mildes Aroma aus, wodurch sie sich leichter verspeisen lässt.",
+        "it": "Un ingrediente dolce. Si lascia mangiare più facilmente della Cipolla bianca grazie all'aroma e la piccantezza meno marcati.",
+        "ko": "단맛이 나는 식재료. 양파에 비해 매운맛이나 향이 강하지 않아서 먹기 좋다.",
+        "zh-Hant": "帶有甜味的食材。 辣味和氣味較洋蔥溫和， 容易入口。",
+        "zh-Hans": "带有甜味的食材。 与洋葱相比，辣味和 香味都较淡，容易入口。"
+    }
+}

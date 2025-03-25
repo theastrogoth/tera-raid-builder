@@ -1,0 +1,14 @@
+{
+    "name": "Sonia's Book",
+    "flavorText": {
+        "en": "Professor Sonia's published writings. Her new discoveries about the Galar region's legends are recorded in this enjoyable read.",
+        "ja": "ソニア博士が　出版　した。 ガラル地方の　伝説に　ついての 新発見が　おもしろく　書かれている。",
+        "fr": "Ouvrage publié par Professeure Sonya, où elle conte à sa manière les nouvelles découvertes faites au sujet des légendes de Galar.",
+        "es": "Publicación de la Profesora Sonia que trata de forma amena los recientes descubrimientos sobre las leyendas de la región de Galar.",
+        "de": "Dieses Buch wurde von Professor Sania herausgebracht. Es ist eine unterhaltsam geschriebene Abhandlung über neue Erkenntnisse zu Legenden der Galar-Region.",
+        "it": "Pubblicazione della Professoressa Sonia. Raccoglie tutte le ultime scoperte riguardanti le leggende di Galar in un libro scorrevole e informativo.",
+        "ko": "소니아박사가 출판했다. 가라르지방의 전설에 대한 새로운 발견이 흥미롭게 쓰여 있다.",
+        "zh-Hant": "索妮亞博士出版的書。 書中以有趣的手法描述了 關於伽勒爾地區傳說的新發現。",
+        "zh-Hans": "索妮亚博士出版的书。 以风趣的文笔展示了 关于伽勒尔地区传说的最新发现。"
+    }
+}

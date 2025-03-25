@@ -1,0 +1,14 @@
+{
+    "name": "Battery",
+    "flavorText": {
+        "en": "Powers up ally Pokémon's special moves.",
+        "ja": "味方の　特殊技の 威力を　上げる。",
+        "fr": "Augmente la puissance des capacités spéciales des alliés.",
+        "es": "Potencia los ataques especiales de los aliados.",
+        "de": "Die Stärke der Spezial-Attacken der Mitstreiter des Pokémon steigt.",
+        "it": "Aumenta la potenza delle mosse speciali degli alleati.",
+        "ko": "같은 편 특수 기술의 위력을 올린다.",
+        "zh-Hant": "會提高我方的 特殊招式的威力。",
+        "zh-Hans": "会提高我方的 特殊招式的威力。"
+    }
+}

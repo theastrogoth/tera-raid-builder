@@ -1,0 +1,14 @@
+{
+    "name": "Guard Spec.",
+    "flavorText": {
+        "en": "An item that prevents Pokémon on your side from having their stats lowered in battle for five turns.",
+        "ja": "戦闘中　５ターンの　あいだ 味方の　能力を さげられなくする　道具。",
+        "fr": "Empêche la baisse des stats de tous les Pokémon alliés pendant cinq tours.",
+        "es": "Evita que reduzcan las características de un Pokémon y sus aliados durante cinco turnos.",
+        "de": "Verhindert im Kampf für fünf Runden, dass die Statuswerte von Pokémon auf der Mitstreiterseite gesenkt werden.",
+        "it": "Per cinque turni dopo l'uso, evita che le statistiche dei Pokémon alleati diminuiscano.",
+        "ko": "배틀 중 5턴 동안 같은 편의 능력을 떨어뜨리지 않게 하는 도구.",
+        "zh-Hant": "在戰鬥中， ５回合內讓我方的 能力不被降低的道具。",
+        "zh-Hans": "在战斗中， ５回合内不让我方 能力降低的道具。"
+    }
+}

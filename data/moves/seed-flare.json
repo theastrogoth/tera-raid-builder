@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user emits a shock wave from its body to attack the target. This may also harshly lower the target's Sp. Def stat.",
+        "ja": "体の　中から　衝撃波を 発生させる。相手の　特防を がくっと　さげることが　ある。",
+        "fr": "Le corps du lanceur émet une onde de choc. Peut aussi beaucoup baisser la Défense Spéciale de la cible.",
+        "es": "El usuario libera una onda de choque de su cuerpo. Puede reducir mucho la Defensa Especial del objetivo.",
+        "de": "Anwender erzeugt eine Schockwelle. Spezial-Verteidigung des Zieles wird eventuell stark gesenkt.",
+        "it": "Il Pokémon genera un'onda d'urto dal suo corpo. Può anche ridurre di molto la Difesa Speciale del bersaglio.",
+        "ko": "몸속에서 충격파를 발생시킨다. 상대의 특수방어를 크게 떨어뜨릴 때가 있다.",
+        "zh-Hant": "從身體裡發出衝擊波攻擊對手。 有時會大幅降低對手的特防。",
+        "zh-Hans": "从身体里产生冲击波。 有时会大幅降低对手的特防。"
+    }
 }

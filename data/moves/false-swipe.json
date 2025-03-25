@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A restrained attack that prevents the target from fainting. The target is left with at least 1 HP.",
+        "ja": "相手の　ＨＰが 必ず　１だけ　残るように 手加減して　攻撃する。",
+        "fr": "Le lanceur retient ses coups pour que la cible garde au moins 1 PV et ne tombe pas K.O.",
+        "es": "Ataque moderado que no debilita al objetivo y le deja al menos 1 PS.",
+        "de": "Ein Angriff, der dem Ziel zumindest 1 KP lässt.",
+        "it": "Il Pokémon attacca in modo contenuto, lasciando il bersaglio con 1 PS.",
+        "ko": "상대의 HP가 반드시 1만 남도록 조절하여 공격한다.",
+        "zh-Hant": "手下留情地攻擊對手， 一定會讓對手剩下１ＨＰ。",
+        "zh-Hans": "对手的ＨＰ 至少会留下１ＨＰ， 如此般手下留情地攻击。"
+    }
 }

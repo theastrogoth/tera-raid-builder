@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user blocks the target's way with arms spread wide to prevent the target from fleeing.",
+        "ja": "両手を　ひろげて　たちはだかり 相手の　逃げ道を　ふさいで 逃げられなくする。",
+        "fr": "Le lanceur bloque la route de la cible pour empêcher sa fuite.",
+        "es": "Le corta el paso al objetivo para que no pueda huir ni ser cambiado por otro.",
+        "de": "Der Anwender breitet seine Arme aus, um dem Ziel den Fluchtweg zu versperren und es so an der Flucht beziehungsweise am Auswechseln zu hindern.",
+        "it": "Il Pokémon sbarra la strada al bersaglio impedendogli di lasciare il campo.",
+        "ko": "양팔을 벌리고 서서 상대의 도주로를 가로막아 도망칠 수 없게 한다.",
+        "zh-Hant": "張開雙手進行阻擋， 封住對手的退路， 讓對手無法逃走。",
+        "zh-Hans": "张开双手进行阻挡， 封住对手的退路， 使其不能逃走。"
+    }
 }

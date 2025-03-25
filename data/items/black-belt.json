@@ -1,0 +1,14 @@
+{
+    "name": "Black Belt",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This belt helps with focus and boosts the power of the holder's Fighting-type moves.",
+        "ja": "気が　ひきしまる　帯。 持たせると　かくとうタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Une ceinture d'art martial qui augmente la puissance des capacités de type Combat.",
+        "es": "Aumenta la concentración y potencia los movimientos de tipo Lucha. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein Gürtel, der die Entschlossenheit des Trägers sowie Attacken vom Typ Kampf verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Cintura che potenzia la determinazione e le mosse di tipo Lotta.",
+        "ko": "마음을 긴장시키는 띠. 지니게 하면 격투타입 기술의 위력이 올라간다.",
+        "zh-Hant": "能振作精神的帶子。 攜帶後，格鬥屬性的 招式威力就會提高。",
+        "zh-Hans": "能振作精神的带子。 携带后，格斗属性的 招式威力就会提高。"
+    }
+}

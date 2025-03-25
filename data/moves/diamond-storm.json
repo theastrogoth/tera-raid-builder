@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user whips up a storm of diamonds to damage opposing Pokémon. This may also sharply boost the user's Defense stat.",
+        "ja": "ダイヤの　嵐を　巻き起こし ダメージを　与える。　自分の 防御を　ぐーんと　あげることが　ある。",
+        "fr": "Provoque une tempête de diamants qui inflige des dégâts. Peut beaucoup augmenter la Défense du lanceur.",
+        "es": "Desata un devastador vendaval de diamantes para dañar al objetivo. Puede aumentar mucho la Defensa del usuario.",
+        "de": "Der Anwender beschwört einen zerstörerischen Diamantsturm herauf. Kann die Verteidigung des Anwenders stark erhöhen.",
+        "it": "Il Pokémon infligge danni con una tempesta di diamanti. Può anche aumentare di molto la propria Difesa.",
+        "ko": "다이아 폭풍을 일으켜 데미지를 준다. 자신의 방어를 크게 올릴 때가 있다.",
+        "zh-Hant": "吹起鑽石風暴給予對手傷害。 有時會大幅提高自己的防禦。",
+        "zh-Hans": "掀起钻石风暴给予伤害。 有时会大幅提高自己的防御。"
+    }
 }

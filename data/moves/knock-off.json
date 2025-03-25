@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item.",
+        "ja": "相手の　持ち物を　はたき　落として 戦闘が　終わるまで　使えなくする。 物を持つ　相手には　ダメージが増す。",
+        "fr": "Fait plus de dégâts aux cibles qui tiennent un objet. De plus, fait tomber cet objet et empêche la cible de l'utiliser jusqu'à la fin du combat.",
+        "es": "Hace que el objetivo suelte el objeto que lleva y le impide usarlo hasta que concluye el combate. Inflige más daño si el objetivo lleva un objeto.",
+        "de": "Schlägt das Item des Zieles weg und vereitelt so dessen Gebrauch während des Kampfes. Mehr Schaden gegen Ziele, die ein Item bei sich tragen.",
+        "it": "Il Pokémon fa cadere lo strumento del bersaglio, impedendone l'uso nella lotta. Infligge più danni se il bersaglio ha uno strumento.",
+        "ko": "상대의 지닌 물건을 탁 쳐서 떨어뜨려 배틀이 끝날 때까지 사용할 수 없게 한다. 물건을 가진 상대에게는 데미지를 더 준다.",
+        "zh-Hant": "拍落對手的持有物， 讓對手在戰鬥結束前都無法使用。 對手有攜帶物品時，傷害會增加。",
+        "zh-Hans": "拍落对手的持有物， 直到战斗结束都不能使用。 对手携带道具时会增加伤害。"
+    }
 }

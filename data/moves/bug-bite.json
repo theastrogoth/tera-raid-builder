@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by biting the target. If the target is holding a Berry, the user eats it and gains its effect.",
+        "ja": "かみついて　攻撃する。 相手が　きのみを　持っているとき 食べて　きのみの　効果を　受けられる。",
+        "fr": "Le lanceur pique la cible. Si celle-ci tient une Baie, le lanceur la dévore et obtient son effet.",
+        "es": "Pica al objetivo. Si el objetivo lleva una baya, el usuario se la come y se beneficia de su efecto.",
+        "de": "Anwender beißt das Ziel. Trägt dieses eine Beere, isst der Anwender sie und erhält ihren Effekt.",
+        "it": "Il Pokémon attacca mordendo. Se il bersaglio ha una bacca, gliela mangia e ne può sfruttare gli effetti.",
+        "ko": "물어서 공격한다. 상대가 나무열매를 지니고 있을 때 먹어서 나무열매의 효과를 받을 수 있다.",
+        "zh-Hant": "叮咬對手進行攻擊。 可以吃下對手攜帶的樹果， 並獲得樹果的效果。",
+        "zh-Hans": "咬住进行攻击。 当对手携带树果时， 可以食用并获得其效果。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Pastel Veil",
+    "flavorText": {
+        "en": "Prevents the Pokémon and its allies from being poisoned.",
+        "ja": "自分も　味方も どくの　状態異常を 受けなくなる。",
+        "fr": "Protège le Pokémon et ses alliés contre toutes les altérations de statut liées à l'empoisonnement.",
+        "es": "Se protege a sí mismo y a sus aliados del envenenamiento.",
+        "de": "Die Pokémon auf der Mitstreiterseite sind vor Vergiftung geschützt.",
+        "it": "Protegge il Pokémon e gli alleati dai problemi di stato causati dal veleno.",
+        "ko": "자신과 같은 편은 독 상태가 되지 않는다.",
+        "zh-Hant": "自己和我方同伴都不會 陷入中毒的異常狀態。",
+        "zh-Hans": "自己和同伴都不会 陷入中毒的异常状态。"
+    }
+}

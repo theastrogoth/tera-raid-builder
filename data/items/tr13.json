@@ -1,0 +1,14 @@
+{
+    "name": "TR13",
+    "flavorText": {
+        "en": "The user takes a deep breath and focuses so that critical hits land more easily.",
+        "ja": "深く　息を　吸い　気合を　こめる。 自分の　攻撃が 急所に　当たりやすくなる。",
+        "fr": "Le lanceur prend une profonde inspiration et se concentre pour augmenter son taux de critiques.",
+        "es": "Concentra energía para aumentar las posibilidades de asestar un golpe crítico.",
+        "de": "Anwender atmet ein und bündelt Kraft. Die Volltrefferquote steigt dadurch.",
+        "it": "Il Pokémon fa un profondo respiro e si concentra per rendere più probabili i brutti colpi.",
+        "ko": "깊게 숨을 들이마셔 기합을 넣는다. 자신의 공격이 급소에 맞기 쉬워진다.",
+        "zh-Hant": "深呼吸後集中精神。 讓自己的攻擊 變得容易擊中要害。",
+        "zh-Hans": "深深地吸口气，集中精神。 自己的攻击会变得 容易击中要害。"
+    }
+}

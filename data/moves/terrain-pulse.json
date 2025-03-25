@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": true,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user utilizes the energy of the terrain to attack. This move's type and power change depending on the terrain at the time the move is used.",
+        "ja": "フィールドの力を　借りて　攻撃。 使った時の　フィールドの状態に　よって 技の　タイプと　威力が　変わる。",
+        "fr": "Une attaque qui utilise la force des champs pour projeter une aura. Son type et sa puissance varient selon le champ actif.",
+        "es": "El usuario ataca aprovechando la energía del campo activo, que determina tanto el tipo como la potencia del movimiento.",
+        "de": "Der Anwender nutzt die Kraft des aktiven Feldes für seinen Angriff. Der Typ und die Stärke der Attacke ändern sich je nach Art des aktiven Feldes.",
+        "it": "Il Pokémon attacca sfruttando l'energia del terreno di lotta. Il tipo e la potenza della mossa variano a seconda dello stato del terreno stesso.",
+        "ko": "필드의 힘을 빌려서 공격한다. 사용했을 때의 필드 상태에 따라서 기술 타입과 위력이 바뀐다.",
+        "zh-Hant": "藉助場地的力量進行攻擊。 視使出招式時場地狀態不同， 招式的屬性和威力會有所變化。",
+        "zh-Hans": "借助场地的力量进行攻击。 视使出招式时场地状态不同， 招式的属性和威力会有所变化。"
+    }
 }

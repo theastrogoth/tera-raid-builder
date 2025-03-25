@@ -1,0 +1,14 @@
+{
+    "name": "Blunder Policy",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If the holder misses with a move due to low accuracy, this policy will sharply boost its Speed stat.",
+        "ja": "命中率に　よって 技が　はずれたとき 素早さが　ぐーんと　上がる。",
+        "fr": "Objet à tenir. Si une capacité échoue à cause de son manque de Précision, la Vitesse du lanceur augmente beaucoup.",
+        "es": "Aumenta mucho la Velocidad cuando el Pokémon yerra el movimiento debido a la precisión.",
+        "de": "Schlägt eine Attacke des Trägers mangels Genauigkeit fehl, steigt im Gegenzug dessen Initiative stark an.",
+        "it": "Se una mossa non va a segno a causa della scarsa precisione, la Velocità aumenta di molto.",
+        "ko": "명중률에 의해 기술이 빗나갔을 때 스피드가 크게 올라간다.",
+        "zh-Hant": "當招式受命中率影響 而未能擊中對手時， 自己的速度將大幅提高。",
+        "zh-Hans": "招式因命中率影响而落空时， 速度会大幅提高。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A vicious tearing attack with big pincers. The target faints instantly if this attack hits.",
+        "ja": "大きな　ハサミで 相手を　切り裂いて　攻撃する。 当たれば　一撃で　ひんしに　する。",
+        "fr": "Des pinces lacèrent violemment la cible, la mettant K.O. sur le coup si elle est touchée.",
+        "es": "Ataque cortante con grandes pinzas que fulmina al objetivo de un solo golpe si acierta.",
+        "de": "Ein Angriff mit einer großen Schere. Trifft die Attacke, führt sie beim Ziel sofort zum K.O.",
+        "it": "Il Pokémon attacca il bersaglio con pericolose tenaglie. Se la mossa va a segno, il Pokémon colpito va KO.",
+        "ko": "큰 집게로 상대를 베어 갈라 공격한다. 맞으면 일격에 기절한다.",
+        "zh-Hant": "用巨大的鉗子或剪刀等 撕裂對手進行攻擊。 只要命中就會一擊瀕死。",
+        "zh-Hans": "用大钳子或剪刀等 夹断对手进行攻击。 只要命中就会一击昏厥。"
+    }
 }

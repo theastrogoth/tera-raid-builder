@@ -1,0 +1,14 @@
+{
+    "name": "Wimp Out",
+    "flavorText": {
+        "en": "The Pokémon cowardly switches out when its HP drops to half or less.",
+        "ja": "ＨＰが　半分に　なると あわてて　逃げ出して 手持ちに　引っ込んで　しまう。",
+        "fr": "Le Pokémon perd confiance quand ses PV tombent à la moitié et s'enfuit dans sa Poké Ball.",
+        "es": "Se asusta y abandona el terreno de combate cuando sus PS se ven reducidos a la mitad.",
+        "de": "Fallen die KP des Pokémon auf die Hälfte des Maximalwerts oder weniger, zieht es sich ängstlich in seinen Pokéball zurück.",
+        "it": "Se i PS scendono a metà o meno, il Pokémon si fa prendere dalla paura e abbandona la lotta in tutta fretta.",
+        "ko": "HP가 절반이 되면 황급히 도망쳐서 지닌 포켓몬으로 돌아간다.",
+        "zh-Hant": "ＨＰ變為一半時， 會慌慌張張逃走， 退回同行隊伍裡面。",
+        "zh-Hans": "ＨＰ变为一半时， 会慌慌张张逃走， 退回同行队伍中。"
+    }
+}

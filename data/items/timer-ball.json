@@ -1,0 +1,14 @@
+{
+    "name": "Timer Ball",
+    "flavorText": {
+        "en": "A somewhat different Poké Ball that becomes more effective at catching Pokémon the more turns that are taken in battle.",
+        "ja": "ターン数が　かかれば　かかるほど ポケモンが　捕まえやすくなる ちょっと変わった　ボール。",
+        "fr": "Une Poké Ball un peu spéciale qui fonctionne de mieux en mieux à mesure que le combat s'éternise.",
+        "es": "Poké Ball algo distinta a las demás que va mejorando su rendimiento con cada turno de combate.",
+        "de": "Ein Ball, mit dem sich Pokémon umso leichter fangen lassen, je länger der Kampf dauert.",
+        "it": "Poké Ball un po' diversa che diventa via via più efficace con il passare dei turni nella lotta.",
+        "ko": "턴 수가 길어지면 길어질수록 포켓몬을 잡기 쉬운 조금 특이한 볼.",
+        "zh-Hant": "有點與眾不同的球。 回合數花費得越多， 就越容易捉到寶可夢。",
+        "zh-Hans": "有点与众不同的球。 回合数花费得越多， 宝可梦就会越容易捕捉。"
+    }
+}

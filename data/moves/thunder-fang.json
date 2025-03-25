@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user bites with electrified fangs. This may also make the target flinch or leave it with paralysis.",
+        "ja": "電気を　ためた　キバで　かみつく。 相手を　ひるませたり まひ状態に　することが　ある。",
+        "fr": "Le lanceur utilise une morsure électrifiée qui peut aussi paralyser ou apeurer la cible.",
+        "es": "El usuario muerde al objetivo con colmillos electrificados y puede hacer que se amedrente o se paralice.",
+        "de": "Anwender beißt mit elektrifizierten Reißzähnen zu. Ziel schreckt eventuell zurück oder wird paralysiert.",
+        "it": "Il Pokémon morde con denti elettrificati che possono anche paralizzare o far tentennare il bersaglio.",
+        "ko": "전기를 모은 이빨로 문다. 상대를 풀죽게 하거나 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "用蓄滿電流的牙齒咬住對手。 有時會讓對手畏縮 或陷入麻痺狀態。",
+        "zh-Hans": "用蓄满电流的牙齿咬住对手。 有时会使对手畏缩 或陷入麻痹状态。"
+    }
 }

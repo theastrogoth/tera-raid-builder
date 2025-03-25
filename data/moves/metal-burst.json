@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user retaliates with much greater force against the opponent that last inflicted damage on it.",
+        "ja": "技を　だす前に 最後に　受けた　技の　ダメージを 大きくして　だした　相手に　返す。",
+        "fr": "Le lanceur contre-attaque avec un coup infligeant des dégâts supérieurs à ceux de la dernière capacité qui l'a blessé.",
+        "es": "Devuelve al rival el último ataque recibido, pero con mucha más fuerza.",
+        "de": "Der Anwender rächt sich an dem Gegner, der ihm mit einer Attacke zuletzt Schaden zugefügt hat, indem er ihm den Schaden mit erhöhter Kraft zurückzahlt.",
+        "it": "Il Pokémon restituisce con gli interessi i danni subiti all'ultimo avversario che l'ha colpito.",
+        "ko": "기술을 쓰기 전에 마지막으로 받은 기술의 데미지를 늘려서 기술을 쓴 상대에게 돌려준다.",
+        "zh-Hant": "將發動攻擊前 最後受到的招式傷害放大， 向對手進行反擊。",
+        "zh-Hans": "使出招式前， 将最后受到的招式的伤害 大力返还给对手。"
+    }
 }

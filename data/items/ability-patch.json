@@ -1,0 +1,14 @@
+{
+    "name": "Ability Patch",
+    "flavorText": {
+        "en": "A patch that can be used to change the regular Ability of a Pokémon to a rarer Ability.",
+        "ja": "通常の特性を　持つ ポケモンに　使うと　めずらしい 特性に　変えられる　パッチ。",
+        "fr": "Un objet qui permet de remplacer le talent ordinaire d'un Pokémon par un talent rare.",
+        "es": "Parche que permite cambiar la habilidad normal de un Pokémon a otra menos común.",
+        "de": "Ein Pflaster, das es ermöglicht, die reguläre Fähigkeit eines Pokémon zu einer seltenen Fähigkeit zu ändern.",
+        "it": "Cerotto che permette a un Pokémon dotato di un'abilità comune di cambiarla in una più rara.",
+        "ko": "일반적인 특성을 가진 포켓몬에게 사용하면 희귀한 특성으로 바꿀 수 있는 패치.",
+        "zh-Hant": "使用於擁有常見特性的寶可夢， 就能把寶可夢的特性改變成 稀有特性的膏藥。",
+        "zh-Hans": "可以改变宝可梦特性的膏药。 给拥有常见特性的宝可梦使用后， 其特性会转变为稀有特性。"
+    }
+}

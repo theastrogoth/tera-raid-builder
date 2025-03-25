@@ -1,0 +1,14 @@
+{
+    "name": "Sap Sipper",
+    "flavorText": {
+        "en": "The Pokémon takes no damage when hit by Grass-type moves. Instead, its Attack stat is boosted.",
+        "ja": "くさタイプの　技を　受けると ダメージを　受けずに 攻撃が　上がる。",
+        "fr": "Annule les attaques de type Plante subies par le Pokémon et augmente son Attaque.",
+        "es": "Si lo alcanza un movimiento de tipo Planta, aumenta su Ataque en vez de sufrir daño.",
+        "de": "Wird das Pokémon von einer Pflanzen-Attacke getroffen, erleidet es keinen Schaden. Stattdessen steigt sein Angriff.",
+        "it": "Se il Pokémon viene colpito da una mossa di tipo Erba, la neutralizza e aumenta il proprio Attacco.",
+        "ko": "풀타입 기술로 공격받으면 데미지를 받지 않고 공격이 올라간다.",
+        "zh-Hant": "受到草屬性的招式攻擊時， 不但不會受到傷害，反而攻擊會提高。",
+        "zh-Hans": "受到草属性的招式攻击时， 不会受到伤害，而是攻击会提高。"
+    }
+}

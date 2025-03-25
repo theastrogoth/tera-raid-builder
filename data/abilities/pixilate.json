@@ -1,0 +1,14 @@
+{
+    "name": "Pixilate",
+    "flavorText": {
+        "en": "Normal-type moves become Fairy-type moves. The power of those moves is boosted a little.",
+        "ja": "ノーマルタイプの　技が フェアリータイプになる。 威力が　少し　上がる。",
+        "fr": "Les capacités de type Normal deviennent de type Fée. Leur puissance augmente légèrement.",
+        "es": "Convierte los movimientos de tipo Normal en tipo Hada y aumenta ligeramente su potencia.",
+        "de": "Normal-Attacken des Pokémon nehmen den Typ Fee an und ihre Stärke steigt ein wenig.",
+        "it": "Le mosse di tipo Normale diventano di tipo Folletto e la loro potenza aumenta un po'.",
+        "ko": "노말타입의 기술이 페어리타입이 된다. 위력이 조금 올라간다.",
+        "zh-Hant": "一般屬性的招式 會變為妖精屬性。 威力會少量提高。",
+        "zh-Hans": "一般属性的招式 会变为妖精属性。 威力会少量提高。"
+    }
+}

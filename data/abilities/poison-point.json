@@ -1,0 +1,14 @@
+{
+    "name": "Poison Point",
+    "flavorText": {
+        "en": "Contact with the Pokémon may poison the attacker.",
+        "ja": "自分に　触った　相手を どく状態に　することがある。",
+        "fr": "Peut empoisonner l'attaquant lorsque le Pokémon subit une attaque directe.",
+        "es": "Puede envenenar al Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Angreifer werden bei Berührung gelegentlich vergiftet.",
+        "it": "Può avvelenare chi entra in contatto con il Pokémon.",
+        "ko": "자신에게 접촉한 상대를 독 상태로 만들 때가 있다.",
+        "zh-Hant": "有時會讓接觸到自己的 對手陷入中毒狀態。",
+        "zh-Hans": "有时会让接触到自己的 对手变为中毒状态。"
+    }
+}

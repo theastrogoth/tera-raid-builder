@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user swings its body around violently to inflict damage on everything in its vicinity.",
+        "ja": "自分の　体を ぶんまわして　相手に ダメージを　与える。",
+        "fr": "Le lanceur pivote pour prendre de l'élan et infliger des dégâts.",
+        "es": "Hace pivotar su cuerpo para causar daño a los Pokémon adyacentes.",
+        "de": "Der Anwender dreht schwungvoll seinen Körper und fügt allen Pokémon im Umkreis dabei Schaden zu.",
+        "it": "Il Pokémon infligge danni facendo ruotare il suo corpo.",
+        "ko": "자신의 몸을 세차게 휘둘러서 상대에게 데미지를 준다.",
+        "zh-Hant": "用自己的身體狂舞揮打， 給予對手傷害。",
+        "zh-Hans": "用自己的身体狂舞挥打， 给予对手伤害。"
+    }
 }

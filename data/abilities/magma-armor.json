@@ -1,0 +1,14 @@
+{
+    "name": "Magma Armor",
+    "flavorText": {
+        "en": "The Pokémon's hot magma coating prevents it from being frozen.",
+        "ja": "熱い　マグマを　身にまとい こおり状態に　ならない。",
+        "fr": "Le magma qui recouvre le corps du Pokémon le protège contre le gel.",
+        "es": "Gracias al magma candente que lo envuelve, no puede ser congelado.",
+        "de": "Dank eines Panzers aus Magma kann das Pokémon nicht eingefroren werden.",
+        "it": "Il magma riveste il corpo del Pokémon impedendogli di venire congelato.",
+        "ko": "뜨거운 마그마를 몸에 둘러서 얼음 상태가 되지 않는다.",
+        "zh-Hant": "將熾熱的熔岩覆蓋在身上， 不會陷入冰凍狀態。",
+        "zh-Hans": "将炽热的熔岩覆盖在身上， 不会变为冰冻状态。"
+    }
+}

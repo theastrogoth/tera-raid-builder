@@ -1,0 +1,14 @@
+{
+    "name": "Delta Stream",
+    "flavorText": {
+        "en": "The Pokémon changes the weather so that no moves are super effective against the Flying type.",
+        "ja": "ひこうタイプの　弱点が なくなる　天気にする。",
+        "fr": "Altère les conditions météo pour annuler les faiblesses du type Vol.",
+        "es": "Altera el clima para anular las vulnerabilidades del tipo Volador.",
+        "de": "Das Pokémon ändert das Wetter, um die Schwächen des Typs Flug zu beseitigen.",
+        "it": "Crea un clima che annulla i punti deboli del tipo Volante.",
+        "ko": "비행타입의 약점이 없어지는 날씨로 만든다.",
+        "zh-Hant": "變為令飛行屬性的弱點 消失的天氣。",
+        "zh-Hans": "变为令飞行属性的弱点 消失的天气。"
+    }
+}

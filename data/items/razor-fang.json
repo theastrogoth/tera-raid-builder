@@ -1,0 +1,14 @@
+{
+    "name": "Razor Fang",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This sharply hooked fang may cause the target to flinch whenever the holder successfully inflicts damage on them with an attack.",
+        "ja": "鋭く　とがった　キバ。 持たせると　ダメージを　与えたとき ひるませることが　ある。",
+        "fr": "Objet à tenir. Un croc pointu et aiguisé pouvant apeurer l'ennemi quand le porteur lui inflige des dégâts.",
+        "es": "Si lo lleva un Pokémon, puede amedrentar al objetivo al que inflige daño con un ataque.",
+        "de": "Ein Item zum Tragen. Trifft der Träger dieses spitzen und scharfen Zahnes das Ziel mit einem Angriff, der Schaden verursacht, schreckt es eventuell zurück.",
+        "it": "Strumento da dare a un Pokémon. Chi ce l'ha può far tentennare l'avversario a cui infligge danni.",
+        "ko": "날카롭고 뾰족한 이빨. 지니게 하면 데미지를 줬을 때 풀죽게 하기도 한다.",
+        "zh-Hant": "尖銳的牙齒。 攜帶後，在給予傷害時， 有時會讓對手畏縮。",
+        "zh-Hans": "尖锐的牙齿。 携带后，在给予伤害时， 有时会让对手畏缩。"
+    }
+}

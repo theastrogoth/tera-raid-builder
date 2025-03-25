@@ -1,0 +1,14 @@
+{
+    "name": "Tiny Mushroom",
+    "flavorText": {
+        "en": "A small and rare mushroom. It's quite popular with a certain class of collectors.",
+        "ja": "ちいさな　めずらしいキノコ。 一部のマニアの　あいだでは けっこう人気が　高い。",
+        "fr": "Un petit champignon assez rare. Il est plutôt populaire auprès de certains gourmets.",
+        "es": "Una pequeña seta que es poco común y bastante popular entre determinados grupos de gourmets.",
+        "de": "Ein kleiner und recht seltener Pilz, der sich bei einigen Sammlern großer Beliebtheit erfreut.",
+        "it": "Fungo piccolo e raro. È discretamente apprezzato da alcuni intenditori.",
+        "ko": "작고 진귀한 버섯. 일부 마니아 사이에서는 매우 인기가 높다.",
+        "zh-Hant": "稀奇的小蘑菇。 在部分愛好者間 頗受歡迎。",
+        "zh-Hans": "珍稀的小蘑菇。 在一些爱好者中 有着相当高的人气。"
+    }
+}

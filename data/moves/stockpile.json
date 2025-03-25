@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stores power and boosts its Defense and Sp. Def stats. This move can be used up to three times.",
+        "ja": "力を　蓄えて　自分の 防御と　特防を　あげる。 最大　３回まで　蓄えられる。",
+        "fr": "Le lanceur emmagasine de l'énergie et augmente sa Défense et sa Défense Spéciale. Peut être utilisée trois fois.",
+        "es": "Acumula energía hasta un máximo de tres veces para aumentar la Defensa y la Defensa Especial.",
+        "de": "Lädt Kraft für später auf. Erhöht Verteidigung und Spezial-Verteidigung. Kann bis zu dreimal eingesetzt werden.",
+        "it": "Il Pokémon accumula energia aumentando la Difesa e la Difesa Speciale. Si può utilizzare massimo tre volte.",
+        "ko": "힘을 비축해서 자신의 방어와 특수방어를 올린다. 최대 3회까지 비축할 수 있다.",
+        "zh-Hant": "蓄積力量， 提高自己的防禦和特防。 最多蓄積３次。",
+        "zh-Hans": "积蓄力量， 提高自己的防御和特防。 最多积蓄３次。"
+    }
 }

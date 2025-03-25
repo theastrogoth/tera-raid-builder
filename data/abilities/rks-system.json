@@ -1,0 +1,14 @@
+{
+    "name": "RKS System",
+    "flavorText": {
+        "en": "Changes the Pokémon's type to match the memory disc it holds.",
+        "ja": "持っている　メモリで 自分の　タイプが　変わる。",
+        "fr": "Change le type du Pokémon en fonction de la ROM équipée.",
+        "es": "Cambia su tipo según el disco que lleve instalado.",
+        "de": "Das Pokémon passt seinen Typ der getragenen Disc an.",
+        "it": "Il tipo del Pokémon cambia in base alla ROM installata.",
+        "ko": "지니고 있는 메모리로 자신의 타입이 변한다.",
+        "zh-Hant": "根據持有的記憶碟， 自己的屬性會改變。",
+        "zh-Hans": "根据持有的存储碟， 自己的属性会改变。"
+    }
+}

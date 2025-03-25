@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user suppresses the target and makes its move go last.",
+        "ja": "相手を　おさえつけて 行動の　順番を 最後に　する。",
+        "fr": "Retient la cible de force, l'obligeant à agir en dernier.",
+        "es": "Consigue que el objetivo sea el último en moverse.",
+        "de": "Anwender stemmt sich gegen das Ziel und bewirkt, dass dieses erst als Letztes angreift.",
+        "it": "Il Pokémon spinge via il bersaglio, costringendolo ad agire per ultimo.",
+        "ko": "상대를 억눌러서 행동의 순서를 마지막으로 만든다.",
+        "zh-Hant": "壓制對手，讓對手在 回合的最後才能行動。",
+        "zh-Hans": "压制对手， 从而将其行动顺序放到最后。"
+    }
 }

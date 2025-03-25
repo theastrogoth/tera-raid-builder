@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is attacked with an icy punch. This may also leave the target frozen.",
+        "ja": "冷気を　こめた　パンチで 相手を　攻撃する。 こおり状態に　することが　ある。",
+        "fr": "Un coup de poing glacé vient frapper la cible, ce qui peut la geler.",
+        "es": "Puñetazo helado que puede llegar a congelar.",
+        "de": "Ein eisiger Schlag, der das Ziel eventuell einfriert.",
+        "it": "Il Pokémon attacca il bersaglio con un pugno di ghiaccio che può congelarlo.",
+        "ko": "냉기를 담은 펀치로 상대를 공격한다. 얼음 상태로 만들 때가 있다.",
+        "zh-Hant": "用帶有寒氣的拳頭 攻擊對手。 有時會讓對手陷入冰凍狀態。",
+        "zh-Hans": "用充满寒气的拳头攻击对手。 有时会让对手陷入冰冻状态。"
+    }
 }

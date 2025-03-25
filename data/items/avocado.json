@@ -1,0 +1,14 @@
+{
+    "name": "Avocado",
+    "flavorText": {
+        "en": "An ingredient with sweet notes—though its flavor is very mild. The avocado's richness, however, makes it satisfying to eat.",
+        "ja": "甘味が　ある　食材。 味自体は　淡泊だが　コクが　あるので 食べ応えは　十分なのだ。",
+        "fr": "Un ingrédient au goût sucré. Sa saveur subtile est contrebalancée par son onctuosité, ce qui en fait un ingrédient nourrissant et très agréable à déguster.",
+        "es": "Posee un sabor dulce y algo simplón, pero es bastante contundente, por lo que sacia enseguida.",
+        "de": "Die cremige Note dieser süßlichen Zutat bietet einen Ausgleich zu ihrer aromatischen Schlichtheit und garantiert ein zufriedenstellendes Geschmackserlebnis.",
+        "it": "Un ingrediente dolce. Ha un sapore abbastanza neutro e una corposità che lo rende piuttosto sostanzioso.",
+        "ko": "단맛이 나는 식재료. 맛 자체는 담백하나 진한 맛이 있어서 포만감을 느끼기에는 충분하다.",
+        "zh-Hant": "帶有甜味的食材。 味道本身清淡，但又顯得濃郁， 因此口感十足。",
+        "zh-Hans": "带有甜味的食材。 味道本身虽淡薄但有深度， 吃起来足够让人满足。"
+    }
+}

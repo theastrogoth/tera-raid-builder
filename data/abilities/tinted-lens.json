@@ -1,0 +1,14 @@
+{
+    "name": "Tinted Lens",
+    "flavorText": {
+        "en": "The Pokémon can use “not very effective” moves to deal regular damage.",
+        "ja": "効果が　いまひとつの　技を 通常の　威力で 出すことが　できる。",
+        "fr": "Permet à une capacité qui n'est pas très efficace d'infliger des dégâts comme si elle était efficace normalement.",
+        "es": "Potencia los movimientos que no son muy eficaces, que infligen ahora un daño normal.",
+        "de": "Nicht sehr effektive Attacken des Pokémon verursachen normalen Schaden.",
+        "it": "Fa in modo che le mosse non molto efficaci abbiano la potenza usuale.",
+        "ko": "효과가 별로인 기술을 통상의 위력으로 쓸 수 있다.",
+        "zh-Hant": "可將效果不好的招式 以正常的威力使出。",
+        "zh-Hans": "可以将效果不好的招式 以通常的威力使出。"
+    }
+}

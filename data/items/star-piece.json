@@ -1,0 +1,14 @@
+{
+    "name": "Star Piece",
+    "flavorText": {
+        "en": "A recipe for crafting Star Pieces from scratch. Required materials: 3 Red Shards, 3 Blue Shards, 3 Green Shards, and 1 bag of Stardust.",
+        "ja": "ほしのかけらのレシピ。　材料は あかいかけら×３　あおいかけら×３ みどりのかけら×３　ほしのすな×１",
+        "fr": "Méthode pour Morceau d'Étoile. Ressources requises : 3 Tessons Rouges, 3 Tessons Bleus, 3 Tessons Verts et 1 sac de Poussière Étoile.",
+        "es": "Receta para crear Trozos Estrella. Materiales: 3 Partes Rojas, 3 Partes Azules, 3 Partes Verdes y 1 saquito de Polvo Estelar.",
+        "de": "Die Anleitung zur Herstellung eines Sternenstücks. Benötigte Materialien: 3 Purpurstücke, 3 Indigostücke, 3 Grünstücke und 1 Säckchen Sternenstaub.",
+        "it": "Ricetta per creare un Pezzo stella. I materiali necessari sono 3 Cocci rossi, 3 Cocci blu, 3 Cocci verdi e 1 sacchetto di Polvostella.",
+        "ko": "별의조각의 레시피. 재료: 빨강조각×3 파랑조각×3 초록조각×3 별의모래×1",
+        "zh-Hant": "星星碎片的材料單。材料是： 紅色碎片×３　藍色碎片×３ 綠色碎片×３　星星沙子×１",
+        "zh-Hans": "星星碎片的材料单。材料是： 红色碎片×３　蓝色碎片×３ 绿色碎片×３　星星沙子×１"
+    }
+}

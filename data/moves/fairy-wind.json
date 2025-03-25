@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user attacks by stirring up a fairy wind to strike the target.",
+        "ja": "ようせいのかぜを　起こし 相手に　吹きつけて　攻撃する。 ",
+        "fr": "Le lanceur déchaîne un vent magique qui cingle la cible.",
+        "es": "El usuario desata un vendaval feérico que arremete contra el objetivo.",
+        "de": "Lässt eine Feenbrise aufkommen, die das Ziel erfasst und ihm Schaden zufügt.",
+        "it": "Il Pokémon solleva un vento fatato che investe il bersaglio.",
+        "ko": "요정의 바람을 일으켜 상대에게 몰아쳐서 공격한다.",
+        "zh-Hant": "刮起妖精之風， 吹向對手進行攻擊。",
+        "zh-Hans": "刮起妖精之风， 吹向对手进行攻击。"
+    }
 }

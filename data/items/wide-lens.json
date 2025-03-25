@@ -1,0 +1,14 @@
+{
+    "name": "Wide Lens",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a magnifying lens that slightly boosts the accuracy of the holder's moves.",
+        "ja": "ものが　大きく見える　レンズ。 持たせると　技の命中率が 少し　あがる。",
+        "fr": "Objet à tenir. Une loupe qui augmente légèrement la Précision des capacités.",
+        "es": "Aumenta ligeramente la precisión de los movimientos. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Dieses Vergrößerungsglas erhöht die Genauigkeit etwas.",
+        "it": "Strumento da dare a un Pokémon. Lente d'ingrandimento che aumenta di poco la precisione delle mosse.",
+        "ko": "물건이 크게 보이는 렌즈. 지니게 하면 기술의 명중률이 조금 올라간다.",
+        "zh-Hant": "會讓物體看起來比較大的鏡片。 攜帶後，招式的命中率 就會少量提高。",
+        "zh-Hans": "能放大观看物体的镜片。 携带后，招式的命中率 就会少量提高。"
+    }
+}

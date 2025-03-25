@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "If the Pokémon damaged by this move have already used their moves that turn, this move eliminates the effects of those Pokémon's Abilities.",
+        "ja": "ダメージを　与えた　相手が すでに　行動を　終えていたら 相手の　特性を　消してしまう。",
+        "fr": "La cible subit des dégâts et, si elle a déjà agi pendant ce tour, elle perd aussi son talent.",
+        "es": "Inflige daño al objetivo y, si este ya ha hecho uso de algún movimiento, pierde su habilidad.",
+        "de": "Hat das gegnerische Pokémon, das durch diese Attacke Schaden genommen hat, in dieser Runde bereits gehandelt, verliert es seine Fähigkeit.",
+        "it": "Il bersaglio subisce dei danni e, se ha già agito nel turno, perde la sua abilità.",
+        "ko": "데미지를 준 상대가 이미 행동을 끝냈다면 상대의 특성을 없애 버린다.",
+        "zh-Hant": "如果攻擊的對手在該回合 已經結束行動， 對手的特性就會被消除。",
+        "zh-Hans": "如果给予过伤害的对手 已经结束行动， 其特性就会被消除。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Sheer Force",
+    "flavorText": {
+        "en": "Removes any additional effects from the Pokémon's moves, but increases the moves' power.",
+        "ja": "技の　追加効果は　なくなるが そのぶん　高い　威力で 技を　出すことが　できる。",
+        "fr": "Les capacités ayant un effet additionnel le perdent, mais leur puissance augmente.",
+        "es": "Aumenta la potencia de sus movimientos en detrimento de los efectos secundarios, que se ven anulados.",
+        "de": "Die Zusatzeffekte der Attacken des Pokémon werden aufgehoben, aber dafür steigt die Stärke der Attacken.",
+        "it": "Aumenta la potenza delle mosse, ma ne annulla gli effetti aggiuntivi.",
+        "ko": "기술의 추가 효과가 없어지지만 그만큼 높은 위력으로 기술을 사용할 수 있다.",
+        "zh-Hant": "招式會失去追加效果， 但可以用更高的威力使出招式。",
+        "zh-Hans": "招式的追加效果消失， 但因此能以更高的威力使出招式。"
+    }
+}

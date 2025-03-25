@@ -1,0 +1,14 @@
+{
+    "name": "Mummy",
+    "flavorText": {
+        "en": "Contact with the Pokémon changes the attacker's Ability to Mummy.",
+        "ja": "相手に　触られると 相手を　ミイラに　してしまう。",
+        "fr": "Lorsque le Pokémon subit une attaque directe, le talent de l'attaquant est remplacé par Momie.",
+        "es": "Contagia la habilidad Momia al Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Das Pokémon überträgt bei Berührung die Fähigkeit Mumie auf den Angreifer.",
+        "it": "L'abilità di chi entra in contatto con il Pokémon diventa Mummia.",
+        "ko": "상대가 접촉하면 상대를 미라로 만들어 버린다.",
+        "zh-Hant": "被對手接觸到時， 會將對手變成木乃伊。",
+        "zh-Hans": "被对手接触到后， 会将对手变为木乃伊。"
+    }
+}

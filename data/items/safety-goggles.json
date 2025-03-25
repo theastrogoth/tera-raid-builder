@@ -1,0 +1,14 @@
+{
+    "name": "Safety Goggles",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. These goggles protect the holder from both sandstorm damage and the effects of powders and spores.",
+        "ja": "すなあらしの　ダメージを　受けず 粉や　胞子の　影響も 防げる　ゴーグル。",
+        "fr": "Objet à tenir. Protège le Pokémon des dégâts des tempêtes de sable et des effets des capacités qui libèrent de la poudre et des spores.",
+        "es": "Gafa que protege del daño producido por las tormentas de arena y de los efectos causados por polvos o esporas.",
+        "de": "Diese Brille schützt ihren Träger vor Schaden durch Sandstürme sowie vor Effekten von Puder, Pulver, Saat und Sporen.",
+        "it": "Visiera che protegge dai danni inflitti dalle tempeste di sabbia e dagli effetti causati da polveri e spore.",
+        "ko": "모래바람에 데미지를 받지 않고, 가루나 포자의 영향도 받지 않게 해 주는 고글.",
+        "zh-Hant": "不但不會受到沙暴的傷害， 還能防止粉末或孢子的影響的護目鏡。",
+        "zh-Hans": "不单是沙暴的伤害，就连 粉末类和孢子类招式的效果 也能防御的护目镜。"
+    }
+}

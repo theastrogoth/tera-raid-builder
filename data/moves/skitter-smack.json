@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user skitters behind the target to attack. This also lowers the target's Sp. Atk stat.",
+        "ja": "背後から　はいより　攻撃する。 相手の　特攻を　さげる。",
+        "fr": "Le lanceur rampe derrière la cible pour l'attaquer, ce qui baisse l'Attaque Spéciale de celle-ci.",
+        "es": "Ataca al objetivo por la espalda de forma subrepticia y, además, reduce su Ataque Especial.",
+        "de": "Der Anwender kriecht hinter das Ziel, greift es an und senkt dabei dessen Spezial-Angriff.",
+        "it": "Il Pokémon attacca il bersaglio strisciandogli alle spalle e riducendo il suo Attacco Speciale.",
+        "ko": "배후에서 엄습해서 공격한다. 상대의 특수공격을 떨어뜨린다.",
+        "zh-Hant": "從對手背後爬近後進行攻擊。 會降低對手的特攻。",
+        "zh-Hans": "从对手背后爬近后进行攻击。 会降低对手的特攻。"
+    }
 }

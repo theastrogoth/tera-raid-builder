@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user compresses its body to make itself look smaller, which sharply boosts its evasiveness.",
+        "ja": "体を　ちぢめて　小さく　みせて 自分の　回避率を ぐーんと　あげる。",
+        "fr": "Le lanceur comprime son corps pour se faire tout petit et beaucoup augmenter son Esquive.",
+        "es": "El usuario mengua para aumentar mucho la Evasión.",
+        "de": "Anwender schrumpft, um seinen Ausweichwert stark zu erhöhen.",
+        "it": "Il corpo del Pokémon si comprime e diventa più piccolo. La sua elusione aumenta di molto.",
+        "ko": "몸을 축소하여 작게 보임으로써 자신의 회피율을 크게 올린다.",
+        "zh-Hant": "蜷縮身體使自己顯得很小， 大幅提高 自己的閃避率。",
+        "zh-Hans": "蜷缩身体显得很小， 从而大幅提高 自己的闪避率。"
+    }
 }

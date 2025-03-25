@@ -1,0 +1,14 @@
+{
+    "name": "Guts",
+    "flavorText": {
+        "en": "It's so gutsy that having a status condition boosts the Pokémon's Attack stat.",
+        "ja": "状態異常に　なると 根性を　だして 攻撃が　上がる。",
+        "fr": "Augmente l'Attaque du Pokémon s'il est affecté par une altération de statut.",
+        "es": "Si sufre un problema de estado, se arma de valor y aumenta su Ataque.",
+        "de": "Bei Statusproblemen setzt das Pokémon Adrenalin frei, wodurch sein Angriff steigt.",
+        "it": "Se il Pokémon è affetto da un problema di stato, tira fuori la grinta e aumenta il proprio Attacco.",
+        "ko": "상태 이상이 되면 근성을 보여서 공격이 올라간다.",
+        "zh-Hant": "陷入異常狀態時， 會拿出毅力， 攻擊會提高。",
+        "zh-Hans": "如果变为异常状态， 会拿出毅力， 攻击会提高。"
+    }
+}

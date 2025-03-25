@@ -1,0 +1,14 @@
+{
+    "name": "TR65",
+    "flavorText": {
+        "en": "The user draws power from nature and fires it at the target. This may also lower the target's Sp. Def stat.",
+        "ja": "自然から　集めた 命の力を　発射する。 相手の　特防を　さげることがある。",
+        "fr": "Le lanceur utilise les pouvoirs de la nature pour attaquer la cible, ce qui peut aussi baisser la Défense Spéciale de celle-ci.",
+        "es": "Aúna fuerzas de la naturaleza y libera su ataque. Puede reducir la Defensa Especial del objetivo.",
+        "de": "Anwender zieht Kraft aus der Natur und feuert sie auf das Ziel. Senkt eventuell Spezial-Verteidigung des Zieles.",
+        "it": "Il Pokémon attinge energia dalla natura e la scaglia contro il bersaglio. Può anche ridurne la Difesa Speciale.",
+        "ko": "자연으로부터 모은 생명의 힘을 발사한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "發射從大自然匯聚而來的生命力量。 有時會降低對手的特防。",
+        "zh-Hans": "发射从自然收集的生命力量。 有时会降低对手的特防。"
+    }
+}

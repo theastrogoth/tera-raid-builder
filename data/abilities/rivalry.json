@@ -1,0 +1,14 @@
+{
+    "name": "Rivalry",
+    "flavorText": {
+        "en": "The Pokémon's competitive spirit makes it deal more damage to Pokémon of the same gender, but less damage to Pokémon of the opposite gender.",
+        "ja": "性別が　同じだと 闘争心を　燃やして　強くなる。 性別が　違うと　弱くなる。",
+        "fr": "Le Pokémon déteste la concurrence et inflige plus de dégâts si sa cible est du même sexe. Par contre, il en inflige moins si sa cible est du sexe opposé.",
+        "es": "Si el objetivo es del mismo sexo, su competitividad le lleva a infligir más daño. Si es del sexo contrario, en cambio, el daño será menor.",
+        "de": "Greift das Pokémon ein Ziel desselben Geschlechts an, verursacht es mehr Schaden. Bei einem Ziel des anderen Geschlechts hingegen teilt es weniger Schaden aus.",
+        "it": "Rende più forti contro Pokémon dello stesso sesso, ma più deboli contro Pokémon di sesso opposto.",
+        "ko": "성별이 같으면 투쟁심을 불태워 강해진다. 성별이 다르면 약해진다.",
+        "zh-Hant": "面對性別相同的對手， 會燃起鬥爭心，變得更強。 面對性別不同的對手時則會變弱。",
+        "zh-Hans": "面对性别相同的对手， 会燃起斗争心，变得更强。 而面对性别不同的，则会变弱。"
+    }
+}

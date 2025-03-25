@@ -1,0 +1,14 @@
+{
+    "name": "Lone Earring",
+    "flavorText": {
+        "en": "A single earring that somebody dropped.",
+        "ja": "だれかが　落とした 片っぽ　だけの　ピアス。",
+        "fr": "Une boucle d'oreille perdue par quelqu'un.",
+        "es": "Un pendiente que se le ha debido de caer a alguien.",
+        "de": "Ein einzelner Ohrring, den irgendjemand verloren hat.",
+        "it": "Un orecchino spaiato, perso da qualcuno.",
+        "ko": "누군가가 떨어뜨린 한쪽뿐인 귀고리.",
+        "zh-Hant": "只有一邊的耳環。 不知道是誰遺失的。",
+        "zh-Hans": "某人遗失的单只耳环。"
+    }
+}

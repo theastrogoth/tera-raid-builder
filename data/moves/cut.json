@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is cut with a scythe, a claw, or the like to inflict damage.",
+        "ja": "カマや　ツメなどで 相手を　切りつけて　攻撃する。",
+        "fr": "Coupe la cible avec des lames ou des griffes.",
+        "es": "Corta al objetivo con garras, guadañas o similares.",
+        "de": "Ein Basisangriff mit Schere oder Klaue.",
+        "it": "Il Pokémon attacca il bersaglio con artigli o falci affilate.",
+        "ko": "낫이나 발톱 등으로 상대를 베어 공격한다.",
+        "zh-Hant": "用鐮刀或爪子等 斬切對手進行攻擊。",
+        "zh-Hans": "用镰刀或爪子等 切斩对手进行攻击。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Honey",
+    "flavorText": {
+        "en": "Honey collected thanks to Pokémon's efforts. It has a sweet aroma and can be sold at a low price to shops.",
+        "ja": "ポケモンが　集めた あまい　においがする　ミツ。 ショップで　安く　売れる。",
+        "fr": "Du miel au parfum riche rassemblé par des Pokémon. Peut être vendu à bas prix en magasin.",
+        "es": "Miel de dulce aroma recolectada por los Pokémon que no alcanza un buen precio en las tiendas.",
+        "de": "Süß duftender Honig, der von Pokémon gesammelt wurde. Kann für wenig Geld verkauft werden.",
+        "it": "Miele dal dolce aroma, frutto dell'attività di determinati Pokémon. Si può vendere a un prezzo basso nei negozi.",
+        "ko": "포켓몬이 모은 달콤한 냄새가 나는 꿀. 상점에서 싸게 팔린다.",
+        "zh-Hant": "寶可夢採集的香甜花蜜。 可以在商店低價出售。",
+        "zh-Hans": "宝可梦采集的清甜芬芳的花蜜。 可在商店里廉价出售。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Galvanize",
+    "flavorText": {
+        "en": "Normal-type moves become Electric-type moves. The power of those moves is boosted a little.",
+        "ja": "ノーマルタイプの　技が でんきタイプになる。 威力が　少し　上がる。",
+        "fr": "Les capacités de type Normal deviennent de type Électrik. Leur puissance augmente légèrement.",
+        "es": "Convierte los movimientos de tipo Normal en tipo Eléctrico y aumenta ligeramente su potencia.",
+        "de": "Normal-Attacken des Pokémon nehmen den Typ Elektro an und ihre Stärke steigt ein wenig.",
+        "it": "Le mosse di tipo Normale diventano di tipo Elettro e la loro potenza aumenta un po'.",
+        "ko": "노말타입 기술이 전기타입이 된다. 위력이 조금 올라간다.",
+        "zh-Hant": "一般屬性的招式 會變為電屬性。 威力會少量提高。",
+        "zh-Hans": "一般属性的招式 会变为电属性。 威力会少量提高。"
+    }
+}

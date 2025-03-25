@@ -1,0 +1,14 @@
+{
+    "name": "Chalky Stone",
+    "flavorText": {
+        "en": "A small whitish stone picked up at the edge of the road.",
+        "ja": "道のはしっこで　拾った 白っぽい　小さな石。",
+        "fr": "Une petite pierre blanchâtre trouvée sur le bord de la route.",
+        "es": "Piedra de yeso pequeña y blanquecina encontrada en la linde de un camino.",
+        "de": "Ein kleiner Stein mit weißlicher Färbung, der vom Straßenrand aufgehoben wurde.",
+        "it": "Piccola pietra biancastra raccolta sul ciglio della strada.",
+        "ko": "길가 구석에서 주운 하얗고 작은 돌.",
+        "zh-Hant": "在路邊撿到的 白白的小石頭。",
+        "zh-Hans": "路边捡到的 白白的小石头。"
+    }
+}

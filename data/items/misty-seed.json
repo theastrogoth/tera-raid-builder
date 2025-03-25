@@ -1,0 +1,14 @@
+{
+    "name": "Misty Seed",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If the terrain becomes Misty Terrain, the holder will use this seed to boost its own Sp. Def stat.",
+        "ja": "ポケモンに　持たせると ミストフィールドのときに　使って 特防が　あがる。",
+        "fr": "Objet à tenir. Lorsqu'un champ brumeux est actif, la graine est consommée pour augmenter la Défense Spéciale du porteur.",
+        "es": "Si la lleva un Pokémon, la usa y aumenta su Defensa Especial cuando el terreno está cubierto por un campo de niebla.",
+        "de": "Gibst du den Samen einem Pokémon zum Tragen, setzt es ihn ein, wenn ein Nebelfeld aktiv ist, und erhöht dadurch seine Spezial-Verteidigung.",
+        "it": "Strumento da dare a un Pokémon. Fa aumentare la Difesa Speciale in presenza di un Campo Nebbioso.",
+        "ko": "포켓몬에게 지니게 하면 미스트필드일 때 사용하여 특수방어가 올라간다.",
+        "zh-Hant": "讓寶可夢攜帶後， 在薄霧場地上使用， 就會提高特防。",
+        "zh-Hans": "让宝可梦携带后， 在薄雾场地上使用， 特防就会提高。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A wondrous wall of light is put up to reduce damage from physical moves for five turns.",
+        "ja": "５ターンの　間　不思議な　かべで 相手から　受ける　物理攻撃の ダメージを　弱める。",
+        "fr": "Crée un fabuleux mur de lumière qui réduit les dégâts causés par les capacités physiques pendant cinq tours.",
+        "es": "Barrera misteriosa que reduce durante cinco turnos el daño producido por los ataques físicos del rival.",
+        "de": "Eine mysteriöse Wand, die für fünf Runden den Schaden von physischen gegnerischen Treffern reduziert.",
+        "it": "Il Pokémon innalza una barriera misteriosa che riduce i danni degli attacchi fisici subiti per mano dell'avversario per cinque turni.",
+        "ko": "5턴 동안 이상한 장막을 쳐서 상대로부터 받는 물리공격의 데미지를 약하게 한다.",
+        "zh-Hant": "利用神奇的屏障， 在５回合內減輕 來自對手的物理攻擊傷害。",
+        "zh-Hans": "利用神奇的墙壁， 在５回合内减弱从对手那里 受到的物理攻击的伤害。"
+    }
 }

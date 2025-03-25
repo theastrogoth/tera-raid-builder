@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hits the target with the full wrath of nature. This cuts the target's HP in half.",
+        "ja": "自然の　怒りを　相手に　ぶつける。 相手の　ＨＰは　半分に　なる。",
+        "fr": "Le lanceur déchaîne toute la colère de la nature pour baisser les PV de la cible de moitié.",
+        "es": "Golpea al objetivo con la furia de la naturaleza y reduce sus PS a la mitad.",
+        "de": "Das Ziel wird vom Zorn der Natur getroffen und verliert dadurch die Hälfte seiner KP.",
+        "it": "Il Pokémon scatena l'ira della natura sul bersaglio e ne dimezza i PS.",
+        "ko": "자연의 분노를 상대에게 부딪친다. 상대의 HP는 절반이 된다.",
+        "zh-Hant": "向對手發洩自然之怒。 會使對手的ＨＰ減半。",
+        "zh-Hans": "向对手释放自然之怒。 对手的ＨＰ会减半。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Macho Brace",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. Holding this stiff, heavy brace reduces a Pokémon's Speed in battle but allows its stats to grow more quickly.",
+        "ja": "硬くて　重い　ギプス。 持たせると　バトル中の　素早さは　さがるが ふつうより　強く　育ちやすい。",
+        "fr": "Objet à tenir. Un bracelet dur et lourd qui permet au porteur de progresser plus vite, mais qui réduit sa Vitesse pendant le combat.",
+        "es": "Sólido y pesado brazal que reduce la Velocidad en combate, pero permite que las características aumenten más rápidamente. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Diese harte und schwere Schiene senkt während des Kampfes die Initiative, lässt dafür aber den Träger nach dem Kampf schneller stärker werden.",
+        "it": "Strumento da dare a un Pokémon. Attrezzo pesante che riduce la Velocità nella lotta ma aiuta la crescita delle statistiche.",
+        "ko": "단단하고 무거운 깁스. 지니게 하면 배틀 중 스피드는 떨어지지만 여느 때보다 강하게 키우기 쉽다.",
+        "zh-Hant": "又硬又重的鍛鍊器。 雖然攜帶後對戰時的速度會降低， 但會比平時更容易茁壯成長。",
+        "zh-Hans": "又硬又重的锻炼器。 虽然携带后对战时的速度会降低， 但会比平时更容易茁壮成长。"
+    }
+}

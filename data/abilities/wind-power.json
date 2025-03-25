@@ -1,0 +1,14 @@
+{
+    "name": "Wind Power",
+    "flavorText": {
+        "en": "The Pokémon becomes charged when it is hit by a wind move, boosting the power of the next Electric-type move the Pokémon uses.",
+        "ja": "風技を　受けると じゅうでん　状態に　なる。",
+        "fr": "Si le Pokémon est touché par une capacité faisant appel au vent, il se charge en électricité.",
+        "es": "Su cuerpo se carga de electricidad si lo alcanza un movimiento que usa viento, lo que potencia su siguiente movimiento de tipo Eléctrico.",
+        "de": "Wird das Pokémon von einer Wind-Attacke getroffen, lädt es sich auf. Dadurch steigt die Stärke seiner nächsten Elektro-Attacke.",
+        "it": "Se il Pokémon è esposto a una mossa basata sul vento, si carica di elettricità.",
+        "ko": "바람 기술을 받으면 충전 상태가 된다.",
+        "zh-Hant": "受到風的招式攻擊時， 會變成充電狀態。",
+        "zh-Hans": "受到风的招式攻击时， 会变为充电状态。"
+    }
+}

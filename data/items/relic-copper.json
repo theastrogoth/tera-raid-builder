@@ -1,0 +1,14 @@
+{
+    "name": "Relic Copper",
+    "flavorText": {
+        "en": "A copper coin used by an ancient civilization about three thousand years ago.",
+        "ja": "３０００年ほど　昔の 文明で　使われた　銅貨。",
+        "fr": "Une pièce de cuivre d'une civilisation vieille de plus de 3 000 ans.",
+        "es": "Moneda de cobre de más de 3000 años de antigüedad.",
+        "de": "Eine alte Kupfermünze. Die Währung einer gut 3000 Jahre alten Kultur.",
+        "it": "Moneta di rame usata circa 3.000 anni fa da un'antica civiltà.",
+        "ko": "3000년 정도 된 오랜 문명에서 사용된 동화.",
+        "zh-Hant": "距今約３０００年前的 文明裡使用的銅幣。",
+        "zh-Hans": "约３０００年前的 文明使用的铜币。"
+    }
+}

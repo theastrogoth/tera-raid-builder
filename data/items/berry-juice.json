@@ -1,0 +1,14 @@
+{
+    "name": "Berry Juice",
+    "flavorText": {
+        "en": "A 100 percent pure juice made from Berries. It can be used to restore 20 HP to a Pokémon.",
+        "ja": "きのみ　１００％の　ジュース。 ポケモン　１匹の　ＨＰを ２０だけ　回復する。",
+        "fr": "Une boisson 100 % pur Jus de Baie. Restaure 20 PV d'un Pokémon.",
+        "es": "Zumo de bayas 100 % natural que restaura 20 PS de un Pokémon.",
+        "de": "Hundertprozentiger Fruchtsaft, aus Beeren gekeltert. Füllt die KP eines Pokémon um 20 Punkte auf.",
+        "it": "Bevanda di puro succo di bacche. Restituisce 20 PS a un Pokémon.",
+        "ko": "나무열매 100% 주스. 포켓몬 1마리의 HP를 20만큼 회복한다.",
+        "zh-Hant": "１００％樹果果汁。 能讓１隻寶可夢 回復２０ＨＰ。",
+        "zh-Hans": "１００％树果果汁。 能让１只宝可梦 回复２０ＨＰ。"
+    }
+}

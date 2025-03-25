@@ -1,0 +1,14 @@
+{
+    "name": "Lava Cookie",
+    "flavorText": {
+        "en": "Lavaridge Town's local specialty. It can be used to cure any status condition a Pokémon may have.",
+        "ja": "フエン名物の　せんべい。 ポケモン　１匹の　状態の 異常を　すべて　回復する。",
+        "fr": "Une spécialité de Vermilava. Soigne toutes les altérations de statut d'un Pokémon.",
+        "es": "Dulce típico de Pueblo Lavacalda que cura todos los problemas de estado de un Pokémon.",
+        "de": "Dieser Keks ist eine Spezialität aus Bad Lavastadt. Er behebt alle Statusprobleme eines Pokémon.",
+        "it": "Specialità tipica di Cuordilava. Cura tutti i problemi di stato di un Pokémon.",
+        "ko": "용암마을의 명물인 전병. 포켓몬 1마리의 상태 이상을 모두 회복한다.",
+        "zh-Hant": "釜炎特產的仙貝。 能治癒１隻寶可夢的 所有異常狀態。",
+        "zh-Hans": "釜炎特产的仙贝。 能治愈１只宝可梦的 所有异常状态。"
+    }
+}

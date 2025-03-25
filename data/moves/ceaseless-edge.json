@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user slashes its shell blade at the target. Shell splinters left behind by this attack remain scattered under the target as spikes.",
+        "ja": "貝殻の剣で　攻撃する。 ばらまかれた　貝殻の破片は　相手の 足下に　まきびし　となって　散らばる。",
+        "fr": "Le lanceur entaille la cible avec des lames de coquillages. Des débris de coquillage se répandent sous la forme de picots aux pieds de la cible.",
+        "es": "Ataca con una espada de conchas y, al hacerlo, se esparcen fragmentos a modo de metralla a los pies del objetivo.",
+        "de": "Der Anwender greift mit einer klingengleichen Muschelschale an und verstreut Muschelsplitter, die Stacheln zu Füßen des Zieles werden.",
+        "it": "Il Pokémon attacca il bersaglio con la spada conchiglia. I frammenti di conchiglie formano una trappola di punte ai piedi del bersaglio.",
+        "ko": "조개껍질 검으로 공격한다. 조개껍질 파편은 압정이 되어 상대의 발밑에 흩어진다.",
+        "zh-Hant": "用貝殼之劍進行攻擊。 碎裂開的貝殼碎片會變成撒菱 散落在對手腳下。",
+        "zh-Hans": "用贝壳之剑进行攻击。 散落的贝壳碎片会散落在 对手脚下成为撒菱。"
+    }
 }

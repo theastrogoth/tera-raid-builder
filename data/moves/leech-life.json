@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user drains the target's blood. The user's HP is restored by up to half the damage taken by the target.",
+        "ja": "血を　吸い取って　相手を 攻撃する。　与えた　ダメージの 半分の　ＨＰを　回復できる。",
+        "fr": "Une attaque qui aspire le sang de la cible. La moitié des dégâts sont convertis en PV pour le lanceur.",
+        "es": "Chupa sangre al objetivo. El usuario recupera la mitad de los PS del daño que produce.",
+        "de": "Der Anwender saugt dem Ziel Blut ab. Die Hälfte des zugefügten Schadens wird dem Anwender als KP gutgeschrieben.",
+        "it": "Il Pokémon succhia il sangue del bersaglio e lo attacca, recuperando una quantità di PS pari alla metà del danno inflitto.",
+        "ko": "피를 빨아서 상대를 공격한다. 준 데미지의 절반을 HP로 회복한다.",
+        "zh-Hant": "吸取對手的血液進行攻擊。 可以回復給予對手 傷害的一半ＨＰ。",
+        "zh-Hans": "吸取血液攻击对手。 可以回复给予对手 伤害的一半ＨＰ。"
+    }
 }

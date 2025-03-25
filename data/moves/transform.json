@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user transforms into a copy of the target, right down to having the same move set.",
+        "ja": "相手の　ポケモンに　変身することで 相手と　まったく 同じ　技が　使える。",
+        "fr": "Le lanceur devient une copie de sa cible et obtient la même palette de capacités.",
+        "es": "El usuario se transforma en una copia del objetivo, con los mismos movimientos.",
+        "de": "Anwender verwandelt sich in ein Abbild des Zieles und kann so auf die gleichen Attacken zugreifen.",
+        "it": "Il Pokémon si trasforma in una copia esatta del bersaglio per sfruttarne le mosse.",
+        "ko": "상대 포켓몬으로 변신하여 상대와 완전히 똑같은 기술을 사용할 수 있다.",
+        "zh-Hant": "變身成對手寶可夢的樣子， 能夠使用和對手 完全相同的招式。",
+        "zh-Hans": "变身成对手宝可梦的样子， 能够使用和对手 完全相同的招式。"
+    }
 }

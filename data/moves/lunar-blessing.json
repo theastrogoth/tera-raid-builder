@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user receives a blessing from the crescent moon, restoring HP and curing status conditions for itself and its ally Pokémon currently in the battle.",
+        "ja": "みかづきに　いのりを　ささげて 自分と　場にいる　味方の ＨＰと　状態を　回復する。",
+        "fr": "Le lanceur adresse une prière à la lune pour restaurer les PV et soigner ses altérations de statut ainsi que celles de ses alliés.",
+        "es": "Dedica una oración a la luna creciente que restaura los PS y cura los problemas de estado del bando del usuario.",
+        "de": "Der Anwender richtet ein Gebet an den Mond und heilt bei sich und seinen am Kampf beteiligten Mitstreitern KP und hebt jegliche Statusprobleme auf.",
+        "it": "Il Pokémon rivolge una preghiera alla luna crescente, ripristinando i PS e curando i problemi di stato per sé e per gli alleati in campo.",
+        "ko": "초승달에 기도를 하여 자신과 배틀에 나와 있는 같은 편의 HP와 모든 상태를 회복한다.",
+        "zh-Hant": "向新月獻上祈禱， 回復自己和場上同伴的ＨＰ和狀態。",
+        "zh-Hans": "向新月献上祈祷， 回复自己和场上 同伴的ＨＰ和状态。"
+    }
 }

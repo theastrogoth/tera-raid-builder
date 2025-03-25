@@ -1,0 +1,14 @@
+{
+    "name": "Dancer",
+    "flavorText": {
+        "en": "Whenever a dance move is used in battle, the Pokémon will copy the user to immediately perform that dance move itself.",
+        "ja": "だれかが　踊り技を　使うと 自分も　それに　続いて 踊り技を　出すことが　できる。",
+        "fr": "Si n'importe quel Pokémon utilise une capacité dansante, le Pokémon utilise immédiatement cette danse lui aussi.",
+        "es": "Puede copiar inmediatamente cualquier movimiento de baile que haya usado otro Pokémon presente en el combate.",
+        "de": "Das Pokémon kann direkt im Anschluss an die Tanz-Attacke eines anderen Pokémon dieselbe Attacke ebenfalls einsetzen.",
+        "it": "Permette al Pokémon di copiare immediatamente qualsiasi mossa basata sulla danza usata da un altro Pokémon in campo.",
+        "ko": "누군가 춤 기술을 쓰면 자신도 이어서 춤 기술을 쓸 수 있다.",
+        "zh-Hant": "當有誰使出跳舞招式時， 自己也能接著使出跳舞招式。",
+        "zh-Hans": "有谁使出跳舞招式时， 自己也能就这么接着使出跳舞招式。"
+    }
+}

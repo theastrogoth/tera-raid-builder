@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "A five-turn sandstorm is summoned to damage all Pokémon except Rock, Ground, and Steel types. The sandstorm also boosts the Sp. Def stats of Rock types.",
+        "ja": "５ターンの　間　砂あらしで　いわ じめん　はがねタイプ　以外に　ダメージ。 いわタイプの　特防が　あがる。",
+        "fr": "Une tempête de sable blesse tous les Pokémon pendant cinq tours, sauf ceux de type Roche, Sol ou Acier. Augmente la Défense Spéciale des Pokémon Roche.",
+        "es": "Tormenta de arena que dura cinco turnos y hiere a todos, excepto a los de tipo Roca, Tierra y Acero, y aumenta la Defensa Especial de los de tipo Roca.",
+        "de": "Sandsturm für fünf Runden. Schadet Pokémon aller Typen außer Gestein, Boden und Stahl. Erhöht die Spezial-Verteidigung von Gesteins-Pokémon.",
+        "it": "Per cinque turni, chi la usa causa una tempesta di sabbia che danneggia tutti i tipi esclusi Terra, Roccia e Acciaio. Aumenta la Difesa Speciale dei Pokémon di tipo Roccia.",
+        "ko": "5턴 동안 모래바람을 일으켜 바위, 땅, 강철타입 이외의 상대에게 데미지를 준다. 바위타입의 특수방어가 올라간다.",
+        "zh-Hant": "揚起沙暴，在５回合內給予 岩石、地面和鋼屬性以外的寶可夢傷害。 岩石屬性寶可夢的特防會提高。",
+        "zh-Hans": "在５回合内扬起沙暴，除岩石、地面和 钢属性以外的宝可梦，都会受到伤害。 岩石属性的特防还会提高。"
+    }
 }

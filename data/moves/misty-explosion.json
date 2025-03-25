@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks everything around it and faints upon using this move. This move's power is boosted on Misty Terrain.",
+        "ja": "自分の　周りに　いる　すべてを 攻撃するが　使うと　瀕死になる。 ミストフィールドで　威力が　あがる。",
+        "fr": "Le lanceur frappe tous les Pokémon autour de lui en explosant, ce qui le met K.O. La puissance de cette attaque augmente si un champ brumeux est actif.",
+        "es": "Ataca a los Pokémon adyacentes, pero se debilita de inmediato. La potencia del movimiento aumenta si el terreno está cubierto por un campo de niebla.",
+        "de": "Der Anwender greift alle Pokémon im Umkreis an und wird danach kampfunfähig. Die Stärke dieser Attacke steigt, wenn ein Nebelfeld aktiv ist.",
+        "it": "Chi la usa attacca tutti i Pokémon che ha intorno, ma poi va KO. La potenza della mossa aumenta quando è attivo un Campo Nebbioso.",
+        "ko": "자신의 주위에 있는 모두를 공격하지만 사용하면 기절한다. 미스트필드일 때 위력이 올라간다.",
+        "zh-Hant": "對自己周圍的所有寶可夢進行攻擊， 但使出後，自己會陷入瀕死。 在薄霧場地時，招式威力會提高。",
+        "zh-Hans": "对自己周围的所有宝可梦进行攻击， 但使出后，自己会陷入昏厥。 在薄雾场地上，招式威力会提高。"
+    }
 }

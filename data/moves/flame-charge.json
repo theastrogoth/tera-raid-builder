@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Cloaking itself in flame, the user attacks the target. Then, building up momentum, the user boosts its Speed stat.",
+        "ja": "炎を　まとい　相手を　攻撃する。 力を　ためて　自分の 素早さを　あげる。",
+        "fr": "Le lanceur s'entoure de flammes pour attaquer la cible. Il se concentre et sa Vitesse augmente.",
+        "es": "Llamas que golpean al objetivo y aumentan la Velocidad del usuario.",
+        "de": "Anwender hüllt sich in Flammen und greift das Ziel an. Sammelt seine Energie und erhöht dadurch die eigene Initiative.",
+        "it": "Il Pokémon si copre di fuoco e attacca il bersaglio. Concentrandosi aumenta, inoltre, la propria Velocità.",
+        "ko": "불꽃을 둘러 상대를 공격한다. 힘을 모아서 자신의 스피드를 올린다.",
+        "zh-Hant": "讓火焰圍繞全身後攻擊對手。 同時蓄積力量來提高自己的速度。",
+        "zh-Hans": "让火焰覆盖全身，攻击对手。 积蓄力量来提高自己的速度。"
+    }
 }

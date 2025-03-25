@@ -1,0 +1,14 @@
+{
+    "name": "Green Bell Pepper",
+    "flavorText": {
+        "en": "An ingredient with some bitterness. When sliced, it adds a nice accent to a sandwich.",
+        "ja": "苦味が　ある　食材。 スライスして　サンドウィッチに はさめば　アクセントに　なる。",
+        "fr": "Un ingrédient au goût amer. Coupé en tranches, il ajoute une note agréable à un Sandwich.",
+        "es": "Cortado en tiras, aporta un regusto amargo a cualquier bocadillo.",
+        "de": "In Scheiben geschnitten verleiht diese bittere Zutat einem Sandwich einen interessanten Geschmacksakzent.",
+        "it": "Un ingrediente amaro. Tagliato a fette sottili è perfetto per impreziosire un panino imbottito.",
+        "ko": "쓴맛이 나는 식재료. 슬라이스해서 샌드위치에 넣으면 악센트가 되어 준다.",
+        "zh-Hant": "帶有苦味的食材。 切片後夾進三明治 可收畫龍點睛之效。",
+        "zh-Hans": "带有苦味的食材。 切成片放进三明治当中 能够起到提味作用。"
+    }
+}

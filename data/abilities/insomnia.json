@@ -1,0 +1,14 @@
+{
+    "name": "Insomnia",
+    "flavorText": {
+        "en": "The Pokémon's insomnia prevents it from falling asleep.",
+        "ja": "眠れない　体質　なので ねむり状態に　ならない。",
+        "fr": "Le Pokémon est incapable de dormir.",
+        "es": "Su resistencia al sueño le impide quedarse dormido.",
+        "de": "Das Pokémon leidet an Schlaflosigkeit und kann daher nicht in Schlaf versetzt werden.",
+        "it": "Il Pokémon soffre d'insonnia e non può addormentarsi.",
+        "ko": "잠들지 못하는 체질이라 잠듦 상태가 되지 않는다.",
+        "zh-Hant": "因為有著睡不著的體質， 所以不會陷入睡眠狀態。",
+        "zh-Hans": "因为有着睡不着的体质， 所以不会陷入睡眠状态。"
+    }
+}

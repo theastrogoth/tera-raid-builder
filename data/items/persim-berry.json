@@ -1,0 +1,14 @@
+{
+    "name": "Persim Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to cure itself of confusion.",
+        "ja": "ポケモンに　持たせると 混乱を　回復する。 ",
+        "fr": "Une Baie qui soigne la confusion lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para librarse de la confusión.",
+        "de": "Als getragenes Item heilt diese Beere das Pokémon von Verwirrung.",
+        "it": "Se un Pokémon ha questa bacca, guarisce dalla confusione.",
+        "ko": "포켓몬에게 지니게 하면 혼란을 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以治癒混亂。",
+        "zh-Hans": "让宝可梦携带后， 可以治愈混乱。"
+    }
+}

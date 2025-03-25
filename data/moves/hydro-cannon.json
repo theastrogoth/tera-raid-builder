@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is hit with a watery blast. The user can't move on the next turn.",
+        "ja": "水の　大砲を 相手に　発射して　攻撃する。 次の　ターンは　動けなくなる。",
+        "fr": "Le lanceur projette un missile d'eau sur la cible, mais il doit se reposer au tour suivant.",
+        "es": "Ataca al objetivo con un cañonazo de agua. El usuario deberá descansar en el siguiente turno.",
+        "de": "Das Ziel wird von einer Wasserkanone getroffen. Anwender setzt eine Runde aus.",
+        "it": "Il Pokémon attacca il bersaglio con un potente getto d'acqua, ma al turno successivo non può muoversi.",
+        "ko": "물의 대포를 상대에게 발사해서 공격한다. 다음 턴은 움직일 수 없다.",
+        "zh-Hant": "向對手發射水炮進行攻擊。 下一回合自己將無法動彈。",
+        "zh-Hans": "向对手喷射水炮进行攻击。 下一回合自己将无法动弹。"
+    }
 }

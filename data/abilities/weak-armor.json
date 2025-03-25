@@ -1,0 +1,14 @@
+{
+    "name": "Weak Armor",
+    "flavorText": {
+        "en": "The Pokémon's Defense stat is lowered when it takes damage from physical moves, but its Speed stat is sharply boosted.",
+        "ja": "物理技で　ダメージを　受けると 防御が　下がり 素早さが　ぐーんと　上がる。",
+        "fr": "Quand le Pokémon est touché par une capacité physique, sa Défense baisse mais sa Vitesse augmente beaucoup.",
+        "es": "Al recibir daño de un ataque físico, se reduce su Defensa, pero aumenta mucho su Velocidad.",
+        "de": "Erleidet das Pokémon Schaden durch eine physische Attacke, sinkt seine Verteidigung, aber dafür steigt seine Initiative stark.",
+        "it": "Se il Pokémon subisce danni da mosse fisiche, la Difesa diminuisce e la Velocità aumenta di molto.",
+        "ko": "물리 기술로 데미지를 받으면 방어가 떨어지고 스피드가 크게 올라간다.",
+        "zh-Hant": "因物理招式受到傷害時， 防禦會降低， 速度會大幅提高。",
+        "zh-Hans": "受到物理招式的伤害时， 防御会降低， 速度会大幅提高。"
+    }
+}

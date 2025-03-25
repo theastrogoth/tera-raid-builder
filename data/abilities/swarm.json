@@ -1,0 +1,14 @@
+{
+    "name": "Swarm",
+    "flavorText": {
+        "en": "Powers up Bug-type moves when the Pokémon's HP is low.",
+        "ja": "ＨＰが　減ったとき むしタイプの　技の 威力が　上がる。",
+        "fr": "Augmente la puissance des capacités de type Insecte du Pokémon quand il a perdu une certaine quantité de PV.",
+        "es": "Potencia sus movimientos de tipo Bicho cuando le quedan pocos PS.",
+        "de": "Wenn die KP des Pokémon auf einen gewissen Wert fallen, steigt die Stärke seiner Käfer-Attacken.",
+        "it": "Quando al Pokémon rimangono pochi PS, la potenza delle sue mosse di tipo Coleottero aumenta.",
+        "ko": "HP가 줄었을 때 벌레타입 기술의 위력이 올라간다.",
+        "zh-Hant": "ＨＰ減少的時候， 蟲屬性的招式威力會提高。",
+        "zh-Hans": "ＨＰ减少的时候， 虫属性的招式威力会提高。"
+    }
+}

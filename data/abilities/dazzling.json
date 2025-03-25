@@ -1,0 +1,14 @@
+{
+    "name": "Dazzling",
+    "flavorText": {
+        "en": "The Pokémon dazzles its opponents, making them unable to use priority moves against the Pokémon or its allies.",
+        "ja": "相手を　びっくり　させて こちらに　むかって　先制技を 出せない　ようにする。",
+        "fr": "L'adversaire est abasourdi par le Pokémon, ce qui l'empêche de viser ce dernier et ses alliés avec une capacité prioritaire.",
+        "es": "Desconcierta al rival y le impide usar movimientos con prioridad contra él y sus aliados.",
+        "de": "Das Pokémon überrascht Gegner und hindert sie so daran, Erstschlag-Attacken gegen die Mitstreiterseite einzusetzen.",
+        "it": "Il Pokémon sbalordisce gli avversari e gli impedisce di usare mosse che hanno priorità alta contro di lui o i suoi alleati.",
+        "ko": "상대를 놀라게 해서 이쪽을 향한 선제 기술을 사용할 수 없게 한다.",
+        "zh-Hant": "讓對手嚇一跳， 使其無法對我方使出先制招式。",
+        "zh-Hans": "让对手吓一跳， 使其无法对我方使出先制招式。"
+    }
+}

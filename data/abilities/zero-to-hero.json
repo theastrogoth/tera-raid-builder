@@ -1,0 +1,14 @@
+{
+    "name": "Zero to Hero",
+    "flavorText": {
+        "en": "The Pokémon transforms into its Hero Form when it switches out.",
+        "ja": "手持ちに　ひっこむと マイティフォルムに　変化する。",
+        "fr": "Le Pokémon prend sa Forme Super en quittant le combat.",
+        "es": "Adopta la Forma Heroica cuando se retira del combate.",
+        "de": "Wird das Pokémon ausgewechselt, nimmt es die Heldenform an.",
+        "it": "Se il Pokémon lascia il campo, assume la Forma Possente.",
+        "ko": "지닌 포켓몬으로 돌아오면 마이티폼으로 변한다.",
+        "zh-Hant": "離場後會變為全能形態。",
+        "zh-Hans": "回到同行队伍后， 会变为全能形态。"
+    }
+}

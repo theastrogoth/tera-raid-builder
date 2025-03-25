@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user exhales a mighty gust that inflicts damage. This may also leave the target with paralysis.",
+        "ja": "ものすごい　息を 相手に　吹きつけて　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "Le lanceur souffle fort sur la cible pour lui infliger des dégâts, ce qui peut aussi la paralyser.",
+        "es": "Poderosa ráfaga de aliento que golpea al objetivo y puede paralizarlo.",
+        "de": "Fegt das Ziel mit zerstörerisch heißem Atem weg. Paralysiert das Ziel eventuell.",
+        "it": "Il Pokémon attacca investendo il bersaglio con un soffio d'aria potentissimo. Può anche paralizzarlo.",
+        "ko": "굉장한 숨결을 상대에게 내뿜어 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "將強烈的氣息 吹向對手進行攻擊。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "将强烈的气息 吹向对手进行攻击。 有时会让对手陷入麻痹状态。"
+    }
 }

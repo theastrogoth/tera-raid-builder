@@ -1,0 +1,14 @@
+{
+    "name": "Hyper Potion",
+    "flavorText": {
+        "en": "A recipe for crafting Hyper Potions from scratch. Required materials: 1 Super Potion and 1 Vivichoke.",
+        "ja": "すごいキズぐすりのレシピ。　材料は いいキズぐすり×１　ゲンキノツボミ×１",
+        "fr": "Méthode pour Hyper Potion. Ressources requises : 1 Super Potion et 1 Bourgeon Vivace.",
+        "es": "Receta para crear Hiperpociones. Materiales: 1 Superpoción y 1 Revibrote.",
+        "de": "Die Anleitung zur Herstellung eines Hypertranks. Benötigte Materialien: 1 Supertrank und 1 Vitalknospe.",
+        "it": "Ricetta per un'Iperpozione. Richiede 1 Superpozione e 1 Revitalboccio.",
+        "ko": "고급상처약의 레시피. 재료: 좋은상처약×1 기력의봉오리×1",
+        "zh-Hant": "厲害傷藥的材料單。材料是： 好傷藥×１　活力蕾×１",
+        "zh-Hans": "厉害伤药的材料单。材料是： 好伤药×１　活力蕾×１"
+    }
+}

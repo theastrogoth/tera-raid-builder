@@ -1,0 +1,14 @@
+{
+    "name": "Tough Claws",
+    "flavorText": {
+        "en": "Powers up moves that make direct contact.",
+        "ja": "相手に　接触する　技の 威力が　高くなる。",
+        "fr": "Augmente la puissance des attaques directes du Pokémon.",
+        "es": "Aumenta la potencia de los movimientos de contacto.",
+        "de": "Die Stärke von Attacken des Pokémon, bei denen das Ziel berührt wird, steigt.",
+        "it": "Potenzia le mosse da contatto.",
+        "ko": "상대에게 접촉하는 기술의 위력이 올라간다.",
+        "zh-Hant": "接觸到對手的招式 威力會提高。",
+        "zh-Hans": "接触到对手的招式 威力会提高。"
+    }
+}

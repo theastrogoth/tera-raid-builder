@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks opposing Pokémon by manifesting the power of the land in fearsome blades of stone.",
+        "ja": "大地の　力を　刃に　変えて 相手を　攻撃する。",
+        "fr": "Le Pokémon transforme la puissance de la terre et attaque la cible avec une lame acérée.",
+        "es": "Hace que el poder latente de la tierra se manifieste en forma de hojas afiladas y ataca al objetivo con ellas.",
+        "de": "Der Anwender wandelt die Kraft des Erdreichs in Klingen um, mit denen er gegnerische Pokémon angreift.",
+        "it": "Il Pokémon attacca il bersaglio trasformando la potenza della terra in lame.",
+        "ko": "대지의 힘을 칼날로 바꿔 상대를 공격한다.",
+        "zh-Hant": "將大地的力量化為利刃 攻擊對手。",
+        "zh-Hans": "将大地的力量变化为利刃 攻击对手。"
+    }
 }

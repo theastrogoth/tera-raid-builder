@@ -43,5 +43,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user absorbs energy on the first turn, then sharply boosts its Sp. Atk, Sp. Def, and Speed stats on the next turn.",
+        "ja": "１ターン目で　エネルギーを 吸収し　２ターン目に　特攻 特防　素早さを　ぐーんと　あげる。",
+        "fr": "Le lanceur absorbe de l'énergie au premier tour et augmente beaucoup son Attaque Spéciale, sa Défense Spéciale et sa Vitesse au second.",
+        "es": "Concentra energía durante el primer turno, de forma que su Velocidad, su Ataque Especial y su Defensa Especial aumenten mucho en el segundo.",
+        "de": "Der Anwender saugt in Runde 1 Energie auf. In Runde 2 steigen der Spezial-Angriff, die Spezial-Verteidigung und die Initiative stark.",
+        "it": "Il Pokémon assorbe energia nel primo turno per aumentare poi di molto l'Attacco Speciale, la Difesa Speciale e la Velocità in quello seguente.",
+        "ko": "1턴째에 에너지를 흡수하여 2턴째에 특수공격, 특수방어, 스피드를 크게 올린다.",
+        "zh-Hant": "使用後的第１回合吸收能量， 並於第２回合大幅提高 自己的特攻、特防和速度。",
+        "zh-Hans": "第１回合吸收能量， 第２回合大幅提高 特攻、特防和速度。"
+    }
 }

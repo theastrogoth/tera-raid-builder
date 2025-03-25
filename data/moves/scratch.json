@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Hard, pointed, sharp claws rake the target to inflict damage.",
+        "ja": "硬く　とがった　鋭い　ツメで 相手を　ひっかいて　攻撃する。",
+        "fr": "Lacère la cible avec des griffes acérées pour lui infliger des dégâts.",
+        "es": "Araña con afiladas garras.",
+        "de": "Das Ziel wird mit scharfen Klauen zerkratzt.",
+        "it": "Il Pokémon attacca il bersaglio graffiandolo con artigli acuminati, duri e affilati.",
+        "ko": "단단하고 뾰족하며 날카로운 손톱으로 상대를 할퀴어서 공격한다.",
+        "zh-Hant": "用堅硬且無比鋒利的爪子 抓對手進行攻擊。",
+        "zh-Hans": "用坚硬且无比锋利的爪子 抓对手进行攻击。"
+    }
 }

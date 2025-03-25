@@ -1,0 +1,14 @@
+{
+    "name": "TR15",
+    "flavorText": {
+        "en": "The target is attacked with an intense blast of all-consuming fire. This may also leave the target with a burn.",
+        "ja": "大の字の　炎で 相手を　焼きつくす。 やけど状態に　することが　ある。",
+        "fr": "Un déluge de flammes ardentes submerge la cible, ce qui peut aussi la brûler.",
+        "es": "Llama intensa que chamusca y puede causar quemaduras.",
+        "de": "Feuersbrunst, die das Ziel versengt und ihm eventuell Verbrennungen zufügt.",
+        "it": "Investe il bersaglio con un'intensa fiammata che fa terra bruciata. Può anche scottarlo.",
+        "ko": "큰대자의 불꽃으로 상대를 불태운다. 화상 상태로 만들 때가 있다.",
+        "zh-Hant": "用大字形狀的火焰燒盡對手。 有時會讓對手陷入灼傷狀態。",
+        "zh-Hans": "用大字形状的火焰烧尽对手。 有时会让对手陷入灼伤状态。"
+    }
+}

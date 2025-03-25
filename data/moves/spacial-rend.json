@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user tears the target along with the space around it. This move has a heightened chance of landing a critical hit.",
+        "ja": "周りの　空間ごと　相手を 引き裂き　ダメージを　与える。 急所に　当たりやすい。",
+        "fr": "Le lanceur déchire la cible et l'espace autour de lui. Taux de critiques élevé.",
+        "es": "Desgarra al objetivo y el espacio a su alrededor. Suele asestar un golpe crítico.",
+        "de": "Anwender attackiert mit einer Kraft, die selbst den Raum um das Ziel herum zerreißt. Hohe Volltrefferquote.",
+        "it": "Il Pokémon lacera il bersaglio e lo spazio che lo circonda. Probabile brutto colpo.",
+        "ko": "주위의 공간과 더불어 상대를 찢어서 데미지를 준다. 급소에 맞기 쉽다.",
+        "zh-Hant": "將對手連同周圍的空間 一起切開，給予對手傷害。 容易擊中要害。",
+        "zh-Hans": "将对手连同周围的空间一起 撕裂并给予伤害。 容易击中要害。"
+    }
 }

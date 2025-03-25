@@ -1,0 +1,14 @@
+{
+    "name": "Aux Evasion",
+    "flavorText": {
+        "en": "An item that makes moves less likely to strike a Pokémon in battle. This effect disappears if the Pokémon leaves the battle.",
+        "ja": "戦闘中のポケモンが 相手の技に当たりづらくなる道具。 ひっこめると元に戻る。",
+        "fr": "Augmente les chances d'un Pokémon d'esquiver les capacités de son adversaire pendant un combat. L'effet disparaît si le Pokémon est retiré.",
+        "es": "Objeto que dificulta que los movimientos de los rivales alcancen al Pokémon en combate. Al cambiar de Pokémon, el efecto desaparece.",
+        "de": "Senkt die Wahrscheinlichkeit, dass das Pokémon im Kampf von gegnerischen Attacken getroffen wird. Die Wirkung endet mit dem Austausch des Pokémon.",
+        "it": "Riduce la probabilità che le mosse dell'avversario vadano a segno in una lotta. L'effetto svanisce se il Pokémon è sostituito.",
+        "ko": "배틀 중인 포켓몬이 상대의 기술에 잘 맞지 않게 되는 도구. 포켓몬을 볼에 넣어 버리면 원래대로 되돌아간다.",
+        "zh-Hant": "讓寶可夢在戰鬥中變得 較不易被對手招式命中的道具。 離場後，效果便會消失。",
+        "zh-Hans": "让宝可梦在战斗中变得 较不易被对手招式命中的道具。 离场后，效果便会消失。"
+    }
+}

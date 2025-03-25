@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user envelops itself in a veil made of water. It regains some HP every turn.",
+        "ja": "自分の　体の　周りを 水で　つくった　ベールで　おおう。 毎ターン　ＨＰを　回復する。",
+        "fr": "Un voile d'eau recouvre le lanceur et régénère ses PV à chaque tour.",
+        "es": "El usuario se cubre con un manto de agua. Recupera algunos PS en cada turno.",
+        "de": "Anwender umgibt sich mit einem Schleier aus Wasser. Dabei regeneriert er einige KP pro Runde.",
+        "it": "Il Pokémon si avvolge in un velo d'acqua. Recupera PS a ogni turno.",
+        "ko": "자신의 몸 주변을 물로 만든 베일로 덮는다. 매 턴 HP를 회복한다.",
+        "zh-Hant": "在自己的身邊套上水流環。 每回合會回復自己的ＨＰ。",
+        "zh-Hans": "在自己身体的周围 覆盖用水制造的幕。 每回合回复ＨＰ。"
+    }
 }

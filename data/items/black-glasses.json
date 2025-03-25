@@ -1,0 +1,14 @@
+{
+    "name": "Black Glasses",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a pair of shady- looking glasses that boost the power of the holder's Dark-type moves.",
+        "ja": "怪しく見える　メガネ。 持たせると　あくタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Une paire de lunettes à l'aspect louche qui augmente la puissance des capacités de type Ténèbres.",
+        "es": "Potencian los movimientos de tipo Siniestro. Debe llevarlas un Pokémon.",
+        "de": "Ein Item zum Tragen. Eine dunkle Brille, die Attacken vom Typ Unlicht verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Inquietante paio di occhiali che potenzia le mosse di tipo Buio.",
+        "ko": "괴상하게 보이는 안경. 지니게 하면 악타입 기술의 위력이 올라간다.",
+        "zh-Hant": "看起來很奇怪的眼鏡。 攜帶後，惡屬性的 招式威力就會提高。",
+        "zh-Hans": "看上去很奇怪的眼镜。 携带后，恶属性的 招式威力就会提高。"
+    }
+}

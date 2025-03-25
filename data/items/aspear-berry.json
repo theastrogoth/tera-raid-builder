@@ -1,0 +1,14 @@
+{
+    "name": "Aspear Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to thaw itself after being frozen.",
+        "ja": "ポケモンに　持たせると こおりを　回復する。 ",
+        "fr": "Une Baie qui soigne le gel lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para descongelarse.",
+        "de": "Als getragenes Item taut diese Beere das Pokémon auf, wenn es eingefroren wird.",
+        "it": "Se un Pokémon ha questa bacca, guarisce dal congelamento.",
+        "ko": "포켓몬에게 지니게 하면 얼음을 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以治癒冰凍。",
+        "zh-Hans": "让宝可梦携带后， 可以治愈冰冻。"
+    }
+}

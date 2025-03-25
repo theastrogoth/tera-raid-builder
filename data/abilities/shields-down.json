@@ -1,0 +1,14 @@
+{
+    "name": "Shields Down",
+    "flavorText": {
+        "en": "When its HP drops to half or less, the Pokémon's shell breaks and it becomes aggressive.",
+        "ja": "ＨＰが　半分に　なると 殻が　壊れて 攻撃的に　なる。",
+        "fr": "Lorsque le Pokémon perd la moitié de ses PV, son enveloppe se brise et il adopte une posture offensive.",
+        "es": "Rompe su coraza cuando sus PS se ven reducidos a la mitad y adopta una forma ofensiva.",
+        "de": "Fallen die KP des Pokémon auf die Hälfte des Maximalwerts oder weniger, zerbricht seine Panzerung und es wird aggressiver.",
+        "it": "Se i PS scendono a metà o meno, il guscio si rompe e il Pokémon si prepara all'offensiva.",
+        "ko": "HP가 절반이 되면 껍질이 깨져 공격적으로 된다.",
+        "zh-Hant": "ＨＰ變為一半時， 殼會壞掉，變得更有攻擊性。",
+        "zh-Hans": "ＨＰ变为一半时， 壳会坏掉，变得有攻击性。"
+    }
+}

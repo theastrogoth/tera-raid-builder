@@ -1,0 +1,14 @@
+{
+    "name": "Gigaton Ball",
+    "flavorText": {
+        "en": "A recipe for crafting Gigaton Balls from scratch. Required materials: 1 Apricorn, 2 Black Tumblestones, and 2 Iron Chunks.",
+        "ja": "ギガトンボールのレシピ。　材料は ぼんぐりのみ×１　てつのかけら×２ くろいろたまいし×２",
+        "fr": "Méthode pour Gigamasse Ball. Ressources requises : 1 Noigrume, 2 Fragments de Fer et 2 Galets Noirs.",
+        "es": "Receta para crear Quintal Balls. Materiales: 1 Bonguri, 2 Pepitas de Hierro y 2 Guijarros Negros.",
+        "de": "Die Anleitung zur Herstellung eines Tonnenballs. Benötigte Materialien: 1 Aprikoko, 2 Eisenbrocken und 2 Schwarzglanzsteine.",
+        "it": "Ricetta per creare una Gigaton Ball. I materiali necessari sono 1 Bacca ghicocca, 2 Pezzi di ferro e 2 Ciottoli neri.",
+        "ko": "기가톤볼의 레시피. 재료: 규토리열매×1 철조각×2 검은옥돌×2",
+        "zh-Hant": "巨重球的材料單。材料是： 球果果×１　碎鐵×２ 黑玉石×２",
+        "zh-Hans": "巨重球的材料单。材料是： 球果果×１　碎铁×２ 黑玉石×２"
+    }
+}

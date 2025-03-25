@@ -1,0 +1,14 @@
+{
+    "name": "Meteorite",
+    "flavorText": {
+        "en": "A rock that fell to earth from space. It's slightly warm to the touch. It allows a certain species of Pokémon to change forms.",
+        "ja": "宇宙から　地上に　落ちてきた石。 さわると　じんわり　温かい。 特定のポケモンの　姿を　変える。",
+        "fr": "Une pierre venue de l'espace, qui permet à un certain Pokémon de changer d'apparence. Elle est légèrement tiède au toucher.",
+        "es": "Roca proveniente del espacio exterior capaz de hacer cambiar de forma a cierto Pokémon. Es ligeramente cálida al tacto.",
+        "de": "Ein Stein, der aus dem Weltall auf die Erde gefallen ist und bei Berührung eine sanfte Wärme ausstrahlt. Ein bestimmtes Pokémon kann damit seine Form ändern.",
+        "it": "Una roccia caduta dallo spazio che fa cambiare forma a una determinata specie di Pokémon. Toccandola, si avverte un certo calore.",
+        "ko": "우주로부터 지상에 떨어진 돌. 만지면 은근히 따뜻하다. 특정 포켓몬의 모습을 바꾼다.",
+        "zh-Hant": "從宇宙落到地上的石頭。 摸起來帶著一點微溫。 可以改變特定寶可夢的樣子。",
+        "zh-Hans": "从宇宙中坠落到地面上的石头。 摸上去隐约有点暖暖的。 可以改变特定宝可梦的样子。"
+    }
+}

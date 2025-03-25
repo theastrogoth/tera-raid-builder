@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is slugged with a punch thrown at maximum power.",
+        "ja": "こん身の　力で 相手を　なぐりつけて　攻撃する。",
+        "fr": "Le lanceur cogne la cible de toutes ses forces.",
+        "es": "Ataca al objetivo golpeándolo con todas sus fuerzas.",
+        "de": "Das Ziel wird extrem stark getroffen.",
+        "it": "Il Pokémon attacca il bersaglio colpendolo con tutte le sue forze.",
+        "ko": "혼신의 힘으로 상대를 세게 때려서 공격한다.",
+        "zh-Hant": "使出渾身力量 毆打對手進行攻擊。",
+        "zh-Hans": "使出浑身力气 殴打对手进行攻击。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user cloaks itself and its allies in a white mist that prevents any of their stats from being lowered for five turns.",
+        "ja": "白い霧で　体を　おおう。 ５ターンの　間　相手に 能力を　さげられなく　なる。",
+        "fr": "Une brume blanche enveloppe le lanceur et ses alliés et empêche la réduction des stats pour cinq tours.",
+        "es": "Rodea de una niebla blanquecina al bando del usuario e impide que el rival reduzca sus características durante cinco turnos.",
+        "de": "Anwender schützt das Team mit einem Nebel. Verhindert Statussenkungen für fünf Runden.",
+        "it": "Il Pokémon attira una nebbia che per cinque turni blocca la riduzione delle statistiche causata da altri.",
+        "ko": "하얀 안개로 몸을 덮는다. 5턴 동안 상대에 의해 능력이 떨어지지 않게 된다.",
+        "zh-Hant": "用白霧覆蓋身體。 在５回合內不會讓對手 降低自己的能力。",
+        "zh-Hans": "用白雾覆盖身体。 在５回合内不会让对手 降低自己的能力。"
+    }
 }

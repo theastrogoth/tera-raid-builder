@@ -1,0 +1,14 @@
+{
+    "name": "Endorsement",
+    "flavorText": {
+        "en": "A letter of recommendation that you'll need in order to participate in the Gym Challenge.",
+        "ja": "ジムチャレンジ　という　大会に 参加　するための　すいせんじょう。",
+        "fr": "Une lettre qui permet de participer au Défi des Arènes.",
+        "es": "Una carta de recomendación necesaria para participar en el desafío de los gimnasios.",
+        "de": "Ein Empfehlungsschreiben, das benötigt wird, um an der Arena-Challenge teilzunehmen.",
+        "it": "Lettera necessaria per partecipare alla Sfida delle Palestre.",
+        "ko": "체육관 챌린지라는 대회에 참가하는 데에 필요한 추천장.",
+        "zh-Hant": "參加名為道館挑戰的大賽時 所需的推薦函。",
+        "zh-Hans": "用于参加道馆挑战 这一大赛的推荐函。"
+    }
+}

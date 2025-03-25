@@ -1,0 +1,14 @@
+{
+    "name": "Yellow Flute",
+    "flavorText": {
+        "en": "A flute made from yellow glass. It snaps Pokémon out of confusion.",
+        "ja": "黄色のガラスで　できた　笛。 混乱状態を　回復する。",
+        "fr": "Un jouet en forme de flûte en verre jaune. Soigne la confusion.",
+        "es": "Una flauta de cristal amarillo cuyas notas sacan a un Pokémon de la confusión.",
+        "de": "Eine Spielzeugflöte aus gelbem Glas. Heilt Verwirrung.",
+        "it": "Flauto fatto di vetro giallo. Ha il potere di curare la confusione.",
+        "ko": "노란 유리로 만들어진 피리. 혼란 상태를 회복한다.",
+        "zh-Hant": "以黃色玻璃製成的笛子。 可以治癒混亂狀態。",
+        "zh-Hans": "以黄色玻璃制成的哨子。 可以治愈混乱状态。"
+    }
+}

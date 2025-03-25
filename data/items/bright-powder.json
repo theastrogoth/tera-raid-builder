@@ -1,0 +1,14 @@
+{
+    "name": "Bright Powder",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This glittery powder casts a tricky glare that lowers the accuracy of opposing Pokémon's moves.",
+        "ja": "キラキラ　光る粉。　持たせると 光が　相手を　惑わして 技が　命中しにくくなる。",
+        "fr": "Objet à tenir. La lumière émise par cette poudre brillante trouble l'ennemi et baisse sa Précision.",
+        "es": "Lanza un destello que reduce la Precisión del rival. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Es senkt die Genauigkeit von gegnerischen Pokémon.",
+        "it": "Strumento da dare a un Pokémon. Emette un bagliore che turba l'avversario e ne riduce la precisione.",
+        "ko": "반짝반짝 빛나는 가루. 지니게 하면 빛이 상대를 혼란시켜 기술이 명중되기 어려워진다.",
+        "zh-Hant": "閃閃發光的粉末。 攜帶後，光芒會迷惑對手， 進而使其招式變得不容易命中。",
+        "zh-Hans": "闪闪发光的粉末。 携带后，光芒会迷惑对手， 从而使其招式变得不容易命中。"
+    }
+}

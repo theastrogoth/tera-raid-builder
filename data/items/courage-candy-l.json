@@ -1,0 +1,14 @@
+{
+    "name": "Courage Candy L",
+    "flavorText": {
+        "en": "A big candy that is packed with energy. When given to a Pokémon at Lv. 30 or higher, it will increase that Pokémon's Sp. Def stat.",
+        "ja": "エネルギーの　つまった　大きい　アメ。 レベル３０　以上の　ポケモンの とくぼうを　上げる。",
+        "fr": "Un gros bonbon plein d'énergie. Il augmente la Défense Spéciale d'un Pokémon de niveau 30 ou supérieur.",
+        "es": "Caramelo energético grande que aumenta la Defensa Especial de un Pokémon de Nv. 30 o superior.",
+        "de": "Ein großes Bonbon, das voller Energie steckt. Erhöht dauerhaft die Spezial-Verteidigung eines Pokémon ab Level 30.",
+        "it": "Una caramella grande piena zeppa di energia. Aumenta la Difesa Speciale di un Pokémon di livello 30 o superiore.",
+        "ko": "에너지가 가득한 큰 사탕. 레벨 30 이상인 포켓몬의 특수방어를 올린다.",
+        "zh-Hant": "充滿能量的大糖果。 能提高等級在３０以上的 寶可夢的特防。",
+        "zh-Hans": "充满能量的大糖果。 能让等级３０以上的 宝可梦的特防上升。"
+    }
+}

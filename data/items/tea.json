@@ -1,0 +1,14 @@
+{
+    "name": "Tea",
+    "flavorText": {
+        "en": "Aromatic tea that has a slightly bitter taste. It soothes a dry throat.",
+        "ja": "すこし　苦くて 芳ばしい香りの　お茶。 かわいた喉が　うるおう。",
+        "fr": "Un thé aromatique légèrement amer. Il a des vertus désaltérantes.",
+        "es": "Un aromático té de sabor ligeramente amargo que resulta ideal para aplacar la sed.",
+        "de": "Ein aromatischer Tee mit leicht bitterem Geschmack. Genau das Richtige, um den Durst zu stillen.",
+        "it": "Un tè fragrante dal sapore amarognolo. Molto dissetante.",
+        "ko": "약간 씁쓸하고 구수한 향기가 나는 차. 말랐던 목이 촉촉해진다.",
+        "zh-Hant": "散發著撲鼻芳香， 喝起來有點苦澀的茶。 能滋潤乾渴的喉嚨。",
+        "zh-Hans": "有一点点苦， 却又芬芳宜人的香茶。 抿一口，清咽润喉。"
+    }
+}

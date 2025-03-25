@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user gets teary-eyed to make the target lose its combative spirit. This lowers the target's Attack and Sp. Atk stats.",
+        "ja": "なみだめに　なって 相手の　戦力を　喪失させる。 相手の　攻撃と　特攻が　さがる。",
+        "fr": "Le lanceur regarde la cible avec des yeux remplis de larmes. Celle-ci perd toute combativité et voit son Attaque et son Attaque Spéciale baisser.",
+        "es": "Mira al objetivo con ojos llorosos para hacerle perder su espíritu combativo y reduce su Ataque y su Ataque Especial.",
+        "de": "Dem Anwender stehen Tränen in den Augen, wodurch das Ziel seinen Kampfeswillen verliert. Angriff und Spezial-Angriff des Zieles sinken.",
+        "it": "Il Pokémon guarda il bersaglio con gli occhi pieni di lacrime e gli fa perdere lo spirito combattivo, riducendone l'Attacco e l'Attacco Speciale.",
+        "ko": "눈물을 그렁그렁거려 상대의 전의를 상실하게 한다. 상대의 공격과 특수공격이 떨어진다.",
+        "zh-Hant": "變得淚眼汪汪， 令對手喪失鬥志。 進而降低對手的攻擊和特攻。",
+        "zh-Hans": "变得泪眼汪汪， 让对手丧失斗志。 从而降低对手的攻击和特攻。"
+    }
 }

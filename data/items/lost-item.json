@@ -1,0 +1,14 @@
+{
+    "name": "Lost Item",
+    "flavorText": {
+        "en": "The Mime Jr. doll that was lost by the Copycat.",
+        "ja": "モノマネ娘が　なくした マネネの　人形。 ",
+        "fr": "La Poupée Mime Jr. perdue par la Copieuse.",
+        "es": "El muñeco de Mime Jr. que perdió la Copiona.",
+        "de": "Eine Pantimimi-Puppe, welche die Nachahmerin verloren hat.",
+        "it": "Pupazzo raffigurante Mime Jr. smarrito da Copiona.",
+        "ko": "흉내내기 아가씨가 잃어버린 흉내내인형.",
+        "zh-Hant": "模仿少女丟失的 魔尼尼人偶。",
+        "zh-Hans": "模仿少女丢失的 魔尼尼人偶。"
+    }
+}

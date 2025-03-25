@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user scatters a cloud of magic powder that changes the target's type to Psychic.",
+        "ja": "まほうのこなを　浴びせて 相手を　エスパータイプに　変化させる。",
+        "fr": "Le lanceur recouvre sa cible d'une poudre magique qui change son type en Psy.",
+        "es": "Cubre al objetivo con unos polvos mágicos que le hacen adquirir el tipo Psíquico.",
+        "de": "Das Ziel wird mit magischem Puder bestreut und nimmt den Typ Psycho an.",
+        "it": "Il Pokémon getta addosso al bersaglio una polvere magica che lo rende di tipo Psico.",
+        "ko": "마법가루를 날려서 상대를 에스퍼타입으로 바꾼다.",
+        "zh-Hant": "撒出魔法粉末， 使對手變為超能力屬性。",
+        "zh-Hans": "向对手喷洒魔法粉， 使对手变为超能力属性。"
+    }
 }

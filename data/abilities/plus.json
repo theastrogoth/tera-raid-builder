@@ -1,0 +1,14 @@
+{
+    "name": "Plus",
+    "flavorText": {
+        "en": "Boosts the Sp. Atk stat of the Pokémon if an ally with the Plus or Minus Ability is also in battle.",
+        "ja": "プラスか　マイナスの　特性を　持つ ポケモンが　仲間に　いると 自分の　特攻が　上がる。",
+        "fr": "L'Attaque Spéciale du Pokémon augmente si un Pokémon allié a le talent Moins ou Plus.",
+        "es": "Aumenta su Ataque Especial si un Pokémon aliado tiene la habilidad Más o la habilidad Menos.",
+        "de": "Der Spezial-Angriff des Pokémon steigt, wenn es einen Mitstreiter mit der Fähigkeit Plus oder Minus hat.",
+        "it": "L'Attacco Speciale aumenta se ci sono alleati con l'abilità Meno o Più.",
+        "ko": "플러스나 마이너스의 특성을 가진 포켓몬이 동료에 있으면 자신의 특수공격이 올라간다.",
+        "zh-Hant": "場上的夥伴之中， 如果有正電或負電特性的寶可夢， 自己的特攻會提高。",
+        "zh-Hans": "出场的伙伴之间 如果有正电或负电特性的宝可梦， 自己的特攻会提高。"
+    }
+}

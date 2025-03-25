@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user steals the target's HP with a kiss. The user's HP is restored by over half the damage taken by the target.",
+        "ja": "キッスによって　相手から　ＨＰを 吸い取る。　与えた　ダメージの 半分以上　ＨＰを　回復する。",
+        "fr": "Le lanceur aspire la force vitale de la cible par un baiser qui rend au lanceur un nombre de PV supérieur ou égal à la moitié des dégâts infligés.",
+        "es": "El usuario absorbe energía del objetivo con un beso y restaura sus propios PS en una cantidad igual o superior a la mitad del daño infligido.",
+        "de": "Der Anwender stiehlt dem Ziel mit einem Kuss KP. Die Höhe der Heilung beträgt mehr als die Hälfte des beim Ziel angerichteten Schadens.",
+        "it": "Il Pokémon assorbe energia dal bersaglio con un bacio, recuperando così PS in quantità pari o superiore alla metà del danno inflitto.",
+        "ko": "키스로 상대의 HP를 흡수한다. 준 데미지의 반 이상 HP를 회복한다.",
+        "zh-Hant": "親吻對手來吸取對手的ＨＰ。 可以回復給予對手 傷害的一半以上的ＨＰ。",
+        "zh-Hans": "用一个吻吸取对手的ＨＰ。 回复给予对手 伤害的一半以上的ＨＰ。"
+    }
 }

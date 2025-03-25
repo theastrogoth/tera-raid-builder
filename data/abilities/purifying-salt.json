@@ -1,0 +1,14 @@
+{
+    "name": "Purifying Salt",
+    "flavorText": {
+        "en": "The Pokémon's pure salt protects it from status conditions and halves the damage taken from Ghost-type moves.",
+        "ja": "清らかな塩で　状態異常に　ならない。 ゴーストタイプの　技の ダメージを　半減させる。",
+        "fr": "Le sel pur immunise le Pokémon contre les altérations de statut, et diminue de moitié les dégâts des capacités de type Spectre.",
+        "es": "Su sal pura lo protege de los problemas de estado y reduce a la mitad el daño que recibe de ataques de tipo Fantasma.",
+        "de": "Das Pokémon kann dank seines läuternden Salzes keine Statusprobleme erleiden und der durch Geister-Attacken erlittene Schaden wird halbiert.",
+        "it": "Protegge il Pokémon dai problemi di stato e dimezza il danno causato dalle mosse di tipo Spettro.",
+        "ko": "깨끗한 소금에 의해 상태 이상이 되지 않는다. 고스트타입 기술의 데미지를 반감시킨다.",
+        "zh-Hant": "因潔淨的鹽而不會陷入異常狀態。 能夠讓幽靈屬性招式的傷害減半。",
+        "zh-Hans": "因洁净的盐而不会陷入异常状态。 会让幽灵属性的招式伤害减半。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Pokédex",
+    "flavorText": {
+        "en": "A volume for compiling the collected results of much Pokémon research. Professor Laventon continually adds to it with each report made on new Pokémon species.",
+        "ja": "ポケモンの調査結果をまとめた冊子。 新しいポケモンを報告するたびに ラベン博士がページを増やしていく。",
+        "fr": "Un livre compilant tous les résultats des recherches sur les Pokémon. À chaque nouveau Pokémon découvert, le Professeur Lavande ajoute les pages correspondantes.",
+        "es": "Tomo en el que se recoge información variopinta acerca de los Pokémon. El Profesor Lavender añade nuevas páginas a medida que se descubren nuevas especies.",
+        "de": "In diesem Buch werden die Forschungsergebnisse zu Pokémon festgehalten. Wenn du Professor Laven von neuen Pokémon berichtest, fügt er weitere Seiten hinzu.",
+        "it": "Libriccino che raccoglie gli esiti delle ricerche sui Pokémon. Ogni volta che vengono avvistati nuovi Pokémon, il Professor Laven aggiunge nuove pagine.",
+        "ko": "포켓몬의 조사 결과가 정리된 책자. 새로운 포켓몬을 보고할 때마다 라벤박사가 페이지를 늘려 준다.",
+        "zh-Hant": "彙整了寶可夢調查結果的簿子。 每當向拉苯博士報告了新的寶可夢， 他就會在這裡增加新的頁面。",
+        "zh-Hans": "汇整了宝可梦调查结果的簿子。 每当向拉苯博士报告了新的宝可梦， 他就会在这里增加新的页面。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "With the power of its crystals, the user bombards and eliminates the target. When used by Terapagos in its Stellar Form, this move damages all opposing Pokémon.",
+        "ja": "結晶の力を　照射し　敵を　排除する。 テラパゴスが　ステラフォルムで　放つと すべての　相手に　ダメージを　与える。",
+        "fr": "Le lanceur bombarde la cible afin de l'éliminer grâce au pouvoir des cristaux. Si le lanceur est Terapagos sous sa Forme Stellaire, la capacité touche tous les ennemis.",
+        "es": "Ataca al objetivo irradiando el poder de sus cristales. Si Terapagos usa este movimiento en su Forma Astral, inflige daño a todos los rivales.",
+        "de": "Der Anwender greift das Ziel mit gebündelter Kristall- energie an. Wenn Terapagos diese Attacke in seiner Stellarform einsetzt, erleiden alle Gegner Schaden.",
+        "it": "Il Pokémon elimina il bersaglio irradiando il potere dei cristalli. Se Terapagos assume la Forma Astrale, la mossa infligge danni a tutti gli avversari.",
+        "ko": "결정의 힘을 내리쬐어 적을 없애 버린다. 테라파고스가 스텔라폼일 때 사용하면 모든 상대에게 데미지를 준다.",
+        "zh-Hant": "投射結晶之力來掃除敵人。 當太樂巴戈斯以星晶形態使出時， 能給予所有對手傷害。",
+        "zh-Hans": "照射出结晶的力量来驱逐敌人。 太乐巴戈斯在星晶形态下使出时， 能对所有对手造成伤害。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Liechi Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, its Attack stat will be boosted should it find itself in a pinch.",
+        "ja": "ポケモンに　持たせると ピンチのとき　自分の 攻撃が　あがる。",
+        "fr": "Tenue, cette Baie augmente l'Attaque en cas de besoin.",
+        "es": "Si la lleva un Pokémon, le aumenta el Ataque en un momento de apuro.",
+        "de": "Als getragenes Item erhöht diese Beere den Angriff des Pokémon, sobald es in einer Notlage steckt.",
+        "it": "Se il Pokémon che ha questa bacca si trova in difficoltà, il suo Attacco aumenta.",
+        "ko": "포켓몬에게 지니게 하면 위급할 때 자신의 공격이 올라간다.",
+        "zh-Hant": "讓寶可夢攜帶後， 危機時，自己的 攻擊就會提高。",
+        "zh-Hans": "让宝可梦携带后，危机时， 自己的攻击就会提高。"
+    }
+}

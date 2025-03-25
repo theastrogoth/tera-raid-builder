@@ -1,0 +1,14 @@
+{
+    "name": "Static",
+    "flavorText": {
+        "en": "The Pokémon is charged with static electricity and may paralyze attackers that make direct contact with it.",
+        "ja": "静電気を　体に　まとい 触った　相手を まひさせる　ことがある。",
+        "fr": "Le Pokémon charge son corps en électricité statique, et tout contact avec lui peut paralyser.",
+        "es": "La electricidad estática que lo envuelve puede paralizar al Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Durch den statisch aufgeladenen Körper des Pokémon werden Angreifer bei Berührung gelegentlich paralysiert.",
+        "it": "Il Pokémon si ricopre di elettricità statica e può causare paralisi a chi è entrato in contatto con lui.",
+        "ko": "정전기를 몸에 둘러 자신에게 접촉한 상대를 마비시킬 때가 있다.",
+        "zh-Hant": "身上帶有靜電， 有時會令接觸到的對手麻痺。",
+        "zh-Hans": "身上带有静电， 有时会让接触到的对手麻痹。"
+    }
+}

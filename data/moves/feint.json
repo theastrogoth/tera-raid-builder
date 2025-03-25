@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This attack can hit a target using a move such as Protect or Detect. This also lifts the effects of those moves.",
+        "ja": "まもるや　みきり　などを　している 相手に　攻撃が　できる。 守りの　効果を　解除させる。",
+        "fr": "Une attaque capable de toucher une cible qui utilise une capacité similaire à Détection ou Abri, et annule l'effet de cette capacité.",
+        "es": "Permite golpear a objetivos que han utilizado movimientos como Protección o Detección y anula sus efectos.",
+        "de": "Ziele, die Attacken wie Schutzschild oder Scanner eingesetzt haben, werden getroffen. Entfernt Effekte dieser Attacken.",
+        "it": "Il Pokémon può attaccare anche un bersaglio che ha usato mosse come Protezione e Individua, annullandone gli effetti.",
+        "ko": "방어나 판별 등을 하고 있는 상대에게 공격할 수 있다. 방어 효과를 해제시킨다.",
+        "zh-Hant": "能夠攻擊使用了 守住或看穿的對手。 並解除對手的防守效果。",
+        "zh-Hans": "能够攻击正在使用 守住或看穿等招式的对手。 解除其守护效果。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user makes a soothing bell chime to cure the status conditions of all its fellow party Pokémon and allies.",
+        "ja": "心地好い　鈴の　音色を　聞かせて 味方　全員の 状態異常を　回復　する。",
+        "fr": "Carillon apaisant qui soigne les altérations de statut de tous les Pokémon de l'équipe.",
+        "es": "Tañido que cura los problemas de estado del bando del usuario.",
+        "de": "Läutet beruhigend und heilt alle Statusprobleme im Team.",
+        "it": "Il Pokémon produce uno scampanellio che cura i problemi di stato suoi e degli alleati.",
+        "ko": "기분 좋은 방울소리를 들려주어 같은 편 전원의 상태 이상을 회복한다.",
+        "zh-Hant": "發出悅耳的鈴聲， 治癒我方全體的異常狀態。",
+        "zh-Hans": "让同伴听舒适的铃音， 从而治愈我方全员的异常状态。"
+    }
 }

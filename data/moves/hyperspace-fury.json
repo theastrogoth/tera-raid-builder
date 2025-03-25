@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Using its many arms, the user unleashes a barrage of attacks that ignore the effects of moves like Protect and Detect. This also lowers the user's Defense stat.",
+        "ja": "たくさんの　腕で　まもるや　みきり などを　無視した　連続攻撃。 自分の　防御が　さがる。",
+        "fr": "Le Pokémon utilise sa multitude de bras pour infliger une nuée de coups qui ignorent les capacités telles qu'Abri ou Détection. Baisse la Défense du lanceur.",
+        "es": "Ataca al objetivo con una ráfaga de golpes que pasan por alto los efectos de movimientos como Protección o Detección. Reduce la Defensa del usuario.",
+        "de": "Eine Angriffsserie mit vielen Armen, die die Wirkung von Attacken wie Schutzschild und Scanner durchbricht. Dabei sinkt die Verteidigung des Anwenders.",
+        "it": "Il Pokémon attacca in successione con i suoi molti arti, ignorando mosse come Protezione o Individua, ma la sua Difesa diminuisce.",
+        "ko": "많은 팔로 방어와 판별 등을 무시하는 연속 공격이다. 자신의 방어가 떨어진다.",
+        "zh-Hant": "使用許多手臂，發動可 不顧守住和看穿的連續攻擊。 自己的防禦會降低。",
+        "zh-Hans": "用许多手臂，无视对手的 守住或看穿等招式进行连续攻击， 自己的防御会降低。"
+    }
 }

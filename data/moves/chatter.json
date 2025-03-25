@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with sound waves of deafening chatter. This also confuses the target.",
+        "ja": "とても　うるさい　おしゃべりの 音波で　相手を　攻撃する。 相手を　混乱させる。",
+        "fr": "Le lanceur attaque avec les ondes sonores assourdissantes qu'il émet en bavardant, ce qui rend la cible confuse.",
+        "es": "Ataca con una onda de sonido muy ruidosa compuesta por palabras y confunde al objetivo.",
+        "de": "Der Anwender labert das Ziel zu und greift es mit den dadurch entstehenden Schallwellen an, wodurch das Ziel verwirrt wird.",
+        "it": "Il Pokémon attacca creando un'onda sonora di parole a vanvera e confonde il bersaglio.",
+        "ko": "매우 시끄럽고 수다스러운 음파로 상대를 공격한다. 상대를 혼란시킨다.",
+        "zh-Hant": "用非常煩人且喋喋不休的 音波攻擊對手。 使對手混亂。",
+        "zh-Hans": "用非常烦人的， 喋喋不休的音波攻击对手。 使对手混乱。"
+    }
 }

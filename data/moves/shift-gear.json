@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user rotates its gears, boosting its Attack stat and sharply boosting its Speed stat.",
+        "ja": "歯車を　回して 自分の　攻撃を　あげる　だけでなく 素早さも　ぐーんと　あげる。",
+        "fr": "Le lanceur fait tourner ses engrenages. Cela augmente son Attaque et augmente beaucoup sa Vitesse.",
+        "es": "Al hacer girar los engranajes, el usuario aumenta su Ataque y aumenta mucho su Velocidad.",
+        "de": "Durch Drehen der Zahnräder erhöht sich nicht nur der Angriffs-Wert, sondern auch die Initiative des Anwenders stark.",
+        "it": "Facendo ruotare gli ingranaggi, il Pokémon aumenta non solo il proprio Attacco, ma anche di molto la propria Velocità.",
+        "ko": "톱니바퀴를 돌려서 자신의 공격을 올리는 것뿐만 아니라 스피드도 크게 올린다.",
+        "zh-Hant": "轉動齒輪， 提高自己的攻擊， 同時大幅提高自己的速度。",
+        "zh-Hans": "转动齿轮， 不仅提高自己的攻击， 还会大幅提高速度。"
+    }
 }

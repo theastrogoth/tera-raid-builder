@@ -1,0 +1,14 @@
+{
+    "name": "Storage Key",
+    "flavorText": {
+        "en": "A key that opens the storage hold inside Sea Mauville.",
+        "ja": "シーキンセツの　倉庫に 入るための　カギ。",
+        "fr": "La clé de la réserve de Lavandia Sea.",
+        "es": "Llave de acceso al almacén de Malvamar.",
+        "de": "Ein Schlüssel, der in das Schloss des Lagerraums auf Seewoge Malvenfroh passt.",
+        "it": "Chiave per accedere al magazzino di Ciclamare.",
+        "ko": "씨보라의 창고로 들어가기 위한 열쇠.",
+        "zh-Hant": "用於進入 海紫菫的房間的鑰匙。",
+        "zh-Hans": "进入海紫堇的仓库时 所需的钥匙。"
+    }
+}

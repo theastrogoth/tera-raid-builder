@@ -1,0 +1,14 @@
+{
+    "name": "Ice Face",
+    "flavorText": {
+        "en": "The Pokémon's ice head can take a physical attack as a substitute, but the attack also changes the Pokémon's appearance. The ice will be restored when it snows.",
+        "ja": "物理攻撃は　頭の　氷が みがわりに　なるが　姿も　変わる。 氷は　ゆきが　降ると　元に戻る。",
+        "fr": "Le glaçon sur sa tête encaisse les attaques physiques à la place du Pokémon, mais sa destruction modifie son apparence. Le glaçon se reforme quand il neige.",
+        "es": "Absorbe el daño de un ataque físico con el hielo de la cabeza, tras lo cual cambia de forma. El hielo se regenerará la próxima vez que nieve.",
+        "de": "Der Eisblock um seinen Kopf blockt einen physischen Angriff ab, was jedoch einen Formwechsel bewirkt. Durch Schnee wird der Eisblock wiederhergestellt.",
+        "it": "Grazie al ghiaccio sulla testa, il Pokémon può incassare i danni causati dagli attacchi fisici, ma cambia forma. Torna al suo stato originale quando nevica.",
+        "ko": "물리공격을 머리의 얼음이 대신 맞아 주지만 모습도 바뀐다. 얼음은 눈이 내리면 원래대로 돌아온다.",
+        "zh-Hant": "頭部的冰會代替自己承受 物理攻擊，但是樣子會改變。 下雪時，冰會回復原狀。",
+        "zh-Hans": "头部的冰会代替自己承受 物理攻击，但是样子会改变。 下雪时，冰会恢复原状。"
+    }
+}

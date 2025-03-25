@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user bounces up high on the first turn, then drops onto the target on the next turn. This may also leave the target with paralysis.",
+        "ja": "空高く　飛び跳ねて ２ターン目に　相手を　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "Le lanceur bondit très haut et plonge sur la cible au second tour, ce qui peut aussi la paralyser.",
+        "es": "El usuario bota en el primer turno y golpea en el segundo. Puede paralizar al objetivo.",
+        "de": "Anwender springt und landet in der nächsten Runde auf dem Ziel. Das Ziel wird eventuell paralysiert.",
+        "it": "Il Pokémon balza in alto e ricade sul bersaglio dopo un turno. Può anche paralizzarlo.",
+        "ko": "하늘 높이 뛰어올라 2턴째에 상대를 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "彈跳到高空中， 在下一回合攻擊對手。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "弹跳到高高的空中， 第２回合攻击对手。 有时会让对手陷入麻痹状态。"
+    }
 }

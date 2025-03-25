@@ -1,0 +1,14 @@
+{
+    "name": "Egg",
+    "flavorText": {
+        "en": "An ingredient with a touch of saltiness. It's full of nutrients and can be enjoyed with all sorts of seasonings.",
+        "ja": "塩味が　ある　食材。 さまざまな　味つけで　楽しめ 栄養価も　高い　食材。",
+        "fr": "Un ingrédient au goût salé. Il s'accorde avec toutes sortes d'accompagnements pour apprécier encore mieux sa grande valeur nutritive.",
+        "es": "Un ingrediente muy nutritivo con un toque salado. Casa muy bien con diversos condimentos, por lo que se puede disfrutar de muchas maneras.",
+        "de": "Diese salzige Zutat ist reich an Nährstoffen und kann in Kombination mit den unterschiedlichsten Gewürzen genossen werden.",
+        "it": "Un ingrediente salato. Molto nutriente, si può condire in vari modi.",
+        "ko": "짠맛이 나는 식재료. 다양한 맛을 조합해서 즐길 수 있고 영양가도 높은 식재료다.",
+        "zh-Hant": "帶有鹹味的食材。 適合許多不同的調味方式， 而且營養價值也很高。",
+        "zh-Hans": "带有咸味的食材。 能以各种调味品尝 且营养充足的食材。"
+    }
+}

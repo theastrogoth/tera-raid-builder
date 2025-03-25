@@ -1,0 +1,14 @@
+{
+    "name": "Awakening",
+    "flavorText": {
+        "en": "A spray-type medicine to wake the sleeping. It can be used to rouse a Pokémon from the clutches of sleep.",
+        "ja": "スプレー式の　薬。 ポケモン　１匹の　ねむりの 状態を　回復する。",
+        "fr": "Un médicament sous forme de spray. Réveille un Pokémon endormi.",
+        "es": "Medicina en espray que libera a un Pokémon de las garras del sueño.",
+        "de": "Ein Spray, das ein schlafendes Pokémon aufweckt.",
+        "it": "Rimedio spray. Sveglia un Pokémon addormentato.",
+        "ko": "스프레이식의 약. 포켓몬 1마리의 잠듦 상태를 회복한다.",
+        "zh-Hant": "噴霧式藥水。 能治癒１隻寶可夢的 睡眠狀態。",
+        "zh-Hans": "喷雾式药水。 能治愈１只宝可梦的 睡眠状态。"
+    }
+}

@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks to avenge its allies. The more defeated allies there are in the user's party, the greater the move's power.",
+        "ja": "仲間の　無念を　晴らすため　攻撃する。 倒された　味方のポケモンが　多いほど 技の　威力が　増える。",
+        "fr": "Le lanceur attaque pour venger ses alliés. Plus le nombre de Pokémon alliés mis K.O. est élevé, plus la puissance de cette capacité augmente.",
+        "es": "Ataca para vengar a sus compañeros caídos y aplacar su desazón. Cuantos más miembros del equipo se hayan debilitado, mayor será la potencia del movimiento.",
+        "de": "Der Anwender rächt gefallene Mitstreiter. Je mehr kampfunfähige Pokémon sich im Team befinden, desto stärker ist die Attacke.",
+        "it": "Il Pokémon attacca per placare il risentimento dei suoi compagni di squadra. Più sono quelli andati KO, più la potenza della mossa aumenta.",
+        "ko": "동료의 한을 풀어 주기 위해 공격한다. 쓰러진 같은 편 포켓몬이 많을수록 기술의 위력이 올라간다.",
+        "zh-Hant": "為了替夥伴雪恨而攻擊。 被打倒的我方寶可夢越多， 招式威力就會越強。",
+        "zh-Hans": "为了化解伙伴的悔恨而进行攻击。 被打倒的我方宝可梦越多， 招式的威力越高。"
+    }
 }

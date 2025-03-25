@@ -1,0 +1,14 @@
+{
+    "name": "Luminous Moss",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This single-use luminous moss boosts the Sp. Def stat if the holder is damaged by a Water-type move.",
+        "ja": "使い捨ての　ひかりごけ。 持たせて　みずの技の　ダメージを 受けると　特防が　あがる。",
+        "fr": "Objet à tenir. Du lichen à usage unique qui augmente la Défense Spéciale du porteur lorsqu'il subit des dégâts à cause d'une capacité de type Eau.",
+        "es": "Musgo brillante que aumenta la Defensa Especial del portador si lo alcanza un ataque de tipo Agua. Es de un solo uso.",
+        "de": "Nimmt der Träger dieses Leuchtmooses durch eine Wasser-Attacke Schaden, steigt seine Spezial-Verteidigung und das Item verschwindet.",
+        "it": "Muschio luminoso monouso. Se il Pokémon che ha questo strumento subisce danni da una mossa di tipo Acqua, la sua Difesa Speciale aumenta.",
+        "ko": "단 한 번 쓰면 없어지는 빛이끼. 지니게 하고 물 기술에 데미지를 받으면 특수방어가 올라간다.",
+        "zh-Hant": "只能使用一次的光苔。 攜帶它的寶可夢如果受到水屬性 招式的傷害，特防就會提高。",
+        "zh-Hans": "一次性使用的光苔。 携带它的宝可梦如果受到水属性 招式的伤害，特防就会提高。"
+    }
+}

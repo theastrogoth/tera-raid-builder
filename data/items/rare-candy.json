@@ -1,0 +1,14 @@
+{
+    "name": "Rare Candy",
+    "flavorText": {
+        "en": "A candy that is packed with energy. If consumed, it raises a Pokémon's level by one.",
+        "ja": "エネルギーの　つまった　アメ。 あたえると　ポケモン　１匹の レベルが　１だけ　あがる。",
+        "fr": "Un bonbon plein d'énergie. Il permet à un Pokémon de monter d'un niveau.",
+        "es": "Caramelo energético que sube a un Pokémon de nivel.",
+        "de": "Ein energiereiches Bonbon, das den Level eines Pokémon dauerhaft um 1 erhöht.",
+        "it": "Una caramella altamente energetica. Fa salire un Pokémon di un livello.",
+        "ko": "에너지가 가득한 사탕. 먹이면 포켓몬 1마리의 레벨이 1만큼 올라간다.",
+        "zh-Hant": "充滿能量的糖果。 餵給寶可夢後， 能讓１隻寶可夢的等級提高１級。",
+        "zh-Hans": "充满能量的糖果。 将它交给宝可梦后， １只宝可梦的等级仅会提高１。"
+    }
+}

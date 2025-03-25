@@ -1,0 +1,14 @@
+{
+    "name": "Dauntless Shield",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Defense stat the first time the Pokémon enters a battle.",
+        "ja": "最初に　登場　したとき 防御が　上がる。",
+        "fr": "Augmente la Défense du Pokémon la première fois qu'il entre au combat.",
+        "es": "Aumenta su Defensa al entrar en combate por primera vez.",
+        "de": "Beim ersten Kampfantritt steigt die Verteidigung des Pokémon.",
+        "it": "La prima volta che il Pokémon entra in campo, la sua Difesa aumenta.",
+        "ko": "처음 등장했을 때 방어가 올라간다.",
+        "zh-Hant": "在戰鬥中首次出場時， 防禦會提高。",
+        "zh-Hans": "首次出场时， 防御会提高。"
+    }
+}

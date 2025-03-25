@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is jabbed with a sharply pointed beak or horn to inflict damage.",
+        "ja": "鋭く　とがった　くちばしや　つので 相手を　突いて　攻撃する。",
+        "fr": "Le lanceur frappe la cible d'un bec acéré ou d'une corne pointue pour infliger des dégâts.",
+        "es": "Ensarta al objetivo con un cuerno o pico punzante.",
+        "de": "Greift das Ziel mit dem Schnabel oder Horn an.",
+        "it": "Il Pokémon attacca il bersaglio con il becco appuntito o con un corno.",
+        "ko": "날카롭고 뾰족한 부리나 뿔로 상대를 쪼아서 공격한다.",
+        "zh-Hant": "用尖銳的喙或角 刺向對手進行攻擊。",
+        "zh-Hans": "用尖锐的喙或角 刺向对手进行攻击。"
+    }
 }

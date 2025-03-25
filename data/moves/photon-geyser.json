@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with a pillar of light. This move inflicts damage using the Attack or Sp. Atk stat— whichever is higher for the user.",
+        "ja": "光の　柱で　攻撃する。 攻撃と　特攻を　比べて 高いほうで　ダメージを　与える。",
+        "fr": "Le lanceur fait jaillir un pilier de lumière. Compare l'Attaque et l'Attaque Spéciale, et utilise celle qui infligera le plus de dégâts.",
+        "es": "El usuario ataca con una gran columna de luz. Compara sus valores de Ataque y Ataque Especial para infligir daño con el más alto de los dos.",
+        "de": "Ein Angriff mit einer Lichtsäule. Ist der Angriff höher als der Spezial-Angriff, wird die Höhe des Schadens durch den Angriff bestimmt und umgekehrt.",
+        "it": "Il Pokémon attacca il bersaglio con una colonna di luce. Infligge danni in base all'Attacco o all'Attacco Speciale scegliendo il più alto tra i due.",
+        "ko": "빛의 기둥으로 공격한다. 공격과 특수공격을 비교해서 높은 쪽으로 데미지를 준다.",
+        "zh-Hant": "以光柱進行攻擊。 會比較自己的攻擊和特攻， 以數值較高的一方進行攻擊。",
+        "zh-Hans": "用光柱来进行攻击。 比较自己的攻击和特攻， 用数值相对较高的一项给予对方伤害。"
+    }
 }

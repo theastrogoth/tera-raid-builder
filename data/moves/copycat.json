@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user mimics the move used immediately before it. This move fails if no other move has been used yet.",
+        "ja": "直前に　でた　技を　まねして 同じ　技を　だす。 技が　でていないと　失敗する。",
+        "fr": "Le lanceur imite la dernière capacité employée. Échoue si aucune capacité n'a été utilisée.",
+        "es": "Imita el movimiento usado justo antes. El movimiento falla si no se ha usado aún ninguno.",
+        "de": "Anwender imitiert die gerade verwendete Attacke. Dies schlägt fehl, falls zuvor keine Attacke verwendet wurde.",
+        "it": "Il Pokémon mima l'ultima mossa eseguita. Fallisce se non è stata ancora usata alcuna mossa.",
+        "ko": "직전에 나온 기술을 흉내 내어 같은 기술을 쓴다. 아무런 기술이 사용되지 않았다면 실패한다.",
+        "zh-Hant": "模仿對手最近一次使用的招式， 若對手沒有成功出招則會失敗。",
+        "zh-Hans": "模仿对手刚才使出的招式， 并使出相同招式。 如果对手还没出招则会失败。"
+    }
 }

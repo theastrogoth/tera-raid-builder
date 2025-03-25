@@ -1,0 +1,14 @@
+{
+    "name": "Big Mushroom",
+    "flavorText": {
+        "en": "A large and rare mushroom. It's extremely popular with a certain class of collectors.",
+        "ja": "おおきな　めずらしいキノコ。 一部のマニアの　あいだでは とても人気が　高い。",
+        "fr": "Un grand champignon assez rare. Il est très populaire auprès de certains gourmets.",
+        "es": "Una gran seta que es poco común y muy popular entre determinados grupos de gourmets.",
+        "de": "Ein großer und recht seltener Pilz, der sich bei einigen Sammlern sehr großer Beliebtheit erfreut.",
+        "it": "Fungo grande e raro. È molto apprezzato da alcuni intenditori.",
+        "ko": "크고 진귀한 버섯. 일부 마니아 사이에서는 매우 인기가 높다.",
+        "zh-Hant": "稀奇的大蘑菇。 在部分愛好者中 非常受歡迎。",
+        "zh-Hans": "珍稀的大蘑菇。 在一些爱好者中 有着非常高的人气。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user shoots a sinister flame at the target to inflict a burn.",
+        "ja": "不気味で　怪しい　炎を　放って 相手を　やけどの　状態に　する。",
+        "fr": "Le lanceur projette des flammes maléfiques à la cible pour lui infliger une brûlure.",
+        "es": "Siniestras llamas moradas que producen quemaduras.",
+        "de": "Anwender feuert unheimliche Flammen ab, die beim Ziel Verbrennungen verursachen.",
+        "it": "Il Pokémon lancia fiamme sinistre e misteriose che causano una scottatura al bersaglio.",
+        "ko": "으스스하고 괴상한 불꽃을 쏘아 상대를 화상 상태로 만든다.",
+        "zh-Hant": "放出詭異的火焰， 讓對手陷入灼傷狀態。",
+        "zh-Hans": "放出怪异的火焰， 从而让对手陷入灼伤状态。"
+    }
 }

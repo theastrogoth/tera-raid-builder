@@ -1,0 +1,14 @@
+{
+    "name": "Iron Barbs",
+    "flavorText": {
+        "en": "The Pokémon's iron barbs damage the attacker if it makes direct contact.",
+        "ja": "自分に　触った　相手に 鉄のトゲで　ダメージを　あたえる。",
+        "fr": "Inflige des dégâts à l'attaquant lorsque le Pokémon subit une attaque directe.",
+        "es": "Inflige daño con sus púas de acero al Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Das Pokémon fügt Angreifern bei Berührung mit eisernen Stacheln Schaden zu.",
+        "it": "Grazie alle sue spine di ferro, il Pokémon infligge danni a chi entra in contatto con lui.",
+        "ko": "자신에게 접촉한 상대에게 철가시로 데미지를 준다.",
+        "zh-Hant": "用鐵刺給予接觸到自己的 對手傷害。",
+        "zh-Hans": "用铁刺给予接触到自己的 对手伤害。"
+    }
+}

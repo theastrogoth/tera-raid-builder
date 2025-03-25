@@ -1,0 +1,14 @@
+{
+    "name": "Electromorphosis",
+    "flavorText": {
+        "en": "The Pokémon becomes charged when it takes damage, boosting the power of the next Electric-type move the Pokémon uses.",
+        "ja": "ダメージを　受けると じゅうでん　状態に　なる。",
+        "fr": "Si le Pokémon subit des dégâts, il se charge en électricité.",
+        "es": "Su cuerpo se carga de electricidad al recibir daño, lo que potencia su siguiente movimiento de tipo Eléctrico.",
+        "de": "Wenn das Pokémon Schaden erleidet, lädt es sich auf. Dadurch steigt die Stärke seiner nächsten Elektro-Attacke.",
+        "it": "Se il Pokémon subisce danni, si carica di elettricità.",
+        "ko": "데미지를 받으면 충전 상태가 된다.",
+        "zh-Hant": "受到傷害時， 會變成充電狀態。",
+        "zh-Hans": "受到伤害时， 会变为充电状态。"
+    }
+}

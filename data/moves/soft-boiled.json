@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user restores its own HP by up to half its max HP.",
+        "ja": "最大ＨＰの　半分 自分の　ＨＰを　回復する。",
+        "fr": "Le lanceur récupère jusqu'à la moitié de ses PV max.",
+        "es": "Restaura la mitad de los PS máximos del usuario.",
+        "de": "KP des Anwenders werden um 50 % der maximalen KP aufgefüllt.",
+        "it": "Il Pokémon recupera metà dei propri PS massimi.",
+        "ko": "자신의 최대 HP 절반을 회복한다.",
+        "zh-Hant": "回復自己最大ＨＰ的一半。",
+        "zh-Hans": "回复自己最大ＨＰ的一半。"
+    }
 }

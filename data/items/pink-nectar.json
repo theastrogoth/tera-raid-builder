@@ -1,0 +1,14 @@
+{
+    "name": "Pink Nectar",
+    "flavorText": {
+        "en": "Flower nectar obtained from a pink flower. It changes the form of a certain species of Pokémon.",
+        "ja": "うすもも色の　花のミツ。 特定のポケモンの　姿を　変える。",
+        "fr": "Un nectar de couleur rose qui permet à un certain Pokémon de changer d'apparence.",
+        "es": "Néctar de cierta flor rosa, capaz de hacer cambiar de forma a una determinada especie de Pokémon.",
+        "de": "Ein zartrosa Blütennektar. Ein bestimmtes Pokémon kann damit seine Form ändern.",
+        "it": "Nettare di fiori rosa. Fa cambiare forma a una determinata specie di Pokémon.",
+        "ko": "연분홍색 꽃의 꿀. 특정 포켓몬의 모습을 바꾼다.",
+        "zh-Hant": "桃粉色的花蜜。 可以改變特定寶可夢的樣子。",
+        "zh-Hans": "桃粉色花的花蜜。 可以改变特定宝可梦的样子。"
+    }
+}

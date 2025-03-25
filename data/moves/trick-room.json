@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user creates a bizarre area in which slower Pokémon get to move first for five turns.",
+        "ja": "まか不思議な　空間を　つくる。 ５ターンの　間 遅い　ポケモンから　行動できる。",
+        "fr": "Le lanceur crée une zone mystérieuse où les Pokémon les plus lents frappent en priorité pendant cinq tours.",
+        "es": "Crea un espacio misterioso en el que los Pokémon lentos se mueven primero durante cinco turnos.",
+        "de": "Anwender erzeugt einen bizarren Raum, in dem langsame Pokémon fünf Runden lang zuerst agieren.",
+        "it": "Chi la usa crea una dimensione in cui i Pokémon più lenti agiscono per primi per cinque turni.",
+        "ko": "이상한 공간을 만든다. 5턴 동안 느린 포켓몬부터 행동할 수 있다.",
+        "zh-Hant": "創造出非常不可思議的空間。 在５回合內， 速度慢的寶可夢可以先行動。",
+        "zh-Hans": "制造出离奇的空间。 在５回合内 速度慢的宝可梦可以先行动。"
+    }
 }

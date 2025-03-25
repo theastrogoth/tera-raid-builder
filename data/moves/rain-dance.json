@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user summons a heavy rain that falls for five turns, powering up Water-type attacks. The rain also lowers the power of Fire-type attacks.",
+        "ja": "５ターンの　間　雨を　降らせて みずタイプの　威力を　あげる。 ほのおタイプの　威力は　さがる。",
+        "fr": "Invoque de fortes pluies qui durent cinq tours, augmentant la puissance des capacités de type Eau et baissant celle des capacités de type Feu.",
+        "es": "Genera una fuerte lluvia que dura cinco turnos, lo que potencia los movimientos de tipo Agua y debilita los de tipo Fuego.",
+        "de": "Anwender erzeugt starken Regen. Die Stärke von Wasser-Attacken erhöht sich fünf Runden lang, während die Stärke von Feuer-Attacken sinkt.",
+        "it": "Il Pokémon provoca una forte pioggia per cinque turni, aumentando la potenza delle mosse di tipo Acqua e riducendo la potenza di quelle di tipo Fuoco.",
+        "ko": "5턴 동안 비를 내리게 해서 물타입 기술의 위력을 올린다. 불꽃타입의 위력은 떨어진다.",
+        "zh-Hant": "降下大雨，在５回合內 提高水屬性招式的威力。 火屬性招式的威力會降低。",
+        "zh-Hans": "在５回合内一直降雨， 从而提高水属性的招式威力。 火属性的招式威力则降低。"
+    }
 }

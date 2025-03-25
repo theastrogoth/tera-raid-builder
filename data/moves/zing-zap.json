@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user crashes into the target, delivering a powerful electric shock. This may also make the target flinch.",
+        "ja": "相手に　ぶつかって　強力な 電気を浴びせ　びりびりちくちく　させる。 相手を　ひるませる　ことが　ある。",
+        "fr": "Le lanceur fonce sur la cible et lui envoie un puissant choc électrique, ce qui peut aussi l'effrayer.",
+        "es": "Se lanza contra el objetivo y le suelta una potente descarga eléctrica que puede hacer que se amedrente.",
+        "de": "Der Anwender rammt das Ziel und schockt es mit starkem Strom. Das Ziel schreckt eventuell zurück.",
+        "it": "Il Pokémon colpisce il bersaglio investendolo con una potente scarica elettrica che può anche farlo tentennare.",
+        "ko": "상대에게 부딪쳐 강력한 전기를 날려서 찌리리따끔따끔하게 만든다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "撞向對手，並利用 強電流使其感到麻麻刺刺的。 有時會使對手畏縮。",
+        "zh-Hans": "撞向对手，并发出强电， 使其感到麻麻刺刺的。 有时会使对手畏缩。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Cud Chew",
+    "flavorText": {
+        "en": "When the Pokémon eats a Berry, it will regurgitate that Berry at the end of the next turn and eat it one more time.",
+        "ja": "きのみを　食べると 次のターンの　終わりに　胃から 出して　もう１回だけ　食べる。",
+        "fr": "Quand le Pokémon mange une Baie, il la régurgite à la fin du tour suivant et la mange une nouvelle fois.",
+        "es": "Cuando ingiere una baya, la regurgita al final del siguiente turno y se la come por segunda vez.",
+        "de": "Wenn das Pokémon eine Beere isst, stößt es diese am Ende der nächsten Runde wieder aus seinem Magen auf und verspeist sie erneut.",
+        "it": "Se il Pokémon mangia una bacca, alla fine del turno successivo questa risale dal suo stomaco per essere mangiata una seconda volta.",
+        "ko": "한 번에 한하여 나무열매를 먹으면 다음 턴이 끝날 때 위에서 꺼내서 또 먹는다.",
+        "zh-Hant": "食用樹果後， 會在下一回合結束時從胃裡取出， 以１次為限再次食用。",
+        "zh-Hans": "吃了树果后，会在下一回合结束时 从胃反刍出来再吃１次。"
+    }
+}

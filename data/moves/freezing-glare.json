@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user shoots its psychic power from its eyes to attack. This may also leave the target frozen.",
+        "ja": "両目から　サイコパワーを 撃ちだして　攻撃する。 こおり状態に　することが　ある。",
+        "fr": "Les yeux du lanceur tirent des rayons psychiques qui attaquent la cible et peuvent aussi la geler.",
+        "es": "A través de sus ojos emite poderes psíquicos con los que ataca al objetivo, al que puede llegar a congelar.",
+        "de": "Der Anwender greift das Ziel mit Psycho-Kräften an, die er aus seinen Augen abschießt. Das Ziel friert eventuell ein.",
+        "it": "Il Pokémon attacca rilasciando energia psichica dagli occhi. Può congelare il bersaglio.",
+        "ko": "두 눈에서 사이코 파워를 발사해서 공격한다. 얼음 상태로 만들 때가 있다.",
+        "zh-Hant": "從雙眼釋放出精神力量進行攻擊。 有時會讓對手陷入冰凍狀態。",
+        "zh-Hans": "从双眼发射精神力量进行攻击。 有时会让对手陷入冰冻状态。"
+    }
 }

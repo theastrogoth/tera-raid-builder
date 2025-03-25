@@ -1,0 +1,14 @@
+{
+    "name": "Costar",
+    "flavorText": {
+        "en": "When the Pokémon enters a battle, it copies an ally's stat changes.",
+        "ja": "登場　したときに 味方の　能力変化を　コピーする。",
+        "fr": "Quand le Pokémon entre sur le terrain, il copie les changements de stats de son allié.",
+        "es": "Al entrar en combate, copia los cambios en las características de su aliado.",
+        "de": "Das Pokémon kopiert bei Kampfantritt die Statusveränderungen eines Mitstreiters.",
+        "it": "Quando il Pokémon entra in campo, copia le modifiche alle statistiche dell'alleato.",
+        "ko": "등장했을 때 같은 편의 능력 변화를 복사한다.",
+        "zh-Hant": "出場時， 會複製同伴的能力變化。",
+        "zh-Hans": "出场时， 复制同伴的能力变化。"
+    }
+}

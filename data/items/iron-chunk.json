@@ -1,0 +1,14 @@
+{
+    "name": "Iron Chunk",
+    "flavorText": {
+        "en": "A naturally occurring hunk of iron. Such ore is needed to make the requisite parts of numerous Poké Ball varieties, such as the clasp that holds the ball shut.",
+        "ja": "天然の金属片。 各種のモンスターボールをつくるとき 加工して留め具などにする。",
+        "fr": "Un Fragment de Fer brut nécessaire à la fabrication du système de fermeture des différentes Poké Balls.",
+        "es": "Trozo de metal en bruto necesario para fabricar las diversas partes de cualquier Poké Ball, como el cierre.",
+        "de": "Ein natürlich vorkommender Eisenklumpen, aus dem bei der Herstellung verschiedener Pokébälle unter anderem die Schließvorrichtung gefertigt wird.",
+        "it": "Frammento di ferro di origine naturale. Viene impiegato per la fabbricazione delle parti metalliche delle Poké Ball, come ad esempio la fibbia di chiusura.",
+        "ko": "천연의 금속 조각. 각종 몬스터볼을 만들 때 가공해서 잠금쇠 등에 사용한다.",
+        "zh-Hant": "天然的金屬片。 可加工成鎖扣等零件， 在製作各種精靈球時使用。",
+        "zh-Hans": "天然的金属片。 可加工成锁扣等零件， 在制作各种精灵球时使用。"
+    }
+}

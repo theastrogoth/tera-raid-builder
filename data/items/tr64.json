@@ -1,0 +1,14 @@
+{
+    "name": "TR64",
+    "flavorText": {
+        "en": "The user heightens its mental focus and unleashes its power. This may also lower the target's Sp. Def stat.",
+        "ja": "気合を　高めて ありったけの　力を　放出する。 相手の　特防を　さげることが　ある。",
+        "fr": "Le lanceur rassemble ses forces et laisse éclater son pouvoir, ce qui peut aussi baisser la Défense Spéciale de la cible.",
+        "es": "Agudiza la concentración mental y libera su poder. Puede reducir la Defensa Especial del objetivo.",
+        "de": "Anwender erhöht seinen mentalen Fokus und greift dann an. Senkt eventuell Spezial-Verteidigung des Zieles.",
+        "it": "Il Pokémon si concentra e rilascia la sua forza. Può ridurre la Difesa Speciale del bersaglio.",
+        "ko": "기합을 높여서 혼신의 힘을 방출한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "提高氣勢， 釋放全身所有力量。 有時會降低對手的特防。",
+        "zh-Hans": "提高气势， 释放出全部力量。 有时会降低对手的特防。"
+    }
+}

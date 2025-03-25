@@ -1,0 +1,14 @@
+{
+    "name": "Green Shard",
+    "flavorText": {
+        "en": "A small green shard. It appears to be a fragment of some sort of implement made long ago.",
+        "ja": "緑の　小さなかけら。 昔に　作られた　なにかの 道具の一部　らしい。",
+        "fr": "Un petit tesson vert. Il semble provenir d'un objet très ancien.",
+        "es": "Un pequeño fragmento verde. Parece formar parte de algún tipo de herramienta antigua.",
+        "de": "Eine grüne Scherbe eines antiken Werkzeugs, das vor langer Zeit angefertigt wurde.",
+        "it": "Un piccolo coccio verde che con ogni probabilità è un frammento di un antico strumento.",
+        "ko": "초록색 작은 조각. 옛날에 만들어진 어떤 도구의 일부인 듯하다.",
+        "zh-Hant": "綠色的小碎片。 好像是以前製作的 某道具的一部分。",
+        "zh-Hans": "绿色的小碎片。 好像是以前制作的 某道具的一部分。"
+    }
+}

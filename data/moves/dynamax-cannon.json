@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user condenses energy within its body and unleashes that energy from its core to inflict damage.",
+        "ja": "体内で　凝縮した　エネルギーを コアから　放って　攻撃する。",
+        "fr": "Le lanceur attaque en libérant l'énergie concentrée dans son noyau.",
+        "es": "Ataca liberando desde su núcleo la energía concentrada en el interior del cuerpo.",
+        "de": "Der Anwender greift an, indem er die in seinem Körper angesammelte Energie bündelt und aus seinem Kern abschießt.",
+        "it": "Il Pokémon attacca emettendo dal suo nucleo l'energia concentrata nel corpo.",
+        "ko": "체내에서 응축한 에너지를 코어를 통해 발사해서 공격한다.",
+        "zh-Hant": "從核心發射凝聚在體內的 能量進行攻擊。",
+        "zh-Hans": "将凝缩在体内的能量 从核心放出进行攻击。"
+    }
 }

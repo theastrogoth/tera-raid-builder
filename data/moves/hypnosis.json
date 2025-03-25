@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user employs hypnotic suggestion to make the target fall asleep.",
+        "ja": "眠気を　誘う　暗示を　かけて 相手を　眠り状態に　する。",
+        "fr": "Le lanceur hypnotise la cible pour la plonger dans un profond sommeil.",
+        "es": "Ataque hipnótico que hace dormir profundamente al objetivo.",
+        "de": "Hypnose-Attacke, die das Ziel in Schlaf versetzt.",
+        "it": "Il Pokémon si avvale della suggestione ipnotica per far addormentare il bersaglio.",
+        "ko": "졸음을 유도하는 암시를 걸어서 상대를 잠듦 상태로 만든다.",
+        "zh-Hant": "施加引發睡意的暗示， 讓對手陷入睡眠狀態。",
+        "zh-Hans": "施以诱导睡意的暗示， 让对手陷入睡眠状态。"
+    }
 }

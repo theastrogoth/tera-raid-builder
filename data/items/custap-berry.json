@@ -1,0 +1,14 @@
+{
+    "name": "Custap Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to act faster should it find itself in a pinch—but only for the next move it uses.",
+        "ja": "ポケモンに　持たせると ピンチのとき　１度だけ 行動が　早くなる。",
+        "fr": "Tenue, cette Baie permet d'utiliser une capacité en priorité une fois en cas de besoin.",
+        "es": "Si la lleva un Pokémon, puede actuar en primer lugar una vez en un momento de apuro.",
+        "de": "Als getragenes Item ermöglicht diese Beere dem Pokémon in einer Notlage einmalig den Erstschlag.",
+        "it": "Se il Pokémon che ha questa bacca si trova in difficoltà, agisce più velocemente. Funziona una sola volta.",
+        "ko": "포켓몬에게 지니게 하면 위급할 때 한 번만 행동이 빨라진다.",
+        "zh-Hant": "讓寶可夢攜帶後， 危機時，行動會僅 變快１次。",
+        "zh-Hans": "让宝可梦携带后，危机时， 行动仅会变快１次。"
+    }
+}

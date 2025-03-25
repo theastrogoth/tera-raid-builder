@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user creates a bizarre area in which Pokémon's held items lose their effects for five turns.",
+        "ja": "まか不思議な　空間を　つくる。 ５ターンの間　すべてのポケモンの 道具の　効果が　なくなる。",
+        "fr": "Le lanceur crée une zone mystérieuse où les objets tenus par tous les Pokémon n'ont plus aucun effet pendant cinq tours.",
+        "es": "Crea un espacio misterioso que inutiliza todos los objetos de los Pokémon durante cinco turnos.",
+        "de": "Anwender erzeugt einen bizarren Raum, in dem über fünf Runden die Wirkung aller von Pokémon getragenen Items aufgehoben ist.",
+        "it": "Chi la usa crea una dimensione in cui l'effetto degli strumenti di tutti i Pokémon è annullato per cinque turni.",
+        "ko": "이상한 공간을 만든다. 5턴 동안 모든 포켓몬의 도구의 효과가 사라진다.",
+        "zh-Hant": "創造出非常不可思議的空間。 在５回合內，所有寶可夢 攜帶的道具都會失去效果。",
+        "zh-Hans": "制造出离奇的空间。 在５回合内所有宝可梦 携带道具的效果都会消失。"
+    }
 }

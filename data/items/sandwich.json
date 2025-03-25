@@ -1,0 +1,14 @@
+{
+    "name": "Sandwich",
+    "flavorText": {
+        "en": "A dish made by sandwiching vegetables, meat, or other ingredients between two pieces of bread. It makes a fantastic meal when out on a picnic.",
+        "ja": "野菜や　お肉などの　具材を パンで　はさんだ　料理。 ピクニックで　食べるのに　最適。",
+        "fr": "Un casse-croûte composé de divers ingrédients, tels que des légumes ou de la viande, et servi entre deux tranches de pain. Idéal pour un pique-nique.",
+        "es": "Un plato que consiste en verduras, carne u otros ingredientes entre dos rebanadas de pan, perfecto para consumir en un pícnic.",
+        "de": "Dieses Gericht besteht aus verschiedenen Belägen wie Fleisch oder Gemüse, die zwischen zwei Scheiben Brot platziert werden. Der ideale Imbiss für ein Picknick.",
+        "it": "Una pietanza realizzata mettendo vari ingredienti come verdure o carne tra due fette di pane. Perfetto da mangiare durante i picnic.",
+        "ko": "채소나 고기 등의 재료를 빵 사이에 끼운 요리. 피크닉에서 먹기 적당하다.",
+        "zh-Hant": "用麵包夾著蔬菜、 肉類等材料而成。 作為野餐料理再適合不過。",
+        "zh-Hans": "使用面包夹着蔬菜和 肉类等馅料制成的料理。 最适合在野餐时食用。"
+    }
+}

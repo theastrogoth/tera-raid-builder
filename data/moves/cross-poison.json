@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A slashing attack with a poisonous blade that may also poison the target. This move has a heightened chance of landing a critical hit.",
+        "ja": "毒の　刃で　相手を　切り裂く。 毒状態に　することが　あり 急所にも　当たりやすい。",
+        "fr": "Un coup tranchant qui peut empoisonner la cible. Taux de critiques élevé.",
+        "es": "Tajo que puede envenenar al objetivo. Suele asestar un golpe crítico.",
+        "de": "Ein schneidender Hieb, der das Ziel eventuell vergiftet. Hat eine hohe Volltrefferquote.",
+        "it": "Il Pokémon attacca con zanne tossiche che possono anche avvelenare il bersaglio. Probabile brutto colpo.",
+        "ko": "독 칼날로 상대를 베어 가른다. 독 상태로 만들 때가 있고 급소에도 맞기 쉽다.",
+        "zh-Hant": "用毒刃劈開對手。 有時會讓對手陷入中毒狀態， 也容易擊中要害。",
+        "zh-Hans": "用毒刃劈开对手。 有时会让对手陷入中毒状态， 也容易击中要害。"
+    }
 }

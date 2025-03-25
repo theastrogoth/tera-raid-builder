@@ -1,0 +1,14 @@
+{
+    "name": "Healer",
+    "flavorText": {
+        "en": "Sometimes cures the status conditions of the Pokémon's allies.",
+        "ja": "状態異常の　味方を たまに　治してあげる。",
+        "fr": "Soigne parfois une altération de statut d'un allié proche.",
+        "es": "A veces cura los problemas de estado de un aliado.",
+        "de": "Das Pokémon befreit Mitstreiter gelegentlich von Statusproblemen.",
+        "it": "A volte cura i problemi di stato degli alleati.",
+        "ko": "같은 편의 상태 이상을 가끔 회복시킨다.",
+        "zh-Hant": "有時會治癒同伴的異常狀態。",
+        "zh-Hans": "有时会治愈异常状态的同伴。"
+    }
+}

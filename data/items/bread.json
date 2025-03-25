@@ -1,0 +1,14 @@
+{
+    "name": "Bread",
+    "flavorText": {
+        "en": "One of the many ingredients that can be used for cooking at your camp. An indispensable tool for mopping up that extra curry left on your plate.",
+        "ja": "キャンプの　料理に　使う 食材の　一種。お皿に　残った カレーを　拭くのにも　重宝する。",
+        "fr": "Un ingrédient de cuisine pour le camping. Parfait pour saucer le curry quand on a fini son assiette.",
+        "es": "Un ingrediente para cocinar en el campamento. No hay placer mayor que usar el pan para rebañar la salsa que queda en el plato.",
+        "de": "Eine Zutat für PokéCamping-Mahlzeiten. Eignet sich bestens, um damit Curryreste aufzutunken.",
+        "it": "Uno degli ingredienti che puoi usare per cucinare in campeggio. Queste fette di pane sono perfette per fare la scarpetta dopo aver mangiato il curry.",
+        "ko": "캠프 요리에 사용되는 식재료 중 하나. 접시에 남은 카레를 닦아 내는 데도 유용하다.",
+        "zh-Hant": "製作露營料理時使用的食材之一。 也很適合用來把留在盤子上 的咖哩全部抹乾淨。",
+        "zh-Hans": "在露营营地制作料理时会使用的 一种食材。同时也是用于吸干盘中 最后一滴咖喱的秘密武器。"
+    }
+}

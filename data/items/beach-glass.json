@@ -1,0 +1,14 @@
+{
+    "name": "Beach Glass",
+    "flavorText": {
+        "en": "A piece of colored glass. Waves have rounded its edges. It's slightly rough to the touch.",
+        "ja": "波に　もまれて　丸くなった 色のついた　ガラス片。 少し　ざらざら　している。",
+        "fr": "Un morceau de verre coloré arrondi par les vagues. Sa texture est légèrement rugueuse.",
+        "es": "Cristal de colores pulido por la acción erosiva de las olas. Al tacto resulta algo áspero.",
+        "de": "Ein farbiges Stück Glas, das von den Wellen umspült und so abgeschliffen wurde. Es fühlt sich etwas rau an.",
+        "it": "Un piccolo pezzetto di vetro colorato che è stato arrotondato dalle onde del mare. È un po' ruvido al tatto.",
+        "ko": "파도에 깎여 둥글어진 색이 있는 유리 파편. 조금 거칠거칠하다.",
+        "zh-Hant": "受海浪沖刷而變圓的 彩色玻璃碎片。 表面有點粗糙。",
+        "zh-Hans": "受到波浪的洗刷从而 变成圆形的彩色玻璃片。 表面摸起来有点粗糙不平。"
+    }
+}

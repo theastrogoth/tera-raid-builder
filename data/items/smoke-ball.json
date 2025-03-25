@@ -1,0 +1,14 @@
+{
+    "name": "Smoke Ball",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It enables the holder to flee from any wild Pokémon encounter without fail.",
+        "ja": "持たせたポケモンは 野生のポケモンとの　戦闘から 絶対に　逃げられる。",
+        "fr": "Objet à tenir. Permet au porteur de s'enfuir à coup sûr face à un Pokémon sauvage.",
+        "es": "Permite huir siempre de combates contra Pokémon salvajes. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Es ermöglicht die garantierte Flucht aus dem Kampf mit einem wilden Pokémon.",
+        "it": "Strumento da dare a un Pokémon. Permette di fuggire con successo da un Pokémon selvatico.",
+        "ko": "지니게 한 포켓몬은 야생 포켓몬과의 배틀에서 반드시 도망칠 수 있다.",
+        "zh-Hant": "攜帶它的寶可夢在和 野生寶可夢的戰鬥中 絕對可以逃走。",
+        "zh-Hans": "携带它的宝可梦在和 野生宝可梦的战斗中 绝对可以逃走。"
+    }
+}

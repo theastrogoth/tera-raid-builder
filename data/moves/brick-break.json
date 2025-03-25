@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect.",
+        "ja": "手刀を　勢いよく　振りおろして 相手を　攻撃する。　ひかりのかべや リフレクター　なども　破壊できる。",
+        "fr": "Le lanceur attaque avec le tranchant de la main. Permet aussi de briser les barrières comme Mur Lumière et Protection.",
+        "es": "Ataca al objetivo con un potente golpe con el filo de la mano capaz de destruir barreras como Pantalla de Luz y Reflejo.",
+        "de": "Ein beherzter Handkantenschlag. Durchbricht Barrieren wie Lichtschild und Reflektor.",
+        "it": "Il Pokémon attacca il bersaglio con una mano e rompe barriere come Riflesso e Schermoluce.",
+        "ko": "수도로 기세 좋게 내려쳐서 상대를 공격한다. 빛의장막이나 리플렉터 등도 파괴할 수 있다.",
+        "zh-Hant": "猛烈地揮下手刀 攻擊對手。還可以破壞 光牆和反射壁等。",
+        "zh-Hans": "将手刀猛烈地挥下攻击对手。 还可以破坏光墙和反射壁等。"
+    }
 }

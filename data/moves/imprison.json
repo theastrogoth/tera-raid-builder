@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "If opposing Pokémon know any move also known by the user, they are prevented from using it.",
+        "ja": "相手が　自分と　同じ　技を おぼえていたら　相手だけ その技を　使えなくする。",
+        "fr": "Si la cible et le lanceur ont des capacités en commun, la cible ne pourra pas les utiliser.",
+        "es": "Impide a los rivales usar movimientos conocidos por el usuario durante el combate.",
+        "de": "Hindert Gegner am Einsatz von Attacken, die der Anwender selbst auch kennt.",
+        "it": "Il Pokémon impedisce all'avversario di usare mosse che conoscono entrambi.",
+        "ko": "상대가 자신과 같은 기술을 배웠다면 상대만 그 기술을 사용할 수 없게 한다.",
+        "zh-Hant": "如果對手也學會了和自己 相同的招式，則對手將 不能使用該招式。",
+        "zh-Hans": "如果对手有和自己相同的招式， 那么只有对手无法使用该招式。"
+    }
 }

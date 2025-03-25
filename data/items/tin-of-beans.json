@@ -1,0 +1,14 @@
+{
+    "name": "Tin of Beans",
+    "flavorText": {
+        "en": "One of the many ingredients that can be used for cooking at your camp. When simmered, the beans suffuse a dish with their mild flavor.",
+        "ja": "キャンプの　料理に　使う 食材の　一種。いっしょに 煮込むと　マメの　甘味が　広がる。",
+        "fr": "Un ingrédient de cuisine pour le camping. À faire mijoter avec les autres ingrédients pour que la douce saveur des fèves se propage.",
+        "es": "Un ingrediente para cocinar en el campamento. Al estofar las habas en la salsa, esta absorbe parte de su dulzor.",
+        "de": "Eine Zutat für PokéCamping-Mahlzeiten. Ihr süßliches Aroma überträgt sich beim Kochen auf die anderen Zutaten.",
+        "it": "Uno degli ingredienti che puoi usare per cucinare in campeggio. Questi fagioli donano alla pietanza un sapore dolce quando vengono bolliti.",
+        "ko": "캠프 요리에 사용되는 식재료 중 하나. 다른 재료와 같이 넣고 푹 삶으면 콩의 단맛이 퍼지게 된다.",
+        "zh-Hant": "製作露營料理時使用的食材之一。 和其他材料一起燉煮， 豆子的甜味就會散發出來。",
+        "zh-Hans": "在露营营地制作料理时会使用的 一种食材。放进料理里一起煮， 豆子的那种香甜就会散发出来。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Primordial Sea",
+    "flavorText": {
+        "en": "The Pokémon changes the weather to nullify Fire-type attacks.",
+        "ja": "ほのおタイプの　攻撃を 受けない　天気にする。",
+        "fr": "Altère les conditions météo pour neutraliser les attaques de type Feu.",
+        "es": "Altera el clima para anular los ataques de tipo Fuego.",
+        "de": "Das Pokémon ändert das Wetter, um Angriffe vom Typ Feuer wirkungslos zu machen.",
+        "it": "Crea un clima che rende inefficaci gli attacchi di tipo Fuoco.",
+        "ko": "불꽃타입의 공격을 받지 않는 날씨로 만든다.",
+        "zh-Hant": "變為讓火屬性攻擊 失效的天氣。",
+        "zh-Hans": "变为不会受到 火属性攻击的天气。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A seed is planted on the target. It steals some HP from the target every turn.",
+        "ja": "植えつけた　相手の　ＨＰを 毎ターン　少しだけ　吸い取り 自分の　ＨＰを　回復する。",
+        "fr": "Une graine est semée sur la cible. À chaque tour, elle lui dérobe des PV que le lanceur récupère.",
+        "es": "Planta semillas que absorben PS del objetivo en cada turno y que le sirven para recuperarse.",
+        "de": "Ziel wird bepflanzt und verliert jede Runde KP, die ein Pokémon aus dem Team des Anwenders heilen.",
+        "it": "Vengono piantati semi sul bersaglio. Questi sottraggono PS a ogni turno permettendo a chi la usa di curarsi.",
+        "ko": "씨가 뿌려진 상대의 HP를 매 턴 조금씩 흡수하여 자신의 HP를 회복한다.",
+        "zh-Hant": "在對手身上植入種子， 每回合吸取對手少許的ＨＰ， 用來回復自己的ＨＰ。",
+        "zh-Hans": "植入寄生种子后，将在每回合 一点一点吸取对手的ＨＰ， 从而用来回复自己的ＨＰ。"
+    }
 }

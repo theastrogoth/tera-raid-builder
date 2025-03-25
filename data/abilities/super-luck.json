@@ -1,0 +1,14 @@
+{
+    "name": "Super Luck",
+    "flavorText": {
+        "en": "The Pokémon is so lucky that the critical-hit ratios of its moves are boosted.",
+        "ja": "強運を　持っているため 相手の　急所に 攻撃が　当たりやすい。",
+        "fr": "Le Pokémon est tellement chanceux qu'il inflige plus fréquemment des coups critiques.",
+        "es": "Su buena suerte aumenta la probabilidad de asestar golpes críticos.",
+        "de": "Das große Glück des Pokémon erhöht die Wahrscheinlichkeit, dass es einen Volltreffer landet.",
+        "it": "L'incredibile fortuna del Pokémon aumenta la sua probabilità di infliggere brutti colpi.",
+        "ko": "대운을 가지고 있어 상대의 급소에 공격이 맞기 쉽다.",
+        "zh-Hant": "因為非常幸運， 容易擊中對手的要害。",
+        "zh-Hans": "因为拥有超幸运， 攻击容易击中对手的要害。"
+    }
+}

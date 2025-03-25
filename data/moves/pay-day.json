@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Coins are hurled at the target to inflict damage. Money is earned after the battle.",
+        "ja": "相手の　体に 小判を　投げつけて　攻撃する。 戦闘の　あとで　お金が　もらえる。",
+        "fr": "Des pièces sont lancées sur la cible. Permet d'obtenir de l'argent à la fin du combat.",
+        "es": "Ataca al objetivo arrojándole monedas. Al finalizar el combate, las recupera en forma de ganancias.",
+        "de": "Das Ziel wird mit Münzen beworfen. Das Geld wird nach dem Kampf aufgesammelt.",
+        "it": "Il Pokémon attacca il bersaglio con una gran quantità di monete recuperabili dopo la lotta.",
+        "ko": "상대의 몸에 돈을 세게 던져서 공격한다. 배틀 후에 돈을 받을 수 있다.",
+        "zh-Hant": "往對手身上 投擲金幣進行攻擊。 戰鬥後可以得到錢。",
+        "zh-Hans": "向对手的身体 投掷小金币进行攻击。 战斗后可以拿到钱。"
+    }
 }

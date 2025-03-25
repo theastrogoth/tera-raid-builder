@@ -1,0 +1,14 @@
+{
+    "name": "Orichalcum Pulse",
+    "flavorText": {
+        "en": "Turns the sunlight harsh when the Pokémon enters a battle. The ancient pulse thrumming through the Pokémon also boosts its Attack stat in harsh sunlight.",
+        "ja": "登場したとき　天気を　晴れにする。 日差しが　強いと　古代の 鼓動により　攻撃が　高まる。",
+        "fr": "Le Pokémon invoque le soleil quand il rejoint le combat. Quand le soleil brille, une pulsation primitive augmente son Attaque.",
+        "es": "El tiempo pasa a ser soleado cuando entra en combate. Si hace mucho sol, su Ataque aumenta gracias a su pulso primigenio.",
+        "de": "Das Pokémon erzeugt bei Kampfantritt Sonnenschein. Bei Sonnenschein verstärkt ein urzeitlicher Puls seinen Angriff.",
+        "it": "Quando il Pokémon entra in campo, la luce solare diventa intensa. Con la luce solare intensa l'Attacco del Pokémon aumenta grazie al battito dell'antichità.",
+        "ko": "등장했을 때 날씨를 맑음으로 만든다. 햇살이 강하면 고대의 고동에 의해 공격이 강화된다.",
+        "zh-Hant": "出場時，會將天氣變為晴朗。 日照很強時，會因為古代的脈動 而使攻擊升高。",
+        "zh-Hans": "出场时，会将天气变为晴朗。 日照强烈时，会通过 古代的脉动升高攻击。"
+    }
+}

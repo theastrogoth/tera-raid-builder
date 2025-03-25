@@ -1,0 +1,14 @@
+{
+    "name": "Energy Root",
+    "flavorText": {
+        "en": "A very bitter medicinal root. It can be used to restore 120 HP to a Pokémon.",
+        "ja": "とても　にがい　ねっこ。 ポケモン　１匹の　ＨＰを １２０だけ　回復する。",
+        "fr": "Une racine très amère. Restaure 120 PV d'un Pokémon.",
+        "es": "Raíz muy amarga que restaura 120 PS de un Pokémon.",
+        "de": "Eine bittere Wurzel, die die KP eines Pokémon um 120 Punkte auffüllt.",
+        "it": "Radice amarissima. Restituisce 120 PS a un Pokémon.",
+        "ko": "매우 쓴 뿌리. 포켓몬 1마리의 HP를 120만큼 회복한다.",
+        "zh-Hant": "非常苦的根。 能讓１隻寶可夢 回復１２０ＨＰ。",
+        "zh-Hans": "非常苦的根。 能让１只宝可梦 回复１２０ＨＰ。"
+    }
+}

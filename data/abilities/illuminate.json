@@ -1,0 +1,14 @@
+{
+    "name": "Illuminate",
+    "flavorText": {
+        "en": "By illuminating its surroundings, the Pokémon prevents its accuracy from being lowered.",
+        "ja": "あたりを　明るくすることで 命中率を　下げられない。",
+        "fr": "Le Pokémon illumine les alentours, ce qui empêche sa Précision de baisser.",
+        "es": "Al iluminar el entorno, evita que su Precisión se reduzca.",
+        "de": "Das Pokémon erhellt die Umgebung und verhindert dadurch, dass seine Genauigkeit gesenkt wird.",
+        "it": "Illuminando l'ambiente circostante, il Pokémon impedisce che la sua precisione diminuisca.",
+        "ko": "주변을 밝게 하여 명중률이 떨어지지 않는다.",
+        "zh-Hant": "透過讓周圍變亮， 命中率不會被降低。",
+        "zh-Hans": "通过让周围变亮 来保持命中率不会被降低。"
+    }
+}

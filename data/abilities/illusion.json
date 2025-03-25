@@ -1,0 +1,14 @@
+{
+    "name": "Illusion",
+    "flavorText": {
+        "en": "The Pokémon fools opponents by entering battle disguised as the last Pokémon in its Trainer's party.",
+        "ja": "手持ちの　いちばん　うしろに　いる ポケモンに　なりきって　登場して 相手を　化かす。",
+        "fr": "Le Pokémon prend l'apparence du dernier membre de l'équipe pour tromper l'adversaire.",
+        "es": "Adopta el aspecto del último Pokémon del equipo al entrar en combate para desconcertar al rival.",
+        "de": "Das Pokémon führt Gegner hinters Licht, indem es bei Kampfantritt die Gestalt des Pokémon an der letzten Stelle im Team annimmt.",
+        "it": "Il Pokémon crea un'illusione entrando in campo con le sembianze dell'ultimo Pokémon della propria squadra.",
+        "ko": "지닌 포켓몬 중 제일 뒤에 있는 포켓몬으로 둔갑하여 나와서 상대를 속인다.",
+        "zh-Hant": "假扮成同行隊伍中的 最後一隻寶可夢出場， 迷惑對手。",
+        "zh-Hans": "假扮成同行队伍中的 最后一只宝可梦出场， 迷惑对手。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Jet Ball",
+    "flavorText": {
+        "en": "A recipe for crafting Jet Balls from scratch. Required materials: 1 Apricorn, 2 Sky Tumblestones, and 2 Iron Chunks.",
+        "ja": "ジェットボールのレシピ。　材料は ぼんぐりのみ×１　てつのかけら×２ そらいろたまいし×２",
+        "fr": "Méthode pour Propulse Ball. Ressources requises : 1 Noigrume, 2 Fragments de Fer et 2 Galets Azur.",
+        "es": "Receta para crear Aero Balls. Materiales: 1 Bonguri, 2 Pepitas de Hierro y 2 Guijarros Celestes.",
+        "de": "Die Anleitung zur Herstellung eines Düsenballs. Benötigte Materialien: 1 Aprikoko, 2 Eisenbrocken und 2 Azurglanzsteine.",
+        "it": "Ricetta per creare una Jet Ball. I materiali necessari sono 1 Bacca ghicocca, 2 Pezzi di ferro e 2 Ciottoli celesti.",
+        "ko": "제트볼의 레시피. 재료: 규토리열매×1 철조각×2 하늘색옥돌×2",
+        "zh-Hant": "飛梭球的材料單。材料是： 球果果×１　碎鐵×２ 天藍玉石×２",
+        "zh-Hans": "飞梭球的材料单。材料是： 球果果×１　碎铁×２ 天蓝玉石×２"
+    }
+}

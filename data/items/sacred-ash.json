@@ -1,0 +1,14 @@
+{
+    "name": "Sacred Ash",
+    "flavorText": {
+        "en": "Ash that can be used to revive all party Pokémon that have fainted. It also fully restores the Pokémon's max HP.",
+        "ja": "ひんしに　なってしまった ポケモン　全員の　ＨＰを すべて　回復する。",
+        "fr": "Ranime tous les Pokémon K.O. et restaure tous leurs PV.",
+        "es": "Reanima completamente a todos los Pokémon debilitados y restaura todos sus PS.",
+        "de": "Ein Item, das alle kampfunfähigen Pokémon wiederbelebt und deren KP vollständig wieder auffüllt.",
+        "it": "Restituisce tutti i PS ai Pokémon esausti.",
+        "ko": "기절해 버린 포켓몬 전원의 HP를 모두 회복한다.",
+        "zh-Hant": "能讓所有 陷入瀕死的寶可夢 回復所有ＨＰ。",
+        "zh-Hans": "能让陷入昏厥的 全部宝可梦 回复所有ＨＰ。"
+    }
+}

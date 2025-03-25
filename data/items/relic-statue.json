@@ -1,0 +1,14 @@
+{
+    "name": "Relic Statue",
+    "flavorText": {
+        "en": "A stone figurine made by an ancient civilization about three thousand years ago.",
+        "ja": "３０００年ほど　昔の 文明で　つくられた　石像。",
+        "fr": "Une statuette d'une civilisation vieille de plus de 3 000 ans.",
+        "es": "Efigie de piedra de más de 3000 años de antigüedad.",
+        "de": "Eine Statue, angefertigt von einer gut 3000 Jahre alten Kultur.",
+        "it": "Statua scolpita circa 3.000 anni fa da un'antica civiltà.",
+        "ko": "3000년 정도 된 오랜 문명에서 만들어진 석상.",
+        "zh-Hant": "距今約３０００年前的 文明裡製造的石像。",
+        "zh-Hans": "约３０００年前的 文明制造的石像。"
+    }
+}

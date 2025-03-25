@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target by crying out in a startling fashion. This may also make the target flinch.",
+        "ja": "大きな　声などで 不意に　驚かして　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur attaque la cible en poussant un cri terrifiant qui peut aussi l'apeurer.",
+        "es": "Asusta al objetivo con, por ejemplo, un grito y le propina un ataque que puede amedrentarlo.",
+        "de": "Anwender greift mit einem Schrei an. Ein Angriff, der das Ziel eventuell zurückschrecken lässt.",
+        "it": "Il Pokémon attacca il bersaglio emettendo un verso terrificante. Può anche farlo tentennare.",
+        "ko": "큰 소리 등으로 불시에 놀래켜서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "用巨大的聲響等 突然驚嚇對手進行攻擊。 有時會讓對手畏縮。",
+        "zh-Hans": "用尖叫声等 突然惊吓对手进行攻击。 有时会使对手畏缩。"
+    }
 }

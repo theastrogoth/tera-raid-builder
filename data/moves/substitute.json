@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user creates a substitute for itself using some of its own HP. The substitute serves as the user's decoy.",
+        "ja": "自分の　ＨＰを　少し　削って 分身を　だす。 分身は　自分の　身代わりに　なる。",
+        "fr": "Le lanceur crée un clone en sacrifiant quelques PV. Ce clone sert de leurre.",
+        "es": "Utiliza parte de los PS propios para crear un sustituto que actúa como señuelo.",
+        "de": "Anwender setzt eine kleine Menge an KP ein, um einen Doppelgänger zu erzeugen, der für ihn Schläge einsteckt.",
+        "it": "Il Pokémon crea una copia di se stesso usando alcuni PS. La copia serve come esca per l'avversario.",
+        "ko": "자신의 HP를 조금 깎아서 분신을 만든다. 분신은 자신의 대타가 된다.",
+        "zh-Hant": "消耗一些自己的ＨＰ， 製造分身。 分身將成為自己的替身。",
+        "zh-Hans": "削减少许自己的ＨＰ， 制造分身。 分身将成为自己的替身。"
+    }
 }

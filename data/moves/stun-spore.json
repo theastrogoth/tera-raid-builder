@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user scatters a cloud of numbing powder that paralyzes the target.",
+        "ja": "しびれる　粉を たくさん　ふりまいて 相手を　まひ状態に　する。",
+        "fr": "Le lanceur répand sur la cible une poudre qui la paralyse.",
+        "es": "Esparce polvo que paraliza al objetivo.",
+        "de": "Verstreut lähmenden Puder, der das Ziel paralysiert.",
+        "it": "Investe il bersaglio con una nuvola di polvere che paralizza.",
+        "ko": "저리가루를 많이 흩뿌려서 상대를 마비 상태로 만든다.",
+        "zh-Hant": "撒出大量令人麻痺的粉末， 讓對手陷入麻痺狀態。",
+        "zh-Hans": "撒出麻痹粉， 从而让对手陷入麻痹状态。"
+    }
 }

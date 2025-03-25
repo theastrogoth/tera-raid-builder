@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user scatters a cloud of irritating powder to draw attention to itself. Opposing Pokémon aim only at the user.",
+        "ja": "イライラさせる　粉を　自分に ふりかけて　注意を　ひく。　相手の 攻撃を　すべて　自分に　むける。",
+        "fr": "Le lanceur s'asperge d'une poudre irritante pour attirer l'attention et diriger toutes les attaques ennemies sur lui.",
+        "es": "Usa un polvo que enerva a los rivales y hace que centren en el usuario su atención y sus movimientos.",
+        "de": "Anwender zieht gegnerische Aufmerksamkeit und Angriffe auf sich, indem er ein Wut erzeugendes Pulver über sich streut.",
+        "it": "Il Pokémon attira l'attenzione degli avversari cospargendosi di una polvere irritante e diventando bersaglio di tutti gli attacchi.",
+        "ko": "상대를 자극하는 가루를 자신에게 뿌려서 주의를 끈다. 상대의 공격은 모두 자신에게 향한다.",
+        "zh-Hant": "將令人煩躁的粉末撒在自己身上， 吸引對手的注意。進而將對手的攻擊 全部轉移到自己身上。",
+        "zh-Hans": "将令人烦躁的粉末撒在自己身上， 用以吸引对手的注意。 使对手的攻击全部指向自己。"
+    }
 }

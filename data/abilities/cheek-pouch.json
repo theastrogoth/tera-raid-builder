@@ -1,0 +1,14 @@
+{
+    "name": "Cheek Pouch",
+    "flavorText": {
+        "en": "The Pokémon's HP is restored when it eats any Berry, in addition to the Berry's usual effect.",
+        "ja": "どんな　きのみでも 食べると　ＨＰも　回復する。",
+        "fr": "Le Pokémon récupère des PV lorsqu'il consomme n'importe quelle Baie en plus de bénéficier de ses effets habituels.",
+        "es": "Recupera PS al comer cualquier baya.",
+        "de": "Das Pokémon regeneriert beim Konsum von Beeren ungeachtet der Beerensorte zusätzlich KP.",
+        "it": "Quando il Pokémon mangia una bacca, recupera anche dei PS.",
+        "ko": "나무열매를 먹으면 추가로 HP를 회복한다.",
+        "zh-Hant": "無論是哪種樹果， 吃下去後ＨＰ都會回復。",
+        "zh-Hans": "无论是哪种树果， 食用后，ＨＰ都会回复。"
+    }
+}

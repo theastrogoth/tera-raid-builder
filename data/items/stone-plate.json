@@ -1,0 +1,14 @@
+{
+    "name": "Stone Plate",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This stone tablet is imbued with the essence of rock and boosts the power of the holder's Rock-type moves.",
+        "ja": "いわのタイプの　石盤。 持たせると　いわタイプの 技の威力が　強まる。",
+        "fr": "Objet à tenir. Une tablette en pierre augmentant la puissance des capacités de type Roche.",
+        "es": "Tabla de piedra que potencia los movimientos de tipo Roca. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Diese Steintafel verstärkt Attacken vom Typ Gestein.",
+        "it": "Strumento da dare a un Pokémon. Lastra di pietra che potenzia le mosse di tipo Roccia.",
+        "ko": "바위타입의 석판. 지니게 하면 바위타입 기술의 위력이 강해진다.",
+        "zh-Hant": "岩石屬性的石板。 攜帶後，岩石屬性的 招式威力就會增強。",
+        "zh-Hans": "岩石属性的石板。 携带后，岩石属性的 招式威力就会增强。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Merciless",
+    "flavorText": {
+        "en": "The Pokémon's attacks become critical hits if the target is poisoned.",
+        "ja": "どく状態の 相手を　攻撃すると かならず　急所に　当たる。",
+        "fr": "Lorsque le Pokémon attaque un adversaire empoisonné, le coup est forcément critique.",
+        "es": "Hace que sus movimientos asesten siempre un golpe crítico si el objetivo está envenenado.",
+        "de": "Bei Angriffen auf vergiftete Ziele hat das Pokémon Volltreffergarantie.",
+        "it": "Gli attacchi sferrati su un bersaglio avvelenato producono sempre brutti colpi.",
+        "ko": "독 상태의 상대를 공격하면 반드시 급소에 맞는다.",
+        "zh-Hant": "攻擊中毒狀態的對手時， 必定會擊中要害。",
+        "zh-Hans": "攻击中毒状态的对手时， 必定会击中要害。"
+    }
+}

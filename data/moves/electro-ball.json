@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hurls an electric orb at the target. The faster the user is than the target, the greater the move's power.",
+        "ja": "電気の　塊を　相手に ぶつける。相手より　素早さが 速いほど　威力が　あがる。",
+        "fr": "Le lanceur envoie une boule d'électricité. Plus la Vitesse du lanceur est élevée par rapport à celle de la cible, plus la puissance de la capacité augmente.",
+        "es": "Lanza una bola eléctrica. Cuanto mayor sea la Velocidad del usuario en comparación con la del objetivo, mayor será la potencia del movimiento.",
+        "de": "Je höher die Initiative des Anwenders im Vergleich zum Ziel ist, desto stärker trifft dieses eine geballte Ladung Strom.",
+        "it": "Il Pokémon colpisce il bersaglio con una sfera d'energia elettrica. Più è rapido rispetto al bersaglio, maggiore è la potenza della mossa.",
+        "ko": "전기 덩어리를 상대에게 부딪쳐서 공격한다. 상대보다 스피드가 빠를수록 위력이 올라간다.",
+        "zh-Hant": "用電球攻擊對手。 速度比對手快越多， 威力越大。",
+        "zh-Hans": "用电气团撞向对手。 自己比对手速度越快， 威力越大。"
+    }
 }

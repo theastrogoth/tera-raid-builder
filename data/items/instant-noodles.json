@@ -1,0 +1,14 @@
+{
+    "name": "Instant Noodles",
+    "flavorText": {
+        "en": "One of the many ingredients that can be used for cooking at your camp. It has a junk-food sort of taste, but it goes well with curry.",
+        "ja": "キャンプの　料理に　使う 食材の　一種。ジャンクフードの テイストが　意外と　マッチする。",
+        "fr": "Un ingrédient de cuisine pour le camping. La saveur de cet ingrédient, somme toute banal, se marie étonnamment bien avec le curry.",
+        "es": "Un ingrediente para cocinar en el campamento. El sabor reconfortante de estos fideos casa inesperadamente bien con la salsa de curri.",
+        "de": "Eine Zutat für PokéCamping-Mahlzeiten. Das Aroma dieses Fertiggerichts passt überraschend gut zu Curry.",
+        "it": "Uno degli ingredienti che puoi usare per cucinare in campeggio. Il tipico gusto da cibo spazzatura si abbina sorprendentemente bene con il curry.",
+        "ko": "캠프 요리에 사용되는 식재료 중 하나. 인스턴트 음식의 맛이 의외로 잘 어울린다.",
+        "zh-Hant": "製作露營料理時使用的食材之一。 速食食品的味道 意外地和料理很配。",
+        "zh-Hans": "在露营营地制作料理时会使用的 一种食材。没想到加入速食食品， 滋味也出乎意料地和谐。"
+    }
+}

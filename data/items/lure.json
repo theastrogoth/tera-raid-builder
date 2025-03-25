@@ -1,0 +1,14 @@
+{
+    "name": "Lure",
+    "flavorText": {
+        "en": "A bottle of perfume that makes rare Pokémon more likely to appear for a short time when sprayed about.",
+        "ja": "使うと　少しのあいだ 珍しい　ポケモンが 出てきやすくなる　香水。",
+        "fr": "Une substance qui fait apparaître les Pokémon rares plus facilement pendant un court moment.",
+        "es": "Colonia que atrae a los Pokémon raros durante un breve espacio de tiempo.",
+        "de": "Ein Parfüm, das für kurze Zeit vermehrt seltene Pokémon erscheinen lässt.",
+        "it": "Profumo che attira Pokémon rari per un po' di tempo.",
+        "ko": "사용하면 잠시 동안 희귀한 포켓몬이 나오기 쉬워지는 향수.",
+        "zh-Hant": "使用後的一小段期間， 讓稀有寶可夢變得 容易出現的香水。",
+        "zh-Hans": "使用该香水后的一小段时间内， 稀有宝可梦会更容易出现。"
+    }
+}

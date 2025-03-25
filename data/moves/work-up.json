@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user is roused, and its Attack and Sp. Atk stats are boosted.",
+        "ja": "自分を　奮いたてて 攻撃と　特攻を　あげる。",
+        "fr": "Le lanceur se rengorge et augmente son Attaque et son Attaque Spéciale.",
+        "es": "El usuario se concentra y aumenta su Ataque y su Ataque Especial.",
+        "de": "Anwender erhält einen Kraftschub, der seinen Angriff und Spezial-Angriff erhöht.",
+        "it": "Il Pokémon si tira su di morale, aumentando il proprio Attacco e l'Attacco Speciale.",
+        "ko": "스스로 분발해서 공격과 특수공격을 올린다.",
+        "zh-Hant": "激勵自己， 提高自己的攻擊和特攻。",
+        "zh-Hans": "激励自己， 从而提高攻击和特攻。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Scatter Bang",
+    "flavorText": {
+        "en": "When thrown at the ground, these balls produce a loud noise and scare off low-level Pokémon in the area, sending them running.",
+        "ja": "地面に投げつけると 大きな音を鳴らして 弱いポケモンを退散させる。",
+        "fr": "Lorsqu'on le lance au sol, le bruit qu'il provoque fait fuir les Pokémon faibles situés à proximité.",
+        "es": "Provoca un ruido estrepitoso al lanzarla contra el suelo y hace que los Pokémon de nivel bajo salgan espantados.",
+        "de": "Wirfst du diese Kugel auf den Boden, entsteht ein lautes Geräusch, das schwache Pokémon verscheucht.",
+        "it": "Se lanciata a terra, emette un forte rumore che induce alla fuga i Pokémon più deboli.",
+        "ko": "땅에 던지면 커다란 소리를 내어 약한 포켓몬을 달아나게 만든다.",
+        "zh-Hant": "丟向地面後會 發出巨大的聲響， 將弱小的寶可夢趕走。",
+        "zh-Hans": "丢向地面后会 发出巨大的声响， 将弱小的宝可梦赶走。"
+    }
+}

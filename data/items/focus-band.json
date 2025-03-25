@@ -1,0 +1,14 @@
+{
+    "name": "Focus Band",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. When the holder is hit with a move that should knock it out, it may be able to endure with 1 HP.",
+        "ja": "持たせると　ひんしに　なりそうな 技を　受けても　ＨＰを　１だけ 残して　耐えることが　ある。",
+        "fr": "Objet à tenir pouvant parfois empêcher d'être mis K.O., ne laissant qu'un seul PV.",
+        "es": "El Pokémon que la lleva a veces resiste los golpes que potencialmente lo debilitarían y se queda con 1 PS.",
+        "de": "Ein Item zum Tragen. Der Träger bleibt nach einer eigentlich fatalen Attacke eventuell mit 1 KP im Kampf.",
+        "it": "Strumento da dare a un Pokémon. Chi ce l'ha può evitare un potenziale KO e rimanere con un solo PS.",
+        "ko": "지니게 하면 기절할 듯한 기술로 공격받아도 HP를 1 남겨서 견디기도 한다.",
+        "zh-Hant": "攜帶後，即便受到 可能會導致瀕死的招式， 有時也能僅以１ＨＰ撐過去。",
+        "zh-Hans": "携带后，即便受到 可能会导致昏厥的招式， 有时也能仅以１ＨＰ撑过去。"
+    }
+}

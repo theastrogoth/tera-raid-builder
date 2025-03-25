@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user changes its type to become the same type as the move at the top of the list of moves it knows.",
+        "ja": "自分の　タイプを おぼえている　技で　一番　上の 技と　同じ　タイプに　する。",
+        "fr": "Le lanceur change de type pour prendre celui de la première capacité de sa liste.",
+        "es": "Cambia el tipo del usuario por el del primer movimiento en su lista.",
+        "de": "Wandelt den Typ des Anwenders in den Typ seiner ersten Attacke um.",
+        "it": "Il tipo del Pokémon muta in quello della prima mossa nella lista delle sue mosse.",
+        "ko": "자신의 타입을 배운 기술 중 가장 위에 있는 기술과 같은 타입으로 바꾼다.",
+        "zh-Hant": "將自己的屬性轉換成 與已學會的招式中 第１個招式相同的屬性。",
+        "zh-Hans": "将自己的属性转换成 和已学会的招式中 第一个招式相同的属性。"
+    }
 }

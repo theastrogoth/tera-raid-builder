@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "If the target is electrified before it uses a move, the target's move becomes Electric type for that turn.",
+        "ja": "相手が　技を　だす前に そうでん　すると　そのターン 相手の　技は　でんきタイプになる。",
+        "fr": "Si le lanceur attaque avant la cible, les capacités de celle-ci seront de type Électrik jusqu'à la fin du tour.",
+        "es": "Si el objetivo queda electrificado antes de usar un movimiento, este será de tipo Eléctrico.",
+        "de": "Kommt die Attacke zum Einsatz, bevor das Ziel seine Attacke ausführt, nimmt diese für die Dauer dieser Runde den Typ Elektro an.",
+        "it": "Se il bersaglio viene contagiato prima che usi la sua mossa, per quel turno questa sarà di tipo Elettro.",
+        "ko": "상대가 기술을 쓰기 전에 송전하면 그 턴에 상대가 사용하는 기술은 전기타입이 된다.",
+        "zh-Hant": "如果在對手使用招式前輸電， 該回合對手的招式會變成電屬性。",
+        "zh-Hans": "对手使出招式前， 如果输电，则该回合 对手的招式变成电属性。"
+    }
 }

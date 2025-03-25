@@ -1,0 +1,14 @@
+{
+    "name": "Telepathy",
+    "flavorText": {
+        "en": "The Pokémon anticipates and dodges the attacks of its allies.",
+        "ja": "味方の　攻撃を　読み取って 技を　回避する。",
+        "fr": "Le Pokémon anticipe et évite les attaques de ses alliés.",
+        "es": "Elude los ataques de los aliados durante el combate.",
+        "de": "Das Pokémon erkennt die Angriffe von Mitstreitern und weicht ihnen aus.",
+        "it": "Il Pokémon prevede ed evita gli attacchi degli alleati.",
+        "ko": "같은 편의 공격을 간파하여 기술을 회피한다.",
+        "zh-Hant": "預測我方的攻擊， 並閃避其招式。",
+        "zh-Hans": "读取我方的攻击， 并闪避其招式伤害。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target's throat, and the resultant suffering prevents the target from using sound-based moves for two turns.",
+        "ja": "この　技を　受けた　相手は 地獄の　苦しみから　２ターンの間 音の　技を　出すことが　できなくなる。",
+        "fr": "Inflige une douleur tellement violente à la cible qu'elle ne peut plus émettre de sons pendant deux tours.",
+        "es": "Inflige al objetivo un dolor tan abrumador que le impide utilizar durante dos turnos movimientos que usan sonido.",
+        "de": "Das Pokémon, das von dieser Attacke getroffen wird, erleidet starke Schmerzen und kann deswegen zwei Runden lang keine Geräusch-Attacken mehr einsetzen.",
+        "it": "Chi viene colpito da questa mossa prova un dolore lancinante e non può più usare mosse basate sul suono per due turni.",
+        "ko": "이 기술에 맞은 상대는 지옥의 고통 때문에 2턴 동안 소리 기술을 낼 수 없다.",
+        "zh-Hant": "受到此招式攻擊的對手， 會因為地獄般的痛苦，在２回合內 無法使用會發出聲音的招式。",
+        "zh-Hans": "受到此招式攻击的对手， 会因为地狱般的痛苦，在２回合内， 变得无法使出声音类招式。"
+    }
 }

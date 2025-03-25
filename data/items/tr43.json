@@ -1,0 +1,14 @@
+{
+    "name": "TR43",
+    "flavorText": {
+        "en": "The user attacks the target at full power. The attack's recoil harshly lowers the user's Sp. Atk stat.",
+        "ja": "フルパワーで　相手を　攻撃する。 使うと　反動で 自分の　特攻が　がくっと　さがる。",
+        "fr": "Le lanceur attaque la cible à pleine puissance, mais le contrecoup baisse beaucoup l'Attaque Spéciale du lanceur.",
+        "es": "Ataca al objetivo con toda su fuerza, pero reduce mucho el Ataque Especial del usuario.",
+        "de": "Angriff mit voller Kraft, der den Spezial-Angriff des Anwenders durch den Rückstoß stark senkt.",
+        "it": "Il Pokémon sferra un potente attacco, ma il contraccolpo riduce di molto il suo Attacco Speciale.",
+        "ko": "풀 파워로 상대를 공격한다. 사용하면 반동으로 자신의 특수공격이 크게 떨어진다.",
+        "zh-Hant": "釋放全部能量攻擊對手。 使用後因為反作用力， 自己的特攻會大幅降低。",
+        "zh-Hans": "使出全部力量攻击对手。 使用之后会因为反作用力， 自己的特攻大幅降低。"
+    }
+}

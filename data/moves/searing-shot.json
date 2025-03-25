@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user torches everything around it in an inferno of scarlet flames. This may also leave those it hits with a burn.",
+        "ja": "真っ赤な　炎で　自分の 周りに　いるものを　攻撃する。 やけど状態に　することが　ある。",
+        "fr": "Des flammes s'abattent sur tous les Pokémon autour du lanceur, ce qui peut aussi les brûler.",
+        "es": "Un infierno de llamas daña a los Pokémon adyacentes en combate. Puede causar quemaduras.",
+        "de": "Anwender greift alle Pokémon im Umkreis mit tiefroten Flammen an. Ziele erleiden eventuell Verbrennungen.",
+        "it": "Chi la usa attacca gli altri Pokémon attorno con fiamme scarlatte. Può anche scottarli.",
+        "ko": "새빨간 불꽃으로 자신의 주위에 있는 포켓몬을 공격한다. 화상 상태로 만들 때가 있다.",
+        "zh-Hant": "用熊熊烈火 攻擊自己周圍所有的寶可夢。 有時會讓對手陷入灼傷狀態。",
+        "zh-Hans": "用熊熊烈火 攻击自己周围所有的宝可梦。 有时会陷入灼伤状态。"
+    }
 }

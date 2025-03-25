@@ -1,0 +1,14 @@
+{
+    "name": "PP Max",
+    "flavorText": {
+        "en": "A medicine that can be used to raise the max PP of a single move that a Pokémon knows as high as it can possibly go.",
+        "ja": "覚えている　技のうち １つの　ＰＰの　最大値を 最高まで　あげる。",
+        "fr": "Augmente sensiblement les PP max d'une capacité sélectionnée.",
+        "es": "Aumenta hasta el límite los PP máximos del movimiento elegido de un Pokémon.",
+        "de": "Maximiert die Anzahl der AP einer Attacke eines Pokémon.",
+        "it": "Porta al limite i PP massimi di una mossa tra quelle conosciute dal Pokémon.",
+        "ko": "기억하고 있는 기술 중 1개의 PP 최대치를 최고까지 올린다.",
+        "zh-Hant": "能將寶可夢已學會的 其中１個招式的 ＰＰ最大值提至最高。",
+        "zh-Hans": "能将宝可梦学会的 其中１个招式的 ＰＰ最大值提至最高。"
+    }
+}

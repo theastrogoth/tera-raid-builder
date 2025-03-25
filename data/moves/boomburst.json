@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks everything around it with the destructive power of a terrible explosive sound.",
+        "ja": "すさまじい　爆音の 破壊力に　よって 周りに　いるものを　攻撃する。",
+        "fr": "Attaque les Pokémon alentour grâce à une onde sonore assourdissante qui détruit tout sur son passage.",
+        "es": "Ataca a los Pokémon adyacentes con una potentísima onda sonora.",
+        "de": "Der Anwender greift alle Pokémon im Umkreis mit einem gewaltigen Knall an.",
+        "it": "Chi la usa attacca gli altri Pokémon attorno con la forza di un boato distruttivo.",
+        "ko": "무시무시한 폭음의 파괴력으로 주위에 있는 포켓몬을 공격한다.",
+        "zh-Hant": "利用震耳欲聾的爆炸聲 所產生的破壞力， 攻擊自己周圍所有的寶可夢。",
+        "zh-Hans": "通过震耳欲聋的爆炸声 产生的破坏力， 攻击自己周围所有的宝可梦。"
+    }
 }

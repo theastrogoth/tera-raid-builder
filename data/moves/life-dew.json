@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user scatters mysterious water around and restores the HP of itself and its ally Pokémon currently in the battle.",
+        "ja": "不思議な　水を　ふりまいて 自分と　場にいる 味方の　ＨＰを　回復する。",
+        "fr": "Le lanceur projette une eau mystérieuse sur le terrain pour restaurer ses PV et ceux de ses alliés au combat.",
+        "es": "Vierte un agua misteriosa y balsámica que restaura tanto sus propios PS como los de aquellos aliados presentes en el terreno de combate.",
+        "de": "Wundersames Wasser heilt die KP des Anwenders und seiner am Kampf beteiligten Mitstreiter.",
+        "it": "Il Pokémon sparge tutt'intorno dell'acqua misteriosa che fa recuperare PS a sé e agli alleati in campo.",
+        "ko": "신비한 물을 흩뿌려서 자신과 배틀에 나와 있는 같은 편의 HP를 회복한다.",
+        "zh-Hant": "灑出神奇之水， 回復自己和場上同伴的ＨＰ。",
+        "zh-Hans": "喷洒出神奇的水， 回复自己和场上同伴的ＨＰ。"
+    }
 }

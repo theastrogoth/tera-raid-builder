@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user extends its shadow and attacks the target from behind. This move always goes first.",
+        "ja": "影を　のばして 相手の　背後から　攻撃する。 必ず　先制攻撃　できる。",
+        "fr": "Le lanceur étend son ombre pour frapper par-derrière. Frappe en priorité.",
+        "es": "Extiende su sombra y ataca al objetivo por la espalda. Este movimiento tiene prioridad alta.",
+        "de": "Bei dieser Erstschlag-Attacke erweitert der Anwender seinen Schatten und greift das Ziel von hinten an.",
+        "it": "Il Pokémon estende la sua ombra e attacca il bersaglio alle spalle. Questo attacco ha priorità alta.",
+        "ko": "그림자를 늘려 상대의 배후에서 공격한다. 반드시 선제공격할 수 있다.",
+        "zh-Hant": "伸長自己的影子， 從對手的背後進行攻擊。 必定能夠發動先制攻擊。",
+        "zh-Hans": "伸长影子， 从对手的背后进行攻击。 必定能够先制攻击。"
+    }
 }

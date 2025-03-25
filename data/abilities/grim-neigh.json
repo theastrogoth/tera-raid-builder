@@ -1,0 +1,14 @@
+{
+    "name": "Grim Neigh",
+    "flavorText": {
+        "en": "When the Pokémon knocks out a target, it utters a terrifying neigh, which boosts its Sp. Atk stat.",
+        "ja": "相手を　倒すと 恐ろしい　声で　いなないて 特攻が　上がる。",
+        "fr": "Quand le Pokémon met un ennemi K.O., il émet un hennissement terrifiant qui augmente son Attaque Spéciale.",
+        "es": "Al derrotar a un objetivo, emite un relincho aterrador y aumenta su Ataque Especial.",
+        "de": "Besiegt das Pokémon ein anderes Pokémon, stößt es ein furchteinflößendes Wiehern aus, wodurch sein Spezial-Angriff steigt.",
+        "it": "Quando il Pokémon causa un KO, emette un nitrito terrificante, aumentando il proprio Attacco Speciale.",
+        "ko": "상대를 쓰러뜨리면 무서운 울음소리를 내면서 특수공격이 올라간다.",
+        "zh-Hant": "打倒對手時 會用恐怖的聲音嘶鳴 並提高特攻。",
+        "zh-Hans": "打倒对手时 会用恐怖的声音嘶鸣 并提高特攻。"
+    }
+}

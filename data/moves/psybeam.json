@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is attacked with a peculiar ray. This may also confuse the target.",
+        "ja": "不思議な　光線を 相手に　発射して　攻撃する。 混乱させることが　ある。",
+        "fr": "Un étrange rayon frappe la cible, ce qui peut aussi la rendre confuse.",
+        "es": "Extraño rayo que puede causar confusión.",
+        "de": "Feuert einen Strahl ab, der das Ziel verwirren kann.",
+        "it": "Il Pokémon attacca il bersaglio con un raggio speciale. Può anche confonderlo.",
+        "ko": "이상한 광선을 상대에게 발사하여 공격한다. 혼란시킬 때가 있다.",
+        "zh-Hant": "向對手發射 神奇的光線進行攻擊。 有時會使對手混亂。",
+        "zh-Hans": "向对手发射 神奇的光线进行攻击。 有时会使对手混乱。"
+    }
 }

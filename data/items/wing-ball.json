@@ -1,0 +1,14 @@
+{
+    "name": "Wing Ball",
+    "flavorText": {
+        "en": "A recipe for crafting Wing Balls from scratch. Required materials: 1 Apricorn, 1 Sky Tumblestone, and 1 Iron Chunk.",
+        "ja": "ウイングボールのレシピ。　材料は ぼんぐりのみ×１　てつのかけら×１ そらいろたまいし×１",
+        "fr": "Méthode pour Envol Ball. Ressources requises : 1 Noigrume, 1 Fragment de Fer et 1 Galet Azur.",
+        "es": "Receta para crear Ala Balls. Materiales: 1 Bonguri, 1 Pepita de Hierro y 1 Guijarro Celeste.",
+        "de": "Die Anleitung zur Herstellung eines Flügelballs. Benötigte Materialien: 1 Aprikoko, 1 Eisenbrocken und 1 Azurglanzstein.",
+        "it": "Ricetta per creare una Wing Ball. I materiali necessari sono 1 Bacca ghicocca, 1 Pezzo di ferro e 1 Ciottolo celeste.",
+        "ko": "윙볼의 레시피. 재료: 규토리열매×1 철조각×1 하늘색옥돌×1",
+        "zh-Hant": "飛翼球的材料單。材料是： 球果果×１　碎鐵×１ 天藍玉石×１",
+        "zh-Hans": "飞翼球的材料单。材料是： 球果果×１　碎铁×１ 天蓝玉石×１"
+    }
+}

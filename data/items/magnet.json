@@ -1,0 +1,14 @@
+{
+    "name": "Magnet",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a powerful magnet that boosts the power of the holder's Electric-type moves.",
+        "ja": "強力な　磁石。 持たせると　でんきタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Un aimant puissant qui augmente la puissance des capacités de type Électrik.",
+        "es": "Su potente magnetismo potencia los movimientos de tipo Eléctrico. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein starker Magnet, der Attacken vom Typ Elektro verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Potente magnete che potenzia le mosse di tipo Elettro.",
+        "ko": "강력한 자석. 지니게 하면 전기타입 기술의 위력이 올라간다.",
+        "zh-Hant": "強力的磁鐵。 攜帶後，電屬性的 招式威力就會提高。",
+        "zh-Hans": "强力的磁铁。 携带后，电属性的 招式威力就会提高。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks with electrically charged fists. This move changes Normal-type moves to Electric-type moves.",
+        "ja": "電気を　まとった　こぶしで 攻撃。　ノーマルタイプの　技を でんきタイプに　してしまう。",
+        "fr": "Le lanceur attaque en projetant de l'électricité avec ses poings. Convertit les capacités de type Normal en type Électrik.",
+        "es": "El usuario ataca con puños cargados de electricidad. Convierte los movimientos de tipo Normal en movimientos de tipo Eléctrico.",
+        "de": "Ein Angriff mit elektrisch geladenen Fäusten, der bewirkt, dass Normal-Attacken den Typ Elektro annehmen.",
+        "it": "Il Pokémon attacca con pugni carichi di elettricità. Trasforma le mosse di tipo Normale in mosse di tipo Elettro.",
+        "ko": "전기를 두른 주먹으로 공격한다. 노말타입 기술을 전기타입으로 바꿔 버린다.",
+        "zh-Hant": "用帶有電流的拳頭進行攻擊。 可以將一般屬性的 招式轉變為電屬性。",
+        "zh-Hans": "用覆盖着电流的拳头进行攻击。 使一般属性的招式变成电属性。"
+    }
 }

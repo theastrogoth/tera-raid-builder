@@ -1,0 +1,14 @@
+{
+    "name": "Max Mushrooms",
+    "flavorText": {
+        "en": "Mushrooms that have the power of changing Dynamax forms. They boost all stats of a Pokémon during battle.",
+        "ja": "ダイマックスの　姿を　変える 力を　持った　キノコ。　戦闘中 ポケモンの　すべての　能力を　あげる。",
+        "fr": "Un champignon pouvant modifier l'apparence des Pokémon Dynamax. Utilisé en combat, il augmente toutes les stats d'un Pokémon.",
+        "es": "Una seta capaz de cambiar el aspecto de los Pokémon al dinamaxizarse. Aumenta todas las características de un Pokémon si se usa en combate.",
+        "de": "Ein Pilz, der über die Eigenschaft verfügt, die Gestalt von Dynamax-Pokémon zu ändern. Im Kampf hebt er alle Statuswerte eines Pokémon an.",
+        "it": "Un fungo con il potere di modificare la forma dei Pokémon Dynamax. Se usato durante la lotta, aumenta tutte le statistiche.",
+        "ko": "다이맥스의 모습을 바꿀 수 있는 힘을 가진 버섯. 배틀 중인 포켓몬의 모든 능력을 올린다.",
+        "zh-Hant": "蘊藏著神奇力量的蘑菇， 可以讓寶可夢改變極巨化的樣子。 在戰鬥中能提高寶可夢的所有能力。",
+        "zh-Hans": "拥有某种神奇力量的蘑菇， 能改变宝可梦极巨化的样子。 在战斗中，可以提高宝可梦所有的能力。"
+    }
+}

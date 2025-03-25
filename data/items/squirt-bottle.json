@@ -1,0 +1,14 @@
+{
+    "name": "Squirt Bottle",
+    "flavorText": {
+        "en": "A bottle used for watering plants in the Berry Pots.",
+        "ja": "みずを　かける　道具。 きのみプランターの　きのみを すくすく　育てる。",
+        "fr": "Un arrosoir qui permet de faire croître rapidement les Baies plantées dans le Plante-Baies.",
+        "es": "Objeto que contiene agua y se usa para regar las bayas del Plantabayas.",
+        "de": "Eine Gießkanne, durch deren Wasser Beeren im Pflanzset umso rascher wachsen.",
+        "it": "Strumento che serve a innaffiare. Permette un'ottima crescita delle bacche seminate nel Piantabacche.",
+        "ko": "물을 주는 도구. 나무열매플랜터의 나무열매를 쑥쑥 키운다.",
+        "zh-Hant": "澆水的器具。 能讓樹果種植盆裡的 樹果快快長大。",
+        "zh-Hans": "浇水的道具。 能让树果种植盆里的 树果快快长大。"
+    }
+}

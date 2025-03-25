@@ -1,0 +1,14 @@
+{
+    "name": "Meadow Plate",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This stone tablet is imbued with the essence of plants and boosts the power of the holder's Grass-type moves.",
+        "ja": "くさのタイプの　石盤。 持たせると　くさタイプの 技の威力が　強まる。",
+        "fr": "Objet à tenir. Une tablette en pierre augmentant la puissance des capacités de type Plante.",
+        "es": "Tabla de piedra que potencia los movimientos de tipo Planta. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Diese Steintafel verstärkt Attacken vom Typ Pflanze.",
+        "it": "Strumento da dare a un Pokémon. Lastra di pietra che potenzia le mosse di tipo Erba.",
+        "ko": "풀타입의 석판. 지니게 하면 풀타입 기술의 위력이 강해진다.",
+        "zh-Hant": "草屬性的石板。 攜帶後，草屬性的 招式威力就會增強。",
+        "zh-Hans": "草属性的石板。 携带后，草属性的 招式威力就会增强。"
+    }
+}

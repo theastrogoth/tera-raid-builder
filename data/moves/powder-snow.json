@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks with a chilling gust of powdery snow. This may also leave opposing Pokémon frozen.",
+        "ja": "冷たい　粉雪を 相手に　吹きつけて　攻撃する。 こおり状態に　することが　ある。",
+        "fr": "Le lanceur projette de la neige poudreuse qui peut aussi geler la cible.",
+        "es": "Lanza nieve que puede llegar a congelar.",
+        "de": "Angriff mit Schnee, durch den gegnerische Pokémon eventuell eingefroren werden.",
+        "it": "Il Pokémon attacca il bersaglio con una raffica di neve farinosa e può anche congelarlo.",
+        "ko": "차가운 가랑눈을 상대에게 내뿜어 공격한다. 얼음 상태로 만들 때가 있다.",
+        "zh-Hant": "將冰冷的細雪 吹向對手進行攻擊。 有時會讓對手陷入冰凍狀態。",
+        "zh-Hans": "将冰冷的细雪 吹向对手进行攻击。 有时会让对手陷入冰冻状态。"
+    }
 }

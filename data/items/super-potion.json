@@ -1,0 +1,14 @@
+{
+    "name": "Super Potion",
+    "flavorText": {
+        "en": "A recipe for crafting Super Potions from scratch. Required materials: 1 Potion and 1 Pep-Up Plant.",
+        "ja": "いいキズぐすりのレシピ。　材料は キズぐすり×１　ピーピーグサ×１",
+        "fr": "Méthode pour Super Potion. Ressources requises : 1 Potion et 1 Plante PP.",
+        "es": "Receta para crear Superpociones. Materiales: 1 Poción y 1 Hierba Éter.",
+        "de": "Die Anleitung zur Herstellung eines Supertranks. Benötigte Materialien: 1 Trank und 1 Stängel Ätherkraut.",
+        "it": "Ricetta per una Superpozione. Richiede 1 Pozione e 1 radice di Erba PP.",
+        "ko": "좋은상처약의 레시피. 재료: 상처약×1 PP풀×1",
+        "zh-Hant": "好傷藥的材料單。材料是： 傷藥×１　ＰＰ草×１",
+        "zh-Hans": "好伤药的材料单。材料是： 伤药×１　ＰＰ草×１"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user cures the target's status condition. If the move succeeds, it also restores the user's own HP.",
+        "ja": "相手の　状態異常を　治す。 治すと　自分は　ＨＰを 回復　することが　できる。",
+        "fr": "Le lanceur soigne les altérations de statut de la cible, ce qui lui permet de regagner des PV.",
+        "es": "Cura los problemas de estado del objetivo y, a cambio, recupera PS propios.",
+        "de": "Der Anwender heilt das Statusproblem des Zieles und füllt dadurch seine eigenen KP auf.",
+        "it": "Il Pokémon cura i problemi di stato del bersaglio e in cambio può recuperare PS.",
+        "ko": "상대의 상태 이상을 회복한다. 회복하면 자신은 HP를 회복할 수 있다.",
+        "zh-Hant": "治癒對手的異常狀態。 治癒後可以回復自己的ＨＰ。",
+        "zh-Hans": "治愈对手的异常状态。 治愈后可以回复自己的ＨＰ。"
+    }
 }

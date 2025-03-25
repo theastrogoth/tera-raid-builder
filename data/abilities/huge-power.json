@@ -1,0 +1,14 @@
+{
+    "name": "Huge Power",
+    "flavorText": {
+        "en": "Doubles the Pokémon's Attack stat.",
+        "ja": "物理攻撃の 威力が　２倍になる。",
+        "fr": "Double la puissance des attaques physiques.",
+        "es": "Duplica la potencia de sus ataques físicos.",
+        "de": "Die Stärke von physischen Angriffen des Pokémon wird verdoppelt.",
+        "it": "Raddoppia la potenza degli attacchi fisici del Pokémon.",
+        "ko": "물리공격의 위력이 2배가 된다.",
+        "zh-Hant": "物理攻擊的威力會變為２倍。",
+        "zh-Hans": "物理攻击的威力会变为２倍。"
+    }
+}

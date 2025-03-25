@@ -1,0 +1,14 @@
+{
+    "name": "Chople Berry",
+    "flavorText": {
+        "en": "If a Pokémon holding this Berry is hit with a supereffective Fighting-type move, the power of that move will be weakened.",
+        "ja": "ポケモンに　持たせると 効果バツグンの　かくとう技を 受けたとき　威力が　弱まる。",
+        "fr": "Tenue, cette Baie réduit les dégâts subis lorsque le Pokémon est touché par une capacité super efficace de type Combat.",
+        "es": "Si la lleva un Pokémon, debilita un ataque supereficaz de tipo Lucha que reciba.",
+        "de": "Als getragenes Item schwächt diese Beere eine sehr effektive Kampf-Attacke, von der das Pokémon getroffen wird.",
+        "it": "Se il Pokémon che ha questa bacca subisce una mossa superefficace di tipo Lotta, la potenza della mossa viene indebolita.",
+        "ko": "포켓몬에게 지니게 하면 효과가 굉장한 격투 기술로 공격받았을 때 위력이 약해진다.",
+        "zh-Hant": "讓寶可夢攜帶後， 在受到效果絕佳的格鬥屬性招式 攻擊時，能使其威力減弱。",
+        "zh-Hans": "让宝可梦携带后， 在受到效果绝佳的格斗属性招式 攻击时，能令其威力减弱。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by punching the target with full concentrated power. This also confuses the target.",
+        "ja": "こん身の　力で パンチを　くりだして　攻撃する。 相手を　必ず　混乱させる。",
+        "fr": "Le lanceur rassemble ses forces et envoie un coup de poing à la cible, ce qui la rend confuse à coup sûr.",
+        "es": "Puñetazo con toda la fuerza concentrada que causa confusión.",
+        "de": "Kräftiger Schlag, der das Ziel bei Erfolg verwirrt.",
+        "it": "Il Pokémon attacca con un pugno davvero forte. Il bersaglio viene sicuramente confuso.",
+        "ko": "혼신의 힘으로 펀치를 날려서 공격한다. 상대를 반드시 혼란시킨다.",
+        "zh-Hant": "使出渾身力量出拳進行攻擊。 必定會使對手混亂。",
+        "zh-Hans": "使出浑身力气出拳进行攻击。 必定会使对手混乱。"
+    }
 }

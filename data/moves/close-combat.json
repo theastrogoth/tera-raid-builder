@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user fights the target up close, inflicting damage without guarding itself. This also lowers the user's Defense and Sp. Def stats.",
+        "ja": "守りを　捨てて　相手の　ふところに 突撃する。　自分の 防御と　特防が　さがる。",
+        "fr": "Le lanceur ne pense plus à se protéger et frappe sa cible violemment au corps à corps. Cette capacité baisse la Défense et la Défense Spéciale du lanceur.",
+        "es": "Ataca ferozmente al objetivo sin protegerse, lo cual reduce la Defensa y la Defensa Especial del usuario.",
+        "de": "Nahkampf-Attacke ohne Rücksicht auf Verluste. Senkt Verteidigung und Spezial-Verteidigung des Anwenders.",
+        "it": "Il Pokémon attacca abbassando la guardia. La sua Difesa e la sua Difesa Speciale diminuiscono.",
+        "ko": "방어를 포기하고 상대 쪽으로 깊숙이 돌격한다. 자신의 방어와 특수방어가 떨어진다.",
+        "zh-Hant": "反守為攻，近身突擊對手。 自己的防禦和特防會降低。",
+        "zh-Hans": "放弃守护， 向对手的怀里突击。 自己的防御和特防会降低。"
+    }
 }

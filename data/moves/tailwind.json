@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user whips up a turbulent whirlwind that boosts the Speed stats of itself and its allies for four turns.",
+        "ja": "激しく　吹きあれる 風の渦を　つくり　４ターンの　間 味方　全員の　素早さを　あげる。",
+        "fr": "Génère une rafale de vent qui augmente la Vitesse des Pokémon de l'équipe pendant quatre tours.",
+        "es": "Crea un fuerte remolino que aumenta la Velocidad del bando del usuario durante cuatro turnos.",
+        "de": "Anwender erzeugt einen Wirbelwind, der die Initiative aller Pokémon im Team für vier Runden erhöht.",
+        "it": "Il Pokémon scatena un turbine che aumenta la Velocità di tutti i Pokémon della squadra per quattro turni.",
+        "ko": "세차게 불어 대는 바람의 소용돌이를 만들어 4턴 동안 같은 편 모두의 스피드를 올린다.",
+        "zh-Hant": "刮起猛烈的強風， 在４回合內 提高我方全體的速度。",
+        "zh-Hans": "刮起猛烈的旋风， 在４回合内 提高我方全员的速度。"
+    }
 }

@@ -43,5 +43,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user performs an intense dance to usher in victory, boosting its Attack, Defense, and Speed stats.",
+        "ja": "勝利を　呼びこむ　舞を 激しく　踊って　自分の 攻撃と　防御と　素早さを　あげる。",
+        "fr": "Le lanceur danse vigoureusement pour invoquer la victoire, ce qui augmente son Attaque, sa Défense et sa Vitesse.",
+        "es": "Ejecuta una danza frenética que invoca la victoria y aumenta el Ataque, la Defensa y la Velocidad.",
+        "de": "Der Anwender führt einen wilden Tanz auf, der den Sieg herbeiführen soll. Dies erhöht seinen Angriff, seine Verteidigung und seine Initiative.",
+        "it": "Il Pokémon si lancia in una danza sfrenata per invocare la vittoria e aumenta l'Attacco, la Difesa e la Velocità.",
+        "ko": "승리를 부르는 춤을 격렬하게 춘다. 자신의 공격과 방어, 스피드를 올린다.",
+        "zh-Hant": "激烈地跳起喚來勝利的舞蹈， 提高自己的攻擊、防禦和速度。",
+        "zh-Hans": "激烈地跳起唤来 胜利的舞蹈，提高自己的 攻击、防御和速度。"
+    }
 }

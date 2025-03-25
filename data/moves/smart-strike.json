@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stabs the target with a sharp horn. This attack never misses.",
+        "ja": "とがった　つので　相手を 突き刺して　攻撃する。 攻撃は　必ず　命中する。",
+        "fr": "Le lanceur transperce la cible avec sa corne effilée. N'échoue jamais.",
+        "es": "El usuario ensarta al objetivo con su afilada cornamenta. No falla nunca.",
+        "de": "Der Anwender durchbohrt das Ziel mit seinem spitzen Horn. Diese Attacke trifft immer.",
+        "it": "Il Pokémon attacca il bersaglio con un corno appuntito. Questo attacco va sempre a segno.",
+        "ko": "뾰족한 뿔로 상대를 꿰찔러서 공격한다. 공격은 반드시 명중한다.",
+        "zh-Hant": "用尖尖的角刺進對手進行攻擊。 攻擊必定會命中。",
+        "zh-Hans": "用尖尖的角刺入对手进行攻击。 攻击必定会命中。"
+    }
 }

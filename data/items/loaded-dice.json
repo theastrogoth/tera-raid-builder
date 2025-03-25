@@ -1,0 +1,14 @@
+{
+    "name": "Loaded Dice",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This loaded dice always rolls a good number, and holding one can ensure that the holder's multistrike moves hit more times.",
+        "ja": "いい目しか　出ない　サイコロ。 持たせて　連続技を　使うと 多めに　技を　出すことが　できる。",
+        "fr": "Objet à tenir. Ce dé ne tire que des bons numéros et permet d'asséner de nombreux coups lorsqu'une capacité pouvant frapper plusieurs fois est utilisée.",
+        "es": "Un dado que siempre cae favorablemente. Los movimientos de ataque múltiple de quien lo lleve golpearán más veces.",
+        "de": "Ein Würfel, der stets eine hohe Augenzahl landet. Gibt man ihn einem Pokémon zum Tragen, kann es bei Serien-Attacken eine hohe Trefferzahl erzielen.",
+        "it": "Strumento da dare a un Pokémon. Dado truccato che cade sempre in modo favorevole, permettendo alle mosse multicolpo di mandare a segno più colpi.",
+        "ko": "좋은 눈만 나오는 주사위. 지니게 하고 연속 기술을 사용하면 많은 횟수로 기술을 사용할 수 있다.",
+        "zh-Hant": "只會滾出好點數的骰子。 攜帶後，在使用連續招式時， 能以較多的次數進行攻擊。",
+        "zh-Hans": "只会出现好数字的骰子。 携带后，在使用连续招式时， 能使出较多次招式。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Serene Grace",
+    "flavorText": {
+        "en": "Raises the likelihood of additional effects occurring when the Pokémon uses its moves.",
+        "ja": "天の恵みの　おかげで 技の　追加効果が　でやすい。",
+        "fr": "Augmente les chances d'infliger des effets additionnels.",
+        "es": "Aumenta la probabilidad de que los movimientos causen efectos secundarios.",
+        "de": "Durch den Edelmut des Pokémon steigt die Wahrscheinlichkeit, dass Zusatzeffekte seiner Attacken auftreten.",
+        "it": "Rende più probabili gli effetti aggiuntivi delle mosse.",
+        "ko": "하늘의 은총 덕분에 기술의 추가 효과가 나오기 쉽다.",
+        "zh-Hant": "受到上天保佑， 容易出現招式的追加效果。",
+        "zh-Hans": "托天恩的福， 招式的追加效果容易出现。"
+    }
+}

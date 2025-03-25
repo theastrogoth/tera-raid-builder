@@ -1,0 +1,14 @@
+{
+    "name": "Wishing Chip",
+    "flavorText": {
+        "en": "Toss a number of them into a Pokémon Den for the chance to attract a wild Dynamax Pokémon.",
+        "ja": "ポケモンの　巣穴に　いくつか 投げいれると　ダイマックスした ポケモンが　現れることが　ある。",
+        "fr": "En lancer plusieurs dans l'antre d'un Pokémon augmente les chances d'y faire apparaître un Pokémon Dynamax.",
+        "es": "Al lanzar unos cuantos a un nido Pokémon, es posible que aparezca algún Pokémon Dinamax.",
+        "de": "Wirft man mehrere von ihnen in ein Pokémon-Nest, taucht eventuell ein Dynamax-Pokémon auf.",
+        "it": "Se ne lanci alcuni dentro una tana di Pokémon possono far comparire un Pokémon Dynamax.",
+        "ko": "포켓몬굴에 몇 개 던져 넣으면 다이맥스 포켓몬이 나타날 때가 있다.",
+        "zh-Hant": "投幾個進寶可夢的巢穴裡， 有時可讓極巨化寶可夢現身。",
+        "zh-Hans": "投掷数个到宝可梦的巢穴里， 可能就会有极巨化宝可梦出现。"
+    }
+}

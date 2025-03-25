@@ -1,0 +1,14 @@
+{
+    "name": "Swap Snack",
+    "flavorText": {
+        "en": "A recipe for crafting Swap Snacks from scratch. Required materials: 1 Candy Truffle, 1 Sootfoot Root, 1 Springy Mushroom, and 1 Hopo Berry.",
+        "ja": "あべこべやきのレシピ。　材料は スイートトリュフ×１　ケムリイモ×１ もちもちキノコ×１　ポフのみ×１",
+        "fr": "Méthode pour En-cas Contraire. Ressources requises : 1 Truffe Sucrée, 1 Rutabagaz, 1 Champi Toumou et 1 Baie Bouhlon.",
+        "es": "Receta para crear Bocaditos Inversión. Materiales: 1 Trufa Dulce, 1 Fumibulbo, 1 Seta Esponjosa y 1 Baya Lupu.",
+        "de": "Die Anleitung zur Herstellung eines Umkehrbratlings. Benötigte Materialien: 1 Süßtrüffel, 1 Rauchknolle, 1 Zähpilz und 1 Pfohbeere.",
+        "it": "Ricetta per un Invertigratin. Richiede 1 Tartufo dolce, 1 Patata fumosa, 1 Fungo gommoso e 1 Baccaluppo.",
+        "ko": "뒤바뀜구이의 레시피. 재료: 스위트러플×1 연기토란×1 쫄깃쫄깃버섯×1 포흐열매×1",
+        "zh-Hant": "顛倒燒的材料單。材料是： 甜松露×１　煙芋×１ 糯糯菇×１　花啤果×１",
+        "zh-Hans": "颠倒烧的材料单。材料是： 甜松露×１　烟芋×１ 糯糯菇×１　花啤果×１"
+    }
+}

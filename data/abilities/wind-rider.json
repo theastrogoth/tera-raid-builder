@@ -1,0 +1,14 @@
+{
+    "name": "Wind Rider",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Attack stat if Tailwind takes effect or if the Pokémon is hit by a wind move. The Pokémon also takes no damage from wind moves.",
+        "ja": "おいかぜが　吹いたり　風技を　受けると ダメージを　受けずに 攻撃が　上がる。",
+        "fr": "L'Attaque du Pokémon augmente si un vent arrière souffle ou s'il est touché par une capacité faisant appel au vent. Dans ce dernier cas, il ne subit aucun dégât.",
+        "es": "Si sopla un Viento Afín o lo alcanza un movimiento que usa viento, aumenta su Ataque. Tampoco recibe daño de este último.",
+        "de": "Wirkt Rückenwind oder wird das Pokémon von einer Wind-Attacke getroffen, steigt sein Angriff. Außerdem erleidet es keinen Schaden durch Wind-Attacken.",
+        "it": "L'Attacco aumenta se vengono usate mosse come Ventoincoda o se il Pokémon è colpito da una mossa basata sul vento, che viene inoltre neutralizzata.",
+        "ko": "순풍이 불거나 바람 기술로 공격받으면 데미지를 받지 않고 공격이 올라간다.",
+        "zh-Hant": "吹起順風或受到風的招式攻擊時， 不但不會受到傷害，反而攻擊會提高。",
+        "zh-Hans": "吹起了顺风或受到风的招式攻击时， 不会受到伤害，而是会提高攻击。"
+    }
+}

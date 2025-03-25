@@ -1,0 +1,14 @@
+{
+    "name": "Sticky Barb",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It damages the holder every turn and may latch on to Pokémon that make direct contact with the holder.",
+        "ja": "持たせると　毎ターン　ダメージを 受ける。　自分に　ふれてきた 相手に　くっつくことも　ある。",
+        "fr": "Objet à tenir. Blesse le porteur à chaque tour. Peut s'accrocher à un Pokémon qui inflige une attaque directe au porteur.",
+        "es": "Daña en cada turno al Pokémon que la lleva. Puede adherirse al Pokémon que ataque al portador con un movimiento de contacto.",
+        "de": "Ein Item zum Tragen. Schadet dem Träger in jeder Runde, kann aber an Angreifern haften bleiben, die ihn berühren.",
+        "it": "Strumento che danneggia chi ce l'ha a ogni turno. Può attaccarsi a un Pokémon che entra in contatto con chi ce l'ha a causa di un attacco.",
+        "ko": "지니게 하면 매 턴 데미지를 입는다. 자신에게 접촉해 온 상대에게 들러붙기도 한다.",
+        "zh-Hant": "攜帶後，每回合都會受到傷害。 有時也會附著到 碰到自己的對手身上。",
+        "zh-Hans": "携带后，每回合都会受到伤害。 有时也会附着到 碰到自己的对手身上。"
+    }
+}

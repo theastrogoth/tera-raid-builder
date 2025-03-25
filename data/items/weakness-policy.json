@@ -1,0 +1,14 @@
+{
+    "name": "Weakness Policy",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If the holder is hit with a move it's weak to, this policy sharply boosts its Attack and Sp. Atk stats.",
+        "ja": "弱点を　つかれたとき 攻撃と　特攻が それぞれ　ぐーんと　あがる。",
+        "fr": "Objet à tenir. Augmente beaucoup l'Attaque et l'Attaque Spéciale du Pokémon lorsqu'il est touché par une capacité d'un type auquel il est vulnérable.",
+        "es": "Aumenta mucho el Ataque y el Ataque Especial cuando el Pokémon que lo lleva recibe un ataque frente al cual es débil.",
+        "de": "Erhöht den Angriff und den Spezial-Angriff des Trägers stark, wenn er von einer sehr effektiven Attacke getroffen wird.",
+        "it": "Se il Pokémon viene colpito da un attacco contro cui è debole, l'Attacco e l'Attacco Speciale aumentano di molto.",
+        "ko": "약점을 공격당했을 때 공격과 특수공격이 각각 크게 올라간다.",
+        "zh-Hant": "被攻擊到弱點時， 攻擊和特攻就會 分別大幅提高。",
+        "zh-Hans": "被针对弱点时， 攻击和特攻就会大幅提高。"
+    }
+}

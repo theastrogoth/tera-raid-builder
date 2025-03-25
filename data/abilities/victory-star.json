@@ -1,0 +1,14 @@
+{
+    "name": "Victory Star",
+    "flavorText": {
+        "en": "Boosts the accuracy of the Pokémon and its allies.",
+        "ja": "自分や　味方の 命中率が　上がる。",
+        "fr": "Augmente la Précision du Pokémon et de ses alliés.",
+        "es": "Aumenta su Precisión y la de sus aliados.",
+        "de": "Die Genauigkeit der Pokémon auf der Mitstreiterseite steigt.",
+        "it": "Aumenta la precisione del Pokémon e degli alleati.",
+        "ko": "자신과 같은 편의 명중률이 올라간다.",
+        "zh-Hant": "自己和同伴的命中率會提高。",
+        "zh-Hans": "自己和同伴的命中率会提高。"
+    }
+}

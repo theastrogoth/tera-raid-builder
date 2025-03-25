@@ -1,0 +1,14 @@
+{
+    "name": "Hunger Switch",
+    "flavorText": {
+        "en": "The Pokémon changes its form, alternating between its Full Belly Mode and Hangry Mode after the end of every turn.",
+        "ja": "ターンの　終わりに　まんぷくもよう はらぺこもよう　まんぷくもよう……と 交互に　姿を　変える。",
+        "fr": "À la fin de chaque tour, le Pokémon alterne entre ses formes Mode Rassasié et Mode Affamé.",
+        "es": "Alterna entre su Forma Saciada y Forma Voraz al final de cada turno.",
+        "de": "Das Pokémon ändert zum Ende jeder Runde seine Form und wechselt somit zwischen dem Pappsatt- und dem Kohldampfmuster.",
+        "it": "Alla fine di ogni turno cambia forma, alternando tra Motivo Panciapiena e Motivo Panciavuota.",
+        "ko": "턴이 끝날 때마다 배부른 모양, 배고픈 모양, 배부른 모양...으로 번갈아서 모습을 바꾼다.",
+        "zh-Hant": "在每個回合結束時， 會在滿腹花紋和空腹花紋之間 交替改變樣子。",
+        "zh-Hans": "每回合结束时会在 满腹花纹与空腹花纹之间 交替改变样子。"
+    }
+}

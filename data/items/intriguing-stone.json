@@ -1,0 +1,14 @@
+{
+    "name": "Intriguing Stone",
+    "flavorText": {
+        "en": "A rather curious stone that might appear valuable to some. It's all in the eye of the beholder.",
+        "ja": "みる　人に　よっては 貴重　かもしれない かなり　変わった　石。",
+        "fr": "Une pierre assez étrange qui pourrait avoir de la valeur pour certaines personnes.",
+        "es": "Una curiosa piedra que a algunos les puede parecer de gran valor.",
+        "de": "Ein ungewöhnlicher Stein, dessen Wert je nach Betrachter unterschiedlich eingeschätzt wird.",
+        "it": "Un sasso piuttosto singolare che qualcuno potrebbe ritenere di valore.",
+        "ko": "보는 사람에 따라서는 귀중할지도 모르는 꽤 특이한 돌.",
+        "zh-Hant": "在某些人眼裡 可能會覺得它十分貴重。 頗與眾不同的石頭。",
+        "zh-Hans": "在有些人看来 可能会觉得它十分贵重。 非常与众不同的石头。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This is a Fire-type attack Dynamax Pokémon use. The user intensifies the sun for five turns.",
+        "ja": "ダイマックスした　ポケモンが 繰りだす　ほのおタイプの　攻撃。 ５ターンの　間　日差しを　強くする。",
+        "fr": "Une attaque de type Feu que seuls les Pokémon Dynamax peuvent utiliser. Fait briller le soleil pendant cinq tours.",
+        "es": "Ataque de tipo Fuego ejecutado por un Pokémon Dinamax. Hace que se intensifique el efecto del sol durante cinco turnos.",
+        "de": "Eine Feuer-Attacke, die nur Dynamax-Pokémon einsetzen können. Die Sonne brennt unbarmherzig fünf Runden lang.",
+        "it": "Un attacco di tipo Fuoco che può essere eseguito dai Pokémon dynamaxizzati. Intensifica i raggi solari per cinque turni.",
+        "ko": "다이맥스한 포켓몬이 날리는 불꽃타입의 공격. 5턴 동안 햇살을 강하게 만든다.",
+        "zh-Hant": "極巨化寶可夢 所使出的火屬性攻擊。 可在５回合內讓日照增強。",
+        "zh-Hans": "极巨化宝可梦使出的火属性攻击。 可在５回合内让日照变得强烈。"
+    }
 }

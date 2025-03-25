@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stores power, then attacks. This move's power is doubled if the user moves after the target.",
+        "ja": "ためこんで　攻撃する。 相手より　あとに　攻撃できると 技の　威力は　２倍に　なる。",
+        "fr": "Le lanceur charge son énergie, puis attaque. La puissance de la capacité est doublée si le lanceur agit après la cible.",
+        "es": "El usuario contraataca con el doble de potencia si el objetivo usa un movimiento antes.",
+        "de": "Der Anwender lädt die Attacke auf. Handelt das Ziel vor dem Anwender, verdoppelt sich die Stärke der Attacke.",
+        "it": "Il Pokémon accumula forza e attacca. La potenza raddoppia se agisce dopo il bersaglio.",
+        "ko": "모아서 공격한다. 상대보다 나중에 공격할 수 있으면 기술의 위력은 2배가 된다.",
+        "zh-Hant": "累積力量進行攻擊。 若在對手之後進行攻擊， 招式的威力會變成２倍。",
+        "zh-Hans": "蓄力攻击。 如果能在对手之后攻击， 招式的威力会变成２倍。"
+    }
 }

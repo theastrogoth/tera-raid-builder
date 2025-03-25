@@ -1,0 +1,14 @@
+{
+    "name": "Pressure",
+    "flavorText": {
+        "en": "Puts other Pokémon under pressure, causing them to expend more PP to use their moves.",
+        "ja": "プレッシャーを　あたえて 相手の　使う　技の　ＰＰを 多く　減らす。",
+        "fr": "Met la pression à l'adversaire pour le forcer à dépenser plus de PP.",
+        "es": "Presiona al rival de tal manera que este consume más PP al usar sus movimientos.",
+        "de": "Das Pokémon zwingt Gegner dazu, beim Einsatz von Attacken mehr AP zu verbrauchen.",
+        "it": "Il Pokémon mette pressione agli avversari, facendogli consumare più PP.",
+        "ko": "프레셔를 줘서 상대가 쓰는 기술의 PP를 많이 줄인다.",
+        "zh-Hant": "給予對手壓迫感， 大量減少其使用招式的ＰＰ。",
+        "zh-Hans": "给予对手压迫感， 大量减少其使用招式的ＰＰ。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user shoots filthy garbage at the target to attack. This may also poison the target.",
+        "ja": "汚い　ゴミを 相手に　ぶつけて　攻撃する。 毒状態に　することが　ある。",
+        "fr": "Le lanceur envoie des détritus sur la cible, ce qui peut aussi l'empoisonner.",
+        "es": "Lanza contra el objetivo basura asquerosa y puede envenenarlo.",
+        "de": "Anwender schießt mit Müll auf das Ziel. Vergiftet dieses eventuell.",
+        "it": "Il Pokémon attacca con rifiuti sudici che possono anche avvelenare il bersaglio.",
+        "ko": "더러운 쓰레기를 상대에게 부딪쳐서 공격한다. 독 상태로 만들 때가 있다.",
+        "zh-Hant": "將骯髒的垃圾 丟向對手進行攻擊。 有時會讓對手陷入中毒狀態。",
+        "zh-Hans": "用肮脏的垃圾 撞向对手进行攻击。 有时会让对手陷入中毒状态。"
+    }
 }

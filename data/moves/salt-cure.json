@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user bestows a loving blessing, reviving a party Pokémon that has fainted and restoring half that Pokémon's max HP.",
+        "ja": "慈愛の心で　いのることにより 控えにいる　ひんしの　ポケモンを ＨＰを　半分の状態で　復活させる。",
+        "fr": "Dans un élan de compassion, le lanceur adresse une prière afin de ranimer un Pokémon de l'équipe K.O. en lui rendant la moitié de ses PV.",
+        "es": "Pronuncia una benévola oración que revive a un Pokémon del equipo que se haya debilitado y restaura la mitad de sus PS máximos.",
+        "de": "Der Anwender belebt mit einem Wunsch voller Mitgefühl ein kampfunfähiges Team-Mitglied wieder und stellt die Hälfte dessen maximaler KP wieder her.",
+        "it": "Il Pokémon intona una preghiera compassionevole, rianimando un Pokémon della squadra esausto e restituendogli metà dei suoi PS.",
+        "ko": "자애로운 마음으로 기도를 하여 기절한 교대 포켓몬을 HP가 절반인 상태로 부활시킨다.",
+        "zh-Hant": "懷著慈愛之心祈禱， 使後備中瀕死的寶可夢 以一半的ＨＰ復活。",
+        "zh-Hans": "通过以慈爱之心祈祷， 让陷入昏厥的后备宝可梦 以回复一半ＨＰ的状态复活。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Cheri Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to free itself from paralysis.",
+        "ja": "ポケモンに　持たせると まひを　回復する。 ",
+        "fr": "Une Baie qui soigne la paralysie lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para recuperarse de la parálisis.",
+        "de": "Als getragenes Item heilt diese Beere das Pokémon von Paralyse.",
+        "it": "Se un Pokémon ha questa bacca, guarisce dalla paralisi.",
+        "ko": "포켓몬에게 지니게 하면 마비를 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以治癒麻痺。",
+        "zh-Hans": "让宝可梦携带后， 可以治愈麻痹。"
+    }
+}

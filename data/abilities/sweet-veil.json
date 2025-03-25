@@ -1,0 +1,14 @@
+{
+    "name": "Sweet Veil",
+    "flavorText": {
+        "en": "Prevents the Pokémon and its allies from falling asleep.",
+        "ja": "自分と　味方の　ポケモンは 眠らなくなる。",
+        "fr": "Le Pokémon et ses alliés ne peuvent pas s'endormir.",
+        "es": "No cae dormido y evita también que sus aliados se duerman.",
+        "de": "Die Pokémon auf der Mitstreiterseite können nicht in Schlaf versetzt werden.",
+        "it": "Rende il Pokémon e i suoi alleati immuni al sonno.",
+        "ko": "자신과 같은 편의 포켓몬이 잠들지 않게 된다.",
+        "zh-Hant": "自己和我方的寶可夢 不會陷入睡眠狀態。",
+        "zh-Hans": "自己和同伴的宝可梦 不会变为睡眠状态。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Tera Shift",
+    "flavorText": {
+        "en": "When the Pokémon enters a battle, it absorbs the energy around itself and transforms into its Terastal Form.",
+        "ja": "登場したとき　周囲の エネルギーを　吸収し テラスタルフォルムに　変化する。",
+        "fr": "Quand le Pokémon rejoint le combat, il absorbe l'énergie alentour et prend sa Forme Téracristal.",
+        "es": "Al entrar en combate, adopta la Forma Teracristal tras absorber la energía de su alrededor.",
+        "de": "Bei Kampfantritt absorbiert das Pokémon Energie in seiner Umgebung und nimmt die Terakristall-Form an.",
+        "it": "Quando il Pokémon entra in campo, assorbe l'energia circostante e assume la Forma Teracristal.",
+        "ko": "등장했을 때 주위의 에너지를 흡수하여 테라스탈폼으로 변화한다.",
+        "zh-Hant": "出場時，會吸收周圍的能量， 變為太晶形態。",
+        "zh-Hans": "出场时，会吸收周围的能量， 变为太晶形态。"
+    }
+}

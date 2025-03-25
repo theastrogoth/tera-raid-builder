@@ -1,0 +1,14 @@
+{
+    "name": "Pure Incense",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It helps keep wild Pokémon away when the holder is the head of the party.",
+        "ja": "１番前の　ポケモンに 持たせると　野生ポケモンが 出てきにくくなる。",
+        "fr": "Objet à tenir. Aide à repousser les Pokémon sauvages si le porteur est le premier Pokémon de l'équipe.",
+        "es": "Si lo lleva el primer Pokémon del equipo, se reduce la probabilidad de que se acerquen Pokémon salvajes.",
+        "de": "Ein Item zum Tragen. Dieses exotische Räucherwerk reduziert Begegnungen mit wilden Pokémon, wenn der Träger an der Spitze deines Teams steht.",
+        "it": "Strumento da dare a un Pokémon. Se chi ce l'ha è il primo della squadra, aiuta ad allontanare i Pokémon selvatici.",
+        "ko": "맨 앞의 포켓몬에게 지니게 하면 야생 포켓몬이 나타날 확률이 낮아진다.",
+        "zh-Hant": "讓排在最前面的寶可夢 攜帶後，野生寶可夢 會變得不容易出現。",
+        "zh-Hans": "让排在最前面的宝可梦携带后， 野生宝可梦就会不容易出现。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user performs a wobbly dance that confuses every Pokémon around it.",
+        "ja": "フラフラと　ダンスを　おどって 自分の　周りに　いるものを 混乱状態に　させる。",
+        "fr": "Danse qui rend confus tous les Pokémon autour du lanceur.",
+        "es": "Danza histérica que confunde a los Pokémon adyacentes.",
+        "de": "Ein Wackeltanz, der alle Pokémon im Umkreis verwirrt.",
+        "it": "Chi la usa esegue una danza goffa che confonde gli altri Pokémon attorno.",
+        "ko": "흔들흔들 댄스를 춰서 주위에 있는 포켓몬을 혼란 상태로 만든다.",
+        "zh-Hant": "搖搖晃晃地跳起舞， 讓自己周圍的寶可夢 陷入混亂狀態。",
+        "zh-Hans": "摇摇晃晃地跳起舞蹈， 让自己周围的宝可梦 陷入混乱状态。"
+    }
 }

@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user swings its tough tail wildly and attacks opposing Pokémon. This also lowers their Attack stats.",
+        "ja": "きょうじんな　しっぽを　激しく ふりはらって　相手を　攻撃する。 相手の　攻撃を　下げる。",
+        "fr": "Le lanceur balaie violemment le camp adverse avec son immense queue. Baisse l'Attaque de la cible.",
+        "es": "El usuario sacude violentamente su enorme cola para golpear al objetivo y reducir su Ataque a la par.",
+        "de": "Der Anwender schwingt heftig seinen robusten Schweif, um damit gegnerische Pokémon anzugreifen und ihren Angriffs-Wert zu senken.",
+        "it": "Il Pokémon attacca il bersaglio con la sua robusta coda riducendone l'Attacco.",
+        "ko": "강인한 꼬리를 세차게 휘둘러서 상대를 공격한다. 상대의 공격을 떨어뜨린다.",
+        "zh-Hant": "激烈地甩動強韌 的尾巴攻擊對手， 降低對手的攻擊。",
+        "zh-Hans": "用坚韧的尾巴 猛扫对手进行攻击， 从而降低对手的攻击。"
+    }
 }

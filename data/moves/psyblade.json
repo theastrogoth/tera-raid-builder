@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by throwing out a mass of coins. This also lowers the user's Sp. Atk stat. Money is earned after the battle.",
+        "ja": "大量のコインを　ぶちまけて　攻撃。 自分の　特攻が　さがる。 戦闘の　あとで　お金も　もらえる。",
+        "fr": "Le lanceur attaque en lançant de nombreuses pièces, ce qui baisse son Attaque Spéciale. Permet d'obtenir plus d'argent à la fin du combat.",
+        "es": "El usuario ataca arrojando una generosa cantidad de monedas, pero su Ataque Especial se ve reducido. Al finalizar el combate, las recupera en forma de ganancias.",
+        "de": "Der Anwender greift an, indem er Unmengen an Münzen ausschüttet, senkt dabei aber seinen Spezial-Angriff. Das Geld wird nach dem Kampf aufgesammelt.",
+        "it": "Il Pokémon attacca lanciando una gran quantità di monete recuperabili dopo la lotta, ma riduce il proprio Attacco Speciale.",
+        "ko": "대량의 코인을 날려서 공격한다. 자신의 특수공격이 떨어진다. 배틀 후에 돈을 받을 수 있다.",
+        "zh-Hant": "撒出大量硬幣進行攻擊。 自己的特攻會降低。 戰鬥後還可以得到錢。",
+        "zh-Hans": "扔出大量硬币攻击。 自己的特攻会降低， 战斗后还可以拿到钱。"
+    }
 }

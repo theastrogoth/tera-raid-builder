@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user smashes into the target in a full-body tackle. This also lowers the user's Defense and Sp. Def stats.",
+        "ja": "全身全霊の　たいあたりを　くらわせる。 自分の　防御と　特防が　さがる。",
+        "fr": "Le lanceur charge la cible de toutes ses forces, ce qui baisse la Défense et la Défense Spéciale du lanceur.",
+        "es": "El usuario arremete con todas sus fuerzas, pero se reducen su Defensa y su Defensa Especial.",
+        "de": "Der Anwender rammt das Ziel mit dem ganzen Körper. Dadurch sinken die Verteidigung und Spezial- Verteidigung des Anwenders.",
+        "it": "Il Pokémon si schianta sul bersaglio con tutte le forze. La sua Difesa e la sua Difesa Speciale diminuiscono.",
+        "ko": "온 힘을 다한 몸통박치기를 날린다. 자신의 방어와 특수방어가 떨어진다.",
+        "zh-Hant": "向對手使出灌注了全心全力的撞擊。 自己的防禦和特防會降低。",
+        "zh-Hans": "向对手使出灌注了全心全力的撞击。 自己的防御和特防会降低。"
+    }
 }

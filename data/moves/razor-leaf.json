@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Sharp-edged leaves are launched to slash at opposing Pokémon. This move has a heightened chance of landing a critical hit.",
+        "ja": "はっぱを　とばして 相手を　切りつけて　攻撃する。 急所に　当たりやすい。",
+        "fr": "Des feuilles aiguisées comme des rasoirs entaillent la cible. Taux de critiques élevé.",
+        "es": "Corta con hojas afiladas. Suele asestar un golpe crítico.",
+        "de": "Greift gegnerische Pokémon mithilfe von Blättern an. Hohe Volltrefferquote.",
+        "it": "Il Pokémon attacca con foglie taglienti che sferzano il bersaglio. Probabile brutto colpo.",
+        "ko": "잎사귀를 날려 상대를 베어 공격한다. 급소에 맞기 쉽다.",
+        "zh-Hant": "飛射葉子， 切斬對手進行攻擊。 容易擊中要害。",
+        "zh-Hans": "飞出叶片， 切斩对手进行攻击。 容易击中要害。"
+    }
 }

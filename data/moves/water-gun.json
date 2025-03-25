@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is blasted with a forceful shot of water.",
+        "ja": "水を　勢いよく 相手に　発射して　攻撃する。",
+        "fr": "De l'eau est projetée avec force sur la cible.",
+        "es": "Ataca disparando agua con gran potencia.",
+        "de": "Das Ziel wird mit Wasser bespritzt.",
+        "it": "Il Pokémon attacca il bersaglio con un potente getto d'acqua.",
+        "ko": "물을 기세 좋게 상대에게 발사하여 공격한다.",
+        "zh-Hant": "向對手噴射 強烈水流進行攻擊。",
+        "zh-Hans": "向对手猛烈地喷射 水流进行攻击。"
+    }
 }

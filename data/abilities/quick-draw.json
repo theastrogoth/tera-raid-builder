@@ -1,0 +1,14 @@
+{
+    "name": "Quick Draw",
+    "flavorText": {
+        "en": "Enables the Pokémon to move first occasionally.",
+        "ja": "相手より　先に 行動できることが　ある。",
+        "fr": "Permet parfois au Pokémon d'agir en premier.",
+        "es": "A veces, puede atacar el primero.",
+        "de": "Das Pokémon handelt gelegentlich vor anderen Pokémon.",
+        "it": "Il Pokémon può agire prima degli altri.",
+        "ko": "상대보다 먼저 행동할 수도 있다.",
+        "zh-Hant": "有時能比對手先一步行動。",
+        "zh-Hans": "有时能比对手先一步行动。"
+    }
+}

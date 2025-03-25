@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user makes its skin as hard as an iron shield, sharply boosting its Defense stat.",
+        "ja": "皮膚を　鉄の盾のように　硬くすることで 自分の　防御を　ぐーんと　あげる。",
+        "fr": "Rend la peau du lanceur dure comme un mur de fer, ce qui augmente beaucoup sa Défense.",
+        "es": "La piel del usuario se vuelve dura como un escudo de acero, lo que aumenta mucho su Defensa.",
+        "de": "Der Anwender macht seine Haut so hart wie Eisen und erhöht dadurch seine Verteidigung stark.",
+        "it": "Il Pokémon indurisce la propria pelle come uno scudo di ferro, aumentando di molto la Difesa.",
+        "ko": "피부를 강철 방패처럼 단단하게 만들어서 자신의 방어를 크게 올린다.",
+        "zh-Hant": "讓皮膚變得像鐵盾般堅硬， 大幅提高自己的防禦。",
+        "zh-Hans": "将皮肤变得坚硬如铁盾， 从而大幅提高自己的防御。"
+    }
 }

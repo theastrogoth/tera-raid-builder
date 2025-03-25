@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Cloaked in flames, the user attacks the target by dancing and flapping its wings. This may also boost the user's Sp. Atk stat.",
+        "ja": "炎を　まとい　はばたいて　相手を 攻撃する。自分の　特攻が あがることが　ある。",
+        "fr": "Le lanceur s'enveloppe de flammes et attaque la cible, Cela peut aussi augmenter l'Attaque Spéciale du lanceur.",
+        "es": "Se envuelve en llamas y agita las alas para dañar al objetivo. Puede aumentar el Ataque Especial del usuario.",
+        "de": "Hüllt das Ziel mit einer Feuerhose in Flammen. Kann den Spezial-Angriff des Anwenders erhöhen.",
+        "it": "Il Pokémon attacca il bersaglio avvolgendosi di fiamme e sbattendo le ali. Può anche aumentare il proprio Attacco Speciale.",
+        "ko": "불꽃을 두른 날개를 쳐서 공격한다. 자신의 특수공격이 올라갈 때가 있다.",
+        "zh-Hant": "讓火焰圍繞全身後， 振翅攻擊對手。 有時會提高自己的特攻。",
+        "zh-Hans": "让火焰覆盖全身， 振翅攻击对手。 有时会提高自己的特攻。"
+    }
 }

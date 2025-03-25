@@ -1,0 +1,14 @@
+{
+    "name": "Torrent",
+    "flavorText": {
+        "en": "Powers up Water-type moves when the Pokémon's HP is low.",
+        "ja": "ＨＰが　減ったとき みずタイプの　技の 威力が　上がる。",
+        "fr": "Augmente la puissance des capacités de type Eau du Pokémon quand il a perdu une certaine quantité de PV.",
+        "es": "Potencia sus movimientos de tipo Agua cuando le quedan pocos PS.",
+        "de": "Wenn die KP des Pokémon auf einen gewissen Wert fallen, steigt die Stärke seiner Wasser-Attacken.",
+        "it": "Quando al Pokémon rimangono pochi PS, la potenza delle sue mosse di tipo Acqua aumenta.",
+        "ko": "HP가 줄었을 때 물타입 기술의 위력이 올라간다.",
+        "zh-Hant": "ＨＰ減少的時候， 水屬性的招式威力會提高。",
+        "zh-Hans": "ＨＰ减少的时候， 水属性的招式威力会提高。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user adds its HP to the target's HP, then equally splits the combined HP between the target and itself.",
+        "ja": "自分の　ＨＰと　相手の　ＨＰを あわせて　それを　自分と　相手で なかよく　わける。",
+        "fr": "Le lanceur ajoute ses PV à ceux de sa cible et les répartit équitablement.",
+        "es": "Suma los PS del usuario a los del objetivo y los reparte a partes iguales.",
+        "de": "Addiert KP von Anwender und Ziel. Teilt sie gerecht auf.",
+        "it": "Il Pokémon somma i propri PS a quelli del bersaglio per poi dividerli in parti uguali.",
+        "ko": "자신의 HP와 상대의 HP를 합친 것을 자신과 상대가 사이좋게 나눈다.",
+        "zh-Hant": "將自己的ＨＰ和 對手的ＨＰ相加， 然後雙方友好地平分。",
+        "zh-Hans": "将自己的ＨＰ和 对手的ＨＰ相加， 然后自己和对手友好地平分。"
+    }
 }

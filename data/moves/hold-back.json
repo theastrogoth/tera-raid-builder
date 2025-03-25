@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user holds back when it attacks, and the target is left with at least 1 HP.",
+        "ja": "手加減　した　攻撃で 相手の　ＨＰを 必ず　１だけ　残す。",
+        "fr": "Le lanceur attaque avec retenue, et laisse au moins 1 PV à la cible.",
+        "es": "El usuario se contiene a la hora de atacar y deja al objetivo con al menos 1 PS.",
+        "de": "Der Anwender hält sich beim Angriff zurück und sorgt auf diese Weise dafür, dass dem Ziel danach mindestens 1 KP verbleibt.",
+        "it": "Il Pokémon modula l'attacco in modo da lasciare al bersaglio almeno 1 PS.",
+        "ko": "적당히 공격하여 상대의 HP를 반드시 1은 남긴다.",
+        "zh-Hant": "在攻擊的時候手下留情， 讓對手的ＨＰ一定會剩下１。",
+        "zh-Hans": "在攻击的时候手下留情， 从而使对手的ＨＰ 至少会留下１ＨＰ。"
+    }
 }

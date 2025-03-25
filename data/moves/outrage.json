@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user rampages and attacks for two to three turns. The user then becomes confused.",
+        "ja": "２ー３ターンの　間 暴れまくって　攻撃する。 暴れたあとは　混乱する。",
+        "fr": "Le lanceur enrage et attaque pendant deux ou trois tours avant de devenir confus.",
+        "es": "El usuario ataca enfurecido durante dos o tres turnos y, después, se queda confuso.",
+        "de": "Attacke über zwei bis drei Runden, die den Anwender danach verwirrt.",
+        "it": "Il Pokémon s'infuria e attacca per due o tre turni, ma rimane confuso.",
+        "ko": "2~3턴 동안 마구 난동 부려서 공격한다. 난동 부린 뒤에는 혼란에 빠진다.",
+        "zh-Hant": "在２～３回合內 瘋狂亂打對手進行攻擊。 大鬧一番後自己會陷入混亂。",
+        "zh-Hans": "在２～３回合内， 乱打一气地进行攻击。 大闹一番后自己会陷入混乱。"
+    }
 }

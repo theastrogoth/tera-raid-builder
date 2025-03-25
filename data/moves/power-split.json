@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user employs its psychic power to average its Attack and Sp. Atk stats with those of the target.",
+        "ja": "超能力で　自分と　相手の 攻撃と　特攻を　たして 半分に　わける。",
+        "fr": "Additionne l'Attaque Spéciale et l'Attaque du lanceur et de sa cible et les redistribue équitablement entre les deux.",
+        "es": "El usuario emplea sus poderes para hacer la media de su Ataque y su Ataque Especial con los del objetivo y compartirlos.",
+        "de": "Durch Psycho-Kräfte werden Angriff und Spezial-Angriff des Anwenders und des Zieles addiert und in zwei gleiche Hälften geteilt.",
+        "it": "Il Pokémon sfrutta la sua forza psichica per sommare Attacco e Attacco Speciale a quelli del bersaglio e dividerli equamente.",
+        "ko": "초능력으로 자신과 상대의 공격과 특수공격을 더해서 반으로 나눈다.",
+        "zh-Hant": "用超能力將自己和對手的 攻擊和特攻各別相加後， 再進行平分。",
+        "zh-Hans": "利用超能力将自己和对手的 攻击和特攻相加， 再进行平分。"
+    }
 }

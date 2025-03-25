@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user inflicts damage by dropping an apple from high above. This also lowers the target's Defense stat.",
+        "ja": "高いところから　りんごを　落として ダメージを　与える。 相手の　防御を　下げる。",
+        "fr": "Le lanceur fait tomber une pomme de très haut sur la cible, ce qui baisse la Défense de celle-ci.",
+        "es": "El usuario ataca haciendo caer una manzana desde gran altura. Reduce la Defensa del objetivo.",
+        "de": "Ein Apfel fällt aus großer Höhe herab und richtet Schaden an. Dabei wird die Verteidigung des Zieles gesenkt.",
+        "it": "Il Pokémon fa cadere una mela sul bersaglio da una grande altezza, infliggendogli danni e riducendone la Difesa.",
+        "ko": "높은 곳에서 사과를 떨어뜨려서 데미지를 준다. 상대의 방어를 떨어뜨린다.",
+        "zh-Hant": "讓蘋果從高處落下， 給予對手傷害。 可降低對手的防禦。",
+        "zh-Hans": "从高处落下苹果， 给予对手伤害。 可降低对手的防御。"
+    }
 }

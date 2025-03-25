@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user launches a huge boulder at the target to attack. The user can't move on the next turn.",
+        "ja": "巨大な　岩を 相手に　発射して　攻撃する。 次の　ターンは　動けなくなる。",
+        "fr": "Le lanceur attaque en projetant un gros rocher sur la cible. Il doit se reposer au tour suivant.",
+        "es": "Lanza una piedra enorme contra el objetivo. El usuario deberá descansar en el siguiente turno.",
+        "de": "Anwender wirft einen riesigen Felsen auf das Ziel. In der nächsten Runde muss der Anwender ruhen.",
+        "it": "Il Pokémon attacca il bersaglio con un enorme masso, ma si deve riposare al turno successivo.",
+        "ko": "거대한 바위를 상대에게 발사하여 공격한다. 다음 턴은 움직일 수 없다.",
+        "zh-Hant": "向對手發射 巨大的岩石進行攻擊。 下一回合自己將無法動彈。",
+        "zh-Hans": "向对手发射 巨大的岩石进行攻击。 下一回合自己将无法动弹。"
+    }
 }

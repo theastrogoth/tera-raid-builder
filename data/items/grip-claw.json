@@ -1,0 +1,14 @@
+{
+    "name": "Grip Claw",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. When the holder uses moves that deal damage over several turns, such as Bind or Wrap, their effects will last longer than usual.",
+        "ja": "持たせると　しめつける　まきつくなど ダメージを　あたえつづける技の ターン数が　増える。",
+        "fr": "Objet à tenir. Prolonge la durée des attaques à tours multiples telles que Ligotage et Étreinte.",
+        "es": "Prolonga la duración de ataques multiturno como Atadura y Constricción si la lleva un Pokémon.",
+        "de": "Ein Item zum Tragen. Verlängert die Dauer von Attacken wie Klammergriff und Wickel, die über mehrere Runden Schaden zufügen.",
+        "it": "Strumento da dare a un Pokémon. Aumenta i turni di effetto delle mosse che infliggono danni in modo continuativo come Avvolgibotta e Legatutto.",
+        "ko": "지니게 하면 조이기나 김밥말이 등 데미지를 계속 주는 기술의 턴 수가 늘어난다.",
+        "zh-Hant": "攜帶後，綁緊以及緊束等 會持續造成傷害的招式的 回合數會增加。",
+        "zh-Hans": "携带后，绑紧以及紧束等 会持续造成伤害的招式的 回合数会增加。"
+    }
+}

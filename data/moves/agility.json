@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user relaxes and lightens its body to move faster. This sharply boosts its Speed stat.",
+        "ja": "力を　ぬいて　体を　軽くして 高速で　動く。 自分の　素早さを　ぐーんと　あげる。",
+        "fr": "Le lanceur se relaxe et allège son corps pour beaucoup augmenter sa Vitesse.",
+        "es": "Relaja y aligera el cuerpo para aumentar mucho la Velocidad.",
+        "de": "Entspannt den Körper, um den Initiative-Wert stark zu erhöhen.",
+        "it": "Il Pokémon rilassa e alleggerisce il proprio corpo per far aumentare di molto la Velocità.",
+        "ko": "힘을 빼고 몸을 가볍게 해서 고속으로 움직인다. 자신의 스피드를 크게 올린다.",
+        "zh-Hant": "放鬆身體， 讓自己變得輕盈以進行高速移動。 可大幅提高自己的速度。",
+        "zh-Hans": "让身体放松变得轻盈， 以便高速移动。 大幅提高自己的速度。"
+    }
 }

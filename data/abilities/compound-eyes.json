@@ -1,0 +1,14 @@
+{
+    "name": "Compound Eyes",
+    "flavorText": {
+        "en": "The Pokémon's compound eyes boost its accuracy.",
+        "ja": "複眼を　持っているため 技の　命中率が　上がる。",
+        "fr": "Les yeux à facettes du Pokémon augmentent la Précision de ses capacités.",
+        "es": "Aumenta la precisión de sus movimientos.",
+        "de": "Dank der Facettenaugen des Pokémon steigt die Genauigkeit seiner Attacken.",
+        "it": "La precisione del Pokémon aumenta grazie ai suoi occhi composti.",
+        "ko": "복안을 가지고 있어 기술의 명중률이 올라간다.",
+        "zh-Hant": "因為擁有複眼， 會提高招式的命中率。",
+        "zh-Hans": "因为拥有复眼， 招式的命中率会提高。"
+    }
+}

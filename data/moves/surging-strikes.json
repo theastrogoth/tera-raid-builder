@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user, having mastered the Water style, strikes the target with a flowing motion three times in a row. This move always lands a critical hit.",
+        "ja": "みずの型を　極めし 流れるような　３回の　連撃。 必ず　急所に　当たる。",
+        "fr": "Le lanceur assène trois coups fluides à la cible. Cette technique qui inflige toujours un coup critique est réservée à ceux qui maîtrisent la puissance de l'Eau.",
+        "es": "El usuario, dominador absoluto del líquido elemento, golpea tres veces seguidas con movimientos fluidos. Siempre asesta un golpe crítico.",
+        "de": "Der Anwender hat den Stil des Wassers gemeistert und führt mit fließenden Bewegungen drei Angriffe in Folge mit Volltreffergarantie aus.",
+        "it": "Il Pokémon sferra una fluida serie di tre attacchi, massima espressione dello stile di tipo Acqua. Brutto colpo assicurato.",
+        "ko": "물의 태세가 극에 달하여 물 흐르듯 3회의 연격을 날린다. 반드시 급소에 맞는다.",
+        "zh-Hant": "將水之流派鍛鍊到了極致， 猶如行雲流水的３次連擊。 必定會擊中要害。",
+        "zh-Hans": "将水之流派修炼至大成的 仿若行云流水般的３次连击。 必定会击中要害。"
+    }
 }

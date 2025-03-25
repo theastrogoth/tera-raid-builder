@@ -1,0 +1,14 @@
+{
+    "name": "Beast Boost",
+    "flavorText": {
+        "en": "Boosts the Pokémon's most proficient stat every time it knocks out a target.",
+        "ja": "相手を　倒したとき 自分の　いちばん　高い 能力が　上がる。",
+        "fr": "Augmente la stat la plus élevée du Pokémon quand il met K.O. un autre Pokémon.",
+        "es": "Al derrotar a un Pokémon, aumenta su característica más fuerte.",
+        "de": "Besiegt das Pokémon ein anderes Pokémon, steigt sein höchster Statuswert.",
+        "it": "Quando il Pokémon manda KO un altro Pokémon, aumenta la propria statistica di punta.",
+        "ko": "상대를 기절시켰을 때 자신의 가장 높은 능력이 올라간다.",
+        "zh-Hant": "打倒對手的時候， 會提高自己最高的那項能力。",
+        "zh-Hans": "打倒对手的时候， 自己最高的那项能力会提高。"
+    }
+}

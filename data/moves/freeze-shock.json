@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The turn after using this move, the user hits the target with electrically charged ice to inflict damage. This may also leave the target with paralysis.",
+        "ja": "電気を　まとった　氷の　塊で ２ターン目に　相手を　たたきつける。 まひ状態に　することが　ある。",
+        "fr": "Le lanceur projette un bloc de glace électrifié sur la cible au second tour, ce qui peut aussi la paralyser.",
+        "es": "El usuario carga un bloque de hielo con electricidad en el primer turno y ataca con él en el segundo. Puede paralizar.",
+        "de": "Feuert in der zweiten Runde elektrisch geladene Eisklumpen auf das Ziel ab. Paralysiert das Ziel eventuell.",
+        "it": "Il Pokémon lancia al turno successivo una sfera di ghiaccio ricoperta di elettricità. Può anche paralizzare il bersaglio.",
+        "ko": "전기를 두른 얼음덩어리로 2턴째에 상대를 내리친다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "製造出帶有電流的冰塊， 在下一回合攻擊對手。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "用覆盖着电流的冰块， 在第２回合撞向对手。 有时会让对手陷入麻痹状态。"
+    }
 }

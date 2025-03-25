@@ -1,0 +1,14 @@
+{
+    "name": "Sitrus Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to restore a small amount of HP to itself.",
+        "ja": "ポケモンに　持たせると ＨＰを　少しだけ　回復する。 ",
+        "fr": "Une Baie qui restaure quelques PV lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para restaurar algunos PS.",
+        "de": "Als getragenes Item füllt diese Beere die KP des Pokémon ein wenig auf.",
+        "it": "Se un Pokémon ha questa bacca, recupera un po' di PS.",
+        "ko": "포켓몬에게 지니게 하면 HP를 조금 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以回復少量ＨＰ。",
+        "zh-Hans": "让宝可梦携带后， 可以回复少量ＨＰ。"
+    }
+}

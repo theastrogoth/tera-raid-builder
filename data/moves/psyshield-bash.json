@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Cloaking itself in psychic energy, the user slams into the target. This also boosts the user's Defense stat.",
+        "ja": "思念のエネルギーを　まといながら 相手に　ぶつかっていく。 自分の　防御を　あげる。",
+        "fr": "Le lanceur s'enveloppe d'énergie psychique et frappe sa cible de plein fouet. Cela augmente également la Défense du lanceur.",
+        "es": "El usuario ataca envuelto en una energía psíquica que además aumenta su Defensa.",
+        "de": "Der Anwender hüllt sich in Psycho-Energie und rammt das Ziel. Außerdem steigt seine Verteidigung.",
+        "it": "Il Pokémon si carica di energia psichica per poi schiantarsi sul bersaglio. Inoltre, aumenta la propria Difesa.",
+        "ko": "사념의 에너지를 두른 채로 상대에게 부딪친다. 자신의 방어를 올린다.",
+        "zh-Hant": "讓意念的能量圍繞全身， 撞向對手進行攻擊。 提高自己的防禦。",
+        "zh-Hans": "让意念的能量覆盖全身， 撞向对手进行攻击。 会提高自己的防御。"
+    }
 }

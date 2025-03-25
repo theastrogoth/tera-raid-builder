@@ -1,0 +1,14 @@
+{
+    "name": "Poké Radar",
+    "flavorText": {
+        "en": "A tool that can search out Pokémon that are hiding in the tall grass. Its battery is recharged as you walk.",
+        "ja": "くさむらに　隠れている　ポケモンを 探しだせる　道具。 歩くと　電池が　たまる。",
+        "fr": "Un objet permettant de trouver les Pokémon qui se cachent dans les hautes herbes. Se recharge quand on marche.",
+        "es": "Busca Pokémon que se esconden en la hierba alta. La batería se recarga al caminar.",
+        "de": "Spürt Pokémon im hohen Gras auf. Die Batterie wird beim Reisen aufgeladen.",
+        "it": "Strumento con cui individuare i Pokémon nascosti nell'erba. La batteria si ricarica mentre cammini.",
+        "ko": "풀밭에 숨어 있는 포켓몬을 찾아내는 도구. 걸으면 전지가 충전된다.",
+        "zh-Hant": "能夠將藏在草叢裡的 寶可夢找出來的道具。 走路就能給電池充電。",
+        "zh-Hans": "能够将藏在草丛里的 宝可梦找出来的道具。 走路就能给电池充电。"
+    }
+}

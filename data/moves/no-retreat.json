@@ -51,5 +51,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This move boosts all the user's stats but prevents the user from switching out or fleeing.",
+        "ja": "自分の　すべての 能力が　上がるが　交代　したり 逃げることが　できなくなる。",
+        "fr": "Le lanceur voit toutes ses stats augmenter, mais en contrepartie, il ne peut plus quitter le terrain.",
+        "es": "El usuario aumenta todas sus características, pero ya no puede huir ni ser cambiado por otro.",
+        "de": "Alle Statuswerte des Anwenders werden erhöht, aber dafür kann er nicht fliehen oder ausgewechselt werden.",
+        "it": "Il Pokémon aumenta tutte le sue statistiche ma non può più fuggire o essere sostituito.",
+        "ko": "자신의 모든 능력이 올라가지만 교체하거나 도망칠 수 없게 된다.",
+        "zh-Hant": "提高自己所有的能力， 但無法進行替換或逃走。",
+        "zh-Hans": "提高自己的所有能力， 但无法替换或逃走。"
+    }
 }

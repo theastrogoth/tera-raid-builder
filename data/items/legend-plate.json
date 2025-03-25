@@ -1,0 +1,14 @@
+{
+    "name": "Legend Plate",
+    "flavorText": {
+        "en": "A stone tablet imbued with the essence of all creation. When used on a certain Pokémon, it allows that Pokémon to gain the power of every type there is.",
+        "ja": "万物の力が宿った石盤。 あるポケモンに使うと あらゆるタイプの力を得る。",
+        "fr": "Une tablette en pierre imprégnée d'une puissance suprême. Lorsqu'elle est utilisée sur un certain Pokémon, celui-ci obtient les pouvoirs de n'importe quel type.",
+        "es": "Tabla de piedra imbuida de la energía de la creación. Permite a cierto Pokémon obtener el poder de cualquier tipo.",
+        "de": "Dieser Steintafel wohnt eine universelle Energie inne. Wird sie auf ein bestimmtes Pokémon angewendet, erlangt es die Kraft aller Typen.",
+        "it": "Lastra di pietra colma di energia universale. Se usata su un Pokémon in particolare, gli permette di ottenere il potere di tutti i tipi esistenti.",
+        "ko": "만물의 힘이 깃든 석판. 특정 포켓몬에게 사용하면 모든 타입의 힘을 얻는다.",
+        "zh-Hant": "蘊含著萬物之力的石板。 對某種寶可夢使用， 可使其獲得一切屬性的力量。",
+        "zh-Hans": "蕴含着万物之力的石板。 对某种宝可梦使用， 可使其获得一切属性的力量。"
+    }
+}

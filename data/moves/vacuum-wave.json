@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user whirls its fists to send a wave of pure vacuum at the target. This move always goes first.",
+        "ja": "こぶしを　ふって 真空の　波を　まきおこす。 必ず　先制攻撃できる。",
+        "fr": "Le lanceur agite son poing pour projeter une onde de vide. Frappe en priorité.",
+        "es": "Gira los puños y libera una onda de vacío contra el objetivo. Este movimiento tiene prioridad alta.",
+        "de": "Erstschlag-Attacke, bei der ein Faustwirbel eine Vakuumwelle auf das Ziel sendet.",
+        "it": "Il Pokémon rotea i pugni per lanciare un'onda di vuoto assoluto verso il bersaglio. Questo attacco ha priorità alta.",
+        "ko": "주먹을 휘둘러 진공의 파도를 일으킨다. 반드시 선제공격을 할 수 있다.",
+        "zh-Hant": "揮動拳頭， 捲起真空波。 必定能夠發動先制攻擊。",
+        "zh-Hans": "挥动拳头， 掀起真空波。 必定能够先制攻击。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Anger Shell",
+    "flavorText": {
+        "en": "When an attack causes its HP to drop to half or less, the Pokémon gets angry. This lowers its Defense and Sp. Def stats but boosts its Attack, Sp. Atk, and Speed stats.",
+        "ja": "相手の攻撃で　ＨＰが　半分に　なると 怒りで　防御と　特防が　下がるが 攻撃　特攻　素早さが　上がる。",
+        "fr": "Le Pokémon enrage s'il a moins de la moitié de ses PV après avoir subi une attaque. Sa Déf. et sa Déf. Spé. baissent, et son Atq., son Atq. Spé. et sa Vit. augmentent.",
+        "es": "Cuando un ataque reduce sus PS a la mitad, un arrebato de cólera reduce su Defensa y su Defensa Especial, pero aumenta su Ataque, su Ataque Especial y su Velocidad.",
+        "de": "Fallen die KP des Pokémon durch einen Angriff auf die Hälfte des Maximalwerts oder weniger, sinken Vert. und Sp.-Vert., aber Ang., Sp.-Ang. und Initiative steigen.",
+        "it": "Se un attacco subìto porta i PS a metà o meno, la rabbia del Pokémon ne riduce la Difesa e la Difesa Speciale ma ne aumenta l'Attacco, l'Attacco Speciale e la Velocità.",
+        "ko": "상대의 공격에 의해 HP가 절반이 되면 화가 나서 방어와 특수방어가 떨어지지만 공격, 특수공격, 스피드가 올라간다.",
+        "zh-Hant": "ＨＰ因對手的攻擊降到一半時， 會因憤怒而降低防禦和特防， 但攻擊、特攻和速度會提高。",
+        "zh-Hans": "因被对手攻击而ＨＰ变为一半时， 会因愤怒降低防御和特防。 但攻击、特攻、速度会提高。"
+    }
+}

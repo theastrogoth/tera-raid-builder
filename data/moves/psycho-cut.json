@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user tears at the target with blades formed by psychic power. This move has a heightened chance of landing a critical hit.",
+        "ja": "実体化させた 心の　刃で　相手を　切り裂く。 急所に　当たりやすい。",
+        "fr": "Le lanceur entaille la cible grâce à des lames faites d'énergie psychique. Taux de critiques élevé.",
+        "es": "Ataca al objetivo con cuchillas formadas por energía psíquica. Suele asestar un golpe crítico.",
+        "de": "Das Ziel wird mit Klingen attackiert, die aus Psycho-Energie bestehen. Hohe Volltrefferquote.",
+        "it": "Il Pokémon colpisce il bersaglio con lame fatte di forza psichica. Probabile brutto colpo.",
+        "ko": "실체화시킨 마음의 칼날로 상대를 베어 가른다. 급소에 맞기 쉽다.",
+        "zh-Hant": "用實體化的 精神利刃斬向對手。 容易擊中要害。",
+        "zh-Hans": "用实体化的 心之利刃劈开对手。 容易击中要害。"
+    }
 }

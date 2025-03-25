@@ -1,0 +1,14 @@
+{
+    "name": "Indigo Style Card",
+    "flavorText": {
+        "en": "Having one of these cards increases the selection available to you in boutiques and hair salons.",
+        "ja": "持っていると　ブティックで　買える 品物が　増える。　ヘアサロンでは 選べる　髪型が　増える　カード。",
+        "fr": "Une carte permettant d'accéder à un plus vaste choix d'articles dans les boutiques chics et à davantage de coupes de cheveux dans les salons de coiffure.",
+        "es": "Una tarjeta que aumenta la selección de artículos disponibles en las tiendas y permite elegir entre una mayor variedad de peinados en las peluquerías.",
+        "de": "Wer diese Karte bei sich trägt, erhält in Boutiquen und Friseursalons eine größere Auswahl.",
+        "it": "Una tessera che amplia la scelta di acconciature disponibili nei saloni di bellezza e di articoli acquistabili nei negozi di vestiti.",
+        "ko": "지니고 있으면 부티크에서 살 수 있는 품목이 늘어나고, 헤어살롱에서는 고를 수 있는 헤어스타일이 늘어나는 카드.",
+        "zh-Hant": "擁有這張卡，就能在時裝店買到 更多商品。到美髮沙龍時， 也能有更多樣化的髮型選項。",
+        "zh-Hans": "拥有后，在时装店可以买到的物品 和在美发沙龙可以选择的发型 都会有所增加的卡片。"
+    }
+}

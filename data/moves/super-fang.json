@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user chomps hard on the target with its sharp front fangs. This cuts the target's HP in half.",
+        "ja": "鋭い　前歯で 激しく　かみついて　攻撃する。 相手の　ＨＰは　半分に　なる。",
+        "fr": "Une vilaine morsure d'incisives qui réduit de moitié les PV de la cible.",
+        "es": "Asesta una dentellada con sus afilados incisivos que reduce a la mitad los PS del objetivo.",
+        "de": "Greift mit scharfen Reißzähnen an. KP des Zieles werden halbiert.",
+        "it": "Il Pokémon attacca il bersaglio azzannandolo con i suoi incisivi affilati e facendogli perdere metà dei PS.",
+        "ko": "날카로운 앞니로 강하게 물어서 공격한다. 상대의 HP는 절반이 된다.",
+        "zh-Hant": "用銳利的門牙 猛烈地咬住對手進行攻擊。 對手的ＨＰ將會減半。",
+        "zh-Hans": "用锋利的门牙 猛烈地咬住对手进行攻击。 对手的ＨＰ减半。"
+    }
 }

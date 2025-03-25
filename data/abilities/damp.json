@@ -1,0 +1,14 @@
+{
+    "name": "Damp",
+    "flavorText": {
+        "en": "The Pokémon dampens its surroundings, preventing all Pokémon from using explosive moves such as Self-Destruct.",
+        "ja": "あたりを　湿らせることに　よって じばく　などの　爆発する　技を だれも　使えなくなる。",
+        "fr": "Le Pokémon augmente l'humidité de l'air, ce qui empêche tous les Pokémon d'utiliser des capacités explosives telles que Destruction.",
+        "es": "Aumenta la humedad del entorno y evita que se puedan utilizar movimientos explosivos, tales como Autodestrucción.",
+        "de": "Das Pokémon befeuchtet die Umgebung und verhindert so den Einsatz von Attacken wie Finale, die Explosionen auslösen.",
+        "it": "Aumenta l'umidità circostante, impedendo l'uso di Autodistruzione e di altre mosse esplosive.",
+        "ko": "주변을 습하게 함으로써 자폭 등 폭발하는 기술을 아무도 못 쓰게 한다.",
+        "zh-Hant": "透過把周圍都弄濕， 使誰都無法使用自爆等爆炸類的招式。",
+        "zh-Hans": "通过把周围都弄湿， 使谁都无法使用玉石俱碎等爆炸类的招式。"
+    }
+}

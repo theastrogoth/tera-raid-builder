@@ -1,0 +1,14 @@
+{
+    "name": "Precooked Burger",
+    "flavorText": {
+        "en": "One of the many ingredients that can be used for cooking at your camp. If you're unsure about what to cook, you can't go wrong with some burger.",
+        "ja": "キャンプの　料理に　使う 食材の　一種。迷った　ときは ハンバーグを　入れておけば　間違いない。",
+        "fr": "Un ingrédient de cuisine pour le camping. Quand on ne sait pas quoi ajouter à un curry, le steak haché est une valeur sûre.",
+        "es": "Un ingrediente para cocinar en el campamento. Una apuesta segura, perfecta para esos momentos de duda.",
+        "de": "Eine Zutat für PokéCamping-Mahlzeiten. Mit Frikadellen liegt man nie falsch. Die perfekte Zutat für alle Köche, die sich nicht für eine Zutat entscheiden können.",
+        "it": "Uno degli ingredienti che puoi usare per cucinare in campeggio. Quando non sai bene cosa fare, aggiungi un Hamburger e non sbagli mai.",
+        "ko": "캠프 요리에 사용되는 식재료 중 하나. 고민될 때 햄버그를 넣으면 실패할 일은 없다.",
+        "zh-Hant": "製作露營料理時使用的食材之一。 不知道該放什麼的時候， 放漢堡排就一定不會錯。",
+        "zh-Hans": "在露营营地制作料理时会使用的 一种食材。不知道该加什么的时候， 选择这种汉堡肉准没错。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Silver Razz Berry",
+    "flavorText": {
+        "en": "A Berry that makes it easier to catch Pokémon when given to them.",
+        "ja": "ポケモンに　あたえると 捕まえ　やすくなる　きのみ。",
+        "fr": "Une Baie à donner à un Pokémon sauvage pour pouvoir l'attraper plus facilement.",
+        "es": "Una baya que puedes lanzar a un Pokémon salvaje para que resulte bastante más fácil capturarlo.",
+        "de": "Gibst du diese Beere einem Pokémon zu essen, lässt es sich leichter fangen.",
+        "it": "Bacca che facilita la cattura del Pokémon selvatico a cui viene data.",
+        "ko": "포켓몬에게 주면 잡기 쉬워지는 나무열매.",
+        "zh-Hant": "把這個樹果餵給寶可夢， 就能讓牠們變得容易捕捉。",
+        "zh-Hans": "把这树果交给宝可梦后， 宝可梦就会变得容易捕捉。"
+    }
+}

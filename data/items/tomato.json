@@ -1,0 +1,14 @@
+{
+    "name": "Tomato",
+    "flavorText": {
+        "en": "This very tart ingredient has a lot of savory elements to it, making it popular with many Pokémon.",
+        "ja": "酸味が　強い　食材。 うま味の成分を　多く　含んでいるので いろんなポケモンに　人気なのだ。",
+        "fr": "Un ingrédient au goût très acide. Très apprécié par divers Pokémon grâce à plusieurs éléments lui donnant une saveur umami unique.",
+        "es": "Tiene un fuerte sabor ácido, pero también un toque umami que lo hace muy popular entre los Pokémon.",
+        "de": "Eine sehr saure Zutat, die durch ihre zahlreichen umami Komponenten bei vielen Pokémon hoch im Kurs steht.",
+        "it": "Un ingrediente molto aspro, amato da tanti Pokémon per via della sapidità di molte delle sostanze che contiene.",
+        "ko": "신맛이 강한 식재료. 감칠맛이 나는 성분을 많이 포함하고 있어서 다양한 포켓몬에게 인기가 많다.",
+        "zh-Hant": "酸味強勁的食材。 富含帶有鮮味的成分， 所以受到許多寶可夢的喜愛。",
+        "zh-Hans": "酸味强烈的食材。 含有许多鲜味成分， 所以受到各种宝可梦欢迎。"
+    }
+}

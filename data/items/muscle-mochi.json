@@ -1,0 +1,14 @@
+{
+    "name": "Muscle Mochi",
+    "flavorText": {
+        "en": "A mochi cake with Berries kneaded into its dough. It increases base points for a Pokémon's Attack stat.",
+        "ja": "きのみが　ねりこまれた　もち。 ポケモン　１匹の　攻撃の 基礎ポイントを　あげる。",
+        "fr": "Un mochi contenant des Baies qui augmente l'Attaque de base d'un Pokémon.",
+        "es": "La masa de este mochi está preparada con bayas. Aumenta el Ataque de base de un Pokémon.",
+        "de": "Ein mit Beeren gefüllter Mochi, der die Angriffs- Basispunkte eines Pokémon dauerhaft erhöht.",
+        "it": "Mochi preparato con un impasto a base di bacche. Aumenta i punti base dell'Attacco.",
+        "ko": "으깬 나무열매가 들어 있는 떡. 포켓몬 1마리의 공격 기초 포인트를 올린다.",
+        "zh-Hant": "加入樹果揉製而成的麻糬。 能提高１隻寶可夢的 攻擊的基礎點數。",
+        "zh-Hans": "糅合树果的粘糕。 能提高１只宝可梦的 攻击的基础点数。"
+    }
+}

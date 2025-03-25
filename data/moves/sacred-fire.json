@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is razed with a mystical fire of great intensity. This may also leave the target with a burn.",
+        "ja": "神秘の　炎で 相手を　焼きつくして　攻撃する。 やけど状態に　することが　ある。",
+        "fr": "Le lanceur génère un feu mystique d'une intensité redoutable pour attaquer la cible, ce qui peut aussi la brûler.",
+        "es": "Fuego místico de gran intensidad que puede causar quemaduras.",
+        "de": "Mystische Feuer-Attacke, durch die das Ziel eventuell Verbrennungen erleidet.",
+        "it": "Il Pokémon attacca il bersaglio con un fuoco mistico di enorme intensità che può anche causargli una scottatura.",
+        "ko": "신비한 불꽃으로 상대를 태워서 공격한다. 화상 상태로 만들 때가 있다.",
+        "zh-Hant": "用神秘的火焰 燒盡對手進行攻擊。 有時會讓對手陷入灼傷狀態。",
+        "zh-Hans": "用神秘的火焰 烧尽对手进行攻击。 有时会让对手陷入灼伤状态。"
+    }
 }

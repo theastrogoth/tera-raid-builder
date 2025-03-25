@@ -1,0 +1,14 @@
+{
+    "name": "X Speed 2",
+    "flavorText": {
+        "en": "Sharply boosts the Speed stat of a Pokémon in battle. This effect disappears if the Pokémon leaves the battle.",
+        "ja": "戦闘中　ポケモンの 素早さを　それなりに　あげる。 ひっこめると　元に　戻る。",
+        "fr": "Augmente un peu la Vitesse pendant un combat. L'effet se dissipe si le Pokémon est retiré.",
+        "es": "Aumenta ligeramente la Velocidad en combate. Al cambiar de Pokémon, el efecto desaparece.",
+        "de": "Hebt den Initiative-Wert eines Pokémon im Kampf leicht an. Die Wirkung endet mit dem Austausch des Pokémon.",
+        "it": "Aumenta di molto la Velocità di un Pokémon in una lotta. L'effetto svanisce se il Pokémon è sostituito.",
+        "ko": "배틀 중인 포켓몬의 스피드를 그럭저럭 올린다. 포켓몬을 볼에 넣어 버리면 원래대로 되돌아간다.",
+        "zh-Hant": "能相對提高戰鬥中 寶可夢的速度。 離場後，效果便會消失。",
+        "zh-Hans": "能相对提高战斗中 宝可梦的速度。 离场后，效果便会消失。"
+    }
+}

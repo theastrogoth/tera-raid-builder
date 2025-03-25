@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user transforms its wrath into a fire-like aura to attack. This may also make opposing Pokémon flinch.",
+        "ja": "怒りを　炎の　ような オーラに　変えて　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur canalise sa colère et la transforme en émanation brûlante, avec laquelle il attaque la cible, ce qui peut aussi apeurer celle-ci.",
+        "es": "El usuario convierte su ira en un aura flamígera para lanzar su ataque. Puede amedrentar al objetivo.",
+        "de": "Der Anwender wandelt seinen Zorn in eine flammende Aura um und greift damit gegnerische Pokémon an. Diese schrecken eventuell zurück.",
+        "it": "Il Pokémon attacca trasformando la sua rabbia in un'aura simile a fiamme. Può anche far tentennare il bersaglio.",
+        "ko": "분노를 불꽃 같은 오라로 바꿔서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "將憤怒化為火焰般的氣場進行攻擊。 有時會讓對手畏縮。",
+        "zh-Hans": "将愤怒转化为火焰般的气场进行攻击。 有时会使对手畏缩。"
+    }
 }

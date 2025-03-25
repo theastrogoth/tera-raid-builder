@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user traps the target inside a fierce vortex of fire that inflicts damage for four to five turns.",
+        "ja": "激しく　渦をまく　炎の中に ４ー５ターンの　間 相手を　閉じこめて　攻撃する。",
+        "fr": "Un tourbillon de flammes emprisonne la cible pendant quatre à cinq tours.",
+        "es": "Un aro de fuego que atrapa y daña al objetivo de cuatro a cinco turnos.",
+        "de": "Das Ziel wird für vier bis fünf Runden in einem Feuerkreis gefangen.",
+        "it": "Il Pokémon attacca il bersaglio intrappolandolo in un turbine di fuoco che dura per quattro o cinque turni.",
+        "ko": "세차게 소용돌이치는 불꽃 속에 4~5턴 동안 상대를 가두어 공격한다.",
+        "zh-Hant": "將對手困在 熊熊燃燒的火焰旋渦中， 在４～５回合內進行攻擊。",
+        "zh-Hans": "将对手困在 激烈的火焰旋涡中， 在４～５回合内进行攻击。"
+    }
 }

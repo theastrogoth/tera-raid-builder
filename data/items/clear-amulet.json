@@ -1,0 +1,14 @@
+{
+    "name": "Clear Amulet",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This clear, sparkling amulet protects the holder from having its stats lowered by moves used against it or by other Pokémon's Abilities.",
+        "ja": "透き通った　かがやきの　チャーム。 持たせると　相手の　技や　特性で 能力を　下げられない。",
+        "fr": "Objet à tenir. Un talisman translucide et brillant qui empêche les stats du Pokémon de baisser à cause du talent ou d'une capacité de l'adversaire.",
+        "es": "Un amuleto brillante y transparente. Impide que los movimientos o habilidades de otros Pokémon reduzcan las características del Pokémon que lo lleva.",
+        "de": "Gibt man dieses glänzende Item einem Pokémon zum Tragen, können dessen Statuswerte nicht durch Attacken oder Fähigkeiten anderer Pokémon gesenkt werden.",
+        "it": "Strumento da dare a un Pokémon. Ciondolo brillante e trasparente che impedisce la diminuzione delle statistiche causata da abilità o mosse di altri Pokémon.",
+        "ko": "투명하고 빛나는 참. 지니게 하면 상대의 기술이나 특성으로 능력이 떨어지지 않는다.",
+        "zh-Hant": "澄澈晶瑩的墜飾。 攜帶後，不會因對手的招式或特性 而被降低能力。",
+        "zh-Hans": "光芒晶莹剔透的坠饰。 携带后，不会因为对手的 招式或特性而被降低能力。"
+    }
+}

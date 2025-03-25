@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user attacks with savagely cold winds that cause both body and spirit to tremble. This may also lower the Speed stats of opposing Pokémon.",
+        "ja": "身も心も　震える　冷たく 激しい風で　攻撃する。 相手の　素早さを　さげることが　ある。",
+        "fr": "Le lanceur déclenche un typhon froid et brutal qui fait trembler le cœur et le corps de la cible, ce qui peut aussi baisser sa Vitesse.",
+        "es": "Ataca con un viento muy frío que estremece el cuerpo y la mente y que, además, puede reducir la Velocidad del objetivo.",
+        "de": "Der Anwender greift mit starken, kalten Winden an, die Körper und Geist erzittern lassen. Senkt eventuell die Initiative gegnerischer Pokémon.",
+        "it": "Il Pokémon attacca il bersaglio con venti gelidi e sferzanti che lo fanno tremare anima e corpo. Può anche ridurne la Velocità.",
+        "ko": "심신을 모두 떨게 만드는 차갑고도 거친 바람으로 공격한다. 상대의 스피드를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "用足以讓身心都止不住顫抖的 冰冷狂風進行攻擊。 有時會降低對手的速度。",
+        "zh-Hans": "用足以让身心都止不住颤抖的 冰冷狂风进行攻击。 有时会降低对手的速度。"
+    }
 }

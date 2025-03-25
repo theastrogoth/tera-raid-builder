@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with an acidic liquid created from tart apples. This also lowers the target's Sp. Def stat.",
+        "ja": "すっぱい　りんごから　つくりだした 酸性の　液体で　攻撃。 相手の　特防を　下げる。",
+        "fr": "Le lanceur projette un liquide corrosif créé à partir d'une pomme acide sur la cible, ce qui baisse la Défense Spéciale de celle-ci.",
+        "es": "Ataca al objetivo con el fluido corrosivo que desprende una manzana ácida, lo que también reduce la Defensa Especial de este.",
+        "de": "Der Anwender greift mit einer aus einem sauren Apfel hergestellten säurehaltigen Flüssigkeit an. Dabei wird die Spezial-Verteidigung des Zieles gesenkt.",
+        "it": "Il Pokémon attacca il bersaglio con un liquido acido ricavato da mele aspre riducendone la Difesa Speciale.",
+        "ko": "새콤한 사과에서 만들어 낸 산성 액체로 공격한다. 상대의 특수방어를 떨어뜨린다.",
+        "zh-Hant": "使用從酸蘋果提煉出的 酸性液體進行攻擊。 可降低對手的特防。",
+        "zh-Hans": "使用从酸苹果中提取出来的 酸性液体进行攻击。 降低对手的特防。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Using its tough and impressive horn, the user rams into the target with no letup.",
+        "ja": "硬くて　りっぱな　つので　おもいっきり 相手を　突き刺して　攻撃する。",
+        "fr": "Le lanceur inflige un grand coup de corne à la cible.",
+        "es": "Ensarta al objetivo con su imponente cuerno o cornamenta.",
+        "de": "Brutaler Ramm-Angriff mit spitzem, beeindruckendem Horn.",
+        "it": "Il Pokémon usa il suo robusto e imponente corno per attaccare il bersaglio con tutto se stesso.",
+        "ko": "단단하고 훌륭한 뿔로 힘껏 상대를 꿰찔러서 공격한다.",
+        "zh-Hant": "用堅硬且華麗的角狠狠地 刺進對手進行攻擊。",
+        "zh-Hans": "用坚硬且华丽的角狠狠地 刺入对手进行攻击。"
+    }
 }

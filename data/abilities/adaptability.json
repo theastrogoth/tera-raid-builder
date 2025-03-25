@@ -1,0 +1,14 @@
+{
+    "name": "Adaptability",
+    "flavorText": {
+        "en": "Powers up moves of the same type as the Pokémon.",
+        "ja": "自分と　おなじ　タイプの 技の　威力が　上がる。",
+        "fr": "Quand le Pokémon utilise une capacité du même type que lui, le bonus de puissance qu'elle reçoit est encore plus important que normalement.",
+        "es": "Potencia aún más los movimientos cuyo tipo coincida con el suyo.",
+        "de": "Die Stärke von Attacken des Pokémon, die seinem Typ entsprechen, steigt.",
+        "it": "Aumenta la potenza delle mosse dello stesso tipo del Pokémon.",
+        "ko": "자신과 같은 타입인 기술의 위력이 올라간다.",
+        "zh-Hant": "與自身同屬性的招式 威力會提高。",
+        "zh-Hans": "与自身同属性的招式 威力会提高。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Mirror Armor",
+    "flavorText": {
+        "en": "Bounces back only the stat-lowering effects that the Pokémon receives.",
+        "ja": "自分が　受けた 能力　ダウンの 効果　だけを　跳ね返す。",
+        "fr": "Le Pokémon renvoie les effets réducteurs de stats qu'il reçoit.",
+        "es": "Refleja los efectos que reducen las características.",
+        "de": "Das Pokémon lenkt ausschließlich Effekte, welche seine Statuswerte senken würden, auf den Angreifer um.",
+        "it": "Rimanda al mittente le diminuzioni alle statistiche subite.",
+        "ko": "자신이 받는 능력 다운 효과에 한해 되받아친다.",
+        "zh-Hant": "只反彈自己受到的 能力降低效果。",
+        "zh-Hans": "只反弹自己受到的 能力降低效果。"
+    }
+}

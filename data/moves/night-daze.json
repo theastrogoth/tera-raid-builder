@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user looses a pitch-black shock wave at the target to inflict damage. This may also lower the target's accuracy.",
+        "ja": "暗黒の　衝撃波を とばして　相手を　攻撃する。 命中率を　さげることが　ある。",
+        "fr": "Le lanceur attaque avec une onde de choc ténébreuse qui peut aussi baisser la Précision de la cible.",
+        "es": "Ataca al objetivo con una onda siniestra. Puede reducir su Precisión.",
+        "de": "Anwender greift das Ziel mit finsteren Schockwellen an. Senkt eventuell die Genauigkeit des Zieles.",
+        "it": "Il Pokémon attacca il bersaglio con un'onda d'urto oscura che può anche ridurne la precisione.",
+        "ko": "암흑의 충격파를 날려서 상대를 공격한다. 명중률을 떨어뜨릴 때가 있다.",
+        "zh-Hant": "放出黑暗的衝擊波攻擊對手。 有時會降低對手的命中率。",
+        "zh-Hans": "放出黑暗的冲击波攻击对手。 有时会降低对手的命中率。"
+    }
 }

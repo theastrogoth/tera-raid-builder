@@ -1,0 +1,14 @@
+{
+    "name": "Heavy-Duty Boots",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. These boots protect the holder from the effects of traps and the like set on the battlefield.",
+        "ja": "足場に　しかけられた 罠などの影響を　受けなくなる。",
+        "fr": "Objet à tenir. Le porteur ne subit plus les effets des pièges ou autres entraves posés sur le terrain.",
+        "es": "Anula los efectos de aquello que se coloca a los pies del Pokémon para obstaculizarlo, como las trampas.",
+        "de": "Der Träger wird nicht mehr durch Fallen und andere Objekte beeinträchtigt, die auf dem Boden liegen.",
+        "it": "Protegge il Pokémon che ce l'ha dagli effetti di trappole e di altri ostacoli piazzati ai suoi piedi.",
+        "ko": "발밑에 설치된 함정 등의 영향을 받지 않게 된다.",
+        "zh-Hant": "攜帶後，將不會受 腳下的陷阱等所影響。",
+        "zh-Hans": "不受脚下陷阱等的影响。"
+    }
+}

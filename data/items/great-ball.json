@@ -1,0 +1,14 @@
+{
+    "name": "Great Ball",
+    "flavorText": {
+        "en": "A mysterious ball that provides a higher success rate for catching Pokémon than a standard Poké Ball does.",
+        "ja": "モンスターボールよりも さらにポケモンを捕まえやすくなった 少し性能のいい不思議なボール。",
+        "fr": "Cette étrange balle aux capacités étonnantes permet d'attraper les Pokémon plus facilement qu'avec une Poké Ball.",
+        "es": "Misteriosa bola de alto rendimiento. Tiene un índice de captura superior al de la Poké Ball.",
+        "de": "Mit diesem rätselhaften Ball sind Pokémon noch leichter zu fangen als mit einem Pokéball.",
+        "it": "Poké Ball misteriosa dalle ottime prestazioni: fornisce maggiori probabilità di cattura rispetto alla normale Poké Ball.",
+        "ko": "몬스터볼보다도 더욱 포켓몬을 잡기 쉬워진 약간 성능이 좋고 신비한 볼.",
+        "zh-Hant": "不可思議的球。性能 還算不錯，比起精靈球 更容易捉到寶可夢。",
+        "zh-Hans": "不可思议的球。比起精灵球来 更容易捉到宝可梦的， 性能还算不错的球。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Skill Link",
+    "flavorText": {
+        "en": "Maximizes the number of times multistrike moves hit.",
+        "ja": "連続技を　使うと　いつも 最高回数　出すことが　できる。",
+        "fr": "Les capacités pouvant frapper plusieurs fois frappent toujours le nombre maximal de coups.",
+        "es": "Ejecuta siempre los movimientos de ataque múltiple con el número máximo de golpes.",
+        "de": "Das Pokémon landet mit Serien-Attacken immer die maximale Anzahl an Treffern.",
+        "it": "Le mosse multicolpo mandano a segno sempre il massimo dei colpi possibili.",
+        "ko": "연속 기술을 사용하면 항상 최고 횟수로 사용할 수 있다.",
+        "zh-Hant": "使用連續招式時， 每回都能以最多次數進行攻擊。",
+        "zh-Hans": "如果使用连续招式， 总是能使出最高次数。"
+    }
+}

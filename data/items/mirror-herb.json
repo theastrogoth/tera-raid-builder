@@ -1,0 +1,14 @@
+{
+    "name": "Mirror Herb",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This herb will allow the holder to mirror an opponent's stat increases to boost its own stats—but only once.",
+        "ja": "持たせたポケモンは　１度だけ 相手の　能力が　あがったとき まねして　同じように　能力を　あげる。",
+        "fr": "Objet à tenir. Lorsqu'un adversaire bénéficie d'une augmentation de stats, permet une fois seulement au porteur d'en bénéficier également.",
+        "es": "Si el rival aumenta sus características, permite al Pokémon que la lleva imitarlo y aumentar las suyas también, pero solo una vez.",
+        "de": "Ein Item zum Tragen. Es ermöglicht dem Träger einmalig, die Statuswerterhöhungen eines Gegners zu kopieren.",
+        "it": "Strumento monouso da dare a un Pokémon. Permette di fare propri gli aumenti di statistiche di un Pokémon avversario.",
+        "ko": "지니게 한 포켓몬은 한 번에 한해 상대의 능력이 올랐을 때 흉내 내어 똑같이 능력을 올린다.",
+        "zh-Hant": "攜帶它的寶可夢將有１次機會， 在對手的能力提高時 自己也跟著提高能力。",
+        "zh-Hans": "携带它的宝可梦仅有１次机会 可以在对手提高能力时， 对其进行模仿并提高同样的能力。"
+    }
+}

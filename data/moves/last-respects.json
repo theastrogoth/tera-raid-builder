@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by kicking up into the air and slamming its heel down upon the target. This may also confuse the target. If it misses, the user takes damage instead.",
+        "ja": "蹴りあげた　かかとを　落として　攻撃する。 相手を　混乱させることが　ある。 はずすと　自分が　ダメージを　受ける。",
+        "fr": "Le lanceur donne un coup de talon descendant à la cible, ce qui peut aussi la rendre confuse. S'il échoue, le lanceur se blesse.",
+        "es": "Lanza una patada al aire para, acto seguido, golpear con el talón. Si falla, se hiere a sí mismo. Puede confundir al objetivo.",
+        "de": "Der Anwender greift an, indem er seine erhobene Ferse hinunterschnellen lässt. Das Ziel wird eventuell verwirrt. Bei Misserfolg verletzt sich der Anwender selbst.",
+        "it": "Il Pokémon attacca sferrando un calcio dall'alto verso il basso che può confondere il bersaglio. Se la mossa fallisce, il Pokémon subisce dei danni.",
+        "ko": "발꿈치를 들어 올린 뒤 내리찍어 공격한다. 상대를 혼란시킬 때가 있다. 빗나가면 자신이 데미지를 입는다.",
+        "zh-Hant": "劈下踢起的腳跟攻擊對手。 有時會使對手混亂。 沒命中對手時自己會受到傷害。",
+        "zh-Hans": "将踢起的脚跟往下劈向对手进行攻击。 有时会使对手混乱。 如果劈偏则自己会受到伤害。"
+    }
 }

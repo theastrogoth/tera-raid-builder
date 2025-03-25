@@ -1,0 +1,14 @@
+{
+    "name": "Clear Body",
+    "flavorText": {
+        "en": "Prevents other Pokémon's moves or Abilities from lowering the Pokémon's stats.",
+        "ja": "相手の　技や　特性で 能力を　下げられない。",
+        "fr": "Empêche les stats du Pokémon de baisser à cause du talent ou d'une capacité de l'adversaire.",
+        "es": "Evita que se reduzcan sus características a causa de movimientos o habilidades de otros Pokémon.",
+        "de": "Die Statuswerte des Pokémon können nicht durch Attacken oder Fähigkeiten anderer Pokémon gesenkt werden.",
+        "it": "Impedisce la diminuzione delle statistiche causata da abilità o mosse di altri Pokémon.",
+        "ko": "상대 기술이나 특성으로 능력이 떨어지지 않는다.",
+        "zh-Hant": "不會因對手的招式或特性 而被降低能力。",
+        "zh-Hans": "不会因为对手的招式或特性 而被降低能力。"
+    }
+}

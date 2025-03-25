@@ -1,0 +1,14 @@
+{
+    "name": "Max Ether",
+    "flavorText": {
+        "en": "A recipe for crafting Max Ethers from scratch. Required materials: 1 Leppa Berry and 2 Pep-Up Plants.",
+        "ja": "ピーピーリカバーのレシピ。　材料は ヒメリのみ×１　ピーピーグサ×２",
+        "fr": "Méthode pour Soin PP. Ressources requises : 1 Baie Mepo et 2 Plantes PP.",
+        "es": "Receta para crear Píldoras Éter. Materiales: 1 Baya Zanama y 2 Hierbas Éter.",
+        "de": "Die Anleitung zur Herstellung von Ätherpillen. Benötigte Materialien: 1 Jonagobeere und 2 Stängel Ätherkraut.",
+        "it": "Ricetta per una confezione di Tonico PP. Richiede 1 Baccamela e 2 radici di Erba PP.",
+        "ko": "PP회복의 레시피. 재료: 과사열매×1 PP풀×2",
+        "zh-Hant": "ＰＰ單項全補劑的材料單。材料是： 蘋野果×１　ＰＰ草×２",
+        "zh-Hans": "ＰＰ单项全补剂的材料单。材料是： 苹野果×１　ＰＰ草×２"
+    }
+}

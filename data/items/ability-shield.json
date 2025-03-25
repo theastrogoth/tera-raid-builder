@@ -1,0 +1,14 @@
+{
+    "name": "Ability Shield",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This cute and rather unique-looking shield protects the holder from having its Ability changed by others.",
+        "ja": "かわいらしく　個性的な　盾。 持たせると　相手に 特性を　変えられない。",
+        "fr": "Objet à tenir. Un bouclier à l'aspect unique et mignon. Il empêche l'adversaire de changer le talent du porteur.",
+        "es": "Un escudo muy bonito de aspecto singular. Impide que otros Pokémon cambien la habilidad del Pokémon que lo lleva.",
+        "de": "Ein niedlicher Schild mit eigenwilligem Design. Gibt man ihn einem Pokémon zum Tragen, kann dessen Fähigkeit nicht von anderen Pokémon geändert werden.",
+        "it": "Strumento da dare a un Pokémon. Adorabile e peculiare scudo che impedisce agli altri Pokémon di modificare l'abilità di chi lo ha con sé.",
+        "ko": "귀엽고 개성적인 방패. 지니게 하면 상대에 의해 특성이 바뀌지 않는다.",
+        "zh-Hant": "既可愛又有個性的盾。 攜帶後，不會被對手變更特性。",
+        "zh-Hans": "可爱而有个性的盾。 携带后，特性不会 被对手改变。"
+    }
+}

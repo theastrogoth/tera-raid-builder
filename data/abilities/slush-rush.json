@@ -1,0 +1,14 @@
+{
+    "name": "Slush Rush",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Speed stat in snow.",
+        "ja": "天気が　ゆき　のとき 素早さが　上がる。",
+        "fr": "Augmente la Vitesse du Pokémon quand il neige.",
+        "es": "Aumenta su Velocidad cuando nieva.",
+        "de": "Bei Schnee steigt die Initiative des Pokémon.",
+        "it": "Se nevica, la Velocità aumenta.",
+        "ko": "날씨가 눈일 때 스피드가 올라간다.",
+        "zh-Hant": "天氣為下雪時， 速度會提高。",
+        "zh-Hans": "下雪天气时， 速度会提高。"
+    }
+}

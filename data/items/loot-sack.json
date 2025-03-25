@@ -1,0 +1,14 @@
+{
+    "name": "Loot Sack",
+    "flavorText": {
+        "en": "A sturdy, spacious bag that is used to carry any treasures or loot obtained in the coal mine.",
+        "ja": "炭鉱で　てにいれた 宝物を　しまっておける 大きくて丈夫な　ふくろ。",
+        "fr": "Un grand sac robuste utilisé pour transporter le butin obtenu dans la mine de charbon.",
+        "es": "Una saca grande y resistente utilizada para transportar el botín reunido en la mina de carbón.",
+        "de": "Ein fester Sack. Wird verwendet, um Beute aus der Kohlemine zu transportieren.",
+        "it": "Una sacca spaziosa e resistente usata per trasportare il bottino ottenuto nella miniera.",
+        "ko": "탄갱에서 손에 넣은 보물을 보관해 둘 수 있는 크고 튼튼한 주머니다.",
+        "zh-Hant": "結實的大袋子。 可以將在礦坑裡 獲得的寶物放進去。",
+        "zh-Hans": "结实的大袋子。 可以将在煤矿里 获得的宝物放进去。"
+    }
+}

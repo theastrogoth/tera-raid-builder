@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user converts its rage into energy to attack. The more times the user has been hit by attacks, the greater the move's power.",
+        "ja": "怒りを　エネルギーに　変えて　攻撃。 受けた　攻撃の　回数が　多いほど 技の　威力が　あがる。",
+        "fr": "Le lanceur transforme sa colère en énergie pour attaquer. Plus il a subi d'attaques, plus la puissance de cette capacité augmente.",
+        "es": "Convierte su rabia en energía para atacar. Cuantos más golpes haya recibido el usuario, mayor será la potencia del movimiento.",
+        "de": "Ein Angriff, für den der Anwender seinen Zorn in Energie umwandelt. Je häufiger der Anwender getroffen wurde, desto stärker wird diese Attacke.",
+        "it": "Il Pokémon trasforma la sua furia in energia e la utilizza per attaccare. Più attacchi ha subito il Pokémon, più la potenza della mossa aumenta.",
+        "ko": "분노를 에너지로 바꿔서 공격한다. 받은 공격의 횟수가 많을수록 기술의 위력이 올라간다.",
+        "zh-Hant": "將憤怒化為能量進行攻擊。 受到的攻擊次數越多， 招式的威力越大。",
+        "zh-Hans": "将愤怒化为力量攻击。 受到攻击的次数越多， 招式的威力越高。"
+    }
 }

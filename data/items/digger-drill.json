@@ -1,0 +1,14 @@
+{
+    "name": "Digger Drill",
+    "flavorText": {
+        "en": "A single-use drill to bore a hole in the wall for your Secret Base.",
+        "ja": "壁に　穴を開けて　秘密基地を 作れる　使い切りの　ドリル。",
+        "fr": "Une foreuse à usage unique qui permet de construire une Base Secrète en perçant un mur.",
+        "es": "Taladro de un solo uso que sirve para perforar un muro y construir una Base Secreta en su interior.",
+        "de": "Ein Einwegbohrer, mit dem du ein Loch in eine Wand bohren kannst, um eine Geheimbasis zu errichten.",
+        "it": "Trapano monouso per creare la tua Base Segreta.",
+        "ko": "벽에 구멍을 내어 비밀기지를 만들 수 있는 일회용 드릴.",
+        "zh-Hant": "能在牆壁上開洞， 建造秘密基地的拋棄式鑽錐。",
+        "zh-Hans": "能够在墙上钻洞， 以建造秘密基地的一次性钻头。"
+    }
+}

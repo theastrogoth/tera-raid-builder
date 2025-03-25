@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is exposed to a sinister ray that causes confusion.",
+        "ja": "怪しい　光を 相手に　みせて　まどわせる。 相手を　混乱させる。",
+        "fr": "Une lumière étrange qui plonge la cible dans un état de confusion.",
+        "es": "Rayo siniestro que confunde al objetivo.",
+        "de": "Ein fieser Strahl, der das Ziel verwirrt.",
+        "it": "Colpisce il bersaglio con un raggio funesto che lo confonde.",
+        "ko": "이상한 빛을 상대에게 비춰 당황하게 한다. 상대를 혼란시킨다.",
+        "zh-Hant": "讓對手看奇怪的光線 擾亂對手。 使對手混亂。",
+        "zh-Hans": "显示奇怪的光， 扰乱对手。 使对手混乱。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user dances with an odd rhythm that compels the target to mimic it, making the target's Ability the same as the user's.",
+        "ja": "不思議な　リズムで　おどる。 動きを　まねさせて　自分と　相手の 特性を　同じに　する。",
+        "fr": "Le lanceur danse sur un rythme étrange. Il force sa cible à l'imiter, ce qui lui fait adopter son talent.",
+        "es": "Una extraña danza que induce al objetivo a imitarla y cambia su habilidad por la misma que la del usuario.",
+        "de": "Anwender tanzt zu einem seltsamen Rhythmus und zwingt das Ziel mitzumachen. Dieses nimmt dabei die Fähigkeit des Anwenders an.",
+        "it": "Il Pokémon saltella con un buffo ritmo, inducendo il bersaglio a imitarlo e rendendo la sua abilità identica alla propria.",
+        "ko": "이상한 리듬으로 춤춘다. 움직임을 흉내 내게 해서 자신과 상대의 특성을 똑같게 만든다.",
+        "zh-Hant": "用神奇的節奏跳舞。 讓對手模仿自己的動作， 變成和自己一樣的特性。",
+        "zh-Hans": "用神奇的节奏跳舞。 使对手模仿自己的动作， 从而将特性变成一样。"
+    }
 }

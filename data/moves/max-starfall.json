@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This is a Fairy-type attack Dynamax Pokémon use. The user turns the ground into Misty Terrain for five turns.",
+        "ja": "ダイマックスした　ポケモンが 繰りだす　フェアリータイプの　攻撃。 ５ターンの　間　ミストフィールドにする。",
+        "fr": "Une attaque de type Fée que seuls les Pokémon Dynamax peuvent utiliser. Crée un champ brumeux qui dure cinq tours.",
+        "es": "Ataque de tipo Hada ejecutado por un Pokémon Dinamax. Crea un campo de niebla durante cinco turnos.",
+        "de": "Eine Feen-Attacke, die nur Dynamax-Pokémon einsetzen können. Erzeugt fünf Runden lang ein Nebelfeld.",
+        "it": "Un attacco di tipo Folletto che può essere eseguito dai Pokémon dynamaxizzati. Per cinque turni il terreno entra nello stato di Campo Nebbioso.",
+        "ko": "다이맥스한 포켓몬이 날리는 페어리타입의 공격. 5턴 동안 미스트필드로 만든다.",
+        "zh-Hant": "極巨化寶可夢 所使出的妖精屬性攻擊。 可在５回合內將腳下變成薄霧場地。",
+        "zh-Hans": "极巨化宝可梦使出的妖精属性攻击。 可在５回合内将脚下变成薄雾场地。"
+    }
 }

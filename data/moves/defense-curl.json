@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user curls up and boosts its Defense stat.",
+        "ja": "体を　まるめて　ちぢこまり 自分の　防御を　あげる。",
+        "fr": "Le lanceur s'enroule pour cacher ses points faibles, ce qui augmente sa Défense.",
+        "es": "Se enrosca para ocultar sus puntos débiles y aumentar la Defensa.",
+        "de": "Verbirgt Schwächen durch Einrollen und hebt gleichzeitig den Verteidigungs-Wert.",
+        "it": "Il Pokémon si raggomitola per nascondere i punti deboli e aumentare la propria Difesa.",
+        "ko": "몸을 둥글게 웅크려서 자신의 방어를 올린다.",
+        "zh-Hant": "將身體蜷縮成圓形， 提高自己的防禦。",
+        "zh-Hans": "将身体蜷曲变圆， 从而提高自己的防御。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by striking the target with a fierce blow. This move always lands a critical hit.",
+        "ja": "強烈な　一撃を 相手に　くりだす。攻撃は 必ず　急所に　当たる。",
+        "fr": "Un coup très puissant dont l'effet est toujours critique.",
+        "es": "Lanza un golpe devastador. Siempre asesta un golpe crítico.",
+        "de": "Ein Angriff mit voller Wucht und Volltreffergarantie.",
+        "it": "Il Pokémon sferra un colpo micidiale al bersaglio. Brutto colpo assicurato.",
+        "ko": "강렬한 일격을 상대에게 날린다. 공격은 반드시 급소에 맞는다.",
+        "zh-Hant": "向對手發動強烈的一擊。 一定會擊中要害。",
+        "zh-Hans": "向对手使出强烈的一击。 攻击必定会击中要害。"
+    }
 }

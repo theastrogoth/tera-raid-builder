@@ -1,0 +1,14 @@
+{
+    "name": "Superb Remedy",
+    "flavorText": {
+        "en": "An herbal medicine that can restore 150 HP to a Pokémon, just as a Hyper Potion does. Yet the bitter taste will make the Pokémon less friendly toward you.",
+        "ja": "すごいキズぐすりと同じで ポケモン１匹のＨＰが１５０回復するが 苦く　なかよし度がさがる。",
+        "fr": "Permet de restaurer 150 PV d'un Pokémon, comme le ferait une Hyper Potion. Son goût amer fera cependant diminuer l'amitié que vous porte le Pokémon.",
+        "es": "Preparado medicinal que restablece 150 PS a un único Pokémon, como una Hiperpoción, aunque su sabor amargo hace que sea menos amistoso.",
+        "de": "Diese Arznei hat dieselbe Wirkung wie ein Hypertrank und füllt die KP eines Pokémon um 150 Punkte auf. Ihr bitterer Geschmack senkt jedoch seine Zutraulichkeit.",
+        "it": "Come l'Iperpozione, restituisce 150 PS a un Pokémon ma, essendo amara, fa diminuire il livello di amicizia.",
+        "ko": "고급상처약과 마찬가지로 포켓몬 1마리의 HP를 150만큼 회복하지만 맛이 써서 절친도가 떨어진다.",
+        "zh-Hant": "效果和厲害傷藥一樣， 能讓１隻寶可夢回復１５０ＨＰ， 但味道很苦，友好度會降低。",
+        "zh-Hans": "效果和厉害伤药一样， 能让１只宝可梦回复１５０ＨＰ， 但味道很苦，友好度会降低。"
+    }
+}

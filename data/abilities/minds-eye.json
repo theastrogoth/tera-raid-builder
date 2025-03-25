@@ -1,0 +1,14 @@
+{
+    "name": "Mind's Eye",
+    "flavorText": {
+        "en": "The Pokémon ignores changes to opponents' evasiveness, its accuracy can't be lowered, and it can hit Ghost types with Normal- and Fighting-type moves.",
+        "ja": "ノーマル　かくとうタイプの技を　ゴーストタイプに 当てることが　できる。　相手の　回避率の 変化を　無視し　命中率も　下げられない。",
+        "fr": "Le Pokémon ignore les changements d'Esquive des cibles et peut toucher les Pokémon Spectre avec des capacités Normal ou Combat. Sa Précision ne peut pas baisser.",
+        "es": "Alcanza a Pokémon de tipo Fantasma con movimientos de tipo Normal o Lucha. Su Precisión no se puede reducir e ignora los cambios en la Evasión del objetivo.",
+        "de": "Die Genauigkeit des Pokémon kann nicht gesenkt werden. Es ignoriert Änderungen am Ausweichwert des Zieles und trifft mit Normal- und Kampf-Attacken Geister-Pokémon.",
+        "it": "Permette di colpire bersagli di tipo Spettro con mosse di tipo Normale e Lotta, di ignorare modifiche alla loro elusione e di non veder ridotta la propria precisione.",
+        "ko": "노말타입과 격투타입 기술을 고스트타입에게 맞힐 수 있다. 상대의 회피율 변화를 무시하고 명중률도 떨어지지 않는다.",
+        "zh-Hant": "一般屬性和格鬥屬性的招式可擊中 幽靈屬性的寶可夢。可無視對手 閃避率的變化，且命中率不會被降低。",
+        "zh-Hans": "一般属性和格斗属性的招式可以 击中幽灵属性的宝可梦。无视对手的 闪避率的变化，且命中率不会被降低。"
+    }
+}

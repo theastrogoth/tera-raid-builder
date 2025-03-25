@@ -1,0 +1,14 @@
+{
+    "name": "Fairy Feather",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This feather, which gleams faintly when hit by light, boosts the power of the holder's Fairy-type moves.",
+        "ja": "光にあてると　淡く光る　ハネ。 持たせると　フェアリータイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Cette plume augmente la puissance des capacités de type Fée. Elle brille d'une pâle lueur lorsqu'on l'expose à la lumière.",
+        "es": "Pluma que brilla tenuemente cuando entra en contacto con la luz y que potencia los movimientos de tipo Hada. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Diese Feder, die im Licht sanft leuchtet, verstärkt Attacken vom Typ Fee.",
+        "it": "Strumento da dare a un Pokémon. Piuma che brilla debolmente alla luce e potenzia le mosse di tipo Folletto.",
+        "ko": "빛에 비추면 희미하게 빛나는 깃털. 지니게 하면 페어리타입 기술의 위력이 올라간다.",
+        "zh-Hant": "被光照到後會微微發光的羽毛。 攜帶後，妖精屬性的 招式威力就會提高。",
+        "zh-Hans": "接触到光后就会微微发光的羽毛。 携带后，妖精属性的 招式威力就会提高。"
+    }
+}

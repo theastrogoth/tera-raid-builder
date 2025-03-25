@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lets out a damaging belch at the target. The user must eat a held Berry to use this move.",
+        "ja": "相手に　向かって　ゲップを 浴びせて　ダメージを　与える。 きのみを　食べないと　だせない。",
+        "fr": "Le lanceur se tourne vers la cible et lui éructe dessus, infligeant des dégâts. Ne fonctionne que si le lanceur consomme une Baie tenue.",
+        "es": "El usuario causa daño a su objetivo lanzándole un eructo. Para poder utilizar este movimiento, tiene que haberse comido una baya equipada.",
+        "de": "Der Anwender fügt dem Ziel Schaden zu, indem er es anrülpst. Diese Attacke gelingt nur nach dem Konsum einer getragenen Beere.",
+        "it": "Il Pokémon attacca il bersaglio con un rutto potente. Per utilizzare questa mossa, deve aver mangiato la propria bacca o quella di un altro Pokémon.",
+        "ko": "상대를 향해 트림을 하여 데미지를 준다. 나무열매를 먹지 않으면 쓸 수 없다.",
+        "zh-Hant": "朝著對手打嗝進行攻擊。 沒吃下樹果時無法使用。",
+        "zh-Hans": "朝着对手打嗝， 并给予伤害。 如果不吃树果则无法使出。"
+    }
 }

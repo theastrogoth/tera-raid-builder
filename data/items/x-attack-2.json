@@ -1,0 +1,14 @@
+{
+    "name": "X Attack 2",
+    "flavorText": {
+        "en": "Sharply boosts the Attack stat of a Pokémon in battle. This effect disappears if the Pokémon leaves the battle.",
+        "ja": "戦闘中　ポケモンの 攻撃を　それなりに　あげる。 ひっこめると　元に　戻る。",
+        "fr": "Augmente un peu l'Attaque pendant un combat. L'effet se dissipe si le Pokémon est retiré.",
+        "es": "Aumenta ligeramente el Ataque en combate. Al cambiar de Pokémon, el efecto desaparece.",
+        "de": "Hebt den Angriffs-Wert eines Pokémon im Kampf leicht an. Die Wirkung endet mit dem Austausch des Pokémon.",
+        "it": "Aumenta di molto l'Attacco di un Pokémon in una lotta. L'effetto svanisce se il Pokémon è sostituito.",
+        "ko": "배틀 중인 포켓몬의 공격을 그럭저럭 올린다. 포켓몬을 볼에 넣어 버리면 원래대로 되돌아간다.",
+        "zh-Hant": "能相對提高戰鬥中 寶可夢的攻擊。 離場後，效果便會消失。",
+        "zh-Hans": "能相对提高战斗中 宝可梦的攻击。 离场后，效果便会消失。"
+    }
+}

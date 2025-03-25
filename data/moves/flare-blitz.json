@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user cloaks itself in fire and charges the target to inflict damage. This also damages the user quite a lot and may leave the target with a burn.",
+        "ja": "炎を　まとって　突進する。 自分も　かなり　ダメージを　受ける。 やけど状態に　することが　ある。",
+        "fr": "Le lanceur s'embrase avant de charger la cible, ce qui peut la brûler. Le choc blesse aussi gravement le lanceur.",
+        "es": "El usuario se cubre de llamas y carga contra el objetivo, aunque se hiere seriamente a sí mismo. Puede causar quemaduras.",
+        "de": "Anwender hüllt sich in Flammen und stürmt auf das Ziel zu, das dadurch eventuell Verbrennungen erleidet. Anwender nimmt selbst großen Schaden.",
+        "it": "Il Pokémon si ricopre di fuoco e carica il bersaglio, ma subisce seri danni. Può anche scottare il bersaglio.",
+        "ko": "불꽃을 두르고 돌진한다. 자신도 상당한 데미지를 입는다. 화상 상태로 만들 때가 있다.",
+        "zh-Hant": "將火焰圍繞全身後猛撞對手。 自己也會受到不小的傷害。 有時會讓對手陷入灼傷狀態。",
+        "zh-Hans": "让火焰覆盖全身猛撞向对手。 自己也会受到不小的伤害。 有时会让对手陷入灼伤状态。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "TR34",
+    "flavorText": {
+        "en": "Two turns after this move is used, a hunk of psychic energy attacks the target.",
+        "ja": "技を　使った　２ターン後に 相手に　念力の 塊を　送って　攻撃する。",
+        "fr": "De l'énergie psychique vient frapper la cible deux tours après l'utilisation de cette capacité.",
+        "es": "Concentra energía psíquica para golpear al objetivo dos turnos después.",
+        "de": "Zwei Runden, nachdem Seher eingesetzt wurde, erfolgt ein Angriff mit Psycho-Energie.",
+        "it": "Due turni dopo l'utilizzo di questa mossa, il Pokémon attacca il bersaglio con energia psichica.",
+        "ko": "기술을 사용한 2턴 뒤에 상대에게 염동력 덩어리를 보내어 공격한다.",
+        "zh-Hant": "使用招式的２回合後， 向對手發送一團念力進行攻擊。",
+        "zh-Hans": "在使用招式２回合后， 向对手发送一团念力进行攻击。"
+    }
+}

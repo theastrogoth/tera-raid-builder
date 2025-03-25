@@ -1,0 +1,14 @@
+{
+    "name": "Holo Caster",
+    "flavorText": {
+        "en": "A device that allows you to view the hologram clips you have received at any time.",
+        "ja": "受信した　ホログラムの 映像データを　いつでも 観ることが　できる　装置。",
+        "fr": "Un appareil portable permettant de recevoir et de visualiser des hologrammes à volonté.",
+        "es": "Este aparato permite recibir vídeos holográficos y visualizarlos en cualquier momento.",
+        "de": "Ein Gerät, das Hologramm-Nachrichten empfangen und jederzeit abspielen kann.",
+        "it": "Dispositivo in grado di ricevere e riprodurre in qualsiasi momento comunicazioni olografiche.",
+        "ko": "수신한 홀로그램 영상 데이터를 언제라도 볼 수 있는 장치.",
+        "zh-Hant": "可以隨時查看接收到的 全像投影資料的裝置。",
+        "zh-Hans": "可以随时查看接收到的 全息影像数据的装置。"
+    }
+}

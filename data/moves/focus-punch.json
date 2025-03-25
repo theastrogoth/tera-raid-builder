@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user focuses its mind before launching a punch. This move fails if the user is hit before using the move.",
+        "ja": "精神を　高めて　パンチを　くりだす。 技を　だすまでに 攻撃を　受けると　失敗する。",
+        "fr": "Le lanceur se concentre avant d'attaquer. Échoue s'il est touché avant d'avoir frappé.",
+        "es": "Se concentra para dar un puñetazo. Falla si se sufre un golpe antes de su uso.",
+        "de": "Anwender konzentriert sich, bevor er angreift. Wird er vorher getroffen, ist die Attacke erfolglos.",
+        "it": "Il Pokémon prende la mira prima di sferrare un pugno. Fallisce se subisce un attacco prima di eseguire la mossa.",
+        "ko": "정신을 집중해 펀치를 날린다. 기술을 쓰기 전에 공격을 받으면 실패한다.",
+        "zh-Hant": "集中精神後出拳。 若出拳前受到攻擊， 則會失敗。",
+        "zh-Hans": "集中精神出拳。 在招式使出前 若受到攻击则会失败。"
+    }
 }

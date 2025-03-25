@@ -1,0 +1,14 @@
+{
+    "name": "Park Ball",
+    "flavorText": {
+        "en": "A special Poké Ball used in the Pal Park.",
+        "ja": "パルパークのなかで 使う　特別なボール。 ",
+        "fr": "Une Poké Ball spéciale utilisée au Parc des Amis.",
+        "es": "Poké Ball especial utilizada dentro del Parque Compi.",
+        "de": "Ein Ball, der nur im Park der Freunde eingesetzt wird.",
+        "it": "Poké Ball speciale utilizzata solo all'interno del Parco Amici.",
+        "ko": "팔파크 내에서 사용하는 특별한 볼.",
+        "zh-Hant": "在夥伴公園裡使用的 特殊的球。",
+        "zh-Hans": "在伙伴公园里使用的 特殊的球。"
+    }
+}

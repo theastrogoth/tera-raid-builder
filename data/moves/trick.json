@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user catches the target off guard and swaps the target's held item with its own.",
+        "ja": "相手の　すきを　ついて 自分と　相手の 持ち物を　交換する。",
+        "fr": "Le lanceur prend la cible au dépourvu et l'oblige à échanger son objet contre le sien.",
+        "es": "Engaña al objetivo desprevenido e intercambia su objeto con él.",
+        "de": "Der Anwender überrumpelt das Ziel und tauscht mit ihm die getragenen Items.",
+        "it": "Il Pokémon coglie il bersaglio in contropiede e lo obbliga a scambiare il suo strumento con il proprio.",
+        "ko": "상대의 빈틈을 노려 자신과 상대가 지닌 물건을 바꿔치기한다.",
+        "zh-Hant": "在對手露出空隙時， 趁機交換自己和對手的持有物。",
+        "zh-Hans": "抓住对手的空隙， 交换自己和对手的持有物。"
+    }
 }

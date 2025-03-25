@@ -1,0 +1,14 @@
+{
+    "name": "Pickpocket",
+    "flavorText": {
+        "en": "The Pokémon steals the held item from attackers that make direct contact with it.",
+        "ja": "触られた　相手の　道具を 盗んで　しまう。",
+        "fr": "Vole l'objet que tient l'attaquant quand le Pokémon subit une attaque directe.",
+        "es": "Roba el objeto del Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Das Pokémon stiehlt bei Berührung das Item des Angreifers.",
+        "it": "Se il Pokémon viene colpito, ruba lo strumento di chi è entrato in contatto con lui.",
+        "ko": "자신에게 접촉한 상대의 도구를 훔친다.",
+        "zh-Hant": "盜取接觸到自己的 對手的道具。",
+        "zh-Hans": "盗取接触到自己的 对手的道具。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Throat Spray",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If the holder uses a sound-based move, this throat spray will boost its Sp. Atk stat.",
+        "ja": "音に　関する　技を　使うと 特攻が　上がる。",
+        "fr": "Augmente l'Attaque Spéciale du porteur lorsqu'il utilise une capacité basée sur le son.",
+        "es": "Aumenta el Ataque Especial al emplear un movimiento que usa sonido.",
+        "de": "Erhöht bei Einsatz einer Geräusch-Attacke den Spezial-Angriff des Trägers.",
+        "it": "Aumenta l'Attacco Speciale quando il Pokémon usa una mossa basata sul suono.",
+        "ko": "소리 기술을 사용하면 특수공격이 올라간다.",
+        "zh-Hant": "使用與聲音有關的招式時， 特攻會提高。",
+        "zh-Hans": "使用声音相关的招式时， 特攻会提高。"
+    }
+}

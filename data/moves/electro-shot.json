@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user strikes with an ivy-wrapped cudgel. This move's type changes depending on the mask worn by the user, and it has a heightened chance of landing a critical hit.",
+        "ja": "ツタを　まきつけた　こん棒で　なぐる。 かぶっている　お面で　タイプが　変わる。 急所に　当たりやすい。",
+        "fr": "Le lanceur frappe la cible à l'aide d'une massue entourée d'une liane. Le type de cette capacité varie en fonction du masque que porte le lanceur. Taux de critiques élevé.",
+        "es": "Golpea con un garrote que forma enrollando su liana. El tipo del movimiento varía según la máscara que lleve puesta el usuario. Suele asestar un golpe crítico.",
+        "de": "Der Anwender schlägt mit einer rankenumschlungenen Keule zu. Der Typ dieser Attacke hängt von der Maske des Anwenders ab. Hohe Volltrefferquote.",
+        "it": "Il Pokémon colpisce con una clava avvolta da liane. Il tipo della mossa varia in base alla maschera indossata. Probabile brutto colpo.",
+        "ko": "덩굴을 휘감은 방망이로 때린다. 쓰고 있는 가면에 따라 타입이 바뀐다. 급소에 맞기 쉽다.",
+        "zh-Hant": "用纏繞著藤蔓的棍棒毆打。 屬性會隨著所戴的面具而改變。 容易擊中要害。",
+        "zh-Hans": "用缠有藤蔓的棍棒殴打。 属性会随所戴的面具而改变。 容易击中要害。"
+    }
 }

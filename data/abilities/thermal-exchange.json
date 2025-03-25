@@ -1,0 +1,14 @@
+{
+    "name": "Thermal Exchange",
+    "flavorText": {
+        "en": "Boosts the Attack stat when the Pokémon is hit by a Fire-type move. The Pokémon also cannot be burned.",
+        "ja": "ほのおタイプの　技を　受けると 攻撃が　上がる。 やけど状態に　ならない。",
+        "fr": "Lorsque le Pokémon est touché par une capacité de type Feu, son Attaque augmente. Il ne peut pas être brûlé.",
+        "es": "Evita las quemaduras y, si lo alcanza un movimiento de tipo Fuego, aumenta su Ataque.",
+        "de": "Wird das Pokémon von einer Feuer-Attacke getroffen, steigt sein Angriff. Außerdem kann es keine Verbrennungen erleiden.",
+        "it": "Impedisce al Pokémon di venire scottato e aumenta il suo Attacco se subisce una mossa di tipo Fuoco.",
+        "ko": "불꽃타입 기술로 공격받으면 공격이 올라간다. 화상 상태가 되지 않는다.",
+        "zh-Hant": "受到火屬性的招式攻擊時， 攻擊會提高。 不會陷入灼傷狀態。",
+        "zh-Hans": "受到火属性的招式攻击时， 攻击会提高，且不会陷入灼伤状态。"
+    }
+}

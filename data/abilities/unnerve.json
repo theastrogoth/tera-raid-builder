@@ -1,0 +1,14 @@
+{
+    "name": "Unnerve",
+    "flavorText": {
+        "en": "Unnerves opposing Pokémon and makes them unable to eat Berries.",
+        "ja": "相手を　緊張させて きのみを　食べられなく　させる。",
+        "fr": "Fait stresser l'adversaire, ce qui l'empêche de manger des Baies.",
+        "es": "Pone nervioso al rival y le impide comer bayas.",
+        "de": "Das Pokémon erzeugt bei Gegnern Stress und hindert sie so daran, Beeren zu konsumieren.",
+        "it": "Gli avversari vengono intimiditi e non possono mangiare bacche.",
+        "ko": "상대를 긴장시켜 나무열매를 먹지 못하게 한다.",
+        "zh-Hant": "讓對手感到緊張， 無法吃樹果。",
+        "zh-Hans": "让对手紧张， 使其无法食用树果。"
+    }
+}

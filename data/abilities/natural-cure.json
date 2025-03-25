@@ -1,0 +1,14 @@
+{
+    "name": "Natural Cure",
+    "flavorText": {
+        "en": "The Pokémon's status conditions are cured when it switches out.",
+        "ja": "手持ちに　ひっこむと 状態異常が　治る。",
+        "fr": "Le Pokémon soigne ses altérations de statut en quittant le combat.",
+        "es": "Sus problemas de estado desaparecen cuando se retira del combate.",
+        "de": "Wird das Pokémon ausgewechselt, werden seine Statusprobleme geheilt.",
+        "it": "Quando il Pokémon lascia il campo, guarisce dai problemi di stato.",
+        "ko": "지닌 포켓몬으로 돌아오면 상태 이상이 회복된다.",
+        "zh-Hant": "異常狀態會在 離場後治癒。",
+        "zh-Hans": "回到同行队伍后， 异常状态就会被治愈。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Blank Plate",
+    "flavorText": {
+        "en": "A stone tablet imbued with the essence of normalcy. When used on a certain Pokémon, it allows that Pokémon to gain the power of the Normal type.",
+        "ja": "ノーマルのタイプの石盤。 あるポケモンに使うと ノーマルの力を得る。",
+        "fr": "Une tablette en pierre imprégnée de la puissance du type Normal. Lorsqu'elle est utilisée sur un certain Pokémon, celui-ci obtient les pouvoirs du type Normal.",
+        "es": "Tabla de piedra imbuida de la energía del tipo Normal. Permite a cierto Pokémon obtener el poder del tipo Normal.",
+        "de": "Dieser Steintafel wohnt die Energie des Typs Normal inne. Wird sie auf ein bestimmtes Pokémon angewendet, erlangt es die Kraft des Typs Normal.",
+        "it": "Lastra di pietra di tipo Normale. Se usata su un Pokémon in particolare, gli permette di ottenere il potere del tipo Normale.",
+        "ko": "노말타입의 석판. 특정 포켓몬에게 사용하면 노말의 힘을 얻는다.",
+        "zh-Hant": "一般屬性的石板。 對某種寶可夢使用， 可使其獲得一般屬性的力量。",
+        "zh-Hans": "一般属性的石板。 对某种宝可梦使用， 可使其获得一般属性的力量。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Liquid Ooze",
+    "flavorText": {
+        "en": "The strong stench of the Pokémon's oozed liquid damages attackers that use HP-draining moves.",
+        "ja": "ヘドロ液を　吸い取った　相手は 強烈な　悪臭で ダメージを　受けて　ＨＰを　減らす。",
+        "fr": "Le Pokémon suinte un liquide toxique nauséabond qui blesse tous ceux qui tentent de voler ses PV.",
+        "es": "Exuda una secreción viscosa y tóxica de intenso hedor que hiere a quienes intentan drenarle PS.",
+        "de": "Angreifer, die durch Saug-Attacken Kloakensoße in sich aufgenommen haben, erleiden durch deren widerwärtigen Gestank Schaden.",
+        "it": "La melma del Pokémon infligge danni a chi la assorbe, facendogli perdere PS a causa del fortissimo tanfo.",
+        "ko": "해감액을 흡수한 상대는 강렬한 악취로 데미지를 받아 HP가 줄어든다.",
+        "zh-Hant": "吸收了污泥漿的對手 會因為強烈的惡臭而 使得ＨＰ減少。",
+        "zh-Hans": "吸收了污泥浆的对手 会因强烈的恶臭 而受到伤害，减少ＨＰ。"
+    }
+}

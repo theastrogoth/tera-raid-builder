@@ -1,0 +1,14 @@
+{
+    "name": "Suite Key",
+    "flavorText": {
+        "en": "A key to one of the suites at a certain luxury hotel by a lake. For some odd reason, it often disappears.",
+        "ja": "湖の　ほとりにある 高級ホテルの　ルームキー。 なぜか　よく　なくなってしまう。",
+        "fr": "La clé de l'une des suites de l'hôtel de luxe se trouvant près du lac. Bizarrement, elle disparaît souvent.",
+        "es": "Llave de una suite del hotel de lujo junto al lago. Por algún motivo, se pierde a menudo.",
+        "de": "Schlüssel zu einer Hotelsuite. Verschwindet seltsamerweise immer wieder mal.",
+        "it": "Chiave di una suite vicino a un lago. Per ragioni misteriose, scompare spesso.",
+        "ko": "호수 근처에 있는 고급 호텔의 룸키. 왜인지는 모르나 잘 없어진다.",
+        "zh-Hant": "湖畔高級旅館的房間鑰匙。 不知為何老是搞丟。",
+        "zh-Hans": "湖畔高级宾馆的房间钥匙。 不知为何，它经常会丢失。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Power Herb",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It allows the holder to immediately use a move that normally requires a turn to charge—but only once.",
+        "ja": "持たせたポケモンは　１度だけ １ターン目に　ちからを　ためる技を すぐに　使うことが　できる。",
+        "fr": "Objet à tenir et à usage unique. Permet d'utiliser immédiatement une capacité qui devrait se charger au premier tour.",
+        "es": "Permite el uso inmediato de movimientos que requieren un turno para cargarse. Es de un solo uso y debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Der Träger kann damit einmalig eine Attacke sofort einsetzen, die sonst aufgeladen werden muss.",
+        "it": "Strumento monouso da dare a un Pokémon. Permette l'uso immediato di una mossa che in genere richiede un turno prima di essere eseguita.",
+        "ko": "지니게 한 포켓몬은 한 번만 1턴째에 힘을 모으는 기술을 바로 사용할 수가 있다.",
+        "zh-Hant": "攜帶它的寶可夢將有１次機會， 可以在１回合內就發動 需要蓄力的招式。",
+        "zh-Hans": "携带它的宝可梦仅有１次机会 可以在第１回合使出 需要蓄力的招式。"
+    }
+}

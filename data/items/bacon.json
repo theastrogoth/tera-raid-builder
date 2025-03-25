@@ -1,0 +1,14 @@
+{
+    "name": "Bacon",
+    "flavorText": {
+        "en": "This very salty ingredient has been cooked just shy of charred, making it burst with fragrance and tasty flavor.",
+        "ja": "塩味が　強い　食材。 焦げる寸前まで　じっくり　焼いているので 香ばしさと　うま味が　たっぷりだぞ。",
+        "fr": "Un ingrédient au goût très salé. Cuit jusqu'à caramélisation, sa saveur déborde d'umami et de parfums alléchants.",
+        "es": "Tiene un sabor salado bastante fuerte, pero, si se cocina hasta estar casi quemada, se vuelve intensa y aromática.",
+        "de": "Diese sehr salzige Zutat besitzt ein intensives Aroma und vollmundigen Geschmack, da sie schön kross angebraten wurde.",
+        "it": "Un ingrediente molto salato. Cotta quasi fino ad abbrustolirla, è fragrante e molto saporita.",
+        "ko": "짠맛이 강한 식재료. 타기 직전까지 바짝 구워서 고소함과 감칠맛으로 가득하다.",
+        "zh-Hant": "鹹味強勁的食材。 充分煎得要焦而不焦， 使香味和鮮味相當飽滿。",
+        "zh-Hans": "咸味强烈的食材。 充分煎至焦脆程度恰到好处， 因此香味与鲜味十足。"
+    }
+}

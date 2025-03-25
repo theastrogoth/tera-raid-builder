@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A cloud of poison gas is sprayed in the faces of opposing Pokémon, poisoning those it hits.",
+        "ja": "毒ガスを　相手の　顔に　吹きかけて 毒の　状態に　する。",
+        "fr": "Le lanceur empoisonne la cible en lui projetant un nuage de gaz toxique au visage.",
+        "es": "Lanza una nube de gas tóxico al rostro del objetivo. Produce envenenamiento.",
+        "de": "Hüllt gegnerische Pokémon in ein Gas ein, das sie vergiftet.",
+        "it": "Il Pokémon spruzza in faccia agli avversari una nuvola di gas tossico che li avvelena.",
+        "ko": "독가스를 상대의 얼굴에 내뿜어 독 상태로 만든다.",
+        "zh-Hant": "將毒瓦斯吹到對手的臉上， 讓對手陷入中毒狀態。",
+        "zh-Hans": "将毒瓦斯吹到对手的脸上， 从而让对手陷入中毒状态。"
+    }
 }

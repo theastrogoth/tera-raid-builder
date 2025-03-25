@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by firing an electric blast like a cannon. This also leaves the target with paralysis.",
+        "ja": "大砲の　ような 電気を　発射して　攻撃する。 相手を　まひの　状態に　する。",
+        "fr": "Un boulet de canon électrifié qui inflige des dégâts à la cible et la paralyse.",
+        "es": "Dispara una descarga eléctrica que causa daño y parálisis.",
+        "de": "Kanonenähnlicher Elektro-Schuss, der schadet und paralysiert.",
+        "it": "Il Pokémon attacca scagliando una sfera elettrica. Paralizza il bersaglio.",
+        "ko": "대포처럼 전기를 발사해서 공격한다. 상대를 마비 상태로 만든다.",
+        "zh-Hant": "發射如大炮般的 電流進行攻擊。 能讓對手陷入麻痺狀態。",
+        "zh-Hans": "发射大炮一样的 电流进行攻击。 让对手陷入麻痹状态。"
+    }
 }

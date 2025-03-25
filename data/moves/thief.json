@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks and steals the target's held item simultaneously. The user can't steal anything if it already holds an item.",
+        "ja": "攻撃と　同時に　道具を　盗む。 自分が　道具を　持っている　場合は 盗めない。",
+        "fr": "Le lanceur attaque la cible et vole son objet. Le lanceur ne peut rien voler s'il tient déjà un objet.",
+        "es": "El usuario ataca y le roba el objeto al objetivo. Si ya lleva uno, el robo no se produce.",
+        "de": "Ermöglicht es, das Item des Zieles zu stehlen, solang der Anwender selbst keins bei sich trägt.",
+        "it": "Il Pokémon attacca il bersaglio e può rubargli lo strumento, se non ne ha già uno.",
+        "ko": "공격과 동시에 도구를 훔친다. 자신이 도구를 지니고 있을 경우에는 훔칠 수 없다.",
+        "zh-Hant": "在攻擊的同時偷取道具。 當寶可夢自己有攜帶道具時， 則無法偷取。",
+        "zh-Hans": "攻击的同时盗取道具。 当自己携带道具时， 不会去盗取。"
+    }
 }

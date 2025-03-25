@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This is a Ghost-type attack Dynamax Pokémon use. This lowers the target's Defense stat.",
+        "ja": "ダイマックスした　ポケモンが 繰りだす　ゴーストタイプの　攻撃。 相手の　防御を　下げる。",
+        "fr": "Une attaque de type Spectre que seuls les Pokémon Dynamax peuvent utiliser. Baisse la Défense de la cible.",
+        "es": "Ataque de tipo Fantasma ejecutado por un Pokémon Dinamax. Reduce la Defensa del objetivo.",
+        "de": "Eine Geister-Attacke, die nur Dynamax-Pokémon einsetzen können. Senkt die Verteidigung der Gegnerseite.",
+        "it": "Un attacco di tipo Spettro che può essere eseguito dai Pokémon dynamaxizzati. Riduce la Difesa degli avversari.",
+        "ko": "다이맥스한 포켓몬이 날리는 고스트타입의 공격. 상대의 방어를 떨어뜨린다.",
+        "zh-Hant": "極巨化寶可夢 所使出的幽靈屬性攻擊。 可降低對手的防禦。",
+        "zh-Hans": "极巨化宝可梦使出的幽灵属性攻击。 会降低对手的防御。"
+    }
 }

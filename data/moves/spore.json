@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user scatters bursts of spores that induce sleep.",
+        "ja": "催眠効果の　ある 胞子を　パラパラと　ふりまき 相手を　眠り状態に　する。",
+        "fr": "Le lanceur répand un nuage de spores qui endort.",
+        "es": "Esparce esporas que inducen el sueño.",
+        "de": "Erzeugt eine Sporenwolke, die das Ziel in Schlaf versetzt.",
+        "it": "Il Pokémon sparge una nube di spore che fa addormentare il bersaglio.",
+        "ko": "최면 효과가 있는 포자를 훌훌 흩뿌려서 상대를 잠듦 상태로 만든다.",
+        "zh-Hant": "大把撒出有催眠效果的孢子， 讓對手陷入睡眠狀態。",
+        "zh-Hans": "沙沙沙地撒满具有 催眠效果的孢子， 从而让对手陷入睡眠状态。"
+    }
 }

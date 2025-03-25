@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user surrounds itself with a great amount of electricity and charges the target. This may also leave the target with paralysis.",
+        "ja": "ぼうだいな　電気を　身に　まとって 相手に　突進して　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "Le lanceur s'enveloppe d'une charge électrique surpuissante et se jette sur la cible, ce qui peut aussi la paralyser.",
+        "es": "Ataca envolviéndose de una gran carga eléctrica y embistiendo al objetivo con ella. Puede paralizar.",
+        "de": "Lädt seinen Körper mit einer gewaltigen Menge an Elektrizität auf und rammt damit das Ziel. Ziel wird eventuell paralysiert.",
+        "it": "Il Pokémon si avvolge con una possente carica elettrica e attacca scagliandosi contro il bersaglio. Può anche paralizzarlo.",
+        "ko": "방대한 전기를 몸에 둘러 상대에게 돌진해서 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "用強大的電流圍繞身體， 猛撞對手進行攻擊。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "让强大的电流覆盖全身， 猛撞向对手进行攻击。 有时会让对手陷入麻痹状态。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Card Key",
+    "flavorText": {
+        "en": "A card key that unlocks doors in Silph Co.'s head office in Saffron City.",
+        "ja": "ヤマブキの　シルフカンパニー 本社　ビルの　ドアロックを はずす　カードタイプの　カギ。",
+        "fr": "Une carte magnétique pouvant ouvrir les portes du siège de la Sylphe SARL à Safrania.",
+        "es": "Esta tarjeta permite abrir las puertas de la Oficina Central de Silph S. A. en Ciudad Azafrán.",
+        "de": "Eine Schlüsselkarte, mit der die Türen im Hauptsitz der Silph Company in Saffronia City geöffnet werden können.",
+        "it": "Chiave a scheda per sbloccare le porte nella sede della Silph S.p.A. a Zafferanopoli.",
+        "ko": "노랑시티의 실프주식회사 본사 빌딩의 도어록을 해제하는 카드 타입의 열쇠.",
+        "zh-Hant": "卡片型的鑰匙。 能打開位於金黃市的 西爾佛公司總部的門鎖。",
+        "zh-Hans": "用来打开位于金黄市的 西尔佛公司总部大厦门锁的 卡片式钥匙。"
+    }
+}

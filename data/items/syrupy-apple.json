@@ -1,0 +1,14 @@
+{
+    "name": "Syrupy Apple",
+    "flavorText": {
+        "en": "A peculiar apple that can make a certain species of Pokémon evolve. It's exceptionally syrupy.",
+        "ja": "ある特定の　ポケモンを 進化させる　不思議なりんご。 とにかく　蜜入り。",
+        "fr": "Une pomme mystérieuse pleine de nectar qui permet de faire évoluer une certaine espèce de Pokémon.",
+        "es": "Curiosa manzana, de sabor particularmente meloso, que hace evolucionar a una determinada especie de Pokémon.",
+        "de": "Dieser sonderbare Apfel löst bei einem bestimmten Pokémon die Entwicklung aus. Er ist sehr saftig.",
+        "it": "Mela particolare, ricca di una sostanza simile a sciroppo, che fa evolvere determinate specie di Pokémon.",
+        "ko": "어느 특정 포켓몬을 진화시키는 이상한 사과. 엄청나게 꿀맛이다.",
+        "zh-Hant": "能讓特定寶可夢 進化的神奇蘋果。 富含蜜汁。",
+        "zh-Hans": "这种神奇的苹果 可以使特定的宝可梦进化。 富含蜜汁。"
+    }
+}

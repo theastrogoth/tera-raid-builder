@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user swings its stone axes at the target. Stone splinters left behind by this attack float around the target.",
+        "ja": "岩の斧で　攻撃する。 ばらまかれた　岩の破片が 相手の　周りに　浮かぶ。",
+        "fr": "Le lanceur attaque avec sa hache de pierre. Des débris de pierre se répandent alors et se mettent à flotter autour de la cible.",
+        "es": "Ataca con un hacha de piedra y, al hacerlo, se desprenden fragmentos que rodean al objetivo.",
+        "de": "Der Anwender greift mit seinen Felsäxten an. Dadurch verstreut er schwebende Felssplitter im Umkreis des Zieles.",
+        "it": "Il Pokémon attacca il bersaglio con delle scuri di roccia. I frammenti rocciosi dispersi dall'attacco restano sospesi intorno al bersaglio.",
+        "ko": "암석 도끼로 공격한다. 흩어진 암석 파편은 상대의 주위에 떠다니게 된다.",
+        "zh-Hant": "用岩石之斧進行攻擊。 散落的岩石碎片 會在對手周圍飄浮。",
+        "zh-Hans": "用岩石之斧进行攻击。 散落的岩石碎片 会飘浮在对手周围。"
+    }
 }

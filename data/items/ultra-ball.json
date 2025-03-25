@@ -1,0 +1,14 @@
+{
+    "name": "Ultra Ball",
+    "flavorText": {
+        "en": "A mysterious ball that provides an even higher success rate for catching Pokémon than a Great Ball does.",
+        "ja": "スーパーボールよりも さらにポケモンを捕まえやすくなった すごく性能のいい不思議なボール。",
+        "fr": "Cette étrange balle aux capacités étonnantes permet d'attraper les Pokémon plus facilement qu'avec une Super Ball.",
+        "es": "Misteriosa bola de rendimiento superior. Tiene un índice de captura mayor al de la Super Ball.",
+        "de": "Mit diesem rätselhaften Ball sind Pokémon noch leichter zu fangen als mit einem Superball.",
+        "it": "Poké Ball misteriosa dalle prestazioni eccellenti: fornisce maggiori probabilità di cattura rispetto alla Mega Ball.",
+        "ko": "슈퍼볼보다도 더욱 포켓몬을 잡기 쉬워진 매우 성능이 좋고 신비한 볼.",
+        "zh-Hant": "不可思議的球。性能 非常不錯。比起超級球 更容易捉到寶可夢。",
+        "zh-Hans": "不可思议的球。比起超级球来 更容易捉到宝可梦的， 性能非常不错的球。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "TR29",
+    "flavorText": {
+        "en": "The user switches places with a party Pokémon in waiting and passes along any stat changes.",
+        "ja": "控えの　ポケモンと　入れ替わる。 能力変化は　替わった ポケモンが　そのまま　受けつぐ。",
+        "fr": "Le lanceur échange sa place et tout changement de stats avec un Pokémon de l'équipe.",
+        "es": "Cambia el puesto con otro miembro del equipo y le pasa los cambios en las características.",
+        "de": "Tauscht den Anwender aus und überträgt alle Statusveränderungen auf das eingewechselte Pokémon.",
+        "it": "Il Pokémon è sostituito da un altro della squadra, che eredita anche ogni modifica alle statistiche.",
+        "ko": "교대 포켓몬과 교체한다. 능력 변화는 교대 포켓몬이 그대로 이어받는다.",
+        "zh-Hant": "與後備寶可夢進行替換。 替換上場的寶可夢， 將承接目前寶可夢的能力變化。",
+        "zh-Hans": "和后备宝可梦进行替换。 换上的宝可梦 能直接继承其能力的变化。"
+    }
+}

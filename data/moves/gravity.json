@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Enables Flying types or Pokémon with the Levitate Ability to be hit by Ground-type moves for five turns. Moves that involve flying can't be used.",
+        "ja": "５ターンの間　ふゆうや　ひこうタイプに じめんタイプの　技が　当たるようになる。 空中に　飛ぶ　技も　使えない。",
+        "fr": "Pendant cinq tours, les Pokémon Vol ou qui ont Lévitation deviennent sensibles aux capacités Sol, et les capacités volantes deviennent inutilisables.",
+        "es": "Durante cinco turnos, se anulan los movimientos que alzan el vuelo y los Pokémon de tipo Volador o que levitan son vulnerables a movimientos de tipo Tierra.",
+        "de": "Ermöglicht es, Flug-Pokémon oder Pokémon mit der Fähigkeit Schwebe mit Boden-Attacken zu treffen. Verhindert Attacken, bei denen der Anwender fliegt.",
+        "it": "Per cinque turni i Pokémon con Levitazione o di tipo Volante sono vulnerabili alle mosse di tipo Terra. Non è possibile usare mosse che fanno volare.",
+        "ko": "5턴 동안 부유나 비행타입에 땅타입의 기술이 맞게 된다. 공중으로 나는 기술도 사용할 수 없다.",
+        "zh-Hant": "在５回合內，飄浮特性和飛行屬性的 寶可夢會被地面屬性的招式擊中。 且無法使用飛向空中的招式。",
+        "zh-Hans": "在５回合内，飘浮特性和飞行属性的 宝可梦会被地面属性的招式击中。 飞向空中的招式也将无法使用。"
+    }
 }

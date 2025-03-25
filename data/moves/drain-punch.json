@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks with an energy-draining punch. The user's HP is restored by up to half the damage taken by the target.",
+        "ja": "こぶしから　相手の　力を　吸い取る。 与えた　ダメージの 半分の　ＨＰを　回復できる。",
+        "fr": "Un coup de poing qui draine l'énergie. Convertit la moitié des dégâts infligés en PV pour le lanceur.",
+        "es": "Un golpe que drena energía. El usuario recupera la mitad de los PS arrebatados al objetivo.",
+        "de": "Entzieht dem Ziel Energie. Die Hälfte des Schadens wird den KP des Anwenders zugerechnet.",
+        "it": "Pugno che assorbe energia. Fa recuperare una quantità di PS pari alla metà del danno inflitto.",
+        "ko": "주먹으로 상대의 힘을 흡수한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+        "zh-Hant": "從拳頭吸取對手的力量。 可以回復給予對手 傷害的一半ＨＰ。",
+        "zh-Hans": "用拳头吸取对手的力量。 可以回复给予对手 伤害的一半ＨＰ。"
+    }
 }

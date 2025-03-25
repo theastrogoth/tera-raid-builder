@@ -1,0 +1,14 @@
+{
+    "name": "Gorilla Tactics",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Attack stat but only allows the use of the first selected move.",
+        "ja": "攻撃は　上がるが 最初に　選んだ 技しか　出せなくなる。",
+        "fr": "Augmente l'Attaque, mais empêche d'utiliser toute autre capacité que celle utilisée en premier par le Pokémon.",
+        "es": "Aumenta su Ataque, pero solo puede usar el primer movimiento escogido.",
+        "de": "Der Angriff des Pokémon steigt, aber es kann nur die zuerst gewählte Attacke einsetzen.",
+        "it": "Aumenta l'Attacco ma costringe il Pokémon a usare solo la prima mossa selezionata.",
+        "ko": "공격이 올라가지만 처음에 선택한 기술 외에는 쓸 수 없게 된다.",
+        "zh-Hant": "攻擊雖然會提高， 但只能使出 最初選擇的招式。",
+        "zh-Hans": "虽然攻击会提高， 但是只能使出 一开始所选的招式。"
+    }
+}

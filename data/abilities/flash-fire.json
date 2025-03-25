@@ -1,0 +1,14 @@
+{
+    "name": "Flash Fire",
+    "flavorText": {
+        "en": "If hit by a Fire-type move, the Pokémon absorbs the flames and uses them to power up its own Fire-type moves.",
+        "ja": "ほのおタイプの　技を　受けると 炎を　もらい　自分が　出す ほのおタイプの　技が　強くなる。",
+        "fr": "Lorsque le Pokémon est touché par une capacité de type Feu, il absorbe la chaleur pour renforcer ses propres capacités Feu.",
+        "es": "Si lo alcanza algún movimiento de tipo Fuego, potencia sus propios movimientos de dicho tipo.",
+        "de": "Wird das Pokémon von einer Feuer-Attacke getroffen, nimmt es die Flammen in sich auf und verstärkt damit seine eigenen Feuer-Attacken.",
+        "it": "Se il Pokémon subisce una mossa di tipo Fuoco, ne sfrutta il calore per potenziare le proprie mosse di tipo Fuoco.",
+        "ko": "불꽃타입의 기술로 공격받으면 불꽃을 받아서 자신이 사용하는 불꽃타입의 기술이 강해진다.",
+        "zh-Hant": "受到火屬性的招式攻擊時， 吸收火焰，讓自己使出的 火屬性招式變強。",
+        "zh-Hans": "受到火属性的招式攻击时， 吸收火焰，自己使出的 火属性招式会变强。"
+    }
+}

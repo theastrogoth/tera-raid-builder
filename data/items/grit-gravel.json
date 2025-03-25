@@ -1,0 +1,14 @@
+{
+    "name": "Grit Gravel",
+    "flavorText": {
+        "en": "Mysterious gravel that can raise the effort level for one of a Pokémon's stats. It can be used only if the effort level is at least level three and no greater than level five.",
+        "ja": "ポケモンのがんばレベルをあげる 不思議な砂利。 がんばレベルが３から５のポケモンに使える。",
+        "fr": "Des cailloux mystérieux qui permettent d'augmenter le niveau d'effort d'un Pokémon s'il se trouve entre 3 et 5.",
+        "es": "Misteriosa grava que aumenta el nivel de esfuerzo de un Pokémon. Solamente puede utilizarse si su nivel de esfuerzo se encuentra entre tres y cinco.",
+        "de": "Dieser rätselhafte Kies erhöht den Leistungslevel eines Pokémon. Er kann für Pokémon mit einem Leistungslevel von 3 bis 5 verwendet werden.",
+        "it": "Misteriosa ghiaia che aumenta il livello di impegno di un Pokémon. Può essere utilizzata su Pokémon con un livello di impegno tra 3 e 5.",
+        "ko": "포켓몬의 노력 레벨을 올리는 신비한 자갈. 노력 레벨이 3부터 5인 포켓몬에게 사용할 수 있다.",
+        "zh-Hant": "不可思議的沙礫。 能讓寶可夢的奮鬥等級提升。 可用於奮鬥等級３～５的寶可夢。",
+        "zh-Hans": "不可思议的沙砾。 能让宝可梦的奋斗等级提升。 可用于奋斗等级３～５的宝可梦。"
+    }
+}

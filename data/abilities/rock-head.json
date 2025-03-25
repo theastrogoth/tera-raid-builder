@@ -1,0 +1,14 @@
+{
+    "name": "Rock Head",
+    "flavorText": {
+        "en": "Protects the Pokémon from recoil damage.",
+        "ja": "反動を　受ける　技を　出しても ＨＰが　減らない。",
+        "fr": "Le Pokémon peut utiliser des capacités occasionnant un contrecoup sans perdre de PV.",
+        "es": "No pierde PS al usar movimientos que también hieren al usuario.",
+        "de": "Das Pokémon erleidet keinen Schaden, wenn es Attacken mit Rückstoß einsetzt.",
+        "it": "Anche se il Pokémon usa delle mosse che causano un contraccolpo, non perde PS.",
+        "ko": "반동을 받는 기술을 사용해도 HP가 줄지 않는다.",
+        "zh-Hant": "即使使出會受反作用力傷害的招式， ＨＰ也不會減少。",
+        "zh-Hans": "即使使出会受反作用力伤害的招式， ＨＰ也不会减少。"
+    }
+}

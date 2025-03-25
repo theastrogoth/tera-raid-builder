@@ -1,0 +1,14 @@
+{
+    "name": "Aftermath",
+    "flavorText": {
+        "en": "Damages the attacker if it knocks out the Pokémon with a move that makes direct contact.",
+        "ja": "ひんしに　なったとき 触った　相手に ダメージを　あたえる。",
+        "fr": "Si le Pokémon est mis K.O. par une attaque directe, il inflige des dégâts à l'attaquant avant de s'évanouir.",
+        "es": "Daña al Pokémon que le ha dado el golpe de gracia con un movimiento de contacto.",
+        "de": "Angreifer erleiden Schaden, wenn das Pokémon durch eine Attacke mit Berührung besiegt wird.",
+        "it": "Infligge danni a chi manda KO questo Pokémon entrando in contatto con lui.",
+        "ko": "기절했을 때 접촉한 상대에게 데미지를 준다.",
+        "zh-Hant": "瀕死時， 會對接觸到自己的對手造成傷害。",
+        "zh-Hans": "变为昏厥时， 会对接触到自己的对手造成伤害。"
+    }
+}

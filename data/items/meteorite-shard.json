@@ -1,0 +1,14 @@
+{
+    "name": "Meteorite Shard",
+    "flavorText": {
+        "en": "One of the fragments of a meteorite from Granite Cave. It's faintly warm to the touch.",
+        "ja": "石の洞窟に　落ちていた いんせきのかけらの　ひとつ。 触れると　ほのかに　暖かい。",
+        "fr": "L'un des fragments de météorite tombés dans la Grotte Granite. Il est légèrement tiède au toucher.",
+        "es": "Trozo de meteorito encontrado en el suelo de la Cueva Granito. Es ligeramente cálido al tacto.",
+        "de": "Eines der Meteoritenstücke aus der Granithöhle. Wenn man es berührt, wird es ein bisschen warm.",
+        "it": "Frammento di meteorite trovato nella Grotta Pietrosa. Toccandolo, si avverte un certo calore.",
+        "ko": "바위 동굴에 떨어진 운석조각 중의 하나. 만지면 은근히 따뜻하다.",
+        "zh-Hant": "掉落在石之洞窟裡的 隕石碎片之一。 摸起來有點暖暖的。",
+        "zh-Hans": "掉落在石之洞窟里的 陨石碎片之一。 摸上去有一点点暖暖的。"
+    }
+}

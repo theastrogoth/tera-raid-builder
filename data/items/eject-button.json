@@ -1,0 +1,14 @@
+{
+    "name": "Eject Button",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If the holder is damaged by an attack, it will be switched out of battle to be replaced by another Pokémon on your team.",
+        "ja": "持たせて　技のダメージを　受けると 戦闘から　脱出して 手持ちと　入れ替わる　ことができる。",
+        "fr": "Objet à tenir. Permet au porteur de quitter le combat s'il subit des dégâts d'une capacité offensive.",
+        "es": "Si el portador es alcanzado por un ataque, saldrá del combate y será sustituido por otro Pokémon del equipo.",
+        "de": "Nimmt der Träger dieses Fluchtknopfs durch eine Attacke Schaden, flieht er aus dem Kampf und wird mit einem Team-Pokémon ausgetauscht.",
+        "it": "Se il Pokémon che ha questo strumento subisce danni da una mossa, viene immediatamente sostituito da un altro membro della squadra.",
+        "ko": "지니게 하고 기술에 데미지를 받으면 배틀에서 탈출하여 지닌 포켓몬과 교체할 수 있다.",
+        "zh-Hant": "攜帶它的寶可夢如果受到招式的傷害， 就能從戰鬥中逃脫，並和同行的 其他寶可夢進行替換。",
+        "zh-Hans": "携带它的宝可梦如果受到招式的伤害， 就能逃脱战斗，并和同行的 其他宝可梦进行替换。"
+    }
+}

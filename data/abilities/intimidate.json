@@ -1,0 +1,14 @@
+{
+    "name": "Intimidate",
+    "flavorText": {
+        "en": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
+        "ja": "登場　したとき　威嚇して 相手を　萎縮させ 相手の　攻撃を　下げて　しまう。",
+        "fr": "Le Pokémon rugit lorsqu'il arrive au combat, ce qui intimide l'ennemi et baisse son Attaque.",
+        "es": "Al entrar en combate, amilana al rival de tal manera que reduce su Ataque.",
+        "de": "Das Pokémon senkt bei Kampfantritt den Angriff von Gegnern, indem es sie bedroht und einschüchtert.",
+        "it": "Quando il Pokémon entra in campo, la sua prepotenza crea soggezione, riducendo l'Attacco degli avversari intimiditi.",
+        "ko": "등장했을 때 위협해서 상대를 위축시켜 상대의 공격을 떨어뜨린다.",
+        "zh-Hant": "出場時威嚇對手， 使其退縮， 從而降低對手的攻擊。",
+        "zh-Hans": "出场时威吓对手， 让其退缩， 降低对手的攻击。"
+    }
+}

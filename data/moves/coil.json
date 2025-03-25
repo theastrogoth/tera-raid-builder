@@ -43,5 +43,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user coils up and concentrates. This boosts its Attack and Defense stats as well as its accuracy.",
+        "ja": "とぐろを　まいて　集中する。 自分の　攻撃と　防御と 命中率を　あげる。",
+        "fr": "Le lanceur s'enroule sur lui-même et se concentre. Son Attaque, sa Défense et sa Précision augmentent.",
+        "es": "El usuario se concentra, lo que le permite aumentar su Ataque, su Defensa y su Precisión.",
+        "de": "Anwender rollt sich zusammen und sammelt sich. Dabei werden Angriff, Verteidigung und Genauigkeit erhöht.",
+        "it": "Il Pokémon si concentra aumentando Attacco, Difesa e precisione.",
+        "ko": "똬리를 틀어서 집중한다. 자신의 공격과 방어, 명중률을 올린다.",
+        "zh-Hant": "盤蜷身體集中精神。 可提高自己的攻擊、防禦和命中率。",
+        "zh-Hans": "盘蜷着集中精神。 提高自己的攻击、防御和命中率。"
+    }
 }

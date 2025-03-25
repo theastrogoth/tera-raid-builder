@@ -1,0 +1,14 @@
+{
+    "name": "Full Restore",
+    "flavorText": {
+        "en": "A recipe for crafting Full Restores from scratch. Required materials: 1 Max Potion and 1 Full Heal.",
+        "ja": "かいふくのくすりのレシピ。　材料は まんたんのくすり×１　なんでもなおし×１",
+        "fr": "Méthode pour Guérison. Ressources requises : 1 Potion Max et 1 Total Soin.",
+        "es": "Receta para crear Restaurar Todo. Materiales: 1 Poción Máxima y 1 Cura Total.",
+        "de": "Die Anleitung zur Herstellung einer Top-Genesung. Benötigte Materialien: 1 Top-Trank und 1 Hyperheiler.",
+        "it": "Ricetta per una Ricarica totale. Richiede 1 Pozione max e 1 Cura totale.",
+        "ko": "회복약의 레시피. 재료: 풀회복약×1 만병통치제×1",
+        "zh-Hant": "全復藥的材料單。材料是： 全滿藥×１　萬靈藥×１",
+        "zh-Hans": "全复药的材料单。材料是： 全满药×１　万灵药×１"
+    }
+}

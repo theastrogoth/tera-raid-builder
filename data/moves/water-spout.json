@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user spouts water to damage opposing Pokémon. The lower the user's HP, the lower the move's power.",
+        "ja": "潮を　吹きつけて　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　さがる。",
+        "fr": "Le lanceur attaque avec un jet d'eau. Moins il a de PV et moins l'attaque est puissante.",
+        "es": "Chorro de agua. Cuantos menos PS tenga el usuario, menos potencia tendrá el movimiento.",
+        "de": "Eine Wasser-Attacke gegen gegnerische Pokémon. Je höher die KP des Anwenders sind, desto mehr Schaden richtet sie an.",
+        "it": "Il Pokémon attacca lanciando un getto d'acqua. Più i suoi PS sono bassi, più la potenza della mossa diminuisce.",
+        "ko": "바닷물을 내뿜어 공격한다. 자신의 HP가 적을수록 기술의 위력이 떨어진다.",
+        "zh-Hant": "噴起潮水進行攻擊。 自己的ＨＰ越少， 招式的威力越小。",
+        "zh-Hans": "掀起潮水进行攻击。 自己的ＨＰ越少， 招式的威力越小。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Sport Ball",
+    "flavorText": {
+        "en": "A special Poké Ball that was used during the Bug-Catching Contest in the Johto region.",
+        "ja": "ジョウト地方の　虫捕り大会で 使われていた　特別なボール。",
+        "fr": "Une Poké Ball spéciale anciennement utilisée au Concours de Capture d'insecte de Johto.",
+        "es": "Poké Ball especial utilizada en el Concurso de Captura de Bichos de la región de Johto.",
+        "de": "Ein besonderer Ball, der beim Käferturnier der Johto-Region eingesetzt wird.",
+        "it": "Poké Ball speciale usata in passato nella Gara Pigliamosche di Johto.",
+        "ko": "성도지방의 곤충채집 대회에서 사용되었던 특별한 볼.",
+        "zh-Hant": "曾在城都地區的捕蟲大賽被使用。 是一種特殊的球。",
+        "zh-Hans": "曾在城都地区的捕虫大赛上使用的 特殊的球。"
+    }
+}

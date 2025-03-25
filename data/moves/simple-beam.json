@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user emits a mysterious psychic wave that changes the target's Ability to Simple.",
+        "ja": "なぞの　念波を　相手に　送る。 念波を　受けとった　相手は 特性が　たんじゅんに　なる。",
+        "fr": "Le lanceur envoie des ondes mystérieuses à la cible, dont le talent est remplacé par le talent Simple.",
+        "es": "Lanza una onda psíquica que hace que la habilidad del objetivo pase a ser Simple.",
+        "de": "Bestrahlt das Ziel mit mysteriösen Energiewellen. Bei einem Treffer wird dessen Fähigkeit zu Wankelmut.",
+        "it": "Il Pokémon emette un misterioso raggio psichico che trasforma l'abilità del bersaglio in Disinvoltura.",
+        "ko": "수수께끼의 염력파를 상대에게 보낸다. 염력파를 받은 상대는 특성이 단순으로 바뀐다.",
+        "zh-Hant": "向對手發射謎樣的念力波。 接收了念力波的對手， 特性會變成單純。",
+        "zh-Hans": "向对手发送谜之念波。 接收到念波的对手， 其特性会变为单纯。"
+    }
 }

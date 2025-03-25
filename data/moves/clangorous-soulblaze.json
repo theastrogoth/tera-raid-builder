@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This move can't be used. It's recommended that this move is forgotten. Once forgotten, this move can't be remembered.",
+        "ja": "この技は　使えません 思い出すことが　できなくなりますが 技を　忘れることを　おすすめします",
+        "fr": "Cette capacité ne peut pas être utilisée. Il est recommandé de l'oublier, même s'il sera impossible de se la remémorer une fois oubliée.",
+        "es": "Este movimiento no se puede usar, por lo que sería mejor olvidarlo, aunque eso implique que no se pueda recordar posteriormente.",
+        "de": "Diese Attacke kann nicht eingesetzt werden. Du solltest dein Pokémon sie vergessen lassen. Beachte aber, dass es sich danach nicht wieder an sie erinnern kann.",
+        "it": "Questa mossa non può essere usata. È consigliabile farla dimenticare al Pokémon. Tuttavia, una volta dimenticata, non potrà più essere ricordata.",
+        "ko": "사용할 수 없는 기술입니다. 다시 배우게 할 수 없지만 기술을 잊게 하는 것을 권장합니다.",
+        "zh-Hant": "無法使用此招式。 雖然忘記後將無法再想起來， 但還是建議忘記此招式。",
+        "zh-Hans": "无法使用这个招式。 虽然忘记之后就再也想不起来了， 但还是建议忘记这个招式。"
+    }
 }

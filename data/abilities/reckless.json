@@ -1,0 +1,14 @@
+{
+    "name": "Reckless",
+    "flavorText": {
+        "en": "Powers up moves that have recoil damage.",
+        "ja": "反動で　ダメージを 受ける　技の　威力が　上がる。",
+        "fr": "Augmente la puissance des capacités occasionnant un contrecoup.",
+        "es": "Potencia los movimientos que también dañan al usuario.",
+        "de": "Die Stärke von Attacken des Pokémon, die Rückstoßschaden verursachen, steigt.",
+        "it": "Aumenta la potenza delle mosse che causano contraccolpo.",
+        "ko": "반동 데미지를 받는 기술의 위력이 올라간다.",
+        "zh-Hant": "會讓自己因反作用力而受傷的招式 威力會提高。",
+        "zh-Hans": "自己会因反作用力受伤的招式， 其威力会提高。"
+    }
+}

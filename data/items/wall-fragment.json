@@ -1,0 +1,14 @@
+{
+    "name": "Wall Fragment",
+    "flavorText": {
+        "en": "A fragment that was once part of a stone panel in the Solaceon Ruins. It has markings carved on it that appear to be some kind of writing.",
+        "ja": "ズイの遺跡にあった石壁の一部。 文字のような文様が刻まれている。",
+        "fr": "Un fragment de mur des Ruines Bonvivre. On peut y voir des gravures qui évoquent des caractères.",
+        "es": "Trozo de una vetusta losa situada en las Ruinas Sosiego en cuya superficie hay tallados ciertos caracteres.",
+        "de": "Ein Teil der Steinplatte aus den Ruinen des Trostes. Darauf sind buchstabenähnliche Muster eingemeißelt.",
+        "it": "Parte di una lastra originaria delle Rovine Flemma. Vi sono incisi simboli simili a lettere.",
+        "ko": "신수유적에 있던 석판의 일부. 문자 같아 보이는 무늬가 새겨져 있다.",
+        "zh-Hant": "隨意遺跡中石壁的一部分。 上面刻著像是文字的紋路。",
+        "zh-Hans": "随意遗迹中石壁的一部分。 上面刻着像是文字的纹路。"
+    }
+}

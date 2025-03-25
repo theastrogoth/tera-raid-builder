@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user absorbs the target's HP. The user's HP is restored by over half the damage taken by the target.",
+        "ja": "ねらいを　定めた　相手から　ＨＰを 吸い取る。　与えた　ダメージの 半分以上　ＨＰを　回復する。",
+        "fr": "Vole l'énergie de la cible. Rend au lanceur un nombre de PV supérieur ou égal à la moitié des dégâts infligés.",
+        "es": "El usuario absorbe energía del objetivo y recupera PS en una cantidad igual o superior a la mitad del daño infligido.",
+        "de": "Der Anwender raubt dem Ziel KP. Die Höhe der Heilung beträgt mehr als die Hälfte des beim Ziel angerichteten Schadens.",
+        "it": "Il Pokémon assorbe energia dal bersaglio recuperando una quantità di PS pari o superiore alla metà del danno inferto.",
+        "ko": "조준한 상대로부터 HP를 흡수한다. 준 데미지의 반 이상 HP를 회복한다.",
+        "zh-Hant": "從鎖定的對手身上吸取ＨＰ。 可以回復給予對手 傷害的一半以上的ＨＰ。",
+        "zh-Hans": "从锁定的对手身上吸取ＨＰ。 回复给予对手 伤害的一半以上的ＨＰ。"
+    }
 }

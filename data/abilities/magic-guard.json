@@ -1,0 +1,14 @@
+{
+    "name": "Magic Guard",
+    "flavorText": {
+        "en": "The Pokémon only takes damage from attacks.",
+        "ja": "攻撃　以外では ダメージを　受けない。",
+        "fr": "Seules les attaques peuvent blesser le Pokémon.",
+        "es": "Solo recibe daño de ataques.",
+        "de": "Das Pokémon erleidet nur durch Angriffe Schaden.",
+        "it": "Il Pokémon subisce danni solo dagli attacchi.",
+        "ko": "공격 이외에는 데미지를 받지 않는다.",
+        "zh-Hant": "不會受到攻擊以外的傷害。",
+        "zh-Hans": "不会受到攻击以外的伤害。"
+    }
+}

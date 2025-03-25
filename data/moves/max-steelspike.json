@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This is a Steel-type attack Dynamax Pokémon use. This boosts ally Pokémon's Defense stats.",
+        "ja": "ダイマックスした　ポケモンが 繰りだす　はがねタイプの　攻撃。 味方の　防御を　上げる。",
+        "fr": "Une attaque de type Acier que seuls les Pokémon Dynamax peuvent utiliser. Augmente la Défense des alliés.",
+        "es": "Ataque de tipo Acero ejecutado por un Pokémon Dinamax. Aumenta la Defensa de tu bando.",
+        "de": "Eine Stahl-Attacke, die nur Dynamax-Pokémon einsetzen können. Erhöht die Verteidigung der Mitstreiterseite.",
+        "it": "Un attacco di tipo Acciaio che può essere eseguito dai Pokémon dynamaxizzati. Aumenta la Difesa degli alleati.",
+        "ko": "다이맥스한 포켓몬이 날리는 강철타입의 공격. 같은 편의 방어를 올린다.",
+        "zh-Hant": "極巨化寶可夢 所使出的鋼屬性攻擊。 可提高我方的防禦。",
+        "zh-Hans": "极巨化宝可梦使出的钢属性攻击。 会提高我方的防御。"
+    }
 }

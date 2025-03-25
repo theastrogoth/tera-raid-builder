@@ -1,0 +1,14 @@
+{
+    "name": "Water Veil",
+    "flavorText": {
+        "en": "The Pokémon's water veil prevents it from being burned.",
+        "ja": "水のベールを　身にまとい やけど状態に　ならない。",
+        "fr": "Le voile qui recouvre le Pokémon le protège des brûlures.",
+        "es": "Evita las quemaduras gracias a la capa de agua que lo envuelve.",
+        "de": "Dank einer Hülle aus Wasser kann das Pokémon keine Verbrennungen erleiden.",
+        "it": "Un velo d'acqua riveste il corpo del Pokémon impedendogli di venire scottato.",
+        "ko": "물의 베일을 몸에 둘러서 화상 상태가 되지 않는다.",
+        "zh-Hant": "將水幕裹在身上， 不會陷入灼傷狀態。",
+        "zh-Hans": "将水幕裹在身上， 不会变为灼伤状态。"
+    }
+}

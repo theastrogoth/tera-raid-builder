@@ -1,0 +1,14 @@
+{
+    "name": "Mycelium Might",
+    "flavorText": {
+        "en": "The Pokémon will always act more slowly when using status moves, but these moves will be unimpeded by the Ability of the target.",
+        "ja": "変化技を　出すとき 必ず　行動が　遅くなるが 相手の　特性に　ジャマされない。",
+        "fr": "Le Pokémon agit toujours plus lentement quand il utilise une capacité de statut, mais il ignore les talents adverses.",
+        "es": "El Pokémon siempre actúa con lentitud cuando usa movimientos de estado, pero estos no se ven afectados por la habilidad del objetivo.",
+        "de": "Beim Einsatz von Status-Attacken handelt das Pokémon stets langsamer, aber dafür kann es sie ungeachtet der Fähigkeit des Zieles einsetzen.",
+        "it": "Quando usa mosse di stato, il Pokémon agisce più lentamente, ma ignora l'abilità del bersaglio se questa ha effetto su tali mosse.",
+        "ko": "변화 기술을 사용할 때 반드시 행동이 느려지지만 상대 특성에 방해받지 않는다.",
+        "zh-Hant": "使出變化類招式時， 行動一定會變緩慢， 但不會受到對手特性的干擾。",
+        "zh-Hans": "使出变化招式时， 虽然行动必定会变慢， 但能不受对手的特性妨碍。"
+    }
+}

@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is hit with wings of steel. This may also boost the user's Defense stat.",
+        "ja": "硬い　翼を　相手に　たたきつけて 攻撃する。　自分の　防御が あがることが　ある。",
+        "fr": "Le lanceur frappe la cible avec des ailes d'acier, ce qui peut aussi augmenter la Défense du lanceur.",
+        "es": "Golpea al objetivo con unas alas robustas y macizas. Puede aumentar la Defensa del usuario.",
+        "de": "Trifft das Ziel mit Stahlflügeln. Verteidigungs-Wert des Anwenders steigt eventuell.",
+        "it": "Il Pokémon attacca colpendo il bersaglio con ali d'acciaio. Può anche aumentare la propria Difesa.",
+        "ko": "단단한 날개를 상대에게 부딪쳐서 공격한다. 자신의 방어가 올라갈 때가 있다.",
+        "zh-Hant": "用堅硬的翅膀撞擊 對手進行攻擊。 有時會提高自己的防禦。",
+        "zh-Hans": "用坚硬的翅膀敲打 对手进行攻击。 有时会提高自己的防御。"
+    }
 }

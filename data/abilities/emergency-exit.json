@@ -1,0 +1,14 @@
+{
+    "name": "Emergency Exit",
+    "flavorText": {
+        "en": "The Pokémon, sensing danger, switches out when its HP drops to half or less.",
+        "ja": "ＨＰが　半分に　なると 危険を　回避するため 手持ちに　引っ込んで　しまう。",
+        "fr": "Le Pokémon évite les situations inutilement dangereuses. Quand ses PV tombent à la moitié, il se réfugie dans sa Poké Ball.",
+        "es": "Abandona el terreno de combate cuando sus PS se ven reducidos a la mitad para evitar males mayores.",
+        "de": "Fallen die KP des Pokémon auf die Hälfte des Maximalwerts oder weniger, bringt es sich in Sicherheit und kehrt in seinen Pokéball zurück.",
+        "it": "Se i PS scendono a metà o meno, il Pokémon abbandona la lotta per sfuggire al pericolo.",
+        "ko": "HP가 절반이 되면 위험을 회피하기 위해 지닌 포켓몬으로 돌아간다.",
+        "zh-Hant": "ＨＰ減到一半時， 為了避開危險， 會退回同行隊伍裡面。",
+        "zh-Hans": "ＨＰ变为一半时， 为了回避危险， 会退回到同行队伍中。"
+    }
+}

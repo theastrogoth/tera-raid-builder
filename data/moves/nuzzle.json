@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by nuzzling its electrified cheeks against the target. This also leaves the target with paralysis.",
+        "ja": "電気を　帯びた　ほっぺを すりつけて　攻撃。 相手を　まひ状態に　する。",
+        "fr": "Le lanceur attaque en frottant ses bajoues chargées d'électricité, ce qui paralyse la cible.",
+        "es": "El usuario frota sus mofletes cargados de electricidad contra el objetivo y consigue paralizarlo.",
+        "de": "Der Anwender lädt seine Wangen elektrisch auf und greift an, indem er sich damit am Ziel reibt. Das Ziel wird paralysiert.",
+        "it": "Il Pokémon attacca strofinando le guance elettrizzate contro il bersaglio, paralizzandolo.",
+        "ko": "전기가 흐르는 볼을 비벼서 공격한다. 상대를 마비 상태로 만든다.",
+        "zh-Hant": "用帶電的臉頰 磨蹭對手進行攻擊。 能讓對手陷入麻痺狀態。",
+        "zh-Hans": "将带电的脸颊 蹭蹭对手进行攻击。 让对手陷入麻痹状态。"
+    }
 }

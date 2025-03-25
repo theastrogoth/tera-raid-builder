@@ -1,0 +1,14 @@
+{
+    "name": "Toxic Orb",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a bizarre orb that exudes toxins when touched and will badly poison the holder during battle.",
+        "ja": "触ると　毒をだす　不思議な玉。 持たせると　戦闘中に 猛毒の状態に　なる。",
+        "fr": "Objet à tenir. Un orbe bizarre qui empoisonne gravement son porteur durant le combat.",
+        "es": "Extraña esfera que envenena gravemente al Pokémon que la lleva en combate.",
+        "de": "Ein Item zum Tragen. Dieser bizarre Orb vergiftet seinen Träger im Kampf schwer.",
+        "it": "Strumento da dare a un Pokémon. Sfera bizzarra che iperavvelena chi l'ha con sé in una lotta.",
+        "ko": "만지면 독을 발산하는 이상한 구슬. 지니게 하면 배틀 중에 맹독 상태가 된다.",
+        "zh-Hant": "觸碰後會放出毒的神奇寶珠。 攜帶後，在戰鬥時 會變成劇毒狀態。",
+        "zh-Hans": "触碰后会放出毒的神奇宝珠。 携带后，在战斗时会变成剧毒状态。"
+    }
+}

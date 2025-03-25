@@ -1,0 +1,14 @@
+{
+    "name": "Immunity",
+    "flavorText": {
+        "en": "The Pokémon's immune system prevents it from being poisoned.",
+        "ja": "体内に　免疫を　持っているため どく状態に　ならない。",
+        "fr": "Le Pokémon est naturellement immunisé contre toute forme de poison.",
+        "es": "Su sistema inmunitario evita el envenenamiento.",
+        "de": "Dank seines starken Immunsystems kann das Pokémon nicht vergiftet werden.",
+        "it": "L'immunità naturale del Pokémon gli impedisce di essere avvelenato.",
+        "ko": "체내에 면역을 가지고 있어 독 상태가 되지 않는다.",
+        "zh-Hant": "因為體內擁有免疫能力， 不會陷入中毒狀態。",
+        "zh-Hans": "因为体内拥有免疫能力， 不会变为中毒状态。"
+    }
+}

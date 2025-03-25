@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stabs the target with a horn that rotates like a drill. The target faints instantly if this attack hits.",
+        "ja": "回転する　つのを 相手に　突き刺して　攻撃する。 当たれば　一撃で　ひんしに　する。",
+        "fr": "Un coup de corne en vrille qui empale la cible, la mettant K.O. sur le coup si elle est touchée.",
+        "es": "Ataque con un cuerno giratorio que fulmina al objetivo de un solo golpe si acierta.",
+        "de": "Attacke, bei der ein Horn als Bohrer eingesetzt wird. Ist sie erfolgreich, führt sie zu einem K.O.",
+        "it": "Il Pokémon attacca il bersaglio infilzandolo con un corno rotante. Se la mossa va a segno, il Pokémon colpito va KO.",
+        "ko": "회전하는 뿔을 상대에게 꿰찔러서 공격한다. 맞으면 일격에 기절한다.",
+        "zh-Hant": "用旋轉的角 刺進對手進行攻擊。 只要命中就會一擊瀕死。",
+        "zh-Hans": "用旋转的角 刺入对手进行攻击。 只要命中就会一击昏厥。"
+    }
 }

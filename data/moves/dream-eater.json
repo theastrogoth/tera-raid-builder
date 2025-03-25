@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user eats the dreams of a sleeping target. The user's HP is restored by up to half the damage taken by the target.",
+        "ja": "寝ている　相手の　夢を　食べて 攻撃する。　ダメージの　半分の ＨＰを　回復する。",
+        "fr": "Le lanceur mange le rêve de la cible endormie et récupère en PV la moitié des dégâts infligés.",
+        "es": "Engulle los sueños de un objetivo dormido. El usuario recupera la mitad de los PS del daño que produce.",
+        "de": "Frisst die Träume eines schlafenden Zieles. Anwender wird um die Hälfte des zugefügten Schadens geheilt.",
+        "it": "Attacco che funziona solo su un bersaglio che dorme. Chi lo usa riceve metà dei PS persi dal Pokémon colpito.",
+        "ko": "잠자고 있는 상대의 꿈을 먹어 공격한다. 데미지의 절반을 HP로 회복한다.",
+        "zh-Hant": "吃掉熟睡中對手的夢 進行攻擊。可以回復給予對手 傷害的一半ＨＰ。",
+        "zh-Hans": "吃掉正在睡觉的对手的梦 进行攻击。回复对手 所受到伤害的一半ＨＰ。"
+    }
 }

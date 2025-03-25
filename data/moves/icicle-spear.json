@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by launching sharp icicles at the target. This move hits two to five times in a row.",
+        "ja": "鋭い　氷柱を 相手に　発射して　攻撃する。 ２ー５回の　間　連続で　だす。",
+        "fr": "Le lanceur jette des pics de glace sur la cible, de deux à cinq fois de suite.",
+        "es": "Lanza carámbanos afilados al objetivo de dos a cinco veces seguidas.",
+        "de": "Feuert zwei bis fünf Eiszapfen auf das Ziel.",
+        "it": "Il Pokémon attacca sparando ghiaccioli affilati contro il bersaglio da due a cinque volte di fila.",
+        "ko": "날카로운 고드름을 상대에게 발사하여 공격한다. 2~5회 연속으로 쓴다.",
+        "zh-Hant": "向對手發射 尖銳的冰柱進行攻擊。 可連續攻擊２～５次。",
+        "zh-Hans": "向对手发射 锋利的冰柱进行攻击。 连续攻击２～５次。"
+    }
 }

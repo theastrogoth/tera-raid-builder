@@ -1,0 +1,14 @@
+{
+    "name": "Fairium Z",
+    "flavorText": {
+        "en": "It converts Z-Power into crystals that upgrade Fairy-type moves to Fairy-type Z-Moves.",
+        "ja": "フェアリータイプの　技を Ｚワザに　グレードアップする Ｚパワーの　結晶を　作りだす。",
+        "fr": "Permet de concentrer la Force Z en un cristal, qui autorise son porteur à transformer ses capacités de type Fée en capacité Z.",
+        "es": "Concentra el Poder Z en cristales que permiten a los portadores convertir sus movimientos de tipo Hada en movimientos Z.",
+        "de": "Kristallisierte Z-Kraft, die Feen-Attacken zu Z-Attacken aufstuft. Wird bei Bedarf automatisch vervielfacht.",
+        "it": "Permette di creare cristalli carichi di Potere Z che consentono ai Pokémon di trasformare le mosse di tipo Folletto in mosse Z.",
+        "ko": "페어리타입 기술을 Z기술로 업그레이드하는 Z파워의 결정을 만들어 낸다.",
+        "zh-Hant": "會製造出把妖精屬性招式 升級為Ｚ招式的Ｚ力量結晶。",
+        "zh-Hans": "可用它来制造用于对战 并能将妖精属性招式升级成 Ｚ招式的Ｚ力量结晶。"
+    }
+}

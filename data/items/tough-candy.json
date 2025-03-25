@@ -1,0 +1,14 @@
+{
+    "name": "Tough Candy",
+    "flavorText": {
+        "en": "A candy that is packed with energy. When given to a Pokémon, it will increase that Pokémon's Defense stat.",
+        "ja": "エネルギーの　つまった　アメ。 ポケモンの　ぼうぎょを　上げる。",
+        "fr": "Un bonbon plein d'énergie. Il augmente la Défense d'un Pokémon.",
+        "es": "Caramelo energético que aumenta la Defensa del Pokémon.",
+        "de": "Ein Bonbon, das voller Energie steckt. Erhöht dauerhaft die Verteidigung eines Pokémon.",
+        "it": "Una caramella piena zeppa di energia. Aumenta la Difesa di un Pokémon.",
+        "ko": "에너지가 가득한 사탕. 포켓몬의 방어를 올린다.",
+        "zh-Hant": "充滿能量的糖果。 能提高寶可夢的防禦。",
+        "zh-Hans": "充满能量的糖果。 能提高宝可梦的防御。"
+    }
+}

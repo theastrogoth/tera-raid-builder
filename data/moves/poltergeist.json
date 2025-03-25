@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by controlling the target's item. This move fails if the target isn't holding an item.",
+        "ja": "相手の　持ち物を　あやつって　攻撃。 相手が　道具を　持っていない　場合は 失敗する。",
+        "fr": "Le lanceur manipule l'objet tenu par la cible pour l'attaquer. Cette capacité échoue si celle-ci ne tient rien.",
+        "es": "El usuario ataca utilizando el objeto que lleva el objetivo. Si no tiene ninguno equipado, el movimiento falla.",
+        "de": "Der Anwender greift das Ziel mit dessen getragenem Item an. Die Attacke schlägt fehl, wenn das Ziel kein Item trägt.",
+        "it": "Il Pokémon attacca utilizzando lo strumento del bersaglio. La mossa fallisce se quest'ultimo non ha uno strumento.",
+        "ko": "상대의 지닌 물건을 조종해서 공격한다. 상대가 도구를 지니고 있지 않으면 실패한다.",
+        "zh-Hant": "操控對手的持有物進行攻擊。 對手沒有攜帶道具時， 則會失敗。",
+        "zh-Hans": "操纵对手的持有物进行攻击。 当对手没有携带道具时， 使出此招式时便会失败。"
+    }
 }

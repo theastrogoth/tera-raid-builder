@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is struck with an icy-cold beam of energy. This may also leave the target frozen.",
+        "ja": "凍える　ビームを 相手に　発射して　攻撃する。 こおり状態に　することが　ある。",
+        "fr": "Un rayon de glace frappe la cible, ce qui peut aussi la geler.",
+        "es": "Rayo de hielo que puede llegar a congelar.",
+        "de": "Das Ziel wird von einem Eisstrahl getroffen und friert eventuell ein.",
+        "it": "Il Pokémon attacca il bersaglio con un raggio di energia gelida che può anche congelarlo.",
+        "ko": "냉동빔을 상대에게 발사하여 공격한다. 얼음 상태로 만들 때가 있다.",
+        "zh-Hant": "向對手發射 冰凍光束進行攻擊。 有時會讓對手陷入冰凍狀態。",
+        "zh-Hans": "向对手发射 冰冻光束进行攻击。 有时会让对手陷入冰冻状态。"
+    }
 }

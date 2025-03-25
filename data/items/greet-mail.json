@@ -1,0 +1,14 @@
+{
+    "name": "Greet Mail",
+    "flavorText": {
+        "en": "Stationery designed to be easy to use when writing someone for the first time. Have a Pokémon hold it for delivery.",
+        "ja": "はじめましての　あいさつが 書きやすい　レターペーパー。 ポケモンに　持たせて　使う。",
+        "fr": "Un papier à lettres idéal pour se présenter. Peut être tenu et livré par un Pokémon.",
+        "es": "Carta para presentarse a alguien. Debe llevarla un Pokémon para entregarla.",
+        "de": "Briefpapier, mit dem man sich bei jemandem vorstellen kann. Gib es einem Pokémon zum Tragen.",
+        "it": "Carta da lettere ideale per presentarsi a qualcuno. Si usa dandola a un Pokémon.",
+        "ko": "첫인사를 쉽게 쓸 수 있는 편지지. 포켓몬에게 지니게 해서 쓴다.",
+        "zh-Hant": "方便寫初次見面這類招呼語的信紙。 需讓寶可夢攜帶使用。",
+        "zh-Hans": "方便写初次见面这类寒暄语的信纸。 使用该道具时， 需要让宝可梦携带着来用。"
+    }
+}

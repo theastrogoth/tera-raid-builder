@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with an electrically charged tackle. This may also leave the target with paralysis.",
+        "ja": "電気を　まとい 相手に　突進して　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "Le lanceur envoie une charge électrique sur la cible qui peut aussi la paralyser.",
+        "es": "Se envuelve de electricidad y arremete contra el objetivo. Puede llegar a paralizar.",
+        "de": "Eine Elektro-Attacke, die das Ziel paralysieren kann.",
+        "it": "Il Pokémon attacca il bersaglio con una scarica elettrica e può anche paralizzarlo.",
+        "ko": "전기를 둘러 상대에게 돌진하여 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "用電流圍繞身體， 猛撞對手進行攻擊。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "让电流覆盖全身， 猛撞向对手进行攻击。 有时会让对手陷入麻痹状态。"
+    }
 }

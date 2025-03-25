@@ -1,0 +1,14 @@
+{
+    "name": "Apple",
+    "flavorText": {
+        "en": "This very sweet ingredient is sliced thin to make it easy to add into a sandwich.",
+        "ja": "甘味が　強い　食材。 スライスされていて　サンドウィッチの 具材として　扱いやすいのだ。",
+        "fr": "Un ingrédient au goût très sucré. Coupé en tranches fines, ce fruit est plus facile à ajouter à un Sandwich.",
+        "es": "Cortada en rebanadas, esta fruta de sabor muy dulce es muy fácil de incluir en cualquier preparación.",
+        "de": "In Scheiben geschnitten lässt sich mit dieser sehr süßen Zutat problemlos ein Sandwich belegen.",
+        "it": "Un ingrediente molto dolce. Tagliato a fettine, può essere agevolmente usato per imbottire i panini.",
+        "ko": "단맛이 강한 식재료. 슬라이스해서 샌드위치 재료로 넣기 좋다.",
+        "zh-Hant": "甜味強勁的食材。 切成的薄片在製作 三明治時很好使用。",
+        "zh-Hans": "甜味强烈的食材。 切成了片，作为三明治馅料 用起来十分方便。"
+    }
+}

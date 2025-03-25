@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with a strong electric blast. This may also leave the target with paralysis.",
+        "ja": "強い　電撃を 相手に　浴びせて　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "Une grosse décharge électrique tombe sur la cible, ce qui peut aussi la paralyser.",
+        "es": "Potente ataque eléctrico que puede paralizar al objetivo.",
+        "de": "Eine starke Elektro-Attacke, die das Ziel eventuell paralysiert.",
+        "it": "Il Pokémon attacca il bersaglio con una potente scarica elettrica che può anche paralizzarlo.",
+        "ko": "강한 전격을 상대에게 날려서 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "向對手放出強力電流進行攻擊。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "向对手发出 强力电击进行攻击。 有时会让对手陷入麻痹状态。"
+    }
 }

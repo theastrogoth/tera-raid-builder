@@ -1,0 +1,14 @@
+{
+    "name": "Friend Guard",
+    "flavorText": {
+        "en": "Reduces damage dealt to allies.",
+        "ja": "味方の　ダメージを 減らすことが　できる。",
+        "fr": "Diminue les dégâts subis par les alliés.",
+        "es": "Reduce el daño que sufren los aliados.",
+        "de": "Der Schaden, den Mitstreiter des Pokémon erleiden, wird gesenkt.",
+        "it": "I danni inflitti agli alleati vengono ridotti.",
+        "ko": "같은 편의 데미지를 줄일 수 있다.",
+        "zh-Hant": "可以減少我方受到的傷害。",
+        "zh-Hans": "可以减少我方的伤害。"
+    }
+}

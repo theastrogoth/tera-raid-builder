@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user generates odd sound waves from its body that confuse the target.",
+        "ja": "特殊な　音波を 体から　発して 相手を　混乱させる。",
+        "fr": "Le lanceur produit d'étranges ondes sonores qui rendent la cible confuse.",
+        "es": "El cuerpo del usuario emite unas ondas sónicas raras que confunden al objetivo.",
+        "de": "Ausstoß bizarrer Schallwellen. Das Ziel wird verwirrt.",
+        "it": "Il Pokémon genera dal proprio corpo strane onde acustiche che confondono il bersaglio.",
+        "ko": "특수한 음파를 몸에서 발산하여 상대를 혼란시킨다.",
+        "zh-Hant": "從身上發出 特殊的音波， 讓對手陷入混亂狀態。",
+        "zh-Hans": "从身体发出 特殊的音波， 从而使对手混乱。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Lock Capsule",
+    "flavorText": {
+        "en": "A sturdy Capsule that can only be opened with a special key.",
+        "ja": "特殊なカギで　あけられる 頑丈なカプセル。",
+        "fr": "Un écrin résistant qui ne s'ouvre qu'avec une clé spéciale.",
+        "es": "Una cápsula resistente que solo puede abrirse con una llave especial.",
+        "de": "Eine äußerst robuste Kapsel, die sich nur mit einem ganz speziellen Schlüssel öffnen lässt.",
+        "it": "Scrigno blindato che si apre solo con una chiave speciale.",
+        "ko": "특수한 열쇠로 열 수 있는 튼튼한 캡슐.",
+        "zh-Hant": "需用特殊鑰匙打開的 堅固容器。",
+        "zh-Hans": "需用特殊钥匙打开的 坚固的容器。"
+    }
+}

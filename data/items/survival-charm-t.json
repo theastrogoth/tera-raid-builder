@@ -1,0 +1,14 @@
+{
+    "name": "Survival Charm T",
+    "flavorText": {
+        "en": "A mysterious charm that holds the power to protect a person from fainting while out in the field. This type of charm comes in five different colors.",
+        "ja": "気を失いにくくする 効果を秘めた不思議なおまもり。 色が５種類あるうちのひとつ。",
+        "fr": "Grâce aux pouvoirs de cette mystérieuse amulette, il est plus difficile de perdre connaissance. Elle existe en cinq couleurs différentes.",
+        "es": "Amuleto imbuido de un extraño y misterioso poder que otorga resistencia ante la pérdida de conocimiento. Este es uno de los cinco colores que existen.",
+        "de": "Ein mysteriöser Talisman, der dich länger durchhalten lässt, bevor du ohnmächtig wirst. Dies ist eine von fünf Farbvarianten.",
+        "it": "Misterioso amuleto grazie al quale è più difficile perdere i sensi. Ne esistono di cinque colori differenti.",
+        "ko": "정신을 쉽게 잃지 않게 해 주는 효과가 담긴 신비한 부적. 색이 다른 5종류 중 하나.",
+        "zh-Hant": "不可思議的護符。 有著讓人不易昏倒的效果。 是５種顏色的護符中的一種。",
+        "zh-Hans": "不可思议的护符。 有着让人不易昏倒的效果。 是５种颜色的护符中的一种。"
+    }
+}

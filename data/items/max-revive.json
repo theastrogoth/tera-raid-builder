@@ -1,0 +1,14 @@
+{
+    "name": "Max Revive",
+    "flavorText": {
+        "en": "A recipe for crafting Max Revives from scratch. Required materials: 1 Revive and 2 bunches of King's Leaf.",
+        "ja": "げんきのかたまりのレシピ。　材料は げんきのかけら×１　キングリーフ×２",
+        "fr": "Méthode pour Rappel Max. Ressources requises : 1 Rappel et 2 bouquets d'Herbe Souveraine.",
+        "es": "Receta para crear Revivir Máximos. Materiales: 1 Revivir y 2 Hierbas Regias.",
+        "de": "Die Anleitung zur Herstellung eines Top-Belebers. Benötigte Materialien: 1 Beleber und 2 Königsblätter.",
+        "it": "Ricetta per un Revitalizzante max. Richiede 1 Revitalizzante e 2 ciuffi di Foglia regina.",
+        "ko": "기력의덩어리의 레시피. 재료: 기력의조각×1 킹리프×2",
+        "zh-Hant": "活力塊的材料單。材料是： 活力碎片×１　皇葉×２",
+        "zh-Hans": "活力块的材料单。材料是： 活力碎片×１　皇叶×２"
+    }
+}

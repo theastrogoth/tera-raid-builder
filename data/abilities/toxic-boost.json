@@ -1,0 +1,14 @@
+{
+    "name": "Toxic Boost",
+    "flavorText": {
+        "en": "Powers up physical moves when the Pokémon is poisoned.",
+        "ja": "どく状態に　なったとき 物理技の　威力が　上がる。",
+        "fr": "Augmente la puissance des capacités physiques quand le Pokémon est empoisonné.",
+        "es": "Aumenta la potencia de sus ataques físicos cuando está envenenado.",
+        "de": "Die Stärke seiner physischen Attacken steigt, wenn das Pokémon vergiftet wurde.",
+        "it": "Se il Pokémon è avvelenato, la potenza delle sue mosse fisiche aumenta.",
+        "ko": "독 상태가 되었을 때 물리 기술의 위력이 올라간다.",
+        "zh-Hant": "陷入中毒狀態時， 物理招式的威力會提高。",
+        "zh-Hans": "变为中毒状态时， 物理招式的威力会提高。"
+    }
+}

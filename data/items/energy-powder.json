@@ -1,0 +1,14 @@
+{
+    "name": "Energy Powder",
+    "flavorText": {
+        "en": "A very bitter medicinal powder. It can be used to restore 60 HP to a Pokémon.",
+        "ja": "とても　にがい　粉薬。 ポケモン　１匹の　ＨＰを ６０だけ　回復する。",
+        "fr": "Une poudre médicinale très amère. Restaure 60 PV d'un Pokémon.",
+        "es": "Polvo medicinal muy amargo que restaura 60 PS de un Pokémon.",
+        "de": "Ein bitteres medizinisches Pulver, das die KP eines Pokémon um 60 Punkte auffüllt.",
+        "it": "Rimedio amarissimo in polvere. Restituisce 60 PS a un Pokémon.",
+        "ko": "매우 쓴 가루약. 포켓몬 1마리의 HP를 60만큼 회복한다.",
+        "zh-Hant": "非常苦的藥粉。 能讓１隻寶可夢 回復６０ＨＰ。",
+        "zh-Hans": "非常苦的药粉。 能让１只宝可梦 回复６０ＨＰ。"
+    }
+}

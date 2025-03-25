@@ -1,0 +1,14 @@
+{
+    "name": "Frisk",
+    "flavorText": {
+        "en": "When it enters a battle, the Pokémon can check an opposing Pokémon's held item.",
+        "ja": "登場　したとき 相手の　持ち物を 見通すことが　できる。",
+        "fr": "Permet de connaître l'objet tenu par l'adversaire quand le combat commence.",
+        "es": "Puede ver el objeto que lleva el rival al entrar en combate.",
+        "de": "Bei Kampfantritt gibt das Pokémon Auskunft über die getragenen Items von Gegnern.",
+        "it": "Quando il Pokémon entra in campo, rivela lo strumento di un avversario.",
+        "ko": "등장했을 때 상대의 지닌 물건을 통찰할 수 있다.",
+        "zh-Hant": "出場時， 可以察覺對手的持有物。",
+        "zh-Hans": "出场时， 可以察觉对手的持有物。"
+    }
+}

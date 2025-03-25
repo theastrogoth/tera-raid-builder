@@ -1,0 +1,14 @@
+{
+    "name": "Town Map",
+    "flavorText": {
+        "en": "A very convenient map that can be viewed anytime. It even shows you your present location in the region.",
+        "ja": "いつでも　手軽に　みることが できる　便利な　地図。 自分の　場所も　わかる。",
+        "fr": "Une carte très pratique pouvant être consultée n'importe quand. Elle indique la position actuelle.",
+        "es": "Un mapa muy útil que puede consultarse en cualquier momento y que, además, te indica dónde te encuentras.",
+        "de": "Eine praktische Karte, die jederzeit aufgerufen werden kann. Dein aktueller Standort wird auch angezeigt.",
+        "it": "Utilissima mappa, consultabile in ogni situazione. Mostra anche la propria posizione in tempo reale.",
+        "ko": "언제라도 간편하게 볼 수 있는 편리한 지도. 자신이 있는 곳도 알 수 있다.",
+        "zh-Hant": "可以隨時輕鬆 查看的好用地圖。 也能知道自己的位置。",
+        "zh-Hans": "可以随时轻松 查看的便利地图。 也能清楚自己的位置。"
+    }
+}

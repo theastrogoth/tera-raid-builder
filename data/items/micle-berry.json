@@ -1,0 +1,14 @@
+{
+    "name": "Micle Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, its accuracy will be boosted should it find itself in a pinch—but only for the next move it uses.",
+        "ja": "ポケモンに　持たせると ピンチのとき　１度だけ 技の　命中率が　あがる。",
+        "fr": "Tenue, cette Baie augmente une fois la Précision d'une capacité en cas de besoin.",
+        "es": "Si la lleva un Pokémon, le aumenta una única vez la precisión de un movimiento en un momento de apuro.",
+        "de": "Als getragenes Item erhöht diese Beere einmalig die Genauigkeit des Pokémon, sobald es in einer Notlage steckt.",
+        "it": "Se il Pokémon che ha questa bacca si trova in difficoltà, la precisione della sua mossa successiva aumenta. Funziona una sola volta.",
+        "ko": "포켓몬에게 지니게 하면 위급할 때 한 번만 기술의 명중률이 올라간다.",
+        "zh-Hant": "讓寶可夢攜帶後， 危機時，招式的命中率 會僅提高１次。",
+        "zh-Hans": "让宝可梦携带后，危机时， 招式的命中率仅会提高１次。"
+    }
+}

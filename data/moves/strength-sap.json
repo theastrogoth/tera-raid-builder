@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user restores its own HP by the same amount as the target's Attack stat. It then lowers the target's Attack stat.",
+        "ja": "相手の　攻撃力と　同じだけ 自分の　ＨＰを　回復する。 そして　相手の　攻撃を　さげる。",
+        "fr": "Rend au lanceur une quantité de PV équivalente à la stat d'Attaque de la cible, puis baisse celle-ci.",
+        "es": "Restaura una cantidad de PS equivalente al valor de Ataque del objetivo, que además verá reducida esta característica.",
+        "de": "Ein Angriff, der die KP des Anwenders um die Höhe des Angriffs-Werts des Zieles heilt. Anschließend wird der Angriff des Zieles gesenkt.",
+        "it": "Il Pokémon recupera una quantità di PS pari all'Attacco del bersaglio, che vedrà diminuire questa statistica.",
+        "ko": "상대 공격력과 동일하게 자신의 HP를 회복한다. 그리고 상대의 공격을 떨어뜨린다.",
+        "zh-Hant": "將自己的ＨＰ回復到和 對手的攻擊力相同。 然後降低對手的攻擊。",
+        "zh-Hans": "给自己回复和对手攻击力 相同数值的ＨＰ， 然后降低对手的攻击。"
+    }
 }

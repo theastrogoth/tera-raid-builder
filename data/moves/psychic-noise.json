@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user electrifies its body and drops onto the target to inflict damage. If this move misses, the user takes damage instead.",
+        "ja": "体を　帯電させて　相手に　のしかかる。 はずすと　自分が　ダメージを　受ける。",
+        "fr": "Le lanceur se charge en électricité et fond sur la cible. S'il échoue, le lanceur se blesse.",
+        "es": "El usuario electrifica su cuerpo y salta en plancha sobre el objetivo. Si falla, se hiere a sí mismo.",
+        "de": "Der Anwender lädt seinen Körper mit elektrischer Energie auf und stürzt sich auf das Ziel. Bei Misserfolg verletzt sich der Anwender selbst.",
+        "it": "Il Pokémon si schianta sul bersaglio dopo essersi elettrificato. Se la mossa fallisce, il Pokémon subisce dei danni.",
+        "ko": "몸에 전기를 두르고 상대를 덮친다. 빗나가면 자신이 데미지를 입는다.",
+        "zh-Hant": "讓身體帶電然後壓向對手。 沒命中對手時自己會受到傷害。",
+        "zh-Hans": "让身体带电后压向对手。 如果没有命中则自己会受到伤害。"
+    }
 }

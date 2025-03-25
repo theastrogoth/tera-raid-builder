@@ -1,0 +1,14 @@
+{
+    "name": "Storm Drain",
+    "flavorText": {
+        "en": "The Pokémon draws in all Water-type moves. Instead of taking damage from them, its Sp. Atk stat is boosted.",
+        "ja": "みずタイプの　技を　自分に　よせつけ ダメージは　受けずに　特攻が　上がる。",
+        "fr": "Le Pokémon détourne sur lui les capacités de type Eau et les neutralise, tout en augmentant son Attaque Spéciale.",
+        "es": "Atrae y neutraliza los movimientos de tipo Agua, que además le aumentan el Ataque Especial.",
+        "de": "Das Pokémon zieht Wasser-Attacken an, erleidet dadurch aber keinen Schaden. Stattdessen steigt sein Spezial-Angriff.",
+        "it": "Il Pokémon attira e neutralizza le mosse di tipo Acqua e fa aumentare il proprio Attacco Speciale.",
+        "ko": "물타입의 기술을 자신에게 끌어모아 데미지를 받지 않고 특수공격이 올라간다.",
+        "zh-Hant": "將水屬性的招式引到自己身上， 不但不會受到傷害， 反而會提高特攻。",
+        "zh-Hans": "将水属性的招式引到自己身上， 不会受到伤害，而是会提高特攻。"
+    }
+}

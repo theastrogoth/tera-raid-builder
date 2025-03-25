@@ -1,0 +1,14 @@
+{
+    "name": "Medal Box",
+    "flavorText": {
+        "en": "A box-shaped machine that stores Medals and Medal information.",
+        "ja": "獲得した　メダルを　収納し メダルについての　情報を 記録する　箱型の　機械。",
+        "fr": "Une boîte qui permet de ranger les Médailles et d'enregistrer des informations à leur sujet.",
+        "es": "Un dispositivo con forma de caja que almacena las insignias y la información relacionada.",
+        "de": "Ein Gerät in Form einer Box, in der Medaillen aufbewahrt und Informationen dazu gespeichert werden.",
+        "it": "Apparecchio rettangolare usato per custodire i Premi ottenuti e tutte le informazioni che li riguardano.",
+        "ko": "획득한 메달을 수납하고 메달에 대한 정보를 기록하는 상자 모양의 기계.",
+        "zh-Hant": "可以放入獲得的獎牌， 並記錄獎牌資訊的 箱形機器。",
+        "zh-Hans": "可以放入获得的奖牌， 并记录奖牌信息的箱形机器。"
+    }
+}

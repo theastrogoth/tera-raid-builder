@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by engulfing the target in an intense, yet beautiful, blue flame. This may also leave the target with a burn.",
+        "ja": "美しくも　激しい　青い炎で 相手を　包みこんで　攻撃する。 やけど状態に　することが　ある。",
+        "fr": "De magnifiques et redoutables flammes bleues s'abattent sur la cible, et peuvent aussi la brûler.",
+        "es": "Ataca con una bella pero potente llama azul que rodea al objetivo. Puede causar quemaduras.",
+        "de": "Anwender greift an, indem er das Ziel in wunderschöne, intensivblaue Flammen hüllt, durch die es eventuell Verbrennungen erleidet.",
+        "it": "Il Pokémon attacca il bersaglio avvolgendolo con magnifiche e intense fiamme blu che possono anche scottarlo.",
+        "ko": "아름다우면서도 격렬한 푸른불꽃으로 상대를 둘러싸서 공격한다. 화상 상태로 만들 때가 있다.",
+        "zh-Hant": "用美麗而激烈的青焰 燃燒對手進行攻擊。 有時會讓對手陷入灼傷狀態。",
+        "zh-Hans": "用美丽而激烈的青焰 包裹住对手进行攻击。 有时会让对手陷入灼伤状态。"
+    }
 }

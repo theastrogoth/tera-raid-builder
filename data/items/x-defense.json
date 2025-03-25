@@ -1,0 +1,14 @@
+{
+    "name": "X Defense",
+    "flavorText": {
+        "en": "An item that sharply boosts the Defense stat of a Pokémon in battle. This effect disappears if the Pokémon leaves the battle.",
+        "ja": "戦闘中の　ポケモンの 防御を　大きく　あげる　道具。 ひっこめると　元に　戻る。",
+        "fr": "Augmente beaucoup la Défense pendant un combat. L'effet disparaît si le Pokémon est retiré.",
+        "es": "Aumenta mucho la Defensa en combate. Al cambiar de Pokémon, el efecto desaparece.",
+        "de": "Hebt die Verteidigung eines Pokémon im Kampf stark an. Die Wirkung wird mit dem Austausch des Pokémon beendet.",
+        "it": "Aumenta di molto la Difesa di un Pokémon in una lotta. L'effetto svanisce se il Pokémon è sostituito.",
+        "ko": "배틀 중인 포켓몬의 방어를 크게 올리는 도구. 포켓몬을 볼에 넣어 버리면 원래대로 되돌아간다.",
+        "zh-Hant": "大大提高戰鬥中 寶可夢防禦的道具。 離場後，效果便會消失。",
+        "zh-Hans": "大幅提高战斗中 宝可梦防御的道具。 离场后，效果便会消失。"
+    }
+}

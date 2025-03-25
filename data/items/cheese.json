@@ -1,0 +1,14 @@
+{
+    "name": "Cheese",
+    "flavorText": {
+        "en": "A very salty ingredient. This thinly sliced cheese is perfect for adding to a sandwich.",
+        "ja": "塩味が　ある　食材。 薄く切った　シート状のチーズ。 扱いやすく　サンドウィッチの　具材向き。",
+        "fr": "Un ingrédient au goût salé. Ce fromage a été coupé en tranches fines pour le rendre encore plus facile à ajouter à un Sandwich.",
+        "es": "De fuerte sabor salado, esta fina loncha de queso está pensada para poder incluirse fácilmente en cualquier bocadillo.",
+        "de": "Diese in dünne Scheiben geschnittene salzige Zutat ist der perfekte Belag für ein Sandwich.",
+        "it": "Un ingrediente salato. Tagliato a fette sottili è ideale da usare nei panini.",
+        "ko": "짠맛이 나는 식재료. 얇게 저민 시트형 치즈다. 다루기 쉬워서 샌드위치 재료로 적합하다.",
+        "zh-Hant": "帶有鹹味的食材。 切成薄片的起司。 容易使用，適合作為三明治的材料。",
+        "zh-Hans": "带有咸味的食材。 切成薄片的芝士。方便使用， 适合用作三明治的馅料。"
+    }
+}

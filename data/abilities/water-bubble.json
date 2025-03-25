@@ -1,0 +1,14 @@
+{
+    "name": "Water Bubble",
+    "flavorText": {
+        "en": "Lowers the power of Fire-type moves that hit the Pokémon and prevents it from being burned.",
+        "ja": "自分に　対する　ほのおタイプの 技の　威力を　下げる。 やけど　しない。",
+        "fr": "Réduit la puissance des capacités de type Feu subies par le Pokémon. Il est également immunisé contre les brûlures.",
+        "es": "Reduce el daño que le provocan los movimientos de tipo Fuego y es inmune a las quemaduras.",
+        "de": "Die Stärke von Feuer-Attacken gegen das Pokémon wird gesenkt und es kann keine Verbrennungen erleiden.",
+        "it": "Diminuisce la potenza delle mosse di tipo Fuoco subite dal Pokémon e lo rende immune alle scottature.",
+        "ko": "자신을 향하는 불꽃타입 기술의 위력을 떨어뜨린다. 화상을 입지 않는다.",
+        "zh-Hant": "降低自己受到的火屬性 招式的威力。不會灼傷。",
+        "zh-Hans": "降低自己受到的火属性 招式的威力，不会灼伤。"
+    }
+}

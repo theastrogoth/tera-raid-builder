@@ -1,0 +1,14 @@
+{
+    "name": "Solar Power",
+    "flavorText": {
+        "en": "In harsh sunlight, the Pokémon's Sp. Atk stat is boosted, but its HP decreases every turn.",
+        "ja": "天気が　晴れると 特攻が　上がるが 毎ターン　ＨＰが　減る。",
+        "fr": "Quand le soleil brille, l'Attaque Spéciale du Pokémon augmente mais il perd des PV à chaque tour.",
+        "es": "Si hace sol, aumenta su Ataque Especial, pero pierde PS en cada turno.",
+        "de": "Bei Sonnenschein steigt der Spezial-Angriff des Pokémon, aber dafür verliert es in jeder Runde KP.",
+        "it": "Se la luce del sole è intensa, l'Attacco Speciale aumenta, ma il Pokémon perde PS a ogni turno.",
+        "ko": "날씨가 맑으면 특수공격이 올라가지만 매 턴 HP가 줄어든다.",
+        "zh-Hant": "天氣為晴朗時特攻會提高， 但每回合ＨＰ會減少。",
+        "zh-Hans": "晴朗天气时， 特攻会提高， 而每回合ＨＰ会减少。"
+    }
+}

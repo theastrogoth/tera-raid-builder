@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user blasts the target with power that distorts even time. The user can't move on the next turn.",
+        "ja": "時間が　ゆがむほどの　力を うちだして　相手を　攻撃する。 次の　ターンは　動けなくなる。",
+        "fr": "Le lanceur frappe si fort qu'il affecte le cours du temps. Il se repose au tour suivant.",
+        "es": "Ataca al objetivo usando tal energía que el tiempo se distorsiona. El usuario deberá descansar en el siguiente turno.",
+        "de": "Anwender attackiert mit einer Kraft, die selbst die Zeit verzerrt. In der nächsten Runde muss er ruhen.",
+        "it": "Il Pokémon attacca il bersaglio con una forza capace di alterare il tempo, ma deve stare fermo al turno successivo.",
+        "ko": "시간이 뒤틀릴 정도의 힘을 사용해서 상대를 공격한다. 다음 턴은 움직일 수 없다.",
+        "zh-Hant": "釋放出足以扭曲時間的 強大力量攻擊對手。 下一回合自己將無法動彈。",
+        "zh-Hans": "释放出扭曲时间般的 强大力量攻击对手。 下一回合自己将无法动弹。"
+    }
 }

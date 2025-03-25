@@ -1,0 +1,14 @@
+{
+    "name": "Desolate Land",
+    "flavorText": {
+        "en": "The Pokémon changes the weather to nullify Water-type attacks.",
+        "ja": "みずタイプの　攻撃を 受けない　天気にする。",
+        "fr": "Altère les conditions météo pour neutraliser les attaques de type Eau.",
+        "es": "Altera el clima para anular los ataques de tipo Agua.",
+        "de": "Das Pokémon ändert das Wetter, um Angriffe vom Typ Wasser wirkungslos zu machen.",
+        "it": "Crea un clima che rende inefficaci gli attacchi di tipo Acqua.",
+        "ko": "물타입의 공격을 받지 않는 날씨로 만든다.",
+        "zh-Hant": "變為讓水屬性攻擊 失效的天氣。",
+        "zh-Hans": "变为不会受到 水属性攻击的天气。"
+    }
+}

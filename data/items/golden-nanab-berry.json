@@ -1,0 +1,14 @@
+{
+    "name": "Golden Nanab Berry",
+    "flavorText": {
+        "en": "A Berry that drastically calms Pokémon you're trying to catch when given to them.",
+        "ja": "ポケモンを　捕まえるときに あたえると　かなり落ち着く　きのみ。",
+        "fr": "Une Baie à donner à un Pokémon sauvage au moment de la capture pour le calmer durablement.",
+        "es": "Una baya que puedes lanzar a un Pokémon salvaje para tranquilizarlo mucho.",
+        "de": "Gibst du diese Beere einem Pokémon zu essen, wird es während des Fangversuchs viel ruhiger.",
+        "it": "Bacca che calma molto il Pokémon selvatico a cui viene data al momento della cattura.",
+        "ko": "포켓몬을 잡을 때 주면 상당히 얌전해지는 나무열매.",
+        "zh-Hant": "在捕捉時把這個樹果餵給寶可夢， 就能讓牠們的情緒大幅穩定下來。",
+        "zh-Hans": "捕捉宝可梦时， 把这树果交给宝可梦 就能有效地平复对方的情绪。"
+    }
+}

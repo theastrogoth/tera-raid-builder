@@ -1,0 +1,14 @@
+{
+    "name": "Health Candy",
+    "flavorText": {
+        "en": "A candy that is packed with energy. When given to a Pokémon, it will increase that Pokémon's HP.",
+        "ja": "エネルギーの　つまった　アメ。 ポケモンの　たいりょくを　上げる。",
+        "fr": "Un bonbon plein d'énergie. Il augmente les PV d'un Pokémon.",
+        "es": "Caramelo energético que aumenta los PS máximos del Pokémon.",
+        "de": "Ein Bonbon, das voller Energie steckt. Erhöht dauerhaft die KP eines Pokémon.",
+        "it": "Una caramella piena zeppa di energia. Aumenta i PS di un Pokémon.",
+        "ko": "에너지가 가득한 사탕. 포켓몬의 HP를 올린다.",
+        "zh-Hant": "充滿能量的糖果。 能提高寶可夢的體力。",
+        "zh-Hans": "充满能量的糖果。 能提高宝可梦的体力。"
+    }
+}

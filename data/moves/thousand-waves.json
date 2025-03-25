@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks with a wave that crawls along the ground. Those it hits can't flee from battle.",
+        "ja": "地をはう　波によって　攻撃。 波に　巻き込まれた　相手は 戦闘から　逃げられなくなる。",
+        "fr": "Le lanceur attaque avec des vagues glissant au sol. La cible y est prise et ne peut pas quitter le terrain.",
+        "es": "El usuario genera ondas sísmicas que se propagan por el suelo y sacuden al objetivo. Los Pokémon alcanzados no podrán huir del combate ni ser cambiados por otros.",
+        "de": "Der Anwender greift mit einer Welle an, die dicht über dem Boden verläuft und alle Pokémon, die sie erfasst, an der Flucht beziehungsweise am Auswechseln hindert.",
+        "it": "Il Pokémon attacca con delle onde striscianti che investono il bersaglio e gli impediscono di lasciare il campo.",
+        "ko": "땅 위를 뻗어 나가는 파도로 공격한다. 파도에 휩쓸린 상대는 전투에서 도망칠 수 없게 된다.",
+        "zh-Hant": "化成波浪從地面進行攻擊。 被捲入波浪中的對手 將無法從戰鬥中逃走。",
+        "zh-Hans": "从地面掀起波浪进行攻击。 被掀入波浪中的对手， 将无法从战斗中逃走。"
+    }
 }

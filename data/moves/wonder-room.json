@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns.",
+        "ja": "まか不思議な　空間を　つくる。 ５ターンのあいだ　すべてのポケモンの 防御と　特防が　入れ替わる。",
+        "fr": "Le lanceur crée une zone mystérieuse où la Défense et la Défense Spéciale de tous les Pokémon sont inversées pendant cinq tours.",
+        "es": "Crea un espacio misterioso donde se intercambian la Defensa y la Defensa Especial de todos los Pokémon durante cinco turnos.",
+        "de": "Anwender erzeugt einen bizarren Raum, in dem über fünf Runden die Verteidigung aller Pokémon mit ihrer Spezial-Verteidigung getauscht wird.",
+        "it": "Il Pokémon crea una dimensione in cui Difesa e Difesa Speciale di tutti i Pokémon vengono scambiate per cinque turni.",
+        "ko": "이상한 공간을 만든다. 5턴 동안 모든 포켓몬의 방어와 특수방어가 바뀐다.",
+        "zh-Hant": "創造出非常不可思議的空間。 在５回合內，讓所有寶可夢的 防禦和特防互相交換。",
+        "zh-Hans": "制造出离奇的空间。 在５回合内互换 所有宝可梦的防御和特防。"
+    }
 }

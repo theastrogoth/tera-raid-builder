@@ -1,0 +1,14 @@
+{
+    "name": "Drizzle",
+    "flavorText": {
+        "en": "The Pokémon makes it rain when it enters a battle.",
+        "ja": "登場　したときに 天気を　雨に　する。",
+        "fr": "Le Pokémon invoque la pluie quand il entre au combat.",
+        "es": "Hace que llueva al entrar en combate.",
+        "de": "Das Pokémon erzeugt bei Kampfantritt Regen.",
+        "it": "Quando il Pokémon entra in campo, attira la pioggia.",
+        "ko": "등장했을 때 날씨를 비로 만든다.",
+        "zh-Hant": "出場時， 會將天氣變為下雨。",
+        "zh-Hans": "出场时， 会将天气变为下雨。"
+    }
+}

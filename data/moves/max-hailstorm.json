@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This is an Ice-type attack Dynamax Pokémon use. The user summons a snowstorm lasting five turns.",
+        "ja": "ダイマックスした　ポケモンが 繰りだす　こおりタイプの　攻撃。 ５ターンの　間　ゆきを　降らす。",
+        "fr": "Une attaque de type Glace que seuls les Pokémon Dynamax peuvent utiliser. Invoque une tempête de neige qui dure cinq tours.",
+        "es": "Ataque de tipo Hielo ejecutado por un Pokémon Dinamax. Crea una tormenta de nieve que dura cinco turnos.",
+        "de": "Eine Eis-Attacke, die nur Dynamax-Pokémon einsetzen können. Erzeugt fünf Runden lang Schnee.",
+        "it": "Un attacco di tipo Ghiaccio che può essere eseguito dai Pokémon dynamaxizzati. Causa una nevicata che dura per cinque turni.",
+        "ko": "다이맥스한 포켓몬이 날리는 얼음타입의 공격. 5턴 동안 눈을 내리게 한다.",
+        "zh-Hant": "極巨化寶可夢 所使出的冰屬性攻擊。 在５回合內會下雪。",
+        "zh-Hans": "极巨化宝可梦使出的冰属性攻击。 在５回合内会下雪。"
+    }
 }

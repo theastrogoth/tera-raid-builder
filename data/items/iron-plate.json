@@ -1,0 +1,14 @@
+{
+    "name": "Iron Plate",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This stone tablet is imbued with the essence of steel and boosts the power of the holder's Steel-type moves.",
+        "ja": "はがねのタイプの　石盤。 持たせると　はがねタイプの 技の威力が　強まる。",
+        "fr": "Objet à tenir. Une tablette en pierre augmentant la puissance des capacités de type Acier.",
+        "es": "Tabla de piedra que potencia los movimientos de tipo Acero. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Diese Steintafel verstärkt Attacken vom Typ Stahl.",
+        "it": "Strumento da dare a un Pokémon. Lastra di pietra che potenzia le mosse di tipo Acciaio.",
+        "ko": "강철타입의 석판. 지니게 하면 강철타입 기술의 위력이 강해진다.",
+        "zh-Hant": "鋼屬性的石板。 攜帶後，鋼屬性的 招式威力就會增強。",
+        "zh-Hans": "钢属性的石板。 携带后，钢属性的 招式威力就会增强。"
+    }
+}

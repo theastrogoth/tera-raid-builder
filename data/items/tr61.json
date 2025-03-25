@@ -1,0 +1,14 @@
+{
+    "name": "TR61",
+    "flavorText": {
+        "en": "The user generates a damaging sound wave by vibration. This may also lower the target's Sp. Def stat.",
+        "ja": "振動で　音波を　おこして 攻撃する。相手の　特防を さげることが　ある。",
+        "fr": "Le lanceur fait vibrer son corps pour lancer une vague sonique, ce qui peut aussi baisser la Défense Spéciale de la cible.",
+        "es": "El usuario crea una onda sónica dañina moviendo su cuerpo que también puede reducir la Defensa Especial del objetivo.",
+        "de": "Anwender erzeugt Schallwellen, die beim Ziel Schaden verursachen und eventuell dessen Spezial-Verteidigung senken.",
+        "it": "Il Pokémon attacca generando un'onda sonora che può anche ridurre la Difesa Speciale del bersaglio.",
+        "ko": "진동으로 음파를 일으켜서 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "利用振動產生出的音波進行攻擊。 有時會降低對手的特防。",
+        "zh-Hans": "利用振动发出音波进行攻击。 有时会降低对手的特防。"
+    }
+}

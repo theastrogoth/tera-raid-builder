@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Drawing power from the Eternal Flower, the user fires a powerful beam of light. This also damages the user terribly.",
+        "ja": "永遠の花　の　パワーを　かりて 強力な　光線を　撃ちだす。 自分も　ものすごい　ダメージを　受ける。",
+        "fr": "Le lanceur utilise la puissance de la fleur Éternelle pour lancer un formidable rayon d'énergie. Cela blesse aussi très gravement le lanceur.",
+        "es": "El usuario emplea el poder de la Flor Eterna para lanzar un potente rayo de luz, pero también se hiere gravemente a sí mismo.",
+        "de": "Die Attacke basiert auf der Kraft des Ewigblütlers, die als mächtiger Lichtstrahl abgefeuert wird. Der Anwender nimmt dabei selbst enormen Schaden.",
+        "it": "Il Pokémon concentra il potere del Fiore Eterno per sparare un raggio di luce potentissimo, ma subisce danni considerevoli.",
+        "ko": "영원의 꽃의 파워를 빌려서 강력한 광선을 쏜다. 자신도 굉장한 데미지를 입는다.",
+        "zh-Hant": "借用永恆之花的力量， 發射出強力光線。 自己也會受到非常大的傷害。",
+        "zh-Hans": "借用永恒之花的力量， 发射出强力光线。 自己也会受到非常大的伤害。"
+    }
 }

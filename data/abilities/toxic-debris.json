@@ -1,0 +1,14 @@
+{
+    "name": "Toxic Debris",
+    "flavorText": {
+        "en": "Scatters poison spikes at the feet of the opposing team when the Pokémon takes damage from physical moves.",
+        "ja": "物理技で　ダメージを　受けると 相手の　足下に どくびしが　ちらばる。",
+        "fr": "Quand le Pokémon est touché par une capacité physique, il répand des pics toxiques dans le camp adverse.",
+        "es": "Al recibir daño de un ataque físico, lanza una trampa de púas tóxicas a los pies del rival.",
+        "de": "Erleidet das Pokémon Schaden durch eine physische Attacke, verstreut es giftige Stacheln auf der gegnerischen Seite.",
+        "it": "Se il Pokémon subisce danni da mosse fisiche, piazza ai piedi degli avversari una trappola di punte velenose.",
+        "ko": "물리 기술로 데미지를 받으면 상대의 발밑에 독압정을 뿌린다.",
+        "zh-Hant": "因物理招式受到傷害時， 會在對手腳下散布毒菱。",
+        "zh-Hans": "受到物理招式的伤害时， 会在对手脚下散布毒菱。"
+    }
+}

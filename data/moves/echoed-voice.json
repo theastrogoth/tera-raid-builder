@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with an echoing voice. If this move is used consecutively by any Pokémon, its power is boosted.",
+        "ja": "響く　声で　相手を　攻撃する。 毎ターン　だれかが　技を 使い続けると　威力が　あがる。",
+        "fr": "Un cri retentissant blesse la cible. Si le lanceur ou d'autres Pokémon utilisent cette capacité à chaque tour, la puissance augmente.",
+        "es": "Un susurro que aumenta de potencia conforme el usuario y otros Pokémon lo van utilizando.",
+        "de": "Angriff mit widerhallender Stimme. Wenn in jeder Runde ein Teilnehmer wiederholt die Attacke einsetzt, steigt die Stärke.",
+        "it": "Chi la usa attacca il bersaglio con la propria voce echeggiante. Se usata a ripetizione da uno o più Pokémon, la potenza della mossa aumenta.",
+        "ko": "울리는 목소리로 상대를 공격한다. 매 턴 누군가 이 기술을 계속해서 쓰면 위력이 올라간다.",
+        "zh-Hant": "用回聲攻擊對手。 每回合有寶可夢持續使用回聲時， 招式的威力會提高。",
+        "zh-Hans": "用回声攻击对手。 如果每回合都有宝可梦接着 使用该招式，威力就会提高。"
+    }
 }

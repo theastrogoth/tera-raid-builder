@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by shooting scales two to five times in a row. This move boosts the user's Speed stat but lowers its Defense stat.",
+        "ja": "ウロコを　撃ちだして　攻撃する。 ２ー５回の　間　連続で　だす。 素早さが　あがるが　防御が　さがる。",
+        "fr": "Le lanceur projette des écailles sur la cible de deux à cinq fois d'affilée. Augmente la Vitesse, mais diminue la Défense.",
+        "es": "Lanza escamas al objetivo de dos a cinco veces seguidas. Aumenta la Velocidad del usuario, pero reduce su Defensa.",
+        "de": "Der Anwender greift das Ziel zwei- bis fünfmal hintereinander mit Schuppen-Geschossen an. Erhöht die eigene Initiative, aber senkt die Verteidigung.",
+        "it": "Il Pokémon attacca lanciando delle squame da due a cinque volte di fila. La sua Velocità aumenta, ma la Difesa diminuisce.",
+        "ko": "비늘을 쏘아서 공격한다. 2~5회 연속으로 쓴다. 스피드가 올라가지만 방어가 떨어진다.",
+        "zh-Hant": "射出鱗片進行攻擊。 可連續攻擊２～５次。 速度會提高但防禦會降低。",
+        "zh-Hans": "发射鳞片进行攻击。 连续攻击２～５次。 速度会提高但防御会降低。"
+    }
 }

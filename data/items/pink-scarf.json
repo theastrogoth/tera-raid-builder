@@ -1,0 +1,14 @@
+{
+    "name": "Pink Scarf",
+    "flavorText": {
+        "en": "When a Pokémon holds this during a contest, it looks even cuter than usual.",
+        "ja": "持たせて　コンテストに　参加すると そのポケモンは　いつもより かわいく　みられる。",
+        "fr": "Objet à tenir. Augmente la Grâce d'un Pokémon dans les concours.",
+        "es": "Aumenta la dulzura en los concursos. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Trainer erhöhen damit in Wettbewerben die Putzigkeit ihres Pokémon.",
+        "it": "Strumento da dare a un Pokémon. Aumenta la Grazia di chi l'indossa in una gara.",
+        "ko": "지니게 하여 콘테스트에 참가하면 그 포켓몬은 여느 때보다 귀엽게 보인다.",
+        "zh-Hant": "攜帶它去參加華麗大賽的 寶可夢會比平時 看起來更加可愛。",
+        "zh-Hans": "携带它去参加华丽大赛的 宝可梦会比平时 看上去更加可爱。"
+    }
+}

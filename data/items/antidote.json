@@ -1,0 +1,14 @@
+{
+    "name": "Antidote",
+    "flavorText": {
+        "en": "A spray-type medicine for treating poisoning. It can be used to lift the effects of being poisoned from a Pokémon.",
+        "ja": "スプレー式の　薬。 ポケモン　１匹の　どくの 状態を　回復する。",
+        "fr": "Un médicament sous forme de spray. Guérit un Pokémon empoisonné.",
+        "es": "Medicina en espray que contrarresta los efectos del veneno en un Pokémon.",
+        "de": "Ein Spray, das ein Pokémon von Vergiftungen heilt.",
+        "it": "Rimedio spray. Cura un Pokémon dall'avvelenamento.",
+        "ko": "스프레이식의 약. 포켓몬 1마리의 독 상태를 회복한다.",
+        "zh-Hant": "噴霧式藥水。 能治癒１隻寶可夢的 中毒狀態。",
+        "zh-Hans": "喷雾式药水。 能治愈１只宝可梦的 中毒状态。"
+    }
+}

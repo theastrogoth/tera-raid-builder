@@ -1,0 +1,14 @@
+{
+    "name": "Libero",
+    "flavorText": {
+        "en": "Changes the Pokémon's type to the type of the move it's about to use. This works only once each time the Pokémon enters battle.",
+        "ja": "戦闘に　出るたび　１回だけ 自分が　出す　技と 同じ　タイプに　変化する。",
+        "fr": "Le Pokémon prend le type de la capacité qu'il utilise. Ce talent ne peut se déclencher qu'une fois par entrée au combat du Pokémon.",
+        "es": "Al entrar en combate, cambia su tipo al del primer movimiento que va a usar.",
+        "de": "Jedes Mal, wenn das Pokémon das Kampffeld betritt, nimmt es einmalig beim Einsatz einer Attacke deren Typ an.",
+        "it": "Ogni volta che il Pokémon entra in campo, cambia il suo tipo in quello della prima mossa che usa.",
+        "ko": "배틀에 나올 때마다 단 한 번 자신이 사용한 기술과 같은 타입으로 변화한다.",
+        "zh-Hant": "每次出場戰鬥時， 變為與自己使出的招式 相同的屬性１次。",
+        "zh-Hans": "变为与自己使出的招式 相同的属性。 每次出场战斗仅生效一次。"
+    }
+}

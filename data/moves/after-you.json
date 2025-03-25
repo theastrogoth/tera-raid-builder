@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user helps the target and makes it use its move right after the user.",
+        "ja": "相手の　行動を　サポートして 自分の　行動の　あとに 続けて　動けるように　する。",
+        "fr": "S'il est le premier à agir, le lanceur permet à sa cible d'utiliser une capacité juste après lui.",
+        "es": "Si el usuario es el más rápido, permite al objetivo usar un movimiento justo tras él, adelantándose a Pokémon más rápidos.",
+        "de": "Anwender ermöglicht dem Ziel, direkt nach ihm zu handeln, solange der Anwender als Erstes zum Zug kommt.",
+        "it": "Il Pokémon aiuta un bersaglio permettendogli di agire subito dopo.",
+        "ko": "상대의 행동을 도와서 자신이 행동한 뒤에 바로 움직일 수 있도록 한다.",
+        "zh-Hant": "支援對手， 讓對手緊接在自己之後行動。",
+        "zh-Hans": "支援我方或对手的行动， 使其紧接着此招式之后行动。"
+    }
 }

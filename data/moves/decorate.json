@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user sharply boosts the target's Attack and Sp. Atk stats by decorating the target.",
+        "ja": "かざりつけを　することで 相手の　攻撃と　特攻を ぐーんと　上げる。",
+        "fr": "Le lanceur augmente beaucoup l'Attaque et l'Attaque Spéciale de la cible en la nappant de glaçage.",
+        "es": "Aumenta mucho el Ataque y el Ataque Especial del objetivo al decorarlo.",
+        "de": "Durch Verzierungen werden der Angriff und Spezial-Angriff des Zieles stark erhöht.",
+        "it": "Il Pokémon agghinda il bersaglio con delle decorazioni aumentandone di molto l'Attacco e l'Attacco Speciale.",
+        "ko": "데코레이션을 해서 상대의 공격과 특수공격을 크게 올린다.",
+        "zh-Hant": "透過裝飾， 大幅提高對手的 攻擊和特攻。",
+        "zh-Hans": "通过装饰， 大幅提高对方的 攻击和特攻。"
+    }
 }

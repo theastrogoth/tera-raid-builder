@@ -1,0 +1,14 @@
+{
+    "name": "Cute Charm",
+    "flavorText": {
+        "en": "The Pokémon may infatuate attackers that make direct contact with it.",
+        "ja": "自分に　触った　相手を メロメロに　することが　ある。",
+        "fr": "Peut séduire l'attaquant lorsque le Pokémon subit une attaque directe.",
+        "es": "Puede causar enamoramiento al Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Angreifer verlieben sich bei Berührung gelegentlich in das Pokémon.",
+        "it": "Può causare infatuazione a chi entra in contatto con il Pokémon.",
+        "ko": "자신에게 접촉한 상대를 헤롱헤롱하게 만들 때가 있다.",
+        "zh-Hant": "有時會讓接觸到自己的對手 陷入著迷狀態。",
+        "zh-Hans": "有时会让接触到自己的对手着迷。"
+    }
+}

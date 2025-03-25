@@ -1,0 +1,14 @@
+{
+    "name": "Leppa Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to restore 10 PP to a move.",
+        "ja": "ポケモンに　持たせると ＰＰを　１０だけ　回復する。 ",
+        "fr": "Une Baie qui restaure 10 PP lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para restaurar 10 PP de un movimiento.",
+        "de": "Als getragenes Item füllt diese Beere die AP einer Attacke des Pokémon um 10 Punkte auf.",
+        "it": "Se un Pokémon ha questa bacca, restituisce 10 PP a una mossa.",
+        "ko": "포켓몬에게 지니게 하면 PP를 10만큼 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以回復１０ＰＰ。",
+        "zh-Hans": "让宝可梦携带后， 可以回复１０ＰＰ。"
+    }
+}

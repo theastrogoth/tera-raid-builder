@@ -1,0 +1,14 @@
+{
+    "name": "Run Away",
+    "flavorText": {
+        "en": "Enables a sure getaway from wild Pokémon.",
+        "ja": "野生の　ポケモンから 必ず　逃げられる。",
+        "fr": "Permet de fuir n'importe quel Pokémon sauvage.",
+        "es": "Puede escapar de cualquier Pokémon salvaje.",
+        "de": "Die Flucht vor wilden Pokémon gelingt immer.",
+        "it": "Garantisce la fuga dai Pokémon selvatici.",
+        "ko": "야생 포켓몬으로부터 반드시 도망칠 수 있다.",
+        "zh-Hant": "一定能從野生寶可夢 那裡逃走。",
+        "zh-Hans": "一定能从野生宝可梦 那儿逃走。"
+    }
+}

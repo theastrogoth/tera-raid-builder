@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user torments and enrages the target, making it incapable of using the same move twice in a row.",
+        "ja": "相手に　いちゃもんを　つけて 同じ　技を　２回連続で だせなくする。",
+        "fr": "Le lanceur irrite la cible pour l'empêcher d'utiliser la même capacité deux fois de suite.",
+        "es": "Atormenta y enfurece al objetivo, que no puede usar dos veces seguidas el mismo movimiento.",
+        "de": "Erzürnt das Ziel, um wiederholten Einsatz derselben Attacke zu verhindern.",
+        "it": "Il Pokémon tormenta e fa infuriare il bersaglio, impedendogli di usare la stessa mossa due volte di fila.",
+        "ko": "상대에게 트집을 잡아서 똑같은 기술을 2회 연속으로 쓸 수 없게 한다.",
+        "zh-Hant": "無理取鬧， 讓對手不能連續２次 使出相同招式。",
+        "zh-Hans": "向对手无理取闹， 令其不能连续２次 使出相同招式。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Sand Spit",
+    "flavorText": {
+        "en": "The Pokémon creates a sandstorm when it's hit by an attack.",
+        "ja": "攻撃を　受けると 砂あらしを　起こす。",
+        "fr": "Le Pokémon déclenche une tempête de sable quand il subit une attaque.",
+        "es": "Provoca una tormenta de arena al recibir un ataque.",
+        "de": "Wird das Pokémon von einem Angriff getroffen, erzeugt es einen Sandsturm.",
+        "it": "Quando il Pokémon viene colpito da un attacco, scatena una tempesta di sabbia.",
+        "ko": "공격을 받으면 모래바람을 일으킨다.",
+        "zh-Hant": "受到攻擊時， 會刮起沙暴。",
+        "zh-Hans": "受到攻击时， 会刮起沙暴。"
+    }
+}

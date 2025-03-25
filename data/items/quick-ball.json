@@ -1,0 +1,14 @@
+{
+    "name": "Quick Ball",
+    "flavorText": {
+        "en": "A somewhat different Poké Ball that is more effective at catching Pokémon when used first thing in a battle.",
+        "ja": "戦闘が　始まって　すぐに 使うと　捕まえやすくなる ちょっと変わった　ボール。",
+        "fr": "Une Poké Ball un peu spéciale qui permet d'attraper un Pokémon sauvage plus facilement si on l'utilise au début du combat.",
+        "es": "Poké Ball algo distinta a las demás cuyo índice de captura es mayor si se usa al inicio de un encuentro con Pokémon salvajes.",
+        "de": "Ein ungewöhnlicher Ball, mit dem sich Pokémon am Anfang des Kampfes leichter fangen lassen.",
+        "it": "Poké Ball un po' diversa che facilita la cattura se usata all'inizio della lotta.",
+        "ko": "배틀이 시작되자마자 사용하면 잡기 쉬워지는 조금 특이한 볼.",
+        "zh-Hant": "有點與眾不同的球。 在戰鬥開始後立刻使用， 就會變得容易捉到寶可夢。",
+        "zh-Hans": "有点与众不同的球。 如果战斗开始后立刻使用， 就能很容易地捉到宝可梦。"
+    }
+}

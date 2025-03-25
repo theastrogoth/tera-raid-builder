@@ -1,0 +1,14 @@
+{
+    "name": "Love Ball",
+    "flavorText": {
+        "en": "A somewhat different Poké Ball that is more effective when catching Pokémon of the opposite gender to your own Pokémon.",
+        "ja": "自分のポケモンと　性別が 違うと　捕まえやすくなる ちょっと変わった　ボール。",
+        "fr": "Une Poké Ball un peu spéciale qui fonctionne particulièrement bien sur un Pokémon de sexe opposé à celui du vôtre.",
+        "es": "Poké Ball algo distinta a las demás que funciona especialmente bien con Pokémon del sexo opuesto al del Pokémon propio.",
+        "de": "Ein Ball, mit dem sich Pokémon leichter fangen lassen, die ein anderes Geschlecht haben als dein Pokémon.",
+        "it": "Poké Ball un po' diversa che funziona meglio con i Pokémon di sesso opposto a quello del proprio.",
+        "ko": "자신의 포켓몬과 성별이 다르면 잡기 쉬워지는 조금 특이한 볼.",
+        "zh-Hant": "有點與眾不同的球。 能更容易地捉到 與自己的寶可夢性別不同的寶可夢。",
+        "zh-Hans": "有点与众不同的球。 能很容易地捕捉 和自己宝可梦性别不同的宝可梦。"
+    }
+}

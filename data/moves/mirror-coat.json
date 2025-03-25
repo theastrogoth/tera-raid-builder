@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A retaliatory attack that counters any special move, inflicting double the damage taken.",
+        "ja": "相手から　受けた　特殊攻撃の ダメージを　２倍に　して その相手に　返す。",
+        "fr": "Une riposte qui contre n'importe quelle capacité spéciale en infligeant le double des dégâts subis.",
+        "es": "Responde a un ataque especial ocasionando el doble del daño recibido.",
+        "de": "Kontert die Spezial-Attacke des Gegners mit doppeltem Schaden.",
+        "it": "Il Pokémon risponde a un attacco speciale infliggendo al bersaglio il doppio dei danni subiti.",
+        "ko": "상대에게 받은 특수공격의 데미지를 2배로 만들어 그 상대에게 돌려준다.",
+        "zh-Hant": "將來自對手的特殊攻擊傷害加倍後， 返還給該對手。",
+        "zh-Hans": "从对手那里受到 特殊攻击的伤害将以 ２倍返还给同一个对手。"
+    }
 }

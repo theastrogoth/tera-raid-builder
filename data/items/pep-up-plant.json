@@ -1,0 +1,14 @@
+{
+    "name": "Pep-Up Plant",
+    "flavorText": {
+        "en": "Extremely spicy but also highly nutritious. This herb is used as a material for crafting items that can restore PP to Pokémon or boost their stats.",
+        "ja": "辛味が強いが滋養強壮に効く。 ポケモンのＰＰを回復したり 能力をアップさせる道具の材料となる。",
+        "fr": "Cette plante très épicée est riche en éléments nutritifs. On l'utilise pour la confection d'objets qui restaurent les PP ou qui augmentent les stats des Pokémon.",
+        "es": "De sabor picante pero excelentes cualidades nutritivas. Un ingrediente vital para crear objetos que restauren los PP o que aumenten las características de un Pokémon.",
+        "de": "Dieses Kraut wird zur Herstellung von Items genutzt, die Statuswerte von Pokémon erhöhen oder ihre AP wiederherstellen. Es ist sehr scharf, aber äußerst nahrhaft.",
+        "it": "Ingrediente per la preparazione di strumenti che ripristinano PP o aumentano le statistiche. È molto piccante ma altrettanto nutriente.",
+        "ko": "매운맛이 강하지만 자양 강장의 효과가 있다. 포켓몬의 PP를 회복하거나 능력을 올리는 도구의 재료가 된다.",
+        "zh-Hant": "味道辛辣，有滋補強身的效果。 能回復寶可夢的ＰＰ，以及 作為能力強化道具的材料。",
+        "zh-Hans": "味道辛辣，有滋补强身的效果。 能回复宝可梦的ＰＰ，以及 作为能力强化道具的材料。"
+    }
+}

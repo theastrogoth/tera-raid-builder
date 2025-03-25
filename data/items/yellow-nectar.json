@@ -1,0 +1,14 @@
+{
+    "name": "Yellow Nectar",
+    "flavorText": {
+        "en": "Flower nectar obtained from a yellow flower. It changes the form of a certain species of Pokémon.",
+        "ja": "やまぶき色の　花のミツ。 特定のポケモンの　姿を　変える。",
+        "fr": "Un nectar de couleur jaune qui permet à un certain Pokémon de changer d'apparence.",
+        "es": "Néctar de cierta flor amarilla, capaz de hacer cambiar de forma a una determinada especie de Pokémon.",
+        "de": "Ein goldgelber Blütennektar. Ein bestimmtes Pokémon kann damit seine Form ändern.",
+        "it": "Nettare di fiori gialli. Fa cambiare forma a una determinata specie di Pokémon.",
+        "ko": "진노랑색 꽃의 꿀. 특정 포켓몬의 모습을 바꾼다.",
+        "zh-Hant": "金黃色的花蜜。 可以改變特定寶可夢的樣子。",
+        "zh-Hans": "金黄色花的花蜜。 可以改变特定宝可梦的样子。"
+    }
+}

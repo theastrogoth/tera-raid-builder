@@ -1,0 +1,14 @@
+{
+    "name": "TR56",
+    "flavorText": {
+        "en": "The user lets loose a blast of aura power from deep within its body at the target. This attack never misses.",
+        "ja": "体の　奥から　波導の　力を 相手に　うち放つ。 攻撃は　必ず　命中する。",
+        "fr": "Le lanceur puise au fond de lui-même pour dégager une aura et projeter de l'énergie sur la cible. N'échoue jamais.",
+        "es": "Libera una inmensa descarga de aura desde su interior. No falla nunca.",
+        "de": "Tief aus dem Inneren des Anwenders löst sich ein kraftvoller Stoß Aura-Energie. Diese Attacke trifft garantiert.",
+        "it": "Il Pokémon rilascia l'aura dal profondo del corpo e la spara verso il bersaglio. Questo attacco va sempre a segno.",
+        "ko": "몸속에서 파동의 힘을 끌어내 상대에게 쏜다. 공격은 반드시 명중한다.",
+        "zh-Hant": "將來自體內深處的波導之力 擊向對手。 攻擊必定會命中。",
+        "zh-Hans": "从体内产生出波导之力， 然后向对手发出。 攻击必定会命中。"
+    }
+}

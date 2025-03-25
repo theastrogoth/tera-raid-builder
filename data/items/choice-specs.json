@@ -1,0 +1,14 @@
+{
+    "name": "Choice Specs",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. These curious glasses boost the holder's Sp. Atk stat but only allow the use of a single move.",
+        "ja": "ちょっと　こだわった　メガネ。 持たせると　特攻は　あがるが 同じ技しか　だせなくなる。",
+        "fr": "Objet à tenir. Augmente l'Attaque Spéciale, mais ne permet d'utiliser qu'une seule capacité.",
+        "es": "Unas gafas muy particulares que aumentan el Ataque Especial, pero solo permiten usar un movimiento. Debe llevarlas un Pokémon.",
+        "de": "Ein Item zum Tragen. Diese Brille erhöht den Spezial-Angriff, aber nur eine Attacke ist einsetzbar.",
+        "it": "Strumento da dare a un Pokémon. Questi occhiali aumentano l'Attacco Speciale, ma permettono l'uso di una sola mossa.",
+        "ko": "기술을 구애받는 안경. 지니게 하면 특수공격이 올라가지만 같은 기술밖에 쓸 수 없다.",
+        "zh-Hant": "有點講究的眼鏡。 雖然攜帶後特攻會提高， 但只能使出相同的招式。",
+        "zh-Hans": "有点讲究的眼镜。 虽然携带后特攻会提高， 但只能使出相同的招式。"
+    }
+}

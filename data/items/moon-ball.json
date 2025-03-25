@@ -1,0 +1,14 @@
+{
+    "name": "Moon Ball",
+    "flavorText": {
+        "en": "A somewhat different Poké Ball that is more effective when catching Pokémon that can be evolved using a Moon Stone.",
+        "ja": "つきのいしで　進化する ポケモンが　捕まえやすくなる ちょっと変わった　ボール。",
+        "fr": "Une Poké Ball un peu spéciale qui fonctionne particulièrement bien sur les Pokémon évoluant avec une Pierre Lune.",
+        "es": "Poké Ball algo distinta a las demás que captura con más facilidad Pokémon que evolucionan con la Piedra Lunar.",
+        "de": "Ein Ball, mit dem sich Pokémon, die sich durch einen Mondstein entwickeln, leichter fangen lassen.",
+        "it": "Poké Ball un po' diversa che funziona particolarmente bene con i Pokémon che si evolvono con una Pietralunare.",
+        "ko": "달의돌로 진화하는 포켓몬이 잡기 쉬워지는 조금 특이한 볼.",
+        "zh-Hant": "有點與眾不同的球。 能更容易地捉到 使用月之石進化的寶可夢。",
+        "zh-Hans": "有点与众不同的球。 能很容易地捕捉 使用月之石进化的宝可梦。"
+    }
+}

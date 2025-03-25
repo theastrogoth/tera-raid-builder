@@ -1,0 +1,14 @@
+{
+    "name": "Big Pecks",
+    "flavorText": {
+        "en": "Prevents the Pokémon from having its Defense stat lowered.",
+        "ja": "防御を　下げる 効果を　受けない。",
+        "fr": "Protège des effets qui baissent la Défense.",
+        "es": "Impide que otros Pokémon le reduzcan la Defensa.",
+        "de": "Die Verteidigung des Pokémon kann nicht gesenkt werden.",
+        "it": "Evita che la Difesa venga ridotta.",
+        "ko": "방어를 떨어뜨리는 효과를 받지 않는다.",
+        "zh-Hant": "不會受到降低防禦的效果影響。",
+        "zh-Hans": "不会受到防御降低的效果。"
+    }
+}

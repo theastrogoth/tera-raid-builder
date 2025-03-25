@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A wicked thunderbolt is dropped on the target to inflict damage. This may also leave the target with paralysis.",
+        "ja": "激しい　雷を 相手に　落として　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "La foudre tombe sur la cible pour lui infliger des dégâts, ce qui peut aussi la paralyser.",
+        "es": "Un poderoso rayo que daña al objetivo y puede paralizarlo.",
+        "de": "Eine verheerende Elektro-Attacke, die das Ziel eventuell paralysiert.",
+        "it": "Il Pokémon attacca il bersaglio con un fulmine molto violento che può anche paralizzarlo.",
+        "ko": "강한 번개를 상대에게 떨어뜨려 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "向對手劈下暴雷進行攻擊。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "向对手劈下暴雷进行攻击。 有时会让对手陷入麻痹状态。"
+    }
 }

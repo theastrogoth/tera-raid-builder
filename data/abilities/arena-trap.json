@@ -1,0 +1,14 @@
+{
+    "name": "Arena Trap",
+    "flavorText": {
+        "en": "Prevents opposing Pokémon from fleeing from battle.",
+        "ja": "戦闘で　相手を 逃げられなくする。",
+        "fr": "Empêche l'adversaire de quitter le terrain.",
+        "es": "Evita que el rival huya o sea cambiado por otro.",
+        "de": "Das Pokémon hindert Gegner an der Flucht beziehungsweise am Auswechseln.",
+        "it": "Impedisce la fuga agli avversari.",
+        "ko": "배틀에서 상대를 도망칠 수 없게 한다.",
+        "zh-Hant": "在戰鬥中讓對手無法逃走。",
+        "zh-Hans": "在战斗中让对手无法逃走。"
+    }
+}

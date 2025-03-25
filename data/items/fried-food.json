@@ -1,0 +1,14 @@
+{
+    "name": "Fried Food",
+    "flavorText": {
+        "en": "One of the many ingredients that can be used for cooking at your camp. It's been a while since it was fried, so it's gotten greasy.",
+        "ja": "キャンプの　料理に　使う 食材の　一種。揚げてから 時間がたつので　少し　油っこい。",
+        "fr": "Un ingrédient de cuisine pour le camping. Ces fritures sont sorties de la friteuse depuis un moment déjà, et l'huile a commencé à couler.",
+        "es": "Un ingrediente para cocinar en el campamento. A medida que pasa el tiempo se van volviendo más aceitosas.",
+        "de": "Eine Zutat für PokéCamping-Mahlzeiten. Diese Beilagen sind recht fettig, da sie schon vor einer Weile aus der Fritteuse geholt wurden.",
+        "it": "Uno degli ingredienti che puoi usare per cucinare in campeggio. È passato del tempo dal momento della frittura, per cui è un po' untuoso.",
+        "ko": "캠프 요리에 사용되는 식재료 중 하나. 튀기고 시간이 좀 지나서 살짝 느끼하다.",
+        "zh-Hant": "製作露營料理時使用的食材之一。 已經炸好一段時間， 所以有點油膩。",
+        "zh-Hans": "在露营营地制作料理时会使用的 一种食材。炸完出锅后 放置了一段时间，所以稍稍有些油腻。"
+    }
+}

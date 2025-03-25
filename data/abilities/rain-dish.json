@@ -1,0 +1,14 @@
+{
+    "name": "Rain Dish",
+    "flavorText": {
+        "en": "The Pokémon gradually regains HP in rain.",
+        "ja": "天気が　雨のとき 少しずつ　ＨＰを　回復する。",
+        "fr": "Le Pokémon récupère progressivement des PV lorsqu'il pleut.",
+        "es": "Recupera PS de forma gradual cuando llueve.",
+        "de": "Bei Regen regeneriert das Pokémon nach und nach KP.",
+        "it": "Il Pokémon recupera PS quando piove.",
+        "ko": "비가 오는 날씨일 때 조금씩 HP를 회복한다.",
+        "zh-Hant": "天氣為下雨時， 會漸漸回復ＨＰ。",
+        "zh-Hans": "下雨天气时， 会缓缓回复ＨＰ。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Utility Umbrella",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This sturdy umbrella protects the holder from the effects of rain and harsh sunlight.",
+        "ja": "持たせた　ポケモンは 雨と　日差しが強いときの 影響を　受けなくなる。",
+        "fr": "Objet à tenir. Il protège le porteur des effets de la pluie et des rayons du soleil.",
+        "es": "El portador se vuelve invulnerable a los efectos de la lluvia y del sol.",
+        "de": "Der Träger ist gegen die Effekte von Regen und Sonnenlicht geschützt.",
+        "it": "Strumento da dare a un Pokémon. Protegge dagli effetti causati dalla pioggia e dalla luce solare intensa.",
+        "ko": "지니게 한 포켓몬은 비와 햇살이 강할 때의 영향을 받지 않게 된다.",
+        "zh-Hant": "攜帶它的寶可夢 在下雨或日照很強時， 不會受到天氣的影響。",
+        "zh-Hans": "携带它的宝可梦 在下雨或日照很强时， 不会受到天气的影响。"
+    }
+}

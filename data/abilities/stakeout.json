@@ -1,0 +1,14 @@
+{
+    "name": "Stakeout",
+    "flavorText": {
+        "en": "Doubles the damage dealt to a target that has just switched into battle.",
+        "ja": "交代で　出てきた　相手に ２倍の　ダメージで　攻撃　できる。",
+        "fr": "Lorsque le Pokémon attaque une cible qui vient d'entrer sur le terrain en remplacement d'un autre Pokémon, les dégâts infligés sont doublés.",
+        "es": "Si el objetivo de su ataque es sustituido por otro, duplica el daño que infligirá.",
+        "de": "Das Pokémon verursacht beim Angriff auf neu eingewechselte Ziele doppelten Schaden.",
+        "it": "Può infliggere il doppio dei danni a un bersaglio che è appena entrato in campo per sostituire un altro Pokémon.",
+        "ko": "교체로 나온 상대에게 2배 데미지로 공격할 수 있다.",
+        "zh-Hant": "可以向替換出場的對手 以２倍的傷害進行攻擊。",
+        "zh-Hans": "可以对替换出场的对手 以２倍的伤害进行攻击。"
+    }
+}

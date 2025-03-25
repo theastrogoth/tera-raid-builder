@@ -1,0 +1,14 @@
+{
+    "name": "Scrappy",
+    "flavorText": {
+        "en": "The Pokémon can hit Ghost-type Pokémon with Normal- and Fighting-type moves. It is also unaffected by Intimidate.",
+        "ja": "ノーマルタイプと　かくとうタイプの技を ゴーストタイプに　当てることが　できる。 いかくにも　動じない。",
+        "fr": "Permet aux capacités de type Normal ou Combat du Pokémon de toucher les Pokémon de type Spectre. Immunise aussi contre le talent Intimidation.",
+        "es": "Alcanza a Pokémon de tipo Fantasma con movimientos de tipo Normal o Lucha. Además, no sufre los efectos de Intimidación.",
+        "de": "Normal- und Kampf-Attacken des Pokémon treffen auch Pokémon vom Typ Geist. Außerdem wirkt Bedroher bei ihm nicht.",
+        "it": "Permette di colpire Pokémon di tipo Spettro con mosse di tipo Normale e Lotta. Inoltre, rende immuni all'effetto di Prepotenza.",
+        "ko": "노말타입과 격투타입 기술을 고스트타입에게 맞힐 수 있다. 위협을 당해도 동요하지 않는다.",
+        "zh-Hant": "一般屬性和格鬥屬性的招式 可擊中幽靈屬性的寶可夢。 面對威嚇也不會動搖。",
+        "zh-Hans": "一般属性和格斗属性的招式 可以击中幽灵属性的宝可梦。 对威吓也毫不动摇。"
+    }
+}

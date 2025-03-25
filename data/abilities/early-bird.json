@@ -1,0 +1,14 @@
+{
+    "name": "Early Bird",
+    "flavorText": {
+        "en": "The Pokémon awakens from sleep twice as fast as other Pokémon.",
+        "ja": "ねむり状態に　なっても ２倍の　早さで 目覚める　ことが　できる。",
+        "fr": "Le Pokémon se réveille deux fois plus rapidement que les autres.",
+        "es": "Si se duerme, tardará la mitad de tiempo en despertarse.",
+        "de": "Wenn es in Schlaf versetzt wurde, wacht das Pokémon doppelt so schnell wieder auf wie andere Pokémon.",
+        "it": "Anche se il Pokémon si addormenta, può risvegliarsi due volte più velocemente.",
+        "ko": "잠듦 상태가 되어도 2배 빠르게 깨어날 수 있다.",
+        "zh-Hant": "即使陷入睡眠狀態， 也能以２倍的速度提早醒來。",
+        "zh-Hans": "即使变为睡眠状态， 也能以２倍的速度提早醒来。"
+    }
+}

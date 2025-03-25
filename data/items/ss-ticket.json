@@ -1,0 +1,14 @@
+{
+    "name": "S.S. Ticket",
+    "flavorText": {
+        "en": "The ticket required to board the S.S. Anne. It has a drawing of a ship on it.",
+        "ja": "サント・アンヌ号に　乗るとき 必要な　船の　チケット。 船の　絵が　描かれている。",
+        "fr": "Un ticket nécessaire pour embarquer à bord de L'Océane. Il y a une image du navire dessus.",
+        "es": "Billete necesario para embarcar en el S. S. Anne. Tiene dibujado un barco.",
+        "de": "Ein Ticket, das benötigt wird, um an Bord der MS Anne zu gehen. Das Schiff ist darauf abgebildet.",
+        "it": "Biglietto per salire sulla Motonave Anna. C'è disegnata sopra una nave.",
+        "ko": "상트앙느호에 탈 때 필요한 승선 티켓. 배 그림이 그려져 있다.",
+        "zh-Hant": "乘搭聖特安努號時 所需的船票。 上面畫了一艘船。",
+        "zh-Hans": "乘坐圣特安努号时所需的船票。 上面绘有船只的图案。"
+    }
+}

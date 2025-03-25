@@ -1,0 +1,14 @@
+{
+    "name": "Own Tempo",
+    "flavorText": {
+        "en": "The Pokémon sticks to its own tempo, preventing it from becoming confused or being affected by Intimidate.",
+        "ja": "マイペースなので こんらん状態に　ならない。 いかくにも　動じない。",
+        "fr": "Le Pokémon vit sa vie à son propre rythme, ce qui l'immunise contre la confusion et l'intimidation.",
+        "es": "Como le gusta hacer las cosas a su manera, no le afecta la confusión ni sufre los efectos de Intimidación.",
+        "de": "Das Pokémon lässt sich nicht aus der Ruhe bringen und kann daher nicht verwirrt werden. Auch Bedroher wirkt bei ihm nicht.",
+        "it": "Il Pokémon affronta la vita al proprio ritmo e per questo non può essere confuso o subire l'effetto di Prepotenza.",
+        "ko": "마이페이스라서 혼란 상태가 되지 않는다. 위협을 당해도 동요하지 않는다.",
+        "zh-Hant": "因為我行我素， 不會陷入混亂狀態。 面對威嚇也不會動搖。",
+        "zh-Hans": "因为我行我素， 不会变为混乱状态。 对威吓也毫不动摇。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Wonder Skin",
+    "flavorText": {
+        "en": "Makes status moves more likely to miss the Pokémon.",
+        "ja": "変化技を　受けにくい 体に　なっている。",
+        "fr": "Le Pokémon résiste mieux aux capacités de statut.",
+        "es": "Presenta una mayor resistencia ante los movimientos de estado.",
+        "de": "Durch seinen robusten Körper verfehlen Status-Attacken öfter das Pokémon.",
+        "it": "Il Pokémon resiste più facilmente alle mosse di stato.",
+        "ko": "변화 기술을 받기 어려운 몸으로 되어 있다.",
+        "zh-Hant": "不易受到變化類招式 攻擊的身體。",
+        "zh-Hans": "成为不易受到变化招式 攻击的身体。"
+    }
+}

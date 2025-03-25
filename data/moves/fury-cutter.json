@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by slashing the target with scythes, claws, or the like. This attack becomes more powerful if it hits in succession.",
+        "ja": "カマや　ツメなどで　相手を 切りつけて　攻撃する。 連続で　当てると　威力が　あがる。",
+        "fr": "Un coup de faux ou de griffe dont la puissance augmente quand il touche plusieurs fois d'affilée.",
+        "es": "Ataque lacerante con garras, cuchillas o similares cuya potencia aumenta si se usa varias veces seguidas.",
+        "de": "Eine Attacke mit Scheren oder Klauen, deren Härte bei aufeinanderfolgenden Treffern zunimmt.",
+        "it": "Il Pokémon attacca il bersaglio con falci o artigli. Se la mossa colpisce in successione, la sua potenza aumenta.",
+        "ko": "낫이나 발톱 등으로 상대를 베어 공격한다. 연속으로 맞히면 위력이 올라간다.",
+        "zh-Hant": "用鐮刀或爪子等 斬切對手進行攻擊。 連續命中時威力會提高。",
+        "zh-Hans": "用镰刀或爪子等 切斩对手进行攻击。 连续击中，威力就会提高。"
+    }
 }

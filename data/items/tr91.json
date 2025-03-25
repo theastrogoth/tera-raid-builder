@@ -1,0 +1,14 @@
+{
+    "name": "TR91",
+    "flavorText": {
+        "en": "Opposing Pokémon are drenched in an odd poisonous liquid. This lowers the Attack, Sp. Atk, and Speed stats of a poisoned target.",
+        "ja": "特殊な　毒液を　浴びせかける。 毒状態の　相手は 攻撃　特攻　素早さが　さがる。",
+        "fr": "Le lanceur projette un liquide toxique spécial, ce qui diminue l'Attaque, l'Attaque Spéciale et la Vitesse de la cible si elle était déjà empoisonnée.",
+        "es": "Impregna a su objetivo con un líquido venenoso que reduce el Ataque, el Ataque Especial y la Velocidad. Solo afecta a Pokémon ya envenenados.",
+        "de": "Anwender bespritzt das Ziel mit einer speziellen Giftflüssigkeit. Senkt den Angriff, den Spezial-Angriff und die Initiative von vergifteten Zielen.",
+        "it": "Il Pokémon emette un liquido particolare che riduce l'Attacco, l'Attacco Speciale e la Velocità degli avversari avvelenati.",
+        "ko": "특수한 독액을 끼얹는다. 독 상태인 상대는 공격, 특수공격, 스피드가 떨어진다.",
+        "zh-Hant": "向對手發射特殊的毒液。 陷入中毒狀態的對手 攻擊、特攻和速度會降低。",
+        "zh-Hans": "将特殊的毒液泼向对手。 对处于中毒状态的对手， 其攻击、特攻和速度都会降低。"
+    }
+}

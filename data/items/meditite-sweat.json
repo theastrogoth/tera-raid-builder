@@ -1,0 +1,14 @@
+{
+    "name": "Meditite Sweat",
+    "flavorText": {
+        "en": "Material accidentally dropped by a Pokémon. It can be used to make TMs.",
+        "ja": "ポケモンが　うっかり　落としたもの。 わざマシンを　作るために　必要。",
+        "fr": "Un échantillon laissé par un Pokémon. Il peut être utilisé pour fabriquer des CT.",
+        "es": "Material que ha dejado caer un Pokémon y que puede utilizarse para fabricar MT.",
+        "de": "Dieses Material hat ein Pokémon unbewusst fallen lassen. Es wird zur Herstellung von TMs benötigt.",
+        "it": "Oggetto lasciato accidentalmente cadere da un Pokémon. Serve per creare MT.",
+        "ko": "포켓몬이 우연히 떨어뜨린 유실물. 기술머신을 만드는 데 필요하다.",
+        "zh-Hant": "寶可夢不小心掉落的東西。 是製作招式學習器所需的材料。",
+        "zh-Hans": "宝可梦不小心掉落的东西。 制作招式学习器时需要用到。"
+    }
+}

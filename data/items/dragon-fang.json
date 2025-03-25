@@ -1,0 +1,14 @@
+{
+    "name": "Dragon Fang",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This hard, sharp fang boosts the power of the holder's Dragon-type moves.",
+        "ja": "硬くて　鋭い　キバ。 持たせると　ドラゴンタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Un croc dur et pointu qui augmente la puissance des capacités de type Dragon.",
+        "es": "Colmillo afilado de gran dureza que potencia los movimientos de tipo Dragón. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein harter und scharfer Reißzahn, der Attacken vom Typ Drache verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Dente duro e affilato che potenzia le mosse di tipo Drago.",
+        "ko": "단단하고 날카로운 이빨. 지니게 하면 드래곤타입 기술의 위력이 올라간다.",
+        "zh-Hant": "堅硬銳利的牙齒。 攜帶後，龍屬性的 招式威力就會提高。",
+        "zh-Hans": "坚硬锐利的牙齿。 携带后，龙属性的 招式威力就会提高。"
+    }
+}

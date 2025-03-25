@@ -1,0 +1,14 @@
+{
+    "name": "Rocky Payload",
+    "flavorText": {
+        "en": "Powers up Rock-type moves.",
+        "ja": "いわタイプの　技の 威力が　上がる。",
+        "fr": "Augmente la puissance des capacités de type Roche.",
+        "es": "Potencia los movimientos de tipo Roca.",
+        "de": "Die Stärke von Gesteins-Attacken des Pokémon steigt.",
+        "it": "Aumenta la potenza delle mosse di tipo Roccia.",
+        "ko": "바위타입 기술의 위력이 올라간다.",
+        "zh-Hant": "岩石屬性的招式威力會提高。",
+        "zh-Hans": "岩石属性的招式威力会提高。"
+    }
+}

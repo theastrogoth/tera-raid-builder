@@ -1,0 +1,14 @@
+{
+    "name": "Pewter Crunchies",
+    "flavorText": {
+        "en": "Pewter City's famous crunchy snack. They can be used to cure any status condition a Pokémon may have.",
+        "ja": "ニビ名物の　あられ。 ポケモン　１匹の　状態異常を すべて　回復する。",
+        "fr": "Une spécialité d'Argenta. Soigne toutes les altérations de statut d'un Pokémon.",
+        "es": "Tentempié típico de Ciudad Plateada. Cura todos los problemas de estado de un Pokémon.",
+        "de": "Diese Kräcker sind eine Spezialität aus Marmoria City. Sie beheben alle Statusprobleme eines Pokémon.",
+        "it": "I salatini tipici di Plumbeopoli. Curano tutti i problemi di stato di un Pokémon.",
+        "ko": "회색시티의 명물인 강정. 포켓몬 1마리의 상태 이상을 모두 회복한다.",
+        "zh-Hant": "深灰市特產的米果。 能治癒１隻寶可夢的 所有異常狀態。",
+        "zh-Hans": "深灰特产的糕点。 能治愈１只宝可梦的 所有异常状态。"
+    }
+}

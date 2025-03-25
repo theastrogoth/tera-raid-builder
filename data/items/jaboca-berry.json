@@ -1,0 +1,14 @@
+{
+    "name": "Jaboca Berry",
+    "flavorText": {
+        "en": "If a Pokémon holding this Berry is hit with a physical move, the attacker will also take damage.",
+        "ja": "ポケモンに　持たせると 物理技を　受けたとき 相手にも　ダメージを　あたえる。",
+        "fr": "Si le Pokémon qui tient cette Baie est touché par une capacité physique, son attaquant subit des dégâts.",
+        "es": "Si la lleva un Pokémon y recibe un ataque físico, el atacante también recibe daño.",
+        "de": "Als getragenes Item verursacht diese Beere Schaden bei einem Angreifer, der das Pokémon mit einer physischen Attacke trifft.",
+        "it": "Se un Pokémon ha questa bacca, chi attacca subirà danni se la sua mossa fisica va a segno.",
+        "ko": "포켓몬에게 지니게 하면 물리 기술로 공격받았을 때 상대에게도 데미지를 준다.",
+        "zh-Hant": "讓寶可夢攜帶後， 在受到物理招式攻擊時， 也能給予對手傷害。",
+        "zh-Hans": "让宝可梦携带后， 在受到物理招式攻击时， 能给予对手伤害。"
+    }
+}

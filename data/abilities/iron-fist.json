@@ -1,0 +1,14 @@
+{
+    "name": "Iron Fist",
+    "flavorText": {
+        "en": "Powers up punching moves.",
+        "ja": "パンチを　使う　技の 威力が　上がる。",
+        "fr": "Augmente la puissance des capacités coups de poing.",
+        "es": "Aumenta la potencia de los movimientos con los puños.",
+        "de": "Die Stärke von Hieb-, Punch-, Faust- und Schlag-Attacken des Pokémon steigt.",
+        "it": "Potenzia le mosse che utilizzano pugni.",
+        "ko": "펀치를 사용하는 기술의 위력이 올라간다.",
+        "zh-Hant": "使用到拳頭的招式 威力會提高。",
+        "zh-Hans": "使用拳类招式的威力会提高。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Cake-Lure Base",
+    "flavorText": {
+        "en": "A type of field provision that enhances the flavor of other foods it is mixed with.",
+        "ja": "エサと混ぜあわせることで 香ばしさが増す兵糧丸。",
+        "fr": "Lorsqu'on mélange cette boule nutritive à de la nourriture, elle dégage un parfum appétissant.",
+        "es": "Masa que, al mezclarse con ciertos alimentos, emana un fragante aroma.",
+        "de": "Vermischt man diesen nahrhaften Teig mit anderen Zutaten, so verströmt er einen aromatischen Duft.",
+        "it": "Polpetta nutriente che, se mescolata con altri alimenti, emana un forte profumo appetitoso.",
+        "ko": "먹이와 섞으면 고소한 맛이 더해지는 반죽.",
+        "zh-Hant": "與寶可夢的食物混合後， 香氣會更加濃郁的口糧。",
+        "zh-Hans": "与宝可梦的食物混合后， 香气会更加浓郁的口粮。"
+    }
+}

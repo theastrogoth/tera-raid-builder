@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user focuses its bitter feelings toward the world of the living into a slashing attack. The user's HP is restored by up to half the damage taken by the target.",
+        "ja": "この世への　未練を　剣先に　こめて 切りつける。　与えた　ダメージの 半分の　ＨＰを　回復できる。",
+        "fr": "Le lanceur concentre son amertume du monde des vivants dans la pointe de ses épées et tranche la cible. La moitié des dégâts infligés sont convertis en PV pour le lanceur.",
+        "es": "Imbuye la punta de su espada con su desazón por el mundo y asesta una estocada llena de rencor. El usuario recupera la mitad de los PS del daño que produce.",
+        "de": "Der Anwender tränkt seine Klinge in Bedauern und Reue und greift damit an. Die Hälfte des zugefügten Schadens wird dem Anwender als KP gutgeschrieben.",
+        "it": "Il Pokémon concentra nelle lame tutti i rimorsi accumulati nel mondo dei vivi e assale il bersaglio, recuperando una quantità di PS pari a metà del danno inflitto.",
+        "ko": "현세의 미련을 칼끝에 담아 베어 버린다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+        "zh-Hant": "將對這個世界的牽掛注入劍尖 進行劈斬。可以回復給予對手 傷害的一半ＨＰ。",
+        "zh-Hans": "将对世间的留恋聚集于剑尖， 并斩击对手。可以回复 给予对手伤害的一半ＨＰ。"
+    }
 }

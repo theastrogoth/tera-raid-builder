@@ -1,0 +1,14 @@
+{
+    "name": "Odd Keystone",
+    "flavorText": {
+        "en": "A vital item that is needed to keep a stone tower from collapsing. Voices can be heard from it occasionally.",
+        "ja": "これがないと　石の塔が 崩れてしまう　大事な石。 ときどき　石から　声が聞こえる。",
+        "fr": "Un objet très important qui empêche une tour en pierre de s'écrouler. Des voix en sortent parfois.",
+        "es": "Objeto vital para impedir que una torre de piedra se derrumbe. A veces se oyen voces en su interior.",
+        "de": "Ein wichtiges Item, mit dem ein Steinturm repariert werden kann. Manchmal erklingen Stimmen aus seinem Inneren.",
+        "it": "Strumento importante che impedisce il crollo di una torre di pietra. A volte dal suo interno provengono delle voci.",
+        "ko": "이것이 없으면 돌탑이 무너져 버리는 중요한 돌. 가끔 돌에서 목소리가 들린다.",
+        "zh-Hant": "沒有它，石之塔就會 崩塌的重要石頭。 有時能從石頭裡聽到聲音。",
+        "zh-Hans": "没有它，石之塔就会 崩塌的重要石头。 有时能从石头里听到声音。"
+    }
+}

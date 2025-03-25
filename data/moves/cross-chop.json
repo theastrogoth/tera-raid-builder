@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user delivers a double chop with its forearms crossed. This move has a heightened chance of landing a critical hit.",
+        "ja": "両手チョップを 相手に　たたきつけて　攻撃する。 急所に　当たりやすい。",
+        "fr": "Le lanceur délivre un coup double en croisant les avant-bras. Taux de critiques élevé.",
+        "es": "Golpe doble con las manos que suele asestar un golpe crítico.",
+        "de": "Doppelter Hieb mit den Unterarmen. Hohe Volltrefferquote.",
+        "it": "Il Pokémon attacca investendo il bersaglio con un colpo sferrato con entrambe le braccia incrociate. Probabile brutto colpo.",
+        "ko": "양손으로 당수를 상대에게 힘껏 쳐서 공격한다. 급소에 맞기 쉽다.",
+        "zh-Hant": "用左右手刀 劈打對手進行攻擊。 容易擊中要害。",
+        "zh-Hans": "用两手呈十字 劈打对手进行攻击。 容易击中要害。"
+    }
 }

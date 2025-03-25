@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hardens its body's surface like iron, sharply boosting its Defense stat.",
+        "ja": "皮膚を　鉄のように 硬くする　ことで 自分の　防御を　ぐーんと　あげる。",
+        "fr": "L'épiderme du lanceur devient dur comme du fer, ce qui augmente beaucoup sa Défense.",
+        "es": "Fortalece el cuerpo como si fuera de hierro y aumenta mucho la Defensa.",
+        "de": "Anwender stärkt den Körper, um den Verteidigungs-Wert stark zu erhöhen.",
+        "it": "Il corpo del Pokémon si indurisce come il ferro, facendone aumentare di molto la Difesa.",
+        "ko": "피부를 쇠처럼 단단하게 만듦으로써 자신의 방어를 크게 올린다.",
+        "zh-Hant": "將皮膚變得堅硬如鐵， 大幅提高自己的防禦。",
+        "zh-Hans": "将皮肤变得坚硬如铁， 从而大幅提高自己的防御。"
+    }
 }

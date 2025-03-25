@@ -1,0 +1,14 @@
+{
+    "name": "Twisted Spoon",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This spoon is imbued with telekinetic energy and boosts the power of the holder's Psychic-type moves.",
+        "ja": "念力を　こめた　スプーン。 持たせると　エスパータイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Une cuillère contenant un pouvoir télékinétique qui augmente la puissance des capacités de type Psy.",
+        "es": "Cuchara imbuida de energía telequinética que potencia los movimientos de tipo Psíquico. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein Löffel voller telekinetischer Energie, der Attacken vom Typ Psycho verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Cucchiaio dotato di potere telecinetico che potenzia le mosse di tipo Psico.",
+        "ko": "염동력을 담은 숟가락. 지니게 하면 에스퍼타입 기술의 위력이 올라간다.",
+        "zh-Hant": "注入了念力的湯匙。 攜帶後，超能力屬性的 招式威力就會提高。",
+        "zh-Hans": "注入了念力的汤匙。 携带后，超能力属性的 招式威力就会提高。"
+    }
+}

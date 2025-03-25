@@ -1,0 +1,14 @@
+{
+    "name": "Moody",
+    "flavorText": {
+        "en": "Every turn, one of the Pokémon's stats will be boosted sharply but another stat will be lowered.",
+        "ja": "毎ターン　能力の　どれかが ぐーんと　上がって　どれかが　下がる。",
+        "fr": "Augmente beaucoup une stat du Pokémon et en baisse une autre au hasard à chaque tour.",
+        "es": "Aumenta mucho una característica en cada turno, pero reduce otra.",
+        "de": "In jeder Runde steigt ein Statuswert des Pokémon stark und ein anderer sinkt.",
+        "it": "A ogni turno, aumenta di molto una statistica e ne riduce un'altra.",
+        "ko": "매 턴 능력 중 하나가 크게 오르고 하나가 떨어진다.",
+        "zh-Hant": "每一回合，能力中的某項 會大幅提高，相對地某項會降低。",
+        "zh-Hans": "每一回合，能力中的某项 会大幅提高，而某项会降低。"
+    }
+}

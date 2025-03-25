@@ -1,0 +1,14 @@
+{
+    "name": "Revive",
+    "flavorText": {
+        "en": "A recipe for crafting Revives from scratch. Required materials: 1 Vivichoke and 2 Medicinal Leeks.",
+        "ja": "げんきのかけらのレシピ。　材料は ゲンキノツボミ×１　クスリソウ×２",
+        "fr": "Méthode pour Rappel. Ressources nécessaires : 1 Bourgeon Vivace et 2 Soignons.",
+        "es": "Receta para crear Revivir. Materiales: 1 Revibrote y 2 Puerros Medicinales.",
+        "de": "Die Anleitung zur Herstellung eines Belebers. Benötigte Materialien: 1 Vitalknospe und 2 Stangen Fitlauch.",
+        "it": "Ricetta per un Revitalizzante. Richiede 1 Revitalboccio e 2 Porri officinali.",
+        "ko": "기력의조각의 레시피. 재료: 기력의봉오리×1 약초×2",
+        "zh-Hant": "活力碎片的材料單。材料是： 活力蕾×１　療草×２",
+        "zh-Hans": "活力碎片的材料单。材料是： 活力蕾×１　疗草×２"
+    }
+}

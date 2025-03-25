@@ -1,0 +1,14 @@
+{
+    "name": "Small Bouquet",
+    "flavorText": {
+        "en": "A small bouquet that was made with heart and soul for a single Trainer.",
+        "ja": "ただ　ひとりの　トレーナーへの 気持ちを　こめて　一生懸命 作った　ささやかな　花束。",
+        "fr": "Un petit bouquet arrangé avec amour pour un[VAR 1100(00FF,0B09)] Dresseure Dresseuse vraiment unique.",
+        "es": "Pequeño ramo de flores confeccionado con dedicación y esmero solo para ti.",
+        "de": "Ein Blumenstrauß, der sorgfältig und mit viel Mühe für einen ganz besonderen Trainer gesteckt wurde.",
+        "it": "Un piccolo mazzo di fiori composto con cura e amore per un[VAR 1100(00FF,0B0A)] Allenator'Allenatrice unic[VAR 1100(00FF,0101)]oa al mondo.",
+        "ko": "단 하나뿐인 트레이너를 향한 마음을 담아 정성껏 만든 작은 꽃다발.",
+        "zh-Hant": "竭盡心力製作的花束。 雖然不起眼，但裡頭 充滿了對訓練家的心意。",
+        "zh-Hans": "竭尽心力制作的素雅花束。 里面满满都是对训练家的心意。"
+    }
+}

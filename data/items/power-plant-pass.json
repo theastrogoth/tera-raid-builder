@@ -1,0 +1,14 @@
+{
+    "name": "Power Plant Pass",
+    "flavorText": {
+        "en": "This pass serves as an ID card for gaining access to the Power Plant that lies along Route 13.",
+        "ja": "１３番道路に　ある 発電所に　入るための 身分証となる　パス。",
+        "fr": "Un passe de sécurité permettant d'accéder à la Centrale de Kalos, à proximité de la Route 13.",
+        "es": "Documento de identificación necesario para acceder a la central eléctrica de la Ruta 13.",
+        "de": "Dieser Pass gewährt Zutritt zum Kraftwerk auf Route 13.",
+        "it": "Tesserino di riconoscimento che consente l'accesso alla Centrale che si trova nel Percorso 13.",
+        "ko": "13번도로에 있는 발전소에 들어가기 위한 신분증이 되는 패스.",
+        "zh-Hant": "該通行證可用作進入 １３號道路上的發電廠時 所需的身分證明。",
+        "zh-Hans": "该通行证可用作进入 １３号道路上的发电厂时 所需的身份证明。"
+    }
+}

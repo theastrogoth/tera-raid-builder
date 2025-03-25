@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user flies up into the sky on the first turn, then attacks on the next turn.",
+        "ja": "１ターン目で　空へ　飛び ２ターン目に　相手を　攻撃する。",
+        "fr": "Le lanceur s'envole au premier tour et frappe au second.",
+        "es": "El usuario vuela en el primer turno y ataca en el segundo.",
+        "de": "Steigt in Runde 1 empor und trifft das Ziel in Runde 2.",
+        "it": "Il Pokémon si alza in volo per attaccare al turno seguente.",
+        "ko": "1턴째에 하늘을 날아 2턴째에 상대를 공격한다.",
+        "zh-Hant": "使用後的第１回合飛上天空， 並於第２回合攻擊對手。",
+        "zh-Hans": "第１回合飞上天空， 第２回合攻击对手。"
+    }
 }

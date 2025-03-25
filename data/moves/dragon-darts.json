@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks twice using Dreepy. If there are two opposing Pokémon, this move hits each of them once.",
+        "ja": "ドラメシヤで　２回　攻撃。 相手が　２匹　いるときは それぞれに　１回ずつ　攻撃する。",
+        "fr": "Le lanceur attaque en propulsant deux Fantyrm. S'il y a deux cibles, chacune d'entre elles est frappée par un Fantyrm.",
+        "es": "El usuario ataca propulsando a ambos Dreepy. En caso de haber dos rivales, cada Dreepy golpea a cada uno por separado.",
+        "de": "Der Anwender greift zweimal mit Grolldra an. Bei zwei Zielen werden beide jeweils einmal angegriffen.",
+        "it": "Il Pokémon attacca due volte sparando Dreepy. Quando sono presenti due bersagli, vengono attaccati entrambi una sola volta.",
+        "ko": "드라꼰으로 2번 공격한다. 상대가 2마리일 때는 각각 1번씩 공격한다.",
+        "zh-Hant": "讓多龍梅西亞進行２次攻擊。 當對手場上有２隻寶可夢時， 則向牠們各進行１次攻擊。",
+        "zh-Hans": "让多龙梅西亚进行２次攻击。 如果对手有２只宝可梦， 则对它们各进行１次攻击。"
+    }
 }

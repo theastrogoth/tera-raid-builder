@@ -35,5 +35,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user tells the target a secret, and the target loses its ability to concentrate. This lowers the target's Sp. Atk stat.",
+        "ja": "ないしょばなしを　することで　相手の 集中力を　失わせ 相手の　特攻を　さげる。",
+        "fr": "Le lanceur dévoile des secrets à la cible, qui perd alors sa concentration et voit son Attaque Spéciale diminuer.",
+        "es": "Hace que el objetivo pierda la concentración contándole un secreto y reduce su Ataque Especial.",
+        "de": "Der Anwender vertraut dem Ziel ein Geheimnis an und stört auf diese Weise dessen Konzentration. Der Spezial-Angriff des Zieles sinkt.",
+        "it": "Il Pokémon svela dei segreti al bersaglio, distraendolo e riducendone l'Attacco Speciale.",
+        "ko": "비밀 이야기를 해서 상대의 집중력을 잃게 하여 특수공격을 떨어뜨린다.",
+        "zh-Hant": "向對手低聲密語， 使對手失去集中力， 降低對手的特攻。",
+        "zh-Hans": "和对手进行密语， 使其失去集中力， 从而降低对手的特攻。"
+    }
 }

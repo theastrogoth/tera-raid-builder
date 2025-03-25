@@ -1,0 +1,14 @@
+{
+    "name": "Pure Power",
+    "flavorText": {
+        "en": "Using its pure power, the Pokémon doubles its Attack stat.",
+        "ja": "ヨガの　力で 物理攻撃の　威力が ２倍に　なる。",
+        "fr": "Le Pokémon utilise sa maîtrise du yoga pour doubler la puissance de ses attaques physiques.",
+        "es": "Duplica la potencia de sus ataques físicos gracias al yoga.",
+        "de": "Das Pokémon verdoppelt mit reiner Willenskraft die Stärke seiner physischen Angriffe.",
+        "it": "La potenza degli attacchi fisici del Pokémon raddoppia grazie alla sua padronanza delle tecniche yoga.",
+        "ko": "요가의 힘으로 물리공격의 위력이 2배가 된다.",
+        "zh-Hant": "因瑜伽的力量， 物理攻擊的威力會變為２倍。",
+        "zh-Hans": "因瑜伽的力量， 物理攻击的威力会变为２倍。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Forewarn",
+    "flavorText": {
+        "en": "When it enters a battle, the Pokémon can tell one of the moves an opposing Pokémon has.",
+        "ja": "登場　したとき 相手の　持つ　技を ひとつだけ　読み取る。",
+        "fr": "Révèle l'une des capacités de l'adversaire quand le combat commence.",
+        "es": "Revela uno de los movimientos del rival al entrar en combate.",
+        "de": "Bei Kampfantritt erkennt das Pokémon eine der Attacken, über die ein Gegner verfügt.",
+        "it": "Quando il Pokémon entra in campo, rivela una delle mosse degli avversari.",
+        "ko": "등장했을 때 상대가 지닌 기술을 하나만 간파한다.",
+        "zh-Hant": "出場時，預見１個 對手持有的招式。",
+        "zh-Hans": "出场时， 只读取１个对手拥有的招式。"
+    }
+}

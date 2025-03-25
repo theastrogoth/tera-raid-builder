@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user gathers the energy of the land and focuses that power on opposing Pokémon to inflict damage.",
+        "ja": "大地の　パワーを　集め 力を　相手に　集中させて ダメージを　与える。",
+        "fr": "Le lanceur utilise la puissance du sol et la concentre sur la cible pour infliger des dégâts.",
+        "es": "Acumula energía de la corteza terrestre y la concentra contra el objetivo para dañarlo.",
+        "de": "Der Anwender sammelt die Kraft des weiten Landes und greift an, indem er sie gebündelt auf gegnerische Pokémon lenkt.",
+        "it": "Il Pokémon raccoglie energia tellurica e ne concentra il potere sugli avversari, infliggendogli danni.",
+        "ko": "대지의 힘을 모으고 그 힘을 상대에게 집중시켜서 데미지를 준다.",
+        "zh-Hant": "聚集大地的能量後， 將力量集中攻擊對手給予傷害。",
+        "zh-Hans": "聚集大地的力量， 将此力量集中攻击对手， 并给予伤害。"
+    }
 }

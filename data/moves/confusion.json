@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is hit with a weak telekinetic force to inflict damage. This may also confuse the target.",
+        "ja": "弱い　念力を 相手に　送って　攻撃する。 相手を　混乱させることが　ある。",
+        "fr": "Une faible vague télékinétique frappe la cible, ce qui peut aussi la plonger dans la confusion.",
+        "es": "Débil ataque telequinético que puede causar confusión.",
+        "de": "Das Ziel wird von schwacher telekinetischer Energie getroffen und eventuell verwirrt.",
+        "it": "Il Pokémon attacca il bersaglio con una leggera forza telecinetica che può anche confonderlo.",
+        "ko": "약한 염동력을 상대에게 보내어 공격한다. 상대를 혼란시킬 때가 있다.",
+        "zh-Hant": "向對手發送 微弱的念力進行攻擊。 有時會使對手混亂。",
+        "zh-Hans": "向对手发送 微弱的念力进行攻击。 有时会使对手混乱。"
+    }
 }

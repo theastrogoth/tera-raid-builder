@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user wields the light that has accumulated atop its head to cleave the target. This move hits even if the target protects itself.",
+        "ja": "頭部に　蓄積した　光で　切断する。 守りを　無視して　攻撃できる。",
+        "fr": "Le lanceur pourfend la cible avec la lumière accumulée sur sa tête. Cette attaque passe outre les protections.",
+        "es": "Rebana al objetivo con la luz que ha acumulado en la testa. Permite acertar aunque el objetivo esté protegiéndose.",
+        "de": "Der Anwender führt mit dem in seinem Kopf gespeicherten Licht einen Schnitt aus. Diese Attacke trifft auch, wenn das Ziel sich selbst schützt.",
+        "it": "Il Pokémon fende il bersaglio con la luce immagazzinata nella testa, ignorando gli effetti delle mosse protettive.",
+        "ko": "머리에 축적된 빛으로 절단한다. 기술 방어를 무시하고 공격할 수 있다.",
+        "zh-Hant": "用積蓄在頭部的光斬斷對手。 可不顧對手的守護進行攻擊。",
+        "zh-Hans": "用积蓄在头部的光来斩切对手。 可以无视守护进行攻击。"
+    }
 }

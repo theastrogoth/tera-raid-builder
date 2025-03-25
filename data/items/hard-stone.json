@@ -1,0 +1,14 @@
+{
+    "name": "Hard Stone",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a durable stone that boosts the power of the holder's Rock-type moves.",
+        "ja": "絶対に　割れない石。 持たせると　いわタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Une pierre incassable qui augmente la puissance des capacités de type Roche.",
+        "es": "La robustez de la piedra potencia los movimientos de tipo Roca. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein unzerbrechlicher Stein, der Attacken vom Typ Gestein verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Pietra indistruttibile che potenzia le mosse di tipo Roccia.",
+        "ko": "절대 깨지지 않는 돌. 지니게 하면 바위타입 기술의 위력이 올라간다.",
+        "zh-Hant": "絕對不會裂開的石頭。 攜帶後，岩石屬性的 招式威力就會提高。",
+        "zh-Hans": "绝对不会裂开的石头。 携带后，岩石属性的 招式威力就会提高。"
+    }
+}

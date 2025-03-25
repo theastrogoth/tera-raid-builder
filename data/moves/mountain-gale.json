@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hurls giant chunks of ice at the target to inflict damage. This may also make the target flinch.",
+        "ja": "氷山のような　大きな 氷塊を　ぶつけて　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur envoie un bloc de glace de la taille d'un iceberg sur la cible, ce qui peut aussi l'apeurer.",
+        "es": "Ataca con unos carámbanos grandes como icebergs que pueden amedrentar al objetivo.",
+        "de": "Der Anwender wirft gigantische Eisbrocken auf das Ziel. Dieses schreckt eventuell zurück.",
+        "it": "Il Pokémon attacca colpendo il bersaglio con un blocco di ghiaccio grande come un iceberg. Può anche far tentennare il bersaglio.",
+        "ko": "빙산처럼 커다란 얼음덩어리를 부딪쳐서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "將冰山般巨大的冰塊 砸向對手進行攻擊。 有時會使對手畏縮。",
+        "zh-Hans": "将冰山般巨大的冰块 砸向对手进行攻击。 有时会使对手畏缩。"
+    }
 }

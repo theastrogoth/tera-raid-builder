@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user dives down onto the target from the sky. This move is Fighting and Flying type simultaneously.",
+        "ja": "空中から　相手に　ダイブする。 この技は　かくとうタイプと　同時に ひこうタイプでも　ある。",
+        "fr": "Une attaque en piqué depuis le ciel, à la fois de type Combat et de type Vol.",
+        "es": "El usuario se lanza sobre su objetivo. Este movimiento es de tipo Lucha y tipo Volador al mismo tiempo.",
+        "de": "Der Anwender stürzt sich aus der Luft auf das Ziel. Die Attacke gehört sowohl dem Typ Kampf als auch dem Typ Flug an.",
+        "it": "Il Pokémon si tuffa sul bersaglio dall'alto. È una mossa di tipo Lotta e Volante allo stesso tempo.",
+        "ko": "공중에서 상대에게 다이브한다. 이 기술은 격투타입임과 동시에 비행타입이기도 하다.",
+        "zh-Hant": "從空中俯衝向對手進行攻擊。 此招式同時具有 格鬥屬性和飛行屬性。",
+        "zh-Hans": "从空中俯冲向对手。 此招式同时带有 格斗属性和飞行属性。"
+    }
 }

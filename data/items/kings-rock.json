@@ -1,0 +1,14 @@
+{
+    "name": "King's Rock",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It may cause the target to flinch whenever the holder successfully inflicts damage on them with an attack.",
+        "ja": "持たせると　攻撃して ダメージを　与えたときに 相手を　ひるませることが　ある。",
+        "fr": "Objet à tenir. Peut apeurer l'ennemi lorsque le porteur lui inflige des dégâts.",
+        "es": "El Pokémon que la lleva puede amedrentar al objetivo al que inflige daño con un ataque.",
+        "de": "Ein Item zum Tragen. Trifft der Träger das Ziel mit einem Angriff, der Schaden verursacht, schreckt es eventuell zurück.",
+        "it": "Strumento da dare a un Pokémon. Se chi ce l'ha infligge danni con un attacco, può far tentennare l'avversario.",
+        "ko": "지니게 하면 공격해서 데미지를 줄 때 상대를 풀죽이기도 한다.",
+        "zh-Hant": "攜帶後進行攻擊， 並造成傷害時， 有時會讓對手畏縮。",
+        "zh-Hans": "携带后进行攻击， 在造成伤害时， 有时会让对手畏缩。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Max Elixir",
+    "flavorText": {
+        "en": "A recipe for crafting Max Elixirs from scratch. Required materials: 1 Max Ether and 2 bunches of King's Leaf.",
+        "ja": "ピーピーマックスのレシピ。　材料は ピーピーリカバー×１　キングリーフ×２",
+        "fr": "Méthode pour Maxi Soin PP. Ressources requises : 1 Soin PP et 2 bouquets d'Herbe Souveraine.",
+        "es": "Receta para crear Píldoras Elixir. Materiales: 1 Píldora Éter y 2 Hierbas Regias.",
+        "de": "Die Anleitung zur Herstellung von Elixierpillen. Benötigte Materialien: 1 Büchse Ätherpillen und 2 Königsblätter.",
+        "it": "Ricetta per una confezione di Tonico PP Max. Richiede 1 confezione di Tonico PP e 2 ciuffi di Foglia regina.",
+        "ko": "PP맥스의 레시피. 재료: PP회복×1 킹리프×2",
+        "zh-Hant": "ＰＰ多項全補劑的材料單。材料是： ＰＰ單項全補劑×１　皇葉×２",
+        "zh-Hans": "ＰＰ多项全补剂的材料单。材料是： ＰＰ单项全补剂×１　皇叶×２"
+    }
+}

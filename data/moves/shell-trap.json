@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user sets a shell trap. If the user is hit by a physical move, the trap will explode and inflict damage on opposing Pokémon.",
+        "ja": "こうらの　トラップを　しかける。 相手が　物理技を　出すと 爆発して　ダメージを　与える。",
+        "fr": "Le lanceur utilise sa carapace comme un appât piégé. Si un Pokémon l'attaque avec une capacité physique, la carapace explose et lui inflige des dégâts.",
+        "es": "El caparazón del Pokémon se convierte en una trampa. Si lo alcanza un ataque físico, la trampa estalla y los rivales sufren daño.",
+        "de": "Der Anwender legt eine Panzerfalle. Wird er von einer physischen Attacke getroffen, explodiert die Falle und fügt gegnerischen Pokémon Schaden zu.",
+        "it": "Il guscio del Pokémon diventa una trappola. Se un avversario sferra una mossa fisica, innesca un'esplosione e subisce dei danni.",
+        "ko": "껍질의 트랩을 설치한다. 상대가 물리 기술을 쓰면 폭발해서 데미지를 준다.",
+        "zh-Hant": "設下甲殼陷阱。 若對手使出物理招式， 就會爆炸並給予傷害。",
+        "zh-Hans": "设下甲壳陷阱。 如果对手使出物理招式， 陷阱就会爆炸并给予对手伤害。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user ignores the effects of opposing Pokémon's moves and Abilities that draw in moves, allowing this move to hit the chosen target.",
+        "ja": "相手の　技を　引き受ける 特性や　技の　影響を　無視して 選んだ　相手を　攻撃　できる。",
+        "fr": "Le lanceur parvient toujours à viser la cible voulue, en ignorant l'effet des talents et des capacités capables de détourner les attaques.",
+        "es": "Permite atacar al objetivo seleccionado ignorando las habilidades o movimientos que permiten a un Pokémon centrar la atención sobre sí.",
+        "de": "Die Attacke richtet sich gegen das ausgewählte Ziel, unabhängig von Fähigkeiten oder Attacken, die Angriffe auf sich ziehen.",
+        "it": "Il Pokémon può attaccare un bersaglio ignorando gli effetti di mosse e abilità che attirano altre mosse.",
+        "ko": "상대의 기술을 끌어모으는 특성이나 기술의 영향을 무시하고 선택한 상대를 공격할 수 있다.",
+        "zh-Hant": "能不受具有吸引對手招式 效果的特性或招式影響， 向選定的對手進行攻擊。",
+        "zh-Hans": "能无视具有吸引对手招式效果的 特性或招式的影响。 可以向选定的对手进行攻击。"
+    }
 }

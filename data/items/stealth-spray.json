@@ -1,0 +1,14 @@
+{
+    "name": "Stealth Spray",
+    "flavorText": {
+        "en": "When used in the field, this spray muffles the sound of your footsteps and makes wild Pokémon less likely to notice you for a short time.",
+        "ja": "使うと　少しのあいだ 自分の足音がしなくなって 野生のポケモンに気づかれにくくなる。",
+        "fr": "Cette solution permet de faire disparaître les bruits de pas de son utilisateur. Les Pokémon sauvages ont ainsi plus de mal à le repérer.",
+        "es": "Objeto que oculta el ruido de tus pisadas y hace más difícil que los Pokémon salvajes se percaten de tu presencia durante un breve período de tiempo.",
+        "de": "Dieses Item bewirkt, dass du für kurze Zeit geräuschlos läufst und seltener von wilden Pokémon bemerkt wirst.",
+        "it": "Strumento che elimina il rumore dei propri passi. Rende più difficile farsi notare dai Pokémon selvatici per un po' di tempo.",
+        "ko": "사용하면 잠시 동안 발소리가 나지 않아 야생 포켓몬에게 들키지 않게 된다.",
+        "zh-Hant": "使用後的一小段時間內， 自己的腳步聲將會消失， 變得不容易被野生寶可夢察覺。",
+        "zh-Hans": "使用后的一小段时间内， 自己的脚步声将会消失， 变得不容易被野生宝可梦察觉。"
+    }
+}

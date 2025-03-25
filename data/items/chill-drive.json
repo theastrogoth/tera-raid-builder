@@ -1,0 +1,14 @@
+{
+    "name": "Chill Drive",
+    "flavorText": {
+        "en": "A cassette to be held by Genesect. It changes Genesect's Techno Blast move so it becomes Ice type.",
+        "ja": "ゲノセクトに　持たせると テクノバスターという　技が こおりタイプになる　カセット。",
+        "fr": "Tenu par Genesect, ce module change la capacité Techno-Buster en une capacité de type Glace.",
+        "es": "Cartucho que convierte Tecno Shock de Genesect en un movimiento de tipo Hielo.",
+        "de": "Ein Item, das von Genesect getragen werden kann. Es wandelt den Typ der Attacke Techblaster in Eis um.",
+        "it": "Modulo da dare a Genesect. Trasforma Tecnobotto in una mossa di tipo Ghiaccio.",
+        "ko": "게노세크트에게 지니게 하면 테크노버스터라는 기술이 얼음타입으로 바뀌는 카세트.",
+        "zh-Hant": "讓蓋諾賽克特攜帶的卡帶。 攜帶後，招式高科技光炮 會變為冰屬性。",
+        "zh-Hans": "这是让盖诺赛克特携带的卡带。 携带后，高科技光炮这招式 就会变为冰属性。"
+    }
+}

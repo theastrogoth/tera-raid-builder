@@ -1,0 +1,14 @@
+{
+    "name": "Punching Glove",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This protective glove boosts the power of the holder's punching moves and prevents direct contact with targets.",
+        "ja": "こぶしを　保護する　グローブ。 持たせると　パンチ技の　威力が　あがり 相手に　接触しない　パンチに　なる。",
+        "fr": "Objet à tenir. Ce gant protecteur augmente la puissance des capacités coups de poing du porteur et lui évite d'entrer en contact direct avec sa cible.",
+        "es": "Guante protector que aumenta la potencia de los movimientos con los puños del Pokémon que lo lleve y evita que hagan contacto directo con el rival.",
+        "de": "Ein Handschuh zum Schutz der Faust. Erhöht die Stärke von Hieb-, Punch-, Faust- und Schlag-Attacken des Trägers und verhindert eine direkte Berührung des Zieles.",
+        "it": "Strumento da dare a un Pokémon. Guanto protettivo che potenzia le mosse sferrate con i pugni, impedendo inoltre un contatto diretto con il bersaglio.",
+        "ko": "주먹을 보호하는 글러브. 지니게 하면 펀치 기술의 위력이 오르고 상대에게 접촉하지 않는 펀치가 된다.",
+        "zh-Hant": "能保護拳頭的手套。 攜帶後，使用到拳頭的招式威力會提高， 而且拳擊不會接觸到對手。",
+        "zh-Hans": "保护拳头的手套。 携带后，拳击招式的威力会提高， 且变得拳击时不会接触到对手。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Shadow Tag",
+    "flavorText": {
+        "en": "The Pokémon steps on the opposing Pokémon's shadows to prevent them from fleeing or switching out.",
+        "ja": "相手の　影を　踏み 逃げたり　交代　できなくする。",
+        "fr": "Empêche les Pokémon ennemis de quitter le terrain.",
+        "es": "Pisa la sombra del rival para impedir que huya o lo cambien por otro.",
+        "de": "Das Pokémon hindert Gegner an der Flucht beziehungsweise am Auswechseln, indem es ihnen den Weg versperrt.",
+        "it": "Il Pokémon impedisce la fuga o la sostituzione degli avversari di cui calpesta l'ombra.",
+        "ko": "상대의 그림자를 밟아 도망치거나 교체할 수 없게 한다.",
+        "zh-Hant": "踩住對手的影子 使其無法逃走或替換。",
+        "zh-Hans": "踩住对手的影子 使其无法逃走或替换。"
+    }
+}

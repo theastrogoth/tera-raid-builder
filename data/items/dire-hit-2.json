@@ -1,0 +1,14 @@
+{
+    "name": "Dire Hit 2",
+    "flavorText": {
+        "en": "Can be used many times to boost a Pokémon's critical- hit ratio. These effects disappear if the Pokémon leaves the battle.",
+        "ja": "急所率が　あがる。 使うたびに　効果が　アップする。 ひっこめると　元に　戻る。",
+        "fr": "Augmente le taux de critiques. Plus efficace à chaque utilisation. L'effet se dissipe si le Pokémon est retiré.",
+        "es": "Aumenta la probabilidad de asestar un golpe crítico. Al cambiar de Pokémon, el efecto desaparece.",
+        "de": "Erhöht die Volltrefferquote. Effektiver bei mehrfacher Anwendung. Wirksam, bis das Pokémon ausgewechselt wird.",
+        "it": "Aumenta la probabilità di sferrare brutti colpi. Se usato più volte, l'effetto si somma, ma svanisce se il Pokémon è sostituito.",
+        "ko": "급소 명중률이 올라간다. 사용할 때마다 효과가 올라간다. 포켓몬을 볼에 넣어 버리면 원래대로 되돌아간다.",
+        "zh-Hant": "擊中要害的機率會提高。 每次使用效果都會提升。 離場後，效果便會消失。",
+        "zh-Hans": "击中要害的几率会提高。 每次使用效果都会提升。 离场后，效果便会消失。"
+    }
+}

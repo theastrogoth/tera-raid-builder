@@ -1,0 +1,14 @@
+{
+    "name": "Overcoat",
+    "flavorText": {
+        "en": "The Pokémon takes no damage from sandstorms. It is also protected from the effects of powders and spores.",
+        "ja": "すなあらしの　ダメージを　受けない。 粉や　胞子の　影響も　受けない。",
+        "fr": "Protège des dégâts occasionnés par les tempêtes de sable, ainsi que des effets des capacités qui libèrent de la poudre et des spores.",
+        "es": "No recibe daño de las tormentas de arena ni sufre los efectos causados por polvos o esporas.",
+        "de": "Das Pokémon erleidet keinen Schaden durch Sandstürme. Außerdem ist es vor Effekten von Puder, Pulver, Saat und Sporen geschützt.",
+        "it": "Rende immuni ai danni da tempesta di sabbia, nonché agli effetti di polveri e spore, inclusi quelli delle mosse Paralizzante e Sonnifero.",
+        "ko": "모래바람에 데미지를 받지 않는다. 가루나 포자의 영향도 받지 않는다.",
+        "zh-Hant": "不會受到沙暴的傷害。 也不會受到粉末或孢子的影響。",
+        "zh-Hans": "不会受到沙暴的伤害。也不会 受到粉末类和孢子类招式的影响。"
+    }
+}

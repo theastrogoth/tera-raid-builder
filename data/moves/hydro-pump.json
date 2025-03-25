@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is blasted by a huge volume of water launched under great pressure.",
+        "ja": "大量の　水を 激しい　勢いで 相手に　発射して　攻撃する。",
+        "fr": "Un puissant jet d'eau est dirigé sur la cible.",
+        "es": "Lanza una gran masa de agua a presión para atacar.",
+        "de": "Spritzt eine Menge Wasser mit Hochdruck auf das Ziel.",
+        "it": "Il Pokémon attacca il bersaglio travolgendolo con un potente getto d'acqua spruzzato ad altissima pressione.",
+        "ko": "대량의 물을 세찬 기세로 상대에게 발사하여 공격한다.",
+        "zh-Hant": "向對手猛烈地噴射 大量水流進行攻擊。",
+        "zh-Hans": "向对手猛烈地喷射 大量水流进行攻击。"
+    }
 }

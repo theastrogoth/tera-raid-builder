@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user mimics the target completely, copying the target's Ability.",
+        "ja": "相手に　なりきって　自分も　相手と 同じ　特性に　変化する。",
+        "fr": "Imite la cible et copie son talent.",
+        "es": "Imita al objetivo por completo y copia su habilidad.",
+        "de": "Ahmt das Ziel nach und kopiert seine Fähigkeit.",
+        "it": "Il Pokémon mima in tutto e per tutto il bersaglio, copiandone l'abilità.",
+        "ko": "상대의 역할을 하여 자신도 상대와 같은 특성으로 변화한다.",
+        "zh-Hant": "扮演成對手， 讓自己的特性 也變得和對手相同。",
+        "zh-Hans": "扮演对手， 让自己的特性 变得和对手相同。"
+    }
 }

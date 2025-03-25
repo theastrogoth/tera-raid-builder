@@ -1,0 +1,14 @@
+{
+    "name": "Flare Boost",
+    "flavorText": {
+        "en": "Powers up special moves when the Pokémon is burned.",
+        "ja": "やけど状態に　なったとき 特殊技の　威力が　上がる。",
+        "fr": "Augmente la puissance des capacités spéciales quand le Pokémon est brûlé.",
+        "es": "Aumenta la potencia de sus ataques especiales cuando sufre quemaduras.",
+        "de": "Die Stärke seiner Spezial-Attacken steigt, wenn das Pokémon an Verbrennungen leidet.",
+        "it": "Se il Pokémon è scottato, la potenza delle sue mosse speciali aumenta.",
+        "ko": "화상 상태가 되었을 때 특수 기술의 위력이 올라간다.",
+        "zh-Hant": "陷入灼傷狀態時， 特殊招式的威力會提高。",
+        "zh-Hans": "变为灼伤状态时， 特殊招式的威力会提高。"
+    }
+}

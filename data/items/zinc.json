@@ -1,0 +1,14 @@
+{
+    "name": "Zinc",
+    "flavorText": {
+        "en": "A nutritious drink for Pokémon. This drink increases base points for a Pokémon's Sp. Def stat.",
+        "ja": "ポケモンの　栄養ドリンク。 ポケモン　１匹の　特防の 基礎ポイントを　あげる。",
+        "fr": "Une boisson très nutritive qui augmente la Défense Spéciale de base d'un Pokémon.",
+        "es": "Nutritiva bebida que aumenta la Defensa Especial de base de un Pokémon.",
+        "de": "Ein gehaltvolles Getränk, das die Spezial-Verteidigungs- Basispunkte eines Pokémon dauerhaft erhöht.",
+        "it": "Bevanda nutriente per Pokémon. Aumenta i punti base della Difesa Speciale.",
+        "ko": "포켓몬의 영양 드링크. 포켓몬 1마리의 특수방어 기초 포인트를 올린다.",
+        "zh-Hant": "寶可夢的營養飲料。 能提高１隻寶可夢的 特防的基礎點數。",
+        "zh-Hans": "宝可梦的营养饮料。 能提高１只宝可梦的 特防的基础点数。"
+    }
+}

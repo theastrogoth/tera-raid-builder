@@ -1,0 +1,14 @@
+{
+    "name": "Chilling Neigh",
+    "flavorText": {
+        "en": "When the Pokémon knocks out a target, it utters a chilling neigh, which boosts its Attack stat.",
+        "ja": "相手を　倒すと 冷たい　声で　いなないて 攻撃が　上がる。",
+        "fr": "Quand le Pokémon met un ennemi K.O., il émet un hennissement glaçant, ce qui augmente son Attaque.",
+        "es": "Al derrotar a un objetivo, emite un relincho gélido y aumenta su Ataque.",
+        "de": "Besiegt das Pokémon ein anderes Pokémon, stößt es ein frostiges Wiehern aus, wodurch sein Angriff steigt.",
+        "it": "Quando il Pokémon causa un KO, emette un nitrito agghiacciante, aumentando il proprio Attacco.",
+        "ko": "상대를 쓰러뜨리면 차가운 울음소리를 내면서 공격이 올라간다.",
+        "zh-Hant": "打倒對手時 會用冰冷的聲音嘶鳴 並提高攻擊。",
+        "zh-Hans": "打倒对手时 会用冰冷的声音嘶鸣 并提高攻击。"
+    }
+}

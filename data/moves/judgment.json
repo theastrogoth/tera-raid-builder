@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user releases countless shots of light at the target. This move's type changes depending on the kind of plate held by the user.",
+        "ja": "無数の　光弾を　相手に　放出する。 自分の　持つ　プレートに　より タイプが　変わる。",
+        "fr": "Le lanceur libère une myriade de rayons de lumière. Le type varie selon la plaque que tient le lanceur.",
+        "es": "Emite incontables haces de luz. El tipo del movimiento varía según la tabla que lleve el usuario.",
+        "de": "Anwender feuert unzählige Lichtstrahlen ab. Deren Typ hängt von der getragenen Tafel ab.",
+        "it": "Il Pokémon rilascia numerosi colpi di luce. Il tipo varia a seconda della lastra che ha.",
+        "ko": "무수한 광탄을 상대에게 방출한다. 자신이 가지고 있는 플레이트에 따라 타입이 바뀐다.",
+        "zh-Hant": "向對手放出無數的光彈。 招式的屬性會隨著自己 攜帶的石板不同而改變。",
+        "zh-Hans": "向对手放出无数的光弹。 属性会根据自己 携带的石板不同而改变。"
+    }
 }

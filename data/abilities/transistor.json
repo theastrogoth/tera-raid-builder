@@ -1,0 +1,14 @@
+{
+    "name": "Transistor",
+    "flavorText": {
+        "en": "Powers up Electric-type moves.",
+        "ja": "でんきタイプの　技の 威力が　上がる。",
+        "fr": "Augmente la puissance des capacités de type Électrik.",
+        "es": "Potencia los movimientos de tipo Eléctrico.",
+        "de": "Die Stärke von Elektro-Attacken des Pokémon steigt.",
+        "it": "Potenzia le mosse di tipo Elettro.",
+        "ko": "전기타입 기술의 위력이 올라간다.",
+        "zh-Hant": "電屬性的招式威力會提高。",
+        "zh-Hans": "电属性的招式威力会提高。"
+    }
+}

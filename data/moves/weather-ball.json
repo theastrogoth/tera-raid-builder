@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This move's type and power change depending on the weather at the time the move is used.",
+        "ja": "使ったときの　天気に　よって 技の　タイプと　威力が　変わる。",
+        "fr": "Une capacité dont la puissance et le type varient en fonction du temps qu'il fait.",
+        "es": "El tipo y la potencia del movimiento varían según el tiempo que haga.",
+        "de": "Typ und Stärke der Attacke sind vom Wetter zum Zeitpunkt der Anwendung abhängig.",
+        "it": "Mossa il cui tipo e la cui potenza variano in base alle condizioni atmosferiche.",
+        "ko": "사용했을 때의 날씨에 따라서 기술 타입과 위력이 바뀐다.",
+        "zh-Hant": "招式屬性和威力會隨著 使用時天氣的不同而改變。",
+        "zh-Hans": "根据使用时的天气， 招式属性和威力会改变。"
+    }
 }

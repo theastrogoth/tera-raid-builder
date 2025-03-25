@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user performs a perfectly timed triple dive, hitting the target with splashes of water three times in a row.",
+        "ja": "息のあった　飛びこみを　することで 相手に　水しぶきを　あてる。 ３回連続で　ダメージを　与える。",
+        "fr": "Le lanceur effectue des plongeons parfaitement cadencés pour éclabousser la cible et lui infliger des dégâts trois fois d'affilée.",
+        "es": "Ejecuta una inmersión triple en perfecta sincronía que golpea al objetivo con salpicaduras de agua tres veces seguidas.",
+        "de": "Der Anwender taucht mit perfekt abgestimmtem Timing ab und trifft das Ziel mit Wasserspritzern. Dabei richtet er dreimal hintereinander Schaden an.",
+        "it": "Il Pokémon si lancia in un triplo tuffo perfettamente coordinato, colpendo il bersaglio con degli schizzi d'acqua e infliggendogli danni tre volte di fila.",
+        "ko": "호흡이 척척 맞게 다이빙해서 상대에게 물보라를 끼얹는다. 3회 연속으로 데미지를 준다.",
+        "zh-Hant": "默契十足地飛身鑽入水中， 將水花濺向對手。 連續３次給予傷害。",
+        "zh-Hans": "以默契的跳跃溅起水花击向对手。 连续３次给予伤害。"
+    }
 }

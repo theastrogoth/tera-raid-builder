@@ -1,0 +1,14 @@
+{
+    "name": "Grit Dust",
+    "flavorText": {
+        "en": "Mysterious dust that can raise the effort level for one of a Pokémon's stats. It can be used to raise effort levels only up to level three, however.",
+        "ja": "ポケモンのがんばレベルをあげる 不思議な砂。 がんばレベルが０から２のポケモンに使える。",
+        "fr": "Un sable mystérieux qui permet d'augmenter le niveau d'effort d'un Pokémon s'il est inférieur à 3.",
+        "es": "Misterioso polvo que aumenta el nivel de esfuerzo de un Pokémon. Solamente puede utilizarse si su nivel de esfuerzo es inferior a tres.",
+        "de": "Dieser rätselhafte Sand erhöht den Leistungslevel eines Pokémon. Er kann für Pokémon mit einem Leistungslevel von 0 bis 2 verwendet werden.",
+        "it": "Misteriosa sabbia che aumenta il livello di impegno di un Pokémon. Può essere utilizzata su Pokémon con un livello di impegno tra 0 e 2.",
+        "ko": "포켓몬의 노력 레벨을 올리는 신비한 모래. 노력 레벨이 0부터 2인 포켓몬에게 사용할 수 있다.",
+        "zh-Hant": "不可思議的沙子。 能讓寶可夢的奮鬥等級提升。 可用於奮鬥等級０～２的寶可夢。",
+        "zh-Hans": "不可思议的沙子。 能让宝可梦的奋斗等级提升。 可用于奋斗等级０～２的宝可梦。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user tackles the target while exhibiting overwhelming menace. This may also make the target flinch.",
+        "ja": "すさまじい　殺気で　威圧しながら 体当たりする。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur frappe la cible en prenant un air menaçant, ce qui peut aussi l'apeurer.",
+        "es": "Ataca de forma brutal mientras intimida al objetivo. Puede amedrentarlo.",
+        "de": "Anwender führt einen furchteinflößenden Angriff aus. Das Ziel schreckt eventuell zurück.",
+        "it": "Il Pokémon colpisce il bersaglio con fare minaccioso. Può anche farlo tentennare.",
+        "ko": "굉장한 살기로 위압하면서 몸통박치기한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "釋放出駭人的殺氣， 威嚇並撞擊對手。 有時會使對手畏縮。",
+        "zh-Hans": "释放出骇人的杀气， 一边威慑一边撞击对手。 有时会使对手畏缩。"
+    }
 }

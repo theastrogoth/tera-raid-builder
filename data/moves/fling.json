@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user flings its held item at the target to attack. This move's power and effects depend on the item.",
+        "ja": "持たせた　道具を 素早く　投げつけて　攻撃する。 道具で　威力と　効果が　変わる。",
+        "fr": "Le lanceur envoie l'objet qu'il tient sur la cible. La puissance et les effets dépendent de l'objet.",
+        "es": "El usuario lanza contra el objetivo el objeto que lleva. La potencia del movimiento y su efecto varían según el objeto.",
+        "de": "Anwender schleudert sein Item auf das Ziel. Stärke und Effekt der Attacke hängen vom Item ab.",
+        "it": "Il Pokémon lancia il suo strumento addosso al bersaglio. La potenza e l'effetto dipendono dallo strumento.",
+        "ko": "지니게 한 도구를 재빠르게 내던져서 공격한다. 도구에 따라 위력과 효과가 바뀐다.",
+        "zh-Hant": "快速投擲攜帶的道具進行攻擊。 招式威力和效果會隨著 道具不同而改變。",
+        "zh-Hans": "快速投掷携带的道具进行攻击。 根据道具不同， 威力和效果会改变。"
+    }
 }

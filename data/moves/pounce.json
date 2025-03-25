@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user summons a snowstorm lasting five turns. This boosts the Defense stats of Ice types.",
+        "ja": "５ターンの　間　ゆきを　降らせる。 こおりタイプの　防御が　あがる。",
+        "fr": "Le lanceur invoque une tempête de neige qui dure cinq tours, ce qui augmente la Défense des Pokémon de type Glace.",
+        "es": "Desata una nevada que dura cinco turnos y aumenta la Defensa de los Pokémon de tipo Hielo.",
+        "de": "Erzeugt fünf Runden lang Schnee. Dadurch wird die Verteidigung von Eis-Pokémon erhöht.",
+        "it": "Il Pokémon causa una nevicata che dura per cinque turni e aumenta la Difesa dei Pokémon di tipo Ghiaccio.",
+        "ko": "5턴 동안 눈을 내리게 한다. 얼음타입의 방어가 올라간다.",
+        "zh-Hant": "在５回合內會下雪。 冰屬性寶可夢的防禦會提高。",
+        "zh-Hans": "在５回合内会下雪。 冰属性的防御会提高。"
+    }
 }

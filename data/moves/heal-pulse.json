@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": true,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user emits a healing pulse that restores the target's HP by up to half its max HP.",
+        "ja": "いやしのはどうを　とばして 最大ＨＰの　半分 相手の　ＨＰを　回復する。",
+        "fr": "Le lanceur projette une aura de bien-être qui fait récupérer la moitié de ses PV max à la cible.",
+        "es": "Una onda curativa restaura la mitad de los PS máximos del objetivo.",
+        "de": "Anwender löst eine Schmerzen lindernde Welle aus und heilt dabei das Ziel mit der Hälfte von dessen maximalen KP.",
+        "it": "Il Pokémon lancia un'onda rilassante che fa recuperare al bersaglio metà dei suoi PS massimi.",
+        "ko": "치유파동을 날려서 최대 HP의 절반만큼 상대의 HP를 회복한다.",
+        "zh-Hant": "釋放出治癒波動， 讓對手回復 最大ＨＰ的一半。",
+        "zh-Hans": "放出治愈波动， 从而回复对手 最大ＨＰ的一半。"
+    }
 }

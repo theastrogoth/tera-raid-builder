@@ -1,0 +1,14 @@
+{
+    "name": "TR86",
+    "flavorText": {
+        "en": "The user shrouds itself in electricity and smashes into its target. This also damages the user a little.",
+        "ja": "電気を　まとって 相手に　ぶつかって　攻撃する。 自分も　少し　ダメージを　受ける。",
+        "fr": "Une charge électrique violente qui blesse aussi légèrement le lanceur.",
+        "es": "El usuario se envuelve de electricidad y carga contra el objetivo, pero también se hiere ligeramente a sí mismo.",
+        "de": "Anwender erzeugt Spannung und greift an, indem er auf Kollisionskurs geht. Er erleidet selbst leichten Schaden.",
+        "it": "Il Pokémon si carica di elettricità per poi scagliarsi sul bersaglio, ma subisce un po' di danni.",
+        "ko": "전기를 두르고 상대에게 부딪쳐 공격한다. 자신도 조금 데미지를 입는다.",
+        "zh-Hant": "讓電流圍繞全身， 衝撞對手進行攻擊。 自己也會受到少許傷害。",
+        "zh-Hans": "让电流覆盖全身， 撞向对手进行攻击。 自己也会受到少许伤害。"
+    }
+}

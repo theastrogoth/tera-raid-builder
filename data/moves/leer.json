@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user gives opposing Pokémon an intimidating leer that lowers their Defense stats.",
+        "ja": "鋭い　目つきで　おびえさせて 相手の　防御を　さげる。",
+        "fr": "Le lanceur fait les gros yeux à la cible pour l'intimider et baisser sa Défense.",
+        "es": "Intimida al objetivo con una mirada torva para reducir su Defensa.",
+        "de": "Der Verteidigungs-Wert gegnerischer Pokémon wird durch einen angsteinflößenden Blick gesenkt.",
+        "it": "Il Pokémon terrorizza gli avversari con uno sguardo fulminante e intimidatorio, riducendone la Difesa.",
+        "ko": "날카로운 눈초리로 겁을 주어 상대의 방어를 떨어뜨린다.",
+        "zh-Hant": "用犀利的眼神使對手害怕， 降低對手的防禦。",
+        "zh-Hans": "用犀利的眼神使其害怕， 从而降低对手的防御。"
+    }
 }

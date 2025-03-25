@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user puts a forest curse on the target. This adds Grass type to the target's type.",
+        "ja": "相手に　森ののろいを　かける。 のろいを　かけられた　相手は タイプに　くさタイプが　追加される。",
+        "fr": "La cible est charmée par l'esprit de la forêt. Le type Plante est ajouté à ses types actuels.",
+        "es": "El objetivo es presa de la maldición del bosque, por lo que pasa a ser un Pokémon de tipo Planta, además de conservar sus tipos habituales.",
+        "de": "Der Anwender belegt das Ziel mit einem Waldesfluch, durch den dieses zusätzlich den Typ Pflanze annimmt.",
+        "it": "Il Pokémon invoca la maledizione del bosco sul bersaglio, che acquisisce così anche il tipo Erba.",
+        "ko": "상대에게 숲의 저주를 건다. 저주에 걸린 상대는 타입에 풀타입이 추가된다.",
+        "zh-Hant": "向對手施加森林詛咒。 中了詛咒的對手 會被追加草屬性。",
+        "zh-Hans": "向对手施加森林咒术。 中了咒术的对手 会被追加草属性。"
+    }
 }

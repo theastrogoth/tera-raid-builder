@@ -1,0 +1,14 @@
+{
+    "name": "Protosynthesis",
+    "flavorText": {
+        "en": "Boosts the Pokémon's most proficient stat in harsh sunlight or if the Pokémon is holding Booster Energy.",
+        "ja": "ブーストエナジーを　持たせるか 天気が　晴れのとき いちばん　高い能力が　上がる。",
+        "fr": "Quand le soleil brille ou que le Pokémon tient une capsule d'Énergie Booster, sa stat la plus élevée augmente.",
+        "es": "Si hace sol o lleva un tanque de Energía Potenciadora, aumenta su característica más alta.",
+        "de": "Bei Sonnenschein oder wenn das Pokémon eine Energiekapsel trägt, steigt sein höchster Statuswert.",
+        "it": "Quando il Pokémon ha con sé una Capsula energetica o la luce solare è intensa, la sua statistica più alta aumenta.",
+        "ko": "부스트에너지를 지니고 있거나 날씨가 맑을 때 가장 높은 능력이 올라간다.",
+        "zh-Hant": "攜帶著驅勁能量 或天氣為晴朗時， 數值最高的能力會提高。",
+        "zh-Hans": "携带着驱劲能量 或天气为晴朗时， 数值最高的能力会提高。"
+    }
+}

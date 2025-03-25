@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by pelting the target with leaves.",
+        "ja": "はっぱを　相手に　当てて 攻撃する。",
+        "fr": "Le lanceur attaque la cible avec des feuilles.",
+        "es": "Ataca al objetivo lanzando hojas.",
+        "de": "Der Anwender greift das Ziel mit Blättern an.",
+        "it": "Il Pokémon attacca il bersaglio con delle foglie.",
+        "ko": "잎사귀를 상대에게 맞혀서 공격한다.",
+        "zh-Hant": "將葉片打向對手， 進行攻擊。",
+        "zh-Hans": "将叶片打向对手， 进行攻击。"
+    }
 }

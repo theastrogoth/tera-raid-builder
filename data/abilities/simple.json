@@ -1,0 +1,14 @@
+{
+    "name": "Simple",
+    "flavorText": {
+        "en": "Doubles the effects of the Pokémon's stat changes.",
+        "ja": "能力　変化が いつもの　２倍に　なる。",
+        "fr": "Les changements de stats sont deux fois plus importants pour le Pokémon.",
+        "es": "Duplica los cambios en las características.",
+        "de": "Statusveränderungen des Pokémon werden verdoppelt.",
+        "it": "Raddoppia le modifiche alle statistiche.",
+        "ko": "능력 변화가 평소의 2배가 된다.",
+        "zh-Hant": "能力變化會變為平時的２倍。",
+        "zh-Hans": "能力变化会变为平时的２倍。"
+    }
+}

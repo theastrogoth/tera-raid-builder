@@ -1,0 +1,14 @@
+{
+    "name": "Silver Leaf",
+    "flavorText": {
+        "en": "A mysterious silver leaf. No trees with this leaf have been found yet.",
+        "ja": "銀色の　不思議な　はっぱ。 この　はっぱを　つける　木は 見つかって　いない。",
+        "fr": "Une feuille argentée mystérieuse. Elle ne semble appartenir à aucun arbre connu.",
+        "es": "Extraña hoja de color plateado. Se desconoce de qué árbol procede.",
+        "de": "Ein rätselhaftes Blatt mit silberner Färbung. Bisher hat man noch keinen Baum entdeckt, an dem solche Blätter wachsen.",
+        "it": "Una strana foglia argentata. Nessuno sa da che albero provenga.",
+        "ko": "은빛의 신비한 나뭇잎. 이 나뭇잎이 자라는 나무는 아직 발견되지 않았다.",
+        "zh-Hant": "不可思議的銀色葉子。 至今還未發現 長有這種葉子的樹。",
+        "zh-Hans": "神奇的银色叶子。 至今仍未发现能长出 这种叶子的树木。"
+    }
+}

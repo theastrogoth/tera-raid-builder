@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "If the target is of the opposite gender to the user, it becomes infatuated with the user and will sometimes be unable to use its moves.",
+        "ja": "♂なら♀を　♀なら♂を　誘惑して メロメロに　する。 相手は　技が　だしにくくなる。",
+        "fr": "Si la cible est du sexe opposé, elle tombe amoureuse et rechigne alors à attaquer.",
+        "es": "Si el objetivo es del sexo opuesto, se enamorará y bajará la posibilidad de que ataque.",
+        "de": "Wenn das Ziel nicht dem Geschlecht des Anwenders angehört, fühlt es sich zu ihm hingezogen und greift eventuell nicht an.",
+        "it": "Se il bersaglio è del sesso opposto, s'infatua e diventa riluttante ad attaccare.",
+        "ko": "수컷은 암컷을, 암컷은 수컷을 유혹하여 헤롱헤롱하게 만든다. 상대가 기술을 쓰기 어려워진다.",
+        "zh-Hant": "♂誘惑♀而♀誘惑♂， 讓對手著迷。 對手將難以使用招式。",
+        "zh-Hans": "♂诱惑♀或♀诱惑♂， 让对手着迷。 对手将很难使出招式。"
+    }
 }

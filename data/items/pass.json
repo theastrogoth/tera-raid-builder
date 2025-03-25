@@ -1,0 +1,14 @@
+{
+    "name": "Pass",
+    "flavorText": {
+        "en": "A pass required for riding the Magnet Train. It allows you to ride whenever and however much you'd like.",
+        "ja": "リニアカーに　乗るときに　必要な チケット。　いつでも　乗り放題。 ",
+        "fr": "Un ticket nécessaire pour monter à bord du Train Magnétique. Utilisable à volonté.",
+        "es": "Billete necesario para poder montar todas las veces que se desee en el Magnetotrén.",
+        "de": "Eine Fahrkarte, die einem die Reise mit dem Magnetzug ermöglicht. Gilt für beliebig viele Fahrten.",
+        "it": "Biglietto necessario per viaggiare sul supertreno. Utilizzabile a volontà.",
+        "ko": "리니어 카를 탈 때 필요한 티켓. 언제든지 무제한으로 이용 가능.",
+        "zh-Hant": "乘坐磁浮列車時所需的車票。 可以隨時自由乘坐。",
+        "zh-Hans": "乘坐磁浮列车时所需的车票。 可以随时自由乘坐。"
+    }
+}

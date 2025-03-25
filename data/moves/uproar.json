@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks in an uproar for three turns. During that time, no Pokémon can fall asleep.",
+        "ja": "３ターンの　間 騒いで　相手を　攻撃する。 そのあいだは　だれも　眠れなくなる。",
+        "fr": "Le lanceur attaque en rugissant durant trois tours. Pendant ce temps, aucun Pokémon ne peut s'endormir.",
+        "es": "Ataca de forma alborotada durante tres turnos. Mantiene despiertos a todos.",
+        "de": "Anwender greift an, indem er über drei Runden hinweg einen Aufruhr erzeugt. Verhindert Schlaf.",
+        "it": "Il Pokémon attacca per tre turni con un frastuono che non fa dormire nessuno.",
+        "ko": "3턴 동안 소란 피워 공격한다. 그동안은 아무도 잠들지 않게 된다.",
+        "zh-Hant": "在３回合內 大吵大鬧攻擊對手。 在此期間誰都無法入眠。",
+        "zh-Hans": "在３回合内 大吵大闹攻击对手。 在此期间谁都不能入眠。"
+    }
 }

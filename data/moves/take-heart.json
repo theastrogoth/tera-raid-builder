@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lifts its spirits, curing its own status conditions and boosting its Sp. Atk and Sp. Def stats.",
+        "ja": "心を　奮わせて 自分の　状態異常を　治し さらには　特攻と　特防を　あげる。",
+        "fr": "Le lanceur fait preuve de bravoure pour soigner ses altérations de statut et augmenter son Attaque Spéciale ainsi que sa Défense Spéciale.",
+        "es": "El usuario se envalentona y se cura de los problemas de estado. Además, aumenta su Ataque Especial y su Defensa Especial.",
+        "de": "Der Anwender fasst sich ein Herz, befreit sich von Statusproblemen und erhöht außerdem seinen Spezial-Angriff und seine Spezial-Verteidigung.",
+        "it": "Il Pokémon prende coraggio e guarisce dai problemi di stato. Inoltre, aumenta l'Attacco Speciale e la Difesa Speciale.",
+        "ko": "기운을 고조시켜서 자신의 상태 이상을 회복하고 특수공격과 특수방어를 올린다.",
+        "zh-Hant": "鼓起衝勁， 治癒自己的異常狀態， 同時提高自己的特攻和特防。",
+        "zh-Hans": "鼓起冲劲，治愈自己的异常状态， 同时提高自己的特攻和特防。"
+    }
 }

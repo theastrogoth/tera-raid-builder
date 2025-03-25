@@ -1,0 +1,14 @@
+{
+    "name": "Seed Sower",
+    "flavorText": {
+        "en": "Turns the ground into Grassy Terrain when the Pokémon is hit by an attack.",
+        "ja": "攻撃を　受けると グラスフィールドに　する。",
+        "fr": "Le Pokémon crée un champ herbu quand il subit une attaque.",
+        "es": "Crea un campo de hierba al recibir un ataque.",
+        "de": "Wird das Pokémon von einem Angriff getroffen, erzeugt es ein Grasfeld.",
+        "it": "Se il Pokémon subisce un attacco, il terreno entra nello stato di Campo Erboso.",
+        "ko": "공격을 받으면 필드를 그래스필드로 만든다.",
+        "zh-Hant": "受到攻擊時， 會將腳下變成青草場地。",
+        "zh-Hans": "受到攻击时， 会将脚下变成青草场地。"
+    }
+}

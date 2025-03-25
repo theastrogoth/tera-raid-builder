@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user enrages and confuses the target. However, this also sharply boosts the target's Attack stat.",
+        "ja": "相手を　怒らせて　混乱させる。 怒りで　相手の　攻撃は ぐーんと　あがってしまう。",
+        "fr": "Fait enrager la cible et la plonge dans la confusion, mais augmente beaucoup son Attaque.",
+        "es": "Hace enfurecer y confunde al objetivo, pero también aumenta mucho su Ataque.",
+        "de": "Verwirrt das Ziel und erhöht dessen Angriffs-Wert stark.",
+        "it": "Il Pokémon provoca il bersaglio e lo confonde, facendo aumentare di molto il suo Attacco.",
+        "ko": "상대를 화내게 해서 혼란시킨다. 분노로 상대의 공격은 크게 올라가 버린다.",
+        "zh-Hant": "讓對手火大並陷入混亂。 但對手的攻擊會因憤怒 而大幅提高。",
+        "zh-Hans": "激怒对手，使其混乱。 因为愤怒，对手的攻击 会大幅提高。"
+    }
 }

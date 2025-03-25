@@ -1,0 +1,14 @@
+{
+    "name": "TR42",
+    "flavorText": {
+        "en": "The user lets loose a horribly echoing shout with the power to inflict damage.",
+        "ja": "うるさく　響く　大きな　振動を 相手に　与えて　攻撃する。",
+        "fr": "Le lanceur pousse un cri dont l'écho terrifiant a le pouvoir d'infliger des dégâts à la cible.",
+        "es": "Grito desgarrador que inflige daño al objetivo.",
+        "de": "Eine laute Attacke, bei der gegnerische Pokémon mit Schallwellen angegriffen werden.",
+        "it": "Il Pokémon attacca il bersaglio lanciando un urlo straziante.",
+        "ko": "시끄럽게 울리는 큰 진동을 상대에게 전달하여 공격한다.",
+        "zh-Hant": "製造出震耳欲聾的 巨大聲波攻擊對手。",
+        "zh-Hans": "给予对手又吵又响的 巨大震动进行攻击。"
+    }
+}

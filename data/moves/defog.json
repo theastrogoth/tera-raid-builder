@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A strong wind blows away the target's barriers such as Reflect or Light Screen. This also lowers the target's evasiveness.",
+        "ja": "強い風で　相手の　リフレクターや ひかりのかべ　などを　はらいのける。 回避率も　さげる。",
+        "fr": "Un grand coup de vent disperse Protection ou Mur Lumière de la cible et diminue également son Esquive.",
+        "es": "Potente viento que barre los efectos de movimientos como Reflejo o Pantalla de Luz usados por el objetivo. También reduce su Evasión.",
+        "de": "Starker Wind hebt Attacken wie Reflektor und Lichtschild des Zieles auf. Senkt außerdem den Ausweichwert.",
+        "it": "Il Pokémon spazza via barriere come Riflesso e Schermoluce con un forte vento e riduce la capacità d'elusione del bersaglio.",
+        "ko": "강한 바람으로 상대의 리플렉터나 빛의장막 등을 제거한다. 회피율도 떨어뜨린다.",
+        "zh-Hant": "用強風吹開對手的 反射壁或光牆等。 也會降低對手的閃避率。",
+        "zh-Hans": "用强风吹开对手的 反射壁或光墙等。 也会降低对手的闪避率。"
+    }
 }

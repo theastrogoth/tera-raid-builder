@@ -1,0 +1,14 @@
+{
+    "name": "Ability Urge",
+    "flavorText": {
+        "en": "When used, it activates the Ability of an ally Pokémon.",
+        "ja": "使うと　味方のポケモンの 特性を　発動させる。 ",
+        "fr": "Déclenche le talent d'un Pokémon de l'équipe.",
+        "es": "Al usarlo, activa la habilidad de un Pokémon de tu equipo.",
+        "de": "Aktiviert bei Gebrauch die Fähigkeit des Mitstreiters.",
+        "it": "Se usato su un Pokémon della squadra, ne attiva l'abilità.",
+        "ko": "사용하면 같은 편 포켓몬의 특성을 발동시킨다.",
+        "zh-Hant": "使用後，能使我方 寶可夢的特性發動。",
+        "zh-Hans": "使用后，能令我方 宝可梦的特性启动。"
+    }
+}

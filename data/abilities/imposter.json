@@ -1,0 +1,14 @@
+{
+    "name": "Imposter",
+    "flavorText": {
+        "en": "The Pokémon transforms itself into the Pokémon it's facing.",
+        "ja": "目の前の　ポケモンに 変身　してしまう。",
+        "fr": "Le Pokémon prend l'apparence du Pokémon adverse.",
+        "es": "Se transforma en el Pokémon que tiene enfrente.",
+        "de": "Das Pokémon kämpft als Kopie seines Gegenübers.",
+        "it": "Il Pokémon si trasforma in chi ha davanti.",
+        "ko": "눈앞의 포켓몬으로 변신해 버린다.",
+        "zh-Hant": "變身為當前面對的寶可夢。",
+        "zh-Hans": "变身为当前面对的宝可梦。"
+    }
+}

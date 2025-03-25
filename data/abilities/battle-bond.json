@@ -1,0 +1,14 @@
+{
+    "name": "Battle Bond",
+    "flavorText": {
+        "en": "When the Pokémon knocks out a target, its bond with its Trainer is strengthened, and its Attack, Sp. Atk, and Speed stats are boosted.",
+        "ja": "相手を　倒すと　トレーナーとの キズナが　深まり　自分の 攻撃　特攻　素早さが　上がる。",
+        "fr": "En battant un ennemi, ce Pokémon renforce ses liens avec son Dresseur, ce qui augmente son Attaque, son Attaque Spéciale et sa Vitesse.",
+        "es": "Al derrotar a un Pokémon, los vínculos con su Entrenador se refuerzan y aumentan su Ataque, su Ataque Especial y su Velocidad.",
+        "de": "Besiegt das Pokémon ein Ziel, vertieft dies die Freundschaft zu seinem Trainer, wodurch sein Angriff und Spezial-Angriff sowie seine Initiative steigen.",
+        "it": "Se il Pokémon causa un KO, il legame con l'Allenatore si rafforza, e l'Attacco, l'Attacco Speciale e la Velocità aumentano.",
+        "ko": "상대를 쓰러뜨리면 트레이너와의 유대감이 깊어져서 자신의 공격, 특수공격, 스피드가 올라간다.",
+        "zh-Hant": "打倒對手時，與訓練家的牽絆會加深， 自己的攻擊、特攻和速度會提高。",
+        "zh-Hans": "打倒对手时，与训练家的牵绊会增强， 自己的攻击、特攻、速度会提高。"
+    }
+}

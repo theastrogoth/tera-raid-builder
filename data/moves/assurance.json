@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This move's power is doubled if the target has already taken some damage in the same turn.",
+        "ja": "そのターンに　相手が すでに　ダメージを　受けていたら 技の　威力は　２倍に　なる。",
+        "fr": "La puissance de cette capacité est deux fois plus élevée si la cible a déjà été blessée durant ce tour.",
+        "es": "Si el objetivo ya ha sufrido daño en ese turno, la potencia del movimiento se duplica.",
+        "de": "Hat das Ziel während der Runde schon Schaden genommen, wird die Stärke der Attacke verdoppelt.",
+        "it": "Se il bersaglio ha già subito dei danni nello stesso turno, la potenza di questa mossa raddoppia.",
+        "ko": "그 턴에 상대가 이미 데미지를 입었다면 기술의 위력은 2배가 된다.",
+        "zh-Hant": "如果此回合內對手 已受到傷害， 招式威力會變成２倍。",
+        "zh-Hans": "如果此回合内对手 已经受到伤害的话， 招式威力会变成２倍。"
+    }
 }

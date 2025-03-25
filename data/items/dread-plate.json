@@ -1,0 +1,14 @@
+{
+    "name": "Dread Plate",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This stone tablet is imbued with the essence of darkness and boosts the power of the holder's Dark-type moves.",
+        "ja": "あくのタイプの　石盤。 持たせると　あくタイプの 技の威力が　強まる。",
+        "fr": "Objet à tenir. Une tablette en pierre augmentant la puissance des capacités de type Ténèbres.",
+        "es": "Tabla de piedra que potencia los movimientos de tipo Siniestro. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Diese Steintafel verstärkt Attacken vom Typ Unlicht.",
+        "it": "Strumento da dare a un Pokémon. Lastra di pietra che potenzia le mosse di tipo Buio.",
+        "ko": "악타입의 석판. 지니게 하면 악타입 기술의 위력이 강해진다.",
+        "zh-Hant": "惡屬性的石板。 攜帶後，惡屬性的 招式威力就會增強。",
+        "zh-Hans": "恶属性的石板。 携带后，恶属性的 招式威力就会增强。"
+    }
+}

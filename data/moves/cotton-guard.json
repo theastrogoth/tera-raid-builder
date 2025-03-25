@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user protects itself by wrapping its body in soft cotton, drastically boosting its Defense stat.",
+        "ja": "フワフワの　綿毛で　自分の 体を　包みこんで　守る。 防御を　ぐぐーんと　あげる。",
+        "fr": "Le lanceur se protège en s'emmitouflant dans du coton. Sa Défense augmente énormément.",
+        "es": "Cubre al Pokémon con una madeja protectora. Aumenta muchísimo la Defensa.",
+        "de": "Anwender schützt sich, indem er sich in einen luftigen Flaum hüllt. Erhöht die Verteidigung drastisch.",
+        "it": "Il Pokémon avvolge il proprio corpo con del cotone molto morbido, proteggendosi e aumentando moltissimo la propria Difesa.",
+        "ko": "푹신푹신한 솜털로 자신의 몸을 둘러싸서 지킨다. 방어를 매우 크게 올린다.",
+        "zh-Hant": "用軟綿綿的絨毛 保護自己的身體。 極大幅提高自己的防禦。",
+        "zh-Hans": "用软绵绵的绒毛包裹住 自己的身体进行守护。 巨幅提高自己的防御。"
+    }
 }

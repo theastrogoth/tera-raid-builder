@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Opposing Pokémon are dragged into a world of total darkness that puts them to sleep.",
+        "ja": "暗黒の　世界に　ひきずり　落として 相手を　眠り状態に　する。",
+        "fr": "La cible est plongée dans les ténèbres et tombe dans un profond sommeil.",
+        "es": "El objetivo es enviado a un mundo de tinieblas que lo hace dormir.",
+        "de": "Gegnerische Pokémon werden in eine Welt der Dunkelheit gezogen und in Schlaf versetzt.",
+        "it": "Il Pokémon trascina gli avversari in un mondo di totale oscurità e li fa addormentare.",
+        "ko": "암흑의 세계로 끌고 가서 상대를 잠듦 상태로 만든다.",
+        "zh-Hant": "將對手強制拉進黑暗的世界， 讓對手陷入睡眠狀態。",
+        "zh-Hans": "将对手强制拖入黑暗的世界， 从而让对手陷入睡眠状态。"
+    }
 }

@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stiffens all the muscles in its body to boost its Defense stat.",
+        "ja": "全身に　力を　こめて 体を　硬くして 自分の　防御を　あげる。",
+        "fr": "Le lanceur contracte tous ses muscles pour augmenter sa Défense.",
+        "es": "El usuario tensa su musculatura para aumentar la Defensa.",
+        "de": "Stärkt die Muskulatur und erhöht den Verteidigungs-Wert.",
+        "it": "Tutti i muscoli del corpo si tonificano per aumentare la Difesa.",
+        "ko": "전신에 힘을 주어 몸을 단단하게 해서 자신의 방어를 올린다.",
+        "zh-Hant": "使用全身的力量讓身體硬化， 提高自己的防禦。",
+        "zh-Hans": "全身使劲，让身体变硬， 从而提高自己的防御。"
+    }
 }

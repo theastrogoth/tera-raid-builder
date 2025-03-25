@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user and an ally hold hands. This makes them very happy.",
+        "ja": "味方の　ポケモン　同士が 手をつなぐ。　とっても　幸せな 気持ちに　なれる。",
+        "fr": "Le lanceur et un allié se prennent la main, ce qui les rend heureux.",
+        "es": "El usuario le da la mano a un aliado y ambos se sienten muy felices.",
+        "de": "Der Anwender und ein Mitstreiter reichen einander die Hände und verfallen in einen Zustand tiefster Zufriedenheit.",
+        "it": "Il Pokémon e un alleato si prendono per mano e la cosa li riempie di felicità.",
+        "ko": "같은 편 포켓몬끼리 손에 손을 잡는다. 굉장히 행복한 기분이 들게 된다.",
+        "zh-Hant": "我方的寶可夢手牽手。 心情會變得非常幸福。",
+        "zh-Hans": "我方宝可梦之间牵手。 能带来非常幸福的心情。"
+    }
 }

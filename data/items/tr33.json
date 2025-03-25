@@ -1,0 +1,14 @@
+{
+    "name": "TR33",
+    "flavorText": {
+        "en": "The user hurls a shadowy blob at the target. This may also lower the target's Sp. Def stat.",
+        "ja": "黒い影の　塊を　投げつけて 攻撃する。　相手の　特防を さげることが　ある。",
+        "fr": "Le lanceur projette une grande ombre sur la cible qui peut aussi faire baisser la Défense Spéciale de celle-ci.",
+        "es": "Lanza una bola oscura que puede reducir la Defensa Especial del objetivo.",
+        "de": "Bewirft das Ziel mit einem gruseligen Ball und senkt eventuell dessen Spezial-Verteidigung.",
+        "it": "Il Pokémon attacca lanciando sul bersaglio un grumo di ombre nere. Può anche ridurne la Difesa Speciale.",
+        "ko": "까만 그림자 덩어리를 내던져서 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "投擲一團黑影進行攻擊。 有時會降低對手的特防。",
+        "zh-Hans": "投掷一团黑影进行攻击。 有时会降低对手的特防。"
+    }
+}

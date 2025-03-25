@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user slashes the target with huge, sharp claws to inflict damage.",
+        "ja": "鋭く　とがった　巨大な　ツメで 相手を　切り裂いて　攻撃する。",
+        "fr": "Le lanceur lacère la cible de ses grandes griffes aiguisées.",
+        "es": "Araña al objetivo con unas enormes garras afiladas.",
+        "de": "Der Anwender greift das Ziel mit riesigen, scharfen Klauen an.",
+        "it": "Il Pokémon attacca con artigli affilati che graffiano il bersaglio con grande forza.",
+        "ko": "날카롭고 뾰족하며 거대한 발톱으로 상대를 베어 갈라서 공격한다.",
+        "zh-Hant": "用尖銳的巨爪 撕裂對手進行攻擊。",
+        "zh-Hans": "用尖锐的巨爪 劈开对手进行攻击。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Yarn Ball",
+    "flavorText": {
+        "en": "A small ball of yarn. It's woven tight so as not to unravel, but even if it were to come undone, at least you could still use the yarn for something.",
+        "ja": "毛糸で　作られた　小さなボール。 ほつれないように　編みこまれているが ほつれても　毛糸として　再利用できる。",
+        "fr": "Une petite balle en laine. Le fil est comprimé pour ne pas se défaire... Mais même si cela devait arriver, il est toujours possible d'utiliser la laine pour tricoter.",
+        "es": "Una pequeña pelota hecha de lana. Está pensada para que no se desenrede, pero, si lo hace, siempre se puede usar para tejer algo.",
+        "de": "Ein kleiner Ball aus Wolle. Er ist engmaschig gestrickt, damit das Garn nicht zerfranst. Selbst wenn sich die Maschen doch lösen, ist die Wolle noch verwertbar.",
+        "it": "Piccola palla fatta con filo di lana. È intrecciata in modo da non disfarsi, ma qualora dovesse succedere si può riutilizzare come filo da maglia.",
+        "ko": "털실로 만들어진 작은 볼. 실이 풀리지 않게 잘 짜여 있으나, 풀리더라도 털실로 재사용할 수 있다.",
+        "zh-Hant": "以毛線製成的小球。 雖然已編得很緊實以避免綻線， 但就算綻了線，也能當毛線重複使用。",
+        "zh-Hans": "以毛线制作的小球。 编织得不易散开。即使散开， 也能作为毛线被循环利用。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Mental Herb",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. The holder will be able to shake off move-binding effects to move freely— but only once.",
+        "ja": "持たせたポケモンが　自由に 技を　だせなくなったときに １度だけ　回復する。",
+        "fr": "Objet à tenir. Permet au Pokémon de choisir sa capacité normalement lorsque la sélection a été limitée. Ne peut être utilisé qu'une fois.",
+        "es": "El Pokémon que la lleva se libera de los efectos que le restringen qué movimientos puede utilizar. Es de un solo uso.",
+        "de": "Ein Item zum Tragen. Es befreit den Träger einmalig von Effekten, die ihn vom Einsatz von Attacken abhalten.",
+        "it": "Strumento monouso che guarisce il Pokémon dalle condizioni che gli impediscono di usare le sue mosse.",
+        "ko": "지니게 한 포켓몬은 헤롱헤롱 상태가 되었을 때 한 번만 회복한다.",
+        "zh-Hant": "當攜帶它的寶可夢 無法自由使出招式時， 會僅回復１次。",
+        "zh-Hans": "当携带它的宝可梦 无法自由使出招式时， 仅会回复１次。"
+    }
+}

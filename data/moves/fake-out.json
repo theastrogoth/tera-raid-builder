@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This attack hits first and makes the target flinch. It works only on the first turn each time the user enters battle.",
+        "ja": "先制攻撃で　相手を　ひるませる。 戦闘に　でたら すぐに　ださないと　成功しない。",
+        "fr": "Le lanceur frappe en priorité et apeure la cible. La capacité ne fonctionne que si elle est utilisée immédiatement en entrant au combat.",
+        "es": "Amedrenta al objetivo con este movimiento de prioridad alta. Solo tiene efecto si el usuario lo usa nada más entrar en combate.",
+        "de": "Erstschlag-Attacke, die das Ziel zurückschrecken lässt. Gelingt nur, wenn sie sofort eingesetzt wird, nachdem der Anwender das Kampffeld betreten hat.",
+        "it": "Attacco ad alta priorità che fa tentennare il bersaglio. Funziona solo appena scesi in campo.",
+        "ko": "선제공격으로 상대를 풀죽게 한다. 배틀에 나가서 바로 쓰지 않으면 성공할 수 없다.",
+        "zh-Hant": "利用先制攻擊使對手畏縮。 要在上場後立即使用才會成功。",
+        "zh-Hans": "进行先制攻击，使对手畏缩。 要在出场后立刻使出才能成功。"
+    }
 }

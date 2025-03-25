@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is knocked away, and a different Pokémon is dragged out. In the wild, this ends a battle against a single Pokémon.",
+        "ja": "相手を　はじきとばして 控えの　ポケモンを　ひきずりだす。 野生の　場合は　戦闘が　終わる。",
+        "fr": "Un coup puissant qui blesse la cible et l'envoie au loin. Lors d'un combat contre un Pokémon sauvage seul, met fin au combat.",
+        "es": "Ataca al objetivo y lo obliga a cambiarse por otro Pokémon. Si es uno salvaje, acaba el combate.",
+        "de": "Putzt das Ziel vom Feld und wechselt es mit einem anderen Pokémon aus. Beendet Kämpfe gegen wilde Pokémon.",
+        "it": "Il Pokémon fa volar via il bersaglio in modo che venga sostituito. Se il bersaglio è un Pokémon selvatico, la lotta finisce.",
+        "ko": "상대를 튕겨 내서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다.",
+        "zh-Hant": "彈飛對手， 強制讓後備寶可夢上場。 對手為野生寶可夢時，戰鬥將直接結束。",
+        "zh-Hans": "弹飞对手，强制拉后备宝可梦上场。 如果对手为野生宝可梦， 战斗将直接结束。"
+    }
 }

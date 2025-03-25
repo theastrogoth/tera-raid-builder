@@ -1,0 +1,14 @@
+{
+    "name": "Power of Alchemy",
+    "flavorText": {
+        "en": "The Pokémon copies the Ability of a defeated ally.",
+        "ja": "倒された　味方の　特性を　受け継ぎ 同じ　特性に　変わる。",
+        "fr": "Le Pokémon acquiert le talent d'un allié mis K.O.",
+        "es": "Reacciona copiando la habilidad de un aliado debilitado.",
+        "de": "Das Pokémon übernimmt die Fähigkeit eines Mitstreiters, wenn dieser besiegt wird.",
+        "it": "Il Pokémon trasforma la propria abilità in quella di un alleato andato KO.",
+        "ko": "쓰러진 같은 편의 특성을 이어받아 같은 특성으로 바뀐다.",
+        "zh-Hant": "繼承被打倒的同伴的特性， 變為相同的特性。",
+        "zh-Hans": "继承被打倒的同伴的特性， 变为相同的特性。"
+    }
+}

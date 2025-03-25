@@ -1,0 +1,14 @@
+{
+    "name": "Mystery Egg",
+    "flavorText": {
+        "en": "An Egg obtained from Mr. Pokémon. It has a mysterious pattern on it, and what is in the Egg is unknown.",
+        "ja": "ポケモンじいさんから　あずかった 不思議な　もようの　タマゴ。 なんの　タマゴか　わからない。",
+        "fr": "Un Œuf étrange confié par M. Pokémon. Personne ne sait ce qu'il contient.",
+        "es": "Misterioso Huevo con dibujos que obtienes del Sr. Pokémon. Nadie sabe qué contiene.",
+        "de": "Ein seltsam gemustertes Ei, das du von Mr. Pokémon erhalten hast. Sein Inhalt liegt im Dunkeln.",
+        "it": "Uovo dai disegni bizzarri che si riceve da Mr. Pokémon. Non si sa che cosa contenga.",
+        "ko": "포켓몬 할아버지로부터 받은 이상한 모양의 알. 어떤 알인지 모른다.",
+        "zh-Hant": "從寶可夢爺爺那裡得到的 有著神奇花紋的蛋。 不知道是什麼的蛋。",
+        "zh-Hans": "从宝可梦爷爷那里得到的 有着神奇花纹的蛋。 不知道是什么的蛋。"
+    }
+}

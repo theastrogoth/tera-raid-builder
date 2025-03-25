@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user rapidly cools the target. This may also leave the target frozen. This move is super effective on Water types.",
+        "ja": "相手を　急激に　冷やして こおり　状態に　することが　ある。 みずタイプにも　効果バツグンになる。",
+        "fr": "Le lanceur refroidit violemment la cible et peut la geler. Super efficace sur les Pokémon de type Eau.",
+        "es": "Enfría súbitamente al objetivo e incluso puede congelarlo. Es supereficaz contra Pokémon de tipo Agua.",
+        "de": "Das Ziel wird stark abgekühlt und manchmal sogar eingefroren. Die Attacke ist sehr effektiv gegen Wasser-Pokémon.",
+        "it": "Chi la usa raffredda istantaneamente il bersaglio e può congelarlo. Risulta superefficace contro i Pokémon di tipo Acqua.",
+        "ko": "상대를 급격히 차갑게 하여 얼음 상태로 만들 때가 있다. 물타입 포켓몬에게도 효과가 굉장해진다.",
+        "zh-Hant": "急速冷凍對手， 有時會讓對手陷入冰凍狀態。 對水屬性寶可夢也是效果絕佳。",
+        "zh-Hans": "急剧冷冻对手， 有时会让对手陷入冰冻状态。 对于水属性宝可梦也是效果绝佳。"
+    }
 }

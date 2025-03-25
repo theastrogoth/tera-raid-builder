@@ -1,0 +1,14 @@
+{
+    "name": "Magician",
+    "flavorText": {
+        "en": "The Pokémon steals the held item from any target it hits with a move.",
+        "ja": "技を　当てた　相手の 道具を　奪ってしまう。",
+        "fr": "Les capacités volent aussi l'objet tenu par la cible.",
+        "es": "Roba el objeto del Pokémon al que alcance con un movimiento.",
+        "de": "Trifft das Pokémon ein Ziel mit einer Attacke, stiehlt es ihm dabei sein Item.",
+        "it": "Quando chi la usa colpisce un Pokémon con una mossa, gli ruba lo strumento.",
+        "ko": "기술을 맞은 상대의 도구를 빼앗아 버린다.",
+        "zh-Hant": "奪走被自己招式 擊中的對手的道具。",
+        "zh-Hans": "夺走被自己的招式 击中的对手的道具。"
+    }
+}

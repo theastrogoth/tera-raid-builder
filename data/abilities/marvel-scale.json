@@ -1,0 +1,14 @@
+{
+    "name": "Marvel Scale",
+    "flavorText": {
+        "en": "The Pokémon's marvelous scales boost its Defense stat if it has a status condition.",
+        "ja": "状態異常に　なると 不思議なウロコが　反応して 防御が　上がる。",
+        "fr": "Les écailles mystérieuses du Pokémon réagissent aux altérations de statut en augmentant sa Défense.",
+        "es": "Si sufre un problema de estado, sus escamas especiales reaccionan y aumenta su Defensa.",
+        "de": "Bei Statusproblemen schützt sich das Pokémon mit mysteriösen Schuppen, wodurch seine Verteidigung steigt.",
+        "it": "Se il Pokémon è affetto da un problema di stato, le squame sulla sua pelle si induriscono aumentando la sua Difesa.",
+        "ko": "상태 이상이 되면 이상한 비늘이 반응해서 방어가 올라간다.",
+        "zh-Hant": "陷入異常狀態時， 神奇鱗片會發生反應， 防禦會提高。",
+        "zh-Hans": "如果变为异常状态， 神奇鳞片会发生反应， 防御会提高。"
+    }
+}

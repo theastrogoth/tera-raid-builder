@@ -1,0 +1,14 @@
+{
+    "name": "Klutz",
+    "flavorText": {
+        "en": "The Pokémon can't use any held items.",
+        "ja": "持っている　道具を 使うことが　できない。",
+        "fr": "Le Pokémon ne peut utiliser aucun objet tenu.",
+        "es": "No puede usar objetos equipados.",
+        "de": "Das Pokémon kann keine getragenen Items verwenden.",
+        "it": "Il Pokémon non può usare lo strumento che ha con sé.",
+        "ko": "지니고 있는 도구를 쓸 수 없다.",
+        "zh-Hant": "無法使用持有的道具。",
+        "zh-Hans": "无法使用持有的道具。"
+    }
+}

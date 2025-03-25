@@ -1,0 +1,14 @@
+{
+    "name": "Ketchup",
+    "flavorText": {
+        "en": "A condiment with very salty and tart flavor. While a number of other ingredients go into its signature flavor, the noble tomato is its heart and soul.",
+        "ja": "塩味と　酸味が　強い　調味料。 トマトを　中心に　数種類の 原料を　加工し　作られている。",
+        "fr": "Un condiment au goût très acide et salé. Un certain nombre d'ingrédients entre dans sa préparation, mais c'est la tomate qui lui donne sa saveur si particulière.",
+        "es": "Ácido y salado a la vez, este condimento está hecho a partir de tomates y otros ingredientes procesados.",
+        "de": "Ein sehr salziges sowie säuerliches Würzmittel, das aus einer Vielzahl an Zutaten hergestellt wird, wobei jedoch Tomaten die klar dominante Komponente bilden.",
+        "it": "Un condimento molto salato e aspro. Si prepara con una base di Pomodori a cui vengono aggiunti di diversi altri ingredienti.",
+        "ko": "짠맛과 신맛이 강한 조미료. 토마토를 중심으로 여러 종류의 원료를 가공해서 만든다.",
+        "zh-Hant": "鹹味和酸味強勁的調味料。 由以番茄為主的數種原料 加工製作而成。",
+        "zh-Hans": "咸味和酸味强烈的调味料。 以番茄为中心， 由数种原料加工制成。"
+    }
+}

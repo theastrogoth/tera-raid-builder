@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user unleashes a strong beam. The recoil from this move harshly lowers the user's Sp. Atk stat.",
+        "ja": "強力な　ビームを　放ったあと 自分の　特攻が　がくっと　さがる。",
+        "fr": "Envoie un rayon laser dévastateur. Baisse beaucoup l'Attaque Spéciale du lanceur.",
+        "es": "El usuario emite un potente rayo, pero su Ataque Especial se reduce mucho.",
+        "de": "Der Anwender greift das Ziel mit einem gewaltigen Strahl an. Sein eigener Spezial-Angriff sinkt dadurch stark.",
+        "it": "Il Pokémon emette un potente raggio, ma riduce di molto il suo Attacco Speciale.",
+        "ko": "강력한 빔을 발산한 후 자신의 특수공격이 크게 떨어진다.",
+        "zh-Hant": "放出強力光束後， 自己的特攻會大幅降低。",
+        "zh-Hans": "放出强力光束后， 自己的特攻会大幅降低。"
+    }
 }

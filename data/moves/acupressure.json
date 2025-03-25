@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user applies pressure to stress points, sharply boosting one of its or its allies' stats.",
+        "ja": "つぼおしで　体を　活性化させる。 能力の　どれか　１つを ぐーんと　あげる。",
+        "fr": "Le lanceur utilise sa connaissance des points de pression pour beaucoup augmenter une stat.",
+        "es": "Aplica presión en puntos clave del cuerpo para aumentar mucho una característica al azar.",
+        "de": "Anwender übt Druck auf Stresspunkte aus und erhöht einen Statuswert stark.",
+        "it": "Il Pokémon esercita pressione su alcuni punti nevralgici e aumenta di molto una statistica a caso.",
+        "ko": "경혈을 눌러 몸을 활성화시킨다. 능력 중 하나를 크게 올린다.",
+        "zh-Hant": "利用點穴激發身體的活力， 大幅提高某一項能力。",
+        "zh-Hans": "通过点穴 让身体舒筋活络。 大幅提高某１项能力。"
+    }
 }

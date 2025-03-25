@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Flattery is used to confuse the target. However, this also boosts the target's Sp. Atk stat.",
+        "ja": "相手を　おだてて　混乱させる。 同時に　相手の　特攻も あげてしまう。",
+        "fr": "Rend la cible confuse, mais augmente son Attaque Spéciale.",
+        "es": "Halaga al objetivo y lo confunde, pero también aumenta su Ataque Especial.",
+        "de": "Schmeichelt dem Ziel, um es zu verwirren. Erhöht dessen Spezial-Angriff.",
+        "it": "Il Pokémon adula il bersaglio e lo confonde. Allo stesso tempo ne aumenta l'Attacco Speciale.",
+        "ko": "상대를 부추겨서 혼란시킨다. 동시에 상대의 특수공격도 올라가 버린다.",
+        "zh-Hant": "吹捧對手，使其混亂。 同時還會提高對手的特攻。",
+        "zh-Hans": "吹捧对手，使其混乱。 同时还会提高对手的特攻。"
+    }
 }

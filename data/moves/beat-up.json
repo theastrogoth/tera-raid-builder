@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user gets all party Pokémon to attack the target. The more party Pokémon, the greater the number of attacks.",
+        "ja": "味方　全員で　攻撃する。 仲間の　ポケモンが　多いほど 技の　攻撃回数が　増える。",
+        "fr": "Le lanceur appelle tous les Pokémon de son équipe à attaquer. Plus ils sont nombreux, plus il y a d'attaques.",
+        "es": "Ataque de todo el equipo Pokémon. Cuantos más haya, más veces se atacará.",
+        "de": "Der Anwender greift zusammen mit allen Mitgliedern seines Teams das Ziel an. Je mehr Pokémon sich im Team befinden, desto höher die Anzahl der Angriffe.",
+        "it": "Il Pokémon attacca con tutti gli altri Pokémon della squadra: più ce ne sono, maggiore è il numero di attacchi.",
+        "ko": "같은 편 전원이 공격한다. 동료 포켓몬이 많을수록 기술의 공격 횟수가 증가한다.",
+        "zh-Hant": "讓我方所有寶可夢進行攻擊。 同行的寶可夢越多， 招式的攻擊次數越多。",
+        "zh-Hans": "我方全员进行攻击。 同行的宝可梦越多， 招式的攻击次数越多。"
+    }
 }

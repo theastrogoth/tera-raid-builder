@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A column of grass hits the target. When used with its water counterpart, this move's power is boosted and a vast swamp appears.",
+        "ja": "草の柱で　攻撃する。 みずと　組みあわせると　威力が あがって　あたりが　湿原に　なる。",
+        "fr": "Une masse végétale s'abat sur la cible. Si cette capacité est utilisée en même temps qu'Aire d'Eau, la puissance augmente et un marécage apparaît.",
+        "es": "Ataca con columnas de hojas. Combinado con Voto Agua, crea un pantano y aumenta su potencia.",
+        "de": "Ein Angriff mit Pflanzensäulen. Mit Wassersäulen kombiniert steigt die Wirkung und die Umgebung wird zu einem Sumpf.",
+        "it": "Il Pokémon attacca il bersaglio con una colonna d'erba. Se usata con Acquapatto, la potenza aumenta e il campo diventa una palude.",
+        "ko": "풀기둥으로 공격한다. 물과 조합하면 위력이 올라가고 주변이 습지초원이 된다.",
+        "zh-Hant": "用草柱進行攻擊。 和水之誓約同時使用時，威力會提高， 周圍會變成濕地。",
+        "zh-Hans": "用草柱进行攻击。 如果和水组合，威力就会提高， 周围会变成湿地。"
+    }
 }

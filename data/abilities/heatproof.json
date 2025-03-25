@@ -1,0 +1,14 @@
+{
+    "name": "Heatproof",
+    "flavorText": {
+        "en": "The Pokémon's heatproof body halves the damage taken from Fire-type moves.",
+        "ja": "耐熱の　体に　よって ほのおタイプの　技の ダメージを　半減させる。",
+        "fr": "Diminue de moitié les dégâts infligés au Pokémon par les capacités de type Feu.",
+        "es": "Su cuerpo, resistente al calor, reduce a la mitad el daño recibido por movimientos de tipo Fuego.",
+        "de": "Der Hitze abweisende Körper des Pokémon halbiert den durch Feuer-Attacken erlittenen Schaden.",
+        "it": "Il corpo termoresistente del Pokémon dimezza i danni provocati dalle mosse di tipo Fuoco che subisce.",
+        "ko": "내열인 몸으로 인해 불꽃타입 공격의 데미지를 반감한다.",
+        "zh-Hant": "靠著耐熱的體質， 讓火屬性的招式傷害減半。",
+        "zh-Hans": "耐热的体质会 让火属性的招式伤害减半。"
+    }
+}

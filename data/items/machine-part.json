@@ -1,0 +1,14 @@
+{
+    "name": "Machine Part",
+    "flavorText": {
+        "en": "An important part of a machine that was stolen from the Power Plant.",
+        "ja": "発電所から　ぬすまれた 発電機の　たいせつな　部品。 ",
+        "fr": "Une pièce essentielle du générateur de la Centrale.",
+        "es": "Valiosa pieza robada de una máquina de la Central Energía.",
+        "de": "Ein unentbehrliches Maschinenteil, das aus dem Kraftwerk entwendet wurde.",
+        "it": "Pezzo rubato alla Centrale Elettrica, essenziale per il generatore.",
+        "ko": "발전소에서 도둑맞은 발전기의 중요한 부품.",
+        "zh-Hant": "被人從發電廠裡偷走的 發電機的重要零件。",
+        "zh-Hans": "发电厂里被盗的， 用于发电机的重要零件。"
+    }
+}

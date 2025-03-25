@@ -1,0 +1,14 @@
+{
+    "name": "Berserk",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Sp. Atk stat when it takes a hit that causes its HP to drop to half or less.",
+        "ja": "相手の　攻撃で ＨＰが　半分に　なると 特攻が　上がる。",
+        "fr": "Augmente l'Attaque Spéciale du Pokémon lorsque ses PV tombent à la moitié à cause d'une attaque de l'adversaire.",
+        "es": "Aumenta su Ataque Especial si sus PS se ven reducidos a la mitad debido a algún ataque.",
+        "de": "Fallen die KP des Pokémon durch einen Angriff auf die Hälfte des Maximalwerts oder weniger, steigt sein Spezial-Angriff.",
+        "it": "Se i PS scendono a metà o meno a causa di un attacco, l'Attacco Speciale aumenta.",
+        "ko": "상대의 공격으로 HP가 절반이 되면 특수공격이 올라간다.",
+        "zh-Hant": "ＨＰ因對手的攻擊 降到一半時， 特攻會提高。",
+        "zh-Hans": "因对手的攻击 ＨＰ变为一半时， 特攻会提高。"
+    }
+}

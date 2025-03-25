@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user pins the target with a dark, arresting look. The target becomes unable to flee.",
+        "ja": "吸いこまれるような　黒い　まなざしで じっと　みつめて　相手を 戦闘から　逃げられなくする。",
+        "fr": "Le lanceur pétrifie la cible en lui lançant un regard noir qui la rend incapable de quitter le terrain.",
+        "es": "Mal de ojo que impide al objetivo huir del combate o ser cambiado por otro.",
+        "de": "Der Anwender starrt das Ziel mit einem bösen Blick an und hindert es dadurch an der Flucht beziehungsweise am Auswechseln.",
+        "it": "Il Pokémon blocca il bersaglio con uno sguardo oscuro e ammaliante, impedendogli di lasciare il campo.",
+        "ko": "빨려 들어갈 것 같은 까만 눈빛으로 가만히 응시하여 상대를 배틀에서 도망갈 수 없게 한다.",
+        "zh-Hant": "用漆黑深邃的眼神 一動也不動地凝視對手， 讓對手無法從戰鬥中逃走。",
+        "zh-Hans": "用好似要勾人心魂的黑色目光 一动不动地凝视对手， 使其不能从战斗中逃走。"
+    }
 }

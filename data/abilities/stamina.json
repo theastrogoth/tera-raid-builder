@@ -1,0 +1,14 @@
+{
+    "name": "Stamina",
+    "flavorText": {
+        "en": "Boosts the Defense stat when the Pokémon is hit by an attack.",
+        "ja": "攻撃を　受けると 防御が　上がる。",
+        "fr": "Augmente la Défense du Pokémon lorsqu'il subit une attaque.",
+        "es": "Aumenta su Defensa al recibir un ataque.",
+        "de": "Wird das Pokémon von einem Angriff getroffen, steigt seine Verteidigung.",
+        "it": "Se il Pokémon subisce un attacco, la sua Difesa aumenta.",
+        "ko": "공격을 받으면 방어가 올라간다.",
+        "zh-Hant": "受到攻擊時， 防禦會提高。",
+        "zh-Hans": "受到攻击时， 防御会提高。"
+    }
+}

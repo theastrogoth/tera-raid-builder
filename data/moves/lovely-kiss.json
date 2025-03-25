@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "With a scary face, the user tries to kiss the target. If it succeeds, the target falls asleep.",
+        "ja": "恐ろしい　顔で　キスを　せまる。 相手を　眠り状態に　する。",
+        "fr": "Le lanceur fait un bisou à la cible en prenant une mine effrayante, ce qui la fait s'endormir.",
+        "es": "Intimida al objetivo con una cara que asusta y le da un beso que lo deja dormido.",
+        "de": "Anwender zwingt dem Ziel einen Kuss auf, der Schlaf verursacht.",
+        "it": "Il Pokémon intimidisce il bersaglio con una faccia paurosa e gli schiocca un bacio che lo fa addormentare.",
+        "ko": "무서운 얼굴로 키스한다. 상대를 잠듦 상태로 만든다.",
+        "zh-Hant": "用恐怖的臉強吻對手。 能讓對手陷入睡眠狀態。",
+        "zh-Hans": "用恐怖的脸强吻对手。 让对手陷入睡眠状态。"
+    }
 }

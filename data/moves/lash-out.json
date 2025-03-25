@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn.",
+        "ja": "相手への　いらだちを　ぶつけて　攻撃。 そのターンに　能力を　さげられていると 技の　威力が　２倍に　なる。",
+        "fr": "Le lanceur frappe la cible avec toute sa rancune. Si les stats du lanceur ont diminué pendant ce tour, la puissance de cette attaque est doublée.",
+        "es": "Ataca al objetivo presa de la rabia. Si el usuario ha sufrido una reducción de características en ese turno, la potencia del movimiento se duplica.",
+        "de": "Der Anwender entlädt seinen Frust in einem Angriff. Die Stärke der Attacke wird verdoppelt, wenn seine Statuswerte in dieser Runde gesenkt wurden.",
+        "it": "Il Pokémon attacca il bersaglio con tutta la propria ira. Se ha subito riduzioni delle statistiche durante quel turno, la potenza della mossa raddoppia.",
+        "ko": "상대에 대한 울분이 담긴 공격을 한다. 그 턴에 능력이 떨어져 있으면 기술의 위력이 2배가 된다.",
+        "zh-Hant": "將惱怒砸向對手進行攻擊。 如果此回合已被降低能力， 招式威力就會變成２倍。",
+        "zh-Hans": "攻击对手以发泄对其感到的恼怒情绪。 如果在该回合内自身能力遭到降低， 招式的威力会变成２倍。"
+    }
 }

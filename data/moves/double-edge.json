@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A reckless life-risking tackle in which the user rushes the target. This also damages the user quite a lot.",
+        "ja": "命を　懸けて 相手に　突進して　攻撃する。 自分も　かなり　ダメージを　受ける。",
+        "fr": "Une charge dangereuse et imprudente. Blesse aussi gravement le lanceur.",
+        "es": "Ataque arriesgado que también hiere seriamente al usuario.",
+        "de": "Lebensgefährlicher Angriff, bei dem sich der Anwender selbst verletzt.",
+        "it": "Il Pokémon attacca il bersaglio lanciandosi in una carica spericolata, ma subisce seri danni.",
+        "ko": "목숨을 걸고 상대에게 돌진하여 공격을 한다. 자신도 상당한 데미지를 입는다.",
+        "zh-Hant": "捨身衝撞對手進行攻擊。 自己也會受到不小的傷害。",
+        "zh-Hans": "拼命地猛撞向对手进行攻击。 自己也会受到不小的伤害。"
+    }
 }

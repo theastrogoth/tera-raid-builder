@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stimulates its brain by thinking bad thoughts. This sharply boosts the user's Sp. Atk stat.",
+        "ja": "悪いことを　考えて 頭を　活性化させる。 自分の　特攻を　ぐーんと　あげる。",
+        "fr": "Stimule l'esprit par de mauvaises pensées. Augmente beaucoup l'Attaque Spéciale du lanceur.",
+        "es": "Estimula su cerebro pensando en cosas malas. Aumenta mucho el Ataque Especial.",
+        "de": "Anwender stimuliert sein Gehirn und hat finstere Gedanken. Erhöht Spezial-Angriff stark.",
+        "it": "Il Pokémon stimola il cervello pensando a cose cattive. Aumenta di molto l'Attacco Speciale.",
+        "ko": "나쁜 일을 생각해서 머리를 활성화시킨다. 자신의 특수공격을 크게 올린다.",
+        "zh-Hant": "動歪腦筋，活化大腦。 大幅提高自己的特攻。",
+        "zh-Hans": "谋划诡计，激活头脑。 大幅提高自己的特攻。"
+    }
 }

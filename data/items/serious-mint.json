@@ -1,0 +1,14 @@
+{
+    "name": "Serious Mint",
+    "flavorText": {
+        "en": "Having a Pokémon smell this mint will cause its Attack, Defense, Sp. Atk, Sp. Def, and Speed stats to grow at an equal rate.",
+        "ja": "ポケモンに　香りを　かがせると 攻撃　防御　素早さ　特防 特攻が　万遍なく　育つ　ミント。",
+        "fr": "Si un Pokémon hume cet aromate, son Attaque, sa Défense, sa Vitesse, son Attaque Spéciale et sa Défense Spéciale se développeront uniformément.",
+        "es": "Cuando un Pokémon percibe su aroma, su Ataque, su Defensa, su Ataque Especial, su Defensa Especial y su Velocidad crecen de forma uniforme.",
+        "de": "Lässt man ein Pokémon an dieser Minze schnuppern, steigen Angriff, Verteidigung, Spezial-Angriff, Spezial-Verteidigung und Initiative gleichmäßig.",
+        "it": "Quando un Pokémon ne sente il profumo, le sue statistiche di Attacco, Difesa, Velocità, Difesa Speciale e Attacco Speciale aumentano uniformemente.",
+        "ko": "포켓몬에게 향기를 맡게 하면 공격, 방어, 스피드, 특수방어, 특수공격이 골고루 오르게 되는 민트.",
+        "zh-Hant": "讓寶可夢聞這種薄荷的氣味， 會令攻擊、防禦、速度、 特防和特攻均衡地成長。",
+        "zh-Hans": "宝可梦闻了这种薄荷之后， 攻击、防御、速度、 特防、特攻能全方位提高。"
+    }
+}

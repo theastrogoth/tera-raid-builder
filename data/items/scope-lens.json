@@ -1,0 +1,14 @@
+{
+    "name": "Scope Lens",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a lens for scoping out weak points. It boosts the holder's critical-hit ratio.",
+        "ja": "弱点が　見える　レンズ。 持たせた　ポケモンの技が 急所に　当たりやすくなる。",
+        "fr": "Objet à tenir. Une lentille qui augmente le taux de critiques du porteur.",
+        "es": "Su lente permite detectar los puntos débiles de un Pokémon y aumentar con ello la probabilidad de asestar un golpe crítico. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Es erhöht die Volltrefferquote.",
+        "it": "Strumento da dare a un Pokémon. Lente che aumenta la probabilità di sferrare brutti colpi.",
+        "ko": "약점이 보이는 렌즈. 지니게 한 포켓몬의 기술이 급소에 맞기 쉬워진다.",
+        "zh-Hant": "能看見弱點的鏡片。 攜帶它的寶可夢的招式 會變得容易擊中要害。",
+        "zh-Hans": "能看见弱点的镜片。 携带它的宝可梦的招式 会变得容易击中要害。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lashes out at the target with ruinous claws. This may also leave the target poisoned, paralyzed, or asleep.",
+        "ja": "破滅的なツメで　攻撃する。 相手を　どく　まひ　ねむりの いずれかの状態に　することも　ある。",
+        "fr": "Le lanceur attaque avec des griffes destructrices. La cible peut aussi être empoisonnée, paralysée, ou endormie.",
+        "es": "Ataca al objetivo con unas garras letales que pueden envenenarlo, paralizarlo o dormirlo.",
+        "de": "Der Anwender greift mit zerstörerischen Klauen an. Das Ziel wird eventuell vergiftet, paralysiert oder in Schlaf versetzt.",
+        "it": "Il Pokémon attacca il bersaglio con artigli distruttori. Può anche causargli avvelenamento, paralisi o sonno.",
+        "ko": "치명적인 손톱으로 공격한다. 상대를 독, 마비, 잠듦 중 하나의 상태로 만들 때가 있다.",
+        "zh-Hant": "以破滅之爪進行攻擊。 有時還會讓對手陷入中毒、 麻痺、睡眠之中的一種狀態。",
+        "zh-Hans": "以破灭之爪进行攻击。 有时还会让对手陷入中毒、 麻痹、睡眠之中的一种状态。"
+    }
 }

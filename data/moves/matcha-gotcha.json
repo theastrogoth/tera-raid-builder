@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user unleashes the full brunt of its spirit from a full moon that shines as red as blood. This move can't be used twice in a row.",
+        "ja": "血のように　赤い満月から ありったけの　気迫を　撃ちだす。 この技は　２回連続で　だせない。",
+        "fr": "Le lanceur concentre toute son énergie dans la lune rouge sang sur son front et la projette sur la cible. Cette capacité ne peut pas être utilisée deux fois d'affilée.",
+        "es": "Ataca canalizando toda su fuerza y proyectándola a través de una luna llena de color rojo intenso. Este movimiento no puede usarse dos veces seguidas.",
+        "de": "Der Anwender entfesselt eine gewaltige Energieladung aus einem blutroten Vollmond. Diese Attacke kann nicht zweimal in Folge eingesetzt werden.",
+        "it": "Il Pokémon attacca rilasciando tutta la sua energia, confluita in una luna piena rossa come il sangue. Questa mossa non può essere usata due volte di fila.",
+        "ko": "피와 같이 붉은 보름달에서 혼신의 기백을 발사한다. 이 기술은 2회 연속으로 쓸 수 없다.",
+        "zh-Hant": "從鮮血般赤紅的滿月 發射出渾身的氣勢。 這個招式無法連續２次使用。",
+        "zh-Hans": "从赤红如血的满月 发射出全部的气势。 这个招式无法连续使出２次。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Grit Rock",
+    "flavorText": {
+        "en": "A mysterious rock that can raise the effort level for one of a Pokémon's stats. It can be used only if the effort level has already reached level nine.",
+        "ja": "ポケモンのがんばレベルをあげる 不思議な岩。 がんばレベルが９のポケモンに使える。",
+        "fr": "Un rocher mystérieux qui permet d'augmenter le niveau d'effort d'un Pokémon s'il est de 9.",
+        "es": "Misteriosa roca que aumenta el nivel de esfuerzo de un Pokémon. Solamente puede utilizarse si su nivel de esfuerzo es nueve.",
+        "de": "Dieser rätselhafte Fels erhöht den Leistungslevel eines Pokémon. Er kann für Pokémon mit Leistungslevel 9 verwendet werden.",
+        "it": "Misteriosa roccia che aumenta il livello di impegno di un Pokémon. Può essere utilizzata su Pokémon con un livello di impegno pari a 9.",
+        "ko": "포켓몬의 노력 레벨을 올리는 신비한 바위. 노력 레벨이 9인 포켓몬에게 사용할 수 있다.",
+        "zh-Hant": "不可思議的岩石。 能讓寶可夢的奮鬥等級提升。 可用於奮鬥等級９的寶可夢。",
+        "zh-Hans": "不可思议的岩石。 能让宝可梦的奋斗等级提升。 可用于奋斗等级９的宝可梦。"
+    }
+}

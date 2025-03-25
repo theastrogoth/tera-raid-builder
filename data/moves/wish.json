@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "One turn after this move is used, the user's or its replacement's HP is restored by up to half the user's max HP.",
+        "ja": "次の　ターンに　自分　もしくは 入れ替わった　ポケモンの　ＨＰを 最大ＨＰの　半分　回復する。",
+        "fr": "Un vœu qui permet au lanceur ou au Pokémon entrant sur le terrain au tour suivant de récupérer la moitié des PV max du lanceur.",
+        "es": "Restaura en el siguiente turno la mitad de los PS máximos del usuario o se los pasa al Pokémon que lo sustituye.",
+        "de": "Ein Wunsch füllt in der nächsten Runde 50 % der KP des Anwenders bei diesem oder einem eingewechselten Pokémon auf.",
+        "it": "Il Pokémon o chi lo sostituisce recupera metà dei PS massimi al turno successivo.",
+        "ko": "다음 턴에 자신 또는 교체한 포켓몬의 HP를 최대 HP의 절반만큼 회복한다.",
+        "zh-Hant": "在下一回合回復自己或是 替換上場的寶可夢最大ＨＰ的一半。",
+        "zh-Hans": "在下一回合回复自己或是 替换出场的宝可梦最大ＨＰ的一半。"
+    }
 }

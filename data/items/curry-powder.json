@@ -1,0 +1,14 @@
+{
+    "name": "Curry Powder",
+    "flavorText": {
+        "en": "A very spicy condiment. Just watch out—use too much of this potent seasoning, and it'll cancel out the other flavors.",
+        "ja": "辛味が　強い　調味料。 優れた調味料だが　使いすぎると ほかの食材の　味がなくなるので　注意。",
+        "fr": "Un condiment au goût très épicé. Il présente de nombreux avantages, mais il ne faut pas en abuser, au risque de masquer les autres saveurs.",
+        "es": "Además de ser muy picante, el sabor tan fuerte de este condimento enseguida eclipsa los sabores de los demás ingredientes, por lo que es mejor no pasarse con él.",
+        "de": "Ein nützliches, aber sehr scharfes Würzmittel. Man sollte sich davor hüten, es allzu großzügig zu verwenden, da es andere Geschmacksnoten schnell überlagert.",
+        "it": "Un ingrediente molto piccante. È un ottimo condimento ma bisogna usarlo con attenzione, perché in grandi quantità copre i sapori degli altri ingredienti.",
+        "ko": "매운맛이 강한 조미료. 뛰어난 조미료이나 너무 많이 사용하면 다른 식재료의 맛이 사라지므로 주의해야 한다.",
+        "zh-Hant": "辣味強勁的調味料。 是一種出色的調味料，但請注意： 使用過量會使其他食材失去滋味。",
+        "zh-Hans": "辣味强烈的调味料。 虽然是很出色的调味料，但需注意 下太多可会抢掉其他食材的味道。"
+    }
+}

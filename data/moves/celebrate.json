@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The Pokémon congratulates you on your special day!",
+        "ja": "ポケモンが　とっても ハッピーな　あなたのことを お祝い　してくれる。",
+        "fr": "Le Pokémon vous souhaite plein de bonnes choses pour cet évènement spécial.",
+        "es": "El Pokémon te felicita en un día muy especial para ti.",
+        "de": "Das Pokémon gratuliert dir zu deinem Geburtstag!",
+        "it": "Il Pokémon ti fa gli auguri nel tuo giorno speciale.",
+        "ko": "포켓몬이 매우 행복한 당신을 축하해 준다.",
+        "zh-Hant": "寶可夢會為了 非常開心的你而慶祝。",
+        "zh-Hans": "宝可梦为十分 开心的你庆祝。"
+    }
 }

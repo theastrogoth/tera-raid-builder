@@ -1,0 +1,14 @@
+{
+    "name": "Dry Skin",
+    "flavorText": {
+        "en": "Restores the Pokémon's HP in rain or when it is hit by Water-type moves. Reduces HP in harsh sunlight, and increases the damage received from Fire-type moves.",
+        "ja": "天気が　雨の時や　みずタイプの 技で　ＨＰが　回復し　はれの時や ほのおタイプの　技で　減ってしまう。",
+        "fr": "Quand le soleil brille, le Pokémon perd des PV et subit plus de dégâts des capacités Feu, mais il regagne des PV lorsqu'il pleut ou s'il est touché par une capacité Eau.",
+        "es": "Pierde PS si hace sol y los recupera si llueve o recibe un movimiento de tipo Agua. Los movimientos de tipo Fuego, por su parte, le hacen más daño de lo normal.",
+        "de": "Das Pokémon erleidet mehr Schaden durch Feuer- Attacken und verliert bei Sonnenschein KP. Bei Regen und Treffern durch Wasser-Attacken regeneriert es KP.",
+        "it": "Il Pokémon recupera PS se piove o se subisce mosse di tipo Acqua, ma perde PS con la luce solare intensa. Subisce più danni dalle mosse di tipo Fuoco.",
+        "ko": "비가 오는 날씨나 물타입의 기술로 공격받으면 HP가 회복되고 맑을 때나 불꽃타입의 기술로 공격받으면 줄어든다.",
+        "zh-Hant": "下雨天氣時和受到水屬性的招式攻擊時， ＨＰ會回復。晴朗天氣時和受到火屬性的 招式攻擊時，ＨＰ會減少。",
+        "zh-Hans": "下雨天气时和受到水属性的招式时， ＨＰ会回复。晴朗天气时和受到火属性的 招式时，ＨＰ会减少。"
+    }
+}

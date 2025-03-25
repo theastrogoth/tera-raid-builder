@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user strikes the target with a quick jolt of electricity. This attack never misses.",
+        "ja": "電撃を　素早く 相手に　浴びせる。 攻撃は　必ず　命中する。",
+        "fr": "Le lanceur envoie un choc électrique rapide à la cible. N'échoue jamais.",
+        "es": "Ataque eléctrico muy rápido que no falla nunca.",
+        "de": "Angriff mit schnellem Elektro-Schlag. Ausweichen nicht möglich.",
+        "it": "Il Pokémon colpisce il bersaglio con una scossa di elettricità. Questo attacco va sempre a segno.",
+        "ko": "전격을 재빠르게 상대에게 날린다. 공격은 반드시 명중한다.",
+        "zh-Hant": "向對手迅速放出電流。 攻擊一定會命中。",
+        "zh-Hans": "向对手快速发出电击。 攻击必定会命中。"
+    }
 }

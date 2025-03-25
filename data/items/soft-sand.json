@@ -1,0 +1,14 @@
+{
+    "name": "Soft Sand",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a loose, silky sand that boosts the power of the holder's Ground-type moves.",
+        "ja": "さわると　サラサラする砂。 持たせると　じめんタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Du sable fin et soyeux qui augmente la puissance des capacités de type Sol.",
+        "es": "La suavidad de la arena potencia los movimientos de tipo Tierra. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Samtiger Sand, der Attacken vom Typ Boden verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Sabbia leggera e farinosa che potenzia le mosse di tipo Terra.",
+        "ko": "만지면 보슬보슬한 모래. 지니게 하면 땅타입 기술의 위력이 올라간다.",
+        "zh-Hant": "手感細緻的沙子。 攜帶後，地面屬性的 招式威力就會提高。",
+        "zh-Hans": "手感细腻的沙子。 携带后，地面属性的 招式威力就会提高。"
+    }
+}

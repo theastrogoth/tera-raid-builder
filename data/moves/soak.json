@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user shoots a torrent of water that changes the target's type to Water.",
+        "ja": "たくさんの　水を　浴びせかけて 相手を　みずタイプに　する。",
+        "fr": "Le lanceur projette beaucoup d'eau sur sa cible, qui devient de type Eau.",
+        "es": "Potente tromba de agua que transforma al objetivo en un Pokémon de tipo Agua.",
+        "de": "Überschüttet das Ziel mit Unmengen an Wasser und ändert den Typ damit in Wasser um.",
+        "it": "Il Pokémon proietta un lungo getto d'acqua contro il bersaglio e lo rende di tipo Acqua.",
+        "ko": "많은 물을 끼얹어서 상대를 물타입으로 바꾼다.",
+        "zh-Hant": "朝對手灑下大量的水， 讓對手變成水屬性。",
+        "zh-Hans": "将大量的水泼向对手， 从而使其变成水属性。"
+    }
 }

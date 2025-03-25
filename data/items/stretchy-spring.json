@@ -1,0 +1,14 @@
+{
+    "name": "Stretchy Spring",
+    "flavorText": {
+        "en": "A thin small spring. It's totally stretched out, and what it's used for is unknown.",
+        "ja": "細くて　小さいバネ。 すっかり　伸びきって　使い道が みつからない。",
+        "fr": "Un petit ressort fin et complètement distendu. Nul ne sait à quoi il peut bien servir.",
+        "es": "Muelle fino y pequeño. Está algo elongado y se desconoce cuál puede ser su uso.",
+        "de": "Eine kleine, dünne Feder, die bis zum Äußersten gedehnt wurde. Man kann nicht mehr erkennen, wofür sie ursprünglich verwendet wurde.",
+        "it": "Una molla piccola e sottile. È deformata e ormai inutilizzabile.",
+        "ko": "가늘고 작은 용수철. 완전히 늘어나서 어디에 써야 할지 모르겠다.",
+        "zh-Hant": "細小的彈簧。 已經完全鬆掉， 找不到任何用途。",
+        "zh-Hans": "细小的弹簧。 被拉得太长了， 不知道能派上什么用。"
+    }
+}

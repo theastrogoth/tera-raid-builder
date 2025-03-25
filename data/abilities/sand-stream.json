@@ -1,0 +1,14 @@
+{
+    "name": "Sand Stream",
+    "flavorText": {
+        "en": "The Pokémon summons a sandstorm when it enters a battle.",
+        "ja": "登場　したとき 天気を　砂あらしにする。",
+        "fr": "Le Pokémon invoque une tempête de sable quand il entre au combat.",
+        "es": "Crea una tormenta de arena al entrar en combate.",
+        "de": "Das Pokémon erzeugt bei Kampfantritt einen Sandsturm.",
+        "it": "Quando il Pokémon entra in campo, scatena una tempesta di sabbia.",
+        "ko": "등장했을 때 날씨를 모래바람으로 만든다.",
+        "zh-Hant": "出場時， 會把天氣變為沙暴。",
+        "zh-Hans": "出场时， 会把天气变为沙暴。"
+    }
+}

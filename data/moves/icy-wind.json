@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats.",
+        "ja": "凍てつく　冷気を 相手に　吹きつけて　攻撃する。 相手の　素早さを　さげる。",
+        "fr": "Une bourrasque de vent froid blesse la cible et réduit sa Vitesse.",
+        "es": "Ataque con aire helado que reduce la Velocidad del objetivo.",
+        "de": "Eis-Attacke, die gegnerischen Pokémon Schaden zufügt und ihren Initiative-Wert senkt.",
+        "it": "Il Pokémon attacca il bersaglio con una folata di aria gelida e ne riduce anche la Velocità.",
+        "ko": "차가운 냉기를 상대에게 내뿜어 공격한다. 상대의 스피드를 떨어뜨린다.",
+        "zh-Hant": "將冰冷的寒氣 吹向對手進行攻擊。 可降低對手的速度。",
+        "zh-Hans": "将结冰的冷气 吹向对手进行攻击。 会降低对手的速度。"
+    }
 }

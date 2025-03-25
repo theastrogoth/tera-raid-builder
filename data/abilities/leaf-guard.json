@@ -1,0 +1,14 @@
+{
+    "name": "Leaf Guard",
+    "flavorText": {
+        "en": "Prevents status conditions in harsh sunlight.",
+        "ja": "天気が　晴れのときは 状態異常に　ならない。",
+        "fr": "Protège le Pokémon contre les altérations de statut quand le soleil brille.",
+        "es": "Evita los problemas de estado si hace sol.",
+        "de": "Bei Sonnenschein kann das Pokémon keine Statusprobleme erleiden.",
+        "it": "Se la luce del sole è intensa, evita i problemi di stato.",
+        "ko": "날씨가 맑을 때는 상태 이상이 되지 않는다.",
+        "zh-Hant": "天氣為晴朗時， 不會陷入異常狀態。",
+        "zh-Hans": "晴朗天气时， 不会变为异常状态。"
+    }
+}

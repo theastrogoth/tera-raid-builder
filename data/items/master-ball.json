@@ -1,0 +1,14 @@
+{
+    "name": "Master Ball",
+    "flavorText": {
+        "en": "The very best Poké Ball with the ultimate level of performance. With it, you will catch any wild Pokémon without fail.",
+        "ja": "野生のポケモンを　必ず 捕まえることが　できる 最高性能の　ボール。",
+        "fr": "Assurément la Poké Ball la plus performante. Elle permet de capturer à coup sûr un Pokémon sauvage.",
+        "es": "La Poké Ball definitiva. Captura cualquier Pokémon salvaje y no falla nunca.",
+        "de": "Der beste Ball! Damit fängst du garantiert jedes wilde Pokémon.",
+        "it": "La Poké Ball dalle prestazioni migliori: cattura i Pokémon selvatici senza mai fallire.",
+        "ko": "야생 포켓몬을 반드시 잡을 수 있는 최고 성능의 볼.",
+        "zh-Hant": "性能最好的球。 必定能捉到野生寶可夢。",
+        "zh-Hans": "必定能捉到野生宝可梦的， 性能最好的球。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user intensifies the sun for five turns, powering up Fire-type attacks. The sunlight also lowers the power of Water-type attacks.",
+        "ja": "５ターンの　間　日差しを　強くして ほのおタイプの　威力を　あげる。 みずタイプの　威力は　さがる。",
+        "fr": "Fait briller le soleil pendant cinq tours, augmentant la puissance des capacités de type Feu et baissant celle des capacités de type Eau.",
+        "es": "Hace que se intensifique el efecto del sol durante cinco turnos, lo que potencia los movimientos de tipo Fuego y debilita los de tipo Agua.",
+        "de": "Die Sonne brennt unbarmherzig fünf Runden lang. Dadurch werden Attacken vom Typ Feuer verstärkt, während Wasser-Attacken abgeschwächt werden.",
+        "it": "Il Pokémon intensifica i raggi solari per cinque turni, aumentando la potenza delle mosse di tipo Fuoco e riducendo la potenza di quelle di tipo Acqua.",
+        "ko": "5턴 동안 햇살을 강하게 해서 불꽃타입 기술의 위력을 올린다. 물타입의 위력은 떨어진다.",
+        "zh-Hant": "讓日照增強，在５回合內 提高火屬性招式的威力。 水屬性招式的威力會降低。",
+        "zh-Hans": "在５回合内让日照变得强烈， 从而提高火属性的招式威力。 水属性的招式威力则降低。"
+    }
 }

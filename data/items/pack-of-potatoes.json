@@ -1,0 +1,14 @@
+{
+    "name": "Pack of Potatoes",
+    "flavorText": {
+        "en": "One of the many ingredients that can be used for cooking at your camp. Potatoes help mellow out a spicy taste, to make a dish more mild.",
+        "ja": "キャンプの　料理に　使う 食材の　一種。ポテトが 辛さを　打ち消し　マイルドにする。",
+        "fr": "Un ingrédient de cuisine pour le camping. Ces féculents permettent d'atténuer le piquant du curry pour le rendre plus doux.",
+        "es": "Un ingrediente para cocinar en el campamento. Las patatas contrarrestan el picante y suavizan el plato.",
+        "de": "Eine Zutat für PokéCamping-Mahlzeiten. Kartoffeln nehmen würzigen Speisen etwas von ihrer Schärfe und machen sie milder.",
+        "it": "Uno degli ingredienti che puoi usare per cucinare in campeggio. Smorzano i gusti piccanti donando al piatto un sapore più delicato.",
+        "ko": "캠프 요리에 사용되는 식재료 중 하나. 감자가 매운맛을 잡아 순한 맛으로 만들어 준다.",
+        "zh-Hant": "製作露營料理時使用的食材之一。 洋芋能夠中和辣味， 使料理的味道變得溫和。",
+        "zh-Hans": "在露营营地制作料理时会使用的 一种食材。土豆能中和辣味， 使整道料理的滋味变得柔和。"
+    }
+}

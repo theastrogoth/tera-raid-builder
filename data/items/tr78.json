@@ -1,0 +1,14 @@
+{
+    "name": "TR78",
+    "flavorText": {
+        "en": "The user strikes everything around it by swamping the area with a giant sludge wave. This may also poison those hit.",
+        "ja": "ヘドロの　波で　自分の 周りに　いるものを　攻撃する。 毒状態に　することが　ある。",
+        "fr": "Une vague de détritus attaque tous les Pokémon autour du lanceur. Peut aussi empoisonner.",
+        "es": "Una onda tóxica que daña a los Pokémon adyacentes. Puede envenenar.",
+        "de": "Greift alle Pokémon im Umkreis mit einer Schlammwelle an. Diese werden eventuell auch vergiftet.",
+        "it": "Chi la usa attacca con un'onda di fango gli altri Pokémon attorno. Può anche avvelenarli.",
+        "ko": "오물 파도로 자신의 주위에 있는 포켓몬을 공격한다. 독 상태로 만들 때가 있다.",
+        "zh-Hant": "用污泥波攻擊 自己周圍所有的寶可夢。 有時會讓對手陷入中毒狀態。",
+        "zh-Hans": "用污泥波攻击 自己周围所有的宝可梦。 有时会陷入中毒状态。"
+    }
+}

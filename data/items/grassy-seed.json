@@ -1,0 +1,14 @@
+{
+    "name": "Grassy Seed",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If the terrain becomes Grassy Terrain, the holder will use this seed to boost its own Defense stat.",
+        "ja": "ポケモンに　持たせると グラスフィールドのときに　使って 防御が　あがる。",
+        "fr": "Objet à tenir. Lorsqu'un champ herbu est actif, la graine est consommée pour augmenter la Défense du porteur.",
+        "es": "Si la lleva un Pokémon, la usa y aumenta su Defensa cuando el terreno está cubierto por un campo de hierba.",
+        "de": "Gibst du den Samen einem Pokémon zum Tragen, setzt es ihn ein, wenn ein Grasfeld aktiv ist, und erhöht dadurch seine Verteidigung.",
+        "it": "Strumento da dare a un Pokémon. Fa aumentare la Difesa in presenza di un Campo Erboso.",
+        "ko": "포켓몬에게 지니게 하면 그래스필드일 때 사용하여 방어가 올라간다.",
+        "zh-Hant": "讓寶可夢攜帶後， 在青草場地上使用， 就會提高防禦。",
+        "zh-Hans": "让宝可梦携带后， 在青草场地上使用， 防御就会提高。"
+    }
+}

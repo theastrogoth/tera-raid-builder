@@ -1,0 +1,14 @@
+{
+    "name": "Old Journal",
+    "flavorText": {
+        "en": "A stab-bound journal that once had pages torn from it. All the pages have been collected and restored.",
+        "ja": "やぶれたにっきの 抜け落ちていた ページがそろった日記。",
+        "fr": "Il est à nouveau complet depuis que les pages manquantes du Journal Déchiré ont été retrouvées.",
+        "es": "Diario ajado que ahora cuenta con todas las hojas que le arrancaron.",
+        "de": "Das Kaputte Journal wurde um die fehlenden Seiten ergänzt und ist jetzt wieder ein vollständiges Tagebuch.",
+        "it": "Il Diario rovinato, ora completo di tutte le pagine mancanti.",
+        "ko": "찢어진일기의 빠진 페이지를 모두 채운 일기.",
+        "zh-Hant": "破損日記所缺少的頁面 全部湊齊之後的日記。",
+        "zh-Hans": "破损日记所缺少的页面 全部凑齐之后的日记。"
+    }
+}

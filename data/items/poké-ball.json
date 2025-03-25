@@ -1,0 +1,14 @@
+{
+    "name": "Poké Ball",
+    "flavorText": {
+        "en": "A mysterious ball that can be thrown at wild Pokémon in order to catch them. These balls can be crafted by hand if you gather the necessary materials.",
+        "ja": "野生のポケモンに投げて 捕まえるための不思議なボール。 材料を集めてクラフトでつくる。",
+        "fr": "Une étrange balle qui peut être lancée sur les Pokémon sauvages afin de les capturer. On peut la confectionner à partir de diverses ressources.",
+        "es": "Misterioso instrumento con forma de bola que se lanza a un Pokémon salvaje para capturarlo. Puede elaborarse manualmente si se reúnen los materiales necesarios.",
+        "de": "Ein rätselhafter Ball, den man auf wilde Pokémon wirft, um sie zu fangen. Wenn man die nötigen Materialien sammelt, kann man ihn selbst herstellen.",
+        "it": "Speciale strumento da lanciare come una palla, usato per catturare Pokémon selvatici. Viene creata a mano una volta raccolti tutti i materiali necessari.",
+        "ko": "야생 포켓몬에게 던지면 잡을 수 있는 신비한 볼. 재료를 모아 공작으로 만든다.",
+        "zh-Hant": "不可思議的球。用於投向野生 寶可夢並將其捕捉。需收集材料 並透過工藝製作來生產。",
+        "zh-Hans": "不可思议的球。用于投向野生 宝可梦并将其捕捉。需收集材料 并通过工艺制作来生产。"
+    }
+}

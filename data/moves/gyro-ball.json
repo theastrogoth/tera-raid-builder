@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user tackles the target with a high-speed spin. The slower the user is than the target, the greater the move's power.",
+        "ja": "体を　高速に　回転させて 体当たりする。相手より　素早さが 低いほど　強い。",
+        "fr": "Le lanceur effectue une rotation rapide et frappe la cible. Plus la Vitesse du lanceur est basse par rapport à celle de la cible, plus il inflige de dégâts.",
+        "es": "Embiste al objetivo con un potente ataque giratorio. Cuanto menor es la Velocidad del usuario respecto a la del objetivo, más daño causa.",
+        "de": "Angriff mit hoher Geschwindigkeit. Je niedriger die Initiative des Anwenders im Vergleich zum Ziel ist, desto höher der Schaden.",
+        "it": "Il Pokémon si scaglia sul bersaglio facendo ruotare vorticosamente il proprio corpo. Più è lento rispetto al bersaglio, più è forte.",
+        "ko": "몸을 고속으로 회전시켜 몸통박치기한다. 상대보다 스피드가 낮을수록 위력은 올라간다.",
+        "zh-Hant": "高速旋轉身體，撞擊對手。 速度比對手越慢，威力越大。",
+        "zh-Hans": "让身体高速旋转并撞击对手。 速度比对手越慢，威力越大。"
+    }
 }

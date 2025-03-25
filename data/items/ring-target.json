@@ -1,0 +1,14 @@
+{
+    "name": "Ring Target",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. Moves that would normally have no effect due to type matchups will still hit the holder.",
+        "ja": "ポケモンの　タイプの相性で 無効だった　技が 当たるように　なってしまう。",
+        "fr": "Objet à tenir. Rend le porteur sensible aux capacités auxquelles il devrait être immunisé en raison de son type.",
+        "es": "El Pokémon que lo lleva es vulnerable frente a movimientos que normalmente no afectan a su tipo.",
+        "de": "Attacken, die aufgrund der Wechselwirkungen zwischen den Typen keine Wirkung haben, treffen den Träger.",
+        "it": "Se un Pokémon ha questo strumento, le mosse che di norma non hanno effetto contro il suo tipo vanno a segno.",
+        "ko": "포켓몬 타입의 상성 때문에 무효였던 기술이 맞게 되어 버린다.",
+        "zh-Hant": "原本因寶可夢的屬性相剋關係 而無效的招式現在會變得 能夠擊中自己。",
+        "zh-Hans": "原本因宝可梦的属性相克关系 而无效的招式现在会变得 能够击中自己。"
+    }
+}

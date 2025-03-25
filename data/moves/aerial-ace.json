@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user confounds the target with speed, then slashes. This attack never misses.",
+        "ja": "素早い　動きで 相手を　ほんろうして　切りつける。 攻撃は　必ず　命中する。",
+        "fr": "Le lanceur prend la cible de vitesse et la lacère. N'échoue jamais.",
+        "es": "Desconcierta al objetivo con movimientos muy rápidos antes de cercenarlo. No falla nunca.",
+        "de": "Eine extrem schnelle Attacke, der das Ziel nicht ausweichen kann.",
+        "it": "Il Pokémon sconvolge il bersaglio con movimenti velocissimi e lo assale. Questo attacco va sempre a segno.",
+        "ko": "재빠른 움직임으로 상대를 농락해 벤다. 공격은 반드시 명중한다.",
+        "zh-Hant": "以敏捷的動作 戲弄對手後進行切斬。 攻擊必定會命中。",
+        "zh-Hans": "以敏捷的动作 戏弄对手后进行切斩。 攻击必定会命中。"
+    }
 }

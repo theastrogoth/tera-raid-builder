@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks everything around it by swamping its surroundings with a giant wave.",
+        "ja": "大きな　波で　自分の 周りに　いるものを　攻撃する。",
+        "fr": "Une énorme vague s'abat sur le champ de bataille et inflige des dégâts à tous les Pokémon autour du lanceur.",
+        "es": "Inunda el terreno de combate con una ola gigante que golpea a los Pokémon adyacentes.",
+        "de": "Anwender greift mit einer gewaltigen Welle alle Pokémon im Umkreis an.",
+        "it": "Chi la usa attacca gli altri Pokémon attorno con un'onda enorme.",
+        "ko": "큰 파도로 자신의 주위에 있는 포켓몬을 공격한다.",
+        "zh-Hant": "使用大浪 攻擊自己周圍所有的寶可夢。",
+        "zh-Hans": "利用大浪 攻击自己周围所有的宝可梦。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Oak's Letter",
+    "flavorText": {
+        "en": "A letter from Professor Oak. Written in it is a request for you to go to Route 224.",
+        "ja": "オーキド博士からの　手紙。 中には　２２４番道路に 来てほしいと　書かれている。",
+        "fr": "Une lettre du Professeur Chen vous demandant de vous rendre sur la Route 224.",
+        "es": "Carta del Profesor Oak en la que se te pide que vayas a la Ruta 224.",
+        "de": "Ein Brief von Professor Eich. Er bittet dich, zur Route 224 zu gehen.",
+        "it": "Lettera del Professor Oak con la richiesta di dirigerti verso il Percorso 224.",
+        "ko": "오박사의 편지다. 안에는 224번도로로 와 달라고 적혀 있다.",
+        "zh-Hant": "來自大木博士的信。 上面寫著請來 ２２４號道路。",
+        "zh-Hans": "大木博士的来信。 上面写着请来２２４号道路。"
+    }
+}

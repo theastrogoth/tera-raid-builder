@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by giving the target a gift with a hidden trap. The gift restores HP sometimes, however.",
+        "ja": "わなを　しかけた　箱を 相手に　わたして　攻撃する。ＨＰが 回復して　しまうことも　ある。",
+        "fr": "Le lanceur attaque en offrant un cadeau piégé à la cible, mais le cadeau peut parfois restaurer les PV de celle-ci à la place.",
+        "es": "El usuario ataca al objetivo dándole un regalo con una bomba trampa. Sin embargo, a veces restaura sus PS.",
+        "de": "Eine Bombe als Geschenk. Kann auch KP des Zieles wiederherstellen.",
+        "it": "Il Pokémon attacca dando un regalo trappola al bersaglio. A volte, però, può fargli recuperare PS.",
+        "ko": "덫을 설치한 상자를 상대에게 건네어 공격한다. HP가 회복돼 버릴 때도 있다.",
+        "zh-Hant": "將暗藏機關的盒子 遞給對手進行攻擊。 但也有可能回復對手的ＨＰ。",
+        "zh-Hans": "递给对手设有圈套的 盒子进行攻击。 也有可能回复对手ＨＰ。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Tangled Feet",
+    "flavorText": {
+        "en": "Boosts the Pokémon's evasiveness if it is confused.",
+        "ja": "こんらん状態の　ときは 回避率が　アップする。",
+        "fr": "Augmente l'Esquive du Pokémon s'il est confus.",
+        "es": "Aumenta su Evasión si está confuso.",
+        "de": "Ist das Pokémon verwirrt, steigt sein Ausweichwert.",
+        "it": "Se il Pokémon è confuso, la sua elusione aumenta.",
+        "ko": "혼란 상태일 때는 회피율이 올라간다.",
+        "zh-Hant": "陷入混亂狀態時， 閃避率會提高。",
+        "zh-Hans": "在混乱状态时， 闪避率会提高。"
+    }
+}

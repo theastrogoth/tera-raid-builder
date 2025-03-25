@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hurls mud in the target's face to inflict damage and lower its accuracy.",
+        "ja": "相手の　顔などに 泥を　投げつけて　攻撃する。 命中率を　さげる。",
+        "fr": "Le lanceur envoie de la boue au visage de la cible pour infliger des dégâts et baisser sa Précision.",
+        "es": "Echa lodo en la cara del objetivo para infligirle daño y reducir su Precisión.",
+        "de": "Schadet dem Ziel durch Matsch. Dessen Genauigkeit sinkt.",
+        "it": "Il Pokémon attacca buttando fango in faccia al bersaglio, riducendone la precisione.",
+        "ko": "상대의 얼굴 등에 진흙을 내던져서 공격한다. 명중률을 떨어뜨린다.",
+        "zh-Hant": "向對手的臉等處 投擲泥巴進行攻擊。 可降低對手的命中率。",
+        "zh-Hans": "向对手的脸等 投掷泥块进行攻击。 会降低对手的命中率。"
+    }
 }

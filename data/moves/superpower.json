@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with great power. This also lowers the user's Attack and Defense stats.",
+        "ja": "すごい　力を　発揮して 相手を　攻撃する。自分の 攻撃と　防御が　さがる。",
+        "fr": "Une attaque puissante, mais qui baisse l'Attaque et la Défense du lanceur.",
+        "es": "Ataque de gran potencia, pero que reduce el Ataque y la Defensa del usuario.",
+        "de": "Starke Attacke, die jedoch auch den Angriff und die Verteidigung des Anwenders senkt.",
+        "it": "Il Pokémon attacca il bersaglio con grande forza, ma il suo Attacco e la sua Difesa diminuiscono.",
+        "ko": "엄청난 힘을 발휘하여 상대를 공격한다. 자신의 공격과 방어가 떨어진다.",
+        "zh-Hant": "發揮驚人的力量攻擊對手。 自己的攻擊和防禦會降低。",
+        "zh-Hans": "发挥惊人的力量攻击对手。 自己的攻击和防御会降低。"
+    }
 }

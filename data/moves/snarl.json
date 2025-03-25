@@ -35,5 +35,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user yells as if it's ranting about something, which lowers the Sp. Atk stats of opposing Pokémon.",
+        "ja": "まくしたてる　ように　怒鳴りつけて 相手の　特攻を　さげる。",
+        "fr": "Le lanceur hurle sur la cible et baisse l'Attaque Spéciale de celle-ci.",
+        "es": "Chillido desagradable que reduce el Ataque Especial del objetivo.",
+        "de": "Wäscht gegnerischen Pokémon mit einer ausführlichen Standpauke den Kopf und senkt dabei deren Spezial-Angriff.",
+        "it": "Il Pokémon si mette a urlare per un po', riducendo l'Attacco Speciale degli avversari.",
+        "ko": "호되게 호통을 쳐서 상대의 특수공격을 떨어뜨린다.",
+        "zh-Hant": "沒完沒了地向對手大聲咆哮， 降低對手的特攻。",
+        "zh-Hans": "没完没了地大声斥责， 从而降低对手的特攻。"
+    }
 }

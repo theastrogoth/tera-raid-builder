@@ -1,0 +1,14 @@
+{
+    "name": "Hamburger",
+    "flavorText": {
+        "en": "This very salty ingredient is the thing to add if you want to make your sandwich truly filling.",
+        "ja": "塩味が　強い　食材。 サンドウィッチに　しっかりとした 食べ応えを　求めるなら　欠かせない。",
+        "fr": "Un ingrédient au goût très salé. Parfait si l'on veut préparer un Sandwich qui tient vraiment au corps.",
+        "es": "Un ingrediente de fuerte sabor salado fundamental para dar volumen y consistencia a cualquier bocadillo.",
+        "de": "Wem nach einem sättigenden Sandwich zumute ist, der sollte auf diese sehr salzige Zutat nicht verzichten.",
+        "it": "Un ingrediente molto salato, perfetto per preparare dei panini sostanziosi.",
+        "ko": "짠맛이 강한 식재료. 샌드위치에 확실한 포만감을 주고 싶을 때 빠지지 않는다.",
+        "zh-Hant": "鹹味強勁的食材。 若希望三明治能帶來飽足感， 便少不了它。",
+        "zh-Hans": "咸味强烈的食材。 如果希望三明治能吃得 让人满足，就绝不能少了它。"
+    }
+}

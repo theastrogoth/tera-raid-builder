@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is stabbed with a tentacle, an arm, or the like steeped in poison. This may also poison the target.",
+        "ja": "毒に　そまった　触手や　腕で 相手を　突き刺す。 毒状態に　することが　ある。",
+        "fr": "Le lanceur attaque la cible avec un tentacule, un bras, ou un autre membre imprégné de poison, ce qui peut aussi empoisonner la cible.",
+        "es": "Pincha al objetivo con un tentáculo o brazo envenenado. Puede llegar a envenenar al objetivo.",
+        "de": "Der Anwender greift mit giftigen Gliedmaßen wie Tentakeln oder Armen an. Das Ziel wird dabei eventuell vergiftet.",
+        "it": "Il Pokémon infilza il bersaglio con un tentacolo o un arto intriso di una sostanza tossica che può anche avvelenarlo.",
+        "ko": "독에 물든 촉수나 팔로 상대를 꿰찌른다. 독 상태로 만들 때가 있다.",
+        "zh-Hant": "以帶有毒性的觸手或手臂刺進對手。 有時會讓對手陷入中毒狀態。",
+        "zh-Hans": "用带毒的触手或手臂刺入对手。 有时会让对手陷入中毒状态。"
+    }
 }

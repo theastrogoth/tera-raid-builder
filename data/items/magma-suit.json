@@ -1,0 +1,14 @@
+{
+    "name": "Magma Suit",
+    "flavorText": {
+        "en": "A suit made with the collective technological know-how of Team Magma. It can withstand any impact.",
+        "ja": "マグマ団の　科学技術を 結集して　つくられた　スーツ。 どんな　衝撃にも　耐えられる。",
+        "fr": "Une combinaison créée à partir des méthodes scientifiques de la Team Magma. Elle résiste à tous les chocs.",
+        "es": "Este traje es el resultado de las arduas investigaciones científicas del Equipo Magma. Es capaz de soportar cualquier impacto.",
+        "de": "Ein Anzug, der unter Einsatz des gesamten technischen Wissens von Team Magma entstand. Hält jeder Art von Erschütterung stand.",
+        "it": "Tuta altamente tecnologica costruita dal Team Magma, in grado di resistere a qualunque shock.",
+        "ko": "마그마단이 과학기술을 결집하여 만든 슈트다. 어떠한 충격에도 견딜 수 있다.",
+        "zh-Hant": "集結了熔岩隊的 科學技術製造的服裝。 能承受任何衝擊。",
+        "zh-Hans": "集熔岩队科学技术于一身的服装。 能承受任何冲击。"
+    }
+}

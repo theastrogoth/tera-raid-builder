@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user makes the target see a frightening mirage. It inflicts damage equal to the user's level.",
+        "ja": "恐ろしい　幻を　みせて 自分の　レベルと　同じだけの ダメージを　相手に　与える。",
+        "fr": "Le lanceur invoque un mirage et inflige des dégâts égaux au niveau du lanceur.",
+        "es": "Produce un espejismo ante el objetivo, que pierde tantos PS como nivel tenga el usuario.",
+        "de": "Das Ziel sieht eine Illusion. Richtet Schaden gemäß dem Level des Anwenders an.",
+        "it": "Il Pokémon fa apparire un orribile miraggio al bersaglio e infligge un danno pari al proprio livello.",
+        "ko": "무시무시한 환상을 보게 해서 자신의 레벨과 똑같은 만큼의 데미지를 상대에게 준다.",
+        "zh-Hant": "讓對手看見恐怖幻影， 給予對手和自己等級 相同的傷害。",
+        "zh-Hans": "显示恐怖幻影， 只给予对手 和自己等级相同的伤害。"
+    }
 }

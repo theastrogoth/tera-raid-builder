@@ -1,0 +1,14 @@
+{
+    "name": "Ripen",
+    "flavorText": {
+        "en": "Ripens Berries and doubles their effect.",
+        "ja": "熟成　させることで きのみの　効果が 倍に　なる。",
+        "fr": "Le Pokémon fait mûrir la Baie qu'il tient et double ainsi son effet.",
+        "es": "Hace madurar las bayas, por lo que duplica sus efectos.",
+        "de": "Das Pokémon verdoppelt den Effekt von Beeren, indem es sie heranreifen lässt.",
+        "it": "Fa maturare le bacche raddoppiandone gli effetti.",
+        "ko": "나무열매를 숙성시켜서 효과를 2배로 만든다.",
+        "zh-Hant": "讓樹果成熟， 使效果變為２倍。",
+        "zh-Hans": "使树果成熟， 效果变为２倍。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": true
+    "isWind": true,
+    "flavorText": {
+        "en": "The user stirs up a violent petal blizzard and damages everything around it.",
+        "ja": "激しい　花吹雪を　起こし 周りに　いるものに　攻撃して ダメージを　与える。",
+        "fr": "Déclenche une violente tempête de fleurs qui inflige des dégâts à tous les Pokémon alentour.",
+        "es": "El usuario desata un intenso vendaval de pétalos que daña a los Pokémon adyacentes.",
+        "de": "Der Anwender erzeugt einen turbulenten Blütenwirbel, der alle Pokémon im Umkreis erfasst und ihnen Schaden zufügt.",
+        "it": "Chi la usa infligge danni agli altri Pokémon attorno attaccandoli con una tempesta di fiori.",
+        "ko": "세찬 꽃보라를 일으켜서 주위에 있는 포켓몬을 공격하여 데미지를 준다.",
+        "zh-Hant": "猛烈地刮起飛雪般的落花， 攻擊自己周圍所有的寶可夢。",
+        "zh-Hans": "猛烈地刮起飞雪般的落花， 攻击周围所有的宝可梦， 并给予伤害。"
+    }
 }

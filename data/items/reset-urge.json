@@ -1,0 +1,14 @@
+{
+    "name": "Reset Urge",
+    "flavorText": {
+        "en": "When used, it removes any stat changes of an ally Pokémon.",
+        "ja": "使うと　味方のポケモンの 能力変化が　元に　戻る。 ",
+        "fr": "Permet d'annuler les changements de stats d'un Pokémon de l'équipe.",
+        "es": "Cuando se usa, se anulan los cambios en las características de un Pokémon de tu equipo.",
+        "de": "Hebt bei Gebrauch Statusveränderungen deines Mitstreiters auf.",
+        "it": "Usandolo, tutte le modifiche alle statistiche di un Pokémon della squadra saranno annullate.",
+        "ko": "사용하면 같은 편 포켓몬의 능력 변화가 원래대로 되돌아간다.",
+        "zh-Hant": "使用後，我方寶可夢的 能力變化將復原。",
+        "zh-Hans": "使用后，我方宝可梦的 能力变化将消失。"
+    }
+}

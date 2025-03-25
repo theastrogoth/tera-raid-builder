@@ -1,0 +1,14 @@
+{
+    "name": "Life Orb",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It boosts the power of the holder's moves, but the holder also loses a small amount of HP with each attack it lands.",
+        "ja": "持たせると　攻撃するたびに ＨＰが　少し　減ってしまうが 技の威力が　あがる。",
+        "fr": "Objet à tenir. Augmente la puissance des capacités, mais fait perdre des PV au porteur à chaque fois qu'il attaque.",
+        "es": "Potencia los movimientos, pero consume PS con cada ataque. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein Orb, der Attacken verstärkt, aber den Träger bei jedem Angriff KP kostet.",
+        "it": "Strumento da dare a un Pokémon. Per ogni attacco sferrato, aumenta la potenza delle mosse a scapito di alcuni PS.",
+        "ko": "지니게 하면 공격할 때마다 HP가 조금씩 줄지만 기술의 위력이 올라간다.",
+        "zh-Hant": "攜帶後，雖然每次攻擊時 ＨＰ會少量減少，但招式的 威力會提高。",
+        "zh-Hans": "携带后，虽然每次攻击时 ＨＰ少量减少， 但招式的威力会提高。"
+    }
+}

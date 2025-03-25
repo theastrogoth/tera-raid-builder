@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user endures any attack with at least 1 HP. This move's chance of failing rises if used in succession.",
+        "ja": "攻撃を　受けても ＨＰを　必ず　１だけ　残せる。 連続で　だすと　失敗しやすい。",
+        "fr": "Le lanceur résiste aux attaques avec 1 PV. Peut échouer si utilisée plusieurs fois de suite.",
+        "es": "Resiste cualquier ataque y deja al menos 1 PS. Puede fallar si se usa repetidamente.",
+        "de": "Nach fatalen Attacken bleibt stets 1 KP übrig. Misserfolg bei Wiederholung möglich.",
+        "it": "Il Pokémon resta con 1 PS qualunque attacco subisca. Se la mossa è usata in successione può fallire.",
+        "ko": "공격을 받아도 HP를 반드시 1만큼은 남긴다. 연속으로 쓰면 실패하기 쉽다.",
+        "zh-Hant": "即使受到再強烈的攻擊， 也一定會剩下１ＨＰ。 連續使用時容易失敗。",
+        "zh-Hans": "即使受到攻击， 也至少会留下１ＨＰ。 连续使出则容易失败。"
+    }
 }

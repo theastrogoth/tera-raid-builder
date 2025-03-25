@@ -1,0 +1,14 @@
+{
+    "name": "Adrenaline Orb",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This orb boosts the Speed stat if the holder is intimidated.",
+        "ja": "ポケモンに　持たせると いかくを　受けた時 すばやさが　上がる。",
+        "fr": "Objet à tenir. Si le porteur est touché par le talent Intimidation, sa Vitesse augmente.",
+        "es": "Aumenta la Velocidad del portador si se siente intimidado.",
+        "de": "Als getragenes Item erhöht er bei Pokémon, die unter dem Einfluss von Bedroher stehen, die Initiative.",
+        "it": "Data a un Pokémon, aumenta la Velocità se subisce Prepotenza.",
+        "ko": "포켓몬에게 지니게 하면 위협을 받았을 때 스피드가 올라간다.",
+        "zh-Hant": "讓寶可夢攜帶後， 受到威嚇時速度就會提高。",
+        "zh-Hans": "让宝可梦携带后， 在受到威吓时速度会提高。"
+    }
+}

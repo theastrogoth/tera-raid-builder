@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "By locking down the battlefield, the user keeps all Pokémon from fleeing during the next turn.",
+        "ja": "ロックを　かけることによって 次のターン　すべての ポケモンを　逃げられなくする。",
+        "fr": "Des chaînes entourent la zone de combat, empêchant tous les Pokémon de quitter le terrain au tour suivant.",
+        "es": "Consigue que ningún Pokémon pueda huir ni ser cambiado por otro en el siguiente turno echando un cerrojo.",
+        "de": "Der Anwender sperrt alle Pokémon ein und hindert sie so in der nächsten Runde an der Flucht beziehungsweise am Auswechseln.",
+        "it": "Chi la usa impone un blocco al terreno di lotta che nel turno successivo impedisce a tutti i Pokémon di lasciare il campo.",
+        "ko": "록을 걸어 다음 턴의 모든 포켓몬을 도망가지 못하게 한다.",
+        "zh-Hant": "封鎖對戰場地， 下一回合所有的 寶可夢都無法逃走。",
+        "zh-Hans": "通过封锁， 下一回合所有的 宝可梦都无法逃走。"
+    }
 }

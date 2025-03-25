@@ -1,0 +1,14 @@
+{
+    "name": "Devon Scope",
+    "flavorText": {
+        "en": "A special device made by Devon Corporation that signals the presence of any unseen Pokémon.",
+        "ja": "見えない　ポケモンに 反応して　音をだす デボンの　特製品。",
+        "fr": "Ce produit en série limitée de Devon émet un signal sonore pour indiquer la présence de Pokémon invisibles.",
+        "es": "Artilugio creado por Devon S. A. que reacciona a la presencia de Pokémon invisibles emitiendo sonidos.",
+        "de": "Ein von der Devon Corporation hergestelltes Gerät, das mit einem Signalton auf unsichtbare Pokémon reagiert.",
+        "it": "Congegno prodotto dalla Devon che rileva la presenza di Pokémon nascosti emettendo un segnale sonoro.",
+        "ko": "보이지 않는 포켓몬에 반응하여 소리를 내는 데봉의 특제품.",
+        "zh-Hant": "會對看不見的寶可夢起反應， 並發出聲音的得文特製產品。",
+        "zh-Hans": "会对看不见的宝可梦起反应， 并发出声音的得文特制产品。"
+    }
+}

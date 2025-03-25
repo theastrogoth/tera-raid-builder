@@ -1,0 +1,14 @@
+{
+    "name": "Basement Key",
+    "flavorText": {
+        "en": "The key to New Mauville, which was constructed beneath Mauville City.",
+        "ja": "キンセツの　地下にある ニューキンセツに 入るための　カギ。",
+        "fr": "Une clé permettant d'accéder à New Lavandia, dans les sous-sols de Lavandia.",
+        "es": "Llave que da acceso a Malvalanova, situada en los subterráneos de Ciudad Malvalona.",
+        "de": "Ein Schlüssel, der dir Zugang nach Neu Malvenfroh verschafft, welches unter Malvenfroh City liegt.",
+        "it": "Chiave che permette di accedere a Ciclanova, la città sotterranea costruita sotto a Ciclamipoli.",
+        "ko": "보라시티 지하에 있는 뉴보라에 들어가기 위한 열쇠.",
+        "zh-Hant": "用於進入紫菫地下的 新紫菫的鑰匙。",
+        "zh-Hans": "进入紫堇地下的新紫堇时， 所使用的钥匙。"
+    }
+}

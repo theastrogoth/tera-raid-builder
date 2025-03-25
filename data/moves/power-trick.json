@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user employs its psychic power to switch its Attack stat with its Defense stat.",
+        "ja": "超能力で 自分の　攻撃と　防御の 力を　交換する。",
+        "fr": "Le lanceur utilise ses pouvoirs psychiques pour échanger sa Défense et son Attaque.",
+        "es": "El usuario emplea su poder mental para intercambiar su Ataque y su Defensa.",
+        "de": "Anwender setzt Psycho-Kräfte ein, um eigenen Angriffs- mit Verteidigungs-Wert auszutauschen.",
+        "it": "Mossa psichica che permette al Pokémon di scambiare i valori delle sue statistiche di Attacco e Difesa.",
+        "ko": "초능력으로 자신의 공격과 방어의 힘을 교환한다.",
+        "zh-Hant": "利用超能力， 將自己的攻擊和 防禦互相交換。",
+        "zh-Hans": "利用超能力交换 自己的攻击和 防御的力量。"
+    }
 }

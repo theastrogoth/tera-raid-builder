@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user burrows into the ground on the first turn, then attacks on the next turn.",
+        "ja": "１ターン目に　潜り　２ターン目で 相手を　攻撃する。",
+        "fr": "Le lanceur creuse au premier tour et frappe au second.",
+        "es": "El usuario cava durante el primer turno y ataca en el segundo.",
+        "de": "In Runde 1 gräbt sich der Anwender ein und in Runde 2 greift er an.",
+        "it": "Il Pokémon scava al primo turno e attacca al successivo.",
+        "ko": "1턴째에 땅속으로 파고들어 2턴째에 상대를 공격한다.",
+        "zh-Hant": "使用後的第１回合潛入地底， 並於第２回合攻擊對手。",
+        "zh-Hans": "第１回合钻入地底， 第２回合攻击对手。"
+    }
 }

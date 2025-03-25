@@ -1,0 +1,14 @@
+{
+    "name": "Quiet Mint",
+    "flavorText": {
+        "en": "Having a Pokémon smell this mint can make its Sp. Atk stat grow stronger. However, its Speed stat may suffer.",
+        "ja": "ポケモンに　香りを　かがせると 特攻が　上がりやすく　なるが 素早さは　上がりにくくなる　ミント。",
+        "fr": "Si un Pokémon hume cet aromate, son Attaque Spéciale montera plus facilement, mais sa Vitesse se développera plus lentement.",
+        "es": "Cuando un Pokémon percibe su aroma, aumenta con más facilidad su Ataque Especial, en detrimento de su Velocidad.",
+        "de": "Lässt man ein Pokémon an dieser Minze schnuppern, steigt sein Spezial-Angriff schneller, aber seine Initiative umso langsamer.",
+        "it": "Quando un Pokémon ne sente il profumo, il suo Attacco Speciale aumenta più facilmente a scapito della Velocità.",
+        "ko": "포켓몬에게 향기를 맡게 하면 특수공격이 오르기 쉬워지지만 스피드가 오르기 어려워지는 민트.",
+        "zh-Hant": "讓寶可夢聞這種薄荷的氣味， 會令特攻變得容易提高， 但速度則難以提高。",
+        "zh-Hans": "宝可梦闻了这种薄荷之后， 会令特攻容易提高， 而速度则难以提高。"
+    }
+}

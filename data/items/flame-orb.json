@@ -1,0 +1,14 @@
+{
+    "name": "Flame Orb",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a bizarre orb that gives off heat when touched and will afflict the holder with a burn during battle.",
+        "ja": "触ると　熱をだす　不思議な玉。 持たせると　戦闘中に やけどの状態に　なる。",
+        "fr": "Objet à tenir. Un orbe bizarre qui brûle son porteur durant le combat.",
+        "es": "Extraña esfera que causa quemaduras al Pokémon que la lleva en combate.",
+        "de": "Ein Item zum Tragen. Dieser bizarre Orb fügt seinem Träger im Kampf Verbrennungen zu.",
+        "it": "Strumento da dare a un Pokémon. Sfera bizzarra che procura una scottatura a chi l'ha con sé in una lotta.",
+        "ko": "만지면 열을 내는 이상한 구슬. 지니게 하면 배틀 중에 화상 상태가 된다.",
+        "zh-Hant": "觸碰後會放出熱量的神奇寶珠。 攜帶後，在戰鬥時 會變成灼傷狀態。",
+        "zh-Hans": "触碰后会放出热量的神奇宝珠。 携带后，在战斗时会变成灼伤状态。"
+    }
+}

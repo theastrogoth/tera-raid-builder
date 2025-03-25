@@ -1,0 +1,14 @@
+{
+    "name": "Key to Room 2",
+    "flavorText": {
+        "en": "A key that opens a door inside Sea Mauville.",
+        "ja": "シーキンセツの　部屋に 入るための　カギ。",
+        "fr": "La clé d'une salle de Lavandia Sea.",
+        "es": "Llave de acceso a una de las habitaciones de Malvamar.",
+        "de": "Ein Schlüssel, der in das Schloss eines Raumes auf Seewoge Malvenfroh passt.",
+        "it": "Chiave per accedere a una delle stanze di Ciclamare.",
+        "ko": "씨보라의 방으로 들어가기 위한 열쇠.",
+        "zh-Hant": "用於進入 海紫菫的房間的鑰匙。",
+        "zh-Hans": "进入海紫堇的房间时 所需的钥匙。"
+    }
+}

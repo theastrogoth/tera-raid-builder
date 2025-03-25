@@ -1,0 +1,14 @@
+{
+    "name": "Max Repel",
+    "flavorText": {
+        "en": "An item that prevents low-level wild Pokémon from jumping out at you for a time. It lasts longer than Super Repel.",
+        "ja": "弱い　野生のポケモンが まったく　出てこなくなる。 シルバースプレーより　長く　効く。",
+        "fr": "Repousse les Pokémon sauvages faibles plus longtemps que le Super Repousse.",
+        "es": "Evita encuentros con Pokémon salvajes de nivel bajo durante más tiempo que un Superrepelente.",
+        "de": "Hält schwache wilde Pokémon ab. Wirkt länger als das Item Superschutz.",
+        "it": "Strumento che evita a chi lo usa di incontrare Pokémon selvatici deboli. Il suo effetto dura più a lungo di quello del Superrepellente.",
+        "ko": "약한 야생 포켓몬이 전혀 나오지 않게 된다. 실버스프레이보다 효과가 오래간다.",
+        "zh-Hant": "弱小的野生寶可夢 變得完全不會出現。 效果比白銀噴霧更持久。",
+        "zh-Hans": "弱小的野生宝可梦 将完全不会出现。 效果比白银喷雾更持久。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Synchronize",
+    "flavorText": {
+        "en": "If the Pokémon is burned, paralyzed, or poisoned by another Pokémon, that Pokémon will be inflicted with the same status condition.",
+        "ja": "自分が　なってしまった どくや　まひや　やけどを 相手に　うつす。",
+        "fr": "Quand le Pokémon est brûlé, paralysé ou empoisonné par un autre Pokémon, il partage ce statut avec celui-ci.",
+        "es": "Contagia el envenenamiento, las quemaduras o la parálisis al Pokémon que le cause ese estado.",
+        "de": "Erleidet das Pokémon Verbrennungen, Vergiftungen oder Paralyse, ereilt das jeweilige Statusproblem auch den Verursacher.",
+        "it": "Se un Pokémon con questa abilità viene avvelenato, paralizzato o scottato, contagia con lo stesso problema di stato chi lo ha causato.",
+        "ko": "자신이 걸린 독이나 마비, 화상을 상대에게 옮긴다.",
+        "zh-Hant": "將自己的中毒、麻痺或 灼傷狀態傳染給對手。",
+        "zh-Hans": "将自己的中毒、麻痹 或灼伤状态传染给对手。"
+    }
+}

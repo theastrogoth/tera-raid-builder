@@ -1,0 +1,14 @@
+{
+    "name": "Mach Bike",
+    "flavorText": {
+        "en": "This folding bike more than doubles your movement speed.",
+        "ja": "２倍　以上の 速さで　移動できる おりたたみの　自転車。",
+        "fr": "Un vélo pliable qui roule jusqu'à deux fois plus vite qu'une bicyclette ordinaire.",
+        "es": "Bicicleta plegable que va a más del doble de velocidad que otras.",
+        "de": "Ein Klapprad, mit dem du dich doppelt so schnell fortbewegen kannst wie gewöhnlich.",
+        "it": "Bici pieghevole che permette di spostarsi al doppio della velocità normale.",
+        "ko": "2배 이상의 스피드로 이동할 수 있는 접이식 자전거다.",
+        "zh-Hant": "能以２倍以上速度移動的 折疊式自行車。",
+        "zh-Hans": "能以２倍以上的速度移动的 折叠式自行车。"
+    }
+}

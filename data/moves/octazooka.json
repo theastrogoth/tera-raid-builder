@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by spraying ink in the target's face. This may also lower the target's accuracy.",
+        "ja": "相手の　顔などに 墨を　吹きかけて　攻撃する。 命中率を　さげることが　ある。",
+        "fr": "Le lanceur attaque en projetant de l'encre au visage de la cible, ce qui peut aussi baisser sa Précision.",
+        "es": "Dispara tinta a la cara del objetivo y le inflige daño. Puede reducir la Precisión.",
+        "de": "Schießt mit Tinte, um Schaden anzurichten und die Genauigkeit zu senken.",
+        "it": "Chi la usa spruzza inchiostro in faccia al bersaglio. Può anche ridurne la precisione.",
+        "ko": "상대의 얼굴 등에 먹물을 내뿜어 공격한다. 명중률을 떨어뜨릴 때가 있다.",
+        "zh-Hant": "向對手的臉等 噴出墨汁進行攻擊。 有時會降低對手的命中率。",
+        "zh-Hans": "向对手的脸等 喷出墨汁进行攻击。 有时会降低对手的命中率。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Escape Rope",
+    "flavorText": {
+        "en": "A long and durable rope. Use it to escape instantly from locations like caves or dungeons. It can be used any number of times.",
+        "ja": "長くて　丈夫なヒモ。洞窟や ダンジョンから　抜け出すことが　できる。 何度でも　使える。",
+        "fr": "Une corde longue et solide permettant de sortir rapidement d'une grotte ou d'un donjon. Elle peut être utilisée à volonté.",
+        "es": "Cuerda larga y resistente que sirve para huir de cuevas y sitios cerrados en general. Puede usarse tantas veces como se quiera.",
+        "de": "Ein langes, festes Seil, das die sofortige Flucht aus Höhlen oder Ähnlichem ermöglicht. Kann beliebig oft verwendet werden.",
+        "it": "Corda lunga e resistente che si usa per fuggire dalle grotte o da certi luoghi chiusi. Può essere utilizzata più volte.",
+        "ko": "길고 튼튼한 끈. 동굴이나 던전에서 빠져나올 수 있다. 몇 번이든 쓸 수 있다.",
+        "zh-Hant": "結實的長繩。 可以從洞窟或迷宮中脫身。 可重複使用。",
+        "zh-Hans": "结实的长绳。 可以从洞窟或迷宫中脱身。 能够反复使用。"
+    }
+}

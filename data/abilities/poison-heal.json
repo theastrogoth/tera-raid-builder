@@ -1,0 +1,14 @@
+{
+    "name": "Poison Heal",
+    "flavorText": {
+        "en": "If poisoned, the Pokémon has its HP restored instead of taking damage.",
+        "ja": "どく状態に　なると ＨＰが　減らずに　増えていく。",
+        "fr": "Quand le Pokémon est empoisonné, il regagne des PV au lieu d'en perdre.",
+        "es": "Si resulta envenenado, recupera PS en vez de perderlos.",
+        "de": "Das Pokémon erleidet keinen Schaden durch Vergiftung, sondern regeneriert KP.",
+        "it": "Se il Pokémon è avvelenato, recupera PS anziché perderli.",
+        "ko": "독 상태가 되면 HP가 줄지 않고 증가한다.",
+        "zh-Hant": "陷入中毒狀態時， ＨＰ不會減少，反而會漸漸增加。",
+        "zh-Hans": "变为中毒状态时， ＨＰ不会减少，反而会增加起来。"
+    }
+}

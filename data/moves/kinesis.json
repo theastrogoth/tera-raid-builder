@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user distracts the target by bending a spoon. This lowers the target's accuracy.",
+        "ja": "スプーンを　まげて　注意を　ひき 相手の　命中率を　さげる。",
+        "fr": "Le lanceur distrait la cible en pliant une cuillère, ce qui baisse sa Précision.",
+        "es": "Dobla una cuchara para distraer al objetivo y reducir su Precisión.",
+        "de": "Lenkt das Ziel durch Verbiegen eines Löffels ab und senkt so dessen Genauigkeit.",
+        "it": "Il Pokémon distrae il bersaglio piegando un cucchiaio e ne riduce la precisione.",
+        "ko": "숟가락을 휘어서 주의를 끌어 상대의 명중률을 낮춘다.",
+        "zh-Hant": "折彎湯匙引起注意， 降低對手的命中率。",
+        "zh-Hans": "折弯汤匙引开注意， 从而降低对手的命中率。"
+    }
 }

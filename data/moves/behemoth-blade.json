@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user wields a large, powerful sword using its whole body and cuts the target in a vigorous attack.",
+        "ja": "全身で　強大な剣を　振りかざし 勢いよく　切りかかって　攻撃する。",
+        "fr": "Le lanceur se transforme en épée extrêmement grande et pourfend vigoureusement sa cible.",
+        "es": "El usuario se convierte en una espada gigante para rebanar con vigor al objetivo.",
+        "de": "Der Anwender greift an, indem er ein riesiges Schwert mit vollem Körpereinsatz schwingt und das Ziel mit enormer Wucht trifft.",
+        "it": "Il Pokémon brandisce un'enorme spada e attacca vibrando un poderoso fendente.",
+        "ko": "크고 강한 검을 온몸으로 치켜든 다음 기세 좋게 베어서 공격한다.",
+        "zh-Hant": "用全身的力量舉起強大的劍， 猛烈地斬向對手進行攻擊。",
+        "zh-Hans": "以全身力气举起强大的剑， 猛烈地劈向对手进行攻击。"
+    }
 }

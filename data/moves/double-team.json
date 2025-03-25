@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "By moving rapidly, the user makes illusory copies of itself to boost its evasiveness.",
+        "ja": "素早い　動きで　分身を　つくり 相手を　まどわせて 回避率を　あげる。",
+        "fr": "Le lanceur se déplace si vite qu'il crée des copies illusoires de lui-même, augmentant son Esquive.",
+        "es": "El usuario se mueve a velocidad vertiginosa y crea copias ilusorias de sí mismo, con lo que aumenta su Evasión al desconcertar al rival.",
+        "de": "Erzeugt durch schnelle Bewegungen Ebenbilder, um den Ausweichwert zu erhöhen.",
+        "it": "Il Pokémon si muove in fretta e crea copie illusorie di se stesso che aumentano l'elusione.",
+        "ko": "재빠른 움직임으로 분신을 만들어 상대에게 혼동을 유발해 회피율을 올린다.",
+        "zh-Hant": "利用快速移動 製造出分身擾亂對手， 提高自己的閃避率。",
+        "zh-Hans": "通过快速移动来制造分身， 扰乱对手，从而提高闪避率。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Autograph",
+    "flavorText": {
+        "en": "The autograph you got from the Vermilion City Gym Leader, Lt. Surge. He wrote, “Good luck!”",
+        "ja": "クチバ　ジムリーダー　マチスから もらった　サイン色紙。 Ｇｏｏｄ　Ｌｕｃｋ！と　書かれている。",
+        "fr": "C'est un autographe de Major Bob, le Champion de l'Arène de Carmin sur Mer ! Il y a écrit « Good luck ! » dessus.",
+        "es": "El autógrafo del Teniente Surge, el Líder de Gimnasio de Ciudad Carmín. La dedicatoria reza: \"Good luck!\".",
+        "de": "Das ist ein Autogramm von Major Bob, dem Arenaleiter von Orania City. Darauf steht: „Viel Glück, [VAR 1100(00FF,0806,0000)]RekrutRekrutin!“",
+        "it": "È l'autografo di Lt. Surge, il Capopalestra di Aranciopoli. C'è scritto \"Good luck!\".",
+        "ko": "갈색체육관 관장 마티스에게 받은 사인이 적힌 종이. Good Luck!이라고 써 있다.",
+        "zh-Hant": "從枯葉市道館館主馬志士 那裡拿到的簽名板。 上面寫著「Ｇｏｏｄ　Ｌｕｃｋ！」。",
+        "zh-Hans": "枯叶市道馆馆主马志士 给你的彩色签名纸。 上面写着“Ｇｏｏｄ Ｌｕｃｋ！”。"
+    }
+}

@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user becomes charged, boosting the power of the next Electric-type move it uses. This also boosts the user's Sp. Def stat.",
+        "ja": "じゅうでん状態に　なり　次にだす でんきタイプの　技の　威力を　あげる。 自分の　特防も　あがる。",
+        "fr": "Le lanceur se charge en électricité, ce qui augmente la puissance de la prochaine capacité Électrik qu'il utilisera. Sa Défense Spéciale augmente également.",
+        "es": "Recarga energía para potenciar su siguiente movimiento de tipo Eléctrico. También aumenta la Defensa Especial.",
+        "de": "Der Anwender beginnt einen Ladevorgang, was die Stärke seiner nächsten Elektro-Attacke erhöht. Außerdem steigt seine Spezial-Verteidigung.",
+        "it": "Il Pokémon si carica di elettricità e aumenta la potenza della sua prossima mossa di tipo Elettro. Aumenta anche la propria Difesa Speciale.",
+        "ko": "충전 상태가 되어 다음에 사용하는 전기타입 기술의 위력을 올린다. 자신의 특수방어도 올라간다.",
+        "zh-Hant": "變成充電狀態，提高下次使出的 電屬性的招式威力。 也會提高自己的特防。",
+        "zh-Hans": "变为充电状态，提高下次 使出的电属性的招式威力。 自己的特防也会提高。"
+    }
 }

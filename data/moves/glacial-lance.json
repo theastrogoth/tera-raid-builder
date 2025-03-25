@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by hurling a blizzard-cloaked icicle lance at opposing Pokémon.",
+        "ja": "吹雪を　まとった　氷の　槍を 相手に　投げつけて　攻撃する。",
+        "fr": "Le lanceur attaque la cible avec une lance de glace entourée d'un blizzard.",
+        "es": "El usuario ataca al objetivo lanzándole un carámbano de hielo envuelto en una ventisca.",
+        "de": "Der Anwender wirft eine in einen Blizzard gehüllte Lanze aus Eis auf gegnerische Pokémon.",
+        "it": "Il Pokémon attacca il bersaglio scagliando una lancia di ghiaccio accompagnata da una tormenta di neve.",
+        "ko": "눈보라를 두른 얼음의 창을 상대에게 던져서 공격한다.",
+        "zh-Hant": "向對手投擲 捲著暴風雪的冰矛進行攻擊。",
+        "zh-Hans": "向对手投掷 掀起暴风雪的冰矛进行攻击。"
+    }
 }

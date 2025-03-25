@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user drains the target's energy with its horns. The user's HP is restored by up to half the damage taken by the target.",
+        "ja": "つのを　突き刺して　相手の　養分を 吸い取る。　与えた　ダメージの 半分の　ＨＰを　回復できる。",
+        "fr": "Un coup de cornes qui draine l'énergie de la cible. La capacité convertit la moitié des dégâts infligés en PV pour le lanceur.",
+        "es": "El usuario ensarta al objetivo con su cornamenta y absorbe su energía. El Pokémon recupera la mitad de los PS arrebatados al objetivo.",
+        "de": "Greift Ziel mit einem Astgeweih an und zapft diesem Energie ab. Anwender wird um die Hälfte des zugefügten Schadens geheilt.",
+        "it": "Il Pokémon infilza il bersaglio con le corna e assorbe una quantità di PS pari a metà del danno inflitto.",
+        "ko": "뿔을 꿰찔러서 상대의 양분을 흡수한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+        "zh-Hant": "將角刺進對手，吸取養分。 可以回復給予對手 傷害的一半ＨＰ。",
+        "zh-Hans": "将角刺入，吸取对手的养分。 可以回复给予对手 伤害的一半ＨＰ。"
+    }
 }

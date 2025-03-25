@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This is a Poison-type attack Dynamax Pokémon use. This boosts ally Pokémon's Sp. Atk stats.",
+        "ja": "ダイマックスした　ポケモンが 繰りだす　どくタイプの　攻撃。 味方の　特攻を　上げる。",
+        "fr": "Une attaque de type Poison que seuls les Pokémon Dynamax peuvent utiliser. Augmente l'Attaque Spéciale des alliés.",
+        "es": "Ataque de tipo Veneno ejecutado por un Pokémon Dinamax. Aumenta el Ataque Especial de tu bando.",
+        "de": "Eine Gift-Attacke, die nur Dynamax-Pokémon einsetzen können. Erhöht den Spezial-Angriff der Mitstreiterseite.",
+        "it": "Un attacco di tipo Veleno che può essere eseguito dai Pokémon dynamaxizzati. Aumenta l'Attacco Speciale degli alleati.",
+        "ko": "다이맥스한 포켓몬이 날리는 독타입의 공격. 같은 편의 특수공격을 올린다.",
+        "zh-Hant": "極巨化寶可夢 所使出的毒屬性攻擊。 可提高我方的特攻。",
+        "zh-Hans": "极巨化宝可梦使出的毒属性攻击。 会提高我方的特攻。"
+    }
 }

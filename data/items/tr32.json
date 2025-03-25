@@ -1,0 +1,14 @@
+{
+    "name": "TR32",
+    "flavorText": {
+        "en": "The user crunches up the target with sharp fangs. This may also lower the target's Defense stat.",
+        "ja": "鋭い　歯で 相手を　かみくだいて　攻撃する。 相手の　防御を　さげることが　ある。",
+        "fr": "Le lanceur mord la cible de ses crocs pointus, ce qui peut aussi baisser sa Défense.",
+        "es": "Tritura con afilados colmillos y puede reducir la Defensa del objetivo.",
+        "de": "Beißt mit scharfen Reißzähnen zu und senkt eventuell die Verteidigung.",
+        "it": "Il Pokémon attacca mordendo il bersaglio con denti affilati. Può anche ridurne la Difesa.",
+        "ko": "날카로운 이빨로 상대를 깨물어 부숴서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "用尖銳的牙齒咬碎對手進行攻擊。 有時會降低對手的防禦。",
+        "zh-Hans": "用利牙咬碎对手进行攻击。 有时会降低对手的防御。"
+    }
+}

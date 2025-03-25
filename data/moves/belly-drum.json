@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user maximizes its Attack stat but loses HP equal to half its max HP.",
+        "ja": "自分の　ＨＰを　最大ＨＰの 半分　減らして　自分の　攻撃を 最大に　あげる。",
+        "fr": "Améliore l'Attaque au maximum en sacrifiant la moitié des PV max.",
+        "es": "Sacrifica la mitad de los PS máximos para aumentar al máximo el Ataque.",
+        "de": "Der Anwender maximiert den Angriffs-Wert auf Kosten der Hälfte seiner maximalen KP.",
+        "it": "Il Pokémon massimizza l'Attacco in cambio di metà dei PS massimi.",
+        "ko": "자신의 HP를 최대 HP의 절반만큼 감소시켜 자신의 공격을 최대로 올린다.",
+        "zh-Hant": "將現有的ＨＰ 減去最大ＨＰ的一半， 讓自己的攻擊提高至最大值。",
+        "zh-Hans": "将自己的ＨＰ减少到 最大ＨＰ的一半， 从而最大限度提高自己的攻击。"
+    }
 }

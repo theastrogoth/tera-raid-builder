@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user bites with cold-infused fangs. This may also make the target flinch or leave it frozen.",
+        "ja": "冷気を　ひめた　キバで　かみつく。 相手を　ひるませたり こおり状態に　することが　ある。",
+        "fr": "Le lanceur utilise une morsure glaciale qui peut aussi geler ou apeurer la cible.",
+        "es": "El usuario muerde al objetivo con colmillos helados y puede hacer que se amedrente o se congele.",
+        "de": "Anwender beißt mit eiskalten Reißzähnen zu. Ziel schreckt eventuell zurück oder friert ein.",
+        "it": "Il Pokémon morde con denti ghiacciati. Può anche congelare o far tentennare il bersaglio.",
+        "ko": "냉기를 품은 이빨로 문다. 상대를 풀죽게 하거나 얼음 상태로 만들 때가 있다.",
+        "zh-Hant": "用帶有寒氣的牙齒咬住對手。 有時會讓對手畏縮 或陷入冰凍狀態。",
+        "zh-Hans": "用藏有冷气的牙齿咬住对手。 有时会使对手畏缩 或陷入冰冻状态。"
+    }
 }

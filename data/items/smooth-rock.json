@@ -1,0 +1,14 @@
+{
+    "name": "Smooth Rock",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. When the holder changes the weather to a sandstorm, the storm will persist for longer than usual.",
+        "ja": "持たせたポケモンが すなあらしを　起こすと　いつもより すなあらしの時間が　長くなる。",
+        "fr": "Objet à tenir. Prolonge la durée d'une tempête de sable quand elle est déclenchée par le porteur.",
+        "es": "Prolonga la duración de las tormentas de arena provocadas por el Pokémon que la lleva.",
+        "de": "Ein Item zum Tragen. Verlängert die Dauer von Sandstürmen, die der Träger verursacht.",
+        "it": "Allunga la durata della tempesta di sabbia provocata dal Pokémon che ha questo strumento.",
+        "ko": "지니게 한 포켓몬이 날씨를 모래바람으로 만들면 여느 때보다 모래바람의 지속 시간이 길어진다.",
+        "zh-Hant": "攜帶它的寶可夢 刮起沙暴的話， 沙暴的時間就會比平時更長。",
+        "zh-Hans": "携带它的宝可梦刮起沙暴的话， 沙暴的时间就会比平时更长。"
+    }
+}

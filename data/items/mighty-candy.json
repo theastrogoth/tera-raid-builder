@@ -1,0 +1,14 @@
+{
+    "name": "Mighty Candy",
+    "flavorText": {
+        "en": "A candy that is packed with energy. When given to a Pokémon, it will increase that Pokémon's Attack stat.",
+        "ja": "エネルギーの　つまった　アメ。 ポケモンの　こうげきを　上げる。",
+        "fr": "Un bonbon plein d'énergie. Il augmente l'Attaque d'un Pokémon.",
+        "es": "Caramelo energético que aumenta el Ataque del Pokémon.",
+        "de": "Ein Bonbon, das voller Energie steckt. Erhöht dauerhaft den Angriff eines Pokémon.",
+        "it": "Una caramella piena zeppa di energia. Aumenta l'Attacco di un Pokémon.",
+        "ko": "에너지가 가득한 사탕. 포켓몬의 공격을 올린다.",
+        "zh-Hant": "充滿能量的糖果。 能提高寶可夢的攻擊。",
+        "zh-Hans": "充满能量的糖果。 能提高宝可梦的攻击。"
+    }
+}

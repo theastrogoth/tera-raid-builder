@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is slammed with a long tail, vines, or the like to inflict damage.",
+        "ja": "長い　しっぽや　つるなどを　使い 相手を　たたきつけて　攻撃する。",
+        "fr": "Le lanceur utilise l'un de ses membres, tels qu'une queue ou une liane, pour infliger des dégâts à la cible.",
+        "es": "Golpea con la cola o con lianas, por ejemplo, para causar daño al objetivo.",
+        "de": "Schlag mit einem langen Schweif, einer Ranke oder Ähnlichem.",
+        "it": "Il Pokémon attacca il bersaglio con la coda, con una liana o con qualcosa di simile.",
+        "ko": "긴 꼬리나 덩굴 등을 사용해 상대를 힘껏 쳐서 공격한다.",
+        "zh-Hant": "將長長的尾巴或藤蔓等 甩向對手進行攻擊。",
+        "zh-Hans": "使用长长的尾巴或藤蔓等 摔打对手进行攻击。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Big Root",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This root boosts the amount of HP the holder restores to itself when it uses HP-stealing moves.",
+        "ja": "持たせると　ＨＰを　吸いとる　技で いつもより多く　自分の　ＨＰを 回復できる。",
+        "fr": "Objet à tenir. Permet au porteur de récupérer davantage de PV quand il utilise des capacités qui absorbent les PV.",
+        "es": "El Pokémon que la lleva recupera más PS al usar movimientos que drenan energía.",
+        "de": "Ein Item zum Tragen. Verstärkt den Effekt von KP-stehlenden Attacken.",
+        "it": "Strumento da dare a un Pokémon. Potenzia le mosse ruba-PS facendo recuperare un maggior numero di PS.",
+        "ko": "지니게 하면 HP 흡수 기술을 썼을 때 여느 때보다 많은 HP를 자신이 회복할 수 있다.",
+        "zh-Hant": "攜帶後，吸取ＨＰ的招式 可以比平時回復更多 自己的ＨＰ。",
+        "zh-Hans": "携带后，吸取ＨＰ的招式 可以比平时更多地回复自己的ＨＰ。"
+    }
+}

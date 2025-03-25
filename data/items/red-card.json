@@ -1,0 +1,14 @@
+{
+    "name": "Red Card",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If the holder is damaged by an attack, the mysterious power of this card can remove the attacker from the battle.",
+        "ja": "不思議な　ちからのある　カード。 持たせると　ダメージを　与えてきた 相手を　退場させることが　できる。",
+        "fr": "Objet à tenir. Une carte au pouvoir mystérieux qui permet d'éjecter un Pokémon du combat si ce dernier inflige des dégâts au porteur avec une capacité offensive.",
+        "es": "Misteriosa tarjeta que permite al Pokémon que la lleva expulsar a otro Pokémon que lo ataque.",
+        "de": "Eine Karte mit mysteriösen Kräften. Wird dem Träger Schaden zugefügt, wird der Angreifer des Platzes verwiesen.",
+        "it": "Cartellino dal potere misterioso. Chi ce l'ha fa ritirare dalla lotta il Pokémon che gli ha inferto dei danni.",
+        "ko": "이상한 힘이 있는 카드. 지니게 하면 데미지를 준 상대를 퇴장시킬 수 있다.",
+        "zh-Hant": "有著神奇力量的卡片。 攜帶後，能讓對自己 造成傷害的對手退場。",
+        "zh-Hans": "有着神奇力量的卡片。 携带后，能让对自己 造成伤害的对手退场。"
+    }
+}

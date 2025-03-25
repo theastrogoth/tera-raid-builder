@@ -1,0 +1,14 @@
+{
+    "name": "Gluttony",
+    "flavorText": {
+        "en": "If the Pokémon is holding a Berry to be eaten when its HP is low, it will instead eat the Berry when its HP drops to half or less.",
+        "ja": "ＨＰが　少なくなったら　食べる きのみを　ＨＰ　半分の 時に　食べてしまう。",
+        "fr": "Si le Pokémon tient une Baie à manger en cas de PV bas, il la mange dès qu'il a perdu la moitié de ses PV.",
+        "es": "Cuando sus PS se ven reducidos a la mitad, engulle la baya que normalmente solo se comería cuando le quedasen pocos PS.",
+        "de": "Das Pokémon setzt bestimmte Beeren nicht erst in einer Notlage ein, sondern bereits dann, wenn seine KP auf die Hälfte des Maximalwerts oder weniger fallen.",
+        "it": "Il Pokémon non attende di aver perso molti PS per mangiare la sua bacca, ma lo fa non appena i suoi PS scendono a metà o meno.",
+        "ko": "HP가 줄어들면 먹을 나무열매를 HP가 절반일 때 먹어 버린다.",
+        "zh-Hant": "原本ＨＰ變得很少時才會吃的樹果， 在ＨＰ還有一半時就會把它吃掉。",
+        "zh-Hans": "原本ＨＰ变得很少时才会吃树果， 在ＨＰ还有一半时就会把它吃掉。"
+    }
+}

@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user captures opposing Pokémon in an electric net to inflict damage. This also lowers their Speed stats.",
+        "ja": "電気の　ネットで 相手を　捕まえて　攻撃する。 相手の　素早さを　さげる。",
+        "fr": "Le lanceur attaque la cible en l'attrapant dans un filet électrique. Baisse aussi la Vitesse de la cible.",
+        "es": "Atrapa y ataca al objetivo con una telaraña eléctrica. También reduce su Velocidad.",
+        "de": "Fängt gegnerische Pokémon mit einem elektrischen Netz und senkt deren Initiative.",
+        "it": "Il Pokémon attacca il bersaglio catturandolo con una ragnatela elettrica e riducendone la Velocità.",
+        "ko": "전기 네트로 상대를 붙잡아서 공격한다. 상대의 스피드를 떨어뜨린다.",
+        "zh-Hant": "用電網捉住對手進行攻擊。 可降低對手的速度。",
+        "zh-Hans": "用电网捉住对手进行攻击。 会降低对手的速度。"
+    }
 }

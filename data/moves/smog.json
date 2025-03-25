@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is attacked with a discharge of filthy gases. This may also poison the target.",
+        "ja": "汚れた　ガスを 相手に　吹きつけて　攻撃する。 毒状態に　することが　ある。",
+        "fr": "Le lanceur attaque à l'aide d'une éruption de gaz répugnants qui peuvent aussi empoisonner la cible.",
+        "es": "Lanza un ataque con gases tóxicos que pueden llegar a envenenar.",
+        "de": "Angriff mit Gas. Das Ziel kann eventuell vergiftet werden.",
+        "it": "Il Pokémon attacca il bersaglio con una scarica di gas maleodoranti. Può anche avvelenarlo.",
+        "ko": "더러운 가스를 상대에게 내뿜어 공격한다. 독 상태로 만들 때가 있다.",
+        "zh-Hant": "將骯髒的濃霧 吹向對手進行攻擊。 有時會讓對手陷入中毒狀態。",
+        "zh-Hans": "将肮脏的浓雾 吹向对手进行攻击。 有时会让对手陷入中毒状态。"
+    }
 }

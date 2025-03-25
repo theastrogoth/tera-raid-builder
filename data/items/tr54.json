@@ -1,0 +1,14 @@
+{
+    "name": "TR54",
+    "flavorText": {
+        "en": "The user lays a trap of poison spikes at the feet of the opposing team. The spikes will poison opposing Pokémon that switch into battle.",
+        "ja": "相手の　足下に　どくびしを しかける。　交代で　でてきた　相手の ポケモンに　毒を　おわせる。",
+        "fr": "Le lanceur éparpille des pics autour de la cible, ce qui empoisonne les Pokémon entrant au combat de ce côté.",
+        "es": "Lanza una trampa de púas tóxicas a los pies del objetivo que envenena a los rivales que entran en combate.",
+        "de": "Anwender legt eine Falle mit giftigen Stacheln aus. In den Kampf eingewechselte gegnerische Pokémon werden vergiftet.",
+        "it": "Il Pokémon piazza una trappola di punte che avvelenano gli avversari quando scendono in campo.",
+        "ko": "상대의 발밑에 독 압정을 뿌린다. 교체로 나온 상대 포켓몬에게 독을 퍼지게 한다.",
+        "zh-Hant": "在對手腳下散布毒菱。 讓對手替換出場的寶可夢 陷入中毒狀態。",
+        "zh-Hans": "在对手的脚下撒毒菱。 使对手替换出场的宝可梦中毒。"
+    }
+}

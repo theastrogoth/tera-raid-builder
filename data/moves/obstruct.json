@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This move enables the user to protect itself from all attacks. Its chance of failing rises if used in succession. Direct contact harshly lowers the attacker's Defense stat.",
+        "ja": "相手の　攻撃を　まったく　受けない。 連続で　だすと　失敗しやすい。 触れると　防御が　がくっと　下がる。",
+        "fr": "Le lanceur se protège de toutes les attaques. Peut échouer si utilisée plusieurs fois de suite. Baisse beaucoup la Défense de l'assaillant s'il utilise une attaque directe.",
+        "es": "Frena todos los ataques, pero puede fallar si se usa repetidamente. Reduce mucho la Defensa de quien ejecute un movimiento de contacto contra el usuario.",
+        "de": "Der Anwender wehrt jede Attacke ab. Berührt ihn währenddessen ein Pokémon, sinkt dessen Verteidigung stark. Scheitert eventuell bei Wiederholung.",
+        "it": "Il Pokémon elude tutti gli attacchi. Se la mossa è usata in successione può fallire. Chi entra in contatto con il Pokémon vede diminuire la propria Difesa di molto.",
+        "ko": "상대의 공격을 전혀 받지 않는다. 연속으로 쓰면 실패하기 쉽다. 접촉한 상대의 방어를 크게 떨어뜨린다.",
+        "zh-Hant": "完全防住對手的所有攻擊。 連續使用時容易失敗。 一旦觸碰到，防禦會大幅降低。",
+        "zh-Hans": "完全抵挡对手的攻击。 连续使出则容易失败。 一旦触碰，防御就会大幅降低。"
+    }
 }

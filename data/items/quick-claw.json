@@ -1,0 +1,14 @@
+{
+    "name": "Quick Claw",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This light, sharp claw lets the holder move first occasionally.",
+        "ja": "軽くて　鋭い　ツメ。 持たせると　相手より　先に 行動できることが　ある。",
+        "fr": "Objet à tenir. Une griffe légère mais tranchante qui permet parfois de frapper en priorité.",
+        "es": "Garra ligera y afilada que permite que el Pokémon que la lleve ataque a veces el primero.",
+        "de": "Ein Item zum Tragen. Es ermöglicht gelegentlich den Erstschlag.",
+        "it": "Strumento da dare a un Pokémon. Leggero e affilato, ogni tanto permette di agire prima dell'avversario.",
+        "ko": "가볍고 날카로운 손톱. 지니게 하면 상대보다 먼저 행동할 수도 있다.",
+        "zh-Hant": "又輕又尖銳的爪子。 攜帶後，有時能比對手 先一步行動。",
+        "zh-Hans": "又轻又尖锐的爪子。 携带后，有时能比对手 先一步行动。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hurls up its stomach acids on the target. The fluid eliminates the effect of the target's Ability.",
+        "ja": "胃液を　相手の 体に　吐きつける。　ついた　胃液は 相手の　特性の　効果を　消す。",
+        "fr": "Le lanceur répand ses sucs digestifs sur la cible. Le fluide neutralise le talent de celle-ci.",
+        "es": "El usuario arroja sus jugos biliares al objetivo, lo que anula el efecto de la habilidad en uso.",
+        "de": "Anwender greift das Ziel mit eigenen Magensäften an. Entfernt Effekte von dessen Fähigkeit.",
+        "it": "Il Pokémon lancia acidi gastrici sul bersaglio e ne annulla l'abilità.",
+        "ko": "상대의 몸에 위액을 내뱉는다. 달라붙은 위액은 상대의 특성 효과를 지운다.",
+        "zh-Hant": "將胃液吐向對手的身體。 沾到的胃液會消除 對手的特性效果。",
+        "zh-Hans": "将胃液吐向对手的身体。 沾上的胃液会消除 对手的特性效果。"
+    }
 }

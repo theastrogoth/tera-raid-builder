@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user salt cures the target, inflicting damage every turn. Steel and Water types are more strongly affected by this move.",
+        "ja": "相手を　しおづけ状態に　して 毎ターン　ダメージを　与える。 はがね　みずタイプは　より　苦しむ。",
+        "fr": "Le lanceur couvre la cible de sel, ce qui lui inflige des dégâts à chaque tour. Si la cible est de type Acier ou Eau, ces dégâts sont plus élevés.",
+        "es": "Deja en salazón al objetivo, que pierde PS cada turno. Afecta especialmente a Pokémon de tipo Acero y tipo Agua.",
+        "de": "Der Anwender pökelt das Ziel mit Salz ein, wodurch dieses jede Runde Schaden erleidet. Stahl- und Wasser-Pokémon leiden besonders darunter.",
+        "it": "Il Pokémon mette sotto sale il bersaglio, infliggendogli danni a ogni turno. I Pokémon di tipo Acciaio e di tipo Acqua sono particolarmente vulnerabili a questa mossa.",
+        "ko": "상대를 소금절이 상태로 만들어 매 턴 데미지를 준다. 강철타입이나 물타입에게 더 고통스럽다.",
+        "zh-Hant": "讓對手陷入鹽醃狀態， 每回合都會受到傷害。 鋼、水屬性的寶可夢還會更痛苦。",
+        "zh-Hans": "使对手陷入盐腌状态， 每回合给予对手伤害。 对手为钢或水属性时会更痛苦。"
+    }
 }

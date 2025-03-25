@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is struck with slender, whiplike vines to inflict damage.",
+        "ja": "ムチのように　しなる　細長い　つるで 相手を　たたきつけて　攻撃する。",
+        "fr": "Fouette la cible avec de fines lianes pour infliger des dégâts.",
+        "es": "Azota al objetivo con lianas delgadas y largas tan flexibles como látigos.",
+        "de": "Peitschenähnlicher Schlag mit Ranken.",
+        "it": "Il Pokémon attacca il bersaglio sferzandolo con liane sottili simili a fruste.",
+        "ko": "채찍처럼 휘어지는 가늘고 긴 덩굴로 상대를 힘껏 쳐서 공격한다.",
+        "zh-Hant": "將如同鞭子般彎曲而細長的藤蔓 甩向對手進行攻擊。",
+        "zh-Hans": "用如同鞭子般弯曲而细长的藤蔓 摔打对手进行攻击。"
+    }
 }

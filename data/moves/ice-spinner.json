@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user's fellows gather in droves to perform a combo attack that hits the target one to ten times in a row.",
+        "ja": "仲間たちが　わらわらと　集まって コンビネーションで　攻撃を　与えていく。 １ー１０回の　間　連続で　あたる。",
+        "fr": "Le lanceur et ses congénères prolifèrent en masse et attaquent ensemble d'une à dix fois d'affilée.",
+        "es": "Los congéneres del usuario se agrupan y ejecutan un ataque conjunto que golpea al objetivo de una a diez veces seguidas.",
+        "de": "Der Anwender versammelt eine Schar von Artgenossen, die dann geschlossen angreift und das Ziel ein- bis zehnmal hintereinander trifft.",
+        "it": "Il Pokémon si riunisce con i suoi simili in un gruppo brulicante che collabora per attaccare e colpisce da una a dieci volte di fila.",
+        "ko": "여기저기서 동료들을 모아서 화려한 콤비네이션으로 공격한다. 1~10회 연속으로 공격한다.",
+        "zh-Hant": "夥伴們紛紛聚集而來， 以群體形式逐一給予攻擊。 連續命中１～１０次。",
+        "zh-Hans": "伙伴们会纷纷赶来集合， 以群体行动给予对手攻击。 连续命中１～１０次。"
+    }
 }

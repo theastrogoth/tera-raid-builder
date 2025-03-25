@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": true,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user releases a horrible aura imbued with ill intent. This may also make the target flinch.",
+        "ja": "体から　悪意に　みちた 恐ろしい　オーラを　発する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur projette une horrible aura chargée de pensées maléfiques, ce qui peut aussi apeurer la cible.",
+        "es": "Libera una horrible aura llena de malos pensamientos que puede amedrentar al objetivo.",
+        "de": "Anwender greift mit fürchterlicher Aura schlechter Gedanken an. Ziel schreckt eventuell zurück.",
+        "it": "Il Pokémon emana un'aura impregnata di oscuri pensieri. Può anche far tentennare il bersaglio.",
+        "ko": "몸에서 악의로 가득한 무서운 오라를 발한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "從身體散發出 充滿惡意的恐怖氣場。 有時會使對手畏縮。",
+        "zh-Hans": "从体内发出 充满恶意的恐怖气场。 有时会使对手畏缩。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is attacked by a kick launched with muscle- packed power.",
+        "ja": "ものすごい　力を　こめた　キックで 相手を　けとばして　攻撃する。",
+        "fr": "Un coup de pied surpuissant qui frappe la cible.",
+        "es": "Patada de extrema fuerza.",
+        "de": "Das Ziel wird mit einem extrem heftigen Tritt angegriffen.",
+        "it": "Il Pokémon attacca il bersaglio con un calcio sferrato con la forza di muscoli poderosi.",
+        "ko": "굉장한 힘을 담은 킥으로 상대를 걷어차서 공격한다.",
+        "zh-Hant": "用灌注了巨大力量的重踢 踢飛對手進行攻擊。",
+        "zh-Hans": "使出力大无穷的重踢 踢飞对手进行攻击。"
+    }
 }

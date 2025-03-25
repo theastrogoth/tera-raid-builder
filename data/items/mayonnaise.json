@@ -1,0 +1,14 @@
+{
+    "name": "Mayonnaise",
+    "flavorText": {
+        "en": "A condiment that packs a very tart punch yet pairs well with various ingredients.",
+        "ja": "酸味が　強い　調味料。 しかし　色々な食材と　マッチする。 ただし　カロリーには　注意。",
+        "fr": "Un condiment au goût très acide, mais qui se marie pourtant bien avec une grande variété d'ingrédients.",
+        "es": "Un condimento que casa muy bien con muchos ingredientes a pesar de su sabor ácido.",
+        "de": "Trotz der sehr säuerlichen Note passt dieses Würzmittel hervorragend zu allerlei Zutaten.",
+        "it": "Un condimento molto aspro, ma che comunque si sposa bene con una gran varietà di ingredienti.",
+        "ko": "신맛이 강한 조미료. 그러나 다양한 식재료와 잘 어울린다. 대신 칼로리는 주의해야 한다.",
+        "zh-Hant": "酸味強勁的調味料。 不過，和許多食材都能搭配。 但是，請格外留意熱量。",
+        "zh-Hans": "酸味强烈的调味料， 然而与各种食材都很搭配， 不过要注意其卡路里。"
+    }
+}

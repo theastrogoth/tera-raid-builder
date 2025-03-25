@@ -1,0 +1,14 @@
+{
+    "name": "Flower Gift",
+    "flavorText": {
+        "en": "Boosts the Attack and Sp. Def stats of the Pokémon and its allies in harsh sunlight.",
+        "ja": "天気が　晴れのとき 自分と　味方の　攻撃と 特防の　能力が　上がる。",
+        "fr": "Augmente l'Attaque et la Défense Spéciale du Pokémon et de ses alliés lorsque le soleil brille.",
+        "es": "Si hace sol, aumenta su Ataque y su Defensa Especial, así como los de sus aliados.",
+        "de": "Bei Sonnenschein steigen der Angriff und die Spezial-Verteidigung auf der Mitstreiterseite.",
+        "it": "Se la luce del sole è intensa, aumenta l'Attacco e la Difesa Speciale del Pokémon e dei suoi alleati.",
+        "ko": "날씨가 맑을 때 자신과 같은 편의 공격과 특수방어의 능력이 올라간다.",
+        "zh-Hant": "天氣為晴朗時， 自己和同伴的攻擊和 特防能力會提高。",
+        "zh-Hans": "晴朗天气时， 自己与同伴的攻击和 特防能力会提高。"
+    }
+}

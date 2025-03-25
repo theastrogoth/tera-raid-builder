@@ -1,0 +1,14 @@
+{
+    "name": "No Guard",
+    "flavorText": {
+        "en": "The Pokémon employs no-guard tactics to ensure incoming and outgoing attacks always land.",
+        "ja": "ノーガード戦法に　よって お互いの　出す　技が かならず　当たる　ようになる。",
+        "fr": "Les capacités du Pokémon touchent leur cible à coup sûr, mais les capacités adverses le touchent aussi à coup sûr.",
+        "es": "Al quedar ambos expuestos, tanto sus movimientos como los del Pokémon que lo ataque acertarán siempre.",
+        "de": "Alle Attacken des oder auf das Pokémon gelingen aufgrund seiner deckungslosen Kampftaktik.",
+        "it": "Il Pokémon e chiunque lo attacchi abbassano la guardia e le loro mosse vanno sempre a segno.",
+        "ko": "노가드전법에 따라 서로가 사용하는 기술이 반드시 맞게 된다.",
+        "zh-Hant": "由於無防守戰術， 雙方使出的招式都必定會擊中。",
+        "zh-Hans": "由于无防守战术， 双方使出的招式都必定会击中。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user focuses its willpower to its head and attacks the target. This may also make the target flinch.",
+        "ja": "思念の　力を 額に　集めて　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur concentre sa volonté et donne un coup de tête à la cible, ce qui peut aussi apeurer celle-ci.",
+        "es": "Concentra su energía psíquica en la cabeza para golpear. Puede hacer que el objetivo se amedrente.",
+        "de": "Anwender konzentriert seinen Willen und rammt das Ziel. Dieses schreckt eventuell zurück.",
+        "it": "Il Pokémon concentra le energie psichiche nella testa e attacca il bersaglio. Può anche farlo tentennare.",
+        "ko": "사념의 힘을 이마에 모아서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "將意念的力量集中在 前額進行攻擊。 有時會讓對手畏縮。",
+        "zh-Hans": "将思念的力量集中在 前额进行攻击。 有时会使对手畏缩。"
+    }
 }

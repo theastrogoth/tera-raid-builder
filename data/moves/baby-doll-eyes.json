@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stares at the target with its baby-doll eyes, which lowers the target's Attack stat. This move always goes first.",
+        "ja": "つぶらなひとみで　相手を　みつめて 攻撃を　さげる。 必ず　先制攻撃　できる。",
+        "fr": "Le lanceur fixe la cible d'un air très attendrissant qui la touche et diminue son Attaque. Agit en priorité.",
+        "es": "Lanza una mirada al objetivo con ojos acaramelados, con lo que logra que su Ataque se reduzca. Este movimiento tiene prioridad alta.",
+        "de": "Bei dieser Erstschlag-Attacke erobert der Anwender das Herz des Zieles, indem er es mit Kulleraugen ansieht, und senkt dabei dessen Angriffs-Wert.",
+        "it": "Il Pokémon rivolge i propri occhioni languidi al bersaglio, riducendone l'Attacco. Questo attacco ha priorità alta.",
+        "ko": "초롱초롱한 눈동자로 상대를 바라보며 공격을 떨어뜨린다. 반드시 선제공격할 수 있다.",
+        "zh-Hant": "用圓圓的眼睛凝視對手， 降低對手的攻擊。 必定能夠發動先制攻擊。",
+        "zh-Hans": "用圆瞳凝视对手， 从而降低其攻击。 必定能够先制攻击。"
+    }
 }

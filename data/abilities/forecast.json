@@ -1,0 +1,14 @@
+{
+    "name": "Forecast",
+    "flavorText": {
+        "en": "The Pokémon transforms with the weather to change its type to Water, Fire, or Ice.",
+        "ja": "天気の　影響を　受けて みずタイプ　ほのおタイプ　こおりタイプの どれかに　変化する。",
+        "fr": "Le Pokémon prend le type Eau, Feu ou Glace en fonction de la météo.",
+        "es": "Cambia a tipo Agua, Fuego o Hielo en función del tiempo atmosférico.",
+        "de": "Das Pokémon nimmt je nach Wetter entweder den Typ Wasser, Feuer oder Eis an.",
+        "it": "Cambia il tipo del Pokémon in Acqua, Fuoco o Ghiaccio in base alle condizioni atmosferiche.",
+        "ko": "날씨의 영향을 받아 물타입, 불꽃타입, 얼음타입 중 하나로 변화한다.",
+        "zh-Hant": "在天氣的影響下， 會變成水屬性、火屬性 或冰屬性之中的一種。",
+        "zh-Hans": "受天气的影响， 会变为水属性、火属性 或冰属性中的某一个。"
+    }
+}

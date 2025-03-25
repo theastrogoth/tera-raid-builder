@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is hit with a hard punch fired like a meteor. This may also boost the user's Attack stat.",
+        "ja": "すい星の　ごとく　パンチを　くりだして 相手を　攻撃する。　自分の 攻撃が　あがることが　ある。",
+        "fr": "Un coup de poing lancé à la vitesse d'un météore. Peut aussi augmenter l'Attaque du lanceur.",
+        "es": "Puñetazo que impacta como un meteorito y puede aumentar el Ataque del usuario.",
+        "de": "Angriff mit einem harten, schnellen Schlag. Erhöht eventuell Angriffs-Wert des Anwenders.",
+        "it": "Il Pokémon attacca il bersaglio con un pugno veloce come una meteora. Può anche aumentare il proprio Attacco.",
+        "ko": "혜성과 같은 펀치를 날려서 상대를 공격한다. 자신의 공격이 올라갈 때가 있다.",
+        "zh-Hant": "使出如同彗星般的拳頭攻擊對手。 有時會提高自己的攻擊。",
+        "zh-Hans": "使出彗星般的拳头攻击对手。 有时会提高自己的攻击。"
+    }
 }

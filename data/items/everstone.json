@@ -1,0 +1,14 @@
+{
+    "name": "Everstone",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. A Pokémon holding this peculiar stone is prevented from evolving.",
+        "ja": "ポケモンに　持たせると そのあいだ　進化しなくなる 不思議な石。",
+        "fr": "Objet à tenir. Une pierre étrange empêchant l'évolution.",
+        "es": "El Pokémon que lleva esta piedra mágica no evoluciona.",
+        "de": "Ein Item zum Tragen. Es bewirkt einen Entwicklungsstopp.",
+        "it": "Strumento da dare a un Pokémon. Chi ha questa pietra particolare evita l'evoluzione.",
+        "ko": "포켓몬에게 지니게 하면 지닌 동안에는 진화하지 않게 되는 이상한 돌.",
+        "zh-Hant": "攜帶後，寶可夢在此期間 不會進化的神奇石頭。",
+        "zh-Hans": "携带后，宝可梦在此期间 不会进化的神奇石头。"
+    }
+}

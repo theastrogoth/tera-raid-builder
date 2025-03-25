@@ -1,0 +1,14 @@
+{
+    "name": "Technician",
+    "flavorText": {
+        "en": "Powers up weak moves so the Pokémon can deal more damage with them.",
+        "ja": "威力が　低い　技の 威力を　高くして　攻撃できる。",
+        "fr": "Augmente la puissance des capacités les plus faibles.",
+        "es": "Aumenta la potencia de sus movimientos débiles.",
+        "de": "Die Stärke von schwächeren Attacken des Pokémon steigt.",
+        "it": "Potenzia le mosse più deboli del Pokémon.",
+        "ko": "위력이 약한 기술의 위력을 올려서 공격할 수 있다.",
+        "zh-Hant": "可讓威力低的招式 提高威力來進行攻擊。",
+        "zh-Hans": "攻击时可以将 低威力招式的威力提高。"
+    }
+}

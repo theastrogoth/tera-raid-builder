@@ -1,0 +1,14 @@
+{
+    "name": "Enigma Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to regain some HP if it is hit with a supereffective move.",
+        "ja": "ポケモンに　持たせると 効果バツグンの　技を 受けたとき　ＨＰを　回復する。",
+        "fr": "Tenue, cette Baie restaure des PV au Pokémon s'il subit une attaque super efficace.",
+        "es": "Si la lleva un Pokémon, le restaura los PS cuando le alcanza un ataque supereficaz.",
+        "de": "Als getragenes Item füllt diese Beere die KP des Pokémon auf, wenn es von einer sehr effektiven Attacke getroffen wird.",
+        "it": "Se il Pokémon che ha questa bacca subisce una mossa superefficace, i suoi PS vengono ripristinati.",
+        "ko": "포켓몬에게 지니게 하면 효과가 굉장한 기술로 공격받았을 때 HP를 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 在受到效果絕佳的招式 攻擊時，可以回復ＨＰ。",
+        "zh-Hans": "让宝可梦携带后， 在受到效果绝佳的招式攻击时， 可以回复ＨＰ。"
+    }
+}

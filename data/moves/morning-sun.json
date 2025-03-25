@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user restores its own HP. The amount of HP regained varies with the weather.",
+        "ja": "自分の　ＨＰを　回復する。 天気に　よって 回復の　量が　変化する。",
+        "fr": "Un soin qui restaure des PV au lanceur. Son efficacité varie en fonction de la météo.",
+        "es": "Restaura PS del usuario. La cantidad varía según el tiempo que haga.",
+        "de": "Füllt KP des Anwenders auf. Die Menge hängt vom Wetter ab.",
+        "it": "Il Pokémon recupera PS. Il numero di PS recuperati dipende dalle condizioni atmosferiche.",
+        "ko": "자신의 HP를 회복한다. 날씨에 따라 회복량이 변한다.",
+        "zh-Hant": "回復自己的ＨＰ。 回復量會隨著天氣的不同 而有所變化。",
+        "zh-Hans": "回复自己的ＨＰ。 根据天气的不同， 回复量也会有所变化。"
+    }
 }

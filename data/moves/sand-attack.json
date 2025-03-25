@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Sand is hurled in the target's face, lowering the target's accuracy.",
+        "ja": "相手の　顔に　砂を　かけて 命中率を　さげる。",
+        "fr": "Lance du sable au visage de la cible pour baisser sa Précision.",
+        "es": "Arroja arena a la cara del objetivo y reduce su Precisión.",
+        "de": "Senkt Genauigkeit des Zieles, indem ihm Sand ins Gesicht geworfen wird.",
+        "it": "Il Pokémon getta sabbia in faccia al bersaglio e ne riduce la precisione.",
+        "ko": "상대의 얼굴에 모래를 뿌려서 명중률을 떨어뜨린다.",
+        "zh-Hant": "向對手的臉上潑沙， 降低對手的命中率。",
+        "zh-Hans": "向对手脸上泼沙子， 从而降低命中率。"
+    }
 }

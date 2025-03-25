@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user takes revenge for a fainted ally. This move's power is boosted if an ally fainted in the previous turn.",
+        "ja": "倒れた　味方の　かたきを　討つ。 前の　ターンに　味方が 倒されていると　威力が　あがる。",
+        "fr": "Le lanceur venge un allié K.O. Si un Pokémon de l'équipe a été mis K.O. au tour d'avant, la puissance augmente.",
+        "es": "Venga a los aliados caídos. Si en el turno anterior han derrotado a alguno, la potencia del movimiento aumentará.",
+        "de": "Anwender nimmt Rache für einen besiegten Mitstreiter. Wurde in der vorigen Runde ein Mitstreiter besiegt, steigt die Stärke.",
+        "it": "Il Pokémon vendica un alleato messo KO. Se ciò è accaduto al turno precedente, la potenza della mossa aumenta.",
+        "ko": "쓰러진 같은 편의 원수를 갚는다. 앞 턴에서 같은 편이 쓰러지면 위력이 올라간다.",
+        "zh-Hant": "為倒下的同伴報仇。 前一回合有同伴被打倒時， 招式的威力會提高。",
+        "zh-Hans": "为倒下的同伴报仇。 如果上一回合有同伴倒下， 威力就会提高。"
+    }
 }

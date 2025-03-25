@@ -1,0 +1,14 @@
+{
+    "name": "Eviolite",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This mysterious evolutionary lump boosts the Defense and Sp. Def stats when held by a Pokémon that can still evolve.",
+        "ja": "進化の不思議な　かたまり。 持たせると　進化前ポケモンの 防御と　特防が　あがる。",
+        "fr": "Objet à tenir. Un étrange concentré d'évolution qui augmente la Défense et la Défense Spéciale d'un Pokémon pouvant évoluer.",
+        "es": "Roca misteriosa. El Pokémon portador aumentará su Defensa y su Defensa Especial si aún puede evolucionar.",
+        "de": "Ein mysteriöser Klumpen, der die Verteidigung und Spezial-Verteidigung von Pokémon erhöht, die sich noch entwickeln können.",
+        "it": "Misterioso concentrato di materia evolutiva. Aumenta la Difesa e la Difesa Speciale di un Pokémon che può ancora evolversi.",
+        "ko": "진화의 이상한 덩어리. 지니게 하면 진화 전 포켓몬의 방어와 특수방어가 올라간다.",
+        "zh-Hant": "進化的神奇石塊。 攜帶後，還能進化的寶可夢的 防禦和特防就會提高。",
+        "zh-Hans": "进化的神奇石块。 携带后，还能进化的宝可梦的 防御和特防就会提高。"
+    }
+}

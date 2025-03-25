@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "After making its attack, the user rushes back to switch places with a party Pokémon in waiting.",
+        "ja": "攻撃したあと ものすごい　スピードで　もどってきて 控えの　ポケモンと　入れ替わる。",
+        "fr": "Après son attaque, le lanceur revient à toute vitesse et change de place avec un Pokémon de l'équipe prêt à combattre.",
+        "es": "Tras atacar, el usuario vuelve a toda prisa para dar paso a otro Pokémon del equipo.",
+        "de": "Nach der Attacke eilt der Anwender zurück und tauscht den Platz mit einem anderen Pokémon.",
+        "it": "Il Pokémon fa marcia indietro per farsi sostituire subito dopo aver sferrato l'attacco.",
+        "ko": "공격한 뒤 굉장한 스피드로 돌아와서 교대 포켓몬과 교체한다.",
+        "zh-Hant": "攻擊後迅速返回， 和後備寶可夢進行替換。",
+        "zh-Hans": "在攻击之后急速返回， 和后备宝可梦进行替换。"
+    }
 }

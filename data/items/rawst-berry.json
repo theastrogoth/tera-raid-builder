@@ -1,0 +1,14 @@
+{
+    "name": "Rawst Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to cure itself of a burn.",
+        "ja": "ポケモンに　持たせると やけどを　回復する。 ",
+        "fr": "Une Baie qui soigne une brûlure lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para curarse las quemaduras.",
+        "de": "Als getragenes Item heilt diese Beere das Pokémon von Verbrennungen.",
+        "it": "Se un Pokémon ha questa bacca, guarisce dalle scottature.",
+        "ko": "포켓몬에게 지니게 하면 화상을 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以治癒灼傷。",
+        "zh-Hans": "让宝可梦携带后， 可以治愈灼伤。"
+    }
+}

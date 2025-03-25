@@ -1,0 +1,14 @@
+{
+    "name": "Potion",
+    "flavorText": {
+        "en": "A recipe for crafting Potions from scratch. Required materials: 1 Oran Berry and 1 Medicinal Leek.",
+        "ja": "キズぐすりのレシピ。　材料は オレンのみ×１　クスリソウ×１",
+        "fr": "Méthode pour Potion. Ressources requises : 1 Baie Oran et 1 Soignon.",
+        "es": "Receta para crear Pociones. Materiales: 1 Baya Aranja y 1 Puerro Medicinal.",
+        "de": "Die Anleitung zur Herstellung eines Tranks. Benötigte Materialien: 1 Sinelbeere und 1 Stange Fitlauch.",
+        "it": "Ricetta per una Pozione. Richiede 1 Baccarancia e 1 Porro officinale.",
+        "ko": "상처약의 레시피. 재료: 오랭열매×1 약초×1",
+        "zh-Hant": "傷藥的材料單。材料是： 橙橙果×１　療草×１",
+        "zh-Hans": "伤药的材料单。材料是： 橙橙果×１　疗草×１"
+    }
+}

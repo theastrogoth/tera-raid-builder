@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is thrown using the power of gravity. It inflicts damage equal to the user's level.",
+        "ja": "引力を　使い　投げとばす。 自分の　レベルと　同じ　ダメージを 相手に　与える。",
+        "fr": "La cible est projetée grâce au pouvoir de la gravité. Cette capacité inflige des dégâts égaux au niveau du lanceur.",
+        "es": "Aprovecha la gravedad para derribar al objetivo. Le resta tantos PS como nivel tenga el usuario.",
+        "de": "Ziel wird mit der Kraft der Gravitation umgeworfen. Richtet Schaden gemäß dem Level des Anwenders an.",
+        "it": "Il Pokémon attacca il bersaglio sfruttando la forza di gravità. Infligge un danno pari al proprio livello.",
+        "ko": "인력을 사용해 내던진다. 자신의 레벨과 똑같은 데미지를 상대에게 준다.",
+        "zh-Hant": "利用引力將對手甩飛出去。 給予對手和自己等級相同的傷害。",
+        "zh-Hans": "利用引力将对手甩飞出去。 给予对手和自己等级相同的伤害。"
+    }
 }

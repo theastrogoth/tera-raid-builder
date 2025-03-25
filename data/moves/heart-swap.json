@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user employs its psychic power to switch stat changes with the target.",
+        "ja": "超能力で　自分と　相手に かかっている　能力変化を 入れ替える。",
+        "fr": "Le lanceur utilise un pouvoir psychique pour échanger ses changements de stats avec la cible.",
+        "es": "Usa la fuerza mental para intercambiar con el objetivo los cambios en las características.",
+        "de": "Anwender setzt Psycho-Kräfte ein, um Statusveränderungen des Zieles mit den eigenen zu tauschen.",
+        "it": "Il Pokémon sfrutta i propri poteri psichici per scambiare le modifiche alle statistiche con quelle del bersaglio.",
+        "ko": "초능력으로 자신과 상대에게 걸려 있는 능력 변화를 교체한다.",
+        "zh-Hant": "用超能力將自己和對手的 能力變化互相交換。",
+        "zh-Hans": "利用超能力互换 自己和对手之间的 能力变化。"
+    }
 }

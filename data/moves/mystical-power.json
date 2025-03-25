@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by emitting a mysterious power. This also boosts the user's Sp. Atk stat.",
+        "ja": "不思議な力を　放出して　攻撃する。 自分の　特攻が　あがる。",
+        "fr": "Le lanceur attaque en libérant un pouvoir mystique. Cela augmente également son Attaque Spéciale.",
+        "es": "Ataca desatando un misterioso poder, que también aumenta su Ataque Especial.",
+        "de": "Der Anwender greift mit einer wundersamen Kraft an. Außerdem steigt sein Spezial-Angriff.",
+        "it": "Il Pokémon attacca emettendo un misterioso potere. Inoltre, aumenta il proprio Attacco Speciale.",
+        "ko": "신비한 힘을 방출해서 공격한다. 자신의 특수공격이 올라간다.",
+        "zh-Hant": "放出不可思議的力量進行攻擊。 自己的特攻會提高。",
+        "zh-Hans": "放出不可思议的力量攻击。 会提高自己的特攻。"
+    }
 }

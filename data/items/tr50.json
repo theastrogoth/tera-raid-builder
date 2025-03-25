@@ -1,0 +1,14 @@
+{
+    "name": "TR50",
+    "flavorText": {
+        "en": "The user handles a sharp leaf like a sword and attacks by cutting its target. Critical hits land more easily.",
+        "ja": "はっぱを　剣のように　あやつり 相手を　切りつけて　攻撃する。 急所に　当たりやすい。",
+        "fr": "Une feuille coupante comme une lame entaille la cible. Taux de critiques élevé.",
+        "es": "Acuchilla con una hoja fina. Suele asestar un golpe crítico.",
+        "de": "Hieb mit scharfkantigem Blatt. Hohe Volltrefferquote.",
+        "it": "Il Pokémon attacca il bersaglio manovrando una foglia come se fosse una spada. Probabile brutto colpo.",
+        "ko": "잎사귀를 칼처럼 이용해 상대를 베어 공격한다. 급소에 맞기 쉽다.",
+        "zh-Hant": "如用劍般操控葉子 切斬對手進行攻擊。 容易擊中要害。",
+        "zh-Hans": "像用剑一般操纵叶片 切斩对手进行攻击。 容易击中要害。"
+    }
+}

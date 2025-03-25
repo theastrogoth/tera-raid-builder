@@ -1,0 +1,14 @@
+{
+    "name": "Rattled",
+    "flavorText": {
+        "en": "The Pokémon gets scared when hit by a Dark-, Ghost-, or Bug-type attack or if intimidated, which boosts its Speed stat.",
+        "ja": "あく　ゴースト　むしタイプの 攻撃を　受けたり　いかくを　されると びびって　素早さが　上がる。",
+        "fr": "Si le Pokémon est touché par le talent Intimidation ou une attaque de type Ténèbres, Spectre ou Insecte, sa phobie se révèle et sa Vitesse augmente.",
+        "es": "Si lo alcanza un ataque de tipo Siniestro, Bicho o Fantasma, o si sufre los efectos de Intimidación, el miedo hace que aumente su Velocidad.",
+        "de": "Wird das Pokémon von einem Angriff vom Typ Unlicht, Geist oder Käfer getroffen oder bedroht, bekommt es Angst und seine Initiative steigt.",
+        "it": "Se il Pokémon subisce un attacco di tipo Buio, Spettro o Coleottero, oppure subisce l'effetto di Prepotenza, si spaventa e la sua Velocità aumenta.",
+        "ko": "악, 고스트, 벌레타입 기술로 공격받거나 위협을 받으면 주눅이 들어 스피드가 올라간다.",
+        "zh-Hant": "受到惡屬性、幽靈屬性和蟲屬性的 招式攻擊，或受到威嚇時， 會因膽怯而使得速度提高。",
+        "zh-Hans": "受到恶属性、幽灵属性 和虫属性的攻击或威吓时， 会因胆怯而速度提高。"
+    }
+}

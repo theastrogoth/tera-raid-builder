@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user snares the target in a snap trap that inflicts damage for four to five turns.",
+        "ja": "トラバサミで　捕らえて ４－５ターンの　間 相手を　はさんで　攻撃する。",
+        "fr": "Le lanceur attrape sa cible dans un piège et lui inflige des dégâts pendant quatre ou cinq tours.",
+        "es": "Cepo que atrapa al objetivo durante cuatro o cinco turnos y le causa daño mientras se encuentra preso.",
+        "de": "Das Ziel wird vier bis fünf Runden lang in einem Fangeisen festgehalten und angegriffen.",
+        "it": "Il Pokémon intrappola il bersaglio in una tagliola e lo attacca per quattro o cinque turni.",
+        "ko": "집게덫으로 붙잡은 뒤 4~5턴 동안 상대를 끼워서 공격한다.",
+        "zh-Hant": "用捕獸夾， 在４～５回合內 夾住對手進行攻擊。",
+        "zh-Hans": "使用捕兽夹， 在４～５回合内， 夹住对手进行攻击。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Poison Touch",
+    "flavorText": {
+        "en": "May poison a target when the Pokémon makes contact.",
+        "ja": "触る　だけで　相手を どく　状態に　することがある。",
+        "fr": "Peut empoisonner l'ennemi par simple contact.",
+        "es": "Puede envenenar al Pokémon al que ataque con un movimiento de contacto.",
+        "de": "Das Pokémon vergiftet das Ziel gelegentlich durch bloßes Berühren.",
+        "it": "Il Pokémon può avvelenare al solo contatto.",
+        "ko": "접촉하기만 해도 상대를 독 상태로 만들 때가 있다.",
+        "zh-Hant": "有時僅是接觸 就能讓對手中毒。",
+        "zh-Hans": "只通过接触就有可能 让对手变为中毒状态。"
+    }
+}

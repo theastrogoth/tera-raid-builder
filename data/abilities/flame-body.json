@@ -1,0 +1,14 @@
+{
+    "name": "Flame Body",
+    "flavorText": {
+        "en": "Contact with the Pokémon may burn the attacker.",
+        "ja": "自分に　触った　相手を やけど状態に　する　ことがある。",
+        "fr": "Peut brûler l'attaquant lorsque le Pokémon subit une attaque directe.",
+        "es": "Puede quemar al Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Angreifern werden bei Berührung gelegentlich Verbrennungen zugefügt.",
+        "it": "Può scottare chi entra in contatto con il Pokémon.",
+        "ko": "자신에게 접촉한 상대를 화상 상태로 만들 때가 있다.",
+        "zh-Hant": "有時會讓接觸到自己的 對手陷入灼傷狀態。",
+        "zh-Hans": "有时会让接触到自己的 对手变为灼伤状态。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "TR99",
+    "flavorText": {
+        "en": "The user attacks by slamming its body into the target. The higher the user's Defense, the more damage it can inflict on the target.",
+        "ja": "体を　ぶつけて　攻撃。 防御が　高いほど 与える　ダメージが　増える。",
+        "fr": "Le lanceur utilise son corps pour attaquer sa cible. Plus la Défense du lanceur est élevée, plus les dégâts infligés sont importants.",
+        "es": "El usuario usa el cuerpo para lanzar su ataque. Cuanto mayor es la Defensa del usuario, más daño provoca.",
+        "de": "Der Anwender greift mit seinem ganzen Körper an. Je höher seine Verteidigung ist, desto mehr Schaden richtet er an.",
+        "it": "Il Pokémon attacca schiacciando il bersaglio con il suo corpo. Più la Difesa è alta, maggiori sono i danni inflitti.",
+        "ko": "몸을 부딪쳐서 공격한다. 방어가 높을수록 주는 데미지가 올라간다.",
+        "zh-Hant": "用身體撞向對手進行攻擊。 自己的防禦越高， 給予對手的傷害越大。",
+        "zh-Hans": "用身体撞向对手进行攻击。 防御越高， 给予的伤害就越高。"
+    }
+}

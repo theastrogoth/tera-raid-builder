@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user trades held items with the target faster than the eye can follow.",
+        "ja": "目にも　とまらぬ　速さで 自分と　相手の 持ち物を　交換する。",
+        "fr": "Le lanceur échange son objet avec celui de la cible à une vitesse que l'œil a du mal à suivre.",
+        "es": "Intercambia con el objetivo los objetos que llevan tan rápido que es imposible verlo a simple vista.",
+        "de": "Anwender tauscht in Windeseile sein getragenes Item mit dem des Zieles.",
+        "it": "Il Pokémon scambia lo strumento che ha con quello del bersaglio a una velocità impressionante.",
+        "ko": "눈에 보이지 않는 속도로 자신과 상대가 지닌 물건을 교환한다.",
+        "zh-Hant": "以肉眼看不清的速度 將自己和對手的持有物互相交換。",
+        "zh-Hans": "用一闪而过的速度 交换自己和对手的持有物。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user disappears on the first turn, then attacks on the next turn. This move hits even if the target protects itself.",
+        "ja": "１ターン目で　姿を　消して ２ターン目に　相手を　攻撃する。 守っていても　攻撃は　当たる。",
+        "fr": "Le lanceur disparaît au premier tour et frappe la cible au deuxième. Cette capacité fonctionne même si la cible se protège.",
+        "es": "En el primer turno, desaparece. En el segundo, golpea al objetivo aunque se esté protegiendo.",
+        "de": "Anwender verschwindet in Runde 1 und attackiert in Runde 2. Trifft auch, wenn sich das Ziel selbst schützt.",
+        "it": "Il Pokémon sparisce e poi attacca il bersaglio al turno successivo. Colpisce anche se quest'ultimo si sta proteggendo.",
+        "ko": "1턴째에 모습을 감춰 2턴째에 상대를 공격한다. 방어하고 있어도 공격은 맞는다.",
+        "zh-Hant": "使用後的第１回合消失身影， 並於第２回合攻擊對手。 處於守護的對手也能擊中。",
+        "zh-Hans": "第１回合消失踪影， 第２回合攻击对手。 即使对手正受保护，也能击中。"
+    }
 }

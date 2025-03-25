@@ -1,0 +1,14 @@
+{
+    "name": "Justified",
+    "flavorText": {
+        "en": "When the Pokémon is hit by a Dark-type attack, its Attack stat is boosted by its sense of justice.",
+        "ja": "あくタイプの　攻撃を　受けると 正義感で　攻撃が　上がる。",
+        "fr": "Réveille la noblesse du Pokémon lorsqu'il subit une attaque de type Ténèbres, ce qui augmente son Attaque.",
+        "es": "Si lo alcanza un movimiento de tipo Siniestro, aumenta el Ataque debido a su integridad.",
+        "de": "Wird das Pokémon von einem Angriff vom Typ Unlicht getroffen, meldet sich sein Sinn für Gerechtigkeit zu Wort und sein Angriff steigt.",
+        "it": "Quando il Pokémon subisce un attacco di tipo Buio, il suo forte senso di giustizia fa sì che l'Attacco aumenti.",
+        "ko": "악타입 공격을 받으면 정의감으로 공격이 올라간다.",
+        "zh-Hant": "受到惡屬性的招式攻擊時， 因為正義感，攻擊會提高。",
+        "zh-Hans": "受到恶属性的招式攻击时， 因为正义感，攻击会提高。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "TR92",
+    "flavorText": {
+        "en": "The user damages opposing Pokémon by emitting a powerful flash.",
+        "ja": "強力な　光を　放ち 相手に　ダメージを　与える。",
+        "fr": "Le lanceur libère une puissante décharge lumineuse qui inflige des dégâts à l'ennemi.",
+        "es": "Inflige daño al objetivo con una potente luz.",
+        "de": "Der Anwender feuert einen mächtigen Lichtblitz ab, der gegnerischen Pokémon Schaden zufügt.",
+        "it": "Il Pokémon emette una luce potentissima che infligge danni agli avversari.",
+        "ko": "강력한 빛을 내어 상대에게 데미지를 준다.",
+        "zh-Hant": "發出強烈的閃光， 給予對手傷害。",
+        "zh-Hans": "向对手发射强光， 并给予伤害。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user slams the target with a tail or the like. The target is hit twice in a row.",
+        "ja": "しっぽなどを　使い 相手を　たたいて　攻撃する。 ２回連続で　ダメージを　与える。",
+        "fr": "Le lanceur frappe la cible deux fois d'affilée à l'aide de sa queue ou d'un autre membre.",
+        "es": "Golpea al objetivo dos veces seguidas con la cola u otras partes de su cuerpo.",
+        "de": "Anwender trifft das Ziel mit dem Schweif oder Ähnlichem. Ziel wird doppelt getroffen.",
+        "it": "Il Pokémon attacca il bersaglio colpendolo due volte di fila con la coda, una liana o simili.",
+        "ko": "꼬리 등을 써서 상대를 때려 공격한다. 2회 연속으로 데미지를 준다.",
+        "zh-Hant": "用尾巴等 向對手進行攻擊。 連續２次給予傷害。",
+        "zh-Hans": "使用尾巴等 拍打对手进行攻击。 连续２次给予伤害。"
+    }
 }

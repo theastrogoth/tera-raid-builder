@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The turn after using this move, the user surrounds the target with an ultracold, freezing wind to inflict damage. This may also leave the target with a burn.",
+        "ja": "すべてを　凍らせる　激しい　冷気で ２ターン目に　相手を　包みこむ。 やけど状態に　することが　ある。",
+        "fr": "Au second tour, le lanceur projette un souffle de vent glacial dévastateur sur la cible, ce qui peut aussi la brûler.",
+        "es": "Ataca al objetivo en el segundo turno rodeándolo de un aire gélido. Puede causar quemaduras.",
+        "de": "Umgibt das Ziel in der nächsten Runde mit heftigen, alles gefrierenden Eisböen. Fügt dem Ziel eventuell Verbrennungen zu.",
+        "it": "Il Pokémon attacca il bersaglio al turno successivo e lo avvolge in un soffio d'aria gelida. Può anche scottarlo.",
+        "ko": "모든 것을 얼려 버리는 격렬한 냉기로 2턴째에 상대를 둘러싼다. 화상 상태로 만들 때가 있다.",
+        "zh-Hant": "在使用後的下一回合， 用能夠凍結一切的強烈寒氣包圍對手。 有時會讓對手陷入灼傷狀態。",
+        "zh-Hans": "用能够冻结一切的强烈冷气， 在第２回合包裹住对手。 有时会让对手陷入灼伤状态。"
+    }
 }

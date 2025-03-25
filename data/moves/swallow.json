@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The power stored using the move Stockpile is absorbed by the user to restore its own HP. The more power is stored, the more HP is restored.",
+        "ja": "蓄えた　力を　のみこんで 自分の　ＨＰを　回復する。 蓄えているほど　回復する。",
+        "fr": "Le lanceur absorbe l'énergie emmagasinée avec Stockage pour restaurer ses PV. Le nombre de PV soignés augmente en fonction du nombre de fois où Stockage a été utilisée.",
+        "es": "Absorbe la energía acumulada con Reserva para recobrar salud. Cuanta más se haya acumulado, mayor será el número de PS que se recuperen.",
+        "de": "Absorbiert die gehortete Kraft, um KP aufzufüllen. Je mehr Energie gehortet wurde, desto mehr KP werden aufgefüllt.",
+        "it": "Il Pokémon assorbe l'energia raccolta con la mossa Accumulo e recupera PS. Maggiore è l'energia, più PS si recuperano.",
+        "ko": "비축된 힘을 삼켜서 자신의 HP를 회복한다. 비축된 만큼 회복한다.",
+        "zh-Hant": "將蓄積的力量吞下， 回復自己的ＨＰ。 蓄積得越多，回復越多。",
+        "zh-Hans": "将积蓄的力量吞下， 从而回复自己的ＨＰ。 积蓄得越多，回复越大。"
+    }
 }

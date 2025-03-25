@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user blows silk from its mouth that binds opposing Pokémon and harshly lowers their Speed stats.",
+        "ja": "口から　吹きだした 糸を　まきつけて　相手の 素早さを　がくっと　さげる。",
+        "fr": "Le lanceur crache de la soie pour ligoter la cible et beaucoup baisser sa Vitesse.",
+        "es": "Lanza seda por la boca al objetivo y reduce mucho su Velocidad.",
+        "de": "Umwickelt gegnerische Pokémon mit Fäden aus dem Mund und senkt ihren Initiative-Wert.",
+        "it": "Il Pokémon produce della seta che avvolge gli avversari e ne riduce di molto la Velocità.",
+        "ko": "입에서 뿜어낸 실을 휘감아서 상대의 스피드를 크게 떨어뜨린다.",
+        "zh-Hant": "用口中吐出的絲纏繞對手， 大幅降低對手的速度。",
+        "zh-Hans": "用口中吐出的丝缠绕对手， 从而大幅降低对手的速度。"
+    }
 }

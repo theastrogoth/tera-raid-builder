@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user creates a substitute for itself using its own HP before switching places with a party Pokémon in waiting.",
+        "ja": "自分の　ＨＰを　削って 分身を　だしたあと　もどってきて 控えの　ポケモンと　入れ替わる。",
+        "fr": "Le lanceur crée un clone en sacrifiant des PV, puis il revient et échange sa place avec un Pokémon de l'équipe prêt à combattre.",
+        "es": "El usuario se cambia por otro Pokémon del equipo, pero antes utiliza parte de los PS propios para crear un sustituto para su relevo.",
+        "de": "Der Anwender setzt seine KP ein, um einen Doppelgänger zu erzeugen, und tauscht dann den Platz mit einem anderen Pokémon.",
+        "it": "Chi la usa crea una copia di se stesso usando parte dei suoi PS e si fa sostituire da un altro Pokémon della squadra.",
+        "ko": "자신의 HP를 깎아서 분신을 만든 뒤, 돌아와서 교대 포켓몬과 교체한다.",
+        "zh-Hant": "削減自己的ＨＰ， 製造分身後返回， 和後備寶可夢進行替換。",
+        "zh-Hans": "削减自己的ＨＰ， 制造分身后会返回， 并和后备宝可梦进行替换。"
+    }
 }

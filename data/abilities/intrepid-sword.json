@@ -1,0 +1,14 @@
+{
+    "name": "Intrepid Sword",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Attack stat the first time the Pokémon enters a battle.",
+        "ja": "最初に　登場　したとき 攻撃が　上がる。",
+        "fr": "Augmente l'Attaque du Pokémon la première fois qu'il entre au combat.",
+        "es": "Aumenta su Ataque al entrar en combate por primera vez.",
+        "de": "Beim ersten Kampfantritt steigt der Angriff des Pokémon.",
+        "it": "La prima volta che il Pokémon entra in campo, il suo Attacco aumenta.",
+        "ko": "처음 등장했을 때 공격이 올라간다.",
+        "zh-Hant": "在戰鬥中首次出場時， 攻擊會提高。",
+        "zh-Hans": "首次出场时， 攻击会提高。"
+    }
+}

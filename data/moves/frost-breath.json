@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by blowing its cold breath on the target. This move always lands a critical hit.",
+        "ja": "冷たい　息を 相手に　吹きつけて　攻撃する。 必ず　急所に　当たる。",
+        "fr": "Un souffle froid blesse la cible. L'effet est toujours critique.",
+        "es": "El usuario ataca expulsando un aliento gélido. Siempre asesta un golpe crítico.",
+        "de": "Anwender greift an, indem er dem Ziel eisigen Atem entgegenhaucht. Volltreffergarantie.",
+        "it": "Il Pokémon attacca investendo il bersaglio con un soffio d'aria gelida. Brutto colpo assicurato.",
+        "ko": "차가운 숨결을 상대에게 내뿜어 공격한다. 반드시 급소에 맞는다.",
+        "zh-Hant": "將冰冷的氣息 吹向對手進行攻擊。 必定會擊中要害。",
+        "zh-Hans": "将冰冷的气息 吹向对手进行攻击。 必定会击中要害。"
+    }
 }

@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user emits an incredibly spicy extract, sharply boosting the target's Attack stat and harshly lowering the target's Defense stat.",
+        "ja": "とんでもなく　辛いエキスを　出す。 相手の　攻撃が　ぐーんと　あがり 防御が　がくっと　さがる。",
+        "fr": "Le lanceur relâche un concentré extrêmement pimenté sur la cible, ce qui augmente beaucoup l'Attaque de celle-ci, mais baisse aussi beaucoup sa Défense.",
+        "es": "Libera un extracto extraordinariamente picante que aumenta mucho el Ataque del objetivo, pero también reduce mucho su Defensa.",
+        "de": "Der Anwender setzt eine unglaublich scharfe Essenz frei, die den Angriff des Zieles stark erhöht, aber seine Verteidigung stark senkt.",
+        "it": "Il Pokémon secerne un'essenza straordinariamente piccante. Aumenta di molto l'Attacco del bersaglio ma ne diminuisce di molto la Difesa.",
+        "ko": "어마어마하게 매운 엑기스를 발사한다. 상대의 공격이 크게 오르고 방어는 크게 떨어진다.",
+        "zh-Hant": "放出相當強勁的辣味精華。 對手的攻擊會大幅提高， 防禦會大幅降低。",
+        "zh-Hans": "放出极为辛辣的精华。 对手的攻击会大幅提高， 防御会大幅降低。"
+    }
 }

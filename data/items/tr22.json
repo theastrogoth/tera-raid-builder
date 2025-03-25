@@ -1,0 +1,14 @@
+{
+    "name": "TR22",
+    "flavorText": {
+        "en": "Unsanitary sludge is hurled at the target. This may also poison the target.",
+        "ja": "汚い　ヘドロを 相手に　投げつけて　攻撃する。 毒状態に　することが　ある。",
+        "fr": "Des détritus toxiques sont projetés sur la cible, ce qui peut aussi l'empoisonner.",
+        "es": "Arroja residuos al objetivo. Puede llegar a envenenar.",
+        "de": "Wirft Schlamm auf das Ziel. Dieses wird eventuell vergiftet.",
+        "it": "Il Pokémon attacca lanciando fango malsano sul bersaglio. Può anche avvelenarlo.",
+        "ko": "더러운 오물을 상대에게 내던져서 공격한다. 독 상태로 만들 때가 있다.",
+        "zh-Hant": "向對手投擲污泥進行攻擊。 有時會讓對手陷入中毒狀態。",
+        "zh-Hans": "用污泥投掷对手进行攻击。 有时会让对手陷入中毒状态。"
+    }
+}

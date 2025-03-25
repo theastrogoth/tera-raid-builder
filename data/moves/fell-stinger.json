@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "When the user knocks out a target with this move, the user's Attack stat is boosted drastically.",
+        "ja": "この　技を　使って 相手を　倒すと 攻撃が　ぐぐーんと　あがる。",
+        "fr": "Le lanceur augmente énormément son Attaque si une cible est mise K.O. par cette capacité.",
+        "es": "Si se derrota al objetivo utilizando este movimiento, aumenta muchísimo el Ataque del usuario.",
+        "de": "Gelingt es dem Anwender, das Ziel mit dieser Attacke zu besiegen, steigt sein Angriffs-Wert drastisch.",
+        "it": "Quando il Pokémon manda KO il bersaglio con questa mossa, aumenta moltissimo il suo Attacco.",
+        "ko": "이 기술을 사용하여 상대를 쓰러뜨리면 공격이 매우 크게 올라간다.",
+        "zh-Hant": "使用此招式打倒對手時， 自己的攻擊會極大幅提高。",
+        "zh-Hans": "如果使用此招式打倒对手， 攻击会巨幅提高。"
+    }
 }

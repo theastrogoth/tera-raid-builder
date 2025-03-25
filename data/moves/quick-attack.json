@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lunges at the target to inflict damage, moving at blinding speed. This move always goes first.",
+        "ja": "目にも　留まらぬ　ものすごい　速さで 相手に　つっこむ。 必ず　先制攻撃　できる。",
+        "fr": "Le lanceur fonce sur la cible si rapidement qu'on parvient à peine à le discerner. Frappe en priorité.",
+        "es": "Ataca al objetivo a tal velocidad que es casi imperceptible. Este movimiento tiene prioridad alta.",
+        "de": "Bei dieser Erstschlag-Attacke stürzt sich der Anwender so schnell auf das Ziel, dass er quasi unsichtbar wird.",
+        "it": "Il Pokémon colpisce a una tale velocità da rendersi quasi invisibile. Questo attacco ha priorità alta.",
+        "ko": "눈에 보이지 않는 굉장한 속도로 상대에게 돌진한다. 반드시 선제공격할 수 있다.",
+        "zh-Hant": "以迅雷不及掩耳之勢 撲向對手。 必定能夠發動先制攻擊。",
+        "zh-Hans": "以迅雷不及掩耳之势扑向对手。 必定能够先制攻击。"
+    }
 }

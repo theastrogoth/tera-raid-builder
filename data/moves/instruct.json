@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user instructs the target to reuse the move last used by the target.",
+        "ja": "相手が　出した　技を 指示して　もう一度 出させることが　できる。",
+        "fr": "Force la cible à lancer immédiatement la dernière capacité qu'elle a utilisée.",
+        "es": "Fuerza al objetivo a repetir inmediatamente su último movimiento.",
+        "de": "Der Anwender befiehlt dem Ziel, dessen zuletzt ausgeführte Attacke sofort wieder einzusetzen.",
+        "it": "Il Pokémon può costringere il bersaglio a ripetere immediatamente l'ultima mossa che ha sferrato.",
+        "ko": "상대에게 지시하여 상대가 쓴 기술을 다시 한번 쓰게 할 수 있다.",
+        "zh-Hant": "對手使出招式之後， 能夠透過指令讓對手 再次使出相同招式。",
+        "zh-Hans": "向对手下达指示， 让其再次使出刚才的招式。"
+    }
 }

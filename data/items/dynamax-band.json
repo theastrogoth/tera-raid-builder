@@ -1,0 +1,14 @@
+{
+    "name": "Dynamax Band",
+    "flavorText": {
+        "en": "A Wishing Star has been affixed to it. It lets out a light that allows Pokémon to Dynamax when at a Power Spot.",
+        "ja": "ねがいぼしが　組みこまれており パワースポットに　いると　光りだして ポケモンを　ダイマックス　させる。",
+        "fr": "Quand elle se trouve près d'une Source d'Énergie, l'Étoile Vœu sertie dans ce poignet brille, ce qui permet de donner à un Pokémon sa forme Dynamax.",
+        "es": "Si lleva engarzada una Estrella Deseo y el portador se halla junto a un nodo energético, reacciona emitiendo una luz y permite dinamaxizar Pokémon.",
+        "de": "Wenn man sich in der Nähe einer Energiequelle aufhält, leuchtet der darin eingearbeitete Wunschstern auf und ermöglicht die Dynamaximierung von Pokémon.",
+        "it": "Contiene una Desiostella e quando si trova vicino a un punto energetico emette una luce che permette ai Pokémon di dynamaxizzarsi.",
+        "ko": "소원의별이 박혀 있으며 파워스폿에 있으면 빛이 나고 포켓몬을 다이맥스시킬 수 있다.",
+        "zh-Hant": "嵌入了許願星， 當位處能量點時會發光， 讓寶可夢極巨化。",
+        "zh-Hans": "内部嵌入了许愿星， 在能量点就会发出光芒， 使宝可梦极巨化。"
+    }
+}

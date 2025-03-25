@@ -1,0 +1,14 @@
+{
+    "name": "Infiltrator",
+    "flavorText": {
+        "en": "The Pokémon's moves are unaffected by the target's barriers, substitutes, and the like.",
+        "ja": "相手の　壁や　身代わりを すりぬけて　攻撃　できる。",
+        "fr": "Traverse les barrières et les clones adverses pour attaquer directement.",
+        "es": "Ataca sorteando las barreras o el sustituto del objetivo.",
+        "de": "Das Pokémon überwindet beim Angriff gegnerische Schilde sowie Delegatoren.",
+        "it": "Il Pokémon attacca evitando le barriere e i sostituti.",
+        "ko": "상대의 벽이나 대타출동을 뚫고 공격할 수 있다.",
+        "zh-Hant": "可穿透對手的屏障 或替身進行攻擊。",
+        "zh-Hans": "可以穿透对手的壁障 或替身进行攻击。"
+    }
+}

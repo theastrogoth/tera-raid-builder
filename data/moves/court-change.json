@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "With its mysterious power, the user swaps the effects on either side of the field.",
+        "ja": "不思議な　力で お互いの　場の　効果を　入れ替える。",
+        "fr": "Une force mystérieuse intervertit les effets affectant chaque côté du terrain.",
+        "es": "Extraño poder que intercambia los efectos en el terreno de combate de ambos bandos.",
+        "de": "Durch eine mysteriöse Macht werden wirksame Effekte auf Mitstreiterseite und gegnerischer Seite getauscht.",
+        "it": "Il Pokémon inverte gli effetti attivi sul campo alleato e sul campo avversario grazie a una forza misteriosa.",
+        "ko": "이상한 힘으로 서로의 필드 효과를 교체한다.",
+        "zh-Hant": "用神奇的力量 與對手交換場地效果。",
+        "zh-Hans": "用神奇的力量 交换双方的场地效果。"
+    }
 }

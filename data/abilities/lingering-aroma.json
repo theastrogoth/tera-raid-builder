@@ -1,0 +1,14 @@
+{
+    "name": "Lingering Aroma",
+    "flavorText": {
+        "en": "Contact with the Pokémon changes the attacker's Ability to Lingering Aroma.",
+        "ja": "相手に　触られると とれないにおいが 相手に　うつってしまう。",
+        "fr": "Lorsque le Pokémon subit une attaque directe, le talent de l'attaquant est remplacé par Odeur Tenace.",
+        "es": "Contagia la habilidad Olor Persistente al Pokémon que lo ataque con un movimiento de contacto.",
+        "de": "Das Pokémon überträgt bei Berührung die Fähigkeit Duftschwade auf den Angreifer.",
+        "it": "L'abilità di chi entra in contatto con il Pokémon diventa Odore Tenace.",
+        "ko": "상대가 접촉하면 가시지 않는 향기가 상대에게 배어 버린다.",
+        "zh-Hant": "被對手接觸到時， 甩不掉的氣味會沾染給對手。",
+        "zh-Hans": "被对手接触到后， 甩不掉的气味 会沾上对手。"
+    }
+}

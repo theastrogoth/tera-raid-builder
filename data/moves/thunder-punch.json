@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is attacked with an electrified punch. This may also leave the target with paralysis.",
+        "ja": "電撃を　こめた　パンチで 相手を　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "Un coup de poing électrique vient frapper la cible, ce qui peut la paralyser.",
+        "es": "Puñetazo eléctrico que puede paralizar.",
+        "de": "Ein elektrischer Schlag, der das Ziel eventuell paralysiert.",
+        "it": "Il Pokémon attacca il bersaglio con un pugno elettrico che può paralizzarlo.",
+        "ko": "전격을 담은 펀치로 상대를 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "用帶有電流的拳頭 攻擊對手。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "用充满电流的拳头攻击对手。 有时会让对手陷入麻痹状态。"
+    }
 }

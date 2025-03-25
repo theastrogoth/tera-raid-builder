@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user feigns crying to fluster the target. This harshly lowers the target's Sp. Def stat.",
+        "ja": "ないた　ふりをして　涙を　流す。 こまらせる　ことで 相手の　特防を　がくっと　さげる。",
+        "fr": "Le lanceur fait semblant de pleurer pour troubler la cible et beaucoup baisser sa Défense Spéciale.",
+        "es": "Lágrimas de cocodrilo que reducen mucho la Defensa Especial del objetivo.",
+        "de": "Täuscht Weinen vor, um die Spezial-Verteidigung des Zieles stark zu senken.",
+        "it": "Il Pokémon inscena un pianto teatrale per turbare il bersaglio. Ne riduce di molto la Difesa Speciale.",
+        "ko": "우는 척을 하며 눈물을 흘린다. 난처하게 만들어 상대의 특수방어를 크게 떨어뜨린다.",
+        "zh-Hant": "裝哭掉眼淚。 讓對手不知所措， 大幅降低對手的特防。",
+        "zh-Hans": "装哭流泪。 使对手不知所措， 从而大幅降低对手的特防。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Left Poké Ball",
+    "flavorText": {
+        "en": "A Poké Ball containing a Pokémon that lost its Trainer. It seems the Trainer hails from Ula'ula Island.",
+        "ja": "トレーナーを　失った　ポケモンが 入っている　ボール。　トレーナーは ウラウラ島　出身　らしい。",
+        "fr": "Une Poké Ball contenant un Pokémon dont le Dresseur a disparu. Il semblerait que ce Dresseur soit originaire d'Ula-Ula.",
+        "es": "Poké Ball que alberga un Pokémon que perdió a su Entrenador, al parecer, natural de Ula-Ula.",
+        "de": "Der Pokéball enthält ein Pokémon, das seinen Trainer verloren hat. Dieser stammt wohl aus Ula-Ula.",
+        "it": "Poké Ball contenente un Pokémon rimasto orfano dell'Allenatore. Sembra che l'Allenatore fosse originario di Ula Ula.",
+        "ko": "트레이너를 잃은 포켓몬이 들어 있는 볼. 트레이너는 울라울라섬 출신인 듯하다.",
+        "zh-Hant": "這個精靈球裡面裝了 失去訓練家的寶可夢。 訓練家似乎來自烏拉烏拉島。",
+        "zh-Hans": "该精灵球里面装的是没有了 训练家的宝可梦。那位训练家 好像是出生自乌拉乌拉岛。"
+    }
+}

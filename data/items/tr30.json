@@ -1,0 +1,14 @@
+{
+    "name": "TR30",
+    "flavorText": {
+        "en": "The user compels the target to keep using the move it encored for three turns.",
+        "ja": "相手に　アンコールした　技を ３回　続けて　出させる。",
+        "fr": "Le lanceur oblige la cible à répéter la dernière capacité utilisée durant trois tours.",
+        "es": "El objetivo repite su último movimiento durante tres turnos.",
+        "de": "Das Ziel wiederholt die letzte Attacke drei Runden lang.",
+        "it": "Il Pokémon obbliga il bersaglio a ripetere per tre turni l'ultima mossa eseguita.",
+        "ko": "상대에게 앙코르를 외쳐서 기술을 3번 연속으로 쓰게 한다.",
+        "zh-Hant": "要求對手再來一次， 讓對手連續３次 使出最近一次使用的招式。",
+        "zh-Hans": "让对手接受再来一次， 连续３次使出最后使用的招式。"
+    }
+}

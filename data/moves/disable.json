@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "For four turns, the target will be unable to use whichever move it last used.",
+        "ja": "相手の　動きを　とめて 直前に　だしていた　技を ４ターンの　間　使えなくする。",
+        "fr": "Empêche la cible de répéter sa dernière attaque. Dure quatre tours.",
+        "es": "Anula el último movimiento usado por el objetivo durante cuatro turnos.",
+        "de": "Die zuletzt eingesetzte Attacke des Zieles wird für vier Runden blockiert.",
+        "it": "Per quattro turni, questa mossa impedisce al bersaglio di riutilizzare l'ultima mossa usata.",
+        "ko": "상대의 움직임을 막아 바로 전에 쓴 기술을 4턴 동안 사용할 수 없게 만든다.",
+        "zh-Hant": "阻止對手出招， 最近一次使用的招式 在４回合內無法使用。",
+        "zh-Hans": "阻碍对手行动， 之前使出的招式 将在４回合内无法使用。"
+    }
 }

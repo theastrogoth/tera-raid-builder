@@ -1,0 +1,14 @@
+{
+    "name": "Soda Pop",
+    "flavorText": {
+        "en": "A highly carbonated soda drink. It can be used to restore 50 HP to a Pokémon.",
+        "ja": "シュワっと　はじける　ソーダ。 ポケモン　１匹の　ＨＰを ５０だけ　回復する。",
+        "fr": "Une boisson pétillante. Restaure 50 PV d'un Pokémon.",
+        "es": "Chispeante bebida gaseosa que restaura 50 PS de un Pokémon.",
+        "de": "Ein sprudelndes Mineralwasser, das die KP eines Pokémon um 50 Punkte auffüllt.",
+        "it": "Bevanda frizzante. Restituisce 50 PS a un Pokémon.",
+        "ko": "싸하고 톡 쏘는 사이다. 포켓몬 1마리의 HP를 50만큼 회복한다.",
+        "zh-Hant": "冒著氣泡的汽水。 能讓１隻寶可夢 回復５０ＨＰ。",
+        "zh-Hans": "翻腾着气泡的汽水。 能让１只宝可梦 回复５０ＨＰ。"
+    }
+}

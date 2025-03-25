@@ -1,0 +1,14 @@
+{
+    "name": "Opportunist",
+    "flavorText": {
+        "en": "If an opponent's stat is boosted, the Pokémon seizes the opportunity to boost the same stat for itself.",
+        "ja": "相手の　能力が　上がったとき 自分も　便乗して 同じように　能力を　上げる。",
+        "fr": "Quand les stats de l'ennemi augmentent, le Pokémon en profite pour augmenter ses stats de la même manière.",
+        "es": "Copia las mejoras en las características del rival, aprovechándose de la situación.",
+        "de": "Wenn ein Statuswert eines Gegners steigt, profitiert das Pokémon ebenfalls davon und der gleiche Statuswert steigt auch bei ihm.",
+        "it": "Quando la statistica di un avversario viene aumentata, il Pokémon se ne approfitta e aumenta anche la propria.",
+        "ko": "상대의 능력이 올라가면 자신도 편승해서 똑같이 능력을 올린다.",
+        "zh-Hant": "對手的能力提高時， 自己也會跟著提高能力。",
+        "zh-Hans": "对手的能力提高时， 自己也会趁机 同样地提高能力。"
+    }
+}

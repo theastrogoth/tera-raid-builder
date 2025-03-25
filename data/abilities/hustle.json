@@ -1,0 +1,14 @@
+{
+    "name": "Hustle",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Attack stat but lowers its accuracy.",
+        "ja": "自分の　攻撃が　高くなるが 命中率が　下がる。",
+        "fr": "Améliore l'Attaque du Pokémon, mais diminue la Précision.",
+        "es": "Aumenta su Ataque, pero reduce su Precisión.",
+        "de": "Der Angriff des Pokémon steigt, aber seine Genauigkeit sinkt.",
+        "it": "L'Attacco aumenta, ma la precisione diminuisce.",
+        "ko": "자신의 공격이 높아지지만 명중률이 떨어진다.",
+        "zh-Hant": "自己的攻擊雖會變高， 但命中率會降低。",
+        "zh-Hans": "自己的攻击变高， 但命中率会降低。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lays roots that restore its own HP every turn. Because the user is now rooted, it can't switch out.",
+        "ja": "大地に　根を　張り 毎ターン　自分の　ＨＰを　回復する。 根を　張っているので　入れ替えられない。",
+        "fr": "Le lanceur plante ses racines et récupère des PV à chaque tour. Une fois enraciné, il ne peut plus quitter le terrain.",
+        "es": "Echa raíces para recuperar PS en cada turno, pero impide que pueda huir o ser cambiado por otro.",
+        "de": "Die Verwurzelung des Anwenders füllt jede Runde seine KP auf, aber hindert ihn dafür an der Flucht beziehungsweise am Auswechseln.",
+        "it": "Il Pokémon mette delle radici che gli fanno recuperare PS a ogni turno. Non può più essere sostituito.",
+        "ko": "대지에 뿌리를 박아 매 턴마다 자신의 HP를 회복한다. 뿌리 박고 있으므로 교체할 수 없다.",
+        "zh-Hant": "在大地上扎根， 每回合會回復自己的ＨＰ。 但扎根之後無法進行替換。",
+        "zh-Hans": "在大地上扎根， 每回合回复自己的ＨＰ。 因为扎根了，所以不能替换宝可梦。"
+    }
 }

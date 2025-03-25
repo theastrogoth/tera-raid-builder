@@ -1,0 +1,14 @@
+{
+    "name": "Symbiosis",
+    "flavorText": {
+        "en": "The Pokémon passes its held item to an ally that has used up an item.",
+        "ja": "味方が　道具を　使うと 自分の　持っている　道具を 味方に　渡す。",
+        "fr": "Quand les alliés utilisent l'objet qu'ils tiennent, le Pokémon leur donne l'objet qu'il tient en remplacement.",
+        "es": "Pasa su objeto a un aliado cuando este use el suyo.",
+        "de": "Das Pokémon gibt Mitstreitern, die ihr Item aufgebraucht haben, sein eigenes Item.",
+        "it": "Se un alleato usa uno strumento, il Pokémon gli passa il proprio.",
+        "ko": "같은 편이 도구를 쓰면 자신이 지니고 있는 도구를 같은 편에게 건넨다.",
+        "zh-Hant": "同伴使用道具時， 會把自己持有的道具交給同伴。",
+        "zh-Hans": "同伴使用道具时， 会把自己持有的道具传递给同伴。"
+    }
+}

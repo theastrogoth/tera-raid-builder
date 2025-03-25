@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target by poking it with a sharply pointed branch.",
+        "ja": "するどく　とがった　枝で 相手を　突いて　攻撃する。",
+        "fr": "Le lanceur attaque sa cible en la piquant avec une branche pointue.",
+        "es": "Ataca pinchando al objetivo con una rama afilada.",
+        "de": "Der Anwender attackiert das Ziel mit einem spitzen Zweig.",
+        "it": "Il Pokémon attacca il bersaglio con un ramo incredibilmente appuntito.",
+        "ko": "날카롭고 뾰족한 가지로 상대를 찔러서 공격한다.",
+        "zh-Hant": "用尖銳的樹枝 刺向對手進行攻擊。",
+        "zh-Hans": "使用尖锐的树枝 刺向对手进行攻击。"
+    }
 }

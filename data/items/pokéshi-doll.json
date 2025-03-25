@@ -1,0 +1,14 @@
+{
+    "name": "Pokéshi Doll",
+    "flavorText": {
+        "en": "A wooden toy carved in the image of a Pokémon. It can be sold to the general store.",
+        "ja": "ポケモンをかたどった木製のおもちゃ。 雑貨屋で売れる。",
+        "fr": "Un jouet en bois aux traits de Pokémon qui peut être vendu à la Boutique.",
+        "es": "Juguete de madera tallado con forma de Pokémon. Se puede vender en el bazar.",
+        "de": "Ein Holzspielzeug in der Form eines Pokémon. Es kann verkauft werden.",
+        "it": "Giocattolo di legno a forma di Pokémon. Si può vendere all'Emporio.",
+        "ko": "포켓몬을 본뜬 목제 장난감. 잡화점에 팔 수 있다.",
+        "zh-Hant": "寶可夢造型的木製玩具。 可以在雜貨店出售。",
+        "zh-Hans": "宝可梦造型的木制玩具。 可以在杂货店出售。"
+    }
+}

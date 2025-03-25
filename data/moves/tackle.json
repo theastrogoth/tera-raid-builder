@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A physical attack in which the user charges and slams into the target with its whole body.",
+        "ja": "相手に　むかって　全身で ぶつかっていき　攻撃する。",
+        "fr": "Le lanceur charge la cible et la percute de tout son poids.",
+        "es": "Embestida con todo el cuerpo.",
+        "de": "Trifft das Ziel mit vollem Körpereinsatz.",
+        "it": "Il Pokémon attacca il bersaglio lanciandosi contro di lui con tutto il suo corpo.",
+        "ko": "상대를 향해서 몸 전체를 부딪쳐가며 공격한다.",
+        "zh-Hant": "用整個身體 撞向對手進行攻擊。",
+        "zh-Hans": "用整个身体 撞向对手进行攻击。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "TR01",
+    "flavorText": {
+        "en": "The user drops onto the target with its full body weight. This may also leave the target with paralysis.",
+        "ja": "全身で 相手に　のしかかり　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "Le lanceur se laisse tomber sur la cible de tout son poids, ce qui peut aussi la paralyser.",
+        "es": "Salta sobre el objetivo con todo su peso y puede llegar a paralizarlo.",
+        "de": "Trifft das Ziel mit vollem Körpereinsatz und paralysiert es eventuell.",
+        "it": "Il Pokémon attacca il bersaglio scagliandosi contro di lui con tutto il corpo. Può causarne anche la paralisi.",
+        "ko": "몸 전체로 상대를 덮쳐눌러 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "用整個身體 壓住對手進行攻擊。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "用整个身体 压住对手进行攻击。 有时会让对手陷入麻痹状态。"
+    }
+}

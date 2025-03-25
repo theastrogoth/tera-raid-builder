@@ -1,0 +1,14 @@
+{
+    "name": "Festival Ticket",
+    "flavorText": {
+        "en": "A ticket that allows you to host a mission in Festival Plaza.",
+        "ja": "フェスサークルで　アトラクションを 開くことが　できる。",
+        "fr": "Un ticket qui permet de commencer une mini-quête sur la Place Festival.",
+        "es": "Se puede canjear para organizar minijuegos en la Festi Plaza.",
+        "de": "Ein Ticket, mit dem man auf dem Festival-Plaza Spektakel veranstalten kann.",
+        "it": "Biglietto che permette di dare inizio a un minigioco nel Festiplaza.",
+        "ko": "페스서클에서 어트랙션을 개최할 수 있다.",
+        "zh-Hant": "可以在圓慶廣場 開啟遊樂項目。",
+        "zh-Hans": "可以在圆庆广场 开启游乐项目。"
+    }
+}

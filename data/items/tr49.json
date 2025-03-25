@@ -1,0 +1,14 @@
+{
+    "name": "TR49",
+    "flavorText": {
+        "en": "The user quietly focuses its mind and calms its spirit to raise its Sp. Atk and Sp. Def stats.",
+        "ja": "静かに　精神を　統一し 心を　鎮めることで　自分の 特攻と　特防を　あげる。",
+        "fr": "Le lanceur se concentre et fait le vide dans son esprit pour augmenter son Attaque Spéciale et sa Défense Spéciale.",
+        "es": "Mejora la concentración y calma el espíritu para aumentar el Ataque Especial y la Defensa Especial.",
+        "de": "Erhöht Spezial-Angriff und Spezial-Verteidigung durch Konzentration.",
+        "it": "Il Pokémon si concentra e placa il proprio spirito per aumentare l'Attacco Speciale e la Difesa Speciale.",
+        "ko": "조용히 정신을 통일하고 마음을 가라앉혀서 자신의 특수공격과 특수방어를 올린다.",
+        "zh-Hant": "屏氣凝神， 提高自己的特攻和特防。",
+        "zh-Hans": "静心凝神， 从而提高自己的特攻和特防。"
+    }
+}

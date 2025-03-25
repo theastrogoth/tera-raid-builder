@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user vanishes somewhere, then strikes the target on the next turn. This move hits even if the target protects itself.",
+        "ja": "１ターンめで　どこかに　消えて ２ターンめに　相手を　攻撃する。 守りを　無視して　攻撃できる。",
+        "fr": "Le lanceur disparaît au premier tour et frappe au second. Cette attaque passe outre les protections.",
+        "es": "El usuario desaparece en el primer turno y ataca a su objetivo en el segundo. Permite acertar aunque el objetivo esté protegiéndose.",
+        "de": "Der Anwender verschwindet in Runde 1, um seine Kraft zu sammeln, und attackiert in Runde 2. Trifft auch, wenn sich das Ziel selbst schützt.",
+        "it": "Il Pokémon scompare improvvisamente per attaccare poi nel turno seguente. Questa mossa neutralizza le protezioni del bersaglio.",
+        "ko": "1턴째에 어디론가 사라져서 2턴째에 상대를 공격한다. 기술 방어를 무시하고 공격할 수 있다.",
+        "zh-Hant": "使用後的第１回合消失到某處， 並於第２回合攻擊對手。 可不顧對手的守護進行攻擊。",
+        "zh-Hans": "第１回合消失在某处， 第２回合攻击对手。 可以无视守护进行攻击。"
+    }
 }

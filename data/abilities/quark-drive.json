@@ -1,0 +1,14 @@
+{
+    "name": "Quark Drive",
+    "flavorText": {
+        "en": "Boosts the Pokémon's most proficient stat on Electric Terrain or if the Pokémon is holding Booster Energy.",
+        "ja": "ブーストエナジーを　持たせるか エレキフィールドのとき いちばん　高い能力が　上がる。",
+        "fr": "Quand un champ électrifié est actif ou que le Pokémon tient une capsule d'Énergie Booster, sa stat la plus élevée augmente.",
+        "es": "Si hay un campo eléctrico en el terreno de combate o lleva un tanque de Energía Potenciadora, aumenta su característica más alta.",
+        "de": "Wenn ein Elektrofeld aktiv ist oder das Pokémon eine Energiekapsel trägt, steigt sein höchster Statuswert.",
+        "it": "Quando il Pokémon ha con sé una Capsula energetica o è in presenza di un Campo Elettrico, la sua statistica più alta aumenta.",
+        "ko": "부스트에너지를 지니고 있거나 일렉트릭필드일 때 가장 높은 능력이 올라간다.",
+        "zh-Hant": "攜帶著驅勁能量 或在電氣場地時， 數值最高的能力會提高。",
+        "zh-Hans": "携带着驱劲能量 或在电气场地上时， 数值最高的能力会提高。"
+    }
+}

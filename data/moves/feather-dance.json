@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user covers the target's body with a mass of down that harshly lowers its Attack stat.",
+        "ja": "羽毛を　ふりまいて 相手の　体に　からませる。 相手の　攻撃を　がくっと　さげる。",
+        "fr": "Une montagne de plumes ensevelit la cible et réduit beaucoup son Attaque.",
+        "es": "Envuelve al objetivo con un manto de plumas para reducir mucho su Ataque.",
+        "de": "Hüllt das Ziel in Daunen und senkt dessen Angriffs-Wert stark.",
+        "it": "Il Pokémon circonda il bersaglio con un turbinio di piume riducendo di molto il suo Attacco.",
+        "ko": "깃털을 흩뿌려 상대의 몸에 휘감는다. 상대의 공격을 크게 떨어뜨린다.",
+        "zh-Hant": "撒出羽毛， 纏住對手的身體。 大幅降低對手的攻擊。",
+        "zh-Hans": "撒出羽毛， 笼罩在对手的周围。 大幅降低对手的攻击。"
+    }
 }

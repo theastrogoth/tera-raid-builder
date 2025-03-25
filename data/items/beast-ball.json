@@ -1,0 +1,14 @@
+{
+    "name": "Beast Ball",
+    "flavorText": {
+        "en": "A somewhat different Poké Ball that is not very effective when catching Pokémon.",
+        "ja": "ポケモンが　捕まえにくい ちょっと変わった　ボール。",
+        "fr": "Une Poké Ball un peu spéciale avec laquelle il est assez difficile de capturer des Pokémon.",
+        "es": "Poké Ball algo distinta a las demás con la que resulta difícil capturar Pokémon.",
+        "de": "Ein etwas ungewöhnlicher Ball, mit dem sich Pokémon nur schwer fangen lassen.",
+        "it": "Poké Ball un po' diversa con cui è difficile catturare Pokémon.",
+        "ko": "포켓몬을 잡기 어려운 조금 특이한 볼.",
+        "zh-Hant": "有點與眾不同的球。 很難捕捉寶可夢。",
+        "zh-Hans": "有些与众不同的精灵球。 很难捕捉一般的宝可梦。"
+    }
+}

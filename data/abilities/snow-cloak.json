@@ -1,0 +1,14 @@
+{
+    "name": "Snow Cloak",
+    "flavorText": {
+        "en": "Boosts the Pokémon's evasiveness in snow.",
+        "ja": "天気が　ゆきのとき 回避率が　上がる。",
+        "fr": "Augmente l'Esquive du Pokémon quand il neige.",
+        "es": "Aumenta su Evasión cuando nieva.",
+        "de": "Bei Schnee steigt der Ausweichwert des Pokémon.",
+        "it": "Se nevica, l'elusione aumenta.",
+        "ko": "날씨가 눈일 때 회피율이 올라간다.",
+        "zh-Hant": "天氣為下雪時， 閃避率會提高。",
+        "zh-Hans": "下雪天气时， 闪避率会提高。"
+    }
+}

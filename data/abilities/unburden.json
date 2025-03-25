@@ -1,0 +1,14 @@
+{
+    "name": "Unburden",
+    "flavorText": {
+        "en": "Boosts the Speed stat if the Pokémon's held item is used or lost.",
+        "ja": "持っていた　道具が　なくなると 素早さが　上がる。",
+        "fr": "Augmente la Vitesse du Pokémon s'il perd ou utilise l'objet qu'il tenait au début du combat.",
+        "es": "Aumenta su Velocidad si usa o pierde el objeto que lleva.",
+        "de": "Wenn das vom Pokémon getragene Item verwendet wird oder verloren geht, steigt seine Initiative.",
+        "it": "Se il Pokémon usa o perde uno strumento, la sua Velocità aumenta.",
+        "ko": "지니던 도구가 없어지면 스피드가 올라간다.",
+        "zh-Hant": "失去所持有的道具時， 速度會提高。",
+        "zh-Hans": "失去所持有的道具时， 速度会提高。"
+    }
+}

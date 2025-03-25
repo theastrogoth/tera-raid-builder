@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user strikes everything around it by letting loose a flare of electricity. This may also leave those hit by the attack with paralysis.",
+        "ja": "まばゆい　電撃で　自分の 周りに　いるものを　攻撃する。 まひ状態に　することが　ある。",
+        "fr": "Un flamboiement d'électricité frappe tous les Pokémon autour du lanceur. Peut aussi les paralyser.",
+        "es": "Una deslumbradora onda eléctrica afecta a los Pokémon adyacentes. Puede paralizar.",
+        "de": "Anwender greift alle Pokémon im Umkreis mit Elektrizität an. Diese werden eventuell auch paralysiert.",
+        "it": "Chi la usa attacca gli altri Pokémon attorno con un bagliore elettrico. Può anche paralizzarli.",
+        "ko": "눈부신 전격으로 자신의 주위에 있는 포켓몬을 공격한다. 마비 상태로 만들 때가 있다.",
+        "zh-Hant": "用耀眼的電流 攻擊自己周圍所有的寶可夢。 有時會讓對手陷入麻痺狀態。",
+        "zh-Hans": "用耀眼的电击 攻击自己周围所有的宝可梦。 有时会陷入麻痹状态。"
+    }
 }

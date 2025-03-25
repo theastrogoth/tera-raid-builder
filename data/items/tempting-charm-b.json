@@ -1,0 +1,14 @@
+{
+    "name": "Tempting Charm B",
+    "flavorText": {
+        "en": "A mysterious charm that tends to be lost before any other item when you faint in the field. This type of charm comes in five different colors.",
+        "ja": "気を失ったとき　なぜか他の道具よりも 先に消えてしまう不思議なおまもり。 色が５種類あるうちのひとつ。",
+        "fr": "Pour une raison inconnue, cette mystérieuse amulette est l'objet qui disparaît en priorité lorsque vous perdez connaissance. Elle existe en cinq couleurs différentes.",
+        "es": "Extraño amuleto que desaparece antes que tus demás posesiones cuando pierdes el conocimiento. Este es uno de los cinco colores que existen.",
+        "de": "Ein mysteriöser Talisman, der unerklärlicherweise vor allen anderen Items verschwindet, wenn du ohnmächtig wirst. Dies ist eine von fünf Farbvarianten.",
+        "it": "Misterioso amuleto che, per qualche ragione, svanisce prima di qualsiasi altro strumento se chi lo possiede sviene. Ne esistono di cinque colori differenti.",
+        "ko": "정신을 잃었을 때, 어째선지 다른 도구보다도 먼저 사라져 버리는 신비한 부적. 색이 다른 5종류 중 하나.",
+        "zh-Hant": "不可思議的護符。在人昏倒時， 不知為何會比其他道具更先消失。 是５種顏色的護符中的一種。",
+        "zh-Hans": "不可思议的护符。在人昏倒时， 不知为何会比其他道具更先消失。 是５种颜色的护符中的一种。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user charges at the target and may make it flinch.",
+        "ja": "すごい　勢いで　相手に　つっこむ。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur charge la cible avec une intensité remarquable, ce qui peut l'apeurer.",
+        "es": "Embiste con un gran impulso y puede llegar a amedrentar al objetivo.",
+        "de": "Eine mächtige Attacke, durch die das Ziel eventuell zurückschreckt.",
+        "it": "Il Pokémon carica il bersaglio a grande velocità e può farlo tentennare.",
+        "ko": "굉장한 기세로 상대에게 돌진한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "以驚人的氣勢撲向對手。 有時會讓對手畏縮。",
+        "zh-Hans": "以惊人的气势扑向对手。 有时会使对手畏缩。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Rocky Helmet",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If another Pokémon makes direct contact with the holder, that Pokémon will be damaged.",
+        "ja": "ポケモンに　持たせると 自分に　さわった相手に ダメージを　与える。",
+        "fr": "Objet à tenir. Il inflige des dégâts à l'attaquant si ce dernier touche directement le porteur.",
+        "es": "Si el portador es alcanzado por un movimiento de contacto, el atacante también recibe daño.",
+        "de": "Ein Item zum Tragen. Fügt einem Angreifer Schaden zu, wenn dieser den Träger berührt.",
+        "it": "Il Pokémon che ha questo strumento infligge danni all'avversario che è entrato in contatto con lui.",
+        "ko": "포켓몬에게 지니게 하면 자신과 접촉한 상대에게 데미지를 준다.",
+        "zh-Hant": "讓寶可夢攜帶後， 會對接觸到自己的 對手造成傷害。",
+        "zh-Hans": "让宝可梦携带后， 能对触碰到自己的 对手造成伤害。"
+    }
+}

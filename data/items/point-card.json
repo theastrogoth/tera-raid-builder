@@ -1,0 +1,14 @@
+{
+    "name": "Point Card",
+    "flavorText": {
+        "en": "A card that lists how many Battle Points you have earned.",
+        "ja": "勝ち取った　バトルポイントの数を みることが　できる　カード。 ",
+        "fr": "Une carte indiquant le nombre de Points de Combat obtenus.",
+        "es": "Una tarjeta en la que se registran los puntos de batalla ganados.",
+        "de": "Auf dieser Karte werden deine bisher gesammelten Gewinnpunkte festgehalten.",
+        "it": "Scheda su cui sono registrati i Punti Lotta che hai ottenuto.",
+        "ko": "이겨서 받은 배틀포인트 수를 볼 수 있는 카드.",
+        "zh-Hant": "可以查看贏得的 對戰點數的卡片。",
+        "zh-Hans": "可以查看赢得的 对战点数的卡片。"
+    }
+}

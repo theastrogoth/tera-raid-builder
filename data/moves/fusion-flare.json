@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user brings down a giant flame. This move's power is boosted when influenced by an enormous lightning bolt.",
+        "ja": "巨大な　炎を　たたきつける。 巨大な　雷の　影響を受け 技の　威力が　あがる。",
+        "fr": "Le lanceur projette une boule de feu gigantesque. La puissance de la capacité augmente sous l'influence d'Éclair Croix.",
+        "es": "Ataca con una llamarada gigantesca. Aumenta su potencia si es influenciada por una gran energía eléctrica.",
+        "de": "Feuert eine monströse Flamme ab. Wird die Attacke durch einen gigantischen Blitz modifiziert, steigt die Stärke.",
+        "it": "Il Pokémon lancia una fiammata enorme. Se usata in combinazione con un tuono poderoso, la potenza della mossa aumenta.",
+        "ko": "거대한 불꽃을 내리친다. 거대한 천둥의 영향을 받아 기술의 위력이 올라간다.",
+        "zh-Hant": "放出巨大的火焰攻擊對手。 受到巨大的閃電影響時， 招式的威力會提高。",
+        "zh-Hans": "释放出巨大的火焰。 受到巨大的闪电影响时， 招式威力会提高。"
+    }
 }

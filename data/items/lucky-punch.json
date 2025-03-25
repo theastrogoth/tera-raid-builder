@@ -1,0 +1,14 @@
+{
+    "name": "Lucky Punch",
+    "flavorText": {
+        "en": "An item to be held by Chansey. This lucky boxing glove boosts the critical-hit ratio of Chansey's moves.",
+        "ja": "幸運を　呼ぶ　グローブ。 ラッキーに　持たせると　技が 急所に　当たりやすくなる。",
+        "fr": "Objet à faire tenir à Leveinard. Une paire de gants qui augmente son taux de critiques.",
+        "es": "Un guante que aumenta la probabilidad de asestar un golpe crítico. Debe llevarlo Chansey.",
+        "de": "Ein Item, das von Chaneira getragen werden kann. Diese Glück bringenden Handschuhe erhöhen die Volltrefferquote des Trägers.",
+        "it": "Strumento da dare a Chansey. Guanti portafortuna che aumentano la probabilità di sferrare brutti colpi.",
+        "ko": "행운을 부르는 글러브다. 럭키에게 지니게 하면 기술이 급소에 맞기 쉬워진다.",
+        "zh-Hant": "能帶來幸運的拳套。 讓吉利蛋攜帶後，招式會 變得容易擊中要害。",
+        "zh-Hans": "能带来幸运的拳套。 让吉利蛋携带后， 招式会变得容易击中要害。"
+    }
+}

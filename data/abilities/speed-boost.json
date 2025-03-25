@@ -1,0 +1,14 @@
+{
+    "name": "Speed Boost",
+    "flavorText": {
+        "en": "The Pokémon's Speed stat is boosted every turn.",
+        "ja": "毎ターン　素早さが　上がる。",
+        "fr": "La Vitesse du Pokémon augmente à chaque tour.",
+        "es": "Aumenta su Velocidad en cada turno.",
+        "de": "Die Initiative des Pokémon steigt in jeder Runde.",
+        "it": "La Velocità aumenta a ogni turno.",
+        "ko": "매 턴 스피드가 올라간다.",
+        "zh-Hant": "每一回合速度會變快。",
+        "zh-Hans": "每一回合速度会变快。"
+    }
+}

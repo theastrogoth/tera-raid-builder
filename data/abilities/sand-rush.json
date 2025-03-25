@@ -1,0 +1,14 @@
+{
+    "name": "Sand Rush",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Speed stat in a sandstorm.",
+        "ja": "天気が　すなあらし　のとき 素早さが　上がる。",
+        "fr": "Augmente la Vitesse lors des tempêtes de sable.",
+        "es": "Aumenta su Velocidad durante las tormentas de arena.",
+        "de": "In Sandstürmen steigt die Initiative des Pokémon.",
+        "it": "Se c'è una tempesta di sabbia, la Velocità aumenta.",
+        "ko": "날씨가 모래바람일 때 스피드가 올라간다.",
+        "zh-Hant": "天氣為沙暴時， 速度會提高。",
+        "zh-Hans": "沙暴天气时， 速度会提高。"
+    }
+}

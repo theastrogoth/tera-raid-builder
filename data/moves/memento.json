@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user faints. In return, the target's Attack and Sp. Atk stats are harshly lowered.",
+        "ja": "自分は　ひんしに　なるが　そのかわりに 相手の　攻撃と　特攻を がくっと　さげる。",
+        "fr": "Le lanceur est mis K.O., mais l'Attaque et l'Attaque Spéciale de la cible baissent beaucoup.",
+        "es": "El usuario se debilita, pero reduce mucho tanto el Ataque como el Ataque Especial del objetivo.",
+        "de": "Der Anwender wird besiegt. Gleichzeitig werden der Angriff und Spezial-Angriff des Zieles stark gesenkt.",
+        "it": "Il Pokémon va KO. Tuttavia, riduce di molto l'Attacco e l'Attacco Speciale del bersaglio.",
+        "ko": "자신은 기절하게 되지만 그 대신 상대의 공격과 특수공격을 크게 떨어뜨린다.",
+        "zh-Hant": "雖然自己會陷入瀕死， 但可以大幅降低 對手的攻擊和特攻。",
+        "zh-Hans": "虽然会使自己陷入昏厥， 但是能够大幅降低 对手的攻击和特攻。"
+    }
 }

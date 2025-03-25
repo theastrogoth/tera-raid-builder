@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This move can hit opposing Pokémon that are in the air. Those Pokémon will be knocked down to the ground.",
+        "ja": "浮いている　ポケモンにも　当たる。 浮いていた　相手は 撃ち落とされて　地面に　落ちる。",
+        "fr": "Touche même les Pokémon dans les airs. Dans ce cas, la cible retombe au sol.",
+        "es": "Acierta incluso a Pokémon que estén en el aire y los hace caer al suelo.",
+        "de": "Die Attacke erfasst auch fliegende und schwebende Pokémon. Werden sie getroffen, fallen sie zu Boden.",
+        "it": "Il Pokémon colpisce gli avversari scaraventando a terra quelli che si trovano in aria.",
+        "ko": "떠 있는 포켓몬도 맞힐 수 있다. 떠 있던 상대는 맞아서 땅에 떨어진다.",
+        "zh-Hant": "能夠命中飄浮在空中的寶可夢。 飄浮在空中的對手 會被擊落掉到地面。",
+        "zh-Hans": "可以击中浮在空中的宝可梦。 空中的对手被击落后， 会掉到地面。"
+    }
 }

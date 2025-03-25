@@ -1,0 +1,14 @@
+{
+    "name": "Exercise Ball",
+    "flavorText": {
+        "en": "A big ball designed for exercising. It can work as a seat if you get tired, too.",
+        "ja": "エクササイズ用の　大きなボール。 うまく乗れば　体幹を　鍛えられる。 飽きても　椅子として　使える。",
+        "fr": "Un gros ballon conçu pour faire de l'exercice. Il peut aussi servir de chaise quand on fatigue.",
+        "es": "Una pelota grande para hacer ejercicio. Si uno se cansa, se puede emplear a modo de silla.",
+        "de": "Ein großer Ball für Gymnastikübungen. Er eignet sich außerdem als Sitzgelegenheit, wenn man eine Verschnaufpause braucht.",
+        "it": "Grossa palla per fare esercizio. Se ci si stufa, può comunque essere usata come sedia.",
+        "ko": "큰 사이즈의 운동용 볼. 제대로 올라타면 코어 근육을 단련할 수 있다. 질리면 의자로 활용할 수 있다.",
+        "zh-Hant": "運動用的大球。 穩坐在其上能鍛鍊到軀幹。 即使覺得膩了，也能當椅子使用。",
+        "zh-Hans": "健身用的大球。若能漂亮地 乘上去，便可以锻炼体干。 当厌倦锻炼了，还能当椅子使用。"
+    }
+}

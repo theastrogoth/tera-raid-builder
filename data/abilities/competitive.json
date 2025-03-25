@@ -1,0 +1,14 @@
+{
+    "name": "Competitive",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Sp. Atk stat sharply when its stats are lowered by an opposing Pokémon.",
+        "ja": "相手に　能力を　下げられると 特攻が　ぐーんと　上がる。",
+        "fr": "Augmente beaucoup l'Attaque Spéciale du Pokémon quand ses stats ont été baissées par l'adversaire.",
+        "es": "Aumenta mucho su Ataque Especial cuando el rival le reduce cualquiera de sus características.",
+        "de": "Der Spezial-Angriff des Pokémon steigt stark, wenn einer seiner Statuswerte durch ein anderes Pokémon gesenkt wird.",
+        "it": "L'Attacco Speciale aumenta di molto quando le statistiche diminuiscono a causa di un avversario.",
+        "ko": "상대에 의해 능력이 떨어지면 특수공격이 크게 올라간다.",
+        "zh-Hant": "被對手降低能力時， 特攻會大幅提高。",
+        "zh-Hans": "如果被对手降低能力， 特攻会大幅提高。"
+    }
+}

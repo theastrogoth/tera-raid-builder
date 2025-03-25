@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user continually rolls into the target over five turns. This attack becomes more powerful each time it hits.",
+        "ja": "５ターンの　間　転がり続けて 攻撃する。　技が　当たるたびに 威力が　あがる。",
+        "fr": "Un rocher roule sur la cible pendant cinq tours. L'attaque gagne en puissance à chaque coup.",
+        "es": "El usuario rueda contra el objetivo durante cinco turnos y, cada vez que acierta, aumenta la potencia del movimiento.",
+        "de": "Attacke, die fünf Runden dauert. Mit jedem Treffer steigt die Stärke.",
+        "it": "Il Pokémon attacca rotolando per cinque turni. Ogni volta che la mossa va a segno, la sua potenza aumenta.",
+        "ko": "5턴 동안 구르기를 반복하여 공격한다. 기술이 맞을 때마다 위력이 올라간다.",
+        "zh-Hant": "在５回合內連續滾動攻擊對手。 每擊中一次，威力就會提高。",
+        "zh-Hans": "在５回合内连续滚动攻击对手。 招式每次击中，威力就会提高。"
+    }
 }

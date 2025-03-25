@@ -1,0 +1,14 @@
+{
+    "name": "Lost Satchel",
+    "flavorText": {
+        "en": "A satchel that someone dropped.",
+        "ja": "だれかが落としたポーチ。",
+        "fr": "Une sacoche que quelqu'un a égarée.",
+        "es": "Zurrón que se le ha caído a alguien.",
+        "de": "Eine Tasche, die jemand verloren hat.",
+        "it": "Borsello perso da qualcuno.",
+        "ko": "누군가가 떨어뜨린 파우치.",
+        "zh-Hant": "某人遺失的腰包。",
+        "zh-Hans": "他人遗失的腰包。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Shed Shell",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. Hard and sturdy, this discarded carapace enables the holder to switch out of battle without fail.",
+        "ja": "丈夫で　硬い　ぬけがら。 持たせた　ポケモンは　控えの ポケモンと　必ず　いれかわれる。",
+        "fr": "Objet à tenir. Une carapace dure qui permet au porteur de se retirer du combat à tous les coups.",
+        "es": "Esta concha desechada permite que el portador siempre pueda cambiarse por otro Pokémon que no esté combatiendo.",
+        "de": "Ein Item zum Tragen. Dieser harte Panzer sorgt dafür, dass sein Träger unter allen Umständen ausgetauscht werden kann.",
+        "it": "Un Pokémon con questo robusto guscio può essere sempre sostituito.",
+        "ko": "튼튼하고 단단한 허물. 지니게 한 포켓몬은 교대 포켓몬과 반드시 교체할 수 있다.",
+        "zh-Hant": "結實堅硬的空殼。 攜帶它的寶可夢必定可以 和後備的寶可夢進行替換。",
+        "zh-Hans": "结实坚硬的空壳。 携带它的宝可梦必定可以 和后备的宝可梦进行替换。"
+    }
+}

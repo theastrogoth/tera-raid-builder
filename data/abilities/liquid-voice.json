@@ -1,0 +1,14 @@
+{
+    "name": "Liquid Voice",
+    "flavorText": {
+        "en": "Sound-based moves become Water-type moves.",
+        "ja": "すべての　音技が みずタイプに　なる。",
+        "fr": "Toutes les attaques sonores du Pokémon prennent le type Eau.",
+        "es": "Hace que todos sus movimientos que usan sonido pasen a ser de tipo Agua.",
+        "de": "Alle Geräusch-Attacken des Pokémon nehmen den Typ Wasser an.",
+        "it": "Le mosse del Pokémon basate sul suono diventano di tipo Acqua.",
+        "ko": "모든 소리 기술이 물타입이 된다.",
+        "zh-Hant": "所有的聲音招式 都變為水屬性。",
+        "zh-Hans": "所有的声音招式 都变为水属性。"
+    }
+}

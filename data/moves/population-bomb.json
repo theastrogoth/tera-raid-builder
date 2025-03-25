@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": true,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user spins furiously by straining its legs, inflicting damage on the target. This also harshly lowers the user's Speed stat.",
+        "ja": "足に　負荷を　かけることにより 激しく　回転して　ダメージを　与える。 自分の　素早さが　がくっと　さがる。",
+        "fr": "Le lanceur met tout son poids sur ses pattes et effectue de violentes rotations, ce qui inflige des dégâts à la cible, mais baisse beaucoup la Vitesse du lanceur.",
+        "es": "Inflige daño al objetivo ejerciendo presión sobre sus extremidades y girando violentamente sobre sí. Reduce mucho la Velocidad del usuario.",
+        "de": "Der Anwender wirbelt wild umher, indem er sein Gewicht auf seine Extremitäten verlagert, und richtet so Schaden an. Seine eigene Initiative sinkt dadurch stark.",
+        "it": "Il Pokémon infligge danni caricando le estremità e ruotandole vorticosamente. La sua Velocità diminuisce di molto.",
+        "ko": "발에 부하를 걸어 격렬하게 회전하며 데미지를 준다. 자신의 스피드가 크게 떨어진다.",
+        "zh-Hant": "藉由在腳上負重 來劇烈地旋轉並給予傷害。 自己的速度會大幅降低。",
+        "zh-Hans": "通过往腿上增加负荷， 以激烈的旋转给予对手伤害。 自己的速度会大幅降低。"
+    }
 }

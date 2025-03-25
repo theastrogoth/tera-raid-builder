@@ -1,0 +1,14 @@
+{
+    "name": "Damp Rock",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. When the holder changes the weather to rain, the rain will persist for longer than usual.",
+        "ja": "持たせた　ポケモンが 天気を　あめにすると　いつもより あめの時間が　長くなる。",
+        "fr": "Objet à tenir. Prolonge la durée de la pluie quand elle est déclenchée par le porteur.",
+        "es": "Prolonga la duración de la lluvia provocada por el Pokémon que la lleva.",
+        "de": "Ein Item zum Tragen. Verlängert die Dauer von Regen, den der Träger verursacht.",
+        "it": "Allunga la durata della piogga provocata dal Pokémon che ha questo strumento.",
+        "ko": "지니게 한 포켓몬이 날씨를 비로 만들면 여느 때보다 비의 지속 시간이 길어진다.",
+        "zh-Hant": "攜帶它的寶可夢 將天氣變為下雨的話， 下雨的時間就會比平時更長。",
+        "zh-Hans": "携带它的宝可梦将天气变为下雨的话， 下雨的时间就会比平时更长。"
+    }
+}

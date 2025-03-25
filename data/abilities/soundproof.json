@@ -1,0 +1,14 @@
+{
+    "name": "Soundproof",
+    "flavorText": {
+        "en": "Soundproofing gives the Pokémon full immunity to all sound-based moves.",
+        "ja": "音を　遮断することに　よって 音の技を　受けない。",
+        "fr": "Protège le Pokémon de toutes les capacités sonores.",
+        "es": "Su aislamiento acústico lo protege de movimientos que usan sonido.",
+        "de": "Das Pokémon kann durch Schalldämmung nicht von Geräusch-Attacken getroffen werden.",
+        "it": "Il Pokémon è dotato di una sorta di isolamento acustico che lo rende immune alle mosse basate sul suono.",
+        "ko": "소리를 차단하여 소리 기술의 영향을 받지 않는다.",
+        "zh-Hant": "透過遮蔽聲音， 不受到聲音招式的攻擊。",
+        "zh-Hans": "通过屏蔽声音， 不受到声音招式的影响。"
+    }
+}

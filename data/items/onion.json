@@ -1,0 +1,14 @@
+{
+    "name": "Onion",
+    "flavorText": {
+        "en": "This spicy veggie is indispensable to many sandwiches. It goes well with rich ingredients.",
+        "ja": "辛味が　ある　食材。 サンドウィッチには　欠かせない　野菜。 脂が多い　食材との　相性が　よい。",
+        "fr": "Un ingrédient au goût épicé. Un légume indispensable à tout bon Sandwich. Se marie bien avec les ingrédients plutôt gras.",
+        "es": "Esta hortaliza de sabor picante no puede faltar en ningún bocadillo. Combina especialmente bien con ingredientes con alto contenido graso.",
+        "de": "Diese scharfe Zutat darf auf keinem Sandwich fehlen. Sie harmoniert besonders gut mit fettreichen Zutaten.",
+        "it": "Un ingrediente piccante. Questa verdura, che non può mancare in un panino, si abbina bene con ingredienti molto grassi.",
+        "ko": "매운맛이 나는 식재료. 샌드위치에 빠지지 않는 채소다. 느끼한 식재료와 궁합이 잘 맞는다.",
+        "zh-Hant": "帶有辣味的食材。 是三明治中不可或缺的蔬菜。 和油脂多的食材非常搭配。",
+        "zh-Hans": "带有辣味的食材。 三明治中不可或缺的蔬菜。 和油腻的食材很搭配。"
+    }
+}

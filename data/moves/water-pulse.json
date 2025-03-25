@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": true,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with a pulsing blast of water. This may also confuse the target.",
+        "ja": "水の　振動を 相手に　与えて　攻撃する。 相手を　混乱させることが　ある。",
+        "fr": "Le lanceur projette une aura aquatique sur la cible, et peut la rendre confuse.",
+        "es": "Ataca con una potente onda de agua. Puede confundir al objetivo.",
+        "de": "Angriff mit Wasserwelle, die das Ziel eventuell verwirren kann.",
+        "it": "Il Pokémon attacca lanciando sul bersaglio un getto d'acqua potentissimo che può anche confonderlo.",
+        "ko": "물의 진동을 상대에게 가하여 공격한다. 상대를 혼란시킬 때가 있다.",
+        "zh-Hant": "用水的震動攻擊對手。 有時會使對手混亂。",
+        "zh-Hans": "用水的震动攻击对手。 有时会使对手混乱。"
+    }
 }

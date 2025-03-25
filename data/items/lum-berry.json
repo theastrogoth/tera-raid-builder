@@ -1,0 +1,14 @@
+{
+    "name": "Lum Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to cure itself of any status condition it may have.",
+        "ja": "ポケモンに　持たせると すべての　状態異常を　回復する。",
+        "fr": "Une Baie qui soigne toutes les altérations de statut lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para recuperarse de problemas de estado.",
+        "de": "Als getragenes Item behebt diese Beere alle Statusprobleme des Pokémon.",
+        "it": "Se un Pokémon ha questa bacca, guarisce da qualsiasi problema di stato.",
+        "ko": "포켓몬에게 지니게 하면 모든 상태 이상을 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以治癒所有異常狀態。",
+        "zh-Hans": "让宝可梦携带后， 可以治愈所有异常状态。"
+    }
+}

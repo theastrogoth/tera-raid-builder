@@ -1,0 +1,14 @@
+{
+    "name": "Room Service",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. If Trick Room takes effect, this item will lower the holder's Speed stat.",
+        "ja": "ポケモンに　持たせると トリックルームのときに　使って 素早さが　下がる。",
+        "fr": "Objet à tenir. Lorsqu'une distorsion est active, l'objet est consommé pour baisser la Vitesse du porteur.",
+        "es": "Si lo lleva un Pokémon, reduce su Velocidad cuando se usa Espacio Raro.",
+        "de": "Senkt die Initiative des Trägers, wenn Bizarroraum wirkt.",
+        "it": "Se un Pokémon ha questo strumento quando il campo di lotta è sotto l'effetto di Distortozona, la sua Velocità diminuisce.",
+        "ko": "포켓몬에게 지니게 하면 트릭룸일 때 사용하여 스피드가 떨어진다.",
+        "zh-Hant": "讓寶可夢攜帶後， 當戲法空間成功時， 速度會降低。",
+        "zh-Hans": "让宝可梦携带后， 在戏法空间使用时， 速度会下降。"
+    }
+}

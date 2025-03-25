@@ -1,0 +1,14 @@
+{
+    "name": "Hydration",
+    "flavorText": {
+        "en": "Cures the Pokémon's status conditions in rain.",
+        "ja": "天気が　雨のとき 状態異常が　治る。",
+        "fr": "Soigne les altérations de statut du Pokémon quand il pleut.",
+        "es": "Cura los problemas de estado si está lloviendo.",
+        "de": "Bei Regen werden Statusprobleme des Pokémon geheilt.",
+        "it": "Se piove, il Pokémon guarisce dai problemi di stato.",
+        "ko": "비가 오는 날씨일 때 상태 이상이 회복된다.",
+        "zh-Hant": "天氣為下雨時， 會治癒異常狀態。",
+        "zh-Hans": "下雨天气时， 异常状态会治愈。"
+    }
+}

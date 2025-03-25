@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user levitates using electrically generated magnetism for five turns.",
+        "ja": "電気で　つくった　磁力の　力で 宙に　浮かぶ。 ５ターンの　間　浮遊できる。",
+        "fr": "Le lanceur utilise l'électricité pour générer un champ magnétique et léviter durant cinq tours.",
+        "es": "Levita gracias a un campo magnético generado por electricidad durante cinco turnos.",
+        "de": "Anwender schwebt für fünf Runden durch elektrisch erzeugten Magnetismus.",
+        "it": "Il Pokémon si solleva in aria per cinque turni grazie a un campo elettromagnetico.",
+        "ko": "전기로 만든 자력의 힘으로 허공에 뜬다. 5턴 동안 부유할 수 있다.",
+        "zh-Hant": "利用電氣產生的磁力浮在空中。 在５回合內可以飄浮。",
+        "zh-Hans": "利用电气产生的磁力浮在空中。 在５回合内可以飘浮。"
+    }
 }

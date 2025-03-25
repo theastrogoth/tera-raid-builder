@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Spurred by desperation, the user attacks the target. This move's power is doubled if the user's previous move failed.",
+        "ja": "自棄になった　勢いで　攻撃する。 前の　ターンに　技を　外していると 威力が　倍に　なる。",
+        "fr": "Le lanceur utilise la force de son dépit pour attaquer. S'il a utilisé une capacité qui a échoué au tour précédent, la puissance d'Indignition est doublée.",
+        "es": "Arremete contra el objetivo tras dejarse llevar por la ira. Su potencia se duplica si el movimiento del usuario falló en el turno anterior.",
+        "de": "Der Anwender greift das Ziel voller Verzweiflung an. Wenn seine vorige Attacke fehlgeschlagen ist, verdoppelt sich die Stärke der Attacke.",
+        "it": "Il Pokémon attacca con l'impeto di chi è pronto a tutto. Se la mossa usata al turno precedente non è andata a segno, la potenza raddoppia.",
+        "ko": "자포자기하는 기세로 공격한다. 앞 턴에서 기술이 빗나갔다면 위력이 배가 된다.",
+        "zh-Hant": "用自暴自棄的狠勁攻擊對手。 如果上一回合的招式沒有命中， 威力就會加倍。",
+        "zh-Hans": "以自暴自弃的气势进行攻击。 如果上一回合招式没有命中， 威力就会翻倍。"
+    }
 }

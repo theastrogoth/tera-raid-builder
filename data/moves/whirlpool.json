@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user traps the target inside a violent, swirling whirlpool that inflicts damage for four to five turns.",
+        "ja": "激しく　渦をまく　水の中に ４ー５ターンの　間 相手を　閉じこめて　攻撃する。",
+        "fr": "Le lanceur piège la cible dans une trombe d'eau pendant quatre à cinq tours.",
+        "es": "Una tromba de agua atrapa y daña al objetivo durante cuatro o cinco turnos.",
+        "de": "Das Ziel wird für vier bis fünf Runden in einer Wasserhose gefangen.",
+        "it": "Il Pokémon attacca intrappolando il bersaglio in un turbine d'acqua per quattro o cinque turni.",
+        "ko": "세차게 소용돌이치는 물속에 4~5턴 동안 상대를 가두어 공격한다.",
+        "zh-Hant": "將對手困在激烈的 水流漩渦中， 在４～５回合內進行攻擊。",
+        "zh-Hans": "将对手困在激烈的 水流旋涡中， 在４～５回合内进行攻击。"
+    }
 }

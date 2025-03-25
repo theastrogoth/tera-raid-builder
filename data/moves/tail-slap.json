@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by striking the target with its hard tail. This move hits two to five times in a row.",
+        "ja": "硬い　しっぽで 相手を　たたいて　攻撃する。 ２ー５回の　間　連続で　だす。",
+        "fr": "Le lanceur frappe la cible de deux à cinq fois d'affilée avec sa queue robuste.",
+        "es": "Golpea con la cola de dos a cinco veces seguidas.",
+        "de": "Anwender greift das Ziel mit seiner schlagfesten Rute zwei- bis fünfmal hintereinander an.",
+        "it": "Il Pokémon attacca colpendo il bersaglio con la sua coda dura da due a cinque volte di fila.",
+        "ko": "단단한 꼬리로 상대를 때려서 공격한다. 2~5회 연속으로 쓴다.",
+        "zh-Hant": "將堅硬的尾巴 掃向對手進行攻擊。 可連續攻擊２～５次。",
+        "zh-Hans": "用坚硬的尾巴 拍打对手进行攻击。 连续攻击２～５次。"
+    }
 }

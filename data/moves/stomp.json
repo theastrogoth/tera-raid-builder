@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by stomping on the target with a big foot. This may also make the target flinch.",
+        "ja": "大きな　足で 相手を　踏みつけて　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Écrase la cible avec un énorme pied, ce qui peut aussi l'apeurer.",
+        "es": "Tremendo pisotón que puede hacer que el objetivo se amedrente.",
+        "de": "Stampfen mit dem Fuß. Das Ziel schreckt eventuell zurück.",
+        "it": "Il Pokémon attacca il bersaglio pestandolo con un grosso piede e può anche farlo tentennare.",
+        "ko": "큰 발로 상대를 짓밟아서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "用大腳踩踏對手進行攻擊。 有時會讓對手畏縮。",
+        "zh-Hans": "用大脚踩踏对手进行攻击。 有时会使对手畏缩。"
+    }
 }

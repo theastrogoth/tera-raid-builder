@@ -1,0 +1,14 @@
+{
+    "name": "Fine Remedy",
+    "flavorText": {
+        "en": "A recipe for crafting Fine Remedies from scratch. Required materials: 1 Remedy and 1 Pep-Up Plant.",
+        "ja": "いいカンポーやくのレシピ。　材料は カンポーやく×１　ピーピーグサ×１",
+        "fr": "Méthode pour Super Remède. Ressources requises : 1 Remède et 1 Plante PP.",
+        "es": "Receta para crear Superremedios. Materiales: 1 Remedio y 1 Hierba Éter.",
+        "de": "Die Anleitung zur Herstellung einer Superarznei. Benötigte Materialien: 1 Arznei und 1 Stängel Ätherkraut.",
+        "it": "Ricetta per un Preparato buono. Richiede 1 Preparato e 1 radice di Erba PP.",
+        "ko": "좋은한방약의 레시피. 재료: 한방약×1 PP풀×1",
+        "zh-Hant": "好中藥的材料單。材料是： 中藥×１　ＰＰ草×１",
+        "zh-Hans": "好中药的材料单。材料是： 中药×１　ＰＰ草×１"
+    }
+}

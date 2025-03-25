@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user employs its psychic power to switch changes to its Defense and Sp. Def stats with the target.",
+        "ja": "超能力で　自分と　相手の 防御と　特防の 能力変化を　入れ替える。",
+        "fr": "Le lanceur utilise un pouvoir psychique qui échange les changements de sa Défense et de sa Défense Spéciale avec celles de la cible.",
+        "es": "El usuario emplea su poder mental para intercambiar los cambios en la Defensa y la Defensa Especial con el objetivo.",
+        "de": "Psychische Kräfte tauschen Änderungen an Verteidigung und Spezial-Verteidigung mit denen des Zieles.",
+        "it": "Il Pokémon sfrutta la sua forza psichica per scambiare le modifiche a Difesa e Difesa Speciale con il bersaglio.",
+        "ko": "초능력으로 자신과 상대의 방어와 특수방어의 능력 변화를 교체한다.",
+        "zh-Hant": "用超能力將自己和對手的 防禦與特防的能力變化互相交換。",
+        "zh-Hans": "利用超能力互换 自己和对手的防御 以及特防的能力变化。"
+    }
 }

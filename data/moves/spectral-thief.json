@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hides in the target's shadow, steals the target's stat boosts, and then attacks.",
+        "ja": "相手の　影に　潜り込み 相手の　能力アップを 奪って　攻撃する。",
+        "fr": "Le lanceur plonge dans l'ombre de la cible, vole ses augmentations de stats et l'attaque.",
+        "es": "El usuario se esconde en la sombra del objetivo y lo ataca tras robarle las mejoras en sus características.",
+        "de": "Der Anwender schleicht sich in den Schatten des Zieles, stiehlt dessen erhöhte Statuswerte und fügt ihm Schaden zu.",
+        "it": "Il Pokémon ruba gli aumenti delle statistiche del bersaglio, poi si nasconde nella sua ombra e lo attacca.",
+        "ko": "상대의 그림자에 숨어들어 상대의 능력이 올라가는 것을 뺏어 공격한다.",
+        "zh-Hant": "潛入對手的影子， 奪取對手的能力提升進行攻擊。",
+        "zh-Hans": "潜入对手的影子进行攻击。 会夺取对手的能力提升。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Light Ball",
+    "flavorText": {
+        "en": "An item to be held by Pikachu. It's a mysterious orb that boosts Pikachu's Attack and Sp. Atk stats.",
+        "ja": "ピカチュウに　持たせると 攻撃と　特攻が あがる　不思議な玉。",
+        "fr": "Objet à faire tenir à Pikachu. Un orbe énigmatique qui augmente son Attaque et son Attaque Spéciale.",
+        "es": "Asombrosa esfera que aumenta el Ataque y el Ataque Especial. Debe llevarla Pikachu.",
+        "de": "Ein Item, das von Pikachu getragen werden kann. Es erhöht den Angriff und den Spezial-Angriff.",
+        "it": "Strumento da dare a Pikachu. Sfera insolita che aumenta l'Attacco e l'Attacco Speciale.",
+        "ko": "피카츄에게 지니게 하면 공격과 특수공격이 올라가는 이상한 구슬.",
+        "zh-Hant": "讓皮卡丘攜帶後， 攻擊和特攻就會 提高的神奇之球。",
+        "zh-Hans": "让皮卡丘携带后， 攻击和特攻就会 提高的神奇之球。"
+    }
+}

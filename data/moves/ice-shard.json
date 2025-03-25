@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user flash-freezes chunks of ice and hurls them at the target. This move always goes first.",
+        "ja": "氷の塊を　一瞬で　つくり 相手に　素早く　放つ。 必ず　先制攻撃　できる。",
+        "fr": "Le lanceur crée des éclats de glace qu'il envoie sur la cible. Frappe en priorité.",
+        "es": "Crea esquirlas de hielo y las lanza a gran velocidad. Este movimiento tiene prioridad alta.",
+        "de": "Erstschlag-Attacke, bei der das Ziel mit Eisklumpen beworfen wird.",
+        "it": "Il Pokémon crea pezzi di ghiaccio che scaglia subito contro il bersaglio. Questo attacco ha priorità alta.",
+        "ko": "얼음덩어리를 순식간에 만들어 상대에게 빠르게 쏜다. 반드시 선제공격을 할 수 있다.",
+        "zh-Hant": "將瞬間製造出的冰塊 快速地扔向對手。 必定能夠發動先制攻擊。",
+        "zh-Hans": "瞬间制作冰块， 快速地扔向对手。 必定能够先制攻击。"
+    }
 }

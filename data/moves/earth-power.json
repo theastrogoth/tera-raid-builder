@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user makes the ground under the target erupt with power. This may also lower the target's Sp. Def stat.",
+        "ja": "相手の　足下へ　大地の力を 放出する。相手の　特防を さげることが　ある。",
+        "fr": "De terribles séismes secouent la cible et peuvent aussi baisser sa Défense Spéciale.",
+        "es": "La tierra a los pies del objetivo erupciona violentamente. Puede reducir la Defensa Especial del objetivo.",
+        "de": "Der Boden unter dem Ziel erzittert durch die Kraft der Erde. Senkt eventuell Spezial-Verteidigung.",
+        "it": "Una forza devastante si sprigiona dal terreno sotto il bersaglio. Può anche ridurne la Difesa Speciale.",
+        "ko": "상대의 발밑에 대지의 힘을 방출한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "向對手腳下 釋放出大地之力。 有時會降低對手的特防。",
+        "zh-Hans": "向对手脚下 释放出大地之力。 有时会降低对手的特防。"
+    }
 }

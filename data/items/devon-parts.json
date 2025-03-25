@@ -1,0 +1,14 @@
+{
+    "name": "Devon Parts",
+    "flavorText": {
+        "en": "A case that contains mechanical parts of some sort made by the Devon Corporation.",
+        "ja": "デボンで　つくられた 何かの　パーツが 入っている　にもつ。",
+        "fr": "Une valise qui contient des pièces mécaniques fabriquées par la société Devon.",
+        "es": "Contiene piezas de algo fabricado por Devon S. A.",
+        "de": "Ein Metallkoffer mit irgendwelchen Bauteilen, die von der Devon Corporation angefertigt wurden.",
+        "it": "Questa valigetta contiene pezzi meccanici prodotti dalla Devon.",
+        "ko": "데봉에서 만들어진 무언가의 파츠가 들어 있는 화물.",
+        "zh-Hant": "裡面放有得文製造的 某種零件的物品。",
+        "zh-Hans": "此物品里面放着的是 得文制造的某种零件。"
+    }
+}

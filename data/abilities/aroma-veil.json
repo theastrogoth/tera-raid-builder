@@ -1,0 +1,14 @@
+{
+    "name": "Aroma Veil",
+    "flavorText": {
+        "en": "Protects the Pokémon and its allies from effects that prevent the use of moves.",
+        "ja": "自分と　味方への　メンタル 攻撃を　防ぐことが　できる。",
+        "fr": "Protège le Pokémon et ses alliés des effets limitant le libre arbitre.",
+        "es": "Se protege a sí mismo y a sus aliados de efectos que impiden usar movimientos.",
+        "de": "Die Pokémon auf der Mitstreiterseite sind vor Effekten geschützt, die den Einsatz von Attacken verhindern.",
+        "it": "Protegge tutta la squadra da certi effetti che limitano l'uso delle mosse.",
+        "ko": "자신과 같은 편으로 향하는 멘탈 공격을 막을 수 있다.",
+        "zh-Hant": "可防住向自己和同伴 發出的心靈攻擊。",
+        "zh-Hans": "可以防住向自己和同伴 发出的心灵攻击。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user has teatime with all the Pokémon currently in the battle. Each Pokémon eats its held Berry.",
+        "ja": "おちゃかいを　ひらいて 場にいる　ポケモンが　それぞれ 持っている　きのみを　食べる。",
+        "fr": "Le lanceur invite tous les Pokémon sur le terrain à prendre le goûter autour d'une tasse de thé. Ceux qui tiennent une Baie la mangent.",
+        "es": "El usuario invita a tomar el té a todos los presentes en el terreno de combate, lo que hace que ingieran las bayas que lleven equipadas.",
+        "de": "Der Anwender lädt alle am Kampf beteiligten Pokémon zu einem Teekränzchen ein, woraufhin diese die Beeren essen, die sie bei sich tragen.",
+        "it": "Chi la usa invita tutti i Pokémon in campo a prendere il tè. Quelli che hanno con sé una bacca la mangiano.",
+        "ko": "다과회를 열어서 배틀에 나와 있는 포켓몬이 각각 지니고 있는 나무열매를 먹는다.",
+        "zh-Hant": "舉辦茶會， 在場上的寶可夢都會 吃掉自己攜帶的樹果。",
+        "zh-Hans": "举办一场茶会， 场上的所有宝可梦都会 吃掉自己携带的树果。"
+    }
 }

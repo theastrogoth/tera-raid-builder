@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is slugged by a punch thrown with muscle- packed power.",
+        "ja": "力を　こめた　パンチで 相手を　攻撃する。",
+        "fr": "La cible reçoit un coup de poing d'une grande puissance.",
+        "es": "Puñetazo de gran potencia.",
+        "de": "Ein unglaublich kräftiger Hieb.",
+        "it": "Il Pokémon attacca il bersaglio con un pugno poderoso.",
+        "ko": "힘을 담은 펀치로 상대를 공격한다.",
+        "zh-Hant": "用帶有強大力量的拳頭 攻擊對手。",
+        "zh-Hans": "用充满力量的拳头攻击对手。"
+    }
 }

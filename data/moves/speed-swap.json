@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user exchanges Speed stats with the target.",
+        "ja": "相手の　素早さと 自分の　素早さを 入れ替えてしまう。",
+        "fr": "Intervertit la Vitesse du lanceur et celle de la cible.",
+        "es": "Intercambia su Velocidad por la del objetivo.",
+        "de": "Der Anwender tauscht seinen Initiative-Wert mit dem des Zieles.",
+        "it": "Il Pokémon scambia la propria Velocità con quella del bersaglio.",
+        "ko": "상대의 스피드와 자신의 스피드를 교체한다.",
+        "zh-Hant": "將對手和自己的速度 進行互換。",
+        "zh-Hans": "将对手和自己的速度 进行互换。"
+    }
 }

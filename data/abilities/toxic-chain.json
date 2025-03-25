@@ -1,0 +1,14 @@
+{
+    "name": "Toxic Chain",
+    "flavorText": {
+        "en": "The power of the Pokémon's toxic chain may badly poison any target the Pokémon hits with a move.",
+        "ja": "毒素を　ふくんだ　鎖の力で 技を　当てた　相手を 猛毒の状態に　することが　ある。",
+        "fr": "Grâce aux pouvoirs de sa chaîne imprégnée de toxines, le Pokémon peut empoisonner gravement sa cible en la touchant avec une capacité.",
+        "es": "Gracias al poder de su cadena impregnada de toxinas, puede envenenar gravemente al Pokémon al que ataque.",
+        "de": "Durch die toxischen Stoffe in seiner Kette werden Ziele, die das Pokémon mit einer Attacke trifft, gelegentlich schwer vergiftet.",
+        "it": "Quando il Pokémon colpisce il bersaglio con una mossa, può iperavvelenarlo grazie al potere della catena intrisa di tossine.",
+        "ko": "독소를 머금은 사슬의 힘으로 기술에 맞은 상대를 맹독 상태로 만들 때가 있다.",
+        "zh-Hant": "靠著含有毒素的鎖鏈的力量， 有時會讓被招式擊中的對手 陷入劇毒狀態。",
+        "zh-Hans": "凭借含有毒素的锁链的力量， 有时能让被招式击中的对手 陷入剧毒状态。"
+    }
+}

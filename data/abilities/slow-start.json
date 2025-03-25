@@ -1,0 +1,14 @@
+{
+    "name": "Slow Start",
+    "flavorText": {
+        "en": "For five turns, the Pokémon's Attack and Speed stats are halved.",
+        "ja": "５ターンの　あいだ 攻撃と　素早さが 半分に　なる。",
+        "fr": "Divise la Vitesse et l'Attaque du Pokémon par deux pendant les cinq premiers tours du combat.",
+        "es": "Reduce a la mitad su Ataque y su Velocidad durante cinco turnos.",
+        "de": "Der Angriff und die Initiative des Pokémon werden fünf Runden lang halbiert.",
+        "it": "Dimezza per cinque turni l'Attacco e la Velocità.",
+        "ko": "5턴 동안 공격과 스피드가 절반이 된다.",
+        "zh-Hant": "在５回合內， 攻擊和速度會減半。",
+        "zh-Hans": "在５回合内， 攻击和速度减半。"
+    }
+}

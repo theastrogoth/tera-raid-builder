@@ -1,0 +1,14 @@
+{
+    "name": "Defiant",
+    "flavorText": {
+        "en": "If the Pokémon has any stat lowered by an opposing Pokémon, its Attack stat will be boosted sharply.",
+        "ja": "相手に　能力を　下げられると 攻撃が　ぐーんと　上がる。",
+        "fr": "Augmente beaucoup l'Attaque du Pokémon quand ses stats sont baissées par l'adversaire.",
+        "es": "Aumenta mucho su Ataque cuando el rival le reduce cualquiera de sus características.",
+        "de": "Der Angriff des Pokémon steigt stark, wenn einer seiner Statuswerte durch ein anderes Pokémon gesenkt wird.",
+        "it": "L'Attacco aumenta di molto quando le statistiche diminuiscono a causa di un avversario.",
+        "ko": "상대에 의해 능력이 떨어지면 공격이 크게 올라간다.",
+        "zh-Hant": "被對手降低能力時， 攻擊會大幅提高。",
+        "zh-Hans": "被对手降低能力时， 攻击会大幅提高。"
+    }
+}

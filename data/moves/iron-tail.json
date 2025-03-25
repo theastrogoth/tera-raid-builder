@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The target is slammed with a steel-hard tail. This may also lower the target's Defense stat.",
+        "ja": "硬い　しっぽで 相手を　たたきつけて　攻撃する。 相手の　防御を　さげることが　ある。",
+        "fr": "Le lanceur attaque la cible avec une queue de fer, ce qui peut aussi baisser la Défense de la cible.",
+        "es": "Ataca con una cola férrea y puede reducir la Defensa del objetivo.",
+        "de": "Attacke mit hartem Eisenschweif. Senkt eventuell den Verteidigungs-Wert des Zieles.",
+        "it": "Il Pokémon attacca colpendo il bersaglio con una robusta coda che può anche ridurne la Difesa.",
+        "ko": "단단한 꼬리로 상대를 힘껏 쳐서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "將堅硬的尾巴 甩向對手進行攻擊。 有時會降低對手的防禦。",
+        "zh-Hans": "使用坚硬的尾巴 摔打对手进行攻击。 有时会降低对手的防御。"
+    }
 }

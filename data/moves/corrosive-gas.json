@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user surrounds everything around it with highly acidic gas and melts away items held by other Pokémon.",
+        "ja": "強い　酸性の　ガスで 周りに　いるものを　包みこみ 持っている　道具を　溶かしてしまう。",
+        "fr": "Un gaz corrosif qui enveloppe tous les Pokémon alentour et qui dissout les objets qu'ils tiennent.",
+        "es": "El usuario libera un gas cáustico que envuelve a los Pokémon adyacentes y derrite por completo los objetos que lleven equipados.",
+        "de": "Der Anwender greift alle Pokémon im Umkreis mit einem ätzenden Gas an. Getragene Items werden dadurch zersetzt.",
+        "it": "Chi la usa avvolge gli altri Pokémon attorno in un gas altamente acido, dissolvendo i loro strumenti.",
+        "ko": "주위에 있는 모든 것을 강력한 산성 가스로 뒤덮어서 지니고 있는 도구를 녹여 버린다.",
+        "zh-Hant": "用強烈的酸性氣體 包圍周圍所有的寶可夢， 並將攜帶的道具融化掉。",
+        "zh-Hans": "用具有强酸性的气体 包裹住自己周围所有的宝可梦， 并融化其所携带的道具。"
+    }
 }

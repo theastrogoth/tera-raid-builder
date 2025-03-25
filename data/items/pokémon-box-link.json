@@ -1,0 +1,14 @@
+{
+    "name": "Pokémon Box Link",
+    "flavorText": {
+        "en": "A device that allows you to access the Pokémon storage system. There are some places where it won't work.",
+        "ja": "いつでも　ポケモンセンターの パソコンの　ボックスに　アクセスして ポケモンを　預けたり　引きだせる。",
+        "fr": "Permet d'accéder aux Boîtes PC du Centre Pokémon à tout moment pour y déposer ou en retirer des Pokémon.",
+        "es": "Permite acceder en todo momento a las Cajas del PC de los Centros Pokémon para dejar o sacar Pokémon.",
+        "de": "Ermöglicht jederzeit Zugriff auf die PC-Boxen im Pokémon-Center, um Pokémon abzulegen oder ins Team aufzunehmen.",
+        "it": "Permette di accedere in qualsiasi momento ai box del PC del Centro Pokémon per depositare o ritirare i Pokémon.",
+        "ko": "언제든지 포켓몬센터에 있는 PC의 박스에 접속해서 포켓몬을 맡기거나 데려올 수 있다.",
+        "zh-Hant": "能隨時連線到 寶可夢中心電腦裡的盒子， 寄放或領出寶可夢。",
+        "zh-Hans": "可以随时访问 宝可梦中心电脑里的盒子， 来寄放或领回需要的宝可梦。"
+    }
+}

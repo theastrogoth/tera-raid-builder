@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user whips up a storm of leaves around the target. The recoil from this move harshly lowers the user's Sp. Atk stat.",
+        "ja": "とがった　はっぱで　相手に　あらしを おこす。使うと　反動で 自分の　特攻が　がくっと　さがる。",
+        "fr": "Invoque une tempête de feuilles acérées. Le contrecoup réduit beaucoup l'Attaque Spéciale du lanceur.",
+        "es": "Envuelve al objetivo con una lluvia de hojas afiladas, pero reduce mucho el Ataque Especial del usuario.",
+        "de": "Anwender erzeugt einen Sturm aus scharfen Blättern. Rückstoß senkt Spezial-Angriff des Anwenders stark.",
+        "it": "Il Pokémon scatena sul bersaglio una tempesta di foglie affilate. Il contraccolpo riduce di molto l'Attacco Speciale di chi la usa.",
+        "ko": "뾰족한 잎사귀로 상대에게 돌풍을 일으킨다. 사용하면 반동으로 자신의 특수공격이 크게 떨어진다.",
+        "zh-Hant": "用尖銳的葉子捲起風暴向對手進行攻擊。 使用後因為反作用力， 自己的特攻會大幅降低。",
+        "zh-Hans": "用尖尖的叶片向对手卷起风暴。 使用之后因为反作用力 自己的特攻会大幅降低。"
+    }
 }

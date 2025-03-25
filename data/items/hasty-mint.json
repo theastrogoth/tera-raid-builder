@@ -1,0 +1,14 @@
+{
+    "name": "Hasty Mint",
+    "flavorText": {
+        "en": "Having a Pokémon smell this mint can make its Speed stat grow stronger. However, its Defense stat may suffer.",
+        "ja": "ポケモンに　香りを　かがせると 素早さが　上がりやすく　なるが 防御は　上がりにくくなる　ミント。",
+        "fr": "Si un Pokémon hume cet aromate, sa Vitesse montera plus facilement, mais sa Défense se développera plus lentement.",
+        "es": "Cuando un Pokémon percibe su aroma, aumenta con más facilidad su Velocidad, en detrimento de su Defensa.",
+        "de": "Lässt man ein Pokémon an dieser Minze schnuppern, steigt seine Initiative schneller, aber seine Verteidigung umso langsamer.",
+        "it": "Quando un Pokémon ne sente il profumo, la sua Velocità aumenta più facilmente a scapito della Difesa.",
+        "ko": "포켓몬에게 향기를 맡게 하면 스피드가 오르기 쉬워지지만 방어가 오르기 어려워지는 민트.",
+        "zh-Hant": "讓寶可夢聞這種薄荷的氣味， 會令速度變得容易提高， 但防禦則難以提高。",
+        "zh-Hans": "宝可梦闻了这种薄荷之后， 会令速度容易提高， 而防御则难以提高。"
+    }
+}

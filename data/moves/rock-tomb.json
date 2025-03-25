@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user hurls boulders at the target to inflict damage. This also lowers the target's Speed stat by cutting off its movement.",
+        "ja": "岩石を　投げつけて　攻撃する。 相手の　動きを　封じることで 素早さを　さげる。",
+        "fr": "Des rochers frappent la cible et baissent sa Vitesse.",
+        "es": "Lanza rocas que infligen daño al objetivo y reducen su Velocidad al dificultar sus movimientos.",
+        "de": "Angriff mit Felsen. Bei Erfolg wird der Initiative-Wert des Zieles gesenkt.",
+        "it": "Il Pokémon attacca il bersaglio lanciando rocce. Inoltre, ne riduce la Velocità bloccando i suoi movimenti.",
+        "ko": "암석을 내던져서 공격한다. 상대의 움직임을 봉인함으로써 스피드를 떨어뜨린다.",
+        "zh-Hant": "投擲岩石進行攻擊。 封住對手的行動， 進而降低其速度。",
+        "zh-Hans": "投掷岩石进行攻击。 封住对手的行动， 从而降低速度。"
+    }
 }

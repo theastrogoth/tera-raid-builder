@@ -1,0 +1,14 @@
+{
+    "name": "Truant",
+    "flavorText": {
+        "en": "Each time the Pokémon uses a move, it spends the next turn loafing around.",
+        "ja": "技を　出すと 次の　ターンは　休んでしまう。",
+        "fr": "Lorsque le Pokémon utilise une capacité, il passe le tour suivant à paresser.",
+        "es": "Al ejecutar un movimiento, descansará en el turno siguiente.",
+        "de": "Das Pokémon muss nach Einsatz einer Attacke eine Runde lang aussetzen.",
+        "it": "Quando il Pokémon usa una mossa, nel turno successivo si riposerà.",
+        "ko": "기술을 사용하면 다음 턴은 쉰다.",
+        "zh-Hant": "如果使出招式， 下一回合就需要休息。",
+        "zh-Hans": "如果使出招式， 下一回合就会休息。"
+    }
+}

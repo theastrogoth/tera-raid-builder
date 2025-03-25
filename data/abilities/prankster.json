@@ -1,0 +1,14 @@
+{
+    "name": "Prankster",
+    "flavorText": {
+        "en": "Gives priority to the Pokémon's status moves.",
+        "ja": "変化技を　先制で 出すことが　できる。",
+        "fr": "Rend les capacités de statut du Pokémon prioritaires.",
+        "es": "Sus movimientos de estado tienen prioridad alta.",
+        "de": "Die Fähigkeit ermöglicht dem Pokémon einen Erstschlag mit Status-Attacken.",
+        "it": "Le mosse di stato del Pokémon acquistano priorità alta.",
+        "ko": "변화 기술을 먼저 쓸 수 있다.",
+        "zh-Hant": "可以搶先使出變化類招式。",
+        "zh-Hans": "可以率先使出变化招式。"
+    }
+}

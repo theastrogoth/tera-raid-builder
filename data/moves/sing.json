@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A soothing lullaby is sung in a beautiful voice that puts the target to sleep.",
+        "ja": "心地好い　きれいな 歌声を　聞かせて 相手を　眠り状態に　する。",
+        "fr": "Une berceuse plonge la cible dans un profond sommeil.",
+        "es": "Cancioncilla que hace dormir profundamente al objetivo.",
+        "de": "Ein Lied, das das Ziel in tiefen Schlaf versetzt.",
+        "it": "Dolce ninnananna, cantata da una voce suadente, che fa addormentare il bersaglio.",
+        "ko": "기분 좋게 예쁜 노랫소리를 들려주어 상대를 잠듦 상태로 만든다.",
+        "zh-Hant": "唱出舒服美妙的歌聲， 讓對手陷入睡眠狀態。",
+        "zh-Hans": "让对手听舒适、 美妙的歌声， 从而陷入睡眠状态。"
+    }
 }

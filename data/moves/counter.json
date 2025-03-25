@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A retaliatory attack that counters any physical move, inflicting double the damage taken.",
+        "ja": "相手から　受けた　物理攻撃の ダメージを　２倍に　して 同じ　相手に　返す。",
+        "fr": "Une riposte qui répond à toute attaque physique en infligeant le double de dégâts.",
+        "es": "Devuelve un ataque físico por duplicado.",
+        "de": "Kontert physische Treffer und fügt dem Ziel das Doppelte des Schadens zu, den der Anwender erlitten hat.",
+        "it": "Mossa che contrasta ogni attacco fisico, arrecando il doppio del danno ricevuto.",
+        "ko": "상대로부터 받은 물리공격의 데미지를 2배로 만들어 같은 상대에게 돌려준다.",
+        "zh-Hant": "將來自對手的物理攻擊傷害加倍後， 返還給該對手。",
+        "zh-Hans": "从对手那里受到 物理攻击的伤害将以 ２倍返还给同一个对手。"
+    }
 }

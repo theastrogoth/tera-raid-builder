@@ -1,0 +1,14 @@
+{
+    "name": "Catching Charm",
+    "flavorText": {
+        "en": "Having one of these mysterious, unshakable charms makes it more likely you'll get a critical catch.",
+        "ja": "持っていると　ほかくクリティカルが 発生しやすくなる 不思議で　あまりゆれない　おまもり。",
+        "fr": "Ce porte-bonheur permet de stabiliser les Poké Balls et augmente les chances de réaliser une capture critique.",
+        "es": "Aumenta la probabilidad de lograr una captura crítica al llevarlo equipado. Curiosamente, apenas vibra.",
+        "de": "Ein mysteriöser Glücksbringer, der nur wenig wackelt und die Wahrscheinlichkeit erhöht, einen Superfang hinzulegen.",
+        "it": "Misterioso amuleto che non oscilla molto. Aumenta la probabilità che si verifichi una cattura critica.",
+        "ko": "지니고 있으면 포획 크리티컬이 나오기 쉬워지는 이상하고 잘 흔들리지 않는 부적.",
+        "zh-Hant": "不怎麼會晃動的神奇護符。 只要帶在身上就會 更容易出現會心捕捉。",
+        "zh-Hans": "带上这个神奇的 可增强稳定性的护身符， 就能更容易触发会心捕捉。"
+    }
+}

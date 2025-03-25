@@ -30,5 +30,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user sings an ancient song and attacks by appealing to the hearts of the listening opposing Pokémon. This may also induce sleep.",
+        "ja": "いにしえのうたを　相手に　聞かせて 心に　うったえて　攻撃する。 眠り状態に　することが　ある。",
+        "fr": "Le lanceur attaque la cible en lui chantant une chanson d'un autre temps qui peut aussi l'endormir.",
+        "es": "Ataca conmoviendo al objetivo con un antiguo canto. Puede dormirlo.",
+        "de": "Anwender greift mit Urgesang an, der gegnerische Pokémon im tiefsten Inneren anspricht. Diese schlafen eventuell ein.",
+        "it": "Il Pokémon attacca il bersaglio intonando un'antica melodia che ne colpisce lo spirito. Può anche farlo addormentare.",
+        "ko": "옛 노래를 상대에게 들려주고 마음에 호소하여 공격한다. 잠듦 상태로 만들 때가 있다.",
+        "zh-Hant": "唱出古老之歌， 打動對手的心進行攻擊。 有時會讓對手陷入睡眠狀態。",
+        "zh-Hans": "让对手听古老之歌， 打动对手的内心进行攻击。 有时会让对手陷入睡眠状态。"
+    }
 }

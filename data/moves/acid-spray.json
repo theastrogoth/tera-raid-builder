@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by spitting fluid that works to melt the target. This also harshly lowers the target's Sp. Def stat.",
+        "ja": "相手を　とかす　液体を 吐きだして　攻撃する。 相手の　特防を　がくっと　さげる。",
+        "fr": "Le lanceur projette un liquide acide qui fait fondre la cible, ce qui diminue beaucoup la Défense Spéciale de celle-ci.",
+        "es": "Ataca con un líquido corrosivo que reduce mucho la Defensa Especial del objetivo.",
+        "de": "Anwender greift an, indem er eine ätzende Flüssigkeit auf das Ziel speit. Senkt dessen Spezial-Verteidigung stark.",
+        "it": "Il Pokémon attacca il bersaglio con un acido altamente corrosivo, riducendone di molto la Difesa Speciale.",
+        "ko": "상대를 녹이는 액체를 토해 내서 공격한다. 상대의 특수방어를 크게 떨어뜨린다.",
+        "zh-Hant": "噴出能溶化對手的液體進行攻擊。 可大幅降低對手的特防。",
+        "zh-Hans": "喷出能溶化对手的液体进行攻击。 会大幅降低对手的特防。"
+    }
 }

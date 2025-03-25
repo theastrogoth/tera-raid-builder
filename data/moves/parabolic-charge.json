@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks everything around it. The user's HP is restored by half the damage taken by those hit.",
+        "ja": "周りにいる　ポケモン　全員に ダメージ。　与えた　ダメージの 半分を　自分が　回復する。",
+        "fr": "Inflige des dégâts à tous les Pokémon autour du lanceur. Il récupère en PV la moitié des dégâts infligés.",
+        "es": "Inflige daño a los Pokémon adyacentes. El usuario absorbe la mitad del daño producido para restaurar sus propios PS.",
+        "de": "Fügt allen Pokémon im Umkreis Schaden zu. Der Anwender wird um die Hälfte des insgesamt angerichteten Schadens geheilt.",
+        "it": "Infligge danni a tutti i Pokémon attorno. Chi la usa recupera una quantità di PS pari alla metà del danno inflitto.",
+        "ko": "주위에 있는 모든 포켓몬에게 데미지를 준다. 준 데미지의 절반을 자신이 회복한다.",
+        "zh-Hant": "攻擊自己周圍所有的寶可夢。 可以回復給予傷害的一半ＨＰ。",
+        "zh-Hans": "给周围全体宝可梦造成伤害。 可以回复给予伤害的一半HP。"
+    }
 }

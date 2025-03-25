@@ -1,0 +1,14 @@
+{
+    "name": "Pickup",
+    "flavorText": {
+        "en": "The Pokémon may pick up an item another Pokémon used during a battle. It may pick up items outside of battle, too.",
+        "ja": "相手の　使った　道具を 拾ってくることが　ある。 冒険中も　拾ってくる。",
+        "fr": "Permet parfois au Pokémon de ramasser les objets que d'autres Pokémon ont utilisés. Il lui arrive aussi d'en trouver hors des combats.",
+        "es": "Puede recoger objetos que otros Pokémon hayan usado, o bien aquellos que encuentre en plena aventura.",
+        "de": "Das Pokémon hebt gelegentlich von anderen Pokémon im Kampf benutzte Items auf. Auch unterwegs kann es Items aufheben.",
+        "it": "Il Pokémon può raccogliere strumenti usati da altri durante la lotta. Potrebbe raccogliere strumenti anche fuori dalla lotta.",
+        "ko": "상대가 사용한 도구를 주워 올 때가 있다. 모험 중에도 주워 온다.",
+        "zh-Hant": "有時會撿來對手用過的道具。 冒險過程中也會撿來。",
+        "zh-Hans": "有时会捡来对手用过的道具， 冒险过程中也会捡到。"
+    }
+}

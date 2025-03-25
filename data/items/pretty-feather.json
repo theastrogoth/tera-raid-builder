@@ -1,0 +1,14 @@
+{
+    "name": "Pretty Feather",
+    "flavorText": {
+        "en": "Though this feather is beautiful, it's just a regular feather and has no effect.",
+        "ja": "きれいなだけで　なんの効果も　ない ごくごく　普通のハネ。 ",
+        "fr": "Une plume très jolie, mais ordinaire et sans effet particulier.",
+        "es": "Pluma normal y corriente. Muy bonita, pero no sirve para nada.",
+        "de": "Eine ganz normale Feder, die rein gar nichts bewirkt.",
+        "it": "Piuma molto bella, ma priva di qualsiasi utilità: non ha alcun effetto.",
+        "ko": "아름답기만 할 뿐 아무 효과도 없는 지극히 평범한 깃털.",
+        "zh-Hant": "僅僅只是漂亮， 沒有任何效果， 極其普通的羽毛。",
+        "zh-Hans": "仅仅只是漂亮， 没有任何效果， 极其普通的羽毛。"
+    }
+}

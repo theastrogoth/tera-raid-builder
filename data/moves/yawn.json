@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn.",
+        "ja": "大きな　あくびで　眠気を　誘う。 次の　ターンに 相手を　眠り状態に　する。",
+        "fr": "Le lanceur fait bâiller la cible, qui s'endort au tour suivant.",
+        "es": "Gran bostezo que induce el sueño en el objetivo en el siguiente turno.",
+        "de": "Anwender gähnt und das Ziel schläft in der nächsten Runde ein.",
+        "it": "Il Pokémon fa un grande sbadiglio che addormenta il bersaglio al turno seguente. ",
+        "ko": "큰 하품으로 졸음을 유도한다. 다음 턴에 상대를 잠듦 상태로 만든다.",
+        "zh-Hant": "打個大哈欠引起睡意。 在下一回合 讓對手陷入睡眠狀態。",
+        "zh-Hans": "打个大哈欠引起睡意。 在下一回合让对手陷入睡眠状态。"
+    }
 }

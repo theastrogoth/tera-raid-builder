@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user eats its held Berry, then sharply boosts its Defense stat.",
+        "ja": "持っている　きのみを　食べて 防御を　ぐーんと　あげる。",
+        "fr": "Le lanceur mange la Baie qu'il tient, ce qui augmente beaucoup sa Défense.",
+        "es": "El usuario ingiere la baya que lleva equipada para aumentar mucho su Defensa.",
+        "de": "Der Anwender frisst die Beere, die er trägt, wodurch seine Verteidigung stark erhöht wird.",
+        "it": "Se il Pokémon ha con sé una bacca, la mangia e la sua Difesa aumenta di molto.",
+        "ko": "지니고 있는 나무열매를 먹고 방어를 크게 올린다.",
+        "zh-Hant": "吃掉攜帶的樹果， 大幅提高自己的防禦。",
+        "zh-Hans": "吃掉携带的树果， 大幅提高防御。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Zoom Lens",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. When the holder acts after its target, its move will be more accurate than usual.",
+        "ja": "持たせたポケモンが　相手よりも 行動するのが　遅いとき 技が　命中しやすくなる。",
+        "fr": "Objet à tenir. Augmente la précision des capacités du porteur s'il attaque après l'ennemi.",
+        "es": "Si el Pokémon que lo lleva se mueve después que el rival, aumenta la precisión del movimiento que use.",
+        "de": "Ein Item zum Tragen. Agiert das Ziel zuerst, erhöht sich die Genauigkeit des Trägers.",
+        "it": "Strumento da dare a un Pokémon. Se chi ce l'ha attacca dopo l'avversario, la sua precisione aumenta.",
+        "ko": "지니게 한 포켓몬이 상대보다도 행동하는 것이 늦을 때 기술이 명중하기 쉬워진다.",
+        "zh-Hant": "當攜帶它的寶可夢比 對手行動緩慢時， 招式會變得容易命中。",
+        "zh-Hans": "当携带它的宝可梦比 对手行动迟缓时， 招式会变得容易命中。"
+    }
+}

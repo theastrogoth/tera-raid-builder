@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user slams into the target with its heavy body. The more the user outweighs the target, the greater the move's power.",
+        "ja": "重たい　体で　相手に　ぶつかって 攻撃する。　自分が　相手より 重いほど　威力が　あがる。",
+        "fr": "Le lanceur se jette sur la cible de tout son poids. Plus il est lourd par rapport à la cible, plus la puissance de cette capacité augmente.",
+        "es": "El usuario golpea con todo su cuerpo. Cuanto mayor sea su peso comparado con el del objetivo, mayor será la potencia del movimiento.",
+        "de": "Anwender rammt das Ziel mit massivem Körper. Je schwerer er im Vergleich zum Ziel ist, desto stärker die Attacke.",
+        "it": "Il Pokémon si lancia contro il bersaglio con tutto il proprio peso. Più è pesante rispetto al bersaglio, maggiore è la potenza della mossa.",
+        "ko": "무거운 몸으로 상대에게 부딪쳐 공격한다. 자신이 상대보다 무거울수록 위력이 올라간다.",
+        "zh-Hant": "用沉重的身體衝撞對手進行攻擊。 體重比對手重越多，威力越大。",
+        "zh-Hans": "用沉重的身体撞向对手进行攻击。 自己比对手越重，威力越大。"
+    }
 }

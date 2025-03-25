@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user sets off an explosion of sticky candy syrup, which coats the target and causes the target's Speed stat to drop each turn for three turns.",
+        "ja": "ねっとりした　みずあめを　爆発させ 相手を　あめまみれ　状態に　して ３ターンの間　素早さを　さげ続ける。",
+        "fr": "Le lanceur jette une bombe qui recouvre la cible de sirop gluant et fait progressivement baisser la Vitesse de la cible pendant trois tours.",
+        "es": "Impregna al objetivo con una explosión de su viscoso néctar y lo carameliza, lo que hace que su Velocidad se reduzca progresivamente durante tres turnos.",
+        "de": "Der Anwender feuert eine klebrige Sirupbombe auf das Ziel, wodurch es in Sirup gehüllt und seine Initiative drei Runden in Folge gesenkt wird.",
+        "it": "Il Pokémon fa esplodere dello sciroppo viscoso sul bersaglio, ricoprendolo e facendogli diminuire la Velocità per tre turni.",
+        "ko": "끈적끈적한 물엿을 폭발시킨다. 상대를 물엿범벅 상태로 만들어서 3턴 동안 계속 스피드를 떨어뜨린다.",
+        "zh-Hant": "使黏稠的糖漿爆炸， 使對手陷入滿身糖狀態， 在３回合內持續降低對手的速度。",
+        "zh-Hans": "使粘稠的麦芽糖浆爆炸， 让对手陷入满身糖状态， 在３回合内持续降低其速度。"
+    }
 }

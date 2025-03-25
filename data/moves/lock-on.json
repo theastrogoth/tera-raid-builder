@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user takes sure aim at the target. This ensures the user's next move does not miss that target.",
+        "ja": "照準を　しっかり　あわせて 次の　攻撃が　必ず 相手に　当たるように　する。",
+        "fr": "Le lanceur verrouille la cible pour ne pas la rater au tour suivant.",
+        "es": "Fija el blanco para que el siguiente movimiento no falle.",
+        "de": "Der Anwender visiert das Ziel an und trifft in der nächsten Runde garantiert.",
+        "it": "Il Pokémon punta il bersaglio con precisione. L'attacco successivo andrà sicuramente a segno.",
+        "ko": "조준을 잘 맞춰 다음 공격이 반드시 상대에게 명중하도록 한다.",
+        "zh-Hant": "精確地瞄準， 下次攻擊時一定 會命中對手。",
+        "zh-Hans": "紧紧瞄准对手， 下次攻击必定会打中。"
+    }
 }

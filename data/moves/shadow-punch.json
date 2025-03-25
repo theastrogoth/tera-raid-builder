@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user throws a punch from the shadows. This attack never misses.",
+        "ja": "影に　まぎれて　パンチを　くりだす。 攻撃は　必ず　命中する。",
+        "fr": "Le lanceur se fond dans les ombres pour porter un coup de poing. N'échoue jamais.",
+        "es": "Puñetazo procedente de las sombras que no falla nunca.",
+        "de": "Angriff mit der Faust aus dem Schattenreich. Ausweichen unmöglich.",
+        "it": "Il Pokémon tira un pugno col favore delle tenebre. Questo attacco va sempre a segno.",
+        "ko": "그림자에 섞여 펀치를 날린다. 공격은 반드시 명중한다.",
+        "zh-Hant": "暗藏在陰影之中出拳。 攻擊必定會命中。",
+        "zh-Hans": "使出混影之拳。 攻击必定会命中。"
+    }
 }

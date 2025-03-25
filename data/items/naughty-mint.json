@@ -1,0 +1,14 @@
+{
+    "name": "Naughty Mint",
+    "flavorText": {
+        "en": "Having a Pokémon smell this mint can make its Attack stat grow stronger. However, its Sp. Def stat may suffer.",
+        "ja": "ポケモンに　香りを　かがせると 攻撃が　上がりやすく　なるが 特防は　上がりにくくなる　ミント。",
+        "fr": "Si un Pokémon hume cet aromate, son Attaque montera plus facilement, mais sa Défense Spéciale se développera plus lentement.",
+        "es": "Cuando un Pokémon percibe su aroma, aumenta con más facilidad su Ataque, en detrimento de su Defensa Especial.",
+        "de": "Lässt man ein Pokémon an dieser Minze schnuppern, steigt sein Angriff schneller, aber seine Spezial-Verteidigung umso langsamer.",
+        "it": "Quando un Pokémon ne sente il profumo, il suo Attacco aumenta più facilmente a scapito della Difesa Speciale.",
+        "ko": "포켓몬에게 향기를 맡게 하면 공격이 오르기 쉬워지지만 특수방어가 오르기 어려워지는 민트.",
+        "zh-Hant": "讓寶可夢聞這種薄荷的氣味， 會令攻擊變得容易提高， 但特防則難以提高。",
+        "zh-Hans": "宝可梦闻了这种薄荷之后， 会令攻击容易提高， 而特防则难以提高。"
+    }
+}

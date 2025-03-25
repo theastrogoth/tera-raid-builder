@@ -1,0 +1,14 @@
+{
+    "name": "Rule Book",
+    "flavorText": {
+        "en": "It lists the rules for holding battles. For Link Battles, you may choose which set of rules you wish to use.",
+        "ja": "対戦のルールが　かかれている。 通信対戦するとき ルールを　選ぶことが　できる。",
+        "fr": "La liste des règles de combat. Permet de choisir les règles des combats en réseau.",
+        "es": "Recoge las normas de los combates. En los combates en conexión permite elegir el conjunto de reglas que se quiera usar.",
+        "de": "Enthält die Kampfregeln. Bei Link-Kämpfen kannst du daraus die gewünschten Regeln wählen.",
+        "it": "Elenca le regole per le lotte. Nelle lotte in link puoi scegliere diversi set di regole da utilizzare.",
+        "ko": "대전에 대한 룰이 적혀 있다. 통신대전을 할 때 룰을 선택할 수 있다.",
+        "zh-Hant": "寫著對戰規則。 在進行連線對戰時， 可以選擇規則。",
+        "zh-Hans": "写着对战规则。 在进行连接对战时， 可以选择规则。"
+    }
+}

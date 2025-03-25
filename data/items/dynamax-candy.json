@@ -1,0 +1,14 @@
+{
+    "name": "Dynamax Candy",
+    "flavorText": {
+        "en": "A candy that is packed with energy. If consumed, it raises the Dynamax Level of a Pokémon by one. A higher level means higher HP when Dynamaxed.",
+        "ja": "エネルギーが　つまった　アメ。　与えると ダイマックスレベルが　１あがる。レベルが 高いと　ダイマックスの　ＨＰが　増える。",
+        "fr": "Un bonbon plein d'énergie qui fait monter le niveau Dynamax d'un Pokémon d'un point. Plus ce dernier est élevé, plus les PV sous forme Dynamax augmentent.",
+        "es": "Caramelo energético que sube el nivel Dinamax de un Pokémon. Cuanto más alto sea el nivel, más aumentarán sus PS al dinamaxizarse.",
+        "de": "Ein Bonbon, das voller Energie steckt. Beim Verzehr steigt der Dynamax-Level eines Pokémon um 1 Stufe an. Dies erhöht seine KP nach der Dynamaximierung.",
+        "it": "Caramella piena zeppa di energia che aumenta di un punto il Livello Dynamax. Più alto è il livello, più aumentano i PS del Pokémon quando si dynamaxizza.",
+        "ko": "에너지가 가득한 사탕. 먹이면 다이맥스 레벨이 1 올라간다. 레벨이 높으면 다이맥스 시의 HP가 늘어난다.",
+        "zh-Hant": "充滿能量的糖果。 餵給寶可夢後，能讓極巨化等級提升１級。 當等級變高，極巨化時ＨＰ將會增加。",
+        "zh-Hans": "充满能量的糖果。 喂给宝可梦后，极巨化等级能够提高１级。 当极巨化等级提高时，极巨化时的ＨＰ会增加。"
+    }
+}

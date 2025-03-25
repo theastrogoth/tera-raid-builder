@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user boosts the Sp. Def stat of an ally Pokémon by using a mysterious aroma.",
+        "ja": "不思議な　アロマの　香りによって 味方の　特防を　あげる。",
+        "fr": "Grâce à un parfum mystérieux, augmente la Défense Spéciale d'un allié.",
+        "es": "Consigue aumentar la Defensa Especial de un aliado con una fragancia misteriosa.",
+        "de": "Der Anwender erhöht mithilfe eines mysteriösen Duftes die Spezial-Verteidigung eines Mitstreiters.",
+        "it": "Il Pokémon aumenta la Difesa Speciale di un alleato tramite un misterioso aroma.",
+        "ko": "신비한 아로마 향으로 같은 편의 특수방어를 올린다.",
+        "zh-Hant": "利用神奇的芳香， 提高我方寶可夢的特防。",
+        "zh-Hans": "通过神奇的芳香， 提高我方宝可梦的特防。"
+    }
 }

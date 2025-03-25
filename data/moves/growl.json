@@ -35,5 +35,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user growls in an endearing way, making opposing Pokémon less wary. This lowers their Attack stats.",
+        "ja": "かわいい　なきごえを　聞かせて 気を　ひき　油断を　させて 相手の　攻撃を　さげる。",
+        "fr": "Le lanceur pousse un cri tout mimi pour tromper la vigilance de la cible et baisser son Attaque.",
+        "es": "Dulce gruñido que distrae al objetivo para que baje la guardia y reduce su Ataque.",
+        "de": "Der Anwender heult herzzerreißend, um gegnerische Pokémon nachlässig werden zu lassen und deren Angriffs-Wert zu senken.",
+        "it": "Il Pokémon distrae gli avversari con un tenero ruggito e ne riduce l'Attacco.",
+        "ko": "귀여운 울음소리를 들려주고 관심을 끌어 방심한 사이에 상대의 공격을 떨어뜨린다.",
+        "zh-Hant": "發出可愛的叫聲， 誘使對手疏忽大意， 降低對手的攻擊。",
+        "zh-Hans": "让对手听可爱的叫声， 引开注意力使其疏忽， 从而降低对手的攻击。"
+    }
 }

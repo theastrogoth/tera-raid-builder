@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user nimbly strikes the target. This attack does massive damage if the user isn't holding an item.",
+        "ja": "軽やかに　相手を　攻撃する。 自分が　道具を　持っていないとき 大きな　ダメージを　与える。",
+        "fr": "Le lanceur frappe la cible avec agilité. S'il ne tient pas d'objet, l'attaque inflige davantage de dégâts.",
+        "es": "Golpea ágilmente. Si el usuario no lleva ningún objeto, el objetivo resulta seriamente dañado.",
+        "de": "Ein graziler Angriff auf das Ziel. Trägt der Anwender kein Item bei sich, richtet die Attacke großen Schaden an.",
+        "it": "Il Pokémon attacca rapidamente il bersaglio. Se chi la usa non ha uno strumento, infligge grossi danni.",
+        "ko": "경쾌하게 상대를 공격한다. 자신이 도구를 지니고 있지 않을 때 큰 데미지를 준다.",
+        "zh-Hant": "輕巧地攻擊對手。 自己沒有攜帶道具時， 能給予對手較大的傷害。",
+        "zh-Hans": "轻巧地攻击对手。 自己没有携带道具时， 会给予较大的伤害。"
+    }
 }

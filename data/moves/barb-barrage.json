@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user launches countless toxic barbs to inflict damage. This may also poison the target. This move's power is doubled if the target is already poisoned.",
+        "ja": "無数の毒針で　相手を　毒状態に することもある。　相手が　毒状態だと 威力は　２倍になる。",
+        "fr": "Une multitude de pointes toxiques frappent la cible et peuvent l'empoisonner. La puissance est doublée si celle-ci est déjà empoisonnée.",
+        "es": "Dispara un sinfín de púas tóxicas que pueden envenenar al objetivo. La potencia del movimiento se duplica si este ya está envenenado.",
+        "de": "Der Anwender greift mit unzähligen Giftstacheln an und vergiftet das Ziel eventuell. Doppelt so stark gegen vergiftete Ziele.",
+        "it": "Il bersaglio viene colpito da una miriade di spine tossiche che possono anche avvelenarlo. Se il bersaglio è già avvelenato, la potenza della mossa raddoppia.",
+        "ko": "무수히 많은 독침으로 공격한다. 상대를 독 상태로 만들 때가 있다. 상대가 독 상태인 경우 위력이 2배가 된다.",
+        "zh-Hant": "用無數的毒針進行攻擊。 有時還會讓對手陷入中毒狀態。 攻擊處於中毒狀態的對手時，威力會變成２倍。",
+        "zh-Hans": "用无数的毒针进行攻击。 有时还会让对手陷入中毒状态。 攻击处于中毒状态的对手时，威力会变成２倍。"
+    }
 }

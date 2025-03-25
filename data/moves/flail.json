@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user flails about aimlessly to attack. The less HP the user has, the greater the move's power.",
+        "ja": "じたばた　暴れて　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　あがる。",
+        "fr": "Le lanceur attaque en gigotant dans tous les sens. Plus ses PV sont bas, plus l'attaque est puissante.",
+        "es": "Ataque frenético. Cuantos menos PS tenga el usuario, más daño producirá.",
+        "de": "Attacke richtet mehr Schaden an, wenn eigene KP niedrig sind.",
+        "it": "Il Pokémon si dimena per attaccare. Più i suoi PS sono bassi, più la potenza della mossa aumenta.",
+        "ko": "바둥바둥 난동 부려서 공격한다. 자신의 HP가 적을수록 기술의 위력이 올라간다.",
+        "zh-Hant": "抓狂般亂打進行攻擊。 自己的ＨＰ越少， 招式的威力越大。",
+        "zh-Hans": "抓狂般乱打进行攻击。 自己的ＨＰ越少， 招式的威力越大。"
+    }
 }

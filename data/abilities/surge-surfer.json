@@ -1,0 +1,14 @@
+{
+    "name": "Surge Surfer",
+    "flavorText": {
+        "en": "Doubles the Pokémon's Speed stat on Electric Terrain.",
+        "ja": "エレキフィールド　のとき 素早さが　２倍に　なる。",
+        "fr": "La Vitesse du Pokémon est doublée sur un champ électrifié.",
+        "es": "Duplica su Velocidad si hay un campo eléctrico en el terreno de combate.",
+        "de": "Die Initiative des Pokémon wird verdoppelt, wenn ein Elektrofeld aktiv ist.",
+        "it": "In presenza di un Campo Elettrico, la Velocità raddoppia.",
+        "ko": "일렉트릭필드일 때 스피드가 2배가 된다.",
+        "zh-Hant": "電氣場地時， 速度會變為２倍。",
+        "zh-Hans": "电气场地时， 速度会变为２倍。"
+    }
+}

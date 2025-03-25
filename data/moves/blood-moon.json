@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "- - -",
+        "ja": "― ― ―",
+        "fr": "- - -",
+        "es": "- - -",
+        "de": "ー",
+        "it": "― ― ―",
+        "ko": "― ― ―",
+        "zh-Hant": "― ― ―",
+        "zh-Hans": "― ― ―"
+    }
 }

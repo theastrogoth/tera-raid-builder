@@ -1,0 +1,14 @@
+{
+    "name": "White Smoke",
+    "flavorText": {
+        "en": "The Pokémon is protected by its white smoke, which prevents other Pokémon from lowering its stats.",
+        "ja": "白い煙に　守られて 相手に　能力を　下げられない。",
+        "fr": "Un écran de fumée empêche l'adversaire de baisser les stats du Pokémon.",
+        "es": "El humo blanco que lo protege evita que otros Pokémon le reduzcan las características.",
+        "de": "Indem es sich mit pulvrigem Rauch umhüllt, hindert das Pokémon Angreifer daran, seine Statuswerte zu senken.",
+        "it": "Il Pokémon è protetto da un fumo chiaro che impedisce che le sue statistiche vengano diminuite da altri.",
+        "ko": "하얀 연기의 보호를 받아 상대가 능력을 떨어뜨리지 못하게 한다.",
+        "zh-Hant": "被白色煙霧保護著， 不會被對手降低能力。",
+        "zh-Hans": "被白色烟雾保护着， 不会被对手降低能力。"
+    }
+}

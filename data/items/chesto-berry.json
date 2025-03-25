@@ -1,0 +1,14 @@
+{
+    "name": "Chesto Berry",
+    "flavorText": {
+        "en": "If a Pokémon holds one of these Berries, it will be able to wake itself from sleep.",
+        "ja": "ポケモンに　持たせると 眠りを　回復する。 ",
+        "fr": "Une Baie qui soigne le sommeil lorsqu'elle est tenue par un Pokémon.",
+        "es": "Los Pokémon pueden llevarla y usarla para despertar del sueño.",
+        "de": "Als getragenes Item lässt diese Beere das Pokémon aufwachen, wenn es in Schlaf versetzt wird.",
+        "it": "Se un Pokémon ha questa bacca, si risveglia dal sonno.",
+        "ko": "포켓몬에게 지니게 하면 잠듦을 회복한다.",
+        "zh-Hant": "讓寶可夢攜帶後， 可以治癒睡眠。",
+        "zh-Hans": "让宝可梦携带后， 可以治愈睡眠。"
+    }
+}

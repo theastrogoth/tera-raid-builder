@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks everything around it by causing its own head to explode. This also damages the user.",
+        "ja": "自分の　頭を　爆発　させて 周りの　すべてを　攻撃する。 自分も　ダメージを　受けてしまう。",
+        "fr": "Le lanceur fait exploser sa tête pour attaquer toutes les cibles autour de lui. Il subit aussi des dégâts.",
+        "es": "El usuario hace explotar su cabeza para atacar a los Pokémon adyacentes, aunque también se hiere a sí mismo.",
+        "de": "Der Anwender greift alle Pokémon im Umkreis an, indem er seinen Kopf explodieren lässt. Dabei verletzt er sich auch selbst.",
+        "it": "Chi la usa fa esplodere la propria testa per attaccare tutti i Pokémon che ha intorno, ma subisce danni.",
+        "ko": "자신의 머리를 폭발시켜 주위의 모든 것을 공격한다. 자신도 데미지를 받는다.",
+        "zh-Hant": "會讓自己的頭爆炸， 來攻擊周遭的一切。 自己也會受到傷害。",
+        "zh-Hans": "让自己的头爆炸， 来攻击周围的一切。 自己也会受到伤害。"
+    }
 }

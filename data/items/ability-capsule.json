@@ -1,0 +1,14 @@
+{
+    "name": "Ability Capsule",
+    "flavorText": {
+        "en": "A capsule that allows a Pokémon to switch its current Ability to the other Ability its species can have.",
+        "ja": "２種類の特性を　持つ ポケモンに　使うと　今とは違う 特性に　変えられる　カプセル。",
+        "fr": "Une pilule permettant à un Pokémon pouvant avoir deux talents de passer de l'un à l'autre.",
+        "es": "Cápsula que les permite cambiar de habilidad a los Pokémon que poseen dos.",
+        "de": "Bei Anwendung auf ein Pokémon, das zwei verschiedene Fähigkeiten haben kann, wird seine aktuelle Fähigkeit mit der anderen ausgewechselt.",
+        "it": "Se usata su un Pokémon che può avere due abilità, questa capsula permette di cambiare quella attiva.",
+        "ko": "2종류의 특성을 가진 포켓몬에게 사용하면 지금과는 다른 특성으로 바꿀 수 있는 캡슐.",
+        "zh-Hant": "如果用於有著２種特性的 寶可夢，就能使其特性 變為另外一種的膠囊。",
+        "zh-Hans": "如果用于有着２种特性的宝可梦， 就能令其现有特性变为另一种的胶囊。"
+    }
+}

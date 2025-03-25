@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user sticks out its head and attacks by charging straight into the target. This may also make the target flinch.",
+        "ja": "頭を　突きだして まっすぐ　つっこんで　攻撃する。 相手を　ひるませることが　ある。",
+        "fr": "Le lanceur donne un coup de tête à la cible qui peut aussi l'apeurer.",
+        "es": "Potente cabezazo que puede amedrentar al objetivo.",
+        "de": "Rammt das Ziel mit einer Kopfnuss. Ziel schreckt eventuell zurück.",
+        "it": "Il Pokémon attacca lanciandosi diritto di testa contro il bersaglio. Può anche farlo tentennare.",
+        "ko": "머리를 내밀고 곧장 돌진하여 공격한다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "將頭伸出， 直直衝向對手進行攻擊。 有時會讓對手畏縮。",
+        "zh-Hans": "将头伸出， 笔直地扑向对手进行攻击。 有时会使对手畏缩。"
+    }
 }

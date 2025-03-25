@@ -1,0 +1,14 @@
+{
+    "name": "Multiscale",
+    "flavorText": {
+        "en": "Reduces the amount of damage the Pokémon takes while its HP is full.",
+        "ja": "ＨＰが　満タンの　ときに 受ける　ダメージが　少なくなる。",
+        "fr": "Le Pokémon subit moins de dégâts quand ses PV sont au maximum.",
+        "es": "Reduce el daño que sufre si sus PS están al máximo.",
+        "de": "Bei vollen KP wird der erlittene Schaden des Pokémon gesenkt.",
+        "it": "Se i PS sono al massimo, riduce il danno subito.",
+        "ko": "HP가 꽉 찼을 때 받는 데미지가 줄어든다.",
+        "zh-Hant": "ＨＰ全滿時， 受到的傷害會變少。",
+        "zh-Hans": "ＨＰ全满时， 受到的伤害会变少。"
+    }
+}

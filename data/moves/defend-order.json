@@ -39,5 +39,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user calls out its underlings to shield its body, boosting its Defense and Sp. Def stats.",
+        "ja": "しもべを　呼びだして　自分の　体に おおい　つかせる。防御と　特防を あげることが　できる。",
+        "fr": "Le lanceur appelle ses subalternes pour former un bouclier qui augmente sa Défense et sa Défense Spéciale.",
+        "es": "El usuario llama a sus súbditos para que formen un escudo viviente. Aumenta la Defensa y la Defensa Especial.",
+        "de": "Untergebene bilden einen lebenden Schild um den Anwender. Erhöht Verteidigung und Spezial-Verteidigung.",
+        "it": "Il Pokémon raduna i suoi sgherri per creare uno scudo, aumentando Difesa e Difesa Speciale.",
+        "ko": "부하를 불러내어 자신의 몸을 뒤덮게 한다. 방어와 특수방어를 올릴 수 있다.",
+        "zh-Hant": "呼喚手下，覆蓋住自己的身體。 可提高自己的防禦和特防。",
+        "zh-Hans": "召唤手下， 让其附在自己的身体上。 可以提高自己的防御和特防。"
+    }
 }

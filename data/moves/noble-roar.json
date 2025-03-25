@@ -39,5 +39,16 @@
     "isSound": true,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "Letting out a noble roar, the user intimidates the target and lowers the target's Attack and Sp. Atk stats.",
+        "ja": "おたけびを　あげて 相手を　威嚇し　相手の 攻撃と　特攻を　さげる。",
+        "fr": "Le lanceur pousse un rugissement qui intimide la cible et diminue l'Attaque et l'Attaque Spéciale de celle-ci.",
+        "es": "Intimida a su objetivo con un rugido de guerra, lo que reduce tanto su Ataque como su Ataque Especial.",
+        "de": "Der Anwender stößt ein Kampfgebrüll aus, das das Ziel einschüchtert und zugleich seinen Angriffs- und Spezial-Angriffs-Wert senkt.",
+        "it": "Il Pokémon emette un urlo potente che intimidisce il bersaglio, riducendone l'Attacco e l'Attacco Speciale.",
+        "ko": "우렁차게 부르짖어서 상대를 위협하여 상대의 공격과 특수공격을 떨어뜨린다.",
+        "zh-Hant": "發出戰吼威嚇對手， 降低對手的 攻擊和特攻。",
+        "zh-Hans": "发出战吼威吓对手， 从而降低对手的攻击和特攻。"
+    }
 }

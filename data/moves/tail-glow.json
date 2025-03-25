@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stares at flashing lights to focus its mind, drastically boosting its Sp. Atk stat.",
+        "ja": "点滅する　光を　眺めて 自分の　精神を　統一し 特攻を　ぐぐーんと　あげる。",
+        "fr": "Le lanceur regarde un flash lumineux fixement. Augmente énormément son Attaque Spéciale.",
+        "es": "Se concentra mirando fijamente los parpadeos de la luz y aumenta muchísimo su Ataque Especial.",
+        "de": "Ein blinkendes Licht, das den Spezial-Angriff drastisch erhöht.",
+        "it": "Il Pokémon fissa una luce intermittente per concentrarsi e aumentare moltissimo l'Attacco Speciale.",
+        "ko": "깜빡거리는 빛을 바라보면서 자신의 정신을 통일하여 특수공격을 매우 크게 올린다.",
+        "zh-Hant": "凝視閃爍的光芒 集中自己的精神， 極大幅提高自己的特攻。",
+        "zh-Hans": "凝视闪烁的光芒， 集中自己的精神， 从而巨幅提高特攻。"
+    }
 }

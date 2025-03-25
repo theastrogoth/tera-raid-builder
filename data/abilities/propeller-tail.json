@@ -1,0 +1,14 @@
+{
+    "name": "Propeller Tail",
+    "flavorText": {
+        "en": "Ignores the effects of opposing Pokémon's Abilities and moves that draw in moves.",
+        "ja": "相手の　技を　引き受ける 特性や　技の 影響を　無視　できる。",
+        "fr": "Permet d'ignorer l'effet des capacités ou des talents qui attirent les capacités.",
+        "es": "Ignora los efectos de las habilidades o los movimientos que permiten a un Pokémon centrar la atención sobre sí.",
+        "de": "Das Pokémon ignoriert die Effekte von Fähigkeiten und Attacken, die Attacken auf sich lenken.",
+        "it": "Permette di ignorare gli effetti di mosse e abilità avversarie che attirano le mosse.",
+        "ko": "상대의 기술을 끌어모으는 특성이나 기술의 영향을 받지 않는다.",
+        "zh-Hant": "能無視具有吸引 對手招式效果的 特性或招式的影響。",
+        "zh-Hans": "能无视具有吸引 对手招式效果的 特性或招式的影响。"
+    }
+}

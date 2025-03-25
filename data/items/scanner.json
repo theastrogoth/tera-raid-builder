@@ -1,0 +1,14 @@
+{
+    "name": "Scanner",
+    "flavorText": {
+        "en": "A device found inside Sea Mauville.",
+        "ja": "シーキンセツの　中で みつけた　道具。",
+        "fr": "Un objet trouvé à Lavandia Sea.",
+        "es": "Objeto hallado en el interior de Malvamar.",
+        "de": "Ein Gerät, das du in Seewoge Malvenfroh gefunden hast.",
+        "it": "Dispositivo trovato a Ciclamare.",
+        "ko": "씨보라 안에서 발견한 도구.",
+        "zh-Hant": "在海紫菫中 找到的道具。",
+        "zh-Hans": "在海紫堇中 找到的道具。"
+    }
+}

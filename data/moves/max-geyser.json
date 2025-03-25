@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "This is a Water-type attack Dynamax Pokémon use. The user summons a heavy rain that falls for five turns.",
+        "ja": "ダイマックスした　ポケモンが 繰りだす　みずタイプの　攻撃。 ５ターンの　間　雨を　降らせる。",
+        "fr": "Une attaque de type Eau que seuls les Pokémon Dynamax peuvent utiliser. Invoque de fortes pluies qui durent cinq tours.",
+        "es": "Ataque de tipo Agua ejecutado por un Pokémon Dinamax. Desata un aguacero que dura cinco turnos.",
+        "de": "Eine Wasser-Attacke, die nur Dynamax-Pokémon einsetzen können. Löst fünf Runden lang strömenden Regen aus.",
+        "it": "Un attacco di tipo Acqua che può essere eseguito dai Pokémon dynamaxizzati. Provoca una forte pioggia per cinque turni.",
+        "ko": "다이맥스한 포켓몬이 날리는 물타입의 공격. 5턴 동안 비를 내리게 한다.",
+        "zh-Hant": "極巨化寶可夢 所使出的水屬性攻擊。 在５回合內會降下大雨。",
+        "zh-Hans": "极巨化宝可梦使出的水属性攻击。 可在５回合内降下大雨。"
+    }
 }

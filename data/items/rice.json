@@ -1,0 +1,14 @@
+{
+    "name": "Rice",
+    "flavorText": {
+        "en": "An ingredient with a touch of sweetness. It's unclear how well this cooked rice will serve as a sandwich filling.",
+        "ja": "甘味が　ある　食材。 炊きあげた米。　サンドウィッチの 具材として　可能性は　未知数。",
+        "fr": "Un ingrédient au goût sucré. Ce riz cuit offre au Sandwich auquel on l'ajoute des possibilités gustatives infinies.",
+        "es": "El sabor sencillo y dulzón del arroz recién cocido abre la puerta a una infinidad de posibilidades como relleno de bocadillo hasta ahora desconocidas.",
+        "de": "Eine süßliche Zutat. Mit der Verwendung von gekochtem Reis als Sandwichbelag betritt man in kulinarischer Hinsicht absolutes Neuland.",
+        "it": "Un ingrediente dolce. Le possibilità offerte come companatico da questo riso cotto non sono ancora state esplorate a fondo.",
+        "ko": "단맛이 나는 식재료. 갓 지은 밥이다. 샌드위치 재료로서의 가능성은 미지수다.",
+        "zh-Hant": "帶有甜味的食材。 煮熟的米飯。以三明治的材料而言， 其可能性仍未可知。",
+        "zh-Hans": "带有甜味的食材。 煮熟的米。作为三明治 馅料的潜力还是未知数。"
+    }
+}

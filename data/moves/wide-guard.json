@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user and its allies are protected from wide-ranging attacks for one turn.",
+        "ja": "味方全員に　当たる　攻撃を １ターンの　間　防ぐ。",
+        "fr": "Bloque les attaques visant tous les alliés pendant un tour.",
+        "es": "Bloquea los ataques de objetivo múltiple lanzados contra el bando del usuario durante un turno.",
+        "de": "Schützt eine Runde lang vor Angriffen, die alle Pokémon auf der Seite des Anwenders treffen.",
+        "it": "Il Pokémon protegge sé e gli alleati da attacchi ad ampio raggio per un turno.",
+        "ko": "같은 편 전원에게 향하는 공격을 1턴 동안 막는다.",
+        "zh-Hant": "在１回合內， 防禦住攻擊我方全體的攻擊招式。",
+        "zh-Hans": "在１回合内防住 击打我方全员的攻击。"
+    }
 }

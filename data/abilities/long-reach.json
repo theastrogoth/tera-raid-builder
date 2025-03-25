@@ -1,0 +1,14 @@
+{
+    "name": "Long Reach",
+    "flavorText": {
+        "en": "The Pokémon uses its moves without making contact with the target.",
+        "ja": "すべての　技を 相手に　接触　しないで 出すことが　できる。",
+        "fr": "Le Pokémon est capable d'utiliser toutes ses capacités sans entrer en contact direct avec sa cible.",
+        "es": "Puede usar cualquier movimiento sin entrar en contacto con su objetivo.",
+        "de": "Das Pokémon kann alle seine Attacken einsetzen, ohne das Ziel dabei zu berühren.",
+        "it": "Il Pokémon è in grado di usare tutte le sue mosse senza entrare in contatto con il bersaglio.",
+        "ko": "모든 기술을 상대에게 접촉하지 않고 사용할 수 있다.",
+        "zh-Hant": "可以不接觸對手 就使出所有的招式。",
+        "zh-Hans": "可以不接触对手 就使出所有的招式。"
+    }
+}

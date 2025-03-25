@@ -1,0 +1,14 @@
+{
+    "name": "Silver Powder",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a shiny silver powder that boosts the power of the holder's Bug-type moves.",
+        "ja": "銀色に　輝く　粉。 持たせると　むしタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. De la poudre d'argent brillante qui augmente la puissance des capacités de type Insecte.",
+        "es": "Polvo de brillo argénteo que potencia los movimientos de tipo Bicho. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Es verstärkt Attacken vom Typ Käfer.",
+        "it": "Strumento da dare a un Pokémon. Polvere argentea e brillante che potenzia le mosse di tipo Coleottero.",
+        "ko": "은색으로 반짝이는 가루. 지니게 하면 벌레타입 기술의 위력이 올라간다.",
+        "zh-Hant": "散發著銀色光輝的粉末。 攜帶後，蟲屬性的 招式威力就會提高。",
+        "zh-Hans": "散发着银色光辉的粉末。 携带后，虫属性的 招式威力就会提高。"
+    }
+}

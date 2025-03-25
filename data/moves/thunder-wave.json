@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user launches a weak jolt of electricity that paralyzes the target.",
+        "ja": "弱い　電撃を　浴びせることで 相手を　まひ状態に　する。",
+        "fr": "Un faible choc électrique paralyse la cible.",
+        "es": "Una ligera descarga que paraliza al objetivo.",
+        "de": "Ein schwacher Stromstoß, der das Ziel paralysiert.",
+        "it": "Il Pokémon colpisce il bersaglio con una debole scarica elettrica che lo paralizza.",
+        "ko": "약한 전격을 날려서 상대를 마비 상태로 만든다.",
+        "zh-Hant": "放出微弱的電流。 讓對手陷入麻痺狀態。",
+        "zh-Hans": "向对手发出 微弱的电击， 从而让对手陷入麻痹状态。"
+    }
 }

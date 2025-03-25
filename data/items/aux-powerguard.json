@@ -1,0 +1,14 @@
+{
+    "name": "Aux Powerguard",
+    "flavorText": {
+        "en": "A recipe for crafting Aux Powerguards from scratch. Required materials: 1 Aux Power, 1 Aux Guard, and 1 bunch of King's Leaf.",
+        "ja": "マルチアップのレシピ。　材料は せめのがんやく×１　まもりのがんやく×１ キングリーフ×１",
+        "fr": "Méthode pour Double Extra. Ressources requises : 1 fiole d'Offensive Extra, 1 fiole de Défense Extra et 1 bouquet d'Herbe Souveraine.",
+        "es": "Receta para crear Grageas Multi. Materiales: 1 Gragea Ofensiva, 1 Gragea Defensiva y 1 Hierba Regia.",
+        "de": "Die Anleitung zur Herstellung von Kombivitaminen. Benötigte Materialien: 1 Fläschchen Offensivvitamine, 1 Fläschchen Defensivvitamine und 1 Königsblatt.",
+        "it": "Ricetta per un Multi extra. Richiede 1 Offensiva extra, 1 Difensiva extra e 1 ciuffo di Foglia regina.",
+        "ko": "멀티업의 레시피. 재료: 공격의환약×1 방어의환약×1 킹리프×1",
+        "zh-Hant": "多重強化的材料單。材料是： 進攻藥丸×１　防守藥丸×１ 皇葉×１",
+        "zh-Hans": "多重强化的材料单。材料是： 进攻药丸×１　防守药丸×１ 皇叶×１"
+    }
+}

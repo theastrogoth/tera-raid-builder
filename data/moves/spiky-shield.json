@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "In addition to protecting the user from attacks, this move also damages any attacker that makes direct contact.",
+        "ja": "相手の　攻撃を　防ぐと 同時に　触れた　相手の 体力を　削って　しまう。",
+        "fr": "Protège des attaques, et diminue les PV de tout assaillant qui entre en contact avec le lanceur.",
+        "es": "Protege al usuario de ataques e inflige daño a quien se los lance si entra en contacto con él.",
+        "de": "Der Anwender wird vor Angriffen geschützt. Gleichzeitig nehmen alle Pokémon, die mit ihm in Berührung kommen, Schaden.",
+        "it": "Il Pokémon si protegge dagli attacchi, riducendo inoltre i PS di chi entra in contatto con lui.",
+        "ko": "상대의 공격을 막음과 동시에 접촉한 상대의 체력을 떨어뜨린다.",
+        "zh-Hant": "防禦來自對手的攻擊， 同時削減接觸到自己的 對手的ＨＰ。",
+        "zh-Hans": "防住对手攻击的同时， 削减接触到自己的对手的体力。"
+    }
 }

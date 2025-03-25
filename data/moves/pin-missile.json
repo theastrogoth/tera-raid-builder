@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by shooting sharp spikes at the target. This move hits two to five times in a row.",
+        "ja": "鋭い　ハリを 相手に　発射して　攻撃する。 ２ー５回の　間　連続で　だす。",
+        "fr": "Envoie une rafale de dards. Peut toucher de deux à cinq fois.",
+        "es": "Lanza afiladas púas que hieren al objetivo de dos a cinco veces seguidas.",
+        "de": "Spitze Nadeln treffen das Ziel zwei- bis fünfmal hintereinander.",
+        "it": "Il Pokémon attacca il bersaglio da due a cinque volte in rapida successione con delle spine.",
+        "ko": "날카로운 침을 상대에게 발사해서 공격한다. 2~5회 연속으로 쓴다.",
+        "zh-Hant": "向對手發射 銳利的針進行攻擊。 可連續攻擊２～５次。",
+        "zh-Hans": "向对手发射 锐针进行攻击。 连续攻击２～５次。"
+    }
 }

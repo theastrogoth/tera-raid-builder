@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target with a hazardous full-power headbutt. This also damages the user terribly.",
+        "ja": "命を　懸けて　こん身の　力で 相手に　ずつきを　する。　自分も ものすごい　ダメージを　受ける。",
+        "fr": "Le lanceur assène un coup de tête désespéré, ce qui le blesse aussi très gravement.",
+        "es": "El usuario arriesga su vida y lanza un cabezazo con toda su fuerza, pero también se hiere gravemente a sí mismo.",
+        "de": "Der Anwender greift unter Einsatz seines Lebens mit einem Kopfstoß an. Dabei nimmt er selbst enormen Schaden.",
+        "it": "Il Pokémon dà una testata al bersaglio con tutta la potenza di cui dispone, ma subisce danni considerevoli.",
+        "ko": "목숨을 걸고 혼신의 힘으로 상대에게 박치기를 한다. 자신도 굉장한 데미지를 입는다.",
+        "zh-Hant": "使出渾身力量， 捨身向對手進行頭錘攻擊。 自己也會受到非常大的傷害。",
+        "zh-Hans": "拼命使出浑身力气， 向对手进行头锤攻击。 自己也会受到非常大的伤害。"
+    }
 }

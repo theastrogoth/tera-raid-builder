@@ -1,0 +1,14 @@
+{
+    "name": "Banana",
+    "flavorText": {
+        "en": "A very sweet ingredient. This go-to fruit is sweet and rich, and it's beloved by many Pokémon.",
+        "ja": "甘味が　強い　食材。 甘さと　コクがあり　好物にしている ポケモンが　多い　定番フルーツだ。",
+        "fr": "Un ingrédient au goût très sucré. Sa douceur unique en fait un fruit incontournable apprécié par de très nombreux Pokémon.",
+        "es": "Una fruta que es muy popular entre los Pokémon por su dulzor y suculencia.",
+        "de": "Eine sehr süße Zutat. Aufgrund ihrer Süße und der charakteristischen Konsistenz ist diese Frucht der klare Favorit vieler Pokémon.",
+        "it": "Un ingrediente molto dolce. Un frutto di sicuro successo, amato da molti Pokémon per il suo gusto dolce e corposo.",
+        "ko": "단맛이 강한 식재료. 단맛과 진한 맛이 있어 좋아하는 포켓몬이 많은 정석적인 과일이다.",
+        "zh-Hant": "甜味強勁的食材。 甜度和馥郁兼具，且廣受寶可夢喜愛， 屬於國民級的水果。",
+        "zh-Hans": "甜味强烈的食材。 甘甜味美，是很多宝可梦 都喜爱的经典水果。"
+    }
+}

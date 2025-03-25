@@ -1,0 +1,14 @@
+{
+    "name": "Steel Gem",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. This gem is imbued with the essence of steel and will boost the power of a Steel-type move—but only once.",
+        "ja": "はがねのタイプの　ジュエル。 持たせると　１度だけ　はがねの 技の威力が　強まる。",
+        "fr": "Objet à tenir. Un joyau augmentant une fois la puissance des capacités de type Acier.",
+        "es": "Joya de un solo uso que potencia un movimiento de tipo Acero. Debe llevarla un Pokémon.",
+        "de": "Ein Item zum Tragen. Dieses Juwel verstärkt einmalig eine Attacke vom Typ Stahl.",
+        "it": "Strumento da dare a un Pokémon. Gioiello che potenzia una sola volta le mosse di tipo Acciaio.",
+        "ko": "강철타입의 주얼. 지니게 하면 한 번만 강철 기술의 위력이 강해진다.",
+        "zh-Hant": "鋼屬性的寶石。 攜帶後，鋼屬性招式的 威力會僅增強１次。",
+        "zh-Hans": "钢属性的宝石。 携带后，钢属性的 招式威力仅会增强１次。"
+    }
+}

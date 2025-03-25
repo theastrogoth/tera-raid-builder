@@ -51,5 +51,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks with a prehistoric power. This may also boost all the user's stats at once.",
+        "ja": "原始の　力で　攻撃する。 自分の　すべての 能力が　あがることが　ある。",
+        "fr": "Une attaque préhistorique qui peut augmenter toutes les stats du lanceur d'un seul coup.",
+        "es": "Canaliza un poder prehistórico con el que ataca al objetivo. Puede aumentar todas las características del usuario.",
+        "de": "Angriff mit antiker Kraft, der alle Statuswerte erhöhen kann.",
+        "it": "Il Pokémon attacca il bersaglio con una forza primordiale. Può aumentare tutte le proprie statistiche.",
+        "ko": "원시의 힘으로 공격한다. 자신의 모든 능력이 올라갈 때가 있다.",
+        "zh-Hant": "用原始之力進行攻擊。 有時會提高 自己的所有能力。",
+        "zh-Hans": "用原始之力进行攻击。 有时会提高 自己所有的能力。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user just flops and splashes around to no effect at all...",
+        "ja": "攻撃もせずに　ピョン　ピョンと 跳ねるだけで　なにも　おこらない……。",
+        "fr": "Le lanceur barbote et éclabousse les environs. Cette capacité n'a aucun effet.",
+        "es": "No tiene ningún efecto. Solo salpica.",
+        "de": "Nur ein Platscher, der überhaupt nichts bewirkt.",
+        "it": "Il Pokémon sguazza nell'acqua, senza ottenere alcun effetto.",
+        "ko": "공격도 하지 않고 팔딱팔딱 튈 뿐 아무 일도 일어나지 않는다...",
+        "zh-Hant": "不攻擊對手，只是蹦蹦跳跳的， 什麼事也不會發生……",
+        "zh-Hans": "也不攻击只是一蹦一蹦地跳， 什么都不会发生……"
+    }
 }

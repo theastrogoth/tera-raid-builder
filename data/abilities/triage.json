@@ -1,0 +1,14 @@
+{
+    "name": "Triage",
+    "flavorText": {
+        "en": "Gives priority to the Pokémon's healing moves.",
+        "ja": "回復技を　先制で 出すことが　できる。",
+        "fr": "Rend les capacités de soin prioritaires.",
+        "es": "Da prioridad a los movimientos que restauran PS.",
+        "de": "Die Fähigkeit ermöglicht dem Pokémon einen Erstschlag mit Attacken, welche die KP des Anwenders direkt regenerieren.",
+        "it": "Le mosse che ripristinano i PS del Pokémon acquistano priorità alta.",
+        "ko": "회복 기술을 먼저 사용할 수 있다.",
+        "zh-Hant": "可以搶先使出回復招式。",
+        "zh-Hans": "可以率先使出回复招式。"
+    }
+}

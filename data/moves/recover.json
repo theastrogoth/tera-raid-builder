@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user regenerates its cells, restoring its own HP by up to half its max HP.",
+        "ja": "細胞を　再生させて 自分の　最大ＨＰの 半分の　ＨＰを　回復する。",
+        "fr": "Un soin qui permet au lanceur de récupérer jusqu'à la moitié de ses PV max.",
+        "es": "El usuario regenera sus células y recupera una cantidad de PS equivalente a la mitad de sus PS máximos.",
+        "de": "Eine Selbstheilung. KP des Anwenders werden um 50 % des maximalen Wertes aufgefüllt.",
+        "it": "Mossa autocurativa. Il Pokémon recupera metà dei PS massimi.",
+        "ko": "세포를 재생시켜 자신의 최대 HP의 절반만큼 HP를 회복한다.",
+        "zh-Hant": "讓細胞再生， 回復自己最大ＨＰ的一半。",
+        "zh-Hans": "让细胞再生， 从而回复自己 最大ＨＰ的一半。"
+    }
 }

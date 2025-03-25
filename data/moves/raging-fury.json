@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user rampages around spewing flames for two to three turns. The user then becomes confused.",
+        "ja": "２ー３ターンの　間 炎を　放ちながら　暴れまわる。 暴れたあとは　混乱する。",
+        "fr": "Le lanceur se déchaîne et attaque en projetant de violentes flammes pendant deux ou trois tours. Il devient ensuite confus.",
+        "es": "El usuario ataca con unas violentas llamas de dos a tres turnos seguidos y, después, se queda confuso.",
+        "de": "Der Anwender wütet zwei bis drei Runden lang und speit heftige Flammen aus. Danach wird er verwirrt.",
+        "it": "Il Pokémon s'infuria e sputa fiammate per due o tre turni, ma rimane confuso.",
+        "ko": "2~3턴 동안 불꽃을 마구 뿜어 대며 난동을 부린다. 난동 부린 뒤에는 혼란에 빠진다.",
+        "zh-Hant": "在２～３回合內放出火焰， 同時瘋狂亂打。 大鬧一番後自己會陷入混亂。",
+        "zh-Hans": "在２～３回合内， 一边放出火焰，一边疯狂乱打。 大闹一番后自己会陷入混乱。"
+    }
 }

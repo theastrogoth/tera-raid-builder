@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user's body generates an eerie impulse. Exposing the target to it harshly lowers the target's Sp. Atk stat.",
+        "ja": "体から　かいでんぱを　放ち 相手に　浴びせる　ことによって 特攻を　がくっと　さげる。",
+        "fr": "Le corps du lanceur produit des ondes anormales qui enveloppent la cible et diminuent beaucoup son Attaque Spéciale.",
+        "es": "El usuario irradia unas raras ondas que, al alcanzar al objetivo, reducen mucho su Ataque Especial.",
+        "de": "Der Körper des Anwenders erzeugt mysteriöse Wellen und senkt den Spezial-Angriff des Zieles dadurch stark.",
+        "it": "Il Pokémon emette dal corpo onde anomale che investono il bersaglio, riducendone di molto l'Attacco Speciale.",
+        "ko": "몸에서 발생시킨 괴전파를 상대에게 쏘아 특수공격을 크게 떨어뜨린다.",
+        "zh-Hant": "從身體發出怪異電波 影響對手， 大幅降低對手的特攻。",
+        "zh-Hans": "从身体放射出怪异电波， 让对手沐浴其中， 从而大幅降低其特攻。"
+    }
 }

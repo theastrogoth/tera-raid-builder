@@ -1,0 +1,14 @@
+{
+    "name": "Zen Mode",
+    "flavorText": {
+        "en": "Changes the Pokémon's shape when its HP drops to half or less.",
+        "ja": "ＨＰが　半分　以下に　なると 姿が　変化する。",
+        "fr": "Le Pokémon change de forme quand il lui reste moins de la moitié de ses PV.",
+        "es": "Cambia de forma si sus PS se ven reducidos a la mitad o menos.",
+        "de": "Fallen die KP des Pokémon auf die Hälfte des Maximalwerts oder weniger, wechselt es seine Form.",
+        "it": "Cambia la forma del Pokémon se i PS scendono a metà o meno.",
+        "ko": "HP가 절반 이하가 되면 모습이 변화한다.",
+        "zh-Hant": "ＨＰ變為一半以下時， 樣子會改變。",
+        "zh-Hans": "ＨＰ变为一半以下时， 样子会改变。"
+    }
+}

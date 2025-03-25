@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user gathers all its light energy and releases it at once. This may also lower the target's Sp. Def stat.",
+        "ja": "体の　光を　一点に　集めて 力を　放つ。 相手の　特防を　さげることが　ある。",
+        "fr": "Le lanceur concentre son énergie lumineuse et la fait exploser, ce qui peut aussi baisser la Défense Spéciale de la cible.",
+        "es": "El usuario concentra toda la luz del cuerpo y la libera. Puede reducir la Defensa Especial del objetivo.",
+        "de": "Anwender sammelt Lichtenergie und feuert sie auf einmal ab. Senkt eventuell Spezial-Verteidigung des Zieles.",
+        "it": "Il Pokémon attacca raccogliendo e rilasciando energia luminosa. Può ridurre la Difesa Speciale del bersaglio.",
+        "ko": "몸의 빛을 한곳에 모아서 힘을 방출한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+        "zh-Hant": "將身體的光芒 聚集在一個點後釋放出去。 有時會降低對手的特防。",
+        "zh-Hans": "将身体的光芒 聚集在一点释放出去。 有时会降低对手的特防。"
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "name": "Yogurt",
+    "flavorText": {
+        "en": "A condiment that's very sweet and very sour. It goes especially well with fruit and is easy to incorporate into a sandwich.",
+        "ja": "甘味と　酸味が　強い　調味料。 特に　フルーツ類と　相性が　よく サンドウィッチにも　使いやすいのだ。",
+        "fr": "Un condiment au goût très sucré et acide. Facile à incorporer dans un Sandwich, il accompagne particulièrement bien les fruits.",
+        "es": "Este ingrediente de sabor agridulce combina a la perfección con todo tipo de frutas y es muy fácil de incorporar en los bocadillos.",
+        "de": "Dieses Würzmittel vereint sehr süße wie saure Geschmacksnoten. Es harmoniert perfekt mit Obst und lässt sich auch gut auf Sandwiches streichen.",
+        "it": "Un condimento molto dolce e aspro. Si abbina particolarmente bene alla frutta e si può usare con facilità anche nei panini.",
+        "ko": "단맛과 신맛이 강한 조미료. 특히 과일 종류와 궁합이 잘 맞는다. 샌드위치에도 사용하기 좋다.",
+        "zh-Hant": "甜味和酸味強勁的調味料。 和水果類特別搭配。 作為三明治的食材也很好使用。",
+        "zh-Hans": "甜味和酸味强烈的调味料。 与水果类的食物特别搭配， 也很容易用在三明治上。"
+    }
+}

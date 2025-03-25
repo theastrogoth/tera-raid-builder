@@ -1,0 +1,14 @@
+{
+    "name": "King's Leaf",
+    "flavorText": {
+        "en": "The king of herbs, glittering and brilliant. Combining this herb with other materials needed to make medicines will boost their efficacy.",
+        "ja": "光り輝くハーブの王様。 くすりの材料とあわせることで 回復効果を高める。",
+        "fr": "Surnommée « la reine des herbes », elle scintille joliment. La mélanger à d'autres ressources permet d'augmenter l'efficacité des préparations médicinales.",
+        "es": "Hierba brillante, conocida como la reina de las hierbas, que se mezcla con otros ingredientes medicinales para potenciar la eficacia curativa de estos.",
+        "de": "Diese funkelnde Pflanze gilt als König aller Kräuter. In Verbindung mit medizinischen Zutaten steigert es deren heilende Wirkung.",
+        "it": "Pianta scintillante considerata la regina delle erbe. Se combinata con altri ingredienti medicinali, ne aumenta l'efficacia.",
+        "ko": "눈부시게 빛나는 허브의 왕. 약재와 조합하면 회복 효과가 높아진다.",
+        "zh-Hant": "閃耀著光輝的香草之王。 與藥物的材料配合， 可以提高其回復效果。",
+        "zh-Hans": "闪耀着光辉的香草之王。 与药物的材料配合， 可以提高其回复效果。"
+    }
+}

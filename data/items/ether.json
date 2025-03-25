@@ -1,0 +1,14 @@
+{
+    "name": "Ether",
+    "flavorText": {
+        "en": "A medicine that can be used to restore 10 PP to a single move that a Pokémon knows.",
+        "ja": "ポケモンが　覚えている 技のうち　１つのＰＰを １０だけ　回復する。",
+        "fr": "Restaure 10 PP d'une capacité sélectionnée.",
+        "es": "Restaura 10 PP del movimiento elegido de un Pokémon.",
+        "de": "Füllt die AP einer ausgewählten Attacke eines Pokémon um 10 Punkte auf.",
+        "it": "Restituisce un massimo di 10 PP a una mossa tra quelle conosciute dal Pokémon.",
+        "ko": "포켓몬이 기억하고 있는 기술 중 1개의 PP를 10만큼 회복한다.",
+        "zh-Hant": "能讓寶可夢已學會的 其中１個招式 回復１０ＰＰ。",
+        "zh-Hans": "能让宝可梦学会的 其中１个招式 回复１０ＰＰ。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Sticky Hold",
+    "flavorText": {
+        "en": "The Pokémon's held items cling to its sticky body and cannot be removed by other Pokémon.",
+        "ja": "粘着質の　体に 道具が　くっついているため 相手に　道具を　奪われない。",
+        "fr": "Les objets sont collés au corps gluant du Pokémon, ce qui empêche ses adversaires de les dérober.",
+        "es": "Los objetos se quedan pegados a su cuerpo, por lo que no pueden robárselos.",
+        "de": "Trägt das Pokémon ein Item, bleibt dieses an seinem klebrigen Körper haften, wodurch Item-Diebstahl verhindert wird.",
+        "it": "Gli strumenti restano appiccicati al corpo adesivo del Pokémon e non possono essere rubati.",
+        "ko": "점성이 높은 몸에 도구가 달라붙어 있어 상대에게 도구를 뺏기지 않는다.",
+        "zh-Hant": "道具會黏在 具有黏性的身體上， 不會被對手奪走。",
+        "zh-Hans": "因为道具是粘在黏性身体上的， 所以不会被对手夺走。"
+    }
+}

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by raking the target with claws, scythes, or the like. This move hits two to five times in a row.",
+        "ja": "ツメや　カマなどで 相手を　ひっかいて　攻撃する。 ２ー５回の　間　連続で　だす。",
+        "fr": "La cible est lacérée par des faux ou des griffes de deux à cinq fois d'affilée.",
+        "es": "Araña al objetivo con uñas, cuchillas o similares de dos a cinco veces seguidas.",
+        "de": "Beharkt das Ziel zwei- bis fünfmal mit scharfen Klauen oder Sicheln.",
+        "it": "Il Pokémon attacca il bersaglio graffiandolo con artigli o falci da due a cinque volte in rapida successione.",
+        "ko": "손톱이나 낫 등으로 상대를 할퀴어서 공격한다. 2~5회 연속으로 쓴다.",
+        "zh-Hant": "用爪子或鐮刀等 向對手進行攻擊。 可連續攻擊２～５次。",
+        "zh-Hans": "用爪子或镰刀等 抓对手进行攻击。 连续攻击２～５次。"
+    }
 }

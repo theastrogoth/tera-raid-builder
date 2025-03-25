@@ -1,0 +1,14 @@
+{
+    "name": "Blue Flute",
+    "flavorText": {
+        "en": "A flute made from blue glass. It awakens sleeping Pokémon.",
+        "ja": "青いガラスで　できた　笛。 眠り状態を　回復する。",
+        "fr": "Un jouet en forme de flûte en verre bleu. Réveille un Pokémon endormi.",
+        "es": "Una flauta de cristal azul cuyas notas despiertan a un Pokémon del sueño.",
+        "de": "Eine Spielzeugflöte aus blauem Glas. Weckt ein schlafendes Pokémon auf.",
+        "it": "Flauto fatto di vetro blu. Ha il potere di risvegliare i Pokémon addormentati.",
+        "ko": "파란 유리로 만들어진 피리. 잠듦 상태를 회복한다.",
+        "zh-Hant": "以藍色玻璃製成的笛子。 可以治癒睡眠狀態。",
+        "zh-Hans": "以蓝色玻璃制成的哨子。 可以治愈睡眠状态。"
+    }
+}

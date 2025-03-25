@@ -1,0 +1,14 @@
+{
+    "name": "Bad Dreams",
+    "flavorText": {
+        "en": "Damages opposing Pokémon that are asleep.",
+        "ja": "ねむり状態の　相手に ダメージを　あたえる。",
+        "fr": "Inflige des dégâts aux ennemis endormis.",
+        "es": "Inflige daño a cualquier rival que esté dormido.",
+        "de": "Schlafenden Gegnern wird Schaden zugefügt.",
+        "it": "Infligge danni agli avversari addormentati.",
+        "ko": "잠듦 상태의 상대에게 데미지를 준다.",
+        "zh-Hant": "給予陷入睡眠狀態的對手傷害。",
+        "zh-Hans": "给予睡眠状态的对手伤害。"
+    }
+}

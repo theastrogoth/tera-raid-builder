@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks by unleashing a peculiar light that even affects the mind. This also harshly lowers the target's Sp. Def stat.",
+        "ja": "精神にも　作用する 奇妙な光を　放って　攻撃する。 相手の　特防を　がくっと　さげる。",
+        "fr": "Le lanceur attaque en émettant une étrange lumière qui ébranle l'esprit de la cible. Cela baisse beaucoup la Défense Spéciale de la cible.",
+        "es": "Ataca proyectando una extraña luz que afecta a la mente. Reduce mucho la Defensa Especial del objetivo.",
+        "de": "Der Anwender greift an, indem er ein sonderbares Licht freisetzt, das sich auch auf die Psyche auswirkt. Zudem wird die Spezial-Verteidigung des Zieles stark gesenkt.",
+        "it": "Il Pokémon attacca sparando una luce bizzarra che agisce anche sulla psiche. Riduce di molto la Difesa Speciale del bersaglio.",
+        "ko": "정신에도 작용하는 기묘한 빛을 발산해서 공격한다. 상대의 특수방어를 크게 떨어뜨린다.",
+        "zh-Hant": "發出對精神也會起作用的 奇異光線進行攻擊。 大幅降低對手的特防。",
+        "zh-Hans": "放出连精神都能影响到的 奇妙怪光进行攻击。 会大幅降低对方的特防。"
+    }
 }

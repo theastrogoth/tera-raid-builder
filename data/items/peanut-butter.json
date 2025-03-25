@@ -1,0 +1,14 @@
+{
+    "name": "Peanut Butter",
+    "flavorText": {
+        "en": "A very sweet condiment. People in Paldea seem to favor the sweet varieties over the unsweetened.",
+        "ja": "甘味が　強い　調味料。 パルデア地方では　無糖よりも 甘いほうが　人気らしい。",
+        "fr": "Un condiment au goût très sucré. À Paldea, la version sucrée semble être plus populaire que la version nature.",
+        "es": "Un ingrediente muy dulce. La versión con azúcar añadido es la más popular en Paldea.",
+        "de": "Ein sehr süßes Würzmittel. In Paldea steht diese Variante offenbar höher im Kurs als die zuckerfreie Alternative.",
+        "it": "Un condimento molto dolce. A Paldea questa versione è più amata di quella senza zucchero.",
+        "ko": "단맛이 강한 조미료. 팔데아지방에서는 무가당보다 당분이 있는 쪽이 인기 있다고 한다.",
+        "zh-Hant": "甜味強勁的調味料。 在帕底亞地區，有甜味似乎比 無甜味更受到歡迎。",
+        "zh-Hans": "甜味强烈的调味料。 在帕底亚地区比起无糖， 似乎甜甜的更受人欢迎。"
+    }
+}

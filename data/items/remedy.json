@@ -1,0 +1,14 @@
+{
+    "name": "Remedy",
+    "flavorText": {
+        "en": "A recipe for crafting Remedies from scratch. Required materials: 2 Bugwort blooms.",
+        "ja": "カンポーやくのレシピ。　材料は ムシヨケソウ×２",
+        "fr": "Méthode pour Remède. Ressources requises : 2 Plantes Répulsives.",
+        "es": "Receta para crear Remedios. Materiales: 2 Hierbas Repelentes.",
+        "de": "Die Anleitung zur Herstellung einer Arznei. Benötigte Materialien: 2 Schutzblumen.",
+        "it": "Ricetta per un Preparato. Richiede 2 fiori di Erba repellente.",
+        "ko": "한방약의 레시피. 재료: 벌레회피풀×2",
+        "zh-Hant": "中藥的材料單。材料是： 除蟲草×２",
+        "zh-Hans": "中药的材料单。材料是： 除虫草×２"
+    }
+}

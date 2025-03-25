@@ -1,0 +1,14 @@
+{
+    "name": "Motor Drive",
+    "flavorText": {
+        "en": "The Pokémon takes no damage when hit by Electric-type moves. Instead, its Speed stat is boosted.",
+        "ja": "でんきタイプの　技を　受けると ダメージを　受けずに 素早さが　上がる。",
+        "fr": "Si le Pokémon est touché par une capacité de type Électrik, il ne subit aucun dégât et sa Vitesse augmente.",
+        "es": "Si lo alcanza un movimiento de tipo Eléctrico, aumenta su Velocidad en vez de sufrir daño.",
+        "de": "Wird das Pokémon von einer Elektro-Attacke getroffen, erleidet es keinen Schaden. Stattdessen steigt seine Initiative.",
+        "it": "Se il Pokémon viene colpito da una mossa di tipo Elettro, la neutralizza e sfrutta la carica elettrica per aumentare la propria Velocità.",
+        "ko": "전기타입의 기술로 공격받으면 데미지를 받지 않고 스피드가 올라간다.",
+        "zh-Hant": "受到電屬性的招式攻擊時， 不但不會受到傷害，反而速度會提高。",
+        "zh-Hans": "受到电属性的招式攻击时， 不会受到伤害，而是速度会提高。"
+    }
+}

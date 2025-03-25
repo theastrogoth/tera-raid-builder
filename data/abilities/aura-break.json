@@ -1,0 +1,14 @@
+{
+    "name": "Aura Break",
+    "flavorText": {
+        "en": "The effects of “Aura” Abilities are reversed to lower the power of affected moves.",
+        "ja": "オーラの　効果を　逆転させて 威力を　下げる。",
+        "fr": "Inverse l'effet des talents « Aura » afin que ceux-ci baissent la puissance des capacités affectées au lieu de l'augmenter.",
+        "es": "Invierte los efectos de las habilidades de auras, por lo que reduce la potencia de ciertos movimientos en vez de aumentarla.",
+        "de": "Die Wirkung von Aura-Fähigkeiten wird umgekehrt, sodass die Stärke der betroffenen Attacken sinkt statt steigt.",
+        "it": "Inverte gli effetti delle aure riducendo la potenza delle mosse associate.",
+        "ko": "오라의 효과를 역전시켜 위력을 떨어뜨린다.",
+        "zh-Hant": "讓氣場的效果逆轉， 並降低威力。",
+        "zh-Hans": "让气场的效果发生逆转， 降低威力。"
+    }
+}

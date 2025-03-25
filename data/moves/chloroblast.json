@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user launches its amassed chlorophyll to inflict damage on the target. This also damages the user.",
+        "ja": "自身の　葉緑素を　集約し 放出して　攻撃する。 自分も　ダメージを　受けてしまう。",
+        "fr": "Le lanceur tire un concentré de sa propre chlorophylle sur la cible, ce qui le blesse également.",
+        "es": "El usuario concentra clorofila y la dispara en forma de rayo, pero también se hiere a sí mismo.",
+        "de": "Der Anwender greift mit einer hohen Konzentration seines Chlorophylls an, wobei er selbst Schaden erleidet.",
+        "it": "Il Pokémon attacca concentrando la clorofilla nel proprio corpo per poi lanciarla, ma subisce danni.",
+        "ko": "엽록소를 모은 뒤 발사하여 공격한다. 자신도 데미지를 입는다.",
+        "zh-Hant": "將自身的葉綠素凝聚起來後 放出去進行攻擊。 自己也會受到傷害。",
+        "zh-Hans": "将自己的叶绿素凝聚起来后 放出去进行攻击。 自己也会受到伤害，"
+    }
 }

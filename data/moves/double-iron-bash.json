@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user uses the hex nut in its chest as an axis to spin, striking the target with its arms twice in a row. This may also make the target flinch.",
+        "ja": "胸の　ナットを　軸に　回転して ２回　続けて　うでを　たたきつける。 相手を　ひるませる　ことが　ある。",
+        "fr": "Le lanceur fait pivoter l'écrou de sa poitrine pour frapper la cible avec ses bras deux fois d'affilée, ce qui peut aussi apeurer celle-ci.",
+        "es": "Usando la tuerca del pecho como eje, gira sobre sí mismo y golpea con los brazos dos veces seguidas. Puede amedrentar al objetivo.",
+        "de": "Der Anwender rotiert um die Schraubenmutter in seinem Brustkorb und schlägt zweimal hintereinander mit den Armen zu. Das Ziel schreckt eventuell zurück.",
+        "it": "Il Pokémon colpisce il bersaglio due volte con le braccia ruotando su se stesso. Può anche farlo tentennare.",
+        "ko": "가슴의 너트를 축으로 회전시켜 2번 연속 팔로 힘껏 친다. 상대를 풀죽게 만들 때가 있다.",
+        "zh-Hant": "以胸口的螺帽為軸心旋轉， 連續２次揮動手臂痛擊對手。 有時會使對手畏縮。",
+        "zh-Hans": "以胸口的螺帽为中心旋转， 并连续２次挥动手臂打击对手。 有时会使对手畏缩。"
+    }
 }

@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the turn after using this move. This move has a heightened chance of landing a critical hit and may also make the target flinch.",
+        "ja": "２ターン目に　相手を　攻撃する。 たまに　ひるませる。 急所にも　当たりやすい。",
+        "fr": "Une attaque en deux tours au taux de critiques élevé, qui peut aussi apeurer la cible.",
+        "es": "Ataca en el segundo turno y suele asestar un golpe crítico. También puede amedrentar al objetivo.",
+        "de": "Anwender greift in der zweiten Runde mit hoher Volltrefferquote an. Ziel schreckt eventuell zurück.",
+        "it": "Attacco in due turni e probabile brutto colpo. Può anche far tentennare il bersaglio.",
+        "ko": "2턴째에 상대를 공격한다. 가끔 풀죽게 만든다. 급소에도 맞기 쉽다.",
+        "zh-Hant": "在使用後的下一回合進行攻擊。 有時會使對手畏縮。 且容易擊中要害。",
+        "zh-Hans": "第２回合攻击对手。 偶尔使对手畏缩。 也容易击中要害。"
+    }
 }

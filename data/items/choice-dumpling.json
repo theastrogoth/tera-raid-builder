@@ -1,0 +1,14 @@
+{
+    "name": "Choice Dumpling",
+    "flavorText": {
+        "en": "A recipe for crafting Choice Dumplings from scratch. Required materials: 3 Caster Fern leaves, 1 Direshroom, 1 bunch of Swordcap, and 2 stalks of Hearty Grains.",
+        "ja": "こだわりちまきのレシピ。　材料は タマゼンマイ×３　ツルギマイタケ×１ キュウショウロ×１　いきいきイナホ×２",
+        "fr": "Méthode pour Papillote Choix. Ressources requises : 3 Feuilles Rondes, 1 Fortichampi, 1 Champiscoto et 2 épis de Riz Zélé.",
+        "es": "Receta para crear Aperitivos Elección. Materiales: 3 Helechos Rizados, 1 Seta Espada, 1 Seta Crítica y 2 Espigas Vivaces.",
+        "de": "Die Anleitung zur Herstellung eines Wahlreishappens. Benötigte Materialien: 3 Rundblätter, 1 Schwertling, 1 Volltrefferling und 2 Ähren Munterreis.",
+        "it": "Ricetta per un Involtoscelta. Richiede 3 Felcitonde, 1 cespo di Danzaspaditole, 1 Colpogone e 2 Spighe rigogliose.",
+        "ko": "구애잎사귀떡의 레시피. 재료: 둥근고비×3 칼춤버섯×1 급소버섯×1 싱싱이삭×2",
+        "zh-Hant": "講究粽的材料單。材料是： 彈子萁×３　劍舞菇×１ 要害松露×１　旺旺穀×２",
+        "zh-Hans": "讲究粽的材料单。材料是： 弹子萁×３　剑舞菇×１ 要害松露×１　旺旺谷×２"
+    }
+}

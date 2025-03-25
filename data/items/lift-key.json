@@ -1,0 +1,14 @@
+{
+    "name": "Lift Key",
+    "flavorText": {
+        "en": "A key that operates the elevator in the Team Rocket Hideout. It bears the Team Rocket logo.",
+        "ja": "ロケット団　アジトに　ある エレベータを　動かす　カギ。 ロケット団の　マーク入り。",
+        "fr": "Une clé activant l'ascenseur du Repaire de la Team Rocket. Elle porte la marque de l'organisation.",
+        "es": "Llave que permite acceder al ascensor de la Guarida del Team Rocket. Lleva grabado el símbolo del Team Rocket.",
+        "de": "Ein Schlüssel, mit dessen Hilfe der Aufzug im Rocket-Versteck in Gang gesetzt werden kann. Das Logo von Team Rocket ist darauf abgebildet.",
+        "it": "Chiave per l'ascensore nel Rifugio del Team Rocket. Presenta il logo del Team Rocket.",
+        "ko": "로켓단아지트에 있는 엘리베이터를 작동시키는 열쇠. 로켓단의 마크가 새겨져 있다.",
+        "zh-Hant": "能啟動火箭隊基地 電梯的鑰匙。 上面有火箭隊的標誌。",
+        "zh-Hans": "带有火箭队标志的钥匙。 能启动位于火箭队基地的电梯。"
+    }
+}

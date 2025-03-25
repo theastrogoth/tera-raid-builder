@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia.",
+        "ja": "心を　なやませる　タネを 植えつける。　相手を　眠れなくして 特性を　ふみんに　する。",
+        "fr": "Plante sur la cible une graine qui la rend soucieuse et remplace son talent par Insomnia, l'empêchant ainsi de dormir.",
+        "es": "Planta una semilla en el objetivo que le causa pesar. Sustituye la habilidad del objetivo por Insomnio y le impide dormirse.",
+        "de": "Ziel wird bepflanzt. Seine Fähigkeit wandelt sich zu Insomnia und hindert es daran, einzuschlafen.",
+        "it": "Il Pokémon pianta un seme che causa ansia, mutando l'abilità del bersaglio in Insonnia e impedendogli di dormire.",
+        "ko": "마음을 괴롭히는 씨앗을 심는다. 상대를 잠잘 수 없게 해서 특성을 불면으로 만든다.",
+        "zh-Hant": "埋下令人心煩意亂的種子， 讓對手睡不著， 將對手的特性變成不眠。",
+        "zh-Hans": "种植心神不宁的种子。 使对手不能入眠， 并将特性变成不眠。"
+    }
 }

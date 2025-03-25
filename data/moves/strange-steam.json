@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks the target by emitting steam. This may also confuse the target.",
+        "ja": "煙を　噴出して 相手を　攻撃。 混乱　させることが　ある。",
+        "fr": "Le lanceur émet de la vapeur pour attaquer sa cible. Peut aussi la rendre confuse.",
+        "es": "Desprende un humo con el que ataca al objetivo, que puede acabar confundido.",
+        "de": "Der Anwender stößt Dampf aus, mit dem er das Ziel angreift. Dieses wird eventuell verwirrt.",
+        "it": "Il Pokémon attacca il bersaglio con getti di vapore che possono anche confonderlo.",
+        "ko": "연기를 분출해서 상대를 공격한다. 혼란시킬 때가 있다.",
+        "zh-Hant": "噴出煙霧攻擊對手。 有時會使對手混亂。",
+        "zh-Hans": "喷出烟雾攻击对手。 有时会使对手混乱。"
+    }
 }

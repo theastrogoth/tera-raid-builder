@@ -1,0 +1,14 @@
+{
+    "name": "Charcoal",
+    "flavorText": {
+        "en": "An item to be held by a Pokémon. It's a combustible fuel that boosts the power of the holder's Fire-type moves.",
+        "ja": "ものを　燃やす　燃料。 持たせると　ほのおタイプの 技の威力が　あがる。",
+        "fr": "Objet à tenir. Un combustible qui augmente la puissance des capacités de type Feu.",
+        "es": "Actúa como combustible y potencia los movimientos de tipo Fuego. Debe llevarlo un Pokémon.",
+        "de": "Ein Item zum Tragen. Ein Brennstoff, der Attacken vom Typ Feuer verstärkt.",
+        "it": "Strumento da dare a un Pokémon. Sostanza combustibile che potenzia le mosse di tipo Fuoco.",
+        "ko": "물건을 태우는 연료. 지니게 하면 불꽃타입 기술의 위력이 올라간다.",
+        "zh-Hant": "燒東西的燃料。 攜帶後，火屬性的 招式威力就會提高。",
+        "zh-Hans": "焚烧用的燃料。 携带后，火属性的 招式威力就会提高。"
+    }
+}

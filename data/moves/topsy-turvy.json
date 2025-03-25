@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "All stat changes affecting the target turn topsy-turvy and become the opposite of what they were.",
+        "ja": "相手に　かかっている すべての　能力変化を ひっくり返して　逆にする。",
+        "fr": "Inverse tous les changements de stats de la cible.",
+        "es": "Invierte por completo los cambios en las características del objetivo.",
+        "de": "Invertiert alle Statusveränderungen des Zieles.",
+        "it": "Questa mossa inverte tutte le modifiche alle statistiche del bersaglio.",
+        "ko": "상대에게 걸려 있는 모든 능력 변화를 뒤집어서 반대로 만든다.",
+        "zh-Hant": "讓對手身上所有的 能力變化顛倒過來， 變成和原來相反的狀態。",
+        "zh-Hans": "颠倒对手身上的 所有能力变化， 变成和原来相反的状态。"
+    }
 }

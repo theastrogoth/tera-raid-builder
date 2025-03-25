@@ -1,0 +1,14 @@
+{
+    "name": "Grass Pelt",
+    "flavorText": {
+        "en": "Boosts the Pokémon's Defense stat on Grassy Terrain.",
+        "ja": "グラスフィールドのとき 防御が　上がる。",
+        "fr": "Augmente la Défense du Pokémon si un champ herbu est actif.",
+        "es": "Aumenta su Defensa si hay un campo de hierba en el terreno de combate.",
+        "de": "Die Verteidigung des Pokémon steigt, wenn ein Grasfeld aktiv ist.",
+        "it": "In presenza di un Campo Erboso, la Difesa aumenta.",
+        "ko": "그래스필드일 때 방어가 올라간다.",
+        "zh-Hant": "在青草場地時， 防禦會提高。",
+        "zh-Hans": "在青草场地时， 防御会提高。"
+    }
+}

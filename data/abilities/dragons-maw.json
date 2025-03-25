@@ -1,0 +1,14 @@
+{
+    "name": "Dragon's Maw",
+    "flavorText": {
+        "en": "Powers up Dragon-type moves.",
+        "ja": "ドラゴンタイプの　技の 威力が　上がる。",
+        "fr": "Augmente la puissance des capacités de type Dragon.",
+        "es": "Potencia los movimientos de tipo Dragón.",
+        "de": "Die Stärke von Drachen-Attacken des Pokémon steigt.",
+        "it": "Potenzia le mosse di tipo Drago.",
+        "ko": "드래곤타입 기술의 위력이 올라간다.",
+        "zh-Hant": "龍屬性的招式威力會提高。",
+        "zh-Hans": "龙属性的招式威力会提高。"
+    }
+}

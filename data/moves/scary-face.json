@@ -35,5 +35,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user frightens the target with a scary face to harshly lower its Speed stat.",
+        "ja": "恐ろしい　顔で　にらみ　おびえさせて 相手の　素早さを　がくっと　さげる。",
+        "fr": "Le lanceur fait une grimace qui effraie la cible et réduit beaucoup sa Vitesse.",
+        "es": "Asusta al objetivo para reducir mucho su Velocidad.",
+        "de": "Jagt dem Ziel mit einer Grimasse Angst ein. Dessen Initiative-Wert sinkt stark.",
+        "it": "Il Pokémon spaventa il bersaglio con una faccia terribile e ne riduce di molto la Velocità.",
+        "ko": "무서운 얼굴로 노려보고 겁주어 상대의 스피드를 크게 떨어뜨린다.",
+        "zh-Hant": "用恐怖的表情瞪著對手， 讓對手害怕， 大幅降低對手的速度。",
+        "zh-Hans": "用恐怖的表情瞪着对手， 使其害怕， 从而大幅降低对手的速度。"
+    }
 }

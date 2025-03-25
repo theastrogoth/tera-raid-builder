@@ -1,0 +1,14 @@
+{
+    "name": "Sand Veil",
+    "flavorText": {
+        "en": "Boosts the Pokémon's evasiveness in a sandstorm.",
+        "ja": "砂あらしの　とき 回避率が　上がる。",
+        "fr": "Augmente l'Esquive du Pokémon lors des tempêtes de sable.",
+        "es": "Aumenta su Evasión durante las tormentas de arena.",
+        "de": "In Sandstürmen steigt der Ausweichwert des Pokémon.",
+        "it": "L'elusione aumenta durante le tempeste di sabbia.",
+        "ko": "모래바람일 때 회피율이 올라간다.",
+        "zh-Hant": "在沙暴中 閃避率會提高。",
+        "zh-Hans": "在沙暴的时候， 闪避率会提高。"
+    }
+}

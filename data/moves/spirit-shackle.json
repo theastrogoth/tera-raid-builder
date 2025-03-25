@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user attacks while simultaneously stitching the target's shadow to the ground to prevent the target from fleeing.",
+        "ja": "攻撃と　同時に 相手の　影を　縫い付けて 逃げられなくする。",
+        "fr": "Une attaque qui coud la cible à son ombre, ce qui l'empêche de s'enfuir.",
+        "es": "Ataca al objetivo y, al mismo tiempo, fija su sombra al terreno para impedir su huida o que pueda ser cambiado por otro.",
+        "de": "Der Anwender greift das Ziel an und näht zugleich dessen Schatten am Boden fest, um es so an der Flucht beziehungsweise am Auswechseln zu hindern.",
+        "it": "Il Pokémon attacca il bersaglio e fissa la sua ombra a terra impedendogli di lasciare il campo.",
+        "ko": "공격과 동시에 상대의 그림자를 꿰매 도망칠 수 없게 한다.",
+        "zh-Hant": "攻擊的同時， 縫住對手的影子， 使其無法逃走。",
+        "zh-Hans": "攻击的同时， 缝住对手的影子， 使其无法逃走。"
+    }
 }

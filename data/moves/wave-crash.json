@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user shrouds itself in water and slams into the target with its whole body to inflict damage. This also damages the user quite a lot.",
+        "ja": "水を　まといつつ 全身で　相手に　ぶつかるが 自分も　かなりの　ダメージ　を受ける。",
+        "fr": "Le lanceur se recouvre entièrement d'eau avant de charger sa cible. Cela blesse aussi gravement le lanceur.",
+        "es": "El usuario se envuelve en agua y embiste contra el objetivo, pero también se hiere seriamente a sí mismo.",
+        "de": "Der Anwender hüllt sich in Wasser und stürzt sich mit dem ganzen Körper auf das Ziel, wobei er selbst großen Schaden erleidet.",
+        "it": "Il Pokémon si avvolge in uno strato d'acqua e si lancia sul bersaglio, ma subisce seri danni.",
+        "ko": "물을 두르고 온몸으로 상대에게 부딪친다. 자신도 상당한 데미지를 입는다.",
+        "zh-Hant": "用水圍繞全身並撞向對手， 但自己也會受到不小的傷害。",
+        "zh-Hans": "让水覆盖全身后撞向对手。 自己也会受到不少伤害。"
+    }
 }

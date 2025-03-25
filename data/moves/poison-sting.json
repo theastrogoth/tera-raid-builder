@@ -30,5 +30,16 @@
     "isSound": false,
     "isPulse": false,
     "isSlicing": false,
-    "isWind": false
+    "isWind": false,
+    "flavorText": {
+        "en": "The user stabs the target with a poisonous stinger to inflict damage. This may also poison the target.",
+        "ja": "毒の　ある　ハリを 相手に　突き刺して　攻撃する。 毒状態に　することが　ある。",
+        "fr": "Un dard toxique transperce la cible et peut aussi l'empoisonner.",
+        "es": "Lanza un aguijón tóxico que puede envenenar al objetivo.",
+        "de": "Angriff mit Giftstachel. Das Ziel wird eventuell vergiftet.",
+        "it": "Il Pokémon attacca il bersaglio con un aculeo tossico che può anche avvelenarlo.",
+        "ko": "독이 있는 침을 상대에게 꿰찔러서 공격한다. 독 상태로 만들 때가 있다.",
+        "zh-Hant": "將有毒的針 刺進對手進行攻擊。 有時會讓對手陷入中毒狀態。",
+        "zh-Hans": "将有毒的针 刺入对手进行攻击。 有时会让对手陷入中毒状态。"
+    }
 }

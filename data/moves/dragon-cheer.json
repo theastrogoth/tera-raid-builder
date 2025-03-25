@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The target is crushed with an arm, a claw, or the like to inflict damage. The more HP the target has left, the greater the move's power.",
-        "ja": "腕やハサミで　相手を　圧迫する。 相手の　ＨＰが　残っているほど 威力が　あがる。",
-        "fr": "Le lanceur écrase la cible avec ses bras ou ses pinces. Plus il reste de PV à la cible, plus la puissance de la capacité augmente.",
-        "es": "Oprime con los brazos o las pinzas. Cuantos más PS le queden al objetivo, mayor será la potencia del movimiento.",
-        "de": "Der Anwender nimmt das Ziel mit Armen oder Scheren in die Mangel. Je höher die KP des Zieles, desto stärker die Attacke.",
-        "it": "Il Pokémon schiaccia il bersaglio usando i propri arti. Più PS rimangono al bersaglio, maggiore è la potenza della mossa.",
-        "ko": "팔이나 집게로 상대를 압박한다. 상대의 HP가 남아 있을수록 위력이 올라간다.",
-        "zh-Hant": "用手臂或鉗子壓迫對手。 對手現有的ＨＰ越多， 招式的威力越大。",
-        "zh-Hans": "用手臂或钳子压迫对手。 对手剩余的ＨＰ越多， 威力越大。"
+        "en": "The user raises its allies' morale with a draconic cry so that their future attacks have a heightened chance of landing critical hits. This rouses Dragon types more.",
+        "ja": "竜の鼓舞で　士気を　上げて 味方の技が　急所に　当たりやすくなる。 ドラゴンタイプだと　より　鼓舞される。",
+        "fr": "Le lanceur galvanise ses alliés avec un encouragement draconique qui augmente leur taux de critiques. L'effet est plus puissant si les alliés ont le type Dragon.",
+        "es": "Bramido de dragón que sube la moral de los aliados y aumenta sus probabilidades de asestar un golpe crítico. Es especialmente efectivo con aliados de tipo Dragón.",
+        "de": "Das anspornende Drachengebrüll hebt die Moral aller Mitstreiter und erhöht ihre Volltrefferquote. Der Effekt ist stärker, wenn sie dem Typ Drache angehören.",
+        "it": "Il Pokémon incita gli alleati con un inno ai draghi, aumentando la probabilità che sferrino brutti colpi. Particolarmente efficace con alleati di tipo Drago.",
+        "ko": "용의 북돋움으로 사기를 높여서 같은 편의 기술이 급소에 맞기 쉬워진다. 드래곤타입이면 더욱더 사기가 북돋는다.",
+        "zh-Hant": "以龍之鼓舞提高士氣。 我方的招式會變得容易擊中要害。 對龍屬性的鼓舞效果更強。",
+        "zh-Hans": "以龙之鼓舞提高士气， 让我方的招式变得容易击中要害。 对龙属性的鼓舞效果会更强。"
     }
 }

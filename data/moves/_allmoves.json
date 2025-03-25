@@ -773,15 +773,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user raises its allies' morale with a draconic cry so that their future attacks have a heightened chance of landing critical hits. This rouses Dragon types more.",
-            "ja": "竜の鼓舞で　士気を　上げて 味方の技が　急所に　当たりやすくなる。 ドラゴンタイプだと　より　鼓舞される。",
-            "fr": "Le lanceur galvanise ses alliés avec un encouragement draconique qui augmente leur taux de critiques. L'effet est plus puissant si les alliés ont le type Dragon.",
-            "es": "Bramido de dragón que sube la moral de los aliados y aumenta sus probabilidades de asestar un golpe crítico. Es especialmente efectivo con aliados de tipo Dragón.",
-            "de": "Das anspornende Drachengebrüll hebt die Moral aller Mitstreiter und erhöht ihre Volltrefferquote. Der Effekt ist stärker, wenn sie dem Typ Drache angehören.",
-            "it": "Il Pokémon incita gli alleati con un inno ai draghi, aumentando la probabilità che sferrino brutti colpi. Particolarmente efficace con alleati di tipo Drago.",
-            "ko": "용의 북돋움으로 사기를 높여서 같은 편의 기술이 급소에 맞기 쉬워진다. 드래곤타입이면 더욱더 사기가 북돋는다.",
-            "zh-Hant": "以龍之鼓舞提高士氣。 我方的招式會變得容易擊中要害。 對龍屬性的鼓舞效果更強。",
-            "zh-Hans": "以龙之鼓舞提高士气， 让我方的招式变得容易击中要害。 对龙属性的鼓舞效果会更强。"
+            "en": "The user attacks the target using its angelic voice. This also confuses the target if its stats have been boosted during the turn.",
+            "ja": "天使のような　歌声で　相手を　攻撃。 そのターン　能力が　あがった　ポケモンを 混乱の　状態に　する。",
+            "fr": "Le lanceur attaque sa cible avec sa voix angélique. Cette capacité rend la cible confuse si ses stats ont augmenté pendant ce tour.",
+            "es": "Ataca con un canto angelical y, si las características del objetivo han aumentado en ese turno, lo deja confuso.",
+            "de": "Der Anwender greift mit engelsgleichem Gesang an. Falls die Statuswerte des Zieles in dieser Runde erhöht wurden, wird es zusätzlich verwirrt.",
+            "it": "Il Pokémon attacca sfruttando il suo canto angelico, confondendo il bersaglio se le sue statistiche sono aumentate nello stesso turno.",
+            "ko": "천사와도 같은 노랫소리로 상대를 공격한다. 그 턴에 능력이 올라간 포켓몬을 혼란 상태로 만든다.",
+            "zh-Hant": "用天使般的歌聲攻擊對手。 讓此回合內能力提高的 寶可夢陷入混亂狀態。",
+            "zh-Hans": "用天使般的歌声攻击对手。 会让此回合内能力有提高的 宝可梦陷入混乱状态。"
         }
     },
     "Ally Switch": {
@@ -1074,15 +1074,15 @@
         "isSlicing": true,
         "isWind": false,
         "flavorText": {
-            "en": "The user retaliates with much greater force against the opponent that last inflicted damage on it.",
-            "ja": "技を　だす前に 最後に　受けた　技の　ダメージを 大きくして　だした　相手に　やり返す。",
-            "fr": "Le lanceur contre-attaque avec un coup infligeant des dégâts supérieurs à ceux de la dernière capacité qui l'a blessé.",
-            "es": "Devuelve al rival el último ataque recibido, pero con mucha más fuerza.",
-            "de": "Der Anwender rächt sich an dem Gegner, der ihm zuletzt mit einer Attacke Schaden zugefügt hat, indem er ihm den Schaden mit erhöhter Kraft zurückzahlt.",
-            "it": "Il Pokémon restituisce con gli interessi i danni subiti all'ultimo avversario che l'ha colpito.",
-            "ko": "기술을 쓰기 전에 마지막으로 받은 기술의 데미지를 늘려서 기술을 쓴 상대에게 돌려준다.",
-            "zh-Hant": "將發動攻擊前 最後受到的招式傷害放大， 向對手進行報復。",
-            "zh-Hans": "使出招式前， 将最后受到的招式的伤害 大力返还给对手。"
+            "en": "The user expels pressurized water to cut at the target like a blade. This move has a heightened chance of landing a critical hit.",
+            "ja": "加圧された　水を　刃のように 噴射して　相手を　切り裂く。 急所に　当たりやすい。",
+            "fr": "Le lanceur projette de l'eau pressurisée qui entaille la cible comme une lame. Taux de critiques élevé.",
+            "es": "Expele agua a presión con la que corta al objetivo como si de una hoja se tratara. Suele asestar un golpe crítico.",
+            "de": "Der Anwender stößt Wasser unter Druck aus, um das Ziel wie mit einer Klinge anzugreifen. Hohe Volltrefferquote.",
+            "it": "Il Pokémon espelle acqua ad alta pressione e falcia il bersaglio con un fendente tagliente quanto una lama. Probabile brutto colpo.",
+            "ko": "압력을 가한 물을 칼날처럼 분사해서 상대를 베어 가른다. 급소에 맞기 쉽다.",
+            "zh-Hant": "噴射出經過加壓的水， 如刀刃似地劈開對手。 容易擊中要害。",
+            "zh-Hans": "如刀刃般喷射出 加压的水切开对手。 容易击中要害。"
         }
     },
     "Aqua Jet": {
@@ -1214,15 +1214,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user blows out raging flames as if singing a song, scorching the target. This also boosts the user's Sp. Atk stat.",
-            "ja": "燃えたぎる　火炎を　歌うように 吹きつけて　相手を　焦がす。 自分の　特攻を　あげる。",
-            "fr": "Le lanceur carbonise la cible en projetant sur elle de vives flammes créées par un chant. Cette capacité augmente l'Attaque Spéciale du lanceur.",
-            "es": "Expele tórridas llamaradas como si entonara una canción y abrasa al objetivo con ellas. Aumenta el Ataque Especial del usuario.",
-            "de": "Der Anwender spuckt inbrünstig lodernde Flammen, als würde er singen, und versengt das Ziel. Dadurch steigt auch der Spezial-Angriff des Anwenders.",
-            "it": "Il Pokémon abbrustolisce il bersaglio soffiandogli addosso fiamme ardenti come se intonasse una canzone. Inoltre, il suo Attacco Speciale aumenta.",
-            "ko": "활활 타오르는 불꽃을 노래하듯 뿜어서 상대를 태워 버린다. 자신의 특수공격을 올린다.",
-            "zh-Hant": "將熊熊燃燒的火焰如唱歌般地 吹向對手將其燒焦。 會提高自己的特攻。",
-            "zh-Hans": "如唱歌一样喷出 熊熊燃烧的火焰烧焦对手。 会提高自己的特攻。"
+            "en": "The user toys with the target and attacks it using light and fluid dance steps. This also boosts the user's Speed stat.",
+            "ja": "水もしたたる　かろやかな　足どりで 相手を　翻弄し　ダメージを　与える。 自分の　素早さを　あげる。",
+            "fr": "Le lanceur se joue de la cible et lui inflige des dégâts avec ses pas de danse gracieux et légers. Cette capacité augmente la Vitesse du lanceur.",
+            "es": "Juguetea con el objetivo mientras ejecuta una elegante y fluida danza y le inflige daño. Aumenta la Velocidad del usuario.",
+            "de": "Der Anwender neckt das Ziel mit flinken, fließenden Tanzschritten und greift es dann an. Dadurch steigt auch die Initiative des Anwenders.",
+            "it": "Il Pokémon si prende gioco del bersaglio con passi di danza leggiadri e fluidi come l'acqua, infliggendogli danni. Inoltre, la sua Velocità aumenta.",
+            "ko": "물 흐르듯 민첩하고 경쾌한 발재간으로 상대를 농락하며 데미지를 준다. 자신의 스피드를 올린다.",
+            "zh-Hant": "以盈盈欲滴的輕巧步伐 戲弄對手，給予傷害。 會提高自己的速度。",
+            "zh-Hans": "以盈盈欲滴的轻快步伐 戏耍对手并给予其伤害。 会提高自己的速度。"
         }
     },
     "Aqua Tail": {
@@ -1358,15 +1358,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user converts its rage into energy to attack. The more times the user has been hit by attacks, the greater the move's power.",
-            "ja": "怒りを　エネルギーに　変えて　攻撃。 受けた　攻撃の　回数が　多いほど 技の　威力が　あがる。",
-            "fr": "Le lanceur transforme sa colère en énergie pour attaquer. Plus il a subi d'attaques, plus la puissance de cette capacité augmente.",
-            "es": "Convierte su rabia en energía para atacar. Cuantos más golpes haya recibido el usuario, mayor será la potencia del movimiento.",
-            "de": "Ein Angriff, für den der Anwender seinen Zorn in Energie umwandelt. Je häufiger der Anwender getroffen wurde, desto stärker wird diese Attacke.",
-            "it": "Il Pokémon trasforma la sua furia in energia e la utilizza per attaccare. Più attacchi ha subito il Pokémon, più la potenza della mossa aumenta.",
-            "ko": "분노를 에너지로 바꿔서 공격한다. 받은 공격의 횟수가 많을수록 기술의 위력이 올라간다.",
-            "zh-Hant": "將憤怒化為能量進行攻擊。 受到的攻擊次數越多， 招式的威力越大。",
-            "zh-Hans": "将愤怒化为力量攻击。 受到攻击的次数越多， 招式的威力越高。"
+            "en": "The user shoots its own armor out as blazing projectiles. This also lowers the user's Defense and Sp. Def stats.",
+            "ja": "みずからの　ヨロイを　燃えたぎる 弾として　撃ち出して　攻撃する。 自分の　防御と　特防が　さがる。",
+            "fr": "Le lanceur tire un boulet de canon ardent provenant de sa propre armure sur la cible. Cela baisse la Défense et la Défense Spéciale du lanceur.",
+            "es": "Se deshace de su armadura y arroja las partes al objetivo cuales proyectiles ardientes. Reduce la Defensa y la Defensa Especial del usuario.",
+            "de": "Der Anwender schießt die eigene Rüstung als glühendes Projektil auf das Ziel. Dadurch sinken die Verteidigung und Spezial-Verteidigung des Anwenders.",
+            "it": "Il Pokémon si libera della sua corazza, scagliandola sul bersaglio come una raffica di proiettili incandescenti. La sua Difesa e la sua Difesa Speciale diminuiscono.",
+            "ko": "자신의 갑옷을 활활 타오르는 탄환으로 발사해서 공격한다. 자신의 방어와 특수방어가 떨어진다.",
+            "zh-Hant": "將自身的鎧甲做成熊熊燃燒的 砲彈擊發進行攻擊。 自己的防禦和特防會降低。",
+            "zh-Hans": "熊熊燃烧自己的铠甲， 将其做成炮弹射出攻击。 自己的防御和特防会降低。"
         }
     },
     "Aromatherapy": {
@@ -2053,15 +2053,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user spins a silken trap, protecting itself from damage while lowering the Speed stat of any attacker that makes direct contact.",
-            "ja": "糸の罠を　はりめぐらせる。 相手の　攻撃を　防ぐと　同時に 触れた　相手の　素早さを　さげる。",
-            "fr": "Le lanceur déploie un piège de fil pour se protéger contre les attaques, et si un assaillant utilise une attaque directe contre lui, la Vitesse de l'assaillant baisse.",
-            "es": "Tiende una trampa sedosa que protege al usuario de los ataques al tiempo que reduce la Velocidad de cualquier Pokémon con el que entre en contacto.",
-            "de": "Der Anwender spannt eine Falle aus Fäden und wird so vor Angriffen geschützt. Berührt ihn nun ein Angreifer, sinkt dessen Initiative.",
-            "it": "Il Pokémon tesse una trappola di tela che lo protegge dagli attacchi e riduce la Velocità di chi entra in contatto con lui.",
-            "ko": "실로 함정을 만들어 둘러친다. 상대의 공격을 막음과 동시에 접촉한 상대의 스피드를 떨어뜨린다.",
-            "zh-Hant": "布下線製成的陷阱。 防住對手攻擊的同時， 降低接觸到的對手的速度。",
-            "zh-Hans": "用丝设置陷阱。 防住对方攻击的同时， 能够降低所接触到的对手的速度。"
+            "en": "The user attacks by kicking up into the air and slamming its heel down upon the target. This may also confuse the target. If it misses, the user takes damage instead.",
+            "ja": "蹴りあげた　かかとを　落として　攻撃する。 相手を　混乱させることが　ある。 はずすと　自分が　ダメージを　受ける。",
+            "fr": "Le lanceur donne un coup de talon descendant à la cible, ce qui peut aussi la rendre confuse. S'il échoue, le lanceur se blesse.",
+            "es": "Lanza una patada al aire para, acto seguido, golpear con el talón. Si falla, se hiere a sí mismo. Puede confundir al objetivo.",
+            "de": "Der Anwender greift an, indem er seine erhobene Ferse hinunterschnellen lässt. Das Ziel wird eventuell verwirrt. Bei Misserfolg verletzt sich der Anwender selbst.",
+            "it": "Il Pokémon attacca sferrando un calcio dall'alto verso il basso che può confondere il bersaglio. Se la mossa fallisce, il Pokémon subisce dei danni.",
+            "ko": "발꿈치를 들어 올린 뒤 내리찍어 공격한다. 상대를 혼란시킬 때가 있다. 빗나가면 자신이 데미지를 입는다.",
+            "zh-Hant": "劈下踢起的腳跟攻擊對手。 有時會使對手混亂。 沒命中對手時自己會受到傷害。",
+            "zh-Hans": "将踢起的脚跟往下劈向对手进行攻击。 有时会使对手混乱。 如果劈偏则自己会受到伤害。"
         }
     },
     "Baby-Doll Eyes": {
@@ -2878,15 +2878,15 @@
         "isSlicing": true,
         "isWind": false,
         "flavorText": {
-            "en": "The user shoots its own armor out as blazing projectiles. This also lowers the user's Defense and Sp. Def stats.",
-            "ja": "みずからの　ヨロイを　燃えたぎる 弾として　撃ち出して　攻撃する。 自分の　防御と　特防が　さがる。",
-            "fr": "Le lanceur tire un boulet de canon ardent provenant de sa propre armure sur la cible. Cela baisse la Défense et la Défense Spéciale du lanceur.",
-            "es": "Se deshace de su armadura y arroja las partes al objetivo cuales proyectiles ardientes. Reduce la Defensa y la Defensa Especial del usuario.",
-            "de": "Der Anwender schießt die eigene Rüstung als glühendes Projektil auf das Ziel. Dadurch sinken die Verteidigung und Spezial-Verteidigung des Anwenders.",
-            "it": "Il Pokémon si libera della sua corazza, scagliandola sul bersaglio come una raffica di proiettili incandescenti. La sua Difesa e la sua Difesa Speciale diminuiscono.",
-            "ko": "자신의 갑옷을 활활 타오르는 탄환으로 발사해서 공격한다. 자신의 방어와 특수방어가 떨어진다.",
-            "zh-Hant": "將自身的鎧甲做成熊熊燃燒的 砲彈擊發進行攻擊。 自己的防禦和特防會降低。",
-            "zh-Hans": "熊熊燃烧自己的铠甲， 将其做成炮弹射出攻击。 自己的防御和特防会降低。"
+            "en": "The user focuses its bitter feelings toward the world of the living into a slashing attack. The user's HP is restored by up to half the damage taken by the target.",
+            "ja": "この世への　未練を　剣先に　こめて 切りつける。　与えた　ダメージの 半分の　ＨＰを　回復できる。",
+            "fr": "Le lanceur concentre son amertume du monde des vivants dans la pointe de ses épées et tranche la cible. La moitié des dégâts infligés sont convertis en PV pour le lanceur.",
+            "es": "Imbuye la punta de su espada con su desazón por el mundo y asesta una estocada llena de rencor. El usuario recupera la mitad de los PS del daño que produce.",
+            "de": "Der Anwender tränkt seine Klinge in Bedauern und Reue und greift damit an. Die Hälfte des zugefügten Schadens wird dem Anwender als KP gutgeschrieben.",
+            "it": "Il Pokémon concentra nelle lame tutti i rimorsi accumulati nel mondo dei vivi e assale il bersaglio, recuperando una quantità di PS pari a metà del danno inflitto.",
+            "ko": "현세의 미련을 칼끝에 담아 베어 버린다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+            "zh-Hant": "將對這個世界的牽掛注入劍尖 進行劈斬。可以回復給予對手 傷害的一半ＨＰ。",
+            "zh-Hans": "将对世间的留恋聚集于剑尖， 并斩击对手。可以回复 给予对手伤害的一半ＨＰ。"
         }
     },
     "Bitter Malice": {
@@ -3108,15 +3108,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user expels pressurized water to cut at the target like a blade. This move has a heightened chance of landing a critical hit.",
-            "ja": "加圧された　水を　刃のように 噴射して　相手を　切り裂く。 急所に　当たりやすい。",
-            "fr": "Le lanceur projette de l'eau pressurisée qui entaille la cible comme une lame. Taux de critiques élevé.",
-            "es": "Expele agua a presión con la que corta al objetivo como si de una hoja se tratara. Suele asestar un golpe crítico.",
-            "de": "Der Anwender stößt Wasser unter Druck aus, um das Ziel wie mit einer Klinge anzugreifen. Hohe Volltrefferquote.",
-            "it": "Il Pokémon espelle acqua ad alta pressione e falcia il bersaglio con un fendente tagliente quanto una lama. Probabile brutto colpo.",
-            "ko": "압력을 가한 물을 칼날처럼 분사해서 상대를 베어 가른다. 급소에 맞기 쉽다.",
-            "zh-Hant": "噴射出經過加壓的水， 如刀刃似地劈開對手。 容易擊中要害。",
-            "zh-Hans": "如刀刃般喷射出 加压的水切开对手。 容易击中要害。"
+            "en": "- - -",
+            "ja": "― ― ―",
+            "fr": "- - -",
+            "es": "- - -",
+            "de": "ー",
+            "it": "― ― ―",
+            "ko": "― ― ―",
+            "zh-Hant": "― ― ―",
+            "zh-Hans": "― ― ―"
         }
     },
     "Bleakwind Storm": {
@@ -3293,15 +3293,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "- - -",
-            "ja": "― ― ―",
-            "fr": "- - -",
-            "es": "- - -",
-            "de": "ー",
-            "it": "― ― ―",
-            "ko": "― ― ―",
-            "zh-Hant": "― ― ―",
-            "zh-Hans": "― ― ―"
+            "en": "The user unleashes the full brunt of its spirit from a full moon that shines as red as blood. This move can't be used twice in a row.",
+            "ja": "血のように　赤い満月から ありったけの　気迫を　撃ちだす。 この技は　２回連続で　だせない。",
+            "fr": "Le lanceur concentre toute son énergie dans la lune rouge sang sur son front et la projette sur la cible. Cette capacité ne peut pas être utilisée deux fois d'affilée.",
+            "es": "Ataca canalizando toda su fuerza y proyectándola a través de una luna llena de color rojo intenso. Este movimiento no puede usarse dos veces seguidas.",
+            "de": "Der Anwender entfesselt eine gewaltige Energieladung aus einem blutroten Vollmond. Diese Attacke kann nicht zweimal in Folge eingesetzt werden.",
+            "it": "Il Pokémon attacca rilasciando tutta la sua energia, confluita in una luna piena rossa come il sangue. Questa mossa non può essere usata due volte di fila.",
+            "ko": "피와 같이 붉은 보름달에서 혼신의 기백을 발사한다. 이 기술은 2회 연속으로 쓸 수 없다.",
+            "zh-Hant": "從鮮血般赤紅的滿月 發射出渾身的氣勢。 這個招式無法連續２次使用。",
+            "zh-Hans": "从赤红如血的满月 发射出全部的气势。 这个招式无法连续使出２次。"
         }
     },
     "Bloom Doom": {
@@ -4632,15 +4632,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user shoots a beam of light to inflict damage. Sometimes all the user's heads shoot beams in unison, doubling the move's power.",
-            "ja": "光線を　発射して　攻撃する。 ときどき　ほかの首も　協力して レーザーを　放ち　威力が　２倍に　なる。",
-            "fr": "Le lanceur attaque en tirant un rayon lumineux. Il arrive parfois que toutes les têtes agissent ensemble, ce qui double la puissance de la capacité.",
-            "es": "Ataca disparando un haz de luz. En ocasiones, el resto de sus cabezas se unen al ataque. Cuando esto sucede, la potencia del movimiento se duplica.",
-            "de": "Der Anwender greift mit einem Laserstrahl an. Manchmal feuern mehrere seiner Köpfe Laser ab, wodurch sich die Stärke dieser Attacke verdoppelt.",
-            "it": "Il Pokémon attacca rilasciando raggi di luce. Talvolta i laser vengono emessi da tutte le teste, contribuendo a raddoppiare la potenza della mossa.",
-            "ko": "광선을 발사해서 공격한다. 가끔 다른 머리도 협력해서 레이저를 발사하여 위력이 2배가 된다.",
-            "zh-Hant": "發射光線進行攻擊。 有時會和其他的頭合力發射雷射， 讓招式威力變成２倍。",
-            "zh-Hans": "发射光线进行攻击。 有时其他的头也会合力发射镭射， 让招式威力变成２倍。"
+            "en": "The user's intensely hot fur protects it from attacks and also burns any attacker that makes direct contact with it.",
+            "ja": "相手の　攻撃を　超高熱の 体毛で　防ぎ　同時に　触れた 相手に　やけどを　与えてしまう。",
+            "fr": "Le lanceur se protège contre les attaques grâce à son pelage incandescent, et si un assaillant utilise une attaque directe contre lui, il le brûle.",
+            "es": "Emplea su ardiente pelaje para protegerse de los ataques y causarle quemaduras al atacante si este usa un movimiento de contacto.",
+            "de": "Das brennend heiße Fell des Anwenders schützt ihn vor Angriffen. Gleichzeitig erleiden alle Pokémon, die mit ihm in Berührung kommen, Verbrennungen.",
+            "it": "Il Pokémon blocca gli attacchi avversari con la pelliccia incandescente che scotta chi entra in contatto con lui.",
+            "ko": "상대의 공격을 초고열의 털로 방어하는 동시에 접촉한 상대를 화상 상태로 만든다.",
+            "zh-Hant": "用超高溫的體毛防住對手攻擊， 同時讓碰觸到自己的對手灼傷。",
+            "zh-Hans": "用超高温的体毛防住对手攻击的同时， 让接触到自己的对手灼伤。"
         }
     },
     "Burning Jealousy": {
@@ -5251,15 +5251,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat.",
-            "ja": "草むらから　飛びだすように　攻撃する。 軽快な　足どりに　よって 自分の　素早さを　あげる。",
-            "fr": "Le lanceur surgit des hautes herbes pour attaquer la cible. Les mouvements agiles du lanceur augmentent sa Vitesse.",
-            "es": "Ataca de pronto como si saltara desde la hierba alta. El usuario se mueve con gran agilidad y aumenta su Velocidad.",
-            "de": "Der Anwender greift an, als würde er aus hohem Gras hervorspringen. Mit wendigen Schritten erhöht er seine Initiative.",
-            "it": "Il Pokémon attacca come se saltasse fuori dall'erba alta e si muove con passo leggiadro, aumentando la propria Velocità.",
-            "ko": "풀숲에서 튀어나오듯이 공격한다. 경쾌한 발재간으로 자신의 스피드를 올린다.",
-            "zh-Hant": "從草叢裡跳出來進行攻擊。 輕快的腳步會使得 自己的速度提高。",
-            "zh-Hans": "跳出草丛进行攻击。 通过轻快的步伐 会提高自己的速度。"
+            "en": "The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat.",
+            "ja": "相手の　元気を　失わせるくらい 冷たい水を　浴びせて　攻撃する。 相手の　攻撃を　さげる。",
+            "fr": "Le lanceur attaque la cible en l'arrosant d'une eau si froide qu'elle détériore son esprit combatif. Baisse l'Attaque de la cible.",
+            "es": "Ataca al objetivo rociándolo con un agua gélida y desalentadora que reduce su Ataque.",
+            "de": "Der Anwender greift an, indem er das Ziel mit eiskaltem Wasser überschüttet. Das raubt dem Ziel seinen Kampfgeist und senkt so seinen Angriff.",
+            "it": "Il Pokémon attacca il bersaglio con una doccia d'acqua talmente fredda da farlo demoralizzare, riducendone l'Attacco.",
+            "ko": "상대의 기운이 빠질 정도로 차가운 물을 끼얹어서 공격한다. 상대의 공격을 떨어뜨린다.",
+            "zh-Hant": "潑灑冰冷到足以讓對手 失去活力的水進行攻擊。 可降低對手的攻擊。",
+            "zh-Hans": "泼洒冰冷得足以让对手 失去活力的水进行攻击。 会降低对手的攻击。"
         }
     },
     "Chilly Reception": {
@@ -5296,15 +5296,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user creates a substitute for itself using its own HP before switching places with a party Pokémon in waiting.",
-            "ja": "自分の　ＨＰを　削って 分身を　だしたあと　もどってきて 控えの　ポケモンと　入れ替わる。",
-            "fr": "Le lanceur crée un clone en sacrifiant des PV, puis il revient et échange sa place avec un Pokémon de l'équipe prêt à combattre.",
-            "es": "El usuario se cambia por otro Pokémon del equipo, pero antes utiliza parte de los PS propios para crear un sustituto para su relevo.",
-            "de": "Der Anwender setzt seine KP ein, um einen Doppelgänger zu erzeugen, und tauscht dann den Platz mit einem anderen Pokémon.",
-            "it": "Chi la usa crea una copia di se stesso usando parte dei suoi PS e si fa sostituire da un altro Pokémon della squadra.",
-            "ko": "자신의 HP를 깎아서 분신을 만든 뒤, 돌아와서 교대 포켓몬과 교체한다.",
-            "zh-Hant": "削減自己的ＨＰ， 製造分身後返回， 和後備寶可夢進行替換。",
-            "zh-Hans": "削减自己的ＨＰ， 制造分身后会返回， 并和后备宝可梦进行替换。"
+            "en": "The user tells a chillingly bad joke before switching places with a party Pokémon in waiting. This summons a snowstorm lasting five turns.",
+            "ja": "場を　凍らせる　ギャグを　言い残し 控えの　ポケモンと　入れ替わる。 ５ターンの　間　ゆきを　降らす。",
+            "fr": "Le lanceur fait un si mauvais jeu de mots qu'il jette un froid et échange sa place avec un Pokémon de l'équipe prêt à combattre. La neige tombe pendant cinq tours.",
+            "es": "El usuario se cambia por otro Pokémon del equipo, pero antes cuenta un chiste que tiene una acogida tan fría que hace que nieve durante cinco turnos.",
+            "de": "Der Anwender sorgt mit einem schlechten Witz für eisige Stimmung und tauscht den Platz mit einem anderen Pokémon. Erzeugt fünf Runden lang Schnee.",
+            "it": "Chi la usa dice una freddura che fa raggelare i presenti per poi farsi sostituire da un altro Pokémon della squadra. Causa una nevicata che dura per cinque turni.",
+            "ko": "자리를 얼어붙게 만드는 개그를 하고 교대 포켓몬과 교체한다. 5턴 동안 눈을 내리게 한다.",
+            "zh-Hant": "留下使場面凍結的笑話後， 和後備寶可夢進行替換。 在５回合內會下雪。",
+            "zh-Hans": "留下冷场的冷笑话后， 和后备宝可梦进行替换。 在５回合内会下雪。"
         }
     },
     "Chip Away": {
@@ -5888,15 +5888,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user summons a ruinous disaster. This cuts the target's HP in half.",
-            "ja": "破滅的な　災厄を　巻き起こし 相手の　ＨＰを　半分に　する。",
-            "fr": "Le lanceur déclenche un cataclysme qui baisse les PV de la cible de moitié.",
-            "es": "Provoca una catástrofe devastadora que reduce a la mitad los PS del objetivo.",
-            "de": "Der Anwender beschwört Verderben bringendes Unheil herauf und halbiert die KP des Zieles.",
-            "it": "Il Pokémon invoca una terribile disgrazia, dimezzando i PS del bersaglio.",
-            "ko": "파멸적인 재앙에 휩쓸리게 하여 상대의 HP를 절반으로 만든다.",
-            "zh-Hant": "捲起破滅之災厄， 使對手的ＨＰ減半。",
-            "zh-Hans": "引发毁灭性的灾厄， 使对手的ＨＰ减半。"
+            "en": "The user transforms and crashes to the ground, causing a massive prehistoric explosion. This move's power is boosted more than usual if it's a supereffective hit.",
+            "ja": "変形しながら　荒々しく　落下し いにしえの　大爆発を　引き起こす。 弱点をつくと　さらに　威力が　増す。",
+            "fr": "Le lanceur change de forme et s'écrase sur la cible dans une explosion antique. Si la capacité est super efficace, sa puissance augmente encore plus que d'habitude.",
+            "es": "El usuario choca contra el suelo mientras se transforma y provoca una explosión primigenia. La potencia del movimiento aumenta si el ataque es supereficaz.",
+            "de": "Der Anwender wechselt seine Form, während er sich gen Boden stürzt, und verursacht eine riesige Ur-Explosion. Ist die Attacke sehr effektiv, steigt ihre Stärke noch mehr.",
+            "it": "Il Pokémon si schianta al suolo mentre si trasforma, causando un'esplosione primordiale. La potenza della mossa aumenta se questa è superefficace sul bersaglio.",
+            "ko": "변형하며 거칠게 낙하한 다음 고대의 대폭발을 일으킨다. 약점인 상대에게는 위력이 더욱 올라간다.",
+            "zh-Hant": "一邊變形，一邊氣勢洶洶地落下， 引發古代的大爆炸。 打到弱點時威力會更為增加。",
+            "zh-Hans": "边变形边凶暴地落下， 并引发起古老的大爆炸。 若针对到弱点，威力会进一步。"
         }
     },
     "Combat Torque": {
@@ -6023,15 +6023,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user swings its whole body around to attack with its huge hammer. This move can't be used twice in a row.",
-            "ja": "大きな　ハンマーを　体ごと ぶんまわして　攻撃する。 この技は　２回連続で　だせない。",
-            "fr": "Le lanceur met tout son corps à contribution pour attaquer la cible avec un immense marteau. Cette capacité ne peut pas être utilisée deux fois d'affilée.",
-            "es": "El usuario se ayuda de su propio peso corporal para propinar un golpe con un enorme martillo. Este movimiento no puede usarse dos veces seguidas.",
-            "de": "Der Anwender greift mit einem großen Hammer an, den er mit vollem Körpereinsatz um sich schwingt. Diese Attacke kann nicht zweimal in Folge eingesetzt werden.",
-            "it": "Il Pokémon attacca con un grosso martello mettendoci tutta la forza che ha in corpo. Questa mossa non può essere usata due volte di fila.",
-            "ko": "거대한 해머를 온몸으로 휘둘러서 공격한다. 이 기술은 2회 연속으로 쓸 수 없다.",
-            "zh-Hant": "將大錘連同身體 一起揮舞進行攻擊。 這個招式無法連續２次使用。",
-            "zh-Hans": "连同身体转起巨大的锤子进行攻击。 这个招式无法连续使出２次。"
+            "en": "The user retaliates with much greater force against the opponent that last inflicted damage on it.",
+            "ja": "技を　だす前に 最後に　受けた　技の　ダメージを 大きくして　だした　相手に　やり返す。",
+            "fr": "Le lanceur contre-attaque avec un coup infligeant des dégâts supérieurs à ceux de la dernière capacité qui l'a blessé.",
+            "es": "Devuelve al rival el último ataque recibido, pero con mucha más fuerza.",
+            "de": "Der Anwender rächt sich an dem Gegner, der ihm zuletzt mit einer Attacke Schaden zugefügt hat, indem er ihm den Schaden mit erhöhter Kraft zurückzahlt.",
+            "it": "Il Pokémon restituisce con gli interessi i danni subiti all'ultimo avversario che l'ha colpito.",
+            "ko": "기술을 쓰기 전에 마지막으로 받은 기술의 데미지를 늘려서 기술을 쓴 상대에게 돌려준다.",
+            "zh-Hant": "將發動攻擊前 最後受到的招式傷害放大， 向對手進行報復。",
+            "zh-Hans": "使出招式前， 将最后受到的招式的伤害 大力返还给对手。"
         }
     },
     "Confide": {
@@ -8178,15 +8178,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user performs a spin attack that can also eliminate the effects of such moves as Bind, Wrap, and Leech Seed. This also poisons opposing Pokémon.",
-            "ja": "回転して　相手を　攻撃する。 しめつける　まきつく　やどりぎのタネ　など 吹きとばす。　相手を　毒状態に　する。",
-            "fr": "Le lanceur attaque en tournant sur lui-même et empoisonne la cible. Il se libère également des effets de capacités comme Étreinte, Ligotage ou Vampigraine.",
-            "es": "Ataque giratorio que envenena al objetivo y anula los efectos de movimientos como Atadura, Constricción y Drenadoras.",
-            "de": "Der Anwender greift mit einer wirbelnden Attacke an, die Gegner auch vergiftet. Befreit den Anwender unter anderem von Wickel, Klammergriff und Egelsamen.",
-            "it": "Attacco rotante che elimina gli effetti di mosse come Legatutto, Avvolgibotta e Parassiseme. Inoltre, avvelena gli avversari.",
-            "ko": "회전해서 상대를 공격한다. 조이기, 김밥말이, 씨뿌리기 등의 효과를 날려 버린다. 상대를 독 상태로 만든다.",
-            "zh-Hant": "藉由旋轉來攻擊對手。 也可以擺脫綁緊、緊束、寄生種子等招式。 讓對手陷入中毒狀態。",
-            "zh-Hans": "通过旋转来攻击对手。 可以摆脱绑紧、紧束、寄生种子 等招式。还能让对手陷入中毒状态。"
+            "en": "The user captures the very essence of the target in a sketch. This changes the Abilities of the user and its ally Pokémon to that of the target.",
+            "ja": "相手の本質を　とらえて　うつしだし 自分と　味方を　相手と 同じ　特性に　変化させる。",
+            "fr": "Le lanceur capture l'essence de la cible et la décalque. Le talent du lanceur et de ses alliés devient alors identique à celui de la cible.",
+            "es": "Calca la esencia misma del objetivo para atribuir su habilidad a sí mismo y a sus aliados.",
+            "de": "Der Anwender kopiert die wahre Essenz des Zieles. Dadurch erhalten alle Pokémon auf der Mitstreiterseite die Fähigkeit des Zieles.",
+            "it": "Il Pokémon cattura l'essenza del bersaglio con un ricalco, copiandone l'abilità e applicandola a se stesso e ai suoi alleati.",
+            "ko": "상대의 본질을 꿰뚫어 보고 베껴서 자신과 같은 편을 상대와 같은 특성으로 바꾼다.",
+            "zh-Hant": "掌握對手的本質，予以描繪， 使自己和同伴的特性 變得和對手相同。",
+            "zh-Hans": "把握并映射出对手的本质， 让自己和同伴宝可梦的特性 变得和对手相同。"
         }
     },
     "Doom Desire": {
@@ -8403,15 +8403,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user focuses its bitter feelings toward the world of the living into a slashing attack. The user's HP is restored by up to half the damage taken by the target.",
-            "ja": "この世への　未練を　剣先に　こめて 切りつける。　与えた　ダメージの 半分の　ＨＰを　回復できる。",
-            "fr": "Le lanceur concentre son amertume du monde des vivants dans la pointe de ses épées et tranche la cible. La moitié des dégâts infligés sont convertis en PV pour le lanceur.",
-            "es": "Imbuye la punta de su espada con su desazón por el mundo y asesta una estocada llena de rencor. El usuario recupera la mitad de los PS del daño que produce.",
-            "de": "Der Anwender tränkt seine Klinge in Bedauern und Reue und greift damit an. Die Hälfte des zugefügten Schadens wird dem Anwender als KP gutgeschrieben.",
-            "it": "Il Pokémon concentra nelle lame tutti i rimorsi accumulati nel mondo dei vivi e assale il bersaglio, recuperando una quantità di PS pari a metà del danno inflitto.",
-            "ko": "현세의 미련을 칼끝에 담아 베어 버린다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
-            "zh-Hant": "將對這個世界的牽掛注入劍尖 進行劈斬。可以回復給予對手 傷害的一半ＨＰ。",
-            "zh-Hans": "将对世间的留恋聚集于剑尖， 并斩击对手。可以回复 给予对手伤害的一半ＨＰ。"
+            "en": "The user discharges all the electricity from its body to perform a high-damage attack. After using this move, the user will no longer be Electric type.",
+            "ja": "全身の　でんきを　すべて 放って　大ダメージを　与える。 自分の　でんきタイプが　なくなる。",
+            "fr": "Le lanceur libère toute l'électricité contenue dans son corps pour infliger des dégâts élevés à la cible. Le lanceur perd le type Électrik.",
+            "es": "Libera toda la electricidad de su cuerpo para lanzar un ataque devastador. Tras ejecutar el movimiento, el usuario deja de ser de tipo Eléctrico.",
+            "de": "Der Anwender nutzt die gesamte Elektrizität in seinem Körper, um großen Schaden auszuteilen. Die restliche Kampfdauer gehört er nicht mehr dem Typ Elektro an.",
+            "it": "Il Pokémon libera tutta la sua potenza elettrica per infliggere gravi danni al bersaglio, ma come conseguenza perde il tipo Elettro.",
+            "ko": "전신의 전기를 모두 방출해서 큰 데미지를 준다. 자신의 전기타입이 없어진다.",
+            "zh-Hant": "施放全身的所有電力 給予對手巨大的傷害。 自己的電屬性將會消失。",
+            "zh-Hans": "将全身所有的电力放出， 给予对手大大的伤害。 自己的电属性将会消失。"
         }
     },
     "Double Slap": {
@@ -8737,15 +8737,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The target is crushed with an arm, a claw, or the like to inflict damage. The more HP the target has left, the greater the move's power.",
-            "ja": "腕やハサミで　相手を　圧迫する。 相手の　ＨＰが　残っているほど 威力が　あがる。",
-            "fr": "Le lanceur écrase la cible avec ses bras ou ses pinces. Plus il reste de PV à la cible, plus la puissance de la capacité augmente.",
-            "es": "Oprime con los brazos o las pinzas. Cuantos más PS le queden al objetivo, mayor será la potencia del movimiento.",
-            "de": "Der Anwender nimmt das Ziel mit Armen oder Scheren in die Mangel. Je höher die KP des Zieles, desto stärker die Attacke.",
-            "it": "Il Pokémon schiaccia il bersaglio usando i propri arti. Più PS rimangono al bersaglio, maggiore è la potenza della mossa.",
-            "ko": "팔이나 집게로 상대를 압박한다. 상대의 HP가 남아 있을수록 위력이 올라간다.",
-            "zh-Hant": "用手臂或鉗子壓迫對手。 對手現有的ＨＰ越多， 招式的威力越大。",
-            "zh-Hans": "用手臂或钳子压迫对手。 对手剩余的ＨＰ越多， 威力越大。"
+            "en": "The user raises its allies' morale with a draconic cry so that their future attacks have a heightened chance of landing critical hits. This rouses Dragon types more.",
+            "ja": "竜の鼓舞で　士気を　上げて 味方の技が　急所に　当たりやすくなる。 ドラゴンタイプだと　より　鼓舞される。",
+            "fr": "Le lanceur galvanise ses alliés avec un encouragement draconique qui augmente leur taux de critiques. L'effet est plus puissant si les alliés ont le type Dragon.",
+            "es": "Bramido de dragón que sube la moral de los aliados y aumenta sus probabilidades de asestar un golpe crítico. Es especialmente efectivo con aliados de tipo Dragón.",
+            "de": "Das anspornende Drachengebrüll hebt die Moral aller Mitstreiter und erhöht ihre Volltrefferquote. Der Effekt ist stärker, wenn sie dem Typ Drache angehören.",
+            "it": "Il Pokémon incita gli alleati con un inno ai draghi, aumentando la probabilità che sferrino brutti colpi. Particolarmente efficace con alleati di tipo Drago.",
+            "ko": "용의 북돋움으로 사기를 높여서 같은 편의 기술이 급소에 맞기 쉬워진다. 드래곤타입이면 더욱더 사기가 북돋는다.",
+            "zh-Hant": "以龍之鼓舞提高士氣。 我方的招式會變得容易擊中要害。 對龍屬性的鼓舞效果更強。",
+            "zh-Hans": "以龙之鼓舞提高士气， 让我方的招式变得容易击中要害。 对龙属性的鼓舞效果会更强。"
         }
     },
     "Dragon Claw": {
@@ -10066,15 +10066,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user transforms and crashes to the ground, causing a massive prehistoric explosion. This move's power is boosted more than usual if it's a supereffective hit.",
-            "ja": "変形しながら　荒々しく　落下し いにしえの　大爆発を　引き起こす。 弱点をつくと　さらに　威力が　増す。",
-            "fr": "Le lanceur change de forme et s'écrase sur la cible dans une explosion antique. Si la capacité est super efficace, sa puissance augmente encore plus que d'habitude.",
-            "es": "El usuario choca contra el suelo mientras se transforma y provoca una explosión primigenia. La potencia del movimiento aumenta si el ataque es supereficaz.",
-            "de": "Der Anwender wechselt seine Form, während er sich gen Boden stürzt, und verursacht eine riesige Ur-Explosion. Ist die Attacke sehr effektiv, steigt ihre Stärke noch mehr.",
-            "it": "Il Pokémon si schianta al suolo mentre si trasforma, causando un'esplosione primordiale. La potenza della mossa aumenta se questa è superefficace sul bersaglio.",
-            "ko": "변형하며 거칠게 낙하한 다음 고대의 대폭발을 일으킨다. 약점인 상대에게는 위력이 더욱 올라간다.",
-            "zh-Hant": "一邊變形，一邊氣勢洶洶地落下， 引發古代的大爆炸。 打到弱點時威力會更為增加。",
-            "zh-Hans": "边变形边凶暴地落下， 并引发起古老的大爆炸。 若针对到弱点，威力会进一步。"
+            "en": "The user races forward at ultrafast speeds, piercing its target with futuristic electricity. This move's power is boosted more than usual if it's a supereffective hit.",
+            "ja": "変形しながら　超高速で　走行し 未知なる　電撃が　相手を　つらぬく。 弱点をつくと　さらに　威力が　増す。",
+            "fr": "Le lanceur change de forme et fonce sur la cible en la perforant d'électricité futuriste. Si la capacité est super efficace, sa puissance augmente encore plus que d'habitude.",
+            "es": "Se abalanza sobre el objetivo mientras se transforma y lo atraviesa con electricidad futurista. La potencia del movimiento aumenta si el ataque es supereficaz.",
+            "de": "Der Anwender wechselt bei rasantem Tempo seine Form und trifft das Ziel mit einem futuristischen Elektroschlag. Ist die Attacke sehr effektiv, steigt ihre Stärke noch mehr.",
+            "it": "Il Pokémon saetta mentre si trasforma, trafiggendo il bersaglio con una scossa futuristica. La potenza della mossa aumenta se questa è superefficace sul bersaglio.",
+            "ko": "변형하며 초고속으로 달려서 미지의 전격으로 상대를 관통한다. 약점인 상대에게는 위력이 더욱 올라간다.",
+            "zh-Hant": "一邊變形，一邊以超高速度奔馳， 未知的電流將貫穿對手。 打到弱點時威力會更為增加。",
+            "zh-Hans": "边变形边高速奔走， 并以未知的电击贯穿对手。 若针对到弱点，威力会进一步。"
         }
     },
     "Electro Shot": {
@@ -10111,15 +10111,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user strikes with an ivy-wrapped cudgel. This move's type changes depending on the mask worn by the user, and it has a heightened chance of landing a critical hit.",
-            "ja": "ツタを　まきつけた　こん棒で　なぐる。 かぶっている　お面で　タイプが　変わる。 急所に　当たりやすい。",
-            "fr": "Le lanceur frappe la cible à l'aide d'une massue entourée d'une liane. Le type de cette capacité varie en fonction du masque que porte le lanceur. Taux de critiques élevé.",
-            "es": "Golpea con un garrote que forma enrollando su liana. El tipo del movimiento varía según la máscara que lleve puesta el usuario. Suele asestar un golpe crítico.",
-            "de": "Der Anwender schlägt mit einer rankenumschlungenen Keule zu. Der Typ dieser Attacke hängt von der Maske des Anwenders ab. Hohe Volltrefferquote.",
-            "it": "Il Pokémon colpisce con una clava avvolta da liane. Il tipo della mossa varia in base alla maschera indossata. Probabile brutto colpo.",
-            "ko": "덩굴을 휘감은 방망이로 때린다. 쓰고 있는 가면에 따라 타입이 바뀐다. 급소에 맞기 쉽다.",
-            "zh-Hant": "用纏繞著藤蔓的棍棒毆打。 屬性會隨著所戴的面具而改變。 容易擊中要害。",
-            "zh-Hans": "用缠有藤蔓的棍棒殴打。 属性会随所戴的面具而改变。 容易击中要害。"
+            "en": "The user gathers electricity on the first turn, boosting its Sp. Atk stat, then fires a high-voltage shot on the next turn. The shot will be fired immediately in rain.",
+            "ja": "１ターン目に　電気を　集めて　特攻が　あがり ２ターン目に　高圧の　電気を　発射する。 天気が　雨のときは　すぐに　発射できる。",
+            "fr": "Le lanceur absorbe de l'électricité au premier tour, ce qui augmente son Attaque Spéciale, et envoie une puissante décharge au second. S'il pleut, il l'envoie au premier tour.",
+            "es": "Acumula electricidad y aumenta su Ataque Especial en el primer turno y dispara una descarga de alto voltaje en el segundo. Si llueve, puede atacar en el primer turno.",
+            "de": "Sammelt in Runde 1 Elektrizität, um den Spezial-Angriff zu erhöhen, und greift dann in Runde 2 mit Starkstrom an. Bei Regen erfolgt der Angriff sofort in Runde 1.",
+            "it": "Il Pokémon accumula elettricità e aumenta l'Attacco Speciale al primo turno, per poi rilasciare una potente scarica al turno successivo o, se piove, immediatamente.",
+            "ko": "1턴째에 전기를 모아서 특수공격을 올리고 2턴째에 고압의 전기를 발사한다. 비가 오는 날씨일 때는 바로 발사할 수 있다.",
+            "zh-Hant": "使用後的第１回合會收集電力來提高特攻， 並於第２回合發射出高壓電。 天氣為下雨時可立即發射。",
+            "zh-Hans": "第１回合收集电力提高特攻， 第２回合将高压的电力发射出去。 下雨天气时能立刻发射。"
         }
     },
     "Electroweb": {
@@ -11417,15 +11417,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "With the power of its crystals, the user bombards and eliminates the target. When used by Terapagos in its Stellar Form, this move damages all opposing Pokémon.",
-            "ja": "結晶の力を　照射し　敵を　排除する。 テラパゴスが　ステラフォルムで　放つと すべての　相手に　ダメージを　与える。",
-            "fr": "Le lanceur bombarde la cible afin de l'éliminer grâce au pouvoir des cristaux. Si le lanceur est Terapagos sous sa Forme Stellaire, la capacité touche tous les ennemis.",
-            "es": "Ataca al objetivo irradiando el poder de sus cristales. Si Terapagos usa este movimiento en su Forma Astral, inflige daño a todos los rivales.",
-            "de": "Der Anwender greift das Ziel mit gebündelter Kristall- energie an. Wenn Terapagos diese Attacke in seiner Stellarform einsetzt, erleiden alle Gegner Schaden.",
-            "it": "Il Pokémon elimina il bersaglio irradiando il potere dei cristalli. Se Terapagos assume la Forma Astrale, la mossa infligge danni a tutti gli avversari.",
-            "ko": "결정의 힘을 내리쬐어 적을 없애 버린다. 테라파고스가 스텔라폼일 때 사용하면 모든 상대에게 데미지를 준다.",
-            "zh-Hant": "投射結晶之力來掃除敵人。 當太樂巴戈斯以星晶形態使出時， 能給予所有對手傷害。",
-            "zh-Hans": "照射出结晶的力量来驱逐敌人。 太乐巴戈斯在星晶形态下使出时， 能对所有对手造成伤害。"
+            "en": "The user shoots a beam of light to inflict damage. Sometimes all the user's heads shoot beams in unison, doubling the move's power.",
+            "ja": "光線を　発射して　攻撃する。 ときどき　ほかの首も　協力して レーザーを　放ち　威力が　２倍に　なる。",
+            "fr": "Le lanceur attaque en tirant un rayon lumineux. Il arrive parfois que toutes les têtes agissent ensemble, ce qui double la puissance de la capacité.",
+            "es": "Ataca disparando un haz de luz. En ocasiones, el resto de sus cabezas se unen al ataque. Cuando esto sucede, la potencia del movimiento se duplica.",
+            "de": "Der Anwender greift mit einem Laserstrahl an. Manchmal feuern mehrere seiner Köpfe Laser ab, wodurch sich die Stärke dieser Attacke verdoppelt.",
+            "it": "Il Pokémon attacca rilasciando raggi di luce. Talvolta i laser vengono emessi da tutte le teste, contribuendo a raddoppiare la potenza della mossa.",
+            "ko": "광선을 발사해서 공격한다. 가끔 다른 머리도 협력해서 레이저를 발사하여 위력이 2배가 된다.",
+            "zh-Hant": "發射光線進行攻擊。 有時會和其他的頭合力發射雷射， 讓招式威力變成２倍。",
+            "zh-Hans": "发射光线进行攻击。 有时其他的头也会合力发射镭射， 让招式威力变成２倍。"
         }
     },
     "Fiery Dance": {
@@ -11570,15 +11570,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user captures the very essence of the target in a sketch. This changes the Abilities of the user and its ally Pokémon to that of the target.",
-            "ja": "相手の本質を　とらえて　うつしだし 自分と　味方を　相手と 同じ　特性に　変化させる。",
-            "fr": "Le lanceur capture l'essence de la cible et la décalque. Le talent du lanceur et de ses alliés devient alors identique à celui de la cible.",
-            "es": "Calca la esencia misma del objetivo para atribuir su habilidad a sí mismo y a sus aliados.",
-            "de": "Der Anwender kopiert die wahre Essenz des Zieles. Dadurch erhalten alle Pokémon auf der Mitstreiterseite die Fähigkeit des Zieles.",
-            "it": "Il Pokémon cattura l'essenza del bersaglio con un ricalco, copiandone l'abilità e applicandola a se stesso e ai suoi alleati.",
-            "ko": "상대의 본질을 꿰뚫어 보고 베껴서 자신과 같은 편을 상대와 같은 특성으로 바꾼다.",
-            "zh-Hant": "掌握對手的本質，予以描繪， 使自己和同伴的特性 變得和對手相同。",
-            "zh-Hans": "把握并映射出对手的本质， 让自己和同伴宝可梦的特性 变得和对手相同。"
+            "en": "The user sharply boosts its Attack, Sp. Atk, and Speed stats by using its own HP.",
+            "ja": "自分の　ＨＰを　けずって 自分の　攻撃と　特攻と 素早さを　ぐーんと　あげる。",
+            "fr": "Le lanceur sacrifie des PV pour beaucoup augmenter son Attaque, son Attaque Spéciale, et sa Vitesse.",
+            "es": "Aumenta mucho el Ataque, el Ataque Especial y la Velocidad del usuario a costa de parte de sus PS.",
+            "de": "Der Anwender setzt seine KP ein, um seinen Angriff, seinen Spezial-Angriff und seine Initiative stark zu erhöhen.",
+            "it": "Il Pokémon sacrifica dei PS per far aumentare di molto l'Attacco, l'Attacco Speciale e la Velocità.",
+            "ko": "자신의 HP를 깎아서 자신의 공격, 특수공격, 스피드를 크게 올린다.",
+            "zh-Hant": "削減自己的ＨＰ， 大幅提高自己的攻擊、特攻和速度。",
+            "zh-Hans": "削减自己的ＨＰ， 大幅提高攻击和特攻以及速度。"
         }
     },
     "Final Gambit": {
@@ -12770,15 +12770,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user slashes at the target after kowtowing to make the target let down its guard. This attack never misses.",
-            "ja": "土下座して　相手を 油断させておいて　切りかかる。 攻撃は　必ず　命中する。",
-            "fr": "Le lanceur se prosterne devant la cible et profite de cette distraction pour l'attaquer avec une lame. N'échoue jamais.",
-            "es": "Se postra en ademán de reverencia para hacer que el objetivo baje la guardia y aprovecha el descuido para atacar. No falla nunca.",
-            "de": "Der Anwender fällt auf die Knie und verleitet das Ziel zu Unachtsamkeit, bevor er mit einer Klinge zuschlägt. Diese Attacke trifft garantiert.",
-            "it": "Il Pokémon si genuflette per far abbassare la guardia al bersaglio e poi fenderlo. Questo attacco va sempre a segno.",
-            "ko": "머리를 조아려 상대를 방심하게 만든 뒤에 베어 버린다. 공격은 반드시 명중한다.",
-            "zh-Hant": "向對手下跪使其大意， 接著對其劈斬。 攻擊必定會命中。",
-            "zh-Hans": "下跪让对手大意后 发起袭击劈向对手。 攻击必定会命中。"
+            "en": "The user throws a rigged bouquet of flowers at the target. This attack never misses and always lands a critical hit.",
+            "ja": "細工がある　花たばを 相手に　投げて　攻撃する。 必ず　命中して　急所にも　当たる。",
+            "fr": "Le lanceur attaque en jetant un bouquet de fleurs piégé sur la cible. N'échoue jamais et inflige toujours un coup critique.",
+            "es": "Ataca al objetivo lanzándole un ramo de flores trucado. No falla nunca y siempre asesta un golpe crítico.",
+            "de": "Der Anwender greift an, indem er dem Ziel einen Trick-Strauß zuwirft. Diese Attacke trifft immer und hat zudem Volltreffergarantie.",
+            "it": "Il Pokémon attacca il bersaglio lanciandogli addosso un mazzo di fiori truccato. Questo attacco va sempre a segno, infliggendo anche un brutto colpo.",
+            "ko": "숨겨진 장치가 있는 꽃다발을 상대에게 던져서 공격한다. 반드시 명중하며 급소에 맞는다.",
+            "zh-Hant": "將動過手腳的花束 投向對手進行攻擊。 必定會命中並擊中要害。",
+            "zh-Hans": "将做了手脚的花束 扔向对手进行攻击。 必定会命中，且会击中要害。"
         }
     },
     "Fly": {
@@ -15305,15 +15305,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user discharges all the electricity from its body to perform a high-damage attack. After using this move, the user will no longer be Electric type.",
-            "ja": "全身の　でんきを　すべて 放って　大ダメージを　与える。 自分の　でんきタイプが　なくなる。",
-            "fr": "Le lanceur libère toute l'électricité contenue dans son corps pour infliger des dégâts élevés à la cible. Le lanceur perd le type Électrik.",
-            "es": "Libera toda la electricidad de su cuerpo para lanzar un ataque devastador. Tras ejecutar el movimiento, el usuario deja de ser de tipo Eléctrico.",
-            "de": "Der Anwender nutzt die gesamte Elektrizität in seinem Körper, um großen Schaden auszuteilen. Die restliche Kampfdauer gehört er nicht mehr dem Typ Elektro an.",
-            "it": "Il Pokémon libera tutta la sua potenza elettrica per infliggere gravi danni al bersaglio, ma come conseguenza perde il tipo Elettro.",
-            "ko": "전신의 전기를 모두 방출해서 큰 데미지를 준다. 자신의 전기타입이 없어진다.",
-            "zh-Hant": "施放全身的所有電力 給予對手巨大的傷害。 自己的電屬性將會消失。",
-            "zh-Hans": "将全身所有的电力放出， 给予对手大大的伤害。 自己的电属性将会消失。"
+            "en": "The user swings its whole body around to attack with its huge hammer. This move can't be used twice in a row.",
+            "ja": "大きな　ハンマーを　体ごと ぶんまわして　攻撃する。 この技は　２回連続で　だせない。",
+            "fr": "Le lanceur met tout son corps à contribution pour attaquer la cible avec un immense marteau. Cette capacité ne peut pas être utilisée deux fois d'affilée.",
+            "es": "El usuario se ayuda de su propio peso corporal para propinar un golpe con un enorme martillo. Este movimiento no puede usarse dos veces seguidas.",
+            "de": "Der Anwender greift mit einem großen Hammer an, den er mit vollem Körpereinsatz um sich schwingt. Diese Attacke kann nicht zweimal in Folge eingesetzt werden.",
+            "it": "Il Pokémon attacca con un grosso martello mettendoci tutta la forza che ha in corpo. Questa mossa non può essere usata due volte di fila.",
+            "ko": "거대한 해머를 온몸으로 휘둘러서 공격한다. 이 기술은 2회 연속으로 쓸 수 없다.",
+            "zh-Hant": "將大錘連同身體 一起揮舞進行攻擊。 這個招式無法連續２次使用。",
+            "zh-Hans": "连同身体转起巨大的锤子进行攻击。 这个招式无法连续使出２次。"
         }
     },
     "Gigavolt Havoc": {
@@ -15490,15 +15490,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user covers its feet in thin ice and twirls around, slamming into the target. This move's spinning motion also destroys the terrain.",
-            "ja": "足に　薄い氷を　まとい クルクルと　回りながら　ぶつかる。 回転の　動きによって　フィールドを　壊す。",
-            "fr": "Le lanceur enveloppe ses jambes d'une fine couche de glace et heurte la cible en tournant sur lui-même. Ses rotations détruisent le champ actif sur le terrain.",
-            "es": "Se recubre las extremidades con una fina capa de hielo y se abalanza sobre el objetivo girando sobre sí. Destruye el campo activo en el terreno de combate.",
-            "de": "Der Anwender hüllt seine Füße in dünnes Eis, wirbelt herum und greift so das Ziel an. Die Drehung zerstört etwaige Felder.",
-            "it": "Il Pokémon avvolge gli arti inferiori in un sottile strato di ghiaccio e si scontra con il bersaglio piroettando. Il movimento rotatorio distrugge il terreno di lotta.",
-            "ko": "발에 얇은 얼음을 두르고 빙글빙글 회전하며 부딪친다. 회전 운동에 의해 필드가 파괴된다.",
-            "zh-Hant": "在腳上包覆薄冰， 骨碌碌地旋轉並進行撞擊。 以旋轉的動作破壞場地。",
-            "zh-Hans": "脚上覆盖薄冰， 旋转着撞击对手。 通过旋转的动作破坏场地。"
+            "en": "The user throws its entire body into a reckless charge. After this move is used, attacks on the user cannot miss and will inflict double damage until the user's next turn.",
+            "ja": "体を　投げだす　無謀な突撃。 技のあと　相手からの　攻撃は　必ず 命中し　ダメージが　２倍に　なってしまう。",
+            "fr": "Le lanceur se jette dans une charge inconsciente sur la cible. Une fois cette capacité utilisée, toute attaque sur le lanceur inflige le double de dégâts et n'échoue jamais.",
+            "es": "Embiste de forma temeraria con todo el cuerpo. Los ataques que reciba antes de su siguiente turno no fallarán y causarán el doble de daño.",
+            "de": "Der Anwender stürzt sich waghalsig auf das Ziel. Bis zum nächsten Zug des Anwenders treffen ihn gegnerische Angriffe garantiert und richten doppelten Schaden an.",
+            "it": "Il Pokémon si lancia in una carica avventata. Fino al suo prossimo turno, il Pokémon riceverà il doppio dei danni dagli attacchi altrui, che andranno sempre a segno.",
+            "ko": "몸을 내던지는 무모한 돌격. 기술을 사용한 다음, 상대의 공격이 반드시 명중하고 데미지를 2배로 입게 된다.",
+            "zh-Hant": "豁出己身的魯莽突擊。 使出招式後對手的攻擊必定會命中， 且傷害會變成２倍。",
+            "zh-Hans": "有勇无谋的舍身突击。 使出招式后，对手的攻击必定 会命中，且伤害会变成２倍。"
         }
     },
     "Glare": {
@@ -16549,15 +16549,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks by launching particle blades at the target twice in a row. This attack never misses.",
-            "ja": "粒子の刃を　たて続けに　発射して ２回連続で　ダメージを　与える。 攻撃は　必ず　命中する。",
-            "fr": "Le lanceur concentre des particules élémentaires pour créer une lame qui inflige des dégâts à la cible deux fois d'affilée. N'échoue jamais.",
-            "es": "Lanza una ráfaga de cuchillas formadas por partículas contra el objetivo y le inflige daño dos veces seguidas. No falla nunca.",
-            "de": "Der Anwender greift das Ziel zweimal hintereinander mit Partikelklingen an. Der Angriff trifft garantiert.",
-            "it": "Il Pokémon emette delle lame particellari in successione, infliggendo danni due volte di fila. Questo attacco va sempre a segno.",
-            "ko": "입자로 된 칼날을 연이어 발사해서 2회 연속으로 데미지를 준다. 공격은 반드시 명중한다.",
-            "zh-Hant": "連續發射粒子的利刃， 連續２次給予傷害。 攻擊必定會命中。",
-            "zh-Hans": "接连发射出粒子的利刃， 连续２次给予伤害。 攻击必定会命中。"
+            "en": "The target is crushed with an arm, a claw, or the like to inflict damage. The more HP the target has left, the greater the move's power.",
+            "ja": "腕やハサミで　相手を　圧迫する。 相手の　ＨＰが　残っているほど 威力が　あがる。",
+            "fr": "Le lanceur écrase la cible avec ses bras ou ses pinces. Plus il reste de PV à la cible, plus la puissance de la capacité augmente.",
+            "es": "Oprime con los brazos o las pinzas. Cuantos más PS le queden al objetivo, mayor será la potencia del movimiento.",
+            "de": "Der Anwender nimmt das Ziel mit Armen oder Scheren in die Mangel. Je höher die KP des Zieles, desto stärker die Attacke.",
+            "it": "Il Pokémon schiaccia il bersaglio usando i propri arti. Più PS rimangono al bersaglio, maggiore è la potenza della mossa.",
+            "ko": "팔이나 집게로 상대를 압박한다. 상대의 HP가 남아 있을수록 위력이 올라간다.",
+            "zh-Hant": "用手臂或鉗子壓迫對手。 對手現有的ＨＰ越多， 招式的威力越大。",
+            "zh-Hans": "用手臂或钳子压迫对手。 对手剩余的ＨＰ越多， 威力越大。"
         }
     },
     "Harden": {
@@ -18561,15 +18561,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user rends the target with an ethereal blade. This move's power is boosted by 50 percent if the user is on Electric Terrain.",
-            "ja": "実体のない刃で　相手を　切り裂く。 エレキフィールドに　いるとき 技の威力が　１．５倍に　なる。",
-            "fr": "Le lanceur lacère la cible à l'aide d'une lame intangible. S'il se trouve dans un champ électrifié, la puissance de cette capacité augmente de 50 %.",
-            "es": "El usuario rebana al objetivo con una espada inmaterial. Cuando se usa en conjunción con un campo eléctrico, la potencia del movimiento aumenta un 50 %.",
-            "de": "Das Ziel wird mit einer immateriellen Klinge angegriffen. Die Stärke der Attacke steigt um 50 %, wenn beim Anwender ein Elektrofeld aktiv ist.",
-            "it": "Il Pokémon falcia il bersaglio con una lama eterea. La potenza della mossa aumenta del 50% quando è attivo un Campo Elettrico.",
-            "ko": "실체가 없는 칼날로 상대를 베어 가른다. 일렉트릭필드 위에 있을 때 기술의 위력이 1.5배가 된다.",
-            "zh-Hant": "用無形的刀刃劈開對手。 在電氣場地時， 招式威力會變成１.５倍。",
-            "zh-Hans": "用无形的利刃劈开对手。 处于电气场地时， 招式威力会变成１．５倍。"
+            "en": "The user blasts the target with boiling-hot water. This move's power is not lowered in harsh sunlight but rather boosted by 50 percent.",
+            "ja": "煮えたぎる水を　勢いよく　浴びせる。 日差しが　強いとき　技の威力が さがるどころか　１．５倍に　なる。",
+            "fr": "Le lanceur asperge la cible avec un puissant jet d'eau bouillante. Quand le soleil brille, la puissance de cette capacité augmente de 50 % au lieu de baisser.",
+            "es": "Vierte agua hirviendo sobre el objetivo. Cuando hace sol, la potencia del movimiento aumenta un 50 % en lugar de reducirse.",
+            "de": "Das Ziel wird kraftvoll mit brodelndem Wasser übergossen. Wider Erwarten sinkt die Stärke der Attacke bei starkem Sonnenlicht nicht, sondern steigt um 50 %.",
+            "it": "Il Pokémon ricopre con forza il bersaglio di acqua bollente. Con la luce solare intensa, la potenza di questa mossa aumenta del 50% anziché diminuire.",
+            "ko": "펄펄 끓는 물을 기세 좋게 뿜어낸다. 햇살이 강할 때 기술의 위력이 떨어지기는커녕 1.5배가 된다.",
+            "zh-Hant": "將滾燙的水猛烈地噴向對手。 日照很強時，招式威力不但 不會降低，還會變成１.５倍。",
+            "zh-Hans": "将煮得翻滚的开水猛烈地喷向对手。 日照强烈时，招式威力不但 不会降低，还会变成１．５倍。"
         }
     },
     "Hydro Vortex": {
@@ -18696,15 +18696,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat.",
-            "ja": "相手の　元気を　失わせるくらい 冷たい水を　浴びせて　攻撃する。 相手の　攻撃を　さげる。",
-            "fr": "Le lanceur attaque la cible en l'arrosant d'une eau si froide qu'elle détériore son esprit combatif. Baisse l'Attaque de la cible.",
-            "es": "Ataca al objetivo rociándolo con un agua gélida y desalentadora que reduce su Ataque.",
-            "de": "Der Anwender greift an, indem er das Ziel mit eiskaltem Wasser überschüttet. Das raubt dem Ziel seinen Kampfgeist und senkt so seinen Angriff.",
-            "it": "Il Pokémon attacca il bersaglio con una doccia d'acqua talmente fredda da farlo demoralizzare, riducendone l'Attacco.",
-            "ko": "상대의 기운이 빠질 정도로 차가운 물을 끼얹어서 공격한다. 상대의 공격을 떨어뜨린다.",
-            "zh-Hant": "潑灑冰冷到足以讓對手 失去活力的水進行攻擊。 可降低對手的攻擊。",
-            "zh-Hans": "泼洒冰冷得足以让对手 失去活力的水进行攻击。 会降低对手的攻击。"
+            "en": "The user spins the pointed part of its body at high speed to pierce the target. This attack can hit a target using a move such as Protect or Detect.",
+            "ja": "とがった　体の部位を 急速に　回転させ　つらぬく。 まもるや　みきり　なども　無視　できる。",
+            "fr": "Le lanceur fait tourner à toute vitesse la partie pointue de son corps afin de transpercer la cible. Ignore même les capacités comme Abri ou Détection.",
+            "es": "El usuario hace rotar la parte puntiaguda de su cuerpo a gran velocidad para atacar al objetivo. Pasa por alto los efectos de movimientos como Protección o Detección.",
+            "de": "Der Anwender lässt einen spitzen Teil seines Körpers rasant rotieren, sticht zu und durchbricht dabei auch die Wirkung von Attacken wie Schutzschild und Scanner.",
+            "it": "Il Pokémon fa roteare rapidamente la parte appuntita del suo corpo, perforando il bersaglio ed eludendo mosse come Protezione e Individua.",
+            "ko": "뾰족한 신체 부위를 급속도로 회전시켜 관통한다. 방어나 판별 등도 무시할 수 있다.",
+            "zh-Hant": "高速旋轉尖銳的身體部位進行貫穿。 可無視對手的守住和看穿等招式。",
+            "zh-Hans": "急速旋转尖锐的身体部位贯穿对手。 可以无视守住和看穿等招式。"
         }
     },
     "Hyper Fang": {
@@ -19291,15 +19291,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user's fellows gather in droves to perform a combo attack that hits the target one to ten times in a row.",
-            "ja": "仲間たちが　わらわらと　集まって コンビネーションで　攻撃を　与えていく。 １ー１０回の　間　連続で　あたる。",
-            "fr": "Le lanceur et ses congénères prolifèrent en masse et attaquent ensemble d'une à dix fois d'affilée.",
-            "es": "Los congéneres del usuario se agrupan y ejecutan un ataque conjunto que golpea al objetivo de una a diez veces seguidas.",
-            "de": "Der Anwender versammelt eine Schar von Artgenossen, die dann geschlossen angreift und das Ziel ein- bis zehnmal hintereinander trifft.",
-            "it": "Il Pokémon si riunisce con i suoi simili in un gruppo brulicante che collabora per attaccare e colpisce da una a dieci volte di fila.",
-            "ko": "여기저기서 동료들을 모아서 화려한 콤비네이션으로 공격한다. 1~10회 연속으로 공격한다.",
-            "zh-Hant": "夥伴們紛紛聚集而來， 以群體形式逐一給予攻擊。 連續命中１～１０次。",
-            "zh-Hans": "伙伴们会纷纷赶来集合， 以群体行动给予对手攻击。 连续命中１～１０次。"
+            "en": "The user covers its feet in thin ice and twirls around, slamming into the target. This move's spinning motion also destroys the terrain.",
+            "ja": "足に　薄い氷を　まとい クルクルと　回りながら　ぶつかる。 回転の　動きによって　フィールドを　壊す。",
+            "fr": "Le lanceur enveloppe ses jambes d'une fine couche de glace et heurte la cible en tournant sur lui-même. Ses rotations détruisent le champ actif sur le terrain.",
+            "es": "Se recubre las extremidades con una fina capa de hielo y se abalanza sobre el objetivo girando sobre sí. Destruye el campo activo en el terreno de combate.",
+            "de": "Der Anwender hüllt seine Füße in dünnes Eis, wirbelt herum und greift so das Ziel an. Die Drehung zerstört etwaige Felder.",
+            "it": "Il Pokémon avvolge gli arti inferiori in un sottile strato di ghiaccio e si scontra con il bersaglio piroettando. Il movimento rotatorio distrugge il terreno di lotta.",
+            "ko": "발에 얇은 얼음을 두르고 빙글빙글 회전하며 부딪친다. 회전 운동에 의해 필드가 파괴된다.",
+            "zh-Hant": "在腳上包覆薄冰， 骨碌碌地旋轉並進行撞擊。 以旋轉的動作破壞場地。",
+            "zh-Hans": "脚上覆盖薄冰， 旋转着撞击对手。 通过旋转的动作破坏场地。"
         }
     },
     "Icicle Crash": {
@@ -20026,15 +20026,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user sets off an explosion of sticky candy syrup, which coats the target and causes the target's Speed stat to drop each turn for three turns.",
-            "ja": "ねっとりした　みずあめを　爆発させ 相手を　あめまみれ　状態に　して ３ターンの間　素早さを　さげ続ける。",
-            "fr": "Le lanceur jette une bombe qui recouvre la cible de sirop gluant et fait progressivement baisser la Vitesse de la cible pendant trois tours.",
-            "es": "Impregna al objetivo con una explosión de su viscoso néctar y lo carameliza, lo que hace que su Velocidad se reduzca progresivamente durante tres turnos.",
-            "de": "Der Anwender feuert eine klebrige Sirupbombe auf das Ziel, wodurch es in Sirup gehüllt und seine Initiative drei Runden in Folge gesenkt wird.",
-            "it": "Il Pokémon fa esplodere dello sciroppo viscoso sul bersaglio, ricoprendolo e facendogli diminuire la Velocità per tre turni.",
-            "ko": "끈적끈적한 물엿을 폭발시킨다. 상대를 물엿범벅 상태로 만들어서 3턴 동안 계속 스피드를 떨어뜨린다.",
-            "zh-Hant": "使黏稠的糖漿爆炸， 使對手陷入滿身糖狀態， 在３回合內持續降低對手的速度。",
-            "zh-Hans": "使粘稠的麦芽糖浆爆炸， 让对手陷入满身糖状态， 在３回合内持续降低其速度。"
+            "en": "The user strikes with an ivy-wrapped cudgel. This move's type changes depending on the mask worn by the user, and it has a heightened chance of landing a critical hit.",
+            "ja": "ツタを　まきつけた　こん棒で　なぐる。 かぶっている　お面で　タイプが　変わる。 急所に　当たりやすい。",
+            "fr": "Le lanceur frappe la cible à l'aide d'une massue entourée d'une liane. Le type de cette capacité varie en fonction du masque que porte le lanceur. Taux de critiques élevé.",
+            "es": "Golpea con un garrote que forma enrollando su liana. El tipo del movimiento varía según la máscara que lleve puesta el usuario. Suele asestar un golpe crítico.",
+            "de": "Der Anwender schlägt mit einer rankenumschlungenen Keule zu. Der Typ dieser Attacke hängt von der Maske des Anwenders ab. Hohe Volltrefferquote.",
+            "it": "Il Pokémon colpisce con una clava avvolta da liane. Il tipo della mossa varia in base alla maschera indossata. Probabile brutto colpo.",
+            "ko": "덩굴을 휘감은 방망이로 때린다. 쓰고 있는 가면에 따라 타입이 바뀐다. 급소에 맞기 쉽다.",
+            "zh-Hant": "用纏繞著藤蔓的棍棒毆打。 屬性會隨著所戴的面具而改變。 容易擊中要害。",
+            "zh-Hans": "用缠有藤蔓的棍棒殴打。 属性会随所戴的面具而改变。 容易击中要害。"
         }
     },
     "Jaw Lock": {
@@ -20116,15 +20116,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks with elegant poise. If the user has a Tatsugiri in its mouth, this move boosts one of the user's stats based on the Tatsugiri's form.",
-            "ja": "いなせな　身のこなしで　攻撃。 口の中に　シャリタツが　いると そのすがたによって　能力が　あがる。",
-            "fr": "Le lanceur attaque avec adresse et élégance. S'il a un Nigirigon dans la gueule, une de ses stats augmente en fonction de la forme de celui-ci.",
-            "es": "Ataca con porte gallardo. Si lleva un Tatsugiri en la boca, aumenta una de sus características en función de la forma de este último.",
-            "de": "Eine Attacke mit geübten Bewegungen. Trägt der Anwender ein Nigiragi im Maul, erhöht sich je nach dessen Form ein Statuswert des Anwenders.",
-            "it": "Il Pokémon attacca con deliziose movenze. Se ha in bocca un Tatsugiri, una sua statistica aumenta in base alla forma di quest'ultimo.",
-            "ko": "멋들어진 몸놀림으로 공격한다. 입속에 싸리용이 있으면 싸리용의 모습에 따라 능력이 올라간다.",
-            "zh-Hant": "以瀟灑的身段進行攻擊。 若口中有米立龍， 會依米立龍的姿勢而提高不同能力。",
-            "zh-Hans": "以潇洒的身手进行攻击。 若口中有米立龙， 会按其样子提高能力。"
+            "en": "The user summons a torrent around its fist and punches at blinding speed. This move always goes first.",
+            "ja": "激流を　こぶしに　まとって 目にも　留まらぬ　パンチを　くりだす。 必ず　先制攻撃　できる。",
+            "fr": "Le lanceur enveloppe son poing d'un torrent furieux et attaque si rapidement qu'on peine à le discerner. Frappe en priorité.",
+            "es": "Se envuelve el puño con un torrente y propina un golpe a tal velocidad que resulta casi imperceptible. Este movimiento tiene prioridad alta.",
+            "de": "Bei dieser Erstschlag-Attacke hüllt der Anwender seine Faust in einen Strudel und greift mit einem extrem schnellen Hieb an.",
+            "it": "Il Pokémon avvolge il pugno in una corrente impetuosa e sferra un colpo a una tale velocità da rendersi quasi invisibile. Questo attacco ha priorità alta.",
+            "ko": "거센 물살을 주먹에 둘러 눈에 보이지 않는 속도로 펀치를 날린다. 반드시 선제공격할 수 있다.",
+            "zh-Hant": "讓激流圍繞在拳頭上， 以迅雷不及掩耳之勢出拳。 必定能夠發動先制攻擊。",
+            "zh-Hans": "将激流覆盖于拳头， 以肉眼无法辨识的速度打出拳击。 必定能够先制攻击。"
         }
     },
     "Judgment": {
@@ -20481,15 +20481,15 @@
         "isSlicing": true,
         "isWind": false,
         "flavorText": {
-            "en": "The user sharply boosts its Attack, Sp. Atk, and Speed stats by using its own HP.",
-            "ja": "自分の　ＨＰを　けずって 自分の　攻撃と　特攻と 素早さを　ぐーんと　あげる。",
-            "fr": "Le lanceur sacrifie des PV pour beaucoup augmenter son Attaque, son Attaque Spéciale, et sa Vitesse.",
-            "es": "Aumenta mucho el Ataque, el Ataque Especial y la Velocidad del usuario a costa de parte de sus PS.",
-            "de": "Der Anwender setzt seine KP ein, um seinen Angriff, seinen Spezial-Angriff und seine Initiative stark zu erhöhen.",
-            "it": "Il Pokémon sacrifica dei PS per far aumentare di molto l'Attacco, l'Attacco Speciale e la Velocità.",
-            "ko": "자신의 HP를 깎아서 자신의 공격, 특수공격, 스피드를 크게 올린다.",
-            "zh-Hant": "削減自己的ＨＰ， 大幅提高自己的攻擊、特攻和速度。",
-            "zh-Hans": "削减自己的ＨＰ， 大幅提高攻击和特攻以及速度。"
+            "en": "The user slashes at the target after kowtowing to make the target let down its guard. This attack never misses.",
+            "ja": "土下座して　相手を 油断させておいて　切りかかる。 攻撃は　必ず　命中する。",
+            "fr": "Le lanceur se prosterne devant la cible et profite de cette distraction pour l'attaquer avec une lame. N'échoue jamais.",
+            "es": "Se postra en ademán de reverencia para hacer que el objetivo baje la guardia y aprovecha el descuido para atacar. No falla nunca.",
+            "de": "Der Anwender fällt auf die Knie und verleitet das Ziel zu Unachtsamkeit, bevor er mit einer Klinge zuschlägt. Diese Attacke trifft garantiert.",
+            "it": "Il Pokémon si genuflette per far abbassare la guardia al bersaglio e poi fenderlo. Questo attacco va sempre a segno.",
+            "ko": "머리를 조아려 상대를 방심하게 만든 뒤에 베어 버린다. 공격은 반드시 명중한다.",
+            "zh-Hant": "向對手下跪使其大意， 接著對其劈斬。 攻擊必定會命中。",
+            "zh-Hans": "下跪让对手大意后 发起袭击劈向对手。 攻击必定会命中。"
         }
     },
     "Land's Wrath": {
@@ -20706,15 +20706,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks by kicking up into the air and slamming its heel down upon the target. This may also confuse the target. If it misses, the user takes damage instead.",
-            "ja": "蹴りあげた　かかとを　落として　攻撃する。 相手を　混乱させることが　ある。 はずすと　自分が　ダメージを　受ける。",
-            "fr": "Le lanceur donne un coup de talon descendant à la cible, ce qui peut aussi la rendre confuse. S'il échoue, le lanceur se blesse.",
-            "es": "Lanza una patada al aire para, acto seguido, golpear con el talón. Si falla, se hiere a sí mismo. Puede confundir al objetivo.",
-            "de": "Der Anwender greift an, indem er seine erhobene Ferse hinunterschnellen lässt. Das Ziel wird eventuell verwirrt. Bei Misserfolg verletzt sich der Anwender selbst.",
-            "it": "Il Pokémon attacca sferrando un calcio dall'alto verso il basso che può confondere il bersaglio. Se la mossa fallisce, il Pokémon subisce dei danni.",
-            "ko": "발꿈치를 들어 올린 뒤 내리찍어 공격한다. 상대를 혼란시킬 때가 있다. 빗나가면 자신이 데미지를 입는다.",
-            "zh-Hant": "劈下踢起的腳跟攻擊對手。 有時會使對手混亂。 沒命中對手時自己會受到傷害。",
-            "zh-Hans": "将踢起的脚跟往下劈向对手进行攻击。 有时会使对手混乱。 如果劈偏则自己会受到伤害。"
+            "en": "The user attacks to avenge its allies. The more defeated allies there are in the user's party, the greater the move's power.",
+            "ja": "仲間の　無念を　晴らすため　攻撃する。 倒された　味方のポケモンが　多いほど 技の　威力が　増える。",
+            "fr": "Le lanceur attaque pour venger ses alliés. Plus le nombre de Pokémon alliés mis K.O. est élevé, plus la puissance de cette capacité augmente.",
+            "es": "Ataca para vengar a sus compañeros caídos y aplacar su desazón. Cuantos más miembros del equipo se hayan debilitado, mayor será la potencia del movimiento.",
+            "de": "Der Anwender rächt gefallene Mitstreiter. Je mehr kampfunfähige Pokémon sich im Team befinden, desto stärker ist die Attacke.",
+            "it": "Il Pokémon attacca per placare il risentimento dei suoi compagni di squadra. Più sono quelli andati KO, più la potenza della mossa aumenta.",
+            "ko": "동료의 한을 풀어 주기 위해 공격한다. 쓰러진 같은 편 포켓몬이 많을수록 기술의 위력이 올라간다.",
+            "zh-Hant": "為了替夥伴雪恨而攻擊。 被打倒的我方寶可夢越多， 招式威力就會越強。",
+            "zh-Hans": "为了化解伙伴的悔恨而进行攻击。 被打倒的我方宝可梦越多， 招式的威力越高。"
         }
     },
     "Lava Plume": {
@@ -21681,15 +21681,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks to avenge its allies. The more defeated allies there are in the user's party, the greater the move's power.",
-            "ja": "仲間の　無念を　晴らすため　攻撃する。 倒された　味方のポケモンが　多いほど 技の　威力が　増える。",
-            "fr": "Le lanceur attaque pour venger ses alliés. Plus le nombre de Pokémon alliés mis K.O. est élevé, plus la puissance de cette capacité augmente.",
-            "es": "Ataca para vengar a sus compañeros caídos y aplacar su desazón. Cuantos más miembros del equipo se hayan debilitado, mayor será la potencia del movimiento.",
-            "de": "Der Anwender rächt gefallene Mitstreiter. Je mehr kampfunfähige Pokémon sich im Team befinden, desto stärker ist die Attacke.",
-            "it": "Il Pokémon attacca per placare il risentimento dei suoi compagni di squadra. Più sono quelli andati KO, più la potenza della mossa aumenta.",
-            "ko": "동료의 한을 풀어 주기 위해 공격한다. 쓰러진 같은 편 포켓몬이 많을수록 기술의 위력이 올라간다.",
-            "zh-Hant": "為了替夥伴雪恨而攻擊。 被打倒的我方寶可夢越多， 招式威力就會越強。",
-            "zh-Hans": "为了化解伙伴的悔恨而进行攻击。 被打倒的我方宝可梦越多， 招式的威力越高。"
+            "en": "The user attacks by unleashing a peculiar light that even affects the mind. This also harshly lowers the target's Sp. Def stat.",
+            "ja": "精神にも　作用する 奇妙な光を　放って　攻撃する。 相手の　特防を　がくっと　さげる。",
+            "fr": "Le lanceur attaque en émettant une étrange lumière qui ébranle l'esprit de la cible. Cela baisse beaucoup la Défense Spéciale de la cible.",
+            "es": "Ataca proyectando una extraña luz que afecta a la mente. Reduce mucho la Defensa Especial del objetivo.",
+            "de": "Der Anwender greift an, indem er ein sonderbares Licht freisetzt, das sich auch auf die Psyche auswirkt. Zudem wird die Spezial-Verteidigung des Zieles stark gesenkt.",
+            "it": "Il Pokémon attacca sparando una luce bizzarra che agisce anche sulla psiche. Riduce di molto la Difesa Speciale del bersaglio.",
+            "ko": "정신에도 작용하는 기묘한 빛을 발산해서 공격한다. 상대의 특수방어를 크게 떨어뜨린다.",
+            "zh-Hant": "發出對精神也會起作用的 奇異光線進行攻擊。 大幅降低對手的特防。",
+            "zh-Hans": "放出连精神都能影响到的 奇妙怪光进行攻击。 会大幅降低对方的特防。"
         }
     },
     "Lunar Blessing": {
@@ -22416,15 +22416,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user performs a tackle like a raging bull. This move's type depends on the user's form. It can also break barriers, such as Light Screen and Reflect.",
-            "ja": "怒り狂う　あばれうしの　猛烈な　タックル。 フォルムで　技のタイプが　変わり ひかりのかべや　リフレクターなども　破壊できる。",
-            "fr": "Le lanceur charge la cible comme un taureau enragé. Le type de cette capacité dépend de la race du lanceur, et brise les barrières comme Mur Lumière et Protection.",
-            "es": "Embiste con tremenda fiereza. Este movimiento cambia de tipo en función de la variedad del usuario y es capaz de destruir barreras como Pantalla de Luz y Reflejo.",
-            "de": "Ein rasender Angriff eines wilden Stiers, der auch Barrieren wie Lichtschild und Reflektor durchbricht. Der Attacken-Typ hängt von der Form des Anwenders ab.",
-            "it": "Il Pokémon carica il bersaglio con furia cieca, rompendo barriere come Schermoluce e Riflesso. Il tipo di questa mossa dipende dalla forma di chi la usa.",
-            "ko": "분노해 날뛰는 성난소의 맹렬한 태클. 폼에 따라 기술의 타입이 달라지고 빛의장막이나 리플렉터 등도 파괴할 수 있다.",
-            "zh-Hant": "憤怒狂亂的暴牛發動之猛烈衝撞。 招式的屬性會依形態而改變， 並可破壞光牆和反射壁等。",
-            "zh-Hans": "狂怒暴牛的猛烈冲撞。 招式的属性随形态改变， 光墙和反射壁等招式也能破坏。"
+            "en": "The user attacks by throwing out a mass of coins. This also lowers the user's Sp. Atk stat. Money is earned after the battle.",
+            "ja": "大量のコインを　ぶちまけて　攻撃。 自分の　特攻が　さがる。 戦闘の　あとで　お金も　もらえる。",
+            "fr": "Le lanceur attaque en lançant de nombreuses pièces, ce qui baisse son Attaque Spéciale. Permet d'obtenir plus d'argent à la fin du combat.",
+            "es": "El usuario ataca arrojando una generosa cantidad de monedas, pero su Ataque Especial se ve reducido. Al finalizar el combate, las recupera en forma de ganancias.",
+            "de": "Der Anwender greift an, indem er Unmengen an Münzen ausschüttet, senkt dabei aber seinen Spezial-Angriff. Das Geld wird nach dem Kampf aufgesammelt.",
+            "it": "Il Pokémon attacca lanciando una gran quantità di monete recuperabili dopo la lotta, ma riduce il proprio Attacco Speciale.",
+            "ko": "대량의 코인을 날려서 공격한다. 자신의 특수공격이 떨어진다. 배틀 후에 돈을 받을 수 있다.",
+            "zh-Hant": "撒出大量硬幣進行攻擊。 自己的特攻會降低。 戰鬥後還可以得到錢。",
+            "zh-Hans": "扔出大量硬币攻击。 自己的特攻会降低， 战斗后还可以拿到钱。"
         }
     },
     "Malicious Moonsault": {
@@ -22506,15 +22506,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user reacts to the target's movement and strikes with the heel of its palm, making the target flinch. This move fails if the target is not readying a priority move.",
-            "ja": "動きに　反応して　掌底を　打ちこみ 相手を　ひるませる。　相手が　だす技が 先制攻撃でないと　失敗する。",
-            "fr": "Le lanceur réagit instinctivement au moindre mouvement et donne un coup de paume qui apeure la cible. Échoue si cette dernière n'a pas utilisé une attaque prioritaire.",
-            "es": "Se anticipa al objetivo golpeándolo rápidamente con la palma y lo amedrenta. Falla si el objetivo no está preparando un movimiento de prioridad alta.",
-            "de": "Der Anwender reagiert auf Bewegungen des Zieles und lässt es durch einen Schlag zurückschrecken. Gelingt nur, wenn das Ziel gerade eine Erstschlag-Attacke vorbereitet.",
-            "it": "Il Pokémon reagisce al movimento del bersaglio e, colpendo con il palmo, lo fa tentennare. Se il bersaglio non sferra un attacco ad alta priorità, la mossa fallisce.",
-            "ko": "움직임에 반응하여 손바닥으로 밀쳐서 상대를 풀죽게 한다. 상대가 쓴 기술이 선제공격 기술이 아니면 실패한다.",
-            "zh-Hant": "察覺對手動作並以掌底攻擊來反應， 讓對手畏縮。若對手使用的招式 不是先制攻擊則會失敗。",
-            "zh-Hans": "察觉到对手的动作后用掌根攻击， 让对手畏缩。如果对手使出的招式 不是先制攻击，则会失败。"
+            "en": "The user pours toxins into the target by wrapping them in a toxic, corrosive chain. This may also leave the target badly poisoned.",
+            "ja": "毒でできた鎖を　相手に　巻きつけ 毒素を　流しこんで　蝕む。 猛毒の　状態に　することが　ある。",
+            "fr": "Le lanceur ligote la cible avec une chaîne faite de poison et lui injecte un venin corrosif, ce qui peut aussi gravement l'empoisonner.",
+            "es": "Apresa al objetivo con una cadena hecha de ponzoña que le inocula toxinas para minarle las fuerzas. Puede envenenar gravemente.",
+            "de": "Der Anwender umwickelt das Ziel mit einer Kette aus Toxinen, die in dessen Körper eindringen und ihm schaden. Das Ziel wird eventuell schwer vergiftet.",
+            "it": "Il Pokémon logora il bersaglio avvolgendolo con le sue catene fatte di veleno e iniettandogli delle tossine che possono anche iperavvelenarlo.",
+            "ko": "독으로 된 사슬로 상대를 휘감은 뒤 독소를 흘려보내어 해치운다. 맹독 상태로 만들 때가 있다.",
+            "zh-Hant": "用毒素形成的鎖鏈纏住對手， 注入毒素加以侵蝕。 有時會讓對手陷入劇毒狀態。",
+            "zh-Hans": "用由毒形成的锁链缠住对手 注入毒素加以侵蚀。 有时会让对手陷入剧毒状态。"
         }
     },
     "Mat Block": {
@@ -22596,15 +22596,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user unleashes the full brunt of its spirit from a full moon that shines as red as blood. This move can't be used twice in a row.",
-            "ja": "血のように　赤い満月から ありったけの　気迫を　撃ちだす。 この技は　２回連続で　だせない。",
-            "fr": "Le lanceur concentre toute son énergie dans la lune rouge sang sur son front et la projette sur la cible. Cette capacité ne peut pas être utilisée deux fois d'affilée.",
-            "es": "Ataca canalizando toda su fuerza y proyectándola a través de una luna llena de color rojo intenso. Este movimiento no puede usarse dos veces seguidas.",
-            "de": "Der Anwender entfesselt eine gewaltige Energieladung aus einem blutroten Vollmond. Diese Attacke kann nicht zweimal in Folge eingesetzt werden.",
-            "it": "Il Pokémon attacca rilasciando tutta la sua energia, confluita in una luna piena rossa come il sangue. Questa mossa non può essere usata due volte di fila.",
-            "ko": "피와 같이 붉은 보름달에서 혼신의 기백을 발사한다. 이 기술은 2회 연속으로 쓸 수 없다.",
-            "zh-Hant": "從鮮血般赤紅的滿月 發射出渾身的氣勢。 這個招式無法連續２次使用。",
-            "zh-Hans": "从赤红如血的满月 发射出全部的气势。 这个招式无法连续使出２次。"
+            "en": "The user fires a blast of tea that it mixed. The user's HP is restored by up to half the damage taken by the target. This may also leave the target with a burn.",
+            "ja": "かきまぜた　お茶の　大砲は　与えた ダメージの　半分の　ＨＰを　回復して やけど状態に　することも　ある。",
+            "fr": "Le lanceur remue son thé et en bombarde la cible. La moitié des dégâts infligés sont convertis en PV pour le lanceur. Cette capacité peut aussi brûler la cible.",
+            "es": "Rocía al objetivo con té recién batido y recupera la mitad de los PS del daño que produce. Puede causar quemaduras.",
+            "de": "Der Anwender verschießt gequirlten Tee. Die Hälfte des zugefügten Schadens wird ihm als KP gutgeschrieben. Das Ziel erleidet eventuell Verbrennungen.",
+            "it": "Il Pokémon attacca mescolando del tè e spruzzandolo, recuperando una quantità di PS pari alla metà del danno inflitto. Può anche scottare il bersaglio.",
+            "ko": "휘저은 차를 대포처럼 발사해 준 데미지의 절반을 HP로 회복한다. 화상 상태로 만들 때도 있다.",
+            "zh-Hant": "像大炮般發射攪拌過的茶。 可以回復給予對手傷害的一半ＨＰ， 有時還會讓對手陷入灼傷狀態。",
+            "zh-Hans": "发射经搅拌的茶的大炮， 可以回复给予对手伤害的一半ＨＰ， 有时会让对手陷入灼伤状态。"
         }
     },
     "Max Airstream": {
@@ -24245,15 +24245,15 @@
         "isSlicing": true,
         "isWind": false,
         "flavorText": {
-            "en": "This move enables the user to attack first with a jolt of electricity. This move fails if the target is not readying an attack.",
-            "ja": "相手より　先に　電撃を　浴びせる。 相手が　だす技が 攻撃技でないと　失敗する。",
-            "fr": "Permet au lanceur d'attaquer la cible en priorité avec une décharge électrique. Échoue si la cible ne prépare pas une attaque.",
-            "es": "Invoca un rayo que cae sobre el objetivo antes de que este pueda realizar cualquier acción. Falla si el objetivo no está preparando ningún ataque.",
-            "de": "Bei dieser Erstschlag-Attacke lässt der Anwender einen Blitz auf das Ziel einschlagen. Sie gelingt nur, wenn dieses gerade eine Angriffsattacke vorbereitet.",
-            "it": "Il Pokémon abbatte una scarica elettrica sul bersaglio prima che questi possa attaccare. La mossa fallisce se il bersaglio sferra una mossa che non è di attacco.",
-            "ko": "상대보다 먼저 전격을 퍼붓는다. 상대가 쓴 기술이 공격 기술이 아니면 실패한다.",
-            "zh-Hant": "可以搶先對手一步用電擊進行攻擊。 若對手使用的不是攻擊招式則會失敗。",
-            "zh-Hans": "可以比对手先使出电击进行攻击。 对手使出的招式 如果不是攻击招式则会失败。"
+            "en": "The user wields the light that has accumulated atop its head to cleave the target. This move hits even if the target protects itself.",
+            "ja": "頭部に　蓄積した　光で　切断する。 守りを　無視して　攻撃できる。",
+            "fr": "Le lanceur pourfend la cible avec la lumière accumulée sur sa tête. Cette attaque passe outre les protections.",
+            "es": "Rebana al objetivo con la luz que ha acumulado en la testa. Permite acertar aunque el objetivo esté protegiéndose.",
+            "de": "Der Anwender führt mit dem in seinem Kopf gespeicherten Licht einen Schnitt aus. Diese Attacke trifft auch, wenn das Ziel sich selbst schützt.",
+            "it": "Il Pokémon fende il bersaglio con la luce immagazzinata nella testa, ignorando gli effetti delle mosse protettive.",
+            "ko": "머리에 축적된 빛으로 절단한다. 기술 방어를 무시하고 공격할 수 있다.",
+            "zh-Hant": "用積蓄在頭部的光斬斷對手。 可不顧對手的守護進行攻擊。",
+            "zh-Hans": "用积蓄在头部的光来斩切对手。 可以无视守护进行攻击。"
         }
     },
     "Milk Drink": {
@@ -25075,15 +25075,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user performs a perfectly timed triple dive, hitting the target with splashes of water three times in a row.",
-            "ja": "息のあった　飛びこみを　することで 相手に　水しぶきを　あてる。 ３回連続で　ダメージを　与える。",
-            "fr": "Le lanceur effectue des plongeons parfaitement cadencés pour éclabousser la cible et lui infliger des dégâts trois fois d'affilée.",
-            "es": "Ejecuta una inmersión triple en perfecta sincronía que golpea al objetivo con salpicaduras de agua tres veces seguidas.",
-            "de": "Der Anwender taucht mit perfekt abgestimmtem Timing ab und trifft das Ziel mit Wasserspritzern. Dabei richtet er dreimal hintereinander Schaden an.",
-            "it": "Il Pokémon si lancia in un triplo tuffo perfettamente coordinato, colpendo il bersaglio con degli schizzi d'acqua e infliggendogli danni tre volte di fila.",
-            "ko": "호흡이 척척 맞게 다이빙해서 상대에게 물보라를 끼얹는다. 3회 연속으로 데미지를 준다.",
-            "zh-Hant": "默契十足地飛身鑽入水中， 將水花濺向對手。 連續３次給予傷害。",
-            "zh-Hans": "以默契的跳跃溅起水花击向对手。 连续３次给予伤害。"
+            "en": "The user performs a spin attack that can also eliminate the effects of such moves as Bind, Wrap, and Leech Seed. This also poisons opposing Pokémon.",
+            "ja": "回転して　相手を　攻撃する。 しめつける　まきつく　やどりぎのタネ　など 吹きとばす。　相手を　毒状態に　する。",
+            "fr": "Le lanceur attaque en tournant sur lui-même et empoisonne la cible. Il se libère également des effets de capacités comme Étreinte, Ligotage ou Vampigraine.",
+            "es": "Ataque giratorio que envenena al objetivo y anula los efectos de movimientos como Atadura, Constricción y Drenadoras.",
+            "de": "Der Anwender greift mit einer wirbelnden Attacke an, die Gegner auch vergiftet. Befreit den Anwender unter anderem von Wickel, Klammergriff und Egelsamen.",
+            "it": "Attacco rotante che elimina gli effetti di mosse come Legatutto, Avvolgibotta e Parassiseme. Inoltre, avvelena gli avversari.",
+            "ko": "회전해서 상대를 공격한다. 조이기, 김밥말이, 씨뿌리기 등의 효과를 날려 버린다. 상대를 독 상태로 만든다.",
+            "zh-Hant": "藉由旋轉來攻擊對手。 也可以擺脫綁緊、緊束、寄生種子等招式。 讓對手陷入中毒狀態。",
+            "zh-Hans": "通过旋转来攻击对手。 可以摆脱绑紧、紧束、寄生种子 等招式。还能让对手陷入中毒状态。"
         }
     },
     "Mountain Gale": {
@@ -26566,15 +26566,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks by unleashing a peculiar light that even affects the mind. This also harshly lowers the target's Sp. Def stat.",
-            "ja": "精神にも　作用する 奇妙な光を　放って　攻撃する。 相手の　特防を　がくっと　さげる。",
-            "fr": "Le lanceur attaque en émettant une étrange lumière qui ébranle l'esprit de la cible. Cela baisse beaucoup la Défense Spéciale de la cible.",
-            "es": "Ataca proyectando una extraña luz que afecta a la mente. Reduce mucho la Defensa Especial del objetivo.",
-            "de": "Der Anwender greift an, indem er ein sonderbares Licht freisetzt, das sich auch auf die Psyche auswirkt. Zudem wird die Spezial-Verteidigung des Zieles stark gesenkt.",
-            "it": "Il Pokémon attacca sparando una luce bizzarra che agisce anche sulla psiche. Riduce di molto la Difesa Speciale del bersaglio.",
-            "ko": "정신에도 작용하는 기묘한 빛을 발산해서 공격한다. 상대의 특수방어를 크게 떨어뜨린다.",
-            "zh-Hant": "發出對精神也會起作用的 奇異光線進行攻擊。 大幅降低對手的特防。",
-            "zh-Hans": "放出连精神都能影响到的 奇妙怪光进行攻击。 会大幅降低对方的特防。"
+            "en": "The user attacks with elegant poise. If the user has a Tatsugiri in its mouth, this move boosts one of the user's stats based on the Tatsugiri's form.",
+            "ja": "いなせな　身のこなしで　攻撃。 口の中に　シャリタツが　いると そのすがたによって　能力が　あがる。",
+            "fr": "Le lanceur attaque avec adresse et élégance. S'il a un Nigirigon dans la gueule, une de ses stats augmente en fonction de la forme de celui-ci.",
+            "es": "Ataca con porte gallardo. Si lleva un Tatsugiri en la boca, aumenta una de sus características en función de la forma de este último.",
+            "de": "Eine Attacke mit geübten Bewegungen. Trägt der Anwender ein Nigiragi im Maul, erhöht sich je nach dessen Form ein Statuswert des Anwenders.",
+            "it": "Il Pokémon attacca con deliziose movenze. Se ha in bocca un Tatsugiri, una sua statistica aumenta in base alla forma di quest'ultimo.",
+            "ko": "멋들어진 몸놀림으로 공격한다. 입속에 싸리용이 있으면 싸리용의 모습에 따라 능력이 올라간다.",
+            "zh-Hant": "以瀟灑的身段進行攻擊。 若口中有米立龍， 會依米立龍的姿勢而提高不同能力。",
+            "zh-Hans": "以潇洒的身手进行攻击。 若口中有米立龙， 会按其样子提高能力。"
         }
     },
     "Origin Pulse": {
@@ -27979,15 +27979,15 @@
         "isSlicing": true,
         "isWind": false,
         "flavorText": {
-            "en": "The user spins furiously by straining its legs, inflicting damage on the target. This also harshly lowers the user's Speed stat.",
-            "ja": "足に　負荷を　かけることにより 激しく　回転して　ダメージを　与える。 自分の　素早さが　がくっと　さがる。",
-            "fr": "Le lanceur met tout son poids sur ses pattes et effectue de violentes rotations, ce qui inflige des dégâts à la cible, mais baisse beaucoup la Vitesse du lanceur.",
-            "es": "Inflige daño al objetivo ejerciendo presión sobre sus extremidades y girando violentamente sobre sí. Reduce mucho la Velocidad del usuario.",
-            "de": "Der Anwender wirbelt wild umher, indem er sein Gewicht auf seine Extremitäten verlagert, und richtet so Schaden an. Seine eigene Initiative sinkt dadurch stark.",
-            "it": "Il Pokémon infligge danni caricando le estremità e ruotandole vorticosamente. La sua Velocità diminuisce di molto.",
-            "ko": "발에 부하를 걸어 격렬하게 회전하며 데미지를 준다. 자신의 스피드가 크게 떨어진다.",
-            "zh-Hant": "藉由在腳上負重 來劇烈地旋轉並給予傷害。 自己的速度會大幅降低。",
-            "zh-Hans": "通过往腿上增加负荷， 以激烈的旋转给予对手伤害。 自己的速度会大幅降低。"
+            "en": "The user's fellows gather in droves to perform a combo attack that hits the target one to ten times in a row.",
+            "ja": "仲間たちが　わらわらと　集まって コンビネーションで　攻撃を　与えていく。 １ー１０回の　間　連続で　あたる。",
+            "fr": "Le lanceur et ses congénères prolifèrent en masse et attaquent ensemble d'une à dix fois d'affilée.",
+            "es": "Los congéneres del usuario se agrupan y ejecutan un ataque conjunto que golpea al objetivo de una a diez veces seguidas.",
+            "de": "Der Anwender versammelt eine Schar von Artgenossen, die dann geschlossen angreift und das Ziel ein- bis zehnmal hintereinander trifft.",
+            "it": "Il Pokémon si riunisce con i suoi simili in un gruppo brulicante che collabora per attaccare e colpisce da una a dieci volte di fila.",
+            "ko": "여기저기서 동료들을 모아서 화려한 콤비네이션으로 공격한다. 1~10회 연속으로 공격한다.",
+            "zh-Hant": "夥伴們紛紛聚集而來， 以群體形式逐一給予攻擊。 連續命中１～１０次。",
+            "zh-Hans": "伙伴们会纷纷赶来集合， 以群体行动给予对手攻击。 连续命中１～１０次。"
         }
     },
     "Pounce": {
@@ -28029,15 +28029,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user summons a snowstorm lasting five turns. This boosts the Defense stats of Ice types.",
-            "ja": "５ターンの　間　ゆきを　降らせる。 こおりタイプの　防御が　あがる。",
-            "fr": "Le lanceur invoque une tempête de neige qui dure cinq tours, ce qui augmente la Défense des Pokémon de type Glace.",
-            "es": "Desata una nevada que dura cinco turnos y aumenta la Defensa de los Pokémon de tipo Hielo.",
-            "de": "Erzeugt fünf Runden lang Schnee. Dadurch wird die Verteidigung von Eis-Pokémon erhöht.",
-            "it": "Il Pokémon causa una nevicata che dura per cinque turni e aumenta la Difesa dei Pokémon di tipo Ghiaccio.",
-            "ko": "5턴 동안 눈을 내리게 한다. 얼음타입의 방어가 올라간다.",
-            "zh-Hant": "在５回合內會下雪。 冰屬性寶可夢的防禦會提高。",
-            "zh-Hans": "在５回合内会下雪。 冰属性的防御会提高。"
+            "en": "The user attacks by pouncing on the target. This also lowers the target's Speed stat.",
+            "ja": "相手に　飛びついて　攻撃する。 相手の　素早さを　さげる。",
+            "fr": "Le lanceur attaque en bondissant sur la cible, ce qui baisse la Vitesse de celle-ci.",
+            "es": "Ataca abalanzándose sobre el objetivo y le reduce la Velocidad.",
+            "de": "Der Anwender greift an, indem er das Ziel anspringt. Dadurch sinkt auch die Initiative des Zieles.",
+            "it": "Il Pokémon fa un balzo e attacca il bersaglio, riducendone inoltre la Velocità.",
+            "ko": "상대에게 달려들어 공격한다. 상대의 스피드를 떨어뜨린다.",
+            "zh-Hant": "撲向對手進行攻擊。 可降低對手的速度。",
+            "zh-Hans": "飞扑向对手攻击。 会降低对手的速度。"
         }
     },
     "Pound": {
@@ -28799,15 +28799,15 @@
         "isSlicing": true,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks by throwing out a mass of coins. This also lowers the user's Sp. Atk stat. Money is earned after the battle.",
-            "ja": "大量のコインを　ぶちまけて　攻撃。 自分の　特攻が　さがる。 戦闘の　あとで　お金も　もらえる。",
-            "fr": "Le lanceur attaque en lançant de nombreuses pièces, ce qui baisse son Attaque Spéciale. Permet d'obtenir plus d'argent à la fin du combat.",
-            "es": "El usuario ataca arrojando una generosa cantidad de monedas, pero su Ataque Especial se ve reducido. Al finalizar el combate, las recupera en forma de ganancias.",
-            "de": "Der Anwender greift an, indem er Unmengen an Münzen ausschüttet, senkt dabei aber seinen Spezial-Angriff. Das Geld wird nach dem Kampf aufgesammelt.",
-            "it": "Il Pokémon attacca lanciando una gran quantità di monete recuperabili dopo la lotta, ma riduce il proprio Attacco Speciale.",
-            "ko": "대량의 코인을 날려서 공격한다. 자신의 특수공격이 떨어진다. 배틀 후에 돈을 받을 수 있다.",
-            "zh-Hant": "撒出大量硬幣進行攻擊。 自己的特攻會降低。 戰鬥後還可以得到錢。",
-            "zh-Hans": "扔出大量硬币攻击。 自己的特攻会降低， 战斗后还可以拿到钱。"
+            "en": "The user rends the target with an ethereal blade. This move's power is boosted by 50 percent if the user is on Electric Terrain.",
+            "ja": "実体のない刃で　相手を　切り裂く。 エレキフィールドに　いるとき 技の威力が　１．５倍に　なる。",
+            "fr": "Le lanceur lacère la cible à l'aide d'une lame intangible. S'il se trouve dans un champ électrifié, la puissance de cette capacité augmente de 50 %.",
+            "es": "El usuario rebana al objetivo con una espada inmaterial. Cuando se usa en conjunción con un campo eléctrico, la potencia del movimiento aumenta un 50 %.",
+            "de": "Das Ziel wird mit einer immateriellen Klinge angegriffen. Die Stärke der Attacke steigt um 50 %, wenn beim Anwender ein Elektrofeld aktiv ist.",
+            "it": "Il Pokémon falcia il bersaglio con una lama eterea. La potenza della mossa aumenta del 50% quando è attivo un Campo Elettrico.",
+            "ko": "실체가 없는 칼날로 상대를 베어 가른다. 일렉트릭필드 위에 있을 때 기술의 위력이 1.5배가 된다.",
+            "zh-Hant": "用無形的刀刃劈開對手。 在電氣場地時， 招式威力會變成１.５倍。",
+            "zh-Hans": "用无形的利刃劈开对手。 处于电气场地时， 招式威力会变成１．５倍。"
         }
     },
     "Psych Up": {
@@ -28984,15 +28984,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user electrifies its body and drops onto the target to inflict damage. If this move misses, the user takes damage instead.",
-            "ja": "体を　帯電させて　相手に　のしかかる。 はずすと　自分が　ダメージを　受ける。",
-            "fr": "Le lanceur se charge en électricité et fond sur la cible. S'il échoue, le lanceur se blesse.",
-            "es": "El usuario electrifica su cuerpo y salta en plancha sobre el objetivo. Si falla, se hiere a sí mismo.",
-            "de": "Der Anwender lädt seinen Körper mit elektrischer Energie auf und stürzt sich auf das Ziel. Bei Misserfolg verletzt sich der Anwender selbst.",
-            "it": "Il Pokémon si schianta sul bersaglio dopo essersi elettrificato. Se la mossa fallisce, il Pokémon subisce dei danni.",
-            "ko": "몸에 전기를 두르고 상대를 덮친다. 빗나가면 자신이 데미지를 입는다.",
-            "zh-Hant": "讓身體帶電然後壓向對手。 沒命中對手時自己會受到傷害。",
-            "zh-Hans": "让身体带电后压向对手。 如果没有命中则自己会受到伤害。"
+            "en": "The user attacks the target with unpleasant sound waves. For two turns, the target is prevented from recovering HP through moves, Abilities, or held items.",
+            "ja": "不快な音波を　相手に　浴びせて　攻撃。 ２ターンの間　技や　特性や　持っている 道具によって　ＨＰを　回復できなくなる。",
+            "fr": "Le lanceur attaque avec des ondes sonores dissonantes. Cela empêche la cible de récupérer des PV à l'aide de capacités, talents ou objets tenus pendant deux tours.",
+            "es": "Ataca emitiendo una onda sonora desagradable que impide al objetivo usar movimientos, habilidades y objetos equipados que recuperan PS durante dos turnos.",
+            "de": "Der Anwender greift mit unerträglichen Schallwellen an, wodurch das Ziel zwei Runden lang nicht durch Attacken, Fähigkeiten oder getragene Items geheilt werden kann.",
+            "it": "Il Pokémon investe il bersaglio con insopportabili onde sonore che gli impediscono di recuperare PS con mosse, abilità o strumenti che ha con sé per due turni.",
+            "ko": "불쾌한 음파를 상대에게 날려서 공격한다. 2턴 동안 상대는 기술이나 특성 또는 지니고 있는 도구로 HP를 회복할 수 없게 된다.",
+            "zh-Hant": "用令人不快的音波攻擊對手， 使對手在２回合內變得無法透過 招式、特性或攜帶的道具回復ＨＰ。",
+            "zh-Hans": "用令对手不舒服的音波进行攻击。 让对手在２回合内无法通过 招式、特性或携带的道具回复ＨＰ。"
         }
     },
     "Psychic Terrain": {
@@ -29862,15 +29862,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user shoots mystical beams from its eyes to inflict damage. The target is hit twice in a row.",
-            "ja": "両目から　不可思議な 光線を　発射して　攻撃する。 ２回連続で　ダメージを　与える。",
-            "fr": "Le lanceur projette d'étranges rayons lumineux avec ses yeux et inflige des dégâts deux fois d'affilée.",
-            "es": "Ataca emitiendo dos misteriosos haces lumínicos por los ojos que infligen daño dos veces seguidas.",
-            "de": "Der Anwender greift mit übernatürlichen Lichtstrahlen an, die er aus seinen Augen abfeuert, und trifft das Ziel zweimal hintereinander.",
-            "it": "Il Pokémon attacca il bersaglio con misteriosi raggi di luce emessi dagli occhi che infliggono danni due volte di fila.",
-            "ko": "두 눈에서 불가사의한 광선을 발사해서 공격한다. 2회 연속으로 데미지를 준다.",
-            "zh-Hant": "從雙眼發射不可思議的 光線進行攻擊。 連續２次給予傷害。",
-            "zh-Hans": "从两眼发射出神奇的光线攻击。 连续２次给予伤害。"
+            "en": "The user converts its rage into energy to attack. The more times the user has been hit by attacks, the greater the move's power.",
+            "ja": "怒りを　エネルギーに　変えて　攻撃。 受けた　攻撃の　回数が　多いほど 技の　威力が　あがる。",
+            "fr": "Le lanceur transforme sa colère en énergie pour attaquer. Plus il a subi d'attaques, plus la puissance de cette capacité augmente.",
+            "es": "Convierte su rabia en energía para atacar. Cuantos más golpes haya recibido el usuario, mayor será la potencia del movimiento.",
+            "de": "Ein Angriff, für den der Anwender seinen Zorn in Energie umwandelt. Je häufiger der Anwender getroffen wurde, desto stärker wird diese Attacke.",
+            "it": "Il Pokémon trasforma la sua furia in energia e la utilizza per attaccare. Più attacchi ha subito il Pokémon, più la potenza della mossa aumenta.",
+            "ko": "분노를 에너지로 바꿔서 공격한다. 받은 공격의 횟수가 많을수록 기술의 위력이 올라간다.",
+            "zh-Hant": "將憤怒化為能量進行攻擊。 受到的攻擊次數越多， 招式的威力越大。",
+            "zh-Hans": "将愤怒化为力量攻击。 受到攻击的次数越多， 招式的威力越高。"
         }
     },
     "Rage Powder": {
@@ -29952,15 +29952,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user toys with the target and attacks it using light and fluid dance steps. This also boosts the user's Speed stat.",
-            "ja": "水もしたたる　かろやかな　足どりで 相手を　翻弄し　ダメージを　与える。 自分の　素早さを　あげる。",
-            "fr": "Le lanceur se joue de la cible et lui inflige des dégâts avec ses pas de danse gracieux et légers. Cette capacité augmente la Vitesse du lanceur.",
-            "es": "Juguetea con el objetivo mientras ejecuta una elegante y fluida danza y le inflige daño. Aumenta la Velocidad del usuario.",
-            "de": "Der Anwender neckt das Ziel mit flinken, fließenden Tanzschritten und greift es dann an. Dadurch steigt auch die Initiative des Anwenders.",
-            "it": "Il Pokémon si prende gioco del bersaglio con passi di danza leggiadri e fluidi come l'acqua, infliggendogli danni. Inoltre, la sua Velocità aumenta.",
-            "ko": "물 흐르듯 민첩하고 경쾌한 발재간으로 상대를 농락하며 데미지를 준다. 자신의 스피드를 올린다.",
-            "zh-Hant": "以盈盈欲滴的輕巧步伐 戲弄對手，給予傷害。 會提高自己的速度。",
-            "zh-Hans": "以盈盈欲滴的轻快步伐 戏耍对手并给予其伤害。 会提高自己的速度。"
+            "en": "The user performs a tackle like a raging bull. This move's type depends on the user's form. It can also break barriers, such as Light Screen and Reflect.",
+            "ja": "怒り狂う　あばれうしの　猛烈な　タックル。 フォルムで　技のタイプが　変わり ひかりのかべや　リフレクターなども　破壊できる。",
+            "fr": "Le lanceur charge la cible comme un taureau enragé. Le type de cette capacité dépend de la race du lanceur, et brise les barrières comme Mur Lumière et Protection.",
+            "es": "Embiste con tremenda fiereza. Este movimiento cambia de tipo en función de la variedad del usuario y es capaz de destruir barreras como Pantalla de Luz y Reflejo.",
+            "de": "Ein rasender Angriff eines wilden Stiers, der auch Barrieren wie Lichtschild und Reflektor durchbricht. Der Attacken-Typ hängt von der Form des Anwenders ab.",
+            "it": "Il Pokémon carica il bersaglio con furia cieca, rompendo barriere come Schermoluce e Riflesso. Il tipo di questa mossa dipende dalla forma di chi la usa.",
+            "ko": "분노해 날뛰는 성난소의 맹렬한 태클. 폼에 따라 기술의 타입이 달라지고 빛의장막이나 리플렉터 등도 파괴할 수 있다.",
+            "zh-Hant": "憤怒狂亂的暴牛發動之猛烈衝撞。 招式的屬性會依形態而改變， 並可破壞光牆和反射壁等。",
+            "zh-Hans": "狂怒暴牛的猛烈冲撞。 招式的属性随形态改变， 光墙和反射壁等招式也能破坏。"
         }
     },
     "Raging Fury": {
@@ -30817,15 +30817,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user throws its entire body into a reckless charge. After this move is used, attacks on the user cannot miss and will inflict double damage until the user's next turn.",
-            "ja": "体を　投げだす　無謀な突撃。 技のあと　相手からの　攻撃は　必ず 命中し　ダメージが　２倍に　なってしまう。",
-            "fr": "Le lanceur se jette dans une charge inconsciente sur la cible. Une fois cette capacité utilisée, toute attaque sur le lanceur inflige le double de dégâts et n'échoue jamais.",
-            "es": "Embiste de forma temeraria con todo el cuerpo. Los ataques que reciba antes de su siguiente turno no fallarán y causarán el doble de daño.",
-            "de": "Der Anwender stürzt sich waghalsig auf das Ziel. Bis zum nächsten Zug des Anwenders treffen ihn gegnerische Angriffe garantiert und richten doppelten Schaden an.",
-            "it": "Il Pokémon si lancia in una carica avventata. Fino al suo prossimo turno, il Pokémon riceverà il doppio dei danni dagli attacchi altrui, che andranno sempre a segno.",
-            "ko": "몸을 내던지는 무모한 돌격. 기술을 사용한 다음, 상대의 공격이 반드시 명중하고 데미지를 2배로 입게 된다.",
-            "zh-Hant": "豁出己身的魯莽突擊。 使出招式後對手的攻擊必定會命中， 且傷害會變成２倍。",
-            "zh-Hans": "有勇无谋的舍身突击。 使出招式后，对手的攻击必定 会命中，且伤害会变成２倍。"
+            "en": "The user bestows a loving blessing, reviving a party Pokémon that has fainted and restoring half that Pokémon's max HP.",
+            "ja": "慈愛の心で　いのることにより 控えにいる　ひんしの　ポケモンを ＨＰを　半分の状態で　復活させる。",
+            "fr": "Dans un élan de compassion, le lanceur adresse une prière afin de ranimer un Pokémon de l'équipe K.O. en lui rendant la moitié de ses PV.",
+            "es": "Pronuncia una benévola oración que revive a un Pokémon del equipo que se haya debilitado y restaura la mitad de sus PS máximos.",
+            "de": "Der Anwender belebt mit einem Wunsch voller Mitgefühl ein kampfunfähiges Team-Mitglied wieder und stellt die Hälfte dessen maximaler KP wieder her.",
+            "it": "Il Pokémon intona una preghiera compassionevole, rianimando un Pokémon della squadra esausto e restituendogli metà dei suoi PS.",
+            "ko": "자애로운 마음으로 기도를 하여 기절한 교대 포켓몬을 HP가 절반인 상태로 부활시킨다.",
+            "zh-Hant": "懷著慈愛之心祈禱， 使後備中瀕死的寶可夢 以一半的ＨＰ復活。",
+            "zh-Hans": "通过以慈爱之心祈祷， 让陷入昏厥的后备宝可梦 以回复一半ＨＰ的状态复活。"
         }
     },
     "Rising Voltage": {
@@ -31642,15 +31642,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user blasts the target with boiling-hot water. This move's power is not lowered in harsh sunlight but rather boosted by 50 percent.",
-            "ja": "煮えたぎる水を　勢いよく　浴びせる。 日差しが　強いとき　技の威力が さがるどころか　１．５倍に　なる。",
-            "fr": "Le lanceur asperge la cible avec un puissant jet d'eau bouillante. Quand le soleil brille, la puissance de cette capacité augmente de 50 % au lieu de baisser.",
-            "es": "Vierte agua hirviendo sobre el objetivo. Cuando hace sol, la potencia del movimiento aumenta un 50 % en lugar de reducirse.",
-            "de": "Das Ziel wird kraftvoll mit brodelndem Wasser übergossen. Wider Erwarten sinkt die Stärke der Attacke bei starkem Sonnenlicht nicht, sondern steigt um 50 %.",
-            "it": "Il Pokémon ricopre con forza il bersaglio di acqua bollente. Con la luce solare intensa, la potenza di questa mossa aumenta del 50% anziché diminuire.",
-            "ko": "펄펄 끓는 물을 기세 좋게 뿜어낸다. 햇살이 강할 때 기술의 위력이 떨어지기는커녕 1.5배가 된다.",
-            "zh-Hant": "將滾燙的水猛烈地噴向對手。 日照很強時，招式威力不但 不會降低，還會變成１.５倍。",
-            "zh-Hans": "将煮得翻滚的开水猛烈地喷向对手。 日照强烈时，招式威力不但 不会降低，还会变成１．５倍。"
+            "en": "The user summons a ruinous disaster. This cuts the target's HP in half.",
+            "ja": "破滅的な　災厄を　巻き起こし 相手の　ＨＰを　半分に　する。",
+            "fr": "Le lanceur déclenche un cataclysme qui baisse les PV de la cible de moitié.",
+            "es": "Provoca una catástrofe devastadora que reduce a la mitad los PS del objetivo.",
+            "de": "Der Anwender beschwört Verderben bringendes Unheil herauf und halbiert die KP des Zieles.",
+            "it": "Il Pokémon invoca una terribile disgrazia, dimezzando i PS del bersaglio.",
+            "ko": "파멸적인 재앙에 휩쓸리게 하여 상대의 HP를 절반으로 만든다.",
+            "zh-Hant": "捲起破滅之災厄， 使對手的ＨＰ減半。",
+            "zh-Hans": "引发毁灭性的灾厄， 使对手的ＨＰ减半。"
         }
     },
     "Sacred Fire": {
@@ -31822,15 +31822,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user bestows a loving blessing, reviving a party Pokémon that has fainted and restoring half that Pokémon's max HP.",
-            "ja": "慈愛の心で　いのることにより 控えにいる　ひんしの　ポケモンを ＨＰを　半分の状態で　復活させる。",
-            "fr": "Dans un élan de compassion, le lanceur adresse une prière afin de ranimer un Pokémon de l'équipe K.O. en lui rendant la moitié de ses PV.",
-            "es": "Pronuncia una benévola oración que revive a un Pokémon del equipo que se haya debilitado y restaura la mitad de sus PS máximos.",
-            "de": "Der Anwender belebt mit einem Wunsch voller Mitgefühl ein kampfunfähiges Team-Mitglied wieder und stellt die Hälfte dessen maximaler KP wieder her.",
-            "it": "Il Pokémon intona una preghiera compassionevole, rianimando un Pokémon della squadra esausto e restituendogli metà dei suoi PS.",
-            "ko": "자애로운 마음으로 기도를 하여 기절한 교대 포켓몬을 HP가 절반인 상태로 부활시킨다.",
-            "zh-Hant": "懷著慈愛之心祈禱， 使後備中瀕死的寶可夢 以一半的ＨＰ復活。",
-            "zh-Hans": "通过以慈爱之心祈祷， 让陷入昏厥的后备宝可梦 以回复一半ＨＰ的状态复活。"
+            "en": "The user salt cures the target, inflicting damage every turn. Steel and Water types are more strongly affected by this move.",
+            "ja": "相手を　しおづけ状態に　して 毎ターン　ダメージを　与える。 はがね　みずタイプは　より　苦しむ。",
+            "fr": "Le lanceur couvre la cible de sel, ce qui lui inflige des dégâts à chaque tour. Si la cible est de type Acier ou Eau, ces dégâts sont plus élevés.",
+            "es": "Deja en salazón al objetivo, que pierde PS cada turno. Afecta especialmente a Pokémon de tipo Acero y tipo Agua.",
+            "de": "Der Anwender pökelt das Ziel mit Salz ein, wodurch dieses jede Runde Schaden erleidet. Stahl- und Wasser-Pokémon leiden besonders darunter.",
+            "it": "Il Pokémon mette sotto sale il bersaglio, infliggendogli danni a ogni turno. I Pokémon di tipo Acciaio e di tipo Acqua sono particolarmente vulnerabili a questa mossa.",
+            "ko": "상대를 소금절이 상태로 만들어 매 턴 데미지를 준다. 강철타입이나 물타입에게 더 고통스럽다.",
+            "zh-Hant": "讓對手陷入鹽醃狀態， 每回合都會受到傷害。 鋼、水屬性的寶可夢還會更痛苦。",
+            "zh-Hans": "使对手陷入盐腌状态， 每回合给予对手伤害。 对手为钢或水属性时会更痛苦。"
         }
     },
     "Sand Attack": {
@@ -33210,15 +33210,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user races forward at ultrafast speeds, piercing its target with futuristic electricity. This move's power is boosted more than usual if it's a supereffective hit.",
-            "ja": "変形しながら　超高速で　走行し 未知なる　電撃が　相手を　つらぬく。 弱点をつくと　さらに　威力が　増す。",
-            "fr": "Le lanceur change de forme et fonce sur la cible en la perforant d'électricité futuriste. Si la capacité est super efficace, sa puissance augmente encore plus que d'habitude.",
-            "es": "Se abalanza sobre el objetivo mientras se transforma y lo atraviesa con electricidad futurista. La potencia del movimiento aumenta si el ataque es supereficaz.",
-            "de": "Der Anwender wechselt bei rasantem Tempo seine Form und trifft das Ziel mit einem futuristischen Elektroschlag. Ist die Attacke sehr effektiv, steigt ihre Stärke noch mehr.",
-            "it": "Il Pokémon saetta mentre si trasforma, trafiggendo il bersaglio con una scossa futuristica. La potenza della mossa aumenta se questa è superefficace sul bersaglio.",
-            "ko": "변형하며 초고속으로 달려서 미지의 전격으로 상대를 관통한다. 약점인 상대에게는 위력이 더욱 올라간다.",
-            "zh-Hant": "一邊變形，一邊以超高速度奔馳， 未知的電流將貫穿對手。 打到弱點時威力會更為增加。",
-            "zh-Hans": "边变形边高速奔走， 并以未知的电击贯穿对手。 若针对到弱点，威力会进一步。"
+            "en": "The user creates a substitute for itself using its own HP before switching places with a party Pokémon in waiting.",
+            "ja": "自分の　ＨＰを　削って 分身を　だしたあと　もどってきて 控えの　ポケモンと　入れ替わる。",
+            "fr": "Le lanceur crée un clone en sacrifiant des PV, puis il revient et échange sa place avec un Pokémon de l'équipe prêt à combattre.",
+            "es": "El usuario se cambia por otro Pokémon del equipo, pero antes utiliza parte de los PS propios para crear un sustituto para su relevo.",
+            "de": "Der Anwender setzt seine KP ein, um einen Doppelgänger zu erzeugen, und tauscht dann den Platz mit einem anderen Pokémon.",
+            "it": "Chi la usa crea una copia di se stesso usando parte dei suoi PS e si fa sostituire da un altro Pokémon della squadra.",
+            "ko": "자신의 HP를 깎아서 분신을 만든 뒤, 돌아와서 교대 포켓몬과 교체한다.",
+            "zh-Hant": "削減自己的ＨＰ， 製造分身後返回， 和後備寶可夢進行替換。",
+            "zh-Hans": "削减自己的ＨＰ， 制造分身后会返回， 并和后备宝可梦进行替换。"
         }
     },
     "Sheer Cold": {
@@ -33695,15 +33695,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "Inflicts damage with the user's Attack or Sp. Atk stat— whichever is higher. Super effective against Terastallized targets. This lowers the user's Attack and Sp. Atk stats.",
-            "ja": "攻撃と　特攻　高いほうで　ダメージを　与える。 相手が　テラスタルだと　効果は　バツグン。 自分の　攻撃と　特攻が　さがる。",
-            "fr": "Utilise l'Attaque ou l'Atq. Spé., selon ce qui infligera le plus de dégâts. Super efficace si la cible est téracristallisée. Baisse l'Attaque et l'Atq. Spé. du lanceur.",
-            "es": "Inflige daño con el valor más alto entre Ataque y Ataque Especial, pero reduce ambas características del usuario. Si el objetivo se ha teracristalizado, es supereficaz.",
-            "de": "Verursacht Schaden mit Angriffs- oder Sp.-Ang.-Wert, je nachdem, welcher höher ist. Ang. und Sp.-Ang. des Anw. sinken. Sehr effektiv gegen terakristallisierte Ziele.",
-            "it": "Il Pokémon infligge danni in base al più alto tra Attacco o Attacco Speciale, ma entrambi diminuiscono. La mossa è superefficace se il bersaglio è teracristallizzato.",
-            "ko": "공격과 특수공격 중 높은 쪽으로 데미지를 준다. 상대가 테라스탈 중이면 효과가 굉장해진다. 자신의 공격과 특수공격이 떨어진다.",
-            "zh-Hant": "用攻擊和特攻中數值較高的一方攻擊。 對手處於太晶化時效果絕佳。 自己的攻擊和特攻會降低。",
-            "zh-Hans": "用攻击和特攻数值较高的一项给予伤害。 对正处于太晶化的对手效果绝佳。 自己的攻击和特攻会降低。"
+            "en": "The user spins a silken trap, protecting itself from damage while lowering the Speed stat of any attacker that makes direct contact.",
+            "ja": "糸の罠を　はりめぐらせる。 相手の　攻撃を　防ぐと　同時に 触れた　相手の　素早さを　さげる。",
+            "fr": "Le lanceur déploie un piège de fil pour se protéger contre les attaques, et si un assaillant utilise une attaque directe contre lui, la Vitesse de l'assaillant baisse.",
+            "es": "Tiende una trampa sedosa que protege al usuario de los ataques al tiempo que reduce la Velocidad de cualquier Pokémon con el que entre en contacto.",
+            "de": "Der Anwender spannt eine Falle aus Fäden und wird so vor Angriffen geschützt. Berührt ihn nun ein Angreifer, sinkt dessen Initiative.",
+            "it": "Il Pokémon tesse una trappola di tela che lo protegge dagli attacchi e riduce la Velocità di chi entra in contatto con lui.",
+            "ko": "실로 함정을 만들어 둘러친다. 상대의 공격을 막음과 동시에 접촉한 상대의 스피드를 떨어뜨린다.",
+            "zh-Hant": "布下線製成的陷阱。 防住對手攻擊的同時， 降低接觸到的對手的速度。",
+            "zh-Hans": "用丝设置陷阱。 防住对方攻击的同时， 能够降低所接触到的对手的速度。"
         }
     },
     "Silver Wind": {
@@ -35126,15 +35126,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user tidies up and removes the effects of Spikes, Stealth Rock, Sticky Web, Toxic Spikes, and Substitute. This also boosts the user's Attack and Speed stats.",
-            "ja": "まきびし　ステルスロック　ねばねばネット どくびし　みがわりを　すべて　かたづける。 自分の　攻撃と　素早さが　あがる。",
-            "fr": "Le lanceur fait le ménage sur le terrain, ce qui annule les effets de Picots, Piège de Roc, Toile Gluante, Pics Toxik, et Clonage. Augmente l'Attaque et la Vitesse du lanceur.",
-            "es": "Efectúa una limpieza a fondo que anula los efectos de Púas, Trampa Rocas, Red Viscosa, Púas Tóxicas y Sustituto. Aumenta el Ataque y la Velocidad del usuario.",
-            "de": "Die Effekte von Stachler, Tarnsteine, Klebenetz, Giftspitzen und Delegator werden aufgehoben. Zudem steigen der Angriff und die Initiative des Anwenders.",
-            "it": "Il Pokémon fa le pulizie, annullando gli effetti di Punte, Levitoroccia, Rete Vischiosa, Fielepunte e Sostituto. Inoltre, aumenta il suo Attacco e la sua Velocità.",
-            "ko": "압정뿌리기, 스텔스록, 끈적끈적네트, 독압정, 대타출동을 모두 정리한다. 자신의 공격과 스피드가 올라간다.",
-            "zh-Hant": "將撒菱、隱形岩、黏黏網、 毒菱、替身全部清理乾淨。 自己的攻擊和速度會提高。",
-            "zh-Hans": "将撒菱、隐形岩、黏黏网、 毒菱、替身全部扫除掉。 自己的攻击和速度会提高。"
+            "en": "The user summons a snowstorm lasting five turns. This boosts the Defense stats of Ice types.",
+            "ja": "５ターンの　間　ゆきを　降らせる。 こおりタイプの　防御が　あがる。",
+            "fr": "Le lanceur invoque une tempête de neige qui dure cinq tours, ce qui augmente la Défense des Pokémon de type Glace.",
+            "es": "Desata una nevada que dura cinco turnos y aumenta la Defensa de los Pokémon de tipo Hielo.",
+            "de": "Erzeugt fünf Runden lang Schnee. Dadurch wird die Verteidigung von Eis-Pokémon erhöht.",
+            "it": "Il Pokémon causa una nevicata che dura per cinque turni e aumenta la Difesa dei Pokémon di tipo Ghiaccio.",
+            "ko": "5턴 동안 눈을 내리게 한다. 얼음타입의 방어가 올라간다.",
+            "zh-Hant": "在５回合內會下雪。 冰屬性寶可夢的防禦會提高。",
+            "zh-Hans": "在５回合内会下雪。 冰属性的防御会提高。"
         }
     },
     "Soak": {
@@ -35720,15 +35720,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user summons a torrent around its fist and punches at blinding speed. This move always goes first.",
-            "ja": "激流を　こぶしに　まとって 目にも　留まらぬ　パンチを　くりだす。 必ず　先制攻撃　できる。",
-            "fr": "Le lanceur enveloppe son poing d'un torrent furieux et attaque si rapidement qu'on peine à le discerner. Frappe en priorité.",
-            "es": "Se envuelve el puño con un torrente y propina un golpe a tal velocidad que resulta casi imperceptible. Este movimiento tiene prioridad alta.",
-            "de": "Bei dieser Erstschlag-Attacke hüllt der Anwender seine Faust in einen Strudel und greift mit einem extrem schnellen Hieb an.",
-            "it": "Il Pokémon avvolge il pugno in una corrente impetuosa e sferra un colpo a una tale velocità da rendersi quasi invisibile. Questo attacco ha priorità alta.",
-            "ko": "거센 물살을 주먹에 둘러 눈에 보이지 않는 속도로 펀치를 날린다. 반드시 선제공격할 수 있다.",
-            "zh-Hant": "讓激流圍繞在拳頭上， 以迅雷不及掩耳之勢出拳。 必定能夠發動先制攻擊。",
-            "zh-Hans": "将激流覆盖于拳头， 以肉眼无法辨识的速度打出拳击。 必定能够先制攻击。"
+            "en": "The user emits an incredibly spicy extract, sharply boosting the target's Attack stat and harshly lowering the target's Defense stat.",
+            "ja": "とんでもなく　辛いエキスを　出す。 相手の　攻撃が　ぐーんと　あがり 防御が　がくっと　さがる。",
+            "fr": "Le lanceur relâche un concentré extrêmement pimenté sur la cible, ce qui augmente beaucoup l'Attaque de celle-ci, mais baisse aussi beaucoup sa Défense.",
+            "es": "Libera un extracto extraordinariamente picante que aumenta mucho el Ataque del objetivo, pero también reduce mucho su Defensa.",
+            "de": "Der Anwender setzt eine unglaublich scharfe Essenz frei, die den Angriff des Zieles stark erhöht, aber seine Verteidigung stark senkt.",
+            "it": "Il Pokémon secerne un'essenza straordinariamente piccante. Aumenta di molto l'Attacco del bersaglio ma ne diminuisce di molto la Difesa.",
+            "ko": "어마어마하게 매운 엑기스를 발사한다. 상대의 공격이 크게 오르고 방어는 크게 떨어진다.",
+            "zh-Hant": "放出相當強勁的辣味精華。 對手的攻擊會大幅提高， 防禦會大幅降低。",
+            "zh-Hans": "放出极为辛辣的精华。 对手的攻击会大幅提高， 防御会大幅降低。"
         }
     },
     "Spider Web": {
@@ -35950,15 +35950,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user emits an incredibly spicy extract, sharply boosting the target's Attack stat and harshly lowering the target's Defense stat.",
-            "ja": "とんでもなく　辛いエキスを　出す。 相手の　攻撃が　ぐーんと　あがり 防御が　がくっと　さがる。",
-            "fr": "Le lanceur relâche un concentré extrêmement pimenté sur la cible, ce qui augmente beaucoup l'Attaque de celle-ci, mais baisse aussi beaucoup sa Défense.",
-            "es": "Libera un extracto extraordinariamente picante que aumenta mucho el Ataque del objetivo, pero también reduce mucho su Defensa.",
-            "de": "Der Anwender setzt eine unglaublich scharfe Essenz frei, die den Angriff des Zieles stark erhöht, aber seine Verteidigung stark senkt.",
-            "it": "Il Pokémon secerne un'essenza straordinariamente piccante. Aumenta di molto l'Attacco del bersaglio ma ne diminuisce di molto la Difesa.",
-            "ko": "어마어마하게 매운 엑기스를 발사한다. 상대의 공격이 크게 오르고 방어는 크게 떨어진다.",
-            "zh-Hant": "放出相當強勁的辣味精華。 對手的攻擊會大幅提高， 防禦會大幅降低。",
-            "zh-Hans": "放出极为辛辣的精华。 对手的攻击会大幅提高， 防御会大幅降低。"
+            "en": "The user spins furiously by straining its legs, inflicting damage on the target. This also harshly lowers the user's Speed stat.",
+            "ja": "足に　負荷を　かけることにより 激しく　回転して　ダメージを　与える。 自分の　素早さが　がくっと　さがる。",
+            "fr": "Le lanceur met tout son poids sur ses pattes et effectue de violentes rotations, ce qui inflige des dégâts à la cible, mais baisse beaucoup la Vitesse du lanceur.",
+            "es": "Inflige daño al objetivo ejerciendo presión sobre sus extremidades y girando violentamente sobre sí. Reduce mucho la Velocidad del usuario.",
+            "de": "Der Anwender wirbelt wild umher, indem er sein Gewicht auf seine Extremitäten verlagert, und richtet so Schaden an. Seine eigene Initiative sinkt dadurch stark.",
+            "it": "Il Pokémon infligge danni caricando le estremità e ruotandole vorticosamente. La sua Velocità diminuisce di molto.",
+            "ko": "발에 부하를 걸어 격렬하게 회전하며 데미지를 준다. 자신의 스피드가 크게 떨어진다.",
+            "zh-Hant": "藉由在腳上負重 來劇烈地旋轉並給予傷害。 自己的速度會大幅降低。",
+            "zh-Hans": "通过往腿上增加负荷， 以激烈的旋转给予对手伤害。 自己的速度会大幅降低。"
         }
     },
     "Spirit Break": {
@@ -37829,15 +37829,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "Spurred by desperation, the user attacks the target. This move's power is doubled if the user's previous move failed.",
-            "ja": "自棄になった　勢いで　攻撃する。 前の　ターンに　技を　外していると 威力が　倍に　なる。",
-            "fr": "Le lanceur utilise la force de son dépit pour attaquer. S'il a utilisé une capacité qui a échoué au tour précédent, la puissance d'Indignition est doublée.",
-            "es": "Arremete contra el objetivo tras dejarse llevar por la ira. Su potencia se duplica si el movimiento del usuario falló en el turno anterior.",
-            "de": "Der Anwender greift das Ziel voller Verzweiflung an. Wenn seine vorige Attacke fehlgeschlagen ist, verdoppelt sich die Stärke der Attacke.",
-            "it": "Il Pokémon attacca con l'impeto di chi è pronto a tutto. Se la mossa usata al turno precedente non è andata a segno, la potenza raddoppia.",
-            "ko": "자포자기하는 기세로 공격한다. 앞 턴에서 기술이 빗나갔다면 위력이 배가 된다.",
-            "zh-Hant": "用自暴自棄的狠勁攻擊對手。 如果上一回合的招式沒有命中， 威力就會加倍。",
-            "zh-Hans": "以自暴自弃的气势进行攻击。 如果上一回合招式没有命中， 威力就会翻倍。"
+            "en": "The user electrifies its body and drops onto the target to inflict damage. If this move misses, the user takes damage instead.",
+            "ja": "体を　帯電させて　相手に　のしかかる。 はずすと　自分が　ダメージを　受ける。",
+            "fr": "Le lanceur se charge en électricité et fond sur la cible. S'il échoue, le lanceur se blesse.",
+            "es": "El usuario electrifica su cuerpo y salta en plancha sobre el objetivo. Si falla, se hiere a sí mismo.",
+            "de": "Der Anwender lädt seinen Körper mit elektrischer Energie auf und stürzt sich auf das Ziel. Bei Misserfolg verletzt sich der Anwender selbst.",
+            "it": "Il Pokémon si schianta sul bersaglio dopo essersi elettrificato. Se la mossa fallisce, il Pokémon subisce dei danni.",
+            "ko": "몸에 전기를 두르고 상대를 덮친다. 빗나가면 자신이 데미지를 입는다.",
+            "zh-Hant": "讓身體帶電然後壓向對手。 沒命中對手時自己會受到傷害。",
+            "zh-Hans": "让身体带电后压向对手。 如果没有命中则自己会受到伤害。"
         }
     },
     "Superpower": {
@@ -38528,15 +38528,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user fires a blast of tea that it mixed. The user's HP is restored by up to half the damage taken by the target. This may also leave the target with a burn.",
-            "ja": "かきまぜた　お茶の　大砲は　与えた ダメージの　半分の　ＨＰを　回復して やけど状態に　することも　ある。",
-            "fr": "Le lanceur remue son thé et en bombarde la cible. La moitié des dégâts infligés sont convertis en PV pour le lanceur. Cette capacité peut aussi brûler la cible.",
-            "es": "Rocía al objetivo con té recién batido y recupera la mitad de los PS del daño que produce. Puede causar quemaduras.",
-            "de": "Der Anwender verschießt gequirlten Tee. Die Hälfte des zugefügten Schadens wird ihm als KP gutgeschrieben. Das Ziel erleidet eventuell Verbrennungen.",
-            "it": "Il Pokémon attacca mescolando del tè e spruzzandolo, recuperando una quantità di PS pari alla metà del danno inflitto. Può anche scottare il bersaglio.",
-            "ko": "휘저은 차를 대포처럼 발사해 준 데미지의 절반을 HP로 회복한다. 화상 상태로 만들 때도 있다.",
-            "zh-Hant": "像大炮般發射攪拌過的茶。 可以回復給予對手傷害的一半ＨＰ， 有時還會讓對手陷入灼傷狀態。",
-            "zh-Hans": "发射经搅拌的茶的大炮， 可以回复给予对手伤害的一半ＨＰ， 有时会让对手陷入灼伤状态。"
+            "en": "The user sets off an explosion of sticky candy syrup, which coats the target and causes the target's Speed stat to drop each turn for three turns.",
+            "ja": "ねっとりした　みずあめを　爆発させ 相手を　あめまみれ　状態に　して ３ターンの間　素早さを　さげ続ける。",
+            "fr": "Le lanceur jette une bombe qui recouvre la cible de sirop gluant et fait progressivement baisser la Vitesse de la cible pendant trois tours.",
+            "es": "Impregna al objetivo con una explosión de su viscoso néctar y lo carameliza, lo que hace que su Velocidad se reduzca progresivamente durante tres turnos.",
+            "de": "Der Anwender feuert eine klebrige Sirupbombe auf das Ziel, wodurch es in Sirup gehüllt und seine Initiative drei Runden in Folge gesenkt wird.",
+            "it": "Il Pokémon fa esplodere dello sciroppo viscoso sul bersaglio, ricoprendolo e facendogli diminuire la Velocità per tre turni.",
+            "ko": "끈적끈적한 물엿을 폭발시킨다. 상대를 물엿범벅 상태로 만들어서 3턴 동안 계속 스피드를 떨어뜨린다.",
+            "zh-Hant": "使黏稠的糖漿爆炸， 使對手陷入滿身糖狀態， 在３回合內持續降低對手的速度。",
+            "zh-Hans": "使粘稠的麦芽糖浆爆炸， 让对手陷入满身糖状态， 在３回合内持续降低其速度。"
         }
     },
     "Tachyon Cutter": {
@@ -38573,15 +38573,15 @@
         "isSlicing": true,
         "isWind": false,
         "flavorText": {
-            "en": "The user wields the light that has accumulated atop its head to cleave the target. This move hits even if the target protects itself.",
-            "ja": "頭部に　蓄積した　光で　切断する。 守りを　無視して　攻撃できる。",
-            "fr": "Le lanceur pourfend la cible avec la lumière accumulée sur sa tête. Cette attaque passe outre les protections.",
-            "es": "Rebana al objetivo con la luz que ha acumulado en la testa. Permite acertar aunque el objetivo esté protegiéndose.",
-            "de": "Der Anwender führt mit dem in seinem Kopf gespeicherten Licht einen Schnitt aus. Diese Attacke trifft auch, wenn das Ziel sich selbst schützt.",
-            "it": "Il Pokémon fende il bersaglio con la luce immagazzinata nella testa, ignorando gli effetti delle mosse protettive.",
-            "ko": "머리에 축적된 빛으로 절단한다. 기술 방어를 무시하고 공격할 수 있다.",
-            "zh-Hant": "用積蓄在頭部的光斬斷對手。 可不顧對手的守護進行攻擊。",
-            "zh-Hans": "用积蓄在头部的光来斩切对手。 可以无视守护进行攻击。"
+            "en": "The user attacks by launching particle blades at the target twice in a row. This attack never misses.",
+            "ja": "粒子の刃を　たて続けに　発射して ２回連続で　ダメージを　与える。 攻撃は　必ず　命中する。",
+            "fr": "Le lanceur concentre des particules élémentaires pour créer une lame qui inflige des dégâts à la cible deux fois d'affilée. N'échoue jamais.",
+            "es": "Lanza una ráfaga de cuchillas formadas por partículas contra el objetivo y le inflige daño dos veces seguidas. No falla nunca.",
+            "de": "Der Anwender greift das Ziel zweimal hintereinander mit Partikelklingen an. Der Angriff trifft garantiert.",
+            "it": "Il Pokémon emette delle lame particellari in successione, infliggendo danni due volte di fila. Questo attacco va sempre a segno.",
+            "ko": "입자로 된 칼날을 연이어 발사해서 2회 연속으로 데미지를 준다. 공격은 반드시 명중한다.",
+            "zh-Hant": "連續發射粒子的利刃， 連續２次給予傷害。 攻擊必定會命中。",
+            "zh-Hans": "接连发射出粒子的利刃， 连续２次给予伤害。 攻击必定会命中。"
         }
     },
     "Tackle": {
@@ -39362,15 +39362,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks the target using its angelic voice. This also confuses the target if its stats have been boosted during the turn.",
-            "ja": "天使のような　歌声で　相手を　攻撃。 そのターン　能力が　あがった　ポケモンを 混乱の　状態に　する。",
-            "fr": "Le lanceur attaque sa cible avec sa voix angélique. Cette capacité rend la cible confuse si ses stats ont augmenté pendant ce tour.",
-            "es": "Ataca con un canto angelical y, si las características del objetivo han aumentado en ese turno, lo deja confuso.",
-            "de": "Der Anwender greift mit engelsgleichem Gesang an. Falls die Statuswerte des Zieles in dieser Runde erhöht wurden, wird es zusätzlich verwirrt.",
-            "it": "Il Pokémon attacca sfruttando il suo canto angelico, confondendo il bersaglio se le sue statistiche sono aumentate nello stesso turno.",
-            "ko": "천사와도 같은 노랫소리로 상대를 공격한다. 그 턴에 능력이 올라간 포켓몬을 혼란 상태로 만든다.",
-            "zh-Hant": "用天使般的歌聲攻擊對手。 讓此回合內能力提高的 寶可夢陷入混亂狀態。",
-            "zh-Hans": "用天使般的歌声攻击对手。 会让此回合内能力有提高的 宝可梦陷入混乱状态。"
+            "en": "Spurred by desperation, the user attacks the target. This move's power is doubled if the user's previous move failed.",
+            "ja": "自棄になった　勢いで　攻撃する。 前の　ターンに　技を　外していると 威力が　倍に　なる。",
+            "fr": "Le lanceur utilise la force de son dépit pour attaquer. S'il a utilisé une capacité qui a échoué au tour précédent, la puissance d'Indignition est doublée.",
+            "es": "Arremete contra el objetivo tras dejarse llevar por la ira. Su potencia se duplica si el movimiento del usuario falló en el turno anterior.",
+            "de": "Der Anwender greift das Ziel voller Verzweiflung an. Wenn seine vorige Attacke fehlgeschlagen ist, verdoppelt sich die Stärke der Attacke.",
+            "it": "Il Pokémon attacca con l'impeto di chi è pronto a tutto. Se la mossa usata al turno precedente non è andata a segno, la potenza raddoppia.",
+            "ko": "자포자기하는 기세로 공격한다. 앞 턴에서 기술이 빗나갔다면 위력이 배가 된다.",
+            "zh-Hant": "用自暴自棄的狠勁攻擊對手。 如果上一回合的招式沒有命中， 威力就會加倍。",
+            "zh-Hans": "以自暴自弃的气势进行攻击。 如果上一回合招式没有命中， 威力就会翻倍。"
         }
     },
     "Tera Blast": {
@@ -39407,15 +39407,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "If the user has Terastallized, it unleashes energy of its Tera Type. This move inflicts damage using the Attack or Sp. Atk stat—whichever is higher for the user.",
-            "ja": "テラスタルだと　テラスタイプの　エネルギーを 放出して　攻撃する。　攻撃と　特攻を　比べて 高いほうで　ダメージを　与える。",
-            "fr": "Si le lanceur est téracristallisé, il libère l'énergie de son type Téracristal. La capacité utilise l'Attaque ou l'Attaque Spéciale, selon ce qui infligera le plus de dégâts.",
-            "es": "Si el usuario se ha teracristalizado, ataca con la energía de su teratipo. Compara sus valores de Ataque y Ataque Especial para infligir daño con el más alto de los dos.",
-            "de": "Ist der Anwender terakristallisiert, greift er mit Energie seines Tera-Typs an. Der Schaden hängt vom Angriff oder Spezial-Angriff ab, je nachdem, welcher Wert höher ist.",
-            "it": "Se il Pokémon è teracristallizzato, attacca con l'energia del suo teratipo. Infligge danni in base all'Attacco o all'Attacco Speciale scegliendo il più alto tra i due.",
-            "ko": "테라스탈 중이면, 테라스탈타입의 에너지를 방출해서 공격한다. 공격과 특수공격을 비교해서 높은 쪽으로 데미지를 준다.",
-            "zh-Hant": "若是在太晶化時，將釋放太晶屬性的能量 進行攻擊。會比較自己的攻擊和特攻， 以數值較高的一方進行攻擊。",
-            "zh-Hans": "太晶化时，会放出太晶属性的能量攻击。 比较自己的攻击和特攻， 用数值相对较高的一项给予对方伤害。"
+            "en": "Inflicts damage with the user's Attack or Sp. Atk stat— whichever is higher. Super effective against Terastallized targets. This lowers the user's Attack and Sp. Atk stats.",
+            "ja": "攻撃と　特攻　高いほうで　ダメージを　与える。 相手が　テラスタルだと　効果は　バツグン。 自分の　攻撃と　特攻が　さがる。",
+            "fr": "Utilise l'Attaque ou l'Atq. Spé., selon ce qui infligera le plus de dégâts. Super efficace si la cible est téracristallisée. Baisse l'Attaque et l'Atq. Spé. du lanceur.",
+            "es": "Inflige daño con el valor más alto entre Ataque y Ataque Especial, pero reduce ambas características del usuario. Si el objetivo se ha teracristalizado, es supereficaz.",
+            "de": "Verursacht Schaden mit Angriffs- oder Sp.-Ang.-Wert, je nachdem, welcher höher ist. Ang. und Sp.-Ang. des Anw. sinken. Sehr effektiv gegen terakristallisierte Ziele.",
+            "it": "Il Pokémon infligge danni in base al più alto tra Attacco o Attacco Speciale, ma entrambi diminuiscono. La mossa è superefficace se il bersaglio è teracristallizzato.",
+            "ko": "공격과 특수공격 중 높은 쪽으로 데미지를 준다. 상대가 테라스탈 중이면 효과가 굉장해진다. 자신의 공격과 특수공격이 떨어진다.",
+            "zh-Hant": "用攻擊和特攻中數值較高的一方攻擊。 對手處於太晶化時效果絕佳。 自己的攻擊和特攻會降低。",
+            "zh-Hans": "用攻击和特攻数值较高的一项给予伤害。 对正处于太晶化的对手效果绝佳。 自己的攻击和特攻会降低。"
         }
     },
     "Tera Starstorm": {
@@ -39452,15 +39452,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user gathers electricity on the first turn, boosting its Sp. Atk stat, then fires a high-voltage shot on the next turn. The shot will be fired immediately in rain.",
-            "ja": "１ターン目に　電気を　集めて　特攻が　あがり ２ターン目に　高圧の　電気を　発射する。 天気が　雨のときは　すぐに　発射できる。",
-            "fr": "Le lanceur absorbe de l'électricité au premier tour, ce qui augmente son Attaque Spéciale, et envoie une puissante décharge au second. S'il pleut, il l'envoie au premier tour.",
-            "es": "Acumula electricidad y aumenta su Ataque Especial en el primer turno y dispara una descarga de alto voltaje en el segundo. Si llueve, puede atacar en el primer turno.",
-            "de": "Sammelt in Runde 1 Elektrizität, um den Spezial-Angriff zu erhöhen, und greift dann in Runde 2 mit Starkstrom an. Bei Regen erfolgt der Angriff sofort in Runde 1.",
-            "it": "Il Pokémon accumula elettricità e aumenta l'Attacco Speciale al primo turno, per poi rilasciare una potente scarica al turno successivo o, se piove, immediatamente.",
-            "ko": "1턴째에 전기를 모아서 특수공격을 올리고 2턴째에 고압의 전기를 발사한다. 비가 오는 날씨일 때는 바로 발사할 수 있다.",
-            "zh-Hant": "使用後的第１回合會收集電力來提高特攻， 並於第２回合發射出高壓電。 天氣為下雨時可立即發射。",
-            "zh-Hans": "第１回合收集电力提高特攻， 第２回合将高压的电力发射出去。 下雨天气时能立刻发射。"
+            "en": "With the power of its crystals, the user bombards and eliminates the target. When used by Terapagos in its Stellar Form, this move damages all opposing Pokémon.",
+            "ja": "結晶の力を　照射し　敵を　排除する。 テラパゴスが　ステラフォルムで　放つと すべての　相手に　ダメージを　与える。",
+            "fr": "Le lanceur bombarde la cible afin de l'éliminer grâce au pouvoir des cristaux. Si le lanceur est Terapagos sous sa Forme Stellaire, la capacité touche tous les ennemis.",
+            "es": "Ataca al objetivo irradiando el poder de sus cristales. Si Terapagos usa este movimiento en su Forma Astral, inflige daño a todos los rivales.",
+            "de": "Der Anwender greift das Ziel mit gebündelter Kristall- energie an. Wenn Terapagos diese Attacke in seiner Stellarform einsetzt, erleiden alle Gegner Schaden.",
+            "it": "Il Pokémon elimina il bersaglio irradiando il potere dei cristalli. Se Terapagos assume la Forma Astrale, la mossa infligge danni a tutti gli avversari.",
+            "ko": "결정의 힘을 내리쬐어 적을 없애 버린다. 테라파고스가 스텔라폼일 때 사용하면 모든 상대에게 데미지를 준다.",
+            "zh-Hant": "投射結晶之力來掃除敵人。 當太樂巴戈斯以星晶形態使出時， 能給予所有對手傷害。",
+            "zh-Hans": "照射出结晶的力量来驱逐敌人。 太乐巴戈斯在星晶形态下使出时， 能对所有对手造成伤害。"
         }
     },
     "Terrain Pulse": {
@@ -40082,15 +40082,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user's intensely hot fur protects it from attacks and also burns any attacker that makes direct contact with it.",
-            "ja": "相手の　攻撃を　超高熱の 体毛で　防ぎ　同時に　触れた 相手に　やけどを　与えてしまう。",
-            "fr": "Le lanceur se protège contre les attaques grâce à son pelage incandescent, et si un assaillant utilise une attaque directe contre lui, il le brûle.",
-            "es": "Emplea su ardiente pelaje para protegerse de los ataques y causarle quemaduras al atacante si este usa un movimiento de contacto.",
-            "de": "Das brennend heiße Fell des Anwenders schützt ihn vor Angriffen. Gleichzeitig erleiden alle Pokémon, die mit ihm in Berührung kommen, Verbrennungen.",
-            "it": "Il Pokémon blocca gli attacchi avversari con la pelliccia incandescente che scotta chi entra in contatto con lui.",
-            "ko": "상대의 공격을 초고열의 털로 방어하는 동시에 접촉한 상대를 화상 상태로 만든다.",
-            "zh-Hant": "用超高溫的體毛防住對手攻擊， 同時讓碰觸到自己的對手灼傷。",
-            "zh-Hans": "用超高温的体毛防住对手攻击的同时， 让接触到自己的对手灼伤。"
+            "en": "This move enables the user to attack first with a jolt of electricity. This move fails if the target is not readying an attack.",
+            "ja": "相手より　先に　電撃を　浴びせる。 相手が　だす技が 攻撃技でないと　失敗する。",
+            "fr": "Permet au lanceur d'attaquer la cible en priorité avec une décharge électrique. Échoue si la cible ne prépare pas une attaque.",
+            "es": "Invoca un rayo que cae sobre el objetivo antes de que este pueda realizar cualquier acción. Falla si el objetivo no está preparando ningún ataque.",
+            "de": "Bei dieser Erstschlag-Attacke lässt der Anwender einen Blitz auf das Ziel einschlagen. Sie gelingt nur, wenn dieses gerade eine Angriffsattacke vorbereitet.",
+            "it": "Il Pokémon abbatte una scarica elettrica sul bersaglio prima che questi possa attaccare. La mossa fallisce se il bersaglio sferra una mossa che non è di attacco.",
+            "ko": "상대보다 먼저 전격을 퍼붓는다. 상대가 쓴 기술이 공격 기술이 아니면 실패한다.",
+            "zh-Hant": "可以搶先對手一步用電擊進行攻擊。 若對手使用的不是攻擊招式則會失敗。",
+            "zh-Hans": "可以比对手先使出电击进行攻击。 对手使出的招式 如果不是攻击招式则会失败。"
         }
     },
     "Thunderous Kick": {
@@ -40231,15 +40231,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user tells a chillingly bad joke before switching places with a party Pokémon in waiting. This summons a snowstorm lasting five turns.",
-            "ja": "場を　凍らせる　ギャグを　言い残し 控えの　ポケモンと　入れ替わる。 ５ターンの　間　ゆきを　降らす。",
-            "fr": "Le lanceur fait un si mauvais jeu de mots qu'il jette un froid et échange sa place avec un Pokémon de l'équipe prêt à combattre. La neige tombe pendant cinq tours.",
-            "es": "El usuario se cambia por otro Pokémon del equipo, pero antes cuenta un chiste que tiene una acogida tan fría que hace que nieve durante cinco turnos.",
-            "de": "Der Anwender sorgt mit einem schlechten Witz für eisige Stimmung und tauscht den Platz mit einem anderen Pokémon. Erzeugt fünf Runden lang Schnee.",
-            "it": "Chi la usa dice una freddura che fa raggelare i presenti per poi farsi sostituire da un altro Pokémon della squadra. Causa una nevicata che dura per cinque turni.",
-            "ko": "자리를 얼어붙게 만드는 개그를 하고 교대 포켓몬과 교체한다. 5턴 동안 눈을 내리게 한다.",
-            "zh-Hant": "留下使場面凍結的笑話後， 和後備寶可夢進行替換。 在５回合內會下雪。",
-            "zh-Hans": "留下冷场的冷笑话后， 和后备宝可梦进行替换。 在５回合内会下雪。"
+            "en": "The user tidies up and removes the effects of Spikes, Stealth Rock, Sticky Web, Toxic Spikes, and Substitute. This also boosts the user's Attack and Speed stats.",
+            "ja": "まきびし　ステルスロック　ねばねばネット どくびし　みがわりを　すべて　かたづける。 自分の　攻撃と　素早さが　あがる。",
+            "fr": "Le lanceur fait le ménage sur le terrain, ce qui annule les effets de Picots, Piège de Roc, Toile Gluante, Pics Toxik, et Clonage. Augmente l'Attaque et la Vitesse du lanceur.",
+            "es": "Efectúa una limpieza a fondo que anula los efectos de Púas, Trampa Rocas, Red Viscosa, Púas Tóxicas y Sustituto. Aumenta el Ataque y la Velocidad del usuario.",
+            "de": "Die Effekte von Stachler, Tarnsteine, Klebenetz, Giftspitzen und Delegator werden aufgehoben. Zudem steigen der Angriff und die Initiative des Anwenders.",
+            "it": "Il Pokémon fa le pulizie, annullando gli effetti di Punte, Levitoroccia, Rete Vischiosa, Fielepunte e Sostituto. Inoltre, aumenta il suo Attacco e la sua Velocità.",
+            "ko": "압정뿌리기, 스텔스록, 끈적끈적네트, 독압정, 대타출동을 모두 정리한다. 자신의 공격과 스피드가 올라간다.",
+            "zh-Hant": "將撒菱、隱形岩、黏黏網、 毒菱、替身全部清理乾淨。 自己的攻擊和速度會提高。",
+            "zh-Hans": "将撒菱、隐形岩、黏黏网、 毒菱、替身全部扫除掉。 自己的攻击和速度会提高。"
         }
     },
     "Topsy-Turvy": {
@@ -40326,15 +40326,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user throws a rigged bouquet of flowers at the target. This attack never misses and always lands a critical hit.",
-            "ja": "細工がある　花たばを 相手に　投げて　攻撃する。 必ず　命中して　急所にも　当たる。",
-            "fr": "Le lanceur attaque en jetant un bouquet de fleurs piégé sur la cible. N'échoue jamais et inflige toujours un coup critique.",
-            "es": "Ataca al objetivo lanzándole un ramo de flores trucado. No falla nunca y siempre asesta un golpe crítico.",
-            "de": "Der Anwender greift an, indem er dem Ziel einen Trick-Strauß zuwirft. Diese Attacke trifft immer und hat zudem Volltreffergarantie.",
-            "it": "Il Pokémon attacca il bersaglio lanciandogli addosso un mazzo di fiori truccato. Questo attacco va sempre a segno, infliggendo anche un brutto colpo.",
-            "ko": "숨겨진 장치가 있는 꽃다발을 상대에게 던져서 공격한다. 반드시 명중하며 급소에 맞는다.",
-            "zh-Hant": "將動過手腳的花束 投向對手進行攻擊。 必定會命中並擊中要害。",
-            "zh-Hans": "将做了手脚的花束 扔向对手进行攻击。 必定会命中，且会击中要害。"
+            "en": "The user blows out raging flames as if singing a song, scorching the target. This also boosts the user's Sp. Atk stat.",
+            "ja": "燃えたぎる　火炎を　歌うように 吹きつけて　相手を　焦がす。 自分の　特攻を　あげる。",
+            "fr": "Le lanceur carbonise la cible en projetant sur elle de vives flammes créées par un chant. Cette capacité augmente l'Attaque Spéciale du lanceur.",
+            "es": "Expele tórridas llamaradas como si entonara una canción y abrasa al objetivo con ellas. Aumenta el Ataque Especial del usuario.",
+            "de": "Der Anwender spuckt inbrünstig lodernde Flammen, als würde er singen, und versengt das Ziel. Dadurch steigt auch der Spezial-Angriff des Anwenders.",
+            "it": "Il Pokémon abbrustolisce il bersaglio soffiandogli addosso fiamme ardenti come se intonasse una canzone. Inoltre, il suo Attacco Speciale aumenta.",
+            "ko": "활활 타오르는 불꽃을 노래하듯 뿜어서 상대를 태워 버린다. 자신의 특수공격을 올린다.",
+            "zh-Hant": "將熊熊燃燒的火焰如唱歌般地 吹向對手將其燒焦。 會提高自己的特攻。",
+            "zh-Hans": "如唱歌一样喷出 熊熊燃烧的火焰烧焦对手。 会提高自己的特攻。"
         }
     },
     "Torment": {
@@ -40561,15 +40561,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks by pouncing on the target. This also lowers the target's Speed stat.",
-            "ja": "相手に　飛びついて　攻撃する。 相手の　素早さを　さげる。",
-            "fr": "Le lanceur attaque en bondissant sur la cible, ce qui baisse la Vitesse de celle-ci.",
-            "es": "Ataca abalanzándose sobre el objetivo y le reduce la Velocidad.",
-            "de": "Der Anwender greift an, indem er das Ziel anspringt. Dadurch sinkt auch die Initiative des Zieles.",
-            "it": "Il Pokémon fa un balzo e attacca il bersaglio, riducendone inoltre la Velocità.",
-            "ko": "상대에게 달려들어 공격한다. 상대의 스피드를 떨어뜨린다.",
-            "zh-Hant": "撲向對手進行攻擊。 可降低對手的速度。",
-            "zh-Hans": "飞扑向对手攻击。 会降低对手的速度。"
+            "en": "The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat.",
+            "ja": "草むらから　飛びだすように　攻撃する。 軽快な　足どりに　よって 自分の　素早さを　あげる。",
+            "fr": "Le lanceur surgit des hautes herbes pour attaquer la cible. Les mouvements agiles du lanceur augmentent sa Vitesse.",
+            "es": "Ataca de pronto como si saltara desde la hierba alta. El usuario se mueve con gran agilidad y aumenta su Velocidad.",
+            "de": "Der Anwender greift an, als würde er aus hohem Gras hervorspringen. Mit wendigen Schritten erhöht er seine Initiative.",
+            "it": "Il Pokémon attacca come se saltasse fuori dall'erba alta e si muove con passo leggiadro, aumentando la propria Velocità.",
+            "ko": "풀숲에서 튀어나오듯이 공격한다. 경쾌한 발재간으로 자신의 스피드를 올린다.",
+            "zh-Hant": "從草叢裡跳出來進行攻擊。 輕快的腳步會使得 自己的速度提高。",
+            "zh-Hans": "跳出草丛进行攻击。 通过轻快的步伐 会提高自己的速度。"
         }
     },
     "Transform": {
@@ -40921,15 +40921,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user salt cures the target, inflicting damage every turn. Steel and Water types are more strongly affected by this move.",
-            "ja": "相手を　しおづけ状態に　して 毎ターン　ダメージを　与える。 はがね　みずタイプは　より　苦しむ。",
-            "fr": "Le lanceur couvre la cible de sel, ce qui lui inflige des dégâts à chaque tour. Si la cible est de type Acier ou Eau, ces dégâts sont plus élevés.",
-            "es": "Deja en salazón al objetivo, que pierde PS cada turno. Afecta especialmente a Pokémon de tipo Acero y tipo Agua.",
-            "de": "Der Anwender pökelt das Ziel mit Salz ein, wodurch dieses jede Runde Schaden erleidet. Stahl- und Wasser-Pokémon leiden besonders darunter.",
-            "it": "Il Pokémon mette sotto sale il bersaglio, infliggendogli danni a ogni turno. I Pokémon di tipo Acciaio e di tipo Acqua sono particolarmente vulnerabili a questa mossa.",
-            "ko": "상대를 소금절이 상태로 만들어 매 턴 데미지를 준다. 강철타입이나 물타입에게 더 고통스럽다.",
-            "zh-Hant": "讓對手陷入鹽醃狀態， 每回合都會受到傷害。 鋼、水屬性的寶可夢還會更痛苦。",
-            "zh-Hans": "使对手陷入盐腌状态， 每回合给予对手伤害。 对手为钢或水属性时会更痛苦。"
+            "en": "The user performs a perfectly timed triple dive, hitting the target with splashes of water three times in a row.",
+            "ja": "息のあった　飛びこみを　することで 相手に　水しぶきを　あてる。 ３回連続で　ダメージを　与える。",
+            "fr": "Le lanceur effectue des plongeons parfaitement cadencés pour éclabousser la cible et lui infliger des dégâts trois fois d'affilée.",
+            "es": "Ejecuta una inmersión triple en perfecta sincronía que golpea al objetivo con salpicaduras de agua tres veces seguidas.",
+            "de": "Der Anwender taucht mit perfekt abgestimmtem Timing ab und trifft das Ziel mit Wasserspritzern. Dabei richtet er dreimal hintereinander Schaden an.",
+            "it": "Il Pokémon si lancia in un triplo tuffo perfettamente coordinato, colpendo il bersaglio con degli schizzi d'acqua e infliggendogli danni tre volte di fila.",
+            "ko": "호흡이 척척 맞게 다이빙해서 상대에게 물보라를 끼얹는다. 3회 연속으로 데미지를 준다.",
+            "zh-Hant": "默契十足地飛身鑽入水中， 將水花濺向對手。 連續３次給予傷害。",
+            "zh-Hans": "以默契的跳跃溅起水花击向对手。 连续３次给予伤害。"
         }
     },
     "Triple Kick": {
@@ -41106,15 +41106,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user spins the pointed part of its body at high speed to pierce the target. This attack can hit a target using a move such as Protect or Detect.",
-            "ja": "とがった　体の部位を 急速に　回転させ　つらぬく。 まもるや　みきり　なども　無視　できる。",
-            "fr": "Le lanceur fait tourner à toute vitesse la partie pointue de son corps afin de transpercer la cible. Ignore même les capacités comme Abri ou Détection.",
-            "es": "El usuario hace rotar la parte puntiaguda de su cuerpo a gran velocidad para atacar al objetivo. Pasa por alto los efectos de movimientos como Protección o Detección.",
-            "de": "Der Anwender lässt einen spitzen Teil seines Körpers rasant rotieren, sticht zu und durchbricht dabei auch die Wirkung von Attacken wie Schutzschild und Scanner.",
-            "it": "Il Pokémon fa roteare rapidamente la parte appuntita del suo corpo, perforando il bersaglio ed eludendo mosse come Protezione e Individua.",
-            "ko": "뾰족한 신체 부위를 급속도로 회전시켜 관통한다. 방어나 판별 등도 무시할 수 있다.",
-            "zh-Hant": "高速旋轉尖銳的身體部位進行貫穿。 可無視對手的守住和看穿等招式。",
-            "zh-Hans": "急速旋转尖锐的身体部位贯穿对手。 可以无视守住和看穿等招式。"
+            "en": "The user shoots mystical beams from its eyes to inflict damage. The target is hit twice in a row.",
+            "ja": "両目から　不可思議な 光線を　発射して　攻撃する。 ２回連続で　ダメージを　与える。",
+            "fr": "Le lanceur projette d'étranges rayons lumineux avec ses yeux et inflige des dégâts deux fois d'affilée.",
+            "es": "Ataca emitiendo dos misteriosos haces lumínicos por los ojos que infligen daño dos veces seguidas.",
+            "de": "Der Anwender greift mit übernatürlichen Lichtstrahlen an, die er aus seinen Augen abfeuert, und trifft das Ziel zweimal hintereinander.",
+            "it": "Il Pokémon attacca il bersaglio con misteriosi raggi di luce emessi dagli occhi che infliggono danni due volte di fila.",
+            "ko": "두 눈에서 불가사의한 광선을 발사해서 공격한다. 2회 연속으로 데미지를 준다.",
+            "zh-Hant": "從雙眼發射不可思議的 光線進行攻擊。 連續２次給予傷害。",
+            "zh-Hans": "从两眼发射出神奇的光线攻击。 连续２次给予伤害。"
         }
     },
     "Twineedle": {
@@ -41331,15 +41331,15 @@
         "isSlicing": false,
         "isWind": false,
         "flavorText": {
-            "en": "The user attacks the target with unpleasant sound waves. For two turns, the target is prevented from recovering HP through moves, Abilities, or held items.",
-            "ja": "不快な音波を　相手に　浴びせて　攻撃。 ２ターンの間　技や　特性や　持っている 道具によって　ＨＰを　回復できなくなる。",
-            "fr": "Le lanceur attaque avec des ondes sonores dissonantes. Cela empêche la cible de récupérer des PV à l'aide de capacités, talents ou objets tenus pendant deux tours.",
-            "es": "Ataca emitiendo una onda sonora desagradable que impide al objetivo usar movimientos, habilidades y objetos equipados que recuperan PS durante dos turnos.",
-            "de": "Der Anwender greift mit unerträglichen Schallwellen an, wodurch das Ziel zwei Runden lang nicht durch Attacken, Fähigkeiten oder getragene Items geheilt werden kann.",
-            "it": "Il Pokémon investe il bersaglio con insopportabili onde sonore che gli impediscono di recuperare PS con mosse, abilità o strumenti che ha con sé per due turni.",
-            "ko": "불쾌한 음파를 상대에게 날려서 공격한다. 2턴 동안 상대는 기술이나 특성 또는 지니고 있는 도구로 HP를 회복할 수 없게 된다.",
-            "zh-Hant": "用令人不快的音波攻擊對手， 使對手在２回合內變得無法透過 招式、特性或攜帶的道具回復ＨＰ。",
-            "zh-Hans": "用令对手不舒服的音波进行攻击。 让对手在２回合内无法通过 招式、特性或携带的道具回复ＨＰ。"
+            "en": "The user reacts to the target's movement and strikes with the heel of its palm, making the target flinch. This move fails if the target is not readying a priority move.",
+            "ja": "動きに　反応して　掌底を　打ちこみ 相手を　ひるませる。　相手が　だす技が 先制攻撃でないと　失敗する。",
+            "fr": "Le lanceur réagit instinctivement au moindre mouvement et donne un coup de paume qui apeure la cible. Échoue si cette dernière n'a pas utilisé une attaque prioritaire.",
+            "es": "Se anticipa al objetivo golpeándolo rápidamente con la palma y lo amedrenta. Falla si el objetivo no está preparando un movimiento de prioridad alta.",
+            "de": "Der Anwender reagiert auf Bewegungen des Zieles und lässt es durch einen Schlag zurückschrecken. Gelingt nur, wenn das Ziel gerade eine Erstschlag-Attacke vorbereitet.",
+            "it": "Il Pokémon reagisce al movimento del bersaglio e, colpendo con il palmo, lo fa tentennare. Se il bersaglio non sferra un attacco ad alta priorità, la mossa fallisce.",
+            "ko": "움직임에 반응하여 손바닥으로 밀쳐서 상대를 풀죽게 한다. 상대가 쓴 기술이 선제공격 기술이 아니면 실패한다.",
+            "zh-Hant": "察覺對手動作並以掌底攻擊來反應， 讓對手畏縮。若對手使用的招式 不是先制攻擊則會失敗。",
+            "zh-Hans": "察觉到对手的动作后用掌根攻击， 让对手畏缩。如果对手使出的招式 不是先制攻击，则会失败。"
         }
     },
     "Uproar": {

@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user discharges all the electricity from its body to perform a high-damage attack. After using this move, the user will no longer be Electric type.",
-        "ja": "全身の　でんきを　すべて 放って　大ダメージを　与える。 自分の　でんきタイプが　なくなる。",
-        "fr": "Le lanceur libère toute l'électricité contenue dans son corps pour infliger des dégâts élevés à la cible. Le lanceur perd le type Électrik.",
-        "es": "Libera toda la electricidad de su cuerpo para lanzar un ataque devastador. Tras ejecutar el movimiento, el usuario deja de ser de tipo Eléctrico.",
-        "de": "Der Anwender nutzt die gesamte Elektrizität in seinem Körper, um großen Schaden auszuteilen. Die restliche Kampfdauer gehört er nicht mehr dem Typ Elektro an.",
-        "it": "Il Pokémon libera tutta la sua potenza elettrica per infliggere gravi danni al bersaglio, ma come conseguenza perde il tipo Elettro.",
-        "ko": "전신의 전기를 모두 방출해서 큰 데미지를 준다. 자신의 전기타입이 없어진다.",
-        "zh-Hant": "施放全身的所有電力 給予對手巨大的傷害。 自己的電屬性將會消失。",
-        "zh-Hans": "将全身所有的电力放出， 给予对手大大的伤害。 自己的电属性将会消失。"
+        "en": "The user swings its whole body around to attack with its huge hammer. This move can't be used twice in a row.",
+        "ja": "大きな　ハンマーを　体ごと ぶんまわして　攻撃する。 この技は　２回連続で　だせない。",
+        "fr": "Le lanceur met tout son corps à contribution pour attaquer la cible avec un immense marteau. Cette capacité ne peut pas être utilisée deux fois d'affilée.",
+        "es": "El usuario se ayuda de su propio peso corporal para propinar un golpe con un enorme martillo. Este movimiento no puede usarse dos veces seguidas.",
+        "de": "Der Anwender greift mit einem großen Hammer an, den er mit vollem Körpereinsatz um sich schwingt. Diese Attacke kann nicht zweimal in Folge eingesetzt werden.",
+        "it": "Il Pokémon attacca con un grosso martello mettendoci tutta la forza che ha in corpo. Questa mossa non può essere usata due volte di fila.",
+        "ko": "거대한 해머를 온몸으로 휘둘러서 공격한다. 이 기술은 2회 연속으로 쓸 수 없다.",
+        "zh-Hant": "將大錘連同身體 一起揮舞進行攻擊。 這個招式無法連續２次使用。",
+        "zh-Hans": "连同身体转起巨大的锤子进行攻击。 这个招式无法连续使出２次。"
     }
 }

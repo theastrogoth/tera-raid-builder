@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user races forward at ultrafast speeds, piercing its target with futuristic electricity. This move's power is boosted more than usual if it's a supereffective hit.",
-        "ja": "変形しながら　超高速で　走行し 未知なる　電撃が　相手を　つらぬく。 弱点をつくと　さらに　威力が　増す。",
-        "fr": "Le lanceur change de forme et fonce sur la cible en la perforant d'électricité futuriste. Si la capacité est super efficace, sa puissance augmente encore plus que d'habitude.",
-        "es": "Se abalanza sobre el objetivo mientras se transforma y lo atraviesa con electricidad futurista. La potencia del movimiento aumenta si el ataque es supereficaz.",
-        "de": "Der Anwender wechselt bei rasantem Tempo seine Form und trifft das Ziel mit einem futuristischen Elektroschlag. Ist die Attacke sehr effektiv, steigt ihre Stärke noch mehr.",
-        "it": "Il Pokémon saetta mentre si trasforma, trafiggendo il bersaglio con una scossa futuristica. La potenza della mossa aumenta se questa è superefficace sul bersaglio.",
-        "ko": "변형하며 초고속으로 달려서 미지의 전격으로 상대를 관통한다. 약점인 상대에게는 위력이 더욱 올라간다.",
-        "zh-Hant": "一邊變形，一邊以超高速度奔馳， 未知的電流將貫穿對手。 打到弱點時威力會更為增加。",
-        "zh-Hans": "边变形边高速奔走， 并以未知的电击贯穿对手。 若针对到弱点，威力会进一步。"
+        "en": "The user creates a substitute for itself using its own HP before switching places with a party Pokémon in waiting.",
+        "ja": "自分の　ＨＰを　削って 分身を　だしたあと　もどってきて 控えの　ポケモンと　入れ替わる。",
+        "fr": "Le lanceur crée un clone en sacrifiant des PV, puis il revient et échange sa place avec un Pokémon de l'équipe prêt à combattre.",
+        "es": "El usuario se cambia por otro Pokémon del equipo, pero antes utiliza parte de los PS propios para crear un sustituto para su relevo.",
+        "de": "Der Anwender setzt seine KP ein, um einen Doppelgänger zu erzeugen, und tauscht dann den Platz mit einem anderen Pokémon.",
+        "it": "Chi la usa crea una copia di se stesso usando parte dei suoi PS e si fa sostituire da un altro Pokémon della squadra.",
+        "ko": "자신의 HP를 깎아서 분신을 만든 뒤, 돌아와서 교대 포켓몬과 교체한다.",
+        "zh-Hant": "削減自己的ＨＰ， 製造分身後返回， 和後備寶可夢進行替換。",
+        "zh-Hans": "削减自己的ＨＰ， 制造分身后会返回， 并和后备宝可梦进行替换。"
     }
 }

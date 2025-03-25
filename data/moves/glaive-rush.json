@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user covers its feet in thin ice and twirls around, slamming into the target. This move's spinning motion also destroys the terrain.",
-        "ja": "足に　薄い氷を　まとい クルクルと　回りながら　ぶつかる。 回転の　動きによって　フィールドを　壊す。",
-        "fr": "Le lanceur enveloppe ses jambes d'une fine couche de glace et heurte la cible en tournant sur lui-même. Ses rotations détruisent le champ actif sur le terrain.",
-        "es": "Se recubre las extremidades con una fina capa de hielo y se abalanza sobre el objetivo girando sobre sí. Destruye el campo activo en el terreno de combate.",
-        "de": "Der Anwender hüllt seine Füße in dünnes Eis, wirbelt herum und greift so das Ziel an. Die Drehung zerstört etwaige Felder.",
-        "it": "Il Pokémon avvolge gli arti inferiori in un sottile strato di ghiaccio e si scontra con il bersaglio piroettando. Il movimento rotatorio distrugge il terreno di lotta.",
-        "ko": "발에 얇은 얼음을 두르고 빙글빙글 회전하며 부딪친다. 회전 운동에 의해 필드가 파괴된다.",
-        "zh-Hant": "在腳上包覆薄冰， 骨碌碌地旋轉並進行撞擊。 以旋轉的動作破壞場地。",
-        "zh-Hans": "脚上覆盖薄冰， 旋转着撞击对手。 通过旋转的动作破坏场地。"
+        "en": "The user throws its entire body into a reckless charge. After this move is used, attacks on the user cannot miss and will inflict double damage until the user's next turn.",
+        "ja": "体を　投げだす　無謀な突撃。 技のあと　相手からの　攻撃は　必ず 命中し　ダメージが　２倍に　なってしまう。",
+        "fr": "Le lanceur se jette dans une charge inconsciente sur la cible. Une fois cette capacité utilisée, toute attaque sur le lanceur inflige le double de dégâts et n'échoue jamais.",
+        "es": "Embiste de forma temeraria con todo el cuerpo. Los ataques que reciba antes de su siguiente turno no fallarán y causarán el doble de daño.",
+        "de": "Der Anwender stürzt sich waghalsig auf das Ziel. Bis zum nächsten Zug des Anwenders treffen ihn gegnerische Angriffe garantiert und richten doppelten Schaden an.",
+        "it": "Il Pokémon si lancia in una carica avventata. Fino al suo prossimo turno, il Pokémon riceverà il doppio dei danni dagli attacchi altrui, che andranno sempre a segno.",
+        "ko": "몸을 내던지는 무모한 돌격. 기술을 사용한 다음, 상대의 공격이 반드시 명중하고 데미지를 2배로 입게 된다.",
+        "zh-Hant": "豁出己身的魯莽突擊。 使出招式後對手的攻擊必定會命中， 且傷害會變成２倍。",
+        "zh-Hans": "有勇无谋的舍身突击。 使出招式后，对手的攻击必定 会命中，且伤害会变成２倍。"
     }
 }

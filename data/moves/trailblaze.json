@@ -37,14 +37,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user attacks by pouncing on the target. This also lowers the target's Speed stat.",
-        "ja": "相手に　飛びついて　攻撃する。 相手の　素早さを　さげる。",
-        "fr": "Le lanceur attaque en bondissant sur la cible, ce qui baisse la Vitesse de celle-ci.",
-        "es": "Ataca abalanzándose sobre el objetivo y le reduce la Velocidad.",
-        "de": "Der Anwender greift an, indem er das Ziel anspringt. Dadurch sinkt auch die Initiative des Zieles.",
-        "it": "Il Pokémon fa un balzo e attacca il bersaglio, riducendone inoltre la Velocità.",
-        "ko": "상대에게 달려들어 공격한다. 상대의 스피드를 떨어뜨린다.",
-        "zh-Hant": "撲向對手進行攻擊。 可降低對手的速度。",
-        "zh-Hans": "飞扑向对手攻击。 会降低对手的速度。"
+        "en": "The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat.",
+        "ja": "草むらから　飛びだすように　攻撃する。 軽快な　足どりに　よって 自分の　素早さを　あげる。",
+        "fr": "Le lanceur surgit des hautes herbes pour attaquer la cible. Les mouvements agiles du lanceur augmentent sa Vitesse.",
+        "es": "Ataca de pronto como si saltara desde la hierba alta. El usuario se mueve con gran agilidad y aumenta su Velocidad.",
+        "de": "Der Anwender greift an, als würde er aus hohem Gras hervorspringen. Mit wendigen Schritten erhöht er seine Initiative.",
+        "it": "Il Pokémon attacca come se saltasse fuori dall'erba alta e si muove con passo leggiadro, aumentando la propria Velocità.",
+        "ko": "풀숲에서 튀어나오듯이 공격한다. 경쾌한 발재간으로 자신의 스피드를 올린다.",
+        "zh-Hant": "從草叢裡跳出來進行攻擊。 輕快的腳步會使得 自己的速度提高。",
+        "zh-Hans": "跳出草丛进行攻击。 通过轻快的步伐 会提高自己的速度。"
     }
 }

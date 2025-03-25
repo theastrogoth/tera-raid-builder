@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user attacks with elegant poise. If the user has a Tatsugiri in its mouth, this move boosts one of the user's stats based on the Tatsugiri's form.",
-        "ja": "いなせな　身のこなしで　攻撃。 口の中に　シャリタツが　いると そのすがたによって　能力が　あがる。",
-        "fr": "Le lanceur attaque avec adresse et élégance. S'il a un Nigirigon dans la gueule, une de ses stats augmente en fonction de la forme de celui-ci.",
-        "es": "Ataca con porte gallardo. Si lleva un Tatsugiri en la boca, aumenta una de sus características en función de la forma de este último.",
-        "de": "Eine Attacke mit geübten Bewegungen. Trägt der Anwender ein Nigiragi im Maul, erhöht sich je nach dessen Form ein Statuswert des Anwenders.",
-        "it": "Il Pokémon attacca con deliziose movenze. Se ha in bocca un Tatsugiri, una sua statistica aumenta in base alla forma di quest'ultimo.",
-        "ko": "멋들어진 몸놀림으로 공격한다. 입속에 싸리용이 있으면 싸리용의 모습에 따라 능력이 올라간다.",
-        "zh-Hant": "以瀟灑的身段進行攻擊。 若口中有米立龍， 會依米立龍的姿勢而提高不同能力。",
-        "zh-Hans": "以潇洒的身手进行攻击。 若口中有米立龙， 会按其样子提高能力。"
+        "en": "The user summons a torrent around its fist and punches at blinding speed. This move always goes first.",
+        "ja": "激流を　こぶしに　まとって 目にも　留まらぬ　パンチを　くりだす。 必ず　先制攻撃　できる。",
+        "fr": "Le lanceur enveloppe son poing d'un torrent furieux et attaque si rapidement qu'on peine à le discerner. Frappe en priorité.",
+        "es": "Se envuelve el puño con un torrente y propina un golpe a tal velocidad que resulta casi imperceptible. Este movimiento tiene prioridad alta.",
+        "de": "Bei dieser Erstschlag-Attacke hüllt der Anwender seine Faust in einen Strudel und greift mit einem extrem schnellen Hieb an.",
+        "it": "Il Pokémon avvolge il pugno in una corrente impetuosa e sferra un colpo a una tale velocità da rendersi quasi invisibile. Questo attacco ha priorità alta.",
+        "ko": "거센 물살을 주먹에 둘러 눈에 보이지 않는 속도로 펀치를 날린다. 반드시 선제공격할 수 있다.",
+        "zh-Hant": "讓激流圍繞在拳頭上， 以迅雷不及掩耳之勢出拳。 必定能夠發動先制攻擊。",
+        "zh-Hans": "将激流覆盖于拳头， 以肉眼无法辨识的速度打出拳击。 必定能够先制攻击。"
     }
 }

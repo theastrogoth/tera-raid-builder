@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user attacks by kicking up into the air and slamming its heel down upon the target. This may also confuse the target. If it misses, the user takes damage instead.",
-        "ja": "蹴りあげた　かかとを　落として　攻撃する。 相手を　混乱させることが　ある。 はずすと　自分が　ダメージを　受ける。",
-        "fr": "Le lanceur donne un coup de talon descendant à la cible, ce qui peut aussi la rendre confuse. S'il échoue, le lanceur se blesse.",
-        "es": "Lanza una patada al aire para, acto seguido, golpear con el talón. Si falla, se hiere a sí mismo. Puede confundir al objetivo.",
-        "de": "Der Anwender greift an, indem er seine erhobene Ferse hinunterschnellen lässt. Das Ziel wird eventuell verwirrt. Bei Misserfolg verletzt sich der Anwender selbst.",
-        "it": "Il Pokémon attacca sferrando un calcio dall'alto verso il basso che può confondere il bersaglio. Se la mossa fallisce, il Pokémon subisce dei danni.",
-        "ko": "발꿈치를 들어 올린 뒤 내리찍어 공격한다. 상대를 혼란시킬 때가 있다. 빗나가면 자신이 데미지를 입는다.",
-        "zh-Hant": "劈下踢起的腳跟攻擊對手。 有時會使對手混亂。 沒命中對手時自己會受到傷害。",
-        "zh-Hans": "将踢起的脚跟往下劈向对手进行攻击。 有时会使对手混乱。 如果劈偏则自己会受到伤害。"
+        "en": "The user attacks to avenge its allies. The more defeated allies there are in the user's party, the greater the move's power.",
+        "ja": "仲間の　無念を　晴らすため　攻撃する。 倒された　味方のポケモンが　多いほど 技の　威力が　増える。",
+        "fr": "Le lanceur attaque pour venger ses alliés. Plus le nombre de Pokémon alliés mis K.O. est élevé, plus la puissance de cette capacité augmente.",
+        "es": "Ataca para vengar a sus compañeros caídos y aplacar su desazón. Cuantos más miembros del equipo se hayan debilitado, mayor será la potencia del movimiento.",
+        "de": "Der Anwender rächt gefallene Mitstreiter. Je mehr kampfunfähige Pokémon sich im Team befinden, desto stärker ist die Attacke.",
+        "it": "Il Pokémon attacca per placare il risentimento dei suoi compagni di squadra. Più sono quelli andati KO, più la potenza della mossa aumenta.",
+        "ko": "동료의 한을 풀어 주기 위해 공격한다. 쓰러진 같은 편 포켓몬이 많을수록 기술의 위력이 올라간다.",
+        "zh-Hant": "為了替夥伴雪恨而攻擊。 被打倒的我方寶可夢越多， 招式威力就會越強。",
+        "zh-Hans": "为了化解伙伴的悔恨而进行攻击。 被打倒的我方宝可梦越多， 招式的威力越高。"
     }
 }

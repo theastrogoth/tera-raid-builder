@@ -32,14 +32,14 @@
     "isSlicing": true,
     "isWind": false,
     "flavorText": {
-        "en": "This move enables the user to attack first with a jolt of electricity. This move fails if the target is not readying an attack.",
-        "ja": "相手より　先に　電撃を　浴びせる。 相手が　だす技が 攻撃技でないと　失敗する。",
-        "fr": "Permet au lanceur d'attaquer la cible en priorité avec une décharge électrique. Échoue si la cible ne prépare pas une attaque.",
-        "es": "Invoca un rayo que cae sobre el objetivo antes de que este pueda realizar cualquier acción. Falla si el objetivo no está preparando ningún ataque.",
-        "de": "Bei dieser Erstschlag-Attacke lässt der Anwender einen Blitz auf das Ziel einschlagen. Sie gelingt nur, wenn dieses gerade eine Angriffsattacke vorbereitet.",
-        "it": "Il Pokémon abbatte una scarica elettrica sul bersaglio prima che questi possa attaccare. La mossa fallisce se il bersaglio sferra una mossa che non è di attacco.",
-        "ko": "상대보다 먼저 전격을 퍼붓는다. 상대가 쓴 기술이 공격 기술이 아니면 실패한다.",
-        "zh-Hant": "可以搶先對手一步用電擊進行攻擊。 若對手使用的不是攻擊招式則會失敗。",
-        "zh-Hans": "可以比对手先使出电击进行攻击。 对手使出的招式 如果不是攻击招式则会失败。"
+        "en": "The user wields the light that has accumulated atop its head to cleave the target. This move hits even if the target protects itself.",
+        "ja": "頭部に　蓄積した　光で　切断する。 守りを　無視して　攻撃できる。",
+        "fr": "Le lanceur pourfend la cible avec la lumière accumulée sur sa tête. Cette attaque passe outre les protections.",
+        "es": "Rebana al objetivo con la luz que ha acumulado en la testa. Permite acertar aunque el objetivo esté protegiéndose.",
+        "de": "Der Anwender führt mit dem in seinem Kopf gespeicherten Licht einen Schnitt aus. Diese Attacke trifft auch, wenn das Ziel sich selbst schützt.",
+        "it": "Il Pokémon fende il bersaglio con la luce immagazzinata nella testa, ignorando gli effetti delle mosse protettive.",
+        "ko": "머리에 축적된 빛으로 절단한다. 기술 방어를 무시하고 공격할 수 있다.",
+        "zh-Hant": "用積蓄在頭部的光斬斷對手。 可不顧對手的守護進行攻擊。",
+        "zh-Hans": "用积蓄在头部的光来斩切对手。 可以无视守护进行攻击。"
     }
 }

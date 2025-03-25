@@ -32,14 +32,14 @@
     "isSlicing": true,
     "isWind": false,
     "flavorText": {
-        "en": "The user attacks by throwing out a mass of coins. This also lowers the user's Sp. Atk stat. Money is earned after the battle.",
-        "ja": "大量のコインを　ぶちまけて　攻撃。 自分の　特攻が　さがる。 戦闘の　あとで　お金も　もらえる。",
-        "fr": "Le lanceur attaque en lançant de nombreuses pièces, ce qui baisse son Attaque Spéciale. Permet d'obtenir plus d'argent à la fin du combat.",
-        "es": "El usuario ataca arrojando una generosa cantidad de monedas, pero su Ataque Especial se ve reducido. Al finalizar el combate, las recupera en forma de ganancias.",
-        "de": "Der Anwender greift an, indem er Unmengen an Münzen ausschüttet, senkt dabei aber seinen Spezial-Angriff. Das Geld wird nach dem Kampf aufgesammelt.",
-        "it": "Il Pokémon attacca lanciando una gran quantità di monete recuperabili dopo la lotta, ma riduce il proprio Attacco Speciale.",
-        "ko": "대량의 코인을 날려서 공격한다. 자신의 특수공격이 떨어진다. 배틀 후에 돈을 받을 수 있다.",
-        "zh-Hant": "撒出大量硬幣進行攻擊。 自己的特攻會降低。 戰鬥後還可以得到錢。",
-        "zh-Hans": "扔出大量硬币攻击。 自己的特攻会降低， 战斗后还可以拿到钱。"
+        "en": "The user rends the target with an ethereal blade. This move's power is boosted by 50 percent if the user is on Electric Terrain.",
+        "ja": "実体のない刃で　相手を　切り裂く。 エレキフィールドに　いるとき 技の威力が　１．５倍に　なる。",
+        "fr": "Le lanceur lacère la cible à l'aide d'une lame intangible. S'il se trouve dans un champ électrifié, la puissance de cette capacité augmente de 50 %.",
+        "es": "El usuario rebana al objetivo con una espada inmaterial. Cuando se usa en conjunción con un campo eléctrico, la potencia del movimiento aumenta un 50 %.",
+        "de": "Das Ziel wird mit einer immateriellen Klinge angegriffen. Die Stärke der Attacke steigt um 50 %, wenn beim Anwender ein Elektrofeld aktiv ist.",
+        "it": "Il Pokémon falcia il bersaglio con una lama eterea. La potenza della mossa aumenta del 50% quando è attivo un Campo Elettrico.",
+        "ko": "실체가 없는 칼날로 상대를 베어 가른다. 일렉트릭필드 위에 있을 때 기술의 위력이 1.5배가 된다.",
+        "zh-Hant": "用無形的刀刃劈開對手。 在電氣場地時， 招式威力會變成１.５倍。",
+        "zh-Hans": "用无形的利刃劈开对手。 处于电气场地时， 招式威力会变成１．５倍。"
     }
 }

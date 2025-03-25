@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user slashes at the target after kowtowing to make the target let down its guard. This attack never misses.",
-        "ja": "土下座して　相手を 油断させておいて　切りかかる。 攻撃は　必ず　命中する。",
-        "fr": "Le lanceur se prosterne devant la cible et profite de cette distraction pour l'attaquer avec une lame. N'échoue jamais.",
-        "es": "Se postra en ademán de reverencia para hacer que el objetivo baje la guardia y aprovecha el descuido para atacar. No falla nunca.",
-        "de": "Der Anwender fällt auf die Knie und verleitet das Ziel zu Unachtsamkeit, bevor er mit einer Klinge zuschlägt. Diese Attacke trifft garantiert.",
-        "it": "Il Pokémon si genuflette per far abbassare la guardia al bersaglio e poi fenderlo. Questo attacco va sempre a segno.",
-        "ko": "머리를 조아려 상대를 방심하게 만든 뒤에 베어 버린다. 공격은 반드시 명중한다.",
-        "zh-Hant": "向對手下跪使其大意， 接著對其劈斬。 攻擊必定會命中。",
-        "zh-Hans": "下跪让对手大意后 发起袭击劈向对手。 攻击必定会命中。"
+        "en": "The user throws a rigged bouquet of flowers at the target. This attack never misses and always lands a critical hit.",
+        "ja": "細工がある　花たばを 相手に　投げて　攻撃する。 必ず　命中して　急所にも　当たる。",
+        "fr": "Le lanceur attaque en jetant un bouquet de fleurs piégé sur la cible. N'échoue jamais et inflige toujours un coup critique.",
+        "es": "Ataca al objetivo lanzándole un ramo de flores trucado. No falla nunca y siempre asesta un golpe crítico.",
+        "de": "Der Anwender greift an, indem er dem Ziel einen Trick-Strauß zuwirft. Diese Attacke trifft immer und hat zudem Volltreffergarantie.",
+        "it": "Il Pokémon attacca il bersaglio lanciandogli addosso un mazzo di fiori truccato. Questo attacco va sempre a segno, infliggendo anche un brutto colpo.",
+        "ko": "숨겨진 장치가 있는 꽃다발을 상대에게 던져서 공격한다. 반드시 명중하며 급소에 맞는다.",
+        "zh-Hant": "將動過手腳的花束 投向對手進行攻擊。 必定會命中並擊中要害。",
+        "zh-Hans": "将做了手脚的花束 扔向对手进行攻击。 必定会命中，且会击中要害。"
     }
 }

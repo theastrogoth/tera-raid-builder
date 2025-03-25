@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user creates a substitute for itself using its own HP before switching places with a party Pokémon in waiting.",
-        "ja": "自分の　ＨＰを　削って 分身を　だしたあと　もどってきて 控えの　ポケモンと　入れ替わる。",
-        "fr": "Le lanceur crée un clone en sacrifiant des PV, puis il revient et échange sa place avec un Pokémon de l'équipe prêt à combattre.",
-        "es": "El usuario se cambia por otro Pokémon del equipo, pero antes utiliza parte de los PS propios para crear un sustituto para su relevo.",
-        "de": "Der Anwender setzt seine KP ein, um einen Doppelgänger zu erzeugen, und tauscht dann den Platz mit einem anderen Pokémon.",
-        "it": "Chi la usa crea una copia di se stesso usando parte dei suoi PS e si fa sostituire da un altro Pokémon della squadra.",
-        "ko": "자신의 HP를 깎아서 분신을 만든 뒤, 돌아와서 교대 포켓몬과 교체한다.",
-        "zh-Hant": "削減自己的ＨＰ， 製造分身後返回， 和後備寶可夢進行替換。",
-        "zh-Hans": "削减自己的ＨＰ， 制造分身后会返回， 并和后备宝可梦进行替换。"
+        "en": "The user tells a chillingly bad joke before switching places with a party Pokémon in waiting. This summons a snowstorm lasting five turns.",
+        "ja": "場を　凍らせる　ギャグを　言い残し 控えの　ポケモンと　入れ替わる。 ５ターンの　間　ゆきを　降らす。",
+        "fr": "Le lanceur fait un si mauvais jeu de mots qu'il jette un froid et échange sa place avec un Pokémon de l'équipe prêt à combattre. La neige tombe pendant cinq tours.",
+        "es": "El usuario se cambia por otro Pokémon del equipo, pero antes cuenta un chiste que tiene una acogida tan fría que hace que nieve durante cinco turnos.",
+        "de": "Der Anwender sorgt mit einem schlechten Witz für eisige Stimmung und tauscht den Platz mit einem anderen Pokémon. Erzeugt fünf Runden lang Schnee.",
+        "it": "Chi la usa dice una freddura che fa raggelare i presenti per poi farsi sostituire da un altro Pokémon della squadra. Causa una nevicata che dura per cinque turni.",
+        "ko": "자리를 얼어붙게 만드는 개그를 하고 교대 포켓몬과 교체한다. 5턴 동안 눈을 내리게 한다.",
+        "zh-Hant": "留下使場面凍結的笑話後， 和後備寶可夢進行替換。 在５回合內會下雪。",
+        "zh-Hans": "留下冷场的冷笑话后， 和后备宝可梦进行替换。 在５回合内会下雪。"
     }
 }

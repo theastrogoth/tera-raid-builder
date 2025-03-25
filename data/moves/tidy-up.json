@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user tells a chillingly bad joke before switching places with a party Pokémon in waiting. This summons a snowstorm lasting five turns.",
-        "ja": "場を　凍らせる　ギャグを　言い残し 控えの　ポケモンと　入れ替わる。 ５ターンの　間　ゆきを　降らす。",
-        "fr": "Le lanceur fait un si mauvais jeu de mots qu'il jette un froid et échange sa place avec un Pokémon de l'équipe prêt à combattre. La neige tombe pendant cinq tours.",
-        "es": "El usuario se cambia por otro Pokémon del equipo, pero antes cuenta un chiste que tiene una acogida tan fría que hace que nieve durante cinco turnos.",
-        "de": "Der Anwender sorgt mit einem schlechten Witz für eisige Stimmung und tauscht den Platz mit einem anderen Pokémon. Erzeugt fünf Runden lang Schnee.",
-        "it": "Chi la usa dice una freddura che fa raggelare i presenti per poi farsi sostituire da un altro Pokémon della squadra. Causa una nevicata che dura per cinque turni.",
-        "ko": "자리를 얼어붙게 만드는 개그를 하고 교대 포켓몬과 교체한다. 5턴 동안 눈을 내리게 한다.",
-        "zh-Hant": "留下使場面凍結的笑話後， 和後備寶可夢進行替換。 在５回合內會下雪。",
-        "zh-Hans": "留下冷场的冷笑话后， 和后备宝可梦进行替换。 在５回合内会下雪。"
+        "en": "The user tidies up and removes the effects of Spikes, Stealth Rock, Sticky Web, Toxic Spikes, and Substitute. This also boosts the user's Attack and Speed stats.",
+        "ja": "まきびし　ステルスロック　ねばねばネット どくびし　みがわりを　すべて　かたづける。 自分の　攻撃と　素早さが　あがる。",
+        "fr": "Le lanceur fait le ménage sur le terrain, ce qui annule les effets de Picots, Piège de Roc, Toile Gluante, Pics Toxik, et Clonage. Augmente l'Attaque et la Vitesse du lanceur.",
+        "es": "Efectúa una limpieza a fondo que anula los efectos de Púas, Trampa Rocas, Red Viscosa, Púas Tóxicas y Sustituto. Aumenta el Ataque y la Velocidad del usuario.",
+        "de": "Die Effekte von Stachler, Tarnsteine, Klebenetz, Giftspitzen und Delegator werden aufgehoben. Zudem steigen der Angriff und die Initiative des Anwenders.",
+        "it": "Il Pokémon fa le pulizie, annullando gli effetti di Punte, Levitoroccia, Rete Vischiosa, Fielepunte e Sostituto. Inoltre, aumenta il suo Attacco e la sua Velocità.",
+        "ko": "압정뿌리기, 스텔스록, 끈적끈적네트, 독압정, 대타출동을 모두 정리한다. 자신의 공격과 스피드가 올라간다.",
+        "zh-Hant": "將撒菱、隱形岩、黏黏網、 毒菱、替身全部清理乾淨。 自己的攻擊和速度會提高。",
+        "zh-Hans": "将撒菱、隐形岩、黏黏网、 毒菱、替身全部扫除掉。 自己的攻击和速度会提高。"
     }
 }

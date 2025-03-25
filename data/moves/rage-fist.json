@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user shoots mystical beams from its eyes to inflict damage. The target is hit twice in a row.",
-        "ja": "両目から　不可思議な 光線を　発射して　攻撃する。 ２回連続で　ダメージを　与える。",
-        "fr": "Le lanceur projette d'étranges rayons lumineux avec ses yeux et inflige des dégâts deux fois d'affilée.",
-        "es": "Ataca emitiendo dos misteriosos haces lumínicos por los ojos que infligen daño dos veces seguidas.",
-        "de": "Der Anwender greift mit übernatürlichen Lichtstrahlen an, die er aus seinen Augen abfeuert, und trifft das Ziel zweimal hintereinander.",
-        "it": "Il Pokémon attacca il bersaglio con misteriosi raggi di luce emessi dagli occhi che infliggono danni due volte di fila.",
-        "ko": "두 눈에서 불가사의한 광선을 발사해서 공격한다. 2회 연속으로 데미지를 준다.",
-        "zh-Hant": "從雙眼發射不可思議的 光線進行攻擊。 連續２次給予傷害。",
-        "zh-Hans": "从两眼发射出神奇的光线攻击。 连续２次给予伤害。"
+        "en": "The user converts its rage into energy to attack. The more times the user has been hit by attacks, the greater the move's power.",
+        "ja": "怒りを　エネルギーに　変えて　攻撃。 受けた　攻撃の　回数が　多いほど 技の　威力が　あがる。",
+        "fr": "Le lanceur transforme sa colère en énergie pour attaquer. Plus il a subi d'attaques, plus la puissance de cette capacité augmente.",
+        "es": "Convierte su rabia en energía para atacar. Cuantos más golpes haya recibido el usuario, mayor será la potencia del movimiento.",
+        "de": "Ein Angriff, für den der Anwender seinen Zorn in Energie umwandelt. Je häufiger der Anwender getroffen wurde, desto stärker wird diese Attacke.",
+        "it": "Il Pokémon trasforma la sua furia in energia e la utilizza per attaccare. Più attacchi ha subito il Pokémon, più la potenza della mossa aumenta.",
+        "ko": "분노를 에너지로 바꿔서 공격한다. 받은 공격의 횟수가 많을수록 기술의 위력이 올라간다.",
+        "zh-Hant": "將憤怒化為能量進行攻擊。 受到的攻擊次數越多， 招式的威力越大。",
+        "zh-Hans": "将愤怒化为力量攻击。 受到攻击的次数越多， 招式的威力越高。"
     }
 }

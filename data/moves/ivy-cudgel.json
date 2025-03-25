@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user sets off an explosion of sticky candy syrup, which coats the target and causes the target's Speed stat to drop each turn for three turns.",
-        "ja": "ねっとりした　みずあめを　爆発させ 相手を　あめまみれ　状態に　して ３ターンの間　素早さを　さげ続ける。",
-        "fr": "Le lanceur jette une bombe qui recouvre la cible de sirop gluant et fait progressivement baisser la Vitesse de la cible pendant trois tours.",
-        "es": "Impregna al objetivo con una explosión de su viscoso néctar y lo carameliza, lo que hace que su Velocidad se reduzca progresivamente durante tres turnos.",
-        "de": "Der Anwender feuert eine klebrige Sirupbombe auf das Ziel, wodurch es in Sirup gehüllt und seine Initiative drei Runden in Folge gesenkt wird.",
-        "it": "Il Pokémon fa esplodere dello sciroppo viscoso sul bersaglio, ricoprendolo e facendogli diminuire la Velocità per tre turni.",
-        "ko": "끈적끈적한 물엿을 폭발시킨다. 상대를 물엿범벅 상태로 만들어서 3턴 동안 계속 스피드를 떨어뜨린다.",
-        "zh-Hant": "使黏稠的糖漿爆炸， 使對手陷入滿身糖狀態， 在３回合內持續降低對手的速度。",
-        "zh-Hans": "使粘稠的麦芽糖浆爆炸， 让对手陷入满身糖状态， 在３回合内持续降低其速度。"
+        "en": "The user strikes with an ivy-wrapped cudgel. This move's type changes depending on the mask worn by the user, and it has a heightened chance of landing a critical hit.",
+        "ja": "ツタを　まきつけた　こん棒で　なぐる。 かぶっている　お面で　タイプが　変わる。 急所に　当たりやすい。",
+        "fr": "Le lanceur frappe la cible à l'aide d'une massue entourée d'une liane. Le type de cette capacité varie en fonction du masque que porte le lanceur. Taux de critiques élevé.",
+        "es": "Golpea con un garrote que forma enrollando su liana. El tipo del movimiento varía según la máscara que lleve puesta el usuario. Suele asestar un golpe crítico.",
+        "de": "Der Anwender schlägt mit einer rankenumschlungenen Keule zu. Der Typ dieser Attacke hängt von der Maske des Anwenders ab. Hohe Volltrefferquote.",
+        "it": "Il Pokémon colpisce con una clava avvolta da liane. Il tipo della mossa varia in base alla maschera indossata. Probabile brutto colpo.",
+        "ko": "덩굴을 휘감은 방망이로 때린다. 쓰고 있는 가면에 따라 타입이 바뀐다. 급소에 맞기 쉽다.",
+        "zh-Hant": "用纏繞著藤蔓的棍棒毆打。 屬性會隨著所戴的面具而改變。 容易擊中要害。",
+        "zh-Hans": "用缠有藤蔓的棍棒殴打。 属性会随所戴的面具而改变。 容易击中要害。"
     }
 }

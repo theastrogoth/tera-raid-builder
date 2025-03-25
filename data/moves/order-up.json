@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user attacks by unleashing a peculiar light that even affects the mind. This also harshly lowers the target's Sp. Def stat.",
-        "ja": "精神にも　作用する 奇妙な光を　放って　攻撃する。 相手の　特防を　がくっと　さげる。",
-        "fr": "Le lanceur attaque en émettant une étrange lumière qui ébranle l'esprit de la cible. Cela baisse beaucoup la Défense Spéciale de la cible.",
-        "es": "Ataca proyectando una extraña luz que afecta a la mente. Reduce mucho la Defensa Especial del objetivo.",
-        "de": "Der Anwender greift an, indem er ein sonderbares Licht freisetzt, das sich auch auf die Psyche auswirkt. Zudem wird die Spezial-Verteidigung des Zieles stark gesenkt.",
-        "it": "Il Pokémon attacca sparando una luce bizzarra che agisce anche sulla psiche. Riduce di molto la Difesa Speciale del bersaglio.",
-        "ko": "정신에도 작용하는 기묘한 빛을 발산해서 공격한다. 상대의 특수방어를 크게 떨어뜨린다.",
-        "zh-Hant": "發出對精神也會起作用的 奇異光線進行攻擊。 大幅降低對手的特防。",
-        "zh-Hans": "放出连精神都能影响到的 奇妙怪光进行攻击。 会大幅降低对方的特防。"
+        "en": "The user attacks with elegant poise. If the user has a Tatsugiri in its mouth, this move boosts one of the user's stats based on the Tatsugiri's form.",
+        "ja": "いなせな　身のこなしで　攻撃。 口の中に　シャリタツが　いると そのすがたによって　能力が　あがる。",
+        "fr": "Le lanceur attaque avec adresse et élégance. S'il a un Nigirigon dans la gueule, une de ses stats augmente en fonction de la forme de celui-ci.",
+        "es": "Ataca con porte gallardo. Si lleva un Tatsugiri en la boca, aumenta una de sus características en función de la forma de este último.",
+        "de": "Eine Attacke mit geübten Bewegungen. Trägt der Anwender ein Nigiragi im Maul, erhöht sich je nach dessen Form ein Statuswert des Anwenders.",
+        "it": "Il Pokémon attacca con deliziose movenze. Se ha in bocca un Tatsugiri, una sua statistica aumenta in base alla forma di quest'ultimo.",
+        "ko": "멋들어진 몸놀림으로 공격한다. 입속에 싸리용이 있으면 싸리용의 모습에 따라 능력이 올라간다.",
+        "zh-Hant": "以瀟灑的身段進行攻擊。 若口中有米立龍， 會依米立龍的姿勢而提高不同能力。",
+        "zh-Hans": "以潇洒的身手进行攻击。 若口中有米立龙， 会按其样子提高能力。"
     }
 }

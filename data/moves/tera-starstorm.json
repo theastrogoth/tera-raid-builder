@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user gathers electricity on the first turn, boosting its Sp. Atk stat, then fires a high-voltage shot on the next turn. The shot will be fired immediately in rain.",
-        "ja": "１ターン目に　電気を　集めて　特攻が　あがり ２ターン目に　高圧の　電気を　発射する。 天気が　雨のときは　すぐに　発射できる。",
-        "fr": "Le lanceur absorbe de l'électricité au premier tour, ce qui augmente son Attaque Spéciale, et envoie une puissante décharge au second. S'il pleut, il l'envoie au premier tour.",
-        "es": "Acumula electricidad y aumenta su Ataque Especial en el primer turno y dispara una descarga de alto voltaje en el segundo. Si llueve, puede atacar en el primer turno.",
-        "de": "Sammelt in Runde 1 Elektrizität, um den Spezial-Angriff zu erhöhen, und greift dann in Runde 2 mit Starkstrom an. Bei Regen erfolgt der Angriff sofort in Runde 1.",
-        "it": "Il Pokémon accumula elettricità e aumenta l'Attacco Speciale al primo turno, per poi rilasciare una potente scarica al turno successivo o, se piove, immediatamente.",
-        "ko": "1턴째에 전기를 모아서 특수공격을 올리고 2턴째에 고압의 전기를 발사한다. 비가 오는 날씨일 때는 바로 발사할 수 있다.",
-        "zh-Hant": "使用後的第１回合會收集電力來提高特攻， 並於第２回合發射出高壓電。 天氣為下雨時可立即發射。",
-        "zh-Hans": "第１回合收集电力提高特攻， 第２回合将高压的电力发射出去。 下雨天气时能立刻发射。"
+        "en": "With the power of its crystals, the user bombards and eliminates the target. When used by Terapagos in its Stellar Form, this move damages all opposing Pokémon.",
+        "ja": "結晶の力を　照射し　敵を　排除する。 テラパゴスが　ステラフォルムで　放つと すべての　相手に　ダメージを　与える。",
+        "fr": "Le lanceur bombarde la cible afin de l'éliminer grâce au pouvoir des cristaux. Si le lanceur est Terapagos sous sa Forme Stellaire, la capacité touche tous les ennemis.",
+        "es": "Ataca al objetivo irradiando el poder de sus cristales. Si Terapagos usa este movimiento en su Forma Astral, inflige daño a todos los rivales.",
+        "de": "Der Anwender greift das Ziel mit gebündelter Kristall- energie an. Wenn Terapagos diese Attacke in seiner Stellarform einsetzt, erleiden alle Gegner Schaden.",
+        "it": "Il Pokémon elimina il bersaglio irradiando il potere dei cristalli. Se Terapagos assume la Forma Astrale, la mossa infligge danni a tutti gli avversari.",
+        "ko": "결정의 힘을 내리쬐어 적을 없애 버린다. 테라파고스가 스텔라폼일 때 사용하면 모든 상대에게 데미지를 준다.",
+        "zh-Hant": "投射結晶之力來掃除敵人。 當太樂巴戈斯以星晶形態使出時， 能給予所有對手傷害。",
+        "zh-Hans": "照射出结晶的力量来驱逐敌人。 太乐巴戈斯在星晶形态下使出时， 能对所有对手造成伤害。"
     }
 }

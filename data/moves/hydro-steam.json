@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user rends the target with an ethereal blade. This move's power is boosted by 50 percent if the user is on Electric Terrain.",
-        "ja": "実体のない刃で　相手を　切り裂く。 エレキフィールドに　いるとき 技の威力が　１．５倍に　なる。",
-        "fr": "Le lanceur lacère la cible à l'aide d'une lame intangible. S'il se trouve dans un champ électrifié, la puissance de cette capacité augmente de 50 %.",
-        "es": "El usuario rebana al objetivo con una espada inmaterial. Cuando se usa en conjunción con un campo eléctrico, la potencia del movimiento aumenta un 50 %.",
-        "de": "Das Ziel wird mit einer immateriellen Klinge angegriffen. Die Stärke der Attacke steigt um 50 %, wenn beim Anwender ein Elektrofeld aktiv ist.",
-        "it": "Il Pokémon falcia il bersaglio con una lama eterea. La potenza della mossa aumenta del 50% quando è attivo un Campo Elettrico.",
-        "ko": "실체가 없는 칼날로 상대를 베어 가른다. 일렉트릭필드 위에 있을 때 기술의 위력이 1.5배가 된다.",
-        "zh-Hant": "用無形的刀刃劈開對手。 在電氣場地時， 招式威力會變成１.５倍。",
-        "zh-Hans": "用无形的利刃劈开对手。 处于电气场地时， 招式威力会变成１．５倍。"
+        "en": "The user blasts the target with boiling-hot water. This move's power is not lowered in harsh sunlight but rather boosted by 50 percent.",
+        "ja": "煮えたぎる水を　勢いよく　浴びせる。 日差しが　強いとき　技の威力が さがるどころか　１．５倍に　なる。",
+        "fr": "Le lanceur asperge la cible avec un puissant jet d'eau bouillante. Quand le soleil brille, la puissance de cette capacité augmente de 50 % au lieu de baisser.",
+        "es": "Vierte agua hirviendo sobre el objetivo. Cuando hace sol, la potencia del movimiento aumenta un 50 % en lugar de reducirse.",
+        "de": "Das Ziel wird kraftvoll mit brodelndem Wasser übergossen. Wider Erwarten sinkt die Stärke der Attacke bei starkem Sonnenlicht nicht, sondern steigt um 50 %.",
+        "it": "Il Pokémon ricopre con forza il bersaglio di acqua bollente. Con la luce solare intensa, la potenza di questa mossa aumenta del 50% anziché diminuire.",
+        "ko": "펄펄 끓는 물을 기세 좋게 뿜어낸다. 햇살이 강할 때 기술의 위력이 떨어지기는커녕 1.5배가 된다.",
+        "zh-Hant": "將滾燙的水猛烈地噴向對手。 日照很強時，招式威力不但 不會降低，還會變成１.５倍。",
+        "zh-Hans": "将煮得翻滚的开水猛烈地喷向对手。 日照强烈时，招式威力不但 不会降低，还会变成１．５倍。"
     }
 }

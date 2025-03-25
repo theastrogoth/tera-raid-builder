@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user throws its entire body into a reckless charge. After this move is used, attacks on the user cannot miss and will inflict double damage until the user's next turn.",
-        "ja": "体を　投げだす　無謀な突撃。 技のあと　相手からの　攻撃は　必ず 命中し　ダメージが　２倍に　なってしまう。",
-        "fr": "Le lanceur se jette dans une charge inconsciente sur la cible. Une fois cette capacité utilisée, toute attaque sur le lanceur inflige le double de dégâts et n'échoue jamais.",
-        "es": "Embiste de forma temeraria con todo el cuerpo. Los ataques que reciba antes de su siguiente turno no fallarán y causarán el doble de daño.",
-        "de": "Der Anwender stürzt sich waghalsig auf das Ziel. Bis zum nächsten Zug des Anwenders treffen ihn gegnerische Angriffe garantiert und richten doppelten Schaden an.",
-        "it": "Il Pokémon si lancia in una carica avventata. Fino al suo prossimo turno, il Pokémon riceverà il doppio dei danni dagli attacchi altrui, che andranno sempre a segno.",
-        "ko": "몸을 내던지는 무모한 돌격. 기술을 사용한 다음, 상대의 공격이 반드시 명중하고 데미지를 2배로 입게 된다.",
-        "zh-Hant": "豁出己身的魯莽突擊。 使出招式後對手的攻擊必定會命中， 且傷害會變成２倍。",
-        "zh-Hans": "有勇无谋的舍身突击。 使出招式后，对手的攻击必定 会命中，且伤害会变成２倍。"
+        "en": "The user bestows a loving blessing, reviving a party Pokémon that has fainted and restoring half that Pokémon's max HP.",
+        "ja": "慈愛の心で　いのることにより 控えにいる　ひんしの　ポケモンを ＨＰを　半分の状態で　復活させる。",
+        "fr": "Dans un élan de compassion, le lanceur adresse une prière afin de ranimer un Pokémon de l'équipe K.O. en lui rendant la moitié de ses PV.",
+        "es": "Pronuncia una benévola oración que revive a un Pokémon del equipo que se haya debilitado y restaura la mitad de sus PS máximos.",
+        "de": "Der Anwender belebt mit einem Wunsch voller Mitgefühl ein kampfunfähiges Team-Mitglied wieder und stellt die Hälfte dessen maximaler KP wieder her.",
+        "it": "Il Pokémon intona una preghiera compassionevole, rianimando un Pokémon della squadra esausto e restituendogli metà dei suoi PS.",
+        "ko": "자애로운 마음으로 기도를 하여 기절한 교대 포켓몬을 HP가 절반인 상태로 부활시킨다.",
+        "zh-Hant": "懷著慈愛之心祈禱， 使後備中瀕死的寶可夢 以一半的ＨＰ復活。",
+        "zh-Hans": "通过以慈爱之心祈祷， 让陷入昏厥的后备宝可梦 以回复一半ＨＰ的状态复活。"
     }
 }

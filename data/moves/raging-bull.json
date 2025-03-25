@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user toys with the target and attacks it using light and fluid dance steps. This also boosts the user's Speed stat.",
-        "ja": "水もしたたる　かろやかな　足どりで 相手を　翻弄し　ダメージを　与える。 自分の　素早さを　あげる。",
-        "fr": "Le lanceur se joue de la cible et lui inflige des dégâts avec ses pas de danse gracieux et légers. Cette capacité augmente la Vitesse du lanceur.",
-        "es": "Juguetea con el objetivo mientras ejecuta una elegante y fluida danza y le inflige daño. Aumenta la Velocidad del usuario.",
-        "de": "Der Anwender neckt das Ziel mit flinken, fließenden Tanzschritten und greift es dann an. Dadurch steigt auch die Initiative des Anwenders.",
-        "it": "Il Pokémon si prende gioco del bersaglio con passi di danza leggiadri e fluidi come l'acqua, infliggendogli danni. Inoltre, la sua Velocità aumenta.",
-        "ko": "물 흐르듯 민첩하고 경쾌한 발재간으로 상대를 농락하며 데미지를 준다. 자신의 스피드를 올린다.",
-        "zh-Hant": "以盈盈欲滴的輕巧步伐 戲弄對手，給予傷害。 會提高自己的速度。",
-        "zh-Hans": "以盈盈欲滴的轻快步伐 戏耍对手并给予其伤害。 会提高自己的速度。"
+        "en": "The user performs a tackle like a raging bull. This move's type depends on the user's form. It can also break barriers, such as Light Screen and Reflect.",
+        "ja": "怒り狂う　あばれうしの　猛烈な　タックル。 フォルムで　技のタイプが　変わり ひかりのかべや　リフレクターなども　破壊できる。",
+        "fr": "Le lanceur charge la cible comme un taureau enragé. Le type de cette capacité dépend de la race du lanceur, et brise les barrières comme Mur Lumière et Protection.",
+        "es": "Embiste con tremenda fiereza. Este movimiento cambia de tipo en función de la variedad del usuario y es capaz de destruir barreras como Pantalla de Luz y Reflejo.",
+        "de": "Ein rasender Angriff eines wilden Stiers, der auch Barrieren wie Lichtschild und Reflektor durchbricht. Der Attacken-Typ hängt von der Form des Anwenders ab.",
+        "it": "Il Pokémon carica il bersaglio con furia cieca, rompendo barriere come Schermoluce e Riflesso. Il tipo di questa mossa dipende dalla forma di chi la usa.",
+        "ko": "분노해 날뛰는 성난소의 맹렬한 태클. 폼에 따라 기술의 타입이 달라지고 빛의장막이나 리플렉터 등도 파괴할 수 있다.",
+        "zh-Hant": "憤怒狂亂的暴牛發動之猛烈衝撞。 招式的屬性會依形態而改變， 並可破壞光牆和反射壁等。",
+        "zh-Hans": "狂怒暴牛的猛烈冲撞。 招式的属性随形态改变， 光墙和反射壁等招式也能破坏。"
     }
 }

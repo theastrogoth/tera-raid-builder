@@ -32,14 +32,14 @@
     "isSlicing": true,
     "isWind": false,
     "flavorText": {
-        "en": "The user retaliates with much greater force against the opponent that last inflicted damage on it.",
-        "ja": "技を　だす前に 最後に　受けた　技の　ダメージを 大きくして　だした　相手に　やり返す。",
-        "fr": "Le lanceur contre-attaque avec un coup infligeant des dégâts supérieurs à ceux de la dernière capacité qui l'a blessé.",
-        "es": "Devuelve al rival el último ataque recibido, pero con mucha más fuerza.",
-        "de": "Der Anwender rächt sich an dem Gegner, der ihm zuletzt mit einer Attacke Schaden zugefügt hat, indem er ihm den Schaden mit erhöhter Kraft zurückzahlt.",
-        "it": "Il Pokémon restituisce con gli interessi i danni subiti all'ultimo avversario che l'ha colpito.",
-        "ko": "기술을 쓰기 전에 마지막으로 받은 기술의 데미지를 늘려서 기술을 쓴 상대에게 돌려준다.",
-        "zh-Hant": "將發動攻擊前 最後受到的招式傷害放大， 向對手進行報復。",
-        "zh-Hans": "使出招式前， 将最后受到的招式的伤害 大力返还给对手。"
+        "en": "The user expels pressurized water to cut at the target like a blade. This move has a heightened chance of landing a critical hit.",
+        "ja": "加圧された　水を　刃のように 噴射して　相手を　切り裂く。 急所に　当たりやすい。",
+        "fr": "Le lanceur projette de l'eau pressurisée qui entaille la cible comme une lame. Taux de critiques élevé.",
+        "es": "Expele agua a presión con la que corta al objetivo como si de una hoja se tratara. Suele asestar un golpe crítico.",
+        "de": "Der Anwender stößt Wasser unter Druck aus, um das Ziel wie mit einer Klinge anzugreifen. Hohe Volltrefferquote.",
+        "it": "Il Pokémon espelle acqua ad alta pressione e falcia il bersaglio con un fendente tagliente quanto una lama. Probabile brutto colpo.",
+        "ko": "압력을 가한 물을 칼날처럼 분사해서 상대를 베어 가른다. 급소에 맞기 쉽다.",
+        "zh-Hant": "噴射出經過加壓的水， 如刀刃似地劈開對手。 容易擊中要害。",
+        "zh-Hans": "如刀刃般喷射出 加压的水切开对手。 容易击中要害。"
     }
 }

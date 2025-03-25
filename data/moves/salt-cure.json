@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user bestows a loving blessing, reviving a party Pokémon that has fainted and restoring half that Pokémon's max HP.",
-        "ja": "慈愛の心で　いのることにより 控えにいる　ひんしの　ポケモンを ＨＰを　半分の状態で　復活させる。",
-        "fr": "Dans un élan de compassion, le lanceur adresse une prière afin de ranimer un Pokémon de l'équipe K.O. en lui rendant la moitié de ses PV.",
-        "es": "Pronuncia una benévola oración que revive a un Pokémon del equipo que se haya debilitado y restaura la mitad de sus PS máximos.",
-        "de": "Der Anwender belebt mit einem Wunsch voller Mitgefühl ein kampfunfähiges Team-Mitglied wieder und stellt die Hälfte dessen maximaler KP wieder her.",
-        "it": "Il Pokémon intona una preghiera compassionevole, rianimando un Pokémon della squadra esausto e restituendogli metà dei suoi PS.",
-        "ko": "자애로운 마음으로 기도를 하여 기절한 교대 포켓몬을 HP가 절반인 상태로 부활시킨다.",
-        "zh-Hant": "懷著慈愛之心祈禱， 使後備中瀕死的寶可夢 以一半的ＨＰ復活。",
-        "zh-Hans": "通过以慈爱之心祈祷， 让陷入昏厥的后备宝可梦 以回复一半ＨＰ的状态复活。"
+        "en": "The user salt cures the target, inflicting damage every turn. Steel and Water types are more strongly affected by this move.",
+        "ja": "相手を　しおづけ状態に　して 毎ターン　ダメージを　与える。 はがね　みずタイプは　より　苦しむ。",
+        "fr": "Le lanceur couvre la cible de sel, ce qui lui inflige des dégâts à chaque tour. Si la cible est de type Acier ou Eau, ces dégâts sont plus élevés.",
+        "es": "Deja en salazón al objetivo, que pierde PS cada turno. Afecta especialmente a Pokémon de tipo Acero y tipo Agua.",
+        "de": "Der Anwender pökelt das Ziel mit Salz ein, wodurch dieses jede Runde Schaden erleidet. Stahl- und Wasser-Pokémon leiden besonders darunter.",
+        "it": "Il Pokémon mette sotto sale il bersaglio, infliggendogli danni a ogni turno. I Pokémon di tipo Acciaio e di tipo Acqua sono particolarmente vulnerabili a questa mossa.",
+        "ko": "상대를 소금절이 상태로 만들어 매 턴 데미지를 준다. 강철타입이나 물타입에게 더 고통스럽다.",
+        "zh-Hant": "讓對手陷入鹽醃狀態， 每回合都會受到傷害。 鋼、水屬性的寶可夢還會更痛苦。",
+        "zh-Hans": "使对手陷入盐腌状态， 每回合给予对手伤害。 对手为钢或水属性时会更痛苦。"
     }
 }

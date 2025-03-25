@@ -37,14 +37,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user performs a tackle like a raging bull. This move's type depends on the user's form. It can also break barriers, such as Light Screen and Reflect.",
-        "ja": "怒り狂う　あばれうしの　猛烈な　タックル。 フォルムで　技のタイプが　変わり ひかりのかべや　リフレクターなども　破壊できる。",
-        "fr": "Le lanceur charge la cible comme un taureau enragé. Le type de cette capacité dépend de la race du lanceur, et brise les barrières comme Mur Lumière et Protection.",
-        "es": "Embiste con tremenda fiereza. Este movimiento cambia de tipo en función de la variedad del usuario y es capaz de destruir barreras como Pantalla de Luz y Reflejo.",
-        "de": "Ein rasender Angriff eines wilden Stiers, der auch Barrieren wie Lichtschild und Reflektor durchbricht. Der Attacken-Typ hängt von der Form des Anwenders ab.",
-        "it": "Il Pokémon carica il bersaglio con furia cieca, rompendo barriere come Schermoluce e Riflesso. Il tipo di questa mossa dipende dalla forma di chi la usa.",
-        "ko": "분노해 날뛰는 성난소의 맹렬한 태클. 폼에 따라 기술의 타입이 달라지고 빛의장막이나 리플렉터 등도 파괴할 수 있다.",
-        "zh-Hant": "憤怒狂亂的暴牛發動之猛烈衝撞。 招式的屬性會依形態而改變， 並可破壞光牆和反射壁等。",
-        "zh-Hans": "狂怒暴牛的猛烈冲撞。 招式的属性随形态改变， 光墙和反射壁等招式也能破坏。"
+        "en": "The user attacks by throwing out a mass of coins. This also lowers the user's Sp. Atk stat. Money is earned after the battle.",
+        "ja": "大量のコインを　ぶちまけて　攻撃。 自分の　特攻が　さがる。 戦闘の　あとで　お金も　もらえる。",
+        "fr": "Le lanceur attaque en lançant de nombreuses pièces, ce qui baisse son Attaque Spéciale. Permet d'obtenir plus d'argent à la fin du combat.",
+        "es": "El usuario ataca arrojando una generosa cantidad de monedas, pero su Ataque Especial se ve reducido. Al finalizar el combate, las recupera en forma de ganancias.",
+        "de": "Der Anwender greift an, indem er Unmengen an Münzen ausschüttet, senkt dabei aber seinen Spezial-Angriff. Das Geld wird nach dem Kampf aufgesammelt.",
+        "it": "Il Pokémon attacca lanciando una gran quantità di monete recuperabili dopo la lotta, ma riduce il proprio Attacco Speciale.",
+        "ko": "대량의 코인을 날려서 공격한다. 자신의 특수공격이 떨어진다. 배틀 후에 돈을 받을 수 있다.",
+        "zh-Hant": "撒出大量硬幣進行攻擊。 自己的特攻會降低。 戰鬥後還可以得到錢。",
+        "zh-Hans": "扔出大量硬币攻击。 自己的特攻会降低， 战斗后还可以拿到钱。"
     }
 }

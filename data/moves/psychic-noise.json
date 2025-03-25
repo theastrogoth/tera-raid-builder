@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user electrifies its body and drops onto the target to inflict damage. If this move misses, the user takes damage instead.",
-        "ja": "体を　帯電させて　相手に　のしかかる。 はずすと　自分が　ダメージを　受ける。",
-        "fr": "Le lanceur se charge en électricité et fond sur la cible. S'il échoue, le lanceur se blesse.",
-        "es": "El usuario electrifica su cuerpo y salta en plancha sobre el objetivo. Si falla, se hiere a sí mismo.",
-        "de": "Der Anwender lädt seinen Körper mit elektrischer Energie auf und stürzt sich auf das Ziel. Bei Misserfolg verletzt sich der Anwender selbst.",
-        "it": "Il Pokémon si schianta sul bersaglio dopo essersi elettrificato. Se la mossa fallisce, il Pokémon subisce dei danni.",
-        "ko": "몸에 전기를 두르고 상대를 덮친다. 빗나가면 자신이 데미지를 입는다.",
-        "zh-Hant": "讓身體帶電然後壓向對手。 沒命中對手時自己會受到傷害。",
-        "zh-Hans": "让身体带电后压向对手。 如果没有命中则自己会受到伤害。"
+        "en": "The user attacks the target with unpleasant sound waves. For two turns, the target is prevented from recovering HP through moves, Abilities, or held items.",
+        "ja": "不快な音波を　相手に　浴びせて　攻撃。 ２ターンの間　技や　特性や　持っている 道具によって　ＨＰを　回復できなくなる。",
+        "fr": "Le lanceur attaque avec des ondes sonores dissonantes. Cela empêche la cible de récupérer des PV à l'aide de capacités, talents ou objets tenus pendant deux tours.",
+        "es": "Ataca emitiendo una onda sonora desagradable que impide al objetivo usar movimientos, habilidades y objetos equipados que recuperan PS durante dos turnos.",
+        "de": "Der Anwender greift mit unerträglichen Schallwellen an, wodurch das Ziel zwei Runden lang nicht durch Attacken, Fähigkeiten oder getragene Items geheilt werden kann.",
+        "it": "Il Pokémon investe il bersaglio con insopportabili onde sonore che gli impediscono di recuperare PS con mosse, abilità o strumenti che ha con sé per due turni.",
+        "ko": "불쾌한 음파를 상대에게 날려서 공격한다. 2턴 동안 상대는 기술이나 특성 또는 지니고 있는 도구로 HP를 회복할 수 없게 된다.",
+        "zh-Hant": "用令人不快的音波攻擊對手， 使對手在２回合內變得無法透過 招式、特性或攜帶的道具回復ＨＰ。",
+        "zh-Hans": "用令对手不舒服的音波进行攻击。 让对手在２回合内无法通过 招式、特性或携带的道具回复ＨＰ。"
     }
 }

@@ -32,14 +32,14 @@
     "isSlicing": true,
     "isWind": false,
     "flavorText": {
-        "en": "The user spins furiously by straining its legs, inflicting damage on the target. This also harshly lowers the user's Speed stat.",
-        "ja": "足に　負荷を　かけることにより 激しく　回転して　ダメージを　与える。 自分の　素早さが　がくっと　さがる。",
-        "fr": "Le lanceur met tout son poids sur ses pattes et effectue de violentes rotations, ce qui inflige des dégâts à la cible, mais baisse beaucoup la Vitesse du lanceur.",
-        "es": "Inflige daño al objetivo ejerciendo presión sobre sus extremidades y girando violentamente sobre sí. Reduce mucho la Velocidad del usuario.",
-        "de": "Der Anwender wirbelt wild umher, indem er sein Gewicht auf seine Extremitäten verlagert, und richtet so Schaden an. Seine eigene Initiative sinkt dadurch stark.",
-        "it": "Il Pokémon infligge danni caricando le estremità e ruotandole vorticosamente. La sua Velocità diminuisce di molto.",
-        "ko": "발에 부하를 걸어 격렬하게 회전하며 데미지를 준다. 자신의 스피드가 크게 떨어진다.",
-        "zh-Hant": "藉由在腳上負重 來劇烈地旋轉並給予傷害。 自己的速度會大幅降低。",
-        "zh-Hans": "通过往腿上增加负荷， 以激烈的旋转给予对手伤害。 自己的速度会大幅降低。"
+        "en": "The user's fellows gather in droves to perform a combo attack that hits the target one to ten times in a row.",
+        "ja": "仲間たちが　わらわらと　集まって コンビネーションで　攻撃を　与えていく。 １ー１０回の　間　連続で　あたる。",
+        "fr": "Le lanceur et ses congénères prolifèrent en masse et attaquent ensemble d'une à dix fois d'affilée.",
+        "es": "Los congéneres del usuario se agrupan y ejecutan un ataque conjunto que golpea al objetivo de una a diez veces seguidas.",
+        "de": "Der Anwender versammelt eine Schar von Artgenossen, die dann geschlossen angreift und das Ziel ein- bis zehnmal hintereinander trifft.",
+        "it": "Il Pokémon si riunisce con i suoi simili in un gruppo brulicante che collabora per attaccare e colpisce da una a dieci volte di fila.",
+        "ko": "여기저기서 동료들을 모아서 화려한 콤비네이션으로 공격한다. 1~10회 연속으로 공격한다.",
+        "zh-Hant": "夥伴們紛紛聚集而來， 以群體形式逐一給予攻擊。 連續命中１～１０次。",
+        "zh-Hans": "伙伴们会纷纷赶来集合， 以群体行动给予对手攻击。 连续命中１～１０次。"
     }
 }

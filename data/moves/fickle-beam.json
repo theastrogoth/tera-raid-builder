@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "With the power of its crystals, the user bombards and eliminates the target. When used by Terapagos in its Stellar Form, this move damages all opposing Pokémon.",
-        "ja": "結晶の力を　照射し　敵を　排除する。 テラパゴスが　ステラフォルムで　放つと すべての　相手に　ダメージを　与える。",
-        "fr": "Le lanceur bombarde la cible afin de l'éliminer grâce au pouvoir des cristaux. Si le lanceur est Terapagos sous sa Forme Stellaire, la capacité touche tous les ennemis.",
-        "es": "Ataca al objetivo irradiando el poder de sus cristales. Si Terapagos usa este movimiento en su Forma Astral, inflige daño a todos los rivales.",
-        "de": "Der Anwender greift das Ziel mit gebündelter Kristall- energie an. Wenn Terapagos diese Attacke in seiner Stellarform einsetzt, erleiden alle Gegner Schaden.",
-        "it": "Il Pokémon elimina il bersaglio irradiando il potere dei cristalli. Se Terapagos assume la Forma Astrale, la mossa infligge danni a tutti gli avversari.",
-        "ko": "결정의 힘을 내리쬐어 적을 없애 버린다. 테라파고스가 스텔라폼일 때 사용하면 모든 상대에게 데미지를 준다.",
-        "zh-Hant": "投射結晶之力來掃除敵人。 當太樂巴戈斯以星晶形態使出時， 能給予所有對手傷害。",
-        "zh-Hans": "照射出结晶的力量来驱逐敌人。 太乐巴戈斯在星晶形态下使出时， 能对所有对手造成伤害。"
+        "en": "The user shoots a beam of light to inflict damage. Sometimes all the user's heads shoot beams in unison, doubling the move's power.",
+        "ja": "光線を　発射して　攻撃する。 ときどき　ほかの首も　協力して レーザーを　放ち　威力が　２倍に　なる。",
+        "fr": "Le lanceur attaque en tirant un rayon lumineux. Il arrive parfois que toutes les têtes agissent ensemble, ce qui double la puissance de la capacité.",
+        "es": "Ataca disparando un haz de luz. En ocasiones, el resto de sus cabezas se unen al ataque. Cuando esto sucede, la potencia del movimiento se duplica.",
+        "de": "Der Anwender greift mit einem Laserstrahl an. Manchmal feuern mehrere seiner Köpfe Laser ab, wodurch sich die Stärke dieser Attacke verdoppelt.",
+        "it": "Il Pokémon attacca rilasciando raggi di luce. Talvolta i laser vengono emessi da tutte le teste, contribuendo a raddoppiare la potenza della mossa.",
+        "ko": "광선을 발사해서 공격한다. 가끔 다른 머리도 협력해서 레이저를 발사하여 위력이 2배가 된다.",
+        "zh-Hant": "發射光線進行攻擊。 有時會和其他的頭合力發射雷射， 讓招式威力變成２倍。",
+        "zh-Hans": "发射光线进行攻击。 有时其他的头也会合力发射镭射， 让招式威力变成２倍。"
     }
 }

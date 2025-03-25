@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "Spurred by desperation, the user attacks the target. This move's power is doubled if the user's previous move failed.",
-        "ja": "自棄になった　勢いで　攻撃する。 前の　ターンに　技を　外していると 威力が　倍に　なる。",
-        "fr": "Le lanceur utilise la force de son dépit pour attaquer. S'il a utilisé une capacité qui a échoué au tour précédent, la puissance d'Indignition est doublée.",
-        "es": "Arremete contra el objetivo tras dejarse llevar por la ira. Su potencia se duplica si el movimiento del usuario falló en el turno anterior.",
-        "de": "Der Anwender greift das Ziel voller Verzweiflung an. Wenn seine vorige Attacke fehlgeschlagen ist, verdoppelt sich die Stärke der Attacke.",
-        "it": "Il Pokémon attacca con l'impeto di chi è pronto a tutto. Se la mossa usata al turno precedente non è andata a segno, la potenza raddoppia.",
-        "ko": "자포자기하는 기세로 공격한다. 앞 턴에서 기술이 빗나갔다면 위력이 배가 된다.",
-        "zh-Hant": "用自暴自棄的狠勁攻擊對手。 如果上一回合的招式沒有命中， 威力就會加倍。",
-        "zh-Hans": "以自暴自弃的气势进行攻击。 如果上一回合招式没有命中， 威力就会翻倍。"
+        "en": "The user electrifies its body and drops onto the target to inflict damage. If this move misses, the user takes damage instead.",
+        "ja": "体を　帯電させて　相手に　のしかかる。 はずすと　自分が　ダメージを　受ける。",
+        "fr": "Le lanceur se charge en électricité et fond sur la cible. S'il échoue, le lanceur se blesse.",
+        "es": "El usuario electrifica su cuerpo y salta en plancha sobre el objetivo. Si falla, se hiere a sí mismo.",
+        "de": "Der Anwender lädt seinen Körper mit elektrischer Energie auf und stürzt sich auf das Ziel. Bei Misserfolg verletzt sich der Anwender selbst.",
+        "it": "Il Pokémon si schianta sul bersaglio dopo essersi elettrificato. Se la mossa fallisce, il Pokémon subisce dei danni.",
+        "ko": "몸에 전기를 두르고 상대를 덮친다. 빗나가면 자신이 데미지를 입는다.",
+        "zh-Hant": "讓身體帶電然後壓向對手。 沒命中對手時自己會受到傷害。",
+        "zh-Hans": "让身体带电后压向对手。 如果没有命中则自己会受到伤害。"
     }
 }

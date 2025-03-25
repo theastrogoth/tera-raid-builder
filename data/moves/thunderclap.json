@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user's intensely hot fur protects it from attacks and also burns any attacker that makes direct contact with it.",
-        "ja": "相手の　攻撃を　超高熱の 体毛で　防ぎ　同時に　触れた 相手に　やけどを　与えてしまう。",
-        "fr": "Le lanceur se protège contre les attaques grâce à son pelage incandescent, et si un assaillant utilise une attaque directe contre lui, il le brûle.",
-        "es": "Emplea su ardiente pelaje para protegerse de los ataques y causarle quemaduras al atacante si este usa un movimiento de contacto.",
-        "de": "Das brennend heiße Fell des Anwenders schützt ihn vor Angriffen. Gleichzeitig erleiden alle Pokémon, die mit ihm in Berührung kommen, Verbrennungen.",
-        "it": "Il Pokémon blocca gli attacchi avversari con la pelliccia incandescente che scotta chi entra in contatto con lui.",
-        "ko": "상대의 공격을 초고열의 털로 방어하는 동시에 접촉한 상대를 화상 상태로 만든다.",
-        "zh-Hant": "用超高溫的體毛防住對手攻擊， 同時讓碰觸到自己的對手灼傷。",
-        "zh-Hans": "用超高温的体毛防住对手攻击的同时， 让接触到自己的对手灼伤。"
+        "en": "This move enables the user to attack first with a jolt of electricity. This move fails if the target is not readying an attack.",
+        "ja": "相手より　先に　電撃を　浴びせる。 相手が　だす技が 攻撃技でないと　失敗する。",
+        "fr": "Permet au lanceur d'attaquer la cible en priorité avec une décharge électrique. Échoue si la cible ne prépare pas une attaque.",
+        "es": "Invoca un rayo que cae sobre el objetivo antes de que este pueda realizar cualquier acción. Falla si el objetivo no está preparando ningún ataque.",
+        "de": "Bei dieser Erstschlag-Attacke lässt der Anwender einen Blitz auf das Ziel einschlagen. Sie gelingt nur, wenn dieses gerade eine Angriffsattacke vorbereitet.",
+        "it": "Il Pokémon abbatte una scarica elettrica sul bersaglio prima che questi possa attaccare. La mossa fallisce se il bersaglio sferra una mossa che non è di attacco.",
+        "ko": "상대보다 먼저 전격을 퍼붓는다. 상대가 쓴 기술이 공격 기술이 아니면 실패한다.",
+        "zh-Hant": "可以搶先對手一步用電擊進行攻擊。 若對手使用的不是攻擊招式則會失敗。",
+        "zh-Hans": "可以比对手先使出电击进行攻击。 对手使出的招式 如果不是攻击招式则会失败。"
     }
 }

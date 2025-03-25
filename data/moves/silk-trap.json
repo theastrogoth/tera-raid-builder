@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "Inflicts damage with the user's Attack or Sp. Atk stat— whichever is higher. Super effective against Terastallized targets. This lowers the user's Attack and Sp. Atk stats.",
-        "ja": "攻撃と　特攻　高いほうで　ダメージを　与える。 相手が　テラスタルだと　効果は　バツグン。 自分の　攻撃と　特攻が　さがる。",
-        "fr": "Utilise l'Attaque ou l'Atq. Spé., selon ce qui infligera le plus de dégâts. Super efficace si la cible est téracristallisée. Baisse l'Attaque et l'Atq. Spé. du lanceur.",
-        "es": "Inflige daño con el valor más alto entre Ataque y Ataque Especial, pero reduce ambas características del usuario. Si el objetivo se ha teracristalizado, es supereficaz.",
-        "de": "Verursacht Schaden mit Angriffs- oder Sp.-Ang.-Wert, je nachdem, welcher höher ist. Ang. und Sp.-Ang. des Anw. sinken. Sehr effektiv gegen terakristallisierte Ziele.",
-        "it": "Il Pokémon infligge danni in base al più alto tra Attacco o Attacco Speciale, ma entrambi diminuiscono. La mossa è superefficace se il bersaglio è teracristallizzato.",
-        "ko": "공격과 특수공격 중 높은 쪽으로 데미지를 준다. 상대가 테라스탈 중이면 효과가 굉장해진다. 자신의 공격과 특수공격이 떨어진다.",
-        "zh-Hant": "用攻擊和特攻中數值較高的一方攻擊。 對手處於太晶化時效果絕佳。 自己的攻擊和特攻會降低。",
-        "zh-Hans": "用攻击和特攻数值较高的一项给予伤害。 对正处于太晶化的对手效果绝佳。 自己的攻击和特攻会降低。"
+        "en": "The user spins a silken trap, protecting itself from damage while lowering the Speed stat of any attacker that makes direct contact.",
+        "ja": "糸の罠を　はりめぐらせる。 相手の　攻撃を　防ぐと　同時に 触れた　相手の　素早さを　さげる。",
+        "fr": "Le lanceur déploie un piège de fil pour se protéger contre les attaques, et si un assaillant utilise une attaque directe contre lui, la Vitesse de l'assaillant baisse.",
+        "es": "Tiende una trampa sedosa que protege al usuario de los ataques al tiempo que reduce la Velocidad de cualquier Pokémon con el que entre en contacto.",
+        "de": "Der Anwender spannt eine Falle aus Fäden und wird so vor Angriffen geschützt. Berührt ihn nun ein Angreifer, sinkt dessen Initiative.",
+        "it": "Il Pokémon tesse una trappola di tela che lo protegge dagli attacchi e riduce la Velocità di chi entra in contatto con lui.",
+        "ko": "실로 함정을 만들어 둘러친다. 상대의 공격을 막음과 동시에 접촉한 상대의 스피드를 떨어뜨린다.",
+        "zh-Hant": "布下線製成的陷阱。 防住對手攻擊的同時， 降低接觸到的對手的速度。",
+        "zh-Hans": "用丝设置陷阱。 防住对方攻击的同时， 能够降低所接触到的对手的速度。"
     }
 }

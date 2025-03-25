@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "If the user has Terastallized, it unleashes energy of its Tera Type. This move inflicts damage using the Attack or Sp. Atk stat—whichever is higher for the user.",
-        "ja": "テラスタルだと　テラスタイプの　エネルギーを 放出して　攻撃する。　攻撃と　特攻を　比べて 高いほうで　ダメージを　与える。",
-        "fr": "Si le lanceur est téracristallisé, il libère l'énergie de son type Téracristal. La capacité utilise l'Attaque ou l'Attaque Spéciale, selon ce qui infligera le plus de dégâts.",
-        "es": "Si el usuario se ha teracristalizado, ataca con la energía de su teratipo. Compara sus valores de Ataque y Ataque Especial para infligir daño con el más alto de los dos.",
-        "de": "Ist der Anwender terakristallisiert, greift er mit Energie seines Tera-Typs an. Der Schaden hängt vom Angriff oder Spezial-Angriff ab, je nachdem, welcher Wert höher ist.",
-        "it": "Se il Pokémon è teracristallizzato, attacca con l'energia del suo teratipo. Infligge danni in base all'Attacco o all'Attacco Speciale scegliendo il più alto tra i due.",
-        "ko": "테라스탈 중이면, 테라스탈타입의 에너지를 방출해서 공격한다. 공격과 특수공격을 비교해서 높은 쪽으로 데미지를 준다.",
-        "zh-Hant": "若是在太晶化時，將釋放太晶屬性的能量 進行攻擊。會比較自己的攻擊和特攻， 以數值較高的一方進行攻擊。",
-        "zh-Hans": "太晶化时，会放出太晶属性的能量攻击。 比较自己的攻击和特攻， 用数值相对较高的一项给予对方伤害。"
+        "en": "Inflicts damage with the user's Attack or Sp. Atk stat— whichever is higher. Super effective against Terastallized targets. This lowers the user's Attack and Sp. Atk stats.",
+        "ja": "攻撃と　特攻　高いほうで　ダメージを　与える。 相手が　テラスタルだと　効果は　バツグン。 自分の　攻撃と　特攻が　さがる。",
+        "fr": "Utilise l'Attaque ou l'Atq. Spé., selon ce qui infligera le plus de dégâts. Super efficace si la cible est téracristallisée. Baisse l'Attaque et l'Atq. Spé. du lanceur.",
+        "es": "Inflige daño con el valor más alto entre Ataque y Ataque Especial, pero reduce ambas características del usuario. Si el objetivo se ha teracristalizado, es supereficaz.",
+        "de": "Verursacht Schaden mit Angriffs- oder Sp.-Ang.-Wert, je nachdem, welcher höher ist. Ang. und Sp.-Ang. des Anw. sinken. Sehr effektiv gegen terakristallisierte Ziele.",
+        "it": "Il Pokémon infligge danni in base al più alto tra Attacco o Attacco Speciale, ma entrambi diminuiscono. La mossa è superefficace se il bersaglio è teracristallizzato.",
+        "ko": "공격과 특수공격 중 높은 쪽으로 데미지를 준다. 상대가 테라스탈 중이면 효과가 굉장해진다. 자신의 공격과 특수공격이 떨어진다.",
+        "zh-Hant": "用攻擊和特攻中數值較高的一方攻擊。 對手處於太晶化時效果絕佳。 自己的攻擊和特攻會降低。",
+        "zh-Hans": "用攻击和特攻数值较高的一项给予伤害。 对正处于太晶化的对手效果绝佳。 自己的攻击和特攻会降低。"
     }
 }

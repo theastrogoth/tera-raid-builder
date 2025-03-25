@@ -32,14 +32,14 @@
     "isSlicing": true,
     "isWind": false,
     "flavorText": {
-        "en": "The user shoots its own armor out as blazing projectiles. This also lowers the user's Defense and Sp. Def stats.",
-        "ja": "みずからの　ヨロイを　燃えたぎる 弾として　撃ち出して　攻撃する。 自分の　防御と　特防が　さがる。",
-        "fr": "Le lanceur tire un boulet de canon ardent provenant de sa propre armure sur la cible. Cela baisse la Défense et la Défense Spéciale du lanceur.",
-        "es": "Se deshace de su armadura y arroja las partes al objetivo cuales proyectiles ardientes. Reduce la Defensa y la Defensa Especial del usuario.",
-        "de": "Der Anwender schießt die eigene Rüstung als glühendes Projektil auf das Ziel. Dadurch sinken die Verteidigung und Spezial-Verteidigung des Anwenders.",
-        "it": "Il Pokémon si libera della sua corazza, scagliandola sul bersaglio come una raffica di proiettili incandescenti. La sua Difesa e la sua Difesa Speciale diminuiscono.",
-        "ko": "자신의 갑옷을 활활 타오르는 탄환으로 발사해서 공격한다. 자신의 방어와 특수방어가 떨어진다.",
-        "zh-Hant": "將自身的鎧甲做成熊熊燃燒的 砲彈擊發進行攻擊。 自己的防禦和特防會降低。",
-        "zh-Hans": "熊熊燃烧自己的铠甲， 将其做成炮弹射出攻击。 自己的防御和特防会降低。"
+        "en": "The user focuses its bitter feelings toward the world of the living into a slashing attack. The user's HP is restored by up to half the damage taken by the target.",
+        "ja": "この世への　未練を　剣先に　こめて 切りつける。　与えた　ダメージの 半分の　ＨＰを　回復できる。",
+        "fr": "Le lanceur concentre son amertume du monde des vivants dans la pointe de ses épées et tranche la cible. La moitié des dégâts infligés sont convertis en PV pour le lanceur.",
+        "es": "Imbuye la punta de su espada con su desazón por el mundo y asesta una estocada llena de rencor. El usuario recupera la mitad de los PS del daño que produce.",
+        "de": "Der Anwender tränkt seine Klinge in Bedauern und Reue und greift damit an. Die Hälfte des zugefügten Schadens wird dem Anwender als KP gutgeschrieben.",
+        "it": "Il Pokémon concentra nelle lame tutti i rimorsi accumulati nel mondo dei vivi e assale il bersaglio, recuperando una quantità di PS pari a metà del danno inflitto.",
+        "ko": "현세의 미련을 칼끝에 담아 베어 버린다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+        "zh-Hant": "將對這個世界的牽掛注入劍尖 進行劈斬。可以回復給予對手 傷害的一半ＨＰ。",
+        "zh-Hans": "将对世间的留恋聚集于剑尖， 并斩击对手。可以回复 给予对手伤害的一半ＨＰ。"
     }
 }

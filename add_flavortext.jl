@@ -41,7 +41,8 @@ function read_section!(results, io)
         end
         number, address, code, text = split(line, "\t")
         text = replace(text, '’' => ''')
-        add_line!(results, parse(Int, number), text)
+        id = split(code, "_")[2] 
+        add_line!(results, parse(Int, id), text)
     end
 end
 

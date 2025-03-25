@@ -32,14 +32,14 @@
     "isSlicing": false,
     "isWind": false,
     "flavorText": {
-        "en": "The user swings its whole body around to attack with its huge hammer. This move can't be used twice in a row.",
-        "ja": "大きな　ハンマーを　体ごと ぶんまわして　攻撃する。 この技は　２回連続で　だせない。",
-        "fr": "Le lanceur met tout son corps à contribution pour attaquer la cible avec un immense marteau. Cette capacité ne peut pas être utilisée deux fois d'affilée.",
-        "es": "El usuario se ayuda de su propio peso corporal para propinar un golpe con un enorme martillo. Este movimiento no puede usarse dos veces seguidas.",
-        "de": "Der Anwender greift mit einem großen Hammer an, den er mit vollem Körpereinsatz um sich schwingt. Diese Attacke kann nicht zweimal in Folge eingesetzt werden.",
-        "it": "Il Pokémon attacca con un grosso martello mettendoci tutta la forza che ha in corpo. Questa mossa non può essere usata due volte di fila.",
-        "ko": "거대한 해머를 온몸으로 휘둘러서 공격한다. 이 기술은 2회 연속으로 쓸 수 없다.",
-        "zh-Hant": "將大錘連同身體 一起揮舞進行攻擊。 這個招式無法連續２次使用。",
-        "zh-Hans": "连同身体转起巨大的锤子进行攻击。 这个招式无法连续使出２次。"
+        "en": "The user retaliates with much greater force against the opponent that last inflicted damage on it.",
+        "ja": "技を　だす前に 最後に　受けた　技の　ダメージを 大きくして　だした　相手に　やり返す。",
+        "fr": "Le lanceur contre-attaque avec un coup infligeant des dégâts supérieurs à ceux de la dernière capacité qui l'a blessé.",
+        "es": "Devuelve al rival el último ataque recibido, pero con mucha más fuerza.",
+        "de": "Der Anwender rächt sich an dem Gegner, der ihm zuletzt mit einer Attacke Schaden zugefügt hat, indem er ihm den Schaden mit erhöhter Kraft zurückzahlt.",
+        "it": "Il Pokémon restituisce con gli interessi i danni subiti all'ultimo avversario che l'ha colpito.",
+        "ko": "기술을 쓰기 전에 마지막으로 받은 기술의 데미지를 늘려서 기술을 쓴 상대에게 돌려준다.",
+        "zh-Hant": "將發動攻擊前 最後受到的招式傷害放大， 向對手進行報復。",
+        "zh-Hans": "使出招式前， 将最后受到的招式的伤害 大力返还给对手。"
     }
 }

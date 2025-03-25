@@ -147,15 +147,15 @@ export function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], tra
     }
 }
 
-export function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[], translationKey: any): {name: AbilityName, hidden: boolean} {
+export function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[], translationKey: any): {name: string, engName: AbilityName, hidden: boolean} {
     const option = abilities.find((ability) => ability.name === name);
     if (!option) {
         const translatedName = getTranslation("(No Ability)", translationKey, "abilities");
-        return {name: translatedName, hidden: false};
+        return {name: translatedName, engName: "(No Ability)" as AbilityName, hidden: false};
     } else if (!translationKey) {
-        return option;
+        return {name: option.name, engName: option.name, hidden: option.hidden};
     } else {
-        return {name: translationKey["abilities"][name] || name, hidden: option.hidden};
+        return {name: translationKey["abilities"][name] || name, engName: option.name, hidden: option.hidden};
     }
 }
 
@@ -440,7 +440,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
     const [moveData, setMoveData] = useState<MoveData | null>(null);
     const [move, setMove] = useState<Move | null>(null);
     useEffect(() => {
-        if (showPopper && (moveData === null || moveData.name !== moveItem.engName)) {
+        if (showPopper && (moveData === null || moveData.name !== moveItem.engName) && moveItem.engName !== "(No Move)") {
             if (!allMoves) {
                 async function fetchMoveData() {
                     const newData = await PokedexService.getMoveByName(moveItem.engName);
@@ -478,101 +478,100 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
             sx={{ position: "relative", zIndex: 1000000 }}
         >
             {(moveData && move && moveData.name !== "(No Move)") &&
-                <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
-                    <TableContainer>
-                        <Table size="small" width="100%">
-                            <TableBody>
-                                <ModalRow 
-                                    name={getTranslation("Type", translationKey)}
-                                    value={getTranslation(move.type, translationKey, "types")}
-                                    show={move.type !== undefined}
-                                />
-                                <ModalRow 
-                                    name={getTranslation("Category", translationKey)}
-                                    value={getTranslation(move.category, translationKey, "ui")}
-                                    show={move.category !== undefined}
-                                />
-                                <ModalRow 
-                                    name={getTranslation("Power", translationKey)}
-                                    value={move.bp}
-                                    show={move.bp !== undefined && move.bp > 0}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Healing", translationKey)}
-                                    value={moveData.healing}
-                                    getString={(v: number): string => v.toString() + "%"}
-                                    show={moveData.healing !== null && moveData.healing! !== 0}
-                                />
-                                <ModalRow
-                                    name={(moveData.drain! > 0) ? getTranslation("Drain", translationKey) : getTranslation("Recoil", translationKey)}
-                                    value={moveData.drain}
-                                    getString={(v: number): string => Math.abs(v).toString() + "%"}
-                                    show={moveData.drain !== null && moveData.drain! !== 0}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Accuracy", translationKey)}
-                                    value={moveData.accuracy}
-                                    getString={(v: number): string => v.toString() + "%"}
-                                    show={moveData.accuracy !== null}
-                                />
-                                <ModalRow
-                                    name={getTranslation("# Hits", translationKey)}
-                                    value={[moveData.minHits, moveData.maxHits]}
-                                    getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
-                                    show={moveData.maxHits !== null && moveData.maxHits! > 1}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Priority", translationKey)}
-                                    value={moveData.priority}
-                                    getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
-                                    show={moveData.priority !== null && moveData.priority! !== 0}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Status", translationKey)}
-                                    value={getTranslation(getAilmentReadableName(moveData.ailment) || "", translationKey, "status")}
-                                    show={moveData.ailment !== null}
-                                />
-                                <ModalRow
-                                    name=""
-                                    value={moveData.ailmentChance}
-                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey) }
-                                    show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Stat Changes", translationKey)}
-                                    value={moveData.statChanges}
-                                    getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v, translationKey)}
-                                    show={moveData.statChanges !== null}
-                                />
-                                <ModalRow
-                                    name=""
-                                    value={moveData.statChance}
-                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey)}
-                                    show={moveData.statChance !== null && moveData.statChance! > 0}
-                                />
-                                <ModalRow
-                                    name=""
-                                    value={moveData.flinchChance}
-                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
-                                    show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
-                                />
-                                { moveItem.method && 
-                                    <ModalRow
-                                        name={getTranslation("Learn Method", translationKey)}
-                                        value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
-                                        show={moveItem.method !== undefined}
-                                        iconURLs={spriteURL}
+                <Paper sx={{ p: 1, backgroundColor: "modal.main", maxWidth: "250px" }} >
+                    <Stack spacing={1} justifyContent="left">
+                        <TableContainer>
+                            <Table size="small" width="100%">
+                                <TableBody>
+                                    <ModalRow 
+                                        name={getTranslation("Type", translationKey)}
+                                        value={getTranslation(move.type, translationKey, "types")}
+                                        show={move.type !== undefined}
                                     />
-                                }        
-                                { flavorText &&
-                                    <ModalRow
-                                        name={""}
-                                        value={flavorText}
+                                    <ModalRow 
+                                        name={getTranslation("Category", translationKey)}
+                                        value={getTranslation(move.category, translationKey, "ui")}
+                                        show={move.category !== undefined}
                                     />
-                                }                            
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
+                                    <ModalRow 
+                                        name={getTranslation("Power", translationKey)}
+                                        value={move.bp}
+                                        show={move.bp !== undefined && move.bp > 0}
+                                    />
+                                    <ModalRow
+                                        name={getTranslation("Healing", translationKey)}
+                                        value={moveData.healing}
+                                        getString={(v: number): string => v.toString() + "%"}
+                                        show={moveData.healing !== null && moveData.healing! !== 0}
+                                    />
+                                    <ModalRow
+                                        name={(moveData.drain! > 0) ? getTranslation("Drain", translationKey) : getTranslation("Recoil", translationKey)}
+                                        value={moveData.drain}
+                                        getString={(v: number): string => Math.abs(v).toString() + "%"}
+                                        show={moveData.drain !== null && moveData.drain! !== 0}
+                                    />
+                                    <ModalRow
+                                        name={getTranslation("Accuracy", translationKey)}
+                                        value={moveData.accuracy}
+                                        getString={(v: number): string => v.toString() + "%"}
+                                        show={moveData.accuracy !== null}
+                                    />
+                                    <ModalRow
+                                        name={getTranslation("# Hits", translationKey)}
+                                        value={[moveData.minHits, moveData.maxHits]}
+                                        getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
+                                        show={moveData.maxHits !== null && moveData.maxHits! > 1}
+                                    />
+                                    <ModalRow
+                                        name={getTranslation("Priority", translationKey)}
+                                        value={moveData.priority}
+                                        getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
+                                        show={moveData.priority !== null && moveData.priority! !== 0}
+                                    />
+                                    <ModalRow
+                                        name={getTranslation("Status", translationKey)}
+                                        value={getTranslation(getAilmentReadableName(moveData.ailment) || "", translationKey, "status")}
+                                        show={moveData.ailment !== null}
+                                    />
+                                    <ModalRow
+                                        name=""
+                                        value={moveData.ailmentChance}
+                                        getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey) }
+                                        show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
+                                    />
+                                    <ModalRow
+                                        name={getTranslation("Stat Changes", translationKey)}
+                                        value={moveData.statChanges}
+                                        getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v, translationKey)}
+                                        show={moveData.statChanges !== null}
+                                    />
+                                    <ModalRow
+                                        name=""
+                                        value={moveData.statChance}
+                                        getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey)}
+                                        show={moveData.statChance !== null && moveData.statChance! > 0}
+                                    />
+                                    <ModalRow
+                                        name=""
+                                        value={moveData.flinchChance}
+                                        getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
+                                        show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
+                                    />
+                                    { moveItem.method && 
+                                        <ModalRow
+                                            name={getTranslation("Learn Method", translationKey)}
+                                            value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
+                                            show={moveItem.method !== undefined}
+                                            iconURLs={spriteURL}
+                                        />
+                                    }                                 
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                        { flavorText &&
+                            <Typography variant="body2">{flavorText}</Typography>
+                        }   
+                    </Stack>
                 </Paper>
             }
         </Popper>
@@ -582,7 +581,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
 export function ItemPopper({name, showPopper, anchorEl, translationKey}: {name: ItemName, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
     const [itemData, setItemData] = useState<ItemData | null>(null);
     useEffect(() => {
-        if (showPopper && (itemData === null || itemData.name !== name)) {
+        if (showPopper && (itemData === null || itemData.name !== name) && name !== "(No Item)") {
             async function fetchMoveData() {
                 const newData = await PokedexService.getItemByName(name);
                 if (newData) {
@@ -606,33 +605,23 @@ export function ItemPopper({name, showPopper, anchorEl, translationKey}: {name: 
             sx={{ position: "relative", zIndex: 1000000 }}
         >
             {(name && itemData && name !== "(No Item)") &&
-                <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
-                    <TableContainer>
-                        <Table size="small" width="100%">
-                            <TableBody>
-                                <ModalRow 
-                                    name={getTranslation("Item", translationKey, )}
-                                    value={getTranslation(name, translationKey, "items")}
-                                />
-                                <ModalRow 
-                                    name={""}
-                                    value={flavorText}
-                                />
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </Paper>
+                <Paper sx={{ p: 1, backgroundColor: "modal.main", maxWidth: "250px"}} >
+                <Stack justifyContent="left" spacing={1}>
+                    <Typography variant="body1">{getTranslation(name, translationKey, "items")}</Typography>      
+                    <Typography variant="body2">{flavorText}</Typography>
+                </Stack>
+            </Paper>
             }
         </Popper>
     )
 }
 
-export function AbilityPopper({name, showPopper, anchorEl, translationKey}: {name: AbilityName, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
+export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {ability: {name: string, engName: AbilityName, hidden: boolean}, translatedName: string, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
     const [abilityData, setAbilityData] = useState<AbilityData | null>(null);
     useEffect(() => {
-        if (showPopper && (abilityData === null || abilityData.name !== name)) {
+        if (showPopper && (abilityData === null || abilityData.name !== ability.engName) && ability.engName !== "(No Ability)") {
             async function fetchMoveData() {
-                const newData = await PokedexService.getAbilityByName(name);
+                const newData = await PokedexService.getAbilityByName(ability.engName);
                 if (newData) {
                     setAbilityData(newData);
                 }
@@ -640,7 +629,7 @@ export function AbilityPopper({name, showPopper, anchorEl, translationKey}: {nam
             fetchMoveData().catch((e) => console.log(e));
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [name, showPopper])
+    }, [ability, showPopper])
     
     const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
     const flavorText = abilityData ? abilityData.flavorText[lang] : null;
@@ -653,22 +642,12 @@ export function AbilityPopper({name, showPopper, anchorEl, translationKey}: {nam
             disablePortal={false}
             sx={{ position: "relative", zIndex: 1000000 }}
         >
-            {(name && abilityData && name !== "(No Ability)") &&
-                <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
-                    <TableContainer>
-                        <Table size="small" width="100%">
-                            <TableBody>
-                                <ModalRow 
-                                    name={getTranslation("Ability", translationKey, )}
-                                    value={getTranslation(name, translationKey, "abilities")}
-                                />
-                                <ModalRow 
-                                    name={""}
-                                    value={flavorText}
-                                />
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
+            {(ability && abilityData && (ability.engName !== "(No Ability)")) &&
+                <Paper sx={{ p: 1, backgroundColor: "modal.main", maxWidth: "250px"}} >
+                    <Stack justifyContent="left" spacing={1}>
+                        <Typography variant="body1">{ability.name}</Typography>      
+                        <Typography variant="body2">{flavorText}</Typography>
+                    </Stack>
                 </Paper>
             }
         </Popper>
@@ -760,7 +739,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
     )
 }
 
-function AbilityWithIcon({ability, prettyMode, translationKey}: {ability: {name: AbilityName, hidden: boolean}, prettyMode: boolean, translationKey: any}) {
+function AbilityWithIcon({ability, prettyMode, translationKey}: {ability: {name: string, engName: AbilityName, hidden: boolean}, prettyMode: boolean, translationKey: any}) {
     const [showPopper, setShowPopper] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -792,12 +771,12 @@ function AbilityWithIcon({ability, prettyMode, translationKey}: {ability: {name:
                     <img src={getMoveMethodIconURL("ability_patch")} height="20px" alt="" />
                 }
             </Stack>
-            <AbilityPopper name={ability.name} showPopper={showPopper} anchorEl={anchorEl} translationKey={translationKey}/>
+            <AbilityPopper ability={ability} translatedName={ability.name} showPopper={showPopper} anchorEl={anchorEl} translationKey={translationKey}/>
         </Box>
     )
 }
 
-function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode, translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean, translationKey: any}) {
+function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode, translationKey}: {name: string, value: AbilityName, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean, translationKey: any}) {
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -893,7 +872,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell colSpan={prettyMode ? 1 : 3} sx={{ width: "165px" }}>
                     {prettyMode &&
-                        <GenericWithIcon name={optionFinder(value, translationKey)} engName={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} />
+                        <GenericWithIcon name={optionFinder(value, translationKey)} engName={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: value}}/>
                     }
                     {!prettyMode &&
                         <Autocomplete
@@ -1666,7 +1645,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teraTypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
                                 <AbilitySummaryRow 
                                             name="Ability"
-                                            value={pokemon.ability || "(No Move)"} 
+                                            value={pokemon.ability || "(No Move)" as AbilityName} 
                                             setValue={setPokemonProperty("ability")}
                                             options={createAbilityOptions(abilities)}
                                             abilities={abilities}

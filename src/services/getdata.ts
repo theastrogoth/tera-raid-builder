@@ -46,7 +46,28 @@ export namespace PokedexService {
         }
     }
 
-    
+    export async function getAbilityByName(name: string) {
+        try {
+            const preppedName = prepareFileName(name);
+            let response = await fetch(assetsProlog + "abilities/" + preppedName + ".json");
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
+    export async function getItemByName(name: string) {
+        try {
+            const preppedName = prepareFileName(name);
+            let response = await fetch(assetsProlog + "items/" + preppedName + ".json");
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
     export async function getAllMoves() {
         console.log("Fetching data for all moves (large file)");
         try {
